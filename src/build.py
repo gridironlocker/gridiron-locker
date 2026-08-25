@@ -1115,6 +1115,9 @@ def page_404():
 
 
 def assets():
+    # Google Search Console HTML verification must be emitted by every build.
+    # Keep this alongside the generated assets so a rebuild cannot remove it.
+    write("googleae06215486ed6c17.html", "google-site-verification: googleae06215486ed6c17.html")
     write("robots.txt", f"""# {BRAND} - independent fan apparel storefront
 # Everything here is meant to be crawled and indexed.
 
@@ -1147,6 +1150,29 @@ Sitemap: {DOMAIN}/sitemap.xml
         for u, pr, cf in URLS)
     write("sitemap.xml", '<?xml version="1.0" encoding="UTF-8"?>'
           '<urlset xmlns="http://www.sitemaps.org/schemas/sitemap/0.9">' + urls + "</urlset>")
+
+    # Image sitemap: associate each product page with every locally hosted product
+    # image, allowing Google Images to discover the catalogue independently of
+    # the rendered HTML.
+    image_urls = []
+    for it in ALL:
+        seen = set()
+        images = []
+        for image in it["gallery"]:
+            image = DOMAIN + image
+            if image not in seen:
+                seen.add(image)
+                images.append(image)
+        if images:
+            image_urls.append(
+                '<url><loc>' + esc(DOMAIN + it["url"]) + '</loc>'
+                + ''.join('<image:image><image:loc>' + esc(image) + '</image:loc></image:image>'
+                          for image in images)
+                + '</url>')
+    write("sitemap-images.xml", '<?xml version="1.0" encoding="UTF-8"?>'
+          '<urlset xmlns="http://www.sitemaps.org/schemas/sitemap/0.9" '
+          'xmlns:image="http://www.google.com/schemas/sitemap-image/1.1">'
+          + ''.join(image_urls) + '</urlset>')
     write("img/favicon.svg", """<svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 64 64">
 <rect width="64" height="64" rx="14" fill="#0a0b0d"/>
 <ellipse cx="32" cy="32" rx="20" ry="12" fill="#ff6a13"/>
