@@ -249,6 +249,48 @@ def newsticker():
     return f'<div class="newsticker"><div class="track">{run}{run2}</div></div>'
 
 
+def week1_section():
+    """Homepage Week 1 hook: season kickoff countdown + each team's Week 1."""
+    rows = ""
+    for k in ORDER:
+        c, se = COLLECTIONS[k], SEASON[k]
+        rows += f"""<a class="wk reveal" style="--ca:{c['accent']}" href="/{c['slug']}/">
+ <b class="wk-name">{esc(c['short'])}</b>
+ <span class="wk-game">{se['opener']}</span>
+ <span class="wk-note">{esc(se['headline'])}</span>
+ <span class="wk-go">Shop &rarr;</span>
+</a>"""
+    return f"""<section class="wksec"><div class="wrap">
+ <div class="wkhead reveal">
+  <span class="eyebrow"><span class="dot"></span> 2026 season &middot; Week 1</span>
+  <h2>Week 1 Is <span class="accentword">Almost Here</span></h2>
+  <p>The NFL kicks off Wednesday Sept 9 with the first full Sunday slate on Sept 13, and Michigan
+  opens earlier on Sept 5. Here is how Week 1 looks for every team we cover - grab your design
+  now, because on-demand printing needs a few days of lead time before kickoff.</p>
+ </div>
+</div>
+{countdown_bar()}
+<div class="wrap">
+ <div class="wkgrid">{rows}</div>
+ <div class="wkcta"><a class="btn" href="/2026-season/">Full 2026 Season Hub &rarr;</a></div>
+</div></section>"""
+
+
+def why_strip():
+    """Slim 'why this locker' USP strip under the Week 1 hook."""
+    items = [
+        (f"{len(ALL)} original designs", "Fan-made graphics, not licensed"),
+        (f"{len(ORDER)} team collections", "Cleveland &middot; Green Bay &middot; Dallas &middot; Michigan"),
+        ("Sizes S&ndash;3XL", "Unisex &amp; women's cuts"),
+        ("Printed on demand", "In the USA - no dead stock"),
+        ("Worldwide shipping", "Tracked dispatch"),
+        ("Custom, no minimums", "Your idea, one piece at a time"),
+    ]
+    cells = "".join(f"<div><b>{a}</b><span>{b}</span></div>" for a, b in items)
+    return (f'<section class="whystrip"><div class="wrap wkin">'
+            f'<span class="whylabel">Why this locker</span>{cells}</div></section>')
+
+
 def trust():
     return """<div class="trust">
  <div><b>Printed On Demand</b>No dead stock</div>
@@ -431,6 +473,8 @@ def page_home():
             f"printed on demand and shipped worldwide.")
     body = f"""{hero_slides()}
 {newsticker()}
+{week1_section()}
+{why_strip()}
 <section><div class="wrap">
  <div class="sechead reveal"><div><h2>Shop By Team</h2>
   <p>Four dedicated collections, each with its own artwork language, colour palette and fan slang.</p></div>
