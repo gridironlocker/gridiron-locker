@@ -7,9 +7,9 @@
 # ---- STEP 1 -------------------------------------------------
 # Create an EMPTY public repo on github.com first.
 # Name it:  gridiron-locker
-# Then set your URL below (replace YOURNAME with your GitHub username):
+# Then set your URL below (replace gridironlocker with your GitHub username):
 
-python3 src/set_site.py https://YOURNAME.github.io/gridiron-locker
+python3 src/set_site.py https://gridironlocker.github.io/gridiron-locker
 
 # ---- STEP 2 -------------------------------------------------
 # Push the built site to the repo
@@ -18,7 +18,7 @@ cd site
 git init -b main
 git add -A
 git commit -m "Launch Gridiron Locker storefront"
-git remote add origin https://github.com/YOURNAME/gridiron-locker.git
+git remote add origin https://github.com/gridironlocker/gridiron-locker.git
 git push -u origin main --force
 
 # ---- STEP 3 -------------------------------------------------
@@ -29,11 +29,11 @@ git push -u origin main --force
 #   Save
 #
 # Wait ~60 seconds. Your site is live at:
-#   https://YOURNAME.github.io/gridiron-locker/
+#   https://gridironlocker.github.io/gridiron-locker/
 
 # ---- STEP 4 - SEO submission --------------------------------
 # Google Search Console : https://search.google.com/search-console
-#   Add property (URL prefix) -> https://YOURNAME.github.io/gridiron-locker/
+#   Add property (URL prefix) -> https://gridironlocker.github.io/gridiron-locker/
 #   Sitemaps -> submit:  sitemap.xml
 # Bing Webmaster Tools : https://www.bing.com/webmasters
 #   Same URL, same sitemap.
@@ -67,11 +67,11 @@ git push
 #
 # 5c. IndexNow (instant Bing/Yandex recrawl) - already wired.
 #     Your key file is published at:
-#        https://YOURNAME.github.io/gridiron-locker/a7f3c19b84e2456d90b7c15e3f8a2d64.txt
+#        https://gridironlocker.github.io/gridiron-locker/a7f3c19b84e2456d90b7c15e3f8a2d64.txt
 #     To use your own key instead, change "indexnow_key" in src/config.json.
 #
 # 5d. Submit the RSS feed anywhere that accepts one:
-#        https://YOURNAME.github.io/gridiron-locker/feed.xml
+#        https://gridironlocker.github.io/gridiron-locker/feed.xml
 #
 # What the daily run does:
 #   - pulls live headlines for all four teams

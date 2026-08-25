@@ -2,7 +2,7 @@
 """Set your live site URL in one command, then rebuild.
 
 Usage:
-    python3 src/set_site.py https://YOURNAME.github.io/gridiron-locker
+    python3 src/set_site.py https://gridironlocker.github.io/gridiron-locker
     python3 src/set_site.py https://www.yourdomain.com
 
 Updates canonical tags, Open Graph URLs, schema.org URLs, robots.txt and sitemap.xml.
