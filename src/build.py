@@ -161,6 +161,14 @@ def head(title, desc, path, image=None, schema=None, keywords=None, accent=None)
 <script>document.documentElement.className+=" js"</script>
 {acc}
 {sc}
+<!-- Google tag (gtag.js) -->
+<script async src="https://www.googletagmanager.com/gtag/js?id=G-5RHGJSLZNG"></script>
+<script>
+  window.dataLayer = window.dataLayer || [];
+  function gtag(){{dataLayer.push(arguments);}}
+  gtag('js', new Date());
+  gtag('config', 'G-5RHGJSLZNG');
+</script>
 </head>
 <body>"""
 
@@ -171,6 +179,7 @@ def header(active=""):
         for k in ORDER)
     mob = "".join(f'<a href="/{COLLECTIONS[k]["slug"]}/">{COLLECTIONS[k]["name"]}</a>' for k in ORDER)
     return f"""
+<a class="skip" href="#main">Skip to content</a>
 <div class="promo">2026 season kicks off Sept 9 &middot; Printed on demand in the USA &middot; Worldwide shipping</div>
 <header>
  <div class="wrap nav">
@@ -406,12 +415,13 @@ def hero_slides():
             "dallas-cowboys": "Dallas Vintage Football Tees<br><span class='accentword'>Texas Pride &amp; Star-City Gear</span>",
             "michigan": "Michigan Football Shirts<br><span class='accentword'>Go Blue Tees &amp; Sweatshirts</span>",
         }[k]
+        tag = "h1" if i == 0 else "h2"
         slide = f"""<div class="slide{' on' if i == 0 else ''}" style="--accent:{c['accent']};--ca:{c['accent']}">
  <img class="bg" src="{c['hero']}" alt="{esc(c['h1'])}" width="1920" height="1080"{' fetchpriority="high"' if i==0 else ' loading="lazy" decoding="async"'}>
- <span class="blob a" style="background:{c['accent']}"></span><span class="blob b" style="background:{c['accent']}"></span>
+ <span class="blob a" aria-hidden="true" style="background:{c['accent']}"></span><span class="blob b" aria-hidden="true" style="background:{c['accent']}"></span>
  <div class="wrap">
-  <span class="eyebrow"><span class="dot"></span> {n} {esc(c['short'])} fan designs &middot; 2026 season</span>
-  <h1>{heads}</h1>
+  <span class="eyebrow" aria-hidden="true"><span class="dot"></span> {n} {esc(c['short'])} fan designs &middot; 2026 season</span>
+  <{tag} class="hero-title">{heads}</{tag}>
   <p class="lede">{esc(c['intro'].format(**c)[:230])}…</p>
   <div class="btnrow">
    <a class="btn lg" href="/{c['slug']}/">Shop {esc(c['short'])} Collection</a>
@@ -498,7 +508,7 @@ def page_home():
   </div>
   <div class="customform">
    <form id="customForm"
-         method="POST" data-formsubmit="1">
+         method="POST" data-formsubmit="1" aria-label="Custom design request form" novalidate>
     <div class="cf-head">Tell us about your idea</div>
     <p class="cf-sub">Send us the details and we'll reply with a proof and a price.</p>
     <input type="hidden" name="_subject" value="New Custom Design Request from your website">
@@ -506,8 +516,8 @@ def page_home():
     <input type="hidden" name="_captcha" value="false">
     <input type="text" name="_honey" style="display:none" tabindex="-1" autocomplete="off">
     <div class="row">
-     <label>Your name<input type="text" name="name" required placeholder="John Doe"></label>
-     <label>Your email<input type="email" name="email" required placeholder="you@example.com"></label>
+     <label>Your name<input type="text" name="name" required placeholder="John Doe" autocomplete="name"></label>
+     <label>Your email<input type="email" name="email" required placeholder="you@example.com" autocomplete="email"></label>
     </div>
     <div class="row">
      <label>Team / theme<select name="team" required>
@@ -523,11 +533,11 @@ def page_home():
     <label>Anything else?<textarea name="details" rows="3"
      placeholder="Sizes, quantity, or the story behind the design (optional)"></textarea></label>
     <button class="btn block lg" type="submit">Send My Idea &rarr;</button>
-    <p class="formmsg" id="formmsg">We'll reply by email, usually within 1&ndash;2 days.</p>
+    <p class="formmsg" id="formmsg" aria-live="polite">We'll reply by email, usually within 1&ndash;2 days.</p>
    </form>
   </div>
  </div>
-</div></section>"""
+</div></section></main>"""
     URLS.append((DOMAIN + "/", "1.0", "daily"))
     write("index.html", head(f"{BRAND} | {CFG['tagline']}", desc, path, "/img/hero-home.jpg", schema,
                              ["football fan shirts", "nfl fan t shirts", "custom football tees",
@@ -553,7 +563,7 @@ def page_collections_index():
     desc = ("Browse all fan-made football apparel collections: Cleveland Browns Dawg Pound gear, "
             "Green Bay Packers cheesehead tees, Dallas vintage Texas shirts and Michigan Go Blue "
             "sweatshirts. Sizes S-3XL, worldwide shipping.")
-    body = f"""{cb}<section style="padding-top:6px"><div class="wrap">
+    body = f"""{cb}<main id="main"><section style="padding-top:6px"><div class="wrap">
  <h1>All Football Fan Collections</h1>
  <p class="muted" style="max-width:70ch">Four team collections, {len(ALL)} original designs. Each
  collection has its own colour palette, slang and artwork style - pick your side below.</p>
@@ -564,7 +574,7 @@ def page_collections_index():
         f"<li><strong><a href='/{COLLECTIONS[k]['slug']}/'>{esc(COLLECTIONS[k]['name'])}</a></strong> - "
         f"{esc(COLLECTIONS[k]['intro'].format(**COLLECTIONS[k]))}</li>" for k in ORDER) + """
   </ul></div>
-</div></section>"""
+</div></section></main>"""
     URLS.append((DOMAIN + path, "0.9", "weekly"))
     write("collections/index.html", head("All Football Fan Collections | " + BRAND, desc, path,
                                          "/img/hero-home.jpg", schema) + header() + body + footer())
@@ -608,9 +618,9 @@ def page_collection(k):
     lore = "".join(f"<li>{esc(x)}</li>" for x in c["lore"])
     kwlinks = " &middot; ".join(esc(x) for x in c["keywords"])
     body = f"""
-<section class="hero" style="padding:0">
+<main id="main"><section class="hero" style="padding:0">
  <img class="bg" src="{c['hero']}" alt="{esc(c['name'])} banner" width="1600" height="700" fetchpriority="high">
- <span class="blob a" style="background:{c['accent']}"></span><span class="blob b"></span>
+ <span class="blob a" aria-hidden="true" style="background:{c['accent']}"></span><span class="blob b" aria-hidden="true"></span>
  <div class="wrap">
   <span class="eyebrow"><span class="dot"></span> {len(items)} designs &middot; from ${prices[0]:.2f}</span>
   <h1>{esc(c['h1'])}</h1>
@@ -658,7 +668,7 @@ def page_collection(k):
  printed after the order is placed and shipped worldwide with tracking.</p>
  <p><a class="link" href="/guides/{c['slug']}-buying-guide/">Read the {esc(c['short'])} buying guide &rarr;</a></p>
 </div></section>
-</div>"""
+</div></main>"""
     URLS.append((DOMAIN + path, "0.9", "daily"))
     write(f"{c['slug']}/index.html",
           head(f"{c['title']} | {BRAND}", desc, path, c["hero"], schema,
@@ -738,7 +748,7 @@ def page_product(it):
         trendhtml = ""
     kws = it["kw"] + (se["hot"][:3] if it.get("trend") == "hot" else [])
     title = f"{it['name']} | {c['short']} Fan {it['garment']} | {BRAND}"
-    body = f"""<div class="light">
+    body = f"""<main id="main"><div class="light">
 {cb}
 <div class="wrap"><div class="pdp">
  <div class="gallery">
@@ -818,7 +828,7 @@ def page_product(it):
 <div class="sticky">
  <span class="p">${it['price']:.2f}</span>
  <a class="btn" href="{it['buy']}" target="_blank" rel="noopener">Buy Now &rarr;</a>
-</div>"""
+</div></main>"""
     URLS.append((DOMAIN + path, "0.8", "weekly"))
     write(f"shop/{it['slug']}/index.html",
           head(title, metad, path, it["front"], schema, kws, c["accent"])
@@ -830,8 +840,8 @@ def simple_page(slug, title, desc, h1, inner, prio="0.5", schema=None, crumb_lab
     path = f"/{slug}/" if slug else "/"
     cb, cbs = crumbs([("Home", "/"), (crumb_label or h1, None)], path)
     sc = [cbs] + (schema or [])
-    body = f"""{cb}<section style="padding-top:6px"><div class="wrap prose">
- <h1>{esc(h1)}</h1>{inner}</div></section>"""
+    body = f"""{cb}<main id="main"><section style="padding-top:6px"><div class="wrap prose">
+ <h1>{esc(h1)}</h1>{inner}</div></section></main>"""
     URLS.append((DOMAIN + path, prio, "monthly"))
     write(f"{slug}/index.html", head(f"{title} | {BRAND}", desc, path, None, sc)
           + header() + body + footer())
@@ -1117,7 +1127,7 @@ def page_season():
                     "author": {"@type": "Organization", "name": BRAND},
                     "publisher": {"@type": "Organization", "name": BRAND},
                     "mainEntityOfPage": DOMAIN + path}]
-    body = f"""{ticker()}<div class="light">{cb}
+    body = f"""{ticker()}<main id="main"><div class="light">{cb}
 <section style="padding-top:6px"><div class="wrap">
  <h1>The 2026 Season <span class="accentword">Fan Shirt Hub</span></h1>
  <p class="muted" style="max-width:72ch">Updated {DATA_DATE}. The NFL season kicks off Wednesday
@@ -1138,7 +1148,7 @@ def page_season():
   following home game.</p>
   <p><a class="btn" href="/collections/">Shop all collections &rarr;</a></p>
  </div>
-</div></section></div>"""
+</div></section></div></main>"""
     URLS.append((DOMAIN + path, "0.9", "weekly"))
     write("2026-season/index.html",
           head(f"2026 Season Fan Shirt Hub | {BRAND}", desc, path, "/img/hero-home.jpg", schema,
@@ -1148,11 +1158,11 @@ def page_season():
 
 # ---------------------------------------------------------------- extras
 def page_404():
-    body = """<section><div class="wrap center" style="padding:70px 0">
+    body = """<main id="main"><section><div class="wrap center" style="padding:70px 0">
 <h1>Fourth &amp; Long</h1><p class="muted">That page does not exist. Try a collection instead.</p>
 <div class="btnrow" style="justify-content:center">
 <a class="btn" href="/collections/">All Collections</a>
-<a class="btn ghost" href="/">Home</a></div></div></section>"""
+<a class="btn ghost" href="/">Home</a></div></div></section></main>"""
     write("404.html", head("Page not found | " + BRAND, "Page not found.", "/404.html")
           + header() + body + footer())
 
