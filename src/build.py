@@ -286,7 +286,7 @@ def week1_section():
 
 
 def why_strip():
-    """Slim 'why this locker' USP strip under the Week 1 hook."""
+    """Polished 'why this locker' USP strip — balanced grid, no awkward wrap."""
     items = [
         (f"{len(ALL)} original designs", "Fan-made graphics, not licensed"),
         (f"{len(ORDER)} team collections", "Cleveland &middot; Green Bay &middot; Dallas &middot; Michigan"),
@@ -296,8 +296,10 @@ def why_strip():
         ("Custom, no minimums", "Your idea, one piece at a time"),
     ]
     cells = "".join(f"<div><b>{a}</b><span>{b}</span></div>" for a, b in items)
-    return (f'<section class="whystrip"><div class="wrap wkin">'
-            f'<span class="whylabel">Why this locker</span>{cells}</div></section>')
+    return (f'<section class="whystrip"><div class="wrap">'
+            f'<div class="whyhead"><span class="whylabel">Why this locker</span>'
+            f'<span class="whyline"></span></div>'
+            f'<div class="wkin">{cells}</div></div></section>')
 
 
 def trust():
