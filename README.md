@@ -166,7 +166,7 @@ Product pages show a live "order by [date] to wear it for Week 1" line.
 Follow **`DEPLOY-GITHUB.txt`** - copy/paste commands, about 5 minutes. The key step:
 
 ```bash
-python3 src/set_site.py https://YOURNAME.github.io/gridiron-locker
+python3 src/set_site.py https://gridironlocker.github.io/gridiron-locker
 ```
 
 That one command rewrites every canonical URL, OG tag, schema block, robots.txt and sitemap entry.
