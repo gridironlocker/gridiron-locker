@@ -1,0 +1,88 @@
+# ============================================================
+#  Publish to GitHub Pages - free hosting, no DNS needed
+#  Run these commands one at a time in a terminal, from the
+#  folder that contains the "site" directory.
+# ============================================================
+
+# ---- STEP 1 -------------------------------------------------
+# Create an EMPTY public repo on github.com first.
+# Name it:  gridiron-locker
+# Then set your URL below (replace YOURNAME with your GitHub username):
+
+python3 src/set_site.py https://YOURNAME.github.io/gridiron-locker
+
+# ---- STEP 2 -------------------------------------------------
+# Push the built site to the repo
+
+cd site
+git init -b main
+git add -A
+git commit -m "Launch Gridiron Locker storefront"
+git remote add origin https://github.com/YOURNAME/gridiron-locker.git
+git push -u origin main --force
+
+# ---- STEP 3 -------------------------------------------------
+# On github.com open the repo:
+#   Settings  ->  Pages
+#   Source: "Deploy from a branch"
+#   Branch: main    Folder: / (root)
+#   Save
+#
+# Wait ~60 seconds. Your site is live at:
+#   https://YOURNAME.github.io/gridiron-locker/
+
+# ---- STEP 4 - SEO submission --------------------------------
+# Google Search Console : https://search.google.com/search-console
+#   Add property (URL prefix) -> https://YOURNAME.github.io/gridiron-locker/
+#   Sitemaps -> submit:  sitemap.xml
+# Bing Webmaster Tools : https://www.bing.com/webmasters
+#   Same URL, same sitemap.
+
+# ---- LATER: pushing updates ---------------------------------
+# After any rebuild (python3 src/build.py):
+cd site
+git add -A
+git commit -m "Update catalogue"
+git push
+
+# ---- LATER: adding a real domain ----------------------------
+# 1. Buy the domain, point its DNS at GitHub Pages.
+# 2. Repo Settings -> Pages -> Custom domain -> enter it.
+# 3. Re-run:  python3 src/set_site.py https://www.yourdomain.com
+# 4. Commit and push again.
+
+
+# ============================================================
+#  STEP 5 - TURN ON THE AUTOMATION (do this once)
+# ============================================================
+#
+# The repo already contains .github/workflows/refresh.yml
+#
+# 5a. On github.com: repo -> Settings -> Actions -> General
+#     "Workflow permissions" -> select "Read and write permissions" -> Save
+#     (this lets the bot commit the rebuilt site back to the repo)
+#
+# 5b. Repo -> Actions tab -> "Refresh trends & redeploy" -> "Run workflow"
+#     Watch it run once to confirm. After that it runs itself daily at 06:15 UTC.
+#
+# 5c. IndexNow (instant Bing/Yandex recrawl) - already wired.
+#     Your key file is published at:
+#        https://YOURNAME.github.io/gridiron-locker/a7f3c19b84e2456d90b7c15e3f8a2d64.txt
+#     To use your own key instead, change "indexnow_key" in src/config.json.
+#
+# 5d. Submit the RSS feed anywhere that accepts one:
+#        https://YOURNAME.github.io/gridiron-locker/feed.xml
+#
+# What the daily run does:
+#   - pulls live headlines for all four teams
+#   - re-scores every design as Trending / Throwback automatically
+#   - refreshes the headline blocks and the keyword ticker
+#   - rebuilds all 154 pages with a new lastmod + dateModified
+#   - commits, pushes (Pages redeploys), then pings IndexNow
+#   - saves trend-report.md as a downloadable artifact for you
+#
+# On MONDAYS it also re-crawls Viralstyle for new/removed designs and
+# downloads any new product images automatically.
+#
+# To run it all locally instead:
+#     python3 src/trends.py && python3 src/build.py && python3 src/indexnow.py

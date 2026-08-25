@@ -1,0 +1,25 @@
+# Gridiron Locker - independent fan apparel storefront
+# Everything here is meant to be crawled and indexed.
+
+User-agent: *
+Allow: /
+
+# Product imagery is a ranking asset - let image crawlers in
+User-agent: Googlebot-Image
+Allow: /img/
+
+User-agent: Bingbot
+Allow: /
+
+# AI answer engines (send buyers too)
+User-agent: GPTBot
+Allow: /
+User-agent: PerplexityBot
+Allow: /
+User-agent: ClaudeBot
+Allow: /
+
+# Be gentle, not aggressive
+Crawl-delay: 1
+
+Sitemap: https://YOURNAME.github.io/gridiron-locker/sitemap.xml
