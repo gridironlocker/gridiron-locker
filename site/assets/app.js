@@ -1,6 +1,6 @@
 
 // ---------- gallery ----------
-var CUSTOM_EMAIL="itsnoury65@gmail.com";
+var CUSTOM_EMAIL="aXRzbm91cnk2NUBnbWFpbC5jb20=";
 function setStage(b){
   var s=document.getElementById('stage'); if(!s)return;
   if(!b.dataset.src)return;
@@ -44,8 +44,11 @@ document.querySelectorAll('.thumb,.swatch,.stylechip').forEach(function(b){
 })();
 
 // ---------- custom design form (FormSubmit, no backend needed) ----------
+// The destination address is assembled at runtime from a base64 token so the
+// owner's email never appears in the page source (anti-harvesting).
 (function(){
   var form=document.getElementById('customForm'); if(!form)return;
+  form.action='https://formsubmit.co/'+atob(CUSTOM_EMAIL);
   var msg=document.getElementById('formmsg');
   var btn=form.querySelector('button[type=submit]');
   form.addEventListener('submit',function(e){
@@ -68,7 +71,7 @@ document.querySelectorAll('.thumb,.swatch,.stylechip').forEach(function(b){
     }catch(err){fallback()}
     function fallback(){
       var body='Name: '+name+'\nEmail: '+email+'\nTeam/theme: '+(form.querySelector('select[name=team]').value)+'\nGarment: '+(form.querySelector('select[name=garment]').value)+'\nIdea: '+idea+'\nSizes: '+(form.querySelector('input[name=sizes]').value)+'\nDetails: '+(form.querySelector('textarea[name=details]').value);
-      window.location.href='mailto:'+CUSTOM_EMAIL+'?subject='+encodeURIComponent('Custom Design Request from '+name)+'&body='+encodeURIComponent(body);
+      window.location.href='mailto:'+atob(CUSTOM_EMAIL)+'?subject='+encodeURIComponent('Custom Design Request from '+name)+'&body='+encodeURIComponent(body);
       if(msg)msg.textContent='Opening your email app with your request — hit send and we will get back to you within 1-2 days.';
     }
   });

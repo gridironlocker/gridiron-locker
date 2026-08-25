@@ -310,7 +310,6 @@ def footer():
     <div class="logo" style="margin-bottom:12px"><span class="mark">GL</span> {esc(BRAND)}</div>
     <p>{esc(CFG['tagline'])}. Independent, fan-made football graphics printed on demand and
     shipped worldwide. {len(ALL)} designs across {len(ORDER)} collections.</p>
-    <p><a href="mailto:{CFG['email']}">{CFG['email']}</a></p>
    </div>
    <div><h4>Collections</h4>{cl}<a href="/collections/">View all</a></div>
    <div><h4>Help</h4><a href="/size-guide/">Size Guide</a><a href="/shipping/">Shipping &amp; Returns</a>
@@ -457,7 +456,7 @@ def page_home():
    </div><span class="go">&rarr;</span></a>"""
     schema = [
         {"@context": "https://schema.org", "@type": "Organization", "name": BRAND, "url": DOMAIN,
-         "logo": DOMAIN + "/img/favicon.svg", "email": CFG["email"],
+         "logo": DOMAIN + "/img/favicon.svg",
          "description": f"Independent fan-made football apparel store with {len(ALL)} original designs.",
          "sameAs": [c["store"] for c in COLLECTIONS.values()]},
         {"@context": "https://schema.org", "@type": "WebSite", "name": BRAND, "url": DOMAIN,
@@ -499,7 +498,7 @@ def page_home():
   </div>
   <div class="customform">
    <form id="customForm"
-         action="https://formsubmit.co/{CFG['email']}" method="POST">
+         method="POST" data-formsubmit="1">
     <div class="cf-head">Tell us about your idea</div>
     <p class="cf-sub">Send us the details and we'll reply with a proof and a price.</p>
     <input type="hidden" name="_subject" value="New Custom Design Request from your website">
@@ -895,7 +894,7 @@ contact support with a photo and your order number and it will be replaced.</p>
 <p>Check the <a href="/size-guide/">size guide</a> before ordering - it is the single biggest cause
 of avoidable exchanges. If you are between sizes, go up.</p>
 <h2>Questions</h2>
-<p>Email <a href="mailto:%s">%s</a> with your order number and we will chase it for you.</p>""" % (CFG["email"], CFG["email"]), "0.5")
+<p>Send a message via the <a href="/contact/">contact form</a> with your order number and we will chase it for you.</p>""", "0.5")
 
     faq_items = [
         ("Are these officially licensed NFL or NCAA products?",
@@ -919,7 +918,7 @@ of avoidable exchanges. If you are between sizes, go up.</p>
         ("Do you ship internationally?",
          "Yes, worldwide shipping is available with tracking."),
         ("Can I request a custom design?",
-         "Yes - email us at " + CFG['email'] + " with the idea, the team, the phrase you want and the "
+         "Yes - send it through the custom design form on the home page with the idea, the team, the phrase you want and the "
          "garment + size. We handle the artwork and send a quote, usually within 1-2 days. Custom fan "
          "graphics are made to order one at a time."),
     ]
@@ -952,7 +951,7 @@ other way round, which is why these read from across a stadium concourse.</p>
 <p>We are not a league store. We do not claim to be. Read our
 <a href="/trademark-notice/">trademark notice</a> for the full position.</p>
 <h2>Contact</h2>
-<p>Email <a href="mailto:{CFG['email']}">{CFG['email']}</a>. We answer every message.</p>""", "0.5")
+<p>Send us a note via the <a href="/contact/">contact form</a>. We answer every message.</p>""", "0.5")
 
     simple_page("trademark-notice", "Trademark & Intellectual Property Notice",
         "Our position on trademarks: independent fan-made artwork, descriptive use of team and city "
@@ -972,8 +971,8 @@ respective owners. Any use here is nominative and descriptive.</p>
 <p>The graphics sold through this site are original works created by independent designers. They are
 not reproductions of official league or club merchandise.</p>
 <h2>Rights holder? Contact us</h2>
-<p>If you own a trademark or copyright and believe a listing infringes it, email
-<a href="mailto:{CFG['email']}">{CFG['email']}</a> with the listing URL, the mark or work concerned,
+<p>If you own a trademark or copyright and believe a listing infringes it, send a message via the
+<a href="/contact/">contact form</a> with the listing URL, the mark or work concerned,
 proof of ownership and your contact details. Verified requests are actioned promptly - listings are
 removed from this site and the takedown is forwarded to the fulfilment platform.</p>
 <h2>Fulfilment</h2>
@@ -997,14 +996,14 @@ payment details - is governed by that platform's own privacy policy, not this on
 <p>No advertising cookies are set by this site. Any cookies set after you click through belong to the
 checkout platform.</p>
 <h2>Your rights</h2>
-<p>Email <a href="mailto:{CFG['email']}">{CFG['email']}</a> to ask what we hold about you or to have
+<p>Ask via the <a href="/contact/">contact form</a> what we hold about you or to have
 it deleted.</p>""", "0.3")
 
     simple_page("contact", "Contact Us",
         "Get in touch about an order, a sizing question, a custom fan design request or a trademark "
         "concern.", "Contact Us", f"""
 <p>We are a small team and we answer every email.</p>
-<div class="panel"><h3>Email</h3><p><a href="mailto:{CFG['email']}" style="color:var(--accent)">{CFG['email']}</a></p>
+<div class="panel"><h3>Contact form</h3><p>Use the <a href="../#customForm" style="color:var(--accent)">custom design form on the home page</a> - every message lands straight with us.</p>
 <p class="muted">Include your order number if your question is about a delivery.</p></div>
 <h2>What to contact us about</h2>
 <ul>
@@ -1298,8 +1297,11 @@ document.querySelectorAll('.thumb,.swatch,.stylechip').forEach(function(b){
 })();
 
 // ---------- custom design form (FormSubmit, no backend needed) ----------
+// The destination address is assembled at runtime from a base64 token so the
+// owner's email never appears in the page source (anti-harvesting).
 (function(){
   var form=document.getElementById('customForm'); if(!form)return;
+  form.action='https://formsubmit.co/'+atob(CUSTOM_EMAIL);
   var msg=document.getElementById('formmsg');
   var btn=form.querySelector('button[type=submit]');
   form.addEventListener('submit',function(e){
@@ -1322,7 +1324,7 @@ document.querySelectorAll('.thumb,.swatch,.stylechip').forEach(function(b){
     }catch(err){fallback()}
     function fallback(){
       var body='Name: '+name+'\\nEmail: '+email+'\\nTeam/theme: '+(form.querySelector('select[name=team]').value)+'\\nGarment: '+(form.querySelector('select[name=garment]').value)+'\\nIdea: '+idea+'\\nSizes: '+(form.querySelector('input[name=sizes]').value)+'\\nDetails: '+(form.querySelector('textarea[name=details]').value);
-      window.location.href='mailto:'+CUSTOM_EMAIL+'?subject='+encodeURIComponent('Custom Design Request from '+name)+'&body='+encodeURIComponent(body);
+      window.location.href='mailto:'+atob(CUSTOM_EMAIL)+'?subject='+encodeURIComponent('Custom Design Request from '+name)+'&body='+encodeURIComponent(body);
       if(msg)msg.textContent='Opening your email app with your request — hit send and we will get back to you within 1-2 days.';
     }
   });
@@ -1470,7 +1472,7 @@ setTimeout(function(){
   });
   var u=new URLSearchParams(location.search).get('q'); if(u&&q){q.value=u;apply();}
 })();
-""".replace("__EMAIL__", CFG["email"]))
+""".replace("__EMAIL__", CFG["email_b64"]))
 
 
 RELATIVISE = re.compile(r'(\s(?:href|src|data-src)=")(/(?!/)[^"]*)(")')
