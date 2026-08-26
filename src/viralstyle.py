@@ -57,6 +57,10 @@ USER_AGENTS = [
 
 DEFAULT_TIMEOUT = float(os.environ.get("VS_TIMEOUT", "45"))
 MAX_ATTEMPTS = int(os.environ.get("VS_ATTEMPTS", "4"))
+# urllib3-level retry budget inside a single attempt. Tunable so CI and tests
+# can fail fast instead of spending minutes backing off a known-dead endpoint.
+POOL_RETRIES = int(os.environ.get("VS_POOL_RETRIES", "3"))
+BACKOFF = float(os.environ.get("VS_BACKOFF", "1.5"))
 # Minimum bytes before we believe a response is a real rendered page.
 MIN_HTML = int(os.environ.get("VS_MIN_HTML", "20000"))
 MIN_STORE_HTML = int(os.environ.get("VS_MIN_STORE_HTML", "8000"))
@@ -110,11 +114,11 @@ def make_session(pool: int = 16) -> requests.Session:
         "Connection": "keep-alive",
     })
     retry = Retry(
-        total=3,
-        connect=3,
-        read=3,
-        status=3,
-        backoff_factor=1.5,
+        total=POOL_RETRIES,
+        connect=POOL_RETRIES,
+        read=POOL_RETRIES,
+        status=POOL_RETRIES,
+        backoff_factor=BACKOFF,
         status_forcelist=(408, 425, 429, 500, 502, 503, 504),
         allowed_methods=frozenset(["GET", "HEAD"]),
         raise_on_status=False,
