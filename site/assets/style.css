@@ -610,13 +610,20 @@ ul.news a:hover{color:var(--accent);text-decoration:underline}
 @media(max-width:700px){.detailcols{grid-template-columns:1fr}}
 
 /* ============ HERO SLIDER ============ */
-.hslider{padding:0}
-.hslider .slides{position:relative}
-.hslider .slide{position:absolute;inset:0;min-height:clamp(420px,58vw,640px);display:flex;align-items:center;
-  overflow:hidden;opacity:0;visibility:hidden;transition:opacity .55s ease,visibility .55s}
-.hslider .slide.on{position:relative;opacity:1;visibility:visible}
-.hslider .slide img.bg{position:absolute;inset:0;width:100%;height:100%;object-fit:cover;opacity:1;
-  transform:scale(1.015);transition:transform 7s ease,opacity .8s}
+/* Slides are stacked in a single CSS grid cell: the section is always as tall
+   as the tallest slide, so switching slides never jumps the page. */
+.hslider{padding:0;position:relative;overflow:hidden;
+  display:block;min-height:0}          /* not a flex row - dots must sit under the slides */
+.hslider .slides{display:grid;position:relative}
+.hslider .slide{grid-area:1/1;min-height:clamp(420px,58vw,640px);display:flex;align-items:center;
+  position:relative;overflow:hidden;opacity:0;visibility:hidden;
+  transition:opacity .55s ease,visibility .55s}
+.hslider .slide.on{opacity:1;visibility:visible}
+/* explicitly cancel the generic .hero ken-burns animation - it fought the
+   slider's own transform and pushed the subject out of frame */
+.hslider .slide img.bg{position:absolute;inset:0;width:100%;height:100%;object-fit:cover;
+  object-position:50% 42%;opacity:1;animation:none;transform:scale(1.015);
+  transition:transform 7s ease,opacity .8s}
 .hslider .slide.on img.bg{transform:scale(1)}
 .hslider .slide:after{content:'';position:absolute;inset:0;z-index:1;
   background:linear-gradient(90deg,rgba(7,8,10,.62) 8%,rgba(7,8,10,.08) 55%,rgba(7,8,10,.78))}
@@ -631,9 +638,41 @@ ul.news a:hover{color:var(--accent);text-decoration:underline}
 .hslider .slide .btn.ghost:hover{color:var(--accent);border-color:var(--accent)}
 .hslider .hdots{position:relative;z-index:4;display:flex;gap:8px;justify-content:center;padding:14px 0 4px}
 .hslider .hdot{width:26px;height:4px;border-radius:99px;border:0;background:rgba(255,255,255,.5);cursor:pointer;
-  transition:all .25s}
+  transition:all .25s;padding:0}
 .hslider .hdot.on{background:var(--accent);width:44px}
-@media(max-width:700px){.hslider .slide{min-height:430px}}
+
+/* ---- phones: stop cropping the 16:9 art, stack image over copy ---- */
+@media(max-width:760px){
+  .hslider:after{display:none}   /* section-wide side gradient would muddy the stacked layout */
+  .hslider .slide{display:block;min-height:0}
+  /* the inherited .hero ken-burns zoom (scale 1.06 -> 1.18) is what was cutting
+     the artwork off on phones. Killed here, and the image keeps its own 16:9
+     ratio instead of being cropped into a tall box. */
+  .hslider .slide img.bg{position:relative;inset:auto;height:auto;aspect-ratio:16/9;
+    object-fit:cover;object-position:50% 45%;animation:none;transform:none;transition:none}
+  .hslider .slide.on img.bg{transform:none}
+  /* gradient only over the image band, fading it into the page background */
+  .hslider .slide:after{bottom:auto;height:56.25vw;
+    background:linear-gradient(180deg,rgba(7,8,10,.30) 0%,rgba(7,8,10,.05) 42%,rgba(7,8,10,.72) 82%,var(--bg) 100%)}
+  .hslider .slide .wrap{padding:18px 18px 26px;margin-top:-8px}
+  .hslider .slide .hero-title{font-size:clamp(1.55rem,7.2vw,2.25rem);text-shadow:none;margin-bottom:.45em}
+  .hslider .slide p.lede{font-size:.95rem;line-height:1.55;text-shadow:none;color:#c9d2de;
+    display:-webkit-box;-webkit-line-clamp:4;-webkit-box-orient:vertical;overflow:hidden;margin-bottom:0}
+  .hslider .slide .eyebrow{font-size:.63rem;letter-spacing:.12em;padding:5px 11px;margin-bottom:12px}
+  .hslider .slide .btnrow{margin-top:18px;gap:10px;flex-direction:column;align-items:stretch}
+  .hslider .slide .btnrow .btn{width:100%}
+  .hslider .slide .btn.lg{padding:14px 18px;font-size:.86rem}
+  .hslider .blob{display:none}
+  /* bigger tap targets for the dots without changing how they look */
+  .hslider .hdots{padding:16px 0 2px;gap:12px}
+  .hslider .hdot{height:5px;width:30px;position:relative}
+  .hslider .hdot:before{content:'';position:absolute;left:-6px;right:-6px;top:-14px;bottom:-14px}
+  .hslider .hdot.on{width:46px}
+}
+@media(max-width:380px){
+  .hslider .slide .hero-title{font-size:1.45rem}
+  .hslider .slide p.lede{-webkit-line-clamp:3}
+}
 
 /* ============ NEWS TICKER (headlines, not product cards) ============ */
 .newsticker{overflow:hidden;border-top:1px solid var(--line);border-bottom:1px solid var(--line);

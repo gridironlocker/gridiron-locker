@@ -1293,18 +1293,53 @@ document.querySelectorAll('.thumb,.swatch,.stylechip').forEach(function(b){
 
 // ---------- hero slider ----------
 (function(){
+  var root=document.querySelector('.hslider');
   var slides=[].slice.call(document.querySelectorAll('.hslider .slide'));
   var dots=[].slice.call(document.querySelectorAll('.hslider .hdot'));
-  if(!slides.length)return;
+  if(!root||!slides.length)return;
   var cur=0, timer;
   function show(i){
     cur=(i+slides.length)%slides.length;
-    slides.forEach(function(s,n){s.classList.toggle('on',n===cur)});
-    dots.forEach(function(d,n){d.classList.toggle('on',n===cur)});
+    slides.forEach(function(s,n){
+      s.classList.toggle('on',n===cur);
+      s.setAttribute('aria-hidden',n===cur?'false':'true');
+      // keep hidden slides out of the tab order so phone users don't
+      // swipe-focus buttons they cannot see
+      [].slice.call(s.querySelectorAll('a,button')).forEach(function(el){
+        if(n===cur){el.removeAttribute('tabindex');}else{el.setAttribute('tabindex','-1');}
+      });
+    });
+    dots.forEach(function(d,n){
+      d.classList.toggle('on',n===cur);
+      d.setAttribute('aria-current',n===cur?'true':'false');
+    });
   }
   dots.forEach(function(d,n){d.addEventListener('click',function(){show(n);restart()})});
   // gentle 6.5s dwell, smooth crossfade — light, not heavy
   function restart(){clearInterval(timer);timer=setInterval(function(){show(cur+1)},6500)}
+  function stop(){clearInterval(timer)}
+  // swipe left/right on touch devices
+  var x0=null,y0=null,locked=false;
+  root.addEventListener('touchstart',function(e){
+    var t=e.changedTouches[0]; x0=t.clientX; y0=t.clientY; locked=false; stop();
+  },{passive:true});
+  root.addEventListener('touchmove',function(e){
+    if(x0===null)return;
+    var t=e.changedTouches[0];
+    if(!locked&&Math.abs(t.clientX-x0)>12&&Math.abs(t.clientX-x0)>Math.abs(t.clientY-y0))locked=true;
+  },{passive:true});
+  root.addEventListener('touchend',function(e){
+    if(x0===null)return;
+    var dx=e.changedTouches[0].clientX-x0;
+    if(locked&&Math.abs(dx)>40)show(cur+(dx<0?1:-1));
+    x0=null; restart();
+  },{passive:true});
+  // don't burn cycles (or battery) while the hero is off screen / tab hidden
+  document.addEventListener('visibilitychange',function(){document.hidden?stop():restart()});
+  if('IntersectionObserver' in window){
+    new IntersectionObserver(function(en){en[0].isIntersecting?restart():stop()},{threshold:0.15}).observe(root);
+  }
+  show(0);
   restart();
 })();
 
