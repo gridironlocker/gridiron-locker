@@ -1,0 +1,102 @@
+name: Refresh trends & redeploy
+
+# Keeps the storefront fresh with zero manual work:
+#  1. re-crawls your Viralstyle collections for new / removed designs
+#  2. pulls live headlines and re-scores what is Trending vs Throwback
+#  3. rebuilds every page (new lastmod + dateModified = freshness signal)
+#  4. commits and pushes -> GitHub Pages redeploys automatically
+#  5. pings IndexNow so Bing/Yandex recrawl within minutes
+
+on:
+  schedule:
+    # 06:15 UTC every day. Cron on GitHub is best-effort, not to the second.
+    - cron: "15 6 * * *"
+  workflow_dispatch:        # lets you run it manually from the Actions tab
+
+permissions:
+  contents: write
+
+concurrency:
+  group: refresh
+  cancel-in-progress: false
+
+jobs:
+  refresh:
+    runs-on: ubuntu-latest
+    steps:
+      - uses: actions/checkout@v4
+
+      - uses: actions/setup-python@v5
+        with:
+          python-version: "3.12"
+
+      - name: Install dependencies
+        run: pip install --quiet requests beautifulsoup4 lxml
+
+      # --- is Viralstyle actually reachable today? ---
+      - name: Check Viralstyle connection
+        id: vs
+        continue-on-error: true
+        run: |
+          if python src/viralstyle.py --check | tee vs-check.txt; then
+            echo "reachable=true" >> $GITHUB_OUTPUT
+          else
+            echo "reachable=false" >> $GITHUB_OUTPUT
+            echo "::warning::Viralstyle unreachable - skipping catalogue re-crawl, keeping committed data."
+          fi
+
+      # --- optional weekly deep re-crawl of the Viralstyle catalogue ---
+      # Only runs when the connection check passed, so a blocked or rate-limited
+      # edge can never overwrite a good catalogue with a partial one.
+      - name: Re-crawl product catalogue (Mondays only)
+        if: steps.vs.outputs.reachable == 'true'
+        continue-on-error: true
+        run: |
+          if [ "$(date -u +%u)" = "1" ] || [ "${{ github.event_name }}" = "workflow_dispatch" ]; then
+            echo "Re-crawling Viralstyle..."
+            python scrape_list.py || echo "list crawl failed, keeping existing data"
+            python scrape_products.py || echo "product crawl failed, keeping existing data"
+            python dl.py || echo "image download failed, keeping existing images"
+          else
+            echo "Not Monday - skipping deep crawl."
+          fi
+
+      - name: Skipped re-crawl (connection down)
+        if: steps.vs.outputs.reachable != 'true'
+        run: echo "Viralstyle connection check failed - catalogue left untouched."
+
+      # --- daily: refresh headlines and trend scoring ---
+      - name: Refresh trend data
+        continue-on-error: true
+        run: python src/trends.py
+
+      - name: Rebuild site
+        run: python src/build.py
+
+      - name: Commit changes
+        id: commit
+        run: |
+          git config user.name  "gridiron-bot"
+          git config user.email "actions@github.com"
+          git add -A
+          if git diff --staged --quiet; then
+            echo "changed=false" >> $GITHUB_OUTPUT
+            echo "Nothing changed."
+          else
+            git commit -m "Auto-refresh: trends + rebuild $(date -u +%Y-%m-%d)"
+            git push
+            echo "changed=true" >> $GITHUB_OUTPUT
+          fi
+
+      # --- tell Bing / Yandex / Naver immediately (Google uses sitemap lastmod) ---
+      - name: Ping IndexNow
+        if: steps.commit.outputs.changed == 'true'
+        continue-on-error: true
+        run: python src/indexnow.py
+
+      - name: Upload trend report
+        uses: actions/upload-artifact@v4
+        with:
+          name: trend-report
+          path: trend-report.md
+          if-no-files-found: ignore

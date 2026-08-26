@@ -1,10 +1,12 @@
-import json,os,requests
+import json,os,sys,requests
 from concurrent.futures import ThreadPoolExecutor
+sys.path.insert(0, os.path.join(os.path.dirname(os.path.abspath(__file__)), 'src'))
+from viralstyle import make_session
 P=json.load(open('data/products.json'))
 dead=[k for k,v in P.items() if not v.get('front')]
 for k in dead: P.pop(k)
 os.makedirs('site/img/p',exist_ok=True)
-S=requests.Session(); S.headers.update({'User-Agent':'Mozilla/5.0'})
+S=make_session()
 
 def hi(u):
     """Swap Viralstyle small/detail variants for the large mockup if available."""
@@ -54,4 +56,22 @@ def go(j):
 with ThreadPoolExecutor(max_workers=16) as ex:
     ok=sum(ex.map(go,jobs))
 print('downloaded',ok,'/',len(jobs),'products',len(P),'dead',dead)
-json.dump(P,open('data/products_live.json','w'),indent=1)
+
+# SAFETY: products_live.json is what build.py turns into pages. Never let a bad
+# crawl shrink it dramatically - that would silently delete live product pages.
+LIVE='data/products_live.json'
+if os.path.exists(LIVE):
+    try: old=json.load(open(LIVE))
+    except Exception: old={}
+    if old and len(P) < len(old)*0.6:
+        print(f'ABORT: refusing to write {len(P)} products over {len(old)} existing '
+              f'(<60%). Crawl looks partial - keeping {LIVE} unchanged.')
+        raise SystemExit(1)
+    # carry forward any product the crawl lost but whose images are still on disk
+    for slug,v in old.items():
+        if slug not in P and v.get('img'):
+            front=v['img'].get('front','')
+            if front and os.path.exists('site'+front):
+                P[slug]=v
+                print('kept previously-built product',slug)
+json.dump(P,open(LIVE,'w'),indent=1)

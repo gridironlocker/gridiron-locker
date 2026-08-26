@@ -1,0 +1,73 @@
+name: Viralstyle connection check
+
+# Verifies the storefront can actually reach Viralstyle, and pinpoints which
+# layer breaks (DNS / TCP+TLS / storefront HTML / product HTML) when it cannot.
+#
+# Run it from the Actions tab any time the daily refresh looks wrong, or let the
+# weekly schedule catch a silent breakage before it costs you a day of updates.
+
+on:
+  workflow_dispatch:
+    inputs:
+      slug:
+        description: "Product slug to sample (blank = first in catalogue)"
+        required: false
+        default: ""
+      store:
+        description: "Store path to sample"
+        required: false
+        default: "Cleveland-Browns"
+  schedule:
+    # Mondays 05:45 UTC - half an hour before the weekly deep re-crawl, so a
+    # broken connection is visible before it can affect the catalogue.
+    - cron: "45 5 * * 1"
+
+permissions:
+  contents: read
+
+jobs:
+  check:
+    runs-on: ubuntu-latest
+    steps:
+      - uses: actions/checkout@v4
+
+      - uses: actions/setup-python@v5
+        with:
+          python-version: "3.12"
+
+      - name: Install dependencies
+        run: pip install --quiet requests beautifulsoup4 lxml
+
+      - name: Check Viralstyle connection
+        id: check
+        run: |
+          python src/viralstyle.py --check \
+            --store "${{ github.event.inputs.store || 'Cleveland-Browns' }}" \
+            ${{ github.event.inputs.slug && format('--slug {0}', github.event.inputs.slug) || '' }} \
+            | tee check.txt
+          echo "--- JSON ---"
+          python src/viralstyle.py --check --json \
+            --store "${{ github.event.inputs.store || 'Cleveland-Browns' }}" \
+            > check.json || true
+          cat check.json
+
+      - name: Summarise
+        if: always()
+        run: |
+          {
+            echo "## Viralstyle connection check"
+            echo
+            echo '```'
+            cat check.txt 2>/dev/null || echo "check did not produce output"
+            echo '```'
+          } >> $GITHUB_STEP_SUMMARY
+
+      - name: Upload report
+        if: always()
+        uses: actions/upload-artifact@v4
+        with:
+          name: viralstyle-check
+          path: |
+            check.txt
+            check.json
+          if-no-files-found: ignore
