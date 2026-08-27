@@ -1559,17 +1559,22 @@ def relativise():
 
 
 def sync_marketing():
+    """Copy the marketing planner into the built site so GitHub Pages publishes
+    /marketing/dashboard.html and /marketing/plan.json.
+
+    We copy real files (not a symlink) so the checked-in site/marketing folder is
+    always a real directory that the Pages artifact can upload directly, and so a
+    rebuild can never swap it for a symlink. The files under site/marketing track
+    the marketing/ sources and are committed (deploy.yml uploads ./site as-is)."""
     m_dir = os.path.join(ROOT, "marketing")
     s_m_dir = os.path.join(SITE, "marketing")
-    if os.path.exists(m_dir):
-        if os.path.islink(s_m_dir):
-            os.unlink(s_m_dir)
-        elif os.path.isdir(s_m_dir):
-            shutil.rmtree(s_m_dir)
-        try:
-            os.symlink("../marketing", s_m_dir, target_is_directory=True)
-        except Exception:
-            shutil.copytree(m_dir, s_m_dir)
+    if not os.path.exists(m_dir):
+        return
+    if os.path.islink(s_m_dir) or os.path.isfile(s_m_dir):
+        os.unlink(s_m_dir)
+    elif os.path.isdir(s_m_dir):
+        shutil.rmtree(s_m_dir)
+    shutil.copytree(m_dir, s_m_dir)
 
 
 def main():
