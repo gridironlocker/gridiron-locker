@@ -7,7 +7,7 @@ This folder is a standalone, internal promotion-planning dashboard. It does not 
 - `plan.py` reads `data/products.json`, `data/facts.json`, `data/order.json`, `data/trends.json`, and `SEASON` from `src/collections_data.py`.
 - `plan.py` writes one generated file: `marketing/plan.json`.
 - It does not import the website generator or write anything under `site/`.
-- GitHub Pages publishes `./site` only. The `marketing/` folder is not deployed and is not a live website route.
+- GitHub Pages publishes the storefront in `site/` and the marketing planner at `/marketing/dashboard.html`.
 - Scene prompts describe only mood, light, texture, composition, and environment. They do not request logos, team marks, player likenesses, or recognizable people.
 
 ## Run it
