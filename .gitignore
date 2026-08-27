@@ -2,3 +2,7 @@
 # (the daily refresh workflow does `git add -A`, so keep these out of the repo)
 __pycache__/
 *.py[cod]
+
+# Generated/linked marketing directory in site/ for Pages deployment
+site/marketing
+

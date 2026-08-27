@@ -27,7 +27,12 @@ try:
     OVERRIDES = json.load(open(os.path.join(ROOT, "data/trend_overrides.json")))
 except Exception:
     OVERRIDES = {}
-from trends import DESIGN_TOKENS, HOT_MIN, OTHER_TEAMS
+try:
+    from trends import DESIGN_TOKENS, HOT_MIN, OTHER_TEAMS
+except ImportError:
+    DESIGN_TOKENS = {}
+    HOT_MIN = 3
+    OTHER_TEAMS = set()
 DATA_DATE = TRENDS.get("generated") or TODAY
 
 
@@ -1553,6 +1558,20 @@ def relativise():
     return n
 
 
+def sync_marketing():
+    m_dir = os.path.join(ROOT, "marketing")
+    s_m_dir = os.path.join(SITE, "marketing")
+    if os.path.exists(m_dir):
+        if os.path.islink(s_m_dir):
+            os.unlink(s_m_dir)
+        elif os.path.isdir(s_m_dir):
+            shutil.rmtree(s_m_dir)
+        try:
+            os.symlink("../marketing", s_m_dir, target_is_directory=True)
+        except Exception:
+            shutil.copytree(m_dir, s_m_dir)
+
+
 def main():
     page_home()
     page_collections_index()
@@ -1566,6 +1585,7 @@ def main():
     page_404()
     assets()
     write(".nojekyll", "")
+    sync_marketing()
     n = relativise()
     print(f"relative-linked {n} pages for GitHub Pages / offline")
     print(f"built {len(ALL)} products, {len(ORDER)} collections, {len(URLS)} urls")
