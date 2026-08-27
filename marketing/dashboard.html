@@ -340,6 +340,11 @@
     .calendar-post { display: grid; grid-template-columns: 92px 1fr auto; gap: 8px; align-items: center; padding: 8px 9px; border-radius: 9px; background: rgba(8,17,31,.34); }
     .platform-name { overflow: hidden; color: var(--muted-strong); font-size: .71rem; font-weight: 750; text-overflow: ellipsis; white-space: nowrap; }
     .post-time { color: var(--orange); font-size: .69rem; font-variant-numeric: tabular-nums; }
+    .post-time-zone, .post-time-src { display: block; color: var(--muted); font-size: .6rem; font-weight: 600; }
+    .post-time-src { color: var(--muted-strong); }
+    .shift-badge { display: inline-block; margin-left: 3px; padding: 0 5px; border: 1px solid rgba(255, 177, 90, .38); border-radius: 99px; color: var(--orange); background: rgba(255, 177, 90, .1); font-size: .56rem; font-weight: 800; vertical-align: .08em; }
+    .window-src { display: block; margin-top: 2px; color: var(--muted); font-size: .66rem; font-weight: 600; }
+    .tz-note { color: var(--blue); font-weight: 750; }
     .calendar-post details { grid-column: 1 / -1; margin: 0; border: 0; }
     .calendar-post summary { padding: 3px 0 0; font-size: .68rem; }
     .calendar-preview { margin: 5px 0 0; color: var(--muted); font-size: .71rem; }
@@ -461,12 +466,12 @@
     </section>
 
     <section class="panel" id="panel-calendar" aria-labelledby="calendar-tab">
-      <div class="panel-head"><div><h2>14-day calendar</h2><p>One featured design per day, adapted to Instagram, TikTok, Facebook, X, and Pinterest.</p></div></div>
+      <div class="panel-head"><div><h2>14-day calendar</h2><p id="calendar-note">One featured design per day, adapted to Instagram, TikTok, Facebook, X, and Pinterest.</p></div></div>
       <div id="calendar-list"><div class="loading">Loading the calendar…</div></div>
     </section>
 
     <section class="panel" id="panel-times" aria-labelledby="times-tab">
-      <div class="panel-head"><div><h2>Best times</h2><p>Starting windows for a two-week test. Times are local to the plan’s stated timezone.</p></div></div>
+      <div class="panel-head"><div><h2>Best times</h2><p id="times-note">Starting windows for a two-week test. Times are local to the plan’s stated timezone.</p></div></div>
       <div id="times-list"><div class="loading">Loading timing guidance…</div></div>
     </section>
 
@@ -494,6 +499,91 @@
     let plan = null;
     let promptPlatform = 'instagram';
     let toastTimer = null;
+
+    /* tz-helpers-start — pure timezone helpers. Keep in sync with marketing/tz-verify.js, which
+       extracts this exact block and asserts its behaviour in Node (node marketing/tz-verify.js). */
+    function tzOffsetMs(timeZone, utcDate) {
+      // Offset (timeZone wall clock minus UTC) at the given UTC instant.
+      const dtf = new Intl.DateTimeFormat('en-US', {
+        timeZone: timeZone, hour12: false,
+        year: 'numeric', month: '2-digit', day: '2-digit',
+        hour: '2-digit', minute: '2-digit', second: '2-digit'
+      });
+      const parts = {};
+      for (const part of dtf.formatToParts(utcDate)) parts[part.type] = part.value;
+      const asIfUtc = Date.UTC(
+        Number(parts.year), Number(parts.month) - 1, Number(parts.day),
+        Number(parts.hour) % 24, Number(parts.minute), Number(parts.second)
+      );
+      return asIfUtc - utcDate.getTime();
+    }
+    function wallClockToUtc(dateStr, timeStr, timeZone) {
+      // UTC instant for a wall-clock time (YYYY-MM-DD, HH:MM) in timeZone. DST-aware per day:
+      // the offset is resolved for that specific date, with one re-check across transitions.
+      const [y, m, d] = dateStr.split('-').map(Number);
+      const [h, min] = timeStr.split(':').map(Number);
+      const guess = Date.UTC(y, m - 1, d, h, min, 0);
+      const offset = tzOffsetMs(timeZone, new Date(guess));
+      let utcMs = guess - offset;
+      const refined = tzOffsetMs(timeZone, new Date(utcMs));
+      if (refined !== offset) utcMs = guess - refined;
+      return new Date(utcMs);
+    }
+    function formatUtcInZone(utcDate, timeZone) {
+      const dtf = new Intl.DateTimeFormat('en-US', {
+        timeZone: timeZone, hour12: false,
+        year: 'numeric', month: '2-digit', day: '2-digit',
+        hour: '2-digit', minute: '2-digit'
+      });
+      const parts = {};
+      for (const part of dtf.formatToParts(utcDate)) parts[part.type] = part.value;
+      return {
+        date: parts.year + '-' + parts.month + '-' + parts.day,
+        time: String(Number(parts.hour) % 24).padStart(2, '0') + ':' + parts.minute
+      };
+    }
+    function convertPlanTime(dateStr, timeStr, sourceZone, targetZone) {
+      // Convert one plan timestamp (civil date + HH:MM in sourceZone) into targetZone,
+      // anchored on that exact date so DST rules for the day are respected.
+      const [y, m, d] = dateStr.split('-').map(Number);
+      const out = formatUtcInZone(wallClockToUtc(dateStr, timeStr, sourceZone), targetZone);
+      const [oy, om, od] = out.date.split('-').map(Number);
+      const dayShift = Math.round((Date.UTC(oy, om - 1, od) - Date.UTC(y, m - 1, d)) / 86400000);
+      return { time: out.time, date: out.date, dayShift: dayShift };
+    }
+    function convertClockRange(windowText, anchorDateStr, sourceZone, targetZone) {
+      // Convert the first HH:MM–HH:MM range inside a window string (e.g. "Tue–Thu · 18:30–21:00").
+      // Returns null when the window carries no clock time (e.g. "Game days · 30 min before kickoff").
+      const match = windowText.match(/(\d{1,2}):(\d{2})\s*[–-]\s*(\d{1,2}):(\d{2})/);
+      if (!match) return null;
+      const pad = value => String(value).padStart(2, '0');
+      return {
+        prefix: windowText.slice(0, match.index),
+        original: match[0],
+        start: convertPlanTime(anchorDateStr, pad(match[1]) + ':' + match[2], sourceZone, targetZone),
+        end: convertPlanTime(anchorDateStr, pad(match[3]) + ':' + match[4], sourceZone, targetZone)
+      };
+    }
+    function weekdayIndexFor(dateStr) {
+      const [y, m, d] = dateStr.split('-').map(Number);
+      return new Date(Date.UTC(y, m - 1, d)).getUTCDay();
+    }
+    function anchorDateForWeekday(weekdayAbbrev, calendarDates) {
+      // Pick the first plan date matching the weekday a window refers to, so recurring-window
+      // conversions are still anchored on a real date with the correct DST offset.
+      const names = ['Sun', 'Mon', 'Tue', 'Wed', 'Thu', 'Fri', 'Sat'];
+      const target = names.indexOf(weekdayAbbrev);
+      if (target === -1) return calendarDates[0];
+      return calendarDates.find(dateStr => weekdayIndexFor(dateStr) === target) || calendarDates[0];
+    }
+    /* tz-helpers-end */
+
+    const PLAN_TIMEZONE = 'America/New_York';
+    const VIEWER_TIMEZONE = Intl.DateTimeFormat().resolvedOptions().timeZone || 'UTC';
+    const VIEWER_ZONE_CITY = VIEWER_TIMEZONE.split('/').pop().replace(/_/g, ' ');
+    // When the operator's device is already on the plan zone, the dashboard keeps its original
+    // "local" labels and no conversion noise is added.
+    const CONVERSION_ACTIVE = VIEWER_TIMEZONE !== PLAN_TIMEZONE;
 
     function esc(value) {
       return String(value == null ? '' : value)
@@ -594,19 +684,60 @@
       }).join('');
     }
 
+    function shiftBadge(dayShift, localDate) {
+      if (!dayShift) return '';
+      return `<span class="shift-badge" title="Local calendar date ${esc(localDate || '')}">${dayShift > 0 ? '+' : '−'}${Math.abs(dayShift)}d</span>`;
+    }
+
     function renderCalendar() {
+      const srcZone = (plan.best_times && plan.best_times.timezone) || PLAN_TIMEZONE;
+      const srcCity = srcZone.split('/').pop().replace(/_/g, ' ');
+      if (CONVERSION_ACTIVE) {
+        document.getElementById('calendar-note').innerHTML = `One featured design per day, adapted to Instagram, TikTok, Facebook, X, and Pinterest. Post times are converted from <span class="tz-note">${esc(srcZone)}</span> to your device timezone <span class="tz-note">${esc(VIEWER_TIMEZONE)}</span>; the source plan time is shown underneath.`;
+      }
       document.getElementById('calendar-list').innerHTML = `<div class="calendar-grid">${plan.calendar.map(day => `<article class="day-card">
         <div class="day-head"><div><div class="day-date">${esc(day.weekday)} · ${esc(dateLabel(day.date))}</div><h3>Day ${plan.calendar.indexOf(day) + 1}</h3></div><div class="score"><strong>${esc(day.focus_score)}</strong><small>focus score</small></div></div>
         <div class="focus-line"><b>${esc(day.focus_name)}</b><br>${esc(day.focus_collection)} · queue rank ${esc(day.focus_rank)}</div>
         <div class="calendar-posts">${day.posts.map(post => {
           const copy = post.caption + '\n\n' + post.hashtags.join(' ');
-          return `<div class="calendar-post"><span class="platform-name">${esc(post.platform_label)}</span><span class="post-time">${esc(post.time)} local</span>${copyButton(copy, 'Copy')}<details><summary>Preview caption</summary><p class="calendar-preview">${esc(post.caption)}</p></details></div>`;
+          let timeMarkup = `${esc(post.time)} local`;
+          if (CONVERSION_ACTIVE) {
+            const conv = convertPlanTime(day.date, post.time, srcZone, VIEWER_TIMEZONE);
+            timeMarkup = `${esc(conv.time)}${shiftBadge(conv.dayShift, conv.date)} <span class="post-time-zone">${esc(VIEWER_ZONE_CITY)}</span><span class="post-time-src">${esc(post.time)} ${esc(srcCity)}</span>`;
+          }
+          return `<div class="calendar-post"><span class="platform-name">${esc(post.platform_label)}</span><span class="post-time">${timeMarkup}</span>${copyButton(copy, 'Copy')}<details><summary>Preview caption</summary><p class="calendar-preview">${esc(post.caption)}</p></details></div>`;
         }).join('')}</div>
       </article>`).join('')}</div>`;
     }
 
     function renderTimes() {
-      document.getElementById('times-list').innerHTML = `<p class="method">${esc(plan.best_times.method)} <strong>${esc(plan.best_times.timezone)}</strong></p><div class="time-grid">${plan.best_times.platforms.map(item => `<article class="time-card"><h3>${esc(item.label)}</h3><div class="time-zone">Default calendar time · ${esc(item.default_time)}</div>${item.windows.map(window => `<div class="window">${esc(window)}</div>`).join('')}<p>${esc(item.why)}</p></article>`).join('')}</div>`;
+      const srcZone = (plan.best_times && plan.best_times.timezone) || PLAN_TIMEZONE;
+      const srcCity = srcZone.split('/').pop().replace(/_/g, ' ');
+      const calendarDates = plan.calendar.map(day => day.date);
+      const defaultAnchor = calendarDates[0];
+
+      if (CONVERSION_ACTIVE) {
+        document.getElementById('times-note').innerHTML = `Starting windows for a two-week test — converted from <span class="tz-note">${esc(srcZone)}</span> to your device timezone <span class="tz-note">${esc(VIEWER_TIMEZONE)}</span>, anchored on each slot’s own plan day so DST shifts are respected. The source plan time is shown under each window.`;
+      }
+
+      const defaultLine = item => {
+        if (!CONVERSION_ACTIVE) return `Default calendar time · ${esc(item.default_time)}`;
+        const conv = convertPlanTime(defaultAnchor, item.default_time, srcZone, VIEWER_TIMEZONE);
+        return `Default calendar time · ${esc(conv.time)}${shiftBadge(conv.dayShift, conv.date)} ${esc(VIEWER_ZONE_CITY)}<span class="window-src">${esc(item.default_time)} ${esc(srcCity)} source</span>`;
+      };
+      const windowLine = window => {
+        if (!CONVERSION_ACTIVE) return `<div class="window">${esc(window)}</div>`;
+        const dayMatch = window.match(/(Mon|Tue|Wed|Thu|Fri|Sat|Sun)/);
+        const anchor = dayMatch ? anchorDateForWeekday(dayMatch[1], calendarDates) : defaultAnchor;
+        const range = convertClockRange(window, anchor, srcZone, VIEWER_TIMEZONE);
+        if (!range) return `<div class="window">${esc(window)}</div>`;
+        return `<div class="window">${esc(range.prefix)}${esc(range.start.time)}${shiftBadge(range.start.dayShift, range.start.date)}–${esc(range.end.time)}${shiftBadge(range.end.dayShift, range.end.date)}<span class="window-src">${esc(window)} ${esc(srcCity)} source</span></div>`;
+      };
+
+      const methodZone = CONVERSION_ACTIVE
+        ? `<strong>${esc(srcZone)}</strong> · shown here in <strong>${esc(VIEWER_TIMEZONE)}</strong>`
+        : `<strong>${esc(srcZone)}</strong>`;
+      document.getElementById('times-list').innerHTML = `<p class="method">${esc(plan.best_times.method)} ${methodZone}</p><div class="time-grid">${plan.best_times.platforms.map(item => `<article class="time-card"><h3>${esc(item.label)}</h3><div class="time-zone">${defaultLine(item)}</div>${item.windows.map(windowLine).join('')}<p>${esc(item.why)}</p></article>`).join('')}</div>`;
     }
 
     function renderGaps() {
