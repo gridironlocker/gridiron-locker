@@ -1,17 +1,12 @@
 name: Refresh trends & redeploy
 
-# Keeps the storefront fresh with zero manual work:
-#  1. re-crawls your Viralstyle collections for new / removed designs
-#  2. pulls live headlines and re-scores what is Trending vs Throwback
-#  3. rebuilds every page (new lastmod + dateModified = freshness signal)
-#  4. commits and pushes -> GitHub Pages redeploys automatically
-#  5. pings IndexNow so Bing/Yandex recrawl within minutes
-
 on:
   schedule:
-    # 06:15 UTC every day. Cron on GitHub is best-effort, not to the second.
     - cron: "15 6 * * *"
-  workflow_dispatch:        # lets you run it manually from the Actions tab
+  workflow_dispatch:
+  push:
+    branches:
+      - main
 
 permissions:
   contents: write
@@ -22,18 +17,16 @@ concurrency:
 
 jobs:
   refresh:
+    if: ${{ github.event_name != 'push' || !startsWith(github.event.head_commit.message || '', 'Auto-refresh') }}
     runs-on: ubuntu-latest
     steps:
       - uses: actions/checkout@v4
-
       - uses: actions/setup-python@v5
         with:
           python-version: "3.12"
-
       - name: Install dependencies
         run: pip install --quiet requests beautifulsoup4 lxml
 
-      # --- optional weekly deep re-crawl of the Viralstyle catalogue ---
       - name: Re-crawl product catalogue (Mondays only)
         continue-on-error: true
         run: |
@@ -46,10 +39,23 @@ jobs:
             echo "Not Monday - skipping deep crawl."
           fi
 
-      # --- daily: refresh headlines and trend scoring ---
       - name: Refresh trend data
-        continue-on-error: true
         run: python src/trends.py
+
+      - name: Verify trend data is fresh
+        run: |
+          python - <<'PY'
+          import json, datetime, sys
+          data = json.load(open("data/trends.json"))
+          today = datetime.date.today().isoformat()
+          gen = data.get("generated", "?")
+          total = sum(len(c.get("headlines", [])) for c in data.get("collections", {}).values())
+          print(f"trend data generated: {gen} (today: {today}), {total} headlines captured")
+          if gen != today:
+              sys.exit(f"STALE: data/trends.json was not regenerated today ({gen} != {today})")
+          if total == 0:
+              sys.exit("EMPTY: all feeds returned zero headlines - refusing to publish an emptied site")
+          PY
 
       - name: Rebuild site
         run: python src/build.py
@@ -69,7 +75,6 @@ jobs:
             echo "changed=true" >> $GITHUB_OUTPUT
           fi
 
-      # --- tell Bing / Yandex / Naver immediately (Google uses sitemap lastmod) ---
       - name: Ping IndexNow
         if: steps.commit.outputs.changed == 'true'
         continue-on-error: true
