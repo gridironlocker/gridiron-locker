@@ -148,8 +148,12 @@ def meta_description(name, col, garment, price, colours):
         "{name} for {city} fans. Premium {g}, {c} colourways, sizes S-3XL, from ${p}. Secure checkout, printed and shipped to order.",
     ]
     t = tmpl[len(name) % len(tmpl)]
-    return t.format(name=name, g=garment.lower(), c=colours, p=price,
-                    team=col["team"], city=col["city"].split(",")[0])
+    out = t.format(name=name, g=garment.lower(), c=colours, p=price,
+                   team=col["team"], city=col["city"].split(",")[0])
+    if len(out) > 160:
+        out = (f"{name} - fan-made {garment.lower()}, {colours} colourways, S-3XL, "
+               f"from ${price}. Printed to order, ships worldwide.")
+    return out
 
 def long_description(slug, facts, col, garment, styles, colours, price):
     art = facts["art"]
