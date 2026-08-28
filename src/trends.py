@@ -17,7 +17,14 @@ ROOT = os.path.dirname(os.path.dirname(os.path.abspath(__file__)))
 sys.path.insert(0, os.path.join(ROOT, "src"))
 from collections_data import COLLECTIONS, ORDER
 
-UA = {"User-Agent": "Mozilla/5.0 (compatible; GridironLockerBot/1.0)"}
+# A plain browser UA: Google News rate-limits self-identifying bots hard,
+# especially from datacenter IPs (GitHub Actions runners hop IP pools).
+UA = {
+    "User-Agent": ("Mozilla/5.0 (Windows NT 10.0; Win64; x64) AppleWebKit/537.36 "
+                   "(KHTML, like Gecko) Chrome/126.0.0.0 Safari/537.36"),
+    "Accept": "application/rss+xml, application/xml;q=0.9, */*;q=0.8",
+    "Accept-Language": "en-US,en;q=0.9",
+}
 WINDOW_DAYS = 10
 
 # Query used against Google News, per collection
@@ -101,6 +108,9 @@ def fetch(ckey):
     url = f"https://news.google.com/rss/search?q={q}&hl=en-US&gl=US&ceid=US:en"
     try:
         r = requests.get(url, headers=UA, timeout=30)
+        if r.status_code != 200:
+            print(f"  ! {ckey}: HTTP {r.status_code} from Google News (possible rate limit)")
+            return []
         root = ET.fromstring(r.content)
     except Exception as e:
         print(f"  ! {ckey}: feed error {e}")
@@ -167,6 +177,14 @@ def main():
         hot = [k for k, v in counts.items() if v >= HOT_MIN]
         cold = [k for k, v in counts.items() if v <= THROWBACK_MAX]
         print(f"  {ckey}: {len(items)} headlines | hot={hot} | quiet={cold}")
+
+    total = sum(len(c["headlines"]) for c in data["collections"].values())
+    if total == 0:
+        # Zero headlines across all four teams cannot be real news silence; it
+        # means every feed failed. Keep the existing data and fail the run so
+        # the workflow turns red instead of publishing an emptied site.
+        print("ERROR: all feeds failed - keeping existing data/trends.json untouched")
+        sys.exit(1)
 
     os.makedirs(os.path.join(ROOT, "data"), exist_ok=True)
     out = os.path.join(ROOT, "data", "trends.json")
