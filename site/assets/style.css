@@ -19,6 +19,7 @@ body{margin:0;background:var(--bg);color:var(--ink);font-family:var(--font);
 img{max-width:100%;display:block}
 a{color:inherit;text-decoration:none}
 .wrap{max-width:var(--max);margin:0 auto;padding:0 18px}
+.sr-only{position:absolute;width:1px;height:1px;padding:0;margin:-1px;overflow:hidden;clip:rect(0,0,0,0);white-space:nowrap;border:0}
 h1,h2,h3,h4{font-family:var(--display);line-height:1.06;letter-spacing:-.025em;margin:0 0 .5em;
   text-transform:uppercase;font-weight:900}
 h1{font-size:clamp(1.8rem,5.4vw,3.5rem)}
@@ -431,7 +432,7 @@ footer{border-top:1px solid var(--line);background:var(--bg2);padding:48px 0 30p
   font-size:.87rem;color:var(--muted)}
 .fgrid{display:grid;grid-template-columns:1.7fr 1fr 1fr 1fr;gap:28px}
 @media(max-width:860px){.fgrid{grid-template-columns:1fr 1fr}}
-footer h4{font-size:.76rem;letter-spacing:.13em;color:var(--ink);margin-bottom:13px}
+footer h2,footer h4{font-size:.76rem;letter-spacing:.13em;color:var(--ink);margin-bottom:13px}
 footer a{display:block;padding:4px 0;color:var(--muted);transition:color .2s,transform .2s}
 footer a:hover{color:var(--accent);transform:translateX(3px)}
 .legal{border-top:1px solid var(--line);margin-top:30px;padding-top:19px;font-size:.76rem;

@@ -50,7 +50,7 @@ document.querySelectorAll('.thumb,.swatch,.stylechip').forEach(function(b){
     });
   }
   dots.forEach(function(d,n){d.addEventListener('click',function(){show(n);restart()})});
-  // gentle 6.5s dwell, smooth crossfade — light, not heavy
+  // gentle 6.5s dwell, smooth crossfade - light, not heavy
   function restart(){clearInterval(timer);timer=setInterval(function(){show(cur+1)},6500)}
   function stop(){clearInterval(timer)}
   // swipe left/right on touch devices
@@ -107,7 +107,7 @@ document.querySelectorAll('.thumb,.swatch,.stylechip').forEach(function(b){
     function fallback(){
       var body='Name: '+name+'\nEmail: '+email+'\nTeam/theme: '+(form.querySelector('select[name=team]').value)+'\nGarment: '+(form.querySelector('select[name=garment]').value)+'\nIdea: '+idea+'\nSizes: '+(form.querySelector('input[name=sizes]').value)+'\nDetails: '+(form.querySelector('textarea[name=details]').value);
       window.location.href='mailto:'+atob(CUSTOM_EMAIL)+'?subject='+encodeURIComponent('Custom Design Request from '+name)+'&body='+encodeURIComponent(body);
-      if(msg)msg.textContent='Opening your email app with your request — hit send and we will get back to you within 1-2 days.';
+      if(msg)msg.textContent='Opening your email app with your request - hit send and we will get back to you within 1-2 days.';
     }
   });
 })();
