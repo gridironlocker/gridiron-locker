@@ -2,6 +2,7 @@
 # Everything here is meant to be crawled and indexed.
 
 User-agent: *
+Disallow: /marketing/plan.json
 Allow: /
 
 # Product imagery is a ranking asset - let image crawlers in
@@ -23,3 +24,4 @@ Allow: /
 Crawl-delay: 1
 
 Sitemap: https://gridironlocker.github.io/gridiron-locker/sitemap.xml
+Sitemap: https://gridironlocker.github.io/gridiron-locker/sitemap-images.xml

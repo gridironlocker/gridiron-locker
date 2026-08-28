@@ -64,7 +64,7 @@ def headline_block(ckey, limit=5):
         return ""
     lis = ""
     for h in c["headlines"][:limit]:
-        src = f' <span class="muted">&mdash; {esc(h["source"])}</span>' if h.get("source") else ""
+        src = f' <span class="muted">({esc(h["source"])})</span>' if h.get("source") else ""
         lis += (f'<li><a href="{esc(h["url"])}" target="_blank" rel="nofollow noopener">'
                 f'{esc(h["title"])}</a>{src}</li>')
     return (f'<div class="newsbox"><h3>Latest {esc(COLLECTIONS[ckey]["short"])} headlines</h3>'
@@ -85,6 +85,7 @@ def esc(s):
 def write(path, content):
     full = os.path.join(SITE, path)
     os.makedirs(os.path.dirname(full), exist_ok=True)
+    content = re.sub(r"\s*(?:&mdash;|—)\s*", " - ", content)
     open(full, "w", encoding="utf-8").write(content)
 
 
@@ -137,8 +138,40 @@ def head(title, desc, path, image=None, schema=None, keywords=None, accent=None)
     img = DOMAIN + (image or "/img/hero-home.jpg")
     kw = f'<meta name="keywords" content="{esc(", ".join(keywords[:14]))}">' if keywords else ""
     acc = f"<style>:root{{--accent:{accent}}}</style>" if accent else ""
+
+    rendered_title = html.unescape(title)
+    if len(rendered_title) > 60 and title.endswith(f" | {BRAND}"):
+        candidate = title[:-len(f" | {BRAND}")]
+        if len(html.unescape(candidate)) <= 60:
+            title = candidate
+
+    schemas = list(schema or [])
+    has_org = any(isinstance(s, dict) and s.get("@type") == "Organization" for s in schemas)
+    has_site = any(isinstance(s, dict) and s.get("@type") == "WebSite" for s in schemas)
+    if not has_org:
+        schemas.append({
+            "@context": "https://schema.org",
+            "@type": "Organization",
+            "name": BRAND,
+            "url": DOMAIN,
+            "logo": DOMAIN + "/img/favicon.svg",
+            "sameAs": [c["store"] for c in COLLECTIONS.values()] + ["https://x.com/gridironlocker"],
+        })
+    if not has_site:
+        schemas.append({
+            "@context": "https://schema.org",
+            "@type": "WebSite",
+            "name": BRAND,
+            "url": DOMAIN,
+            "potentialAction": {
+                "@type": "SearchAction",
+                "target": DOMAIN + "/collections/?q={search_term_string}",
+                "query-input": "required name=search_term_string",
+            },
+        })
+
     sc = ""
-    for s in (schema or []):
+    for s in schemas:
         sc += '<script type="application/ld+json">' + json.dumps(s, separators=(",", ":")) + "</script>"
     return f"""<!doctype html>
 <html lang="en">
@@ -243,7 +276,7 @@ def ticker(ckey=None):
     terms = (live + list(TICKER_TERMS))[:16]
     run = "".join(f'<i class="{"hot" if h else ""}">{esc(t)}</i>' for t, h in terms)
     run_dup = run.replace('<i ', '<i aria-hidden="true" ')
-+   return f'<div class="ticker"><div class="track">{run}{run_dup}</div></div>'
+    return f'<div class="ticker"><div class="track">{run}{run_dup}</div></div>'
 
 
 def newsticker():
@@ -328,11 +361,12 @@ def footer():
     <p>{esc(CFG['tagline'])}. Independent, fan-made football graphics printed on demand and
     shipped worldwide. {len(ALL)} designs across {len(ORDER)} collections.</p>
    </div>
-   <div><h4>Collections</h4>{cl}<a href="/collections/">View all</a></div>
-   <div><h4>Help</h4><a href="/size-guide/">Size Guide</a><a href="/shipping/">Shipping &amp; Returns</a>
+   <div><h2>Collections</h2>{cl}<a href="/collections/">View all</a></div>
+   <div><h2>Help</h2><a href="/size-guide/">Size Guide</a><a href="/shipping/">Shipping &amp; Returns</a>
     <a href="/faq/">FAQ</a><a href="/contact/">Contact</a></div>
-   <div><h4>Company</h4><a href="/about/">About Us</a><a href="/2026-season/">2026 Season</a><a href="/guides/">Buying Guides</a>
-    <a href="/trademark-notice/">Trademark Notice</a><a href="/privacy/">Privacy Policy</a></div>
+   <div><h2>Company</h2><a href="/about/">About Us</a><a href="/2026-season/">2026 Season</a><a href="/guides/">Buying Guides</a>
+    <a href="/trademark-notice/">Trademark Notice</a><a href="/privacy/">Privacy Policy</a>
+    <a href="https://x.com/gridironlocker" target="_blank" rel="noopener">X (@gridironlocker)</a></div>
   </div>
   <div class="disclaim"><strong>Independent fan store.</strong> {esc(BRAND)} is not affiliated with,
    endorsed by, sponsored by or licensed by the National Football League, any NFL club, the NCAA,
@@ -350,7 +384,7 @@ def footer():
  <div class="cs-pop-body">
   <span class="cs-pop-kicker">Made to order</span>
   <h3>Want a <span class="accentword">Custom Design</span>?</h3>
-  <p>Your nickname, catchphrase or team slogan — printed on tees, hoodies, mugs &amp; more. No minimum order.</p>
+  <p>Your nickname, catchphrase or team slogan - printed on tees, hoodies, mugs &amp; more. No minimum order.</p>
   <button class="btn lg" id="csPopGo">Tell Us Your Idea &rarr;</button>
  </div>
 </div>
@@ -476,7 +510,7 @@ def page_home():
         {"@context": "https://schema.org", "@type": "Organization", "name": BRAND, "url": DOMAIN,
          "logo": DOMAIN + "/img/favicon.svg",
          "description": f"Independent fan-made football apparel store with {len(ALL)} original designs.",
-         "sameAs": [c["store"] for c in COLLECTIONS.values()]},
+         "sameAs": [c["store"] for c in COLLECTIONS.values()] + ["https://x.com/gridironlocker"]},
         {"@context": "https://schema.org", "@type": "WebSite", "name": BRAND, "url": DOMAIN,
          "potentialAction": {"@type": "SearchAction",
                              "target": DOMAIN + "/collections/?q={search_term_string}",
@@ -573,6 +607,7 @@ def page_collections_index():
  <h1>All Football Fan Collections</h1>
  <p class="muted" style="max-width:70ch">Four team collections, {len(ALL)} original designs. Each
  collection has its own colour palette, slang and artwork style - pick your side below.</p>
+ <h2 class="sr-only">Browse Collections</h2>
  <div class="colgrid" style="margin-top:26px">{cards}</div>
  <div class="prose" style="margin-top:44px">
   <h2>What you will find in each collection</h2>
@@ -650,6 +685,7 @@ def page_collection(k):
   </select>
  </div>
  <p class="muted" id="count" style="font-size:.85rem">{len(items)} designs</p>
+ <h2 class="sr-only">Collection Designs</h2>
  <div class="grid" id="pg">{cards}</div>
  <p class="muted center" id="nores" style="display:none;padding:40px 0">No designs match that search.</p>
 </div></section>
@@ -754,6 +790,8 @@ def page_product(it):
         trendhtml = ""
     kws = it["kw"] + (se["hot"][:3] if it.get("trend") == "hot" else [])
     title = f"{it['name']} | {BRAND}"
+    if len(html.unescape(title)) > 60:
+        title = it["name"]
     body = f"""<main id="main"><div class="light">
 {cb}
 <div class="wrap"><div class="pdp">
@@ -855,8 +893,7 @@ def simple_page(slug, title, desc, h1, inner, prio="0.5", schema=None, crumb_lab
 
 def page_static():
     simple_page("size-guide", "Size Guide & Measurements", 
-        "Size charts for fan-made tees, hoodies, crewnecks and long sleeves: chest, length and sleeve measurements for sizes S to 3XL."
-        "length, sleeve and neck measurements for sizes S to 3XL, plus how to measure at home.",
+        "Size charts for fan-made tees, hoodies, crewnecks and long sleeves: chest, length and sleeve measurements for sizes S to 3XL, plus how to measure at home.",
         "Size Guide", """
 <p>Every apparel item on this site runs <strong>S to 3XL</strong> in a unisex cut unless the design
 name says "women's". Measurements below are the garment laid flat, in inches. If you are between
@@ -970,8 +1007,8 @@ other way round, which is why these read from across a stadium concourse.</p>
 <p>Send us a note via the <a href="/contact/">contact form</a>. We answer every message.</p>""", "0.5")
 
     simple_page("trademark-notice", "Trademark & Intellectual Property Notice",
-        "Our position on trademarks: Independent fan-made artwork: descriptive use of team and city names, no league or player affiliation, and our takedown process. "
-        "names, no affiliation with any league, club, university or player, and our takedown process.",
+        "Our position on trademarks: independent fan-made artwork, descriptive use of team and city "
+        "names, no league affiliation, and our takedown process.",
         "Trademark & Intellectual Property Notice", f"""
 <p><strong>{esc(BRAND)} is an independent store.</strong> We are not affiliated with, endorsed by,
 sponsored by, approved by or licensed by the National Football League, any NFL member club, the
@@ -1019,7 +1056,7 @@ it deleted.</p>""", "0.3")
         "Get in touch about an order, a sizing question, a custom fan design request or a trademark "
         "concern.", "Contact Us", f"""
 <p>We are a small team and we answer every email.</p>
-<div class="panel"><h3>Contact form</h3><p>Use the <a href="../#customForm" style="color:var(--accent)">custom design form on the home page</a> - every message lands straight with us.</p>
+<div class="panel"><h2>Contact form</h2><p>Use the <a href="../#customForm" style="color:var(--accent)">custom design form on the home page</a> - every message lands straight with us.</p>
 <p class="muted">Include your order number if your question is about a delivery.</p></div>
 <h2>What to contact us about</h2>
 <ul>
@@ -1045,7 +1082,8 @@ def page_guides():
         "Cleveland, Green Bay, Dallas and Michigan supporters.",
         "Buying Guides", f"""
 <p>Practical guides for picking the right fan piece - written for people buying for themselves and
-people buying gifts.</p>{cards}""", "0.6")
+people buying gifts.</p>
+<h2 class="sr-only">Team Buying Guides</h2>{cards}""", "0.6")
 
     for k in ORDER:
         c = COLLECTIONS[k]
@@ -1117,7 +1155,7 @@ def page_season():
         picks = [x for x in MODEL[k] if x.get("trend") == "hot"][:4] or MODEL[k][:4]
         note = ('<p class="muted">' + esc(se["legacy_note"]) + "</p>") if se["legacy_note"] else ""
         blocks += f"""<div class="panel reveal" style="margin-bottom:20px;--ca:{c['accent']}">
- <h3 style="color:{c['accent']}">{esc(c['short'])} &middot; {esc(se['opener'].replace('&middot;','-'))}</h3>
+ <h2 style="color:{c['accent']}">{esc(c['short'])} &middot; {esc(se['opener'].replace('&middot;','-'))}</h2>
  <p><strong>{esc(se['headline'])}</strong> {esc(se['status'])}.</p>
  {note}
  <p class="muted" style="font-size:.85rem">Searched this week: {", ".join(esc(x) for x in se['hot'])}</p>
@@ -1169,7 +1207,7 @@ def page_404():
 <div class="btnrow" style="justify-content:center">
 <a class="btn" href="/collections/">All Collections</a>
 <a class="btn ghost" href="/">Home</a></div></div></section></main>"""
-    write("404.html", head("Page not found | " + BRAND, "Page not found.", "/404.html")
+    write("404.html", head("Page not found | " + BRAND, "The page you requested could not be found. Browse fan-made football apparel across Cleveland, Green Bay, Dallas and Michigan collections at Gridiron Locker.", "/404.html")
           + header() + body + footer())
 
 
@@ -1178,10 +1216,10 @@ def assets():
     # Keep this alongside the generated assets so a rebuild cannot remove it.
     write("googleae06215486ed6c17.html", "google-site-verification: googleae06215486ed6c17.html")
     write("robots.txt", f"""# {BRAND} - independent fan apparel storefront
-Disallow: /marketing/plan.json 
-Everything here is meant to be crawled and indexed.
+# Everything here is meant to be crawled and indexed.
 
 User-agent: *
+Disallow: /marketing/plan.json
 Allow: /
 
 # Product imagery is a ranking asset - let image crawlers in
@@ -1203,6 +1241,7 @@ Allow: /
 Crawl-delay: 1
 
 Sitemap: {DOMAIN}/sitemap.xml
+Sitemap: {DOMAIN}/sitemap-images.xml
 """)
     urls = "".join(
         f"<url><loc>{u}</loc><lastmod>{TODAY}</lastmod>"
@@ -1377,7 +1416,7 @@ document.querySelectorAll('.thumb,.swatch,.stylechip').forEach(function(b){
     function fallback(){
       var body='Name: '+name+'\\nEmail: '+email+'\\nTeam/theme: '+(form.querySelector('select[name=team]').value)+'\\nGarment: '+(form.querySelector('select[name=garment]').value)+'\\nIdea: '+idea+'\\nSizes: '+(form.querySelector('input[name=sizes]').value)+'\\nDetails: '+(form.querySelector('textarea[name=details]').value);
       window.location.href='mailto:'+atob(CUSTOM_EMAIL)+'?subject='+encodeURIComponent('Custom Design Request from '+name)+'&body='+encodeURIComponent(body);
-      if(msg)msg.textContent='Opening your email app with your request — hit send and we will get back to you within 1-2 days.';
+      if(msg)msg.textContent='Opening your email app with your request - hit send and we will get back to you within 1-2 days.';
     }
   });
 })();

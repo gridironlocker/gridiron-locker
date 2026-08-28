@@ -384,7 +384,7 @@ def platform_package(
             f"for {audience.lower()}. Explore it here: {url}"
         ),
         "x": trim_x(
-            f"{name} — {info['short']} {context}. Fan-made and printed on demand. {url}"
+            f"{name} - {info['short']} {context}. Fan-made and printed on demand. {url}"
         ),
         "pinterest": (
             f"{name}: an independent {info['short']} football style idea for game days, "

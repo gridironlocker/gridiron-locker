@@ -483,7 +483,7 @@
 
     <section class="panel" id="panel-prompts" aria-labelledby="prompts-tab">
       <div class="panel-head">
-        <div><h2>Image prompts</h2><p>Scene direction stays with mood, light, texture, and environment — never recognizable people or protected marks.</p></div>
+        <div><h2>Image prompts</h2><p>Scene direction stays with mood, light, texture, and environment - never recognizable people or protected marks.</p></div>
         <div class="controls"><label class="sr-only" for="prompt-platform">Prompt platform</label><select class="select" id="prompt-platform" aria-label="Choose prompt format"></select></div>
       </div>
       <p class="result-count" id="prompt-count"></p>
@@ -501,7 +501,7 @@
     let promptPlatform = 'instagram';
     let toastTimer = null;
 
-    /* tz-helpers-start — pure timezone helpers. Keep in sync with marketing/tz-verify.js, which
+    /* tz-helpers-start - pure timezone helpers. Keep in sync with marketing/tz-verify.js, which
        extracts this exact block and asserts its behaviour in Node (node marketing/tz-verify.js). */
     function tzOffsetMs(timeZone, utcDate) {
       // Offset (timeZone wall clock minus UTC) at the given UTC instant.
@@ -633,7 +633,7 @@
         showToast('Copied to clipboard');
         setTimeout(() => { button.textContent = old; button.classList.remove('copied'); }, 1500);
       } catch (error) {
-        showToast('Copy was blocked — select the text manually.');
+        showToast('Copy was blocked - select the text manually.');
       }
     }
 
@@ -718,7 +718,7 @@
       const defaultAnchor = calendarDates[0];
 
       if (CONVERSION_ACTIVE) {
-        document.getElementById('times-note').innerHTML = `Starting windows for a two-week test — converted from <span class="tz-note">${esc(srcZone)}</span> to your device timezone <span class="tz-note">${esc(VIEWER_TIMEZONE)}</span>, anchored on each slot’s own plan day so DST shifts are respected. The source plan time is shown under each window.`;
+        document.getElementById('times-note').innerHTML = `Starting windows for a two-week test - converted from <span class="tz-note">${esc(srcZone)}</span> to your device timezone <span class="tz-note">${esc(VIEWER_TIMEZONE)}</span>, anchored on each slot’s own plan day so DST shifts are respected. The source plan time is shown under each window.`;
       }
 
       const defaultLine = item => {
