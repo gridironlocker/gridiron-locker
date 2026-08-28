@@ -34,6 +34,16 @@ Then open <http://localhost:8000/dashboard.html>. Opening the HTML with `file://
 - **Post queue** — every design ranked by its “post this next” score, with searchable collection filters and copy buttons for all five platform packages.
 - **14-day calendar** — one featured design per day with platform-specific times, captions, hashtags, and copy buttons.
 - **Best times** — practical starting windows for Instagram, TikTok, Facebook, X, and Pinterest in `America/New_York`.
+
+## Timezone handling
+
+All times in `plan.json` are authored in `America/New_York`. In the browser the dashboard converts them to the viewer’s device timezone (`Intl` resolved zone — `Africa/Casablanca` for the operator), anchoring each calendar post on its own plan date and each best-times window on the matching weekday inside the 14-day span, so DST shifts in either zone are respected. The source ET time is shown alongside every converted time, and posts that roll past midnight locally get a `+1d` badge. When the device is already on the plan zone, the dashboard shows the original plan times unchanged.
+
+The conversion helpers live inline in `dashboard.html` between the `tz-helpers-start/end` markers. Verify them against known cases with:
+
+```bash
+node marketing/tz-verify.js
+```
 - **News gaps** — names present in the recent headline snapshot that do not have a catalogue design, plus copyable opportunity notes and source headlines.
 - **Image prompts** — one mood-and-environment prompt per design and platform format, with prompt copy buttons.
 
