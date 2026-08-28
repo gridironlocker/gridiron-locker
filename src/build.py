@@ -242,7 +242,8 @@ def ticker(ckey=None):
                 live.append((f"{t.title()} {short} shirts", 1))
     terms = (live + list(TICKER_TERMS))[:16]
     run = "".join(f'<i class="{"hot" if h else ""}">{esc(t)}</i>' for t, h in terms)
-    return f'<div class="ticker"><div class="track">{run}{run}</div></div>'
+    run_dup = run.replace('<i ', '<i aria-hidden="true" ')
++   return f'<div class="ticker"><div class="track">{run}{run_dup}</div></div>'
 
 
 def newsticker():
@@ -259,7 +260,7 @@ def newsticker():
     run = "".join(
         f'<a href="{esc(u)}" target="_blank" rel="nofollow noopener"><i class="hot">{esc(t)}</i></a>'
         for t, u in items) or ""
-    run2 = run
+    run2 = run.replace('<a href', '<a aria-hidden="true" tabindex="-1" href')
     return f'<div class="newsticker"><div class="track">{run}{run2}</div></div>'
 
 
@@ -484,9 +485,8 @@ def page_home():
          "itemListElement": [{"@type": "ListItem", "position": n + 1, "url": DOMAIN + f"/{COLLECTIONS[k]['slug']}/",
                               "name": COLLECTIONS[k]["name"]} for n, k in enumerate(ORDER)]},
     ]
-    desc = (f"Fan-made football t-shirts, hoodies and gear across {len(ORDER)} team collections - "
-            f"Cleveland, Green Bay, Dallas and Michigan. {len(ALL)} original designs, sizes S-3XL, "
-            f"printed on demand and shipped worldwide.")
+    desc = (f"Fan-made football tees, hoodies and gear across {len(ORDER)} team collections: "
+            f"Cleveland, Green Bay, Dallas and Michigan. {len(ALL)} original designs, S-3XL, shipped worldwide.")
     body = f"""{hero_slides()}
 {newsticker()}
 {week1_section()}
@@ -567,9 +567,8 @@ def page_collections_index():
                     "name": "All Collections", "url": DOMAIN + path,
                     "hasPart": [{"@type": "CollectionPage", "name": COLLECTIONS[k]["name"],
                                  "url": DOMAIN + f"/{COLLECTIONS[k]['slug']}/"} for k in ORDER]}]
-    desc = ("Browse all fan-made football apparel collections: Cleveland Browns Dawg Pound gear, "
-            "Green Bay Packers cheesehead tees, Dallas vintage Texas shirts and Michigan Go Blue "
-            "sweatshirts. Sizes S-3XL, worldwide shipping.")
+    desc = ("Shop fan-made football collections: Cleveland Browns, Green Bay Packers, Dallas "
+            "and Michigan tees & hoodies. Sizes S-3XL, worldwide shipping.")
     body = f"""{cb}<main id="main"><section style="padding-top:6px"><div class="wrap">
  <h1>All Football Fan Collections</h1>
  <p class="muted" style="max-width:70ch">Four team collections, {len(ALL)} original designs. Each
@@ -619,8 +618,8 @@ def page_collection(k):
                        "Unisex sizes S through 3XL on apparel, plus women's cuts on many designs. "
                        "Full measurements are listed on every product page and in the size guide."),
                   ] + list(c.get("faq_extra", []))]}]
-    desc = (f"{c['h1']} - {len(items)} original fan-made designs from ${prices[0]:.2f}. "
-            f"{', '.join(types[:4])} in sizes S-3XL, printed on demand and shipped worldwide.")
+    desc = (f"{c['name']} - {len(items)} fan-made designs from ${prices[0]:.2f}. "
+            f"{', '.join(types[:3])}, sizes S-3XL. Printed on demand, ships worldwide.")
     se = SEASON[k]
     lore = "".join(f"<li>{esc(x)}</li>" for x in c["lore"])
     kwlinks = " &middot; ".join(esc(x) for x in c["keywords"])
@@ -678,7 +677,7 @@ def page_collection(k):
 </div></main>"""
     URLS.append((DOMAIN + path, "0.9", "daily"))
     write(f"{c['slug']}/index.html",
-          head(f"{c['title']} | {BRAND}", desc, path, c["hero"], schema,
+         head(f"{c['name']} | {BRAND}", desc, path, c["hero"], schema,
                c["keywords"] + se["hot"], c["accent"])
           + header(k) + body + footer())
 
@@ -754,7 +753,7 @@ def page_product(it):
     else:
         trendhtml = ""
     kws = it["kw"] + (se["hot"][:3] if it.get("trend") == "hot" else [])
-    title = f"{it['name']} | {c['short']} Fan {it['garment']} | {BRAND}"
+    title = f"{it['name']} | {BRAND}"
     body = f"""<main id="main"><div class="light">
 {cb}
 <div class="wrap"><div class="pdp">
@@ -856,7 +855,7 @@ def simple_page(slug, title, desc, h1, inner, prio="0.5", schema=None, crumb_lab
 
 def page_static():
     simple_page("size-guide", "Size Guide & Measurements", 
-        "Full size chart for fan-made t-shirts, hoodies, crewnecks and long sleeves. Chest, body "
+        "Size charts for fan-made tees, hoodies, crewnecks and long sleeves: chest, length and sleeve measurements for sizes S to 3XL."
         "length, sleeve and neck measurements for sizes S to 3XL, plus how to measure at home.",
         "Size Guide", """
 <p>Every apparel item on this site runs <strong>S to 3XL</strong> in a unisex cut unless the design
@@ -971,7 +970,7 @@ other way round, which is why these read from across a stadium concourse.</p>
 <p>Send us a note via the <a href="/contact/">contact form</a>. We answer every message.</p>""", "0.5")
 
     simple_page("trademark-notice", "Trademark & Intellectual Property Notice",
-        "Our position on trademarks: independent fan-made artwork, descriptive use of team and city "
+        "Our position on trademarks: Independent fan-made artwork: descriptive use of team and city names, no league or player affiliation, and our takedown process. "
         "names, no affiliation with any league, club, university or player, and our takedown process.",
         "Trademark & Intellectual Property Notice", f"""
 <p><strong>{esc(BRAND)} is an independent store.</strong> We are not affiliated with, endorsed by,
@@ -1179,7 +1178,8 @@ def assets():
     # Keep this alongside the generated assets so a rebuild cannot remove it.
     write("googleae06215486ed6c17.html", "google-site-verification: googleae06215486ed6c17.html")
     write("robots.txt", f"""# {BRAND} - independent fan apparel storefront
-# Everything here is meant to be crawled and indexed.
+Disallow: /marketing/plan.json 
+Everything here is meant to be crawled and indexed.
 
 User-agent: *
 Allow: /
