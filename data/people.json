@@ -1,0 +1,137 @@
+{
+  "rules": "Only promote CURRENT players and coaches. Anyone flagged throwback (traded, released, left the program, or replaced) must not be used or mentioned in posts, captions, or hashtags. Statuses reflect the repo's own season data (src/collections_data.py SEASON legacy notes + data/trends.json headlines).",
+  "people": [
+    {
+      "id": "deshaun-watson",
+      "name": "Deshaun Watson",
+      "team": "Cleveland Browns",
+      "role": "Starting quarterback",
+      "status": "current",
+      "why": "Named Cleveland's 2026 starting QB on Aug 24, 2026 (53 recent headline mentions). The QB1 decision is the live story driving Browns search interest.",
+      "design_count": 0,
+      "designs": [],
+      "note": "No design yet - content gap / opportunity."
+    },
+    {
+      "id": "shedeur-sanders",
+      "name": "Shedeur Sanders",
+      "team": "Cleveland Browns",
+      "role": "Rookie quarterback",
+      "status": "current",
+      "why": "Lost the QB1 job to Watson but is still on the roster. 'They Forgot Who I Am' is his shirt - a current player with an overlooked-underdog hook.",
+      "design_count": 3,
+      "designs": ["sanders-13-special-edition", "sanders-12-special-edition", "sanders-special-edition"],
+      "note": "Top-ranked designs in the catalogue (score 100)."
+    },
+    {
+      "id": "todd-monken",
+      "name": "Todd Monken",
+      "team": "Cleveland Browns",
+      "role": "Head coach",
+      "status": "current",
+      "why": "Took over as head coach - the Kevin Stefanski era ended (per season legacy notes).",
+      "design_count": 0,
+      "designs": [],
+      "note": "No design yet - 'new era' angle is open."
+    },
+    {
+      "id": "jordan-love",
+      "name": "Jordan Love",
+      "team": "Green Bay Packers",
+      "role": "Quarterback (QB1)",
+      "status": "current",
+      "why": "Enters 2026 as QB1; Green Bay opens Week 1 at Minnesota with Love under centre.",
+      "design_count": 7,
+      "designs": ["limited-edition-grb31", "limited-edition-grb30", "limited-edition-grb33", "limited-edition-grb36", "limited-edition-grb24", "limited-edition-grb4", "limited-edition-grb11"],
+      "note": "Use freely - current QB1."
+    },
+    {
+      "id": "micah-parsons",
+      "name": "Micah Parsons",
+      "team": "Green Bay Packers",
+      "role": "Linebacker (new addition)",
+      "status": "current",
+      "why": "On the Packers roster for 2026 (per season context).",
+      "design_count": 0,
+      "designs": [],
+      "note": "No design yet - content gap / opportunity."
+    },
+    {
+      "id": "bryce-underwood",
+      "name": "Bryce Underwood",
+      "team": "Michigan",
+      "role": "Quarterback + 2026 captain",
+      "status": "current",
+      "why": "Current Michigan QB and a 2026 team captain; Michigan opens Sept 5 vs Western Michigan.",
+      "design_count": 0,
+      "designs": [],
+      "note": "No design yet - biggest college gap; opener is your soonest game."
+    },
+    {
+      "id": "kyle-whittingham",
+      "name": "Kyle Whittingham",
+      "team": "Michigan",
+      "role": "Head coach",
+      "status": "current",
+      "why": "First season as Michigan head coach (per season context).",
+      "design_count": 0,
+      "designs": [],
+      "note": "No design yet - 'first season' angle is open."
+    },
+    {
+      "id": "denzel-ward",
+      "name": "Denzel Ward",
+      "team": "Cleveland Browns",
+      "role": "Cornerback",
+      "status": "current",
+      "why": "Still on the Browns roster - no departure flagged in the season data.",
+      "design_count": 1,
+      "designs": ["denzel"],
+      "note": "Safe to use; lower priority than the QB story."
+    },
+    {
+      "id": "joe-flacco",
+      "name": "Joe Flacco",
+      "team": "Cleveland Browns (former)",
+      "role": "Former quarterback",
+      "status": "throwback",
+      "why": "No longer with Cleveland. All Flacco designs are throwback pieces.",
+      "design_count": 8,
+      "designs": ["limited-edition-flacco-15", "she-loves-flacco", "flacco-fever-white", "flacco-fever", "flacco-round-and-find-out", "limited-edition-24n153", "winter-hat-beanie-flacco", "limited-edition-n36"],
+      "note": "DO NOT USE or mention."
+    },
+    {
+      "id": "myles-garrett",
+      "name": "Myles Garrett",
+      "team": "Cleveland Browns (former)",
+      "role": "Former defensive end",
+      "status": "throwback",
+      "why": "Traded in June 2026 (per season legacy notes).",
+      "design_count": 2,
+      "designs": ["limited-edition-24n156", "limited-edition-24n155"],
+      "note": "DO NOT USE or mention."
+    },
+    {
+      "id": "kevin-stefanski",
+      "name": "Kevin Stefanski",
+      "team": "Cleveland Browns (former)",
+      "role": "Former head coach",
+      "status": "throwback",
+      "why": "Replaced by Todd Monken. Stefanski-era coach designs are throwback pieces.",
+      "design_count": 10,
+      "designs": ["she-love-coach-stefanski", "limited-edition-24n154", "winter-hat-beanie-stefanski", "limited-edition-2024n3", "limited-mug-2024", "limited-edition-2024", "stefanski-browns-coach-t-shirt-1", "in-stefanski-we-trust-t-shirt", "she-love-coach-kevin", "this-girl-loves-browns-coach"],
+      "note": "DO NOT USE or mention. Generic 'coach' jokes (Our Coach Is Hotter..., Dibs On The Coach) are borderline - re-word to the Monken era or skip."
+    },
+    {
+      "id": "jj-mccarthy",
+      "name": "J.J. McCarthy",
+      "team": "Michigan (former)",
+      "role": "Former quarterback",
+      "status": "throwback",
+      "why": "No longer at Michigan - Bryce Underwood is the current QB and 2026 captain.",
+      "design_count": 3,
+      "designs": ["limited-edition-m-9-v1", "limited-edition-m-9-v2", "limited-edition-m-9-v3"],
+      "note": "DO NOT USE or mention."
+    }
+  ]
+}

@@ -595,6 +595,7 @@ def build_plan(
     facts: dict[str, Any],
     order: list[dict[str, Any]],
     trends: dict[str, Any],
+    people: dict[str, Any],
 ) -> dict[str, Any]:
     if len(order) != 134:
         raise ValueError(f"Expected 134 designs in data/order.json; found {len(order)}")
@@ -633,6 +634,7 @@ def build_plan(
                 "data/facts.json",
                 "data/order.json",
                 "data/trends.json",
+                "data/people.json",
                 "src/collections_data.py:SEASON",
             ],
             "output_file": "marketing/plan.json",
@@ -683,6 +685,10 @@ def build_plan(
         },
         "news_gaps": gaps,
         "image_prompts": image_prompts,
+        "who_is_who": {
+            "rules": people.get("rules", ""),
+            "people": people.get("people", []),
+        },
     }
 
 
@@ -691,7 +697,8 @@ def main() -> None:
     facts = read_json(ROOT / "data" / "facts.json")
     order = read_json(ROOT / "data" / "order.json")
     trends = read_json(ROOT / "data" / "trends.json")
-    plan = build_plan(products, facts, order, trends)
+    people = read_json(ROOT / "data" / "people.json")
+    plan = build_plan(products, facts, order, trends, people)
     OUTPUT.parent.mkdir(parents=True, exist_ok=True)
     OUTPUT.write_text(json.dumps(plan, indent=2, ensure_ascii=False) + "\n", encoding="utf-8")
     print(

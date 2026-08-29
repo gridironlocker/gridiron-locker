@@ -371,6 +371,22 @@
     .headline-list li + li { margin-top: 6px; }
     .empty { padding: 25px; border: 1px dashed var(--line-strong); border-radius: 14px; color: var(--muted); text-align: center; }
 
+    .who-rules { margin: 0 0 15px; padding: 13px 15px; border: 1px solid var(--line); border-radius: 12px; color: var(--muted-strong); background: rgba(255,255,255,.035); font-size: .8rem; }
+    .who-grid { display: grid; grid-template-columns: repeat(2, minmax(0, 1fr)); gap: 12px; }
+    .who-card { padding: 18px; }
+    .who-card.throwback { border-color: rgba(255, 122, 122, .35); background: linear-gradient(180deg, rgba(255, 122, 122, .07), rgba(255, 122, 122, .02)); }
+    .who-head { display: flex; align-items: center; justify-content: space-between; gap: 10px; margin-bottom: 3px; }
+    .who-head h3 { font-size: 1.05rem; }
+    .who-badge { flex: 0 0 auto; padding: 3px 9px; border-radius: 999px; font-size: .66rem; font-weight: 750; letter-spacing: .02em; border: 1px solid; }
+    .who-badge.current { color: var(--green); border-color: rgba(114, 224, 186, .4); background: rgba(114, 224, 186, .08); }
+    .who-badge.throwback { color: #ff8a8a; border-color: rgba(255, 122, 122, .45); background: rgba(255, 122, 122, .1); }
+    .who-role { color: var(--blue); font-size: .74rem; font-weight: 700; margin-bottom: 8px; }
+    .who-why { color: var(--muted-strong); font-size: .8rem; line-height: 1.5; }
+    .who-designs { margin-top: 11px; display: flex; flex-wrap: wrap; gap: 5px; }
+    .who-designs .chip { font-size: .67rem; }
+    .who-note { margin-top: 9px; color: var(--orange); font-size: .74rem; font-weight: 650; }
+    .who-card.throwback .who-note { color: #ff8a8a; }
+
     .prompt-list { display: grid; gap: 10px; }
     .prompt-card { display: grid; grid-template-columns: 45px minmax(150px, .6fr) minmax(0, 1.4fr) auto; gap: 13px; align-items: start; padding: 15px; }
     .prompt-card .rank { width: 34px; height: 34px; font-size: .7rem; }
@@ -454,6 +470,7 @@
       <button class="tab" data-tab="calendar">14-day calendar</button>
       <button class="tab" data-tab="times">Best times</button>
       <button class="tab" data-tab="gaps">News gaps</button>
+      <button class="tab" data-tab="who">Who's who</button>
       <button class="tab" data-tab="prompts">Image prompts</button>
     </nav>
 
@@ -479,6 +496,12 @@
     <section class="panel" id="panel-gaps" aria-labelledby="gaps-tab">
       <div class="panel-head"><div><h2>News gaps</h2><p>Names appearing in the recent headline snapshot without a matching catalogue design.</p></div></div>
       <div id="gaps-list"><div class="loading">Loading news gaps…</div></div>
+    </section>
+
+    <section class="panel" id="panel-who" aria-labelledby="who-tab">
+      <div class="panel-head"><div><h2>Who's who</h2><p>Player &amp; coach context so shared data is clear. Throwback names must not be used or mentioned.</p></div></div>
+      <p class="who-rules" id="who-rules"></p>
+      <div id="who-list"><div class="loading">Loading player context…</div></div>
     </section>
 
     <section class="panel" id="panel-prompts" aria-labelledby="prompts-tab">
@@ -750,6 +773,25 @@
       }).join('')}</div>`;
     }
 
+    function renderWho() {
+      const who = (plan.who_is_who && plan.who_is_who.people) || [];
+      const rules = (plan.who_is_who && plan.who_is_who.rules) || '';
+      document.getElementById('who-rules').textContent = rules;
+      const current = who.filter(p => p.status === 'current');
+      const throwback = who.filter(p => p.status === 'throwback');
+      const card = p => {
+        const isTb = p.status === 'throwback';
+        const badge = isTb ? '<span class="who-badge throwback">THROWBACK — DO NOT USE</span>' : '<span class="who-badge current">CURRENT</span>';
+        const designs = (p.designs || []).map(slug => `<span class="chip">${esc(slug)}</span>`).join('');
+        return `<article class="who-card ${isTb ? 'throwback' : ''}"><div class="who-head"><h3>${esc(p.name)}</h3>${badge}</div><div class="who-role">${esc(p.team)} · ${esc(p.role)}</div><p class="who-why">${esc(p.why)}</p>${designs ? `<div class="who-designs">${designs}</div>` : `<div class="who-designs"><span class="chip cold">no designs in catalogue</span></div>`}${p.note ? `<div class="who-note">${esc(p.note)}</div>` : ''}</article>`;
+      };
+      document.getElementById('who-list').innerHTML =
+        `<h3 class="who-section-title" style="margin: 4px 0 10px; font-size:.85rem; color:var(--green);">Current — safe to use (${current.length})</h3>` +
+        `<div class="who-grid">${current.map(card).join('') || '<div class="empty">None listed.</div>'}</div>` +
+        `<h3 class="who-section-title" style="margin: 22px 0 10px; font-size:.85rem; color:#ff8a8a;">Throwback — do not use or mention (${throwback.length})</h3>` +
+        `<div class="who-grid">${throwback.map(card).join('') || '<div class="empty">None listed.</div>'}</div>`;
+    }
+
     function renderPrompts() {
       const selected = promptPlatform;
       document.getElementById('prompt-count').textContent = `${plan.image_prompts.length} scene prompts · ${labelFor(selected)} format selected`;
@@ -772,6 +814,7 @@
       renderCalendar();
       renderTimes();
       renderGaps();
+      renderWho();
       renderPrompts();
     }
 
