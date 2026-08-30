@@ -34,6 +34,35 @@ HEADLINE_BONUS_CAP = 30
 THEME_BONUS = 6
 THROWBACK_PENALTY = -25
 
+# ── TREND-MASTER opportunity model ──────────────────────────────────────────
+# A second, evidence-weighted view of each design (0-100) that mirrors the
+# operating prompt's OPPORTUNITY SCORING section. Every factor is derived from
+# first-party repository data; the competitive factor is explicitly an estimate
+# because no live rival data exists yet.
+OPPORTUNITY_WEIGHTS = {
+    "audience": 20,
+    "search": 15,
+    "velocity": 15,
+    "gap": 15,
+    "competition": 10,
+    "business": 10,
+    "authority": 5,
+    "longevity": 5,
+    "distribution": 5,
+}
+
+# Team identifiers detected for the social-compliance gate (prompt §7 / §27).
+TEAM_TERMS = {
+    "cleveland-browns": ["cleveland browns", "browns", "dawg pound", "dawgpound", "cleveland"],
+    "green-bay-packers": ["green bay packers", "packers", "cheesehead", "go pack go", "green bay"],
+    "dallas-cowboys": ["dallas cowboys", "cowboys", "dallas"],
+    "michigan": ["michigan", "wolverines", "go blue", "goblue"],
+}
+
+EVERGREEN_THEMES = {"classic", "funny", "family", "city", "retro", "halloween"}
+HYPE_THEMES = {"player", "playoff"}
+HIGH_AOV_TYPES = {"hoodie", "hoodies", "sweatshirt", "sweatshirts", "crewneck", "crewnecks", "beanie", "beanies"}
+
 # These labels and palettes are presentation data for the planning tool. They
 # are not imported from the storefront generator, so this dashboard remains a
 # separate concern from the website build.
@@ -300,6 +329,326 @@ def matched_entities(ckey: str, search_text: str, trend: dict[str, Any]) -> list
     return matches
 
 
+def build_people_lookup(people: dict[str, Any]) -> dict[str, str]:
+    """Map a normalized person/entity name to 'current' or 'throwback'."""
+    lookup: dict[str, str] = {}
+    for person in people.get("people", []):
+        status = str(person.get("status", "")).lower()
+        if status not in {"current", "throwback"}:
+            continue
+        lookup[normalize(person.get("name", ""))] = status
+    return lookup
+
+
+def entity_person_status(entity_name: str, people_lookup: dict[str, str]) -> str | None:
+    """Resolve a matched entity name to its current/throwback status."""
+    candidates = [entity_name, *ENTITY_ALIASES.get(entity_name.lower(), ())]
+    for candidate in candidates:
+        status = people_lookup.get(normalize(candidate))
+        if status:
+            return status
+    return None
+
+
+def collection_trend_stage(season: dict[str, Any], trend: dict[str, Any]) -> tuple[str, str]:
+    """Assign a collection-level trend stage and a one-line rationale."""
+    mention_total = sum(
+        max(0, int(v or 0)) for v in (trend.get("entity_mentions") or {}).values()
+    )
+    status = str(season.get("status", "")).lower()
+    head = str(season.get("headline", "")).lower()
+    opener = str(season.get("opener", "")).lower()
+    if mention_total == 0:
+        return "DECLINING", "No recent headline momentum in the snapshot."
+    hot = ("decision" in status) or ("names" in status) or ("expected" in status)
+    soon = ("opens" in head) or ("week 1" in opener)
+    if hot and mention_total >= 20:
+        return "ACCELERATING", f"Active storyline with {mention_total} recent mentions."
+    if soon:
+        return "ACCELERATING", "Opener is imminent; search intent is spiking."
+    if mention_total >= 15:
+        return "MAINSTREAM", "Established storyline with steady coverage."
+    if mention_total >= 5:
+        return "EMERGING", "Modest but growing attention."
+    return "SATURATED", "Attention is cooling or coverage is crowded."
+
+
+def social_risk(ckey: str, text: str, people_lookup: dict[str, str]) -> dict[str, Any]:
+    """Compliance gate: detect team/player identifiers in promotional copy."""
+    norm = f" {normalize(text)} "
+    team_hits = [term for term in TEAM_TERMS.get(ckey, []) if f" {normalize(term)} " in norm]
+    person_hits: list[str] = []
+    throwback_hits: list[str] = []
+    for person in people_lookup:
+        if f" {person} " in norm:
+            person_hits.append(person)
+            if people_lookup[person] == "throwback":
+                throwback_hits.append(person)
+    terms = list(dict.fromkeys([*team_hits, *person_hits]))
+    if throwback_hits:
+        level = "high"
+    elif terms:
+        level = "medium"
+    else:
+        level = "low"
+    return {
+        "terms": terms,
+        "team_terms": team_hits,
+        "person_terms": person_hits,
+        "throwback_terms": throwback_hits,
+        "level": level,
+        "social_safe": not terms,
+        "social_blocked": bool(terms),
+    }
+
+
+def compute_confidence(
+    score: dict[str, Any], product: dict[str, Any], fact: dict[str, Any], trend: dict[str, Any]
+) -> int:
+    """Evidence-strength confidence (0-100). Never claim certainty we lack."""
+    confidence = 45
+    if product.get("title") and product.get("url"):
+        confidence += 15
+    if fact.get("name") and fact.get("art") and fact.get("kw"):
+        confidence += 10
+    if trend.get("entity_mentions"):
+        confidence += 10
+    if score["season_search_terms"]:
+        confidence += 10
+    confidence -= 15  # No live competitor or analytics data is wired in yet.
+    return max(5, min(90, confidence))
+
+
+def compute_opportunity(
+    ckey: str,
+    fact: dict[str, Any],
+    product: dict[str, Any],
+    score: dict[str, Any],
+    trend: dict[str, Any],
+    season: dict[str, Any],
+    people_lookup: dict[str, str],
+    term_coverage: dict[str, int],
+    entity_coverage: dict[str, int],
+) -> dict[str, Any]:
+    """Build the TREND-MASTER opportunity record for one design."""
+    matched_terms = score["season_search_terms"]
+    entities = score["headline_name_matches"]
+    throwback = score["throwback"]
+    theme = str(fact.get("theme", "classic")).lower()
+    text = searchable_text(product, fact)
+
+    entity_statuses = [
+        entity_person_status(item["name"], people_lookup) for item in entities
+    ]
+    has_current = "current" in entity_statuses
+    has_throwback_person = "throwback" in entity_statuses or throwback
+
+    # Factor 1 — Audience relevance (20%)
+    audience = 55
+    if matched_terms:
+        audience += 20
+    if has_current:
+        audience += 15
+    if theme in HYPE_THEMES:
+        audience += 10
+    if throwback:
+        audience -= 30
+    audience = max(0, min(100, audience))
+
+    # Factor 2 — Search / discovery potential (15%)
+    search = 40
+    if matched_terms:
+        search += 30
+    if fact.get("kw"):
+        search += 15
+    if throwback:
+        search -= 20
+    search = max(0, min(100, search))
+
+    # Factor 3 — Trend velocity (15%)
+    velocity = 30
+    repeat = score["headline_name_repeat_count"]
+    if repeat >= 2:
+        velocity += 40
+    elif repeat == 1:
+        velocity += 20
+    if any(int(item["mentions"] or 0) >= 10 for item in entities):
+        velocity += 15
+    if throwback:
+        velocity -= 20
+    velocity = max(0, min(100, velocity))
+
+    # Factor 4 — Content gap (15%) — rarity of this signal inside our catalogue.
+    term_rarity = min(
+        (term_coverage.get(term, 0) for term in matched_terms),
+        default=999,
+    )
+    entity_rarity = min(
+        (entity_coverage.get(item["name"], 0) for item in entities if item["mentions"] >= 2),
+        default=999,
+    )
+    gap = 50
+    if matched_terms and term_rarity <= 2:
+        gap += 30
+    if entity_rarity <= 2 and entity_rarity != 999:
+        gap += 20
+    if matched_terms and term_rarity >= 6:
+        gap -= 15
+    gap = max(0, min(100, gap))
+
+    # Factor 5 — Competitive weakness (10%) — estimate: no live rival data.
+    competition = 50
+    if matched_terms:
+        competition += 20
+    if throwback:
+        competition -= 20
+    competition = max(0, min(100, competition))
+
+    # Factor 6 — Business value (10%)
+    product_type = str(fact.get("type", "Apparel")).lower()
+    business = 45
+    if any(t in product_type for t in HIGH_AOV_TYPES):
+        business += 20
+    try:
+        if float(product.get("price_usd") or 0) >= 24:
+            business += 15
+    except (TypeError, ValueError):
+        pass
+    if product.get("front"):
+        business += 10
+    if throwback:
+        business -= 15
+    business = max(0, min(100, business))
+
+    # Factor 7 — Authority potential (5%)
+    authority = 40
+    if has_current:
+        authority += 40
+    if theme in HYPE_THEMES:
+        authority += 15
+    if has_throwback_person:
+        authority -= 40
+    authority = max(0, min(100, authority))
+
+    # Factor 8 — Longevity (5%)
+    longevity = 50
+    if theme in EVERGREEN_THEMES:
+        longevity += 30
+    if theme in HYPE_THEMES and not has_throwback_person:
+        longevity -= 20
+    if throwback:
+        longevity -= 40
+    longevity = max(0, min(100, longevity))
+
+    # Factor 9 — Distribution potential (5%)
+    distribution = 50
+    if theme == "funny":
+        distribution += 25
+    if theme in HYPE_THEMES:
+        distribution += 15
+    if product.get("front"):
+        distribution += 10
+    if throwback:
+        distribution -= 25
+    distribution = max(0, min(100, distribution))
+
+    factors = {
+        "audience": audience,
+        "search": search,
+        "velocity": velocity,
+        "gap": gap,
+        "competition": competition,
+        "business": business,
+        "authority": authority,
+        "longevity": longevity,
+        "distribution": distribution,
+    }
+    opp_score = round(
+        sum(OPPORTUNITY_WEIGHTS[k] * factors[k] for k in OPPORTUNITY_WEIGHTS) / 100.0,
+        1,
+    )
+    confidence = compute_confidence(score, product, fact, trend)
+
+    # Trend stage for the design.
+    if throwback:
+        stage = "DECLINING"
+    elif matched_terms and repeat >= 1:
+        stage = "ACCELERATING"
+    elif matched_terms:
+        stage = "EMERGING"
+    elif term_rarity <= 2 and theme not in EVERGREEN_THEMES:
+        stage = "MAINSTREAM"
+    else:
+        stage = "MAINSTREAM" if term_rarity >= 6 else "EMERGING"
+
+    # Opportunity type (prompt vocabulary).
+    if any(int(item["mentions"] or 0) >= 10 for item in entities):
+        opp_type = "Breaking News"
+    elif theme in EVERGREEN_THEMES:
+        opp_type = "Evergreen"
+    else:
+        opp_type = "Commercial"
+
+    # Decision engine (prompt §30).
+    if throwback or has_throwback_person:
+        decision, reason = "REJECT", "Departed player/coach — keep listed, do not promote"
+    elif confidence < 35:
+        decision, reason = "MONITOR", "Insufficient evidence to commit"
+    elif opp_score >= 70:
+        decision, reason = "PUBLISH", "Strong need, evidence, and differentiation"
+    elif opp_score >= 55:
+        decision, reason = "IMPROVE", "Attractive but needs a sharper angle or evidence"
+    else:
+        decision, reason = "MONITOR", "Limited current value; wait for a signal"
+
+    # Opportunity gates (prompt §29).
+    gates = {
+        "audience": {"passed": True, "note": "Targeted fanbase defined"},
+        "evidence": {
+            "passed": bool(matched_terms or entities),
+            "note": "Hot query / entity match" if (matched_terms or entities) else "Evergreen only; weaker evidence",
+        },
+        "differentiation": {
+            "passed": bool(fact.get("art")),
+            "note": "Original design copy present (estimate — no rival comparison yet)",
+        },
+        "discovery": {
+            "passed": bool(matched_terms or fact.get("kw")),
+            "note": "Searchable terms present" if (matched_terms or fact.get("kw")) else "No discovery terms",
+        },
+        "business": {"passed": True, "note": "Commercial product"},
+        "risk": {
+            "passed": not has_throwback_person,
+            "note": "IP/throwback risk" if has_throwback_person else "No elevated risk flagged",
+        },
+        "cannibalization": {
+            "passed": (term_rarity < 5),
+            "note": f"{term_rarity} sibling term match(es)" if matched_terms else "No hot-term overlap",
+        },
+    }
+
+    compliance = social_risk(ckey, text, people_lookup)
+
+    return {
+        "score": opp_score,
+        "confidence": confidence,
+        "factors": factors,
+        "weights": OPPORTUNITY_WEIGHTS,
+        "trend_stage": stage,
+        "opportunity_type": opp_type,
+        "decision": decision,
+        "decision_reason": reason,
+        "gates": gates,
+        "compliance": compliance,
+        "evidence": {
+            "has_season_terms": bool(matched_terms),
+            "has_headline_momentum": bool(repeat >= 1),
+            "has_current_person": has_current,
+            "competitive_data": "estimate — no live rival data",
+        },
+    }
+
+
 def make_hashtags(ckey: str, fact: dict[str, Any], platform: str) -> list[str]:
     info = collection_info(ckey)
     candidates: list[str] = [
@@ -450,8 +799,15 @@ def build_designs(
     facts: dict[str, Any],
     order: list[dict[str, Any]],
     trends: dict[str, Any],
+    people: dict[str, Any],
 ) -> list[dict[str, Any]]:
-    designs: list[dict[str, Any]] = []
+    people_lookup = build_people_lookup(people)
+
+    # Pass 1 — score every design and accumulate per-collection signal coverage
+    # so the content-gap and cannibalization factors are evidence-based.
+    scored: list[dict[str, Any]] = []
+    term_coverage: dict[str, int] = {}
+    entity_coverage: dict[str, int] = {}
     for row in order:
         slug = row.get("slug")
         ckey = row.get("col")
@@ -468,7 +824,21 @@ def build_designs(
         fact = facts[slug]
         trend = trends.get("collections", {}).get(ckey, {})
         score = score_design(row, product, fact, trend, SEASON[ckey])
+        for term in score["season_search_terms"]:
+            term_coverage[term] = term_coverage.get(term, 0) + 1
+        for entity in score["headline_name_matches"]:
+            if int(entity["repeated_mentions"] or 0) >= 2:
+                entity_coverage[entity["name"]] = entity_coverage.get(entity["name"], 0) + 1
+        scored.append((row, ckey, slug, product, fact, trend, score))
+
+    # Pass 2 — assemble the full record including the TREND-MASTER opportunity.
+    designs: list[dict[str, Any]] = []
+    for row, ckey, slug, product, fact, trend, score in scored:
         info = collection_info(ckey)
+        opportunity = compute_opportunity(
+            ckey, fact, product, score, trend, SEASON[ckey],
+            people_lookup, term_coverage, entity_coverage,
+        )
         item: dict[str, Any] = {
             "slug": slug,
             "source_index": row.get("i"),
@@ -485,6 +855,7 @@ def build_designs(
             "keywords": fact.get("kw", []),
             "score": score["score"],
             "score_breakdown": score,
+            "opportunity": opportunity,
         }
         item["platforms"] = platform_package(ckey, product, fact, score)
         designs.append(item)
@@ -595,18 +966,70 @@ def build_plan(
     facts: dict[str, Any],
     order: list[dict[str, Any]],
     trends: dict[str, Any],
+    people: dict[str, Any],
 ) -> dict[str, Any]:
     if len(order) != 134:
         raise ValueError(f"Expected 134 designs in data/order.json; found {len(order)}")
     if len({row.get("slug") for row in order}) != 134:
         raise ValueError("data/order.json must contain 134 unique design slugs")
 
-    designs = build_designs(products, facts, order, trends)
+    designs = build_designs(products, facts, order, trends, people)
     if len(designs) != 134:
         raise ValueError(f"Expected 134 generated designs; found {len(designs)}")
 
     generated_on = dt.date.today()
     gaps = make_news_gaps(trends)
+
+    # Per-collection strategy snapshot for the TREND-MASTER view.
+    strategy = []
+    for ckey, value in SEASON.items():
+        trend = trends.get("collections", {}).get(ckey, {})
+        stage, stage_note = collection_trend_stage(value, trend)
+        members = [item for item in designs if item["collection"] == ckey]
+        top = max(
+            members,
+            key=lambda item: item["opportunity"]["score"],
+        ) if members else None
+        strategy.append(
+            {
+                "collection": ckey,
+                "collection_label": collection_info(ckey)["label"],
+                "trend_stage": stage,
+                "trend_stage_note": stage_note,
+                "headline": value.get("headline", ""),
+                "status": value.get("status", ""),
+                "hot_terms": value.get("hot", []),
+                "top_opportunity": {
+                    "slug": top["slug"],
+                    "name": top["name"],
+                    "opportunity_score": top["opportunity"]["score"],
+                    "decision": top["opportunity"]["decision"],
+                    "trend_stage": top["opportunity"]["trend_stage"],
+                    "opportunity_type": top["opportunity"]["opportunity_type"],
+                } if top else None,
+            }
+        )
+
+    compliance_summary = {
+        "licensing_status": "UNVERIFIED",
+        "restriction": (
+            "Promotional social content must not use team names, player names, "
+            "player likenesses, or protected marks until licensing is verified. "
+            "This is a hard constraint after the Instagram enforcement action."
+        ),
+        "social_blocked_designs": sum(
+            1 for item in designs if item["opportunity"]["compliance"]["social_blocked"]
+        ),
+        "social_safe_designs": sum(
+            1 for item in designs if item["opportunity"]["compliance"]["social_safe"]
+        ),
+        "high_risk_designs": sum(
+            1
+            for item in designs
+            if item["opportunity"]["compliance"]["level"] == "high"
+        ),
+    }
+
     image_prompts = [
         {
             "rank": item["rank"],
@@ -633,6 +1056,7 @@ def build_plan(
                 "data/facts.json",
                 "data/order.json",
                 "data/trends.json",
+                "data/people.json",
                 "src/collections_data.py:SEASON",
             ],
             "output_file": "marketing/plan.json",
@@ -683,6 +1107,30 @@ def build_plan(
         },
         "news_gaps": gaps,
         "image_prompts": image_prompts,
+        "who_is_who": {
+            "rules": people.get("rules", ""),
+            "people": people.get("people", []),
+        },
+        "opportunity_model": {
+            "weights": OPPORTUNITY_WEIGHTS,
+            "decision_bands": {
+                "PUBLISH": "opportunity score >= 70 and confidence >= 35",
+                "IMPROVE": "opportunity score >= 55",
+                "MONITOR": "below threshold or low confidence",
+                "REJECT": "throwback / departed player-coach",
+            },
+            "confidence_note": (
+                "Confidence is derived from first-party evidence (product, fact, "
+                "trend, season data) and is reduced because no live competitor "
+                "or analytics data is wired in yet."
+            ),
+            "competitive_note": (
+                "The competitive-weakness factor is an estimate: no live rival "
+                "data exists, so it is not asserted as measured."
+            ),
+        },
+        "strategy": strategy,
+        "compliance": compliance_summary,
     }
 
 
@@ -691,7 +1139,8 @@ def main() -> None:
     facts = read_json(ROOT / "data" / "facts.json")
     order = read_json(ROOT / "data" / "order.json")
     trends = read_json(ROOT / "data" / "trends.json")
-    plan = build_plan(products, facts, order, trends)
+    people = read_json(ROOT / "data" / "people.json")
+    plan = build_plan(products, facts, order, trends, people)
     OUTPUT.parent.mkdir(parents=True, exist_ok=True)
     OUTPUT.write_text(json.dumps(plan, indent=2, ensure_ascii=False) + "\n", encoding="utf-8")
     print(
