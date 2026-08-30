@@ -216,6 +216,22 @@ manual "Run workflow" button too:
 6. **Pings IndexNow** so Bing, Yandex and Naver recrawl within minutes.
 7. **Mondays:** also re-crawls Viralstyle for new/removed designs and pulls new images.
 
+### On-demand refresh — "update highlights"
+
+Standing convention: whenever the owner asks the Arena agent to **"update highlights"**, that
+means run this pipeline on demand (instead of waiting for the next 06:15 UTC cron):
+
+1. The agent pushes a commit to its session branch and opens a **PR to `main`**.
+2. The moment the PR is **merged**, the push triggers `refresh.yml`, which re-fetches live
+   Google News headlines, re-scores trends, rebuilds the site, commits the
+   `Auto-refresh: ...` result and redeploys to GitHub Pages.
+3. The agent then reports the run status from `gh run list` / the PR.
+
+The agent's sandbox cannot call the GitHub Actions API directly (workflow dispatch is 403 for the
+bot token) and has no egress to `news.google.com`, so the PR-merge is the trigger — the actual
+headline fetch always happens on GitHub's runners, never from the sandbox. Fallback: the manual
+"Run workflow" button on the Actions tab does the same job.
+
 It validated itself on the first run - with zero manual input it independently reached the same
 conclusions I did by hand:
 
