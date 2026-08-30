@@ -34,6 +34,8 @@ Then open <http://localhost:8000/dashboard.html>. Opening the HTML with `file://
 - **Post queue** — every design ranked by its “post this next” score, with searchable collection filters and copy buttons for all five platform packages.
 - **14-day calendar** — one featured design per day with platform-specific times, captions, hashtags, and copy buttons.
 - **Best times** — practical starting windows for Instagram, TikTok, Facebook, X, and Pinterest in `America/New_York`.
+- **Who's who** — current vs throwback player/coach context, so shared data is self-explanatory.
+- **Opportunities** — the TREND-MASTER view: per-design opportunity score (0–100, weighted factors), evidence confidence, trend stage, opportunity type, decision (PUBLISH / IMPROVE / MONITOR / REJECT), the seven opportunity gates, and a social-compliance risk flag.
 
 ## Timezone handling
 
@@ -69,10 +71,14 @@ The generated JSON contains:
 
 - `meta` and `score_rules` — provenance, source files, platform list, and scoring constants;
 - `season_context` — the current season status, opener, search terms, and legacy notes;
-- `queue` — 134 complete design records with product links, source image links, scores, breakdowns, and five platform packages;
+- `queue` — 134 complete design records with product links, source image links, scores, breakdowns, five platform packages, and a TREND-MASTER `opportunity` record;
 - `calendar` — 14 days × five platform-specific scheduled posts;
 - `best_times` — timing guidance used by the calendar;
 - `news_gaps` — current uncovered names and recent source headlines;
-- `image_prompts` — the prompt-only view used by the final dashboard tab.
+- `image_prompts` — the prompt-only view used by the final dashboard tab;
+- `who_is_who` — current vs throwback player/coach context from `data/people.json`;
+- `opportunity_model` — the weighted factor model, decision bands, and evidence notes;
+- `strategy` — per-collection trend stage, headline, and top opportunity;
+- `compliance` — licensing status and the social-blocked / social-safe design counts.
 
 Run the generator again after refreshing the four data snapshots or the season context. The output stays inside `marketing/` so planning updates cannot change the deployable storefront.

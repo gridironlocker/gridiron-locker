@@ -387,6 +387,47 @@
     .who-note { margin-top: 9px; color: var(--orange); font-size: .74rem; font-weight: 650; }
     .who-card.throwback .who-note { color: #ff8a8a; }
 
+    .compliance-banner { margin: 0 0 16px; padding: 14px 16px; border: 1px solid rgba(255, 177, 90, .4); border-radius: 12px; background: rgba(255, 177, 90, .08); color: var(--muted-strong); font-size: .8rem; line-height: 1.5; }
+    .compliance-banner strong { color: var(--orange); }
+    .strategy-grid { display: grid; grid-template-columns: repeat(2, minmax(0, 1fr)); gap: 12px; margin-bottom: 18px; }
+    .strategy-card { padding: 16px 18px; }
+    .strategy-card p { margin: 8px 0 0; color: var(--muted-strong); font-size: .78rem; line-height: 1.5; }
+    .strategy-top { margin-top: 10px; padding-top: 10px; border-top: 1px solid var(--line); font-size: .76rem; color: var(--muted); }
+    .strategy-top strong { color: var(--ink); }
+    .opp-list { display: grid; gap: 8px; }
+    .opp-row { display: grid; grid-template-columns: 44px minmax(160px, 1.6fr) 120px 96px 120px 92px 150px; gap: 12px; align-items: center; padding: 12px 14px; border: 1px solid var(--line); border-radius: 12px; background: var(--panel); }
+    .opp-row .opp-name h4 { font-size: .86rem; margin: 0 0 2px; }
+    .opp-row .opp-name p { color: var(--muted); font-size: .68rem; margin: 0; }
+    .opp-row .opp-name { cursor: pointer; }
+    .scorebar { height: 7px; border-radius: 999px; background: var(--line); overflow: hidden; }
+    .scorebar > span { display: block; height: 100%; background: linear-gradient(90deg, var(--blue), var(--green)); border-radius: 999px; }
+    .opp-score b { font-size: .95rem; }
+    .opp-score span { display: block; color: var(--muted); font-size: .66rem; margin-top: 2px; }
+    .chip-pill { display: inline-block; padding: 3px 9px; border-radius: 999px; font-size: .66rem; font-weight: 750; letter-spacing: .02em; border: 1px solid; white-space: nowrap; }
+    .stage-ACCELERATING { color: var(--green); border-color: rgba(114, 224, 186, .45); background: rgba(114, 224, 186, .1); }
+    .stage-EMERGING { color: var(--blue); border-color: rgba(124, 200, 255, .45); background: rgba(124, 200, 255, .1); }
+    .stage-MAINSTREAM { color: var(--muted-strong); border-color: var(--line-strong); background: rgba(255,255,255,.04); }
+    .stage-SATURATED { color: var(--muted); border-color: var(--line); background: rgba(255,255,255,.02); }
+    .stage-DECLINING { color: #ff8a8a; border-color: rgba(255,122,122,.4); background: rgba(255,122,122,.08); }
+    .decision-PUBLISH { color: var(--green); border-color: rgba(114, 224, 186, .45); background: rgba(114, 224, 186, .1); }
+    .decision-IMPROVE { color: var(--blue); border-color: rgba(124, 200, 255, .45); background: rgba(124, 200, 255, .1); }
+    .decision-MONITOR { color: var(--orange); border-color: rgba(255, 177, 90, .4); background: rgba(255, 177, 90, .08); }
+    .decision-REJECT { color: #ff8a8a; border-color: rgba(255,122,122,.4); background: rgba(255,122,122,.08); }
+    .risk-medium { color: var(--orange); border-color: rgba(255, 177, 90, .4); background: rgba(255, 177, 90, .08); }
+    .risk-high { color: #ff8a8a; border-color: rgba(255,122,122,.45); background: rgba(255,122,122,.1); }
+    .risk-low { color: var(--green); border-color: rgba(114, 224, 186, .4); background: rgba(114, 224, 186, .08); }
+    .opp-gates { color: var(--muted); font-size: .68rem; line-height: 1.4; }
+    .opp-gates b { color: var(--muted-strong); }
+    .opp-details { margin-top: 9px; padding-top: 9px; border-top: 1px solid var(--line); color: var(--muted); font-size: .72rem; display: none; grid-column: 1 / -1; }
+    .opp-row.expanded .opp-details { display: block; }
+    .gate-line { display: inline-block; margin-right: 10px; }
+    .gate-line.ok { color: var(--green); }
+    .gate-line.no { color: #ff8a8a; }
+    @media (max-width: 900px) {
+      .opp-row { grid-template-columns: 1fr; }
+      .strategy-grid { grid-template-columns: 1fr; }
+    }
+
     .prompt-list { display: grid; gap: 10px; }
     .prompt-card { display: grid; grid-template-columns: 45px minmax(150px, .6fr) minmax(0, 1.4fr) auto; gap: 13px; align-items: start; padding: 15px; }
     .prompt-card .rank { width: 34px; height: 34px; font-size: .7rem; }
@@ -471,6 +512,7 @@
       <button class="tab" data-tab="times">Best times</button>
       <button class="tab" data-tab="gaps">News gaps</button>
       <button class="tab" data-tab="who">Who's who</button>
+      <button class="tab" data-tab="opps">Opportunities</button>
       <button class="tab" data-tab="prompts">Image prompts</button>
     </nav>
 
@@ -502,6 +544,27 @@
       <div class="panel-head"><div><h2>Who's who</h2><p>Player &amp; coach context so shared data is clear. Throwback names must not be used or mentioned.</p></div></div>
       <p class="who-rules" id="who-rules"></p>
       <div id="who-list"><div class="loading">Loading player context…</div></div>
+    </section>
+
+    <section class="panel" id="panel-opps" aria-labelledby="opps-tab">
+      <div class="panel-head">
+        <div><h2>Opportunities</h2><p>TREND-MASTER view — evidence-weighted opportunity score, confidence, trend stage, decision, gates, and social compliance per design.</p></div>
+        <div class="controls">
+          <input class="input" id="opp-search" type="search" placeholder="Search designs, teams, themes…" aria-label="Search opportunities">
+          <select class="select" id="opp-collection" aria-label="Filter by collection"><option value="all">All collections</option></select>
+          <select class="select" id="opp-decision" aria-label="Filter by decision">
+            <option value="all">All decisions</option>
+            <option value="PUBLISH">PUBLISH</option>
+            <option value="IMPROVE">IMPROVE</option>
+            <option value="MONITOR">MONITOR</option>
+            <option value="REJECT">REJECT</option>
+          </select>
+        </div>
+      </div>
+      <div class="compliance-banner" id="compliance-banner"></div>
+      <div class="strategy-grid" id="strategy-grid"><div class="loading">Loading strategy…</div></div>
+      <p class="result-count" id="opp-count"></p>
+      <div class="opp-list" id="opp-list"><div class="loading">Loading opportunities…</div></div>
     </section>
 
     <section class="panel" id="panel-prompts" aria-labelledby="prompts-tab">
@@ -792,6 +855,64 @@
         `<div class="who-grid">${throwback.map(card).join('') || '<div class="empty">None listed.</div>'}</div>`;
     }
 
+    function renderOpportunities() {
+      const opps = plan.queue.slice().sort((a, b) => b.opportunity.score - a.opportunity.score);
+      const compliance = plan.compliance || {};
+      const banner = document.getElementById('compliance-banner');
+      if (banner) {
+        banner.innerHTML = '<strong>Social compliance:</strong> licensing status <strong>' + esc(compliance.licensing_status || 'UNVERIFIED') + '</strong> &mdash; ' + esc(compliance.restriction || '') + ' <strong>' + esc(compliance.social_blocked_designs ?? 0) + ' blocked</strong> / ' + esc(compliance.social_safe_designs ?? 0) + ' safe for social.';
+      }
+      const strategy = plan.strategy || [];
+      const stratGrid = document.getElementById('strategy-grid');
+      stratGrid.innerHTML = strategy.map(function (s) {
+        const top = s.top_opportunity || {};
+        return '<article class="panel strategy-card"><h3>' + esc(s.collection_label) + ' <span class="chip-pill stage-' + esc(s.trend_stage) + '">' + esc(s.trend_stage) + '</span></h3><p>' + esc(s.headline || '') + '</p><div class="strategy-top"><strong>Top opportunity:</strong> ' + esc(top.name || '\u2014') + ' <span class="chip-pill decision-' + esc(top.decision || 'MONITOR') + '">' + esc(top.decision || '') + '</span> &middot; ' + esc(top.opportunity_score ?? '') + '/100</div></article>';
+      }).join('');
+
+      const collection = document.getElementById('opp-collection').value;
+      const decision = document.getElementById('opp-decision').value;
+      const query = (document.getElementById('opp-search').value || '').toLowerCase();
+      const filtered = opps.filter(function (it) {
+        if (collection !== 'all' && it.collection !== collection) return false;
+        if (decision !== 'all' && it.opportunity.decision !== decision) return false;
+        if (query) {
+          const hay = (it.name + ' ' + it.collection_label + ' ' + it.theme + ' ' + it.design_text).toLowerCase();
+          if (hay.indexOf(query) === -1) return false;
+        }
+        return true;
+      });
+      document.getElementById('opp-count').textContent = filtered.length + ' of ' + opps.length + ' designs \u00b7 sorted by opportunity score';
+      const gateLabels = { audience: 'Audience', evidence: 'Evidence', differentiation: 'Differentiation', discovery: 'Discovery', business: 'Business', risk: 'Risk', cannibalization: 'Cannibalization' };
+      document.getElementById('opp-list').innerHTML = filtered.map(function (it) {
+        const o = it.opportunity;
+        const gates = o.gates || {};
+        const gatesLine = Object.keys(gateLabels).map(function (k) {
+          const g = gates[k];
+          const ok = g ? g.passed : true;
+          return '<span class="gate-line ' + (ok ? 'ok' : 'no') + '">' + (ok ? '\u2713' : '\u2717') + ' ' + esc(gateLabels[k]) + '</span>';
+        }).join('');
+        const factors = Object.keys(o.factors || {}).map(function (k) { return k + ' ' + o.factors[k]; }).join(' \u00b7 ');
+        const riskLevel = (o.compliance || {}).level || 'low';
+        const riskTerms = ((o.compliance || {}).terms || []).join(', ');
+        return '<article class="opp-row" data-slug="' + esc(it.slug) + '">' +
+          '<span class="rank">' + String(it.rank).padStart(2, '0') + '</span>' +
+          '<div class="opp-name" data-toggle="' + esc(it.slug) + '"><h4>' + esc(it.name) + '</h4><p>' + esc(it.collection_label) + ' \u00b7 ' + esc(it.theme) + '</p></div>' +
+          '<div class="opp-score"><b>' + esc(o.score) + '</b><div class="scorebar"><span style="width:' + esc(o.score) + '%"></span></div><span>conf ' + esc(o.confidence) + '</span></div>' +
+          '<span class="chip-pill stage-' + esc(o.trend_stage) + '">' + esc(o.trend_stage) + '</span>' +
+          '<span class="chip-pill decision-' + esc(o.decision) + '">' + esc(o.decision) + '</span>' +
+          '<span class="chip-pill risk-' + esc(riskLevel) + '">social ' + esc(riskLevel) + '</span>' +
+          '<div class="opp-gates"><b>' + esc(o.opportunity_type) + '</b> \u00b7 ' + esc(o.decision_reason) + '</div>' +
+          '<div class="opp-details"><b>Factors:</b> ' + esc(factors) + '<br><b>Gates:</b> ' + gatesLine + '<br>' + (riskTerms ? '<b>Social risk terms:</b> ' + esc(riskTerms) : '') + '</div>' +
+        '</article>';
+      }).join('') || '<div class="empty">No designs match the current filters.</div>';
+      document.querySelectorAll('[data-toggle]').forEach(function (el) {
+        el.addEventListener('click', function () {
+          const row = el.closest('.opp-row');
+          if (row) row.classList.toggle('expanded');
+        });
+      });
+    }
+
     function renderPrompts() {
       const selected = promptPlatform;
       document.getElementById('prompt-count').textContent = `${plan.image_prompts.length} scene prompts · ${labelFor(selected)} format selected`;
@@ -802,6 +923,8 @@
       const collections = [...new Map(plan.queue.map(item => [item.collection, item.collection_label])).entries()];
       const select = document.getElementById('queue-collection');
       select.innerHTML = '<option value="all">All collections</option>' + collections.map(([key, label]) => `<option value="${esc(key)}">${esc(label)}</option>`).join('');
+      const oppSelect = document.getElementById('opp-collection');
+      if (oppSelect) oppSelect.innerHTML = select.innerHTML;
       const promptSelect = document.getElementById('prompt-platform');
       promptSelect.innerHTML = plan.meta.platforms.map(platform => `<option value="${esc(platform)}">${esc(labelFor(platform))}</option>`).join('');
       promptSelect.value = promptPlatform;
@@ -815,6 +938,7 @@
       renderTimes();
       renderGaps();
       renderWho();
+      renderOpportunities();
       renderPrompts();
     }
 
@@ -830,9 +954,14 @@
         document.querySelectorAll('.panel').forEach(panel => panel.classList.toggle('active', panel.id === 'panel-' + tab.dataset.tab));
       }
     });
-    document.addEventListener('input', event => { if (event.target.id === 'queue-search') renderQueue(); });
+    document.addEventListener('input', event => {
+      if (event.target.id === 'queue-search') renderQueue();
+      if (event.target.id === 'opp-search') renderOpportunities();
+    });
     document.addEventListener('change', event => {
       if (event.target.id === 'queue-collection') renderQueue();
+      if (event.target.id === 'opp-collection') renderOpportunities();
+      if (event.target.id === 'opp-decision') renderOpportunities();
       if (event.target.id === 'prompt-platform') { promptPlatform = event.target.value; renderPrompts(); }
     });
 
