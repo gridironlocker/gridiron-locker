@@ -203,8 +203,8 @@ Same treatment on the product page gallery and thumbnails.
 
 ## It now updates itself after deployment
 
-`.github/workflows/refresh.yml` runs **daily at 06:15 UTC** on GitHub's servers (free), with a
-manual "Run workflow" button too:
+`.github/workflows/refresh.yml` runs **twice daily at 06:15 and 15:15 UTC** (07:15 and 16:15
+Casablanca) on GitHub's servers (free), with a manual "Run workflow" button too:
 
 1. **Pulls live headlines** for all four teams from public Google News RSS - no API key needed.
 2. **Re-scores every design automatically.** It counts how often each player/coach is mentioned in
@@ -221,7 +221,7 @@ manual "Run workflow" button too:
 ### On-demand refresh — "update highlights"
 
 Standing convention: whenever the owner asks the Arena agent to **"update highlights"**, that
-means run this pipeline on demand (instead of waiting for the next 06:15 UTC cron):
+means run this pipeline on demand (instead of waiting for the next scheduled cron, 06:15 / 15:15 UTC):
 
 1. The agent pushes a commit to its session branch and opens a **PR to `main`**.
 2. The moment the PR is **merged**, the push triggers `refresh.yml`, which re-fetches live
