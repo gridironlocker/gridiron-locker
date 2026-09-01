@@ -212,7 +212,9 @@ manual "Run workflow" button too:
 3. **Publishes the real headlines** on each collection page and the season hub, with source
    attribution and `rel="nofollow noopener"` links.
 4. **Rebuilds all 154 pages** with a fresh `lastmod` and `dateModified`.
-5. **Commits and pushes** - GitHub Pages redeploys on its own.
+5. **Commits and pushes, then deploys** the rebuilt site to GitHub Pages in the same run (the
+   deploy cannot rely on the push event - GitHub does not trigger workflows from `GITHUB_TOKEN`
+   pushes, so `refresh.yml` carries its own Pages deploy steps).
 6. **Pings IndexNow** so Bing, Yandex and Naver recrawl within minutes.
 7. **Mondays:** also re-crawls Viralstyle for new/removed designs and pulls new images.
 
