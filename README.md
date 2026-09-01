@@ -203,8 +203,8 @@ Same treatment on the product page gallery and thumbnails.
 
 ## It now updates itself after deployment
 
-`.github/workflows/refresh.yml` runs **daily at 06:15 UTC** on GitHub's servers (free), with a
-manual "Run workflow" button too:
+`.github/workflows/refresh.yml` runs **twice daily at 06:15 and 15:15 UTC** (07:15 and 16:15
+Casablanca) on GitHub's servers (free), with a manual "Run workflow" button too:
 
 1. **Pulls live headlines** for all four teams from public Google News RSS - no API key needed.
 2. **Re-scores every design automatically.** It counts how often each player/coach is mentioned in
@@ -212,9 +212,27 @@ manual "Run workflow" button too:
 3. **Publishes the real headlines** on each collection page and the season hub, with source
    attribution and `rel="nofollow noopener"` links.
 4. **Rebuilds all 154 pages** with a fresh `lastmod` and `dateModified`.
-5. **Commits and pushes** - GitHub Pages redeploys on its own.
+5. **Commits and pushes, then deploys** the rebuilt site to GitHub Pages in the same run (the
+   deploy cannot rely on the push event - GitHub does not trigger workflows from `GITHUB_TOKEN`
+   pushes, so `refresh.yml` carries its own Pages deploy steps).
 6. **Pings IndexNow** so Bing, Yandex and Naver recrawl within minutes.
 7. **Mondays:** also re-crawls Viralstyle for new/removed designs and pulls new images.
+
+### On-demand refresh — "update highlights"
+
+Standing convention: whenever the owner asks the Arena agent to **"update highlights"**, that
+means run this pipeline on demand (instead of waiting for the next scheduled cron, 06:15 / 15:15 UTC):
+
+1. The agent pushes a commit to its session branch and opens a **PR to `main`**.
+2. The moment the PR is **merged**, the push triggers `refresh.yml`, which re-fetches live
+   Google News headlines, re-scores trends, rebuilds the site, commits the
+   `Auto-refresh: ...` result and redeploys to GitHub Pages.
+3. The agent then reports the run status from `gh run list` / the PR.
+
+The agent's sandbox cannot call the GitHub Actions API directly (workflow dispatch is 403 for the
+bot token) and has no egress to `news.google.com`, so the PR-merge is the trigger — the actual
+headline fetch always happens on GitHub's runners, never from the sandbox. Fallback: the manual
+"Run workflow" button on the Actions tab does the same job.
 
 It validated itself on the first run - with zero manual input it independently reached the same
 conclusions I did by hand:
