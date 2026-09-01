@@ -11,6 +11,8 @@ on:
 
 permissions:
   contents: write
+  pages: write
+  id-token: write
 
 concurrency:
   group: refresh
@@ -20,6 +22,9 @@ jobs:
   refresh:
     if: ${{ github.event_name != 'push' || !startsWith(github.event.head_commit.message || '', 'Auto-refresh') }}
     runs-on: ubuntu-latest
+    environment:
+      name: github-pages
+      url: ${{ steps.deployment.outputs.page_url }}
     steps:
       - uses: actions/checkout@v4
       - uses: actions/setup-python@v5
@@ -75,7 +80,15 @@ jobs:
             git push
             echo "changed=true" >> $GITHUB_OUTPUT
           fi
-
+      - name: Setup Pages
+        uses: actions/configure-pages@v5
+      - name: Upload website
+        uses: actions/upload-pages-artifact@v4
+        with:
+          path: './site'
+      - name: Deploy to GitHub Pages
+        id: deployment
+        uses: actions/deploy-pages@v4
       - name: Ping IndexNow
         if: steps.commit.outputs.changed == 'true'
         continue-on-error: true
