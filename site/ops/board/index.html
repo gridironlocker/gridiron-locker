@@ -1,0 +1,237 @@
+<!doctype html>
+<html lang="en">
+<head>
+<meta charset="utf-8">
+<meta name="viewport" content="width=device-width,initial-scale=1">
+<meta name="robots" content="noindex,nofollow,noarchive">
+<meta name="theme-color" content="#070c15">
+<title>Operator Board | Gridiron Locker</title>
+<style>
+:root{color-scheme:dark;--ink:#eef3fb;--muted:#8fa1bd;--canvas:#070c15;--panel:#0e1826;
+--panel2:#132135;--line:rgba(160,190,225,.14);--line2:rgba(160,190,225,.26);
+--blue:#79c6ff;--green:#5fe0ac;--orange:#ffb15a;--pink:#ec9cff;--red:#ff8181;
+--font:Inter,ui-sans-serif,system-ui,-apple-system,"Segoe UI",sans-serif}
+*{box-sizing:border-box}
+html,body{height:100%}
+body{margin:0;font-family:var(--font);color:var(--ink);background:
+radial-gradient(circle at 6% -10%,rgba(121,198,255,.16),transparent 36rem),
+radial-gradient(circle at 98% 0%,rgba(95,224,172,.10),transparent 32rem),var(--canvas);
+display:flex;flex-direction:column;overflow:hidden;font-size:14px;line-height:1.45}
+a{color:var(--blue);text-decoration:none}a:hover{color:#c2e7ff}
+header{border-bottom:1px solid var(--line);background:rgba(7,12,21,.85);backdrop-filter:blur(14px)}
+.hdr{display:flex;align-items:center;gap:14px;padding:12px 18px;flex-wrap:wrap}
+.brand{display:flex;align-items:center;gap:10px;font-weight:850;letter-spacing:-.02em;font-size:1.05rem}
+.mark{display:grid;place-items:center;width:32px;height:32px;border-radius:10px;font-size:.8rem;
+font-weight:900;color:#05121f;background:linear-gradient(135deg,var(--blue),var(--green))}
+.brand small{display:block;font-size:.6rem;letter-spacing:.16em;text-transform:uppercase;
+color:var(--muted);font-weight:700}
+.pill{display:inline-flex;align-items:center;gap:7px;padding:5px 11px;border-radius:999px;
+border:1px solid var(--line2);color:#c3d3e8;background:rgba(255,255,255,.03);font-size:.74rem;white-space:nowrap}
+.pill.warn{border-color:rgba(255,129,129,.5);color:var(--red);background:rgba(255,129,129,.08)}
+.dot{width:7px;height:7px;border-radius:50%;background:var(--green);box-shadow:0 0 9px var(--green)}
+.hdr .spacer{margin-left:auto}
+.kpis{display:grid;grid-template-columns:repeat(auto-fit,minmax(120px,1fr));gap:10px;padding:10px 18px 12px}
+.kpi{border:1px solid var(--line);border-radius:13px;padding:9px 13px;
+background:linear-gradient(180deg,var(--panel),var(--canvas))}
+.kpi b{display:block;font-size:1.35rem;line-height:1.1;letter-spacing:-.03em}
+.kpi span{color:var(--muted);font-size:.7rem;text-transform:uppercase;letter-spacing:.08em}
+.board{flex:1;min-height:0;display:grid;grid-template-columns:1fr 1.3fr 1fr;gap:12px;
+padding:0 18px 12px}
+.col{min-height:0;overflow:auto;border:1px solid var(--line);border-radius:16px;
+background:rgba(14,24,38,.72);padding:12px 13px}
+.col::-webkit-scrollbar{width:8px}
+.col::-webkit-scrollbar-thumb{background:rgba(160,190,225,.18);border-radius:99px}
+.colhead{display:flex;align-items:center;justify-content:space-between;gap:8px;margin:0 0 10px;
+padding-bottom:8px;border-bottom:1px solid var(--line)}
+.colhead h2{margin:0;font-size:.82rem;letter-spacing:.14em;text-transform:uppercase;color:var(--muted)}
+.colhead em{font-style:normal;font-size:.7rem;color:var(--muted)}
+.card{border:1px solid var(--line);border-radius:13px;background:var(--panel2);padding:11px 12px;margin-bottom:9px}
+.card:last-child{margin-bottom:0}
+.clock{border-left:3px solid var(--ca)}
+.clock .top{display:flex;align-items:baseline;justify-content:space-between;gap:8px}
+.clock b{font-size:.98rem}
+.clock .t{font-family:ui-monospace,SFMono-Regular,Menlo,monospace;font-size:.86rem;color:var(--blue);
+font-variant-numeric:tabular-nums}
+.clock .g{color:var(--muted);font-size:.78rem}
+.clock .bar{height:5px;border-radius:99px;background:rgba(255,255,255,.07);margin-top:8px;overflow:hidden}
+.clock .bar i{display:block;height:100%;background:var(--ca)}
+.slot{display:grid;grid-template-columns:auto 1fr auto;gap:10px;align-items:center}
+.slot .id{font-family:ui-monospace,Menlo,monospace;font-size:.68rem;color:var(--muted)}
+.slot .nm{font-weight:750;letter-spacing:.01em}
+.slot .sub{color:var(--muted);font-size:.74rem}
+.badge{padding:3px 9px;border-radius:999px;font-size:.66rem;font-weight:850;letter-spacing:.06em;
+text-transform:uppercase;border:1px solid transparent;white-space:nowrap}
+.s-live{color:#052318;background:var(--green)}
+.s-art{color:#05202f;background:var(--blue)}
+.s-brief{color:#2a1a06;background:var(--orange)}
+.s-upload{color:#2a0a2a;background:var(--pink)}
+.rule{border:1px solid rgba(255,177,90,.45);background:rgba(255,177,90,.07);border-radius:12px;
+padding:9px 11px;color:#ffd7a8;font-size:.78rem;margin-bottom:9px}
+.rule b{color:var(--orange)}
+.frow{display:grid;grid-template-columns:1fr auto auto;gap:9px;align-items:center;
+padding:7px 0;border-bottom:1px solid var(--line)}
+.frow:last-child{border-bottom:0}
+.frow .who{font-size:.82rem}
+.frow .idx{font-family:ui-monospace,Menlo,monospace;font-size:.78rem;color:var(--blue)}
+.meter{width:74px;height:5px;border-radius:99px;background:rgba(255,255,255,.07);overflow:hidden}
+.meter i{display:block;height:100%;background:linear-gradient(90deg,var(--blue),var(--green))}
+.hl{padding:7px 0;border-bottom:1px solid var(--line);font-size:.8rem}
+.hl:last-child{border-bottom:0}
+.hl span{display:inline-block;padding:1px 7px;border-radius:6px;font-size:.64rem;font-weight:800;
+letter-spacing:.06em;text-transform:uppercase;margin-right:6px}
+footer{border-top:1px solid var(--line);padding:9px 18px;display:flex;gap:16px;align-items:center;
+flex-wrap:wrap;color:var(--muted);font-size:.74rem;background:rgba(7,12,21,.7)}
+footer code{font-family:ui-monospace,Menlo,monospace;color:#cfe2ff;background:rgba(255,255,255,.05);
+padding:1px 6px;border-radius:6px}
+footer .spacer{margin-left:auto}
+@media(max-width:1100px){body{overflow:auto;height:auto}
+ .board{grid-template-columns:1fr}.col{overflow:visible;max-height:none}}
+</style>
+</head>
+<body>
+<header><div class="hdr">
+ <div class="brand"><span class="mark">GL</span> Operator Board
+  <small>Gridiron Locker &middot; control room</small></div>
+ <span class="pill warn"><span class="dot" style="background:var(--red);box-shadow:0 0 9px var(--red)"></span>
+  Private &middot; not the storefront</span>
+ <span class="pill"><span class="dot"></span> Trend data 2026-09-02 &middot; 10d window</span>
+ <span class="spacer"></span>
+ <span class="pill"><a href="../scout/index.html">Scout &rarr;</a></span>
+ <span class="pill"><a href="../design-drop/index.html">Design drop &rarr;</a></span>
+ <span class="pill"><a href="https://gridironlocker.github.io/gridiron-locker/guides/2026-week-1-shirts/" target="_blank" rel="noopener">Public Week 1 guide &rarr;</a></span>
+</div>
+<div class="kpis">
+ <div class="kpi"><b>134</b><span>Designs live</span></div>
+ <div class="kpi"><b>3</b><span>Trending now</span></div>
+ <div class="kpi"><b>3/8</b><span>Week 1 slots live</span></div>
+ <div class="kpi"><b>5</b><span>Content gaps</span></div>
+ <div class="kpi"><b>8</b><span>Tracked entities</span></div>
+ <div class="kpi"><b>8</b><span>Fresh headlines</span></div>
+</div></header>
+
+<div class="board">
+ <section class="col"><div class="colhead"><h2>Kickoff clock</h2><em>Week 1 2026</em></div><div class="card clock" style="--ca:#FFCB05" data-deadline="2026-09-05T12:00:00-04:00">
+ <div class="top"><b>Michigan</b><span class="t">--</span></div>
+ <div class="g">Sept 5 vs Western Michigan</div>
+ <div class="bar"><i style="width:79%"></i></div>
+</div><div class="card clock" style="--ca:#FF6A13" data-deadline="2026-09-13T13:00:00-04:00">
+ <div class="top"><b>Cleveland</b><span class="t">--</span></div>
+ <div class="g">Sept 13 at Jacksonville</div>
+ <div class="bar"><i style="width:22%"></i></div>
+</div><div class="card clock" style="--ca:#2BAE66" data-deadline="2026-09-13T16:25:00-05:00">
+ <div class="top"><b>Green Bay</b><span class="t">--</span></div>
+ <div class="g">Sept 13 at Minnesota</div>
+ <div class="bar"><i style="width:22%"></i></div>
+</div><div class="card clock" style="--ca:#8FA0B8" data-deadline="2026-09-13T20:20:00-05:00">
+ <div class="top"><b>Dallas</b><span class="t">--</span></div>
+ <div class="g">Sept 13 at NY Giants (SNF)</div>
+ <div class="bar"><i style="width:22%"></i></div>
+</div><div class="card">
+ <div class="g" style="color:var(--muted)">3 of 8 Week 1 slots live &middot; 134 designs in the locker &middot;
+ 3 tagged trending.</div>
+</div></section>
+ <section class="col"><div class="colhead"><h2>Week 1 drop</h2><em>DESIGN-BLUEPRINT &sect;5b</em></div><div class="rule"><b>Slogan law.</b> Identity slogans, not player faces. The Cleveland
+ quarterback slot is <b>slogan only</b> (LET IT RIP / NEW ERA): no face, no surname, no number.
+ A slot may be <i>brief</i> in here - the public page still shows a live sibling, never a gap.</div><div class="card" style="border-left:3px solid #FFCB05">
+ <div class="colhead" style="border:0;padding:0;margin-bottom:8px">
+  <h2 style="color:#FFCB05">Michigan</h2>
+  <em>1/2 live</em></div>
+ <div class="slot">
+ <span class="id">W1-07</span>
+ <span><span class="nm">MICHIGAN VS EVERYBODY</span><br>
+  <span class="sub">Sweatshirt &middot; #FFCB05 on #00274C &middot; sibling: Michigan Vs Everybody Grey Sweatshirt</span></span>
+ <span class="badge s-live">live</span>
+</div><div class="slot">
+ <span class="id">W1-08</span>
+ <span><span class="nm">BET</span><br>
+  <span class="sub">Tee &middot; Maize on navy &middot; sibling: Bet M Michigan Sweatshirt</span></span>
+ <span class="badge s-art">art</span>
+</div></div><div class="card" style="border-left:3px solid #FF6A13">
+ <div class="colhead" style="border:0;padding:0;margin-bottom:8px">
+  <h2 style="color:#FF6A13">Cleveland</h2>
+  <em>0/2 live</em></div>
+ <div class="slot">
+ <span class="id">W1-01</span>
+ <span><span class="nm">LET IT RIP</span><br>
+  <span class="sub">Tee + hoodie &middot; #FF6A13 on ink black &middot; sibling: Cleveland Under Dawgs Playoffs Shirt</span></span>
+ <span class="badge s-art">art</span>
+</div><div class="slot">
+ <span class="id">W1-02</span>
+ <span><span class="nm">NEW ERA</span><br>
+  <span class="sub">Crewneck + tee &middot; Bone on #311D00 &middot; sibling: Sundays Are For The Dawgs Est 1946 Shirt</span></span>
+ <span class="badge s-art">art</span>
+</div></div><div class="card" style="border-left:3px solid #2BAE66">
+ <div class="colhead" style="border:0;padding:0;margin-bottom:8px">
+  <h2 style="color:#2BAE66">Green Bay</h2>
+  <em>1/2 live</em></div>
+ <div class="slot">
+ <span class="id">W1-03</span>
+ <span><span class="nm">GO PACK GO</span><br>
+  <span class="sub">Tee &middot; #2BAE66 + gold &middot; sibling: Go Pack Go Stencil Shirt</span></span>
+ <span class="badge s-live">live</span>
+</div><div class="slot">
+ <span class="id">W1-04</span>
+ <span><span class="nm">SUNDAY FUNDAY</span><br>
+  <span class="sub">Crewneck &middot; Cream on forest &middot; sibling: Sunday Funday Wisconsin Outline Shirt</span></span>
+ <span class="badge s-art">art</span>
+</div></div><div class="card" style="border-left:3px solid #8FA0B8">
+ <div class="colhead" style="border:0;padding:0;margin-bottom:8px">
+  <h2 style="color:#8FA0B8">Dallas</h2>
+  <em>1/2 live</em></div>
+ <div class="slot">
+ <span class="id">W1-05</span>
+ <span><span class="nm">STAR CITY</span><br>
+  <span class="sub">Tee &middot; #8FA0B8 on #0B1B33 &middot; sibling: Dallas Texas State Flag Pride Shirt</span></span>
+ <span class="badge s-brief">brief</span>
+</div><div class="slot">
+ <span class="id">W1-06</span>
+ <span><span class="nm">DOOMSDAY</span><br>
+  <span class="sub">Vintage tee &middot; Washed silver &middot; sibling: Doomsday Defense Dallas Football Shirt</span></span>
+ <span class="badge s-live">live</span>
+</div></div><div class="card"><a href="design-drop/index.html">Open the Week 1 design drop &rarr;</a>
+ <span style="color:var(--muted);font-size:.78rem">Art briefs, export list, upload checklist.</span></div></section>
+ <section class="col"><div class="colhead"><h2>Live signal</h2><em>FTI &amp; headlines</em></div><div class="frow"><span class="who">Deshaun Watson <span class="badge s-brief">gap</span></span>
+ <span class="meter"><i style="width:100%"></i></span>
+ <span class="idx">100</span></div><div class="frow"><span class="who">Shedeur Sanders </span>
+ <span class="meter"><i style="width:71%"></i></span>
+ <span class="idx">71</span></div><div class="frow"><span class="who">Bryce Underwood </span>
+ <span class="meter"><i style="width:43%"></i></span>
+ <span class="idx">43</span></div><div class="frow"><span class="who">Kyle Whittingham <span class="badge s-brief">gap</span></span>
+ <span class="meter"><i style="width:43%"></i></span>
+ <span class="idx">43</span></div><div class="frow"><span class="who">Josh Jacobs <span class="badge s-brief">gap</span></span>
+ <span class="meter"><i style="width:37%"></i></span>
+ <span class="idx">37</span></div><div class="frow"><span class="who">Todd Monken <span class="badge s-brief">gap</span></span>
+ <span class="meter"><i style="width:23%"></i></span>
+ <span class="idx">23</span></div><div class="frow"><span class="who">Ceedee Lamb <span class="badge s-brief">gap</span></span>
+ <span class="meter"><i style="width:11%"></i></span>
+ <span class="idx">11</span></div><div class="frow"><span class="who">Dak Prescott </span>
+ <span class="meter"><i style="width:6%"></i></span>
+ <span class="idx">6</span></div><div class="rule" style="margin-top:10px"><b>Open gaps:</b> Deshaun Watson, Todd Monken, Micah Parsons, Bryce Underwood, Kyle Whittingham.
+ Slogan-led designs only - no faces, no numbers.<br>
+ These names are internal tracking. They never appear on art, on a public page,
+ or in a caption.</div><div class="hl"><span style="color:#FFCB05">Michigan</span><a href="https://news.google.com/rss/articles/CBMihgFBVV95cUxOMGpjaTd1Y1F5bFkyRG4yeVVfWi1WNjhKb2pObzBSM0c1aXFQT0ZtR0VELTMyZVlFRHlaLTJjWXB6VTVsdkZXUnQ5OVRWVE9fLXVHU0x5VVlZcTktOHUwVzhubV9KZy1DVWF1SUhnQ1NTUW5hQmI0QlY5c1VOSDM2RTJhM1FDUQ?oc=5" target="_blank" rel="noopener">Michigan Monday: Game 1 vs. Western Michigan</a></div><div class="hl"><span style="color:#FFCB05">Michigan</span><a href="https://news.google.com/rss/articles/CBMi1wFBVV95cUxNd0NkMEx6ZjNiYkpuVmV3NTJDejZjSG1KV1BfbDZqMUs4dGZLWUhmTHVlVkl1NUhzTk1IT1ZYTDNZZEhJamU2YUR1UW5QTzZlVHpRcjJLV05aWnBTeWhEa3dpazN5QlZwR01YNzlXQm5seXp3dUhIaDZiak1FV3RteUJxVF82WVdyN0ZwNnBSQVlobzNIRVpwM1lGU1ZkM25aYlRtZFR6V1NyMEtLYjAzWmw3ZDN0M3BBOG1JbVVCQjcwVW82WWpybWtLbGtZcU03MkVLWTc5cw?oc=5" target="_blank" rel="noopener">Urban Meyer disagrees with Kyle Whittingham on Ohio State-Michigan rivalry</a></div><div class="hl"><span style="color:#FF6A13">Cleveland</span><a href="https://news.google.com/rss/articles/CBMipgFBVV95cUxOQk9NbzAwUnp0U0lxR0lmRTl2am13cTNaeWVrdVIwREpuVFVSZ2JnMU9VWHhGUHdKV09SU0YwTk9fZkU5am41Nk93eFlwM1Z3ejJIeU1pWHFLa0ZCWEktajFnS3A1d1ZMdlpKVnZxS0dfOVVIOGRyc0RJc0Nfb1FNWEduNTlZWjEzeUxqM2dVU2dpUFZKLUNFNEFxSHE4Tmg0THg2TkJB?oc=5" target="_blank" rel="noopener">Browns announce initial 53-man roster heading into the 2026 season</a></div><div class="hl"><span style="color:#FF6A13">Cleveland</span><a href="https://news.google.com/rss/articles/CBMioAFBVV95cUxNTWh1NTdQLWVTMHc0emQ4ZXNScGR2YkF6WFlpUWFOYVBic2ZZUXpWNzdaZmJXa2hjM2otWmtxR2FXWG56LVFOQk96Rms2ZFlaYXlZQWRiX1d4SGpReE5FUTlYUzZyLVdrcVdRaE5fc2I0QkdiYkwyWEt1S1ZhLWtFWDFlc0l3V2ZXaHEyZktadzBJazRaU2o0cWZHMGc1eU5B?oc=5" target="_blank" rel="noopener">Deshaun Watson and the moral dilemma at the forefront of Cleveland Browns football</a></div><div class="hl"><span style="color:#2BAE66">Green Bay</span><a href="https://news.google.com/rss/articles/CBMirwFBVV95cUxORERldXFzczNPX094SnZjbE1EZWswQ3dNUk14YjdMVG9WTW90SllHTm5FbUlsU1pCSEs3Ylc3eWRweFVwYnJ5ckpKZk92bXRXSEpBRzZLVG5lelFqYUlMc0RyQlRWejMxUGlnVHppR0Q2cDFLZ043TzJPMEJ6djlTaEVBMXVSR0ZuU0JLeGRkY1RuWFpod1RrVWthai1CZ2lSRmtTMUhJU0NwNmF0Y21N?oc=5" target="_blank" rel="noopener">Packers keep six receivers, seven defensive linemen: Here’s the initial 2026 roster</a></div><div class="hl"><span style="color:#2BAE66">Green Bay</span><a href="https://news.google.com/rss/articles/CBMitAFBVV95cUxOU0tMdTRtcnNRSC1vZDdkSV9WbUFKLUhXMW1JQUxnby0yUzJlcU5scUtYSS1nNEpnU21QaDNYclI4dlZLRjBUY2VVMVRJX09nT0RoMHJNN2JDRDFOTWRlVXI1dzVWRmoxRWRScUhQcmp5N1dXcnF4M2Z5WElsMXRJN2RIXy1RY1JOb2dHenFuOTdwUk9UTmtZMXJBY0I2N0Zrbzl3dkFWT0Ywby1VX2cySUhZX2U?oc=5" target="_blank" rel="noopener">Green Bay Packers: Projecting final 53-man roster</a></div><div class="hl"><span style="color:#8FA0B8">Dallas</span><a href="https://news.google.com/rss/articles/CBMirwFBVV95cUxNS3AwRlhvenVyczZNeDVMM2xmSFdnQi1zSlB2Q2x2dUJpOTNSVkt0SC1qYXZjUWp1cW5FQWRzR3ZzRjhYNnRNVmJXLWpuNWhBZmFTaFczX1h3VlVybmRod2IxNkNwc2dWMlFfU0h5SGJ1WVltMXJWRjdEemZMQ1RsMlhkbWZfTkEwblRLV2ZsOWNlc2ROb1lUYURRQXFNVmhtVE5RMndMY3VrNzhRRlZR?oc=5" target="_blank" rel="noopener">Sam Williams, Jaydon Blue among 39 roster moves as Cowboys trim roster to 53</a></div><div class="hl"><span style="color:#8FA0B8">Dallas</span><a href="https://news.google.com/rss/articles/CBMisAFBVV95cUxOd3JRdVNzcWxERGF1cXNOTjdTbmtFWGdFd2VTTERRUVFhZmw5QWRIRlY3ZGhWbzA2bUFRUWpnSnB3WnQ3Nm45b19UQnoxc0hmRW5WRUhMWDNldGxvOFdTZS11SGZqMmFMcW5XT2xlMGt0UjRLaWtyYmlWSk5zbndlRzBGRzd3dWJPSW9fbmhfUWlQbUhTdFRCSFB2OXpSM19YYi1uSVdVTWV6Uy1vdXNoTw?oc=5" target="_blank" rel="noopener">Game Recap: New Orleans Saints 27, Dallas Cowboys 24 | 2026 NFL Preseason Week 3</a></div></section>
+</div>
+
+<footer>
+ <span>Kickoff clock runs in your local time (operator: Africa/Casablanca).</span>
+ <span><code>python3 ops/board/build.py</code> to regenerate &middot;
+ <code>python3 src/trends.py &amp;&amp; python3 src/build.py</code> to refresh everything.</span>
+ <span class="spacer"></span>
+ <span>/ops/ is Disallow-ed in robots.txt. Never link this page from public nav.</span>
+</footer>
+<script>
+function pad(n){return n<10?'0'+n:''+n}
+function tick(){
+  document.querySelectorAll('[data-deadline]').forEach(function(el){
+    var end=new Date(el.dataset.deadline).getTime(), now=Date.now(), d=end-now;
+    var out=el.querySelector('.t');
+    if(isNaN(end)||!out) return;
+    if(d<=0){out.textContent='KICKED OFF';return}
+    var days=Math.floor(d/86400000), hrs=Math.floor(d/3600000)%24,
+        mins=Math.floor(d/60000)%60, secs=Math.floor(d/1000)%60;
+    out.textContent=days+'d '+pad(hrs)+':'+pad(mins)+':'+pad(secs);
+  });
+}
+tick(); setInterval(tick,1000);
+</script>
+</body></html>
