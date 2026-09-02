@@ -1237,8 +1237,253 @@ it deleted.</p>""", "0.3")
 
 
 # ---------------------------------------------------------------- guides (SEO articles)
+WEEK1_PATH = "/guides/2026-week-1-shirts/"
+# Week 1 2026 slate - the public face of DESIGN-BLUEPRINT.md §5b. Ordered by
+# kickoff so the earliest game (Michigan, Sept 5) leads. `status` is internal:
+# it feeds ops/board and ops/design-drop and is never rendered on a public page.
+WEEK1_SLATE = OrderedDict((
+    ("michigan", [
+        dict(slot="W1-07", slogan="MICHIGAN VS EVERYBODY", garment="Sweatshirt",
+             palette="#FFCB05 on #00274C", status="live", sibling="limited-edition-m-fans-n30",
+             note="The oldest grudge in the Big Ten, four words long."),
+        dict(slot="W1-08", slogan="BET", garment="Tee",
+             palette="Maize on navy", status="art", sibling="limited-edition-m-fans-n28",
+             note="Three letters, one syllable, zero explanation needed."),
+    ]),
+    ("cleveland-browns", [
+        dict(slot="W1-01", slogan="LET IT RIP", garment="Tee + hoodie",
+             palette="#FF6A13 on ink black", status="art", sibling="all-we-want-all-we-got-25",
+             note="Quarterback slot - slogan only. No face, no name, no number."),
+        dict(slot="W1-02", slogan="NEW ERA", garment="Crewneck + tee",
+             palette="Bone on #311D00", status="art", sibling="d-a-w-g-s-limited-edition",
+             note="Same slot, second read: a new staff, a new season, new gear."),
+    ]),
+    ("green-bay-packers", [
+        dict(slot="W1-03", slogan="GO PACK GO", garment="Tee",
+             palette="#2BAE66 + gold", status="live", sibling="limited-edition-grb5",
+             note="The chant, stencilled. Works in September and in January."),
+        dict(slot="W1-04", slogan="SUNDAY FUNDAY", garment="Crewneck",
+             palette="Cream on forest", status="art", sibling="limited-edition-grb25",
+             note="For the 16:25 kickoff that turns into the whole afternoon."),
+    ]),
+    ("dallas-cowboys", [
+        dict(slot="W1-05", slogan="STAR CITY", garment="Tee",
+             palette="#8FA0B8 on #0B1B33", status="brief", sibling="vintage-texas-pride",
+             note="Texas pride without borrowing anybody's logo."),
+        dict(slot="W1-06", slogan="DOOMSDAY", garment="Vintage tee",
+             palette="Washed silver", status="live", sibling="doomsday-defense-tee",
+             note="One word, distressed, straight out of a 1970s programme."),
+    ]),
+))
+WEEK1_ORDER = list(WEEK1_SLATE)
+# Slogan-led kickoff copy for the public page. Deliberately free of player and
+# coach names: the Week 1 story is the slogan, not the depth chart.
+WEEK1_LINES = {
+    "michigan": "The earliest kickoff in the locker, and the first home Saturday of the season.",
+    "cleveland-browns": "First road trip of a new season - orange on the road, orange at home.",
+    "green-bay-packers": "A late-afternoon divisional kickoff, which in Minnesota means layers.",
+    "dallas-cowboys": "Prime time, Sunday night, the biggest stage of Week 1.",
+}
+# Slogan-led themes. Week 1 picks prefer these over player art: the house rule
+# is identity slogans, not player faces (DESIGN-BLUEPRINT.md §1).
+WEEK1_THEMES = ("playoff", "city", "retro", "classic", "funny")
+
+
+def week1_game(se):
+    """'Sept 13 at Jacksonville' - strips the 'Week 1 &middot;' prefix cleanly."""
+    return se["opener"].split("&middot;")[-1].strip()
+
+
+def week1_picks(k, n=4):
+    """Live sibling designs for a Week 1 slot (DESIGN-BLUEPRINT.md §5c).
+
+    Declared siblings first (so the page matches the drop brief), then
+    slogan-led themes, then the rest of the collection. Never returns an empty
+    list, so a shopper can never land on an empty grid.
+    """
+    items = MODEL.get(k) or []
+    by_slug = {x["slug"]: x for x in items}
+    picks, have = [], set()
+    # 1. the sibling each slot declares (keeps the drop brief and the page in sync)
+    for slot in WEEK1_SLATE.get(k, []):
+        it = by_slug.get(slot.get("sibling"))
+        if it and it["slug"] not in have:
+            picks.append(it)
+            have.add(it["slug"])
+    # 2. slogan-led themes
+    for x in items:
+        if len(picks) >= n:
+            break
+        if x["theme"] in WEEK1_THEMES and x["slug"] not in have:
+            picks.append(x)
+            have.add(x["slug"])
+    # 3. whatever is left - a Week 1 grid is never empty
+    for x in items:
+        if len(picks) >= n:
+            break
+        if x["slug"] not in have:
+            picks.append(x)
+            have.add(x["slug"])
+    return picks[:n]
+
+
+def week1_sibling(k, i):
+    """The live design standing in for Week 1 slot i (ops board / design drop)."""
+    picks = week1_picks(k, 4)
+    if not picks:
+        return None
+    return picks[i] if i < len(picks) else picks[0]
+
+
+def week1_order_line(k):
+    """Plain-English order-by advice that never points at a date in the past."""
+    try:
+        kick = datetime.date.fromisoformat(SEASON[k]["kickoff"][:10])
+    except (ValueError, KeyError):
+        return "Order as early as you can - everything is printed after you buy it."
+    target = kick - datetime.timedelta(days=7)
+    if target <= datetime.date.today():
+        return ("Order today: this kickoff is already inside the normal print window, "
+                "so every day counts.")
+    return f"Order by <strong>{target.strftime('%b %d')}</strong> to have it in hand before kickoff."
+
+
+def page_week1_graphics():
+    """Week 1 2026 public guide: kickoff dates + the slogan graphics to wear."""
+    path = WEEK1_PATH
+    cb, cbs = crumbs([("Home", "/"), ("Guides", "/guides/"), ("2026 Week 1 Shirts", None)], path)
+
+    rows = ""
+    for k in WEEK1_ORDER:
+        c, se = COLLECTIONS[k], SEASON[k]
+        kick = datetime.date.fromisoformat(se["kickoff"][:10])
+        rows += (f'<tr><td><a href="/{c["slug"]}/">{esc(c["short"])}</a></td>'
+                 f'<td>{kick.strftime("%a %b")} {kick.day}</td>'
+                 f'<td>{esc(week1_game(se))}</td>'
+                 f'<td>{" &middot; ".join(esc(s["slogan"]) for s in WEEK1_SLATE[k])}</td></tr>')
+
+    blocks = ""
+    for k in WEEK1_ORDER:
+        c, se = COLLECTIONS[k], SEASON[k]
+        kick = datetime.date.fromisoformat(se["kickoff"][:10])
+        slots = WEEK1_SLATE[k]
+        chips = "".join(
+            f'<span style="display:inline-block;border:1px solid {c["accent"]};color:{c["accent"]};'
+            f'border-radius:999px;padding:6px 13px;font-size:.74rem;font-weight:900;'
+            f'letter-spacing:.07em">{esc(s["slogan"])}</span>' for s in slots)
+        notes = "".join(f'<li><strong>{esc(s["slogan"])}</strong> &mdash; {esc(s["note"])} '
+                        f'<span class="muted" style="font-size:.8rem">'
+                        f'({esc(s["garment"])})</span></li>' for s in slots)
+        picks = week1_picks(k, 4)
+        blocks += f"""<div class="panel reveal" style="margin-bottom:20px;--ca:{c['accent']};
+border-top:3px solid {c['accent']}">
+ <h2 style="color:{c['accent']}">{esc(c['short'])} &middot; Week 1 &mdash; {esc(week1_game(se))}</h2>
+ <p class="muted" style="margin:0 0 10px">Kickoff {kick.strftime('%A, %b')} {kick.day} &middot;
+ {esc(WEEK1_LINES[k])}</p>
+ <div class="chips" style="margin:0 0 12px">{chips}</div>
+ <p>The Week 1 direction for {esc(c['short'])} is slogan-first &mdash; chant lettering, city and state
+ shapes, era marks. No faces, no surnames, no numbers: a slogan outlives a depth chart.</p>
+ <ul style="margin:0 0 16px">{notes}</ul>
+ <div class="grid">{''.join(card(i) for i in picks)}</div>
+ <p style="margin:14px 0 0"><span class="muted" style="font-size:.86rem">{week1_order_line(k)}</span>
+ &nbsp;<a class="link" href="/{c['slug']}/">All {len(MODEL[k])} {esc(c['short'])} designs &rarr;</a></p>
+</div>"""
+
+    faqs = [
+        ("When should I order a Week 1 shirt?",
+         "Everything is printed after you order it, so the earlier the better. Michigan opens on "
+         "Sept 5 and the NFL Sunday slate is Sept 13 - allow about a week for printing and delivery "
+         "inside the US, and a little longer for international tracked shipping."),
+        ("Are these shirts officially licensed?",
+         "No. Gridiron Locker is an independent, fan-made store. Designs are original artwork that "
+         "uses team and city words descriptively to say who a design is for. We are not affiliated "
+         "with, endorsed by or licensed by any league, club or university."),
+        ("Do the Week 1 designs use player names, faces or numbers?",
+         "No. The house rule is identity slogans, not player faces: chants, cities, eras and jokes "
+         "in type. That is also why the graphics stay wearable long after a roster changes."),
+        ("What size should I buy for a game day layer?",
+         "Everything is unisex S to 3XL. Measure a shirt you own flat across the chest and match the "
+         "number on the size guide - 18 inches for S through 28 inches for 3XL. Between sizes, or "
+         "layering over a hoodie, go up one."),
+        ("Can I get a Week 1 slogan on a hoodie, crewneck, beanie or mug?",
+         "Yes. Most slogans run across tees, hoodies, crewnecks, long sleeves, beanies and mugs - "
+         "pick the garment and colourway on the product page before adding to your bag."),
+        ("Do you ship outside the United States?",
+         "Yes, worldwide with tracked dispatch. See the shipping page for current estimates before "
+         "you order for a specific kickoff date."),
+    ]
+    faq_html = "".join(f"<h3>{esc(q)}</h3><p>{esc(a)}</p>" for q, a in faqs)
+    faq_schema = {"@context": "https://schema.org", "@type": "FAQPage",
+                  "mainEntity": [{"@type": "Question", "name": q,
+                                  "acceptedAnswer": {"@type": "Answer", "text": a}}
+                                 for q, a in faqs]}
+
+    next_k = min(WEEK1_ORDER, key=lambda k: SEASON[k]["kickoff"])
+    title = "2026 Week 1 Fan Shirts: Kickoff Fits &amp; Slogan Tees"
+    desc = ("Week 1 2026 kickoff fits for Michigan, Cleveland, Green Bay and Dallas: kickoff dates, "
+            "the slogan tees and crewnecks to order now, sizing and print-on-demand lead times.")
+    art = {"@context": "https://schema.org", "@type": "Article",
+           "headline": "2026 Week 1 Fan Shirts: Kickoff Fits &amp; Slogan Tees",
+           "description": desc, "datePublished": TODAY, "dateModified": DATA_DATE,
+           "author": {"@type": "Organization", "name": BRAND},
+           "publisher": {"@type": "Organization", "name": BRAND},
+           "mainEntityOfPage": DOMAIN + path, "image": DOMAIN + "/img/hero-home.jpg"}
+    body = f"""{cb}<main id="main"><section style="padding-top:6px"><div class="wrap prose">
+<h1>{title}</h1>
+<p class="muted">Updated {TODAY} &middot; {sum(len(v) for v in WEEK1_SLATE.values())} Week 1 graphics &middot;
+{len(ALL)} designs in the locker</p>
+<p>Week 1 of the 2026 season lands across two weekends: <strong>Michigan opens on Sept 5</strong>
+against Western Michigan, and the NFL Sunday slate kicks off on <strong>Sept 13</strong> with
+Cleveland at Jacksonville, Green Bay at Minnesota and Dallas in prime time against the Giants.
+Everything below is printed after you order it, so the clock that matters is not the kickoff - it is
+the print window before it.</p>
+<h2>Week 1 at a glance</h2>
+<table>
+<tr><th>Team</th><th>Kickoff</th><th>Week 1</th><th>Slogan direction</th></tr>
+{rows}
+</table>
+<h2>The Week 1 graphics</h2>
+<p>Eight slots, two per team. The rule for every one of them: identity slogans, not player faces.
+Chant lettering, city outlines, era marks and one-word statement prints - nothing that needs a
+roster move to stay true.</p>
+{blocks}
+<h2>How a Week 1 graphic gets made</h2>
+<p>Each design starts as a slogan, not a photograph. The slogan is set in one accent colour from the
+team's palette, printed inside a 12 by 16 inch area on the chest, and checked on the lightest and
+darkest garment it will ever be sold on. If it only works on one, it is not finished. Then it is
+exported at 4500 by 5400 pixels, 300 dpi, transparent background, and only then does it get a
+product page.</p>
+<h2>Buying for kickoff</h2>
+<p>Pick the garment from the weather first and the graphic second. Early September is still shirt
+weather in most places; anything after Thanksgiving is hoodie and crewneck territory. Sizes run
+S to 3XL in a unisex cut - see the <a href="/size-guide/">size guide</a> before you order, and
+remember that a beanie or a mug is the one gift that cannot be the wrong size.</p>
+<p><a class="btn" href="/collections/">Shop every collection &rarr;</a></p>
+<h2>Week 1 FAQ</h2>
+{faq_html}
+<p class="muted" style="font-size:.82rem">Independent fan store. Gridiron Locker is not affiliated
+with, endorsed by, sponsored by or licensed by the National Football League, any NFL club, the NCAA,
+any university or any player. Team and city names are used descriptively. All artwork is original,
+fan-created work.</p>
+</div></section></main>"""
+    URLS.append((DOMAIN + path, "0.7", "weekly"))
+    write("guides/2026-week-1-shirts/index.html",
+          head(f"2026 Week 1 Fan Shirts: Kickoff Fits & Slogan Tees | {BRAND}", desc, path,
+               "/img/hero-home.jpg", [cbs, art, faq_schema],
+               ["week 1 fan shirt", "2026 week 1 football tee", "kickoff game day shirt",
+                "michigan week 1 shirt", "cleveland week 1 shirt", "packers week 1 shirt",
+                "dallas week 1 shirt", "slogan football tee"])
+          + header() + countdown_bar(next_k) + body + footer())
+
+
 def page_guides():
-    cards = ""
+    week1_card = ('<div class="panel" style="margin-bottom:14px;border-top:3px solid var(--accent)">'
+                  '<h3><a href="/guides/2026-week-1-shirts/">2026 Week 1 Fan Shirts: '
+                  'Kickoff Fits &amp; Slogan Tees</a></h3>'
+                  '<p class="muted" style="margin:0">Every Week 1 kickoff date, the slogan direction '
+                  'for each team and the graphics to order now &mdash; Michigan opens Sept 5, the NFL '
+                  'Sunday slate is Sept 13.</p></div>')
+    cards = week1_card
     for k in ORDER:
         c = COLLECTIONS[k]
         cards += (f'<div class="panel" style="margin-bottom:14px"><h3><a href="/guides/{c["slug"]}-buying-guide/">'
@@ -1508,6 +1753,9 @@ def assets():
 
 User-agent: *
 Disallow: /marketing/plan.json
+# ops/ is the private control room (operator board, scout, design drop) - not
+# part of the storefront, and never linked from public nav.
+Disallow: /ops/
 Allow: /
 
 # Product imagery is a ranking asset - let image crawlers in
@@ -1616,6 +1864,7 @@ Sitemap: {DOMAIN}/sitemap-images.xml
 - [2026 Season Hub]({DOMAIN}/2026-season/) - Week 1 dates, roster changes, trending designs
 - [Fan Trend Index]({DOMAIN}/fan-trend-index/) - 0-100 score of who the headlines are about, plus live player moments
 - [Buying guides]({DOMAIN}/guides/) - how to pick the right fan shirt per team
+- [2026 Week 1 fan shirts]({DOMAIN}/guides/2026-week-1-shirts/) - Week 1 kickoff dates (Michigan Sept 5, NFL Sunday Sept 13) and the slogan tees to order
 - [Custom apparel]({DOMAIN}/contact/) - custom name, colourway and crew orders
 
 ## Facts
@@ -1973,6 +2222,7 @@ def main():
     for it in ALL:
         page_product(it)
     page_guides()
+    page_week1_graphics()
     page_season()
     page_fti()
     page_static()

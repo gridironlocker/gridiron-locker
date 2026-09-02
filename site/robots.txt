@@ -3,6 +3,9 @@
 
 User-agent: *
 Disallow: /marketing/plan.json
+# ops/ is the private control room (operator board, scout, design drop) - not
+# part of the storefront, and never linked from public nav.
+Disallow: /ops/
 Allow: /
 
 # Product imagery is a ranking asset - let image crawlers in
