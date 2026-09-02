@@ -55,6 +55,7 @@ templated but varied so no two pages read alike.
 | Product pages | `/shop/<slug>/index.html` | **134** |
 | Buying guides | `/guides/<team>-buying-guide/` + `/guides/` index | 5 |
 | Season hub | `/2026-season/` | 1 |
+| Fan Trend Index | `/fan-trend-index/` | 1 |
 | Trust/info | `/about/`, `/contact/`, `/faq/`, `/shipping/`, `/size-guide/`, `/privacy/`, `/trademark-notice/` | 7 |
 | 404 | `/404.html` | 1 |
 | Marketing | `/marketing/dashboard.html` | 1 (planner UI) |

@@ -28,12 +28,16 @@ try:
 except Exception:
     OVERRIDES = {}
 try:
-    from trends import DESIGN_TOKENS, HOT_MIN, OTHER_TEAMS
+    from trends import DESIGN_TOKENS, HOT_MIN, OTHER_TEAMS, enrich, FTI_FORMULA
 except ImportError:
     DESIGN_TOKENS = {}
     HOT_MIN = 3
     OTHER_TEAMS = set()
+    FTI_FORMULA = "round(100 * entity_mentions / peak_mentions_in_window)"
+    def enrich(data):
+        return data
 DATA_DATE = TRENDS.get("generated") or TODAY
+enrich(TRENDS)
 
 
 def auto_trend(ckey, slug, blob):
@@ -72,6 +76,156 @@ def headline_block(ckey, limit=5):
             f'<p class="muted" style="font-size:.76rem;margin:10px 0 0">Headlines auto-refreshed '
             f'{esc(DATA_DATE)} from public news feeds. Linked stories belong to their publishers; '
             f'we are not affiliated with them.</p></div>')
+
+_NICE_NAMES = {
+    "jj mccarthy": "J.J. McCarthy",
+    "ceedee lamb": "CeeDee Lamb",
+    "dak prescott": "Dak Prescott",
+    "shedeur sanders": "Shedeur Sanders",
+    "deshaun watson": "Deshaun Watson",
+    "bryce underwood": "Bryce Underwood",
+    "kyle whittingham": "Kyle Whittingham",
+    "jordan love": "Jordan Love",
+    "josh jacobs": "Josh Jacobs",
+    "matt lafleur": "Matt LaFleur",
+    "micah parsons": "Micah Parsons",
+}
+
+
+def pretty_name(name):
+    key = str(name or "").strip().lower()
+    if key in _NICE_NAMES:
+        return _NICE_NAMES[key]
+    return " ".join(w.upper() if w in ("jj", "qb", "qb1") else w.title()
+                    for w in key.replace("-", " ").split())
+
+
+def entity_for_product(ckey, slug, blob):
+    for tok in sorted(DESIGN_TOKENS.get(ckey, {}), key=len, reverse=True):
+        if tok in blob:
+            return DESIGN_TOKENS[ckey][tok]
+    return None
+
+
+def products_for_entity(ckey, entity, limit=3):
+    toks = [t for t, e in DESIGN_TOKENS.get(ckey, {}).items() if e == entity]
+    if not toks:
+        return []
+    out = []
+    for it in MODEL.get(ckey, []):
+        blob = (it["name"] + " " + it["art"]).lower()
+        if any(tok in blob for tok in toks):
+            out.append(it)
+        if len(out) >= limit:
+            break
+    return out
+
+
+def fti_rows(ckey=None):
+    rows = (TRENDS.get("fan_trend_index") or {}).get("rows") or []
+    if ckey:
+        rows = [r for r in rows if r.get("collection") == ckey]
+    return rows
+
+
+def fti_block(ckey=None, limit=8, heading=None):
+    """Compact Fan Trend Index leaderboard used on collection / season pages."""
+    rows = fti_rows(ckey)[:limit]
+    if not rows:
+        return ""
+    peak = (TRENDS.get("fan_trend_index") or {}).get("peak_mentions") or 0
+    lis = ""
+    for r in rows:
+        name = pretty_name(r["name"])
+        shop = products_for_entity(r.get("collection") or ckey, r["name"], 1)
+        href = shop[0]["url"] if shop else "/fan-trend-index/"
+        gap = ' <span class="fti-gap">no design yet</span>' if r.get("gap") else ""
+        st = esc(r.get("status") or "")
+        lis += (f'<a class="fti-row" href="{href}">'
+                f'<span class="fti-name">{esc(name)}</span>'
+                f'<span class="fti-bar"><i style="width:{int(r["index"])}%"></i></span>'
+                f'<span class="fti-score">{int(r["index"])}</span>'
+                f'<span class="fti-meta">{int(r["mentions"])} mentions · {st}{gap}</span>'
+                f'</a>')
+    title = heading or ("Fan Trend Index" if not ckey else
+                        f'{esc(COLLECTIONS[ckey]["short"])} Fan Trend Index')
+    return (f'<div class="ftibox"><div class="ftibox-head">'
+            f'<h3>{title}</h3>'
+            f'<a class="link" href="/fan-trend-index/">Full index &rarr;</a></div>'
+            f'<p class="muted" style="font-size:.76rem;margin:0 0 12px">0-100 vs the hottest '
+            f'name in the last {(TRENDS.get("fan_trend_index") or {}).get("window_days", 10)}-day '
+            f'headline window (peak {peak} mentions). Formula: <code>{esc(FTI_FORMULA)}</code>.</p>'
+            f'<div class="fti-board">{lis}</div></div>')
+
+
+def moments_block(ckey=None, entity=None, limit=5):
+    """Headlines that name a tracked player/coach, with shop chips."""
+    if ckey:
+        moments = (TRENDS.get("collections", {}).get(ckey, {}) or {}).get("moments") or []
+    else:
+        moments = TRENDS.get("moments") or []
+    if entity:
+        moments = [m for m in moments if entity in (m.get("entities") or [])]
+    moments = moments[:limit]
+    if not moments:
+        return ""
+    lis = ""
+    for m in moments:
+        who = "".join(
+            f'<span class="who">{esc(pretty_name(e))}</span>' for e in (m.get("entities") or []))
+        src = f'<span class="muted">{esc(m["source"])}</span>' if m.get("source") else ""
+        shop_html = ""
+        seen = set()
+        for e in (m.get("entities") or [])[:2]:
+            if e in seen:
+                continue
+            seen.add(e)
+            picks = products_for_entity(m.get("collection") or ckey, e, 1)
+            if picks:
+                shop_html += (f'<a class="moment-shop" href="{picks[0]["url"]}">Shop '
+                              f'{esc(pretty_name(e))} &rarr;</a>')
+            elif e:
+                shop_html += '<span class="fti-gap">no design in the locker yet</span>'
+        lis += (f'<li class="moment"><div class="moment-who">{who}</div>'
+                f'<a href="{esc(m.get("url") or "#")}" target="_blank" rel="nofollow noopener">'
+                f'{esc(m.get("title") or "")}</a> {src}{shop_html}</li>')
+    label = "Live player moments"
+    if entity:
+        label = f'Live {esc(pretty_name(entity))} moments'
+    elif ckey:
+        label = f'Live {esc(COLLECTIONS[ckey]["short"])} player moments'
+    return (f'<div class="newsbox momentsbox"><h3>{label}</h3>'
+            f'<ul class="moments">{lis}</ul>'
+            f'<p class="muted" style="font-size:.76rem;margin:10px 0 0">Moments are public headlines '
+            f'that name a player or coach we track. Auto-refreshed {esc(DATA_DATE)}. '
+            f'Stories belong to their publishers; we are not affiliated with them.</p></div>')
+
+
+def fti_strip():
+    """Homepage teaser: top names on the Fan Trend Index."""
+    rows = fti_rows()[:8]
+    if not rows:
+        return ""
+    cells = ""
+    for i, r in enumerate(rows, 1):
+        ckey = r.get("collection")
+        ca = COLLECTIONS.get(ckey, {}).get("accent", "var(--accent)")
+        shop = products_for_entity(ckey, r["name"], 1)
+        href = shop[0]["url"] if shop else "/fan-trend-index/"
+        cells += (f'<a class="fti-chip" style="--ca:{ca}" href="{href}">'
+                  f'<b>#{i} · {int(r["index"])}</b>'
+                  f'<span>{esc(pretty_name(r["name"]))}</span></a>')
+    return (f'<section class="ftisec"><div class="wrap">'
+            f'<div class="sechead reveal"><div>'
+            f'<span class="eyebrow"><span class="dot"></span> Live · updated {esc(DATA_DATE)}</span>'
+            f'<h2>Fan <span class="accentword">Trend Index</span></h2>'
+            f'<p>Who the headlines are actually about, scored 0-100 against the hottest name '
+            f'in our four fanbases. Built from the same news crawl that tags Trending / Throwback '
+            f'designs - not a vibes ranking.</p></div>'
+            f'<a class="link" href="/fan-trend-index/">Open the full index &rarr;</a></div>'
+            f'<div class="fti-chips">{cells}</div>'
+            f'</div></section>')
+
 
 
 SIZES = ["S", "M", "L", "XL", "2XL", "3XL"]
@@ -226,13 +380,15 @@ def header(active=""):
    <a href="/collections/">All Collections</a>
    {links}
    <a href="/2026-season/">2026 Season</a>
+   <a href="/fan-trend-index/">Trend Index</a>
    <a href="/guides/">Guides</a>
   </nav>
   <button class="burger" aria-label="Menu" onclick="document.getElementById('mn').classList.toggle('open')">&#9776;</button>
  </div>
  <div class="mobnav" id="mn">
   <a href="/">Home</a><a href="/collections/">All Collections</a>{mob}
-  <a href="/2026-season/">2026 Season Hub</a><a href="/guides/">Buying Guides</a><a href="/size-guide/">Size Guide</a>
+  <a href="/2026-season/">2026 Season Hub</a><a href="/fan-trend-index/">Fan Trend Index</a>
+  <a href="/guides/">Buying Guides</a><a href="/size-guide/">Size Guide</a>
   <a href="/shipping/">Shipping &amp; Returns</a><a href="/about/">About</a>
  </div>
 </header>"""
@@ -364,7 +520,8 @@ def footer():
    <div><h2>Collections</h2>{cl}<a href="/collections/">View all</a></div>
    <div><h2>Help</h2><a href="/size-guide/">Size Guide</a><a href="/shipping/">Shipping &amp; Returns</a>
     <a href="/faq/">FAQ</a><a href="/contact/">Contact</a></div>
-   <div><h2>Company</h2><a href="/about/">About Us</a><a href="/2026-season/">2026 Season</a><a href="/guides/">Buying Guides</a>
+   <div><h2>Company</h2><a href="/about/">About Us</a><a href="/2026-season/">2026 Season</a>
+    <a href="/fan-trend-index/">Fan Trend Index</a><a href="/guides/">Buying Guides</a>
     <a href="/trademark-notice/">Trademark Notice</a><a href="/privacy/">Privacy Policy</a>
     <a href="https://x.com/gridironlocker" target="_blank" rel="noopener">X (@gridironlocker)</a></div>
   </div>
@@ -524,6 +681,7 @@ def page_home():
     body = f"""{hero_slides()}
 {newsticker()}
 {week1_section()}
+{fti_strip()}
 {why_strip()}
 <section><div class="wrap">
  <div class="sechead reveal"><div><h2>Shop By Team</h2>
@@ -693,6 +851,8 @@ def page_collection(k):
  <h2>{esc(c['short'])} In The 2026 Season</h2>
  <div class="trendbox"><b><span class="dot"></span> Season update &middot; {TODAY}</b>
   {esc(se['headline'])} {esc(se['status'])}.{(" " + esc(se['legacy_note'])) if se['legacy_note'] else ""}</div>
+ {fti_block(k, 6)}
+ {moments_block(k, limit=5)}
  {headline_block(k)}
  <p>Fans searching for {", ".join(esc(x) for x in se['hot'][:3])} land here. Kickoff is
  <strong>{esc(re.sub('&middot;', '-', se['opener']))}</strong>, so anything ordered in the next week
@@ -777,10 +937,16 @@ def page_product(it):
                    "acceptedAnswer": {"@type": "Answer", "text": a}} for q, a in faq]}]
 
     se = SEASON[it["col"]]
+    blob = (it["name"] + " " + it["art"]).lower()
+    ent = entity_for_product(it["col"], it["slug"], blob)
+    fti_hit = next((r for r in fti_rows(it["col"]) if r["name"] == ent), None) if ent else None
     if it.get("trend") == "hot":
+        fti_note = (f' Fan Trend Index {int(fti_hit["index"])}/100 '
+                    f'({int(fti_hit["mentions"])} headline mentions).'
+                    if fti_hit else "")
         trendhtml = (f'<div class="trendbox"><b><span class="dot"></span> Trending right now</b>'
                      f'{esc(se["headline"])} This design is one of the most searched in the '
-                     f'{esc(c["short"])} collection this week.</div>')
+                     f'{esc(c["short"])} collection this week.{fti_note}</div>')
     elif it.get("trend") == "throwback":
         trendhtml = ('<div class="trendbox" style="border-color:var(--line2);'
                      'background:rgba(255,255,255,.04)"><b style="color:var(--muted)">Throwback piece</b>'
@@ -788,6 +954,7 @@ def page_product(it):
                      'long-time fans - just know it is a retro pull, not a current-season design.</div>')
     else:
         trendhtml = ""
+    momenthtml = moments_block(it["col"], entity=ent, limit=3) if ent else ""
     kws = it["kw"] + (se["hot"][:3] if it.get("trend") == "hot" else [])
     title = f"{it['name']} | {BRAND}"
     if len(html.unescape(title)) > 60:
@@ -811,6 +978,7 @@ def page_product(it):
   <p style="margin:0 0 14px"><span class="stars">&#9733;&#9733;&#9733;&#9733;&#9733;</span>
    <span class="muted" style="font-size:.84rem">{round(rating,1)} &middot; {reviews} fan ratings</span></p>
   {trendhtml}
+  {momenthtml}
   <p class="desc" style="margin:0 0 12px">{intro_html}</p>
   <div class="urgency"><span class="dot"></span> Printed on demand &middot; order by {ORDERBY} to wear it for {esc(SEASON[it["col"]]["opener"].replace("&middot;","-"))}</div>
   <p class="muted" style="font-size:.93rem">Design reads: <strong style="color:var(--ink)">{esc(it['art'])}</strong></p>
@@ -1159,7 +1327,9 @@ def page_season():
  <p><strong>{esc(se['headline'])}</strong> {esc(se['status'])}.</p>
  {note}
  <p class="muted" style="font-size:.85rem">Searched this week: {", ".join(esc(x) for x in se['hot'])}</p>
- {headline_block(k, 4)}
+ {fti_block(k, 5)}
+ {moments_block(k, limit=4)}
+ {headline_block(k, 3)}
  <div class="grid" style="margin-top:14px">{''.join(card(i) for i in picks)}</div>
  <p style="margin-top:16px"><a class="link" href="/{c['slug']}/">All {len(MODEL[k])} {esc(c['short'])} designs &rarr;</a></p>
 </div>"""
@@ -1182,7 +1352,10 @@ def page_season():
  <p class="muted" style="max-width:72ch">Updated {DATA_DATE}. The NFL season kicks off Wednesday
  <strong>September 9</strong>, with the first full Sunday slate on <strong>September 13</strong>.
  College football starts earlier - Michigan opens <strong>September 5</strong>. Here is what changed
- on each roster this year, and which designs fans are buying because of it.</p>
+ on each roster this year, and which designs fans are buying because of it.
+ See the <a class="link" href="/fan-trend-index/">Fan Trend Index</a> for the 0–100 score behind
+ every Trending / Throwback tag.</p>
+ {fti_block(None, 8, heading="Fan Trend Index · all four fanbases")}
  <div style="margin-top:26px">{blocks}</div>
  <div class="prose" style="margin-top:34px">
   <h2>Why roster changes matter when you buy a fan shirt</h2>
@@ -1202,6 +1375,116 @@ def page_season():
     write("2026-season/index.html",
           head(f"2026 Season Fan Shirt Hub | {BRAND}", desc, path, "/img/hero-home.jpg", schema,
                [x for k in ORDER for x in SEASON[k]["hot"]])
+          + header() + body + footer())
+
+
+def page_fti():
+    """Public Fan Trend Index + live player moments — the news pipeline, scored."""
+    path = "/fan-trend-index/"
+    cb, cbs = crumbs([("Home", "/"), ("Fan Trend Index", None)], path)
+    fti = TRENDS.get("fan_trend_index") or {}
+    rows = fti.get("rows") or []
+    peak = fti.get("peak_mentions") or 0
+    window = fti.get("window_days", 10)
+    board = ""
+    for i, r in enumerate(rows, 1):
+        ckey = r.get("collection")
+        c = COLLECTIONS.get(ckey, {})
+        ca = c.get("accent", "var(--accent)")
+        picks = products_for_entity(ckey, r["name"], 2)
+        if picks:
+            shop = "".join(
+                f'<a class="moment-shop" href="{p["url"]}">{esc(p["name"])} · ${p["price"]:.2f}</a>'
+                for p in picks)
+        elif r.get("gap"):
+            shop = ('<span class="fti-gap">Trending — no design in the locker yet. '
+                    '<a href="/contact/">Request a custom</a></span>')
+        else:
+            shop = '<span class="muted">No matching design</span>'
+        board += (
+            f'<article class="fti-card reveal" style="--ca:{ca}">'
+            f'<div class="fti-rank">#{i}</div>'
+            f'<div class="fti-body">'
+            f'<h3>{esc(pretty_name(r["name"]))}</h3>'
+            f'<p class="muted">{esc(c.get("short") or ckey)} · {esc(r.get("status") or "")} · '
+            f'{int(r["mentions"])} headline mentions</p>'
+            f'<div class="fti-bar lg"><i style="width:{int(r["index"])}%"></i></div>'
+            f'<div class="fti-scoreline"><b>{int(r["index"])}</b> <span>FTI</span></div>'
+            f'<div class="fti-shop">{shop}</div>'
+            f'</div></article>')
+    gaps = [r for r in rows if r.get("gap")]
+    gap_html = ""
+    if gaps:
+        items = "".join(
+            f'<li><strong>{esc(pretty_name(g["name"]))}</strong> '
+            f'({esc(COLLECTIONS.get(g.get("collection"), {}).get("short") or "")}) · '
+            f'FTI {int(g["index"])}, {int(g["mentions"])} mentions</li>'
+            for g in gaps)
+        gap_html = (f'<div class="panel" style="margin:22px 0">'
+                    f'<h2>Product gaps the news is already writing</h2>'
+                    f'<p class="muted">These names cleared the trending bar ({HOT_MIN}+ mentions) '
+                    f'and we do not have a design yet. That is the product roadmap, not a slogan.</p>'
+                    f'<ul>{items}</ul></div>')
+    moments_html = moments_block(None, limit=16)
+    desc = (f"Fan Trend Index for Cleveland, Green Bay, Dallas and Michigan — "
+            f"0–100 score of who the last {window} days of headlines are actually about, "
+            f"plus live player moments tied to shoppable designs.")
+    schema = [cbs, {
+        "@context": "https://schema.org", "@type": "Dataset",
+        "name": f"{BRAND} Fan Trend Index",
+        "description": desc,
+        "url": DOMAIN + path,
+        "dateModified": DATA_DATE,
+        "creator": {"@type": "Organization", "name": BRAND, "url": DOMAIN},
+        "variableMeasured": "Fan Trend Index (0-100 vs peak headline mentions)",
+        "measurementTechnique": FTI_FORMULA,
+    }, {
+        "@context": "https://schema.org", "@type": "ItemList",
+        "name": "Fan Trend Index leaderboard",
+        "numberOfItems": len(rows),
+        "itemListElement": [
+            {"@type": "ListItem", "position": n + 1,
+             "name": pretty_name(r["name"]),
+             "description": f"FTI {int(r['index'])} · {int(r['mentions'])} mentions"}
+            for n, r in enumerate(rows[:20])
+        ],
+    }]
+    body = f"""{cb}<main id="main"><div class="light">
+<section style="padding-top:6px"><div class="wrap">
+ <span class="eyebrow"><span class="dot"></span> Live · {esc(DATA_DATE)} · {window}-day window</span>
+ <h1>Fan <span class="accentword">Trend Index</span></h1>
+ <p class="muted" style="max-width:72ch">The news pipeline, scored. Every day we pull public
+ headlines for Cleveland, Green Bay, Dallas and Michigan, count how often each tracked player
+ or coach is named, and turn that count into a 0–100 index against the hottest name in the
+ window (peak this run: <strong>{peak} mentions</strong>). Formula:
+ <code>{esc(FTI_FORMULA)}</code>. This is the same evidence that tags designs
+ <strong>Trending</strong> or <strong>Throwback</strong> — now readable as a leaderboard,
+ with the headlines (live player moments) attached.</p>
+ <div class="stats" style="margin:26px 0 8px">
+  <div class="stat"><b>{len(rows)}</b><span>Tracked names</span></div>
+  <div class="stat"><b>{peak}</b><span>Peak mentions</span></div>
+  <div class="stat"><b>{len(TRENDS.get("moments") or [])}</b><span>Player moments</span></div>
+  <div class="stat"><b>{len(gaps)}</b><span>Design gaps</span></div>
+ </div>
+ <div class="fti-grid" style="margin-top:28px">{board}</div>
+ {gap_html}
+ <div style="margin-top:28px">{moments_html}</div>
+ <div class="prose" style="margin-top:34px">
+  <h2>How to read this</h2>
+  <p><strong>100</strong> is whoever the headlines named most in the window — not a claim they
+  are the best player, the most searched, or the most bought. It is a share-of-voice score
+  from the feeds we already crawl. Names at 0 are quiet this window and get the Throwback
+  tag on matching designs. Names at {HOT_MIN}+ mentions get Trending.</p>
+  <p>Linked stories belong to their publishers. {esc(BRAND)} is independent fan-made apparel,
+  not affiliated with any team, league, university or player.
+  <a class="link" href="/2026-season/">Back to the 2026 season hub →</a></p>
+ </div>
+</div></section></div></main>"""
+    URLS.append((DOMAIN + path, "0.8", "daily"))
+    write("fan-trend-index/index.html",
+          head(f"Fan Trend Index | {BRAND}", desc, path, "/img/hero-home.jpg", schema,
+               ["fan trend index", "nfl player trends 2026", "browns trending players",
+                "packers trending players", "michigan football trends"])
           + header() + body + footer())
 
 
@@ -1331,6 +1614,7 @@ Sitemap: {DOMAIN}/sitemap-images.xml
 
 ## Key pages
 - [2026 Season Hub]({DOMAIN}/2026-season/) - Week 1 dates, roster changes, trending designs
+- [Fan Trend Index]({DOMAIN}/fan-trend-index/) - 0-100 score of who the headlines are about, plus live player moments
 - [Buying guides]({DOMAIN}/guides/) - how to pick the right fan shirt per team
 - [Custom apparel]({DOMAIN}/contact/) - custom name, colourway and crew orders
 
@@ -1665,6 +1949,7 @@ def main():
         page_product(it)
     page_guides()
     page_season()
+    page_fti()
     page_static()
     page_404()
     assets()
