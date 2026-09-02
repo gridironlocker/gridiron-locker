@@ -1940,6 +1940,31 @@ def sync_marketing():
     shutil.copytree(m_dir, s_m_dir)
 
 
+def sync_ops():
+    """Regenerate and publish the internal ops dashboard: ops/scout -> site/ops.
+
+    Same pattern as sync_marketing(): scout.py writes ops/scout from the live
+    data files, we copy the whole ops/ folder into the built site so GitHub
+    Pages publishes /ops/scout/. A regeneration failure is non-fatal so the
+    storefront rebuild never breaks because of the dashboard.
+    """
+    try:
+        import scout
+        scout.main()
+    except Exception as e:
+        print("ops/scout generation failed, keeping existing files:", e)
+        return
+    o_dir = os.path.join(ROOT, "ops")
+    s_o_dir = os.path.join(SITE, "ops")
+    if not os.path.exists(o_dir):
+        return
+    if os.path.islink(s_o_dir) or os.path.isfile(s_o_dir):
+        os.unlink(s_o_dir)
+    elif os.path.isdir(s_o_dir):
+        shutil.rmtree(s_o_dir)
+    shutil.copytree(o_dir, s_o_dir)
+
+
 def main():
     page_home()
     page_collections_index()
@@ -1955,6 +1980,7 @@ def main():
     assets()
     write(".nojekyll", "")
     sync_marketing()
+    sync_ops()
     n = relativise()
     print(f"relative-linked {n} pages for GitHub Pages / offline")
     print(f"built {len(ALL)} products, {len(ORDER)} collections, {len(URLS)} urls")
