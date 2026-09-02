@@ -2,24 +2,24 @@
  "generated": "2026-09-02",
  "window_days": 10,
  "fti_formula": "round(100 * entity_mentions / peak_mentions_in_window)",
- "peak_mentions": 31,
+ "peak_mentions": 35,
  "stats": {
   "products": 134,
   "collections": 4,
   "images": 1011,
   "avg_price": 26.99,
   "hot": 3,
-  "throwback": 27,
-  "steady": 104,
+  "throwback": 29,
+  "steady": 102,
   "gaps": 5,
-  "moments": 5,
+  "moments": 6,
   "tracked_names": 18,
   "dead_campaigns": 4
  },
  "fti_rows": [
   {
    "name": "deshaun watson",
-   "mentions": 31,
+   "mentions": 35,
    "index": 100,
    "status": "trending",
    "gap": true,
@@ -28,8 +28,8 @@
   },
   {
    "name": "shedeur sanders",
-   "mentions": 27,
-   "index": 87,
+   "mentions": 25,
+   "index": 71,
    "status": "trending",
    "gap": false,
    "shoppable": true,
@@ -37,8 +37,8 @@
   },
   {
    "name": "bryce underwood",
-   "mentions": 17,
-   "index": 55,
+   "mentions": 15,
+   "index": 43,
    "status": "trending",
    "gap": false,
    "shoppable": true,
@@ -47,7 +47,7 @@
   {
    "name": "kyle whittingham",
    "mentions": 15,
-   "index": 48,
+   "index": 43,
    "status": "trending",
    "gap": true,
    "shoppable": false,
@@ -55,8 +55,8 @@
   },
   {
    "name": "josh jacobs",
-   "mentions": 12,
-   "index": 39,
+   "mentions": 13,
+   "index": 37,
    "status": "trending",
    "gap": true,
    "shoppable": false,
@@ -64,8 +64,8 @@
   },
   {
    "name": "todd monken",
-   "mentions": 6,
-   "index": 19,
+   "mentions": 8,
+   "index": 23,
    "status": "trending",
    "gap": true,
    "shoppable": false,
@@ -74,7 +74,7 @@
   {
    "name": "ceedee lamb",
    "mentions": 4,
-   "index": 13,
+   "index": 11,
    "status": "trending",
    "gap": true,
    "shoppable": false,
@@ -115,15 +115,6 @@
    "gap": false,
    "shoppable": true,
    "collection": "green-bay-packers"
-  },
-  {
-   "name": "myles garrett",
-   "mentions": 2,
-   "index": 6,
-   "status": "steady",
-   "gap": false,
-   "shoppable": true,
-   "collection": "cleveland-browns"
   },
   {
    "name": "denzel ward",
@@ -171,6 +162,15 @@
    "collection": "cleveland-browns"
   },
   {
+   "name": "myles garrett",
+   "mentions": 0,
+   "index": 0,
+   "status": "quiet",
+   "gap": false,
+   "shoppable": true,
+   "collection": "cleveland-browns"
+  },
+  {
    "name": "robert tonyan",
    "mentions": 0,
    "index": 0,
@@ -183,7 +183,7 @@
  "gaps": [
   {
    "name": "deshaun watson",
-   "mentions": 31,
+   "mentions": 35,
    "index": 100,
    "status": "trending",
    "gap": true,
@@ -193,7 +193,7 @@
   {
    "name": "kyle whittingham",
    "mentions": 15,
-   "index": 48,
+   "index": 43,
    "status": "trending",
    "gap": true,
    "shoppable": false,
@@ -201,8 +201,8 @@
   },
   {
    "name": "josh jacobs",
-   "mentions": 12,
-   "index": 39,
+   "mentions": 13,
+   "index": 37,
    "status": "trending",
    "gap": true,
    "shoppable": false,
@@ -210,8 +210,8 @@
   },
   {
    "name": "todd monken",
-   "mentions": 6,
-   "index": 19,
+   "mentions": 8,
+   "index": 23,
    "status": "trending",
    "gap": true,
    "shoppable": false,
@@ -220,7 +220,7 @@
   {
    "name": "ceedee lamb",
    "mentions": 4,
-   "index": 13,
+   "index": 11,
    "status": "trending",
    "gap": true,
    "shoppable": false,
@@ -237,11 +237,11 @@
    "products": 78,
    "avg_price": 27.82,
    "hot": 3,
-   "throwback": 21,
+   "throwback": 23,
    "gaps": [
     {
      "name": "deshaun watson",
-     "mentions": 31,
+     "mentions": 35,
      "index": 100,
      "status": "trending",
      "gap": true,
@@ -250,8 +250,8 @@
     },
     {
      "name": "todd monken",
-     "mentions": 6,
-     "index": 19,
+     "mentions": 8,
+     "index": 23,
      "status": "trending",
      "gap": true,
      "shoppable": false,
@@ -265,8 +265,8 @@
     "watson",
     "deshaun",
     "shedeur",
-    "sanders",
-    "practice"
+    "practice",
+    "sanders"
    ],
    "headline_count": 100,
    "headlines": [
@@ -317,7 +317,7 @@
     {
      "name": "ceedee lamb",
      "mentions": 4,
-     "index": 13,
+     "index": 11,
      "status": "trending",
      "gap": true,
      "shoppable": false,
@@ -328,8 +328,8 @@
     "cowboys",
     "dallas",
     "roster",
-    "stats",
     "former",
+    "stats",
     "practice",
     "squad",
     "milton"
@@ -349,10 +349,10 @@
      "pub": "Sat, 29 Aug 2026 03:04:37 GMT"
     },
     {
-     "title": "Dallas Cowboys waive running back Jaydon Blue",
-     "url": "https://news.google.com/rss/articles/CBMilAFBVV95cUxNTWlNTkRSN3RuUmpzbzB6dU5aMFBOcDEtOGNNelpUYzZrYjVhVkxrNkhWQTZiZ05SeW1LTTlZYUZvd1UwR3hzaXJmRkFfLU1nMlNuSUp2RlZCQWctT1QzLUhsT1pCVlFLMDB1TUhDQWR5RElHVHNlVm5IamlUQktQaWVPcC1udHRMNTBYTWc2VE5EM2dw?oc=5",
-     "source": "ESPN",
-     "pub": "Sun, 30 Aug 2026 20:00:00 GMT"
+     "title": "Shiyazh Pete's inspiring story on hold after cut by Dallas Cowboys",
+     "url": "https://news.google.com/rss/articles/CBMi4gFBVV95cUxNRUVMVl9BNmZLSHRQbWhwcUtfRi00d1BqTDdPX0duWGdLckxXNEp4ZEc5RTJKdURoVWNxdWNONVlSU0kwNXRwUWFoX1FIWHB6SnFPMDh1dzRxc01vSGQwZTI2akc0YVZBOXBXalFRMDhaMmtYa1ZNZHBfR0FfMjR2ZkUzeUR3bWdTSjVWQXB2Qlc2eXRwdGJSV19xR3pBNElJQnZHblBGSFNTNWxMbDdrUTNMRUpXQlA4N2prXzJ0eW9EWG9fWUFpX3l0a0xIM3d1MDFpYndsU25pTGVNWllUeXlR?oc=5",
+     "source": "El Paso Times",
+     "pub": "Sun, 30 Aug 2026 19:57:00 GMT"
     },
     {
      "title": "Dallas Cowboys Surprisingly Release Intriguing QB After Setting Roster",
@@ -361,10 +361,10 @@
      "pub": "Mon, 31 Aug 2026 20:16:28 GMT"
     },
     {
-     "title": "Shiyazh Pete's inspiring story on hold after cut by Dallas Cowboys",
-     "url": "https://news.google.com/rss/articles/CBMi4gFBVV95cUxNRUVMVl9BNmZLSHRQbWhwcUtfRi00d1BqTDdPX0duWGdLckxXNEp4ZEc5RTJKdURoVWNxdWNONVlSU0kwNXRwUWFoX1FIWHB6SnFPMDh1dzRxc01vSGQwZTI2akc0YVZBOXBXalFRMDhaMmtYa1ZNZHBfR0FfMjR2ZkUzeUR3bWdTSjVWQXB2Qlc2eXRwdGJSV19xR3pBNElJQnZHblBGSFNTNWxMbDdrUTNMRUpXQlA4N2prXzJ0eW9EWG9fWUFpX3l0a0xIM3d1MDFpYndsU25pTGVNWllUeXlR?oc=5",
-     "source": "El Paso Times",
-     "pub": "Sun, 30 Aug 2026 19:57:00 GMT"
+     "title": "Dallas Cowboys waive running back Jaydon Blue",
+     "url": "https://news.google.com/rss/articles/CBMilAFBVV95cUxNTWlNTkRSN3RuUmpzbzB6dU5aMFBOcDEtOGNNelpUYzZrYjVhVkxrNkhWQTZiZ05SeW1LTTlZYUZvd1UwR3hzaXJmRkFfLU1nMlNuSUp2RlZCQWctT1QzLUhsT1pCVlFLMDB1TUhDQWR5RElHVHNlVm5IamlUQktQaWVPcC1udHRMNTBYTWc2VE5EM2dw?oc=5",
+     "source": "ESPN",
+     "pub": "Sun, 30 Aug 2026 20:00:00 GMT"
     }
    ],
    "fti_count": 2
@@ -382,8 +382,8 @@
    "gaps": [
     {
      "name": "josh jacobs",
-     "mentions": 12,
-     "index": 39,
+     "mentions": 13,
+     "index": 37,
      "status": "trending",
      "gap": true,
      "shoppable": false,
@@ -396,8 +396,8 @@
     "roster",
     "jacobs",
     "josh",
-    "initial",
     "trade",
+    "initial",
     "practice"
    ],
    "headline_count": 100,
@@ -449,7 +449,7 @@
     {
      "name": "kyle whittingham",
      "mentions": 15,
-     "index": 48,
+     "index": 43,
      "status": "trending",
      "gap": true,
      "shoppable": false,
@@ -464,7 +464,7 @@
     "wolverines",
     "western",
     "underwood",
-    "bryce"
+    "former"
    ],
    "headline_count": 100,
    "headlines": [
@@ -540,6 +540,16 @@
    "url": "https://news.google.com/rss/articles/CBMizgFBVV95cUxPWlM0M2FEd0ZKVVR3ejVIWHZuaFVWZ1pmNlZVNE9ZLVdvYkxlWThKWWxzd2thR01wb3ZWM01icWRTbS10NHhJUmpvbmZDbG05VFdBV0c0OWFoR0NBZDBTVnJXdXcwYkJIb19vd3Blc1ByTU5OZVFXcE5ZTzhfZGZtekhUcU1SM3pCcWZDa0dJZmpFY21zbGRQazhqdXVGaXJHdEN6dkE4aFV1eHJ6U1BZbU9weGVBV3RuTlFwdHYxTDBKWWlpV3M2SzR4MnhQZ9IB4gFBVV95cUxPd2hRdERUbmZzaVIwbzh6MkpwalVDbzRCZ08yUV9DOTZrcmZ4V1RLa3h0WGI3RnZwZjZra254WkJZX01GUUlnNG8yOGZTZlFyc0g4VUFhMC1MM2JibDBBWUhoNzNNekN6YkUxa1BqLXA4UzB6V1NpUGtQUkVvWm9xMnV5cHh4SHhhRjRpczhlQUpIczh5dk9SUGk1TWUtalViejZOeTJOVEhpZzg5cnRKeG5lbzJNanJLb2NvRC1PU3lmcWltWUs5eWZZZTJXc3VWOFlvMDVsSmFINTY0NERQaUtn?oc=5",
    "source": "Cleveland.com",
    "pub": "Tue, 25 Aug 2026 07:00:00 GMT",
+   "collection": "cleveland-browns",
+   "entities": [
+    "deshaun watson"
+   ]
+  },
+  {
+   "title": "Mike Polk Jr.: The Cleveland Browns made their choice with Deshaun Watson. Now the controversy continues",
+   "url": "https://news.google.com/rss/articles/CBMiggJBVV95cUxPR3VXX3llOC1sblhVNnZxR0I1Q1haNUhBR2hjVnNzVVI2MkktNW1hS3dXNHdUbWwxNndLTWJmbUJvZHZHZDFKekctUVVmNl80ZlN2Sm9fczlRV1dIUnY1eU8wcDBuUkZNbkJnenpaYjBSRjM3VFRLY3VXSXJpZHRLb2owVHItalBzeGVXUGExdnZ3V3NtcTJ6S1Y4b1pMLV9vQ1ZMOXplYk9rOTR2VWZmTFdPcjRqVlVPdkNEMVFVWXdYMF9UbWRDT3R4TTlQRGJCYkl5c1VrSFhWLXlOQWE2ajdBeG9vMmdHTHFyS3YzeHk2czVaRml5aXZETFVoX3o0alE?oc=5",
+   "source": "wkyc.com",
+   "pub": "Wed, 26 Aug 2026 20:32:00 GMT",
    "collection": "cleveland-browns",
    "entities": [
     "deshaun watson"
