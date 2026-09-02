@@ -266,9 +266,14 @@ def status_badge(trend):
 def design_badge(r, build):
     if r.get("gap"):
         return '<span class="badge gap">GAP - no design</span>'
-    shop = build.products_for_entity(r.get("collection"), r["name"], 1)
-    href = shop[0]["url"] if shop else "/fan-trend-index/"
-    return f'<a class="badge steady" style="text-decoration:none" href="{esc(href)}">In locker - {esc(money(shop[0]["price"]) if shop else "")}</a>'
+    try:
+        shop = build.products_for_entity(r.get("collection"), r["name"], 1)
+    except Exception:
+        shop = []
+    if shop:
+        return (f'<a class="badge steady" style="text-decoration:none" '
+                f'href="{esc(shop[0]["url"])}">In locker - {esc(money(shop[0]["price"]))}</a>')
+    return '<span class="badge steady">In locker</span>'
 
 
 def render(build, payload, products, fti_rows, gaps, moments, collections, dead_rows):
