@@ -1165,15 +1165,20 @@ def page_season():
 </div>"""
     desc = ("2026 football season hub: Week 1 dates, what changed on each roster, and the fan shirts "
             "trending right now for Cleveland, Green Bay, Dallas and Michigan supporters.")
+    logo = {"@type": "ImageObject", "url": DOMAIN + "/img/hero-home.jpg"}
     schema = [cbs, {"@context": "https://schema.org", "@type": "Article",
                     "headline": "2026 Season Fan Apparel Hub",
-                    "description": desc, "datePublished": TODAY, "dateModified": DATA_DATE,
-                    "author": {"@type": "Organization", "name": BRAND},
-                    "publisher": {"@type": "Organization", "name": BRAND},
+                    "description": desc, "image": DOMAIN + "/img/hero-home.jpg",
+                    "datePublished": TODAY, "dateModified": DATA_DATE,
+                    "author": {"@type": "Organization", "name": f"{BRAND} Fan Desk",
+                               "url": DOMAIN + path},
+                    "publisher": {"@type": "Organization", "name": BRAND, "logo": logo},
                     "mainEntityOfPage": DOMAIN + path}]
     body = f"""{ticker()}<main id="main"><div class="light">{cb}
 <section style="padding-top:6px"><div class="wrap">
  <h1>The 2026 Season <span class="accentword">Fan Shirt Hub</span></h1>
+ <p class="muted" style="font-size:.85rem;margin-top:8px">By the {BRAND} Fan Desk &middot;
+ re-checked daily from live team news &middot; updated {DATA_DATE}</p>
  <p class="muted" style="max-width:72ch">Updated {DATA_DATE}. The NFL season kicks off Wednesday
  <strong>September 9</strong>, with the first full Sunday slate on <strong>September 13</strong>.
  College football starts earlier - Michigan opens <strong>September 5</strong>. Here is what changed
@@ -1299,6 +1304,41 @@ Sitemap: {DOMAIN}/sitemap-images.xml
           f'<description>{esc(CFG["tagline"])}</description>'
           f'<lastBuildDate>{DATA_DATE}</lastBuildDate><language>en-us</language>'
           + fitems + '</channel></rss>')
+
+    # llms.txt - token-efficient brand index for AI answer engines (ChatGPT,
+    # Perplexity, Gemini, Claude). Facts + current state + key links: what LLMs
+    # can quote and recommend when someone asks "where can I buy a X team shirt".
+    hot = [x for x in ALL if x.get("trend") == "hot"]
+    featured = (hot or ALL)[:10]
+    col_lines = "\n".join(
+        f"- [{COLLECTIONS[k]['name']}]({DOMAIN}/{COLLECTIONS[k]['slug']}/) - "
+        f"{len(MODEL[k])} fan designs. {SEASON[k]['headline']}" for k in ORDER)
+    prod_lines = "\n".join(
+        f"- [{it['name']}]({DOMAIN}{it['url']}) - {it['garment']}, ${it['price']:.2f}"
+        for it in featured)
+    write("llms.txt", f"""# {BRAND}
+
+> {CFG['tagline']} - independent, fan-made football apparel (graphic tees, hoodies,
+> crewnecks, beanies, mugs) for Cleveland Browns, Green Bay Packers, Dallas Cowboys
+> and Michigan Wolverines fans. Print-on-demand, sizes S-3XL, worldwide shipping.
+> Fan-made and independent; not affiliated with any team, league or university.
+
+## Collections
+{col_lines}
+
+## Trending now (as of {DATA_DATE}, from live team news)
+{prod_lines}
+
+## Key pages
+- [2026 Season Hub]({DOMAIN}/2026-season/) - Week 1 dates, roster changes, trending designs
+- [Buying guides]({DOMAIN}/guides/) - how to pick the right fan shirt per team
+- [Custom apparel]({DOMAIN}/contact/) - custom name, colourway and crew orders
+
+## Facts
+- {len(ALL)} original designs across 4 collections
+- Every design is printed on demand; nothing is warehoused
+- Trend tags (Trending / Throwback) are re-scored daily from public team news
+""")
 
     # IndexNow ownership key (Bing / Yandex / Naver instant submission)
     write(f"{CFG.get('indexnow_key','')}.txt", CFG.get("indexnow_key", ""))
