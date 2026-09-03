@@ -12,6 +12,11 @@ ROOT = os.path.dirname(os.path.dirname(os.path.abspath(__file__)))
 SITE = os.path.join(ROOT, "site")
 CFG = json.load(open(os.path.join(ROOT, "src/config.json")))
 DOMAIN = CFG["domain"].rstrip("/")
+
+
+def abs_url(path):
+    """Return an absolute URL for a site path on the configured domain."""
+    return DOMAIN + path
 BRAND = CFG["site_name"]
 TODAY = datetime.date.today().isoformat()
 ORDERBY = (datetime.date.today() + datetime.timedelta(days=4)).strftime("%b %d")
@@ -322,7 +327,7 @@ ALL = [x for v in MODEL.values() for x in v]
 
 # ---------------------------------------------------------------- chrome
 def head(title, desc, path, image=None, schema=None, keywords=None, accent=None):
-    canon = DOMAIN + path
+    canon = abs_url(path)
     img = DOMAIN + (image or "/img/hero-home.jpg")
     kw = f'<meta name="keywords" content="{esc(", ".join(keywords[:14]))}">' if keywords else ""
     acc = f"<style>:root{{--accent:{accent}}}</style>" if accent else ""
@@ -1822,7 +1827,7 @@ Sitemap: {DOMAIN}/sitemap-images.xml
         seen = set()
         images = []
         for image in it["gallery"]:
-            image = DOMAIN + image
+            image = abs_url(image)
             if image not in seen:
                 seen.add(image)
                 images.append(image)
