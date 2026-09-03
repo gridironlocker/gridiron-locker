@@ -244,7 +244,7 @@ def render(clocks, slots, fti, headlines, gaps, stats):
   <h2 style="color:{rows[0]['accent']}">{esc(rows[0]['short'])}</h2>
   <em>{sum(1 for s in rows if s['status'] == 'live')}/{len(rows)} live</em></div>
  {body}</div>"""
-    mid += f"""<div class="card"><a href="{DROP}">Open the Week 1 design drop &rarr;</a>
+    mid += f"""<div class="card"><a href="../{DROP}">Open the Week 1 design drop &rarr;</a>
  <span style="color:var(--muted);font-size:.78rem">Art briefs, export list, upload checklist.</span></div>"""
 
     # ---- live signal ---------------------------------------------------

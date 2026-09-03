@@ -42,6 +42,40 @@ and rebuilds the site every day. If you're on a phone / don't want to touch code
 > its product page ranks. The crawler brings the design + images in automatically; the
 > human touch adds the search keywords.
 
+### Option A+ — one command for directly-published campaigns
+Some campaigns are live under `https://viralstyle.com/kebystore/<slug>` but are **not**
+members of the store's collection listing pages, so the collection crawler never sees
+them. For those, use the one-command adder instead of waiting for a crawl:
+
+```bash
+python3 add_campaign.py <slug> <collection-key>
+# example:
+python3 add_campaign.py my-new-design cleveland-browns
+# preview without writing:
+python3 add_campaign.py my-new-design cleveland-browns --dry-run
+```
+
+What it does:
+1. Fetches `https://viralstyle.com/kebystore/<slug>?_escaped_fragment_=` and parses
+   the campaign id, base mockup key, swatch keys, styles, sizes, description,
+   features and price metas.
+2. Merges `{slug: entry}` into `data/campaigns_extra.json` (idempotent overwrite;
+   the collection key is validated against `data/collections.json`).
+3. `replay_updates.py` merges `data/campaigns_extra.json` into the catalogue on
+   every run, so the design survives re-crawls that would otherwise drop it.
+
+Then refresh like normal:
+
+```bash
+python3 replay_updates.py
+python3 dl.py          # images auto-convert to WebP
+python3 src/build.py
+```
+
+> ⚠️ After the first build, **add the new design's SEO text** once (see Step 3 below)
+> so its product page ranks. The adder brings the design + images in automatically;
+> the human touch adds the search keywords.
+
 ### Option B — Run it yourself (if you have the code)
 From the project folder on your computer:
 

@@ -172,6 +172,41 @@ def hi(url):
                 .replace("-small.jpg", "-large.jpg"))
 
 
+def _merge_extra_campaigns():
+    """Merge data/campaigns_extra.json into CAMPAIGNS (idempotent).
+
+    Accepts a dict {slug: entry} or a list of entries each with a slug key.
+    Invalid/missing files are ignored gracefully so replay never crashes.
+    """
+    try:
+        path = os.path.join(ROOT, "data/campaigns_extra.json")
+        if not os.path.exists(path):
+            return
+        extra = json.load(open(path, encoding="utf-8"))
+        if isinstance(extra, list):
+            conv = {}
+            for e in extra:
+                if isinstance(e, dict) and e.get("slug"):
+                    slug = e.pop("slug")
+                    conv[slug] = e
+            extra = conv
+        if not isinstance(extra, dict):
+            print("campaigns_extra merge skipped: invalid format")
+            return
+        merged = []
+        for slug, entry in extra.items():
+            if isinstance(entry, dict):
+                CAMPAIGNS[slug] = entry
+                merged.append(slug)
+        if merged:
+            print("merged campaigns_extra:", ", ".join(sorted(merged)))
+    except Exception as e:
+        print("campaigns_extra merge skipped:", e)
+
+
+_merge_extra_campaigns()
+
+
 def scrape_entry(slug, c):
     cid, base = c["campaign"], c["base"]
     asset = f"https://assets.viralstyle.com/campaigns/{cid}/{base}"
@@ -180,11 +215,14 @@ def scrape_entry(slug, c):
     # component of the base key) in front of its own two-part key, so it has
     # to be re-attached when building the asset URLs (verified against the
     # live pages: .../vZ4xZz-pa62v9q-a163Wxx-front-small.jpg etc).
+    # add_campaign.py stores full 3-part keys already prefixed, so only prefix
+    # when the design id is missing - never double-prefix.
     design = base.split("-")[0]
-    swatches = sorted({
-        f"https://assets.viralstyle.com/campaigns/{cid}/{design}-{k}-front-small.jpg"
-        for k in c["swatch_keys"]
-    })
+    urls = set()
+    for k in c["swatch_keys"]:
+        kk = k if k.startswith(design + "-") else f"{design}-{k}"
+        urls.add(f"https://assets.viralstyle.com/campaigns/{cid}/{kk}-front-small.jpg")
+    swatches = sorted(urls)
     return {
         "slug": slug,
         "title": c["title"],
@@ -216,9 +254,12 @@ def with_img_map(entry):
     for tag, u in urls:
         if not u:
             continue
-        local = f"/img/p/{slug}-{tag}.jpg"
-        if os.path.isfile(os.path.join(ROOT, "site", local.lstrip("/"))):
-            img[tag] = local
+        webp = f"/img/p/{slug}-{tag}.webp"
+        jpg = f"/img/p/{slug}-{tag}.jpg"
+        if os.path.isfile(os.path.join(ROOT, "site", webp.lstrip("/"))):
+            img[tag] = webp
+        elif os.path.isfile(os.path.join(ROOT, "site", jpg.lstrip("/"))):
+            img[tag] = jpg
     entry["img"] = img
     return entry
 
