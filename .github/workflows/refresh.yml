@@ -39,6 +39,11 @@ jobs:
           echo "Re-crawling Viralstyle..."
           python scrape_list.py || echo "list crawl failed, keeping existing data"
           python scrape_products.py || echo "product crawl failed, keeping existing data"
+          # The four hand-added campaigns are live on Viralstyle but are not
+          # members of the store's collection listing pages, so a successful
+          # scrape_list/scrape_products would drop them. Re-injecting the
+          # idempotent replay keeps them in the catalogue every refresh.
+          python replay_updates.py || echo "replay injection failed, keeping existing data"
           python dl.py || echo "image download failed, keeping existing images"
 
       - name: Refresh trend data
