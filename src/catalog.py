@@ -2,6 +2,22 @@
 # name = SEO H1 / product name, art = text printed on the garment,
 # kw = extra long-tail keywords, type = garment override (auto-detected otherwise)
 CATALOG = {
+  "new-era-crewneck": dict(name="Cleveland New Era Crewneck", art="NEW ERA with EST. 1946",
+    kw=["cleveland new era crewneck", "browns new era sweatshirt", "cleveland quarterback shirt",
+        "browns opening day crewneck", "dawg pound sweatshirt", "north coast crewneck",
+        "est 1946 browns shirt", "cleveland football gift"], theme="classic"),
+"let-it-rip-tee": dict(name="Cleveland Let It Rip Tee", art="LET IT RIP",
+    kw=["cleveland let it rip tee", "browns let it rip shirt", "cleveland quarterback tee",
+        "browns opening day shirt", "dawg pound tee", "cleveland gameday tee",
+        "cleveland football gift"], theme="city"),
+"limited-edition-m-vs-all": dict(name="Michigan M Vs All Tee", art="M -VS- ALL with the Michigan M",
+    kw=["michigan vs all shirt", "michigan m vs all tee", "go blue vs everybody shirt",
+        "michigan rivalry tee", "ann arbor football shirt", "wolverines fan gear",
+        "michigan football gift"], theme="classic"),
+"limited-edition-qb19": dict(name="Michigan QB19 Tee", art="QB 19",
+    kw=["michigan qb19 shirt", "michigan quarterback 19 tee", "go blue quarterback shirt",
+        "michigan football tee", "ann arbor quarterback gift", "wolverines qb shirt"],
+    theme="player"),
 "all-we-want-all-we-got-25": dict(name="Cleveland Under Dawgs Playoffs Shirt", art="THE CLEVELAND UNDER DAWGS - ALL WE GOT, ALL WE NEED - PLAYOFFS", kw=["cleveland underdogs shirt","dawg pound playoff shirt","browns playoff tee"], theme="playoff"),
 "sanders-13-special-edition": dict(name="Shedeur Sanders 12 They Forgot Who I Am Shirt", art="THEY FORGOT WHO I AM - SANDERS SHEDEUR - BROWNS 12", kw=["shedeur sanders shirt","sanders browns qb tee","cleveland quarterback 12 shirt"], theme="player"),
 "bend-football-fans": dict(name="Bend & Snap Funny Football Shirt", art="BEND & SNAP with vintage football", kw=["funny football shirt","bend and snap tee","football humor shirt"], theme="funny"),
@@ -140,3 +156,4 @@ CATALOG = {
 "limited-edition-victory": dict(name="Victory Sunday Michigan Helmet Sweatshirt", art="VICTORY SUNDAY with winged helmet", kw=["michigan helmet sweatshirt","victory sunday shirt","go blue crewneck"], theme="classic"),
 "limited-edition-m-fans": dict(name="Michigan Vs Everybody Navy Sweatshirt", art="MICHIGAN -VS- EVERYBODY with M logo", kw=["michigan vs everybody sweatshirt","go blue navy crewneck","michigan football shirt"], theme="classic"),
 }
+
