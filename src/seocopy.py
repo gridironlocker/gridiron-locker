@@ -158,7 +158,9 @@ def meta_description(name, col, garment, price, colours):
 def long_description(slug, facts, col, garment, styles, colours, price):
     art = facts["art"]
     theme = facts.get("theme", "classic")
-    g = GARMENT_COPY[garment]
+    if theme not in THEME_HOOK:
+        theme = "classic"
+    g = GARMENT_COPY.get(garment, GARMENT_COPY["T-Shirt"])
     hook = pick(THEME_HOOK[theme], slug, "hook")
     lore = pick(col["lore"], slug, "lore")
     aud = audience(theme, col)
