@@ -296,13 +296,25 @@ def build_model():
                 continue
             p, f = P[slug], FACTS[slug]
             # A crawled product with no images is skipped - there is nothing to show.
+            # Keep only images that actually ship in site/ - a failed dl.py pass
+            # must never put broken <img> tags (gallery thumbs, colourway swatches,
+            # style-chip previews) on a product page. When dl.py later downloads
+            # the real swatches they automatically rejoin the gallery on the next
+            # build, so this guard is self-healing in the refresh workflow.
             img = p.get("img") or {}
-            if not img.get("front"):
+            img = OrderedDict(
+                (t, f) for t, f in img.items()
+                if isinstance(f, str) and f.startswith("/")
+                and os.path.isfile(os.path.join(SITE, f.lstrip("/"))))
+            if not img:
                 continue
+            if "front" not in img:
+                # front never downloaded but another mockup exists - feature it
+                img["front"] = next(iter(img.values()))
             styles = [s for s in p.get("styles", []) if s]
             name = f["name"]
             garment = _c.garment_of(f, name, styles)
-            colours = max(1, len(img) - 2)
+            colours = max(1, sum(1 for k in img if k.startswith("c")))
             price = float(p["price_usd"])
             compare = round(price * 1.55, 2)
             url = f"/shop/{slug}/"
@@ -927,6 +939,7 @@ def page_product(it):
     faq = _c.faqs(it["slug"], f, c, it["garment"], f"{it['price']:.2f}", it["colours"], it["styles"])
     rating = 4.6 + (len(it["slug"]) % 4) / 10
     reviews = 17 + (len(it["slug"]) * 7) % 180
+    colours_label = f"{it['colours']} colourway" + ("s" if it["colours"] != 1 else "")
 
     thumbs = "".join(
         f'<button class="thumb{" on" if n == 0 else ""}" data-src="{g}" aria-label="View image {n+1}">'
@@ -1029,7 +1042,7 @@ def page_product(it):
    and nothing is printed until you confirm the order.</p>
   </div>
   <div class="badges"><span class="badge">Sizes S-3XL</span>
-   <span class="badge">{it['colours']} colourways</span>
+   <span class="badge">{colours_label}</span>
    <span class="badge">Worldwide shipping</span><span class="badge">Card &amp; PayPal</span></div>
   <div class="ships">
    <div><b>Printing:</b> starts as soon as the campaign order is placed.</div>

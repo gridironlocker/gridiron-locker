@@ -191,7 +191,12 @@ def scrape_entry(slug, c):
 
 
 def with_img_map(entry):
-    """Attach the local image map dl.py writes into products_live.json."""
+    """Attach the local image map dl.py writes into products_live.json.
+
+    Only images that actually exist under site/ are advertised - a failed
+    dl.py pass must never put broken images on the product pages (build.py
+    applies the same guard when it renders). Once dl.py downloads the real
+    c0-c5 swatches, the next replay/build cycle picks them up again."""
     slug = entry["slug"]
     urls = [("front", entry["front"]), ("back", entry.get("back"))]
     for i, u in enumerate(entry.get("swatches", [])[:6]):
@@ -200,7 +205,9 @@ def with_img_map(entry):
     for tag, u in urls:
         if not u:
             continue
-        img[tag] = f"/img/p/{slug}-{tag}.jpg"
+        local = f"/img/p/{slug}-{tag}.jpg"
+        if os.path.isfile(os.path.join(ROOT, "site", local.lstrip("/"))):
+            img[tag] = local
     entry["img"] = img
     return entry
 
