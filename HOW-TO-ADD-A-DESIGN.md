@@ -38,9 +38,15 @@ and rebuilds the site every day. If you're on a phone / don't want to touch code
    - GitHub → your repo → **Actions** → **Refresh site** → **Run workflow**.
 3. GitHub Pages deploys the rebuilt site automatically.
 
-> ⚠️ After the first daily run, **add the new design's SEO text** once (see below) so
-> its product page ranks. The crawler brings the design + images in automatically; the
-> human touch adds the search keywords.
+> **The design publishes itself.** As of the automatic-publishing change, a newly crawled
+> slug no longer needs a hand-written entry before it can go live: the build synthesises a
+> product name, artwork line and keywords from the scraped campaign, writes the full product
+> page, schema, sitemap and RSS entry, and prints
+> `auto-published N new design(s) on generated copy: <slug>`.
+> Previously a new slug crashed the whole build with a `KeyError` and took the site down.
+>
+> The generated copy is deliberately plain, so **add the design's SEO text** (below) when you
+> get a chance to make the page rank properly.
 
 ### Option B — Run it yourself (if you have the code)
 From the project folder on your computer:
@@ -92,6 +98,20 @@ For every design, the pipeline creates:
 - the buy button linking straight to that design's Viralstyle checkout
 - a sitemap.xml entry, RSS feed entry, and breadcrumbs
 - the design appears on its collection page and in the Trending rail (if hot)
+
+## Retiring a design (player left, mark you cannot use)
+
+Deleting copy is not enough - the crawler will just pick the campaign up again on the next run.
+Add the slug to **`data/retired.json`** with a short reason:
+
+```json
+{ "retired": { "flacco-fever": "left the team" } }
+```
+
+Rebuild. The design disappears from every page, the sitemap, the RSS feed, the trend rails, the
+marketing plan and the ops board, and its previously built page under `site/shop/<slug>/` is
+deleted. The ops dashboard lists retired designs separately from dead campaigns so you can tell
+"we pulled this" apart from "the crawl broke". Remove the line to bring it back.
 
 ## Removing a design
 

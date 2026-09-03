@@ -15,15 +15,26 @@ headlines and dead-campaign tracking.
 
 | Item | Count |
 |---|---|
-| HTML pages | **153** |
-| Product pages (one per design) | **134** |
+| HTML pages | **133** |
+| Product pages (one per design) | **104** |
 | Collection pages | 4 |
 | SEO buying guides (articles) | 4 |
 | Info/trust pages | Size guide, Shipping, FAQ, About, Contact, Trademark notice, Privacy, 404 |
 | Product images self-hosted | **1,011** |
 | Broken links / invalid schema | **0** |
 
-Collections: Cleveland Browns (78), Green Bay Packers (34), Michigan (12), Dallas (10).
+Collections: Cleveland Browns (56), Green Bay Packers (31), Dallas (10), Michigan (7).
+
+30 further designs are built but deliberately **retired** - see below.
+
+### Retired designs (30)
+Some campaigns are still live on Viralstyle but depict a player, coach or mark that has moved on,
+so publishing them would sell a shirt for someone who left. Those slugs live in
+**`data/retired.json`** with a reason each. The build skips them everywhere at once - product
+pages, collection grids, sitemap, RSS, trend rails, the marketing plan and the ops board - and
+`prune_shop()` deletes any page a previous build had already written.
+
+To bring one back, delete its line from `data/retired.json` and rebuild.
 
 ### 4 dead campaigns found
 These slugs no longer return product data on Viralstyle and were excluded — relaunch them and
@@ -46,8 +57,8 @@ re-run the build to add them:
 
 ## Why it ranks
 
-- Unique `<title>`, meta description, canonical, OG + Twitter cards on all 153 pages.
-- **Real copy, not filler.** I read all 134 artworks and wrote each page around what the design
+- Unique `<title>`, meta description, canonical, OG + Twitter cards on all 133 pages.
+- **Real copy, not filler.** I read all the artworks and wrote each page around what the design
   actually says (e.g. "Limited Edition GRB37" is now *This Girl Loves The Pack Shirt*). Descriptions
   are template-varied so no two pages read the same.
 - **Schema.org JSON-LD**: Organization, WebSite + SearchAction, CollectionPage, ItemList,
@@ -105,7 +116,7 @@ New products need one line of copy facts in `src/catalog.py`
 - `site/` — the deployable website
 - `src/build.py` — generator · `src/copy.py` — copywriting engine · `src/catalog.py` — per-design facts
 - `src/collections_data.py` — collection SEO/brand data · `src/config.json` — your settings
-- `product-index.csv` — all 134 products: name, design text, price, site URL, Viralstyle URL, keywords
+- `product-index.csv` — the full crawled catalogue: name, design text, price, site URL, Viralstyle URL, keywords
 - `data/` — scraped source data
 
 ---
@@ -124,7 +135,7 @@ No more white rectangles punched into a dark page.
 - **Live countdown to kickoff** in the header bar (real ticking clock, per collection).
 - **Scrolling keyword ticker** with trending terms highlighted in accent colour.
 - **Scroll-reveal animations** with stagger on every section and card.
-- **Animated number counters** (134 designs / 4 collections / 1,011 photos).
+- **Animated number counters** (design / collection / photo counts, computed at build time).
 - Hero: slow Ken Burns zoom + drifting colour blobs.
 - Buttons with shine sweep, animated nav underlines, hover lift on everything,
   sticky-header shadow, floating back-to-top button.

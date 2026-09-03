@@ -4,17 +4,18 @@
  "fti_formula": "round(100 * entity_mentions / peak_mentions_in_window)",
  "peak_mentions": 30,
  "stats": {
-  "products": 134,
+  "products": 104,
   "collections": 4,
-  "images": 1011,
-  "avg_price": 26.99,
-  "hot": 5,
-  "throwback": 27,
-  "steady": 102,
+  "images": 790,
+  "avg_price": 26.64,
+  "hot": 3,
+  "throwback": 1,
+  "steady": 100,
   "gaps": 6,
   "moments": 10,
   "tracked_names": 18,
-  "dead_campaigns": 4
+  "dead_campaigns": 4,
+  "retired": 30
  },
  "fti_rows": [
   {
@@ -243,10 +244,10 @@
    "name": "Cleveland Browns Fan Shirts",
    "slug": "cleveland-browns-shirts",
    "store": "https://viralstyle.com/store/kebystore/Cleveland-Browns/1",
-   "products": 78,
-   "avg_price": 27.82,
-   "hot": 5,
-   "throwback": 21,
+   "products": 56,
+   "avg_price": 27.46,
+   "hot": 3,
+   "throwback": 1,
    "gaps": [
     {
      "name": "deshaun watson",
@@ -384,10 +385,10 @@
    "name": "Green Bay Packers Fan Shirts",
    "slug": "green-bay-packers-shirts",
    "store": "https://viralstyle.com/store/kebystore/Packss/1",
-   "products": 34,
-   "avg_price": 25.2,
+   "products": 31,
+   "avg_price": 25.22,
    "hot": 0,
-   "throwback": 3,
+   "throwback": 0,
    "gaps": [
     {
      "name": "josh jacobs",
@@ -459,10 +460,10 @@
    "name": "Michigan Go Blue Apparel",
    "slug": "michigan-wolverines-shirts",
    "store": "https://viralstyle.com/store/kebystore/MICHIG/1",
-   "products": 12,
-   "avg_price": 30.82,
+   "products": 7,
+   "avg_price": 33.13,
    "hot": 0,
-   "throwback": 3,
+   "throwback": 0,
    "gaps": [
     {
      "name": "kyle whittingham",
@@ -540,6 +541,188 @@
    "slug": "limited-edition-m",
    "title": "",
    "url": "https://viralstyle.com/kebystore/limited-edition-m"
+  }
+ ],
+ "retired": [
+  {
+   "slug": "flacco-fever",
+   "reason": "left the team",
+   "title": "Flacco Fever",
+   "url": "https://viralstyle.com/kebystore/flacco-fever"
+  },
+  {
+   "slug": "flacco-fever-white",
+   "reason": "left the team",
+   "title": "Flacco Fever White",
+   "url": "https://viralstyle.com/kebystore/flacco-fever-white"
+  },
+  {
+   "slug": "flacco-round-and-find-out",
+   "reason": "left the team",
+   "title": "Flacco Round And Find Out",
+   "url": "https://viralstyle.com/kebystore/flacco-round-and-find-out"
+  },
+  {
+   "slug": "in-stefanski-we-trust-t-shirt",
+   "reason": "left the team",
+   "title": "In Stefanski We Trust",
+   "url": "https://viralstyle.com/kebystore/in-stefanski-we-trust-t-shirt"
+  },
+  {
+   "slug": "limited-edition-2024",
+   "reason": "left the team",
+   "title": "Stefanski Wearing Crown",
+   "url": "https://viralstyle.com/kebystore/limited-edition-2024"
+  },
+  {
+   "slug": "limited-edition-2024n3",
+   "reason": "left the team",
+   "title": "Limited Edition 2024N3",
+   "url": "https://viralstyle.com/kebystore/limited-edition-2024n3"
+  },
+  {
+   "slug": "limited-edition-24n15",
+   "reason": "catchphrase design for a player who left",
+   "title": "Limited Edition 24N15",
+   "url": "https://viralstyle.com/kebystore/limited-edition-24n15"
+  },
+  {
+   "slug": "limited-edition-24n153",
+   "reason": "left the team",
+   "title": "Limited Edition BR15",
+   "url": "https://viralstyle.com/kebystore/limited-edition-24n153"
+  },
+  {
+   "slug": "limited-edition-24n154",
+   "reason": "left the team",
+   "title": "Limited Edition Stefanski",
+   "url": "https://viralstyle.com/kebystore/limited-edition-24n154"
+  },
+  {
+   "slug": "limited-edition-24n155",
+   "reason": "left the team",
+   "title": "Limited Edition BR951",
+   "url": "https://viralstyle.com/kebystore/limited-edition-24n155"
+  },
+  {
+   "slug": "limited-edition-24n156",
+   "reason": "left the team",
+   "title": "Limited Edition BR95",
+   "url": "https://viralstyle.com/kebystore/limited-edition-24n156"
+  },
+  {
+   "slug": "limited-edition-flacco-15",
+   "reason": "left the team",
+   "title": "Limited Edition Flacco 15",
+   "url": "https://viralstyle.com/kebystore/limited-edition-flacco-15"
+  },
+  {
+   "slug": "limited-edition-grb38",
+   "reason": "left the team - Pittsburgh Steelers 53-man roster",
+   "title": "Limited Edition GRB38",
+   "url": "https://viralstyle.com/kebystore/limited-edition-grb38"
+  },
+  {
+   "slug": "limited-edition-grb39",
+   "reason": "left the team - Pittsburgh Steelers 53-man roster",
+   "title": "Limited Edition GRB39",
+   "url": "https://viralstyle.com/kebystore/limited-edition-grb39"
+  },
+  {
+   "slug": "limited-edition-grb40-1",
+   "reason": "left the team - Pittsburgh Steelers 53-man roster",
+   "title": "Limited Edition GRB40",
+   "url": "https://viralstyle.com/kebystore/limited-edition-grb40-1"
+  },
+  {
+   "slug": "limited-edition-m-9-v1",
+   "reason": "left the program",
+   "title": "Limited Edition M 9 v1",
+   "url": "https://viralstyle.com/kebystore/limited-edition-m-9-v1"
+  },
+  {
+   "slug": "limited-edition-m-9-v2",
+   "reason": "left the program",
+   "title": "Limited Edition M 9 v2",
+   "url": "https://viralstyle.com/kebystore/limited-edition-m-9-v2"
+  },
+  {
+   "slug": "limited-edition-m-9-v3",
+   "reason": "left the program",
+   "title": "Limited Edition M 9 v3",
+   "url": "https://viralstyle.com/kebystore/limited-edition-m-9-v3"
+  },
+  {
+   "slug": "limited-edition-m-fans-30",
+   "reason": "player figure - breaks the slogan-only rule",
+   "title": "Limited Edition M Fans 30",
+   "url": "https://viralstyle.com/kebystore/limited-edition-m-fans-30"
+  },
+  {
+   "slug": "limited-edition-n36",
+   "reason": "left the team",
+   "title": "Limited Edition N36",
+   "url": "https://viralstyle.com/kebystore/limited-edition-n36"
+  },
+  {
+   "slug": "limited-edition-victory",
+   "reason": "winged helmet - university mark",
+   "title": "Limited Edition Victory",
+   "url": "https://viralstyle.com/kebystore/limited-edition-victory"
+  },
+  {
+   "slug": "limited-mug-2024",
+   "reason": "left the team",
+   "title": "Limited Mug 2024",
+   "url": "https://viralstyle.com/kebystore/limited-mug-2024"
+  },
+  {
+   "slug": "run-the-ball",
+   "reason": "left the team",
+   "title": "Run the Ball",
+   "url": "https://viralstyle.com/kebystore/run-the-ball"
+  },
+  {
+   "slug": "run-the-ball-kev",
+   "reason": "left the team",
+   "title": "Run the Ball Kev",
+   "url": "https://viralstyle.com/kebystore/run-the-ball-kev"
+  },
+  {
+   "slug": "she-love-coach-kevin",
+   "reason": "left the team",
+   "title": "She Loves Coach Kevin",
+   "url": "https://viralstyle.com/kebystore/she-love-coach-kevin"
+  },
+  {
+   "slug": "she-love-coach-stefanski",
+   "reason": "left the team",
+   "title": "She Loves Stefanski",
+   "url": "https://viralstyle.com/kebystore/she-love-coach-stefanski"
+  },
+  {
+   "slug": "she-loves-flacco",
+   "reason": "left the team",
+   "title": "She Loves Flacco",
+   "url": "https://viralstyle.com/kebystore/she-loves-flacco"
+  },
+  {
+   "slug": "stefanski-browns-coach-t-shirt-1",
+   "reason": "left the team",
+   "title": "Stefanski Browns' Coach",
+   "url": "https://viralstyle.com/kebystore/stefanski-browns-coach-t-shirt-1"
+  },
+  {
+   "slug": "winter-hat-beanie-flacco",
+   "reason": "left the team",
+   "title": "Winter Hat Beanie Flacco",
+   "url": "https://viralstyle.com/kebystore/winter-hat-beanie-flacco"
+  },
+  {
+   "slug": "winter-hat-beanie-stefanski",
+   "reason": "left the team",
+   "title": "Winter Hat Beanie Stefanski",
+   "url": "https://viralstyle.com/kebystore/winter-hat-beanie-stefanski"
   }
  ],
  "moments": [

@@ -83,10 +83,19 @@ def collect():
 
     # live products only actually mapped into a collection (skip orphan slugs)
     live_slugs = {it["slug"] for it in ALL}
-    dead = sorted(set(P_ALL.keys()) - live_slugs)
+    # Retired designs are deliberately withheld, not broken - report them apart
+    # from dead campaigns so the operator is not chasing phantom crawl failures.
+    retired = getattr(build, "RETIRED", {}) or {}
+    dead = sorted(set(P_ALL.keys()) - live_slugs - set(retired))
     dead_rows = [
         dict(slug=s, title=P_ALL[s].get("title", ""), url=P_ALL[s].get("url", ""))
         for s in dead
+    ]
+    retired_rows = [
+        dict(slug=s, reason=retired[s],
+             title=(P_ALL.get(s) or {}).get("title", ""),
+             url=(P_ALL.get(s) or {}).get("url", ""))
+        for s in sorted(retired)
     ]
 
     images = sum(len(it["gallery"]) for it in ALL)
@@ -155,11 +164,13 @@ def collect():
             moments=len(moments),
             tracked_names=len(fti_rows),
             dead_campaigns=len(dead_rows),
+            retired=len(retired_rows),
         ),
         fti_rows=fti_rows,
         gaps=[dict(r) for r in gaps],
         collections=collections,
         dead_campaigns=dead_rows,
+        retired=retired_rows,
         moments=[
             dict(title=m.get("title"), url=m.get("url"), source=m.get("source"),
                  pub=m.get("pub"), collection=m.get("collection"),
@@ -167,7 +178,8 @@ def collect():
             for m in moments
         ],
     )
-    return build, payload, products, fti_rows, gaps, moments, collections, dead_rows
+    return (build, payload, products, fti_rows, gaps, moments, collections,
+            dead_rows, retired_rows)
 
 
 # ------------------------------------------------------------------ rendering
@@ -276,7 +288,8 @@ def design_badge(r, build):
     return '<span class="badge steady">In locker</span>'
 
 
-def render(build, payload, products, fti_rows, gaps, moments, collections, dead_rows):
+def render(build, payload, products, fti_rows, gaps, moments, collections,
+           dead_rows, retired_rows):
     p = payload
     s = p["stats"]
     raw = dict(payload)
@@ -367,6 +380,7 @@ def render(build, payload, products, fti_rows, gaps, moments, collections, dead_
   </table>
  </div>
  {_dead_card(dead_rows) if dead_rows else ''}
+ {_retired_card(retired_rows)}
  <div class="card" style="margin-top:22px">
   <h3>Design gaps - build these next</h3>
   <p class="muted small">Names scoring on the news feeds with no matching design in the locker.
@@ -511,6 +525,22 @@ def _product_row(it):
             f'<td><a href="{esc(it.get("buy", ""))}" rel="noopener">Shop &rarr;</a></td></tr>')
 
 
+def _retired_card(rows):
+    """Designs intentionally pulled from the storefront (data/retired.json)."""
+    if not rows:
+        return ""
+    return f"""<div class="card" style="margin-top:22px;border-color:rgba(255,196,120,.35)">
+ <h3><span class="badge">Retired designs</span> withheld from the storefront</h3>
+ <p class="muted small">These campaigns may still be live on Viralstyle, but the player, coach or
+ mark they depict has left, so they are not published. Edit <span class="mono">data/retired.json</span>
+ to restore one.</p>
+ <table><thead><tr><th>Slug</th><th>Design</th><th>Reason</th></tr></thead><tbody>
+ {''.join(f'<tr><td class="mono small">{esc(x["slug"])}</td>'
+          f'<td>{esc(x.get("title", ""))}</td><td class="small">{esc(x["reason"])}</td></tr>'
+          for x in rows)}
+ </tbody></table></div>"""
+
+
 def _dead_card(rows):
     return f"""<div class="card" style="margin-top:22px;border-color:rgba(255,125,125,.35)">
  <h3><span class="badge dead">Dead campaigns</span> removed from the build</h3>
@@ -550,8 +580,10 @@ def _moment(m):
 
 
 def main():
-    build, payload, products, fti_rows, gaps, moments, collections, dead_rows = collect()
-    html = render(build, payload, products, fti_rows, gaps, moments, collections, dead_rows)
+    (build, payload, products, fti_rows, gaps, moments, collections,
+     dead_rows, retired_rows) = collect()
+    html = render(build, payload, products, fti_rows, gaps, moments, collections,
+                  dead_rows, retired_rows)
     os.makedirs(OUT_DIR, exist_ok=True)
     with open(os.path.join(OUT_DIR, "index.html"), "w", encoding="utf-8") as f:
         f.write(html)

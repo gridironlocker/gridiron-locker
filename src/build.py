@@ -1,6 +1,6 @@
 #!/usr/bin/env python3
 """Static site generator for the fan-apparel storefront."""
-import json, os, re, shutil, html, sys, datetime
+import json, os, re, shutil, html, sys, datetime, subprocess
 sys.path.insert(0, os.path.dirname(__file__))
 from collections import OrderedDict
 from collections_data import COLLECTIONS, ORDER, SEASON
@@ -17,6 +17,16 @@ ORDERBY = (datetime.date.today() + datetime.timedelta(days=4)).strftime("%b %d")
 P = json.load(open(os.path.join(ROOT, "data/products_live.json")))
 FACTS = json.load(open(os.path.join(ROOT, "data/facts.json")))
 COLS = json.load(open(os.path.join(ROOT, "data/collections.json")))
+
+# Retired designs: the campaign may still be live on Viralstyle, but the player,
+# coach or mark it depicts is gone, so it must not surface anywhere on the site.
+# One list, loaded once, applied in build_model() - every page, the sitemap, the
+# RSS feed, the trend rails and the ops board all read from MODEL, so filtering
+# here retires a design everywhere at once.
+try:
+    RETIRED = json.load(open(os.path.join(ROOT, "data/retired.json")))["retired"]
+except Exception:
+    RETIRED = {}
 
 # live trend data produced by src/trends.py (optional - site builds fine without it)
 try:
@@ -248,6 +258,51 @@ def slugify(s):
     return re.sub(r"-+", "-", s)
 
 
+# --------------------------------------------------- automatic new-design copy
+# A design published on Viralstyle appears in data/products_live.json as soon as
+# the crawler runs, but its hand-tuned SEO copy in data/facts.json is written by
+# a human. Until now a brand-new slug crashed the whole build with a KeyError,
+# which meant one new design took the entire site down until someone noticed.
+#
+# auto_facts() synthesises a usable fact record from the scraped campaign data so
+# the design goes live by itself: a cleaned-up title, the artwork text we can
+# infer, and keywords built from the collection. It is deliberately plainer than
+# hand-written copy - `_auto` marks it so ops/scout can list what still wants a
+# human pass (see HOW-TO-ADD-A-DESIGN.md).
+_AUTO_NOISE = re.compile(
+    r"\b(limited|edition|special|exclusive|new|design|official|shirt|tee|t-shirt|"
+    r"hoodie|sweatshirt|crewneck|beanie|mug|hat|case)\b", re.I)
+_AUTO_CODE = re.compile(r"^[a-z]{0,4}[-_]?\d+[a-z0-9-]*$", re.I)
+
+
+def _auto_title(slug, raw):
+    """Human-ish product name from the scraped campaign title or the slug."""
+    t = re.sub(r"\s+", " ", str(raw or "")).strip()
+    t = re.sub(r"\s*(?:Rs|₨|\$|USD)[\d,.]+\s*$", "", t).strip()  # store price suffix
+    if not t or _AUTO_CODE.match(t.replace(" ", "-")):
+        t = slug.replace("-", " ")
+    words = [w for w in t.split() if w]
+    t = " ".join(w if w.isupper() and len(w) > 1 else w.title() for w in words)
+    return (t[:70].strip() or slug.replace("-", " ").title())
+
+
+def auto_facts(slug, p, col):
+    """Best-effort stand-in for a hand-written data/facts.json entry."""
+    name = _auto_title(slug, p.get("title"))
+    garment_hint = name.lower()
+    if not _AUTO_NOISE.search(garment_hint):
+        name = f"{name} Shirt"
+    art = re.sub(r"\s+", " ", str(p.get("title") or name)).strip()
+    team = col["team"].lower()
+    city = col["city"].split(",")[0].lower()
+    base = name.lower()
+    kw = [base, f"{team} fan shirt", f"{city} football shirt", f"{team} fan gear"]
+    return dict(name=name, art=art, kw=kw, theme="classic", _auto=True)
+
+
+AUTO_PUBLISHED = []  # slugs that went live on synthesised copy this build
+
+
 # ---------------------------------------------------------------- build model
 def build_model():
     items = OrderedDict()
@@ -259,7 +314,15 @@ def build_model():
             slug = entry["slug"]
             if slug not in P:
                 continue
-            p, f = P[slug], FACTS[slug]
+            if slug in RETIRED:
+                continue
+            p = P[slug]
+            f = FACTS.get(slug)
+            if f is None:
+                # Newly crawled design with no hand-written copy yet: publish it
+                # automatically rather than crashing the build.
+                f = auto_facts(slug, p, col)
+                AUTO_PUBLISHED.append(slug)
             styles = [s for s in p.get("styles", []) if s]
             name = f["name"]
             garment = _c.garment_of(f, name, styles)
@@ -271,7 +334,7 @@ def build_model():
             gal += [v for k, v in p["img"].items() if k.startswith("c")]
             blob = (name + " " + f["art"]).lower()
             trend = auto_trend(ckey, slug, blob)
-            lst.append(dict(trend=trend,
+            lst.append(dict(trend=trend, facts=f,
                 slug=slug, name=name, art=f["art"], theme=f.get("theme", "classic"),
                 garment=garment, price=price, compare=compare, colours=colours,
                 styles=styles, url=url, gallery=gal, front=p["img"]["front"],
@@ -880,7 +943,8 @@ def page_collection(k):
 
 def page_product(it):
     c = COLLECTIONS[it["col"]]
-    f = FACTS[it["slug"]]
+    # resolved in build_model(): hand-written copy, or synthesised for a brand-new design
+    f = it["facts"]
     path = it["url"]
     desc_html, bullets = _c.long_description(it["slug"], f, c, it["garment"], it["styles"],
                                              it["colours"], f"{it['price']:.2f}")
@@ -1304,7 +1368,10 @@ def week1_picks(k, n=4):
     items = MODEL.get(k) or []
     by_slug = {x["slug"]: x for x in items}
     picks, have = [], set()
-    # 1. the sibling each slot declares (keeps the drop brief and the page in sync)
+    # 1. the sibling each slot declares (keeps the drop brief and the page in sync).
+    #    by_slug only holds published designs, so a sibling that has since been
+    #    retired simply falls through to the theme picks below - the slot keeps
+    #    its slogan and the grid still fills.
     for slot in WEEK1_SLATE.get(k, []):
         it = by_slug.get(slot.get("sibling"))
         if it and it["slug"] not in have:
@@ -2182,11 +2249,43 @@ def sync_marketing():
     s_m_dir = os.path.join(SITE, "marketing")
     if not os.path.exists(m_dir):
         return
+    # Regenerate the plan first so it reflects the current catalogue (retired
+    # designs dropped, new ones included) instead of shipping a stale copy.
+    # Non-fatal: a planner failure must never break the storefront build.
+    try:
+        subprocess.run([sys.executable, os.path.join(m_dir, "plan.py")],
+                       cwd=ROOT, check=True, capture_output=True, text=True)
+    except Exception as e:
+        out = getattr(e, "stderr", "") or e
+        print("marketing/plan regeneration failed, keeping existing plan:", out)
     if os.path.islink(s_m_dir) or os.path.isfile(s_m_dir):
         os.unlink(s_m_dir)
     elif os.path.isdir(s_m_dir):
         shutil.rmtree(s_m_dir)
     shutil.copytree(m_dir, s_m_dir)
+
+
+def prune_shop():
+    """Delete built product pages that the current model no longer publishes.
+
+    The generator only ever writes pages, so a design that is retired (or whose
+    campaign dies on Viralstyle) would otherwise leave its old page on disk -
+    still crawlable, still linked from search results, still selling a shirt for
+    a player who left. Anything under site/shop/ that is not in the model now
+    gets removed on every build.
+    """
+    shop = os.path.join(SITE, "shop")
+    if not os.path.isdir(shop):
+        return
+    keep = {it["slug"] for it in ALL}
+    removed = []
+    for name in sorted(os.listdir(shop)):
+        d = os.path.join(shop, name)
+        if os.path.isdir(d) and name not in keep:
+            shutil.rmtree(d)
+            removed.append(name)
+    if removed:
+        print(f"pruned {len(removed)} stale product page(s) from site/shop/")
 
 
 def sync_ops():
@@ -2228,12 +2327,19 @@ def main():
     page_static()
     page_404()
     assets()
+    prune_shop()
     write(".nojekyll", "")
     sync_marketing()
     sync_ops()
     n = relativise()
     print(f"relative-linked {n} pages for GitHub Pages / offline")
     print(f"built {len(ALL)} products, {len(ORDER)} collections, {len(URLS)} urls")
+    if RETIRED:
+        print(f"retired {len(RETIRED)} designs (data/retired.json) - not published")
+    if AUTO_PUBLISHED:
+        print(f"auto-published {len(AUTO_PUBLISHED)} new design(s) on generated copy: "
+              + ", ".join(AUTO_PUBLISHED))
+        print("  -> add hand-written entries in data/facts.json to improve their SEO")
 
 
 if __name__ == "__main__":
