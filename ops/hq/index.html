@@ -1,0 +1,223 @@
+<!doctype html>
+<html lang="en">
+<head>
+<meta charset="utf-8">
+<meta name="viewport" content="width=device-width,initial-scale=1">
+<meta name="robots" content="noindex,nofollow,noarchive">
+<meta name="theme-color" content="#070e1a">
+<title>HQ - Mission Control | Gridiron Locker</title>
+<style>
+:root{color-scheme:dark;--ink:#eef5ff;--muted:#93a6c2;--mut2:#c0cfe4;--canvas:#070e1a;
+--canvas2:#0b1526;--panel:#0f1e36;--panel2:#142842;--line:rgba(178,203,238,.13);
+--line2:rgba(178,203,238,.25);--blue:#7cc8ff;--blue2:#3d9df5;--green:#72e0ba;
+--orange:#ffb15a;--pink:#ec9cff;--red:#ff7d7d;
+font-family:Inter,ui-sans-serif,system-ui,-apple-system,BlinkMacSystemFont,"Segoe UI",sans-serif}
+*{box-sizing:border-box}html{scroll-behavior:smooth}
+body{margin:0;min-width:320px;color:var(--ink);line-height:1.55;
+background:radial-gradient(circle at 8% -8%,rgba(61,157,245,.20),transparent 38rem),
+radial-gradient(circle at 96% 4%,rgba(114,224,186,.10),transparent 34rem),var(--canvas)}
+button,input,select{font:inherit}button{cursor:pointer}a{color:var(--blue);text-decoration:none}
+a:hover{color:#c2e7ff}
+.topbar{position:sticky;top:0;z-index:30;border-bottom:1px solid var(--line);
+background:rgba(7,14,26,.92);backdrop-filter:blur(18px)}
+.topbar-inner{width:min(1400px,calc(100% - 48px));margin:0 auto;min-height:70px;display:flex;gap:14px;align-items:center;flex-wrap:wrap;padding:10px 0}
+.brand{display:flex;align-items:center;gap:12px;font-weight:800;letter-spacing:-.02em}
+.mark{display:grid;place-items:center;width:36px;height:36px;border-radius:11px;
+color:#05121f;background:linear-gradient(135deg,var(--blue),var(--green));font-weight:850}
+.brand small{display:block;font-weight:600;color:var(--muted);letter-spacing:.14em;
+text-transform:uppercase;font-size:.62rem}
+.hqnav{display:flex;gap:8px;flex-wrap:wrap;margin-left:8px}
+.hqnav a{padding:7px 13px;border:1px solid var(--line);border-radius:999px;color:var(--mut2);
+font-size:.8rem;background:rgba(255,255,255,.03);white-space:nowrap}
+.hqnav a.on{border-color:var(--blue2);color:#fff;background:rgba(61,157,245,.16)}
+.hqnav a:hover{border-color:var(--blue2);color:#fff}
+.pill{display:inline-flex;align-items:center;gap:7px;padding:7px 13px;border:1px solid var(--line2);
+border-radius:999px;color:var(--mut2);background:rgba(255,255,255,.03);font-size:.8rem;white-space:nowrap}
+.dot{width:8px;height:8px;border-radius:50%;background:var(--green);box-shadow:0 0 10px var(--green)}
+.dot.yellow{background:var(--orange);box-shadow:0 0 10px var(--orange)}
+.dot.red{background:var(--red);box-shadow:0 0 10px var(--red)}
+.dot.grey{background:var(--muted);box-shadow:none}
+.wrap{width:min(1400px,calc(100% - 48px));margin:0 auto}
+section{padding:34px 0 6px}
+h1{margin:0 0 10px;font-size:clamp(1.6rem,3.4vw,2.5rem);letter-spacing:-.03em;line-height:1.15}
+h2{margin:0 0 6px;font-size:1.25rem;letter-spacing:-.02em}
+h3{font-size:.95rem;margin:0 0 10px;letter-spacing:-.01em}
+.lead{color:var(--muted);max-width:82ch;margin:0 0 22px}
+.muted{color:var(--muted)} .small{font-size:.8rem} .mono{font-family:ui-monospace,SFMono-Regular,Menlo,monospace}
+.kpis{display:grid;grid-template-columns:repeat(auto-fit,minmax(150px,1fr));gap:12px}
+.kpi{border:1px solid var(--line);border-radius:16px;padding:16px 18px;background:linear-gradient(180deg,var(--panel),var(--canvas2))}
+.kpi b{display:block;font-size:1.7rem;line-height:1.1;letter-spacing:-.03em}
+.kpi span{color:var(--muted);font-size:.78rem}
+.card{border:1px solid var(--line);border-radius:18px;background:var(--panel);padding:20px 22px;
+box-shadow:0 14px 44px rgba(0,0,0,.22)}
+.card + .card{margin-top:22px}
+table{width:100%;border-collapse:collapse;font-size:.86rem}
+th{color:var(--muted);font-weight:650;text-align:left;padding:9px 10px;border-bottom:1px solid var(--line2);
+font-size:.72rem;letter-spacing:.08em;text-transform:uppercase;white-space:nowrap}
+td{padding:9px 10px;border-bottom:1px solid var(--line);vertical-align:middle}
+tr:hover td{background:rgba(124,200,255,.045)}
+.num{text-align:right;font-variant-numeric:tabular-nums}
+.badge{display:inline-block;padding:3px 10px;border-radius:999px;font-size:.7rem;font-weight:700;
+letter-spacing:.03em;text-transform:uppercase;border:1px solid transparent}
+.ok{color:#062b1c;background:var(--green)} .bad{color:#2b0f0f;background:var(--red)}
+.info{color:#04121f;background:var(--blue)} .warn{color:#26180a;background:var(--orange)}
+.botgrid{display:grid;grid-template-columns:repeat(auto-fit,minmax(240px,1fr));gap:12px}
+.bot{border:1px solid var(--line);border-radius:14px;padding:13px 15px;background:rgba(255,255,255,.018)}
+.bot b{display:block;font-size:.88rem} .bot span{color:var(--muted);font-size:.78rem}
+.bot code{font-family:ui-monospace,monospace;font-size:.74rem;color:var(--blue)}
+.steps{display:flex;flex-wrap:wrap;gap:8px;align-items:center;margin:12px 0}
+.step{padding:5px 12px;border:1px solid var(--line2);border-radius:999px;font-size:.76rem;color:var(--mut2);background:rgba(255,255,255,.03)}
+.arrow{color:var(--muted);font-size:.8rem}
+.cmd{background:#04090f;border:1px solid var(--line2);border-radius:12px;padding:12px 16px;
+font-family:ui-monospace,SFMono-Regular,Menlo,monospace;font-size:.82rem;color:#cfe6ff;overflow:auto}
+footer{padding:40px 0 56px;color:var(--muted);font-size:.8rem;border-top:1px solid var(--line);margin-top:40px}
+footer .wrap{display:flex;justify-content:space-between;flex-wrap:wrap;gap:12px}
+.kbd{font-family:ui-monospace,monospace;background:rgba(255,255,255,.06);padding:1px 6px;border-radius:6px;font-size:.78em}
+.runs{display:flex;flex-direction:column;gap:8px;margin-top:12px}
+.run{display:flex;gap:10px;align-items:center;padding:9px 12px;border:1px solid var(--line);border-radius:11px;background:rgba(255,255,255,.015);font-size:.82rem}
+.run .meta{color:var(--muted);font-size:.74rem}
+</style>
+</head>
+<body>
+<div class="topbar"><div class="topbar-inner">
+ <div class="brand"><span class="mark">H</span><span>HQ<small>Gridiron Locker - Mission Control</small></span></div>
+ <nav class="hqnav" aria-label="HQ menu">
+  <a class="on" href="/ops/hq/">HQ</a>
+  <a href="/ops/board/">Operator Board</a>
+  <a href="/ops/scout/">Scout</a>
+  <a href="/ops/design-drop/">Design Drop</a>
+  <a href="/marketing/dashboard.html">Marketing</a>
+  <a href="/">Storefront</a>
+  <a href="https://github.com/gridironlocker/gridiron-locker/actions">GitHub Actions</a>
+  <a href="https://github.com/gridironlocker/gridiron-locker">Repo</a>
+ </nav>
+ <span class="pill"><span class="dot"></span>Data refresh 2026-09-03 &middot; 108 designs shipped</span>
+</div></div>
+<main class="wrap">
+<section>
+ <h1>Mission <span style="color:var(--green)">Control</span></h1>
+ <p class="lead">One screen over the whole store pipeline: bots, refresh cadence with live
+ workflow runs, catalogue listed-vs-built, WebP image health, automatic-verification
+ checklist, newest campaigns, the one-command adder and search health. Regenerated on every
+ build (<span class="kbd">src/hq.py</span> &rarr; <span class="kbd">src/build.py</span>);
+ private, noindex, internal use only.</p>
+ <div class="kpis">
+  <div class="kpi"><b>108</b><span>Shipped designs</span></div>
+  <div class="kpi"><b>2026-09-03</b><span>Trend-data date</span></div>
+  <div class="kpi"><b>1043</b><span>Product image refs</span></div>
+  <div class="kpi"><b>128</b><span>Products with 6 swatches</span></div>
+  <div class="kpi"><b>0</b><span>Missing images</span></div>
+  <div class="kpi"><b>108</b><span>Built (all collections)</span></div>
+ </div>
+</section>
+
+<section>
+ <h2>Bot menu</h2>
+ <p class="muted small">Every operator command, one line each. Run from the repo root.</p>
+ <div class="card"><div class="botgrid"><div class="bot"><b><code>scrape_list.py</code></b><br><span>Re-scan the 4 collection pages for new designs.</span></div><div class="bot"><b><code>scrape_products.py</code></b><br><span>Crawl each design&#x27;s full product data + images.</span></div><div class="bot"><b><code>replay_updates.py</code></b><br><span>Re-inject directly-published campaigns (idempotent).</span></div><div class="bot"><b><code>add_campaign.py</code></b><br><span>One-command adder: slug + collection -&gt; campaigns_extra.json.</span></div><div class="bot"><b><code>dl.py</code></b><br><span>Download hi-res images, auto-convert every grab to WebP.</span></div><div class="bot"><b><code>src/trends.py</code></b><br><span>Refresh trend data + Fan Trend Index from news feeds.</span></div><div class="bot"><b><code>src/build.py</code></b><br><span>Rebuild all HTML pages, sitemaps, feeds + ops dashboards.</span></div><div class="bot"><b><code>src/scout.py</code></b><br><span>Regenerate the Scout ops dashboard (/ops/scout/).</span></div><div class="bot"><b><code>src/hq.py</code></b><br><span>Regenerate this HQ mission control (/ops/hq/).</span></div><div class="bot"><b><code>src/indexnow.py</code></b><br><span>Ping IndexNow so Bing/Yandex pick up changed urls.</span></div><div class="bot"><b><code>ops/board/build.py</code></b><br><span>Regenerate the Operator Board (/ops/board/).</span></div><div class="bot"><b><code>marketing/plan.py</code></b><br><span>Refresh the marketing planner (/marketing/dashboard.html).</span></div></div></div>
+</section>
+
+<section>
+ <h2>Refresh pipeline</h2>
+ <div class="card">
+  <p style="margin:0"><b>Schedule:</b> 2x/day <span class="kbd">06:15 &amp; 15:15 UTC</span> + every push to main + manual dispatch
+  (<span class="kbd">Actions &rarr; Refresh site &rarr; Run workflow</span>).</p>
+  <div class="steps"><span class="step">crawl</span><span class="arrow">&rarr;</span><span class="step">replay</span><span class="arrow">&rarr;</span><span class="step">dl</span><span class="arrow">&rarr;</span><span class="step">trends</span><span class="arrow">&rarr;</span><span class="step">verify</span><span class="arrow">&rarr;</span><span class="step">build</span><span class="arrow">&rarr;</span><span class="step">deploy</span><span class="arrow">&rarr;</span><span class="step">IndexNow</span></div>
+  <p class="muted small" style="margin:0">KPIs: <b style="color:var(--ink)">108 designs shipped</b> &middot;
+  trend data <b style="color:var(--ink)">2026-09-03</b> &middot; chain crawl&rarr;replay&rarr;dl&rarr;trends&rarr;verify&rarr;build&rarr;deploy&rarr;IndexNow.</p>
+  <h3 style="margin-top:18px">Live workflow runs</h3>
+  <div class="runs" id="runs"><div class="run"><span class="dot"></span><div><a href="https://github.com/gridironlocker/gridiron-locker/actions/runs/33807411578"><b>Refresh trends &amp; redeploy</b></a><div class="meta">completed / success &middot; push &middot; main &middot; 2026-09-03</div></div></div><div class="run"><span class="dot"></span><div><a href="https://github.com/gridironlocker/gridiron-locker/actions/runs/33807411570"><b>Deploy website to GitHub Pages</b></a><div class="meta">completed / success &middot; push &middot; main &middot; 2026-09-03</div></div></div><div class="run"><span class="dot"></span><div><a href="https://github.com/gridironlocker/gridiron-locker/actions/runs/33806884880"><b>Deploy website to GitHub Pages</b></a><div class="meta">completed / success &middot; push &middot; main &middot; 2026-09-03</div></div></div><div class="run"><span class="dot"></span><div><a href="https://github.com/gridironlocker/gridiron-locker/actions/runs/33806884873"><b>Refresh trends &amp; redeploy</b></a><div class="meta">completed / success &middot; push &middot; main &middot; 2026-09-03</div></div></div><div class="run"><span class="dot"></span><div><a href="https://github.com/gridironlocker/gridiron-locker/actions/runs/33804284559"><b>Refresh trends &amp; redeploy</b></a><div class="meta">completed / success &middot; push &middot; main &middot; 2026-09-03</div></div></div><div class="run"><span class="dot"></span><div><a href="https://github.com/gridironlocker/gridiron-locker/actions/runs/33804284530"><b>Deploy website to GitHub Pages</b></a><div class="meta">completed / success &middot; push &middot; main &middot; 2026-09-03</div></div></div></div>
+  <p class="muted small">Source: <span class="kbd">api.github.com/repos/gridironlocker/gridiron-locker/actions/runs?per_page=6</span>.
+  Dots: <span class="badge ok">success</span> <span class="badge warn">running</span> <span class="badge bad">failed</span>.
+  Rate-limited? The snapshot above was taken at build time; the page retries live below.</p>
+ </div>
+</section>
+
+<section>
+ <h2>Catalogue: listed vs built</h2>
+ <div class="card"><table>
+ <thead><tr><th>Collection</th><th class="num">Listed</th><th class="num">Built</th><th class="num">Skipped</th></tr></thead>
+ <tbody><tr><td><b>Cleveland</b><br><span class="muted small">Cleveland Browns Fan Shirts</span></td><td class="num">82</td><td class="num">58</td><td class="num">24</td></tr><tr><td><b>Green Bay</b><br><span class="muted small">Green Bay Packers Fan Shirts</span></td><td class="num">35</td><td class="num">31</td><td class="num">4</td></tr><tr><td><b>Dallas</b><br><span class="muted small">Dallas Vintage Sports Tees</span></td><td class="num">10</td><td class="num">10</td><td class="num">0</td></tr><tr><td><b>Michigan</b><br><span class="muted small">Michigan Go Blue Apparel</span></td><td class="num">15</td><td class="num">9</td><td class="num">6</td></tr></tbody></table>
+ <p class="muted small">Listed = products in data/collections.json. Built = pages emitted by src/build.py
+ (delisted + imageless slugs skipped). Skipped = listed - built.</p></div>
+</section>
+
+<section>
+ <h2>Image health (WebP)</h2>
+ <div class="card"><table><tbody>
+  <tr><td>Total refs (products_live.json img maps)</td><td class="num"><b>1043</b></td></tr>
+  <tr><td>Missing files on disk</td><td class="num"><b>0</b></td></tr>
+  <tr><td>Products with 6 swatches</td><td class="num"><b>128</b></td></tr>
+  <tr><td>Products partial (1-5 swatches)</td><td class="num"><b>6</b></td></tr>
+  <tr><td>Products with none</td><td class="num"><b>4</b></td></tr>
+ </tbody></table>
+ <p class="muted small">All image refs resolve to files under site/img/p. Only .webp ships.</p>
+ </div>
+</section>
+
+<section>
+ <h2>Automatic-verification checklist</h2>
+ <div class="card"><table>
+ <thead><tr><th>Check</th><th>Status</th><th>Detail</th></tr></thead>
+ <tbody><tr><td>trend data generated today</td><td><span class="badge ok">PASS</span></td><td class="muted small">2026-09-03 vs today 2026-09-03</td></tr><tr><td>0 broken product images</td><td><span class="badge ok">PASS</span></td><td class="muted small">1043 refs, 0 missing</td></tr><tr><td>catalogue never emptied</td><td><span class="badge ok">PASS</span></td><td class="muted small">108 built, 138 live</td></tr><tr><td>delisted slugs blocked</td><td><span class="badge ok">PASS</span></td><td class="muted small">30 retired, 0 resurrected</td></tr><tr><td>replay idempotent</td><td><span class="badge ok">PASS</span></td><td class="muted small">4 campaigns injected</td></tr></tbody></table></div>
+</section>
+
+<section>
+ <h2>Newest campaigns</h2>
+ <div class="card"><table>
+ <thead><tr><th>Slug</th><th>Title</th><th class="num">Swatches</th><th>Sizes</th><th>Page</th></tr></thead>
+ <tbody><tr><td class="mono small">let-it-rip</td><td>Let it Rip</td><td class="num">6</td><td class="mono small">S,M,L,XL,2XL,3XL</td><td><a href="/shop/let-it-rip/">page &rarr;</a></td></tr><tr><td class="mono small">sanders-the-next-level</td><td>Sanders The Next Level</td><td class="num">6</td><td class="mono small">S,M,L,XL,2XL,3XL</td><td><a href="/shop/sanders-the-next-level/">page &rarr;</a></td></tr><tr><td class="mono small">limited-edition-m-vs-all</td><td>Limited Edition M vs All</td><td class="num">6</td><td class="mono small">S,M,L,XL,2XL</td><td><a href="/shop/limited-edition-m-vs-all/">page &rarr;</a></td></tr><tr><td class="mono small">limited-edition-qb19</td><td>Limited Edition QB19</td><td class="num">6</td><td class="mono small">S,M,L,XL,2XL,3XL</td><td><a href="/shop/limited-edition-qb19/">page &rarr;</a></td></tr></tbody></table>
+ <p class="muted small">The four directly-published campaigns injected by replay_updates.py. Swatches = c0-c5
+ images in the live img map; sizes = campaign SELECT SIZE row.</p></div>
+</section>
+
+<section>
+ <h2>Add-a-product</h2>
+ <div class="card">
+  <p style="margin-top:0">New directly-published campaign? One command:</p>
+  <div class="cmd">python3 add_campaign.py &lt;slug&gt; &lt;collection&gt;</div>
+  <p class="muted small">Example: <span class="kbd">python3 add_campaign.py my-new-design cleveland-browns</span>
+  &rarr; merges into <span class="kbd">data/campaigns_extra.json</span> &rarr;
+  <span class="kbd">python3 replay_updates.py &amp;&amp; python3 dl.py &amp;&amp; python3 src/build.py</span>.
+  Collections: <span class="kbd">cleveland-browns, dallas-cowboys, green-bay-packers, michigan</span>.
+  Add <span class="kbd">--dry-run</span> to preview without writing. Full docs: HOW-TO-ADD-A-DESIGN.md Option A+.</p>
+ </div>
+</section>
+
+<section>
+ <h2>Search health</h2>
+ <div class="card"><table>
+ <thead><tr><th>Signal</th><th>Value</th><th>Status</th></tr></thead>
+ <tbody><tr><td>sitemap urls</td><td class="mono small">129</td><td><span class="badge ok">OK</span></td></tr><tr><td>domain</td><td class="mono small">https://gridironlocker.store</td><td><span class="badge ok">OK</span></td></tr><tr><td>GSC file googleae06215486ed6c17.html</td><td class="mono small">present</td><td><span class="badge ok">OK</span></td></tr><tr><td>IndexNow key</td><td class="mono small">a7f3c19b84e2…</td><td><span class="badge ok">OK</span></td></tr><tr><td>llms.txt</td><td class="mono small">present</td><td><span class="badge ok">OK</span></td></tr></tbody></table>
+ <p class="muted small">Sitemap = site/sitemap.xml url count. GSC file, IndexNow key file and llms.txt must all
+ ship in site/ on every build.</p></div>
+</section>
+
+<footer><div class="wrap">
+ <span>HQ &middot; mission control &middot; noindex</span>
+ <span>Generated 2026-09-03 23:07 UTC by src/hq.py</span>
+</div></footer>
+</main>
+<script>
+(function(){
+  try{
+    fetch("https://api.github.com/repos/gridironlocker/gridiron-locker/actions/runs?per_page=6")
+      .then(function(r){ if(!r.ok) throw new Error("rate-limited"); return r.json(); })
+      .then(function(j){
+        var runs=(j.workflow_runs||[]).slice(0,6);
+        if(!runs.length) return;
+        var el=document.getElementById("runs");
+        el.innerHTML=runs.map(function(w){
+          var ok=(w.conclusion==="success"), run=(w.status!=="completed");
+          var dot=run?'<span class="dot yellow"></span>':(ok?'<span class="dot"></span>':'<span class="dot red"></span>');
+          return '<div class="run">'+dot+'<div><a href=''+w.html_url+''><b>'+w.name+'</b></a>'
+            +'<div class="meta">'+w.status+(w.conclusion?" / "+w.conclusion:"")
+            +' &middot; '+w.event+' &middot; '+(w.head_branch||"")+'</div></div></div>';
+        }).join("");
+      })
+      .catch(function(){ /* keep build-time snapshot */ });
+  }catch(e){}
+})();
+</script>
+</body>
+</html>

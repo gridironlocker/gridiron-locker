@@ -2258,6 +2258,12 @@ def sync_ops():
     except Exception as e:
         print("ops/scout generation failed, keeping existing files:", e)
         return
+    try:
+        import hq
+        hq.main()
+    except Exception as e:
+        print("ops/hq generation failed, keeping existing files:", e)
+        return
     o_dir = os.path.join(ROOT, "ops")
     s_o_dir = os.path.join(SITE, "ops")
     if not os.path.exists(o_dir):
