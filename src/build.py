@@ -312,6 +312,10 @@ def build_model():
                 # front never downloaded but another mockup exists - feature it
                 img["front"] = next(iter(img.values()))
             styles = [s for s in p.get("styles", []) if s]
+            # Sizes actually offered by the campaign (captured by the scraper /
+            # replay); fall back to the store-wide S-3XL range. A campaign that
+            # stops at 2XL must not offer 3XL on the product page.
+            sizes_avail = [s for s in (p.get("sizes") or SIZES) if s in SIZES] or list(SIZES)
             name = f["name"]
             garment = _c.garment_of(f, name, styles)
             colours = max(1, sum(1 for k in img if k.startswith("c")))
@@ -325,7 +329,7 @@ def build_model():
             lst.append(dict(trend=trend,
                 slug=slug, name=name, art=f["art"], theme=f.get("theme", "classic"),
                 garment=garment, price=price, compare=compare, colours=colours,
-                styles=styles, url=url, gallery=gal, front=img["front"],
+                styles=styles, sizes_avail=sizes_avail, url=url, gallery=gal, front=img["front"],
                 back=img.get("back", img["front"]),
                 buy=p["url"], kw=_c.keywords(f, col, garment), col=ckey,
             ))
@@ -945,9 +949,16 @@ def page_product(it):
         f'<button class="thumb{" on" if n == 0 else ""}" data-src="{g}" aria-label="View image {n+1}">'
         f'<img src="{g}" alt="{esc(it["name"])} view {n+1}" loading="lazy" width="120" height="140"></button>'
         for n, g in enumerate(it["gallery"][:10]))
-    sizes = "".join(f'<button class="size{" on" if s == "L" else ""}">{s}</button>' for s in SIZES) \
+    _sz = it["sizes_avail"]
+    default_size = "L" if "L" in _sz else _sz[len(_sz) // 2]
+    sizes = "".join(f'<button class="size{" on" if s == default_size else ""}">{s}</button>' for s in _sz) \
         if it["garment"] not in ("Mug", "Phone Case", "Beanie") else \
         '<span class="muted" style="font-size:.86rem">One size / model selected at checkout</span>'
+    sizes_badge = f"Sizes {_sz[0]}-{_sz[-1]}"
+    _CHART = {"S": (18, 28), "M": (20, 29), "L": (22, 30),
+              "XL": (24, 31), "2XL": (26, 32), "3XL": (28, 33)}
+    chart_rows = "".join(
+        f'<tr><td>{s}</td><td>{_CHART[s][0]}</td><td>{_CHART[s][1]}</td></tr>' for s in _sz)
     _gal = it["gallery"]
     _styleimgs = _gal[:1] + _gal[2:]  # front first, then the colourway/garment swatches
     stylechips = "".join(
@@ -1041,7 +1052,7 @@ def page_product(it):
    your garment style, colour and size and complete payment with card or PayPal. Tracked, worldwide,
    and nothing is printed until you confirm the order.</p>
   </div>
-  <div class="badges"><span class="badge">Sizes S-3XL</span>
+  <div class="badges"><span class="badge">{sizes_badge}</span>
    <span class="badge">{colours_label}</span>
    <span class="badge">Worldwide shipping</span><span class="badge">Card &amp; PayPal</span></div>
   <div class="ships">
@@ -1059,9 +1070,7 @@ def page_product(it):
    <div class="panel"><h3>Key features</h3><ul class="feat">{bl}</ul></div>
    <div class="panel"><h3>Size chart (inches)</h3>
     <table><tr><th>Size</th><th>Chest width</th><th>Body length</th></tr>
-     <tr><td>S</td><td>18</td><td>28</td></tr><tr><td>M</td><td>20</td><td>29</td></tr>
-     <tr><td>L</td><td>22</td><td>30</td></tr><tr><td>XL</td><td>24</td><td>31</td></tr>
-     <tr><td>2XL</td><td>26</td><td>32</td></tr><tr><td>3XL</td><td>28</td><td>33</td></tr></table>
+     {chart_rows}</table>
     <p class="muted" style="font-size:.8rem;margin:10px 0 0">Lay a shirt you own flat and compare -
     it beats guessing. Full guide: <a href="/size-guide/" style="color:var(--accent)">size guide</a>.</p>
    </div>
