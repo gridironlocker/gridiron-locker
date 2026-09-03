@@ -53,6 +53,7 @@ CAMPAIGNS = {
                      "- Seamed collar - Shoulder to shoulder taping "
                      "- Double-needle sleeve and bottom hems - Tear away label"),
         "collection": "cleveland-browns",
+        "sizes": ["S", "M", "L", "XL", "2XL", "3XL"],   # SELECT SIZE on the live page
         "list_price_inr": "Rs2,361.31",
     },
     "sanders-the-next-level": {
@@ -82,6 +83,7 @@ CAMPAIGNS = {
                      "- Seamed collar - Shoulder to shoulder taping "
                      "- Double-needle sleeve and bottom hems - Tear away label"),
         "collection": "cleveland-browns",
+        "sizes": ["S", "M", "L", "XL", "2XL", "3XL"],   # SELECT SIZE on the live page
         "list_price_inr": "Rs2,077.84",
     },
     "limited-edition-m-vs-all": {
@@ -113,6 +115,7 @@ CAMPAIGNS = {
                      "- Double needle sleeve and bottom hems "
                      "- Tear away labels"),
         "collection": "michigan",
+        "sizes": ["S", "M", "L", "XL", "2XL"],        # live page stops at 2XL (Women's Crew Tee)
         "list_price_inr": "Rs2,077.84",
     },
     "limited-edition-qb19": {
@@ -140,6 +143,7 @@ CAMPAIGNS = {
                      "- Heather Colors: 52% Airlume combed and ring-spun cotton, "
                      "48% poly - Semi-Fitted - Tear away label"),
         "collection": "michigan",
+        "sizes": ["S", "M", "L", "XL", "2XL", "3XL"],   # SELECT SIZE on the live page
         "list_price_inr": "Rs2,361.31",
     },
 }
@@ -171,8 +175,14 @@ def hi(url):
 def scrape_entry(slug, c):
     cid, base = c["campaign"], c["base"]
     asset = f"https://assets.viralstyle.com/campaigns/{cid}/{base}"
+    # Viralstyle mockup keys are three-part: <design>-<colour>-<style>. Every
+    # swatch mockup on the campaign page repeats the design id (the first
+    # component of the base key) in front of its own two-part key, so it has
+    # to be re-attached when building the asset URLs (verified against the
+    # live pages: .../vZ4xZz-pa62v9q-a163Wxx-front-small.jpg etc).
+    design = base.split("-")[0]
     swatches = sorted({
-        f"https://assets.viralstyle.com/campaigns/{cid}/{k}-front-small.jpg"
+        f"https://assets.viralstyle.com/campaigns/{cid}/{design}-{k}-front-small.jpg"
         for k in c["swatch_keys"]
     })
     return {
@@ -185,6 +195,7 @@ def scrape_entry(slug, c):
         "back": asset + "-back-large.jpg",
         "swatches": swatches,
         "styles": list(c["styles"]),
+        "sizes": list(c.get("sizes") or ["S", "M", "L", "XL", "2XL", "3XL"]),
         "desc": c["desc"],
         "features": c["features"],
     }
