@@ -9,13 +9,13 @@ FTI = `round(100 * entity_mentions / peak_mentions_in_window)`. Peak mentions in
 | Rank | Name | Collection | Mentions | FTI | Status | Shop |
 |---|---|---|---|---|---|---|
 | 1 | deshaun watson | cleveland-browns | 19 | 100 | trending | gap — no design |
-| 2 | bryce underwood | michigan | 17 | 89 | trending | in locker |
-| 3 | josh jacobs | green-bay-packers | 15 | 79 | trending | gap — no design |
-| 4 | shedeur sanders | cleveland-browns | 14 | 74 | trending | in locker |
-| 5 | kyle whittingham | michigan | 12 | 63 | trending | gap — no design |
-| 6 | myles garrett | cleveland-browns | 8 | 42 | trending | in locker |
-| 7 | matt lafleur | green-bay-packers | 6 | 32 | trending | gap — no design |
-| 8 | micah parsons | green-bay-packers | 6 | 32 | trending | in locker |
+| 2 | bryce underwood | michigan | 16 | 84 | trending | in locker |
+| 3 | shedeur sanders | cleveland-browns | 16 | 84 | trending | in locker |
+| 4 | josh jacobs | green-bay-packers | 14 | 74 | trending | gap — no design |
+| 5 | kyle whittingham | michigan | 11 | 58 | trending | gap — no design |
+| 6 | matt lafleur | green-bay-packers | 6 | 32 | trending | gap — no design |
+| 7 | micah parsons | green-bay-packers | 6 | 32 | trending | in locker |
+| 8 | myles garrett | cleveland-browns | 6 | 32 | trending | in locker |
 | 9 | todd monken | cleveland-browns | 4 | 21 | trending | gap — no design |
 | 10 | ceedee lamb | dallas-cowboys | 2 | 11 | steady | — |
 | 11 | dak prescott | dallas-cowboys | 2 | 11 | steady | — |
@@ -32,15 +32,14 @@ FTI = `round(100 * entity_mentions / peak_mentions_in_window)`. Peak mentions in
 - **deshaun watson** — [Deshaun Watson and the moral dilemma at the forefront of Cleveland Browns football](https://news.google.com/rss/articles/CBMioAFBVV95cUxNTWh1NTdQLWVTMHc0emQ4ZXNScGR2YkF6WFlpUWFOYVBic2ZZUXpWNzdaZmJXa2hjM2otWmtxR2FXWG56LVFOQk96Rms2ZFlaYXlZQWRiX1d4SGpReE5FUTlYUzZyLVdrcVdRaE5fc2I0QkdiYkwyWEt1S1ZhLWtFWDFlc0l3V2ZXaHEyZktadzBJazRaU2o0cWZHMGc1eU5B?oc=5) — Andscape
 - **josh jacobs** — [Packers trade for Steelers RB Kaleb Johnson as Josh Jacobs lands on Commissioner's Exempt List](https://news.google.com/rss/articles/CBMiwAFBVV95cUxPcXFvRjN4U1ZDdXYyc25UakJpZUhlOTNlN1JubU44NThfS1FYRnVrZmc1SWxHWGNNcFE5MG8wTUdSdEw1VFVmblkxUVM1dXhLS3pmZjZ0dmdHellWbkwwV2hMOWI4NUJCVjJWd0pvWi1feFFuNWJ0Z3o1N0E3cDFHLUZRXzl1dEFqeHZKYWVXVDdSdmlBeFVVNkVBbGdnYjQyWjBtdVB4UHpJaTFITWdvc3FJRlVLZHVKR01BYWdUZl8?oc=5) — NFL.com
 - **kyle whittingham** — [Kyle Whittingham officially names Michigan Football’s QB2 for 2026](https://news.google.com/rss/articles/CBMi2AFBVV95cUxPQXFDN0kwT2VtNlQyQ25pNXIwenplamZxWFY5WXhacThTdklvWFRjSF9MaDQxVW9WZm5oQTZBazA3QV93WUNRTDluSHFzLWNwdjJEOXZyVEJiSkttRlJuVk5mcm5vX3hPZXBvS2t0cGNYOGpBQy1NT3B2dEJvQ2lEbDNvNTlJbmhIZUcxUnljc1M1Uy1IbHNxUVBLcklFQkc5cW5oUVZRY3pRbGRBWkpXbWhrSkJtcU81Y1BPc0RJcnZiR1Vja0h5Z2VGMFdkTmloYU4zc01ta1g?oc=5) — Maize n Brew
-- **bryce underwood** — [Summer work starting to pay off for QB Bryce Underwood, Michigan coaches say](https://news.google.com/rss/articles/CBMiygFBVV95cUxOY0Z1RkhpZmxyU0RzUWFZX1dTQjlGdzRrU3lUdThyY3djMTFodGhIbVZsRE9FM1hfSWtYXy1MZzFGQVRMOTM0MkdmQ0F5bFZzQWsxd0lZODFCWGlEV2ZrOXh6MGpzalFwOVRiU2RRcmNvRnlyVTNkZEltX0NuTjFoSWdXT19sYVNRb3lPZzdkdlN1Vkd3V0F2aEdXZ2JfU256MGlpSUtYeWEwakdnNlhEOUJRZjlJay0yeDZnVUJWMkpUNVFuZms3d25B0gHeAUFVX3lxTFBsS1lXVHVPQ3pVY19JTjNMb0F0bUlvMF9XbXlKNm1LbmdqNFoyTjVTODVqbzlWMEVacE41bnNTUDJXZGhyUXdycUh4OTlTMVl5ZjltMU9mM0hLZzVLWHI3ODRwVGRRQTBBMmJxSUVYZUtnbm1zLTFlQy1tWTdsWTNCTmRnYmU4RG05dElSMDhyeVJGajhLOWp5dUlZci1hWWpPVzhzS0RUWEREV3RkTEtjN3c1WVZfSHQwNThPdE9Va3BUd0ZtS2hCR0hyNVhDNWdyN1Qzc1JCR3hrYm9TUQ?oc=5) — MLive.com
 
 ## Cleveland Browns Fan Shirts
 
 | Name | Headline mentions | Status | FTI |
 |---|---|---|---|
 | deshaun watson | 19 | TRENDING | 100 |
-| shedeur sanders | 14 | TRENDING | 74 |
-| myles garrett | 8 | TRENDING | 42 |
+| shedeur sanders | 16 | TRENDING | 84 |
+| myles garrett | 6 | TRENDING | 32 |
 | todd monken | 4 | TRENDING | 21 |
 | joe flacco | 0 | quiet - throwback | 0 |
 | kevin stefanski | 0 | quiet - throwback | 0 |
@@ -55,14 +54,14 @@ Recent headlines:
 - [Browns sign CB Noah Igbinoghene and DE Sam Williams](https://news.google.com/rss/articles/CBMikgFBVV95cUxOSnFSRkQ4NEtiOFhnR0tUNVJkS2FGUWFQTG5kV1ZFZkRiR2wxUGZGX1pFSnhPaXBhRERGX3AwSTFGeXo4QXdZcmgyd1NYXzByT1BfTmhXQ09NNXhmSE1qM1J6cUZfOU10eDFHVVdXa3BEVTdCMmRRU29reXg1X21fZnRvU3lYSzRGeUE0X3J3UENOZw?oc=5) - Cleveland Browns
 - [Deshaun Watson and the moral dilemma at the forefront of Cleveland Browns football](https://news.google.com/rss/articles/CBMioAFBVV95cUxNTWh1NTdQLWVTMHc0emQ4ZXNScGR2YkF6WFlpUWFOYVBic2ZZUXpWNzdaZmJXa2hjM2otWmtxR2FXWG56LVFOQk96Rms2ZFlaYXlZQWRiX1d4SGpReE5FUTlYUzZyLVdrcVdRaE5fc2I0QkdiYkwyWEt1S1ZhLWtFWDFlc0l3V2ZXaHEyZktadzBJazRaU2o0cWZHMGc1eU5B?oc=5) - Andscape
 - [Cleveland Browns set initial 53-man roster](https://news.google.com/rss/articles/CBMic0FVX3lxTE9ZMDZVVmNSem5BQ09qS25wU2N2SG56NnV3SUVPbF9XdnJ1bGxhZ3BfX3lEMHoxYTNoZ280Mi04dmhIallUbDBVZXVzVVNnUGFYVkhXYzFPNmN5MklFZU1lLTl1ankxR3pPa1J6c1d5ci1NQmPSAXhBVV95cUxOYkxibGJaZWdwNWtYdXhIaE1xUmNpSl82VkV1SU1fanV5MVVzRFV6M2dHOXlrR0cyQmtOTzU3c0E2RjhUU1FxUWJ1SnhZQ3NDVlROSTBqVER1cWxOSWJwOWFjdWFFd3hYeGFlV3ZrekpUb1MzQnZtcmw?oc=5) - FOX 8 News
-- [Browns keep 3 QBs on roster, put Dillon Gabriel (back) on IR](https://news.google.com/rss/articles/CBMinAFBVV95cUxPYjdxQXhRbjR2YUE2V3l6YVJZbUFXVHcyUXR4U011NFBORDZNUW1aZjluQUVyazc2a2VUOEF4YTJWTTRLNlBhTXJhYWMteFRWdnE1NzBidEFiOU81dmFOTGg5eWZ3eS03eDE4ZEJXS2Y2QzV1eGhRdnN2ZFhvMXBpb0YzV203M2s5ZVdXYWtiTzVzVlNRM3ZsYzExSUY?oc=5) - ESPN
-- [Cleveland Browns news: Welcome to your initial 53-man roster!](https://news.google.com/rss/articles/CBMi0wFBVV95cUxPNHZvQ192Z1N6Wm4tQXBsX0lEOTFqT0hTOHktczV3RzROTldod24xNnZZdmJ6VW94WUNORkxPYjhXQ3V0NFU0UXlZTTlvalRDaE9BZTVPb1RQZzlUVzNKQ19FVk55ckUxUk01NFlkejhwTUtrXy1QTHlyVzZoc0l4RGNQT0VURy0yc19ONmZRcV9SVndoVGI4NWdUMVJYTjNVQ29hR0UtVURLU0NuRjFVSmZ3NG9ueHJHN2NiWVpBMTZfblhjVGZyMTVxUnRUWDRsQ0p3?oc=5) - Dawgs By Nature
+- [Browns keep 3 QBs on roster, put Dillon Gabriel (back) on IR](https://news.google.com/rss/articles/CBMinAFBVV95cUxPYjdxQXhRbjR2YUE2V3l6YVJZbUFXVHcyUXR4U011NFBORDZNUW1aZjluQUVyazc2a2VUOEF4YTJWTTRLNlBhTXJhYWMteFRWdnE1NzBidEFiOU81dmFOTGg5eWZ3eS03eDE4ZEJXS2Y2QzV1eGhRdnN2ZFhvMXBpb0YzV203M2s5ZVdXYWtiTzVzVlNRM3ZsYzExSUY?oc=5) - espn.com
+- [Browns roster: Claim DB, update on WR Luke Floriea](https://news.google.com/rss/articles/CBMirAFBVV95cUxPcDY4RHRZQTgzREQ1b2lrcGVsVTBDZ202VUhJU2FPclBOZHJsVUZ2Y0hpdVptVm1QLTk4Tm9UYVlzN1ZXZ1lpTmF3d2N2SDktUDNqQjh2eUR5OTVBNXQ0WV9VaGlhaEY3RjhudnYtSDFhZk5CbGw0STdPbWdJVWZNZlVSakktT1JTN3FyMUN5d1JuazB4RlhJcEk0YjdPQ1FOYmZVSmZWeExxNUFx?oc=5) - Dawgs By Nature
 
 ## Green Bay Packers Fan Shirts
 
 | Name | Headline mentions | Status | FTI |
 |---|---|---|---|
-| josh jacobs | 15 | TRENDING | 79 |
+| josh jacobs | 14 | TRENDING | 74 |
 | micah parsons | 6 | TRENDING | 32 |
 | matt lafleur | 6 | TRENDING | 32 |
 | jordan love | 2 | steady | 11 |
@@ -78,7 +77,7 @@ Recent headlines:
 - [Explaining the Green Bay Packers’ new 3-safety package](https://news.google.com/rss/articles/CBMivgFBVV95cUxOUzh0Z2pvZkRILUFHbGV1RXdUMFlIbkNfekVGZFhBbWtqc2VvX2lyMF9KN01lUUNGWjVqOE4tVV9DX1Y5b3VKN3U5SlNtcXI4Y1RDMmdmMTFzWnVjalhKdXNndkdoY3BuOWFiUnJDcUdEdnJLZklzQ19XRGpwQlZFU2I3WXFxdkRPYnNrZ0drTmhDOUIwVkYtYkpCVlltZnFxUlFsb19WUmxFemU1X3FGNVhQa3poYndsbTEwVjdn?oc=5) - Acme Packing Company
 - [The 3 Biggest Surpises From Green Bay's Inital Roster Cuts](https://news.google.com/rss/articles/CBMinAFBVV95cUxPUVpfVXJxRENyNm5tWklOOWwzVHljUW9Mc3Q5UVEzWlM0SHBhdWxrTFRZSXNoQ0dZaWQtU1l3LUFLcW5RbE1Bc3lkaVpKMlFXVVRzRXE0bEg1TjNOc1RHQ1dxV1l5UFVqWlQ3LXRONWRJS3czMkxhWnFFYVVXWkQ2SHFNTHZocXg4ZlNhUHNSdTNHRFp0Smd4WHpKeUc?oc=5) - Zone Coverage
 - [How To Watch: Cardinals at Packers, Preseason Game No. 4](https://news.google.com/rss/articles/CBMijwFBVV95cUxOWUpacURDVXROUGJrY2I5WEJFQzVzYkRRMWtGSGcyU3VkVVhKcWhLLWMwSlNBQ1J2MFNvS3MyTVdBdFBQQmFSNmtYblFtLWMyaUVTbGRKNExaX09oUy1wVTBWSXF3emZ1cGNReEZYMnhaSEtCWmZpRlhlOUJmNXg1a09OU3phaFpEUzdjdExsUQ?oc=5) - Arizona Cardinals
-- [Dolphins make trade with Green Bay](https://news.google.com/rss/articles/CBMieEFVX3lxTE9nVGZKMkVBN2l3ekszeXFLbGprSjdQX2RHWUg1MFNhOEl6c3R6THhrSWFYbDg1eFRzczhTUmJJVmdPUjAwUU12QnVTMUpWb01qNlMtSEpzZVJ3a3VEbUtjUUZFXzhsLS1HQkUwMVhkYjNDM0VaUzR0Yg?oc=5) - miamidolphins.com
+- [Dolphins make trade with Green Bay](https://news.google.com/rss/articles/CBMieEFVX3lxTE9nVGZKMkVBN2l3ekszeXFLbGprSjdQX2RHWUg1MFNhOEl6c3R6THhrSWFYbDg1eFRzczhTUmJJVmdPUjAwUU12QnVTMUpWb01qNlMtSEpzZVJ3a3VEbUtjUUZFXzhsLS1HQkUwMVhkYjNDM0VaUzR0Yg?oc=5) - Miami Dolphins
 
 ## Dallas Vintage Sports Tees
 
@@ -98,8 +97,8 @@ Recent headlines:
 
 | Name | Headline mentions | Status | FTI |
 |---|---|---|---|
-| bryce underwood | 17 | TRENDING | 89 |
-| kyle whittingham | 12 | TRENDING | 63 |
+| bryce underwood | 16 | TRENDING | 84 |
+| kyle whittingham | 11 | TRENDING | 58 |
 | jj mccarthy | 0 | quiet - throwback | 0 |
 | jordan marshall | 0 | quiet - throwback | 0 |
 
@@ -107,11 +106,10 @@ Recent headlines:
 
 Live player moments:
 - **kyle whittingham** — [Kyle Whittingham officially names Michigan Football’s QB2 for 2026](https://news.google.com/rss/articles/CBMi2AFBVV95cUxPQXFDN0kwT2VtNlQyQ25pNXIwenplamZxWFY5WXhacThTdklvWFRjSF9MaDQxVW9WZm5oQTZBazA3QV93WUNRTDluSHFzLWNwdjJEOXZyVEJiSkttRlJuVk5mcm5vX3hPZXBvS2t0cGNYOGpBQy1NT3B2dEJvQ2lEbDNvNTlJbmhIZUcxUnljc1M1Uy1IbHNxUVBLcklFQkc5cW5oUVZRY3pRbGRBWkpXbWhrSkJtcU81Y1BPc0RJcnZiR1Vja0h5Z2VGMFdkTmloYU4zc01ta1g?oc=5) - Maize n Brew
-- **bryce underwood** — [Summer work starting to pay off for QB Bryce Underwood, Michigan coaches say](https://news.google.com/rss/articles/CBMiygFBVV95cUxOY0Z1RkhpZmxyU0RzUWFZX1dTQjlGdzRrU3lUdThyY3djMTFodGhIbVZsRE9FM1hfSWtYXy1MZzFGQVRMOTM0MkdmQ0F5bFZzQWsxd0lZODFCWGlEV2ZrOXh6MGpzalFwOVRiU2RRcmNvRnlyVTNkZEltX0NuTjFoSWdXT19sYVNRb3lPZzdkdlN1Vkd3V0F2aEdXZ2JfU256MGlpSUtYeWEwakdnNlhEOUJRZjlJay0yeDZnVUJWMkpUNVFuZms3d25B0gHeAUFVX3lxTFBsS1lXVHVPQ3pVY19JTjNMb0F0bUlvMF9XbXlKNm1LbmdqNFoyTjVTODVqbzlWMEVacE41bnNTUDJXZGhyUXdycUh4OTlTMVl5ZjltMU9mM0hLZzVLWHI3ODRwVGRRQTBBMmJxSUVYZUtnbm1zLTFlQy1tWTdsWTNCTmRnYmU4RG05dElSMDhyeVJGajhLOWp5dUlZci1hWWpPVzhzS0RUWEREV3RkTEtjN3c1WVZfSHQwNThPdE9Va3BUd0ZtS2hCR0hyNVhDNWdyN1Qzc1JCR3hrYm9TUQ?oc=5) - MLive.com
 
 Recent headlines:
 - [Michigan Monday: Game 1 vs. Western Michigan](https://news.google.com/rss/articles/CBMihgFBVV95cUxOMGpjaTd1Y1F5bFkyRG4yeVVfWi1WNjhKb2pObzBSM0c1aXFQT0ZtR0VELTMyZVlFRHlaLTJjWXB6VTVsdkZXUnQ5OVRWVE9fLXVHU0x5VVlZcTktOHUwVzhubV9KZy1DVWF1SUhnQ1NTUW5hQmI0QlY5c1VOSDM2RTJhM1FDUQ?oc=5) - University of Michigan Athletics
 - [Michigan football writer Tony Garcia gives five bold predictions for the Wolverines heading into the 2026 season. See link below ⬇️ 📸 Dylan Widger, Imagn Images](https://news.google.com/rss/articles/CBMi3wFBVV95cUxPUUpsWDBJWjg4OUFvd19DWVdBR0xmdm9PdWZfQ1VURGxNZDFkWG9pWmhZbUR0Y0lnYmFvOG5TX0t2djU5c1BFLUpFb3BQLXZWRmNpblBOQXd3alRUa3VROUNvakZpZmV0Z0dzb0t5UGFyS3hhZ0pZSWhwT3lqOU1ITGxnU040aDJFdENrRFpQd0ZsdE8xNWs3aXFlcU9jVDcwcU5zcmZGeTZ3cVZhOG52T096Vlh4bjFhNWNnRHg0UzJaVFFvQXFnZUJ1SndmZUZhUnp4OE5HUzUxTFRpVkhJ?oc=5) - facebook.com
+- [Former Michigan quarterback tops 300 yards, wins first start at new school](https://news.google.com/rss/articles/CBMiyAFBVV95cUxNTEItU2wzNnUwNVN2MHZ3cjZfdzFZaVJJU0M4RlpaMjc1RVlNNWk5YmdzWDJNcGVXdlo3ck1TZnJDeFMyeTJYRkR2T2ZsNjY4VEdzSVZSRnN2T0p2VlJ0NmMwUGl6bFlpcUxvN1g2NnJ6ZmtuNjJ6NjVYVkMyWDNBYzU1UzFPeUpCYV9ocXNvM3oxVTdVYmlSMGFEUFd0b0FWSnZDREFVd204cFVUa1dIU0lFUWozM2k5aS0xYXNCdXRncXJ3T1ZIUNIB3AFBVV95cUxPQUlHazdOWnlRX0RCdUxFM2VvZjFwckRxdWRobk53ZDhkVzNZSlU3b25STE5UOG5mQUVPMjdOdmlkbE1mbzMtUEpHejlqdkVBZDBMYnJPUFQ1dlZKUDY0N2FVM0ozMl9ZbTZ2TGV6QWxPYm5yS0UzLWRaLVJfSDlqTWRjTHU0TUIwbWtESnp3SE5QS05ZN3FnUzhwTFd0bHRFaUpXcHhnSEFBbGdqV09iV0NERGdZaGctSjctN3lQQjFrMFRMZWJyUEo4WFYwQ01yaFdPcUVDOEptOHZI?oc=5) - MLive.com
 - [Michigan Football's WR3 Battle Takes Major Turn Ahead of Week 1](https://news.google.com/rss/articles/CBMiqgFBVV95cUxPSms1RlpsazNlTWU0Wi1lc2V3OUV6Qmg4Y0ozcHN4QnJFX0prZXF3eVI5eVZ3b2RZWTVEMTdtd2ptdHhsX2tKTFFxOF9VbFBzcVFtbDdudFVoSzdPdHE5VGF5TWUwQ3dWZ09lRVY0akJVUm1UZVM4VFFtcTVFVHRiaW5yNlJPMlBvNGRCSGc0bEoxNVJuemF6WnlEeHl5aDlNUzRZU00wRDJTZw?oc=5) - Sports Illustrated
-- [How to watch Western Michigan vs. No. 16 Michigan: TV channel and streaming options for September 5](https://news.google.com/rss/articles/CBMi4wFBVV95cUxOZl9jSjlPeVdUaGM1R0xVX1ZkWmhnWldQeEdRbHVaTGhNaHJQR1ZTeWJzYTU3MmpPN1diNmExYTVSU1Q2Nk1XT243dnZtWkNMWkhCLXVSOVE3ZG1JYUhBemwweGpWbFZCN0RaT2NjS3FVWkxMNWMzc3dra3dBdjFKUlFhUVRSdUV5NXBfcl9COS1lNGV4b0I0QnUwQXV5LWl0UU9CVkVSTEJNQWZQTGwzeF9RVTNLWUZZaUtNWkVqelM2YjEzN282cG1rQWpFQlpWeDI5RWQxV1hWLVEzYnhvTzhYVQ?oc=5) - The New York Times
-- [Michigan football injury update: Andrew Babalola out for Week 1](https://news.google.com/rss/articles/CBMi-AFBVV95cUxNNWZDVTd1UDZRanhfaWpVc1BRa2xGTFh5OVpRV0NodUJaR015bDhqQVpWTmx3ZnpHTEtoaWQxaXVDQ2V0ajVmMF9henh5cUNMQjRWcW1YTFdGcFNpZW9JR1Y4WVplVVhvZ3pmdFJYLVZoc1k2QjJlUTl0UjBDeV9wQVNhX3M4X1J1U1hUdm94UG1FdlI5WlJjR0lFQmRwdFpGYUpUeFpMc3pybm9wNzl1SURNZ1BhWk9YNnd4RHA3VmVwcWpzakZSMTNtS2xtaEQxN2o0TnNYbDJaLVp5UlNXNmN0ZnlUV2JDSzNaOGZjZGdrUzhScEs0Mw?oc=5) - Wolverines Wire
+- [How to watch Western Michigan vs. No. 16 Michigan: TV channel and streaming options for September 5](https://news.google.com/rss/articles/CBMi4wFBVV95cUxOZl9jSjlPeVdUaGM1R0xVX1ZkWmhnWldQeEdRbHVaTGhNaHJQR1ZTeWJzYTU3MmpPN1diNmExYTVSU1Q2Nk1XT243dnZtWkNMWkhCLXVSOVE3ZG1JYUhBemwweGpWbFZCN0RaT2NjS3FVWkxMNWMzc3dra3dBdjFKUlFhUVRSdUV5NXBfcl9COS1lNGV4b0I0QnUwQXV5LWl0UU9CVkVSTEJNQWZQTGwzeF9RVTNLWUZZaUtNWkVqelM2YjEzN282cG1rQWpFQlpWeDI5RWQxV1hWLVEzYnhvTzhYVQ?oc=5) - nytimes.com
