@@ -218,13 +218,16 @@ def inject_data():
         col = cols.get(c["collection"])
         if col is None:
             raise SystemExit(f"missing collection: {c['collection']}")
-        existing = {p.get("slug") for p in col.get("products", [])}
-        if slug not in existing:
-            col.setdefault("products", []).append({
-                "slug": slug,
-                "thumb": PLACEHOLDER_THUMB,
-                "title": f"{c['title']} {c['list_price_inr']}",
-            })
+        col_products = col.setdefault("products", [])
+        # Move the campaign to the front so it is visible on the homepage
+        # (homepage shows the first 4 designs per team) and at the top of the
+        # collection grid, not buried underneath dozens of older designs.
+        col_products[:] = [p for p in col_products if p.get("slug") != slug]
+        col_products.insert(0, {
+            "slug": slug,
+            "thumb": PLACEHOLDER_THUMB,
+            "title": f"{c['title']} {c['list_price_inr']}",
+        })
 
     save(os.path.join(ROOT, "data/products.json"), products)
     save(os.path.join(ROOT, "data/products_live.json"), live)
