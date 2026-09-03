@@ -10,12 +10,12 @@ FTI = `round(100 * entity_mentions / peak_mentions_in_window)`. Peak mentions in
 |---|---|---|---|---|---|---|
 | 1 | deshaun watson | cleveland-browns | 19 | 100 | trending | gap — no design |
 | 2 | bryce underwood | michigan | 16 | 84 | trending | in locker |
-| 3 | shedeur sanders | cleveland-browns | 16 | 84 | trending | in locker |
-| 4 | josh jacobs | green-bay-packers | 14 | 74 | trending | gap — no design |
+| 3 | josh jacobs | green-bay-packers | 14 | 74 | trending | gap — no design |
+| 4 | shedeur sanders | cleveland-browns | 14 | 74 | trending | in locker |
 | 5 | kyle whittingham | michigan | 11 | 58 | trending | gap — no design |
-| 6 | matt lafleur | green-bay-packers | 6 | 32 | trending | gap — no design |
-| 7 | micah parsons | green-bay-packers | 6 | 32 | trending | in locker |
-| 8 | myles garrett | cleveland-browns | 6 | 32 | trending | in locker |
+| 6 | myles garrett | cleveland-browns | 8 | 42 | trending | in locker |
+| 7 | matt lafleur | green-bay-packers | 6 | 32 | trending | gap — no design |
+| 8 | micah parsons | green-bay-packers | 6 | 32 | trending | in locker |
 | 9 | todd monken | cleveland-browns | 4 | 21 | trending | gap — no design |
 | 10 | ceedee lamb | dallas-cowboys | 2 | 11 | steady | — |
 | 11 | dak prescott | dallas-cowboys | 2 | 11 | steady | — |
@@ -38,8 +38,8 @@ FTI = `round(100 * entity_mentions / peak_mentions_in_window)`. Peak mentions in
 | Name | Headline mentions | Status | FTI |
 |---|---|---|---|
 | deshaun watson | 19 | TRENDING | 100 |
-| shedeur sanders | 16 | TRENDING | 84 |
-| myles garrett | 6 | TRENDING | 32 |
+| shedeur sanders | 14 | TRENDING | 74 |
+| myles garrett | 8 | TRENDING | 42 |
 | todd monken | 4 | TRENDING | 21 |
 | joe flacco | 0 | quiet - throwback | 0 |
 | kevin stefanski | 0 | quiet - throwback | 0 |

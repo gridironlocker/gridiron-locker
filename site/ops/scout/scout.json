@@ -6,7 +6,7 @@
  "stats": {
   "products": 108,
   "collections": 4,
-  "images": 798,
+  "images": 822,
   "avg_price": 26.53,
   "hot": 4,
   "throwback": 1,
@@ -36,15 +36,6 @@
    "collection": "michigan"
   },
   {
-   "name": "shedeur sanders",
-   "mentions": 16,
-   "index": 84,
-   "status": "trending",
-   "gap": false,
-   "shoppable": true,
-   "collection": "cleveland-browns"
-  },
-  {
    "name": "josh jacobs",
    "mentions": 14,
    "index": 74,
@@ -54,6 +45,15 @@
    "collection": "green-bay-packers"
   },
   {
+   "name": "shedeur sanders",
+   "mentions": 14,
+   "index": 74,
+   "status": "trending",
+   "gap": false,
+   "shoppable": true,
+   "collection": "cleveland-browns"
+  },
+  {
    "name": "kyle whittingham",
    "mentions": 11,
    "index": 58,
@@ -61,6 +61,15 @@
    "gap": true,
    "shoppable": false,
    "collection": "michigan"
+  },
+  {
+   "name": "myles garrett",
+   "mentions": 8,
+   "index": 42,
+   "status": "trending",
+   "gap": false,
+   "shoppable": true,
+   "collection": "cleveland-browns"
   },
   {
    "name": "matt lafleur",
@@ -79,15 +88,6 @@
    "gap": false,
    "shoppable": true,
    "collection": "green-bay-packers"
-  },
-  {
-   "name": "myles garrett",
-   "mentions": 6,
-   "index": 32,
-   "status": "trending",
-   "gap": false,
-   "shoppable": true,
-   "collection": "cleveland-browns"
   },
   {
    "name": "todd monken",
@@ -263,10 +263,10 @@
     "cleveland",
     "roster",
     "practice",
-    "squad",
     "watson",
+    "squad",
     "deshaun",
-    "shedeur"
+    "taylen"
    ],
    "headline_count": 100,
    "headlines": [
@@ -321,8 +321,8 @@
     "milton",
     "practice",
     "squad",
-    "jaydon",
-    "blue"
+    "howell",
+    "jaydon"
    ],
    "headline_count": 100,
    "headlines": [
@@ -395,9 +395,9 @@
     "roster",
     "josh",
     "jacobs",
+    "sign",
     "practice",
-    "trade",
-    "sign"
+    "trade"
    ],
    "headline_count": 100,
    "headlines": [
