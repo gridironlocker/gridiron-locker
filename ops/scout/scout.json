@@ -12,7 +12,7 @@
   "throwback": 1,
   "steady": 103,
   "gaps": 5,
-  "moments": 4,
+  "moments": 3,
   "tracked_names": 18,
   "dead_campaigns": 34
  },
@@ -28,48 +28,39 @@
   },
   {
    "name": "bryce underwood",
-   "mentions": 17,
-   "index": 89,
+   "mentions": 16,
+   "index": 84,
    "status": "trending",
    "gap": false,
    "shoppable": true,
    "collection": "michigan"
   },
   {
+   "name": "shedeur sanders",
+   "mentions": 16,
+   "index": 84,
+   "status": "trending",
+   "gap": false,
+   "shoppable": true,
+   "collection": "cleveland-browns"
+  },
+  {
    "name": "josh jacobs",
-   "mentions": 15,
-   "index": 79,
+   "mentions": 14,
+   "index": 74,
    "status": "trending",
    "gap": true,
    "shoppable": false,
    "collection": "green-bay-packers"
   },
   {
-   "name": "shedeur sanders",
-   "mentions": 14,
-   "index": 74,
-   "status": "trending",
-   "gap": false,
-   "shoppable": true,
-   "collection": "cleveland-browns"
-  },
-  {
    "name": "kyle whittingham",
-   "mentions": 12,
-   "index": 63,
+   "mentions": 11,
+   "index": 58,
    "status": "trending",
    "gap": true,
    "shoppable": false,
    "collection": "michigan"
-  },
-  {
-   "name": "myles garrett",
-   "mentions": 8,
-   "index": 42,
-   "status": "trending",
-   "gap": false,
-   "shoppable": true,
-   "collection": "cleveland-browns"
   },
   {
    "name": "matt lafleur",
@@ -88,6 +79,15 @@
    "gap": false,
    "shoppable": true,
    "collection": "green-bay-packers"
+  },
+  {
+   "name": "myles garrett",
+   "mentions": 6,
+   "index": 32,
+   "status": "trending",
+   "gap": false,
+   "shoppable": true,
+   "collection": "cleveland-browns"
   },
   {
    "name": "todd monken",
@@ -192,8 +192,8 @@
   },
   {
    "name": "josh jacobs",
-   "mentions": 15,
-   "index": 79,
+   "mentions": 14,
+   "index": 74,
    "status": "trending",
    "gap": true,
    "shoppable": false,
@@ -201,8 +201,8 @@
   },
   {
    "name": "kyle whittingham",
-   "mentions": 12,
-   "index": 63,
+   "mentions": 11,
+   "index": 58,
    "status": "trending",
    "gap": true,
    "shoppable": false,
@@ -266,7 +266,7 @@
     "squad",
     "watson",
     "deshaun",
-    "initial"
+    "shedeur"
    ],
    "headline_count": 100,
    "headlines": [
@@ -291,14 +291,14 @@
     {
      "title": "Browns keep 3 QBs on roster, put Dillon Gabriel (back) on IR",
      "url": "https://news.google.com/rss/articles/CBMinAFBVV95cUxPYjdxQXhRbjR2YUE2V3l6YVJZbUFXVHcyUXR4U011NFBORDZNUW1aZjluQUVyazc2a2VUOEF4YTJWTTRLNlBhTXJhYWMteFRWdnE1NzBidEFiOU81dmFOTGg5eWZ3eS03eDE4ZEJXS2Y2QzV1eGhRdnN2ZFhvMXBpb0YzV203M2s5ZVdXYWtiTzVzVlNRM3ZsYzExSUY?oc=5",
-     "source": "ESPN",
+     "source": "espn.com",
      "pub": "Sun, 30 Aug 2026 21:23:00 GMT"
     },
     {
-     "title": "Cleveland Browns news: Welcome to your initial 53-man roster!",
-     "url": "https://news.google.com/rss/articles/CBMi0wFBVV95cUxPNHZvQ192Z1N6Wm4tQXBsX0lEOTFqT0hTOHktczV3RzROTldod24xNnZZdmJ6VW94WUNORkxPYjhXQ3V0NFU0UXlZTTlvalRDaE9BZTVPb1RQZzlUVzNKQ19FVk55ckUxUk01NFlkejhwTUtrXy1QTHlyVzZoc0l4RGNQT0VURy0yc19ONmZRcV9SVndoVGI4NWdUMVJYTjNVQ29hR0UtVURLU0NuRjFVSmZ3NG9ueHJHN2NiWVpBMTZfblhjVGZyMTVxUnRUWDRsQ0p3?oc=5",
+     "title": "Browns roster: Claim DB, update on WR Luke Floriea",
+     "url": "https://news.google.com/rss/articles/CBMirAFBVV95cUxPcDY4RHRZQTgzREQ1b2lrcGVsVTBDZ202VUhJU2FPclBOZHJsVUZ2Y0hpdVptVm1QLTk4Tm9UYVlzN1ZXZ1lpTmF3d2N2SDktUDNqQjh2eUR5OTVBNXQ0WV9VaGlhaEY3RjhudnYtSDFhZk5CbGw0STdPbWdJVWZNZlVSakktT1JTN3FyMUN5d1JuazB4RlhJcEk0YjdPQ1FOYmZVSmZWeExxNUFx?oc=5",
      "source": "Dawgs By Nature",
-     "pub": "Mon, 31 Aug 2026 10:00:00 GMT"
+     "pub": "Mon, 31 Aug 2026 18:05:40 GMT"
     }
    ],
    "fti_count": 7
@@ -372,8 +372,8 @@
    "gaps": [
     {
      "name": "josh jacobs",
-     "mentions": 15,
-     "index": 79,
+     "mentions": 14,
+     "index": 74,
      "status": "trending",
      "gap": true,
      "shoppable": false,
@@ -395,9 +395,9 @@
     "roster",
     "josh",
     "jacobs",
+    "practice",
     "trade",
-    "sign",
-    "practice"
+    "sign"
    ],
    "headline_count": 100,
    "headlines": [
@@ -428,7 +428,7 @@
     {
      "title": "Dolphins make trade with Green Bay",
      "url": "https://news.google.com/rss/articles/CBMieEFVX3lxTE9nVGZKMkVBN2l3ekszeXFLbGprSjdQX2RHWUg1MFNhOEl6c3R6THhrSWFYbDg1eFRzczhTUmJJVmdPUjAwUU12QnVTMUpWb01qNlMtSEpzZVJ3a3VEbUtjUUZFXzhsLS1HQkUwMVhkYjNDM0VaUzR0Yg?oc=5",
-     "source": "miamidolphins.com",
+     "source": "Miami Dolphins",
      "pub": "Sun, 30 Aug 2026 17:23:26 GMT"
     }
    ],
@@ -447,8 +447,8 @@
    "gaps": [
     {
      "name": "kyle whittingham",
-     "mentions": 12,
-     "index": 63,
+     "mentions": 11,
+     "index": 58,
      "status": "trending",
      "gap": true,
      "shoppable": false,
@@ -480,6 +480,12 @@
      "pub": "Sun, 30 Aug 2026 14:30:09 GMT"
     },
     {
+     "title": "Former Michigan quarterback tops 300 yards, wins first start at new school",
+     "url": "https://news.google.com/rss/articles/CBMiyAFBVV95cUxNTEItU2wzNnUwNVN2MHZ3cjZfdzFZaVJJU0M4RlpaMjc1RVlNNWk5YmdzWDJNcGVXdlo3ck1TZnJDeFMyeTJYRkR2T2ZsNjY4VEdzSVZSRnN2T0p2VlJ0NmMwUGl6bFlpcUxvN1g2NnJ6ZmtuNjJ6NjVYVkMyWDNBYzU1UzFPeUpCYV9ocXNvM3oxVTdVYmlSMGFEUFd0b0FWSnZDREFVd204cFVUa1dIU0lFUWozM2k5aS0xYXNCdXRncXJ3T1ZIUNIB3AFBVV95cUxPQUlHazdOWnlRX0RCdUxFM2VvZjFwckRxdWRobk53ZDhkVzNZSlU3b25STE5UOG5mQUVPMjdOdmlkbE1mbzMtUEpHejlqdkVBZDBMYnJPUFQ1dlZKUDY0N2FVM0ozMl9ZbTZ2TGV6QWxPYm5yS0UzLWRaLVJfSDlqTWRjTHU0TUIwbWtESnp3SE5QS05ZN3FnUzhwTFd0bHRFaUpXcHhnSEFBbGdqV09iV0NERGdZaGctSjctN3lQQjFrMFRMZWJyUEo4WFYwQ01yaFdPcUVDOEptOHZI?oc=5",
+     "source": "MLive.com",
+     "pub": "Sun, 30 Aug 2026 02:49:00 GMT"
+    },
+    {
      "title": "Michigan Football's WR3 Battle Takes Major Turn Ahead of Week 1",
      "url": "https://news.google.com/rss/articles/CBMiqgFBVV95cUxPSms1RlpsazNlTWU0Wi1lc2V3OUV6Qmg4Y0ozcHN4QnJFX0prZXF3eVI5eVZ3b2RZWTVEMTdtd2ptdHhsX2tKTFFxOF9VbFBzcVFtbDdudFVoSzdPdHE5VGF5TWUwQ3dWZ09lRVY0akJVUm1UZVM4VFFtcTVFVHRiaW5yNlJPMlBvNGRCSGc0bEoxNVJuemF6WnlEeHl5aDlNUzRZU00wRDJTZw?oc=5",
      "source": "Sports Illustrated",
@@ -488,14 +494,8 @@
     {
      "title": "How to watch Western Michigan vs. No. 16 Michigan: TV channel and streaming options for September 5",
      "url": "https://news.google.com/rss/articles/CBMi4wFBVV95cUxOZl9jSjlPeVdUaGM1R0xVX1ZkWmhnWldQeEdRbHVaTGhNaHJQR1ZTeWJzYTU3MmpPN1diNmExYTVSU1Q2Nk1XT243dnZtWkNMWkhCLXVSOVE3ZG1JYUhBemwweGpWbFZCN0RaT2NjS3FVWkxMNWMzc3dra3dBdjFKUlFhUVRSdUV5NXBfcl9COS1lNGV4b0I0QnUwQXV5LWl0UU9CVkVSTEJNQWZQTGwzeF9RVTNLWUZZaUtNWkVqelM2YjEzN282cG1rQWpFQlpWeDI5RWQxV1hWLVEzYnhvTzhYVQ?oc=5",
-     "source": "The New York Times",
-     "pub": "Tue, 01 Sep 2026 06:57:49 GMT"
-    },
-    {
-     "title": "Michigan football injury update: Andrew Babalola out for Week 1",
-     "url": "https://news.google.com/rss/articles/CBMi-AFBVV95cUxNNWZDVTd1UDZRanhfaWpVc1BRa2xGTFh5OVpRV0NodUJaR015bDhqQVpWTmx3ZnpHTEtoaWQxaXVDQ2V0ajVmMF9henh5cUNMQjRWcW1YTFdGcFNpZW9JR1Y4WVplVVhvZ3pmdFJYLVZoc1k2QjJlUTl0UjBDeV9wQVNhX3M4X1J1U1hUdm94UG1FdlI5WlJjR0lFQmRwdFpGYUpUeFpMc3pybm9wNzl1SURNZ1BhWk9YNnd4RHA3VmVwcWpzakZSMTNtS2xtaEQxN2o0TnNYbDJaLVp5UlNXNmN0ZnlUV2JDSzNaOGZjZGdrUzhScEs0Mw?oc=5",
-     "source": "Wolverines Wire",
-     "pub": "Mon, 31 Aug 2026 15:41:00 GMT"
+     "source": "nytimes.com",
+     "pub": "Thu, 03 Sep 2026 19:53:00 GMT"
     }
    ],
    "fti_count": 4
@@ -702,16 +702,6 @@
    "collection": "michigan",
    "entities": [
     "kyle whittingham"
-   ]
-  },
-  {
-   "title": "Summer work starting to pay off for QB Bryce Underwood, Michigan coaches say",
-   "url": "https://news.google.com/rss/articles/CBMiygFBVV95cUxOY0Z1RkhpZmxyU0RzUWFZX1dTQjlGdzRrU3lUdThyY3djMTFodGhIbVZsRE9FM1hfSWtYXy1MZzFGQVRMOTM0MkdmQ0F5bFZzQWsxd0lZODFCWGlEV2ZrOXh6MGpzalFwOVRiU2RRcmNvRnlyVTNkZEltX0NuTjFoSWdXT19sYVNRb3lPZzdkdlN1Vkd3V0F2aEdXZ2JfU256MGlpSUtYeWEwakdnNlhEOUJRZjlJay0yeDZnVUJWMkpUNVFuZms3d25B0gHeAUFVX3lxTFBsS1lXVHVPQ3pVY19JTjNMb0F0bUlvMF9XbXlKNm1LbmdqNFoyTjVTODVqbzlWMEVacE41bnNTUDJXZGhyUXdycUh4OTlTMVl5ZjltMU9mM0hLZzVLWHI3ODRwVGRRQTBBMmJxSUVYZUtnbm1zLTFlQy1tWTdsWTNCTmRnYmU4RG05dElSMDhyeVJGajhLOWp5dUlZci1hWWpPVzhzS0RUWEREV3RkTEtjN3c1WVZfSHQwNThPdE9Va3BUd0ZtS2hCR0hyNVhDNWdyN1Qzc1JCR3hrYm9TUQ?oc=5",
-   "source": "MLive.com",
-   "pub": "Wed, 26 Aug 2026 07:00:00 GMT",
-   "collection": "michigan",
-   "entities": [
-    "bryce underwood"
    ]
   }
  ]
