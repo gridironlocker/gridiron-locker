@@ -968,14 +968,16 @@ def build_plan(
     trends: dict[str, Any],
     people: dict[str, Any],
 ) -> dict[str, Any]:
-    if len(order) != 134:
-        raise ValueError(f"Expected 134 designs in data/order.json; found {len(order)}")
-    if len({row.get("slug") for row in order}) != 134:
-        raise ValueError("data/order.json must contain 134 unique design slugs")
+    expected = len(order)
+    if not expected:
+        raise ValueError("data/order.json produced no designs after filtering")
+    if len({row.get("slug") for row in order}) != expected:
+        raise ValueError("data/order.json must contain unique design slugs")
 
     designs = build_designs(products, facts, order, trends, people)
-    if len(designs) != 134:
-        raise ValueError(f"Expected 134 generated designs; found {len(designs)}")
+    live_slugs = {row.get("slug") for row in order}
+    if len(designs) != expected:
+        raise ValueError(f"Expected {expected} generated designs; found {len(designs)}")
 
     generated_on = dt.date.today()
     gaps = make_news_gaps(trends)
@@ -1109,7 +1111,13 @@ def build_plan(
         "image_prompts": image_prompts,
         "who_is_who": {
             "rules": people.get("rules", ""),
-            "people": people.get("people", []),
+            # Drop references to designs the storefront no longer sells so the
+            # plan never points a campaign at a retired shirt.
+            "people": [
+                {**person,
+                 "designs": [d for d in person.get("designs", []) if d in live_slugs]}
+                for person in people.get("people", [])
+            ],
         },
         "opportunity_model": {
             "weights": OPPORTUNITY_WEIGHTS,
@@ -1134,10 +1142,27 @@ def build_plan(
     }
 
 
+def load_retired() -> dict[str, str]:
+    """Designs pulled from the storefront (data/retired.json).
+
+    The marketing plan must never promote a design the site no longer sells,
+    so retired slugs are dropped from the order list before the plan is built.
+    """
+    try:
+        return read_json(ROOT / "data" / "retired.json")["retired"]
+    except Exception:
+        return {}
+
+
 def main() -> None:
     products = read_json(ROOT / "data" / "products.json")
     facts = read_json(ROOT / "data" / "facts.json")
     order = read_json(ROOT / "data" / "order.json")
+    retired = load_retired()
+    if retired:
+        before = len(order)
+        order = [row for row in order if row.get("slug") not in retired]
+        print(f"marketing/plan: skipped {before - len(order)} retired designs")
     trends = read_json(ROOT / "data" / "trends.json")
     people = read_json(ROOT / "data" / "people.json")
     plan = build_plan(products, facts, order, trends, people)

@@ -80,11 +80,17 @@ def collect():
         c = B.COLLECTIONS[k]
         for i, s in enumerate(B.WEEK1_SLATE[k]):
             sibling = B.week1_sibling(k, i)
+            # A slot whose declared sibling has been retired now shows a
+            # substitute. Flag it so the operator knows the brief drifted.
+            declared = s.get("sibling")
+            retired_sibling = declared in (getattr(B, "RETIRED", {}) or {})
             slots.append(dict(
                 slot=s["slot"], key=k, short=c["short"], accent=c["accent"],
                 slogan=s["slogan"], garment=s["garment"], palette=s["palette"],
                 note=s["note"], status=s["status"],
                 sibling=sibling["name"] if sibling else "",
+                retired_sibling=retired_sibling,
+                declared_sibling=declared or "",
             ))
 
     fti = list(trends.get("fan_trend_index", {}).get("rows", []))[:8]
@@ -236,7 +242,9 @@ def render(clocks, slots, fti, headlines, gaps, stats):
             body += f"""<div class="slot">
  <span class="id">{esc(s['slot'])}</span>
  <span><span class="nm">{esc(s['slogan'])}</span><br>
-  <span class="sub">{esc(s['garment'])} &middot; {esc(s['palette'])} &middot; sibling: {esc(s['sibling'])}</span></span>
+  <span class="sub">{esc(s['garment'])} &middot; {esc(s['palette'])} &middot; sibling: {esc(s['sibling'])}{
+   ' &middot; declared sibling ' + esc(s['declared_sibling']) + ' RETIRED - substituted'
+   if s.get('retired_sibling') else ''}</span></span>
  <span class="badge s-{esc(s['status'])}">{esc(s['status'])}</span>
 </div>"""
         mid += f"""<div class="card" style="border-left:3px solid {rows[0]['accent']}">
