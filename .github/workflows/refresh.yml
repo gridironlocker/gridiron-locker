@@ -33,17 +33,13 @@ jobs:
       - name: Install dependencies
         run: pip install --quiet requests beautifulsoup4 lxml
 
-      - name: Re-crawl product catalogue (Mondays only)
+      - name: Re-crawl product catalogue
         continue-on-error: true
         run: |
-          if [ "$(date -u +%u)" = "1" ] || [ "${{ github.event_name }}" = "workflow_dispatch" ]; then
-            echo "Re-crawling Viralstyle..."
-            python scrape_list.py || echo "list crawl failed, keeping existing data"
-            python scrape_products.py || echo "product crawl failed, keeping existing data"
-            python dl.py || echo "image download failed, keeping existing images"
-          else
-            echo "Not Monday - skipping deep crawl."
-          fi
+          echo "Re-crawling Viralstyle..."
+          python scrape_list.py || echo "list crawl failed, keeping existing data"
+          python scrape_products.py || echo "product crawl failed, keeping existing data"
+          python dl.py || echo "image download failed, keeping existing images"
 
       - name: Refresh trend data
         run: python src/trends.py

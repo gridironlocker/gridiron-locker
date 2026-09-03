@@ -5,6 +5,8 @@ sys.path.insert(0, os.path.dirname(__file__))
 from collections import OrderedDict
 from collections_data import COLLECTIONS, ORDER, SEASON
 import seocopy as _c
+from catalog import CATALOG
+import auto_copy
 
 ROOT = os.path.dirname(os.path.dirname(os.path.abspath(__file__)))
 SITE = os.path.join(ROOT, "site")
@@ -15,8 +17,34 @@ TODAY = datetime.date.today().isoformat()
 ORDERBY = (datetime.date.today() + datetime.timedelta(days=4)).strftime("%b %d")
 
 P = json.load(open(os.path.join(ROOT, "data/products_live.json")))
-FACTS = json.load(open(os.path.join(ROOT, "data/facts.json")))
 COLS = json.load(open(os.path.join(ROOT, "data/collections.json")))
+
+# Retired designs (players/coaches who left the team). A re-crawl must never
+# resurrect a page for one of these slugs, so build_model() skips them outright.
+try:
+    DELISTED = json.load(open(os.path.join(ROOT, "data/delisted.json"))).get("slugs", {})
+except Exception:
+    DELISTED = {}
+
+# Effective per-design copy. Hand-written copy lives in src/catalog.py and wins
+# over data/facts.json. For any crawled slug with no hand-written entry,
+# src/auto_copy.py derives name / art / kw / theme from the campaign's own store
+# title plus live trend topics, so a re-crawl can never crash the build.
+_FACTS_RAW = json.load(open(os.path.join(ROOT, "data/facts.json")))
+FACTS = dict(_FACTS_RAW)
+for ckey in ORDER:
+    for entry in COLS.get(ckey, {}).get("products", []):
+        slug = entry["slug"]
+        if slug in CATALOG or slug in FACTS:
+            continue
+        FACTS[slug] = auto_copy.derive(slug, P.get(slug) or {}, ckey)
+FACTS.update(CATALOG)  # hand-written copy wins
+
+# Unknown themes must never crash the build - fall back to "classic".
+_KNOWN_THEMES = {"player", "funny", "playoff", "classic", "retro", "city", "family", "halloween"}
+for _f in FACTS.values():
+    if isinstance(_f, dict) and _f.get("theme") not in _KNOWN_THEMES:
+        _f["theme"] = "classic"
 
 # live trend data produced by src/trends.py (optional - site builds fine without it)
 try:
@@ -41,7 +69,7 @@ enrich(TRENDS)
 
 
 def auto_trend(ckey, slug, blob):
-    """Trending / Throwback decided from live headline volume, with manual override."""
+    """Trending decided from live headline volume, with manual override."""
     if slug in OVERRIDES:
         return OVERRIDES[slug]
     ent = None
@@ -220,7 +248,7 @@ def fti_strip():
             f'<span class="eyebrow"><span class="dot"></span> Live · updated {esc(DATA_DATE)}</span>'
             f'<h2>Fan <span class="accentword">Trend Index</span></h2>'
             f'<p>Who the headlines are actually about, scored 0-100 against the hottest name '
-            f'in our four fanbases. Built from the same news crawl that tags Trending / Throwback '
+            f'in our four fanbases. Built from the same news crawl that tags Trending '
             f'designs - not a vibes ranking.</p></div>'
             f'<a class="link" href="/fan-trend-index/">Open the full index &rarr;</a></div>'
             f'<div class="fti-chips">{cells}</div>'
@@ -257,25 +285,31 @@ def build_model():
         lst = []
         for entry in COLS[ckey]["products"]:
             slug = entry["slug"]
+            if slug in DELISTED:
+                continue
             if slug not in P:
                 continue
             p, f = P[slug], FACTS[slug]
+            # A crawled product with no images is skipped - there is nothing to show.
+            img = p.get("img") or {}
+            if not img.get("front"):
+                continue
             styles = [s for s in p.get("styles", []) if s]
             name = f["name"]
             garment = _c.garment_of(f, name, styles)
-            colours = max(1, len(p.get("img", {})) - 2)
+            colours = max(1, len(img) - 2)
             price = float(p["price_usd"])
             compare = round(price * 1.55, 2)
             url = f"/shop/{slug}/"
-            gal = [p["img"]["front"]] + ([p["img"]["back"]] if "back" in p["img"] else [])
-            gal += [v for k, v in p["img"].items() if k.startswith("c")]
+            gal = [img["front"]] + ([img["back"]] if "back" in img else [])
+            gal += [v for k, v in img.items() if k.startswith("c")]
             blob = (name + " " + f["art"]).lower()
             trend = auto_trend(ckey, slug, blob)
             lst.append(dict(trend=trend,
                 slug=slug, name=name, art=f["art"], theme=f.get("theme", "classic"),
                 garment=garment, price=price, compare=compare, colours=colours,
-                styles=styles, url=url, gallery=gal, front=p["img"]["front"],
-                back=p["img"].get("back", p["img"]["front"]),
+                styles=styles, url=url, gallery=gal, front=img["front"],
+                back=img.get("back", img["front"]),
                 buy=p["url"], kw=_c.keywords(f, col, garment), col=ckey,
             ))
         items[ckey] = lst
@@ -571,8 +605,6 @@ def card(it, eager=False):
     cls = "tagpill"
     if it.get("trend") == "hot":
         tag, cls = "Trending", "tagpill hot"
-    elif it.get("trend") == "throwback":
-        tag, cls = "Throwback", "tagpill thr"
     ca = COLLECTIONS[it["col"]]["accent"]
     return f"""<article class="card reveal" style="--ca:{ca}">
  <a href="{it['url']}" aria-label="{esc(it['name'])}">
@@ -947,11 +979,6 @@ def page_product(it):
         trendhtml = (f'<div class="trendbox"><b><span class="dot"></span> Trending right now</b>'
                      f'{esc(se["headline"])} This design is one of the most searched in the '
                      f'{esc(c["short"])} collection this week.{fti_note}</div>')
-    elif it.get("trend") == "throwback":
-        trendhtml = ('<div class="trendbox" style="border-color:var(--line2);'
-                     'background:rgba(255,255,255,.04)"><b style="color:var(--muted)">Throwback piece</b>'
-                     'This graphic celebrates a previous era of the roster. Still a favourite with '
-                     'long-time fans - just know it is a retro pull, not a current-season design.</div>')
     else:
         trendhtml = ""
     momenthtml = moments_block(it["col"], entity=ent, limit=3) if ent else ""
@@ -1599,16 +1626,17 @@ def page_season():
  College football starts earlier - Michigan opens <strong>September 5</strong>. Here is what changed
  on each roster this year, and which designs fans are buying because of it.
  See the <a class="link" href="/fan-trend-index/">Fan Trend Index</a> for the 0–100 score behind
- every Trending / Throwback tag.</p>
+ every Trending tag.</p>
  {fti_block(None, 8, heading="Fan Trend Index · all four fanbases")}
  <div style="margin-top:26px">{blocks}</div>
  <div class="prose" style="margin-top:34px">
   <h2>Why roster changes matter when you buy a fan shirt</h2>
   <p>Player-name graphics are the fastest-moving part of any fan wardrobe. A quarterback change can
-  turn a best-seller into a throwback overnight - which is exactly why we label designs on this site
-  as <strong>Trending</strong> or <strong>Throwback</strong> instead of quietly leaving them
-  undated. If you want something that stays wearable for a decade, buy city, mascot or slogan
-  artwork: Dawg Pound, Go Pack Go, Michigan vs Everybody and Dallas Texas designs never expire.</p>
+  turn a best-seller into a closet piece overnight - which is exactly why we retire designs the
+  moment a player or coach leaves the roster, and label the live ones <strong>Trending</strong>
+  instead of quietly leaving them undated. If you want something that stays wearable for a decade,
+  buy city, mascot or slogan artwork: Dawg Pound, Go Pack Go, Michigan vs Everybody and Dallas
+  Texas designs never expire.</p>
   <h2>Order timing for Week 1</h2>
   <p>Everything is printed on demand, so allow a few business days for production plus shipping. To
   wear something for the opener, order roughly a week to ten days out. After that, aim for the
@@ -1703,7 +1731,7 @@ def page_fti():
  or coach is named, and turn that count into a 0–100 index against the hottest name in the
  window (peak this run: <strong>{peak} mentions</strong>). Formula:
  <code>{esc(FTI_FORMULA)}</code>. This is the same evidence that tags designs
- <strong>Trending</strong> or <strong>Throwback</strong> — now readable as a leaderboard,
+ <strong>Trending</strong> — now readable as a leaderboard,
  with the headlines (live player moments) attached.</p>
  <div class="stats" style="margin:26px 0 8px">
   <div class="stat"><b>{len(rows)}</b><span>Tracked names</span></div>
@@ -1718,8 +1746,8 @@ def page_fti():
   <h2>How to read this</h2>
   <p><strong>100</strong> is whoever the headlines named most in the window — not a claim they
   are the best player, the most searched, or the most bought. It is a share-of-voice score
-  from the feeds we already crawl. Names at 0 are quiet this window and get the Throwback
-  tag on matching designs. Names at {HOT_MIN}+ mentions get Trending.</p>
+  from the feeds we already crawl. Names at 0 are quiet this window. Names at
+  {HOT_MIN}+ mentions get Trending.</p>
   <p>Linked stories belong to their publishers. {esc(BRAND)} is independent fan-made apparel,
   not affiliated with any team, league, university or player.
   <a class="link" href="/2026-season/">Back to the 2026 season hub →</a></p>
@@ -1870,7 +1898,7 @@ Sitemap: {DOMAIN}/sitemap-images.xml
 ## Facts
 - {len(ALL)} original designs across 4 collections
 - Every design is printed on demand; nothing is warehoused
-- Trend tags (Trending / Throwback) are re-scored daily from public team news
+- Trend tags (Trending) are re-scored daily from public team news
 """)
 
     # IndexNow ownership key (Bing / Yandex / Naver instant submission)
