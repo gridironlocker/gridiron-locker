@@ -9,87 +9,107 @@ FTI = `round(100 * entity_mentions / peak_mentions_in_window)`. Peak mentions in
 | Rank | Name | Collection | Mentions | FTI | Status | Shop |
 |---|---|---|---|---|---|---|
 | 1 | shedeur sanders | cleveland-browns | 21 | 100 | trending | in locker |
-| 2 | josh jacobs | green-bay-packers | 18 | 86 | trending | gap — no design |
-| 3 | deshaun watson | cleveland-browns | 16 | 76 | trending | gap — no design |
-| 4 | micah parsons | green-bay-packers | 4 | 19 | trending | in locker |
-| 5 | myles garrett | cleveland-browns | 4 | 19 | trending | in locker |
-| 6 | matt lafleur | green-bay-packers | 3 | 14 | trending | gap — no design |
-| 7 | todd monken | cleveland-browns | 2 | 10 | steady | — |
-| 8 | jordan love | green-bay-packers | 1 | 5 | steady | in locker |
-| 9 | bryce underwood | michigan | 0 | 0 | quiet | in locker |
-| 10 | ceedee lamb | dallas-cowboys | 0 | 0 | quiet | — |
-| 11 | dak prescott | dallas-cowboys | 0 | 0 | quiet | — |
-| 12 | denzel ward | cleveland-browns | 0 | 0 | quiet | in locker |
-| 13 | jj mccarthy | michigan | 0 | 0 | quiet | in locker |
-| 14 | joe flacco | cleveland-browns | 0 | 0 | quiet | in locker |
-| 15 | jordan marshall | michigan | 0 | 0 | quiet | — |
-| 16 | kevin stefanski | cleveland-browns | 0 | 0 | quiet | in locker |
-| 17 | kyle whittingham | michigan | 0 | 0 | quiet | — |
+| 2 | bryce underwood | michigan | 17 | 81 | trending | in locker |
+| 3 | deshaun watson | cleveland-browns | 17 | 81 | trending | gap — no design |
+| 4 | josh jacobs | green-bay-packers | 16 | 76 | trending | gap — no design |
+| 5 | kyle whittingham | michigan | 10 | 48 | trending | gap — no design |
+| 6 | micah parsons | green-bay-packers | 8 | 38 | trending | in locker |
+| 7 | myles garrett | cleveland-browns | 8 | 38 | trending | in locker |
+| 8 | todd monken | cleveland-browns | 4 | 19 | trending | gap — no design |
+| 9 | ceedee lamb | dallas-cowboys | 2 | 10 | steady | — |
+| 10 | jordan love | green-bay-packers | 2 | 10 | steady | in locker |
+| 11 | matt lafleur | green-bay-packers | 2 | 10 | steady | — |
+| 12 | dak prescott | dallas-cowboys | 0 | 0 | quiet | — |
+| 13 | denzel ward | cleveland-browns | 0 | 0 | quiet | in locker |
+| 14 | jj mccarthy | michigan | 0 | 0 | quiet | in locker |
+| 15 | joe flacco | cleveland-browns | 0 | 0 | quiet | in locker |
+| 16 | jordan marshall | michigan | 0 | 0 | quiet | — |
+| 17 | kevin stefanski | cleveland-browns | 0 | 0 | quiet | in locker |
 | 18 | robert tonyan | green-bay-packers | 0 | 0 | quiet | in locker |
 
 ## Live player moments
 
-- **josh jacobs** — [Green Bay Packers: NFL insider suggests Marshawn Lloyd may be RB1 even if Josh Jacobs is cleared](https://news.google.com/rss/articles/CBMihAFBVV95cUxQaTdyZVV2MUxYYmJLdE5PVmhSRVpDaURoZHAzOVhGUlVIREdQNG9YMHl2QjRLenlwVUtGWmF2QklQWVBUd00xbUV3V0w1NWNGZnQwam1iTVVXME1DbVJ6VXFRRC1GZTFUelI0eElEMTZXTUtoRlEzckhaN3FGQXo5MEFpc1o?oc=5) — Yahoo Sports
+- **shedeur sanders** — [‘Shedeur Sanders Will Be Inactive’ — Browns Analyst Floats Concerning Outcome for Cleveland QB’s Status for Week 1](https://news.google.com/rss/articles/CBMikgFBVV95cUxPRnZtSUJXam9DV2x3SWR6c2IzVHh3WDZHN0VXZUQwcFFSZHpwWjJpTE56U0RyWnJHWkJUUzVQX3JIOTVXaE91OGs1RWNnS0lvd05RUktmYl9NWGxENzRRSEpFcDdMaFZwcFd2VGlXYUpmNFdrQzFaSXpOTS1QaHE3eDVDTmR1amlmVjF1MmdzbXBlUQ?oc=5) — sports.yahoo.com
+- **josh jacobs** — [Packers trade for Steelers RB Kaleb Johnson as Josh Jacobs lands on Commissioner's Exempt List](https://news.google.com/rss/articles/CBMiwAFBVV95cUxPcXFvRjN4U1ZDdXYyc25UakJpZUhlOTNlN1JubU44NThfS1FYRnVrZmc1SWxHWGNNcFE5MG8wTUdSdEw1VFVmblkxUVM1dXhLS3pmZjZ0dmdHellWbkwwV2hMOWI4NUJCVjJWd0pvWi1feFFuNWJ0Z3o1N0E3cDFHLUZRXzl1dEFqeHZKYWVXVDdSdmlBeFVVNkVBbGdnYjQyWjBtdVB4UHpJaTFITWdvc3FJRlVLZHVKR01BYWdUZl8?oc=5) — NFL.com
+- **kyle whittingham** — [Kyle Whittingham officially names Michigan Football’s QB2 for 2026](https://news.google.com/rss/articles/CBMi2AFBVV95cUxPQXFDN0kwT2VtNlQyQ25pNXIwenplamZxWFY5WXhacThTdklvWFRjSF9MaDQxVW9WZm5oQTZBazA3QV93WUNRTDluSHFzLWNwdjJEOXZyVEJiSkttRlJuVk5mcm5vX3hPZXBvS2t0cGNYOGpBQy1NT3B2dEJvQ2lEbDNvNTlJbmhIZUcxUnljc1M1Uy1IbHNxUVBLcklFQkc5cW5oUVZRY3pRbGRBWkpXbWhrSkJtcU81Y1BPc0RJcnZiR1Vja0h5Z2VGMFdkTmloYU4zc01ta1g?oc=5) — Maize n Brew
 
 ## Cleveland Browns Fan Shirts
 
 | Name | Headline mentions | Status | FTI |
 |---|---|---|---|
 | shedeur sanders | 21 | TRENDING | 100 |
-| deshaun watson | 16 | TRENDING | 76 |
-| myles garrett | 4 | TRENDING | 19 |
-| todd monken | 2 | steady | 10 |
+| deshaun watson | 17 | TRENDING | 81 |
+| myles garrett | 8 | TRENDING | 38 |
+| todd monken | 4 | TRENDING | 19 |
 | joe flacco | 0 | quiet - throwback | 0 |
 | kevin stefanski | 0 | quiet - throwback | 0 |
 | denzel ward | 0 | quiet - throwback | 0 |
 
-**Product gap:** trending with no design in the catalogue - **deshaun watson**
+**Product gap:** trending with no design in the catalogue - **deshaun watson, todd monken**
+
+Live player moments:
+- **shedeur sanders** — [‘Shedeur Sanders Will Be Inactive’ — Browns Analyst Floats Concerning Outcome for Cleveland QB’s Status for Week 1](https://news.google.com/rss/articles/CBMikgFBVV95cUxPRnZtSUJXam9DV2x3SWR6c2IzVHh3WDZHN0VXZUQwcFFSZHpwWjJpTE56U0RyWnJHWkJUUzVQX3JIOTVXaE91OGs1RWNnS0lvd05RUktmYl9NWGxENzRRSEpFcDdMaFZwcFd2VGlXYUpmNFdrQzFaSXpOTS1QaHE3eDVDTmR1amlmVjF1MmdzbXBlUQ?oc=5) - sports.yahoo.com
 
 Recent headlines:
-- [Browns claim CB Toriano Pride Jr.](https://news.google.com/rss/articles/CBMieEFVX3lxTFBGYU5oRFpJUF9EQUE5NHN5VnVncDdHRi1wb3Ewd2g3OWZKNmhsLUlEMFlHSkd3dnBOV0kxVkFjYkFyajV6OXZpTjZuTjFTWS1YbFZsZE5NdkpwanY2MS1kLThoSDJ4cy1zNlNWcDJ2UnVZc3FRTjh4ag?oc=5) - Cleveland Browns
-- [Cleveland Browns 53-Man Roster Projection](https://news.google.com/rss/articles/CBMirwFBVV95cUxNODFWUW8wVjcyUnhVSnBhcVJId0RKcDhfMV9MeTBFTm1RZWRvMHVkdzBoeUVSN3JSV0E0UW5oRmpuWldVWE9MdVNsTkQ4VnQxRHBCSjQ5dXNwbXozbHhrVnNkTng3Q3RzeEhFbW5DZjhVbGZGemswNGRKS2Exb3NIcVMyQVg3LUNxek50UmdnbjZQeGdUS09HUXBWNWFob1FYWjdnUlk5QU5kdzZZb0VN?oc=5) - Dawgs By Nature
-- [Where Has The Cleveland Browns Depth Gone - Offensive Review](https://news.google.com/rss/articles/CBMixwFBVV95cUxNZnRUcUlRbG8wWGZTNGdGREE2VnRVWjlWcDJMX3luMFZfMFBsRmN5NkxGZ1pXY0tfNl8tNkhRRlZ5ZHY2LW9veTkxTG01ZldNSWxOQktYNWZfZElDTlFIT3VLNkl5TEFVYnpySW5EV1ZGZzdNS0xndk13NkdTQlAxWlBWRUFwVXVRSzREV0pUTHk2Z2IyQ24zQ3FBb0NHMnFSdE9BX1c3ME53MWx0WDM0MUVoZWVPcXg5QXFKa0JFdWRBTWk2am84?oc=5) - 247Sports
-- [Browns Named Landing Spot For Intriguing TE Ahead of 2026 Season](https://news.google.com/rss/articles/CBMijgFBVV95cUxPTWRFZ3VlV3luMVFldExJZ0laTVIyOHdoaHBKWUZjVUhzdDM0d0lNOEFOOG9HTWtTYy0tTFp6R2lZdzNXZEZ6eURLME5EeThzS0dJWk5SZWtRbE1zMmxWVjc2Zk5IZ0tWU2F5THg5YTNNVEJodjNicVVFWVN0SGFVNF9WS2NlTWlRcldxWHhR?oc=5) - Yahoo Sports
-- [Mike Hall Jr. addresses Quinshon Judkins’ blindside block and Hall’s 10-day absence: ‘That’s my brother at th](https://news.google.com/rss/articles/CBMi-AFBVV95cUxPTG9UVXEyZF9McWlfZnFud3JTYVhuMHdqZ0NMa3ZsRUJUQjRqQW1rOHYzM0hvUHBySjBTdmQ0QkR6NzN4SFQyTkxhbmluUF9YUUxqLTdqYkd0SFVxLTRSOTBhdmt1dlFFQ25fU21nZjBuRjR0a01lbW5xdk5rRi1BMFJrbGFSNGNPY0dSLWpUem5lSEhZbGVGRWE2Z0JNbG94a3B2U0NpWmlGTzZLbzN1Nmh2UnVaazlMU0ZKUWVBU0puYlBvOFV0cVFIWFJfZWNITEljTjlNWTNKVWRVMVJQWlo5MllIeXhnME14SFpjMjBaNnoxbjdDdNIBjAJBVV95cUxQVVFRbEdEQVh0d2Y3ZG5oR0lTT3dIVUE3TlJxWXpPZGI4dnhiOHM0N3NPMHVZQ1FZRlVjLUxibDUzcVVfZGxxM19JVGRHSUYxS3h3M3N0NzhkREdnWDNqcUQzRUxrYjNiZnZBcV9oZkJMcUpaSi10dTJ3MTZVcnpaZzlCUktvQTEyVlcwODAxeHRfYXFnN2RBSFRaV1d6UlR4bjhNZGdaQ1JQNHctMW5xTl9GLW16VGpQd0dLdEhZcHpwODZ1eWVOSVg4VHlXdjB6UVp2S0ZUaEZZVDVaa1h5VGh5N3pLaGUtRWFHaUduQWdITGdNSW1ILXhvTy11MFR1MXAzVWxkTWtKc3pQ?oc=5) - Cleveland.com
+- [Browns announce initial 53-man roster heading into the 2026 season](https://news.google.com/rss/articles/CBMipgFBVV95cUxOQk9NbzAwUnp0U0lxR0lmRTl2am13cTNaeWVrdVIwREpuVFVSZ2JnMU9VWHhGUHdKV09SU0YwTk9fZkU5am41Nk93eFlwM1Z3ejJIeU1pWHFLa0ZCWEktajFnS3A1d1ZMdlpKVnZxS0dfOVVIOGRyc0RJc0Nfb1FNWEduNTlZWjEzeUxqM2dVU2dpUFZKLUNFNEFxSHE4Tmg0THg2TkJB?oc=5) - Cleveland Browns
+- [Cleveland Browns set initial 53-man roster](https://news.google.com/rss/articles/CBMic0FVX3lxTE9ZMDZVVmNSem5BQ09qS25wU2N2SG56NnV3SUVPbF9XdnJ1bGxhZ3BfX3lEMHoxYTNoZ280Mi04dmhIallUbDBVZXVzVVNnUGFYVkhXYzFPNmN5MklFZU1lLTl1ankxR3pPa1J6c1d5ci1NQmPSAXhBVV95cUxOYkxibGJaZWdwNWtYdXhIaE1xUmNpSl82VkV1SU1fanV5MVVzRFV6M2dHOXlrR0cyQmtOTzU3c0E2RjhUU1FxUWJ1SnhZQ3NDVlROSTBqVER1cWxOSWJwOWFjdWFFd3hYeGFlV3ZrekpUb1MzQnZtcmw?oc=5) - FOX 8 News
+- [Browns keep 3 QBs on roster, put Dillon Gabriel (back) on IR](https://news.google.com/rss/articles/CBMinAFBVV95cUxPYjdxQXhRbjR2YUE2V3l6YVJZbUFXVHcyUXR4U011NFBORDZNUW1aZjluQUVyazc2a2VUOEF4YTJWTTRLNlBhTXJhYWMteFRWdnE1NzBidEFiOU81dmFOTGg5eWZ3eS03eDE4ZEJXS2Y2QzV1eGhRdnN2ZFhvMXBpb0YzV203M2s5ZVdXYWtiTzVzVlNRM3ZsYzExSUY?oc=5) - ESPN
+- [Cleveland Browns news: Welcome to your initial 53-man roster!](https://news.google.com/rss/articles/CBMi0wFBVV95cUxPNHZvQ192Z1N6Wm4tQXBsX0lEOTFqT0hTOHktczV3RzROTldod24xNnZZdmJ6VW94WUNORkxPYjhXQ3V0NFU0UXlZTTlvalRDaE9BZTVPb1RQZzlUVzNKQ19FVk55ckUxUk01NFlkejhwTUtrXy1QTHlyVzZoc0l4RGNQT0VURy0yc19ONmZRcV9SVndoVGI4NWdUMVJYTjNVQ29hR0UtVURLU0NuRjFVSmZ3NG9ueHJHN2NiWVpBMTZfblhjVGZyMTVxUnRUWDRsQ0p3?oc=5) - Dawgs By Nature
+- [Could the Browns’ most exciting quarterback prospect break every rule and become a star? — Jimmy Watkins](https://news.google.com/rss/articles/CBMi3wFBVV95cUxPSE9teGRadEVLUkh5cGpsQzR0STJYbWs4a1RqQlJIa00zVnpYNzFYV2lJU1BEX1NXRzZOWElpRUFFQWd4V2ZoVGZCOXJNdE1MNnVaX2VVZ3lJTU5vM25rbG5SLW9wd0RHZGxOc2xDazU3Z0F4V2oyZFZ6czNRcWFobGtMZzRMdGw1NjA5MnNCSVhrblRtd3NzN203TTRyUzlTT1U3MVM1QTFJQUp3RmNJSkx2aE1hdHgwYUJyYmJTVFhDSkZHUWZMdkZGU2dyY3AzR21Ua19FSThCYmt1SkFF0gHzAUFVX3lxTFAwY1poMmpXUHJhMVBSSUxwT29MS2tLbmI2WjdWS0RhaGdZaG5sNGFxVE45anNHNUJ2aTdnZ2FoVjhldWZ4c3BKTWRIdGRsazhLRldwTWo4MWd4eUZudTJpZG5tWGVjeTJsUmkyZjloQXlLQTVERWJVa2xCXzJvdHJ2NWI2YUlZZFI1TVBQLVRmaUNMbXpycnBuSUROQVNyQmo5ME9ZX25rdEZvQ0tFVjJZTlZpNy1URjF3SjVtbDY4SGR1bF8tcXJBQ0RzaFN2OFNwM2p0eWZQYjRha29YVFQ0c3JncmRUcmlXcU92TkRVa0ZvSQ?oc=5) - Cleveland.com
 
 ## Green Bay Packers Fan Shirts
 
 | Name | Headline mentions | Status | FTI |
 |---|---|---|---|
-| josh jacobs | 18 | TRENDING | 86 |
-| micah parsons | 4 | TRENDING | 19 |
-| matt lafleur | 3 | TRENDING | 14 |
-| jordan love | 1 | steady | 5 |
+| josh jacobs | 16 | TRENDING | 76 |
+| micah parsons | 8 | TRENDING | 38 |
+| jordan love | 2 | steady | 10 |
+| matt lafleur | 2 | steady | 10 |
 | robert tonyan | 0 | quiet - throwback | 0 |
 
-**Product gap:** trending with no design in the catalogue - **josh jacobs, matt lafleur**
+**Product gap:** trending with no design in the catalogue - **josh jacobs**
 
 Live player moments:
-- **josh jacobs** — [Green Bay Packers: NFL insider suggests Marshawn Lloyd may be RB1 even if Josh Jacobs is cleared](https://news.google.com/rss/articles/CBMihAFBVV95cUxQaTdyZVV2MUxYYmJLdE5PVmhSRVpDaURoZHAzOVhGUlVIREdQNG9YMHl2QjRLenlwVUtGWmF2QklQWVBUd00xbUV3V0w1NWNGZnQwam1iTVVXME1DbVJ6VXFRRC1GZTFUelI0eElEMTZXTUtoRlEzckhaN3FGQXo5MEFpc1o?oc=5) - Yahoo Sports
+- **josh jacobs** — [Packers trade for Steelers RB Kaleb Johnson as Josh Jacobs lands on Commissioner's Exempt List](https://news.google.com/rss/articles/CBMiwAFBVV95cUxPcXFvRjN4U1ZDdXYyc25UakJpZUhlOTNlN1JubU44NThfS1FYRnVrZmc1SWxHWGNNcFE5MG8wTUdSdEw1VFVmblkxUVM1dXhLS3pmZjZ0dmdHellWbkwwV2hMOWI4NUJCVjJWd0pvWi1feFFuNWJ0Z3o1N0E3cDFHLUZRXzl1dEFqeHZKYWVXVDdSdmlBeFVVNkVBbGdnYjQyWjBtdVB4UHpJaTFITWdvc3FJRlVLZHVKR01BYWdUZl8?oc=5) - NFL.com
 
 Recent headlines:
-- [Packers announce roster moves | Sept. 2, 2026](https://news.google.com/rss/articles/CBMiekFVX3lxTE1BbnlYQkkwNjJFeFBBcy1TSzlRcTVnUG9XYWxpYUZpc0pRZDBaR2xNWVp1U1hVcXBEc3dLTWJMbnNCYWN1WW10d3RWTXZrV1d4eFVQNk4zeUJyWTZvUm1MMlprYmZxMFB2eTdsRDJnbGdfdEpnTTFSeW93?oc=5) - packers.com
-- [The 3 Biggest Surpises From Green Bay's Inital Roster Cuts](https://news.google.com/rss/articles/CBMinAFBVV95cUxPUVpfVXJxRENyNm5tWklOOWwzVHljUW9Mc3Q5UVEzWlM0SHBhdWxrTFRZSXNoQ0dZaWQtU1l3LUFLcW5RbE1Bc3lkaVpKMlFXVVRzRXE0bEg1TjNOc1RHQ1dxV1l5UFVqWlQ3LXRONWRJS3czMkxhWnFFYVVXWkQ2SHFNTHZocXg4ZlNhUHNSdTNHRFp0Smd4WHpKeUc?oc=5) - Zone Coverage
+- [Packers announce roster moves | Aug. 30, 2026](https://news.google.com/rss/articles/CBMiekFVX3lxTFBfRGZTYlhHM0ZLTHlPWUNtLXFGTE5McWxucTdDSlZWOHhVbmlQNlBYUFVjeEtQUXpDX0dtdEVjNE1uZ0R6d0NEMklCSHF3RjMyZXpGdDl1anhHOUFfMjMySjNKZEZxTzM2dlNZMnQ0VHRHTElxaTNCX3RB?oc=5) - Green Bay Packers
+- [The 3 Biggest Surpises From Green Bay's Inital Roster Cuts](https://news.google.com/rss/articles/CBMinAFBVV95cUxPUVpfVXJxRENyNm5tWklOOWwzVHljUW9Mc3Q5UVEzWlM0SHBhdWxrTFRZSXNoQ0dZaWQtU1l3LUFLcW5RbE1Bc3lkaVpKMlFXVVRzRXE0bEg1TjNOc1RHQ1dxV1l5UFVqWlQ3LXRONWRJS3czMkxhWnFFYVVXWkQ2SHFNTHZocXg4ZlNhUHNSdTNHRFp0Smd4WHpKeUc?oc=5) - zonecoverage.com
+- [Green Bay Packers named losers of the 2026 NFL preseason](https://news.google.com/rss/articles/CBMihgFBVV95cUxOSFN5MHlpRE9weERtU21Dc0lZTXdJc08yMkNhOTliQjJEMDJ3U0w3MUNtXzFDTDRRMnhsd3cyLTVyVWQzeE1PMzJ6SWVqbHRHSDBwTU03Rnk5TGZYM3NRWU9QYnhkUjV3MnhxZDloVXVsZ0NjLVh2SEQzM0JZLXk1LXh1T0s2UQ?oc=5) - Yahoo Sports
 - [How to watch the 2026 Green Bay Packers: A Cheesehead’s TV guide for the regular season](https://news.google.com/rss/articles/CBMiowFBVV95cUxQU2g5aXdBTkZoS0MyQURuTDVsX3VoRDIxODItYUg5eDFWQVB1RXRpdzA2Z2V2YXd2YWphOHBYaHhrZmw0Vml2emllNElva1NNUnlwTFItVEdMYi00eXk4R1Nsamg5N2RqMlBrTDhoTlBYT1ZjYmdSSFA0Y2t1UjFvdmZKaUt2YmQ3WElyZXlMbEJkcE5Ob2NlZVRLSUo5UFhBU2Qw?oc=5) - The New York Times
-- [Green Bay Packers: NFL insider suggests Marshawn Lloyd may be RB1 even if Josh Jacobs is cleared](https://news.google.com/rss/articles/CBMihAFBVV95cUxQaTdyZVV2MUxYYmJLdE5PVmhSRVpDaURoZHAzOVhGUlVIREdQNG9YMHl2QjRLenlwVUtGWmF2QklQWVBUd00xbUV3V0w1NWNGZnQwam1iTVVXME1DbVJ6VXFRRC1GZTFUelI0eElEMTZXTUtoRlEzckhaN3FGQXo5MEFpc1o?oc=5) - Yahoo Sports
-- [Packers Film Review: TE Mark Redman](https://news.google.com/rss/articles/CBMipAFBVV95cUxNVWliV2lXTjV2WS1BYmpxTTV1cjBBZHBEQ0dubmdySG9jUGU2UkFZMDhTQ3VjWGlKazNWYk92VVcxWG1nX0g2QjVRT3lxWUVURGFkS3ZWN3pvMGhfT19KWWxBOU1jQVBYaVl5RUpxelJTQ2ZvejBLcXBNU3dtM3dxRlF0QkcteFFsT3JreTdzQjVra3Byd2dVdTB6VG5NWXptWm0wTw?oc=5) - Acme Packing Company
+- [Packers trade for Steelers RB Kaleb Johnson as Josh Jacobs lands on Commissioner's Exempt List](https://news.google.com/rss/articles/CBMiwAFBVV95cUxPcXFvRjN4U1ZDdXYyc25UakJpZUhlOTNlN1JubU44NThfS1FYRnVrZmc1SWxHWGNNcFE5MG8wTUdSdEw1VFVmblkxUVM1dXhLS3pmZjZ0dmdHellWbkwwV2hMOWI4NUJCVjJWd0pvWi1feFFuNWJ0Z3o1N0E3cDFHLUZRXzl1dEFqeHZKYWVXVDdSdmlBeFVVNkVBbGdnYjQyWjBtdVB4UHpJaTFITWdvc3FJRlVLZHVKR01BYWdUZl8?oc=5) - NFL.com
 
 ## Dallas Vintage Sports Tees
 
 | Name | Headline mentions | Status | FTI |
 |---|---|---|---|
+| ceedee lamb | 2 | steady | 10 |
 | dak prescott | 0 | quiet - throwback | 0 |
-| ceedee lamb | 0 | quiet - throwback | 0 |
 
 Recent headlines:
+- [Cowboys release initial 53-man roster for 2026 season](https://news.google.com/rss/articles/CBMikgFBVV95cUxQX0tpcWhUdjhDclVYM2JvN1lyMHNnSmdYNVE5MVVPd0oyZGFQMjhJN3lBRU1pckEwNzROWUtKUG9YZ0ZLdTBfY0p1UENxazJWNE5yY1A2NWtMZTFlNWI4cVl1RXhicTU3eWQ0akRnUDFPTUNSeFZOMFl6Tl81MThYQTZOajduWExHS3BNWjUxMER1UQ?oc=5) - Dallas Cowboys
+- [Dallas Cowboys sign QB Joe Milton to practice squad](https://news.google.com/rss/articles/CBMimAFBVV95cUxPMUNXZmQ3YlNBLUpObDM0LXEtMXQtYWdnaTFzakozWkZhdS1ENS1BNmtGS1VuMW5NNWhtb3VaRmVtcWlIcFEzNVc1cHotZjFHSllua1VUWDRUQWU2aTBRMGpXS0YzWkk0UFB6WHpLcV9DNUlKZWZNMjUzT3dHNXFNdHJwYnRtWHFJZS1WT3BoYmxPZ3d1c0sxTg?oc=5) - Dallas News
+- [Emari Demercado returns 'home' to Dallas, has reason to be excited with Cowboys](https://news.google.com/rss/articles/CBMisAFBVV95cUxQTlZuQ1hPOWZNQzcwM0VzeEZoMnU3ekpVcDN1SmhNbndlMXgwdXNuOTJtR3loUWQzbkVIZGRhZEw0ZVp2SS1zaVZvc1NEQVBlYWl3RmFBT1pNdzhlcGJDeFp2aXZlTUxOMWx3YmUxRWx1blR6VVBIaGwwQkt6NkN2Mjlkb1p1WG1VczRnYnRSZmQzVlNhQ0V5b3VCRG81NnB5Zk1IaXdvSFVaelFtYnNSNw?oc=5) - Dallas Cowboys
+- [Saints 27-24 Cowboys (Aug 28, 2026) Game Recap](https://news.google.com/rss/articles/CBMiW0FVX3lxTFBVQ2w3aWd3WVJNYzlOZnVWWHlOVkRPYldfMGdSLXloRjNvUjdBckF0MnVXaXEzXzh2MENHSXdhOExHWW5Bc3gwZVFkckdvLXR6clBhYk5KSV96QUU?oc=5) - ESPN
+- [Quinnen Williams: Culture, growth of Cowboys' defense is 'night and day'](https://news.google.com/rss/articles/CBMipAFBVV95cUxOT0lzOUlYMUVnMFpaVkdmbFBaLTVIZk9KbnBWbU5IQVJtYS1GdmQ0VGFuWnl3Q21OcGtJbWd4RGN2enljMFpiMGx3WWVBYkdKYWdxN0dhMWdyMHFMRUpJMEJObVUxeFJpeGxwb3J3VmM2Y1JnbnlkZFJhS3dwQ2R3eWlPSUxaN0xXU01mb0pfZFo5cWFmeDlaYVpqRXVwSUVUMG53QQ?oc=5) - Dallas Cowboys
 
 ## Michigan Go Blue Apparel
 
 | Name | Headline mentions | Status | FTI |
 |---|---|---|---|
-| bryce underwood | 0 | quiet - throwback | 0 |
+| bryce underwood | 17 | TRENDING | 81 |
+| kyle whittingham | 10 | TRENDING | 48 |
 | jj mccarthy | 0 | quiet - throwback | 0 |
-| kyle whittingham | 0 | quiet - throwback | 0 |
 | jordan marshall | 0 | quiet - throwback | 0 |
 
+**Product gap:** trending with no design in the catalogue - **kyle whittingham**
+
+Live player moments:
+- **kyle whittingham** — [Kyle Whittingham officially names Michigan Football’s QB2 for 2026](https://news.google.com/rss/articles/CBMi2AFBVV95cUxPQXFDN0kwT2VtNlQyQ25pNXIwenplamZxWFY5WXhacThTdklvWFRjSF9MaDQxVW9WZm5oQTZBazA3QV93WUNRTDluSHFzLWNwdjJEOXZyVEJiSkttRlJuVk5mcm5vX3hPZXBvS2t0cGNYOGpBQy1NT3B2dEJvQ2lEbDNvNTlJbmhIZUcxUnljc1M1Uy1IbHNxUVBLcklFQkc5cW5oUVZRY3pRbGRBWkpXbWhrSkJtcU81Y1BPc0RJcnZiR1Vja0h5Z2VGMFdkTmloYU4zc01ta1g?oc=5) - Maize n Brew
+
 Recent headlines:
+- [Michigan football stock up, stock down: 5 players trending for roles on defense](https://news.google.com/rss/articles/CBMiyAFBVV95cUxNLTVYTnJCNWgtWXEzallpMExEbnl2Yk82WWluY2dBU1luUG5iZVI2RlRDNGZsWnFQeEdsQjRSQjJwOEFkaE1heWpveHRkSTAwcG5OODlleVZvWHJybEZ6Skx3Wi02RVZ3X1lWdTd4UEt3MUJ2WmRrS19NSE5EQUcxaXR0Wm1oUE9HR19TMVRSM3RuejU2UV9MaU9hRHVlOU5Hc3hXRUgtU3RYXzBRYmdGZXJSclJDQ2tmaGRmWnoyVS1RSUtiRUF6dg?oc=5) - On3
+- [Michigan Monday: Game 1 vs. Western Michigan](https://news.google.com/rss/articles/CBMihgFBVV95cUxOMGpjaTd1Y1F5bFkyRG4yeVVfWi1WNjhKb2pObzBSM0c1aXFQT0ZtR0VELTMyZVlFRHlaLTJjWXB6VTVsdkZXUnQ5OVRWVE9fLXVHU0x5VVlZcTktOHUwVzhubV9KZy1DVWF1SUhnQ1NTUW5hQmI0QlY5c1VOSDM2RTJhM1FDUQ?oc=5) - University of Michigan Athletics
+- [Michigan football writer Tony Garcia gives five bold predictions for the Wolverines heading into the 2026 season. See link below ⬇️ 📸 Dylan Widger, Imagn Images](https://news.google.com/rss/articles/CBMi3wFBVV95cUxPUUpsWDBJWjg4OUFvd19DWVdBR0xmdm9PdWZfQ1VURGxNZDFkWG9pWmhZbUR0Y0lnYmFvOG5TX0t2djU5c1BFLUpFb3BQLXZWRmNpblBOQXd3alRUa3VROUNvakZpZmV0Z0dzb0t5UGFyS3hhZ0pZSWhwT3lqOU1ITGxnU040aDJFdENrRFpQd0ZsdE8xNWs3aXFlcU9jVDcwcU5zcmZGeTZ3cVZhOG52T096Vlh4bjFhNWNnRHg0UzJaVFFvQXFnZUJ1SndmZUZhUnp4OE5HUzUxTFRpVkhJ?oc=5) - facebook.com
+- [Michigan Football's WR3 Battle Takes Major Turn Ahead of Week 1](https://news.google.com/rss/articles/CBMiqgFBVV95cUxPSms1RlpsazNlTWU0Wi1lc2V3OUV6Qmg4Y0ozcHN4QnJFX0prZXF3eVI5eVZ3b2RZWTVEMTdtd2ptdHhsX2tKTFFxOF9VbFBzcVFtbDdudFVoSzdPdHE5VGF5TWUwQ3dWZ09lRVY0akJVUm1UZVM4VFFtcTVFVHRiaW5yNlJPMlBvNGRCSGc0bEoxNVJuemF6WnlEeHl5aDlNUzRZU00wRDJTZw?oc=5) - Sports Illustrated
+- [40 former Michigan football players make 2026 NFL opening rosters](https://news.google.com/rss/articles/CBMi-AFBVV95cUxPREdFUEExQjNIVmx5N1lTQ1ZqNEZYd1BBQjBWTTdrUE5ZUTNfNVVvUFE1akJhcEx2anBod19TUV9KTFRFbjJxUmE1OFJqWUFybDRnSTdFVFJvM2Z6S016MTY1ZTNpMjJzNmtjWl9Lc1QxNWptYXd1ZjlIM1FodGFVOVZ1XzlMdzU2NFdZQUZQS2dSVm01QlJPcUlWR084YXR2YTNzem44MFdsN0RFWnJnT2I5TjhLR3U1S29pb0xVLUtNYzliQ3A1clp6YUhHRHJkNGt4OXJPQ1AyV3ZGOUpnNFJIT1ZVRFBmTzljNUdFaVlkd19WQ0NhbA?oc=5) - Wolverines Wire
