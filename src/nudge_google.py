@@ -66,11 +66,13 @@ def gsc_inspect():
         "Content-Type": "application/json",
     }
     for url in urls:
+        # The URL Inspection API only accepts these three fields; it always
+        # performs a live index-status inspection (no inspectionType /
+        # liveInspection flags exist on this endpoint - passing them 400s).
         body = {
             "inspectionUrl": url,
             "siteUrl": GSC_SITE_URL,
-            "inspectionType": "INDEX_STATUS",
-            "liveInspection": True,
+            "languageCode": "en-US",
         }
         try:
             r = requests.post(endpoint, headers=headers, json=body, timeout=60)
