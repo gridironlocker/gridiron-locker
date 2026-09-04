@@ -2,37 +2,64 @@
  "generated": "2026-09-04",
  "window_days": 10,
  "fti_formula": "round(100 * entity_mentions / peak_mentions_in_window)",
- "peak_mentions": 14,
+ "peak_mentions": 17,
  "stats": {
   "products": 112,
   "collections": 4,
   "images": 854,
   "avg_price": 26.62,
-  "hot": 1,
-  "throwback": 14,
+  "hot": 9,
+  "throwback": 6,
   "steady": 97,
-  "gaps": 1,
+  "gaps": 2,
   "moments": 0,
   "tracked_names": 18,
   "dead_campaigns": 34
  },
  "fti_rows": [
   {
-   "name": "bryce underwood",
-   "mentions": 14,
+   "name": "josh jacobs",
+   "mentions": 17,
    "index": 100,
-   "status": "trending",
-   "gap": false,
-   "shoppable": true,
-   "collection": "michigan"
-  },
-  {
-   "name": "kyle whittingham",
-   "mentions": 8,
-   "index": 57,
    "status": "trending",
    "gap": true,
    "shoppable": false,
+   "collection": "green-bay-packers"
+  },
+  {
+   "name": "matt lafleur",
+   "mentions": 7,
+   "index": 41,
+   "status": "trending",
+   "gap": true,
+   "shoppable": false,
+   "collection": "green-bay-packers"
+  },
+  {
+   "name": "micah parsons",
+   "mentions": 6,
+   "index": 35,
+   "status": "trending",
+   "gap": false,
+   "shoppable": true,
+   "collection": "green-bay-packers"
+  },
+  {
+   "name": "jordan love",
+   "mentions": 3,
+   "index": 18,
+   "status": "trending",
+   "gap": false,
+   "shoppable": true,
+   "collection": "green-bay-packers"
+  },
+  {
+   "name": "bryce underwood",
+   "mentions": 0,
+   "index": 0,
+   "status": "quiet",
+   "gap": false,
+   "shoppable": true,
    "collection": "michigan"
   },
   {
@@ -90,15 +117,6 @@
    "collection": "cleveland-browns"
   },
   {
-   "name": "jordan love",
-   "mentions": 0,
-   "index": 0,
-   "status": "quiet",
-   "gap": false,
-   "shoppable": true,
-   "collection": "green-bay-packers"
-  },
-  {
    "name": "jordan marshall",
    "mentions": 0,
    "index": 0,
@@ -106,15 +124,6 @@
    "gap": false,
    "shoppable": false,
    "collection": "michigan"
-  },
-  {
-   "name": "josh jacobs",
-   "mentions": 0,
-   "index": 0,
-   "status": "quiet",
-   "gap": false,
-   "shoppable": false,
-   "collection": "green-bay-packers"
   },
   {
    "name": "kevin stefanski",
@@ -126,22 +135,13 @@
    "collection": "cleveland-browns"
   },
   {
-   "name": "matt lafleur",
+   "name": "kyle whittingham",
    "mentions": 0,
    "index": 0,
    "status": "quiet",
    "gap": false,
    "shoppable": false,
-   "collection": "green-bay-packers"
-  },
-  {
-   "name": "micah parsons",
-   "mentions": 0,
-   "index": 0,
-   "status": "quiet",
-   "gap": false,
-   "shoppable": true,
-   "collection": "green-bay-packers"
+   "collection": "michigan"
   },
   {
    "name": "myles garrett",
@@ -182,13 +182,22 @@
  ],
  "gaps": [
   {
-   "name": "kyle whittingham",
-   "mentions": 8,
-   "index": 57,
+   "name": "josh jacobs",
+   "mentions": 17,
+   "index": 100,
    "status": "trending",
    "gap": true,
    "shoppable": false,
-   "collection": "michigan"
+   "collection": "green-bay-packers"
+  },
+  {
+   "name": "matt lafleur",
+   "mentions": 7,
+   "index": 41,
+   "status": "trending",
+   "gap": true,
+   "shoppable": false,
+   "collection": "green-bay-packers"
   }
  ],
  "collections": [
@@ -232,12 +241,71 @@
    "store": "https://viralstyle.com/store/kebystore/Packss/1",
    "products": 31,
    "avg_price": 25.22,
-   "hot": 0,
-   "throwback": 9,
-   "gaps": [],
-   "top_terms": [],
-   "headline_count": 0,
-   "headlines": [],
+   "hot": 9,
+   "throwback": 0,
+   "gaps": [
+    {
+     "name": "josh jacobs",
+     "mentions": 17,
+     "index": 100,
+     "status": "trending",
+     "gap": true,
+     "shoppable": false,
+     "collection": "green-bay-packers"
+    },
+    {
+     "name": "matt lafleur",
+     "mentions": 7,
+     "index": 41,
+     "status": "trending",
+     "gap": true,
+     "shoppable": false,
+     "collection": "green-bay-packers"
+    }
+   ],
+   "top_terms": [
+    "packers",
+    "green",
+    "roster",
+    "josh",
+    "jacobs",
+    "trade",
+    "practice",
+    "list"
+   ],
+   "headline_count": 100,
+   "headlines": [
+    {
+     "title": "Packers vs. Cardinals | How to watch, stream & listen | Preseason Week 3",
+     "url": "https://news.google.com/rss/articles/CBMinwFBVV95cUxQU3BVekExemVnS3kyRlBfMFQ0cUZTRUFyUFRTRmRQVGZSRjBDZThTeUFjQTFMN1dMcTlCc2JDcWtuSDVuX3FaVExGd0NXMEEybmZ6Q01SNkZpLTg0bko2RXRFaEdLSWhBZHRXV05uNGZDdHFoMXpqNlZ1c3NnNWp4Z2lVa2I2cFQwdFdMLW8yMVJzR2JJWnZfM005aUV6cmM?oc=5",
+     "source": "Green Bay Packers",
+     "pub": "Fri, 28 Aug 2026 07:00:00 GMT"
+    },
+    {
+     "title": "The 3 Biggest Surpises From Green Bay's Inital Roster Cuts",
+     "url": "https://news.google.com/rss/articles/CBMinAFBVV95cUxPUVpfVXJxRENyNm5tWklOOWwzVHljUW9Mc3Q5UVEzWlM0SHBhdWxrTFRZSXNoQ0dZaWQtU1l3LUFLcW5RbE1Bc3lkaVpKMlFXVVRzRXE0bEg1TjNOc1RHQ1dxV1l5UFVqWlQ3LXRONWRJS3czMkxhWnFFYVVXWkQ2SHFNTHZocXg4ZlNhUHNSdTNHRFp0Smd4WHpKeUc?oc=5",
+     "source": "Zone Coverage",
+     "pub": "Tue, 01 Sep 2026 21:18:28 GMT"
+    },
+    {
+     "title": "How To Watch: Cardinals at Packers, Preseason Game No. 4",
+     "url": "https://news.google.com/rss/articles/CBMijwFBVV95cUxOWUpacURDVXROUGJrY2I5WEJFQzVzYkRRMWtGSGcyU3VkVVhKcWhLLWMwSlNBQ1J2MFNvS3MyTVdBdFBQQmFSNmtYblFtLWMyaUVTbGRKNExaX09oUy1wVTBWSXF3emZ1cGNReEZYMnhaSEtCWmZpRlhlOUJmNXg1a09OU3phaFpEUzdjdExsUQ?oc=5",
+     "source": "Arizona Cardinals",
+     "pub": "Thu, 27 Aug 2026 07:00:00 GMT"
+    },
+    {
+     "title": "Three new Packers players are making an impression in Green Bay",
+     "url": "https://news.google.com/rss/articles/CBMiuAFBVV95cUxQZ1NvTzVwR3VIN2U2SDVnRld2U0F6cTFfQXg2TzFyTGhNQTl3bmdTbkkzaU80OHp0X3pFRW1vYWZZWjRJWVlVSThWcklmTjdoOTZyMkNQYTdhSUpuUXRISUw0WkxUTmFaNGd1R0VYSDdtOFdHc3BWYktGeDIzZlhxVVRPVzBVaURkZFpqRkM4Ujdhd0h6OVg4NVJNNjdOUVk5V2szcXQ4anRQZDVJY01sVlNjRDJ4cERH?oc=5",
+     "source": "acmepackingcompany.com",
+     "pub": "Tue, 01 Sep 2026 18:58:00 GMT"
+    },
+    {
+     "title": "2026 Green Bay Packers training camp: Latest intel, updates",
+     "url": "https://news.google.com/rss/articles/CBMimwFBVV95cUxNRHdEUktHNHg0WnZpelJzTU5qSmRjWkpJQkxSdXFQWlpKU2VtVWZDV3pHRUp5WHRrZzg2QktOYVNUOUhDaVR0QWpNRHNCZ2dESmU4OHpUSm1KWmc4Rm5nU3JkdjRKUU94aVU2c2lVTk5Sdm9aRnBBZkZhTGM1U3pfYW10cExLVEx6M3dMRlhjUWFFSURRY3plajZBTQ?oc=5",
+     "source": "ESPN",
+     "pub": "Wed, 26 Aug 2026 07:00:00 GMT"
+    }
+   ],
    "fti_count": 5
   },
   {
@@ -248,62 +316,12 @@
    "store": "https://viralstyle.com/store/kebystore/MICHIG/1",
    "products": 13,
    "avg_price": 30.37,
-   "hot": 1,
-   "throwback": 0,
-   "gaps": [
-    {
-     "name": "kyle whittingham",
-     "mentions": 8,
-     "index": 57,
-     "status": "trending",
-     "gap": true,
-     "shoppable": false,
-     "collection": "michigan"
-    }
-   ],
-   "top_terms": [
-    "michigan",
-    "football",
-    "western",
-    "wolverines",
-    "below",
-    "here",
-    "predictions",
-    "tickets"
-   ],
-   "headline_count": 100,
-   "headlines": [
-    {
-     "title": "How to Watch: No. 16 Michigan Wolverines vs Western Michigan Broncos",
-     "url": "https://news.google.com/rss/articles/CBMizAFBVV95cUxPSWdiUm54SkdscFpBMi1jbTliODk2X2RHYkVJWmRTb0ZpTGx0OHdpb1FDRUJMMTdTNGRIdEczNFlWSVJ6S3lHMTFWSDF1NXhkREVjcDlQQ29Cc0Y4MEZsdWNqdzNCUUdTbjJxeHRJQVhXRmdlOS1qcWRaeFJuekpfeHRQSzJfU05wRk9PWjhuQXdObnAtT2NvZnRhNXdGNWhlQjNHMUp5MmhYWmFEUFh1TzlPUXNjeEFKcGxUYlAzM0VTcHFHWUFnVUs3eHo?oc=5",
-     "source": "Maize n Brew",
-     "pub": "Thu, 03 Sep 2026 20:00:00 GMT"
-    },
-    {
-     "title": "Michigan Monday: Game 1 vs. Western Michigan",
-     "url": "https://news.google.com/rss/articles/CBMihgFBVV95cUxOMGpjaTd1Y1F5bFkyRG4yeVVfWi1WNjhKb2pObzBSM0c1aXFQT0ZtR0VELTMyZVlFRHlaLTJjWXB6VTVsdkZXUnQ5OVRWVE9fLXVHU0x5VVlZcTktOHUwVzhubV9KZy1DVWF1SUhnQ1NTUW5hQmI0QlY5c1VOSDM2RTJhM1FDUQ?oc=5",
-     "source": "University of Michigan Athletics",
-     "pub": "Mon, 31 Aug 2026 20:24:42 GMT"
-    },
-    {
-     "title": "Biggest Michigan Football Camp Disappointment (And Why It Matters)",
-     "url": "https://news.google.com/rss/articles/CBMirgFBVV95cUxPYS04SWF3cnVSeTN0dGJjQXNVN3hnWjF0U3VxZWRDSDFodkMwNDBxdWtVbjVUamxMSlpudmZwRlpZQjhZRklnVU93MVU5WGNOVGNmcVhXRHp0NDIzNngtNXVmWUJ0RG5lSnlQTXo3dVZ6ZnItRm5XU0dmUUJzODUyTUp4MTNuT3VHQ1VGSDVleXF6YXo3RW8xV1NwRGtrZ3hFR1VaY3p4REg0UVdOYWc?oc=5",
-     "source": "si.com",
-     "pub": "Fri, 28 Aug 2026 21:00:00 GMT"
-    },
-    {
-     "title": "How to watch Western Michigan vs. No. 16 Michigan: TV channel and streaming options for September 5",
-     "url": "https://news.google.com/rss/articles/CBMi4wFBVV95cUxOZl9jSjlPeVdUaGM1R0xVX1ZkWmhnWldQeEdRbHVaTGhNaHJQR1ZTeWJzYTU3MmpPN1diNmExYTVSU1Q2Nk1XT243dnZtWkNMWkhCLXVSOVE3ZG1JYUhBemwweGpWbFZCN0RaT2NjS3FVWkxMNWMzc3dra3dBdjFKUlFhUVRSdUV5NXBfcl9COS1lNGV4b0I0QnUwQXV5LWl0UU9CVkVSTEJNQWZQTGwzeF9RVTNLWUZZaUtNWkVqelM2YjEzN282cG1rQWpFQlpWeDI5RWQxV1hWLVEzYnhvTzhYVQ?oc=5",
-     "source": "The New York Times",
-     "pub": "Tue, 01 Sep 2026 06:57:49 GMT"
-    },
-    {
-     "title": "Michigan football players plant their flag in the offseason on one of the teammates who has impressed in fall camp and will stand out in 2026. See link below \u2b07\ufe0f \ud83d\udcf8 Jaime Crawford, Getty Images for ONIT",
-     "url": "https://news.google.com/rss/articles/CBMi3wFBVV95cUxOMHhxUVlYWlRzaFlBdXdKM2thYUtXLVQ5SVhTeXlfUXdKeHVkZ0xIVC14ajB0UlFIQVYyYVFQcG1janZtemZTR3lIU1RWRFdoQ3RkVGc4ekpkNDJBdzkwZlVxamdhTnpXTm1iQndBQldONmJoMzdaY3pIMmN3T3ZRVFE4WXJTR0NabjZrdDZlYWIzaHZEOXhkNHVWeEh1dVk3aFA2NkxnRWt3cVlJdUJfbDhpSU1Fek1KTlZNdDdpbXRraDRlSE9wZDVibkk5elZGSXdIdXNZWE90OXdGUjA4?oc=5",
-     "source": "facebook.com",
-     "pub": "Wed, 02 Sep 2026 13:01:00 GMT"
-    }
-   ],
+   "hot": 0,
+   "throwback": 1,
+   "gaps": [],
+   "top_terms": [],
+   "headline_count": 0,
+   "headlines": [],
    "fti_count": 4
   }
  ],
