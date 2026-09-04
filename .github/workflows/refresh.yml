@@ -139,6 +139,17 @@ jobs:
       - name: Deploy to GitHub Pages
         id: deployment
         uses: actions/deploy-pages@v4
+      - name: Nudge Google (GSC live inspection + WebSub)
+        continue-on-error: true
+        env:
+          GSC_SA_JSON: ${{ secrets.GSC_SA_JSON }}
+        run: |
+          pip install --quiet google-auth requests
+          if [ -n "$GSC_SA_JSON" ]; then
+            echo "$GSC_SA_JSON" > /tmp/gsc-sa.json
+            export GSC_SA_JSON_PATH=/tmp/gsc-sa.json
+          fi
+          python src/nudge_google.py
       - name: Ping IndexNow
         if: steps.commit.outputs.changed == 'true'
         continue-on-error: true

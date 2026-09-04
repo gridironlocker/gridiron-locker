@@ -1884,9 +1884,10 @@ Sitemap: {DOMAIN}/sitemap-images.xml
                    f"<guid isPermaLink='false'>{u}</guid>"
                    f"<description>{esc(it['art'])} - ${it['price']:.2f}</description></item>")
     write("feed.xml", '<?xml version="1.0" encoding="UTF-8"?>'
-          '<rss version="2.0"><channel>'
+          '<rss version="2.0" xmlns:atom="http://www.w3.org/2005/Atom"><channel>'
           f'<title>{esc(BRAND)} - new and trending fan designs</title>'
           f'<link>{DOMAIN}/</link>'
+          '<atom:link rel="hub" href="https://pubsubhubbub.appspot.com"/>'
           f'<description>{esc(CFG["tagline"])}</description>'
           f'<lastBuildDate>{DATA_DATE}</lastBuildDate><language>en-us</language>'
           + fitems + '</channel></rss>')
