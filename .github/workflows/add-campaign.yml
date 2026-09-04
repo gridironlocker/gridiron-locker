@@ -1,0 +1,42 @@
+name: Add campaign
+on:
+  workflow_dispatch:
+    inputs:
+      slugs:
+        description: "Viralstyle campaign slugs, comma-separated"
+        required: true
+      collection:
+        description: "Collection for these campaigns"
+        required: true
+        default: michigan
+        type: choice
+        options: [cleveland-browns, green-bay-packers, dallas-cowboys, michigan]
+permissions:
+  contents: write
+concurrency:
+  group: refresh
+jobs:
+  add:
+    runs-on: ubuntu-latest
+    steps:
+      - uses: actions/checkout@v4
+      - uses: actions/setup-python@v5
+        with: {python-version: "3.12"}
+      - run: pip install --quiet requests beautifulsoup4 lxml Pillow
+      - name: Capture campaigns
+        run: |
+          IFS=',' read -ra SLUGS <<< "${{ github.event.inputs.slugs }}"
+          for s in "${SLUGS[@]}"; do
+            s=$(echo "$s" | xargs); echo "::group::$s"
+            python3 add_campaign.py "$s" "${{ github.event.inputs.collection }}"
+            echo "::endgroup::"
+          done
+      - name: Commit and push (the push-triggered refresh pipeline builds + deploys)
+        run: |
+          git config user.name  "gridiron-bot"
+          git config user.email "actions@github.com"
+          git add data/campaigns_extra.json
+          git diff --staged --quiet && { echo "Nothing new captured."; exit 0; }
+          git commit -m "Add campaign(s) via workflow: ${SLUGS}"
+          git pull --rebase -X theirs origin main || { git rebase --abort; exit 1; }
+          git push
