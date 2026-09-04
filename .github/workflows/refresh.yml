@@ -67,6 +67,54 @@ jobs:
       - name: Rebuild site
         run: python src/build.py
 
+      - name: Verify rebuild is sane
+        run: |
+          python - <<'PY'
+          import json, os, re, sys
+          # 1) Catalogue size
+          live = json.load(open("data/products_live.json"))
+          nprod = len(live)
+          print(f"products_live.json: {nprod} products")
+          if nprod < 50:
+              sys.exit(f"FAIL: only {nprod} products (< 50) - refusing to publish")
+          # 2) Sitemap depth
+          sm = open("site/sitemap.xml", encoding="utf-8").read()
+          nlocs = len(re.findall(r"<loc>", sm))
+          print(f"site/sitemap.xml: {nlocs} <loc> urls")
+          if nlocs < 100:
+              sys.exit(f"FAIL: only {nlocs} sitemap <loc> urls (< 100) - refusing to publish")
+          # 3) No missing local refs across every built page
+          attr = re.compile(r'(?:src|data-src|href|content)="([^"]+)"')
+          missing = []
+          for base, _, files in os.walk("site"):
+              for f in files:
+                  if not f.endswith(".html"):
+                      continue
+                  fp = os.path.join(base, f)
+                  rel = os.path.relpath(fp, "site")
+                  text = open(fp, encoding="utf-8", errors="replace").read()
+                  for m in attr.finditer(text):
+                      val = m.group(1).strip()
+                      if val.startswith("//") or not (val.startswith("/") or val.startswith("../")):
+                          continue
+                      val = val.split("#")[0].split("?")[0]
+                      if val in ("", "/"):
+                          continue
+                      if val.startswith("/"):
+                          cand = os.path.normpath(os.path.join("site", val.lstrip("/")))
+                      else:
+                          cand = os.path.normpath(os.path.join(os.path.dirname(fp), val))
+                      if os.path.isdir(cand):
+                          cand = os.path.join(cand, "index.html")
+                      if not os.path.isfile(cand):
+                          missing.append(f'{rel}: "{val}"')
+          if missing:
+              for x in missing[:40]:
+                  print("MISSING REF:", x)
+              sys.exit(f"FAIL: {len(missing)} missing local ref(s) - refusing to publish")
+          print("OK: rebuild is sane (products, sitemap, no missing local refs)")
+          PY
+
       - name: Commit changes
         id: commit
         run: |
@@ -78,6 +126,7 @@ jobs:
             echo "Nothing changed."
           else
             git commit -m "Auto-refresh: trends + rebuild $(date -u +%Y-%m-%d)"
+            git pull --rebase -X theirs origin main || { git rebase --abort; exit 1; }
             git push
             echo "changed=true" >> $GITHUB_OUTPUT
           fi
