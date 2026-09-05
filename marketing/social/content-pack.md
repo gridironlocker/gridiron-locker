@@ -54,7 +54,7 @@ the real store mockup (`site/img/p/<slug>-front.jpg`) as the guarantee shot.
 | `highlight-02-phrase.jpg` | macro chest print (same tee) | close-up ink + fabric detail | 4:5 |
 | `mock-01-browns.jpg` | THEY FORGOT WHO I AM tee | layered overshirt, rainy tailgate | 4:5 |
 | `mock-02-packers.jpg` | 10 LOVE hoodie (gold 10) | hood up, frosty lakeside, green + gold | 4:5 |
-| `mock-03-michigan.jpg` | GO BLUE sweatshirt (lightning) | beanie, autumn campus, maize + navy | 4:5 |
+| `mock-03-michigan.jpg` | GO BLUE sweatshirt (lightning) — **mood shot only** (no live design match) | beanie, autumn campus, maize + navy | 4:5 |
 | `mock-04-cowboys.jpg` | DOOMSDAY DEFENSE (retro helmet skull) | bomber jacket, blue-hour urban | 4:5 |
 | `mock-05-detail.jpg` | close-up chest print (Browns tee) | macro fabric + ink texture | 4:5 |
 | `mock-06-lookbook.jpg` | 10 LOVE hoodie, back view | walking into stadium light | 9:16 |
@@ -63,7 +63,7 @@ the real store mockup (`site/img/p/<slug>-front.jpg`) as the guarantee shot.
 
 Real store mockups (always-accurate product shots, `site/img/p/`):
 `sanders-13-special-edition-front.jpg`, `limited-edition-grb31-front.jpg`,
-`limited-edition-m-fans-30-front.jpg`, `doomsday-defense-tee-front.jpg`.
+`limited-edition-go-blue-front.webp`, `doomsday-defense-tee-front.jpg`.
 
 ---
 
@@ -104,7 +104,9 @@ Image: `mock-04-cowboys.jpg` + real mockup `doomsday-defense-tee-front.jpg`.
 - TikTok: **Tue Sep 1 · 19:30 Eastern = 00:30 Casablanca (+1d, Wed)**
 
 ### D. Michigan — "GO BLUE"
-Image: `mock-03-michigan.jpg` + real mockup `limited-edition-m-fans-30-front.jpg`.
+Image: real mockup `site/img/p/limited-edition-go-blue-front.webp` (the guarantee
+product shot). `mock-03-michigan.jpg` is a **mood shot only** — the AI render is
+not a live design, so it never carries the product claim by itself.
 
 > GO BLUE. Saturday energy, all week long. Michigan opens the season in a few days — don't show up empty-handed.
 
@@ -148,7 +150,7 @@ Image: `mock-06-lookbook.jpg` (9:16 — Stories/Reels, or feed).
 |------|------|--------------------|------|
 | Browns | `sanders-13-special-edition-front.jpg` | THEY FORGOT WHO I AM. Browns QB1 energy. Shop it at the link. `#Browns #DawgPound #BrownsNation #NFLApparel` | Sat Aug 29 · 12:00 ET = 17:00 Casablanca |
 | Packers | `limited-edition-grb31-front.jpg` | 10 LOVE. Green and gold, made for the frozen tundra. `#Packers #GoPackGo #GreenBayPackers #JordanLove` | Mon Aug 31 · 12:00 ET = 17:00 Casablanca |
-| Michigan | `limited-edition-m-fans-30-front.jpg` | GO BLUE. Saturday energy, all week. `#Michigan #GoBlue #Wolverines #CollegeFootball` | Wed Sep 2 · 12:00 ET = 17:00 Casablanca |
+| Michigan | `limited-edition-go-blue-front.webp` | GO BLUE. Saturday energy, all week. `#Michigan #GoBlue #Wolverines #CollegeFootball` | Wed Sep 2 · 12:00 ET = 17:00 Casablanca |
 | Cowboys | `doomsday-defense-tee-front.jpg` | DOOMSDAY DEFENSE. Midnight navy, game-day ready. `#DallasCowboys #CowboysNation #Cowboys #NFLApparel` | Tue Sep 1 · 12:00 ET = 17:00 Casablanca |
 
 Post them as an **Instagram/Facebook carousel**: slide 1 = real store mockup
@@ -239,7 +241,7 @@ The visual must change in the first second or the scroll wins.
 | Wed Sep 2 | Michigan countdown + V2 | IG/FB 12:00 → 17:00 · TikTok 19:30 → 00:30 (+1d) |
 | Thu Sep 3 | Custom apparel + V4 | IG/FB 12:00 → 17:00 · TikTok 19:30 → 00:30 (+1d) |
 | Fri Sep 4 | Drop teaser + V5/V7 | IG/FB 12:00 → 17:00 · TikTok 19:30 → 00:30 (+1d) · Pinterest 20:30 → 01:30 (+1d) |
-| Sat Sep 5 | **GAME DAY — Michigan opener** (kickoff 12:00 ET) | all platforms 11:30 ET → 16:30 Casablanca (30 min before kickoff) |
+| Sat Sep 5 | **GAME DAY — Michigan opener** (kickoff 7:30 PM ET / 19:30 ET, NBC) | all platforms 19:00 ET → 00:00 Casablanca (+1d) (30 min before kickoff) |
 
 Repeat the game-day rule for **NFL Week 1 (Sun Sep 13)**: post each team's
 image 30 minutes before that team's kickoff (X + IG Stories are the highest

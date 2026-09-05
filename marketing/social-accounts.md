@@ -1,13 +1,13 @@
 # Gridiron Locker — Social Accounts (Second Set)
 
-Scope: Instagram, TikTok, Facebook, Pinterest, YouTube, Threads. X is excluded by request.
+Scope: Instagram, TikTok, Facebook, Pinterest, YouTube, Threads, and X.
 
 Brand facts used below:
 - Product: fan-made football tees, hoodies, and game-day gear.
 - Tone: professional + catchy, dark premium, game-day energy.
 - Bio style: no emojis. Hashtags live in captions/posts (they exceed most bio limits).
 - Keyword strategy: lead with the searchable team names (Cowboys, Browns, Packers, Michigan) so the profile surfaces in team and fan-apparel searches.
-- Link back to: https://gridironlocker.github.io/gridiron-locker
+- Link back to: https://gridironlocker.store
 
 ---
 
@@ -18,7 +18,8 @@ Brand facts used below:
 | YouTube | @Gridironlocker | https://www.youtube.com/@Gridironlocker |
 | Pinterest | gridironlockergear | https://www.pinterest.com/gridironlockergear/ |
 | Facebook | numeric profile (no vanity URL yet) | https://www.facebook.com/profile.php?id=61593734079569 |
-| X | @gridironlocker | https://x.com/gridironlocker |
+| X (brand voice) | @gridironlocker | https://x.com/gridironlocker |
+| X (fan voice) | @gridironlocker1 | https://x.com/gridironlocker1 |
 | Instagram | @gridironlocker | https://www.instagram.com/gridironlocker |
 | TikTok | @gridironlocker | https://www.tiktok.com/@gridironlocker |
 
@@ -33,11 +34,14 @@ Status and fixes:
 - **Facebook** — still a numeric ID, which is hard to search and hard to link.
   Claim a vanity username so it becomes `facebook.com/gridironlocker`
   (Settings & privacy → Settings → Username).
-- **X** — `@gridironlocker`, kept for the record (excluded from copy elsewhere here).
+- **X** — two live accounts, both in active use: `@gridironlocker`
+  (https://x.com/gridironlocker) carries the brand voice, `@gridironlocker1`
+  (https://x.com/gridironlocker1) carries the fan voice. X is part of the
+  posting plan in `marketing/plan.json` (game days: post 30 min before kickoff).
 - **Instagram / TikTok** — `@gridironlocker`, consistent with the main brand handle.
 
 One link rule: Instagram and TikTok allow a single bio link each. Point that link
-at the storefront (`https://gridironlocker.github.io/gridiron-locker`), not a
+at the storefront (`https://gridironlocker.store`), not a
 splash page, so every follower is one tap from buying.
 
 ---
