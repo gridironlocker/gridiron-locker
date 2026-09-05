@@ -474,6 +474,26 @@ def countdown_bar(ckey=None):
 </div></div>"""
 
 
+def urgency_line(col):
+    """Lead-time line shown on every product page.
+
+    The order-by date is derived from the collection's NEXT kickoff
+    (NEXT_GAME), not from a fixed season-opener string, so it can never tell a
+    fan to order after the game has already been played. If the 4-day print
+    window has already closed, the clause is dropped and we just state the
+    dispatch time instead of promising a deadline we cannot hit.
+    """
+    kick = datetime.datetime.fromisoformat(NEXT_GAME[col])
+    order_by = kick - datetime.timedelta(days=4)
+    same_game = SEASON[col]["kickoff"][:10] == NEXT_GAME[col][:10]
+    tail = (esc(SEASON[col]["opener"].replace("&middot;", "-")) if same_game
+            else f"{COLLECTIONS[col]['short']} game on {kick.strftime('%b %d')}")
+    if order_by.date() < datetime.date.today():
+        return f"Printed on demand &middot; ships in 2&ndash;4 days &middot; {tail}"
+    return (f"Printed on demand &middot; order by {order_by.strftime('%b %d')} "
+            f"to wear it for {tail}")
+
+
 TICKER_TERMS = [
     ("Shedeur Sanders fan shirts", 1), ("Dawg Pound apparel", 0),
     ("Go Pack Go tees", 0), ("Jordan Love 10 shirts", 1),
@@ -1044,7 +1064,7 @@ def page_product(it):
   {trendhtml}
   {momenthtml}
   <p class="desc" style="margin:0 0 12px">{intro_html}</p>
-  <div class="urgency"><span class="dot"></span> Printed on demand &middot; order by {ORDERBY} to wear it for {esc(SEASON[it["col"]]["opener"].replace("&middot;","-"))}</div>
+  <div class="urgency"><span class="dot"></span> {urgency_line(it["col"])}</div>
   <p class="muted" style="font-size:.93rem">Design reads: <strong style="color:var(--ink)">{esc(it['art'])}</strong></p>
 
   <div class="opts"><div class="lbl">Style</div><div class="stylelist">{stylechips}</div></div>

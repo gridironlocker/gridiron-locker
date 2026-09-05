@@ -49,11 +49,11 @@ gone from the team. This comes straight from the repo's own season data
 ## 3. GO BLUE — Michigan (current, generic)
 
 - **Title:** Saturday Energy, All Week
-- **Image:** `mock-03-michigan.jpg` + real mockup `site/img/p/limited-edition-m-fans-30-front.jpg`
+- **Image:** real mockup `site/img/p/limited-edition-go-blue-front.webp` (guarantee product shot). `mock-03-michigan.jpg` is a **mood shot only** — AI render, not a live design.
 - **Caption:** GO BLUE. Saturday energy, all week long. Michigan opens the season in days — don't show up empty-handed.
 - **Hashtags:** `#Michigan #GoBlue #Wolverines #CollegeFootball #BigTen #CollegeApparel`
 - **Post:** Wed Sep 2 · 12:00 Eastern = 17:00 Casablanca
-- **Game day:** Sat Sep 5 (opener vs Western Michigan, 12:00 Eastern kickoff) — repost at 11:30 Eastern = 16:30 Casablanca.
+- **Game day:** Sat Sep 5 (opener vs Western Michigan, 7:30 PM Eastern / 19:30 ET kickoff on NBC) — repost at 19:00 Eastern = 00:00 Casablanca (+1d).
 
 ## 4. DOOMSDAY DEFENSE — Cowboys (team theme, no player)
 
