@@ -84,7 +84,8 @@ Then rebuild: `python3 src/build.py`
 1. Google Search Console → add the domain → submit `/sitemap.xml`.
 2. Bing Webmaster Tools → same.
 3. Paste your GA4 / Meta Pixel snippet into the `head()` function in `src/build.py` and rebuild —
-   buy-button clicks already fire a `buy_click` event if `gtag` exists.
+   checkout clicks already fire a `viralstyle_checkout_click` event (carrying the product slug,
+   price and collection) if `gtag` exists.
 
 ---
 

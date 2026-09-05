@@ -1111,7 +1111,7 @@ def page_product(it):
   {'<div class="opts"><div class="lbl">Colourway preview</div><div class="swatchrow">' + "".join(f'<button class="swatch{" on" if n == 0 else ""}" data-src="{g}"><img src="{g}" alt="colour option {n+1}" loading="lazy" width="60" height="70"></button>' for n, g in enumerate(it["gallery"][2:10])) + "</div></div>" if it["colours"] > 1 else ""}
 
   <a class="btn block lg" href="{it['buy']}" target="_blank" rel="noopener"
-     onclick="try{{gtag('event','buy_click',{{item:'{it['slug']}'}})}}catch(e){{}}">
+     onclick="try{{gtag('event','viralstyle_checkout_click',{{item:'{it['slug']}',price:{it['price']},collection:'{it['col']}',destination:'viralstyle.com'}})}}catch(e){{}}">
      Continue to Secure Checkout &rarr;</a>
   <div class="checkoutnote">
    <span class="lock">&#128274;</span>
