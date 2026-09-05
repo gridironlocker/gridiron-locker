@@ -7,7 +7,7 @@ and X.
 Ampersand rule: write "&" (never "&amp;") in captions.
 
 Link rule: every bio link goes straight to
-`https://gridironlocker.github.io/gridiron-locker` — one tap to buy.
+`https://gridironlocker.store` — one tap to buy.
 
 Trademark rule: team names are used as factual fan keywords only. No team
 logos, marks, or player likenesses appear in any image. Keep the "not
@@ -46,7 +46,7 @@ Models are framed chest-down or from behind so no faces appear.
 **⚠️ Before posting any AI render, open the file and confirm the on-shirt text
 matches the real store design** — AI can drift on lettering, and a wrong word
 on a product shot is a customer complaint waiting to happen. Always pair with
-the real store mockup (`site/img/p/<slug>-front.jpg`) as the guarantee shot.
+the real store mockup (`site/img/p/<slug>-front.webp`) as the guarantee shot.
 
 | File | Design | Scene / styling | Aspect |
 |------|--------|-----------------|--------|
@@ -62,8 +62,8 @@ the real store mockup (`site/img/p/<slug>-front.jpg`) as the guarantee shot.
 | `08-new-drop.jpg` | (no product) spotlight tee | drop announcement shot | square |
 
 Real store mockups (always-accurate product shots, `site/img/p/`):
-`sanders-13-special-edition-front.jpg`, `limited-edition-grb31-front.jpg`,
-`limited-edition-go-blue-front.webp`, `doomsday-defense-tee-front.jpg`.
+`sanders-13-special-edition-front.webp`, `limited-edition-grb31-front.webp`,
+`limited-edition-go-blue-front.webp`, `doomsday-defense-tee-front.webp`.
 
 ---
 
@@ -71,7 +71,7 @@ Real store mockups (always-accurate product shots, `site/img/p/`):
 
 ### A. "They Forgot Who I Am" — Sanders QB12 (LIVE QB1 story)
 Carousel: `highlight-01-qb1.jpg` → `highlight-02-phrase.jpg` → real mockup
-`site/img/p/sanders-13-special-edition-front.jpg`.
+`site/img/p/sanders-13-special-edition-front.webp`.
 
 > Cleveland picked its QB1 this week. They forgot who he is. He didn't. Wear the take. Limited run — link in bio.
 
@@ -85,7 +85,7 @@ X one-liner:
 > Cleveland named its QB1. They forgot who he is. He didn't. Wear the take — link in bio. #Browns #DawgPound
 
 ### B. Packers — "10 LOVE"
-Image: `mock-02-packers.jpg` + real mockup `limited-edition-grb31-front.jpg`.
+Image: `mock-02-packers.jpg` + real mockup `limited-edition-grb31-front.webp`.
 
 > 10 LOVE. Green and gold, made for the frozen tundra. New fits are in the locker — link in bio.
 
@@ -94,7 +94,7 @@ Image: `mock-02-packers.jpg` + real mockup `limited-edition-grb31-front.jpg`.
 - Instagram/Facebook: **Mon Aug 31 · 12:00 Eastern = 17:00 Casablanca**
 
 ### C. Cowboys — "DOOMSDAY DEFENSE"
-Image: `mock-04-cowboys.jpg` + real mockup `doomsday-defense-tee-front.jpg`.
+Image: `mock-04-cowboys.jpg` + real mockup `doomsday-defense-tee-front.webp`.
 
 > Sunday night in New York. Midnight navy, game-day ready. DOOMSDAY DEFENSE is in the locker.
 
@@ -148,10 +148,10 @@ Image: `mock-06-lookbook.jpg` (9:16 — Stories/Reels, or feed).
 
 | Team | File | Caption + hashtags | Post |
 |------|------|--------------------|------|
-| Browns | `sanders-13-special-edition-front.jpg` | THEY FORGOT WHO I AM. Browns QB1 energy. Shop it at the link. `#Browns #DawgPound #BrownsNation #NFLApparel` | Sat Aug 29 · 12:00 ET = 17:00 Casablanca |
-| Packers | `limited-edition-grb31-front.jpg` | 10 LOVE. Green and gold, made for the frozen tundra. `#Packers #GoPackGo #GreenBayPackers #JordanLove` | Mon Aug 31 · 12:00 ET = 17:00 Casablanca |
+| Browns | `sanders-13-special-edition-front.webp` | THEY FORGOT WHO I AM. Browns QB1 energy. Shop it at the link. `#Browns #DawgPound #BrownsNation #NFLApparel` | Sat Aug 29 · 12:00 ET = 17:00 Casablanca |
+| Packers | `limited-edition-grb31-front.webp` | 10 LOVE. Green and gold, made for the frozen tundra. `#Packers #GoPackGo #GreenBayPackers #JordanLove` | Mon Aug 31 · 12:00 ET = 17:00 Casablanca |
 | Michigan | `limited-edition-go-blue-front.webp` | GO BLUE. Saturday energy, all week. `#Michigan #GoBlue #Wolverines #CollegeFootball` | Wed Sep 2 · 12:00 ET = 17:00 Casablanca |
-| Cowboys | `doomsday-defense-tee-front.jpg` | DOOMSDAY DEFENSE. Midnight navy, game-day ready. `#DallasCowboys #CowboysNation #Cowboys #NFLApparel` | Tue Sep 1 · 12:00 ET = 17:00 Casablanca |
+| Cowboys | `doomsday-defense-tee-front.webp` | DOOMSDAY DEFENSE. Midnight navy, game-day ready. `#DallasCowboys #CowboysNation #Cowboys #NFLApparel` | Tue Sep 1 · 12:00 ET = 17:00 Casablanca |
 
 Post them as an **Instagram/Facebook carousel**: slide 1 = real store mockup
 (the product), slide 2 = matching fashion image (the vibe).
