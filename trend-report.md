@@ -9,14 +9,14 @@ FTI = `round(100 * entity_mentions / peak_mentions_in_window)`. Peak mentions in
 | Rank | Name | Collection | Mentions | FTI | Status | Shop |
 |---|---|---|---|---|---|---|
 | 1 | deshaun watson | cleveland-browns | 21 | 100 | trending | gap — no design |
-| 2 | josh jacobs | green-bay-packers | 18 | 86 | trending | gap — no design |
-| 3 | shedeur sanders | cleveland-browns | 16 | 76 | trending | in locker |
+| 2 | shedeur sanders | cleveland-browns | 18 | 86 | trending | in locker |
+| 3 | josh jacobs | green-bay-packers | 17 | 81 | trending | gap — no design |
 | 4 | bryce underwood | michigan | 14 | 67 | trending | in locker |
-| 5 | kyle whittingham | michigan | 6 | 29 | trending | gap — no design |
-| 6 | matt lafleur | green-bay-packers | 6 | 29 | trending | gap — no design |
-| 7 | micah parsons | green-bay-packers | 6 | 29 | trending | in locker |
-| 8 | myles garrett | cleveland-browns | 6 | 29 | trending | in locker |
-| 9 | todd monken | cleveland-browns | 4 | 19 | trending | gap — no design |
+| 5 | matt lafleur | green-bay-packers | 6 | 29 | trending | gap — no design |
+| 6 | myles garrett | cleveland-browns | 6 | 29 | trending | in locker |
+| 7 | kyle whittingham | michigan | 5 | 24 | trending | gap — no design |
+| 8 | todd monken | cleveland-browns | 5 | 24 | trending | gap — no design |
+| 9 | micah parsons | green-bay-packers | 4 | 19 | trending | in locker |
 | 10 | ceedee lamb | dallas-cowboys | 2 | 10 | steady | — |
 | 11 | dak prescott | dallas-cowboys | 2 | 10 | steady | — |
 | 12 | jordan love | green-bay-packers | 2 | 10 | steady | in locker |
@@ -30,17 +30,17 @@ FTI = `round(100 * entity_mentions / peak_mentions_in_window)`. Peak mentions in
 ## Live player moments
 
 - **deshaun watson** — [Deshaun Watson and the moral dilemma at the forefront of Cleveland Browns football](https://news.google.com/rss/articles/CBMioAFBVV95cUxNTWh1NTdQLWVTMHc0emQ4ZXNScGR2YkF6WFlpUWFOYVBic2ZZUXpWNzdaZmJXa2hjM2otWmtxR2FXWG56LVFOQk96Rms2ZFlaYXlZQWRiX1d4SGpReE5FUTlYUzZyLVdrcVdRaE5fc2I0QkdiYkwyWEt1S1ZhLWtFWDFlc0l3V2ZXaHEyZktadzBJazRaU2o0cWZHMGc1eU5B?oc=5) — Andscape
-- **myles garrett** — [Life without Myles Garrett: What to expect from Browns defense](https://news.google.com/rss/articles/CBMisgFBVV95cUxPVUVCMzBkUjNNaV85Mkdic0xwS2k2S25fSHNaUWVyQ3dvcmYxX0JEdWtYdnN4OGcyQlhSekZrdnNwUFNXTkFJNWdQdXltb3ZQQWZXWWlDVkZXYlNNVHdRMF9WUlh1ci1uWlRxM3ZmbkVoRU5lRFRKWW9WdkMwR1ZJa3prSkk1YVhBbDZGOFNqOU0tNW4taUNTZ0hCbVZnMG5xZkRNV0xGNVhCNzl3RVV6aDlR?oc=5) — ESPN
 - **myles garrett, kevin stefanski, todd monken** — [Cleveland Browns reset under Todd Monken after trading Myles Garrett and parting with Stefanski](https://news.google.com/rss/articles/CBMiswFBVV95cUxPWlJBaEphNEoxVC1BX0d1MWtyOUNHb1VTTlpPNFo5eVpZTVc5Y1B5MXdCX3hKeHFMQTRmdmdSQ2JjZlRncG1qSEdiejN2MDE3bUNuZmtPSTZxcHFFM1FPcGwwbFB5TzEteU1HcUlVRW1QaWx1RkxLck9HdE1TRGd0NGVrMnEwMDRTWlZPMFJuZzRaS0d0QVd2bE43T1dETjdLdEZTZzJXeHJqYV9YV0NpT19TYw?oc=5) — Fox News
+- **myles garrett** — [Life without Myles Garrett: What to expect from Browns defense](https://news.google.com/rss/articles/CBMisgFBVV95cUxPVUVCMzBkUjNNaV85Mkdic0xwS2k2S25fSHNaUWVyQ3dvcmYxX0JEdWtYdnN4OGcyQlhSekZrdnNwUFNXTkFJNWdQdXltb3ZQQWZXWWlDVkZXYlNNVHdRMF9WUlh1ci1uWlRxM3ZmbkVoRU5lRFRKWW9WdkMwR1ZJa3prSkk1YVhBbDZGOFNqOU0tNW4taUNTZ0hCbVZnMG5xZkRNV0xGNVhCNzl3RVV6aDlR?oc=5) — ESPN
 
 ## Cleveland Browns Fan Shirts
 
 | Name | Headline mentions | Status | FTI |
 |---|---|---|---|
 | deshaun watson | 21 | TRENDING | 100 |
-| shedeur sanders | 16 | TRENDING | 76 |
+| shedeur sanders | 18 | TRENDING | 86 |
 | myles garrett | 6 | TRENDING | 29 |
-| todd monken | 4 | TRENDING | 19 |
+| todd monken | 5 | TRENDING | 24 |
 | kevin stefanski | 1 | steady | 5 |
 | joe flacco | 0 | quiet - throwback | 0 |
 | denzel ward | 0 | quiet - throwback | 0 |
@@ -49,8 +49,8 @@ FTI = `round(100 * entity_mentions / peak_mentions_in_window)`. Peak mentions in
 
 Live player moments:
 - **deshaun watson** — [Deshaun Watson and the moral dilemma at the forefront of Cleveland Browns football](https://news.google.com/rss/articles/CBMioAFBVV95cUxNTWh1NTdQLWVTMHc0emQ4ZXNScGR2YkF6WFlpUWFOYVBic2ZZUXpWNzdaZmJXa2hjM2otWmtxR2FXWG56LVFOQk96Rms2ZFlaYXlZQWRiX1d4SGpReE5FUTlYUzZyLVdrcVdRaE5fc2I0QkdiYkwyWEt1S1ZhLWtFWDFlc0l3V2ZXaHEyZktadzBJazRaU2o0cWZHMGc1eU5B?oc=5) - Andscape
-- **myles garrett** — [Life without Myles Garrett: What to expect from Browns defense](https://news.google.com/rss/articles/CBMisgFBVV95cUxPVUVCMzBkUjNNaV85Mkdic0xwS2k2S25fSHNaUWVyQ3dvcmYxX0JEdWtYdnN4OGcyQlhSekZrdnNwUFNXTkFJNWdQdXltb3ZQQWZXWWlDVkZXYlNNVHdRMF9WUlh1ci1uWlRxM3ZmbkVoRU5lRFRKWW9WdkMwR1ZJa3prSkk1YVhBbDZGOFNqOU0tNW4taUNTZ0hCbVZnMG5xZkRNV0xGNVhCNzl3RVV6aDlR?oc=5) - ESPN
 - **myles garrett, kevin stefanski, todd monken** — [Cleveland Browns reset under Todd Monken after trading Myles Garrett and parting with Stefanski](https://news.google.com/rss/articles/CBMiswFBVV95cUxPWlJBaEphNEoxVC1BX0d1MWtyOUNHb1VTTlpPNFo5eVpZTVc5Y1B5MXdCX3hKeHFMQTRmdmdSQ2JjZlRncG1qSEdiejN2MDE3bUNuZmtPSTZxcHFFM1FPcGwwbFB5TzEteU1HcUlVRW1QaWx1RkxLck9HdE1TRGd0NGVrMnEwMDRTWlZPMFJuZzRaS0d0QVd2bE43T1dETjdLdEZTZzJXeHJqYV9YV0NpT19TYw?oc=5) - Fox News
+- **myles garrett** — [Life without Myles Garrett: What to expect from Browns defense](https://news.google.com/rss/articles/CBMisgFBVV95cUxPVUVCMzBkUjNNaV85Mkdic0xwS2k2S25fSHNaUWVyQ3dvcmYxX0JEdWtYdnN4OGcyQlhSekZrdnNwUFNXTkFJNWdQdXltb3ZQQWZXWWlDVkZXYlNNVHdRMF9WUlh1ci1uWlRxM3ZmbkVoRU5lRFRKWW9WdkMwR1ZJa3prSkk1YVhBbDZGOFNqOU0tNW4taUNTZ0hCbVZnMG5xZkRNV0xGNVhCNzl3RVV6aDlR?oc=5) - ESPN
 
 Recent headlines:
 - [Browns announce initial 53-man roster heading into the 2026 season](https://news.google.com/rss/articles/CBMipgFBVV95cUxOQk9NbzAwUnp0U0lxR0lmRTl2am13cTNaeWVrdVIwREpuVFVSZ2JnMU9VWHhGUHdKV09SU0YwTk9fZkU5am41Nk93eFlwM1Z3ejJIeU1pWHFLa0ZCWEktajFnS3A1d1ZMdlpKVnZxS0dfOVVIOGRyc0RJc0Nfb1FNWEduNTlZWjEzeUxqM2dVU2dpUFZKLUNFNEFxSHE4Tmg0THg2TkJB?oc=5) - Cleveland Browns
@@ -63,9 +63,9 @@ Recent headlines:
 
 | Name | Headline mentions | Status | FTI |
 |---|---|---|---|
-| josh jacobs | 18 | TRENDING | 86 |
-| micah parsons | 6 | TRENDING | 29 |
+| josh jacobs | 17 | TRENDING | 81 |
 | matt lafleur | 6 | TRENDING | 29 |
+| micah parsons | 4 | TRENDING | 19 |
 | jordan love | 2 | steady | 10 |
 | robert tonyan | 0 | quiet - throwback | 0 |
 
@@ -75,8 +75,8 @@ Recent headlines:
 - [Packers vs. Cardinals | How to watch, stream & listen | Preseason Week 3](https://news.google.com/rss/articles/CBMinwFBVV95cUxQU3BVekExemVnS3kyRlBfMFQ0cUZTRUFyUFRTRmRQVGZSRjBDZThTeUFjQTFMN1dMcTlCc2JDcWtuSDVuX3FaVExGd0NXMEEybmZ6Q01SNkZpLTg0bko2RXRFaEdLSWhBZHRXV05uNGZDdHFoMXpqNlZ1c3NnNWp4Z2lVa2I2cFQwdFdMLW8yMVJzR2JJWnZfM005aUV6cmM?oc=5) - Green Bay Packers
 - [The 3 Biggest Surpises From Green Bay's Inital Roster Cuts](https://news.google.com/rss/articles/CBMinAFBVV95cUxPUVpfVXJxRENyNm5tWklOOWwzVHljUW9Mc3Q5UVEzWlM0SHBhdWxrTFRZSXNoQ0dZaWQtU1l3LUFLcW5RbE1Bc3lkaVpKMlFXVVRzRXE0bEg1TjNOc1RHQ1dxV1l5UFVqWlQ3LXRONWRJS3czMkxhWnFFYVVXWkQ2SHFNTHZocXg4ZlNhUHNSdTNHRFp0Smd4WHpKeUc?oc=5) - Zone Coverage
 - [Green Bay Packers receive low defensive ranking from PFF prior to Week 1 of 2026 NFL season](https://news.google.com/rss/articles/CBMihAFBVV95cUxNM2ticEhsQ1RSR1RkcVUxdm5PTXNjS0g4c3hoMmlvWkdVSnl4SWRGalFTR1NfS3QtUHRmbmkxQ1B5REV0cHhhZkJ5bENtU3ctOVhhdnA5RFVYemJ5WEg1cUx3YzZKempCWlp2R051ZHlsOGY3N0dDcS1la2xZZ1djWDJoeVU?oc=5) - Yahoo Sports
-- [How To Watch: Cardinals at Packers, Preseason Game No. 4](https://news.google.com/rss/articles/CBMijwFBVV95cUxOWUpacURDVXROUGJrY2I5WEJFQzVzYkRRMWtGSGcyU3VkVVhKcWhLLWMwSlNBQ1J2MFNvS3MyTVdBdFBQQmFSNmtYblFtLWMyaUVTbGRKNExaX09oUy1wVTBWSXF3emZ1cGNReEZYMnhaSEtCWmZpRlhlOUJmNXg1a09OU3phaFpEUzdjdExsUQ?oc=5) - azcardinals.com
-- [Three new Packers players are making an impression in Green Bay](https://news.google.com/rss/articles/CBMiuAFBVV95cUxQZ1NvTzVwR3VIN2U2SDVnRld2U0F6cTFfQXg2TzFyTGhNQTl3bmdTbkkzaU80OHp0X3pFRW1vYWZZWjRJWVlVSThWcklmTjdoOTZyMkNQYTdhSUpuUXRISUw0WkxUTmFaNGd1R0VYSDdtOFdHc3BWYktGeDIzZlhxVVRPVzBVaURkZFpqRkM4Ujdhd0h6OVg4NVJNNjdOUVk5V2szcXQ4anRQZDVJY01sVlNjRDJ4cERH?oc=5) - Acme Packing Company
+- [How To Watch: Cardinals at Packers, Preseason Game No. 4](https://news.google.com/rss/articles/CBMijwFBVV95cUxOWUpacURDVXROUGJrY2I5WEJFQzVzYkRRMWtGSGcyU3VkVVhKcWhLLWMwSlNBQ1J2MFNvS3MyTVdBdFBQQmFSNmtYblFtLWMyaUVTbGRKNExaX09oUy1wVTBWSXF3emZ1cGNReEZYMnhaSEtCWmZpRlhlOUJmNXg1a09OU3phaFpEUzdjdExsUQ?oc=5) - Arizona Cardinals
+- [Three new Packers players are making an impression in Green Bay](https://news.google.com/rss/articles/CBMiuAFBVV95cUxQZ1NvTzVwR3VIN2U2SDVnRld2U0F6cTFfQXg2TzFyTGhNQTl3bmdTbkkzaU80OHp0X3pFRW1vYWZZWjRJWVlVSThWcklmTjdoOTZyMkNQYTdhSUpuUXRISUw0WkxUTmFaNGd1R0VYSDdtOFdHc3BWYktGeDIzZlhxVVRPVzBVaURkZFpqRkM4Ujdhd0h6OVg4NVJNNjdOUVk5V2szcXQ4anRQZDVJY01sVlNjRDJ4cERH?oc=5) - acmepackingcompany.com
 
 ## Dallas Vintage Sports Tees
 
@@ -97,7 +97,7 @@ Recent headlines:
 | Name | Headline mentions | Status | FTI |
 |---|---|---|---|
 | bryce underwood | 14 | TRENDING | 67 |
-| kyle whittingham | 6 | TRENDING | 29 |
+| kyle whittingham | 5 | TRENDING | 24 |
 | jj mccarthy | 0 | quiet - throwback | 0 |
 | jordan marshall | 0 | quiet - throwback | 0 |
 
@@ -105,7 +105,7 @@ Recent headlines:
 
 Recent headlines:
 - [How to Watch: No. 16 Michigan Wolverines vs Western Michigan Broncos](https://news.google.com/rss/articles/CBMizAFBVV95cUxPSWdiUm54SkdscFpBMi1jbTliODk2X2RHYkVJWmRTb0ZpTGx0OHdpb1FDRUJMMTdTNGRIdEczNFlWSVJ6S3lHMTFWSDF1NXhkREVjcDlQQ29Cc0Y4MEZsdWNqdzNCUUdTbjJxeHRJQVhXRmdlOS1qcWRaeFJuekpfeHRQSzJfU05wRk9PWjhuQXdObnAtT2NvZnRhNXdGNWhlQjNHMUp5MmhYWmFEUFh1TzlPUXNjeEFKcGxUYlAzM0VTcHFHWUFnVUs3eHo?oc=5) - Maize n Brew
-- [Michigan football predictions: How will the Wolverines fare this season?](https://news.google.com/rss/articles/CBMiwwFBVV95cUxOeE81QTRmSlphSW1ZYVVSUU5HbkxUVTJXd1ZqZHZYWmZNT05vUDN4R3JfYURfaXpTTmVTQzhXRUVCUTNOLWhBNV9zdDRkQTBpM1phUlY1WU1hdnlDMjhlM2w0dGMyWl9ubmRpa213aGNKcERkclZtSjRRV0VWQXVzLTF5RnBSdDNZaVViSUlobnhoN2xwSU1ucF9fSHBLTWp6ZVN6cFpCemZjSXJoQ2I2SHBJWlVnSDBudVhvNE5pQm5MM0HSAdcBQVVfeXFMTjJYVWFWWlFfMmtfaEI3UGZWMzdLVWlfOHJZY21iZERpRktXN2g1QjAwcWZ4b05BYVpOb2lJUUM0cF95LVZSMVp0bV96YTA1cGd3azZGT3N4N2tILVFrQzBBeGd0OFJfcnQ5bXM1Q2U5ejlsdGQ3M0EyWTh1c21GMU1OeFd5YzEtTnFCSDktZVhicnFlQ2M4NEZQU2xsdTFOZEFRR2dtWjg0R01sOVNQZEVJbTdsc1dFenVXRFhWcjBreThfSzNjNDRGTzQ5N1d1cmlCdkEyamM?oc=5) - MLive.com
-- [Michigan Monday: Game 1 vs. Western Michigan](https://news.google.com/rss/articles/CBMihgFBVV95cUxOMGpjaTd1Y1F5bFkyRG4yeVVfWi1WNjhKb2pObzBSM0c1aXFQT0ZtR0VELTMyZVlFRHlaLTJjWXB6VTVsdkZXUnQ5OVRWVE9fLXVHU0x5VVlZcTktOHUwVzhubV9KZy1DVWF1SUhnQ1NTUW5hQmI0QlY5c1VOSDM2RTJhM1FDUQ?oc=5) - University of Michigan Athletics
-- [How to Watch Michigan Football’s Season Opener Against WMU](https://news.google.com/rss/articles/CBMipgFBVV95cUxNQjhWWGd0S251MVF4MFRocVJfejJ2dHhGYWw5WlJiSXc0UFlIRGEySWlNNzlXazNaRktib05UNDJPQjBCNTdlcWtPdngzajE3SGNhS1I3X0sza2pSeW9JVjVZMElPMXpxamY5UU5lOTNtTFFBRENKakdVUU5aYWxpbXFvZFJnWlV4eGVpRkNteGQwTnJJUXhVdk1OY1Z2UjExOVdJakd3?oc=5) - Sports Illustrated
+- [Michigan football predictions: How will the Wolverines fare this season?](https://news.google.com/rss/articles/CBMiwwFBVV95cUxOeE81QTRmSlphSW1ZYVVSUU5HbkxUVTJXd1ZqZHZYWmZNT05vUDN4R3JfYURfaXpTTmVTQzhXRUVCUTNOLWhBNV9zdDRkQTBpM1phUlY1WU1hdnlDMjhlM2w0dGMyWl9ubmRpa213aGNKcERkclZtSjRRV0VWQXVzLTF5RnBSdDNZaVViSUlobnhoN2xwSU1ucF9fSHBLTWp6ZVN6cFpCemZjSXJoQ2I2SHBJWlVnSDBudVhvNE5pQm5MM0HSAdcBQVVfeXFMTjJYVWFWWlFfMmtfaEI3UGZWMzdLVWlfOHJZY21iZERpRktXN2g1QjAwcWZ4b05BYVpOb2lJUUM0cF95LVZSMVp0bV96YTA1cGd3azZGT3N4N2tILVFrQzBBeGd0OFJfcnQ5bXM1Q2U5ejlsdGQ3M0EyWTh1c21GMU1OeFd5YzEtTnFCSDktZVhicnFlQ2M4NEZQU2xsdTFOZEFRR2dtWjg0R01sOVNQZEVJbTdsc1dFenVXRFhWcjBreThfSzNjNDRGTzQ5N1d1cmlCdkEyamM?oc=5) - mlive.com
 - [How & Where to Watch Western Michigan vs. Michigan](https://news.google.com/rss/articles/CBMihAFBVV95cUxQcTlsbG9WSmdLSFYtM3UzMTJweERQZDFDSHIyeE9LYVVyNVBLdzM1Yk9TWU5SUi1vU0haTE10ODcycF9FdVlLR0FWLXFDbjhqZ25NMHZXUnJMeENtTHZDWEttY2hVYUdqcnF6R0dDQkFQVWJYV241ZG10M3JReVBYX0dEV00?oc=5) - NBC TV Network
+- [How to Watch Michigan Football’s Season Opener Against WMU](https://news.google.com/rss/articles/CBMipgFBVV95cUxNQjhWWGd0S251MVF4MFRocVJfejJ2dHhGYWw5WlJiSXc0UFlIRGEySWlNNzlXazNaRktib05UNDJPQjBCNTdlcWtPdngzajE3SGNhS1I3X0sza2pSeW9JVjVZMElPMXpxamY5UU5lOTNtTFFBRENKakdVUU5aYWxpbXFvZFJnWlV4eGVpRkNteGQwTnJJUXhVdk1OY1Z2UjExOVdJakd3?oc=5) - Sports Illustrated
+- [Michigan Monday: Game 1 vs. Western Michigan](https://news.google.com/rss/articles/CBMihgFBVV95cUxOMGpjaTd1Y1F5bFkyRG4yeVVfWi1WNjhKb2pObzBSM0c1aXFQT0ZtR0VELTMyZVlFRHlaLTJjWXB6VTVsdkZXUnQ5OVRWVE9fLXVHU0x5VVlZcTktOHUwVzhubV9KZy1DVWF1SUhnQ1NTUW5hQmI0QlY5c1VOSDM2RTJhM1FDUQ?oc=5) - University of Michigan Athletics
