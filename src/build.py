@@ -21,6 +21,27 @@ BRAND = CFG["site_name"]
 TODAY = datetime.date.today().isoformat()
 ORDERBY = (datetime.date.today() + datetime.timedelta(days=4)).strftime("%b %d")
 
+# ------------------------------------------------------------------- socials
+# Every live brand profile, verified 2026-09-05. The footer used to link a
+# single X account (@gridironlocker, 4 followers) while the 94-follower
+# @gridironlocker1 - plus Instagram, Threads, Facebook, Pinterest and YouTube -
+# got nothing, and the Organization/WebSite sameAs arrays pointed at four
+# Viralstyle supplier storefronts instead of our own profiles. One list now
+# feeds both, so a profile can never be linked in one place and forgotten in
+# the other. TikTok is deliberately absent: the handle is unconfirmed.
+SOCIALS = [
+    ("X (@gridironlocker)",  "https://x.com/gridironlocker"),
+    ("X (@gridironlocker1)", "https://x.com/gridironlocker1"),
+    ("Instagram", "https://www.instagram.com/gridironlocker1"),
+    ("Threads",   "https://www.threads.net/@gridironlocker1"),
+    ("Facebook",  "https://www.facebook.com/GridironLocker/"),
+    ("Pinterest", "https://www.pinterest.com/gridironlockergear/"),
+    ("YouTube",   "https://www.youtube.com/@Gridironlocker"),
+]
+# Attribution tag for footer clicks only - never appended to sameAs, which must
+# stay canonical for search engines.
+SOCIAL_UTM = "?utm_source=site&utm_medium=social"
+
 P = json.load(open(os.path.join(ROOT, "data/products_live.json")))
 COLS = json.load(open(os.path.join(ROOT, "data/collections.json")))
 
@@ -371,7 +392,7 @@ def head(title, desc, path, image=None, schema=None, keywords=None, accent=None)
             "name": BRAND,
             "url": DOMAIN,
             "logo": DOMAIN + "/img/favicon.svg",
-            "sameAs": [c["store"] for c in COLLECTIONS.values()] + ["https://x.com/gridironlocker"],
+            "sameAs": [u for _, u in SOCIALS],
         })
     if not has_site:
         schemas.append({
@@ -607,6 +628,7 @@ def trust():
 
 def footer():
     cl = "".join(f'<a href="/{COLLECTIONS[k]["slug"]}/">{COLLECTIONS[k]["name"]}</a>' for k in ORDER)
+    soc = "".join(f'<a href="{u}{SOCIAL_UTM}" target="_blank" rel="noopener">{esc(n)}</a>' for n, u in SOCIALS)
     return f"""
 <footer>
  <div class="wrap">
@@ -621,8 +643,8 @@ def footer():
     <a href="/faq/">FAQ</a><a href="/contact/">Contact</a></div>
    <div><h2>Company</h2><a href="/about/">About Us</a><a href="/2026-season/">2026 Season</a>
     <a href="/fan-trend-index/">Fan Trend Index</a><a href="/guides/">Buying Guides</a>
-    <a href="/trademark-notice/">Trademark Notice</a><a href="/privacy/">Privacy Policy</a>
-    <a href="https://x.com/gridironlocker" target="_blank" rel="noopener">X (@gridironlocker)</a></div>
+    <a href="/trademark-notice/">Trademark Notice</a><a href="/privacy/">Privacy Policy</a></div>
+   <div><h2>Follow</h2>{soc}</div>
   </div>
   <div class="disclaim"><strong>Independent fan store.</strong> {esc(BRAND)} is not affiliated with,
    endorsed by, sponsored by or licensed by the National Football League, any NFL club, the NCAA,
@@ -765,7 +787,7 @@ def page_home():
         {"@context": "https://schema.org", "@type": "Organization", "name": BRAND, "url": DOMAIN,
          "logo": DOMAIN + "/img/favicon.svg",
          "description": f"Independent fan-made football apparel store with {len(ALL)} original designs.",
-         "sameAs": [c["store"] for c in COLLECTIONS.values()] + ["https://x.com/gridironlocker"]},
+         "sameAs": [u for _, u in SOCIALS]},
         {"@context": "https://schema.org", "@type": "WebSite", "name": BRAND, "url": DOMAIN,
          "potentialAction": {"@type": "SearchAction",
                              "target": DOMAIN + "/collections/?q={search_term_string}",
