@@ -1,6 +1,6 @@
 #!/usr/bin/env python3
 """Static site generator for the fan-apparel storefront."""
-import json, os, re, shutil, html, sys, datetime, math
+import json, os, re, shutil, html, sys, datetime
 sys.path.insert(0, os.path.dirname(__file__))
 from collections import OrderedDict
 from collections_data import COLLECTIONS, ORDER, SEASON
@@ -281,180 +281,6 @@ def slugify(s):
     return re.sub(r"-+", "-", s)
 
 
-# ------------------------------------------------------- garment variants
-# Variants are strictly DATA-DRIVEN: a design only gets a garment page when the
-# live campaign actually offers that style AND we captured an Rs price for it.
-# Each variant owns its URL, its price, its copy, its schema - and its own real
-# garment mockup, taken from the campaign thumbnail row (see GARMENTS below).
-#
-# GARMENTS: (garment slug, style-name matcher, UI label, GARMENT_COPY key).
-# Keep the matchers in lockstep with dl.py:GARMENTS - dl.py downloads the
-# mockups this table selects.
-GARMENTS = [
-    ("hoodie",      lambda s: "hoodie" in s,                 "Hoodie",      "Hoodie"),
-    ("crewneck",    lambda s: "crew neck sweatshirt" in s,   "Crewneck",    "Sweatshirt"),
-    ("tank-top",    lambda s: "tank top" in s,               "Tank Top",    "Tank Top"),
-    ("v-neck",      lambda s: "v-neck" in s,                 "V-Neck",      "V-Neck"),
-    ("long-sleeve", lambda s: "long sleeve" in s,            "Long Sleeve", "Long Sleeve Shirt"),
-]
-
-
-def _norm_style_prices(style_prices):
-    """{style: rs_float} with junk values dropped."""
-    out = {}
-    for k, v in (style_prices or {}).items():
-        try:
-            out[k] = float(str(v).replace(",", ""))
-        except Exception:
-            continue
-    return out
-
-
-def _variant_price_usd(base_usd, style_rs, min_rs):
-    """round(base * rs / min_rs), adjusted to end in .99."""
-    try:
-        raw = float(base_usd) * float(style_rs) / float(min_rs)
-    except Exception:
-        return None
-    if raw <= 0:
-        return None
-    return round(max(1, int(round(raw))) - 1 + 0.99, 2)
-
-
-_TRAIL_GARMENT = r"\b(Tee|T-Shirt|TShirt|Shirt|Hoodie|Sweatshirt|Crewneck|Tank Top|V-Neck|Long Sleeve)\s*$"
-
-
-def _variant_display_name(parent_name, display):
-    """'{Design} {Garment}' - swapping any garment word the parent name ends with."""
-    name = str(parent_name or "")
-    if re.search(_TRAIL_GARMENT, name, re.I):
-        return re.sub(_TRAIL_GARMENT, display, name, flags=re.I).strip()
-    return f"{name} {display}".strip()
-
-
-_CHART_TEE = {"S": (18, 28), "M": (20, 29), "L": (22, 30),
-              "XL": (24, 31), "2XL": (26, 32), "3XL": (28, 33)}
-# Fleece (hoodie/crewneck) runs roomier: widths 20/22/24/26/28/30, heights 26-31.
-_CHART_FLEECE = {"S": (20, 26), "M": (22, 27), "L": (24, 28),
-                 "XL": (26, 29), "2XL": (28, 30), "3XL": (30, 31)}
-# Tanks are cut narrower and slightly shorter than the tee.
-_CHART_TANK = {"S": (17, 27), "M": (19, 28), "L": (21, 29),
-               "XL": (23, 30), "2XL": (25, 31), "3XL": (27, 32)}
-
-
-def _chart_for_garment(garment):
-    if garment in ("Hoodie", "Sweatshirt"):
-        return _CHART_FLEECE
-    if garment == "Tank Top":
-        return _CHART_TANK
-    return _CHART_TEE
-
-
-def _variant_switcher(parent_it, current_url):
-    """'Also available' switcher: parent + every sibling variant.
-
-    Links are site-relative ('/shop/<slug>/<garment>/'); relativise() rewrites
-    them to real relative paths for GitHub Pages at the end of the build.
-    """
-    variants = parent_it.get("variants", []) or []
-    if not variants:
-        return ""
-    parent_label = parent_it.get("garment_display") or parent_it.get("garment") or "Tee"
-    parts = []
-    if current_url == parent_it["url"]:
-        parts.append(f'<strong aria-current="page">{esc(parent_label)}</strong>')
-    else:
-        parts.append(f'<a href="{parent_it["url"]}">{esc(parent_label)}</a>')
-    for v in variants:
-        disp = v.get("garment_display") or v.get("garment", "")
-        if current_url == v["url"]:
-            parts.append(f'<strong aria-current="page">{esc(disp)}</strong>')
-        else:
-            parts.append(f'<a href="{v["url"]}">{esc(disp)}</a>')
-    return ('<p class="muted" style="font-size:.9rem;margin:0 0 12px">'
-            '<span>Also available:</span> ' + " | ".join(parts) + "</p>")
-
-
-def build_variants(p, parent, f, col, ckey, img, gal, styles, sizes_avail, price, trend):
-    """Variant dicts for one product - one per garment the campaign offers.
-
-    Data-driven: a garment is emitted only when a matching style name exists AND
-    that style has an Rs price. Each variant carries its own mockup when dl.py
-    fetched one (site/img/p/<slug>-<garment>.webp); otherwise it falls back to
-    the parent front image and the card/gallery flags a garment badge instead,
-    so a variant never shows another garment's mockup.
-    """
-    slug = parent["slug"]
-    norm = _norm_style_prices(p.get("style_prices"))
-    if not norm:
-        return []                       # no style_prices -> no variants
-    min_rs = min(norm.values())
-    if not min_rs:
-        return []
-    vimg = p.get("variant_img") or {}
-    parent_kw = parent["kw"]
-    name = parent["name"]
-    out = []
-    for garment, match, display, copy_garment in GARMENTS:
-        style_name = next((s for s in styles if match(str(s).lower()) and s in norm), None)
-        if not style_name:
-            continue
-        if parent["garment"] == copy_garment:
-            continue                    # parent page already is this garment
-        v_price = _variant_price_usd(price, norm[style_name], min_rs)
-        if not v_price:
-            continue
-
-        # own mockup, or parent front + badge overlay
-        own = vimg.get(garment)
-        if not (isinstance(own, str) and own.startswith("/")
-                and os.path.isfile(os.path.join(SITE, own.lstrip("/")))):
-            own = None
-        front = own or img["front"]
-        badge = None if own else display
-        v_gal = [front] + [g for g in gal if g != front]
-
-        v_name = _variant_display_name(name, display)
-        v_facts = dict(f, name=v_name)
-        try:
-            base_kw = _c.keywords(v_facts, col, copy_garment)
-        except Exception:
-            base_kw = list(parent_kw)
-        base_core = re.sub(_TRAIL_GARMENT, "", name, flags=re.I).strip() or name
-        gl = display.lower()
-        extras = [v_name.lower(), f"{str(f.get('art', '')).lower()} {gl}".strip(),
-                  f"{base_core.lower()} {gl}".strip(), f"{name.lower()} {gl}".strip()]
-        seen, v_kw = set(), []
-        for kk in list(base_kw) + extras:
-            kkn = re.sub(r"\s+", " ", str(kk or "").strip().lower())
-            if kkn and kkn not in seen:
-                seen.add(kkn)
-                v_kw.append(kkn)
-
-        out.append(dict(
-            trend=trend, slug=slug, parent_slug=slug,
-            parent_url=parent["url"], parent_name=name,
-            name=v_name, art=f["art"], theme=f.get("theme", "classic"),
-            garment=copy_garment, garment_display=display,
-            price=v_price, compare=round(v_price * 1.55, 2),
-            colours=parent["colours"], styles=styles,
-            sizes_avail=list(sizes_avail),
-            url=f"/shop/{slug}/{garment}/",
-            gallery=v_gal, front=front, back=img.get("back", front),
-            buy=p["url"], kw=v_kw[:14], col=ckey, is_variant=True,
-            variant_key=garment, variant_style=style_name,
-            own_image=bool(own), badge=badge, variants=[],
-        ))
-    return out
-
-
-def _find_parent(slug):
-    for lst in MODEL.values():
-        for p in lst:
-            if p.get("slug") == slug and not p.get("is_variant"):
-                return p
-    return None
-
 # ---------------------------------------------------------------- build model
 def build_model():
     items = OrderedDict()
@@ -500,25 +326,13 @@ def build_model():
             gal += [v for k, v in img.items() if k.startswith("c")]
             blob = (name + " " + f["art"]).lower()
             trend = auto_trend(ckey, slug, blob)
-            parent_kw = _c.keywords(f, col, garment)
-            parent = dict(trend=trend,
+            lst.append(dict(trend=trend,
                 slug=slug, name=name, art=f["art"], theme=f.get("theme", "classic"),
-                garment=garment, garment_display=garment, price=price, compare=compare,
-                colours=colours, styles=styles, sizes_avail=sizes_avail, url=url,
-                gallery=gal, front=img["front"], back=img.get("back", img["front"]),
-                buy=p["url"], kw=parent_kw, col=ckey, is_variant=False,
-                variant_key=None, variants=[],
-            )
-            # Garment variants: strictly data-driven from the live campaign
-            # style list + per-style Rs prices. No style_prices -> no variants.
-            try:
-                parent["variants"] = build_variants(
-                    p, parent, f, col, ckey, img, gal, styles, sizes_avail,
-                    price, trend)
-            except Exception as e:
-                print(f"variant build skipped for {slug}: {e}")
-                parent["variants"] = []
-            lst.append(parent)
+                garment=garment, price=price, compare=compare, colours=colours,
+                styles=styles, sizes_avail=sizes_avail, url=url, gallery=gal, front=img["front"],
+                back=img.get("back", img["front"]),
+                buy=p["url"], kw=_c.keywords(f, col, garment), col=ckey,
+            ))
         items[ckey] = lst
     return items
 
@@ -827,36 +641,6 @@ def card(it, eager=False):
  </a></article>"""
 
 
-def variant_card(v, eager=False):
-    """Collection card for a garment variant: its OWN mockup and price.
-
-    When dl.py could not fetch that garment's mockup the card falls back to the
-    parent front image and adds a `badge` overlay class naming the garment, so
-    the shopper is never shown a tee mockup silently labelled "Hoodie".
-    """
-    lazy = "" if eager else ' loading="lazy" decoding="async"'
-    display = v.get("garment_display") or v.get("garment", "")
-    badge = f"{display} \u00b7 ${v['price']:.2f}"
-    ca = COLLECTIONS[v["col"]]["accent"]
-    ph_cls = "ph" if v.get("own_image") else "ph badge"
-    overlay = "" if v.get("own_image") else f'<span class="garmentbadge">{esc(display)}</span>'
-    alt_img = (f'<img class="alt" src="{v["back"]}" alt="{esc(v["name"])} back view" '
-               f'width="530" height="630" loading="lazy" decoding="async">'
-               if v.get("own_image") is False and v.get("back") != v["front"] else "")
-    return f"""<article class="card reveal" style="--ca:{ca}">
- <a href="{v['url']}" aria-label="{esc(v['name'])}">
-  <div class="{ph_cls}"><span class="tagpill hot">{esc(badge)}</span><span class="glow"></span><span class="sweep"></span>
-   <img src="{v['front']}" alt="{esc(v['name'])} - {esc(v['art'][:70])}" width="530" height="630"{lazy}>
-   {alt_img}{overlay}
-  </div>
-  <div class="body">
-   <span class="meta">{esc(display)}</span>
-   <h3>{esc(v['name'])}</h3>
-   <span class="price">${v['price']:.2f}</span>
-  </div>
- </a></article>"""
-
-
 def railcard(it):
     """Compact horizontal tile for the auto-scrolling Trending rail."""
     ca = COLLECTIONS[it["col"]]["accent"]
@@ -1053,20 +837,10 @@ def page_collection(k):
     items = MODEL[k]
     path = f"/{c['slug']}/"
     prices = sorted(x["price"] for x in items)
-    _types = set()
-    for x in items:
-        _types.add(x["garment"])
-        for v in x.get("variants", []) or []:
-            _types.add(v.get("garment_display") or v.get("garment"))
-    types = sorted(_types)
+    types = sorted({x["garment"] for x in items})
     chips = '<button class="chip on" data-f="all">All</button>' + "".join(
         f'<button class="chip" data-f="{esc(t)}">{esc(t)}s</button>' for t in types)
-    _parts = []
-    for n, i in enumerate(items):
-        _parts.append(card(i, eager=(n < 4)))
-        for v in i.get("variants", []) or []:
-            _parts.append(variant_card(v))
-    cards = "".join(_parts)
+    cards = "".join(card(i, eager=(n < 4)) for n, i in enumerate(items))
     cb, cbs = crumbs([("Home", "/"), ("Collections", "/collections/"), (c["short"], None)], path)
     schema = [cbs,
               {"@context": "https://schema.org", "@type": "CollectionPage", "name": c["h1"],
@@ -1157,70 +931,18 @@ def page_collection(k):
           + header(k) + body + footer())
 
 
-def page_product(it, variant=None):
-    """Render a parent tee page, or a hoodie/crewneck variant page.
-
-    Variant form: page_product(parent_it, variant_dict) where variant_dict is
-    {parent_it, garment, ...} built in build_model() (garment = Hoodie /
-    Sweatshirt copy key, garment_display = Hoodie / Crewneck for UI).
-    Also accepts a lone variant item: page_product(variant_item).
-    """
-    # ---- resolve parent vs variant ----
-    parent_it = None
-    is_variant = False
-    if variant is not None:
-        # two-arg form: it is the parent, variant carries the garment page
-        is_variant = True
-        if isinstance(variant, dict) and isinstance(variant.get("parent_it"), dict):
-            parent_it = variant["parent_it"]
-        else:
-            parent_it = it
-        v = dict(variant)
-        # effective item = parent fields overridden by variant fields
-        eff = dict(parent_it)
-        for kk in ("name", "price", "compare", "url", "kw", "garment",
-                   "garment_display", "variant_key", "variant_style",
-                   "parent_slug", "parent_url", "parent_name",
-                   # the variant's OWN mockup leads its gallery
-                   "gallery", "front", "back", "own_image", "badge"):
-            if kk in v:
-                eff[kk] = v[kk]
-        eff["is_variant"] = True
-        # buy/colours/styles/sizes stay inherited from the parent campaign
-        it = eff
-    elif isinstance(it, dict) and it.get("is_variant"):
-        is_variant = True
-        parent_it = _find_parent(it.get("parent_slug") or it.get("slug"))
-        if parent_it is None:
-            # fall back: treat variant dict as self-contained
-            parent_it = dict(it)
-            parent_it["url"] = it.get("parent_url") or f"/shop/{it.get('parent_slug') or it.get('slug')}/"
-            parent_it["variants"] = []
-    else:
-        parent_it = it
-
+def page_product(it):
     c = COLLECTIONS[it["col"]]
-    parent_slug = it.get("parent_slug") if is_variant else it["slug"]
-    f_parent = FACTS.get(parent_slug) or FACTS.get(it["slug"])
-    # Variant facts: same art/kw/theme, but variant name for copy + FAQ titles.
-    f = dict(f_parent, name=it["name"]) if is_variant else f_parent
+    f = FACTS[it["slug"]]
     path = it["url"]
-    garment_copy = it["garment"]  # Hoodie / Sweatshirt / T-Shirt ... (GARMENT_COPY key)
-    display = it.get("garment_display") or it["garment"]
-    variant_key = it.get("variant_key") if is_variant else None
-    # hash slug: variants get their own copy rotation so text differs from parent
-    hash_slug = f"{parent_slug}-{variant_key}" if is_variant and variant_key else it["slug"]
-    price_str = f"{it['price']:.2f}"
-
-    desc_html, bullets = _c.long_description(hash_slug, f, c, garment_copy, it["styles"],
-                                             it["colours"], price_str)
+    desc_html, bullets = _c.long_description(it["slug"], f, c, it["garment"], it["styles"],
+                                             it["colours"], f"{it['price']:.2f}")
     _intro = re.search(r"<p>(.*?)</p>", desc_html, re.S)
     intro_html = _intro.group(1) if _intro else f"<strong>{esc(it['name'])}</strong> - {esc(it['art'])}"
-    # meta uses the shopper-facing garment word (Crewneck, not Sweatshirt)
-    metad = _c.meta_description(it["name"], c, display, price_str, it["colours"])
-    faq = _c.faqs(hash_slug, f, c, garment_copy, price_str, it["colours"], it["styles"])
-    rating = 4.6 + (len(hash_slug) % 4) / 10
-    reviews = 17 + (len(hash_slug) * 7) % 180
+    metad = _c.meta_description(it["name"], c, it["garment"], f"{it['price']:.2f}", it["colours"])
+    faq = _c.faqs(it["slug"], f, c, it["garment"], f"{it['price']:.2f}", it["colours"], it["styles"])
+    rating = 4.6 + (len(it["slug"]) % 4) / 10
+    reviews = 17 + (len(it["slug"]) * 7) % 180
     colours_label = f"{it['colours']} colourway" + ("s" if it["colours"] != 1 else "")
 
     thumbs = "".join(
@@ -1233,53 +955,33 @@ def page_product(it, variant=None):
         if it["garment"] not in ("Mug", "Phone Case", "Beanie") else \
         '<span class="muted" style="font-size:.86rem">One size / model selected at checkout</span>'
     sizes_badge = f"Sizes {_sz[0]}-{_sz[-1]}"
-    _CHART = _chart_for_garment(garment_copy)
+    _CHART = {"S": (18, 28), "M": (20, 29), "L": (22, 30),
+              "XL": (24, 31), "2XL": (26, 32), "3XL": (28, 33)}
     chart_rows = "".join(
         f'<tr><td>{s}</td><td>{_CHART[s][0]}</td><td>{_CHART[s][1]}</td></tr>' for s in _sz)
     _gal = it["gallery"]
     _styleimgs = _gal[:1] + _gal[2:]  # front first, then the colourway/garment swatches
-    if is_variant and variant_key:
-        # highlight the exact style this variant page sells
-        _vmatch = next((m for g, m, _d, _c2 in GARMENTS if g == variant_key), None)
-        vstyle = it.get("variant_style")
-        try:
-            on_idx = next((i for i, s in enumerate(it["styles"][:8])
-                           if s == vstyle or (_vmatch and _vmatch(str(s).lower()))), 0)
-        except Exception:
-            on_idx = 0
-    else:
-        on_idx = 0
     stylechips = "".join(
-        f'<span class="stylechip{" on" if n == on_idx else ""}" data-src="{_styleimgs[n % len(_styleimgs)]}">{esc(s)}</span>'
+        f'<span class="stylechip{" on" if n == 0 else ""}" data-src="{_styleimgs[n % len(_styleimgs)]}">{esc(s)}</span>'
         for n, s in enumerate(it["styles"][:8])) or \
-        f'<span class="stylechip on">{esc(display)}</span>'
+        f'<span class="stylechip on">{esc(it["garment"])}</span>'
     bl = "".join(f"<li>{esc(b)}</li>" for b in bullets)
     faqhtml = "".join(f"<details><summary>{esc(q)}</summary><p>{esc(a)}</p></details>" for q, a in faq)
 
-    rel = [x for x in MODEL[it["col"]] if x["slug"] != parent_slug]
+    rel = [x for x in MODEL[it["col"]] if x["slug"] != it["slug"]]
     rel = sorted(rel, key=lambda x: (x["theme"] != it["theme"], abs(x["price"] - it["price"])))[:4]
     relhtml = "".join(card(r) for r in rel)
 
-    if is_variant:
-        cb, cbs = crumbs([("Home", "/"), ("Collections", "/collections/"),
-                          (c["short"], f"/{c['slug']}/"),
-                          (parent_it.get("name") or f_parent.get("name"), parent_it["url"]),
-                          (display, None)], path)
-        sku = f"{parent_slug}-{variant_key}"
-        cat_garment = display
-    else:
-        cb, cbs = crumbs([("Home", "/"), ("Collections", "/collections/"),
-                          (c["short"], f"/{c['slug']}/"), (it["name"], None)], path)
-        sku = it["slug"]
-        cat_garment = it["garment"]
+    cb, cbs = crumbs([("Home", "/"), ("Collections", "/collections/"),
+                      (c["short"], f"/{c['slug']}/"), (it["name"], None)], path)
     schema = [cbs,
               {"@context": "https://schema.org", "@type": "Product",
-               "name": it["name"], "sku": sku,
+               "name": it["name"], "sku": it["slug"],
                "description": re.sub("<[^>]+>", " ", desc_html)[:600].strip(),
                "image": [DOMAIN + g for g in it["gallery"][:6]],
                "brand": {"@type": "Brand", "name": BRAND},
-               "category": f"{c['name']} > {cat_garment}",
-               "material": "Cotton" if garment_copy in ("T-Shirt", "Hoodie", "Sweatshirt") else "Mixed",
+               "category": f"{c['name']} > {it['garment']}",
+               "material": "Cotton" if it["garment"] in ("T-Shirt", "Hoodie", "Sweatshirt") else "Mixed",
                "audience": {"@type": "Audience", "audienceType": f"{c['team']} fans"},
                "aggregateRating": {"@type": "AggregateRating", "ratingValue": round(rating, 1),
                                    "reviewCount": reviews, "bestRating": 5},
@@ -1297,7 +999,7 @@ def page_product(it, variant=None):
 
     se = SEASON[it["col"]]
     blob = (it["name"] + " " + it["art"]).lower()
-    ent = entity_for_product(it["col"], parent_slug, blob)
+    ent = entity_for_product(it["col"], it["slug"], blob)
     fti_hit = next((r for r in fti_rows(it["col"]) if r["name"] == ent), None) if ent else None
     if it.get("trend") == "hot":
         fti_note = (f' Fan Trend Index {int(fti_hit["index"])}/100 '
@@ -1309,12 +1011,6 @@ def page_product(it, variant=None):
     else:
         trendhtml = ""
     momenthtml = moments_block(it["col"], entity=ent, limit=3) if ent else ""
-    switcher = _variant_switcher(parent_it, path)
-    # Variant with no downloaded mockup of its own: label the reused parent
-    # image with a garment badge rather than passing a tee off as a hoodie.
-    _fallback_img = is_variant and not it.get("own_image")
-    stage_cls = "stage badge" if _fallback_img else "stage"
-    stage_badge = f'<span class="garmentbadge">{esc(display)}</span>' if _fallback_img else ""
     kws = it["kw"] + (se["hot"][:3] if it.get("trend") == "hot" else [])
     title = f"{it['name']} | {BRAND}"
     if len(html.unescape(title)) > 60:
@@ -1323,8 +1019,8 @@ def page_product(it, variant=None):
 {cb}
 <div class="wrap"><div class="pdp">
  <div class="gallery">
-  <div class="{stage_cls}"><img id="stage" src="{it['gallery'][0]}" alt="{esc(it['name'])} - {esc(it['art'])}"
-   width="530" height="630" fetchpriority="high">{stage_badge}</div>
+  <div class="stage"><img id="stage" src="{it['gallery'][0]}" alt="{esc(it['name'])} - {esc(it['art'])}"
+   width="530" height="630" fetchpriority="high"></div>
   <div class="thumbs">{thumbs}</div>
  </div>
  <div class="buybox">
@@ -1337,7 +1033,6 @@ def page_product(it, variant=None):
   </div>
   <p style="margin:0 0 14px"><span class="stars">&#9733;&#9733;&#9733;&#9733;&#9733;</span>
    <span class="muted" style="font-size:.84rem">{round(rating,1)} &middot; {reviews} fan ratings</span></p>
-  {switcher}
   {trendhtml}
   {momenthtml}
   <p class="desc" style="margin:0 0 12px">{intro_html}</p>
@@ -1349,7 +1044,7 @@ def page_product(it, variant=None):
   {'<div class="opts"><div class="lbl">Colourway preview</div><div class="swatchrow">' + "".join(f'<button class="swatch{" on" if n == 0 else ""}" data-src="{g}"><img src="{g}" alt="colour option {n+1}" loading="lazy" width="60" height="70"></button>' for n, g in enumerate(it["gallery"][2:10])) + "</div></div>" if it["colours"] > 1 else ""}
 
   <a class="btn block lg" href="{it['buy']}" target="_blank" rel="noopener"
-     onclick="try{{gtag('event','buy_click',{{item:'{parent_slug}'}})}}catch(e){{}}">
+     onclick="try{{gtag('event','buy_click',{{item:'{it['slug']}'}})}}catch(e){{}}">
      Continue to Secure Checkout &rarr;</a>
   <div class="checkoutnote">
    <span class="lock">&#128274;</span>
@@ -1401,14 +1096,9 @@ def page_product(it, variant=None):
  <a class="btn" href="{it['buy']}" target="_blank" rel="noopener">Buy Now &rarr;</a>
 </div></main>"""
     URLS.append((DOMAIN + path, "0.8", "weekly"))
-    if is_variant:
-        write(f"shop/{parent_slug}/{variant_key}/index.html",
-              head(title, metad, path, it["front"], schema, kws, c["accent"])
-              + header(it["col"]) + body + footer())
-    else:
-        write(f"shop/{it['slug']}/index.html",
-              head(title, metad, path, it["front"], schema, kws, c["accent"])
-              + header(it["col"]) + body + footer())
+    write(f"shop/{it['slug']}/index.html",
+          head(title, metad, path, it["front"], schema, kws, c["accent"])
+          + header(it["col"]) + body + footer())
 
 
 # ---------------------------------------------------------------- static pages
@@ -2155,8 +1845,7 @@ Sitemap: {DOMAIN}/sitemap-images.xml
     # image, allowing Google Images to discover the catalogue independently of
     # the rendered HTML.
     image_urls = []
-    _all_pages = list(ALL) + [v for p in ALL for v in (p.get("variants") or [])]
-    for it in _all_pages:
+    for it in ALL:
         seen = set()
         images = []
         for image in it["gallery"]:
@@ -2592,13 +2281,8 @@ def main():
     page_collections_index()
     for k in ORDER:
         page_collection(k)
-    n_variants = 0
     for it in ALL:
         page_product(it)
-        for v in it.get("variants", []) or []:
-            page_product(it, dict(v, parent_it=it))
-            n_variants += 1
-    print(f"variant pages emitted: {n_variants}")
     page_guides()
     page_week1_graphics()
     page_season()
@@ -2611,7 +2295,7 @@ def main():
     sync_ops()
     n = relativise()
     print(f"relative-linked {n} pages for GitHub Pages / offline")
-    print(f"built {len(ALL)} products, {len(ORDER)} collections, {len(URLS)} urls, {n_variants} variant pages")
+    print(f"built {len(ALL)} products, {len(ORDER)} collections, {len(URLS)} urls")
 
 
 if __name__ == "__main__":

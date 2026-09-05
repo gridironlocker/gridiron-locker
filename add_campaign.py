@@ -44,50 +44,6 @@ def fetch(slug):
     return None
 
 
-def thumb_row(soup):
-    """Thumbnail mockups from the product-design-thumbnail row, in DISPLAYED
-    order (never sorted), de-duplicated keeping the first occurrence.
-
-    Verified on the live campaign pages: this row contains ONE MOCKUP PER STYLE
-    in the same order as the SELECT STYLE list, so index N is the real garment
-    mockup for style N.
-    """
-    out, seen = [], set()
-    for i in soup.find_all("img"):
-        u = i.get("src") or ""
-        if "assets.viralstyle.com" not in u or "-front-small.jpg" not in u:
-            continue
-        alt = (i.get("alt") or "").strip().lower()
-        cls = " ".join(i.get("class") or []).lower()
-        parent_cls = " ".join((i.parent.get("class") or []) if i.parent is not None else []).lower()
-        if not ("product design thumbnail" in alt
-                or "product-design-thumbnail" in cls
-                or "product-design-thumbnail" in parent_cls):
-            continue
-        if u in seen:
-            continue
-        seen.add(u)
-        out.append(u)
-    return out
-
-
-def base_style_index(html_text, styles):
-    """Index in `styles` of the style shown by the main -front-large mockup,
-    read off the Viralstyle alt text ("GILDAN Unisex Hoodie, front view, ...").
-    Returns None when it cannot be resolved."""
-    alts = re.findall(r'alt="([^"]*?),\s*(?:front|back) view[^"]*"', html_text, re.I)
-    for alt in alts:
-        low = alt.lower()
-        best = None
-        for n, s in enumerate(styles):
-            sl = str(s).strip().lower()
-            if sl and sl in low and (best is None or len(sl) > len(styles[best].strip())):
-                best = n
-        if best is not None:
-            return best
-    return None
-
-
 def parse(html, slug, collection):
     soup = BeautifulSoup(html, "lxml")
     meta = {m.get("property") or m.get("name"): m.get("content") for m in soup.find_all("meta")}
@@ -112,37 +68,14 @@ def parse(html, slug, collection):
         )
     )
 
-    # Thumbnail row: one garment mockup per style, in DISPLAYED order.
-    style_thumbs_all = thumb_row(soup)
-
     # styles inside "SELECT STYLE ... SELECT COLOR|SIZE"
-    # keep (name, rs_price) pairs for garment-variant pricing
     styles = []
-    style_prices = {}
     m = re.search(r"SELECT STYLE(.*?)SELECT (?:COLOR|SIZE)", txt)
     if m:
-        for part, price in re.findall(r"([A-Za-z0-9'\-\.\u2019 ]+?) - (?:Rs|\$)([\d,\.]+)", m.group(1)):
+        for part in re.findall(r"([A-Za-z0-9'\-\.\u2019 ]+?) - (?:Rs|\$)[\d,\.]+", m.group(1)):
             part = part.strip()
             if part:
                 styles.append(part)
-                try:
-                    style_prices[part] = float(price.replace(",", ""))
-                except Exception:
-                    pass
-
-    # Consistency guard on the thumbnail row (see thumb_row docstring): the row
-    # must hold exactly one thumb per style AND the base mockup must sit at the
-    # base style's position. Otherwise style_thumbs is dropped and variants fall
-    # back to the parent front image plus a garment badge - never a wrong mockup.
-    style_thumbs = style_thumbs_all
-    ok = bool(style_thumbs) and len(style_thumbs) == len(styles)
-    if ok:
-        bi = base_style_index(html, styles)
-        ti = next((n for n, u in enumerate(style_thumbs)
-                   if f"/{base}-front-small.jpg" in u), None)
-        ok = bi is not None and ti is not None and bi == ti
-    if not ok:
-        style_thumbs = None
 
     # sizes: "SELECT SIZE (.*?) SELECT QUANTITY", strip label + ALL spaces,
     # then consume S,M,L,XL,2XL,3XL in order from the concatenated blob
@@ -188,8 +121,6 @@ def parse(html, slug, collection):
         "base": base,
         "swatch_keys": swatch_keys,
         "styles": styles,
-        "style_prices": style_prices,
-        "style_thumbs": style_thumbs,
         "desc": desc,
         "features": features,
         "collection": collection,
