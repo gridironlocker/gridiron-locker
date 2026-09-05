@@ -427,6 +427,23 @@ def head(title, desc, path, image=None, schema=None, keywords=None, accent=None)
 <body>"""
 
 
+def season_promo():
+    """Sitewide promo clause, derived from SEASON (never a hardcoded date).
+
+    The hardcoded "2026 season kicks off Sept 9" sat on every page while the
+    homepage put Michigan first for a Sept 5 game, so the banner contradicted
+    the page underneath it. This reads the earliest 2026 opener instead: once
+    that date has arrived the season is live, so the line can never go stale
+    again and never needs a manual edit per fixture.
+    """
+    first = min(SEASON[k]["kickoff"][:10] for k in ORDER)
+    if first <= TODAY:
+        return "2026 season is live"
+    d = datetime.date.fromisoformat(first)
+    month = "Sept" if d.month == 9 else d.strftime("%b")   # house style: "Sept 5"
+    return f"2026 season kicks off {month} {d.day}"
+
+
 def header(active=""):
     links = "".join(
         f'<a href="/{COLLECTIONS[k]["slug"]}/"{" aria-current=page" if active == k else ""}>{COLLECTIONS[k]["short"]}</a>'
@@ -434,7 +451,7 @@ def header(active=""):
     mob = "".join(f'<a href="/{COLLECTIONS[k]["slug"]}/">{COLLECTIONS[k]["name"]}</a>' for k in ORDER)
     return f"""
 <a class="skip" href="#main">Skip to content</a>
-<div class="promo">2026 season kicks off Sept 9 &middot; Printed on demand in the USA &middot; Worldwide shipping</div>
+<div class="promo">{season_promo()} &middot; Printed on demand in the USA &middot; Worldwide shipping</div>
 <header>
  <div class="wrap nav">
   <a class="logo" href="/"><span class="mark">GL</span> {esc(BRAND)}</a>

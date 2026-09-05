@@ -33,7 +33,7 @@ gone from the team. This comes straight from the repo's own season data
 ## 1. "They Forgot Who I Am" — Sanders QB12 (LIVE story)
 
 - **Title:** They Forgot Who He Is
-- **Image:** `highlight-01-qb1.jpg` → `highlight-02-phrase.jpg` → real mockup `site/img/p/sanders-13-special-edition-front.jpg` (3-slide carousel)
+- **Image:** `highlight-01-qb1.jpg` → `highlight-02-phrase.jpg` → real mockup `site/img/p/sanders-13-special-edition-front.webp` (3-slide carousel)
 - **Caption:** Cleveland picked its QB1 this week. They forgot who he is. He didn't. Wear the take. Limited run — link in bio.
 - **Hashtags:** `#Browns #DawgPound #ShedeurSanders #BrownsNation #NFLApparel #NFL #Football`
 - **Post:** Sat Aug 29 · IG/FB 12:00 Eastern = 17:00 Casablanca · TikTok 10:00 Eastern = 15:00 Casablanca · X 09:00 Eastern = 14:00 Casablanca
@@ -41,7 +41,7 @@ gone from the team. This comes straight from the repo's own season data
 ## 2. 10 LOVE — Jordan Love (Packers QB1)
 
 - **Title:** Made for the Frozen Tundra
-- **Image:** `mock-02-packers.jpg` + real mockup `site/img/p/limited-edition-grb31-front.jpg`
+- **Image:** `mock-02-packers.jpg` + real mockup `site/img/p/limited-edition-grb31-front.webp`
 - **Caption:** 10 LOVE. Green and gold, made for the frozen tundra. New fits are in the locker — link in bio.
 - **Hashtags:** `#Packers #GoPackGo #GreenBayPackers #JordanLove #NFLApparel #FootballApparel`
 - **Post:** Mon Aug 31 · 12:00 Eastern = 17:00 Casablanca
@@ -58,7 +58,7 @@ gone from the team. This comes straight from the repo's own season data
 ## 4. DOOMSDAY DEFENSE — Cowboys (team theme, no player)
 
 - **Title:** Sunday Night, Game-Day Ready
-- **Image:** `mock-04-cowboys.jpg` + real mockup `site/img/p/doomsday-defense-tee-front.jpg`
+- **Image:** `mock-04-cowboys.jpg` + real mockup `site/img/p/doomsday-defense-tee-front.webp`
 - **Caption:** Sunday night in New York. Midnight navy, game-day ready. DOOMSDAY DEFENSE is in the locker.
 - **Hashtags:** `#DallasCowboys #CowboysNation #Cowboys #NFLApparel #FootballApparel #GameDay`
 - **Post:** Tue Sep 1 · 12:00 Eastern = 17:00 Casablanca
@@ -66,7 +66,7 @@ gone from the team. This comes straight from the repo's own season data
 ## 5. Denzel Ward — Browns CB (current, optional)
 
 - **Title:** Make Them Know Your Name
-- **Image:** real mockup `site/img/p/denzel-front.jpg`
+- **Image:** real mockup `site/img/p/denzel-front.webp`
 - **Caption:** Denzel Ward's message to every receiver: make them know your name. Shop the locker.
 - **Hashtags:** `#Browns #DawgPound #DenzelWard #BrownsNation #NFLApparel`
 - **Post:** Thu Sep 3 · 12:00 Eastern = 17:00 Casablanca
