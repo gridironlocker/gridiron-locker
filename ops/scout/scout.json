@@ -12,7 +12,7 @@
   "throwback": 1,
   "steady": 106,
   "gaps": 5,
-  "moments": 2,
+  "moments": 3,
   "tracked_names": 18,
   "dead_campaigns": 34
  },
@@ -28,8 +28,8 @@
   },
   {
    "name": "josh jacobs",
-   "mentions": 17,
-   "index": 81,
+   "mentions": 18,
+   "index": 86,
    "status": "trending",
    "gap": true,
    "shoppable": false,
@@ -72,6 +72,15 @@
    "collection": "green-bay-packers"
   },
   {
+   "name": "micah parsons",
+   "mentions": 6,
+   "index": 29,
+   "status": "trending",
+   "gap": false,
+   "shoppable": true,
+   "collection": "green-bay-packers"
+  },
+  {
    "name": "myles garrett",
    "mentions": 6,
    "index": 29,
@@ -79,15 +88,6 @@
    "gap": false,
    "shoppable": true,
    "collection": "cleveland-browns"
-  },
-  {
-   "name": "micah parsons",
-   "mentions": 4,
-   "index": 19,
-   "status": "trending",
-   "gap": false,
-   "shoppable": true,
-   "collection": "green-bay-packers"
   },
   {
    "name": "todd monken",
@@ -192,8 +192,8 @@
   },
   {
    "name": "josh jacobs",
-   "mentions": 17,
-   "index": 81,
+   "mentions": 18,
+   "index": 86,
    "status": "trending",
    "gap": true,
    "shoppable": false,
@@ -264,9 +264,9 @@
     "roster",
     "practice",
     "watson",
-    "deshaun",
     "squad",
-    "taylen"
+    "deshaun",
+    "former"
    ],
    "headline_count": 100,
    "headlines": [
@@ -289,16 +289,16 @@
      "pub": "Sun, 30 Aug 2026 10:00:00 GMT"
     },
     {
-     "title": "Browns keep 3 QBs on roster, put Dillon Gabriel (back) on IR",
-     "url": "https://news.google.com/rss/articles/CBMinAFBVV95cUxPYjdxQXhRbjR2YUE2V3l6YVJZbUFXVHcyUXR4U011NFBORDZNUW1aZjluQUVyazc2a2VUOEF4YTJWTTRLNlBhTXJhYWMteFRWdnE1NzBidEFiOU81dmFOTGg5eWZ3eS03eDE4ZEJXS2Y2QzV1eGhRdnN2ZFhvMXBpb0YzV203M2s5ZVdXYWtiTzVzVlNRM3ZsYzExSUY?oc=5",
-     "source": "ESPN",
-     "pub": "Sun, 30 Aug 2026 21:23:00 GMT"
-    },
-    {
      "title": "Cleveland Browns have a strategy that may just be crazy enough to work",
      "url": "https://news.google.com/rss/articles/CBMizgFBVV95cUxOR2xkSGFFZlJkVHpxWi03RU1hSmZJQVFwZlVkRkw3cTdpZU53SFI5TGN6cy1zU3E3elZsX0kzSnhETF9jeHVva1NBY0EtVkZOaC1tY3VTM2lkNDlaOUdESFBLaThJM1pkTUdXSk1RUFZXVmVQRUJqVzFvQVZOcTBBNTR0VTdma0xFTkpmUkQ3b1pkUFhJT3ZWWUtsV0NMUmFCd2FoUGFvaVFHUjdfZnpLMzdKQ0VuYWZEWlNYa3F1ajU0bTF3ZkdHbS1TV0EwQQ?oc=5",
      "source": "Dawgs By Nature",
      "pub": "Wed, 02 Sep 2026 23:10:52 GMT"
+    },
+    {
+     "title": "See the Cleveland Browns\u2019 latest moves as 53-man roster deadline looms",
+     "url": "https://news.google.com/rss/articles/CBMijAFBVV95cUxPTVpNNlE3MDJyelNiaTdrNFFDeS01eDVCUHNZbzhRVmI0R2tLWHNsTVY0bXJDZlkxMk9YYl9kSEZoRkdiWGthT1gwcHkzXzdxbmZEMlZEbWpmQ09UV2RndmlVNzV5RUhDakRQRW1CUlc2aF96T2I5Y0d3dTNySjNjeVczX3hyTjEzTFREUdIBkgFBVV95cUxNdFFIeXAwUFY2Ukk1UVdBM3BOLTJVSWpWbWVUX1VjZWZWdjFSakVkcVFvd0VHMTd6UTdRQ2tFVnhPbWdUNFpEUmJQTTNaZ053MHBjeFF2THdUbGxIUWFpaUpsLTU1UW5NYTk3aWtQQmw0ZUgwMkdLcklJeEVMbnZGTlZnMzY1Rl96MjNabmh3V29OZw?oc=5",
+     "source": "FOX 8 News",
+     "pub": "Fri, 28 Aug 2026 19:41:36 GMT"
     }
    ],
    "fti_count": 7
@@ -372,8 +372,8 @@
    "gaps": [
     {
      "name": "josh jacobs",
-     "mentions": 17,
-     "index": 81,
+     "mentions": 18,
+     "index": 86,
      "status": "trending",
      "gap": true,
      "shoppable": false,
@@ -397,7 +397,7 @@
     "jacobs",
     "trade",
     "sign",
-    "practice"
+    "cuts"
    ],
    "headline_count": 100,
    "headlines": [
@@ -422,7 +422,7 @@
     {
      "title": "How To Watch: Cardinals at Packers, Preseason Game No. 4",
      "url": "https://news.google.com/rss/articles/CBMijwFBVV95cUxOWUpacURDVXROUGJrY2I5WEJFQzVzYkRRMWtGSGcyU3VkVVhKcWhLLWMwSlNBQ1J2MFNvS3MyTVdBdFBQQmFSNmtYblFtLWMyaUVTbGRKNExaX09oUy1wVTBWSXF3emZ1cGNReEZYMnhaSEtCWmZpRlhlOUJmNXg1a09OU3phaFpEUzdjdExsUQ?oc=5",
-     "source": "Arizona Cardinals",
+     "source": "azcardinals.com",
      "pub": "Thu, 27 Aug 2026 07:00:00 GMT"
     },
     {
@@ -476,8 +476,14 @@
     {
      "title": "Michigan football predictions: How will the Wolverines fare this season?",
      "url": "https://news.google.com/rss/articles/CBMiwwFBVV95cUxOeE81QTRmSlphSW1ZYVVSUU5HbkxUVTJXd1ZqZHZYWmZNT05vUDN4R3JfYURfaXpTTmVTQzhXRUVCUTNOLWhBNV9zdDRkQTBpM1phUlY1WU1hdnlDMjhlM2w0dGMyWl9ubmRpa213aGNKcERkclZtSjRRV0VWQXVzLTF5RnBSdDNZaVViSUlobnhoN2xwSU1ucF9fSHBLTWp6ZVN6cFpCemZjSXJoQ2I2SHBJWlVnSDBudVhvNE5pQm5MM0HSAdcBQVVfeXFMTjJYVWFWWlFfMmtfaEI3UGZWMzdLVWlfOHJZY21iZERpRktXN2g1QjAwcWZ4b05BYVpOb2lJUUM0cF95LVZSMVp0bV96YTA1cGd3azZGT3N4N2tILVFrQzBBeGd0OFJfcnQ5bXM1Q2U5ejlsdGQ3M0EyWTh1c21GMU1OeFd5YzEtTnFCSDktZVhicnFlQ2M4NEZQU2xsdTFOZEFRR2dtWjg0R01sOVNQZEVJbTdsc1dFenVXRFhWcjBreThfSzNjNDRGTzQ5N1d1cmlCdkEyamM?oc=5",
-     "source": "mlive.com",
+     "source": "MLive.com",
      "pub": "Thu, 03 Sep 2026 10:58:00 GMT"
+    },
+    {
+     "title": "Michigan Monday: Game 1 vs. Western Michigan",
+     "url": "https://news.google.com/rss/articles/CBMihgFBVV95cUxOMGpjaTd1Y1F5bFkyRG4yeVVfWi1WNjhKb2pObzBSM0c1aXFQT0ZtR0VELTMyZVlFRHlaLTJjWXB6VTVsdkZXUnQ5OVRWVE9fLXVHU0x5VVlZcTktOHUwVzhubV9KZy1DVWF1SUhnQ1NTUW5hQmI0QlY5c1VOSDM2RTJhM1FDUQ?oc=5",
+     "source": "University of Michigan Athletics",
+     "pub": "Mon, 31 Aug 2026 20:24:42 GMT"
     },
     {
      "title": "How to Watch Michigan Football\u2019s Season Opener Against WMU",
@@ -490,12 +496,6 @@
      "url": "https://news.google.com/rss/articles/CBMihAFBVV95cUxQcTlsbG9WSmdLSFYtM3UzMTJweERQZDFDSHIyeE9LYVVyNVBLdzM1Yk9TWU5SUi1vU0haTE10ODcycF9FdVlLR0FWLXFDbjhqZ25NMHZXUnJMeENtTHZDWEttY2hVYUdqcnF6R0dDQkFQVWJYV241ZG10M3JReVBYX0dEV00?oc=5",
      "source": "NBC TV Network",
      "pub": "Sat, 05 Sep 2026 11:02:02 GMT"
-    },
-    {
-     "title": "Michigan Monday: Game 1 vs. Western Michigan",
-     "url": "https://news.google.com/rss/articles/CBMihgFBVV95cUxOMGpjaTd1Y1F5bFkyRG4yeVVfWi1WNjhKb2pObzBSM0c1aXFQT0ZtR0VELTMyZVlFRHlaLTJjWXB6VTVsdkZXUnQ5OVRWVE9fLXVHU0x5VVlZcTktOHUwVzhubV9KZy1DVWF1SUhnQ1NTUW5hQmI0QlY5c1VOSDM2RTJhM1FDUQ?oc=5",
-     "source": "University of Michigan Athletics",
-     "pub": "Mon, 31 Aug 2026 20:24:42 GMT"
     }
    ],
    "fti_count": 4
@@ -682,6 +682,16 @@
    "collection": "cleveland-browns",
    "entities": [
     "deshaun watson"
+   ]
+  },
+  {
+   "title": "Life without Myles Garrett: What to expect from Browns defense",
+   "url": "https://news.google.com/rss/articles/CBMisgFBVV95cUxPVUVCMzBkUjNNaV85Mkdic0xwS2k2S25fSHNaUWVyQ3dvcmYxX0JEdWtYdnN4OGcyQlhSekZrdnNwUFNXTkFJNWdQdXltb3ZQQWZXWWlDVkZXYlNNVHdRMF9WUlh1ci1uWlRxM3ZmbkVoRU5lRFRKWW9WdkMwR1ZJa3prSkk1YVhBbDZGOFNqOU0tNW4taUNTZ0hCbVZnMG5xZkRNV0xGNVhCNzl3RVV6aDlR?oc=5",
+   "source": "ESPN",
+   "pub": "Wed, 02 Sep 2026 10:00:00 GMT",
+   "collection": "cleveland-browns",
+   "entities": [
+    "myles garrett"
    ]
   },
   {
