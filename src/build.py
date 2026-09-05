@@ -3,7 +3,7 @@
 import json, os, re, shutil, html, sys, datetime
 sys.path.insert(0, os.path.dirname(__file__))
 from collections import OrderedDict
-from collections_data import COLLECTIONS, ORDER, SEASON
+from collections_data import COLLECTIONS, ORDER, SEASON, NEXT_GAME
 import seocopy as _c
 from catalog import CATALOG
 import auto_copy
@@ -340,6 +340,12 @@ def build_model():
 MODEL = build_model()
 ALL = [x for v in MODEL.values() for x in v]
 
+# Homepage + /collections/ display order only: the collection that kicks off
+# next (NEXT_GAME, computed at import) goes first, original ORDER breaks ties.
+# Everything else - nav, footer, sitemap, data files, product cross-links -
+# keeps the fixed ORDER above untouched.
+HOMEPAGE_ORDER = sorted(ORDER, key=lambda k: (NEXT_GAME.get(k) or "9999", ORDER.index(k)))
+
 
 # ---------------------------------------------------------------- chrome
 def head(title, desc, path, image=None, schema=None, keywords=None, accent=None):
@@ -658,7 +664,7 @@ def railcard(it):
 def hero_slides():
     slides = []
     i = 0
-    for k in ORDER:
+    for k in HOMEPAGE_ORDER:
         c = COLLECTIONS[k]
         n = len(MODEL[k])
         heads = {
@@ -708,7 +714,7 @@ def page_home():
  <div class="grid">{tcards}</div>
 </div></section>"""
     colcards = ""
-    for k in ORDER:
+    for k in HOMEPAGE_ORDER:
         c = COLLECTIONS[k]
         colcards += f"""<a class="colcard reveal" style="--ca:{c['accent']}" href="/{c['slug']}/">
    <img src="{c['hero']}" alt="{esc(c['name'])} collection" loading="lazy" decoding="async" width="800" height="600">
@@ -727,7 +733,7 @@ def page_home():
                              "query-input": "required name=search_term_string"}},
         {"@context": "https://schema.org", "@type": "ItemList",
          "itemListElement": [{"@type": "ListItem", "position": n + 1, "url": DOMAIN + f"/{COLLECTIONS[k]['slug']}/",
-                              "name": COLLECTIONS[k]["name"]} for n, k in enumerate(ORDER)]},
+                              "name": COLLECTIONS[k]["name"]} for n, k in enumerate(HOMEPAGE_ORDER)]},
     ]
     desc = (f"Fan-made football tees, hoodies and gear across {len(ORDER)} team collections: "
             f"Cleveland, Green Bay, Dallas and Michigan. {len(ALL)} original designs, S-3XL, shipped worldwide.")
@@ -801,7 +807,7 @@ def page_home():
 def page_collections_index():
     path = "/collections/"
     cards = ""
-    for k in ORDER:
+    for k in HOMEPAGE_ORDER:
         c = COLLECTIONS[k]
         cards += f"""<a class="colcard" href="/{c['slug']}/">
    <img src="{c['hero']}" alt="{esc(c['name'])}" loading="lazy" width="800" height="600">
@@ -811,7 +817,7 @@ def page_collections_index():
     schema = [cbs, {"@context": "https://schema.org", "@type": "CollectionPage",
                     "name": "All Collections", "url": DOMAIN + path,
                     "hasPart": [{"@type": "CollectionPage", "name": COLLECTIONS[k]["name"],
-                                 "url": DOMAIN + f"/{COLLECTIONS[k]['slug']}/"} for k in ORDER]}]
+                                 "url": DOMAIN + f"/{COLLECTIONS[k]['slug']}/"} for k in HOMEPAGE_ORDER]}]
     desc = ("Shop fan-made football collections: Cleveland Browns, Green Bay Packers, Dallas "
             "and Michigan tees & hoodies. Sizes S-3XL, worldwide shipping.")
     body = f"""{cb}<main id="main"><section style="padding-top:6px"><div class="wrap">
@@ -824,7 +830,7 @@ def page_collections_index():
   <h2>What you will find in each collection</h2>
   <ul>""" + "".join(
         f"<li><strong><a href='/{COLLECTIONS[k]['slug']}/'>{esc(COLLECTIONS[k]['name'])}</a></strong> - "
-        f"{esc(COLLECTIONS[k]['intro'].format(**COLLECTIONS[k]))}</li>" for k in ORDER) + """
+        f"{esc(COLLECTIONS[k]['intro'].format(**COLLECTIONS[k]))}</li>" for k in HOMEPAGE_ORDER) + """
   </ul></div>
 </div></section></main>"""
     URLS.append((DOMAIN + path, "0.9", "weekly"))
@@ -2294,6 +2300,7 @@ def main():
     sync_marketing()
     sync_ops()
     n = relativise()
+    print(f"homepage order (by next game): {', '.join(HOMEPAGE_ORDER)}")
     print(f"relative-linked {n} pages for GitHub Pages / offline")
     print(f"built {len(ALL)} products, {len(ORDER)} collections, {len(URLS)} urls")
 

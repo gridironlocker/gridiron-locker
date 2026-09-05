@@ -1,4 +1,6 @@
 """Collection-level SEO + brand data."""
+import datetime as _dt
+from zoneinfo import ZoneInfo as _ZoneInfo
 
 COLLECTIONS = {
     "cleveland-browns": dict(
@@ -155,3 +157,48 @@ ORDER = ["cleveland-browns", "green-bay-packers", "dallas-cowboys", "michigan"]
 
 # 2026 season context (researched 24 Aug 2026)
 SEASON = {'cleveland-browns': {'status': 'QB1 decision expected Monday, Aug 24', 'headline': 'Shedeur Sanders vs Deshaun Watson: Cleveland names its 2026 starter this week.', 'kickoff': '2026-09-13T13:00:00-04:00', 'opener': 'Week 1 &middot; Sept 13 at Jacksonville', 'hot': ['shedeur sanders shirt', 'sanders browns qb shirt', 'browns qb1 2026 shirt', 'sanders 2026 tee'], 'legacy_note': 'Designs for departed players and coaches - Joe Flacco, Myles Garrett and Kevin Stefanski - were retired ahead of the 2026 season; Garrett was traded in June 2026 and Todd Monken took over as head coach.'}, 'green-bay-packers': {'status': 'Jordan Love enters 2026 as QB1, Micah Parsons on the roster', 'headline': 'Green Bay opens Week 1 at Minnesota with Love under centre.', 'kickoff': '2026-09-13T16:25:00-05:00', 'opener': 'Week 1 &middot; Sept 13 at Minnesota', 'hot': ['jordan love 2026 shirt', 'packers 2026 shirt', 'go pack go 2026 tee', 'packers week 1 shirt'], 'legacy_note': ''}, 'dallas-cowboys': {'status': 'Season opens Sunday night at the Giants', 'headline': 'Dallas kicks off 2026 in prime time on Sept 13.', 'kickoff': '2026-09-13T20:20:00-05:00', 'opener': 'Week 1 &middot; Sept 13 at NY Giants (SNF)', 'hot': ['dallas 2026 shirt', 'cowboys week 1 shirt', 'dallas football 2026 tee', 'texas football shirt 2026'], 'legacy_note': ''}, 'michigan': {'status': "Bryce Underwood named 2026 captain, Kyle Whittingham's first season", 'headline': 'Michigan opens Sept 5 vs Western Michigan under new head coach Kyle Whittingham.', 'kickoff': '2026-09-05T12:00:00-04:00', 'opener': 'Sept 5 vs Western Michigan', 'hot': ['bryce underwood shirt', 'michigan 2026 shirt', 'go blue 2026 tee', 'michigan football 2026 shirt'], 'legacy_note': 'J.J. McCarthy designs were retired - Bryce Underwood is the current QB and a 2026 team captain.'}}
+
+
+# ---------------------------------------------------------------- next game
+# Homepage / /collections/ display order: the collection that kicks off
+# soonest goes first. v1 has no real 2026 schedule yet, so each collection's
+# slate is rolled forward WEEKLY from its SEASON opener date using the
+# league's typical kickoff window (approximate is fine - this is ordering
+# only). To swap in a real schedule later, replace _KICKOFF_WINDOW + the roll
+# in next_game() with an explicit per-collection list of ISO kickoff strings
+# and pick the first entry >= now - callers only read NEXT_GAME / next_game(),
+# so nothing downstream changes.
+# Weekly kickoff template per collection: (weekday, "HH:MM" Eastern).
+# weekday: Monday=0 ... Sunday=6.
+_KICKOFF_WINDOW = {
+    "cleveland-browns":  (6, "13:00"),   # NFL Sunday early window
+    "green-bay-packers": (6, "13:00"),   # NFL Sunday early window
+    "dallas-cowboys":    (6, "13:00"),   # NFL Sunday early window
+    "michigan":          (5, "19:30"),   # Saturday night under the lights
+}
+_ET = _ZoneInfo("America/New_York")
+
+
+def next_game(ckey, now=None):
+    """ISO datetime of the collection's next kickoff (>= now).
+
+    v1: use the SEASON opener date, then roll forward weekly
+    (michigan: Saturdays 19:30 ET, NFL: Sundays 13:00 ET) until >= now.
+    Kickoff times approximate is fine - this is for ordering only.
+    """
+    weekday, hhmm = _KICKOFF_WINDOW[ckey]
+    hh, mm = hhmm.split(":")
+    opener_date = _dt.date.fromisoformat(SEASON[ckey]["kickoff"][:10])
+    now = now or _dt.datetime.now(_dt.timezone.utc)
+    # First candidate: the opener's date at the template kickoff time (ET),
+    # then every 7 days after until we reach the next game still ahead.
+    kick = _dt.datetime(opener_date.year, opener_date.month, opener_date.day,
+                        int(hh), int(mm), tzinfo=_ET)
+    while kick <= now:
+        kick += _dt.timedelta(days=7)
+    return kick.astimezone(_dt.timezone.utc).isoformat()
+
+
+# ISO kickoff of each collection's next game, computed once at import with
+# UTC now (today: 2026-09-05). Read-only for callers.
+NEXT_GAME = {ckey: next_game(ckey) for ckey in ORDER}
