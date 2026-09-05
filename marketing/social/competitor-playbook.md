@@ -76,8 +76,9 @@ and lead with a design that maps to a live 2026 trend.
   energy (4:5 feed).
 - `highlight-02-phrase.jpg` — macro chest-print detail, moody (4:5 feed /
   carousel slide 2).
-- Accuracy shot: `site/img/p/sanders-13-special-edition-front.jpg` (the real
-  store mockup) — always pair it so customers see the true product.
+- Accuracy shot: `site/img/p/sanders-13-special-edition-front.webp` (the real
+  store mockup) — always pair it so customers see the true product. Product
+  mockups under `site/img/p/` are all `.webp`; there are no `.jpg` mockups.
 - ⚠️ As with all AI renders: **verify the on-shirt spelling** on the highlight
   images matches the real store design before posting.
 

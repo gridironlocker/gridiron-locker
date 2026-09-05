@@ -1,6 +1,8 @@
 # Gridiron Locker — Social Accounts (Second Set)
 
-Scope: Instagram, TikTok, Facebook, Pinterest, YouTube, Threads, and X.
+Scope: Instagram, Facebook, Pinterest, YouTube, Threads, and X (both handles).
+TikTok is in scope for planning only — its handle is unconfirmed, so it is
+neither listed in §0 nor linked from the storefront yet.
 
 Brand facts used below:
 - Product: fan-made football tees, hoodies, and game-day gear.
@@ -11,38 +13,52 @@ Brand facts used below:
 
 ---
 
-## 0. Live accounts (recorded 2026-08-29)
+## 0. Live accounts (verified 2026-09-05)
 
-| Platform | Handle | URL |
-|----------|--------|-----|
-| YouTube | @Gridironlocker | https://www.youtube.com/@Gridironlocker |
-| Pinterest | gridironlockergear | https://www.pinterest.com/gridironlockergear/ |
-| Facebook | numeric profile (no vanity URL yet) | https://www.facebook.com/profile.php?id=61593734079569 |
-| X (brand voice) | @gridironlocker | https://x.com/gridironlocker |
-| X (fan voice) | @gridironlocker1 | https://x.com/gridironlocker1 |
-| Instagram | @gridironlocker | https://www.instagram.com/gridironlocker |
-| TikTok | @gridironlocker | https://www.tiktok.com/@gridironlocker |
+This table is the verified account map. It matches `SOCIALS` in `src/build.py`
+one-for-one, so the storefront footer and this doc can never disagree. TikTok is
+left out on purpose: the handle is unconfirmed. Do not link it until it is
+checked in-app.
+
+| Platform | Handle | URL | Followers |
+|----------|--------|-----|-----------|
+| X (brand voice) | @gridironlocker | https://x.com/gridironlocker | 4 |
+| X (fan voice) | @gridironlocker1 | https://x.com/gridironlocker1 | 94 |
+| Instagram | @gridironlocker1 | https://www.instagram.com/gridironlocker1 | — |
+| Threads | @gridironlocker1 | https://www.threads.net/@gridironlocker1 | — |
+| Facebook | /GridironLocker/ (vanity claimed) | https://www.facebook.com/GridironLocker/ | — |
+| Pinterest | /gridironlockergear | https://www.pinterest.com/gridironlockergear/ | — |
+| YouTube | @Gridironlocker | https://www.youtube.com/@Gridironlocker | — |
 
 Status and fixes:
 
-- **YouTube** — confirmed live ("Gridiron Locker" channel). No videos yet: publish
-  a channel trailer or intro post first so the profile isn't empty.
+- **X** — two live accounts, both in active use and both in the posting plan in
+  `marketing/plan.json` (game days: post 30 min before kickoff). `@gridironlocker`
+  carries the brand voice but only has **4 followers**; `@gridironlocker1` carries
+  the fan voice and holds the audience at **94 followers**. Lead with
+  `@gridironlocker1` when a post can only go to one account, and cross-post the
+  other so the brand handle keeps a visible trail.
+- **Instagram / Threads** — the live handle is **`@gridironlocker1`**, not
+  `@gridironlocker`. Earlier drafts of this doc listed the bare handle; the
+  bare-handle profile is not the one carrying the content, so every bio link,
+  tag and collab invite must use `@gridironlocker1`.
+- **Facebook** — the vanity username **`/GridironLocker/` is claimed**, so the
+  old numeric `profile.php?id=61593734079569` URL is no longer the link to use.
+  Share and cite `https://www.facebook.com/GridironLocker/` everywhere.
 - **Pinterest** — `gridironlockergear` differs from the main `gridironlocker` handle.
   It is still keyword-rich (brand + "gear"), so keeping it is fine. If you want it
   uniform, rename in Pinterest settings *before* pinning heavily — old profile URLs
   may not redirect after a rename.
-- **Facebook** — still a numeric ID, which is hard to search and hard to link.
-  Claim a vanity username so it becomes `facebook.com/gridironlocker`
-  (Settings & privacy → Settings → Username).
-- **X** — two live accounts, both in active use: `@gridironlocker`
-  (https://x.com/gridironlocker) carries the brand voice, `@gridironlocker1`
-  (https://x.com/gridironlocker1) carries the fan voice. X is part of the
-  posting plan in `marketing/plan.json` (game days: post 30 min before kickoff).
-- **Instagram / TikTok** — `@gridironlocker`, consistent with the main brand handle.
+- **YouTube** — confirmed live ("Gridiron Locker" channel). No videos yet: publish
+  a channel trailer or intro post first so the profile isn't empty.
+- **TikTok** — **unconfirmed, so it is not in the map above and not linked from
+  the storefront.** Verify the handle in-app before adding it here or to
+  `SOCIALS`.
 
 One link rule: Instagram and TikTok allow a single bio link each. Point that link
 at the storefront (`https://gridironlocker.store`), not a
-splash page, so every follower is one tap from buying.
+splash page, so every follower is one tap from buying. Same for Facebook,
+Pinterest, YouTube and the X profiles — one link, straight to the shop.
 
 ---
 
