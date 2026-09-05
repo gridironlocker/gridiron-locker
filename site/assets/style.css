@@ -841,3 +841,15 @@ li.moment:last-child{border-bottom:0}
 .light .who{background:rgba(255,106,19,.1)}
 .light .stat b{color:var(--accent)}
 code{font-size:.82em;background:rgba(255,106,19,.1);padding:1px 6px;border-radius:6px}
+
+/* Garment badge: shown on a variant card/gallery ONLY when that garment's own
+   mockup could not be downloaded, so the parent tee image is being reused.
+   It labels the garment instead of silently implying the wrong mockup. */
+.ph.badge{position:relative}
+.garmentbadge{position:absolute;left:0;right:0;bottom:0;z-index:5;
+ background:linear-gradient(to top,rgba(7,8,10,.88),rgba(7,8,10,0));
+ color:#fff;font-size:.78rem;font-weight:700;letter-spacing:.06em;
+ text-transform:uppercase;padding:22px 12px 9px;text-align:center}
+.light .garmentbadge{background:linear-gradient(to top,rgba(14,20,32,.86),rgba(14,20,32,0));color:#fff}
+.stage.badge{position:relative}
+.stage .garmentbadge{padding:26px 14px 12px;font-size:.85rem}
