@@ -44,6 +44,19 @@ CAMPAIGNS = {
             "Women's V-Neck", "Crew Neck Sweatshirt", "Dry Sport Tee",
             "Signature Soft Tee", "Women's Crew Tee",
         ],
+        "style_prices": {
+            "Premium Unisex Tee": 2361.31,
+            "Women's Tank Top": 2408.0,
+            "Unisex Cotton Tee": 2408.0,
+            "Unisex Hoodie": 3494.74,
+            "Mens V-Neck": 2549.0,
+            "Men's Tank Top": 2408.0,
+            "Women's V-Neck": 2549.0,
+            "Crew Neck Sweatshirt": 3116.93,
+            "Dry Sport Tee": 2643.0,
+            "Signature Soft Tee": 2455.0,
+            "Women's Crew Tee": 2455.0,
+        },
         "desc": ("Let it Rip Let it Rip PREMIUM UNISEX TEE A favorite in any "
                  "wardrobe, this super comfy tee has the ring spun cotton feel "
                  "that everyone will love."),
@@ -74,6 +87,19 @@ CAMPAIGNS = {
             "Men's Tank Top", "Crew Neck Sweatshirt", "Women's V-Neck",
             "Dry Sport Tee", "Signature Soft Tee",
         ],
+        "style_prices": {
+            "Premium Unisex Tee": 2077.84,
+            "Women's Tank Top": 2120.0,
+            "Unisex Cotton Tee": 2120.0,
+            "Unisex Hoodie": 3075.2,
+            "Mens V-Neck": 2250.0,
+            "Women's Crew Tee": 2165.0,
+            "Men's Tank Top": 2120.0,
+            "Crew Neck Sweatshirt": 2742.75,
+            "Women's V-Neck": 2250.0,
+            "Dry Sport Tee": 2320.0,
+            "Signature Soft Tee": 2165.0,
+        },
         "desc": ("Sanders The Next Level Sanders The Next Level PREMIUM UNISEX "
                  "TEE A favorite in any wardrobe, this super comfy tee has the "
                  "ring spun cotton feel that everyone will love."),
@@ -102,6 +128,17 @@ CAMPAIGNS = {
             "Unisex Hoodie", "Crew Neck Sweatshirt", "Mens V-Neck",
             "Women's V-Neck", "Men's Tank Top", "Women's Tank Top",
         ],
+        "style_prices": {
+            "Women's Crew Tee": 2165.0,
+            "Premium Unisex Tee": 2077.84,
+            "Signature Soft Tee": 2165.0,
+            "Unisex Hoodie": 3075.2,
+            "Crew Neck Sweatshirt": 2742.75,
+            "Mens V-Neck": 2250.0,
+            "Women's V-Neck": 2250.0,
+            "Men's Tank Top": 2120.0,
+            "Women's Tank Top": 2120.0,
+        },
         "desc": ("Limited Edition M vs All Limited Edition M vs All WOMEN'S "
                  "CREW TEE The classic cotton look and feel you love from a "
                  "brand you trust...when it comes to t-shirts, it gets no "
@@ -134,6 +171,17 @@ CAMPAIGNS = {
             "Unisex Hoodie", "Crew Neck Sweatshirt", "Mens V-Neck",
             "Women's V-Neck", "Men's Tank Top", "Women's Tank Top",
         ],
+        "style_prices": {
+            "Women's Crew Tee": 2455.0,
+            "Premium Unisex Tee": 2361.31,
+            "Signature Soft Tee": 2455.0,
+            "Unisex Hoodie": 3494.74,
+            "Crew Neck Sweatshirt": 3116.93,
+            "Mens V-Neck": 2549.0,
+            "Women's V-Neck": 2549.0,
+            "Men's Tank Top": 2408.0,
+            "Women's Tank Top": 2408.0,
+        },
         "desc": ("Limited Edition QB19 Limited Edition QB19 SIGNATURE SOFT TEE "
                  "This updated unisex essential fits like a well-loved favorite, "
                  "featuring a crew neck, short sleeves and designed with "
@@ -145,6 +193,43 @@ CAMPAIGNS = {
         "collection": "michigan",
         "sizes": ["S", "M", "L", "XL", "2XL", "3XL"],   # SELECT SIZE on the live page
         "list_price_inr": "Rs2,361.31",
+    },
+}
+
+# Fallback per-style Rs prices for the older Sanders designs that come from
+# scrape_products.py (not from CAMPAIGNS/campaigns_extra). Capsule values mirror
+# the live SELECT STYLE block: cheapest tee is the min, hoodie ~1.48x min,
+# crewneck ~1.32x min, so variant USD lands at $34.99/$30.99 off a $22.99 base.
+SANDERS_STYLE_PRICES = {
+    "sanders-13-special-edition": {
+        "Premium Unisex Tee": 2172.56,
+        "Unisex Cotton Tee": 2215.0,
+        "Signature Soft Tee": 2260.0,
+        "Women's Crew Tee": 2260.0,
+        "Mens V-Neck": 2350.0,
+        "Women's V-Neck": 2350.0,
+        "Unisex Hoodie": 3215.39,
+        "Crew Neck Sweatshirt": 2867.78,
+    },
+    "sanders-12-special-edition": {
+        "Premium Unisex Tee": 2172.56,
+        "Unisex Cotton Tee": 2215.0,
+        "Signature Soft Tee": 2260.0,
+        "Women's Crew Tee": 2260.0,
+        "Mens V-Neck": 2350.0,
+        "Women's V-Neck": 2350.0,
+        "Unisex Hoodie": 3215.39,
+        "Crew Neck Sweatshirt": 2867.78,
+    },
+    "sanders-special-edition": {
+        "Premium Unisex Tee": 2172.56,
+        "Unisex Cotton Tee": 2215.0,
+        "Signature Soft Tee": 2260.0,
+        "Women's Crew Tee": 2260.0,
+        "Mens V-Neck": 2350.0,
+        "Women's V-Neck": 2350.0,
+        "Unisex Hoodie": 3215.39,
+        "Crew Neck Sweatshirt": 2867.78,
     },
 }
 
@@ -223,7 +308,7 @@ def scrape_entry(slug, c):
         kk = k if k.startswith(design + "-") else f"{design}-{k}"
         urls.add(f"https://assets.viralstyle.com/campaigns/{cid}/{kk}-front-small.jpg")
     swatches = sorted(urls)
-    return {
+    entry = {
         "slug": slug,
         "title": c["title"],
         "price_usd": c["price_usd"],
@@ -237,6 +322,13 @@ def scrape_entry(slug, c):
         "desc": c["desc"],
         "features": c["features"],
     }
+    # Per-style Rs prices for garment-variant pricing (optional passthrough).
+    if isinstance(c.get("style_prices"), dict) and c["style_prices"]:
+        try:
+            entry["style_prices"] = {k: float(v) for k, v in c["style_prices"].items()}
+        except Exception:
+            pass
+    return entry
 
 
 def with_img_map(entry):
@@ -287,6 +379,14 @@ def inject_data():
             "thumb": PLACEHOLDER_THUMB,
             "title": f"{c['title']} {c['list_price_inr']}",
         })
+
+    # Backfill style_prices for older Sanders designs (scrape-sourced, not in
+    # CAMPAIGNS). Idempotent: only fills when missing, never overwrites live
+    # scraped values.
+    for slug, sp in SANDERS_STYLE_PRICES.items():
+        for store in (products, live):
+            if slug in store and not store[slug].get("style_prices"):
+                store[slug]["style_prices"] = dict(sp)
 
     save(os.path.join(ROOT, "data/products.json"), products)
     save(os.path.join(ROOT, "data/products_live.json"), live)

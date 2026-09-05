@@ -24,12 +24,17 @@ def parse(slug):
     front=[i for i in imgs if '-front-large' in i]
     back=[i for i in imgs if '-back-large' in i]
     swatch=sorted(set(i for i in imgs if '-front-small' in i))
-    # styles
+    # styles (keep name + Rs price pairs for garment-variant pricing)
     styles=[]
+    style_prices={}
     m=re.search(r'SELECT STYLE (.*?) SELECT COLOR',txt)
     if m:
-        for part in re.findall(r'([A-Za-z0-9\'\-\. ]+?) - (?:Rs|\$)[\d,\.]+',m.group(1)):
-            styles.append(part.strip())
+        for part, price in re.findall(r'([A-Za-z0-9\'\-\. ]+?) - (?:Rs|\$)([\d,\.]+)',m.group(1)):
+            part=part.strip()
+            if not part: continue
+            styles.append(part)
+            try: style_prices[part]=float(price.replace(',',''))
+            except Exception: pass
     # description block
     d=re.search(r'About Product (.*?)(?: MEASUREMENT NOTES| KEY FEATURES| Recommended Products)',txt)
     desc=d.group(1).strip() if d else ''
@@ -44,6 +49,7 @@ def parse(slug):
       'back':back[0] if back else None,
       'swatches':swatch[:12],
       'styles':styles,
+      'style_prices':style_prices,
       'desc':desc[:600],
       'features':(feat.group(1)[:800] if feat else ''),
     }

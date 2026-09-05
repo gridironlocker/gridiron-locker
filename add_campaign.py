@@ -69,13 +69,19 @@ def parse(html, slug, collection):
     )
 
     # styles inside "SELECT STYLE ... SELECT COLOR|SIZE"
+    # keep (name, rs_price) pairs for garment-variant pricing
     styles = []
+    style_prices = {}
     m = re.search(r"SELECT STYLE(.*?)SELECT (?:COLOR|SIZE)", txt)
     if m:
-        for part in re.findall(r"([A-Za-z0-9'\-\.\u2019 ]+?) - (?:Rs|\$)[\d,\.]+", m.group(1)):
+        for part, price in re.findall(r"([A-Za-z0-9'\-\.\u2019 ]+?) - (?:Rs|\$)([\d,\.]+)", m.group(1)):
             part = part.strip()
             if part:
                 styles.append(part)
+                try:
+                    style_prices[part] = float(price.replace(",", ""))
+                except Exception:
+                    pass
 
     # sizes: "SELECT SIZE (.*?) SELECT QUANTITY", strip label + ALL spaces,
     # then consume S,M,L,XL,2XL,3XL in order from the concatenated blob
@@ -121,6 +127,7 @@ def parse(html, slug, collection):
         "base": base,
         "swatch_keys": swatch_keys,
         "styles": styles,
+        "style_prices": style_prices,
         "desc": desc,
         "features": features,
         "collection": collection,
