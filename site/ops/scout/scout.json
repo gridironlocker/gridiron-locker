@@ -2,7 +2,7 @@
  "generated": "2026-09-05",
  "window_days": 10,
  "fti_formula": "round(100 * entity_mentions / peak_mentions_in_window)",
- "peak_mentions": 19,
+ "peak_mentions": 23,
  "stats": {
   "products": 112,
   "collections": 4,
@@ -12,60 +12,51 @@
   "throwback": 1,
   "steady": 97,
   "gaps": 5,
-  "moments": 5,
+  "moments": 2,
   "tracked_names": 18,
   "dead_campaigns": 34
  },
  "fti_rows": [
   {
+   "name": "deshaun watson",
+   "mentions": 23,
+   "index": 100,
+   "status": "trending",
+   "gap": true,
+   "shoppable": false,
+   "collection": "cleveland-browns"
+  },
+  {
    "name": "josh jacobs",
    "mentions": 19,
-   "index": 100,
+   "index": 83,
    "status": "trending",
    "gap": true,
    "shoppable": false,
    "collection": "green-bay-packers"
   },
   {
-   "name": "deshaun watson",
-   "mentions": 17,
-   "index": 89,
+   "name": "shedeur sanders",
+   "mentions": 16,
+   "index": 70,
    "status": "trending",
-   "gap": true,
-   "shoppable": false,
+   "gap": false,
+   "shoppable": true,
    "collection": "cleveland-browns"
   },
   {
    "name": "bryce underwood",
    "mentions": 14,
-   "index": 74,
+   "index": 61,
    "status": "trending",
    "gap": false,
    "shoppable": true,
    "collection": "michigan"
   },
   {
-   "name": "shedeur sanders",
-   "mentions": 12,
-   "index": 63,
-   "status": "trending",
-   "gap": false,
-   "shoppable": true,
-   "collection": "cleveland-browns"
-  },
-  {
-   "name": "myles garrett",
-   "mentions": 10,
-   "index": 53,
-   "status": "trending",
-   "gap": false,
-   "shoppable": true,
-   "collection": "cleveland-browns"
-  },
-  {
    "name": "kyle whittingham",
-   "mentions": 8,
-   "index": 42,
+   "mentions": 7,
+   "index": 30,
    "status": "trending",
    "gap": true,
    "shoppable": false,
@@ -74,7 +65,7 @@
   {
    "name": "matt lafleur",
    "mentions": 7,
-   "index": 37,
+   "index": 30,
    "status": "trending",
    "gap": true,
    "shoppable": false,
@@ -83,16 +74,25 @@
   {
    "name": "micah parsons",
    "mentions": 6,
-   "index": 32,
+   "index": 26,
    "status": "trending",
    "gap": false,
    "shoppable": true,
    "collection": "green-bay-packers"
   },
   {
+   "name": "myles garrett",
+   "mentions": 6,
+   "index": 26,
+   "status": "trending",
+   "gap": false,
+   "shoppable": true,
+   "collection": "cleveland-browns"
+  },
+  {
    "name": "todd monken",
    "mentions": 4,
-   "index": 21,
+   "index": 17,
    "status": "trending",
    "gap": true,
    "shoppable": false,
@@ -101,7 +101,7 @@
   {
    "name": "jordan love",
    "mentions": 3,
-   "index": 16,
+   "index": 13,
    "status": "trending",
    "gap": false,
    "shoppable": true,
@@ -110,7 +110,7 @@
   {
    "name": "ceedee lamb",
    "mentions": 2,
-   "index": 11,
+   "index": 9,
    "status": "steady",
    "gap": false,
    "shoppable": false,
@@ -119,7 +119,7 @@
   {
    "name": "dak prescott",
    "mentions": 2,
-   "index": 11,
+   "index": 9,
    "status": "steady",
    "gap": false,
    "shoppable": false,
@@ -127,8 +127,8 @@
   },
   {
    "name": "kevin stefanski",
-   "mentions": 2,
-   "index": 11,
+   "mentions": 1,
+   "index": 4,
    "status": "steady",
    "gap": false,
    "shoppable": true,
@@ -182,27 +182,27 @@
  ],
  "gaps": [
   {
-   "name": "josh jacobs",
-   "mentions": 19,
-   "index": 100,
-   "status": "trending",
-   "gap": true,
-   "shoppable": false,
-   "collection": "green-bay-packers"
-  },
-  {
    "name": "deshaun watson",
-   "mentions": 17,
-   "index": 89,
+   "mentions": 23,
+   "index": 100,
    "status": "trending",
    "gap": true,
    "shoppable": false,
    "collection": "cleveland-browns"
   },
   {
+   "name": "josh jacobs",
+   "mentions": 19,
+   "index": 83,
+   "status": "trending",
+   "gap": true,
+   "shoppable": false,
+   "collection": "green-bay-packers"
+  },
+  {
    "name": "kyle whittingham",
-   "mentions": 8,
-   "index": 42,
+   "mentions": 7,
+   "index": 30,
    "status": "trending",
    "gap": true,
    "shoppable": false,
@@ -211,7 +211,7 @@
   {
    "name": "matt lafleur",
    "mentions": 7,
-   "index": 37,
+   "index": 30,
    "status": "trending",
    "gap": true,
    "shoppable": false,
@@ -220,7 +220,7 @@
   {
    "name": "todd monken",
    "mentions": 4,
-   "index": 21,
+   "index": 17,
    "status": "trending",
    "gap": true,
    "shoppable": false,
@@ -241,8 +241,8 @@
    "gaps": [
     {
      "name": "deshaun watson",
-     "mentions": 17,
-     "index": 89,
+     "mentions": 23,
+     "index": 100,
      "status": "trending",
      "gap": true,
      "shoppable": false,
@@ -251,7 +251,7 @@
     {
      "name": "todd monken",
      "mentions": 4,
-     "index": 21,
+     "index": 17,
      "status": "trending",
      "gap": true,
      "shoppable": false,
@@ -263,10 +263,10 @@
     "cleveland",
     "roster",
     "practice",
-    "squad",
     "watson",
     "deshaun",
-    "shedeur"
+    "squad",
+    "initial"
    ],
    "headline_count": 100,
    "headlines": [
@@ -283,22 +283,22 @@
      "pub": "Fri, 28 Aug 2026 17:02:18 GMT"
     },
     {
-     "title": "Cleveland Browns news: Coach wants to see you. And bring your playbook.",
-     "url": "https://news.google.com/rss/articles/CBMivgFBVV95cUxQT2tmcEt1T1dUYnM1U2s2VGQ1YXU5eGFxX0NBM3NlNy1ka093LVRjWENjbmZKTWMtN29IQmhveGZJMVpoM1hJZC1jdUdiZ0FmVVdfcDNGUDVfWllxOGdxLWtjSHhULTF5SU5iZ0dMUHlHWGY3Sk5tZkRKdnljQ00zWmpjdnQtLXdqY3RNMDZPU05IdWxoTzc5czFsTlVVb2RpQVl2XzMwaXR0MWhsd1l4TURoNjZ4d25lVV93Rnd3?oc=5",
-     "source": "Dawgs By Nature",
-     "pub": "Sat, 29 Aug 2026 10:30:00 GMT"
-    },
-    {
-     "title": "Dillon Gabriel's best plays from 3-TD game vs. Patriots | Preseason Week 3",
-     "url": "https://news.google.com/rss/articles/CBMinwFBVV95cUxPRkVBTHF6YkhnbXhCN2RDenFGQy1rQm45Zkh2aU5RVHJsdWlTTWJxc1d4LVdkRGprRFpHQnRVSVpldW1hRzNXdUNheXNkQW1yQkFCRnpVLXNQa1JaRWY4UlhEd2g1cmZ3cGxMNHpLM2thdy1qekRKU2xYdWcyS2hWam15VVBlVTNlTjFPRW91R1dnTXpWa2pGZTd5S1BjNms?oc=5",
-     "source": "NFL.com",
-     "pub": "Fri, 28 Aug 2026 02:08:33 GMT"
-    },
-    {
-     "title": "Would the Browns consider throwing the ball to QB Taylen Green? The surprise of camp re-signed to the practic",
-     "url": "https://news.google.com/rss/articles/CBMigAJBVV95cUxONUpuLUo5c0RpZzdocE9IYlUwYTNzU19Lb1VLWWwyaVhNQnFYOS1iMk45Vm44NnlNTU4tZTlkSllLcGJyYmNkQVZGRkJsN2E1S1JaZndMYnllYUp1VHlLekJpTFRUb2NUY2FYT2lLMkdlNjcwRlo3NnAxSlBxaFdCclJCZUMtQlpPcHJCdDZWSUo5eVk0eHJwVHpRTVBkNkk1Sml0a3JOQnJ5RDE3QWg5MHRtRUhMQUVSdFZPcTlRaE9fQW9XTlRoT3B3a18xcUc4WGRzWVZYV24tQ21rMV9SN1RtekhqWkZlLWw0SGpfaUxtdG1aWjlaRWVKeDRWejdD0gGUAkFVX3lxTE5jdU1LdkUzb0N5MVdUYVBpN3cyQzRpc2Jvc1AtcE9ZNHMzVkI3a1JJbjdEeWRXa2pzdkxHLUFMTlE4cVdPQV9NaTRZM1ZSNWs2TVhlVmVOS3lGNkJqa0wtZ05yekp0d0U1VHNkLWF6Tk51WkI1VE54UHI1NFp5emdaLWFxdjFIdzF0SzJWaWwyb3BhX3h4bDNJVTNQQkVVRzdlNi1fNmtheHJCekFQS3FjV1NSQWU3NDB0VnVYOXh2TmExNFprczRPeWZiYmUzYkcyZHR2bWo0MExnM0Z6aWp0c1N3NWZOTVlLQjJhd2RDa1Brd2xzV0pXbGczdUdpSFZkQnJBcmNSWXlDQWZmQWhFbUVGSw?oc=5",
+     "title": "Thinking about Browns QBs, kickers & discipline \u2013 Terry Pluto",
+     "url": "https://news.google.com/rss/articles/CBMipAFBVV95cUxQTU1kNTBLanFxczZ1LU5rUzNRUHAzdWhaYUFjdzQ5bGJSN2JBZGNFNDZGSVNLT0E0d2hnVXB2a0VDYldhYVVHeVl0T1hHVlBtdTJYR19uUkJRU3ptQW41N1d2dEZRMzh6angzYkRjUHJiTlRabHJLdnFDc05PWmM1S3o4MGVmT1EwUmpDOVdSRWF4Wl9sYm9rZFJza1B2SjFJaFNCZdIBuAFBVV95cUxPdWpJM2Q4WG9hd2JBMDdjR1JJWTdFX3RLTHM5UFc5SUZHYllsN1lGbkphREJRU29BNUR1SHEwa3FJNkhfdEJRbWl1LU1xUl8ybGNtZ3JrSnhrUUZRYm5qcHQ3bzdJbUZYREMyZ0d2emptVWVFVl9wTU0wZ2xveUpmWkx0ZWZCSUk2N2dfRXAzak9hdkZqN1VoLXVBY2dYeHBJUjFlbFRmUndBV0wyRXNfN3dzWTBscmRw?oc=5",
      "source": "Cleveland.com",
-     "pub": "Fri, 04 Sep 2026 12:16:00 GMT"
+     "pub": "Sun, 30 Aug 2026 10:00:00 GMT"
+    },
+    {
+     "title": "Browns keep 3 QBs on roster, put Dillon Gabriel (back) on IR",
+     "url": "https://news.google.com/rss/articles/CBMinAFBVV95cUxPYjdxQXhRbjR2YUE2V3l6YVJZbUFXVHcyUXR4U011NFBORDZNUW1aZjluQUVyazc2a2VUOEF4YTJWTTRLNlBhTXJhYWMteFRWdnE1NzBidEFiOU81dmFOTGg5eWZ3eS03eDE4ZEJXS2Y2QzV1eGhRdnN2ZFhvMXBpb0YzV203M2s5ZVdXYWtiTzVzVlNRM3ZsYzExSUY?oc=5",
+     "source": "ESPN",
+     "pub": "Sun, 30 Aug 2026 21:23:00 GMT"
+    },
+    {
+     "title": "See the Cleveland Browns\u2019 latest moves as 53-man roster deadline looms",
+     "url": "https://news.google.com/rss/articles/CBMijAFBVV95cUxPTVpNNlE3MDJyelNiaTdrNFFDeS01eDVCUHNZbzhRVmI0R2tLWHNsTVY0bXJDZlkxMk9YYl9kSEZoRkdiWGthT1gwcHkzXzdxbmZEMlZEbWpmQ09UV2RndmlVNzV5RUhDakRQRW1CUlc2aF96T2I5Y0d3dTNySjNjeVczX3hyTjEzTFREUdIBkgFBVV95cUxNdFFIeXAwUFY2Ukk1UVdBM3BOLTJVSWpWbWVUX1VjZWZWdjFSakVkcVFvd0VHMTd6UTdRQ2tFVnhPbWdUNFpEUmJQTTNaZ053MHBjeFF2THdUbGxIUWFpaUpsLTU1UW5NYTk3aWtQQmw0ZUgwMkdLcklJeEVMbnZGTlZnMzY1Rl96MjNabmh3V29OZw?oc=5",
+     "source": "FOX 8 News",
+     "pub": "Fri, 28 Aug 2026 19:41:36 GMT"
     }
    ],
    "fti_count": 7
@@ -319,8 +319,8 @@
     "dallas",
     "roster",
     "practice",
-    "milton",
     "squad",
+    "milton",
     "jaydon",
     "blue"
    ],
@@ -339,12 +339,6 @@
      "pub": "Sun, 30 Aug 2026 22:36:16 GMT"
     },
     {
-     "title": "Sam Williams, Jaydon Blue among 39 roster moves as Cowboys trim roster to 53",
-     "url": "https://news.google.com/rss/articles/CBMirwFBVV95cUxNS3AwRlhvenVyczZNeDVMM2xmSFdnQi1zSlB2Q2x2dUJpOTNSVkt0SC1qYXZjUWp1cW5FQWRzR3ZzRjhYNnRNVmJXLWpuNWhBZmFTaFczX1h3VlVybmRod2IxNkNwc2dWMlFfU0h5SGJ1WVltMXJWRjdEemZMQ1RsMlhkbWZfTkEwblRLV2ZsOWNlc2ROb1lUYURRQXFNVmhtVE5RMndMY3VrNzhRRlZR?oc=5",
-     "source": "Dallas Cowboys",
-     "pub": "Sun, 30 Aug 2026 22:02:16 GMT"
-    },
-    {
      "title": "Why the Cowboys chose Sam Howell as their backup quarterback",
      "url": "https://news.google.com/rss/articles/CBMimwFBVV95cUxOVnFmOWNWdTg3Ykh0c1FPaWF6ZXZXOWdTWDNBTFdEUVFNTXdZUTJIcFZ4aWdmSXB3SkhIbW5COXdzRl9uVWloOVNjUzVRMjZSNWVsOS1PWWVrdnc4Z0hYMzNQT1NrTWxYQm1ZQlI1N1RtOWFGc0xvX1J3ZFlpYVp3SzBtc1kzcFprbUJOSEk0SENjNmt3eHVqeVllYw?oc=5",
      "source": "Dallas Cowboys",
@@ -355,6 +349,12 @@
      "url": "https://news.google.com/rss/articles/CBMisAFBVV95cUxQTlZuQ1hPOWZNQzcwM0VzeEZoMnU3ekpVcDN1SmhNbndlMXgwdXNuOTJtR3loUWQzbkVIZGRhZEw0ZVp2SS1zaVZvc1NEQVBlYWl3RmFBT1pNdzhlcGJDeFp2aXZlTUxOMWx3YmUxRWx1blR6VVBIaGwwQkt6NkN2Mjlkb1p1WG1VczRnYnRSZmQzVlNhQ0V5b3VCRG81NnB5Zk1IaXdvSFVaelFtYnNSNw?oc=5",
      "source": "Dallas Cowboys",
      "pub": "Tue, 01 Sep 2026 18:55:23 GMT"
+    },
+    {
+     "title": "Mick Shots: Filling this major void just in time",
+     "url": "https://news.google.com/rss/articles/CBMiigFBVV95cUxOckttN0NkRThkUGZmMEY0V253UVlqVkZETnBWZEZqQmFYelRSaE5seVNDaEd4SExVbXNyVTk3QlZvMGpHU18xLTByR2NULWF1dHJtN3RQNk13VUMydWg3bTZUY2RPUjBhQUNpQ2NhZ1F6ZlQ5RjJHcHhQSnhGZGRaZmticFRKLUZXYWc?oc=5",
+     "source": "Dallas Cowboys",
+     "pub": "Wed, 02 Sep 2026 22:04:46 GMT"
     }
    ],
    "fti_count": 2
@@ -373,7 +373,7 @@
     {
      "name": "josh jacobs",
      "mentions": 19,
-     "index": 100,
+     "index": 83,
      "status": "trending",
      "gap": true,
      "shoppable": false,
@@ -382,7 +382,7 @@
     {
      "name": "matt lafleur",
      "mentions": 7,
-     "index": 37,
+     "index": 30,
      "status": "trending",
      "gap": true,
      "shoppable": false,
@@ -395,8 +395,8 @@
     "roster",
     "josh",
     "jacobs",
-    "trade",
     "sign",
+    "trade",
     "list"
    ],
    "headline_count": 100,
@@ -410,7 +410,7 @@
     {
      "title": "The 3 Biggest Surpises From Green Bay's Inital Roster Cuts",
      "url": "https://news.google.com/rss/articles/CBMinAFBVV95cUxPUVpfVXJxRENyNm5tWklOOWwzVHljUW9Mc3Q5UVEzWlM0SHBhdWxrTFRZSXNoQ0dZaWQtU1l3LUFLcW5RbE1Bc3lkaVpKMlFXVVRzRXE0bEg1TjNOc1RHQ1dxV1l5UFVqWlQ3LXRONWRJS3czMkxhWnFFYVVXWkQ2SHFNTHZocXg4ZlNhUHNSdTNHRFp0Smd4WHpKeUc?oc=5",
-     "source": "zonecoverage.com",
+     "source": "Zone Coverage",
      "pub": "Tue, 01 Sep 2026 21:18:28 GMT"
     },
     {
@@ -420,10 +420,10 @@
      "pub": "Thu, 27 Aug 2026 07:00:00 GMT"
     },
     {
-     "title": "Green Bay Packers to sign TE Jonnu Smith",
-     "url": "https://news.google.com/rss/articles/CBMipwFBVV95cUxPQmNUSUoyRjlpb1dPQnVlT19YSnNDczM2aEhFdENCNWV2TndkRmRFb2hMa0R4MUN2MXV5Nm95LXhPNDhwV3FqUVk3TzBsYnpzdDgzLVVsQ3M4YVpoN0gzNXZpTUtaN1E2dGgzaHI2WVZ4bENTVzljSVc3NWN0cGw5RnBYeFZRUlZudkJuR3ZOME9GZmVlQW5RV1J4c1ZCOHBsaHdRdXU2OA?oc=5",
+     "title": "Three new Packers players are making an impression in Green Bay",
+     "url": "https://news.google.com/rss/articles/CBMiuAFBVV95cUxQZ1NvTzVwR3VIN2U2SDVnRld2U0F6cTFfQXg2TzFyTGhNQTl3bmdTbkkzaU80OHp0X3pFRW1vYWZZWjRJWVlVSThWcklmTjdoOTZyMkNQYTdhSUpuUXRISUw0WkxUTmFaNGd1R0VYSDdtOFdHc3BWYktGeDIzZlhxVVRPVzBVaURkZFpqRkM4Ujdhd0h6OVg4NVJNNjdOUVk5V2szcXQ4anRQZDVJY01sVlNjRDJ4cERH?oc=5",
      "source": "Acme Packing Company",
-     "pub": "Thu, 27 Aug 2026 07:00:00 GMT"
+     "pub": "Wed, 02 Sep 2026 14:12:01 GMT"
     },
     {
      "title": "2026 Green Bay Packers training camp: Latest intel, updates",
@@ -447,8 +447,8 @@
    "gaps": [
     {
      "name": "kyle whittingham",
-     "mentions": 8,
-     "index": 42,
+     "mentions": 7,
+     "index": 30,
      "status": "trending",
      "gap": true,
      "shoppable": false,
@@ -462,8 +462,8 @@
     "wolverines",
     "predictions",
     "below",
-    "here",
-    "whittingham"
+    "underwood",
+    "here"
    ],
    "headline_count": 100,
    "headlines": [
@@ -694,36 +694,6 @@
     "myles garrett",
     "kevin stefanski",
     "todd monken"
-   ]
-  },
-  {
-   "title": "Cleveland Browns coach doubles down on Deshaun Watson: \u2018I\u2019ve got you\u2019",
-   "url": "https://news.google.com/rss/articles/CBMiggFBVV95cUxPdjI5NmJiXzl5TUdONWNWMHlqeEQ2UDFnWkJtbHRTT0pBT0I5aGJQNl9XcEctQ2FaaF9wa0J4UDNmcDY0cmJPODUxOFZDTGZzRGdid0RpelpRazVsWlNIMk53X0VRVEhQWkxnQnk1TURHYU1ESDA5OW9MQWQwc3lJM2l30gGHAUFVX3lxTFBoUTNieWVHTW1MXzJoQ09qZ1ZHcmVPMmNzZGs2dDU1dmFzdWktX004SkRYMnktN2VnSmh0OUhvQ2dEYTV2SkItN1NYSFJiaFlPdEhwaDl3aUZvQTBOYW5JLTRmbW5FWWJ6cC1aVW9wQ1F4dk1QOTNEWDZwTWFuVFpVejNISndJRQ?oc=5",
-   "source": "FOX 8 News",
-   "pub": "Wed, 02 Sep 2026 12:22:13 GMT",
-   "collection": "cleveland-browns",
-   "entities": [
-    "deshaun watson"
-   ]
-  },
-  {
-   "title": "Life without Myles Garrett: What to expect from Browns defense",
-   "url": "https://news.google.com/rss/articles/CBMisgFBVV95cUxPVUVCMzBkUjNNaV85Mkdic0xwS2k2S25fSHNaUWVyQ3dvcmYxX0JEdWtYdnN4OGcyQlhSekZrdnNwUFNXTkFJNWdQdXltb3ZQQWZXWWlDVkZXYlNNVHdRMF9WUlh1ci1uWlRxM3ZmbkVoRU5lRFRKWW9WdkMwR1ZJa3prSkk1YVhBbDZGOFNqOU0tNW4taUNTZ0hCbVZnMG5xZkRNV0xGNVhCNzl3RVV6aDlR?oc=5",
-   "source": "ESPN",
-   "pub": "Wed, 02 Sep 2026 10:00:00 GMT",
-   "collection": "cleveland-browns",
-   "entities": [
-    "myles garrett"
-   ]
-  },
-  {
-   "title": "Packers trade for Steelers RB Kaleb Johnson as Josh Jacobs lands on Commissioner's Exempt List",
-   "url": "https://news.google.com/rss/articles/CBMiwAFBVV95cUxPcXFvRjN4U1ZDdXYyc25UakJpZUhlOTNlN1JubU44NThfS1FYRnVrZmc1SWxHWGNNcFE5MG8wTUdSdEw1VFVmblkxUVM1dXhLS3pmZjZ0dmdHellWbkwwV2hMOWI4NUJCVjJWd0pvWi1feFFuNWJ0Z3o1N0E3cDFHLUZRXzl1dEFqeHZKYWVXVDdSdmlBeFVVNkVBbGdnYjQyWjBtdVB4UHpJaTFITWdvc3FJRlVLZHVKR01BYWdUZl8?oc=5",
-   "source": "NFL.com",
-   "pub": "Sun, 30 Aug 2026 19:05:36 GMT",
-   "collection": "green-bay-packers",
-   "entities": [
-    "josh jacobs"
    ]
   }
  ]
