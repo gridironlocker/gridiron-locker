@@ -434,7 +434,7 @@ def theme_vars(ckey):
 
 def head(title, desc, path, image=None, schema=None, keywords=None, col=None):
     canon = abs_url(path)
-    img = DOMAIN + (image or "/img/hero-home.jpg")
+    img = DOMAIN + (image or "/img/hero-home.jpg?v=2")
     kw = f'<meta name="keywords" content="{esc(", ".join(keywords[:14]))}">' if keywords else ""
     # A page that belongs to one collection wears that collection's tokens at
     # :root, so its chips and rules are team-coloured while CTAs stay teal.
@@ -951,7 +951,7 @@ def home_banner():
     n = len(ALL)
     teams = ", ".join(COLLECTIONS[k]["short"] for k in ORDER[:-1])
     return f"""<section class="cbanner" style="padding:0">
- <div class="band"><img src="/img/hero-home.jpg" alt="{esc(BRAND)} fan apparel"
+ <div class="band"><img src="/img/hero-home.jpg?v=2" alt="{esc(BRAND)} fan apparel"
   width="1774" height="887" fetchpriority="high"></div>
  <div class="cb-in">
   <span class="eyebrow"><span class="dot"></span> {n} fan designs &middot; {len(ORDER)} team collections</span>
@@ -1049,7 +1049,7 @@ def page_home():
  </div>
 </div></section></main>"""
     URLS.append((DOMAIN + "/", "1.0", "daily"))
-    write("index.html", head(f"{BRAND} | {CFG['tagline']}", desc, path, "/img/hero-home.jpg", schema,
+    write("index.html", head(f"{BRAND} | {CFG['tagline']}", desc, path, "/img/hero-home.jpg?v=2", schema,
                              ["football fan shirts", "nfl fan t shirts", "custom football tees",
                               "cleveland browns shirts", "green bay packers shirts",
                               "dallas cowboys shirt", "michigan football shirt"])
@@ -1083,7 +1083,7 @@ def page_collections_index():
 </div></main>"""
     URLS.append((DOMAIN + path, "0.9", "weekly"))
     write("collections/index.html", head("All Football Fan Collections | " + BRAND, desc, path,
-                                         "/img/hero-home.jpg", schema) + header() + body + footer())
+                                         "/img/hero-home.jpg?v=2", schema) + header() + body + footer())
 
 
 def page_collection(k):
@@ -1754,7 +1754,7 @@ border-top:3px solid var(--ca)">
            "description": desc, "datePublished": TODAY, "dateModified": DATA_DATE,
            "author": {"@type": "Organization", "name": BRAND},
            "publisher": {"@type": "Organization", "name": BRAND},
-           "mainEntityOfPage": DOMAIN + path, "image": DOMAIN + "/img/hero-home.jpg"}
+           "mainEntityOfPage": DOMAIN + path, "image": DOMAIN + "/img/hero-home.jpg?v=2"}
     body = f"""{cb}<main id="main"><section style="padding-top:6px"><div class="wrap prose">
 <h1>{title}</h1>
 <p class="muted">Updated {TODAY} &middot; {sum(len(v) for v in WEEK1_SLATE.values())} Week 1 graphics &middot;
@@ -1796,7 +1796,7 @@ fan-created work.</p>
     URLS.append((DOMAIN + path, "0.7", "weekly"))
     write("guides/2026-week-1-shirts/index.html",
           head(f"2026 Week 1 Fan Shirts: Kickoff Fits & Slogan Tees | {BRAND}", desc, path,
-               "/img/hero-home.jpg", [cbs, art, faq_schema],
+               "/img/hero-home.jpg?v=2", [cbs, art, faq_schema],
                ["week 1 fan shirt", "2026 week 1 football tee", "kickoff game day shirt",
                 "michigan week 1 shirt", "cleveland week 1 shirt", "packers week 1 shirt",
                 "dallas week 1 shirt", "slogan football tee"])
@@ -1907,10 +1907,10 @@ def page_season():
 </div>"""
     desc = ("2026 football season hub: Week 1 dates, what changed on each roster, and the fan shirts "
             "trending right now for Cleveland, Green Bay, Dallas and Michigan supporters.")
-    logo = {"@type": "ImageObject", "url": DOMAIN + "/img/hero-home.jpg"}
+    logo = {"@type": "ImageObject", "url": DOMAIN + "/img/hero-home.jpg?v=2"}
     schema = [cbs, {"@context": "https://schema.org", "@type": "Article",
                     "headline": "2026 Season Fan Apparel Hub",
-                    "description": desc, "image": DOMAIN + "/img/hero-home.jpg",
+                    "description": desc, "image": DOMAIN + "/img/hero-home.jpg?v=2",
                     "datePublished": TODAY, "dateModified": DATA_DATE,
                     "author": {"@type": "Organization", "name": f"{BRAND} Fan Desk",
                                "url": DOMAIN + path},
@@ -1946,7 +1946,7 @@ def page_season():
 </div></section></div></main>"""
     URLS.append((DOMAIN + path, "0.9", "weekly"))
     write("2026-season/index.html",
-          head(f"2026 Season Fan Shirt Hub | {BRAND}", desc, path, "/img/hero-home.jpg", schema,
+          head(f"2026 Season Fan Shirt Hub | {BRAND}", desc, path, "/img/hero-home.jpg?v=2", schema,
                [x for k in ORDER for x in SEASON[k]["hot"]])
           + header() + body + footer())
 
@@ -2055,7 +2055,7 @@ def page_fti():
 </div></section></div></main>"""
     URLS.append((DOMAIN + path, "0.8", "daily"))
     write("fan-trend-index/index.html",
-          head(f"Fan Trend Index | {BRAND}", desc, path, "/img/hero-home.jpg", schema,
+          head(f"Fan Trend Index | {BRAND}", desc, path, "/img/hero-home.jpg?v=2", schema,
                ["fan trend index", "nfl player trends 2026", "browns trending players",
                 "packers trending players", "michigan football trends"])
           + header() + body + footer())
