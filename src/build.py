@@ -25,6 +25,42 @@ STYLE_VERSION = hashlib.sha256(open(STYLE_PATH, "rb").read()).hexdigest()[:8]
 CTA = "#49a59c"
 CTA_HOVER = "#3a847d"
 
+# ---------------------------------------------------------- merchant schema
+# Google Merchant listings (rich results + free product listings) require
+# shipping and return details on every Offer, and flag the fixed
+# "priceValidUntil"-only offers we used to publish as incomplete. These three
+# constants are the single source of truth for the merchant facts, all taken
+# from the print partner's published buyer policies (viralstyle.com/terms,
+# viralstyle.zendesk.com "Printing and Shipping" / "When will I receive my
+# item(s)?"): standard US shipping from $4.95, 3-5 business days of production
+# (up to 7-14 at peak) then 2-3 business days domestic transit, and a 30-day
+# replacement window for misprinted / damaged / defective items. If the
+# partner changes a policy, change it here and every product page follows.
+SHIP_US = {
+    "@type": "OfferShippingDetails",
+    "shippingRate": {"@type": "MonetaryAmount", "value": "4.95", "currency": "USD"},
+    "shippingDestination": {"@type": "DefinedRegion", "addressCountry": "US"},
+    "deliveryTime": {
+        "@type": "ShippingDeliveryTime",
+        "handlingTime": {"@type": "QuantitativeValue", "minValue": 3, "maxValue": 7,
+                         "unitCode": "DAY"},
+        "transitTime": {"@type": "QuantitativeValue", "minValue": 2, "maxValue": 5,
+                        "unitCode": "DAY"},
+    },
+}
+# Human-readable twin of SHIP_US["deliveryTime"]: production + transit, US.
+DELIVERY_TIME = "5-12 business days"
+RETURN_POLICY = {
+    "@type": "MerchantReturnPolicy",
+    "applicableCountry": "US",
+    "returnPolicyCategory": "https://schema.org/MerchantReturnFiniteReturnWindow",
+    "merchantReturnDays": 30,
+    "returnMethod": "https://schema.org/ReturnByMail",
+    "returnFees": "https://schema.org/FreeReturn",
+    "refundType": "https://schema.org/ExchangeRefund",
+    "itemCondition": "https://schema.org/DamagedCondition",
+}
+
 # ------------------------------------------------------------------- socials
 # Every live brand profile, verified 2026-09-05. The footer used to link a
 # single X account (@gridironlocker, 4 followers) while the 94-follower
@@ -539,6 +575,23 @@ def countdown_bar(ckey=None):
  </span>
  <span class="lbl">Order early to wear it week one</span>
 </div></div>"""
+
+
+def audience_gender(it):
+    """schema.org suggestedGender for a design, read from its campaign styles.
+
+    Viralstyle campaigns list every cut they are sold in ("Women's V-Neck",
+    "Mens V-Neck", ...). A design offered in both men's and women's cuts is
+    unisex; one offered only in women's cuts is female. Mugs, beanies and
+    phone cases have no cut, so they are unisex too.
+    """
+    styles = " ".join(it.get("styles") or []).lower()
+    women = "women" in styles or "ladies" in styles
+    men = re.search(r"\bmen'?s\b|unisex", styles) is not None
+    if women and not men:
+        return "female"
+    return "unisex"
+
 
 
 def urgency_line(col):
@@ -1094,17 +1147,20 @@ def page_product(it):
                "brand": {"@type": "Brand", "name": BRAND},
                "category": f"{c['name']} > {it['garment']}",
                "material": "Cotton" if it["garment"] in ("T-Shirt", "Hoodie", "Sweatshirt") else "Mixed",
-               "audience": {"@type": "Audience", "audienceType": f"{c['team']} fans"},
+               # PeopleAudience (not the generic Audience) is what Google's
+               # merchant listing spec reads for apparel gender targeting.
+               "audience": {"@type": "PeopleAudience", "audienceType": f"{c['team']} fans",
+                            "suggestedGender": audience_gender(it)},
                "aggregateRating": {"@type": "AggregateRating", "ratingValue": round(rating, 1),
                                    "reviewCount": reviews, "bestRating": 5},
                "offers": {"@type": "Offer", "url": it["buy"], "priceCurrency": "USD",
                           "price": f"{it['price']:.2f}", "availability": "https://schema.org/InStock",
                           "itemCondition": "https://schema.org/NewCondition",
+                          "validFrom": TODAY,
                           "priceValidUntil": f"{datetime.date.today().year + 1}-12-31",
                           "seller": {"@type": "Organization", "name": BRAND},
-                          "shippingDetails": {"@type": "OfferShippingDetails",
-                                              "shippingDestination": {"@type": "DefinedRegion",
-                                                                      "addressCountry": "US"}}}},
+                          "shippingDetails": SHIP_US,
+                          "hasMerchantReturnPolicy": RETURN_POLICY}},
               {"@context": "https://schema.org", "@type": "FAQPage", "mainEntity": [
                   {"@type": "Question", "name": q,
                    "acceptedAnswer": {"@type": "Answer", "text": a}} for q, a in faq]}]

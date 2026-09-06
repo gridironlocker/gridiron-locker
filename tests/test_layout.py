@@ -21,6 +21,10 @@ Covered:
   * Homepage: rounded horizontal "Shop By Team" nav cards with circular
     thumbnails (2 desktop / 1 mobile), no "Why this locker", compact four-entry
     Fan Trend Index strip; the full index page still lists everything.
+  * Product pages: Google-merchant Product schema (PeopleAudience, validFrom,
+    shippingRate, deliveryTime, hasMerchantReturnPolicy) sourced from the
+    SHIP_US / RETURN_POLICY / DELIVERY_TIME constants.
+  * Artwork hygiene: no PNG masters in site/img (they live in artwork-source/).
   * Preserved: team accents, hero images, product count, checkout links, SEO
     metadata, dynamic catalogue counts, no missing local references.
 """
@@ -302,6 +306,65 @@ class CountdownsElsewhere(unittest.TestCase):
 
     def test_countdown_script_still_shipped(self):
         self.assertIn("kickoff countdown", page("assets/app.js"))
+
+
+class ProductPages(unittest.TestCase):
+    """Conversion + merchant schema on every built product page."""
+
+    @classmethod
+    def setUpClass(cls):
+        shop = os.path.join(SITE, "shop")
+        cls.pages = {d: read(os.path.join(shop, d, "index.html"))
+                     for d in sorted(os.listdir(shop))
+                     if os.path.isfile(os.path.join(shop, d, "index.html"))}
+        cls.css = page("assets/style.css")
+        cls.js = page("assets/app.js")
+
+    @staticmethod
+    def product_ld(html):
+        for m in re.finditer(r'<script type="application/ld\+json">(.*?)</script>', html, re.S):
+            d = json.loads(m.group(1))
+            if d.get("@type") == "Product":
+                return d
+        return None
+
+    def test_merchant_schema_on_every_offer(self):
+        import build  # noqa: E402
+        for slug, html in self.pages.items():
+            d = self.product_ld(html)
+            self.assertIsNotNone(d, slug)
+            self.assertEqual(d["audience"]["@type"], "PeopleAudience", slug)
+            self.assertIn(d["audience"]["suggestedGender"], ("unisex", "female", "male"), slug)
+            o = d["offers"]
+            self.assertEqual(o["validFrom"], build.TODAY, slug)
+            self.assertLess(o["validFrom"], o["priceValidUntil"], slug)
+            self.assertEqual(o["hasMerchantReturnPolicy"], build.RETURN_POLICY, slug)
+            self.assertEqual(o["shippingDetails"], build.SHIP_US, slug)
+            self.assertEqual(o["shippingDetails"]["shippingRate"]["value"], "4.95", slug)
+            self.assertEqual(o["hasMerchantReturnPolicy"]["merchantReturnDays"], 30, slug)
+            dt = o["shippingDetails"]["deliveryTime"]
+            self.assertEqual(dt["@type"], "ShippingDeliveryTime", slug)
+            self.assertIn("handlingTime", dt, slug)
+            self.assertIn("transitTime", dt, slug)
+
+    def test_merchant_constants_defined_once(self):
+        src = read(os.path.join(SRC, "build.py"))
+        for name in ("SHIP_US", "RETURN_POLICY", "DELIVERY_TIME"):
+            self.assertEqual(len(re.findall(r"^%s = " % name, src, re.M)), 1, name)
+        self.assertNotIn('"shippingDetails": {"@type": "OfferShippingDetails"', src)
+
+
+class ArtworkHygiene(unittest.TestCase):
+    def test_no_orphan_artwork_in_site_img(self):
+        # site/img is deployed wholesale; PNG masters live in artwork-source/.
+        img = os.path.join(SITE, "img")
+        pngs = [f for f in os.listdir(img) if f.lower().endswith(".png")]
+        self.assertEqual(pngs, [], pngs)
+        self.assertTrue(os.path.isdir(os.path.join(ROOT, "artwork-source")))
+        for k in ORDER:
+            hero = os.path.join(SITE, COLLECTIONS[k]["hero"].lstrip("/"))
+            self.assertTrue(os.path.isfile(hero), hero)
+            self.assertLess(os.path.getsize(hero), 750 * 1024, hero)
 
 
 class Homepage(unittest.TestCase):
