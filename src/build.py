@@ -572,7 +572,7 @@ def countdown_bar(ckey=None):
   <b id="cd-d">--<span>Days</span></b><b id="cd-h">--<span>Hrs</span></b>
   <b id="cd-m">--<span>Min</span></b><b id="cd-s">--<span>Sec</span></b>
  </span>
- <span class="lbl">Order early to wear it week one</span>
+ <span class="lbl">Kickoff information only · arrival before a specific game is not guaranteed</span>
 </div></div>"""
 
 
@@ -1399,7 +1399,7 @@ of avoidable exchanges. If you are between sizes, go up.</p>
          "S to 3XL on apparel, in unisex and women's cuts depending on the style. Beanies are one "
          "size, mugs are 11 oz, phone cases are chosen by device model."),
         ("How long until it arrives?",
-         "A few business days of production, then standard tracked shipping. Order early in the week "
+         "A few business days of production, then standard tracked shipping. Delivery is an estimate; "
          "arrival before a specific game is not guaranteed."),
         ("Can I get a design on a different garment?",
          "Many designs are offered on tees, women's cuts, tanks, V-necks, hoodies, crewnecks and long "
@@ -1647,9 +1647,8 @@ border-top:3px solid var(--ca)">
 
     faqs = [
         ("When should I order a Week 1 shirt?",
-         "Everything is printed after you order it, so the earlier the better. Michigan opens on "
-         "Sept 5 and the NFL Sunday slate is Sept 13 - allow about a week for printing and delivery "
-         "inside the US, and a little longer for international tracked shipping."),
+         "Everything is printed after you order it. Delivery is an estimate: 5-12 business days in the US, "
+         "with longer international transit possible; arrival before a specific game is not guaranteed."),
         ("Are these shirts officially licensed?",
          "No. Gridiron Locker is an independent, fan-made store. Designs are original artwork that "
          "uses team and city words descriptively to say who a design is for. We are not affiliated "
@@ -1691,8 +1690,7 @@ border-top:3px solid var(--ca)">
 <p>Week 1 of the 2026 season lands across two weekends: <strong>Michigan opens on Sept 5</strong>
 against Western Michigan, and the NFL Sunday slate kicks off on <strong>Sept 13</strong> with
 Cleveland at Jacksonville, Green Bay at Minnesota and Dallas in prime time against the Giants.
-Everything below is printed after you order it, so the clock that matters is not the kickoff - it is
-the print window before it.</p>
+Everything below is printed after you order it. Delivery timing is an estimate, and arrival before a specific game is not guaranteed.</p>
 <h2>Week 1 at a glance</h2>
 <table>
 <tr><th>Team</th><th>Kickoff</th><th>Week 1</th><th>Slogan direction</th></tr>
