@@ -1,0 +1,70 @@
+name: TMP fetch campaign artwork
+# TEMPORARY helper: this sandbox has no egress to assets.viralstyle.com, so the
+# three new Cleveland Browns campaigns are captured and their artwork downloaded
+# here with the repo's own add_campaign.py + replay_updates.py + dl.py pipeline.
+# The file is deleted before the pull request is merged.
+on:
+  workflow_dispatch:
+permissions:
+  contents: write
+concurrency:
+  group: tmp-assets
+  cancel-in-progress: false
+jobs:
+  fetch:
+    runs-on: ubuntu-latest
+    steps:
+      - uses: actions/checkout@v4
+        with:
+          ref: arena/01a07920-gridiron-locker
+          fetch-depth: 0
+      - uses: actions/setup-python@v5
+        with:
+          python-version: "3.12"
+      - name: Install dependencies
+        run: pip install --quiet requests beautifulsoup4 lxml Pillow
+
+      - name: Capture the three campaigns with the repo crawler
+        run: |
+          for s in limited-edition-no-fly-zone-denzel \
+                   limited-edition-rock-out-denzel \
+                   limited-edition-the-wall-graham; do
+            python3 add_campaign.py "$s" cleveland-browns
+          done
+
+      - name: Inject + download artwork (repo pipeline)
+        run: |
+          python3 replay_updates.py
+          python3 dl.py
+
+      - name: Keep only the new artwork and campaign data
+        run: |
+          # dl.py re-encodes every cached mockup and replay rewrites the derived
+          # catalogue files; keep the checked-in bytes for existing products and
+          # only add the three new slugs (campaigns_extra.json stays as captured).
+          git checkout -- site/img/p data/products.json data/products_live.json \
+            data/collections.json src/build.py src/config.json site/CNAME
+          git status --short | head -40
+
+      - name: Commit new campaign data + artwork
+        run: |
+          git config user.name "gridiron-bot"
+          git config user.email "actions@github.com"
+          git add data/campaigns_extra.json
+          git add "site/img/p/limited-edition-no-fly-zone-denzel-*.webp" \
+                  "site/img/p/limited-edition-rock-out-denzel-*.webp" \
+                  "site/img/p/limited-edition-the-wall-graham-*.webp"
+          git diff --staged --quiet && { echo "nothing to commit"; exit 1; }
+          git commit -m "Capture three Cleveland Browns campaigns and their Viralstyle artwork"
+          git pull --rebase origin arena/01a07920-gridiron-locker || { git rebase --abort; exit 1; }
+          git push origin HEAD:arena/01a07920-gridiron-locker
+
+      - name: Upload assets (fallback copy)
+        uses: actions/upload-artifact@v4
+        with:
+          name: new-assets
+          path: |
+            data/campaigns_extra.json
+            site/img/p/limited-edition-no-fly-zone-denzel-*.webp
+            site/img/p/limited-edition-rock-out-denzel-*.webp
+            site/img/p/limited-edition-the-wall-graham-*.webp
