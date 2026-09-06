@@ -434,7 +434,7 @@ class ArtworkHygiene(unittest.TestCase):
         self.assertEqual(pngs, [], pngs)
         self.assertTrue(os.path.isdir(os.path.join(ROOT, "artwork-source")))
         for k in ORDER:
-            hero = os.path.join(SITE, COLLECTIONS[k]["hero"].lstrip("/"))
+            hero = os.path.join(SITE, COLLECTIONS[k]["hero"].lstrip("/").split("?")[0])
             self.assertTrue(os.path.isfile(hero), hero)
             self.assertLess(os.path.getsize(hero), 750 * 1024, hero)
 
