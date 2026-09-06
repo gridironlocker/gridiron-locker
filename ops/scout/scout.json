@@ -2,7 +2,7 @@
  "generated": "2026-09-06",
  "window_days": 10,
  "fti_formula": "round(100 * entity_mentions / peak_mentions_in_window)",
- "peak_mentions": 20,
+ "peak_mentions": 21,
  "stats": {
   "products": 114,
   "collections": 4,
@@ -18,27 +18,27 @@
  },
  "fti_rows": [
   {
-   "name": "josh jacobs",
-   "mentions": 20,
-   "index": 100,
-   "status": "trending",
-   "gap": true,
-   "shoppable": false,
-   "collection": "green-bay-packers"
-  },
-  {
    "name": "deshaun watson",
-   "mentions": 19,
-   "index": 95,
+   "mentions": 21,
+   "index": 100,
    "status": "trending",
    "gap": true,
    "shoppable": false,
    "collection": "cleveland-browns"
   },
   {
+   "name": "josh jacobs",
+   "mentions": 20,
+   "index": 95,
+   "status": "trending",
+   "gap": true,
+   "shoppable": false,
+   "collection": "green-bay-packers"
+  },
+  {
    "name": "shedeur sanders",
    "mentions": 10,
-   "index": 50,
+   "index": 48,
    "status": "trending",
    "gap": false,
    "shoppable": true,
@@ -47,7 +47,7 @@
   {
    "name": "bryce underwood",
    "mentions": 7,
-   "index": 35,
+   "index": 33,
    "status": "trending",
    "gap": false,
    "shoppable": true,
@@ -56,7 +56,7 @@
   {
    "name": "kyle whittingham",
    "mentions": 7,
-   "index": 35,
+   "index": 33,
    "status": "trending",
    "gap": true,
    "shoppable": false,
@@ -65,7 +65,7 @@
   {
    "name": "myles garrett",
    "mentions": 6,
-   "index": 30,
+   "index": 29,
    "status": "trending",
    "gap": false,
    "shoppable": true,
@@ -74,7 +74,7 @@
   {
    "name": "todd monken",
    "mentions": 6,
-   "index": 30,
+   "index": 29,
    "status": "trending",
    "gap": true,
    "shoppable": false,
@@ -83,7 +83,7 @@
   {
    "name": "matt lafleur",
    "mentions": 5,
-   "index": 25,
+   "index": 24,
    "status": "trending",
    "gap": true,
    "shoppable": false,
@@ -92,7 +92,7 @@
   {
    "name": "micah parsons",
    "mentions": 4,
-   "index": 20,
+   "index": 19,
    "status": "trending",
    "gap": false,
    "shoppable": true,
@@ -182,27 +182,27 @@
  ],
  "gaps": [
   {
-   "name": "josh jacobs",
-   "mentions": 20,
-   "index": 100,
-   "status": "trending",
-   "gap": true,
-   "shoppable": false,
-   "collection": "green-bay-packers"
-  },
-  {
    "name": "deshaun watson",
-   "mentions": 19,
-   "index": 95,
+   "mentions": 21,
+   "index": 100,
    "status": "trending",
    "gap": true,
    "shoppable": false,
    "collection": "cleveland-browns"
   },
   {
+   "name": "josh jacobs",
+   "mentions": 20,
+   "index": 95,
+   "status": "trending",
+   "gap": true,
+   "shoppable": false,
+   "collection": "green-bay-packers"
+  },
+  {
    "name": "kyle whittingham",
    "mentions": 7,
-   "index": 35,
+   "index": 33,
    "status": "trending",
    "gap": true,
    "shoppable": false,
@@ -211,7 +211,7 @@
   {
    "name": "todd monken",
    "mentions": 6,
-   "index": 30,
+   "index": 29,
    "status": "trending",
    "gap": true,
    "shoppable": false,
@@ -220,7 +220,7 @@
   {
    "name": "matt lafleur",
    "mentions": 5,
-   "index": 25,
+   "index": 24,
    "status": "trending",
    "gap": true,
    "shoppable": false,
@@ -241,8 +241,8 @@
    "gaps": [
     {
      "name": "deshaun watson",
-     "mentions": 19,
-     "index": 95,
+     "mentions": 21,
+     "index": 100,
      "status": "trending",
      "gap": true,
      "shoppable": false,
@@ -251,7 +251,7 @@
     {
      "name": "todd monken",
      "mentions": 6,
-     "index": 30,
+     "index": 29,
      "status": "trending",
      "gap": true,
      "shoppable": false,
@@ -263,8 +263,8 @@
     "cleveland",
     "roster",
     "watson",
-    "practice",
     "deshaun",
+    "practice",
     "squad",
     "former"
    ],
@@ -373,7 +373,7 @@
     {
      "name": "josh jacobs",
      "mentions": 20,
-     "index": 100,
+     "index": 95,
      "status": "trending",
      "gap": true,
      "shoppable": false,
@@ -382,7 +382,7 @@
     {
      "name": "matt lafleur",
      "mentions": 5,
-     "index": 25,
+     "index": 24,
      "status": "trending",
      "gap": true,
      "shoppable": false,
@@ -416,7 +416,7 @@
     {
      "title": "Green Bay Packers receive low defensive ranking from PFF prior to Week 1 of 2026 NFL season",
      "url": "https://news.google.com/rss/articles/CBMihAFBVV95cUxNM2ticEhsQ1RSR1RkcVUxdm5PTXNjS0g4c3hoMmlvWkdVSnl4SWRGalFTR1NfS3QtUHRmbmkxQ1B5REV0cHhhZkJ5bENtU3ctOVhhdnA5RFVYemJ5WEg1cUx3YzZKempCWlp2R051ZHlsOGY3N0dDcS1la2xZZ1djWDJoeVU?oc=5",
-     "source": "sports.yahoo.com",
+     "source": "Yahoo Sports",
      "pub": "Sat, 05 Sep 2026 13:40:53 GMT"
     },
     {
@@ -448,7 +448,7 @@
     {
      "name": "kyle whittingham",
      "mentions": 7,
-     "index": 35,
+     "index": 33,
      "status": "trending",
      "gap": true,
      "shoppable": false,
@@ -494,7 +494,7 @@
     {
      "title": "What time is the Michigan game today? Channel, TV schedule, live stream to watch Wolverines' game vs. WMU",
      "url": "https://news.google.com/rss/articles/CBMiiAFBVV95cUxQQTZMdEtkdlRqQmVVMFNrbUpmY3VSdzBqaG1aSmhjMG9xaFdodWg0Qm1pd1o5RGhONlNoRlJVWG5KMEFtQnJUZ3ZxYnVQQWhpRURkNVJHQklyandpLTFLNjBEeUMtcm8tNjA0ZkNkLWZiVHcxcGpaNzFuMm9Bb2M1cnQyRHFMQVc1?oc=5",
-     "source": "sports.yahoo.com",
+     "source": "Yahoo Sports",
      "pub": "Sat, 05 Sep 2026 07:30:01 GMT"
     }
    ],
