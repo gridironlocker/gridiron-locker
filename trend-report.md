@@ -9,9 +9,9 @@ FTI = `round(100 * entity_mentions / peak_mentions_in_window)`. Peak mentions in
 | Rank | Name | Collection | Mentions | FTI | Status | Shop |
 |---|---|---|---|---|---|---|
 | 1 | deshaun watson | cleveland-browns | 21 | 100 | trending | gap — no design |
-| 2 | josh jacobs | green-bay-packers | 20 | 95 | trending | gap — no design |
-| 3 | shedeur sanders | cleveland-browns | 14 | 67 | trending | in locker |
-| 4 | bryce underwood | michigan | 8 | 38 | trending | in locker |
+| 2 | josh jacobs | green-bay-packers | 19 | 90 | trending | gap — no design |
+| 3 | shedeur sanders | cleveland-browns | 12 | 57 | trending | in locker |
+| 4 | bryce underwood | michigan | 10 | 48 | trending | in locker |
 | 5 | todd monken | cleveland-browns | 7 | 33 | trending | gap — no design |
 | 6 | kyle whittingham | michigan | 6 | 29 | trending | gap — no design |
 | 7 | myles garrett | cleveland-browns | 6 | 29 | trending | in locker |
@@ -39,7 +39,7 @@ FTI = `round(100 * entity_mentions / peak_mentions_in_window)`. Peak mentions in
 | Name | Headline mentions | Status | FTI |
 |---|---|---|---|
 | deshaun watson | 21 | TRENDING | 100 |
-| shedeur sanders | 14 | TRENDING | 67 |
+| shedeur sanders | 12 | TRENDING | 57 |
 | todd monken | 7 | TRENDING | 33 |
 | myles garrett | 6 | TRENDING | 29 |
 | kevin stefanski | 1 | steady | 5 |
@@ -57,14 +57,14 @@ Recent headlines:
 - [Browns announce initial 53-man roster heading into the 2026 season](https://news.google.com/rss/articles/CBMipgFBVV95cUxOQk9NbzAwUnp0U0lxR0lmRTl2am13cTNaeWVrdVIwREpuVFVSZ2JnMU9VWHhGUHdKV09SU0YwTk9fZkU5am41Nk93eFlwM1Z3ejJIeU1pWHFLa0ZCWEktajFnS3A1d1ZMdlpKVnZxS0dfOVVIOGRyc0RJc0Nfb1FNWEduNTlZWjEzeUxqM2dVU2dpUFZKLUNFNEFxSHE4Tmg0THg2TkJB?oc=5) - Cleveland Browns
 - [Deshaun Watson and the moral dilemma at the forefront of Cleveland Browns football](https://news.google.com/rss/articles/CBMioAFBVV95cUxNTWh1NTdQLWVTMHc0emQ4ZXNScGR2YkF6WFlpUWFOYVBic2ZZUXpWNzdaZmJXa2hjM2otWmtxR2FXWG56LVFOQk96Rms2ZFlaYXlZQWRiX1d4SGpReE5FUTlYUzZyLVdrcVdRaE5fc2I0QkdiYkwyWEt1S1ZhLWtFWDFlc0l3V2ZXaHEyZktadzBJazRaU2o0cWZHMGc1eU5B?oc=5) - Andscape
 - [Cleveland Browns set initial 53-man roster](https://news.google.com/rss/articles/CBMic0FVX3lxTE9ZMDZVVmNSem5BQ09qS25wU2N2SG56NnV3SUVPbF9XdnJ1bGxhZ3BfX3lEMHoxYTNoZ280Mi04dmhIallUbDBVZXVzVVNnUGFYVkhXYzFPNmN5MklFZU1lLTl1ankxR3pPa1J6c1d5ci1NQmPSAXhBVV95cUxOYkxibGJaZWdwNWtYdXhIaE1xUmNpSl82VkV1SU1fanV5MVVzRFV6M2dHOXlrR0cyQmtOTzU3c0E2RjhUU1FxUWJ1SnhZQ3NDVlROSTBqVER1cWxOSWJwOWFjdWFFd3hYeGFlV3ZrekpUb1MzQnZtcmw?oc=5) - FOX 8 News
-- [Would the Browns consider throwing the ball to QB Taylen Green? The surprise of camp re-signed to the practic](https://news.google.com/rss/articles/CBMigAJBVV95cUxONUpuLUo5c0RpZzdocE9IYlUwYTNzU19Lb1VLWWwyaVhNQnFYOS1iMk45Vm44NnlNTU4tZTlkSllLcGJyYmNkQVZGRkJsN2E1S1JaZndMYnllYUp1VHlLekJpTFRUb2NUY2FYT2lLMkdlNjcwRlo3NnAxSlBxaFdCclJCZUMtQlpPcHJCdDZWSUo5eVk0eHJwVHpRTVBkNkk1Sml0a3JOQnJ5RDE3QWg5MHRtRUhMQUVSdFZPcTlRaE9fQW9XTlRoT3B3a18xcUc4WGRzWVZYV24tQ21rMV9SN1RtekhqWkZlLWw0SGpfaUxtdG1aWjlaRWVKeDRWejdD0gGUAkFVX3lxTE5jdU1LdkUzb0N5MVdUYVBpN3cyQzRpc2Jvc1AtcE9ZNHMzVkI3a1JJbjdEeWRXa2pzdkxHLUFMTlE4cVdPQV9NaTRZM1ZSNWs2TVhlVmVOS3lGNkJqa0wtZ05yekp0d0U1VHNkLWF6Tk51WkI1VE54UHI1NFp5emdaLWFxdjFIdzF0SzJWaWwyb3BhX3h4bDNJVTNQQkVVRzdlNi1fNmtheHJCekFQS3FjV1NSQWU3NDB0VnVYOXh2TmExNFprczRPeWZiYmUzYkcyZHR2bWo0MExnM0Z6aWp0c1N3NWZOTVlLQjJhd2RDa1Brd2xzV0pXbGczdUdpSFZkQnJBcmNSWXlDQWZmQWhFbUVGSw?oc=5) - cleveland.com
+- [Would the Browns consider throwing the ball to QB Taylen Green? The surprise of camp re-signed to the practic](https://news.google.com/rss/articles/CBMigAJBVV95cUxONUpuLUo5c0RpZzdocE9IYlUwYTNzU19Lb1VLWWwyaVhNQnFYOS1iMk45Vm44NnlNTU4tZTlkSllLcGJyYmNkQVZGRkJsN2E1S1JaZndMYnllYUp1VHlLekJpTFRUb2NUY2FYT2lLMkdlNjcwRlo3NnAxSlBxaFdCclJCZUMtQlpPcHJCdDZWSUo5eVk0eHJwVHpRTVBkNkk1Sml0a3JOQnJ5RDE3QWg5MHRtRUhMQUVSdFZPcTlRaE9fQW9XTlRoT3B3a18xcUc4WGRzWVZYV24tQ21rMV9SN1RtekhqWkZlLWw0SGpfaUxtdG1aWjlaRWVKeDRWejdD0gGUAkFVX3lxTE5jdU1LdkUzb0N5MVdUYVBpN3cyQzRpc2Jvc1AtcE9ZNHMzVkI3a1JJbjdEeWRXa2pzdkxHLUFMTlE4cVdPQV9NaTRZM1ZSNWs2TVhlVmVOS3lGNkJqa0wtZ05yekp0d0U1VHNkLWF6Tk51WkI1VE54UHI1NFp5emdaLWFxdjFIdzF0SzJWaWwyb3BhX3h4bDNJVTNQQkVVRzdlNi1fNmtheHJCekFQS3FjV1NSQWU3NDB0VnVYOXh2TmExNFprczRPeWZiYmUzYkcyZHR2bWo0MExnM0Z6aWp0c1N3NWZOTVlLQjJhd2RDa1Brd2xzV0pXbGczdUdpSFZkQnJBcmNSWXlDQWZmQWhFbUVGSw?oc=5) - Cleveland.com
 - [Cleveland Browns have a strategy that may just be crazy enough to work](https://news.google.com/rss/articles/CBMizgFBVV95cUxOR2xkSGFFZlJkVHpxWi03RU1hSmZJQVFwZlVkRkw3cTdpZU53SFI5TGN6cy1zU3E3elZsX0kzSnhETF9jeHVva1NBY0EtVkZOaC1tY3VTM2lkNDlaOUdESFBLaThJM1pkTUdXSk1RUFZXVmVQRUJqVzFvQVZOcTBBNTR0VTdma0xFTkpmUkQ3b1pkUFhJT3ZWWUtsV0NMUmFCd2FoUGFvaVFHUjdfZnpLMzdKQ0VuYWZEWlNYa3F1ajU0bTF3ZkdHbS1TV0EwQQ?oc=5) - Dawgs By Nature
 
 ## Green Bay Packers Fan Shirts
 
 | Name | Headline mentions | Status | FTI |
 |---|---|---|---|
-| josh jacobs | 20 | TRENDING | 95 |
+| josh jacobs | 19 | TRENDING | 90 |
 | matt lafleur | 5 | TRENDING | 24 |
 | micah parsons | 4 | TRENDING | 19 |
 | jordan love | 2 | steady | 10 |
@@ -79,8 +79,8 @@ Recent headlines:
 - [Packers announce roster moves | Aug. 30, 2026](https://news.google.com/rss/articles/CBMiekFVX3lxTFBfRGZTYlhHM0ZLTHlPWUNtLXFGTE5McWxucTdDSlZWOHhVbmlQNlBYUFVjeEtQUXpDX0dtdEVjNE1uZ0R6d0NEMklCSHF3RjMyZXpGdDl1anhHOUFfMjMySjNKZEZxTzM2dlNZMnQ0VHRHTElxaTNCX3RB?oc=5) - Green Bay Packers
 - [The 3 Biggest Surpises From Green Bay's Inital Roster Cuts](https://news.google.com/rss/articles/CBMinAFBVV95cUxPUVpfVXJxRENyNm5tWklOOWwzVHljUW9Mc3Q5UVEzWlM0SHBhdWxrTFRZSXNoQ0dZaWQtU1l3LUFLcW5RbE1Bc3lkaVpKMlFXVVRzRXE0bEg1TjNOc1RHQ1dxV1l5UFVqWlQ3LXRONWRJS3czMkxhWnFFYVVXWkQ2SHFNTHZocXg4ZlNhUHNSdTNHRFp0Smd4WHpKeUc?oc=5) - Zone Coverage
 - [September 6, 2024- Green Bay Packers play first NFL game in South America.](https://news.google.com/rss/articles/CBMisAFBVV95cUxQWlY2cFJhNE15UVZCam5TcUQtUWJBcXoxUkU1aXg1M3RGWXlXcVVIeUl4ODhaeXBpSDdkdTZTcVFTNWJ5ckF1dXJ0N2R6elJlckR3NWRpb1dXZkZTMFNySE1VUlFKX2dReXZubFl3S3lHS1Jvckp4T1VERXF6VWJOYjdaMUxtSFdUYlkxanNKaG9rRDJaOHRDd19NYmxEZm1BTXRpVjdXUU0teEFocWVNSA?oc=5) - fox8live.com
-- [Green Bay Packers receive low defensive ranking from PFF prior to Week 1 of 2026 NFL season](https://news.google.com/rss/articles/CBMihAFBVV95cUxNM2ticEhsQ1RSR1RkcVUxdm5PTXNjS0g4c3hoMmlvWkdVSnl4SWRGalFTR1NfS3QtUHRmbmkxQ1B5REV0cHhhZkJ5bENtU3ctOVhhdnA5RFVYemJ5WEg1cUx3YzZKempCWlp2R051ZHlsOGY3N0dDcS1la2xZZ1djWDJoeVU?oc=5) - Yahoo Sports
-- [Three new Packers players are making an impression in Green Bay](https://news.google.com/rss/articles/CBMiuAFBVV95cUxQZ1NvTzVwR3VIN2U2SDVnRld2U0F6cTFfQXg2TzFyTGhNQTl3bmdTbkkzaU80OHp0X3pFRW1vYWZZWjRJWVlVSThWcklmTjdoOTZyMkNQYTdhSUpuUXRISUw0WkxUTmFaNGd1R0VYSDdtOFdHc3BWYktGeDIzZlhxVVRPVzBVaURkZFpqRkM4Ujdhd0h6OVg4NVJNNjdOUVk5V2szcXQ4anRQZDVJY01sVlNjRDJ4cERH?oc=5) - Acme Packing Company
+- [Green Bay Packers receive low defensive ranking from PFF prior to Week 1 of 2026 NFL season](https://news.google.com/rss/articles/CBMihAFBVV95cUxNM2ticEhsQ1RSR1RkcVUxdm5PTXNjS0g4c3hoMmlvWkdVSnl4SWRGalFTR1NfS3QtUHRmbmkxQ1B5REV0cHhhZkJ5bENtU3ctOVhhdnA5RFVYemJ5WEg1cUx3YzZKempCWlp2R051ZHlsOGY3N0dDcS1la2xZZ1djWDJoeVU?oc=5) - sports.yahoo.com
+- [Three new Packers players are making an impression in Green Bay](https://news.google.com/rss/articles/CBMiuAFBVV95cUxQZ1NvTzVwR3VIN2U2SDVnRld2U0F6cTFfQXg2TzFyTGhNQTl3bmdTbkkzaU80OHp0X3pFRW1vYWZZWjRJWVlVSThWcklmTjdoOTZyMkNQYTdhSUpuUXRISUw0WkxUTmFaNGd1R0VYSDdtOFdHc3BWYktGeDIzZlhxVVRPVzBVaURkZFpqRkM4Ujdhd0h6OVg4NVJNNjdOUVk5V2szcXQ4anRQZDVJY01sVlNjRDJ4cERH?oc=5) - acmepackingcompany.com
 
 ## Dallas Vintage Sports Tees
 
@@ -90,8 +90,8 @@ Recent headlines:
 | ceedee lamb | 2 | steady | 10 |
 
 Recent headlines:
-- [Quinnen Williams: Culture, growth of Cowboys' defense is 'night and day'](https://news.google.com/rss/articles/CBMipAFBVV95cUxOT0lzOUlYMUVnMFpaVkdmbFBaLTVIZk9KbnBWbU5IQVJtYS1GdmQ0VGFuWnl3Q21OcGtJbWd4RGN2enljMFpiMGx3WWVBYkdKYWdxN0dhMWdyMHFMRUpJMEJObVUxeFJpeGxwb3J3VmM2Y1JnbnlkZFJhS3dwQ2R3eWlPSUxaN0xXU01mb0pfZFo5cWFmeDlaYVpqRXVwSUVUMG53QQ?oc=5) - Dallas Cowboys
 - [Cowboys release initial 53-man roster for 2026 season](https://news.google.com/rss/articles/CBMikgFBVV95cUxQX0tpcWhUdjhDclVYM2JvN1lyMHNnSmdYNVE5MVVPd0oyZGFQMjhJN3lBRU1pckEwNzROWUtKUG9YZ0ZLdTBfY0p1UENxazJWNE5yY1A2NWtMZTFlNWI4cVl1RXhicTU3eWQ0akRnUDFPTUNSeFZOMFl6Tl81MThYQTZOajduWExHS3BNWjUxMER1UQ?oc=5) - Dallas Cowboys
+- [Quinnen Williams: Culture, growth of Cowboys' defense is 'night and day'](https://news.google.com/rss/articles/CBMipAFBVV95cUxOT0lzOUlYMUVnMFpaVkdmbFBaLTVIZk9KbnBWbU5IQVJtYS1GdmQ0VGFuWnl3Q21OcGtJbWd4RGN2enljMFpiMGx3WWVBYkdKYWdxN0dhMWdyMHFMRUpJMEJObVUxeFJpeGxwb3J3VmM2Y1JnbnlkZFJhS3dwQ2R3eWlPSUxaN0xXU01mb0pfZFo5cWFmeDlaYVpqRXVwSUVUMG53QQ?oc=5) - Dallas Cowboys
 - [Emari Demercado returns 'home' to Dallas, has reason to be excited with Cowboys](https://news.google.com/rss/articles/CBMisAFBVV95cUxQTlZuQ1hPOWZNQzcwM0VzeEZoMnU3ekpVcDN1SmhNbndlMXgwdXNuOTJtR3loUWQzbkVIZGRhZEw0ZVp2SS1zaVZvc1NEQVBlYWl3RmFBT1pNdzhlcGJDeFp2aXZlTUxOMWx3YmUxRWx1blR6VVBIaGwwQkt6NkN2Mjlkb1p1WG1VczRnYnRSZmQzVlNhQ0V5b3VCRG81NnB5Zk1IaXdvSFVaelFtYnNSNw?oc=5) - Dallas Cowboys
 - [Why the Cowboys chose Sam Howell as their backup quarterback](https://news.google.com/rss/articles/CBMimwFBVV95cUxOVnFmOWNWdTg3Ykh0c1FPaWF6ZXZXOWdTWDNBTFdEUVFNTXdZUTJIcFZ4aWdmSXB3SkhIbW5COXdzRl9uVWloOVNjUzVRMjZSNWVsOS1PWWVrdnc4Z0hYMzNQT1NrTWxYQm1ZQlI1N1RtOWFGc0xvX1J3ZFlpYVp3SzBtc1kzcFprbUJOSEk0SENjNmt3eHVqeVllYw?oc=5) - Dallas Cowboys
 - [Cowboys waive quarterback Joe Milton](https://news.google.com/rss/articles/CBMie0FVX3lxTE1iQV9sbGtmSnFXeXFBeUxKcXE2akZuVm03S21rRjB5ZG81WGlZLXREdDFobWxyMjd1UC1vUktPOFN0bkliZFBjNXpKSkdmMkg2NFg1aDBIY1Y3dlIzLVdreHNRZUNYZ180RWNpZ1RTUjJoaFJiSXE5UHRSdw?oc=5) - Dallas Cowboys
@@ -100,7 +100,7 @@ Recent headlines:
 
 | Name | Headline mentions | Status | FTI |
 |---|---|---|---|
-| bryce underwood | 8 | TRENDING | 38 |
+| bryce underwood | 10 | TRENDING | 48 |
 | kyle whittingham | 6 | TRENDING | 29 |
 | jj mccarthy | 0 | quiet - throwback | 0 |
 | jordan marshall | 0 | quiet - throwback | 0 |
@@ -109,7 +109,7 @@ Recent headlines:
 
 Recent headlines:
 - [Michigan Miracle: Wolverines Buck Broncos on Final Play to Open Season](https://news.google.com/rss/articles/CBMisgFBVV95cUxOOHU3QWhTNzlfQXI1X2lhTEI4eU9aQkpDQkp2NTBOMTNzRDZBcTJHdGhWRll1cXlRbWR5MERYSzNORkRiUDdnTDJxV3gzc05tTDF3XzBKYVBuYUgyOWdXbzhZZGNmWURWVUNBY3dDWC1vSzZsQUlxQlpNYTAwY0UtRGVRd2JNbTJDU1FJeUo5eWg5Z29yR0daWjlqX1hZVkZXS09NazU2VHhfUTdOV2FWTWJn?oc=5) - University of Michigan Athletics
-- [How & Where to Watch Western Michigan vs. Michigan](https://news.google.com/rss/articles/CBMihAFBVV95cUxQcTlsbG9WSmdLSFYtM3UzMTJweERQZDFDSHIyeE9LYVVyNVBLdzM1Yk9TWU5SUi1vU0haTE10ODcycF9FdVlLR0FWLXFDbjhqZ25NMHZXUnJMeENtTHZDWEttY2hVYUdqcnF6R0dDQkFQVWJYV241ZG10M3JReVBYX0dEV00?oc=5) - NBC TV Network
+- [How & Where to Watch Western Michigan vs. Michigan](https://news.google.com/rss/articles/CBMihAFBVV95cUxQcTlsbG9WSmdLSFYtM3UzMTJweERQZDFDSHIyeE9LYVVyNVBLdzM1Yk9TWU5SUi1vU0haTE10ODcycF9FdVlLR0FWLXFDbjhqZ25NMHZXUnJMeENtTHZDWEttY2hVYUdqcnF6R0dDQkFQVWJYV241ZG10M3JReVBYX0dEV00?oc=5) - nbc.com
 - [How to Watch Michigan Football’s Season Opener Against WMU](https://news.google.com/rss/articles/CBMipgFBVV95cUxNQjhWWGd0S251MVF4MFRocVJfejJ2dHhGYWw5WlJiSXc0UFlIRGEySWlNNzlXazNaRktib05UNDJPQjBCNTdlcWtPdngzajE3SGNhS1I3X0sza2pSeW9JVjVZMElPMXpxamY5UU5lOTNtTFFBRENKakdVUU5aYWxpbXFvZFJnWlV4eGVpRkNteGQwTnJJUXhVdk1OY1Z2UjExOVdJakd3?oc=5) - Sports Illustrated
 - [How to Watch: No. 16 Michigan Wolverines vs Western Michigan Broncos](https://news.google.com/rss/articles/CBMizAFBVV95cUxPSWdiUm54SkdscFpBMi1jbTliODk2X2RHYkVJWmRTb0ZpTGx0OHdpb1FDRUJMMTdTNGRIdEczNFlWSVJ6S3lHMTFWSDF1NXhkREVjcDlQQ29Cc0Y4MEZsdWNqdzNCUUdTbjJxeHRJQVhXRmdlOS1qcWRaeFJuekpfeHRQSzJfU05wRk9PWjhuQXdObnAtT2NvZnRhNXdGNWhlQjNHMUp5MmhYWmFEUFh1TzlPUXNjeEFKcGxUYlAzM0VTcHFHWUFnVUs3eHo?oc=5) - Maize n Brew
-- [What time is the Michigan game today? Channel, TV schedule, live stream to watch Wolverines' game vs. WMU](https://news.google.com/rss/articles/CBMiiAFBVV95cUxQQTZMdEtkdlRqQmVVMFNrbUpmY3VSdzBqaG1aSmhjMG9xaFdodWg0Qm1pd1o5RGhONlNoRlJVWG5KMEFtQnJUZ3ZxYnVQQWhpRURkNVJHQklyandpLTFLNjBEeUMtcm8tNjA0ZkNkLWZiVHcxcGpaNzFuMm9Bb2M1cnQyRHFMQVc1?oc=5) - Yahoo Sports
+- [What time is the Michigan game today? Channel, TV schedule, live stream to watch Wolverines' game vs. WMU](https://news.google.com/rss/articles/CBMiiAFBVV95cUxQQTZMdEtkdlRqQmVVMFNrbUpmY3VSdzBqaG1aSmhjMG9xaFdodWg0Qm1pd1o5RGhONlNoRlJVWG5KMEFtQnJUZ3ZxYnVQQWhpRURkNVJHQklyandpLTFLNjBEeUMtcm8tNjA0ZkNkLWZiVHcxcGpaNzFuMm9Bb2M1cnQyRHFMQVc1?oc=5) - sports.yahoo.com
