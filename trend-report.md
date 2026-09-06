@@ -11,7 +11,7 @@ FTI = `round(100 * entity_mentions / peak_mentions_in_window)`. Peak mentions in
 | 1 | deshaun watson | cleveland-browns | 21 | 100 | trending | gap — no design |
 | 2 | josh jacobs | green-bay-packers | 20 | 95 | trending | gap — no design |
 | 3 | shedeur sanders | cleveland-browns | 12 | 57 | trending | in locker |
-| 4 | bryce underwood | michigan | 8 | 38 | trending | in locker |
+| 4 | bryce underwood | michigan | 7 | 33 | trending | in locker |
 | 5 | todd monken | cleveland-browns | 7 | 33 | trending | gap — no design |
 | 6 | kyle whittingham | michigan | 6 | 29 | trending | gap — no design |
 | 7 | myles garrett | cleveland-browns | 6 | 29 | trending | in locker |
@@ -90,8 +90,8 @@ Recent headlines:
 | ceedee lamb | 2 | steady | 10 |
 
 Recent headlines:
-- [Quinnen Williams: Culture, growth of Cowboys' defense is 'night and day'](https://news.google.com/rss/articles/CBMipAFBVV95cUxOT0lzOUlYMUVnMFpaVkdmbFBaLTVIZk9KbnBWbU5IQVJtYS1GdmQ0VGFuWnl3Q21OcGtJbWd4RGN2enljMFpiMGx3WWVBYkdKYWdxN0dhMWdyMHFMRUpJMEJObVUxeFJpeGxwb3J3VmM2Y1JnbnlkZFJhS3dwQ2R3eWlPSUxaN0xXU01mb0pfZFo5cWFmeDlaYVpqRXVwSUVUMG53QQ?oc=5) - Dallas Cowboys
 - [Cowboys release initial 53-man roster for 2026 season](https://news.google.com/rss/articles/CBMikgFBVV95cUxQX0tpcWhUdjhDclVYM2JvN1lyMHNnSmdYNVE5MVVPd0oyZGFQMjhJN3lBRU1pckEwNzROWUtKUG9YZ0ZLdTBfY0p1UENxazJWNE5yY1A2NWtMZTFlNWI4cVl1RXhicTU3eWQ0akRnUDFPTUNSeFZOMFl6Tl81MThYQTZOajduWExHS3BNWjUxMER1UQ?oc=5) - Dallas Cowboys
+- [Quinnen Williams: Culture, growth of Cowboys' defense is 'night and day'](https://news.google.com/rss/articles/CBMipAFBVV95cUxOT0lzOUlYMUVnMFpaVkdmbFBaLTVIZk9KbnBWbU5IQVJtYS1GdmQ0VGFuWnl3Q21OcGtJbWd4RGN2enljMFpiMGx3WWVBYkdKYWdxN0dhMWdyMHFMRUpJMEJObVUxeFJpeGxwb3J3VmM2Y1JnbnlkZFJhS3dwQ2R3eWlPSUxaN0xXU01mb0pfZFo5cWFmeDlaYVpqRXVwSUVUMG53QQ?oc=5) - Dallas Cowboys
 - [Emari Demercado returns 'home' to Dallas, has reason to be excited with Cowboys](https://news.google.com/rss/articles/CBMisAFBVV95cUxQTlZuQ1hPOWZNQzcwM0VzeEZoMnU3ekpVcDN1SmhNbndlMXgwdXNuOTJtR3loUWQzbkVIZGRhZEw0ZVp2SS1zaVZvc1NEQVBlYWl3RmFBT1pNdzhlcGJDeFp2aXZlTUxOMWx3YmUxRWx1blR6VVBIaGwwQkt6NkN2Mjlkb1p1WG1VczRnYnRSZmQzVlNhQ0V5b3VCRG81NnB5Zk1IaXdvSFVaelFtYnNSNw?oc=5) - Dallas Cowboys
 - [Why the Cowboys chose Sam Howell as their backup quarterback](https://news.google.com/rss/articles/CBMimwFBVV95cUxOVnFmOWNWdTg3Ykh0c1FPaWF6ZXZXOWdTWDNBTFdEUVFNTXdZUTJIcFZ4aWdmSXB3SkhIbW5COXdzRl9uVWloOVNjUzVRMjZSNWVsOS1PWWVrdnc4Z0hYMzNQT1NrTWxYQm1ZQlI1N1RtOWFGc0xvX1J3ZFlpYVp3SzBtc1kzcFprbUJOSEk0SENjNmt3eHVqeVllYw?oc=5) - Dallas Cowboys
 - [Cowboys waive quarterback Joe Milton](https://news.google.com/rss/articles/CBMie0FVX3lxTE1iQV9sbGtmSnFXeXFBeUxKcXE2akZuVm03S21rRjB5ZG81WGlZLXREdDFobWxyMjd1UC1vUktPOFN0bkliZFBjNXpKSkdmMkg2NFg1aDBIY1Y3dlIzLVdreHNRZUNYZ180RWNpZ1RTUjJoaFJiSXE5UHRSdw?oc=5) - Dallas Cowboys
@@ -100,7 +100,7 @@ Recent headlines:
 
 | Name | Headline mentions | Status | FTI |
 |---|---|---|---|
-| bryce underwood | 8 | TRENDING | 38 |
+| bryce underwood | 7 | TRENDING | 33 |
 | kyle whittingham | 6 | TRENDING | 29 |
 | jj mccarthy | 0 | quiet - throwback | 0 |
 | jordan marshall | 0 | quiet - throwback | 0 |
@@ -108,7 +108,7 @@ Recent headlines:
 **Product gap:** trending with no design in the catalogue - **kyle whittingham**
 
 Recent headlines:
-- [Michigan Miracle: Wolverines Buck Broncos on Final Play to Open Season](https://news.google.com/rss/articles/CBMisgFBVV95cUxOOHU3QWhTNzlfQXI1X2lhTEI4eU9aQkpDQkp2NTBOMTNzRDZBcTJHdGhWRll1cXlRbWR5MERYSzNORkRiUDdnTDJxV3gzc05tTDF3XzBKYVBuYUgyOWdXbzhZZGNmWURWVUNBY3dDWC1vSzZsQUlxQlpNYTAwY0UtRGVRd2JNbTJDU1FJeUo5eWg5Z29yR0daWjlqX1hZVkZXS09NazU2VHhfUTdOV2FWTWJn?oc=5) - mgoblue.com
+- [Michigan Miracle: Wolverines Buck Broncos on Final Play to Open Season](https://news.google.com/rss/articles/CBMisgFBVV95cUxOOHU3QWhTNzlfQXI1X2lhTEI4eU9aQkpDQkp2NTBOMTNzRDZBcTJHdGhWRll1cXlRbWR5MERYSzNORkRiUDdnTDJxV3gzc05tTDF3XzBKYVBuYUgyOWdXbzhZZGNmWURWVUNBY3dDWC1vSzZsQUlxQlpNYTAwY0UtRGVRd2JNbTJDU1FJeUo5eWg5Z29yR0daWjlqX1hZVkZXS09NazU2VHhfUTdOV2FWTWJn?oc=5) - University of Michigan Athletics
 - [How & Where to Watch Western Michigan vs. Michigan](https://news.google.com/rss/articles/CBMihAFBVV95cUxQcTlsbG9WSmdLSFYtM3UzMTJweERQZDFDSHIyeE9LYVVyNVBLdzM1Yk9TWU5SUi1vU0haTE10ODcycF9FdVlLR0FWLXFDbjhqZ25NMHZXUnJMeENtTHZDWEttY2hVYUdqcnF6R0dDQkFQVWJYV241ZG10M3JReVBYX0dEV00?oc=5) - NBC TV Network
 - [How to Watch Michigan Football’s Season Opener Against WMU](https://news.google.com/rss/articles/CBMipgFBVV95cUxNQjhWWGd0S251MVF4MFRocVJfejJ2dHhGYWw5WlJiSXc0UFlIRGEySWlNNzlXazNaRktib05UNDJPQjBCNTdlcWtPdngzajE3SGNhS1I3X0sza2pSeW9JVjVZMElPMXpxamY5UU5lOTNtTFFBRENKakdVUU5aYWxpbXFvZFJnWlV4eGVpRkNteGQwTnJJUXhVdk1OY1Z2UjExOVdJakd3?oc=5) - Sports Illustrated
 - [How to Watch: No. 16 Michigan Wolverines vs Western Michigan Broncos](https://news.google.com/rss/articles/CBMizAFBVV95cUxPSWdiUm54SkdscFpBMi1jbTliODk2X2RHYkVJWmRTb0ZpTGx0OHdpb1FDRUJMMTdTNGRIdEczNFlWSVJ6S3lHMTFWSDF1NXhkREVjcDlQQ29Cc0Y4MEZsdWNqdzNCUUdTbjJxeHRJQVhXRmdlOS1qcWRaeFJuekpfeHRQSzJfU05wRk9PWjhuQXdObnAtT2NvZnRhNXdGNWhlQjNHMUp5MmhYWmFEUFh1TzlPUXNjeEFKcGxUYlAzM0VTcHFHWUFnVUs3eHo?oc=5) - Maize n Brew
