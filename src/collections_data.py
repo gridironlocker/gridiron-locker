@@ -22,7 +22,7 @@ COLLECTIONS = {
         banner='Orange and brown Dawg Pound apparel - bulldog graphics, Cleveland skylines, playoff slogans and quarterback tributes, printed on tees, hoodies, crewnecks, beanies and mugs.',
         ink="#ffffff",
         hero="/img/hero-cleveland.jpg?v=3",
-        logo="/img/Cleveland-Browns-Logo-PNG-Transparent.webp",
+        logo="/img/browns-logo1.webp?v=1",
         store="https://viralstyle.com/store/kebystore/Cleveland-Browns/1",
         chant="Here We Go Brownies",
         keywords=[
@@ -66,7 +66,7 @@ COLLECTIONS = {
         banner='Celebrate your pride for the city with classic vintage-style designs - worn-in athletic prints, star-city lettering and Texas pride, for game days and everyday casual wear.',
         ink="#ffffff",
         hero="/img/hero-dallas.jpg?v=3",
-        logo="/img/dallas-cowboys-logo-transparent.webp",
+        logo="/img/dallas-logo1.webp?v=1",
         store="https://viralstyle.com/store/kebystore/dallas-vintage-sports/1",
         chant="How 'Bout Them Cowboys",
         keywords=[
@@ -109,7 +109,7 @@ COLLECTIONS = {
         banner='Green and gold for the frozen tundra faithful - cheesehead humour, Lambeau tributes, EST 1919 crests and Go Pack Go scripts on tees, hoodies and crewnecks.',
         ink="#ffffff",
         hero="/img/hero-greenbay.jpg?v=3",
-        logo="/img/Green-Bay-Packers-Full-Official-NFL-Logo-American-Football-Team-300x248.webp",
+        logo="/img/green-bay-logo1.webp?v=1",
         store="https://viralstyle.com/store/kebystore/Packss/1",
         chant="Go Pack Go",
         keywords=[
@@ -152,7 +152,7 @@ COLLECTIONS = {
         banner='Vintage-inspired football gear built for Saturdays in Ann Arbor - worn-in athletic prints, block lettering, classic maize and navy, timeless gridiron energy.',
         ink="#ffffff",
         hero="/img/hero-michigan.jpg?v=3",
-        logo="/img/michigan-wolverines-1920-x-1024-wallpaper-hwf2z9wqtefnq3i7.webp",
+        logo="/img/michigan-logo1.webp?v=1",
         store="https://viralstyle.com/store/kebystore/MICHIG/1",
         chant="Go Blue",
         keywords=[

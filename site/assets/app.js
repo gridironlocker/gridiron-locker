@@ -154,30 +154,6 @@ setTimeout(function(){
   tick(); setInterval(tick,1000);
 })();
 
-// ---------- order-by countdown chip (product pages) ----------
-// The server renders "Order in Xd Yh Zm" as of build time; this keeps it
-// exact from the visitor's clock and, once the window closes, swaps to the
-// same honest dispatch-time wording the server would have produced.
-(function(){
-  var chips=[].slice.call(document.querySelectorAll('.uc[data-orderby]')); if(!chips.length)return;
-  function tick(){
-    var now=Date.now();
-    chips.forEach(function(c){
-      var end=new Date(c.dataset.orderby).getTime(); if(isNaN(end))return;
-      var gap=end-now, t=c.querySelector('.uc-t');
-      if(gap<=0){
-        c.classList.add('past'); c.classList.remove('soon');
-        var span=c.querySelector('span:last-child');
-        if(span)span.textContent='Printed on demand · ships in 2–4 days · '+(c.dataset.label||'');
-        return;
-      }
-      var d=Math.floor(gap/864e5),h=Math.floor(gap%864e5/36e5),m=Math.floor(gap%36e5/6e4);
-      if(t)t.textContent=(d>0?d+'d ':'')+h+'h '+m+'m';
-      c.classList.toggle('soon',gap<864e5);
-    });
-  }
-  tick(); setInterval(tick,30000);
-})();
 
 // ---------- sticky header + back to top ----------
 (function(){
