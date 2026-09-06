@@ -234,16 +234,21 @@ class TeamCollectionPages(unittest.TestCase):
             self.assertTrue(after.startswith('<div class="ticker">'),
                             f"{k}: ticker must immediately follow the hero")
         comp = css_block(self.css, ".cbanner.compact .band")
-        self.assertIn("aspect-ratio:1828/860", comp)
+        self.assertIn("aspect-ratio:1933/813", comp)
 
     def test_hero_bands_are_uncropped(self):
-        # Each banner band matches its art's native ratio (home 1774x887,
-        # teams 1828x860) at every breakpoint so the full banner shows and
+        # Each banner band matches its art's native ratio (home 1933x814,
+        # teams 1933x813) at every breakpoint so the full banner shows and
         # none of them get cropped to a 16:9 box or a wide strip.
         base = css_block(self.css, ".cbanner .band")
-        self.assertIn("aspect-ratio:1774/887", base)
+        self.assertIn("aspect-ratio:1933/814", base)
         comp = css_block(self.css, ".cbanner.compact .band")
-        self.assertIn("aspect-ratio:1828/860", comp)
+        self.assertIn("aspect-ratio:1933/813", comp)
+        self.assertRegex(page("index.html"),
+                         r'<div class="band"><img\b[^>]*width="1933" height="814"')
+        for k, html in self.pages.items():
+            self.assertRegex(html,
+                             r'<div class="band"><img\b[^>]*width="1933" height="813"', k)
         for ratio in ("16/9", "32/9", "21/9", "5/1"):
             self.assertNotIn(f"aspect-ratio:{ratio}", self.css, ratio)
 
@@ -433,8 +438,10 @@ class ArtworkHygiene(unittest.TestCase):
         pngs = [f for f in os.listdir(img) if f.lower().endswith(".png")]
         self.assertEqual(pngs, [], pngs)
         self.assertTrue(os.path.isdir(os.path.join(ROOT, "artwork-source")))
-        for k in ORDER:
-            hero = os.path.join(SITE, COLLECTIONS[k]["hero"].lstrip("/").split("?")[0])
+        heroes = ["/img/hero-home.jpg?v=3"] + [COLLECTIONS[k]["hero"] for k in ORDER]
+        for url in heroes:
+            self.assertTrue(url.endswith("?v=3"), url)
+            hero = os.path.join(SITE, url.lstrip("/").split("?")[0])
             self.assertTrue(os.path.isfile(hero), hero)
             self.assertLess(os.path.getsize(hero), 750 * 1024, hero)
 
@@ -491,7 +498,7 @@ class Homepage(unittest.TestCase):
 
     def test_seo_and_hero_preserved(self):
         self.assertIn('<link rel="canonical" href="https://gridironlocker.store/">', self.html)
-        self.assertIn("hero-home.jpg", self.html)
+        self.assertIn("hero-home.jpg?v=3", self.html)
         self.assertIn('"@type":"WebSite"', self.html)
         self.assertIn('"@type":"Organization"', self.html)
 
