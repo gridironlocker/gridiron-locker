@@ -259,9 +259,16 @@ def moments_block(ckey=None, entity=None, limit=5):
             f'Stories belong to their publishers; we are not affiliated with them.</p></div>')
 
 
-def fti_strip():
-    """Homepage teaser: top names on the Fan Trend Index."""
-    rows = fti_rows()[:8]
+FTI_STRIP_LIMIT = 4      # homepage strip: one compact row of four names
+FTI_COLLECTION_LIMIT = 3  # per-collection panel: at most three rows
+
+
+def fti_strip(limit=FTI_STRIP_LIMIT):
+    """Homepage teaser: a compact strip of the top names on the Fan Trend Index.
+
+    Four entries only - the full leaderboard lives on /fan-trend-index/.
+    """
+    rows = fti_rows()[:limit]
     if not rows:
         return ""
     cells = ""
@@ -270,17 +277,18 @@ def fti_strip():
         tv = theme_vars(ckey) if ckey in COLLECTIONS else ""
         shop = products_for_entity(ckey, r["name"], 1)
         href = shop[0]["url"] if shop else "/fan-trend-index/"
+        team = esc(COLLECTIONS[ckey]["short"]) if ckey in COLLECTIONS else ""
         cells += (f'<a class="fti-chip" style="{tv}" href="{href}">'
                   f'<b>#{i} · {int(r["index"])}</b>'
-                  f'<span>{esc(pretty_name(r["name"]))}</span></a>')
+                  f'<span>{esc(pretty_name(r["name"]))}</span>'
+                  f'<em>{team}</em></a>')
     return (f'<section class="ftisec"><div class="wrap">'
             f'<div class="sechead reveal"><div>'
             f'<span class="eyebrow"><span class="dot"></span> Live · updated {esc(DATA_DATE)}</span>'
             f'<h2>Fan <span class="accentword">Trend Index</span></h2>'
             f'<p>Who the headlines are actually about, scored 0-100 against the hottest name '
-            f'in our four fanbases. Built from the same news crawl that tags Trending '
-            f'designs - not a vibes ranking.</p></div>'
-            f'<a class="link" href="/fan-trend-index/">Open the full index &rarr;</a></div>'
+            f'in our four fanbases.</p></div>'
+            f'<a class="link" href="/fan-trend-index/">Full index &rarr;</a></div>'
             f'<div class="fti-chips">{cells}</div>'
             f'</div></section>')
 
@@ -553,24 +561,39 @@ def urgency_line(col):
             f"to wear it for {tail}")
 
 
-TICKER_TERMS = [
-    ("Shedeur Sanders fan shirts", 1), ("Dawg Pound apparel", 0),
-    ("Go Pack Go tees", 0), ("Jordan Love 10 shirts", 1),
-    ("Michigan vs Everybody", 0), ("Bryce Underwood era", 1),
-    ("Dallas vintage tees", 0), ("Cheesehead Nation", 0),
+# Evergreen ticker terms, keyed by collection so a team page never scrolls
+# another team's slogans. The store-wide terms are appended on every page.
+TEAM_TICKER_TERMS = {
+    "cleveland-browns": [("Shedeur Sanders fan shirts", 1), ("Dawg Pound apparel", 0),
+                         ("Here We Go Brownies", 0), ("Cleveland skyline tees", 0)],
+    "green-bay-packers": [("Go Pack Go tees", 0), ("Jordan Love 10 shirts", 1),
+                          ("Cheesehead Nation", 0), ("Lambeau tribute crewnecks", 0)],
+    "dallas-cowboys": [("Dallas vintage tees", 0), ("Texas pride shirts", 0),
+                       ("Doomsday Defense tees", 1), ("Star-city lettering", 0)],
+    "michigan": [("Michigan vs Everybody", 0), ("Bryce Underwood era", 1),
+                 ("Go Blue crewnecks", 0), ("Maize and navy tees", 0)],
+}
+STORE_TICKER_TERMS = [
     ("Week 1 game day fits", 1), ("Sizes S-3XL", 0),
     ("Printed on demand", 0), ("Worldwide shipping", 0),
 ]
+# All-team list for shared pages (season hub): the teams' terms interleaved
+# round-robin so every collection is represented before the 16-term cap.
+TICKER_TERMS = [t for row in zip(*(TEAM_TICKER_TERMS[k] for k in ORDER)) for t in row] \
+    + STORE_TICKER_TERMS
 
 
 def ticker(ckey=None):
+    """Moving keyword bar. With a collection key it is strictly that team's
+    terms (live news terms + that team's evergreen slogans + store terms)."""
     live = []
     for k in ([ckey] if ckey else ORDER):
         short = COLLECTIONS[k]["short"]
         for t in TRENDS.get("collections", {}).get(k, {}).get("top_terms", [])[:3]:
             if len(t) > 3 and t.lower() not in short.lower() and t not in OTHER_TEAMS:
                 live.append((f"{t.title()} {short} shirts", 1))
-    terms = (live + list(TICKER_TERMS))[:16]
+    evergreen = (TEAM_TICKER_TERMS[ckey] + STORE_TICKER_TERMS) if ckey else TICKER_TERMS
+    terms = (live + list(evergreen))[:16]
     run = "".join(f'<i class="{"hot" if h else ""}">{esc(t)}</i>' for t, h in terms)
     run_dup = run.replace('<i ', '<i aria-hidden="true" ')
     return f'<div class="ticker"><div class="track">{run}{run_dup}</div></div>'
@@ -621,21 +644,58 @@ def week1_section():
 </div></section>"""
 
 
-def why_strip():
-    """Polished 'why this locker' USP strip — balanced grid, no awkward wrap."""
-    items = [
-        (f"{len(ALL)} original designs", "Fan-made graphics, not licensed"),
-        (f"{len(ORDER)} team collections", "Cleveland &middot; Green Bay &middot; Dallas &middot; Michigan"),
-        ("Sizes S&ndash;3XL", "Unisex &amp; women's cuts"),
-        ("Printed on demand", "In the USA - no dead stock"),
-        ("Worldwide shipping", "Tracked dispatch"),
-        ("Custom, no minimums", "Your idea, one piece at a time"),
-    ]
-    cells = "".join(f"<div><b>{a}</b><span>{b}</span></div>" for a, b in items)
-    return (f'<section class="whystrip"><div class="wrap">'
-            f'<div class="whyhead"><span class="whylabel">Why this locker</span>'
-            f'<span class="whyline"></span></div>'
-            f'<div class="wkin">{cells}</div></div></section>')
+def team_portrait(k, size=96, cls="tportrait"):
+    """Circular team thumbnail cropped from the collection's existing hero.
+
+    No new artwork is involved: the portrait is the hero photo masked to a
+    circle with a subtle ring in the team's primary colour (drawn with the
+    --ca token, so accents stay data-driven).
+    """
+    c = COLLECTIONS[k]
+    return (f'<span class="{cls}"><img src="{c["hero"]}" alt="" loading="lazy" '
+            f'decoding="async" width="{size}" height="{size}"></span>')
+
+
+def team_nav_card(k, cls="teamnav reveal"):
+    """Homepage 'Shop By Team' entry: rounded horizontal card, circle thumb,
+    name, live design count and an arrow."""
+    c = COLLECTIONS[k]
+    return (f'<a class="{cls}" style="{theme_vars(k)}" href="/{c["slug"]}/">'
+            f'{team_portrait(k, 72)}'
+            f'<span class="tn-body"><span class="cnt">{len(MODEL[k])} designs</span>'
+            f'<b class="tn-name">{esc(c["name"])}</b>'
+            f'<span class="tn-sub">{esc(c["city"])} &middot; {esc(c["chant"])}</span></span>'
+            f'<span class="go" aria-hidden="true">&rarr;</span></a>')
+
+
+def team_circle_card(k):
+    """/collections/ entry: circular portrait with a team-colour outline, the
+    collection name, the live design count and an arrow."""
+    c = COLLECTIONS[k]
+    return (f'<a class="teamcircle reveal" style="{theme_vars(k)}" href="/{c["slug"]}/">'
+            f'{team_portrait(k, 160)}'
+            f'<b class="tc-name">{esc(c["name"])}</b>'
+            f'<span class="tc-count">{len(MODEL[k])} designs</span>'
+            f'<span class="tc-go">Shop {esc(c["short"])} <span aria-hidden="true">&rarr;</span></span></a>')
+
+
+def team_section(k, limit=4):
+    """One per-team product block: heading, blurb, four cards, 'View all' link.
+
+    Shared by the homepage and /collections/ so both pages render exactly the
+    same block and the design count is always the live catalogue size.
+    """
+    c = COLLECTIONS[k]
+    picks = MODEL[k][:limit]
+    tcards = "".join(card(i, eager=(n < 4)) for n, i in enumerate(picks))
+    return f"""<section class="teamsec" style="border-top:1px solid var(--line);{theme_vars(k)}"><div class="wrap">
+ <div class="sechead reveal">
+  <div><h2><span class="accentword">{esc(c['short'])}</span> Collection</h2>
+   <p>{esc(c['banner'][:150])}</p></div>
+  <a class="link" href="/{c['slug']}/">View all {len(MODEL[k])} {esc(c['short'])} designs &rarr;</a>
+ </div>
+ <div class="grid">{tcards}</div>
+</div></section>"""
 
 
 def trust():
@@ -768,28 +828,10 @@ def page_home():
     path = "/"
     # Per-team sections — never mix teams on the homepage. Ordered by next
     # kickoff so the team playing soonest is the first block you meet.
-    team_sections = ""
-    for k in HOMEPAGE_ORDER:
-        c = COLLECTIONS[k]
-        picks = MODEL[k][:4]  # first 4 of each team, their own identity
-        tcards = "".join(card(i, eager=(n < 4)) for n, i in enumerate(picks))
-        team_sections += f"""<section style="border-top:1px solid var(--line);{theme_vars(k)}"><div class="wrap">
- <div class="sechead reveal">
-  <div><h2><span class="accentword">{esc(c['short'])}</span> Collection</h2>
-   <p>{esc(c['banner'][:150])}</p></div>
-  <a class="link" href="/{c['slug']}/">View all {len(MODEL[k])} {esc(c['short'])} designs &rarr;</a>
- </div>
- <div class="grid">{tcards}</div>
-</div></section>"""
-    colcards = ""
-    for k in ORDER:
-        c = COLLECTIONS[k]
-        colcards += f"""<a class="colcard reveal" style="{theme_vars(k)}" href="/{c['slug']}/">
-   <img src="{c['hero']}" alt="{esc(c['name'])} collection" loading="lazy" decoding="async" width="800" height="600">
-   <div class="body"><span class="cnt">{len(MODEL[k])} designs</span>
-    <h3>{esc(c['name'])}</h3>
-    <p class="muted" style="margin:0;font-size:.86rem">{esc(c['city'])} &middot; {esc(c['chant'])}</p>
-   </div><span class="go">&rarr;</span></a>"""
+    team_sections = "".join(team_section(k) for k in HOMEPAGE_ORDER)
+    # "Shop By Team": rounded horizontal navigation cards with circular
+    # thumbnails (fixed ORDER - only the product sections follow the kickoff).
+    colcards = "".join(team_nav_card(k) for k in ORDER)
     schema = [
         {"@context": "https://schema.org", "@type": "Organization", "name": BRAND, "url": DOMAIN,
          "logo": DOMAIN + "/img/favicon.svg",
@@ -809,12 +851,11 @@ def page_home():
 {newsticker()}
 {week1_section()}
 {fti_strip()}
-{why_strip()}
-<section><div class="wrap">
+<section class="teamnavsec"><div class="wrap">
  <div class="sechead reveal"><div><h2>Shop By Team</h2>
   <p>Four dedicated collections, each with its own artwork language, colour palette and fan slang.</p></div>
   <a class="link" href="/collections/">All collections &rarr;</a></div>
- <div class="colgrid">{colcards}</div>
+ <div class="teamnav-grid">{colcards}</div>
 </div></section>
 <div class="light">
 {team_sections}
@@ -874,13 +915,12 @@ def page_home():
 
 def page_collections_index():
     path = "/collections/"
-    cards = ""
-    for k in ORDER:
-        c = COLLECTIONS[k]
-        cards += f"""<a class="colcard" style="{theme_vars(k)}" href="/{c['slug']}/">
-   <img src="{c['hero']}" alt="{esc(c['name'])}" loading="lazy" width="800" height="600">
-   <div class="body"><span class="cnt">{len(MODEL[k])} designs</span><h3>{esc(c['name'])}</h3>
-   <p class="muted" style="margin:0;font-size:.86rem">{esc(c['h1'])}</p></div></a>"""
+    # Circular team portraits in the fixed ORDER (this is navigation, not a
+    # kickoff-sorted list), then one homepage-style product block per team in
+    # HOMEPAGE_ORDER - the same ordering logic the homepage already uses, so
+    # each team appears exactly once and the soonest kickoff leads.
+    cards = "".join(team_circle_card(k) for k in ORDER)
+    team_sections = "".join(team_section(k) for k in HOMEPAGE_ORDER)
     cb, cbs = crumbs([("Home", "/"), ("Collections", None)], path)
     schema = [cbs, {"@context": "https://schema.org", "@type": "CollectionPage",
                     "name": "All Collections", "url": DOMAIN + path,
@@ -893,14 +933,11 @@ def page_collections_index():
  <p class="muted" style="max-width:70ch">Four team collections, {len(ALL)} original designs. Each
  collection has its own colour palette, slang and artwork style - pick your side below.</p>
  <h2 class="sr-only">Browse Collections</h2>
- <div class="colgrid" style="margin-top:26px">{cards}</div>
- <div class="prose" style="margin-top:44px">
-  <h2>What you will find in each collection</h2>
-  <ul>""" + "".join(
-        f"<li><strong><a href='/{COLLECTIONS[k]['slug']}/'>{esc(COLLECTIONS[k]['name'])}</a></strong> - "
-        f"{esc(COLLECTIONS[k]['intro'].format(**COLLECTIONS[k]))}</li>" for k in ORDER) + """
-  </ul></div>
-</div></section></main>"""
+ <div class="teamcircles">{cards}</div>
+</div></section>
+<div class="light">
+{team_sections}
+</div></main>"""
     URLS.append((DOMAIN + path, "0.9", "weekly"))
     write("collections/index.html", head("All Football Fan Collections | " + BRAND, desc, path,
                                          "/img/hero-home.jpg", schema) + header() + body + footer())
@@ -943,20 +980,20 @@ def page_collection(k):
     se = SEASON[k]
     lore = "".join(f"<li>{esc(x)}</li>" for x in c["lore"])
     kwlinks = " &middot; ".join(esc(x) for x in c["keywords"])
+    # Page order: compact hero -> this team's moving ticker -> the complete
+    # searchable / filterable / sortable grid -> trust strip -> season news,
+    # trend panels and the collection description. No countdown here (the
+    # countdown stays on the homepage / Week 1 guide, untouched).
     body = f"""
-<main id="main"><section class="cbanner" style="padding:0">
+<main id="main"><section class="cbanner compact" style="padding:0">
  <div class="band"><img src="{c['hero']}" alt="{esc(c['name'])} banner" width="1600" height="700" fetchpriority="high"></div>
  <div class="cb-in">
   <span class="eyebrow"><span class="dot"></span> {len(items)} designs &middot; from ${prices[0]:.2f}</span>
   <h1>{esc(c['h1'])}</h1>
   <p class="lede">{esc(c['banner'])}</p>
   <p class="vs">Checkout collection: <b>{esc(c['vs_name'])}</b></p>
-  <div class="btnrow"><a class="btn lg" href="#grid">Shop the collection</a>
-   <a class="btn ghost lg" href="/size-guide/">Size guide</a></div>
  </div>
 </section>
-{countdown_bar(k)}
-{trust()}
 {ticker(k)}
 <div class="light">
 {cb}
@@ -974,11 +1011,12 @@ def page_collection(k):
  <div class="grid" id="pg">{cards}</div>
  <p class="muted center" id="nores" style="display:none;padding:40px 0">No designs match that search.</p>
 </div></section>
+{trust()}
 <section style="border-top:1px solid var(--line)"><div class="wrap prose reveal">
  <h2>{esc(c['short'])} In The 2026 Season</h2>
  <div class="trendbox"><b><span class="dot"></span> Season update &middot; {TODAY}</b>
   {esc(se['headline'])} {esc(se['status'])}.{(" " + esc(se['legacy_note'])) if se['legacy_note'] else ""}</div>
- {fti_block(k, 6)}
+ {fti_block(k, FTI_COLLECTION_LIMIT)}
  {moments_block(k, limit=5)}
  {headline_block(k)}
  <p>Fans searching for {", ".join(esc(x) for x in se['hot'][:3])} land here. Kickoff is
