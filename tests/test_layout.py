@@ -10,7 +10,7 @@ first when you change `src/build.py` or `src/style.css`.
 
 Covered:
   * CTA colours: #49a59c / #3a847d in both src/style.css and src/build.py.
-  * /collections/: circular team portraits (4 desktop / 2 mobile), no
+  * /collections/: circular team logo marks (4 desktop / 2 mobile), no
     "What you will find in each collection", four homepage-style team product
     sections (four cards + "View all" each, homepage ordering, no duplicates).
   * Team collection pages: no countdown, compact hero, ticker directly after
@@ -19,7 +19,7 @@ Covered:
     description kept below the products.
   * Countdowns outside collection pages are unchanged.
   * Homepage: rounded horizontal "Shop By Team" nav cards with circular
-    thumbnails (2 desktop / 1 mobile), no "Why this locker", compact four-entry
+    logo thumbnails (2 desktop / 1 mobile), no "Why this locker", compact four-entry
     Fan Trend Index strip; the full index page still lists everything.
   * Product pages: one live "Order in Xd Yh Zm" order-by chip (.uc) per page
     with an ISO deadline + the app.js ticker, seamless-checkout copy, and
@@ -145,15 +145,18 @@ class CollectionsIndex(unittest.TestCase):
         for k, card in zip(ORDER, cards):
             c = COLLECTIONS[k]
             self.assertIn('class="tportrait"', card)
-            self.assertIn(os.path.basename(c["hero"]), card)          # existing hero, cropped
+            self.assertIn(os.path.basename(c["logo"]), card)           # logo mark, uncropped
+            self.assertNotIn(os.path.basename(c["hero"]), card)        # hero photo no longer used
             self.assertIn(c["name"], card)                              # clear name
             self.assertRegex(card, r"\d+ designs")                      # design count
             self.assertIn("&rarr;", card)                               # navigation arrow
-        # Circle + subtle team-colour outline
+        # Circle + subtle team-colour outline + uncropped logo
         port = css_block(self.css, ".tportrait")
         self.assertIn("border-radius:50%", port)
         self.assertIn("border:2px solid var(--ca)", port)
-        self.assertIn("border-radius:50%", css_block(self.css, ".tportrait img"))
+        img = css_block(self.css, ".tportrait img")
+        self.assertIn("border-radius:50%", img)
+        self.assertIn("object-fit:contain", img)
 
     def test_four_columns_desktop_two_mobile(self):
         self.assertIn("repeat(4,minmax(0,1fr))", css_block(self.css, ".teamcircles"))
@@ -231,15 +234,17 @@ class TeamCollectionPages(unittest.TestCase):
             self.assertTrue(after.startswith('<div class="ticker">'),
                             f"{k}: ticker must immediately follow the hero")
         comp = css_block(self.css, ".cbanner.compact .band")
-        self.assertIn("aspect-ratio:16/9", comp)
+        self.assertIn("aspect-ratio:1828/860", comp)
 
     def test_hero_bands_are_uncropped(self):
-        # All five hero banners (home + four teams) are 1920x1080 (16:9) art;
-        # the banner band must stay 16:9 at every breakpoint so none of them
-        # get cropped to a wide strip.
+        # Each banner band matches its art's native ratio (home 1774x887,
+        # teams 1828x860) at every breakpoint so the full banner shows and
+        # none of them get cropped to a 16:9 box or a wide strip.
         base = css_block(self.css, ".cbanner .band")
-        self.assertIn("aspect-ratio:16/9", base)
-        for ratio in ("32/9", "21/9", "5/1"):
+        self.assertIn("aspect-ratio:1774/887", base)
+        comp = css_block(self.css, ".cbanner.compact .band")
+        self.assertIn("aspect-ratio:1828/860", comp)
+        for ratio in ("16/9", "32/9", "21/9", "5/1"):
             self.assertNotIn(f"aspect-ratio:{ratio}", self.css, ratio)
 
     def test_grid_before_trust_description_news_trends(self):
@@ -447,6 +452,7 @@ class Homepage(unittest.TestCase):
         for k, card in zip(ORDER, cards):
             c = COLLECTIONS[k]
             self.assertIn('class="tportrait"', card)
+            self.assertIn(os.path.basename(c["logo"]), card)           # logo mark, uncropped
             self.assertIn(c["name"], card)
             self.assertRegex(card, r"\d+ designs")
             self.assertIn("&rarr;", card)

@@ -787,14 +787,15 @@ def week1_section():
 
 
 def team_portrait(k, size=96, cls="tportrait"):
-    """Circular team thumbnail cropped from the collection's existing hero.
+    """Circular team thumbnail showing the team's logo mark.
 
-    No new artwork is involved: the portrait is the hero photo masked to a
-    circle with a subtle ring in the team's primary colour (drawn with the
-    --ca token, so accents stay data-driven).
+    The portrait is the official-style logo (helmet / G / star / block M)
+    masked to a circle with a subtle ring in the team's primary colour
+    (drawn with the --ca token, so accents stay data-driven). The image is
+    rendered with object-fit:contain so the mark is never cropped.
     """
     c = COLLECTIONS[k]
-    return (f'<span class="{cls}"><img src="{c["hero"]}" alt="" loading="lazy" '
+    return (f'<span class="{cls}"><img src="{c["logo"]}" alt="" loading="lazy" '
             f'decoding="async" width="{size}" height="{size}"></span>')
 
 
@@ -951,7 +952,7 @@ def home_banner():
     teams = ", ".join(COLLECTIONS[k]["short"] for k in ORDER[:-1])
     return f"""<section class="cbanner" style="padding:0">
  <div class="band"><img src="/img/hero-home.jpg" alt="{esc(BRAND)} fan apparel"
-  width="1920" height="1080" fetchpriority="high"></div>
+  width="1774" height="887" fetchpriority="high"></div>
  <div class="cb-in">
   <span class="eyebrow"><span class="dot"></span> {n} fan designs &middot; {len(ORDER)} team collections</span>
   <h1>{esc(CFG['tagline'])}</h1>
@@ -1141,7 +1142,7 @@ def page_collection(k):
                     f'(Fan Trend Index {int(r["index"])}/100).')
     body = f"""
 <main id="main"><section class="cbanner compact" style="padding:0">
- <div class="band"><img src="{c['hero']}" alt="{esc(c['name'])} banner" width="1920" height="1080" fetchpriority="high"></div>
+ <div class="band"><img src="{c['hero']}" alt="{esc(c['name'])} banner" width="1828" height="860" fetchpriority="high"></div>
  <div class="cb-in">
   <span class="eyebrow"><span class="dot"></span> {len(items)} designs &middot; from ${prices[0]:.2f}</span>
   <h1>{esc(c['h1'])}</h1>
