@@ -1,6 +1,6 @@
 #!/usr/bin/env python3
 """Static site generator for the fan-apparel storefront."""
-import json, os, re, shutil, html, sys, datetime
+import json, os, re, shutil, html, sys, datetime, hashlib
 sys.path.insert(0, os.path.dirname(__file__))
 from collections import OrderedDict
 from collections_data import COLLECTIONS, ORDER, SEASON, NEXT_GAME
@@ -20,6 +20,8 @@ def abs_url(path):
 BRAND = CFG["site_name"]
 TODAY = datetime.date.today().isoformat()
 ORDERBY = (datetime.date.today() + datetime.timedelta(days=4)).strftime("%b %d")
+STYLE_PATH = os.path.join(ROOT, "src/style.css")
+STYLE_VERSION = hashlib.sha256(open(STYLE_PATH, "rb").read()).hexdigest()[:8]
 
 # ------------------------------------------------------------------- socials
 # Every live brand profile, verified 2026-09-05. The footer used to link a
@@ -449,7 +451,7 @@ def head(title, desc, path, image=None, schema=None, keywords=None, col=None):
 <meta name="twitter:image" content="{img}">
 <meta name="theme-color" content="#ffffff">
 <link rel="icon" href="/img/favicon.svg" type="image/svg+xml">
-<link rel="stylesheet" href="/assets/style.css">
+<link rel="stylesheet" href="/assets/style.css?v={STYLE_VERSION}">
 <script>document.documentElement.className+=" js"</script>
 {acc}
 {sc}
