@@ -1,5 +1,5 @@
 {
- "generated": "2026-09-05",
+ "generated": "2026-09-06",
  "window_days": 10,
  "fti_formula": "round(100 * entity_mentions / peak_mentions_in_window)",
  "peak_mentions": 21,
@@ -27,18 +27,9 @@
    "collection": "cleveland-browns"
   },
   {
-   "name": "bryce underwood",
-   "mentions": 20,
-   "index": 95,
-   "status": "trending",
-   "gap": false,
-   "shoppable": true,
-   "collection": "michigan"
-  },
-  {
    "name": "josh jacobs",
-   "mentions": 18,
-   "index": 86,
+   "mentions": 17,
+   "index": 81,
    "status": "trending",
    "gap": true,
    "shoppable": false,
@@ -52,6 +43,15 @@
    "gap": false,
    "shoppable": true,
    "collection": "cleveland-browns"
+  },
+  {
+   "name": "bryce underwood",
+   "mentions": 15,
+   "index": 71,
+   "status": "trending",
+   "gap": false,
+   "shoppable": true,
+   "collection": "michigan"
   },
   {
    "name": "myles garrett",
@@ -72,6 +72,24 @@
    "collection": "green-bay-packers"
   },
   {
+   "name": "kyle whittingham",
+   "mentions": 5,
+   "index": 24,
+   "status": "trending",
+   "gap": true,
+   "shoppable": false,
+   "collection": "michigan"
+  },
+  {
+   "name": "todd monken",
+   "mentions": 5,
+   "index": 24,
+   "status": "trending",
+   "gap": true,
+   "shoppable": false,
+   "collection": "cleveland-browns"
+  },
+  {
    "name": "micah parsons",
    "mentions": 4,
    "index": 19,
@@ -81,15 +99,6 @@
    "collection": "green-bay-packers"
   },
   {
-   "name": "todd monken",
-   "mentions": 4,
-   "index": 19,
-   "status": "trending",
-   "gap": true,
-   "shoppable": false,
-   "collection": "cleveland-browns"
-  },
-  {
    "name": "jordan love",
    "mentions": 3,
    "index": 14,
@@ -97,15 +106,6 @@
    "gap": false,
    "shoppable": true,
    "collection": "green-bay-packers"
-  },
-  {
-   "name": "kyle whittingham",
-   "mentions": 3,
-   "index": 14,
-   "status": "trending",
-   "gap": true,
-   "shoppable": false,
-   "collection": "michigan"
   },
   {
    "name": "ceedee lamb",
@@ -192,8 +192,8 @@
   },
   {
    "name": "josh jacobs",
-   "mentions": 18,
-   "index": 86,
+   "mentions": 17,
+   "index": 81,
    "status": "trending",
    "gap": true,
    "shoppable": false,
@@ -209,22 +209,22 @@
    "collection": "green-bay-packers"
   },
   {
-   "name": "todd monken",
-   "mentions": 4,
-   "index": 19,
-   "status": "trending",
-   "gap": true,
-   "shoppable": false,
-   "collection": "cleveland-browns"
-  },
-  {
    "name": "kyle whittingham",
-   "mentions": 3,
-   "index": 14,
+   "mentions": 5,
+   "index": 24,
    "status": "trending",
    "gap": true,
    "shoppable": false,
    "collection": "michigan"
+  },
+  {
+   "name": "todd monken",
+   "mentions": 5,
+   "index": 24,
+   "status": "trending",
+   "gap": true,
+   "shoppable": false,
+   "collection": "cleveland-browns"
   }
  ],
  "collections": [
@@ -250,8 +250,8 @@
     },
     {
      "name": "todd monken",
-     "mentions": 4,
-     "index": 19,
+     "mentions": 5,
+     "index": 24,
      "status": "trending",
      "gap": true,
      "shoppable": false,
@@ -277,16 +277,16 @@
      "pub": "Sun, 30 Aug 2026 20:37:07 GMT"
     },
     {
-     "title": "Thinking about Browns QBs, kickers & discipline \u2013 Terry Pluto",
-     "url": "https://news.google.com/rss/articles/CBMipAFBVV95cUxQTU1kNTBLanFxczZ1LU5rUzNRUHAzdWhaYUFjdzQ5bGJSN2JBZGNFNDZGSVNLT0E0d2hnVXB2a0VDYldhYVVHeVl0T1hHVlBtdTJYR19uUkJRU3ptQW41N1d2dEZRMzh6angzYkRjUHJiTlRabHJLdnFDc05PWmM1S3o4MGVmT1EwUmpDOVdSRWF4Wl9sYm9rZFJza1B2SjFJaFNCZdIBuAFBVV95cUxPdWpJM2Q4WG9hd2JBMDdjR1JJWTdFX3RLTHM5UFc5SUZHYllsN1lGbkphREJRU29BNUR1SHEwa3FJNkhfdEJRbWl1LU1xUl8ybGNtZ3JrSnhrUUZRYm5qcHQ3bzdJbUZYREMyZ0d2emptVWVFVl9wTU0wZ2xveUpmWkx0ZWZCSUk2N2dfRXAzak9hdkZqN1VoLXVBY2dYeHBJUjFlbFRmUndBV0wyRXNfN3dzWTBscmRw?oc=5",
-     "source": "Cleveland.com",
-     "pub": "Sun, 30 Aug 2026 10:00:00 GMT"
-    },
-    {
      "title": "Deshaun Watson and the moral dilemma at the forefront of Cleveland Browns football",
      "url": "https://news.google.com/rss/articles/CBMioAFBVV95cUxNTWh1NTdQLWVTMHc0emQ4ZXNScGR2YkF6WFlpUWFOYVBic2ZZUXpWNzdaZmJXa2hjM2otWmtxR2FXWG56LVFOQk96Rms2ZFlaYXlZQWRiX1d4SGpReE5FUTlYUzZyLVdrcVdRaE5fc2I0QkdiYkwyWEt1S1ZhLWtFWDFlc0l3V2ZXaHEyZktadzBJazRaU2o0cWZHMGc1eU5B?oc=5",
-     "source": "andscape.com",
+     "source": "Andscape",
      "pub": "Fri, 28 Aug 2026 07:00:00 GMT"
+    },
+    {
+     "title": "Would the Browns consider throwing the ball to QB Taylen Green? The surprise of camp re-signed to the practic",
+     "url": "https://news.google.com/rss/articles/CBMigAJBVV95cUxONUpuLUo5c0RpZzdocE9IYlUwYTNzU19Lb1VLWWwyaVhNQnFYOS1iMk45Vm44NnlNTU4tZTlkSllLcGJyYmNkQVZGRkJsN2E1S1JaZndMYnllYUp1VHlLekJpTFRUb2NUY2FYT2lLMkdlNjcwRlo3NnAxSlBxaFdCclJCZUMtQlpPcHJCdDZWSUo5eVk0eHJwVHpRTVBkNkk1Sml0a3JOQnJ5RDE3QWg5MHRtRUhMQUVSdFZPcTlRaE9fQW9XTlRoT3B3a18xcUc4WGRzWVZYV24tQ21rMV9SN1RtekhqWkZlLWw0SGpfaUxtdG1aWjlaRWVKeDRWejdD0gGUAkFVX3lxTE5jdU1LdkUzb0N5MVdUYVBpN3cyQzRpc2Jvc1AtcE9ZNHMzVkI3a1JJbjdEeWRXa2pzdkxHLUFMTlE4cVdPQV9NaTRZM1ZSNWs2TVhlVmVOS3lGNkJqa0wtZ05yekp0d0U1VHNkLWF6Tk51WkI1VE54UHI1NFp5emdaLWFxdjFIdzF0SzJWaWwyb3BhX3h4bDNJVTNQQkVVRzdlNi1fNmtheHJCekFQS3FjV1NSQWU3NDB0VnVYOXh2TmExNFprczRPeWZiYmUzYkcyZHR2bWo0MExnM0Z6aWp0c1N3NWZOTVlLQjJhd2RDa1Brd2xzV0pXbGczdUdpSFZkQnJBcmNSWXlDQWZmQWhFbUVGSw?oc=5",
+     "source": "Cleveland.com",
+     "pub": "Fri, 04 Sep 2026 19:43:00 GMT"
     },
     {
      "title": "Cleveland Browns have a strategy that may just be crazy enough to work",
@@ -295,10 +295,10 @@
      "pub": "Wed, 02 Sep 2026 23:10:52 GMT"
     },
     {
-     "title": "See the Cleveland Browns\u2019 latest moves as 53-man roster deadline looms",
-     "url": "https://news.google.com/rss/articles/CBMijAFBVV95cUxPTVpNNlE3MDJyelNiaTdrNFFDeS01eDVCUHNZbzhRVmI0R2tLWHNsTVY0bXJDZlkxMk9YYl9kSEZoRkdiWGthT1gwcHkzXzdxbmZEMlZEbWpmQ09UV2RndmlVNzV5RUhDakRQRW1CUlc2aF96T2I5Y0d3dTNySjNjeVczX3hyTjEzTFREUdIBkgFBVV95cUxNdFFIeXAwUFY2Ukk1UVdBM3BOLTJVSWpWbWVUX1VjZWZWdjFSakVkcVFvd0VHMTd6UTdRQ2tFVnhPbWdUNFpEUmJQTTNaZ053MHBjeFF2THdUbGxIUWFpaUpsLTU1UW5NYTk3aWtQQmw0ZUgwMkdLcklJeEVMbnZGTlZnMzY1Rl96MjNabmh3V29OZw?oc=5",
+     "title": "Cleveland Browns set initial 53-man roster",
+     "url": "https://news.google.com/rss/articles/CBMic0FVX3lxTE9ZMDZVVmNSem5BQ09qS25wU2N2SG56NnV3SUVPbF9XdnJ1bGxhZ3BfX3lEMHoxYTNoZ280Mi04dmhIallUbDBVZXVzVVNnUGFYVkhXYzFPNmN5MklFZU1lLTl1ankxR3pPa1J6c1d5ci1NQmPSAXhBVV95cUxOYkxibGJaZWdwNWtYdXhIaE1xUmNpSl82VkV1SU1fanV5MVVzRFV6M2dHOXlrR0cyQmtOTzU3c0E2RjhUU1FxUWJ1SnhZQ3NDVlROSTBqVER1cWxOSWJwOWFjdWFFd3hYeGFlV3ZrekpUb1MzQnZtcmw?oc=5",
      "source": "FOX 8 News",
-     "pub": "Fri, 28 Aug 2026 07:00:00 GMT"
+     "pub": "Sun, 30 Aug 2026 21:03:38 GMT"
     }
    ],
    "fti_count": 7
@@ -372,8 +372,8 @@
    "gaps": [
     {
      "name": "josh jacobs",
-     "mentions": 18,
-     "index": 86,
+     "mentions": 17,
+     "index": 81,
      "status": "trending",
      "gap": true,
      "shoppable": false,
@@ -395,9 +395,9 @@
     "roster",
     "josh",
     "jacobs",
-    "trade",
     "sign",
-    "practice"
+    "practice",
+    "trade"
    ],
    "headline_count": 100,
    "headlines": [
@@ -414,12 +414,6 @@
      "pub": "Tue, 01 Sep 2026 21:18:28 GMT"
     },
     {
-     "title": "How To Watch: Cardinals at Packers, Preseason Game No. 4",
-     "url": "https://news.google.com/rss/articles/CBMijwFBVV95cUxOWUpacURDVXROUGJrY2I5WEJFQzVzYkRRMWtGSGcyU3VkVVhKcWhLLWMwSlNBQ1J2MFNvS3MyTVdBdFBQQmFSNmtYblFtLWMyaUVTbGRKNExaX09oUy1wVTBWSXF3emZ1cGNReEZYMnhaSEtCWmZpRlhlOUJmNXg1a09OU3phaFpEUzdjdExsUQ?oc=5",
-     "source": "Arizona Cardinals",
-     "pub": "Thu, 27 Aug 2026 07:00:00 GMT"
-    },
-    {
      "title": "Green Bay Packers receive low defensive ranking from PFF prior to Week 1 of 2026 NFL season",
      "url": "https://news.google.com/rss/articles/CBMihAFBVV95cUxNM2ticEhsQ1RSR1RkcVUxdm5PTXNjS0g4c3hoMmlvWkdVSnl4SWRGalFTR1NfS3QtUHRmbmkxQ1B5REV0cHhhZkJ5bENtU3ctOVhhdnA5RFVYemJ5WEg1cUx3YzZKempCWlp2R051ZHlsOGY3N0dDcS1la2xZZ1djWDJoeVU?oc=5",
      "source": "Yahoo Sports",
@@ -428,8 +422,14 @@
     {
      "title": "Three new Packers players are making an impression in Green Bay",
      "url": "https://news.google.com/rss/articles/CBMiuAFBVV95cUxQZ1NvTzVwR3VIN2U2SDVnRld2U0F6cTFfQXg2TzFyTGhNQTl3bmdTbkkzaU80OHp0X3pFRW1vYWZZWjRJWVlVSThWcklmTjdoOTZyMkNQYTdhSUpuUXRISUw0WkxUTmFaNGd1R0VYSDdtOFdHc3BWYktGeDIzZlhxVVRPVzBVaURkZFpqRkM4Ujdhd0h6OVg4NVJNNjdOUVk5V2szcXQ4anRQZDVJY01sVlNjRDJ4cERH?oc=5",
-     "source": "Acme Packing Company",
+     "source": "acmepackingcompany.com",
      "pub": "Wed, 02 Sep 2026 14:12:01 GMT"
+    },
+    {
+     "title": "Packers announce roster moves | Aug. 30, 2026",
+     "url": "https://news.google.com/rss/articles/CBMiekFVX3lxTFBfRGZTYlhHM0ZLTHlPWUNtLXFGTE5McWxucTdDSlZWOHhVbmlQNlBYUFVjeEtQUXpDX0dtdEVjNE1uZ0R6d0NEMklCSHF3RjMyZXpGdDl1anhHOUFfMjMySjNKZEZxTzM2dlNZMnQ0VHRHTElxaTNCX3RB?oc=5",
+     "source": "Green Bay Packers",
+     "pub": "Sun, 30 Aug 2026 22:30:01 GMT"
     }
    ],
    "fti_count": 5
@@ -447,8 +447,8 @@
    "gaps": [
     {
      "name": "kyle whittingham",
-     "mentions": 3,
-     "index": 14,
+     "mentions": 5,
+     "index": 24,
      "status": "trending",
      "gap": true,
      "shoppable": false,
@@ -462,8 +462,8 @@
     "wolverines",
     "watch",
     "predictions",
-    "underwood",
-    "opener"
+    "opener",
+    "underwood"
    ],
    "headline_count": 100,
    "headlines": [
@@ -476,26 +476,26 @@
     {
      "title": "How to Watch: No. 16 Michigan Wolverines vs Western Michigan Broncos",
      "url": "https://news.google.com/rss/articles/CBMizAFBVV95cUxPSWdiUm54SkdscFpBMi1jbTliODk2X2RHYkVJWmRTb0ZpTGx0OHdpb1FDRUJMMTdTNGRIdEczNFlWSVJ6S3lHMTFWSDF1NXhkREVjcDlQQ29Cc0Y4MEZsdWNqdzNCUUdTbjJxeHRJQVhXRmdlOS1qcWRaeFJuekpfeHRQSzJfU05wRk9PWjhuQXdObnAtT2NvZnRhNXdGNWhlQjNHMUp5MmhYWmFEUFh1TzlPUXNjeEFKcGxUYlAzM0VTcHFHWUFnVUs3eHo?oc=5",
-     "source": "maizenbrew.com",
+     "source": "Maize n Brew",
      "pub": "Thu, 03 Sep 2026 20:00:00 GMT"
-    },
-    {
-     "title": "Michigan football vs Western Michigan time, channel, streaming and odds",
-     "url": "https://news.google.com/rss/articles/CBMi-AFBVV95cUxOX3BFUjE3Rk9rVTFXRFBXb3p5cHEyNE1pVUQ1T3NCaVB5QjRfZ0daenNCT1NqemxDRldyeTVjS3l5SDRhZlNWTllicjBXRHFLeVYyT0FCNkp1YmxMYWRMMmJWdmMwbmtTb2llZFhNckJCVFJLdmdPVE9Ic3lKUXowUjdmWXpDSlBFLS1KVTdJcEFoQ0tQb01DLVlzaENMTlExblA4OXNkZmFValNkbEJYZno4WklfWC1uRVUxLVBfVDdyb2FhQ0lja0g3YzhEdnhyVW1QSXZUUG9aN19lT094eFFJY3V5ZmdMREdxSWlsdTBqTTNBWmVwbw?oc=5",
-     "source": "Detroit Free Press",
-     "pub": "Sat, 05 Sep 2026 21:30:00 GMT"
-    },
-    {
-     "title": "Michigan football predictions: How will the Wolverines fare this season?",
-     "url": "https://news.google.com/rss/articles/CBMiwwFBVV95cUxOeE81QTRmSlphSW1ZYVVSUU5HbkxUVTJXd1ZqZHZYWmZNT05vUDN4R3JfYURfaXpTTmVTQzhXRUVCUTNOLWhBNV9zdDRkQTBpM1phUlY1WU1hdnlDMjhlM2w0dGMyWl9ubmRpa213aGNKcERkclZtSjRRV0VWQXVzLTF5RnBSdDNZaVViSUlobnhoN2xwSU1ucF9fSHBLTWp6ZVN6cFpCemZjSXJoQ2I2SHBJWlVnSDBudVhvNE5pQm5MM0HSAdcBQVVfeXFMTjJYVWFWWlFfMmtfaEI3UGZWMzdLVWlfOHJZY21iZERpRktXN2g1QjAwcWZ4b05BYVpOb2lJUUM0cF95LVZSMVp0bV96YTA1cGd3azZGT3N4N2tILVFrQzBBeGd0OFJfcnQ5bXM1Q2U5ejlsdGQ3M0EyWTh1c21GMU1OeFd5YzEtTnFCSDktZVhicnFlQ2M4NEZQU2xsdTFOZEFRR2dtWjg0R01sOVNQZEVJbTdsc1dFenVXRFhWcjBreThfSzNjNDRGTzQ5N1d1cmlCdkEyamM?oc=5",
-     "source": "mlive.com",
-     "pub": "Thu, 03 Sep 2026 10:58:00 GMT"
     },
     {
      "title": "Michigan Monday: Game 1 vs. Western Michigan",
      "url": "https://news.google.com/rss/articles/CBMihgFBVV95cUxOMGpjaTd1Y1F5bFkyRG4yeVVfWi1WNjhKb2pObzBSM0c1aXFQT0ZtR0VELTMyZVlFRHlaLTJjWXB6VTVsdkZXUnQ5OVRWVE9fLXVHU0x5VVlZcTktOHUwVzhubV9KZy1DVWF1SUhnQ1NTUW5hQmI0QlY5c1VOSDM2RTJhM1FDUQ?oc=5",
      "source": "University of Michigan Athletics",
      "pub": "Mon, 31 Aug 2026 20:24:42 GMT"
+    },
+    {
+     "title": "How to Watch Michigan Football\u2019s Season Opener Against WMU",
+     "url": "https://news.google.com/rss/articles/CBMipgFBVV95cUxNQjhWWGd0S251MVF4MFRocVJfejJ2dHhGYWw5WlJiSXc0UFlIRGEySWlNNzlXazNaRktib05UNDJPQjBCNTdlcWtPdngzajE3SGNhS1I3X0sza2pSeW9JVjVZMElPMXpxamY5UU5lOTNtTFFBRENKakdVUU5aYWxpbXFvZFJnWlV4eGVpRkNteGQwTnJJUXhVdk1OY1Z2UjExOVdJakd3?oc=5",
+     "source": "Sports Illustrated",
+     "pub": "Sat, 05 Sep 2026 10:00:01 GMT"
+    },
+    {
+     "title": "Michigan football predictions: How will the Wolverines fare this season?",
+     "url": "https://news.google.com/rss/articles/CBMiwwFBVV95cUxOeE81QTRmSlphSW1ZYVVSUU5HbkxUVTJXd1ZqZHZYWmZNT05vUDN4R3JfYURfaXpTTmVTQzhXRUVCUTNOLWhBNV9zdDRkQTBpM1phUlY1WU1hdnlDMjhlM2w0dGMyWl9ubmRpa213aGNKcERkclZtSjRRV0VWQXVzLTF5RnBSdDNZaVViSUlobnhoN2xwSU1ucF9fSHBLTWp6ZVN6cFpCemZjSXJoQ2I2SHBJWlVnSDBudVhvNE5pQm5MM0HSAdcBQVVfeXFMTjJYVWFWWlFfMmtfaEI3UGZWMzdLVWlfOHJZY21iZERpRktXN2g1QjAwcWZ4b05BYVpOb2lJUUM0cF95LVZSMVp0bV96YTA1cGd3azZGT3N4N2tILVFrQzBBeGd0OFJfcnQ5bXM1Q2U5ejlsdGQ3M0EyWTh1c21GMU1OeFd5YzEtTnFCSDktZVhicnFlQ2M4NEZQU2xsdTFOZEFRR2dtWjg0R01sOVNQZEVJbTdsc1dFenVXRFhWcjBreThfSzNjNDRGTzQ5N1d1cmlCdkEyamM?oc=5",
+     "source": "MLive.com",
+     "pub": "Thu, 03 Sep 2026 10:58:00 GMT"
     }
    ],
    "fti_count": 4
@@ -677,7 +677,7 @@
   {
    "title": "Deshaun Watson and the moral dilemma at the forefront of Cleveland Browns football",
    "url": "https://news.google.com/rss/articles/CBMioAFBVV95cUxNTWh1NTdQLWVTMHc0emQ4ZXNScGR2YkF6WFlpUWFOYVBic2ZZUXpWNzdaZmJXa2hjM2otWmtxR2FXWG56LVFOQk96Rms2ZFlaYXlZQWRiX1d4SGpReE5FUTlYUzZyLVdrcVdRaE5fc2I0QkdiYkwyWEt1S1ZhLWtFWDFlc0l3V2ZXaHEyZktadzBJazRaU2o0cWZHMGc1eU5B?oc=5",
-   "source": "andscape.com",
+   "source": "Andscape",
    "pub": "Fri, 28 Aug 2026 07:00:00 GMT",
    "collection": "cleveland-browns",
    "entities": [
@@ -687,7 +687,7 @@
   {
    "title": "Life without Myles Garrett: What to expect from Browns defense",
    "url": "https://news.google.com/rss/articles/CBMisgFBVV95cUxPVUVCMzBkUjNNaV85Mkdic0xwS2k2S25fSHNaUWVyQ3dvcmYxX0JEdWtYdnN4OGcyQlhSekZrdnNwUFNXTkFJNWdQdXltb3ZQQWZXWWlDVkZXYlNNVHdRMF9WUlh1ci1uWlRxM3ZmbkVoRU5lRFRKWW9WdkMwR1ZJa3prSkk1YVhBbDZGOFNqOU0tNW4taUNTZ0hCbVZnMG5xZkRNV0xGNVhCNzl3RVV6aDlR?oc=5",
-   "source": "espn.com",
+   "source": "ESPN",
    "pub": "Wed, 02 Sep 2026 10:00:00 GMT",
    "collection": "cleveland-browns",
    "entities": [
