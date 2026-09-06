@@ -45,6 +45,13 @@ CATALOG = {
     kw=["bryce underwood shirt", "qb19 ann arbor", "michigan football tee",
         "underwood michigan"],
     theme="player"),
+"second-act-qb19-limited-edition": dict(
+    name="Second Act QB19 Limited Edition Tee",
+    art="LIMITED EDITION QB19 SECOND ACT",
+    kw=["second act qb19 shirt", "bryce underwood second act tee",
+        "michigan qb19 shirt", "ann arbor football shirt",
+        "michigan football gift"],
+    theme="player"),
 "all-we-want-all-we-got-25": dict(name="Cleveland Under Dawgs Playoffs Shirt", art="THE CLEVELAND UNDER DAWGS - ALL WE GOT, ALL WE NEED - PLAYOFFS", kw=["cleveland underdogs shirt","dawg pound playoff shirt","browns playoff tee"], theme="playoff"),
 "sanders-13-special-edition": dict(name="Shedeur Sanders 12 They Forgot Who I Am Shirt", art="THEY FORGOT WHO I AM - SANDERS SHEDEUR - BROWNS 12", kw=["shedeur sanders shirt","sanders browns qb tee","cleveland quarterback 12 shirt"], theme="player"),
 "bend-football-fans": dict(name="Bend & Snap Funny Football Shirt", art="BEND & SNAP with vintage football", kw=["funny football shirt","bend and snap tee","football humor shirt"], theme="funny"),
