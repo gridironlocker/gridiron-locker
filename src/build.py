@@ -593,25 +593,61 @@ def audience_gender(it):
     return "unisex"
 
 
+PRINT_DAYS = 4  # print + hand-off window we ask fans to leave before kickoff
 
-def urgency_line(col):
-    """Lead-time line shown on every product page.
 
-    The order-by date is derived from the collection's NEXT kickoff
+def order_by_for(col):
+    """(order-by datetime, kickoff datetime, human game label) for a collection.
+
+    The order-by moment is derived from the collection's NEXT kickoff
     (NEXT_GAME), not from a fixed season-opener string, so it can never tell a
-    fan to order after the game has already been played. If the 4-day print
-    window has already closed, the clause is dropped and we just state the
-    dispatch time instead of promising a deadline we cannot hit.
+    fan to order after the game has already been played.
     """
     kick = datetime.datetime.fromisoformat(NEXT_GAME[col])
-    order_by = kick - datetime.timedelta(days=4)
+    order_by = kick - datetime.timedelta(days=PRINT_DAYS)
     same_game = SEASON[col]["kickoff"][:10] == NEXT_GAME[col][:10]
-    tail = (esc(SEASON[col]["opener"].replace("&middot;", "-")) if same_game
-            else f"{COLLECTIONS[col]['short']} game on {kick.strftime('%b %d')}")
-    if order_by.date() < datetime.date.today():
-        return f"Printed on demand &middot; ships in 2&ndash;4 days &middot; {tail}"
+    label = (SEASON[col]["opener"].replace("&middot;", "-") if same_game
+             else f"{COLLECTIONS[col]['short']} game on {kick.strftime('%b %d')}")
+    return order_by, kick, label
+
+
+def urgency_line(col):
+    """Static lead-time sentence (used where a live chip makes no sense, e.g.
+    the Week 1 guide). If the print window has already closed, the deadline
+    clause is dropped and we just state the dispatch time instead of
+    promising a deadline we cannot hit."""
+    order_by, kick, label = order_by_for(col)
+    if order_by < datetime.datetime.now(datetime.timezone.utc):
+        return f"Printed on demand &middot; ships in 2&ndash;4 days &middot; {esc(label)}"
     return (f"Printed on demand &middot; order by {order_by.strftime('%b %d')} "
-            f"to wear it for {tail}")
+            f"to wear it for {esc(label)}")
+
+
+def urgency_chip(col):
+    """Live order-by countdown chip for the product buy box.
+
+    Renders "Order in <b>Xd Yh Zm</b> to wear it for <game>" with the
+    deadline carried in data-orderby (ISO, timezone-aware). app.js ticks the
+    bold part every minute from the visitor's clock, so the chip is exact even
+    on a page cached since the last daily build. Server-side we render the
+    same numbers as of build time so the chip reads correctly before JS runs
+    (and for crawlers). Once the window has passed, the server drops straight
+    to the honest dispatch-time wording and JS keeps it there.
+    """
+    order_by, kick, label = order_by_for(col)
+    now = datetime.datetime.now(datetime.timezone.utc)
+    if order_by <= now:
+        return (f'<div class="uc past"><span class="dot"></span>'
+                f'<span>Printed on demand &middot; ships in 2&ndash;4 days &middot; '
+                f'{esc(label)}</span></div>')
+    gap = order_by - now
+    d, rem = divmod(int(gap.total_seconds()), 86400)
+    h, rem = divmod(rem, 3600)
+    m = rem // 60
+    return (f'<div class="uc" data-orderby="{order_by.isoformat()}" '
+            f'data-label="{esc(label)}"><span class="dot"></span>'
+            f'<span>Order in <b class="uc-t">{d}d {h}h {m}m</b> to wear it for '
+            f'{esc(label)} <em class="uc-when">(by {order_by.strftime("%b %d")})</em></span></div>')
 
 
 # Evergreen ticker terms, keyed by collection so a team page never scrolls
@@ -636,15 +672,68 @@ TICKER_TERMS = [t for row in zip(*(TEAM_TICKER_TERMS[k] for k in ORDER)) for t i
     + STORE_TICKER_TERMS
 
 
+# Headline words that are never a shirt anyone searches for. The live
+# top_terms feed is raw word frequency from the news pipeline, so without
+# this list the Cleveland ticker scrolled "Roster Cleveland shirts" and the
+# Michigan one "Western Michigan shirts" - an opponent's name on our own
+# team page. Generic football vocabulary + newsroom filler.
+TICKER_STOPWORDS = set("""
+roster practice squad depth chart trade rumors rumor injury injuries report
+update updates news preview recap watch stream free live opener game games
+season week schedule odds pick picks prediction predictions score scores
+final highlights highlight controversial second first football team players
+player coach quarterback offense defense kickoff sunday saturday monday
+thursday friday tonight today yesterday tomorrow week1 vs versus against
+""".split())
+# Multi-word opponent / other-programme names that OTHER_TEAMS (single words)
+# cannot catch, e.g. Michigan's opener "Western Michigan".
+TICKER_OPPONENTS = {
+    "michigan": {"western", "central", "eastern", "ohio", "state", "buckeyes", "spartans",
+                 "irish", "nebraska", "wisconsin", "penn", "usc", "oregon"},
+    "cleveland-browns": {"jacksonville"},
+    "green-bay-packers": {"minnesota"},
+    "dallas-cowboys": {"giants", "york"},
+}
+
+
+def ticker_live_terms(ckey, limit=3):
+    """Team-safe live ticker terms for one collection.
+
+    A live term only qualifies if it is a tracked entity's surname or a
+    non-generic word that is not another team, not an opponent, not a
+    stopword and not part of the collection's own name. Everything that
+    survives is rendered as "<Word> <Team> shirts" - never another team's
+    name on this team's page.
+    """
+    c = COLLECTIONS[ckey]
+    own = set(re.findall(r"[a-z]+", f"{c['short']} {c['team']} {c['name']} {c['city']}".lower()))
+    blocked = OTHER_TEAMS | TICKER_STOPWORDS | TICKER_OPPONENTS.get(ckey, set()) | own
+    mentions = (TRENDS.get("collections", {}).get(ckey, {}) or {}).get("entity_mentions") or {}
+    tracked_words = {w for e, n in mentions.items() if n > 0 for w in e.split()}
+    out = []
+    for t in (TRENDS.get("collections", {}).get(ckey, {}) or {}).get("top_terms", []):
+        w = t.lower().strip()
+        if len(w) <= 3 or not w.isalpha() or w in blocked:
+            continue
+        # generic words only get through when they are a tracked player/coach
+        if w not in tracked_words and w not in {x for row in TEAM_TICKER_TERMS[ckey]
+                                                for x in row[0].lower().split()}:
+            continue
+        term = f"{pretty_name(w)} {c['short']} shirts"
+        if term not in [x for x, _ in out]:
+            out.append((term, 1))
+        if len(out) >= limit:
+            break
+    return out
+
+
 def ticker(ckey=None):
     """Moving keyword bar. With a collection key it is strictly that team's
-    terms (live news terms + that team's evergreen slogans + store terms)."""
+    terms (team-safe live news terms + that team's evergreen slogans + store
+    terms); shared pages interleave all four teams."""
     live = []
     for k in ([ckey] if ckey else ORDER):
-        short = COLLECTIONS[k]["short"]
-        for t in TRENDS.get("collections", {}).get(k, {}).get("top_terms", [])[:3]:
-            if len(t) > 3 and t.lower() not in short.lower() and t not in OTHER_TEAMS:
-                live.append((f"{t.title()} {short} shirts", 1))
+        live += ticker_live_terms(k)
     evergreen = (TEAM_TICKER_TERMS[ckey] + STORE_TICKER_TERMS) if ckey else TICKER_TERMS
     terms = (live + list(evergreen))[:16]
     run = "".join(f'<i class="{"hot" if h else ""}">{esc(t)}</i>' for t, h in terms)
@@ -1034,9 +1123,22 @@ def page_collection(k):
     lore = "".join(f"<li>{esc(x)}</li>" for x in c["lore"])
     kwlinks = " &middot; ".join(esc(x) for x in c["keywords"])
     # Page order: compact hero -> this team's moving ticker -> the complete
-    # searchable / filterable / sortable grid -> trust strip -> season news,
-    # trend panels and the collection description. No countdown here (the
-    # countdown stays on the homepage / Week 1 guide, untouched).
+    # searchable / filterable / sortable grid -> trust strip -> a short season
+    # note and the collection description. No countdown here (the countdown
+    # stays on the homepage / Week 1 guide, untouched).
+    #
+    # Product-first: the Fan Trend Index leaderboard, live player moments and
+    # the headline list used to sit here too, pushing the buying-guide copy
+    # ~2 screens further down and duplicating /2026-season/ and
+    # /fan-trend-index/ on every team page. They now live only on those two
+    # hubs; the team page keeps a one-line pointer to each.
+    fti_top = fti_rows(k)[:1]
+    fti_note = ""
+    if fti_top:
+        r = fti_top[0]
+        fti_note = (f' Hottest name in the {esc(c["short"])} headlines this week: '
+                    f'<strong>{esc(pretty_name(r["name"]))}</strong> '
+                    f'(Fan Trend Index {int(r["index"])}/100).')
     body = f"""
 <main id="main"><section class="cbanner compact" style="padding:0">
  <div class="band"><img src="{c['hero']}" alt="{esc(c['name'])} banner" width="1920" height="1080" fetchpriority="high"></div>
@@ -1068,13 +1170,12 @@ def page_collection(k):
 <section style="border-top:1px solid var(--line)"><div class="wrap prose reveal">
  <h2>{esc(c['short'])} In The 2026 Season</h2>
  <div class="trendbox"><b><span class="dot"></span> Season update &middot; {TODAY}</b>
-  {esc(se['headline'])} {esc(se['status'])}.{(" " + esc(se['legacy_note'])) if se['legacy_note'] else ""}</div>
- {fti_block(k, FTI_COLLECTION_LIMIT)}
- {moments_block(k, limit=5)}
- {headline_block(k)}
+  {esc(se['headline'])} {esc(se['status'])}.{(" " + esc(se['legacy_note'])) if se['legacy_note'] else ""}{fti_note}</div>
  <p>Fans searching for {", ".join(esc(x) for x in se['hot'][:3])} land here. Kickoff is
  <strong>{esc(re.sub('&middot;', '-', se['opener']))}</strong>, so anything ordered in the next week
- comfortably arrives for the opener.</p>
+ comfortably arrives for the opener. Live headlines, player moments and the full
+ {esc(c['short'])} leaderboard are on the <a class="link" href="/2026-season/">2026 season hub</a>
+ and the <a class="link" href="/fan-trend-index/">Fan Trend Index</a>.</p>
  <h2>About the {esc(c['name'])} Collection</h2>
  <p>{esc(c['intro'].format(**c))} Prices start at <strong>${prices[0]:.2f}</strong> and the range
  covers {len(types)} product types: {esc(', '.join(types))}. Everything is unisex unless the design
@@ -1204,7 +1305,7 @@ def page_product(it):
   {trendhtml}
   {momenthtml}
   <p class="desc" style="margin:0 0 12px">{intro_html}</p>
-  <div class="urgency"><span class="dot"></span> {urgency_line(it["col"])}</div>
+  {urgency_chip(it["col"])}
   <p class="muted" style="font-size:.93rem">Design reads: <strong style="color:var(--ink)">{esc(it['art'])}</strong></p>
 
   <div class="opts"><div class="lbl">Style</div><div class="stylelist">{stylechips}</div></div>
@@ -1216,16 +1317,18 @@ def page_product(it):
      Continue to Secure Checkout &rarr;</a>
   <div class="checkoutnote">
    <span class="lock">&#128274;</span>
-   <p><strong>This opens our print partner's secure checkout in a new tab.</strong> There you pick
-   your garment style, colour and size and complete payment with card or PayPal. Tracked, worldwide,
-   and nothing is printed until you confirm the order.</p>
+   <p><strong>You're almost there &mdash; finish on our print partner's secure checkout.</strong>
+   Your style, colour and size carry straight over; pay with card or PayPal, and nothing is printed
+   until you confirm. Tracked delivery worldwide.</p>
   </div>
   <div class="badges"><span class="badge">{sizes_badge}</span>
    <span class="badge">{colours_label}</span>
-   <span class="badge">Worldwide shipping</span><span class="badge">Card &amp; PayPal</span></div>
+   <span class="badge">US shipping from ${SHIP_US['shippingRate']['value']}</span>
+   <span class="badge">30-day misprint replacement</span><span class="badge">Card &amp; PayPal</span></div>
   <div class="ships">
    <div><b>Printing:</b> starts as soon as the campaign order is placed.</div>
-   <div><b>Delivery:</b> tracked worldwide shipping from the US fulfilment centre.</div>
+   <div><b>Delivery:</b> {DELIVERY_TIME} in the US, tracked; worldwide shipping available.</div>
+   <div><b>Returns:</b> misprinted, damaged or defective items are replaced free within 30 days.</div>
    <div><b>Sizing help:</b> <a href="/size-guide/" style="color:var(--accent)">full measurement chart</a>.</div>
   </div>
  </div>
@@ -2269,6 +2372,31 @@ setTimeout(function(){
     m.childNodes[0].nodeValue=pad(mm); s.childNodes[0].nodeValue=pad(ss);
   }
   tick(); setInterval(tick,1000);
+})();
+
+// ---------- order-by countdown chip (product pages) ----------
+// The server renders "Order in Xd Yh Zm" as of build time; this keeps it
+// exact from the visitor's clock and, once the window closes, swaps to the
+// same honest dispatch-time wording the server would have produced.
+(function(){
+  var chips=[].slice.call(document.querySelectorAll('.uc[data-orderby]')); if(!chips.length)return;
+  function tick(){
+    var now=Date.now();
+    chips.forEach(function(c){
+      var end=new Date(c.dataset.orderby).getTime(); if(isNaN(end))return;
+      var gap=end-now, t=c.querySelector('.uc-t');
+      if(gap<=0){
+        c.classList.add('past'); c.classList.remove('soon');
+        var span=c.querySelector('span:last-child');
+        if(span)span.textContent='Printed on demand \u00b7 ships in 2\u20134 days \u00b7 '+(c.dataset.label||'');
+        return;
+      }
+      var d=Math.floor(gap/864e5),h=Math.floor(gap%864e5/36e5),m=Math.floor(gap%36e5/6e4);
+      if(t)t.textContent=(d>0?d+'d ':'')+h+'h '+m+'m';
+      c.classList.toggle('soon',gap<864e5);
+    });
+  }
+  tick(); setInterval(tick,30000);
 })();
 
 // ---------- sticky header + back to top ----------

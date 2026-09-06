@@ -21,9 +21,14 @@ Covered:
   * Homepage: rounded horizontal "Shop By Team" nav cards with circular
     thumbnails (2 desktop / 1 mobile), no "Why this locker", compact four-entry
     Fan Trend Index strip; the full index page still lists everything.
-  * Product pages: Google-merchant Product schema (PeopleAudience, validFrom,
-    shippingRate, deliveryTime, hasMerchantReturnPolicy) sourced from the
-    SHIP_US / RETURN_POLICY / DELIVERY_TIME constants.
+  * Product pages: one live "Order in Xd Yh Zm" order-by chip (.uc) per page
+    with an ISO deadline + the app.js ticker, seamless-checkout copy, and
+    Google-merchant Product schema (PeopleAudience, validFrom, shippingRate,
+    deliveryTime, hasMerchantReturnPolicy) sourced from the SHIP_US /
+    RETURN_POLICY / DELIVERY_TIME constants.
+  * Team collection pages are product-first: no Fan Trend Index / moments /
+    headline panels (those live on /2026-season/ and /fan-trend-index/), and
+    live ticker terms are team-safe (no raw headline words, no opponents).
   * Artwork hygiene: no PNG masters in site/img (they live in artwork-source/).
   * Preserved: team accents, hero images, product count, checkout links, SEO
     metadata, dynamic catalogue counts, no missing local references.
@@ -276,9 +281,39 @@ class TeamCollectionPages(unittest.TestCase):
                         self.assertNotIn(m, tick, f"{k} ticker leaks {other} term {m!r}")
             self.assertIn(COLLECTIONS[k]["short"], tick, k)
 
-    def test_at_most_three_trend_rows(self):
+    def test_ticker_live_terms_are_team_safe(self):
+        # Raw headline words (roster, practice, opponent names...) must never
+        # become "<Word> <Team> shirts" terms. Every live term is built from a
+        # tracked player/coach name or the team's own evergreen vocabulary.
+        import build  # noqa: E402  (uses the same TRENDS the site was built from)
+        generic = {"roster", "practice", "squad", "western", "football", "watch",
+                   "free", "second", "opener", "controversial", "trade", "hail", "mary"}
         for k, html in self.pages.items():
-            self.assertLessEqual(html.count('class="fti-row"'), 3, k)
+            tick = re.search(r'<div class="ticker">(.*?)</div></div>', html, re.S).group(1)
+            terms = re.findall(r"<i[^>]*>(.*?)</i>", tick)
+            for t in terms:
+                first = t.split()[0].lower()
+                self.assertNotIn(first, generic, f"{k}: generic ticker term {t!r}")
+                self.assertNotIn(first, build.OTHER_TEAMS, f"{k}: other-team ticker term {t!r}")
+            for word in build.TICKER_OPPONENTS.get(k, ()):
+                self.assertNotRegex(tick, r"(?i)\b%s\b %s shirts" % (word, COLLECTIONS[k]["short"]),
+                                    f"{k}: opponent {word!r} in ticker")
+
+    def test_product_first_no_trend_panels(self):
+        # Product-first: the Fan Trend Index leaderboard, live player moments
+        # and the headline list live on /2026-season/ and /fan-trend-index/
+        # only. A team page keeps a one-line season note plus links to both.
+        for k, html in self.pages.items():
+            self.assertNotIn('class="ftibox"', html, k)
+            self.assertNotIn('class="newsbox', html, k)
+            self.assertEqual(html.count('class="fti-row"'), 0, k)
+            self.assertIn('class="trendbox"', html, k)
+            # links are relativised in the built output (../2026-season/index.html)
+            self.assertRegex(html, r'href="(?:/|\.\./)2026-season/(?:index\.html)?"', k)
+            self.assertRegex(html, r'href="(?:/|\.\./)fan-trend-index/(?:index\.html)?"', k)
+        hub = page("2026-season/index.html")
+        self.assertIn('class="ftibox"', hub)
+        self.assertIn('class="newsbox', hub)
 
     def test_mobile_grid_is_two_columns(self):
         mob = media_rules(self.css, 560)
@@ -327,6 +362,38 @@ class ProductPages(unittest.TestCase):
             if d.get("@type") == "Product":
                 return d
         return None
+
+    def test_live_order_by_countdown_chip(self):
+        # Every product page carries exactly one .uc chip: either a ticking
+        # "Order in Xd Yh Zm" with an ISO deadline, or the honest past-window
+        # wording. Styles + the app.js ticker must ship with it.
+        self.assertTrue(self.pages)
+        live = 0
+        for slug, html in self.pages.items():
+            chips = re.findall(r'<div class="uc[^"]*"', html)
+            self.assertEqual(len(chips), 1, slug)
+            self.assertNotIn('class="urgency"', html, slug)  # old static line gone
+            if "data-orderby=" in html:
+                live += 1
+                self.assertRegex(html, r'data-orderby="\d{4}-\d\d-\d\dT[\d:]+\+00:00"', slug)
+                self.assertRegex(html, r'Order in <b class="uc-t">\d+d \d+h \d+m</b> to wear it for',
+                                 slug)
+            else:
+                self.assertIn('class="uc past"', html, slug)
+                self.assertIn("ships in 2&ndash;4 days", html, slug)
+        self.assertGreater(live, 0, "no product page has a live order-by chip")
+        self.assertIn("order-by countdown chip", self.js)
+        self.assertIn(".uc[data-orderby]", self.js)
+        for sel in (".uc", ".uc b.uc-t", ".uc.past"):
+            self.assertTrue(css_block(self.css, sel), sel)
+
+    def test_seamless_checkout_copy(self):
+        for slug, html in self.pages.items():
+            self.assertIn("You're almost there - finish on our print partner's secure checkout.",
+                          html, slug)
+            self.assertNotIn("This opens our print partner's secure checkout in a new tab", html, slug)
+            self.assertIn("Continue to Secure Checkout", html, slug)
+            self.assertIn("30-day misprint replacement", html, slug)
 
     def test_merchant_schema_on_every_offer(self):
         import build  # noqa: E402
