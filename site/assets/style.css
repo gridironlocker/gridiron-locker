@@ -153,8 +153,10 @@ header{position:sticky;top:0;z-index:60;background:#fff;border-bottom:1px solid 
    dark team hero can't fight the white page.
    ============================================================= */
 .cbanner{background:#fff;border-bottom:1px solid var(--line)}
+/* The banner band is locked to the artwork's native 16:9 ratio at every
+   breakpoint so the hero photo is never cropped - the full image shows. */
 .cbanner .band{position:relative;aspect-ratio:16/9;overflow:hidden;background:var(--ca-tint)}
-.cbanner .band img{width:100%;height:100%;object-fit:cover;object-position:50% 45%}
+.cbanner .band img{width:100%;height:100%;object-fit:cover;object-position:center}
 .cbanner .band:after{content:'';position:absolute;left:0;right:0;bottom:0;height:4px;
   background:linear-gradient(90deg,var(--ca) 0,var(--ca) 45%,var(--ca-2) 45%,var(--ca-2) 100%)}
 .cbanner .cb-in{padding:18px 16px 22px;max-width:var(--max);margin:0 auto}
@@ -165,18 +167,16 @@ header{position:sticky;top:0;z-index:60;background:#fff;border-bottom:1px solid 
 .cbanner .vs b{color:var(--ca-ink);font-weight:700}
 .cbanner .btnrow{margin-top:14px}
 @media(min-width:760px){
-  .cbanner .band{aspect-ratio:32/9}
   .cbanner .cb-in{padding:24px 16px 30px}
 }
-/* Compact variant for team collection pages: a shorter image band and
-   tighter copy so the ticker and the product grid arrive above the fold. */
-.cbanner.compact .band{aspect-ratio:21/9}
+/* Compact variant for team collection pages: full-height uncropped art with
+   tighter copy so the ticker and the product grid arrive sooner. */
+.cbanner.compact .band{aspect-ratio:16/9}
 .cbanner.compact .cb-in{padding:14px 16px 16px}
 .cbanner.compact h1{font-size:clamp(1.2rem,4.2vw,1.8rem);margin-bottom:6px}
 .cbanner.compact p.lede{font-size:.88rem;margin-bottom:8px}
 .cbanner.compact .vs{margin-bottom:0}
 @media(min-width:760px){
-  .cbanner.compact .band{aspect-ratio:5/1}
   .cbanner.compact .cb-in{padding:16px 16px 18px}
 }
 

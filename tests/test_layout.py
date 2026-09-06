@@ -222,7 +222,16 @@ class TeamCollectionPages(unittest.TestCase):
             self.assertTrue(after.startswith('<div class="ticker">'),
                             f"{k}: ticker must immediately follow the hero")
         comp = css_block(self.css, ".cbanner.compact .band")
-        self.assertIn("aspect-ratio:21/9", comp)
+        self.assertIn("aspect-ratio:16/9", comp)
+
+    def test_hero_bands_are_uncropped(self):
+        # All five hero banners (home + four teams) are 1920x1080 (16:9) art;
+        # the banner band must stay 16:9 at every breakpoint so none of them
+        # get cropped to a wide strip.
+        base = css_block(self.css, ".cbanner .band")
+        self.assertIn("aspect-ratio:16/9", base)
+        for ratio in ("32/9", "21/9", "5/1"):
+            self.assertNotIn(f"aspect-ratio:{ratio}", self.css, ratio)
 
     def test_grid_before_trust_description_news_trends(self):
         for k, html in self.pages.items():
