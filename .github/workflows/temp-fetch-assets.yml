@@ -40,7 +40,7 @@ jobs:
           c = extra[SLUG]
           cid, base = c["campaign"], c["base"]
           design = base.split("-")[0]
-          asset = f"https://assets.viralstyle.com/campaigns/{cid}/{design}-"
+          asset = f"https://assets.viralstyle.com/campaigns/{cid}/"
 
           urls = [("front", base + "-front-large.jpg"), ("back", base + "-back-large.jpg")]
           for i, k in enumerate(c["swatch_keys"][:6]):
