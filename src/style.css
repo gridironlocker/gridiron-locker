@@ -168,6 +168,17 @@ header{position:sticky;top:0;z-index:60;background:#fff;border-bottom:1px solid 
   .cbanner .band{aspect-ratio:32/9}
   .cbanner .cb-in{padding:24px 16px 30px}
 }
+/* Compact variant for team collection pages: a shorter image band and
+   tighter copy so the ticker and the product grid arrive above the fold. */
+.cbanner.compact .band{aspect-ratio:21/9}
+.cbanner.compact .cb-in{padding:14px 16px 16px}
+.cbanner.compact h1{font-size:clamp(1.2rem,4.2vw,1.8rem);margin-bottom:6px}
+.cbanner.compact p.lede{font-size:.88rem;margin-bottom:8px}
+.cbanner.compact .vs{margin-bottom:0}
+@media(min-width:760px){
+  .cbanner.compact .band{aspect-ratio:5/1}
+  .cbanner.compact .cb-in{padding:16px 16px 18px}
+}
 
 /* ============ COUNTDOWN BAR ============ */
 .cdbar{background:var(--bg2);border-bottom:1px solid var(--line);padding:10px 0}
@@ -223,21 +234,6 @@ section{padding:clamp(30px,4.5vw,52px) 0}
 @media(max-width:1000px){.wkgrid{grid-template-columns:repeat(2,1fr)}}
 @media(max-width:560px){.wkgrid{grid-template-columns:1fr}}
 
-/* ============ WHY STRIP ============ */
-.whystrip{background:var(--bg2);border-top:1px solid var(--line);border-bottom:1px solid var(--line);
-  margin-top:26px;padding:22px 0 26px}
-.whyhead{display:flex;align-items:center;gap:12px;margin-bottom:14px}
-.whylabel{font-size:.7rem;letter-spacing:.12em;text-transform:uppercase;color:var(--muted);
-  font-weight:800;white-space:nowrap}
-.whyline{height:1px;flex:1;background:var(--line)}
-.whystrip .wkin{display:grid;grid-template-columns:repeat(6,minmax(0,1fr));gap:10px}
-.whystrip .wkin>div{background:#fff;border:1px solid var(--line);border-radius:9px;
-  padding:12px 14px;display:flex;flex-direction:column;gap:3px}
-.whystrip .wkin>div b{font-size:.82rem;font-weight:700;line-height:1.3;color:var(--ink)}
-.whystrip .wkin>div span{font-size:.74rem;color:var(--muted);line-height:1.4}
-@media(max-width:1200px){.whystrip .wkin{grid-template-columns:repeat(3,minmax(0,1fr))}}
-@media(max-width:720px){.whystrip .wkin{grid-template-columns:repeat(2,1fr)}}
-
 /* ============ TICKERS ============ */
 .ticker{overflow:hidden;border-top:1px solid var(--line);border-bottom:1px solid var(--line);
   background:var(--bg2);padding:10px 0;white-space:nowrap;position:relative}
@@ -261,21 +257,60 @@ section{padding:clamp(30px,4.5vw,52px) 0}
 .newsticker i.hot{color:var(--ink);font-weight:600}
 .newsticker a:hover i{color:var(--ca-ink)}
 
-/* ============ COLLECTION CARDS ============ */
-.colgrid{display:grid;grid-template-columns:repeat(auto-fit,minmax(240px,1fr));gap:14px}
-.colcard{position:relative;border:1px solid var(--line);border-radius:var(--radius);overflow:hidden;
-  background:#fff;display:flex;flex-direction:column;transition:border-color .18s}
-.colcard:hover{border-color:var(--line2)}
-.colcard img{width:100%;aspect-ratio:16/9;object-fit:cover;border-bottom:3px solid var(--ca)}
-.colcard:after{display:none}
-.colcard .body{padding:14px 15px 16px}
-.colcard h3{margin:0 0 4px;font-size:1rem;color:var(--ink)}
-.colcard .cnt{display:inline-block;font-size:.64rem;font-weight:800;letter-spacing:.1em;
-  text-transform:uppercase;color:var(--ca-ink);background:var(--ca-tint);
-  border:1px solid var(--line);padding:3px 8px;border-radius:99px;margin-bottom:8px}
-.colcard .go{position:absolute;right:14px;bottom:14px;width:30px;height:30px;border-radius:99px;
-  border:1px solid var(--line2);display:grid;place-items:center;color:var(--muted);font-size:.85rem}
-.colcard:hover .go{border-color:var(--ca);color:var(--ca-ink)}
+/* =============================================================
+   TEAM PORTRAIT - the collection hero photo masked to a circle
+   with a thin ring in the team's primary colour. Shared by the
+   homepage "Shop By Team" cards and the /collections/ index.
+   ============================================================= */
+.tportrait{display:block;flex:none;border-radius:50%;overflow:hidden;background:var(--ca-tint);
+  border:2px solid var(--ca);padding:3px;box-sizing:border-box}
+.tportrait img{width:100%;height:100%;aspect-ratio:1/1;border-radius:50%;object-fit:cover;
+  object-position:50% 45%;display:block}
+
+/* ---- homepage "Shop By Team": rounded horizontal navigation cards ---- */
+.teamnavsec{padding-top:34px}
+.teamnav-grid{display:grid;grid-template-columns:repeat(2,minmax(0,1fr));gap:14px}
+.teamnav{display:flex;align-items:center;gap:16px;background:#fff;border:1px solid var(--line);
+  border-radius:18px;padding:14px 16px;min-width:0;transition:border-color .18s,box-shadow .18s}
+.teamnav:hover{border-color:var(--ca);box-shadow:var(--shadow)}
+.teamnav .tportrait{width:72px;height:72px}
+.teamnav .tn-body{display:flex;flex-direction:column;gap:3px;min-width:0;flex:1}
+.teamnav .cnt{align-self:flex-start;font-size:.62rem;font-weight:800;letter-spacing:.1em;
+  text-transform:uppercase;color:var(--ca-ink);background:var(--ca-tint);border:1px solid var(--line);
+  padding:2px 8px;border-radius:99px}
+.teamnav .tn-name{font-size:1rem;font-weight:800;color:var(--ink);letter-spacing:-.01em;
+  line-height:1.25}
+.teamnav .tn-sub{font-size:.8rem;color:var(--muted);line-height:1.4}
+.teamnav .go{flex:none;width:34px;height:34px;border-radius:99px;border:1px solid var(--line2);
+  display:grid;place-items:center;color:var(--muted);font-size:.95rem;transition:all .18s}
+.teamnav:hover .go{border-color:var(--ca);color:#fff;background:var(--ca)}
+@media(max-width:760px){
+  .teamnav-grid{grid-template-columns:1fr}
+  .teamnav{padding:12px 14px;gap:13px}
+  .teamnav .tportrait{width:60px;height:60px}
+}
+
+/* ---- /collections/: circular team portraits, 4-up desktop / 2-up mobile ---- */
+.teamcircles{display:grid;grid-template-columns:repeat(4,minmax(0,1fr));gap:16px;margin-top:26px}
+.teamcircle{display:flex;flex-direction:column;align-items:center;text-align:center;gap:6px;
+  background:#fff;border:1px solid var(--line);border-radius:18px;padding:22px 14px 18px;min-width:0;
+  transition:border-color .18s,box-shadow .18s}
+.teamcircle:hover{border-color:var(--ca);box-shadow:var(--shadow)}
+.teamcircle .tportrait{width:150px;height:150px;margin-bottom:8px}
+.teamcircle .tc-name{font-size:1rem;font-weight:800;color:var(--ink);letter-spacing:-.01em;
+  line-height:1.25}
+.teamcircle .tc-count{font-size:.64rem;font-weight:800;letter-spacing:.1em;text-transform:uppercase;
+  color:var(--ca-ink);background:var(--ca-tint);border:1px solid var(--line);padding:3px 9px;
+  border-radius:99px}
+.teamcircle .tc-go{margin-top:6px;font-size:.8rem;font-weight:700;color:var(--ca-ink)}
+.teamcircle .tc-go span{display:inline-block;transition:transform .18s}
+.teamcircle:hover .tc-go span{transform:translateX(3px)}
+@media(max-width:900px){
+  .teamcircles{grid-template-columns:repeat(2,minmax(0,1fr));gap:12px}
+  .teamcircle{padding:18px 10px 16px}
+  .teamcircle .tportrait{width:120px;height:120px}
+  .teamcircle .tc-name{font-size:.92rem}
+}
 
 /* =============================================================
    PRODUCT GRID - Viralstyle tile: white, hairline, image, plain
@@ -452,14 +487,20 @@ ul.news li:last-child{border-bottom:0}
 ul.news a{font-weight:600;color:var(--ink2)}
 ul.news a:hover{color:var(--ink);text-decoration:underline}
 
-.ftisec{padding:30px 0 8px;border-top:1px solid var(--line)}
+/* Homepage Fan Trend Index: one compact strip of four entries. */
+.ftisec{padding:22px 0 6px;border-top:1px solid var(--line)}
+.ftisec .sechead{margin-bottom:12px}
+.ftisec .sechead p{font-size:.86rem}
 .fti-chips{display:grid;grid-template-columns:repeat(4,minmax(0,1fr));gap:10px}
-.fti-chip{display:flex;flex-direction:column;gap:3px;background:#fff;border:1px solid var(--line);
-  border-top:3px solid var(--ca);border-radius:var(--radius);padding:13px 15px;
-  transition:border-color .18s}
-.fti-chip:hover{border-color:var(--line2);border-top-color:var(--ca)}
-.fti-chip b{font-size:1.1rem;font-weight:800;color:var(--ca-ink)}
-.fti-chip span{font-size:.82rem;font-weight:600;color:var(--ink2)}
+.fti-chip{display:grid;grid-template-columns:auto 1fr;grid-template-rows:auto auto;column-gap:10px;
+  align-items:center;background:#fff;border:1px solid var(--line);border-left:3px solid var(--ca);
+  border-radius:var(--radius);padding:10px 13px;min-width:0;transition:border-color .18s}
+.fti-chip:hover{border-color:var(--line2);border-left-color:var(--ca)}
+.fti-chip b{grid-row:1/3;font-size:1rem;font-weight:800;color:var(--ca-ink);white-space:nowrap}
+.fti-chip span{font-size:.82rem;font-weight:700;color:var(--ink);line-height:1.25;
+  white-space:nowrap;overflow:hidden;text-overflow:ellipsis}
+.fti-chip em{font-style:normal;font-size:.68rem;font-weight:600;color:var(--muted);
+  text-transform:uppercase;letter-spacing:.06em}
 @media(max-width:900px){.fti-chips{grid-template-columns:repeat(2,1fr)}}
 .fti-board{display:grid;gap:7px}
 .fti-row{display:grid;grid-template-columns:minmax(0,1.2fr) minmax(0,1.4fr) auto;gap:8px 12px;

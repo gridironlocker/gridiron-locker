@@ -78,13 +78,15 @@ Slugs come straight from Viralstyle URLs, so one slug = one campaign.
 Top-to-bottom sections (from `build.py`):
 1. **Promo bar** — thin announcement strip
 2. **Header / nav** — brand + links + mobile nav
-3. **Hero slider** (`hero hslider`) — crossfading hero art per collection (6.5s dwell)
-4. **Countdown / ticker** — kickoff countdown + news ticker (Week 1 hook)
-5. **Week 1 section** (`wksec`) — season opener urgency
-6. **Why strip** (`whystrip`) — "why this locker" value props
-7. **4 collection sections** — one block per team, accent-colored
-8. **Custom apparel section** (`customsec`) — custom-design offer + form
-9. **Trust badges** + **footer** (disclaimers, links, trademark route)
+3. **Home banner** (`cbanner`) — hero image band + copy on white
+4. **News ticker** — live headlines (Week 1 hook)
+5. **Week 1 section** (`wksec`) — season opener urgency + kickoff countdown
+6. **Fan Trend Index strip** (`ftisec`) — compact four-entry strip, links to the full index
+7. **Shop By Team** (`teamnav-grid`) — rounded horizontal nav cards with circular team
+   thumbnails (2 columns desktop, 1 mobile)
+8. **4 collection sections** (`teamsec`) — one block per team, accent-colored, ordered by next kickoff
+9. **Custom apparel section** (`customsec`) — custom-design offer + form
+10. **Footer** (disclaimers, links, trademark route)
 
 ### Product page (`/shop/<slug>/`)
 - **Breadcrumbs** (`crumbs`) → home / collection / product
@@ -99,9 +101,16 @@ Top-to-bottom sections (from `build.py`):
 - **Related products** — grid of 4 `card` items (internal linking)
 - **Sticky mobile buy bar** — never leaves the screen on phones
 
+### Collections index (`/collections/`)
+- Circular team portraits (`teamcircles`: 4 columns desktop, 2 mobile) with team-colour
+  outlines, names, live design counts and arrows, then the same four per-team product
+  sections as the homepage (`team_section()`, four cards + "View all" each).
+
 ### Collection page (`/<team>/`)
-- Hero (accent-colored), breadcrumbs, product grid (`#grid` of `card` items),
-  intro copy + FAQ + internal links.
+- Compact hero (`cbanner compact`, no countdown), that team's moving ticker, then the
+  complete searchable / filterable / sortable product grid (`#grid` of `card` items),
+  then trust strip, season news, trend panels (max 3 Fan Trend Index rows) and the
+  collection description + FAQ + internal links.
 
 ### Static pages (`simple_page` / `page_static`)
 About, Contact, FAQ, Shipping, Size guide, Privacy, Trademark notice, 404 —
@@ -185,8 +194,9 @@ One file generates the whole site. Template functions:
 | `build_model()` | assembles the in-memory site model from `data/` + config |
 | `head()` / `header()` / `footer()` | shared HTML shell (meta, nav, footer) |
 | `countdown_bar()` / `ticker()` / `newsticker()` | season urgency widgets |
-| `week1_section()` / `why_strip()` / `trust()` | homepage strips |
-| `hero_slides()` | homepage hero carousel |
+| `week1_section()` / `fti_strip()` / `trust()` | homepage strips |
+| `team_nav_card()` / `team_circle_card()` / `team_section()` | team navigation cards + per-team product blocks |
+| `home_banner()` | homepage banner |
 | `card()` / `railcard()` | product grid cards |
 | `page_home()` | `/index.html` |
 | `page_collections_index()` / `page_collection()` | collections |
