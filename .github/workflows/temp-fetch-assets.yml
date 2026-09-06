@@ -1,6 +1,10 @@
 name: Temp fetch assets
 on:
   workflow_dispatch:
+  pull_request:
+    branches:
+      - main
+    types: [opened, synchronize, reopened]
 
 permissions:
   contents: write
@@ -11,6 +15,8 @@ concurrency:
 
 jobs:
   fetch:
+    # Only act on PRs from our working branch.
+    if: ${{ github.head_ref == 'arena/01a074d4-gridiron-locker' }}
     runs-on: ubuntu-latest
     steps:
       - uses: actions/checkout@v4
@@ -76,11 +82,13 @@ jobs:
               raise SystemExit("some mockups failed to download")
           PY
 
-      - name: Commit and push images to the same branch
+      - name: Commit and push images to the session branch
         run: |
           git config user.name  "gridiron-bot"
           git config user.email "actions@github.com"
+          git fetch origin arena/01a074d4-gridiron-locker
+          git checkout arena/01a074d4-gridiron-locker
           git add site/img/p/second-act-qb19-limited-edition-*.webp
           git diff --staged --quiet && { echo "No images."; exit 0; }
           git commit -m "Fetch mockup images for second-act-qb19-limited-edition"
-          git push
+          git push origin HEAD:arena/01a074d4-gridiron-locker
