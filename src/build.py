@@ -22,6 +22,8 @@ TODAY = datetime.date.today().isoformat()
 ORDERBY = (datetime.date.today() + datetime.timedelta(days=4)).strftime("%b %d")
 STYLE_PATH = os.path.join(ROOT, "src/style.css")
 STYLE_VERSION = hashlib.sha256(open(STYLE_PATH, "rb").read()).hexdigest()[:8]
+CTA = "#49a59c"
+CTA_HOVER = "#3a847d"
 
 # ------------------------------------------------------------------- socials
 # Every live brand profile, verified 2026-09-05. The footer used to link a
@@ -373,17 +375,17 @@ HOMEPAGE_ORDER = sorted(ORDER, key=lambda k: (NEXT_GAME.get(k) or "9999", ORDER.
 
 # ---------------------------------------------------------------- chrome
 def theme_vars(ckey):
-    """The six custom properties that carry a collection's identity.
+    """Collection accent tokens with shared CTA colors.
 
     Returned as a bare `--x:y;...` string so the same tokens can be dropped
     either at :root (a page that belongs to exactly one collection) or inline
-    on a single element (a shared page listing several collections). Nothing
-    else in the stylesheet is team-coloured, so this is the whole mechanism.
+    on a single element (a shared page listing several collections). Team
+    identity stays in the accent tokens; CTA colors are the same everywhere.
     """
     c = COLLECTIONS[ckey]
     return (f"--ca:{c['accent']};--ca-ink:{c['accent_ink']};"
             f"--ca-tint:{c['accent_tint']};--ca-2:{c['accent2']};"
-            f"--btn:{c['accent']};--btn-h:{c['btn_hover']};--accent:{c['accent']}")
+            f"--btn:{CTA};--btn-h:{CTA_HOVER};--accent:{c['accent']}")
 
 
 def head(title, desc, path, image=None, schema=None, keywords=None, col=None):
@@ -391,8 +393,8 @@ def head(title, desc, path, image=None, schema=None, keywords=None, col=None):
     img = DOMAIN + (image or "/img/hero-home.jpg")
     kw = f'<meta name="keywords" content="{esc(", ".join(keywords[:14]))}">' if keywords else ""
     # A page that belongs to one collection wears that collection's tokens at
-    # :root, so its CTA, chips and rules are team-coloured. Shared pages keep
-    # the neutral defaults from style.css and colour individual elements.
+    # :root, so its chips and rules are team-coloured while CTAs stay teal.
+    # Shared pages keep neutral accents and colour individual elements.
     acc = f"<style>:root{{{theme_vars(col)}}}</style>" if col else ""
 
     rendered_title = html.unescape(title)
