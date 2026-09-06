@@ -263,10 +263,10 @@ def fti_strip():
     cells = ""
     for i, r in enumerate(rows, 1):
         ckey = r.get("collection")
-        ca = COLLECTIONS.get(ckey, {}).get("accent", "var(--accent)")
+        tv = theme_vars(ckey) if ckey in COLLECTIONS else ""
         shop = products_for_entity(ckey, r["name"], 1)
         href = shop[0]["url"] if shop else "/fan-trend-index/"
-        cells += (f'<a class="fti-chip" style="--ca:{ca}" href="{href}">'
+        cells += (f'<a class="fti-chip" style="{tv}" href="{href}">'
                   f'<b>#{i} · {int(r["index"])}</b>'
                   f'<span>{esc(pretty_name(r["name"]))}</span></a>')
     return (f'<section class="ftisec"><div class="wrap">'
@@ -370,11 +370,28 @@ HOMEPAGE_ORDER = sorted(ORDER, key=lambda k: (NEXT_GAME.get(k) or "9999", ORDER.
 
 
 # ---------------------------------------------------------------- chrome
-def head(title, desc, path, image=None, schema=None, keywords=None, accent=None):
+def theme_vars(ckey):
+    """The six custom properties that carry a collection's identity.
+
+    Returned as a bare `--x:y;...` string so the same tokens can be dropped
+    either at :root (a page that belongs to exactly one collection) or inline
+    on a single element (a shared page listing several collections). Nothing
+    else in the stylesheet is team-coloured, so this is the whole mechanism.
+    """
+    c = COLLECTIONS[ckey]
+    return (f"--ca:{c['accent']};--ca-ink:{c['accent_ink']};"
+            f"--ca-tint:{c['accent_tint']};--ca-2:{c['accent2']};"
+            f"--btn:{c['accent']};--btn-h:{c['btn_hover']};--accent:{c['accent']}")
+
+
+def head(title, desc, path, image=None, schema=None, keywords=None, col=None):
     canon = abs_url(path)
     img = DOMAIN + (image or "/img/hero-home.jpg")
     kw = f'<meta name="keywords" content="{esc(", ".join(keywords[:14]))}">' if keywords else ""
-    acc = f"<style>:root{{--accent:{accent}}}</style>" if accent else ""
+    # A page that belongs to one collection wears that collection's tokens at
+    # :root, so its CTA, chips and rules are team-coloured. Shared pages keep
+    # the neutral defaults from style.css and colour individual elements.
+    acc = f"<style>:root{{{theme_vars(col)}}}</style>" if col else ""
 
     rendered_title = html.unescape(title)
     if len(rendered_title) > 60 and title.endswith(f" | {BRAND}"):
@@ -430,7 +447,7 @@ def head(title, desc, path, image=None, schema=None, keywords=None, accent=None)
 <meta name="twitter:title" content="{esc(title)}">
 <meta name="twitter:description" content="{esc(desc)}">
 <meta name="twitter:image" content="{img}">
-<meta name="theme-color" content="#0a0b0d">
+<meta name="theme-color" content="#ffffff">
 <link rel="icon" href="/img/favicon.svg" type="image/svg+xml">
 <link rel="stylesheet" href="/assets/style.css">
 <script>document.documentElement.className+=" js"</script>
@@ -578,7 +595,7 @@ def week1_section():
     rows = ""
     for k in ORDER:
         c, se = COLLECTIONS[k], SEASON[k]
-        rows += f"""<a class="wk reveal" style="--ca:{c['accent']}" href="/{c['slug']}/">
+        rows += f"""<a class="wk reveal" style="{theme_vars(k)}" href="/{c['slug']}/">
  <b class="wk-name">{esc(c['short'])}</b>
  <span class="wk-game">{se['opener']}</span>
  <span class="wk-note">{esc(se['headline'])}</span>
@@ -692,8 +709,8 @@ def card(it, eager=False):
     cls = "tagpill"
     if it.get("trend") == "hot":
         tag, cls = "Trending", "tagpill hot"
-    ca = COLLECTIONS[it["col"]]["accent"]
-    return f"""<article class="card reveal" style="--ca:{ca}">
+    tv = theme_vars(it["col"])
+    return f"""<article class="card reveal" style="{tv}">
  <a href="{it['url']}" aria-label="{esc(it['name'])}">
   <div class="ph"><span class="{cls}">{tag}</span><span class="glow"></span><span class="sweep"></span>
    <img src="{it['front']}" alt="{esc(it['name'])} - {esc(it['art'][:70])}" width="530" height="630"{lazy}>
@@ -709,9 +726,9 @@ def card(it, eager=False):
 
 def railcard(it):
     """Compact horizontal tile for the auto-scrolling Trending rail."""
-    ca = COLLECTIONS[it["col"]]["accent"]
+    tv = theme_vars(it["col"])
     tag = '<span class="tagpill hot">Trending</span>' if it.get("trend") == "hot" else ""
-    return f"""<a class="railcard" href="{it['url']}" style="--ca:{ca}">
+    return f"""<a class="railcard" href="{it['url']}" style="{tv}">
  <span class="ph"><img src="{it['front']}" alt="{esc(it['name'])}" loading="lazy" decoding="async" width="212" height="252">{tag}</span>
  <span class="meta">{esc(it['garment'])}</span>
  <span class="nm">{esc(it['name'])}</span>
@@ -719,41 +736,27 @@ def railcard(it):
 </a>"""
 
 
-# Team-first hero slides. Generic storefront title is replaced by these so each
-# slide targets one fanbase with the exact search phrases they type.
-def hero_slides():
-    slides = []
-    i = 0
-    for k in ORDER:
-        c = COLLECTIONS[k]
-        n = len(MODEL[k])
-        heads = {
-            "cleveland-browns": "Cleveland Browns Shirts<br><span class='accentword'>Dawg Pound Tees &amp; Hoodies</span>",
-            "green-bay-packers": "Green Bay Packers Shirts<br><span class='accentword'>Go Pack Go &amp; Cheesehead Tees</span>",
-            "dallas-cowboys": "Dallas Vintage Football Tees<br><span class='accentword'>Texas Pride &amp; Star-City Gear</span>",
-            "michigan": "Michigan Football Shirts<br><span class='accentword'>Go Blue Tees &amp; Sweatshirts</span>",
-        }[k]
-        tag = "h1" if i == 0 else "h2"
-        slide = f"""<div class="slide{' on' if i == 0 else ''}" style="--accent:{c['accent']};--ca:{c['accent']}">
- <img class="bg" src="{c['hero']}" alt="{esc(c['h1'])}" width="1920" height="1080"{' fetchpriority="high"' if i==0 else ' loading="lazy" decoding="async"'}>
- <span class="blob a" aria-hidden="true" style="background:{c['accent']}"></span><span class="blob b" aria-hidden="true" style="background:{c['accent']}"></span>
- <div class="wrap">
-  <span class="eyebrow" aria-hidden="true"><span class="dot"></span> {n} {esc(c['short'])} fan designs &middot; 2026 season</span>
-  <{tag} class="hero-title">{heads}</{tag}>
-  <p class="lede">{esc(c['intro'].format(**c)[:230])}…</p>
+# Homepage banner. Same geometry as every collection banner: image band,
+# then the copy underneath on white. The old 4-slide ken-burns rotator put
+# white text over a darkened photo, which is the single thing that made the
+# site look nothing like the storefront it hands off to.
+def home_banner():
+    n = len(ALL)
+    teams = ", ".join(COLLECTIONS[k]["short"] for k in ORDER[:-1])
+    return f"""<section class="cbanner" style="padding:0">
+ <div class="band"><img src="/img/hero-home.jpg" alt="{esc(BRAND)} fan apparel"
+  width="1920" height="1080" fetchpriority="high"></div>
+ <div class="cb-in">
+  <span class="eyebrow"><span class="dot"></span> {n} fan designs &middot; {len(ORDER)} team collections</span>
+  <h1>{esc(CFG['tagline'])}</h1>
+  <p class="lede">Original fan-made graphics for {esc(teams)} and {esc(COLLECTIONS[ORDER[-1]]['short'])}
+  supporters. Printed on demand, sizes S&ndash;3XL, shipped worldwide with tracking.</p>
   <div class="btnrow">
-   <a class="btn lg" href="/{c['slug']}/">Shop {esc(c['short'])} Collection</a>
-   <a class="btn ghost lg" href="/collections/">All Collections</a>
+   <a class="btn lg" href="/collections/">Shop all collections</a>
+   <a class="btn ghost lg" href="/2026-season/">2026 season hub</a>
   </div>
  </div>
-</div>"""
-        slides.append(slide)
-        i += 1
-    dots = "<div class='hdots'>" + "".join(
-        f'<button class="hdot{" on" if n == 0 else ""}" data-i="{n}" aria-label="Slide {n+1}"></button>'
-        for n in range(len(ORDER))) + "</div>"
-    return '<section class="hero hslider" style="padding:0"><div class="slides">' \
-        + "".join(slides) + f"</div>{dots}</section>"
+</section>"""
 
 
 # ---------------------------------------------------------------- pages
@@ -766,18 +769,18 @@ def page_home():
         c = COLLECTIONS[k]
         picks = MODEL[k][:4]  # first 4 of each team, their own identity
         tcards = "".join(card(i, eager=(n < 4)) for n, i in enumerate(picks))
-        team_sections += f"""<section style="border-top:1px solid var(--line)"><div class="wrap">
+        team_sections += f"""<section style="border-top:1px solid var(--line);{theme_vars(k)}"><div class="wrap">
  <div class="sechead reveal">
-  <div><h2><span class="accentword" style="color:{c['accent']}">{esc(c['short'])}</span> Collection</h2>
-   <p>{esc(c['intro'].format(**c)[:150])}</p></div>
-  <a class="link" href="/{c['slug']}/" style="color:{c['accent']}">View all {len(MODEL[k])} {esc(c['short'])} designs &rarr;</a>
+  <div><h2><span class="accentword">{esc(c['short'])}</span> Collection</h2>
+   <p>{esc(c['banner'][:150])}</p></div>
+  <a class="link" href="/{c['slug']}/">View all {len(MODEL[k])} {esc(c['short'])} designs &rarr;</a>
  </div>
  <div class="grid">{tcards}</div>
 </div></section>"""
     colcards = ""
     for k in ORDER:
         c = COLLECTIONS[k]
-        colcards += f"""<a class="colcard reveal" style="--ca:{c['accent']}" href="/{c['slug']}/">
+        colcards += f"""<a class="colcard reveal" style="{theme_vars(k)}" href="/{c['slug']}/">
    <img src="{c['hero']}" alt="{esc(c['name'])} collection" loading="lazy" decoding="async" width="800" height="600">
    <div class="body"><span class="cnt">{len(MODEL[k])} designs</span>
     <h3>{esc(c['name'])}</h3>
@@ -798,7 +801,7 @@ def page_home():
     ]
     desc = (f"Fan-made football tees, hoodies and gear across {len(ORDER)} team collections: "
             f"Cleveland, Green Bay, Dallas and Michigan. {len(ALL)} original designs, S-3XL, shipped worldwide.")
-    body = f"""{hero_slides()}
+    body = f"""{home_banner()}
 {newsticker()}
 {week1_section()}
 {fti_strip()}
@@ -870,7 +873,7 @@ def page_collections_index():
     cards = ""
     for k in ORDER:
         c = COLLECTIONS[k]
-        cards += f"""<a class="colcard" href="/{c['slug']}/">
+        cards += f"""<a class="colcard" style="{theme_vars(k)}" href="/{c['slug']}/">
    <img src="{c['hero']}" alt="{esc(c['name'])}" loading="lazy" width="800" height="600">
    <div class="body"><span class="cnt">{len(MODEL[k])} designs</span><h3>{esc(c['name'])}</h3>
    <p class="muted" style="margin:0;font-size:.86rem">{esc(c['h1'])}</p></div></a>"""
@@ -937,13 +940,13 @@ def page_collection(k):
     lore = "".join(f"<li>{esc(x)}</li>" for x in c["lore"])
     kwlinks = " &middot; ".join(esc(x) for x in c["keywords"])
     body = f"""
-<main id="main"><section class="hero" style="padding:0">
- <img class="bg" src="{c['hero']}" alt="{esc(c['name'])} banner" width="1600" height="700" fetchpriority="high">
- <span class="blob a" aria-hidden="true" style="background:{c['accent']}"></span><span class="blob b" aria-hidden="true"></span>
- <div class="wrap">
+<main id="main"><section class="cbanner" style="padding:0">
+ <div class="band"><img src="{c['hero']}" alt="{esc(c['name'])} banner" width="1600" height="700" fetchpriority="high"></div>
+ <div class="cb-in">
   <span class="eyebrow"><span class="dot"></span> {len(items)} designs &middot; from ${prices[0]:.2f}</span>
   <h1>{esc(c['h1'])}</h1>
-  <p class="lede">{esc(c['intro'].format(**c))}</p>
+  <p class="lede">{esc(c['banner'])}</p>
+  <p class="vs">Checkout collection: <b>{esc(c['vs_name'])}</b></p>
   <div class="btnrow"><a class="btn lg" href="#grid">Shop the collection</a>
    <a class="btn ghost lg" href="/size-guide/">Size guide</a></div>
  </div>
@@ -994,7 +997,7 @@ def page_collection(k):
     URLS.append((DOMAIN + path, "0.9", "daily"))
     write(f"{c['slug']}/index.html",
          head(f"{c['name']} | {BRAND}", desc, path, c["hero"], schema,
-               c["keywords"] + se["hot"], c["accent"])
+               c["keywords"] + se["hot"], col=k)
           + header(k) + body + footer())
 
 
@@ -1164,7 +1167,7 @@ def page_product(it):
 </div></main>"""
     URLS.append((DOMAIN + path, "0.8", "weekly"))
     write(f"shop/{it['slug']}/index.html",
-          head(title, metad, path, it["front"], schema, kws, c["accent"])
+          head(title, metad, path, it["front"], schema, kws, col=it["col"])
           + header(it["col"]) + body + footer())
 
 
@@ -1489,16 +1492,17 @@ def page_week1_graphics():
         kick = datetime.date.fromisoformat(se["kickoff"][:10])
         slots = WEEK1_SLATE[k]
         chips = "".join(
-            f'<span style="display:inline-block;border:1px solid {c["accent"]};color:{c["accent"]};'
-            f'border-radius:999px;padding:6px 13px;font-size:.74rem;font-weight:900;'
-            f'letter-spacing:.07em">{esc(s["slogan"])}</span>' for s in slots)
+            f'<span style="display:inline-block;border:1px solid var(--line);'
+            f'background:var(--ca-tint);color:var(--ca-ink);'
+            f'border-radius:999px;padding:6px 13px;font-size:.74rem;font-weight:700;'
+            f'letter-spacing:.05em">{esc(s["slogan"])}</span>' for s in slots)
         notes = "".join(f'<li><strong>{esc(s["slogan"])}</strong> &mdash; {esc(s["note"])} '
                         f'<span class="muted" style="font-size:.8rem">'
                         f'({esc(s["garment"])})</span></li>' for s in slots)
         picks = week1_picks(k, 4)
-        blocks += f"""<div class="panel reveal" style="margin-bottom:20px;--ca:{c['accent']};
-border-top:3px solid {c['accent']}">
- <h2 style="color:{c['accent']}">{esc(c['short'])} &middot; Week 1 &mdash; {esc(week1_game(se))}</h2>
+        blocks += f"""<div class="panel reveal" style="margin-bottom:20px;{theme_vars(k)};
+border-top:3px solid var(--ca)">
+ <h2 style="color:var(--ca-ink)">{esc(c['short'])} &middot; Week 1 &mdash; {esc(week1_game(se))}</h2>
  <p class="muted" style="margin:0 0 10px">Kickoff {kick.strftime('%A, %b')} {kick.day} &middot;
  {esc(WEEK1_LINES[k])}</p>
  <div class="chips" style="margin:0 0 12px">{chips}</div>
@@ -1598,7 +1602,7 @@ fan-created work.</p>
 
 
 def page_guides():
-    week1_card = ('<div class="panel" style="margin-bottom:14px;border-top:3px solid var(--accent)">'
+    week1_card = ('<div class="panel" style="margin-bottom:14px;border-top:3px solid var(--ink)">'
                   '<h3><a href="/guides/2026-week-1-shirts/">2026 Week 1 Fan Shirts: '
                   'Kickoff Fits &amp; Slogan Tees</a></h3>'
                   '<p class="muted" style="margin:0">Every Week 1 kickoff date, the slogan direction '
@@ -1674,7 +1678,7 @@ or mug removes the risk entirely.</p>
 </div></section>"""
         URLS.append((DOMAIN + path, "0.7", "monthly"))
         write(f"guides/{c['slug']}-buying-guide/index.html",
-              head(f"{title} | {BRAND}", desc, path, c["hero"], [cbs, art], c["keywords"], c["accent"])
+              head(f"{title} | {BRAND}", desc, path, c["hero"], [cbs, art], c["keywords"], col=k)
               + header(k) + body + footer())
 
 
@@ -1688,8 +1692,8 @@ def page_season():
         c, se = COLLECTIONS[k], SEASON[k]
         picks = [x for x in MODEL[k] if x.get("trend") == "hot"][:4] or MODEL[k][:4]
         note = ('<p class="muted">' + esc(se["legacy_note"]) + "</p>") if se["legacy_note"] else ""
-        blocks += f"""<div class="panel reveal" style="margin-bottom:20px;--ca:{c['accent']}">
- <h2 style="color:{c['accent']}">{esc(c['short'])} &middot; {esc(se['opener'].replace('&middot;','-'))}</h2>
+        blocks += f"""<div class="panel reveal" style="margin-bottom:20px;border-top:3px solid var(--ca);{theme_vars(k)}">
+ <h2 style="color:var(--ca-ink)">{esc(c['short'])} &middot; {esc(se['opener'].replace('&middot;','-'))}</h2>
  <p><strong>{esc(se['headline'])}</strong> {esc(se['status'])}.</p>
  {note}
  <p class="muted" style="font-size:.85rem">Searched this week: {", ".join(esc(x) for x in se['hot'])}</p>
@@ -1757,7 +1761,7 @@ def page_fti():
     for i, r in enumerate(rows, 1):
         ckey = r.get("collection")
         c = COLLECTIONS.get(ckey, {})
-        ca = c.get("accent", "var(--accent)")
+        tv = theme_vars(ckey) if ckey in COLLECTIONS else ""
         picks = products_for_entity(ckey, r["name"], 2)
         if picks:
             shop = "".join(
@@ -1769,7 +1773,7 @@ def page_fti():
         else:
             shop = '<span class="muted">No matching design</span>'
         board += (
-            f'<article class="fti-card reveal" style="--ca:{ca}">'
+            f'<article class="fti-card reveal" style="{tv}">'
             f'<div class="fti-rank">#{i}</div>'
             f'<div class="fti-body">'
             f'<h3>{esc(pretty_name(r["name"]))}</h3>'
@@ -1867,6 +1871,13 @@ def page_404():
 
 
 def assets():
+    # The stylesheet is a SOURCE file (src/style.css) copied out on every
+    # build. It used to live in site/assets/ and be hand-edited, which meant
+    # the only copy of the design lived in the generated directory the refresh
+    # workflow rewrites. Emitting it here keeps site/ fully disposable.
+    with open(os.path.join(ROOT, "src/style.css"), encoding="utf-8") as fh:
+        write("assets/style.css", fh.read())
+
     # Google Search Console HTML verification must be emitted by every build.
     # Keep this alongside the generated assets so a rebuild cannot remove it.
     write("googleae06215486ed6c17.html", "google-site-verification: googleae06215486ed6c17.html")
@@ -1930,10 +1941,13 @@ Sitemap: {DOMAIN}/sitemap-images.xml
           '<urlset xmlns="http://www.sitemaps.org/schemas/sitemap/0.9" '
           'xmlns:image="http://www.google.com/schemas/sitemap-image/1.1">'
           + ''.join(image_urls) + '</urlset>')
+    # Neutral mark: the same near-black square + white glyph as the header
+    # logo. The old orange football was the last piece of the retired
+    # orange-on-black identity and it clashed with the white storefront.
     write("img/favicon.svg", """<svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 64 64">
-<rect width="64" height="64" rx="14" fill="#0a0b0d"/>
-<ellipse cx="32" cy="32" rx="20" ry="12" fill="#ff6a13"/>
-<path d="M20 32h24M32 26v12" stroke="#0a0b0d" stroke-width="3" stroke-linecap="round"/></svg>""")
+<rect width="64" height="64" rx="14" fill="#111418"/>
+<ellipse cx="32" cy="32" rx="20" ry="12" fill="#ffffff"/>
+<path d="M20 32h24M32 26v12" stroke="#111418" stroke-width="3" stroke-linecap="round"/></svg>""")
     # RSS/Atom feed - a discovery channel search engines and readers poll
     fitems = ""
     for k in ORDER:
@@ -2030,58 +2044,6 @@ document.querySelectorAll('.thumb,.swatch,.stylechip').forEach(function(b){
     b.addEventListener('click',function(){toggleGroup(sel,b)});
   });
 });
-
-// ---------- hero slider ----------
-(function(){
-  var root=document.querySelector('.hslider');
-  var slides=[].slice.call(document.querySelectorAll('.hslider .slide'));
-  var dots=[].slice.call(document.querySelectorAll('.hslider .hdot'));
-  if(!root||!slides.length)return;
-  var cur=0, timer;
-  function show(i){
-    cur=(i+slides.length)%slides.length;
-    slides.forEach(function(s,n){
-      s.classList.toggle('on',n===cur);
-      s.setAttribute('aria-hidden',n===cur?'false':'true');
-      // keep hidden slides out of the tab order so phone users don't
-      // swipe-focus buttons they cannot see
-      [].slice.call(s.querySelectorAll('a,button')).forEach(function(el){
-        if(n===cur){el.removeAttribute('tabindex');}else{el.setAttribute('tabindex','-1');}
-      });
-    });
-    dots.forEach(function(d,n){
-      d.classList.toggle('on',n===cur);
-      d.setAttribute('aria-current',n===cur?'true':'false');
-    });
-  }
-  dots.forEach(function(d,n){d.addEventListener('click',function(){show(n);restart()})});
-  // gentle 6.5s dwell, smooth crossfade — light, not heavy
-  function restart(){clearInterval(timer);timer=setInterval(function(){show(cur+1)},6500)}
-  function stop(){clearInterval(timer)}
-  // swipe left/right on touch devices
-  var x0=null,y0=null,locked=false;
-  root.addEventListener('touchstart',function(e){
-    var t=e.changedTouches[0]; x0=t.clientX; y0=t.clientY; locked=false; stop();
-  },{passive:true});
-  root.addEventListener('touchmove',function(e){
-    if(x0===null)return;
-    var t=e.changedTouches[0];
-    if(!locked&&Math.abs(t.clientX-x0)>12&&Math.abs(t.clientX-x0)>Math.abs(t.clientY-y0))locked=true;
-  },{passive:true});
-  root.addEventListener('touchend',function(e){
-    if(x0===null)return;
-    var dx=e.changedTouches[0].clientX-x0;
-    if(locked&&Math.abs(dx)>40)show(cur+(dx<0?1:-1));
-    x0=null; restart();
-  },{passive:true});
-  // don't burn cycles (or battery) while the hero is off screen / tab hidden
-  document.addEventListener('visibilitychange',function(){document.hidden?stop():restart()});
-  if('IntersectionObserver' in window){
-    new IntersectionObserver(function(en){en[0].isIntersecting?restart():stop()},{threshold:0.15}).observe(root);
-  }
-  show(0);
-  restart();
-})();
 
 // ---------- custom design form (FormSubmit, no backend needed) ----------
 // The destination address is assembled at runtime from a base64 token so the
