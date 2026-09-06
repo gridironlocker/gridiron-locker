@@ -60,20 +60,20 @@
    ],
    "entity_mentions": {
     "shedeur sanders": 14,
-    "deshaun watson": 19,
+    "deshaun watson": 21,
     "joe flacco": 0,
     "myles garrett": 8,
     "kevin stefanski": 1,
     "denzel ward": 0,
-    "todd monken": 3
+    "todd monken": 5
    },
    "top_terms": [
     "browns",
     "cleveland",
     "roster",
     "practice",
-    "squad",
     "watson",
+    "squad",
     "deshaun",
     "initial",
     "taylen",
@@ -119,7 +119,7 @@
    "fan_trend_index": [
     {
      "name": "deshaun watson",
-     "mentions": 19,
+     "mentions": 21,
      "index": 100,
      "status": "trending",
      "gap": true,
@@ -128,7 +128,7 @@
     {
      "name": "shedeur sanders",
      "mentions": 14,
-     "index": 74,
+     "index": 67,
      "status": "trending",
      "gap": false,
      "shoppable": true
@@ -136,15 +136,15 @@
     {
      "name": "myles garrett",
      "mentions": 8,
-     "index": 42,
+     "index": 38,
      "status": "trending",
      "gap": false,
      "shoppable": true
     },
     {
      "name": "todd monken",
-     "mentions": 3,
-     "index": 16,
+     "mentions": 5,
+     "index": 24,
      "status": "trending",
      "gap": true,
      "shoppable": false
@@ -235,7 +235,7 @@
     "jordan love": 3,
     "micah parsons": 4,
     "robert tonyan": 0,
-    "josh jacobs": 17,
+    "josh jacobs": 16,
     "matt lafleur": 6
    },
    "top_terms": [
@@ -257,8 +257,8 @@
    "fan_trend_index": [
     {
      "name": "josh jacobs",
-     "mentions": 17,
-     "index": 89,
+     "mentions": 16,
+     "index": 76,
      "status": "trending",
      "gap": true,
      "shoppable": false
@@ -266,7 +266,7 @@
     {
      "name": "matt lafleur",
      "mentions": 6,
-     "index": 32,
+     "index": 29,
      "status": "trending",
      "gap": true,
      "shoppable": false
@@ -274,7 +274,7 @@
     {
      "name": "micah parsons",
      "mentions": 4,
-     "index": 21,
+     "index": 19,
      "status": "trending",
      "gap": false,
      "shoppable": true
@@ -282,7 +282,7 @@
     {
      "name": "jordan love",
      "mentions": 3,
-     "index": 16,
+     "index": 14,
      "status": "trending",
      "gap": false,
      "shoppable": true
@@ -374,7 +374,7 @@
     {
      "name": "ceedee lamb",
      "mentions": 2,
-     "index": 11,
+     "index": 10,
      "status": "steady",
      "gap": false,
      "shoppable": false
@@ -382,7 +382,7 @@
     {
      "name": "dak prescott",
      "mentions": 2,
-     "index": 11,
+     "index": 10,
      "status": "steady",
      "gap": false,
      "shoppable": false
@@ -445,9 +445,9 @@
     }
    ],
    "entity_mentions": {
-    "bryce underwood": 13,
+    "bryce underwood": 15,
     "jj mccarthy": 0,
-    "kyle whittingham": 4,
+    "kyle whittingham": 6,
     "jordan marshall": 0
    },
    "top_terms": [
@@ -455,30 +455,30 @@
     "football",
     "western",
     "wolverines",
-    "watch",
     "predictions",
+    "watch",
     "opener",
     "free",
-    "depth",
     "underwood",
-    "today",
-    "below"
+    "below",
+    "depth",
+    "bryce"
    ],
    "headline_count": 100,
    "moments": [],
    "fan_trend_index": [
     {
      "name": "bryce underwood",
-     "mentions": 13,
-     "index": 68,
+     "mentions": 15,
+     "index": 71,
      "status": "trending",
      "gap": false,
      "shoppable": true
     },
     {
      "name": "kyle whittingham",
-     "mentions": 4,
-     "index": 21,
+     "mentions": 6,
+     "index": 29,
      "status": "trending",
      "gap": true,
      "shoppable": false
@@ -504,13 +504,13 @@
  },
  "fan_trend_index": {
   "formula": "round(100 * entity_mentions / peak_mentions_in_window)",
-  "peak_mentions": 19,
+  "peak_mentions": 21,
   "window_days": 10,
   "generated": "2026-09-06",
   "rows": [
    {
     "name": "deshaun watson",
-    "mentions": 19,
+    "mentions": 21,
     "index": 100,
     "status": "trending",
     "gap": true,
@@ -519,62 +519,71 @@
    },
    {
     "name": "josh jacobs",
-    "mentions": 17,
-    "index": 89,
+    "mentions": 16,
+    "index": 76,
     "status": "trending",
     "gap": true,
     "shoppable": false,
     "collection": "green-bay-packers"
+   },
+   {
+    "name": "bryce underwood",
+    "mentions": 15,
+    "index": 71,
+    "status": "trending",
+    "gap": false,
+    "shoppable": true,
+    "collection": "michigan"
    },
    {
     "name": "shedeur sanders",
     "mentions": 14,
-    "index": 74,
+    "index": 67,
     "status": "trending",
     "gap": false,
     "shoppable": true,
     "collection": "cleveland-browns"
-   },
-   {
-    "name": "bryce underwood",
-    "mentions": 13,
-    "index": 68,
-    "status": "trending",
-    "gap": false,
-    "shoppable": true,
-    "collection": "michigan"
    },
    {
     "name": "myles garrett",
     "mentions": 8,
-    "index": 42,
+    "index": 38,
     "status": "trending",
     "gap": false,
     "shoppable": true,
     "collection": "cleveland-browns"
    },
    {
+    "name": "kyle whittingham",
+    "mentions": 6,
+    "index": 29,
+    "status": "trending",
+    "gap": true,
+    "shoppable": false,
+    "collection": "michigan"
+   },
+   {
     "name": "matt lafleur",
     "mentions": 6,
-    "index": 32,
+    "index": 29,
     "status": "trending",
     "gap": true,
     "shoppable": false,
     "collection": "green-bay-packers"
    },
    {
-    "name": "kyle whittingham",
-    "mentions": 4,
-    "index": 21,
+    "name": "todd monken",
+    "mentions": 5,
+    "index": 24,
     "status": "trending",
     "gap": true,
     "shoppable": false,
-    "collection": "michigan"
+    "collection": "cleveland-browns"
    },
    {
     "name": "micah parsons",
     "mentions": 4,
-    "index": 21,
+    "index": 19,
     "status": "trending",
     "gap": false,
     "shoppable": true,
@@ -583,25 +592,16 @@
    {
     "name": "jordan love",
     "mentions": 3,
-    "index": 16,
+    "index": 14,
     "status": "trending",
     "gap": false,
     "shoppable": true,
     "collection": "green-bay-packers"
    },
    {
-    "name": "todd monken",
-    "mentions": 3,
-    "index": 16,
-    "status": "trending",
-    "gap": true,
-    "shoppable": false,
-    "collection": "cleveland-browns"
-   },
-   {
     "name": "ceedee lamb",
     "mentions": 2,
-    "index": 11,
+    "index": 10,
     "status": "steady",
     "gap": false,
     "shoppable": false,
@@ -610,7 +610,7 @@
    {
     "name": "dak prescott",
     "mentions": 2,
-    "index": 11,
+    "index": 10,
     "status": "steady",
     "gap": false,
     "shoppable": false,
