@@ -986,7 +986,7 @@ def page_collection(k):
     # countdown stays on the homepage / Week 1 guide, untouched).
     body = f"""
 <main id="main"><section class="cbanner compact" style="padding:0">
- <div class="band"><img src="{c['hero']}" alt="{esc(c['name'])} banner" width="1600" height="700" fetchpriority="high"></div>
+ <div class="band"><img src="{c['hero']}" alt="{esc(c['name'])} banner" width="1920" height="1080" fetchpriority="high"></div>
  <div class="cb-in">
   <span class="eyebrow"><span class="dot"></span> {len(items)} designs &middot; from ${prices[0]:.2f}</span>
   <h1>{esc(c['h1'])}</h1>
