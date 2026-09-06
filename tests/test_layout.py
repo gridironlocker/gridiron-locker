@@ -373,29 +373,15 @@ class ProductPages(unittest.TestCase):
                 return d
         return None
 
-    def test_live_order_by_countdown_chip(self):
-        # Every product page carries exactly one .uc chip: either a ticking
-        # "Order in Xd Yh Zm" with an ISO deadline, or the honest past-window
-        # wording. Styles + the app.js ticker must ship with it.
+    def test_purchase_countdowns_removed_everywhere(self):
         self.assertTrue(self.pages)
-        live = 0
+        banned = ("Order in", "ships in 2", "data-orderby", "class=\"uc", "order-by countdown chip")
         for slug, html in self.pages.items():
-            chips = re.findall(r'<div class="uc[^"]*"', html)
-            self.assertEqual(len(chips), 1, slug)
-            self.assertNotIn('class="urgency"', html, slug)  # old static line gone
-            if "data-orderby=" in html:
-                live += 1
-                self.assertRegex(html, r'data-orderby="\d{4}-\d\d-\d\dT[\d:]+\+00:00"', slug)
-                self.assertRegex(html, r'Order in <b class="uc-t">\d+d \d+h \d+m</b> to wear it for',
-                                 slug)
-            else:
-                self.assertIn('class="uc past"', html, slug)
-                self.assertIn("ships in 2&ndash;4 days", html, slug)
-        self.assertGreater(live, 0, "no product page has a live order-by chip")
-        self.assertIn("order-by countdown chip", self.js)
-        self.assertIn(".uc[data-orderby]", self.js)
-        for sel in (".uc", ".uc b.uc-t", ".uc.past"):
-            self.assertTrue(css_block(self.css, sel), sel)
+            for term in banned:
+                self.assertNotIn(term, html, slug)
+        for term in ("Order in", "data-orderby", ".uc[data-orderby]", "ships in 2"):
+            self.assertNotIn(term, self.js, term)
+        self.assertNotIn(".uc", self.css)
 
     def test_seamless_checkout_copy(self):
         for slug, html in self.pages.items():

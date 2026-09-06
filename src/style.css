@@ -426,19 +426,6 @@ section{padding:clamp(30px,4.5vw,52px) 0}
 .badges{display:flex;gap:7px;flex-wrap:wrap;margin-top:13px}
 .badge{font-size:.68rem;font-weight:700;letter-spacing:.04em;border:1px solid var(--line);
   border-radius:99px;padding:6px 11px;color:var(--muted)}
-.urgency{display:flex;align-items:center;gap:8px;background:var(--bg2);border:1px solid var(--line);
-  border-radius:8px;padding:11px 13px;font-size:.82rem;font-weight:600;color:var(--ink2);
-  margin-bottom:14px}
-/* live order-by countdown chip (product buy box); app.js ticks .uc-t every minute */
-.uc{display:flex;align-items:center;gap:9px;background:var(--ca-tint);border:1px solid var(--line);
-  border-left:3px solid var(--ca);border-radius:8px;padding:11px 13px;font-size:.82rem;
-  font-weight:600;color:var(--ink2);margin-bottom:14px;line-height:1.45}
-.uc .dot{animation:pulse 1.6s ease-in-out infinite}
-.uc b.uc-t{color:var(--ca-ink);font-weight:800;font-variant-numeric:tabular-nums;white-space:nowrap}
-.uc em.uc-when{font-style:normal;font-weight:500;color:var(--muted);white-space:nowrap}
-.uc.past{background:var(--bg2);border-left-color:var(--line2)}
-.uc.past .dot{animation:none}
-.uc.soon b.uc-t{color:#b3261e}
 .trendbox{background:var(--ca-tint);border:1px solid var(--line);border-radius:9px;
   padding:13px 15px;margin-bottom:14px;font-size:.85rem;color:var(--ink2)}
 .trendbox b{color:var(--ca-ink);text-transform:uppercase;letter-spacing:.08em;font-size:.68rem;
