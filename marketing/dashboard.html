@@ -428,6 +428,36 @@
       .strategy-grid { grid-template-columns: 1fr; }
     }
 
+    .commercial-banner { margin: 0 0 17px; padding: 15px 17px; border: 1px solid rgba(236, 156, 255, .32); border-radius: 14px; color: var(--muted-strong); background: linear-gradient(135deg, rgba(236, 156, 255, .09), rgba(124, 200, 255, .06)); font-size: .82rem; }
+    .commercial-banner strong { color: var(--pink); }
+    .commercial-kpis { display: grid; grid-template-columns: repeat(4, minmax(0, 1fr)); gap: 10px; margin-bottom: 18px; }
+    .commercial-kpi { padding: 14px; border: 1px solid var(--line); border-radius: 13px; background: rgba(17, 33, 58, .78); }
+    .commercial-kpi strong { display: block; color: var(--green); font-size: 1.45rem; letter-spacing: -.04em; }
+    .commercial-kpi span { color: var(--muted); font-size: .68rem; }
+    .top-five-list { display: grid; gap: 10px; margin-bottom: 22px; }
+    .commercial-card { display: grid; grid-template-columns: 36px minmax(0, 1fr) auto; gap: 12px; align-items: start; padding: 15px; border: 1px solid var(--line); border-radius: 14px; background: linear-gradient(145deg, rgba(22, 41, 67, .86), rgba(17, 33, 58, .78)); }
+    .commercial-card h3 { margin: 1px 0 3px; font-size: .93rem; }
+    .commercial-meta { margin: 0; color: var(--muted); font-size: .72rem; }
+    .commercial-hook { margin: 9px 0 0; color: var(--muted-strong); font-size: .78rem; }
+    .commercial-tags { display: flex; flex-wrap: wrap; gap: 5px; margin-top: 9px; }
+    .commercial-score { min-width: 70px; padding: 7px 9px; border: 1px solid rgba(236, 156, 255, .34); border-radius: 10px; color: var(--pink); text-align: center; background: rgba(236, 156, 255, .08); }
+    .commercial-score strong { display: block; font-size: 1.2rem; line-height: 1; }
+    .commercial-score small { display: block; margin-top: 3px; color: var(--muted); font-size: .56rem; font-weight: 800; letter-spacing: .08em; text-transform: uppercase; }
+    .commercial-details { grid-column: 2 / -1; display: grid; grid-template-columns: repeat(3, minmax(0, 1fr)); gap: 8px; margin-top: 1px; padding-top: 10px; border-top: 1px solid var(--line); color: var(--muted); font-size: .68rem; }
+    .commercial-details b { color: var(--muted-strong); }
+    .commercial-section { margin-top: 24px; }
+    .commercial-section h3 { margin-bottom: 9px; color: var(--blue); font-size: .83rem; letter-spacing: .02em; }
+    .runway-grid { display: grid; grid-template-columns: repeat(2, minmax(0, 1fr)); gap: 10px; }
+    .runway-card { padding: 14px; border: 1px solid var(--line); border-radius: 13px; background: rgba(17, 33, 58, .72); }
+    .runway-card h4 { margin: 0 0 7px; font-size: .82rem; }
+    .runway-card p { margin: 4px 0; color: var(--muted); font-size: .7rem; }
+    .runway-step { display: flex; gap: 9px; padding: 7px 0; border-top: 1px solid var(--line); }
+    .runway-step b { flex: 0 0 60px; color: var(--orange); font-size: .66rem; }
+    .runway-step span { color: var(--muted-strong); font-size: .69rem; }
+    .experiment-grid { display: grid; grid-template-columns: repeat(4, minmax(0, 1fr)); gap: 9px; }
+    .experiment-card { padding: 12px; border: 1px solid var(--line); border-radius: 11px; background: rgba(8, 17, 31, .34); }
+    .experiment-card strong { display: block; color: var(--ink); font-size: .74rem; }
+    .experiment-card span { display: block; margin-top: 5px; color: var(--muted); font-size: .67rem; }
     .prompt-list { display: grid; gap: 10px; }
     .prompt-card { display: grid; grid-template-columns: 45px minmax(150px, .6fr) minmax(0, 1.4fr) auto; gap: 13px; align-items: start; padding: 15px; }
     .prompt-card .rank { width: 34px; height: 34px; font-size: .7rem; }
@@ -446,6 +476,7 @@
       .platform-grid { grid-template-columns: repeat(3, minmax(0, 1fr)); }
       .time-grid { grid-template-columns: repeat(3, minmax(0, 1fr)); }
       .prompt-card { grid-template-columns: 40px minmax(150px, .7fr) minmax(0, 1.3fr) auto; }
+      .experiment-grid { grid-template-columns: repeat(2, minmax(0, 1fr)); }
     }
     @media (max-width: 760px) {
       .topbar-inner, .wrap { width: min(100% - 28px, 1440px); }
@@ -456,6 +487,7 @@
       .hero { grid-template-columns: 1fr; gap: 20px; padding-bottom: 25px; }
       .hero-side { max-width: none; }
       .metrics { grid-template-columns: repeat(2, minmax(0, 1fr)); margin-bottom: 25px; }
+      .commercial-kpis { grid-template-columns: repeat(2, minmax(0, 1fr)); }
       .metric { min-height: 95px; padding: 13px; }
       .metric-value { font-size: 1.55rem; }
       .tabs { top: 62px; margin-bottom: 22px; }
@@ -466,7 +498,9 @@
       .rank { width: 33px; height: 33px; }
       .reason-row, details, .source-link { margin-left: 0; }
       .platform-grid { grid-template-columns: 1fr; }
-      .calendar-grid, .gap-grid { grid-template-columns: 1fr; }
+      .calendar-grid, .gap-grid, .runway-grid { grid-template-columns: 1fr; }
+      .commercial-card { grid-template-columns: 35px minmax(0, 1fr) auto; }
+      .commercial-details { grid-column: 1 / -1; grid-template-columns: 1fr; }
       .time-grid { grid-template-columns: repeat(2, minmax(0, 1fr)); }
       .prompt-card { grid-template-columns: 37px minmax(0, 1fr); }
       .prompt-copy { grid-column: 1 / -1; }
@@ -513,6 +547,7 @@
       <button class="tab" data-tab="gaps">News gaps</button>
       <button class="tab" data-tab="who">Who's who</button>
       <button class="tab" data-tab="opps">Opportunities</button>
+      <button class="tab" data-tab="commercial">Commercial agent</button>
       <button class="tab" data-tab="prompts">Image prompts</button>
     </nav>
 
@@ -567,6 +602,18 @@
       <div class="opp-list" id="opp-list"><div class="loading">Loading opportunities…</div></div>
     </section>
 
+    <section class="panel" id="panel-commercial" aria-labelledby="commercial-tab">
+      <div class="panel-head">
+        <div><h2>NFL fan commerce agent</h2><p>Product-to-trend matching, fan psychology, commercial scoring, runway timing, and the compliance gate.</p></div>
+      </div>
+      <div class="commercial-banner" id="commercial-banner"><strong>Loading commercial brief…</strong> This role prepares decisions; it does not publish.</div>
+      <div class="commercial-kpis" id="commercial-kpis"><div class="loading">Loading predictor…</div></div>
+      <div class="commercial-section"><h3>Top 5 products to push today</h3><div class="top-five-list" id="top-five-list"><div class="loading">Loading product matches…</div></div></div>
+      <div class="commercial-section"><h3>Game calendar runway</h3><div class="runway-grid" id="commercial-runway"><div class="loading">Loading event runway…</div></div></div>
+      <div class="commercial-section"><h3>Mandatory test plan</h3><div class="experiment-grid" id="commercial-experiments"><div class="loading">Loading experiment hypotheses…</div></div></div>
+      <div class="commercial-section"><h3>Economics and conversion guardrails</h3><div class="method" id="commercial-guardrails">Loading economics and funnel guardrails…</div></div>
+    </section>
+
     <section class="panel" id="panel-prompts" aria-labelledby="prompts-tab">
       <div class="panel-head">
         <div><h2>Image prompts</h2><p>Scene direction stays with mood, light, texture, and environment - never recognizable people or protected marks.</p></div>
@@ -584,6 +631,7 @@
     const PLAN_URL = 'plan.json';
     const PLATFORM_LABELS = { instagram: 'Instagram', tiktok: 'TikTok', facebook: 'Facebook', x: 'X', pinterest: 'Pinterest' };
     let plan = null;
+    let commercialBrief = null;
     let promptPlatform = 'instagram';
     let toastTimer = null;
 
@@ -913,6 +961,37 @@
       });
     }
 
+    function renderCommercial() {
+      const brief = commercialBrief;
+      if (!brief) {
+        document.getElementById('commercial-banner').innerHTML = '<strong>Commercial brief unavailable.</strong> Run <code>python3 marketing/plan.py &amp;&amp; python3 marketing/commercial_agent.py</code> to generate it. The base planner remains available.';
+        document.getElementById('commercial-kpis').innerHTML = '<div class="empty">No commercial brief loaded.</div>';
+        document.getElementById('top-five-list').innerHTML = '';
+        return;
+      }
+      const top = brief.top_5_products_today || [];
+      const sources = Object.values(brief.source_registry || {});
+      const wired = sources.filter(source => source.status === 'wired').length;
+      const average = top.length ? (top.reduce((sum, row) => sum + Number(row.opportunity_score || 0), 0) / top.length).toFixed(1) : '—';
+      const economics = brief.economics || {};
+      document.getElementById('commercial-banner').innerHTML = '<strong>' + esc(brief.meta.role_name) + ' is decision support, not an autopilot.</strong> Human approval is required. Current top opportunities are ranked from the existing catalogue, and any team/player identifiers remain held by the licensing gate.';
+      document.getElementById('commercial-kpis').innerHTML = [
+        ['Top products', top.length, 'existing products matched today'],
+        ['Avg opportunity', average + ' / 100', 'decision-support score'],
+        ['Sources wired', wired + ' / ' + sources.length, 'unavailable sources are not guessed'],
+        ['Economics', economics.status || 'UNKNOWN', 'profit claims stay blocked without costs'],
+      ].map(item => '<article class="commercial-kpi"><strong>' + esc(item[1]) + '</strong><span>' + esc(item[0]) + ' · ' + esc(item[2]) + '</span></article>').join('');
+      document.getElementById('top-five-list').innerHTML = top.map(row => {
+        const factorText = Object.entries(row.factors || {}).map(([key, value]) => key.replace(/_/g, ' ') + ' ' + value).join(' · ');
+        const risk = row.risk || {};
+        return '<article class="commercial-card"><span class="rank">' + String(row.rank).padStart(2, '0') + '</span><div><h3>' + esc(row.product) + '</h3><p class="commercial-meta">' + esc(row.team) + ' · ' + esc(row.trend_stage) + ' · emotion: ' + esc(row.fan_emotion) + ' · motivation: ' + esc(row.fan_motivation) + '</p><p class="commercial-hook">' + esc(row.hook) + '</p><div class="commercial-tags">' + (row.creative_style || []).map(style => '<span class="chip">' + esc(style) + '</span>').join('') + (row.platforms || []).map(platform => '<span class="chip hot">' + esc(labelFor(platform)) + '</span>').join('') + '</div></div><div class="commercial-score"><strong>' + esc(row.opportunity_score) + '</strong><small>opportunity</small></div><div class="commercial-details"><span><b>Trend:</b> ' + esc(row.trend) + '</span><span><b>Timing:</b> ' + esc((row.timing || {}).recommendation) + '</span><span><b>Risk:</b> ' + esc(risk.score) + ' · ' + esc(risk.action) + '</span><span><b>SEO:</b> ' + esc((row.seo_keywords || []).slice(0, 4).join(' · ')) + '</span><span><b>Pinterest:</b> ' + esc(((row.pinterest_seo || {}).title_variants || [])[0] || 'draft title pending') + '</span><span><b>CTA:</b> ' + esc(row.cta) + '</span><span><b>Factors:</b> ' + esc(factorText) + '</span></div></article>';
+      }).join('') || '<div class="empty">No product matches are available.</div>';
+      document.getElementById('commercial-runway').innerHTML = (brief.event_runway || []).map(event => '<article class="runway-card"><h4>' + esc(event.team) + '</h4><p>' + esc(event.event) + '</p><p>Kickoff: ' + esc(event.kickoff || 'not supplied') + '</p>' + (event.horizons || []).map(step => '<div class="runway-step"><b>' + esc(step.horizon) + '</b><span>' + esc(step.job) + '</span></div>').join('') + (event.runway || []).map(step => '<div class="runway-step"><b>' + esc(step.offset) + '</b><span><strong>' + esc(step.job) + '</strong> — ' + esc(step.content) + '</span></div>').join('') + '</article>').join('') || '<div class="empty">No verified game runway is loaded.</div>';
+      document.getElementById('commercial-experiments').innerHTML = (brief.experiments || []).map(test => '<article class="experiment-card"><strong>' + esc(test.variant) + '</strong><span>Control: ' + esc(test.control) + '</span><span>Measure: ' + esc(test.metric) + '</span></article>').join('') || '<div class="empty">No experiments defined.</div>';
+      const formulas = economics.formulas || {};
+      document.getElementById('commercial-guardrails').innerHTML = '<strong>' + esc(economics.status || 'UNKNOWN') + ':</strong> ' + esc(economics.decision_rule || '') + '<br><span class="window-src">' + esc(economics.missing_data_action || '') + '</span><br><span class="window-src">Gross profit: ' + esc(formulas.gross_profit || 'not defined') + ' · ROAS: ' + esc(formulas.roas || 'not defined') + ' · Break-even ROAS: ' + esc(formulas.break_even_roas || 'not defined') + '</span>';
+    }
+
     function renderPrompts() {
       const selected = promptPlatform;
       document.getElementById('prompt-count').textContent = `${plan.image_prompts.length} scene prompts · ${labelFor(selected)} format selected`;
@@ -939,6 +1018,7 @@
       renderGaps();
       renderWho();
       renderOpportunities();
+      renderCommercial();
       renderPrompts();
     }
 
@@ -965,9 +1045,11 @@
       if (event.target.id === 'prompt-platform') { promptPlatform = event.target.value; renderPrompts(); }
     });
 
-    fetch(PLAN_URL, { cache: 'no-store' })
-      .then(response => { if (!response.ok) throw new Error(`plan.json returned ${response.status}`); return response.json(); })
-      .then(data => { plan = data; renderAll(); })
+    Promise.all([
+      fetch(PLAN_URL, { cache: 'no-store' }).then(response => { if (!response.ok) throw new Error(`plan.json returned ${response.status}`); return response.json(); }),
+      fetch('commercial-brief.json', { cache: 'no-store' }).then(response => { if (!response.ok) throw new Error(`commercial-brief.json returned ${response.status}`); return response.json(); }).catch(() => null),
+    ])
+      .then(([data, brief]) => { plan = data; commercialBrief = brief; renderAll(); })
       .catch(error => {
         document.getElementById('metrics').innerHTML = `<div class="empty">Could not load <code>plan.json</code>. Serve this folder with <code>python3 -m http.server</code> rather than opening the HTML directly. (${esc(error.message)})</div>`;
         document.getElementById('queue-list').innerHTML = '';

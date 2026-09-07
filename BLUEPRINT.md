@@ -56,8 +56,11 @@ gridiron-locker/
 │   └── people.json       # current vs throwback player/coach context (added)
 ├── marketing/            # promotion planning (does NOT touch site/)
 │   ├── plan.py           # scores 134 designs → writes plan.json
+│   ├── commercial_agent.py # NFL fan commerce scoring + daily predictor
 │   ├── plan.json         # full queue, calendar, best-times, gaps, who's-who
-│   ├── dashboard.html    # the planner UI (6 tabs)
+│   ├── commercial-brief.json # top-five matches, runway, tests, economics
+│   ├── performance-memory.json # measured learnings input (never invented)
+│   ├── dashboard.html    # the planner UI (8 tabs)
 │   ├── tz-verify.js      # timezone conversion tests
 │   ├── social-accounts.md
 │   └── social/           # content kit + images (see §8)
@@ -121,10 +124,19 @@ under `site/` — planning and storefront are fully separated.
 - `+6` when the theme is "playoff" or "player"
 - `-25` when the design is a throwback
 
-**Dashboard** (`dashboard.html`, 6 tabs): Post queue · 14-day calendar ·
-Best times · News gaps · **Who's who** · Image prompts. All times are authored
-in `America/New_York` and converted to the viewer's zone (Africa/Casablanca
-for the operator) in-browser.
+**Dashboard** (`dashboard.html`, 8 tabs): Post queue · 14-day calendar ·
+Best times · News gaps · **Who's who** · Opportunities · **Commercial agent** ·
+Image prompts. The Commercial agent is the executable NFL Fan Commerce
+Marketing Agent: it matches existing products to trend signals, fan motivations,
+design styles, platform-native angles, runway timing, A/B tests, and economics
+without claiming unavailable analytics or cost data. All times are authored in
+`America/New_York` and converted to the viewer's zone (Africa/Casablanca for the
+operator) in-browser.
+
+`marketing/commercial_agent.py` writes `commercial-brief.json`; it reads the
+headline snapshot, scored planner, season calendar, and the human-maintained
+`performance-memory.json`. It does not publish. Current team/player-named
+social creative is held until licensing is verified.
 
 ---
 

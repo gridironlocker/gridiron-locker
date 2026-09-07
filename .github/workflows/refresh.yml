@@ -64,6 +64,11 @@ jobs:
               sys.exit("EMPTY: all feeds returned zero headlines - refusing to publish an emptied site")
           PY
 
+      - name: Build marketing plan and commercial agent brief
+        run: |
+          python marketing/plan.py
+          python marketing/commercial_agent.py
+
       - name: Rebuild site
         run: python src/build.py
 

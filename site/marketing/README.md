@@ -2,11 +2,20 @@
 
 This folder is a standalone, internal promotion-planning dashboard. It does not build or modify the storefront.
 
+It now includes the **NFL Fan Commerce Marketing Agent** role: a commercial
+trend-and-product decision layer, not just an SEO/content writer. The role
+matches current signals to existing products, applies fan-psychology and
+apparel-style lenses, creates a five-product daily predictor, builds a
+pre-game runway, exposes POD-economics guardrails, and stops unsafe social
+creative at the licensing gate.
+
 ## Separation contract
 
 - `plan.py` reads `data/products.json`, `data/facts.json`, `data/order.json`, `data/trends.json`, and `SEASON` from `src/collections_data.py`.
 - `plan.py` writes one generated file: `marketing/plan.json`.
-- It does not import the website generator or write anything under `site/`.
+- `commercial_agent.py` reads the plan and writes one generated file: `marketing/commercial-brief.json`.
+- `performance-memory.json` is a human-maintained input, not an automatically invented analytics feed.
+- Neither marketing script imports the website generator or writes anything under `site/`.
 - GitHub Pages publishes the storefront in `site/` and the marketing planner at `/marketing/dashboard.html`.
 - Scene prompts describe only mood, light, texture, composition, and environment. They do not request logos, team marks, player likenesses, or recognizable people.
 
@@ -16,7 +25,16 @@ From the repository root:
 
 ```bash
 python3 marketing/plan.py
+python3 marketing/commercial_agent.py
 ```
+
+`commercial_agent.py` writes `marketing/commercial-brief.json` from the plan
+and trend snapshot. It also reads `marketing/performance-memory.json`, whose
+empty seed is intentional: only measured learnings with a source should be
+added. The brief labels Reddit, X, TikTok Creative Center, Instagram, YouTube,
+Google Search/Trends, Pinterest Trends, competitor feeds, analytics, orders,
+and POD cost data as unavailable until real connectors are added; it never
+fabricates those signals.
 
 The script validates the ordered catalogue and regenerates `marketing/plan.json` with all 134 designs. It has no third-party Python dependencies.
 
@@ -36,6 +54,7 @@ Then open <http://localhost:8000/dashboard.html>. Opening the HTML with `file://
 - **Best times** — practical starting windows for Instagram, TikTok, Facebook, X, and Pinterest in `America/New_York`.
 - **Who's who** — current vs throwback player/coach context, so shared data is self-explanatory.
 - **Opportunities** — the TREND-MASTER view: per-design opportunity score (0–100, weighted factors), evidence confidence, trend stage, opportunity type, decision (PUBLISH / IMPROVE / MONITOR / REJECT), the seven opportunity gates, and a social-compliance risk flag.
+- **Commercial agent** — the NFL Fan Commerce Marketing Agent view: top five existing-product matches, fan motivation/emotion, design style, platform selection, SEO terms, hooks, timing, risk, game runways, A/B tests, and economics/conversion guardrails. It is decision support only and requires human approval.
 
 ## Timezone handling
 
