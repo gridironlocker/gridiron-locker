@@ -458,6 +458,23 @@
     .experiment-card { padding: 12px; border: 1px solid var(--line); border-radius: 11px; background: rgba(8, 17, 31, .34); }
     .experiment-card strong { display: block; color: var(--ink); font-size: .74rem; }
     .experiment-card span { display: block; margin-top: 5px; color: var(--muted); font-size: .67rem; }
+    .pulse-banner { margin: 0 0 17px; padding: 15px 17px; border: 1px solid rgba(114, 224, 186, .3); border-radius: 14px; color: var(--muted-strong); background: linear-gradient(135deg, rgba(114, 224, 186, .09), rgba(61, 157, 245, .06)); font-size: .82rem; }
+    .pulse-banner strong { color: var(--green); }
+    .pulse-days { display: grid; grid-template-columns: repeat(3, minmax(0, 1fr)); gap: 12px; }
+    .pulse-day { padding: 16px; border: 1px solid var(--line); border-radius: 16px; background: linear-gradient(145deg, rgba(22, 41, 67, .86), rgba(17, 33, 58, .78)); }
+    .pulse-day h3 { margin: 0 0 3px; font-size: 1rem; }
+    .pulse-date { margin-bottom: 12px; color: var(--orange); font-size: .68rem; font-weight: 800; letter-spacing: .12em; text-transform: uppercase; }
+    .pulse-opportunity { padding: 12px 0; border-top: 1px solid var(--line); }
+    .pulse-opportunity:first-child { border-top: 0; padding-top: 0; }
+    .pulse-opportunity h4 { margin: 0 0 3px; color: var(--ink); font-size: .8rem; line-height: 1.3; }
+    .pulse-meta { margin: 0; color: var(--muted); font-size: .67rem; }
+    .pulse-copy { margin: 7px 0 0; color: var(--muted-strong); font-size: .73rem; }
+    .pulse-buttons { display: flex; flex-wrap: wrap; gap: 5px; margin-top: 7px; }
+    .pulse-risk { display: inline-block; margin-top: 7px; padding: 3px 7px; border: 1px solid rgba(255, 177, 90, .35); border-radius: 999px; color: var(--orange); background: rgba(255, 177, 90, .07); font-size: .61rem; font-weight: 800; }
+    .pulse-details { margin: 8px 0 0; border-top: 1px solid var(--line); }
+    .pulse-details summary { padding-top: 8px; font-size: .68rem; }
+    .pulse-caption { margin: 6px 0 0; color: var(--muted); font-size: .68rem; }
+    .pulse-note { margin-top: 10px; color: var(--muted); font-size: .68rem; }
     .prompt-list { display: grid; gap: 10px; }
     .prompt-card { display: grid; grid-template-columns: 45px minmax(150px, .6fr) minmax(0, 1.4fr) auto; gap: 13px; align-items: start; padding: 15px; }
     .prompt-card .rank { width: 34px; height: 34px; font-size: .7rem; }
@@ -498,7 +515,7 @@
       .rank { width: 33px; height: 33px; }
       .reason-row, details, .source-link { margin-left: 0; }
       .platform-grid { grid-template-columns: 1fr; }
-      .calendar-grid, .gap-grid, .runway-grid { grid-template-columns: 1fr; }
+      .calendar-grid, .gap-grid, .runway-grid, .pulse-days { grid-template-columns: 1fr; }
       .commercial-card { grid-template-columns: 35px minmax(0, 1fr) auto; }
       .commercial-details { grid-column: 1 / -1; grid-template-columns: 1fr; }
       .time-grid { grid-template-columns: repeat(2, minmax(0, 1fr)); }
@@ -541,8 +558,8 @@
     <section class="metrics" id="metrics"><div class="loading">Loading plan data…</div></section>
 
     <nav class="tabs" aria-label="Promotion planner sections">
-      <button class="tab active" data-tab="queue">Post queue</button>
-      <button class="tab" data-tab="calendar">14-day calendar</button>
+      <button class="tab active" data-tab="pulse">3-day pulse</button>
+      <button class="tab" data-tab="queue">Product queue</button>
       <button class="tab" data-tab="times">Best times</button>
       <button class="tab" data-tab="gaps">News gaps</button>
       <button class="tab" data-tab="who">Who's who</button>
@@ -551,7 +568,15 @@
       <button class="tab" data-tab="prompts">Image prompts</button>
     </nav>
 
-    <section class="panel active" id="panel-queue" aria-labelledby="queue-tab">
+    <section class="panel active" id="panel-pulse" aria-labelledby="pulse-tab">
+      <div class="panel-head">
+        <div><h2>Rolling 3-day pulse</h2><p>Fresh trend check → existing product match → captions for the next three days. This expires and regenerates; it is not a long-range content calendar.</p></div>
+      </div>
+      <div class="pulse-banner" id="pulse-banner"><strong>Loading the latest public signals…</strong> No post is sent from this screen.</div>
+      <div class="pulse-days" id="pulse-days"><div class="loading">Loading three-day opportunities…</div></div>
+    </section>
+
+    <section class="panel" id="panel-queue" aria-labelledby="queue-tab">
       <div class="panel-head">
         <div><h2>Post queue</h2><p>Ranked from “post this next” to evergreen. Open a card for all five platform packages.</p></div>
         <div class="controls"><input class="input" id="queue-search" type="search" placeholder="Search designs, teams, themes…" aria-label="Search post queue"><select class="select" id="queue-collection" aria-label="Filter by collection"><option value="all">All collections</option></select></div>
@@ -632,6 +657,7 @@
     const PLATFORM_LABELS = { instagram: 'Instagram', tiktok: 'TikTok', facebook: 'Facebook', x: 'X', pinterest: 'Pinterest' };
     let plan = null;
     let commercialBrief = null;
+    let pulse = null;
     let promptPlatform = 'instagram';
     let toastTimer = null;
 
@@ -961,6 +987,25 @@
       });
     }
 
+    function renderPulse() {
+      const data = pulse;
+      if (!data) {
+        document.getElementById('pulse-banner').innerHTML = '<strong>Three-day pulse unavailable.</strong> Run <code>python3 marketing/social_watch.py &amp;&amp; python3 marketing/three_day_pulse.py</code>. The older product planner remains available.';
+        document.getElementById('pulse-days').innerHTML = '<div class="empty">No rolling pulse loaded.</div>';
+        return;
+      }
+      const sourceStatuses = Object.values(data.signal_limits || {}).map(source => source.status);
+      const connected = sourceStatuses.filter(status => status === 'connected').length;
+      const snapshot = sourceStatuses.filter(status => status === 'snapshot').length;
+      document.getElementById('pulse-banner').innerHTML = '<strong>Short-lived trend plan · ' + esc(data.meta.generated_on) + '.</strong> ' + esc(connected) + ' live connector(s) and ' + esc(snapshot) + ' repository snapshot(s) available. Auto-publishing is <strong>' + esc(data.meta.auto_publish_enabled ? 'enabled' : 'off') + '</strong>; human approval, approved images, official APIs, and compliance clearance are required.';
+      document.getElementById('pulse-days').innerHTML = (data.days || []).map(day => '<article class="pulse-day"><h3>' + esc(day.label) + '</h3><div class="pulse-date">' + esc(day.date) + '</div>' + (day.opportunities || []).map(row => {
+        const captions = row.copy && row.copy.captions ? row.copy.captions : {};
+        const buttons = [copyButton((row.copy || {}).ad_copy || '', 'Copy ad copy')].concat(Object.keys(captions).slice(0, 2).map(platform => copyButton(captions[platform], 'Copy ' + labelFor(platform)))).join('');
+        const imageReady = row.image && Object.keys(row.image).length ? 'image mapped' : 'awaiting approved image';
+        return '<article class="pulse-opportunity"><h4>' + esc(row.product) + '</h4><p class="pulse-meta">' + esc(row.team) + ' · ' + esc(row.fan_emotion) + ' · signal ' + esc(row.product_signal_score) + '</p><p class="pulse-copy">' + esc((row.copy || {}).hook || '') + '</p><span class="pulse-risk">' + esc((row.risk || {}).decision || 'REVIEW') + ' · ' + esc(imageReady) + '</span><div class="pulse-buttons">' + buttons + '</div><details class="pulse-details"><summary>Platform captions</summary>' + Object.entries(captions).map(([platform, caption]) => '<p class="pulse-caption"><b>' + esc(labelFor(platform)) + ':</b> ' + esc(caption) + '</p>').join('') + '</details></article>';
+      }).join('') + '<p class="pulse-note">Draft only · re-check the source signal before publishing.</p></article>').join('') || '<div class="empty">No opportunities available.</div>';
+    }
+
     function renderCommercial() {
       const brief = commercialBrief;
       if (!brief) {
@@ -1012,6 +1057,7 @@
     function renderAll() {
       renderMetrics();
       populateControls();
+      renderPulse();
       renderQueue();
       renderCalendar();
       renderTimes();
@@ -1048,8 +1094,9 @@
     Promise.all([
       fetch(PLAN_URL, { cache: 'no-store' }).then(response => { if (!response.ok) throw new Error(`plan.json returned ${response.status}`); return response.json(); }),
       fetch('commercial-brief.json', { cache: 'no-store' }).then(response => { if (!response.ok) throw new Error(`commercial-brief.json returned ${response.status}`); return response.json(); }).catch(() => null),
+      fetch('three-day-pulse.json', { cache: 'no-store' }).then(response => { if (!response.ok) throw new Error(`three-day-pulse.json returned ${response.status}`); return response.json(); }).catch(() => null),
     ])
-      .then(([data, brief]) => { plan = data; commercialBrief = brief; renderAll(); })
+      .then(([data, brief, rollingPulse]) => { plan = data; commercialBrief = brief; pulse = rollingPulse; renderAll(); })
       .catch(error => {
         document.getElementById('metrics').innerHTML = `<div class="empty">Could not load <code>plan.json</code>. Serve this folder with <code>python3 -m http.server</code> rather than opening the HTML directly. (${esc(error.message)})</div>`;
         document.getElementById('queue-list').innerHTML = '';

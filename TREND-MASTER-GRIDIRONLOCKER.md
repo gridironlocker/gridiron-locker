@@ -327,6 +327,31 @@ commercial opportunity score, decision, and decision reason. A high score is
 not permission to publish: the compliance decision and human-approval boundary
 remain authoritative.
 
+## 1.4 ROLLING THREE-DAY PULSE AND PUBLISHING BOUNDARY
+
+The owner does not want a long-lived bank of generic ad copy. The primary
+operating output is therefore `marketing/three-day-pulse.json`:
+
+- **Today** — what verified conversation matters now, which existing product
+  matches it, and what copy/image is ready for review.
+- **Tomorrow** — the next angle if the signal persists or changes.
+- **+2 days** — a prepared follow-up, not a promise that the trend will last.
+
+`marketing/social_watch.py` records live-source status and public evidence;
+`marketing/three_day_pulse.py` expires and regenerates the three-day plan after
+each collection run. It never silently treats a missing X, Facebook, TikTok,
+Pinterest, Instagram, YouTube, or web connector as observed. It may use the
+repository's existing trend snapshot as explicitly labelled fallback evidence.
+
+Auto-publishing is possible only through official platform APIs. The publisher
+runs in dry-run mode by default and requires all of the following before a live
+attempt: owner approval, `AUTO_PUBLISH=true`, `PUBLISH_APPROVED=true`, an
+approved public image URL, a configured official platform connection, and a
+clear IP/compliance result. Facebook Pages and Pinterest image publishing have
+adapters; X, TikTok, YouTube, and Instagram remain blocked until their official
+media/app access is configured. No passwords, browser automation, or private
+messages are used.
+
 ### Data and limitation rule
 
 `marketing/commercial_agent.py` is intentionally honest about the boundary of

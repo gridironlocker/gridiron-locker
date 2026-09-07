@@ -57,10 +57,16 @@ gridiron-locker/
 ├── marketing/            # promotion planning (does NOT touch site/)
 │   ├── plan.py           # scores 134 designs → writes plan.json
 │   ├── commercial_agent.py # NFL fan commerce scoring + daily predictor
-│   ├── plan.json         # full queue, calendar, best-times, gaps, who's-who
-│   ├── commercial-brief.json # top-five matches, runway, tests, economics
+│   ├── social_watch.py    # public web/social signal collector
+│   ├── three_day_pulse.py # rolling 3-day trend-to-product brief
+│   ├── publisher.py       # dry-run/official API publishing adapters
+│   ├── plan.json         # full queue, legacy calendar, best-times, gaps
+│   ├── three-day-pulse.json # short-lived today/tomorrow/+2 copy brief
+│   ├── social-signals.json # source status + public trend evidence
+│   ├── commercial-brief.json # top-five matches, tests, economics
 │   ├── performance-memory.json # measured learnings input (never invented)
-│   ├── dashboard.html    # the planner UI (8 tabs)
+│   ├── approved-images.json # owner-approved public image manifest
+│   ├── dashboard.html    # the planner UI (8 tabs, led by 3-day pulse)
 │   ├── tz-verify.js      # timezone conversion tests
 │   ├── social-accounts.md
 │   └── social/           # content kit + images (see §8)
@@ -124,14 +130,14 @@ under `site/` — planning and storefront are fully separated.
 - `+6` when the theme is "playoff" or "player"
 - `-25` when the design is a throwback
 
-**Dashboard** (`dashboard.html`, 8 tabs): Post queue · 14-day calendar ·
+**Dashboard** (`dashboard.html`, 8 tabs): **3-day pulse** · Product queue ·
 Best times · News gaps · **Who's who** · Opportunities · **Commercial agent** ·
-Image prompts. The Commercial agent is the executable NFL Fan Commerce
-Marketing Agent: it matches existing products to trend signals, fan motivations,
-design styles, platform-native angles, runway timing, A/B tests, and economics
-without claiming unavailable analytics or cost data. All times are authored in
-`America/New_York` and converted to the viewer's zone (Africa/Casablanca for the
-operator) in-browser.
+Image prompts. The 3-day pulse is the primary rolling brief: it refreshes from
+public web/social evidence, matches existing products, and prepares only today,
+tomorrow, and +2 days. The Commercial agent remains the deeper scoring and
+strategy view without claiming unavailable analytics or cost data. All times are
+authored in `America/New_York` and converted to the viewer's zone
+(Africa/Casablanca for the operator) in-browser.
 
 `marketing/commercial_agent.py` writes `commercial-brief.json`; it reads the
 headline snapshot, scored planner, season calendar, and the human-maintained
