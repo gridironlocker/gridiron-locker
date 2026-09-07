@@ -42,6 +42,24 @@ class ThreeDayPulse(unittest.TestCase):
             self.assertNotEqual(source["status"], "connected")
         self.assertEqual(self.pulse["meta"]["auto_publish_enabled"], False)
 
+    def test_creative_is_distinct_per_row(self):
+        rows = [row for day in self.pulse["days"] for row in day["opportunities"]]
+        hooks = [row["copy"]["hook"] for row in rows]
+        self.assertEqual(len(set(hooks)), len(hooks), "every pulse row needs its own hook")
+        templates = [row["copy"]["hook_template"] for row in rows]
+        self.assertEqual(len(set(templates)), len(templates), "hook templates must not repeat across the pulse")
+        slugs = [row["slug"] for row in rows]
+        self.assertEqual(len(set(slugs)), len(slugs), "the same product must not repeat across days")
+        for day in self.pulse["days"]:
+            angles = [row["copy"]["angle"] for row in day["opportunities"]]
+            self.assertEqual(len(set(angles)), len(angles), "one creative angle per day per row")
+        for row in rows:
+            captions = row["copy"]["captions"]
+            self.assertEqual(len(set(captions.values())), len(captions), "platform captions must differ")
+            self.assertLessEqual(len(captions["x"]), 280)
+            self.assertTrue(row["creative_angle"])
+            self.assertIn(row["copy"]["angle_label"], row["copy"]["pinterest"]["description"])
+
     def test_publisher_defaults_to_dry_run(self):
         self.assertEqual(self.publish["mode"], "dry_run")
         self.assertTrue(all(row["status"] == "dry_run" for row in self.publish["results"]))
