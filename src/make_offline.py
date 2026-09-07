@@ -12,7 +12,13 @@ if os.path.exists(DST):
     shutil.rmtree(DST)
 shutil.copytree(SRC, DST)
 
-ATTR = re.compile(r'(\s(?:href|src|content)=")(/(?!/)[^"]*)(")')
+# src/build.py now emits canonical directory links ("../collections/") so that
+# the published site exposes exactly one crawlable URL per page. file:// cannot
+# serve a directory index, so the offline copy - and only the offline copy -
+# expands those back to an explicit index.html. Both the root-absolute form
+# (belt and braces, in case a page ever ships one) and the relative form the
+# build actually produces are matched.
+ATTR = re.compile(r'(\s(?:href|src|content)=")((?:/(?!/)|\.{1,2}/)[^"]*)(")')
 
 
 def fix(html_path):
@@ -23,12 +29,23 @@ def fix(html_path):
     def repl(m):
         pre, url, post = m.groups()
         # leave absolute canonical/OG urls alone (they start with http) - not matched anyway
-        path = url.lstrip("/")
-        if path.endswith("/") or path == "":
+        # keep any ?query#fragment tail after the filename, not before it
+        cut = len(url)
+        for ch in "?#":
+            i = url.find(ch)
+            if i != -1:
+                cut = min(cut, i)
+        path, tail = url[:cut], url[cut:]
+
+        if path.startswith("/"):
+            path = prefix + path.lstrip("/")   # root-absolute -> relative to this page
+        # already-relative links ("./x/", "../x/") keep the depth build.py gave them
+
+        if path.endswith("/") or path in ("", "."):
             path += "index.html"
         elif "." not in os.path.basename(path):
             path = path.rstrip("/") + "/index.html"
-        return pre + prefix + path + post
+        return pre + path + tail + post
 
     t = open(html_path, encoding="utf-8").read()
     # never rewrite inside JSON-LD / meta absolute URLs (they are full https:// already)
