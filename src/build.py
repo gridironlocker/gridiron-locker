@@ -431,8 +431,15 @@ def theme_vars(ckey):
             f"--btn:{CTA};--btn-h:{CTA_HOVER};--accent:{c['accent']}")
 
 
-def head(title, desc, path, image=None, schema=None, keywords=None, col=None):
+def head(title, desc, path, image=None, schema=None, keywords=None, col=None,
+         noindex=False):
     canon = abs_url(path)
+    # The 404 page is served (with a 200 on GitHub Pages) for every mistyped or
+    # stale URL under the domain, so an "index,follow" 404 invites Google to
+    # index unlimited not-found URLs as duplicates of one another. It is the
+    # one page that must stay out of the index.
+    robots = ("noindex,follow" if noindex
+              else "index,follow,max-image-preview:large,max-snippet:-1")
     img = DOMAIN + (image or "/img/hero-home.jpg?v=3")
     kw = f'<meta name="keywords" content="{esc(", ".join(keywords[:14]))}">' if keywords else ""
     # A page that belongs to one collection wears that collection's tokens at
@@ -483,7 +490,7 @@ def head(title, desc, path, image=None, schema=None, keywords=None, col=None):
 <meta name="description" content="{esc(desc)}">
 {kw}
 <link rel="canonical" href="{canon}">
-<meta name="robots" content="index,follow,max-image-preview:large,max-snippet:-1">
+<meta name="robots" content="{robots}">
 <meta property="og:type" content="{'product' if path.startswith('/shop/') else 'website'}">
 <meta property="og:site_name" content="{esc(BRAND)}">
 <meta property="og:title" content="{esc(title)}">
@@ -1995,7 +2002,7 @@ def page_404():
 <div class="btnrow" style="justify-content:center">
 <a class="btn" href="/collections/">All Collections</a>
 <a class="btn ghost" href="/">Home</a></div></div></section></main>"""
-    write("404.html", head("Page not found | " + BRAND, "The page you requested could not be found. Browse fan-made football apparel across Cleveland, Green Bay, Dallas and Michigan collections at Gridiron Locker.", "/404.html")
+    write("404.html", head("Page not found | " + BRAND, "The page you requested could not be found. Browse fan-made football apparel across Cleveland, Green Bay, Dallas and Michigan collections at Gridiron Locker.", "/404.html", noindex=True)
           + header() + body + footer())
 
 
@@ -2357,9 +2364,40 @@ setTimeout(function(){
 RELATIVISE = re.compile(r'(\s(?:href|src|data-src)=")(/(?!/)[^"]*)(")')
 
 
+def split_url(url):
+    """Split "/path/?q=1#frag" into ("/path/", "?q=1#frag").
+
+    The query/fragment tail must survive relativising untouched, otherwise a
+    directory link like "/collections/?q=browns" would have its trailing slash
+    appended after the query string.
+    """
+    cut = len(url)
+    for ch in "?#":
+        i = url.find(ch)
+        if i != -1:
+            cut = min(cut, i)
+    return url[:cut], url[cut:]
+
+
 def relativise():
     """Rewrite root-absolute internal links to relative ones so the site works on
-    GitHub Pages project URLs (user.github.io/repo/), custom domains AND file://."""
+    GitHub Pages project URLs (user.github.io/repo/) and at a custom domain.
+
+    Directory links keep their trailing slash ("../collections/") and are never
+    expanded to "../collections/index.html". GitHub Pages serves both spellings
+    with a 200 and does not redirect one to the other, so emitting the
+    index.html form published a second crawlable URL for all 138 pages while
+    <link rel="canonical"> pointed at the directory form. Googlebot only ever
+    discovers URLs it can follow, so every internally-linked page was the
+    non-canonical twin - Search Console reported the site as duplicates
+    ("Alternate page with proper canonical tag" / "Duplicate without
+    user-selected canonical") and split its ranking signals in half.
+
+    Internal links now match abs_url()/the sitemap exactly, so a crawl finds one
+    URL per page. The file:// build, which genuinely needs explicit index.html
+    filenames because no server resolves directory indexes there, is produced
+    separately by src/make_offline.py.
+    """
     n = 0
     for base, _, files in os.walk(SITE):
         for f in files:
@@ -2372,12 +2410,13 @@ def relativise():
 
             def repl(m):
                 pre, url, post = m.groups()
-                path = url.lstrip("/")
-                if path == "" or path.endswith("/"):
-                    path += "index.html"
-                elif "." not in os.path.basename(path):
-                    path = path.rstrip("/") + "/index.html"
-                return pre + prefix + path + post
+                path, tail = split_url(url)
+                path = path.lstrip("/")
+                # A basename with no dot is a page, not a file: canonicalise it
+                # to the trailing-slash directory form ("/faq" -> "faq/").
+                if path and "." not in os.path.basename(path.rstrip("/")):
+                    path = path.rstrip("/") + "/"
+                return pre + prefix + path + tail + post
 
             t = open(fp, encoding="utf-8").read()
             open(fp, "w", encoding="utf-8").write(RELATIVISE.sub(repl, t))

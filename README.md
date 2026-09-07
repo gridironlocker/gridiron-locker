@@ -160,8 +160,16 @@ Michigan opens Sept 5), what changed per roster, and the designs trending becaus
 Product pages show a live "order by [date] to wear it for Week 1" line.
 
 ## 5. Built for GitHub Pages (no DNS required)
-- **All internal links are now relative** - the site works at `username.github.io/repo/`,
-  at a custom domain, and by double-clicking `index.html`. One build, three environments.
+- **All internal links are now relative** - the site works at `username.github.io/repo/`
+  and at a custom domain.
+- **One crawlable URL per page.** Links point at the directory form (`../collections/`),
+  exactly matching `<link rel="canonical">` and `sitemap.xml`. They must never be written
+  as `../collections/index.html`: GitHub Pages serves both spellings with a 200 and
+  redirects neither, so the index.html form publishes a duplicate of every page - and
+  since it is the only form a crawler can follow, Google indexes the non-canonical twin
+  and Search Console reports the site as duplicates.
+- For a **`file://` copy** you can double-click, run `python3 src/make_offline.py`; it
+  writes `site-offline/` with the explicit `index.html` filenames that protocol needs.
 - `.nojekyll` added so GitHub serves every file as-is.
 - **robots.txt rewritten**: welcomes Google, Bing, Google Images and AI answer engines
   (GPTBot, PerplexityBot, ClaudeBot), with a polite `Crawl-delay: 1`.

@@ -209,7 +209,7 @@ class CollectionsIndex(unittest.TestCase):
                 if any(isinstance(f, str) and f.startswith("/")
                        and os.path.isfile(os.path.join(SITE, f.lstrip("/"))) for f in img.values()):
                     expected += 1
-            card = re.search(r'<a class="teamcircle[^"]*"[^>]*href="[^"]*%s/index\.html"[^>]*>.*?</a>'
+            card = re.search(r'<a class="teamcircle[^"]*"[^>]*href="[^"]*%s/"[^>]*>.*?</a>'
                              % COLLECTIONS[k]["slug"], self.html, re.S).group(0)
             self.assertIn(f"{expected} designs", card, k)
             self.assertIn(f"View all {expected} {COLLECTIONS[k]['short']} designs", self.html)
@@ -464,7 +464,7 @@ class Homepage(unittest.TestCase):
     def test_compact_four_entry_fti_strip(self):
         sec = between(self.html, '<section class="ftisec">', "</section>")
         self.assertEqual(sec.count('class="fti-chip"'), 4)
-        self.assertIn('href="./fan-trend-index/index.html"', sec)
+        self.assertIn('href="./fan-trend-index/"', sec)
         self.assertIn("repeat(4,minmax(0,1fr))", css_block(self.css, ".fti-chips"))
 
     def test_full_index_page_retained(self):
@@ -526,6 +526,104 @@ class CatalogueIntegrity(unittest.TestCase):
     def test_sitemap_depth(self):
         sm = page("sitemap.xml")
         self.assertGreaterEqual(len(re.findall(r"<loc>", sm)), 100)
+
+
+class CanonicalUrls(unittest.TestCase):
+    """One crawlable URL per page.
+
+    GitHub Pages serves /faq/ and /faq/index.html with a 200 and redirects
+    neither to the other, so linking the index.html spelling published a
+    second, non-canonical URL for every page - the only one Googlebot could
+    discover by following links. Search Console reported the whole storefront
+    as duplicates and split its ranking signals. These tests keep internal
+    links, <link rel="canonical"> and the sitemap on the same single URL.
+    """
+
+    # /ops/ is the private control room: robots.txt disallows it, nothing links
+    # to it publicly, and its pages carry no canonical tag.
+    def storefront_pages(self):
+        for base, _, files in os.walk(SITE):
+            for f in files:
+                if not f.endswith(".html"):
+                    continue
+                fp = os.path.join(base, f)
+                rel = os.path.relpath(fp, SITE)
+                if rel.split(os.sep)[0] in ("ops", "marketing"):
+                    continue
+                yield rel, read(fp)
+
+    def test_no_internal_link_uses_the_index_html_spelling(self):
+        offenders = []
+        for rel, html in self.storefront_pages():
+            for href in re.findall(r'(?:href|src|data-src)="((?:\.{1,2}/|/)[^"]*)"', html):
+                if re.search(r"(?:^|/)index\.html(?:[?#]|$)", href):
+                    offenders.append(f"{rel}: {href}")
+        self.assertEqual(offenders, [], "internal links must use the canonical directory URL")
+
+    def test_page_links_keep_a_trailing_slash(self):
+        offenders = []
+        for rel, html in self.storefront_pages():
+            for href in re.findall(r'href="((?:\.{1,2}/)[^"]*)"', html):
+                path = re.split(r"[?#]", href, 1)[0]
+                if not path or path.endswith("/"):
+                    continue
+                if "." in os.path.basename(path):   # a real file (.css/.webp/.xml)
+                    continue
+                offenders.append(f"{rel}: {href}")
+        self.assertEqual(offenders, [], "directory links must end in / to match the canonical URL")
+
+    def test_every_internal_link_target_is_its_own_canonical(self):
+        """Following any internal link lands on a page that self-canonicalises.
+
+        This is the assertion that actually catches the duplicate-URL bug: it
+        resolves each link to the page it serves and compares that page's
+        canonical tag with the URL that was linked.
+        """
+        domain = load_json("src/config.json")["domain"].rstrip("/")
+        mismatches = []
+        for rel, html in self.storefront_pages():
+            here = os.path.dirname(os.path.join(SITE, rel))
+            for href in re.findall(r'href="((?:\.{1,2}/)[^"]*)"', html):
+                path = re.split(r"[?#]", href, 1)[0]
+                target = os.path.normpath(os.path.join(here, path))
+                if not os.path.isdir(target):
+                    continue
+                index = os.path.join(target, "index.html")
+                if not os.path.isfile(index):
+                    continue
+                linked = domain + "/" + os.path.relpath(target, SITE).replace(os.sep, "/") + "/"
+                linked = linked.replace("/./", "/")
+                found = re.search(r'<link rel="canonical" href="([^"]+)"', read(index))
+                if found and found.group(1) != linked:
+                    mismatches.append(f"{rel} -> {href}: canonical {found.group(1)} != {linked}")
+        self.assertEqual(mismatches, [])
+
+    def test_404_is_noindex_and_absent_from_the_sitemap(self):
+        html = page("404.html")
+        self.assertIn('<meta name="robots" content="noindex,follow">', html)
+        self.assertNotIn("<loc>https://gridironlocker.store/404.html</loc>", page("sitemap.xml"))
+
+    def test_real_pages_stay_indexable(self):
+        for rel in ("index.html", "collections/index.html", "faq/index.html",
+                    "cleveland-browns-shirts/index.html"):
+            self.assertIn('content="index,follow,max-image-preview:large,max-snippet:-1"',
+                          page(rel), rel)
+
+    def test_canonical_matches_sitemap_and_own_location(self):
+        sm = page("sitemap.xml")
+        locs = set(re.findall(r"<loc>([^<]+)</loc>", sm))
+        domain = load_json("src/config.json")["domain"].rstrip("/")
+        checked = 0
+        for rel, html in self.storefront_pages():
+            found = re.search(r'<link rel="canonical" href="([^"]+)"', html)
+            if not found or not rel.endswith("index.html"):
+                continue
+            own = domain + "/" + os.path.dirname(rel).replace(os.sep, "/")
+            own = (own + "/").replace("//", "/").replace(":/", "://")
+            self.assertEqual(found.group(1), own, rel)
+            self.assertIn(found.group(1), locs, f"{rel} canonical is missing from sitemap.xml")
+            checked += 1
+        self.assertGreaterEqual(checked, 100)
 
 
 NEW_BROWNS = [

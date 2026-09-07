@@ -4,3 +4,8 @@ __pycache__/
 *.py[cod]
 .venv/
 
+# Local file:// copy built by src/make_offline.py - a ~79MB duplicate of site/
+# that is never deployed. The refresh workflow's `git add -A` would otherwise
+# commit it on any machine that has run make_offline.py.
+site-offline/
+
