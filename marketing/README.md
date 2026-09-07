@@ -53,7 +53,7 @@ Then open <http://localhost:8000/dashboard.html>. Opening the HTML with `file://
 ## Dashboard tabs
 
 - **Post queue** — every design ranked by its “post this next” score, with searchable collection filters and copy buttons for all five platform packages.
-- **3-day pulse** — the primary view. It expires and regenerates from the latest web/social signals, with existing-product matches, fan emotion, trend evidence, captions, ad copy, image status, and compliance decision for today, tomorrow, and +2 days.
+- **3-day pulse** — the primary view. Each row gets its own creative angle (identity, news reaction, throwback, humor, gift, styling), hook, and platform-specific captions; angles, hooks, and products do not repeat within the horizon. It expires and regenerates from the latest web/social signals, with existing-product matches, fan emotion, trend evidence, captions, ad copy, image status, and compliance decision for today, tomorrow, and +2 days.
 - **Product queue** — the catalogue fallback for browsing and reviewing existing designs. The older 14-day plan remains in `plan.json` for reference but is not the rolling publishing brief.
 - **Best times** — practical starting windows for Instagram, TikTok, Facebook, X, and Pinterest in `America/New_York`.
 - **Who's who** — current vs throwback player/coach context, so shared data is self-explanatory.
