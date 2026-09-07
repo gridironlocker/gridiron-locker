@@ -528,5 +528,123 @@ class CatalogueIntegrity(unittest.TestCase):
         self.assertGreaterEqual(len(re.findall(r"<loc>", sm)), 100)
 
 
+NEW_BROWNS = [
+    "limited-edition-no-fly-zone-denzel",
+    "limited-edition-rock-out-denzel",
+    "limited-edition-the-wall-graham",
+]
+NEW_BROWNS_URLS = {
+    "limited-edition-no-fly-zone-denzel":
+        "https://viralstyle.com/kebystore/limited-edition-no-fly-zone-denzel",
+    "limited-edition-rock-out-denzel":
+        "https://viralstyle.com/kebystore/limited-edition-rock-out-denzel",
+    "limited-edition-the-wall-graham":
+        "https://viralstyle.com/kebystore/limited-edition-the-wall-graham",
+}
+# Locked-in hero / logo URLs from current main - must never drift.
+HERO_LOGO_LOCK = {
+    "cleveland-browns": ("/img/hero-cleveland.jpg?v=3", "/img/browns-logo1.webp?v=1"),
+    "dallas-cowboys": ("/img/hero-dallas.jpg?v=3", "/img/dallas-logo1.webp?v=1"),
+    "green-bay-packers": ("/img/hero-greenbay.jpg?v=3", "/img/green-bay-logo1.webp?v=1"),
+    "michigan": ("/img/hero-michigan.jpg?v=3", "/img/michigan-logo1.webp?v=1"),
+}
+
+
+class ThreeNewBrownsProducts(unittest.TestCase):
+    """Regression coverage for the three added Cleveland Browns designs."""
+
+    @classmethod
+    def setUpClass(cls):
+        cls.products = load_json("data/products.json")
+        cls.live = load_json("data/products_live.json")
+        cls.cols = load_json("data/collections.json")
+
+    def test_slugs_in_source_catalogue(self):
+        for slug in NEW_BROWNS:
+            self.assertIn(slug, self.products, slug)
+            self.assertIn(slug, self.live, slug)
+
+    def test_belong_to_cleveland_browns_collection(self):
+        slugs = [p["slug"] for p in self.cols["cleveland-browns"]["products"]]
+        for slug in NEW_BROWNS:
+            self.assertIn(slug, slugs, slug)
+        # collection count grew by exactly three (82 -> 85)
+        self.assertEqual(len(slugs), 85)
+
+    def test_product_pages_generated_with_checkout_and_images(self):
+        for slug in NEW_BROWNS:
+            fp = os.path.join(SITE, "shop", slug, "index.html")
+            self.assertTrue(os.path.isfile(fp), slug)
+            html = read(fp)
+            self.assertIn(NEW_BROWNS_URLS[slug], html, slug)       # checkout preserved
+            self.assertIn('https://gridironlocker.store/cleveland-browns-shirts/', html, slug)
+            img = self.live[slug].get("img", {})
+            self.assertIn("front", img, slug)
+            for tag, rel in img.items():
+                self.assertTrue(os.path.isfile(os.path.join(SITE, rel.lstrip("/"))),
+                                f"{slug} {rel}")
+
+    def test_all_local_product_images_are_valid_webp(self):
+        for slug in NEW_BROWNS:
+            for tag, rel in self.live[slug].get("img", {}).items():
+                self.assertTrue(rel.endswith(".webp"), f"{slug} {rel}")
+                with open(os.path.join(SITE, rel.lstrip("/")), "rb") as fh:
+                    head = fh.read(12)
+                self.assertTrue(head.startswith(b"RIFF") and head[8:12] == b"WEBP",
+                                f"{slug} {rel} is not a WebP")
+
+    def test_no_png_or_jpg_masters_for_new_products(self):
+        imgdir = os.path.join(SITE, "img")
+        for base, _, files in os.walk(imgdir):
+            for f in files:
+                low = f.lower()
+                if any(low.startswith(s) for s in NEW_BROWNS):
+                    self.assertTrue(low.endswith(".webp"), f"{base}/{f}")
+        # product mockups dir must stay WebP-only
+        pdir = os.path.join(imgdir, "p")
+        bad = [f for f in os.listdir(pdir) if f.lower().endswith((".png", ".jpg", ".jpeg"))]
+        self.assertEqual(bad, [], bad)
+
+    def test_no_countdown_or_delivery_deadline_language_on_new_pages(self):
+        banned = ("Order in", "data-orderby", 'class="uc', "ships in 2",
+                  "Arrives before kickoff", "Wear it for Week 1", "Arrives by Week 1",
+                  "before the opener", "in time for Week 1")
+        for slug in NEW_BROWNS:
+            html = read(os.path.join(SITE, "shop", slug, "index.html"))
+            for term in banned:
+                self.assertNotIn(term, html, f"{slug}: {term}")
+
+    def test_shipping_facts_and_disclaimer_on_new_pages(self):
+        for slug in NEW_BROWNS:
+            html = read(os.path.join(SITE, "shop", slug, "index.html"))
+            self.assertIn("US shipping from $4.95", html, slug)
+            self.assertIn("5-12 business days", html, slug)
+            self.assertIn("independent fan", html.lower(), slug)
+
+    def test_no_missing_local_references_on_new_pages(self):
+        attr = re.compile(r'(?:src|data-src|href|content)="([^"]+)"')
+        for slug in NEW_BROWNS:
+            fp = os.path.join(SITE, "shop", slug, "index.html")
+            for m in attr.finditer(read(fp)):
+                val = m.group(1).strip()
+                if not val.startswith("/") or val.startswith("//"):
+                    continue
+                val = val.split("#")[0].split("?")[0]
+                if val in ("", "/"):
+                    continue
+                cand = os.path.normpath(os.path.join(SITE, val.lstrip("/")))
+                if os.path.isdir(cand):
+                    cand = os.path.join(cand, "index.html")
+                self.assertTrue(os.path.isfile(cand), f"{slug}: {val}")
+
+    def test_hero_and_logo_urls_unchanged(self):
+        for k, (hero, logo) in HERO_LOGO_LOCK.items():
+            self.assertEqual(COLLECTIONS[k]["hero"], hero, k)
+            self.assertEqual(COLLECTIONS[k]["logo"], logo, k)
+        for k in ORDER:
+            html = page(f"{COLLECTIONS[k]['slug']}/index.html")
+            self.assertIn(COLLECTIONS[k]["hero"].split("?")[0], html, k)
+
+
 if __name__ == "__main__":
     unittest.main(verbosity=2)
