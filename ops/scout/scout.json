@@ -1,8 +1,8 @@
 {
- "generated": "2026-09-06",
+ "generated": "2026-09-07",
  "window_days": 10,
  "fti_formula": "round(100 * entity_mentions / peak_mentions_in_window)",
- "peak_mentions": 21,
+ "peak_mentions": 23,
  "stats": {
   "products": 117,
   "collections": 4,
@@ -19,7 +19,7 @@
  "fti_rows": [
   {
    "name": "deshaun watson",
-   "mentions": 21,
+   "mentions": 23,
    "index": 100,
    "status": "trending",
    "gap": true,
@@ -28,44 +28,53 @@
   },
   {
    "name": "josh jacobs",
-   "mentions": 18,
-   "index": 86,
+   "mentions": 20,
+   "index": 87,
    "status": "trending",
    "gap": true,
    "shoppable": false,
    "collection": "green-bay-packers"
   },
   {
+   "name": "shedeur sanders",
+   "mentions": 12,
+   "index": 52,
+   "status": "trending",
+   "gap": false,
+   "shoppable": true,
+   "collection": "cleveland-browns"
+  },
+  {
    "name": "bryce underwood",
-   "mentions": 14,
-   "index": 67,
+   "mentions": 8,
+   "index": 35,
    "status": "trending",
    "gap": false,
    "shoppable": true,
    "collection": "michigan"
   },
   {
-   "name": "shedeur sanders",
-   "mentions": 12,
-   "index": 57,
-   "status": "trending",
-   "gap": false,
-   "shoppable": true,
-   "collection": "cleveland-browns"
-  },
-  {
    "name": "todd monken",
    "mentions": 7,
-   "index": 33,
+   "index": 30,
    "status": "trending",
    "gap": true,
    "shoppable": false,
    "collection": "cleveland-browns"
   },
   {
+   "name": "kyle whittingham",
+   "mentions": 6,
+   "index": 26,
+   "status": "trending",
+   "gap": true,
+   "shoppable": false,
+   "collection": "michigan"
+  },
+  {
    "name": "myles garrett",
    "mentions": 6,
-   "index": 29,
+   "index": 26,
    "status": "trending",
    "gap": false,
    "shoppable": true,
@@ -74,25 +83,16 @@
   {
    "name": "matt lafleur",
    "mentions": 5,
-   "index": 24,
+   "index": 22,
    "status": "trending",
    "gap": true,
    "shoppable": false,
    "collection": "green-bay-packers"
   },
   {
-   "name": "kyle whittingham",
-   "mentions": 4,
-   "index": 19,
-   "status": "trending",
-   "gap": true,
-   "shoppable": false,
-   "collection": "michigan"
-  },
-  {
    "name": "micah parsons",
    "mentions": 4,
-   "index": 19,
+   "index": 17,
    "status": "trending",
    "gap": false,
    "shoppable": true,
@@ -101,7 +101,7 @@
   {
    "name": "ceedee lamb",
    "mentions": 2,
-   "index": 10,
+   "index": 9,
    "status": "steady",
    "gap": false,
    "shoppable": false,
@@ -110,7 +110,7 @@
   {
    "name": "dak prescott",
    "mentions": 2,
-   "index": 10,
+   "index": 9,
    "status": "steady",
    "gap": false,
    "shoppable": false,
@@ -119,7 +119,7 @@
   {
    "name": "jordan love",
    "mentions": 2,
-   "index": 10,
+   "index": 9,
    "status": "steady",
    "gap": false,
    "shoppable": true,
@@ -128,7 +128,7 @@
   {
    "name": "kevin stefanski",
    "mentions": 1,
-   "index": 5,
+   "index": 4,
    "status": "steady",
    "gap": false,
    "shoppable": true,
@@ -183,7 +183,7 @@
  "gaps": [
   {
    "name": "deshaun watson",
-   "mentions": 21,
+   "mentions": 23,
    "index": 100,
    "status": "trending",
    "gap": true,
@@ -192,8 +192,8 @@
   },
   {
    "name": "josh jacobs",
-   "mentions": 18,
-   "index": 86,
+   "mentions": 20,
+   "index": 87,
    "status": "trending",
    "gap": true,
    "shoppable": false,
@@ -202,29 +202,29 @@
   {
    "name": "todd monken",
    "mentions": 7,
-   "index": 33,
+   "index": 30,
    "status": "trending",
    "gap": true,
    "shoppable": false,
    "collection": "cleveland-browns"
   },
   {
-   "name": "matt lafleur",
-   "mentions": 5,
-   "index": 24,
-   "status": "trending",
-   "gap": true,
-   "shoppable": false,
-   "collection": "green-bay-packers"
-  },
-  {
    "name": "kyle whittingham",
-   "mentions": 4,
-   "index": 19,
+   "mentions": 6,
+   "index": 26,
    "status": "trending",
    "gap": true,
    "shoppable": false,
    "collection": "michigan"
+  },
+  {
+   "name": "matt lafleur",
+   "mentions": 5,
+   "index": 22,
+   "status": "trending",
+   "gap": true,
+   "shoppable": false,
+   "collection": "green-bay-packers"
   }
  ],
  "collections": [
@@ -241,7 +241,7 @@
    "gaps": [
     {
      "name": "deshaun watson",
-     "mentions": 21,
+     "mentions": 23,
      "index": 100,
      "status": "trending",
      "gap": true,
@@ -251,7 +251,7 @@
     {
      "name": "todd monken",
      "mentions": 7,
-     "index": 33,
+     "index": 30,
      "status": "trending",
      "gap": true,
      "shoppable": false,
@@ -333,16 +333,16 @@
      "pub": "Sun, 30 Aug 2026 22:36:16 GMT"
     },
     {
-     "title": "Quinnen Williams: Culture, growth of Cowboys' defense is 'night and day'",
-     "url": "https://news.google.com/rss/articles/CBMipAFBVV95cUxOT0lzOUlYMUVnMFpaVkdmbFBaLTVIZk9KbnBWbU5IQVJtYS1GdmQ0VGFuWnl3Q21OcGtJbWd4RGN2enljMFpiMGx3WWVBYkdKYWdxN0dhMWdyMHFMRUpJMEJObVUxeFJpeGxwb3J3VmM2Y1JnbnlkZFJhS3dwQ2R3eWlPSUxaN0xXU01mb0pfZFo5cWFmeDlaYVpqRXVwSUVUMG53QQ?oc=5",
-     "source": "Dallas Cowboys",
-     "pub": "Wed, 02 Sep 2026 17:16:04 GMT"
-    },
-    {
      "title": "Emari Demercado returns 'home' to Dallas, has reason to be excited with Cowboys",
      "url": "https://news.google.com/rss/articles/CBMisAFBVV95cUxQTlZuQ1hPOWZNQzcwM0VzeEZoMnU3ekpVcDN1SmhNbndlMXgwdXNuOTJtR3loUWQzbkVIZGRhZEw0ZVp2SS1zaVZvc1NEQVBlYWl3RmFBT1pNdzhlcGJDeFp2aXZlTUxOMWx3YmUxRWx1blR6VVBIaGwwQkt6NkN2Mjlkb1p1WG1VczRnYnRSZmQzVlNhQ0V5b3VCRG81NnB5Zk1IaXdvSFVaelFtYnNSNw?oc=5",
      "source": "Dallas Cowboys",
      "pub": "Tue, 01 Sep 2026 18:55:23 GMT"
+    },
+    {
+     "title": "Quinnen Williams: Culture, growth of Cowboys' defense is 'night and day'",
+     "url": "https://news.google.com/rss/articles/CBMipAFBVV95cUxOT0lzOUlYMUVnMFpaVkdmbFBaLTVIZk9KbnBWbU5IQVJtYS1GdmQ0VGFuWnl3Q21OcGtJbWd4RGN2enljMFpiMGx3WWVBYkdKYWdxN0dhMWdyMHFMRUpJMEJObVUxeFJpeGxwb3J3VmM2Y1JnbnlkZFJhS3dwQ2R3eWlPSUxaN0xXU01mb0pfZFo5cWFmeDlaYVpqRXVwSUVUMG53QQ?oc=5",
+     "source": "Dallas Cowboys",
+     "pub": "Wed, 02 Sep 2026 17:16:04 GMT"
     },
     {
      "title": "Why the Cowboys chose Sam Howell as their backup quarterback",
@@ -372,8 +372,8 @@
    "gaps": [
     {
      "name": "josh jacobs",
-     "mentions": 18,
-     "index": 86,
+     "mentions": 20,
+     "index": 87,
      "status": "trending",
      "gap": true,
      "shoppable": false,
@@ -382,7 +382,7 @@
     {
      "name": "matt lafleur",
      "mentions": 5,
-     "index": 24,
+     "index": 22,
      "status": "trending",
      "gap": true,
      "shoppable": false,
@@ -392,12 +392,12 @@
    "top_terms": [
     "packers",
     "green",
-    "roster",
     "josh",
     "jacobs",
+    "roster",
     "trade",
     "list",
-    "practice"
+    "exempt"
    ],
    "headline_count": 100,
    "headlines": [
@@ -426,10 +426,10 @@
      "pub": "Sat, 05 Sep 2026 13:40:53 GMT"
     },
     {
-     "title": "Packers trade for Steelers RB Kaleb Johnson as Josh Jacobs lands on Commissioner's Exempt List",
-     "url": "https://news.google.com/rss/articles/CBMiwAFBVV95cUxPcXFvRjN4U1ZDdXYyc25UakJpZUhlOTNlN1JubU44NThfS1FYRnVrZmc1SWxHWGNNcFE5MG8wTUdSdEw1VFVmblkxUVM1dXhLS3pmZjZ0dmdHellWbkwwV2hMOWI4NUJCVjJWd0pvWi1feFFuNWJ0Z3o1N0E3cDFHLUZRXzl1dEFqeHZKYWVXVDdSdmlBeFVVNkVBbGdnYjQyWjBtdVB4UHpJaTFITWdvc3FJRlVLZHVKR01BYWdUZl8?oc=5",
-     "source": "NFL.com",
-     "pub": "Sun, 30 Aug 2026 19:02:03 GMT"
+     "title": "Three new Packers players are making an impression in Green Bay",
+     "url": "https://news.google.com/rss/articles/CBMiuAFBVV95cUxQZ1NvTzVwR3VIN2U2SDVnRld2U0F6cTFfQXg2TzFyTGhNQTl3bmdTbkkzaU80OHp0X3pFRW1vYWZZWjRJWVlVSThWcklmTjdoOTZyMkNQYTdhSUpuUXRISUw0WkxUTmFaNGd1R0VYSDdtOFdHc3BWYktGeDIzZlhxVVRPVzBVaURkZFpqRkM4Ujdhd0h6OVg4NVJNNjdOUVk5V2szcXQ4anRQZDVJY01sVlNjRDJ4cERH?oc=5",
+     "source": "Acme Packing Company",
+     "pub": "Wed, 02 Sep 2026 14:12:01 GMT"
     }
    ],
    "fti_count": 5
@@ -447,8 +447,8 @@
    "gaps": [
     {
      "name": "kyle whittingham",
-     "mentions": 4,
-     "index": 19,
+     "mentions": 6,
+     "index": 26,
      "status": "trending",
      "gap": true,
      "shoppable": false,
@@ -457,27 +457,21 @@
    ],
    "top_terms": [
     "michigan",
-    "football",
     "western",
+    "football",
     "mary",
     "hail",
     "wolverines",
     "second",
-    "controversial"
+    "watch"
    ],
    "headline_count": 100,
    "headlines": [
     {
      "title": "How & Where to Watch Western Michigan vs. Michigan",
      "url": "https://news.google.com/rss/articles/CBMihAFBVV95cUxQcTlsbG9WSmdLSFYtM3UzMTJweERQZDFDSHIyeE9LYVVyNVBLdzM1Yk9TWU5SUi1vU0haTE10ODcycF9FdVlLR0FWLXFDbjhqZ25NMHZXUnJMeENtTHZDWEttY2hVYUdqcnF6R0dDQkFQVWJYV241ZG10M3JReVBYX0dEV00?oc=5",
-     "source": "NBC TV Network",
+     "source": "nbc.com",
      "pub": "Sat, 05 Sep 2026 11:02:02 GMT"
-    },
-    {
-     "title": "Michigan 13-12 Western Michigan (Sep 5, 2026) Game Recap",
-     "url": "https://news.google.com/rss/articles/CBMibEFVX3lxTE96TERNb2V1VjRiTC1LX2owT2VISjc0TS1HcTk5QTFaTzJUOFJacm9UcER0ZldwSFFfWlRhQlM3UjFZRjRMTE40N2RUeWFhbWU4ODREZ3BwLW5wamp0eU12MGJJWW55TS1zcERidQ?oc=5",
-     "source": "ESPN",
-     "pub": "Sun, 06 Sep 2026 03:28:30 GMT"
     },
     {
      "title": "Michigan Miracle: Wolverines Buck Broncos on Final Play to Open Season",
@@ -488,7 +482,7 @@
     {
      "title": "How to Watch Michigan Football\u2019s Season Opener Against WMU",
      "url": "https://news.google.com/rss/articles/CBMipgFBVV95cUxNQjhWWGd0S251MVF4MFRocVJfejJ2dHhGYWw5WlJiSXc0UFlIRGEySWlNNzlXazNaRktib05UNDJPQjBCNTdlcWtPdngzajE3SGNhS1I3X0sza2pSeW9JVjVZMElPMXpxamY5UU5lOTNtTFFBRENKakdVUU5aYWxpbXFvZFJnWlV4eGVpRkNteGQwTnJJUXhVdk1OY1Z2UjExOVdJakd3?oc=5",
-     "source": "si.com",
+     "source": "Sports Illustrated",
      "pub": "Sat, 05 Sep 2026 10:00:01 GMT"
     },
     {
@@ -496,6 +490,12 @@
      "url": "https://news.google.com/rss/articles/CBMizAFBVV95cUxPSWdiUm54SkdscFpBMi1jbTliODk2X2RHYkVJWmRTb0ZpTGx0OHdpb1FDRUJMMTdTNGRIdEczNFlWSVJ6S3lHMTFWSDF1NXhkREVjcDlQQ29Cc0Y4MEZsdWNqdzNCUUdTbjJxeHRJQVhXRmdlOS1qcWRaeFJuekpfeHRQSzJfU05wRk9PWjhuQXdObnAtT2NvZnRhNXdGNWhlQjNHMUp5MmhYWmFEUFh1TzlPUXNjeEFKcGxUYlAzM0VTcHFHWUFnVUs3eHo?oc=5",
      "source": "Maize n Brew",
      "pub": "Thu, 03 Sep 2026 20:00:00 GMT"
+    },
+    {
+     "title": "What time is the Michigan game today? Channel, TV schedule, live stream to watch Wolverines' game vs. WMU",
+     "url": "https://news.google.com/rss/articles/CBMiiAFBVV95cUxQQTZMdEtkdlRqQmVVMFNrbUpmY3VSdzBqaG1aSmhjMG9xaFdodWg0Qm1pd1o5RGhONlNoRlJVWG5KMEFtQnJUZ3ZxYnVQQWhpRURkNVJHQklyandpLTFLNjBEeUMtcm8tNjA0ZkNkLWZiVHcxcGpaNzFuMm9Bb2M1cnQyRHFMQVc1?oc=5",
+     "source": "Yahoo Sports",
+     "pub": "Sat, 05 Sep 2026 07:30:01 GMT"
     }
    ],
    "fti_count": 4
