@@ -2,11 +2,20 @@
 
 This folder is a standalone, internal promotion-planning dashboard. It does not build or modify the storefront.
 
+It now includes the **NFL Fan Commerce Marketing Agent** role: a commercial
+trend-and-product decision layer, not just an SEO/content writer. The role
+matches current signals to existing products, applies fan-psychology and
+apparel-style lenses, creates a five-product daily predictor, builds a
+pre-game runway, exposes POD-economics guardrails, and stops unsafe social
+creative at the licensing gate.
+
 ## Separation contract
 
 - `plan.py` reads `data/products.json`, `data/facts.json`, `data/order.json`, `data/trends.json`, and `SEASON` from `src/collections_data.py`.
 - `plan.py` writes one generated file: `marketing/plan.json`.
-- It does not import the website generator or write anything under `site/`.
+- `commercial_agent.py` reads the plan and writes one generated file: `marketing/commercial-brief.json`.
+- `performance-memory.json` is a human-maintained input, not an automatically invented analytics feed.
+- Neither marketing script imports the website generator or writes anything under `site/`.
 - GitHub Pages publishes the storefront in `site/` and the marketing planner at `/marketing/dashboard.html`.
 - Scene prompts describe only mood, light, texture, composition, and environment. They do not request logos, team marks, player likenesses, or recognizable people.
 
@@ -15,8 +24,20 @@ This folder is a standalone, internal promotion-planning dashboard. It does not 
 From the repository root:
 
 ```bash
+python3 marketing/social_watch.py
 python3 marketing/plan.py
+python3 marketing/commercial_agent.py
+python3 marketing/three_day_pulse.py
+python3 marketing/publisher.py       # dry-run by default
 ```
+
+`commercial_agent.py` writes `marketing/commercial-brief.json` from the plan
+and trend snapshot. It also reads `marketing/performance-memory.json`, whose
+empty seed is intentional: only measured learnings with a source should be
+added. The brief labels Reddit, X, TikTok Creative Center, Instagram, YouTube,
+Google Search/Trends, Pinterest Trends, competitor feeds, analytics, orders,
+and POD cost data as unavailable until real connectors are added; it never
+fabricates those signals.
 
 The script validates the ordered catalogue and regenerates `marketing/plan.json` with all 134 designs. It has no third-party Python dependencies.
 
@@ -32,10 +53,36 @@ Then open <http://localhost:8000/dashboard.html>. Opening the HTML with `file://
 ## Dashboard tabs
 
 - **Post queue** — every design ranked by its “post this next” score, with searchable collection filters and copy buttons for all five platform packages.
-- **14-day calendar** — one featured design per day with platform-specific times, captions, hashtags, and copy buttons.
+- **3-day pulse** — the primary view. It expires and regenerates from the latest web/social signals, with existing-product matches, fan emotion, trend evidence, captions, ad copy, image status, and compliance decision for today, tomorrow, and +2 days.
+- **Product queue** — the catalogue fallback for browsing and reviewing existing designs. The older 14-day plan remains in `plan.json` for reference but is not the rolling publishing brief.
 - **Best times** — practical starting windows for Instagram, TikTok, Facebook, X, and Pinterest in `America/New_York`.
 - **Who's who** — current vs throwback player/coach context, so shared data is self-explanatory.
 - **Opportunities** — the TREND-MASTER view: per-design opportunity score (0–100, weighted factors), evidence confidence, trend stage, opportunity type, decision (PUBLISH / IMPROVE / MONITOR / REJECT), the seven opportunity gates, and a social-compliance risk flag.
+- **Commercial agent** — the NFL Fan Commerce Marketing Agent view: top five existing-product matches, fan motivation/emotion, design style, platform selection, SEO terms, hooks, timing, risk, game runways, A/B tests, and economics/conversion guardrails. It is decision support only and requires human approval.
+
+## Live signal collection and publishing
+
+`social_watch.py` checks public Google News and Reddit signals without a
+credential, and uses official X, Meta Page, and YouTube APIs when the following
+GitHub Actions secrets are configured: `X_BEARER_TOKEN`, `META_PAGE_ID`,
+`META_PAGE_ACCESS_TOKEN`, and `YOUTUBE_API_KEY`. TikTok, Pinterest Trends, and
+Instagram remain explicitly disconnected until their official app access and
+policy/licensing requirements are satisfied. The collector writes
+`social-signals.json` and records errors instead of claiming a source was read.
+
+`three_day_pulse.py` converts those signals into `three-day-pulse.json`. It only
+plans today, tomorrow, and +2 days, then chooses existing products and creates
+platform-specific copy. Add owner-approved public image URLs by product slug to
+`approved-images.json`; the publisher never invents or downloads an image.
+
+`publisher.py` uses official APIs only and is a dry run by default. The
+refresh workflow invokes it with `--publish`, but it remains a dry run unless
+both repository variables `AUTO_PUBLISH=true` and `PUBLISH_APPROVED=true` are
+set. Live mode also requires approved image URLs, clear compliance, and platform
+credentials. Facebook Pages and Pinterest still-image publishing are supported
+adapters; X, TikTok, YouTube, and Instagram are blocked until their required
+official media/app flows are configured. Browser automation and password-based
+posting are intentionally not supported.
 
 ## Timezone handling
 
@@ -72,7 +119,9 @@ The generated JSON contains:
 - `meta` and `score_rules` — provenance, source files, platform list, and scoring constants;
 - `season_context` — the current season status, opener, search terms, and legacy notes;
 - `queue` — 134 complete design records with product links, source image links, scores, breakdowns, five platform packages, and a TREND-MASTER `opportunity` record;
-- `calendar` — 14 days × five platform-specific scheduled posts;
+- `calendar` — legacy 14-day planner for reference;
+- `three-day-pulse.json` — rolling three-day product/trend/copy brief refreshed from current signals;
+- `social-signals.json` — source statuses and public trend evidence used by the rolling pulse;
 - `best_times` — timing guidance used by the calendar;
 - `news_gaps` — current uncovered names and recent source headlines;
 - `image_prompts` — the prompt-only view used by the final dashboard tab;

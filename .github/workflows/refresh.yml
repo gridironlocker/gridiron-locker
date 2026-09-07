@@ -64,6 +64,32 @@ jobs:
               sys.exit("EMPTY: all feeds returned zero headlines - refusing to publish an emptied site")
           PY
 
+      - name: Collect public web and social trend signals
+        continue-on-error: true
+        env:
+          X_BEARER_TOKEN: ${{ secrets.X_BEARER_TOKEN }}
+          META_PAGE_ID: ${{ secrets.META_PAGE_ID }}
+          META_PAGE_ACCESS_TOKEN: ${{ secrets.META_PAGE_ACCESS_TOKEN }}
+          YOUTUBE_API_KEY: ${{ secrets.YOUTUBE_API_KEY }}
+        run: python marketing/social_watch.py
+
+      - name: Build three-day marketing pulse
+        run: |
+          python marketing/plan.py
+          python marketing/commercial_agent.py
+          python marketing/three_day_pulse.py
+
+      - name: Publish approved three-day pulse (dry-run unless explicitly enabled)
+        continue-on-error: true
+        env:
+          AUTO_PUBLISH: ${{ vars.AUTO_PUBLISH }}
+          PUBLISH_APPROVED: ${{ vars.PUBLISH_APPROVED }}
+          META_PAGE_ID: ${{ secrets.META_PAGE_ID }}
+          META_PAGE_ACCESS_TOKEN: ${{ secrets.META_PAGE_ACCESS_TOKEN }}
+          PINTEREST_ACCESS_TOKEN: ${{ secrets.PINTEREST_ACCESS_TOKEN }}
+          PINTEREST_BOARD_ID: ${{ secrets.PINTEREST_BOARD_ID }}
+        run: python marketing/publisher.py --publish
+
       - name: Rebuild site
         run: python src/build.py
 

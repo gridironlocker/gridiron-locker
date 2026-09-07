@@ -56,8 +56,17 @@ gridiron-locker/
 │   └── people.json       # current vs throwback player/coach context (added)
 ├── marketing/            # promotion planning (does NOT touch site/)
 │   ├── plan.py           # scores 134 designs → writes plan.json
-│   ├── plan.json         # full queue, calendar, best-times, gaps, who's-who
-│   ├── dashboard.html    # the planner UI (6 tabs)
+│   ├── commercial_agent.py # NFL fan commerce scoring + daily predictor
+│   ├── social_watch.py    # public web/social signal collector
+│   ├── three_day_pulse.py # rolling 3-day trend-to-product brief
+│   ├── publisher.py       # dry-run/official API publishing adapters
+│   ├── plan.json         # full queue, legacy calendar, best-times, gaps
+│   ├── three-day-pulse.json # short-lived today/tomorrow/+2 copy brief
+│   ├── social-signals.json # source status + public trend evidence
+│   ├── commercial-brief.json # top-five matches, tests, economics
+│   ├── performance-memory.json # measured learnings input (never invented)
+│   ├── approved-images.json # owner-approved public image manifest
+│   ├── dashboard.html    # the planner UI (8 tabs, led by 3-day pulse)
 │   ├── tz-verify.js      # timezone conversion tests
 │   ├── social-accounts.md
 │   └── social/           # content kit + images (see §8)
@@ -121,10 +130,19 @@ under `site/` — planning and storefront are fully separated.
 - `+6` when the theme is "playoff" or "player"
 - `-25` when the design is a throwback
 
-**Dashboard** (`dashboard.html`, 6 tabs): Post queue · 14-day calendar ·
-Best times · News gaps · **Who's who** · Image prompts. All times are authored
-in `America/New_York` and converted to the viewer's zone (Africa/Casablanca
-for the operator) in-browser.
+**Dashboard** (`dashboard.html`, 8 tabs): **3-day pulse** · Product queue ·
+Best times · News gaps · **Who's who** · Opportunities · **Commercial agent** ·
+Image prompts. The 3-day pulse is the primary rolling brief: it refreshes from
+public web/social evidence, matches existing products, and prepares only today,
+tomorrow, and +2 days. The Commercial agent remains the deeper scoring and
+strategy view without claiming unavailable analytics or cost data. All times are
+authored in `America/New_York` and converted to the viewer's zone
+(Africa/Casablanca for the operator) in-browser.
+
+`marketing/commercial_agent.py` writes `commercial-brief.json`; it reads the
+headline snapshot, scored planner, season calendar, and the human-maintained
+`performance-memory.json`. It does not publish. Current team/player-named
+social creative is held until licensing is verified.
 
 ---
 

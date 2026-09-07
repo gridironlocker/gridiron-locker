@@ -9,3 +9,7 @@ __pycache__/
 # commit it on any machine that has run make_offline.py.
 site-offline/
 
+# Local dry-run/live publishing results; the pulse itself is the reviewed input.
+marketing/publish-results.json
+site/marketing/publish-results.json
+

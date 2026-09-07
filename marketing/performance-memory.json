@@ -1,0 +1,24 @@
+{
+  "schema_version": 1,
+  "last_updated": null,
+  "purpose": "Persistent observations for the NFL Fan Commerce Marketing Agent. Only add measured learnings with a source and date.",
+  "learnings": [],
+  "observations": [],
+  "required_learning_fields": [
+    "date",
+    "product_or_slug",
+    "team_or_collection",
+    "platform",
+    "creative_angle",
+    "impression_or_reach",
+    "saves_or_shares",
+    "outbound_clicks",
+    "checkout_starts",
+    "orders",
+    "revenue",
+    "cost",
+    "learning",
+    "next_action",
+    "source"
+  ]
+}
