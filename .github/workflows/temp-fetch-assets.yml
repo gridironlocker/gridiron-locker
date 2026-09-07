@@ -1,22 +1,30 @@
-name: TMP fetch campaign artwork
-# TEMPORARY helper: this sandbox has no egress to assets.viralstyle.com, so the
-# three new Cleveland Browns campaigns are captured and their artwork downloaded
-# here with the repo's own add_campaign.py + replay_updates.py + dl.py pipeline.
-# The file is deleted before the pull request is merged.
+name: Temp fetch assets
+# TEMPORARY helper for this session only - deleted before the PR is merged.
+# The coding sandbox has no egress to assets.viralstyle.com, so the three new
+# Cleveland Browns campaigns are captured and their artwork downloaded here with
+# the repo's own pipeline (add_campaign.py -> replay_updates.py -> dl.py).
 on:
+  push:
+    branches:
+      - arena/01a07920-gridiron-locker
+    paths:
+      - "data/campaigns_extra.json"
+      - "src/catalog.py"
+      - ".github/workflows/temp-fetch-assets.yml"
   workflow_dispatch:
 permissions:
   contents: write
 concurrency:
-  group: tmp-assets
+  group: temp-fetch-assets
   cancel-in-progress: false
 jobs:
   fetch:
+    # Never re-run on the commit this job itself pushes.
+    if: ${{ !startsWith(github.event.head_commit.message || '', 'Capture three Cleveland Browns campaigns') }}
     runs-on: ubuntu-latest
     steps:
       - uses: actions/checkout@v4
         with:
-          ref: arena/01a07920-gridiron-locker
           fetch-depth: 0
       - uses: actions/setup-python@v5
         with:
@@ -40,7 +48,7 @@ jobs:
       - name: Keep only the new artwork and campaign data
         run: |
           # dl.py re-encodes every cached mockup and replay rewrites the derived
-          # catalogue files; keep the checked-in bytes for existing products and
+          # catalogue files. Keep the checked-in bytes for existing products and
           # only add the three new slugs (campaigns_extra.json stays as captured).
           git checkout -- site/img/p data/products.json data/products_live.json \
             data/collections.json src/build.py src/config.json site/CNAME
