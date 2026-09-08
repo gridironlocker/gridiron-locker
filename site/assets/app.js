@@ -167,24 +167,30 @@ setTimeout(function(){
   tt&&tt.addEventListener('click',function(){window.scrollTo({top:0,behavior:'smooth'})});
 })();
 
-// ---------- collection filter / search / sort ----------
+// ---------- collection filter / search / sort (team pages + /search/) ----------
+// Two independent dimensions: garment type (chip[data-f]) and team
+// (chip[data-team]). Team pages only emit type chips, so the team dimension
+// stays 'all' there and behaviour is unchanged.
 (function(){
   var grid=document.getElementById('pg'); if(!grid)return;
   var cards=[].slice.call(grid.children);
   var q=document.getElementById('q'), sort=document.getElementById('sort'),
       count=document.getElementById('count'), nores=document.getElementById('nores');
-  var filter='all';
+  var typeFilter='all', teamFilter='all';
   function price(c){return parseFloat(c.querySelector('.price').textContent.replace('$',''))}
   function name(c){return c.querySelector('h3').textContent.toLowerCase()}
-  function type(c){return c.querySelector('.meta').textContent.trim()}
+  function typeOf(c){return c.getAttribute('data-type')||c.querySelector('.meta').textContent.trim()}
+  function teamOf(c){return c.getAttribute('data-team')||''}
   function apply(){
-    var term=(q.value||'').toLowerCase().trim(), n=0;
+    var term=(q?q.value:'').toLowerCase().trim(), n=0;
     cards.forEach(function(c){
-      var ok=(filter==='all'||type(c)===filter)&&(!term||c.textContent.toLowerCase().indexOf(term)>-1);
+      var ok=(typeFilter==='all'||typeOf(c)===typeFilter)&&
+             (teamFilter==='all'||teamOf(c)===teamFilter)&&
+             (!term||c.textContent.toLowerCase().indexOf(term)>-1);
       c.style.display=ok?'':'none'; if(ok){n++;c.classList.add('in');}
     });
-    count.textContent=n+' design'+(n===1?'':'s');
-    nores.style.display=n?'none':'block';
+    if(count)count.textContent=n+' design'+(n===1?'':'s');
+    if(nores)nores.style.display=n?'none':'block';
   }
   function resort(){
     var v=sort.value, arr=cards.slice();
@@ -193,13 +199,138 @@ setTimeout(function(){
     if(v==='az')arr.sort(function(a,b){return name(a)<name(b)?-1:1});
     arr.forEach(function(c){grid.appendChild(c)});
   }
-  q&&q.addEventListener('input',apply);
-  sort&&sort.addEventListener('change',resort);
-  document.querySelectorAll('.chip').forEach(function(b){
-    b.addEventListener('click',function(){
-      document.querySelectorAll('.chip').forEach(function(x){x.classList.remove('on')});
-      b.classList.add('on'); filter=b.dataset.f; apply();
-    });
+  function markType(v){document.querySelectorAll('.chip[data-f]').forEach(function(x){
+    x.classList.toggle('on',x.getAttribute('data-f')===v);});}
+  function markTeam(v){document.querySelectorAll('.chip[data-team]').forEach(function(x){
+    x.classList.toggle('on',x.getAttribute('data-team')===v);});}
+  if(q)q.addEventListener('input',apply);
+  if(sort)sort.addEventListener('change',resort);
+  document.querySelectorAll('.chip[data-f]').forEach(function(b){
+    b.addEventListener('click',function(){typeFilter=b.getAttribute('data-f');markType(typeFilter);apply();});
   });
-  var u=new URLSearchParams(location.search).get('q'); if(u&&q){q.value=u;apply();}
+  document.querySelectorAll('.chip[data-team]').forEach(function(b){
+    b.addEventListener('click',function(){teamFilter=b.getAttribute('data-team');markTeam(teamFilter);apply();});
+  });
+  // Deep links: /search/?q=... (header search + SearchAction), ?t=team, ?g=garment
+  var u=new URLSearchParams(location.search), tu=u.get('t'), gu=u.get('g'), uq=u.get('q');
+  if(gu)typeFilter=gu; if(tu)teamFilter=tu; if(uq&&q)q.value=uq;
+  markType(typeFilter); markTeam(teamFilter); apply();
+})();
+
+// ---------- global design search: live suggestions for every .gsearch ----------
+// One shared index (assets/search-index.json) powers the header search on
+// every page, the landing-page quick finder and the /search/ page input.
+// Suggestions link straight to product pages; "See all results" and Enter
+// land on /search/?q=... with the term pre-applied - the same URL the
+// SearchAction schema advertises.
+(function(){
+  var inputs=[].slice.call(document.querySelectorAll('.gsearch'));
+  if(!inputs.length)return;
+  var ROOT=document.body.getAttribute('data-root')||'./';
+  var DATA=null, pend=null;
+  function load(){
+    if(pend)return pend;
+    pend=fetch(ROOT+'assets/search-index.json',{cache:'force-cache'})
+      .then(function(r){return r.json()})
+      .catch(function(){return null;});
+    pend.then(function(d){if(Array.isArray(d))DATA=d;});
+    return pend;
+  }
+  function esc(s){return String(s).replace(/&/g,'&amp;').replace(/</g,'&lt;').replace(/"/g,'&quot;');}
+  function imgFor(i){return /^https?:/.test(i)?i:ROOT+i;}
+  function allUrl(term){return ROOT+'search/?q='+encodeURIComponent(term);}
+  function matches(term){
+    if(!DATA)return [];
+    term=term.toLowerCase();
+    var out=[];
+    for(var i=0;i<DATA.length;i++){
+      var it=DATA[i], n=it.n.toLowerCase(), s=0;
+      if(n.indexOf(term)===0)s=3;
+      else if(n.indexOf(term)>-1)s=2;
+      else if((it.k||'').indexOf(term)>-1)s=1;
+      if(s>0)out.push([s,it]);
+    }
+    out.sort(function(a,b){return b[0]-a[0]||a[1].p-b[1].p;});
+    return out.slice(0,8).map(function(x){return x[1];});
+  }
+  function render(dd,term){
+    var list=matches(term);
+    var html='';
+    for(var i=0;i<list.length;i++){
+      var it=list[i];
+      html+='<a class="gs-item" href="'+ROOT+it.u+'" data-i="'+i+'">'
+           +'<img src="'+imgFor(it.i)+'" alt="" width="40" height="48" loading="lazy">'
+           +'<span class="gs-txt"><span class="gs-n">'+esc(it.n)
+           +(it.h?' <span class="gs-hot">Trending</span>':'')
+           +'</span><span class="gs-m">'+esc(it.ts)+' · '+esc(it.g)+' · $'+it.p.toFixed(2)+'</span></span></a>';
+    }
+    html+='<a class="gs-all" href="'+allUrl(term)+'">See all results for “'+esc(term)+'” &rarr;</a>';
+    dd.innerHTML=html; dd.hidden=false;
+  }
+  var pairs=[];
+  inputs.forEach(function(inp){
+    var wrap=inp.closest('.gs, .navsearch')||inp.parentElement;
+    var dd=document.createElement('div');
+    dd.className='gs-dd'; dd.hidden=true; dd.setAttribute('role','listbox');
+    wrap.appendChild(dd);
+    var active=0, pair=null;
+    function items(){return [].slice.call(dd.querySelectorAll('.gs-item'));}
+    function close(){dd.hidden=true;}
+    function markActive(){items().forEach(function(el,i){el.classList.toggle('on',i===active);});}
+    function open(){
+      var term=inp.value.trim();
+      if(term.length<2){close();return;}
+      render(dd,term); active=0; markActive();
+    }
+    function pairClose(){pair&&pair.close();}
+    pair={close:close};
+    inp.addEventListener('input',open);
+    inp.addEventListener('focus',function(){load(); if(inp.value.trim().length>=2)open();});
+    inp.addEventListener('keydown',function(e){
+      if(e.key==='Escape'){close();return;}
+      if(dd.hidden)return;
+      if(e.key==='ArrowDown'||e.key==='ArrowUp'){
+        e.preventDefault();
+        var n=items().length; if(!n)return;
+        active=(active+(e.key==='ArrowDown'?1:n-1))%n; markActive();
+      } else if(e.key==='Enter'){
+        var it=items()[active];
+        if(it){e.preventDefault();window.location.href=it.getAttribute('href');}
+        else if(inp.value.trim()){e.preventDefault();window.location.href=allUrl(inp.value.trim());}
+      }
+    });
+    inp.addEventListener('blur',function(){setTimeout(function(){dd.hidden=true;},150);});
+    dd.addEventListener('mousedown',function(e){e.preventDefault();});
+    pairs.push(pair);
+  });
+  document.addEventListener('mousedown',function(e){
+    pairs.forEach(function(p){p.close();});
+  });
+  // "/" jumps to the header search from anywhere on the page (except while
+  // the visitor is already typing in a field).
+  document.addEventListener('keydown',function(e){
+    if(e.key!=='/')return;
+    var t=document.activeElement&&document.activeElement.tagName;
+    if(t==='INPUT'||t==='TEXTAREA'||t==='SELECT')return;
+    var h=document.querySelector('.navsearch .gsearch')||document.querySelector('.gsearch');
+    if(h){e.preventDefault();h.focus();}
+  });
+  load();
+})();
+
+// ---------- mobile "find your design" pill (landing + team pages) ----------
+// Keeps a phone visitor one tap from the search while they scroll: the pill
+// appears after the first scroll and smooth-scrolls back to the finder
+// (or the sticky collection toolbar on team pages) and focuses the box.
+(function(){
+  var p=document.getElementById('findpill'); if(!p)return;
+  var target=document.querySelector(p.getAttribute('data-target')||'#quickfind');
+  if(!target)return;
+  var field=target.querySelector('input.gsearch, input#q');
+  function on(){p.classList.toggle('on',(window.scrollY||0)>420);}
+  window.addEventListener('scroll',on,{passive:true}); on();
+  p.addEventListener('click',function(){
+    target.scrollIntoView({behavior:'smooth',block:'start'});
+    if(field)setTimeout(function(){try{field.focus({preventScroll:true});}catch(e){field.focus();}},450);
+  });
 })();

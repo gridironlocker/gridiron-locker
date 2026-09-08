@@ -636,3 +636,87 @@ footer .logo{color:var(--ink)}
   border-top:1px solid var(--line);color:var(--muted);font-size:.7rem;font-weight:700;
   letter-spacing:.05em;text-transform:uppercase;padding:7px 10px;text-align:center}
 .stage .garmentbadge{font-size:.78rem;padding:9px 12px}
+
+/* ============ GLOBAL SEARCH (header, quick finders, /search/) ============ */
+.navsearch{position:relative;display:flex;align-items:center;margin-left:6px}
+.navsearch .gsearch{width:150px;padding:8px 30px 8px 13px;border:1px solid var(--line2);
+  border-radius:99px;font-size:.82rem;font-family:var(--font);color:var(--ink);background:#fff;
+  transition:width .2s,border-color .15s}
+.navsearch .gsearch:focus{outline:0;width:205px;border-color:var(--ink)}
+.navsearch .gs-ico{position:absolute;right:11px;top:50%;transform:translateY(-50%);
+  font-size:.75rem;opacity:.5;pointer-events:none}
+.searchbtn{display:none;background:#fff;border:1px solid var(--line2);color:var(--ink);
+  width:36px;height:36px;border-radius:8px;font-size:.92rem;cursor:pointer;line-height:1}
+.mobsearch{display:none;border-top:1px solid var(--line);background:#fff;padding:10px 16px}
+.mobsearch.open{display:block}
+.mobsearch .gs{display:block}
+.mobsearch .gsearch{width:100%;padding:11px 13px;border:1px solid var(--line2);border-radius:8px;
+  font-size:.92rem;font-family:var(--font);color:var(--ink);background:#fff}
+.mobsearch .gsearch:focus{outline:0;border-color:var(--ink)}
+.gs{position:relative;display:block}
+.gs-dd{position:absolute;top:calc(100% + 6px);left:0;right:0;min-width:290px;
+  max-width:calc(100vw - 32px);background:#fff;border:1px solid var(--line2);border-radius:14px;
+  box-shadow:0 18px 40px rgba(16,20,26,.16);z-index:70;overflow:hidden;padding:6px}
+.navsearch .gs-dd{left:auto;right:0;min-width:310px}
+.gs-item{display:flex;gap:10px;align-items:center;padding:8px;border-radius:10px;text-decoration:none}
+.gs-item img{width:40px;height:48px;object-fit:cover;border-radius:8px;flex:none;background:#f2f4f6}
+.gs-txt{display:flex;flex-direction:column;min-width:0}
+.gs-n{font-weight:700;font-size:.86rem;color:var(--ink);line-height:1.25;
+  overflow:hidden;text-overflow:ellipsis;white-space:nowrap}
+.gs-m{font-size:.73rem;color:var(--muted)}
+.gs-hot{font-size:.6rem;font-weight:800;letter-spacing:.06em;text-transform:uppercase;
+  color:#fff;background:var(--btn);border-radius:99px;padding:2px 7px;margin-left:6px}
+.gs-item.on,.gs-item:hover{background:#f2f4f6}
+.gs-all{display:block;padding:9px 8px 7px;font-size:.82rem;font-weight:700;color:var(--ink);
+  text-decoration:none;border-top:1px solid var(--line);margin-top:4px}
+.gs-all:hover{color:var(--btn-h)}
+@media(max-width:980px){.navsearch{display:none}.searchbtn{display:block}}
+
+/* ============ QUICK FINDER (home + /collections/) ============ */
+.quickfind{padding:30px 0 6px}
+.qf-head h2{margin:6px 0 2px}
+.qf-head p{margin:0 0 14px;color:var(--muted);font-size:.95rem;max-width:70ch}
+.qf-box{background:#fff;border:1px solid var(--line2);border-radius:18px;padding:14px;
+  box-shadow:0 14px 34px rgba(16,20,26,.07)}
+.qf-box .gs{display:block}
+.qf-box .gsearch{width:100%;padding:13px 15px;border:1px solid var(--line2);border-radius:12px;
+  font-size:.98rem;font-family:var(--font);color:var(--ink);background:#fff}
+.qf-box .gsearch:focus{outline:0;border-color:var(--ink)}
+.qf-chips{display:flex;flex-wrap:wrap;gap:8px;margin-top:12px}
+.qf-chip{display:inline-flex;align-items:center;gap:7px;border:1px solid var(--line2);background:#fff;
+  border-radius:99px;padding:8px 14px;font-size:.8rem;font-weight:700;color:var(--ink2);
+  text-decoration:none;transition:border-color .15s,color .15s,background .15s}
+.qf-chip em{font-style:normal;font-size:.68rem;font-weight:800;color:var(--muted);
+  background:#f2f4f6;border-radius:99px;padding:2px 7px}
+.qf-chip:hover{border-color:var(--ca,var(--ink));color:var(--ca-ink,var(--ink))}
+.qf-chip.hot{border-color:var(--ca);background:var(--ca-tint);color:var(--ca-ink)}
+.qf-chip.hot em{background:#fff}
+
+/* ============ STICKY TOOLBAR (team pages + /search/) ============ */
+.toolswrap{position:sticky;top:60px;z-index:45;background:rgba(255,255,255,.95);
+  backdrop-filter:blur(10px);-webkit-backdrop-filter:blur(10px);
+  border:1px solid var(--line2);border-radius:16px;padding:12px;
+  box-shadow:0 14px 34px rgba(16,20,26,.10);margin-bottom:16px}
+.toolswrap .tools{padding:0;margin-bottom:0;border:0;background:transparent}
+.toolswrap .gs{flex:1;min-width:180px}
+.toolswrap .gs input{width:100%}
+.sw{display:flex;flex-wrap:wrap;gap:7px;margin-bottom:10px}
+.swt{border:1px solid var(--line2);background:#fff;border-radius:99px;padding:6px 13px;
+  font-size:.76rem;font-weight:800;color:var(--muted);text-decoration:none;
+  transition:border-color .15s,color .15s,background .15s}
+.swt:hover{color:var(--ca-ink);border-color:var(--ca)}
+.swt[aria-current]{background:var(--ca);border-color:var(--ca);color:#fff}
+.swt-all{border-style:dashed}
+.chipsrow{display:flex;align-items:center;gap:10px;margin-top:10px;flex-wrap:wrap}
+.chipslabel{font-size:.7rem;font-weight:800;letter-spacing:.08em;text-transform:uppercase;
+  color:var(--muted);min-width:60px}
+
+/* ============ MOBILE FIND PILL (landing + team pages) ============ */
+.findpill{display:none;position:fixed;left:50%;bottom:14px;transform:translate(-50%,90px);
+  z-index:80;background:var(--btn);color:#fff;border:0;border-radius:99px;padding:13px 22px;
+  font-family:var(--font);font-size:.92rem;font-weight:800;letter-spacing:.01em;
+  box-shadow:0 12px 30px rgba(16,20,26,.35);transition:transform .25s,background .15s;cursor:pointer}
+.findpill:hover{background:var(--btn-h)}
+.findpill.on{transform:translate(-50%,0)}
+@media(max-width:760px){.findpill{display:block}}
+@media(max-width:560px){.chipslabel{min-width:0}.toolswrap{top:56px}}

@@ -478,7 +478,11 @@ def head(title, desc, path, image=None, schema=None, keywords=None, col=None,
             "url": DOMAIN,
             "potentialAction": {
                 "@type": "SearchAction",
-                "target": DOMAIN + "/collections/?q={search_term_string}",
+                # Real endpoint: the /search/ catalogue page pre-applies ?q=
+                # (see page_search + the app.js filter). Every page of the
+                # site carries this, so the advertised search must work
+                # sitewide and never 404.
+                "target": DOMAIN + "/search/?q={search_term_string}",
                 "query-input": "required name=search_term_string",
             },
         })
@@ -486,6 +490,17 @@ def head(title, desc, path, image=None, schema=None, keywords=None, col=None,
     sc = ""
     for s in schemas:
         sc += '<script type="application/ld+json">' + json.dumps(s, separators=(",", ":")) + "</script>"
+    # data-root: the site-root prefix for THIS page's depth ("./", "../",
+    # "../../"). The global search dropdown and /search/ deep links are built
+    # at runtime from the JSON index with root-absolute paths, so the browser
+    # needs the same prefix relativise() uses for static links. This is what
+    # keeps search working on a GitHub Pages project URL, not just the custom
+    # domain.
+    if path.endswith(".html"):
+        root_prefix = "./"
+    else:
+        depth = len([seg for seg in path.split("/") if seg])
+        root_prefix = "./" if depth == 0 else "../" * depth
     return f"""<!doctype html>
 <html lang="en">
 <head>
@@ -521,7 +536,7 @@ def head(title, desc, path, image=None, schema=None, keywords=None, col=None,
   gtag('config', 'G-5RHGJSLZNG');
 </script>
 </head>
-<body>"""
+<body data-root="{root_prefix}">"""
 
 
 def season_promo():
@@ -568,8 +583,15 @@ def header(active=""):
    <a href="/fan-trend-index/">Trend Index</a>
    <a href="/guides/">Guides</a>
   </nav>
-  <button class="burger" aria-label="Menu" onclick="document.getElementById('mn').classList.toggle('open')">&#9776;</button>
+  <span class="navsearch" role="search">
+   <input class="gsearch" type="search" placeholder="Search designs..." aria-label="Search all designs" autocomplete="off">
+   <span class="gs-ico" aria-hidden="true">&#128269;</span>
+  </span>
+  <button class="searchbtn" aria-label="Search designs"
+   onclick="var m=document.getElementById('ms');m.classList.toggle('open');var i=m.querySelector('input');if(m.classList.contains('open')&&i)i.focus()">&#128269;</button>
  </div>
+ <div class="mobsearch" id="ms"><span class="gs"><input class="gsearch" type="search"
+  placeholder="Search all {len(ALL)} designs..." aria-label="Search all designs" autocomplete="off"></span></div>
  <div class="mobnav" id="mn">
   <a href="/">Home</a><a href="/collections/">All Collections</a>{mob}
   <a href="/2026-season/">2026 Season Hub</a><a href="/fan-trend-index/">Fan Trend Index</a>
@@ -881,7 +903,9 @@ def card(it, eager=False):
     if it.get("trend") == "hot":
         tag, cls = "Trending", "tagpill hot"
     tv = theme_vars(it["col"])
-    return f"""<article class="card reveal" style="{tv}">
+    # data-type / data-team power the /search/ catalogue filters (app.js) -
+    # the team pages read the same attributes and ignore the team dimension.
+    return f"""<article class="card reveal" data-type="{esc(it['garment'])}" data-team="{it['col']}" style="{tv}">
  <a href="{it['url']}" aria-label="{esc(it['name'])}">
   <div class="ph"><span class="{cls}">{tag}</span><span class="glow"></span><span class="sweep"></span>
    <img src="{it['front']}" alt="{esc(it['name'])} - {esc(it['art'][:70])}" width="530" height="630"{lazy}>
@@ -930,6 +954,56 @@ def home_banner():
 </section>"""
 
 
+def quick_find():
+    """Landing-page product finder: live search + one-tap shortlists.
+
+    Visitors land on / or /collections/ and used to meet the news ticker, a
+    countdown and four 4-card teasers before any real product surface - the
+    only path to a design was scrolling or remembering a team. This panel
+    sits directly under the hero: type a player, slogan, city or garment and
+    get live suggestions, or tap a shortlist chip that opens /search/ with
+    the filter already applied. Trending chips come from the Fan Trend Index
+    (only names that have a design to shop).
+    """
+    n = len(ALL)
+    counts = {}
+    for it in ALL:
+        counts[it["garment"]] = counts.get(it["garment"], 0) + 1
+    top = sorted(counts.items(), key=lambda x: (-x[1], x[0]))[:5]
+    team_chips = "".join(
+        f'<a class="qf-chip" style="{theme_vars(k)}" href="/search/?t={k}">{esc(COLLECTIONS[k]["short"])}</a>'
+        for k in ORDER)
+    type_chips = "".join(
+        f'<a class="qf-chip" href="/search/?g={esc(g)}">{esc(g)}s <em>{c}</em></a>'
+        for g, c in top)
+    trend_chips = ""
+    for r in fti_rows():
+        ck = r.get("collection")
+        if not ck or ck not in COLLECTIONS:
+            continue
+        if not products_for_entity(ck, r["name"], 1):
+            continue
+        trend_chips += (f'<a class="qf-chip hot" style="{theme_vars(ck)}" '
+                        f'href="/search/?q={esc(r["name"])}">{esc(pretty_name(r["name"]))} '
+                        f'<em>trending</em></a>')
+        if trend_chips.count("qf-chip hot") >= 4:
+            break
+    return f"""<section class="quickfind" id="quickfind"><div class="wrap">
+ <div class="qf-head reveal">
+  <span class="eyebrow"><span class="dot"></span> {n} designs &middot; live search</span>
+  <h2>Find A <span class="accentword">Design</span></h2>
+  <p>Search by player, slogan, team or garment - or tap a shortlist and you are in.</p>
+ </div>
+ <div class="qf-box reveal">
+  <span class="gs"><input class="gsearch" type="search"
+   placeholder='Try "Shedeur", "Dawg Pound", "hoodie" or "mug"'
+   aria-label="Search all designs" autocomplete="off"></span>
+  <div class="qf-chips"><a class="qf-chip" href="/search/">All designs <em>{n}</em></a>
+   {team_chips}{type_chips}{trend_chips}</div>
+ </div>
+</div></section>"""
+
+
 # ---------------------------------------------------------------- pages
 def page_home():
     path = "/"
@@ -946,7 +1020,7 @@ def page_home():
          "sameAs": [u for _, u in SOCIALS]},
         {"@context": "https://schema.org", "@type": "WebSite", "name": BRAND, "url": DOMAIN,
          "potentialAction": {"@type": "SearchAction",
-                             "target": DOMAIN + "/collections/?q={search_term_string}",
+                             "target": DOMAIN + "/search/?q={search_term_string}",
                              "query-input": "required name=search_term_string"}},
         {"@context": "https://schema.org", "@type": "ItemList",
          "itemListElement": [{"@type": "ListItem", "position": n + 1, "url": DOMAIN + f"/{COLLECTIONS[k]['slug']}/",
@@ -954,7 +1028,10 @@ def page_home():
     ]
     desc = (f"Fan-made football tees, hoodies and gear across {len(ORDER)} team collections: "
             f"Cleveland, Green Bay, Dallas and Michigan. {len(ALL)} original designs, S-3XL, shipped worldwide.")
+    # Product-first landing: the quick finder comes right under the hero so a
+    # visitor can jump to any of the {len(ALL)} designs without scrolling.
     body = f"""{home_banner()}
+{quick_find()}
 {newsticker()}
 {week1_section()}
 {fti_strip()}
@@ -1011,7 +1088,9 @@ def page_home():
    </form>
   </div>
  </div>
-</div></section></main>"""
+</div></section>
+<button class="findpill" id="findpill" data-target="#quickfind" aria-label="Find a design">
+ <span aria-hidden="true">&#128269;</span> Find your design</button></main>"""
     URLS.append((DOMAIN + "/", "1.0", "daily"))
     write("index.html", head(f"{BRAND} | {CFG['tagline']}", desc, path, "/img/hero-home.jpg?v=3", schema,
                              ["football fan shirts", "nfl fan t shirts", "custom football tees",
@@ -1039,15 +1118,89 @@ def page_collections_index():
  <h1>All Football Fan Collections</h1>
  <p class="muted" style="max-width:70ch">Four team collections, {len(ALL)} original designs. Each
  collection has its own colour palette, slang and artwork style - pick your side below.</p>
+ {quick_find()}
  <h2 class="sr-only">Browse Collections</h2>
  <div class="teamcircles">{cards}</div>
 </div></section>
 <div class="light">
 {team_sections}
-</div></main>"""
+</div>
+<button class="findpill" id="findpill" data-target="#quickfind" aria-label="Find a design">
+ <span aria-hidden="true">&#128269;</span> Find your design</button></main>"""
     URLS.append((DOMAIN + path, "0.9", "weekly"))
     write("collections/index.html", head("All Football Fan Collections | " + BRAND, desc, path,
                                          "/img/hero-home.jpg?v=3", schema) + header() + body + footer())
+
+
+def page_search():
+    """/search/ - the browse-all catalogue: every design, one page, filterable.
+
+    The SearchAction schema advertises `?q=` and the header search hands
+    people here with ?t=/ ?g=/ ?q= deep links, so this page is a real
+    indexable catalogue (it is in the sitemap on purpose): the complete grid
+    plus team / garment filters and sorting, all client-side. ?q=, ?t= and
+    ?g= pre-apply on load (app.js) so Google sitelinks and the header search
+    land on the right view.
+    """
+    path = "/search/"
+    n = len(ALL)
+    prices = sorted(x["price"] for x in ALL)
+    # Garment chips in catalogue-size order (most stock first).
+    counts = {}
+    for it in ALL:
+        counts[it["garment"]] = counts.get(it["garment"], 0) + 1
+    types = sorted(counts, key=lambda t: (-counts[t], t))
+    type_chips = '<button class="chip on" data-f="all">All</button>' + "".join(
+        f'<button class="chip" data-f="{esc(t)}">{esc(t)}s</button>' for t in types)
+    team_chips = ('<button class="chip on" data-team="all">All teams</button>' + "".join(
+        f'<button class="chip" data-team="{k}">{esc(COLLECTIONS[k]["short"])}</button>'
+        for k in ORDER))
+    cards = "".join(card(i, eager=(x < 4)) for x, i in enumerate(ALL))
+    cb, cbs = crumbs([("Home", "/"), ("All Designs", None)], path)
+    schema = [cbs, {"@context": "https://schema.org", "@type": "CollectionPage",
+                    "name": "All Fan Designs", "url": DOMAIN + path,
+                    "description": f"Every fan-made design in the locker: {n} designs "
+                                   "across Cleveland, Green Bay, Dallas and Michigan.",
+                    "isPartOf": {"@type": "WebSite", "name": BRAND, "url": DOMAIN},
+                    "mainEntity": {"@type": "ItemList", "numberOfItems": n,
+                                   "itemListElement": [
+                                       {"@type": "ListItem", "position": x + 1,
+                                        "url": DOMAIN + i["url"], "name": i["name"]}
+                                       for x, i in enumerate(ALL)]}}]
+    desc = (f"Search and browse all {n} fan-made football designs - Cleveland, Green Bay, "
+            f"Dallas and Michigan tees, hoodies, mugs and beanies from ${prices[0]:.2f}. "
+            "Filter by team or garment, sizes S-3XL, worldwide shipping.")
+    body = f"""{cb}<main id="main"><section style="padding-top:6px"><div class="wrap">
+ <h1>Browse &amp; Search All {n} Designs</h1>
+ <p class="muted" style="max-width:70ch">The whole locker in one place. Type a player, slogan,
+ city or garment - or narrow it down with the team and garment filters below.</p>
+</div></section>
+<div class="light"><div class="wrap">
+ <div class="toolswrap">
+  <div class="tools">
+   <span class="gs"><input id="q" class="gsearch" type="search"
+    placeholder="Search all designs - player, slogan, team..."
+    aria-label="Search all designs" autocomplete="off"></span>
+   <select id="sort" aria-label="Sort">
+    <option value="feat">Featured</option><option value="lo">Price: low to high</option>
+    <option value="hi">Price: high to low</option><option value="az">Name A-Z</option>
+   </select>
+  </div>
+  <div class="chipsrow"><span class="chipslabel">Team</span><div class="chips">{team_chips}</div></div>
+  <div class="chipsrow"><span class="chipslabel">Garment</span><div class="chips">{type_chips}</div></div>
+ </div>
+ <p class="muted" id="count" style="font-size:.85rem">{n} designs</p>
+ <h2 class="sr-only">All Designs</h2>
+ <div class="grid" id="pg">{cards}</div>
+ <p class="muted center" id="nores" style="display:none;padding:40px 0">No designs match that
+ search. <a class="link" href="/collections/">Browse a collection instead</a></p>
+</div></div></main>"""
+    URLS.append((DOMAIN + path, "0.6", "daily"))
+    write("search/index.html",
+          head(f"Search All {n} Fan Designs | {BRAND}", desc, path, "/img/hero-home.jpg?v=3",
+               schema, ["all fan shirts", "search football fan apparel",
+                        "football fan design search", "custom fan tee search"])
+          + header() + body + footer())
 
 
 def page_collection(k):
@@ -1084,6 +1237,12 @@ def page_collection(k):
                   ] + list(c.get("faq_extra", []))]}]
     desc = (f"{c['name']} - {len(items)} fan-made designs from ${prices[0]:.2f}. "
             f"{', '.join(types[:3])}, sizes S-3XL. Printed on demand, ships worldwide.")
+    # Collection switch tabs: a visitor 40 products deep in Cleveland can jump
+    # to Green Bay without back-buttoning to the header - keeps them browsing.
+    swtabs = "".join(
+        f'<a class="swt" style="{theme_vars(x)}" href="/{COLLECTIONS[x]["slug"]}/"'
+        f'{" aria-current=page" if x == k else ""}>{esc(COLLECTIONS[x]["short"])}</a>'
+        for x in ORDER) + '<a class="swt swt-all" href="/collections/">All</a>'
     se = SEASON[k]
     lore = "".join(f"<li>{esc(x)}</li>" for x in c["lore"])
     kwlinks = " &middot; ".join(esc(x) for x in c["keywords"])
@@ -1118,13 +1277,16 @@ def page_collection(k):
 <div class="light">
 {cb}
 <section id="grid" style="padding-top:4px"><div class="wrap">
- <div class="tools">
-  <input id="q" type="search" placeholder="Search {esc(c['short'])} designs..." aria-label="Search designs">
-  <div class="chips">{chips}</div>
-  <select id="sort" aria-label="Sort">
-   <option value="feat">Featured</option><option value="lo">Price: low to high</option>
-   <option value="hi">Price: high to low</option><option value="az">Name A-Z</option>
-  </select>
+ <div class="toolswrap">
+  <div class="sw" aria-label="Switch collection">{swtabs}</div>
+  <div class="tools">
+   <input id="q" type="search" placeholder="Search {esc(c['short'])} designs..." aria-label="Search designs">
+   <div class="chips">{chips}</div>
+   <select id="sort" aria-label="Sort">
+    <option value="feat">Featured</option><option value="lo">Price: low to high</option>
+    <option value="hi">Price: high to low</option><option value="az">Name A-Z</option>
+   </select>
+  </div>
  </div>
  <p class="muted" id="count" style="font-size:.85rem">{len(items)} designs</p>
  <h2 class="sr-only">Collection Designs</h2>
@@ -1154,7 +1316,9 @@ def page_collection(k):
  printed after the order is placed and shipped worldwide with tracking.</p>
  <p><a class="link" href="/guides/{c['slug']}-buying-guide/">Read the {esc(c['short'])} buying guide &rarr;</a></p>
 </div></section>
-</div></main>"""
+</div>
+<button class="findpill" id="findpill" data-target="#grid" aria-label="Find a design">
+ <span aria-hidden="true">&#128269;</span> Find your design</button></main>"""
     URLS.append((DOMAIN + path, "0.9", "daily"))
     write(f"{c['slug']}/index.html",
          head(f"{c['name']} | {BRAND}", desc, path, c["hero"], schema,
@@ -2095,6 +2259,22 @@ def assets():
     with open(os.path.join(ROOT, "src/style.css"), encoding="utf-8") as fh:
         write("assets/style.css", fh.read())
 
+    # Search index for the sitewide header autocomplete and the /search/
+    # catalogue. One compact row per live design, built from the same MODEL
+    # that feeds the grids, so re-crawls and delistings propagate on every
+    # build. Image paths are root-absolute; the client prefixes the page's
+    # data-root (GitHub Pages project URLs included).
+    srows = []
+    for it in ALL:
+        c = COLLECTIONS[it["col"]]
+        blob = " ".join([it["name"], it["art"], " ".join(it["kw"] or []),
+                         c["name"], c["short"], c["city"], it["garment"], it["theme"]])
+        srows.append({"n": it["name"], "u": it["url"], "i": it["front"],
+                      "t": it["col"], "ts": c["short"], "g": it["garment"],
+                      "p": it["price"], "h": 1 if it.get("trend") == "hot" else 0,
+                      "k": blob.lower()})
+    write("assets/search-index.json", json.dumps(srows, separators=(",", ":")))
+
     # Google Search Console HTML verification must be emitted by every build.
     # Keep this alongside the generated assets so a rebuild cannot remove it.
     write("googleae06215486ed6c17.html", "google-site-verification: googleae06215486ed6c17.html")
@@ -2215,6 +2395,7 @@ Sitemap: {DOMAIN}/sitemap-images.xml
 {prod_lines}
 
 ## Key pages
+- [Search all designs]({DOMAIN}/search/) - live search + team/garment filters across the full {len(ALL)}-design catalogue
 - [2026 Season Hub]({DOMAIN}/2026-season/) - Week 1 dates, roster changes, trending designs
 - [Fan Trend Index]({DOMAIN}/fan-trend-index/) - 0-100 score of who the headlines are about, plus live player moments
 - [Buying guides]({DOMAIN}/guides/) - how to pick the right fan shirt per team
@@ -2403,24 +2584,30 @@ setTimeout(function(){
   tt&&tt.addEventListener('click',function(){window.scrollTo({top:0,behavior:'smooth'})});
 })();
 
-// ---------- collection filter / search / sort ----------
+// ---------- collection filter / search / sort (team pages + /search/) ----------
+// Two independent dimensions: garment type (chip[data-f]) and team
+// (chip[data-team]). Team pages only emit type chips, so the team dimension
+// stays 'all' there and behaviour is unchanged.
 (function(){
   var grid=document.getElementById('pg'); if(!grid)return;
   var cards=[].slice.call(grid.children);
   var q=document.getElementById('q'), sort=document.getElementById('sort'),
       count=document.getElementById('count'), nores=document.getElementById('nores');
-  var filter='all';
+  var typeFilter='all', teamFilter='all';
   function price(c){return parseFloat(c.querySelector('.price').textContent.replace('$',''))}
   function name(c){return c.querySelector('h3').textContent.toLowerCase()}
-  function type(c){return c.querySelector('.meta').textContent.trim()}
+  function typeOf(c){return c.getAttribute('data-type')||c.querySelector('.meta').textContent.trim()}
+  function teamOf(c){return c.getAttribute('data-team')||''}
   function apply(){
-    var term=(q.value||'').toLowerCase().trim(), n=0;
+    var term=(q?q.value:'').toLowerCase().trim(), n=0;
     cards.forEach(function(c){
-      var ok=(filter==='all'||type(c)===filter)&&(!term||c.textContent.toLowerCase().indexOf(term)>-1);
+      var ok=(typeFilter==='all'||typeOf(c)===typeFilter)&&
+             (teamFilter==='all'||teamOf(c)===teamFilter)&&
+             (!term||c.textContent.toLowerCase().indexOf(term)>-1);
       c.style.display=ok?'':'none'; if(ok){n++;c.classList.add('in');}
     });
-    count.textContent=n+' design'+(n===1?'':'s');
-    nores.style.display=n?'none':'block';
+    if(count)count.textContent=n+' design'+(n===1?'':'s');
+    if(nores)nores.style.display=n?'none':'block';
   }
   function resort(){
     var v=sort.value, arr=cards.slice();
@@ -2429,15 +2616,140 @@ setTimeout(function(){
     if(v==='az')arr.sort(function(a,b){return name(a)<name(b)?-1:1});
     arr.forEach(function(c){grid.appendChild(c)});
   }
-  q&&q.addEventListener('input',apply);
-  sort&&sort.addEventListener('change',resort);
-  document.querySelectorAll('.chip').forEach(function(b){
-    b.addEventListener('click',function(){
-      document.querySelectorAll('.chip').forEach(function(x){x.classList.remove('on')});
-      b.classList.add('on'); filter=b.dataset.f; apply();
-    });
+  function markType(v){document.querySelectorAll('.chip[data-f]').forEach(function(x){
+    x.classList.toggle('on',x.getAttribute('data-f')===v);});}
+  function markTeam(v){document.querySelectorAll('.chip[data-team]').forEach(function(x){
+    x.classList.toggle('on',x.getAttribute('data-team')===v);});}
+  if(q)q.addEventListener('input',apply);
+  if(sort)sort.addEventListener('change',resort);
+  document.querySelectorAll('.chip[data-f]').forEach(function(b){
+    b.addEventListener('click',function(){typeFilter=b.getAttribute('data-f');markType(typeFilter);apply();});
   });
-  var u=new URLSearchParams(location.search).get('q'); if(u&&q){q.value=u;apply();}
+  document.querySelectorAll('.chip[data-team]').forEach(function(b){
+    b.addEventListener('click',function(){teamFilter=b.getAttribute('data-team');markTeam(teamFilter);apply();});
+  });
+  // Deep links: /search/?q=... (header search + SearchAction), ?t=team, ?g=garment
+  var u=new URLSearchParams(location.search), tu=u.get('t'), gu=u.get('g'), uq=u.get('q');
+  if(gu)typeFilter=gu; if(tu)teamFilter=tu; if(uq&&q)q.value=uq;
+  markType(typeFilter); markTeam(teamFilter); apply();
+})();
+
+// ---------- global design search: live suggestions for every .gsearch ----------
+// One shared index (assets/search-index.json) powers the header search on
+// every page, the landing-page quick finder and the /search/ page input.
+// Suggestions link straight to product pages; "See all results" and Enter
+// land on /search/?q=... with the term pre-applied - the same URL the
+// SearchAction schema advertises.
+(function(){
+  var inputs=[].slice.call(document.querySelectorAll('.gsearch'));
+  if(!inputs.length)return;
+  var ROOT=document.body.getAttribute('data-root')||'./';
+  var DATA=null, pend=null;
+  function load(){
+    if(pend)return pend;
+    pend=fetch(ROOT+'assets/search-index.json',{cache:'force-cache'})
+      .then(function(r){return r.json()})
+      .catch(function(){return null;});
+    pend.then(function(d){if(Array.isArray(d))DATA=d;});
+    return pend;
+  }
+  function esc(s){return String(s).replace(/&/g,'&amp;').replace(/</g,'&lt;').replace(/"/g,'&quot;');}
+  function imgFor(i){return /^https?:/.test(i)?i:ROOT+i;}
+  function allUrl(term){return ROOT+'search/?q='+encodeURIComponent(term);}
+  function matches(term){
+    if(!DATA)return [];
+    term=term.toLowerCase();
+    var out=[];
+    for(var i=0;i<DATA.length;i++){
+      var it=DATA[i], n=it.n.toLowerCase(), s=0;
+      if(n.indexOf(term)===0)s=3;
+      else if(n.indexOf(term)>-1)s=2;
+      else if((it.k||'').indexOf(term)>-1)s=1;
+      if(s>0)out.push([s,it]);
+    }
+    out.sort(function(a,b){return b[0]-a[0]||a[1].p-b[1].p;});
+    return out.slice(0,8).map(function(x){return x[1];});
+  }
+  function render(dd,term){
+    var list=matches(term);
+    var html='';
+    for(var i=0;i<list.length;i++){
+      var it=list[i];
+      html+='<a class="gs-item" href="'+ROOT+it.u+'" data-i="'+i+'">'
+           +'<img src="'+imgFor(it.i)+'" alt="" width="40" height="48" loading="lazy">'
+           +'<span class="gs-txt"><span class="gs-n">'+esc(it.n)
+           +(it.h?' <span class="gs-hot">Trending</span>':'')
+           +'</span><span class="gs-m">'+esc(it.ts)+' \u00b7 '+esc(it.g)+' \u00b7 $'+it.p.toFixed(2)+'</span></span></a>';
+    }
+    html+='<a class="gs-all" href="'+allUrl(term)+'">See all results for \u201c'+esc(term)+'\u201d &rarr;</a>';
+    dd.innerHTML=html; dd.hidden=false;
+  }
+  var pairs=[];
+  inputs.forEach(function(inp){
+    var wrap=inp.closest('.gs, .navsearch')||inp.parentElement;
+    var dd=document.createElement('div');
+    dd.className='gs-dd'; dd.hidden=true; dd.setAttribute('role','listbox');
+    wrap.appendChild(dd);
+    var active=0, pair=null;
+    function items(){return [].slice.call(dd.querySelectorAll('.gs-item'));}
+    function close(){dd.hidden=true;}
+    function markActive(){items().forEach(function(el,i){el.classList.toggle('on',i===active);});}
+    function open(){
+      var term=inp.value.trim();
+      if(term.length<2){close();return;}
+      render(dd,term); active=0; markActive();
+    }
+    function pairClose(){pair&&pair.close();}
+    pair={close:close};
+    inp.addEventListener('input',open);
+    inp.addEventListener('focus',function(){load(); if(inp.value.trim().length>=2)open();});
+    inp.addEventListener('keydown',function(e){
+      if(e.key==='Escape'){close();return;}
+      if(dd.hidden)return;
+      if(e.key==='ArrowDown'||e.key==='ArrowUp'){
+        e.preventDefault();
+        var n=items().length; if(!n)return;
+        active=(active+(e.key==='ArrowDown'?1:n-1))%n; markActive();
+      } else if(e.key==='Enter'){
+        var it=items()[active];
+        if(it){e.preventDefault();window.location.href=it.getAttribute('href');}
+        else if(inp.value.trim()){e.preventDefault();window.location.href=allUrl(inp.value.trim());}
+      }
+    });
+    inp.addEventListener('blur',function(){setTimeout(function(){dd.hidden=true;},150);});
+    dd.addEventListener('mousedown',function(e){e.preventDefault();});
+    pairs.push(pair);
+  });
+  document.addEventListener('mousedown',function(e){
+    pairs.forEach(function(p){p.close();});
+  });
+  // "/" jumps to the header search from anywhere on the page (except while
+  // the visitor is already typing in a field).
+  document.addEventListener('keydown',function(e){
+    if(e.key!=='/')return;
+    var t=document.activeElement&&document.activeElement.tagName;
+    if(t==='INPUT'||t==='TEXTAREA'||t==='SELECT')return;
+    var h=document.querySelector('.navsearch .gsearch')||document.querySelector('.gsearch');
+    if(h){e.preventDefault();h.focus();}
+  });
+  load();
+})();
+
+// ---------- mobile "find your design" pill (landing + team pages) ----------
+// Keeps a phone visitor one tap from the search while they scroll: the pill
+// appears after the first scroll and smooth-scrolls back to the finder
+// (or the sticky collection toolbar on team pages) and focuses the box.
+(function(){
+  var p=document.getElementById('findpill'); if(!p)return;
+  var target=document.querySelector(p.getAttribute('data-target')||'#quickfind');
+  if(!target)return;
+  var field=target.querySelector('input.gsearch, input#q');
+  function on(){p.classList.toggle('on',(window.scrollY||0)>420);}
+  window.addEventListener('scroll',on,{passive:true}); on();
+  p.addEventListener('click',function(){
+    target.scrollIntoView({behavior:'smooth',block:'start'});
+    if(field)setTimeout(function(){try{field.focus({preventScroll:true});}catch(e){field.focus();}},450);
+  });
 })();
 """.replace("__EMAIL__", CFG["email_b64"]))
 
@@ -2558,6 +2870,7 @@ def sync_ops():
 def main():
     page_home()
     page_collections_index()
+    page_search()
     for k in ORDER:
         page_collection(k)
     for it in ALL:

@@ -23,15 +23,15 @@ python3 marketing/three_day_pulse.py` to refresh the short-lived brief.
 
 | Item | Count |
 |---|---|
-| HTML pages | **153** |
-| Product pages (one per design) | **134** |
-| Collection pages | 4 |
-| SEO buying guides (articles) | 4 |
+| HTML pages | **154** |
+| Product pages (one per design) | **127** |
+| Collection pages | 4 (+ All Collections, + Search/browse all) |
+| SEO buying guides (articles) | 5 (4 buying guides + Week 1) |
 | Info/trust pages | Size guide, Shipping, FAQ, About, Contact, Trademark notice, Privacy, 404 |
-| Product images self-hosted | **1,011** |
+| Product images self-hosted | **1,696** |
 | Broken links / invalid schema | **0** |
 
-Collections: Cleveland Browns (78), Green Bay Packers (34), Michigan (12), Dallas (10).
+Collections: Cleveland Browns (63), Green Bay Packers (37), Michigan (17), Dallas (10).
 
 ### 4 dead campaigns found
 These slugs no longer return product data on Viralstyle and were excluded — relaunch them and
@@ -51,16 +51,25 @@ re-run the build to add them:
 - **Mobile first**: 2-up product grid on phones, tap-friendly targets, sticky CTA, no layout shift
   (every image has width/height), lazy loading below the fold.
 - **Every CTA** goes to the exact Viralstyle campaign URL for that design.
+- **Product discovery on every landing page**: the header carries a sitewide search with live
+  suggestions (backed by `assets/search-index.json`, regenerated each build), and a "Find A Design"
+  panel sits directly under the hero on the home page and `/collections/` - search box plus
+  one-tap team / garment / trending-player shortlists that deep-link into `/search/`. The
+  `/search/` page is a real indexable catalogue of all designs with team + garment filters,
+  sorting and `?q=` / `?t=` / `?g=` parameters (the endpoint the SearchAction schema advertises).
+  Team collection pages get a sticky toolbar - collection-switch tabs plus the search / filter /
+  sort controls stay on screen while visitors scroll the grid, and phones get a "Find your design"
+  pill that jumps straight back to it.
 
 ## Why it ranks
 
-- Unique `<title>`, meta description, canonical, OG + Twitter cards on all 153 pages.
-- **Real copy, not filler.** I read all 134 artworks and wrote each page around what the design
+- Unique `<title>`, meta description, canonical, OG + Twitter cards on all 154 pages.
+- **Real copy, not filler.** I read every artwork and wrote each page around what the design
   actually says (e.g. "Limited Edition GRB37" is now *This Girl Loves The Pack Shirt*). Descriptions
   are template-varied so no two pages read the same.
 - **Schema.org JSON-LD**: Organization, WebSite + SearchAction, CollectionPage, ItemList,
   Product + Offer + AggregateRating, BreadcrumbList, FAQPage, Article. All validated.
-- `robots.txt` + `sitemap.xml` (152 URLs, lastmod/priority/changefreq).
+- `robots.txt` + `sitemap.xml` (150 URLs, lastmod/priority/changefreq).
 - Internal linking: home → collections → products → related products → guides → back to collection.
 - 4 long-form buying guides targeting research keywords ("michigan fan apparel buying guide").
 - Trademark-safe framing: "fan-made / independent / not affiliated" disclaimers sitewide plus a

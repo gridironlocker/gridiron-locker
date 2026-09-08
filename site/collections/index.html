@@ -20,10 +20,10 @@
 <meta name="twitter:image" content="https://gridironlocker.store/img/hero-home.jpg?v=3">
 <meta name="theme-color" content="#ffffff">
 <link rel="icon" href="../img/favicon.svg" type="image/svg+xml">
-<link rel="stylesheet" href="../assets/style.css?v=6df7bf6f">
+<link rel="stylesheet" href="../assets/style.css?v=82a5b76a">
 <script>document.documentElement.className+=" js"</script>
 
-<script type="application/ld+json">{"@context":"https://schema.org","@type":"BreadcrumbList","itemListElement":[{"@type":"ListItem","position":1,"name":"Home","item":"https://gridironlocker.store/"},{"@type":"ListItem","position":2,"name":"Collections","item":"https://gridironlocker.store/collections/"}]}</script><script type="application/ld+json">{"@context":"https://schema.org","@type":"CollectionPage","name":"All Collections","url":"https://gridironlocker.store/collections/","hasPart":[{"@type":"CollectionPage","name":"Cleveland Browns Fan Shirts","url":"https://gridironlocker.store/cleveland-browns-shirts/"},{"@type":"CollectionPage","name":"Green Bay Packers Fan Shirts","url":"https://gridironlocker.store/green-bay-packers-shirts/"},{"@type":"CollectionPage","name":"Dallas Vintage Sports Tees","url":"https://gridironlocker.store/dallas-cowboys-shirts/"},{"@type":"CollectionPage","name":"Michigan Go Blue Apparel","url":"https://gridironlocker.store/michigan-wolverines-shirts/"}]}</script><script type="application/ld+json">{"@context":"https://schema.org","@type":"Organization","name":"Gridiron Locker","url":"https://gridironlocker.store","logo":"https://gridironlocker.store/img/favicon.svg","sameAs":["https://x.com/gridironlocker","https://x.com/gridironlocker1","https://www.instagram.com/gridironlocker1","https://www.threads.net/@gridironlocker1","https://www.facebook.com/GridironLocker/","https://www.pinterest.com/gridironlockergear/","https://www.youtube.com/@Gridironlocker"]}</script><script type="application/ld+json">{"@context":"https://schema.org","@type":"WebSite","name":"Gridiron Locker","url":"https://gridironlocker.store","potentialAction":{"@type":"SearchAction","target":"https://gridironlocker.store/collections/?q={search_term_string}","query-input":"required name=search_term_string"}}</script>
+<script type="application/ld+json">{"@context":"https://schema.org","@type":"BreadcrumbList","itemListElement":[{"@type":"ListItem","position":1,"name":"Home","item":"https://gridironlocker.store/"},{"@type":"ListItem","position":2,"name":"Collections","item":"https://gridironlocker.store/collections/"}]}</script><script type="application/ld+json">{"@context":"https://schema.org","@type":"CollectionPage","name":"All Collections","url":"https://gridironlocker.store/collections/","hasPart":[{"@type":"CollectionPage","name":"Cleveland Browns Fan Shirts","url":"https://gridironlocker.store/cleveland-browns-shirts/"},{"@type":"CollectionPage","name":"Green Bay Packers Fan Shirts","url":"https://gridironlocker.store/green-bay-packers-shirts/"},{"@type":"CollectionPage","name":"Dallas Vintage Sports Tees","url":"https://gridironlocker.store/dallas-cowboys-shirts/"},{"@type":"CollectionPage","name":"Michigan Go Blue Apparel","url":"https://gridironlocker.store/michigan-wolverines-shirts/"}]}</script><script type="application/ld+json">{"@context":"https://schema.org","@type":"Organization","name":"Gridiron Locker","url":"https://gridironlocker.store","logo":"https://gridironlocker.store/img/favicon.svg","sameAs":["https://x.com/gridironlocker","https://x.com/gridironlocker1","https://www.instagram.com/gridironlocker1","https://www.threads.net/@gridironlocker1","https://www.facebook.com/GridironLocker/","https://www.pinterest.com/gridironlockergear/","https://www.youtube.com/@Gridironlocker"]}</script><script type="application/ld+json">{"@context":"https://schema.org","@type":"WebSite","name":"Gridiron Locker","url":"https://gridironlocker.store","potentialAction":{"@type":"SearchAction","target":"https://gridironlocker.store/search/?q={search_term_string}","query-input":"required name=search_term_string"}}</script>
 <!-- Google tag (gtag.js) -->
 <script async src="https://www.googletagmanager.com/gtag/js?id=G-5RHGJSLZNG"></script>
 <script>
@@ -33,7 +33,7 @@
   gtag('config', 'G-5RHGJSLZNG');
 </script>
 </head>
-<body>
+<body data-root="../">
 <a class="skip" href="#main">Skip to content</a>
 <div class="promo">2026 season is live &middot; Printed on demand in the USA &middot; Worldwide shipping</div>
 <header>
@@ -46,8 +46,15 @@
    <a href="../fan-trend-index/">Trend Index</a>
    <a href="../guides/">Guides</a>
   </nav>
-  <button class="burger" aria-label="Menu" onclick="document.getElementById('mn').classList.toggle('open')">&#9776;</button>
+  <span class="navsearch" role="search">
+   <input class="gsearch" type="search" placeholder="Search designs..." aria-label="Search all designs" autocomplete="off">
+   <span class="gs-ico" aria-hidden="true">&#128269;</span>
+  </span>
+  <button class="searchbtn" aria-label="Search designs"
+   onclick="var m=document.getElementById('ms');m.classList.toggle('open');var i=m.querySelector('input');if(m.classList.contains('open')&&i)i.focus()">&#128269;</button>
  </div>
+ <div class="mobsearch" id="ms"><span class="gs"><input class="gsearch" type="search"
+  placeholder="Search all 127 designs..." aria-label="Search all designs" autocomplete="off"></span></div>
  <div class="mobnav" id="mn">
   <a href="../">Home</a><a href="../collections/">All Collections</a><a href="../cleveland-browns-shirts/">Cleveland Browns Fan Shirts</a><a href="../green-bay-packers-shirts/">Green Bay Packers Fan Shirts</a><a href="../dallas-cowboys-shirts/">Dallas Vintage Sports Tees</a><a href="../michigan-wolverines-shirts/">Michigan Go Blue Apparel</a>
   <a href="../2026-season/">2026 Season Hub</a><a href="../fan-trend-index/">Fan Trend Index</a>
@@ -58,6 +65,20 @@
  <h1>All Football Fan Collections</h1>
  <p class="muted" style="max-width:70ch">Four team collections, 127 original designs. Each
  collection has its own colour palette, slang and artwork style - pick your side below.</p>
+ <section class="quickfind" id="quickfind"><div class="wrap">
+ <div class="qf-head reveal">
+  <span class="eyebrow"><span class="dot"></span> 127 designs &middot; live search</span>
+  <h2>Find A <span class="accentword">Design</span></h2>
+  <p>Search by player, slogan, team or garment - or tap a shortlist and you are in.</p>
+ </div>
+ <div class="qf-box reveal">
+  <span class="gs"><input class="gsearch" type="search"
+   placeholder='Try "Shedeur", "Dawg Pound", "hoodie" or "mug"'
+   aria-label="Search all designs" autocomplete="off"></span>
+  <div class="qf-chips"><a class="qf-chip" href="../search/">All designs <em>127</em></a>
+   <a class="qf-chip" style="--ca:#C8410B;--ca-ink:#9C3208;--ca-tint:#FDF3EE;--ca-2:#3B2415;--btn:#49a59c;--btn-h:#3a847d;--accent:#C8410B" href="../search/?t=cleveland-browns">Cleveland</a><a class="qf-chip" style="--ca:#1A6B47;--ca-ink:#155739;--ca-tint:#EFF6F2;--ca-2:#D8A21A;--btn:#49a59c;--btn-h:#3a847d;--accent:#1A6B47" href="../search/?t=green-bay-packers">Green Bay</a><a class="qf-chip" style="--ca:#2C4A72;--ca-ink:#26405F;--ca-tint:#F2F5F9;--ca-2:#97A6B8;--btn:#49a59c;--btn-h:#3a847d;--accent:#2C4A72" href="../search/?t=dallas-cowboys">Dallas</a><a class="qf-chip" style="--ca:#00274C;--ca-ink:#00274C;--ca-tint:#F2F5F9;--ca-2:#E8B800;--btn:#49a59c;--btn-h:#3a847d;--accent:#00274C" href="../search/?t=michigan">Michigan</a><a class="qf-chip" href="../search/?g=T-Shirt">T-Shirts <em>89</em></a><a class="qf-chip" href="../search/?g=Sweatshirt">Sweatshirts <em>25</em></a><a class="qf-chip" href="../search/?g=Hoodie">Hoodies <em>4</em></a><a class="qf-chip" href="../search/?g=Beanie">Beanies <em>3</em></a><a class="qf-chip" href="../search/?g=Phone Case">Phone Cases <em>3</em></a><a class="qf-chip hot" style="--ca:#C8410B;--ca-ink:#9C3208;--ca-tint:#FDF3EE;--ca-2:#3B2415;--btn:#49a59c;--btn-h:#3a847d;--accent:#C8410B" href="../search/?q=shedeur sanders">Shedeur Sanders <em>trending</em></a><a class="qf-chip hot" style="--ca:#00274C;--ca-ink:#00274C;--ca-tint:#F2F5F9;--ca-2:#E8B800;--btn:#49a59c;--btn-h:#3a847d;--accent:#00274C" href="../search/?q=bryce underwood">Bryce Underwood <em>trending</em></a><a class="qf-chip hot" style="--ca:#1A6B47;--ca-ink:#155739;--ca-tint:#EFF6F2;--ca-2:#D8A21A;--btn:#49a59c;--btn-h:#3a847d;--accent:#1A6B47" href="../search/?q=jordan love">Jordan Love <em>trending</em></a><a class="qf-chip hot" style="--ca:#C8410B;--ca-ink:#9C3208;--ca-tint:#FDF3EE;--ca-2:#3B2415;--btn:#49a59c;--btn-h:#3a847d;--accent:#C8410B" href="../search/?q=denzel ward">Denzel Ward <em>trending</em></a></div>
+ </div>
+</div></section>
  <h2 class="sr-only">Browse Collections</h2>
  <div class="teamcircles"><a class="teamcircle reveal" style="--ca:#C8410B;--ca-ink:#9C3208;--ca-tint:#FDF3EE;--ca-2:#3B2415;--btn:#49a59c;--btn-h:#3a847d;--accent:#C8410B" href="../cleveland-browns-shirts/"><span class="tportrait"><img src="../img/browns-logo1.webp?v=1" alt="" loading="lazy" decoding="async" width="160" height="160"></span><b class="tc-name">Cleveland Browns Fan Shirts</b><span class="tc-count">63 designs</span><span class="tc-go">Shop Cleveland <span aria-hidden="true">&rarr;</span></span></a><a class="teamcircle reveal" style="--ca:#1A6B47;--ca-ink:#155739;--ca-tint:#EFF6F2;--ca-2:#D8A21A;--btn:#49a59c;--btn-h:#3a847d;--accent:#1A6B47" href="../green-bay-packers-shirts/"><span class="tportrait"><img src="../img/green-bay-logo1.webp?v=1" alt="" loading="lazy" decoding="async" width="160" height="160"></span><b class="tc-name">Green Bay Packers Fan Shirts</b><span class="tc-count">37 designs</span><span class="tc-go">Shop Green Bay <span aria-hidden="true">&rarr;</span></span></a><a class="teamcircle reveal" style="--ca:#2C4A72;--ca-ink:#26405F;--ca-tint:#F2F5F9;--ca-2:#97A6B8;--btn:#49a59c;--btn-h:#3a847d;--accent:#2C4A72" href="../dallas-cowboys-shirts/"><span class="tportrait"><img src="../img/dallas-logo1.webp?v=1" alt="" loading="lazy" decoding="async" width="160" height="160"></span><b class="tc-name">Dallas Vintage Sports Tees</b><span class="tc-count">10 designs</span><span class="tc-go">Shop Dallas <span aria-hidden="true">&rarr;</span></span></a><a class="teamcircle reveal" style="--ca:#00274C;--ca-ink:#00274C;--ca-tint:#F2F5F9;--ca-2:#E8B800;--btn:#49a59c;--btn-h:#3a847d;--accent:#00274C" href="../michigan-wolverines-shirts/"><span class="tportrait"><img src="../img/michigan-logo1.webp?v=1" alt="" loading="lazy" decoding="async" width="160" height="160"></span><b class="tc-name">Michigan Go Blue Apparel</b><span class="tc-count">17 designs</span><span class="tc-go">Shop Michigan <span aria-hidden="true">&rarr;</span></span></a></div>
 </div></section>
@@ -68,7 +89,7 @@
    <p>Vintage-inspired football gear built for Saturdays in Ann Arbor - worn-in athletic prints, block lettering, classic maize and navy, timeless gridiron </p></div>
   <a class="link" href="../michigan-wolverines-shirts/">View all 17 Michigan designs &rarr;</a>
  </div>
- <div class="grid"><article class="card reveal" style="--ca:#00274C;--ca-ink:#00274C;--ca-tint:#F2F5F9;--ca-2:#E8B800;--btn:#49a59c;--btn-h:#3a847d;--accent:#00274C">
+ <div class="grid"><article class="card reveal" data-type="T-Shirt" data-team="michigan" style="--ca:#00274C;--ca-ink:#00274C;--ca-tint:#F2F5F9;--ca-2:#E8B800;--btn:#49a59c;--btn-h:#3a847d;--accent:#00274C">
  <a href="../shop/limited-edition-tee-0-01-1/" aria-label="Limited Edition 0-01 Michigan Tee">
   <div class="ph"><span class="tagpill">Classic</span><span class="glow"></span><span class="sweep"></span>
    <img src="../img/p/limited-edition-tee-0-01-1-front.webp" alt="Limited Edition 0-01 Michigan Tee - Limited Edition 0-01 graphic" width="530" height="630">
@@ -79,7 +100,7 @@
    <h3>Limited Edition 0-01 Michigan Tee</h3>
    <span class="price">$21.99</span>
   </div>
- </a></article><article class="card reveal" style="--ca:#00274C;--ca-ink:#00274C;--ca-tint:#F2F5F9;--ca-2:#E8B800;--btn:#49a59c;--btn-h:#3a847d;--accent:#00274C">
+ </a></article><article class="card reveal" data-type="T-Shirt" data-team="michigan" style="--ca:#00274C;--ca-ink:#00274C;--ca-tint:#F2F5F9;--ca-2:#E8B800;--btn:#49a59c;--btn-h:#3a847d;--accent:#00274C">
  <a href="../shop/second-act-qb19-limited-edition/" aria-label="Second Act QB19 Limited Edition Tee">
   <div class="ph"><span class="tagpill">Player</span><span class="glow"></span><span class="sweep"></span>
    <img src="../img/p/second-act-qb19-limited-edition-front.webp" alt="Second Act QB19 Limited Edition Tee - LIMITED EDITION QB19 SECOND ACT" width="530" height="630">
@@ -90,7 +111,7 @@
    <h3>Second Act QB19 Limited Edition Tee</h3>
    <span class="price">$21.99</span>
   </div>
- </a></article><article class="card reveal" style="--ca:#00274C;--ca-ink:#00274C;--ca-tint:#F2F5F9;--ca-2:#E8B800;--btn:#49a59c;--btn-h:#3a847d;--accent:#00274C">
+ </a></article><article class="card reveal" data-type="T-Shirt" data-team="michigan" style="--ca:#00274C;--ca-ink:#00274C;--ca-tint:#F2F5F9;--ca-2:#E8B800;--btn:#49a59c;--btn-h:#3a847d;--accent:#00274C">
  <a href="../shop/second-act-qb19-vintage-football-tee/" aria-label="Second Act QB19 Vintage Football Tee">
   <div class="ph"><span class="tagpill">Classic</span><span class="glow"></span><span class="sweep"></span>
    <img src="../img/p/second-act-qb19-vintage-football-tee-front.webp" alt="Second Act QB19 Vintage Football Tee - SECOND ACT QB19 VINTAGE FOOTBALL TEE" width="530" height="630">
@@ -101,7 +122,7 @@
    <h3>Second Act QB19 Vintage Football Tee</h3>
    <span class="price">$32.99</span>
   </div>
- </a></article><article class="card reveal" style="--ca:#00274C;--ca-ink:#00274C;--ca-tint:#F2F5F9;--ca-2:#E8B800;--btn:#49a59c;--btn-h:#3a847d;--accent:#00274C">
+ </a></article><article class="card reveal" data-type="T-Shirt" data-team="michigan" style="--ca:#00274C;--ca-ink:#00274C;--ca-tint:#F2F5F9;--ca-2:#E8B800;--btn:#49a59c;--btn-h:#3a847d;--accent:#00274C">
  <a href="../shop/limited-edition-second-act-qb19/" aria-label="Second Act QB19 Michigan Tee">
   <div class="ph"><span class="tagpill hot">Trending</span><span class="glow"></span><span class="sweep"></span>
    <img src="../img/p/limited-edition-second-act-qb19-front.webp" alt="Second Act QB19 Michigan Tee - SECOND ACT QB19 - the Underwood era in Ann Arbor" width="530" height="630">
@@ -119,7 +140,7 @@
    <p>Orange and brown Dawg Pound apparel - bulldog graphics, Cleveland skylines, playoff slogans and quarterback tributes, printed on tees, hoodies, crewne</p></div>
   <a class="link" href="../cleveland-browns-shirts/">View all 63 Cleveland designs &rarr;</a>
  </div>
- <div class="grid"><article class="card reveal" style="--ca:#C8410B;--ca-ink:#9C3208;--ca-tint:#FDF3EE;--ca-2:#3B2415;--btn:#49a59c;--btn-h:#3a847d;--accent:#C8410B">
+ <div class="grid"><article class="card reveal" data-type="T-Shirt" data-team="cleveland-browns" style="--ca:#C8410B;--ca-ink:#9C3208;--ca-tint:#FDF3EE;--ca-2:#3B2415;--btn:#49a59c;--btn-h:#3a847d;--accent:#C8410B">
  <a href="../shop/limited-edition-the-wall-graham/" aria-label="The Wall Graham Browns Shirt">
   <div class="ph"><span class="tagpill">Player</span><span class="glow"></span><span class="sweep"></span>
    <img src="../img/p/limited-edition-the-wall-graham-front.webp" alt="The Wall Graham Browns Shirt - THE WALL - MASON GRAHAM 94" width="530" height="630">
@@ -130,7 +151,7 @@
    <h3>The Wall Graham Browns Shirt</h3>
    <span class="price">$21.99</span>
   </div>
- </a></article><article class="card reveal" style="--ca:#C8410B;--ca-ink:#9C3208;--ca-tint:#FDF3EE;--ca-2:#3B2415;--btn:#49a59c;--btn-h:#3a847d;--accent:#C8410B">
+ </a></article><article class="card reveal" data-type="T-Shirt" data-team="cleveland-browns" style="--ca:#C8410B;--ca-ink:#9C3208;--ca-tint:#FDF3EE;--ca-2:#3B2415;--btn:#49a59c;--btn-h:#3a847d;--accent:#C8410B">
  <a href="../shop/limited-edition-rock-out-denzel/" aria-label="Denzel Ward Rock Out Browns Shirt">
   <div class="ph"><span class="tagpill">Player</span><span class="glow"></span><span class="sweep"></span>
    <img src="../img/p/limited-edition-rock-out-denzel-front.webp" alt="Denzel Ward Rock Out Browns Shirt - ROCK OUT - DENZEL WARD 21" width="530" height="630">
@@ -141,7 +162,7 @@
    <h3>Denzel Ward Rock Out Browns Shirt</h3>
    <span class="price">$21.99</span>
   </div>
- </a></article><article class="card reveal" style="--ca:#C8410B;--ca-ink:#9C3208;--ca-tint:#FDF3EE;--ca-2:#3B2415;--btn:#49a59c;--btn-h:#3a847d;--accent:#C8410B">
+ </a></article><article class="card reveal" data-type="T-Shirt" data-team="cleveland-browns" style="--ca:#C8410B;--ca-ink:#9C3208;--ca-tint:#FDF3EE;--ca-2:#3B2415;--btn:#49a59c;--btn-h:#3a847d;--accent:#C8410B">
  <a href="../shop/limited-edition-no-fly-zone-denzel/" aria-label="No Fly Zone Denzel Ward Browns Shirt">
   <div class="ph"><span class="tagpill">Player</span><span class="glow"></span><span class="sweep"></span>
    <img src="../img/p/limited-edition-no-fly-zone-denzel-front.webp" alt="No Fly Zone Denzel Ward Browns Shirt - NO FLY ZONE - DENZEL WARD 21" width="530" height="630">
@@ -152,7 +173,7 @@
    <h3>No Fly Zone Denzel Ward Browns Shirt</h3>
    <span class="price">$21.99</span>
   </div>
- </a></article><article class="card reveal" style="--ca:#C8410B;--ca-ink:#9C3208;--ca-tint:#FDF3EE;--ca-2:#3B2415;--btn:#49a59c;--btn-h:#3a847d;--accent:#C8410B">
+ </a></article><article class="card reveal" data-type="T-Shirt" data-team="cleveland-browns" style="--ca:#C8410B;--ca-ink:#9C3208;--ca-tint:#FDF3EE;--ca-2:#3B2415;--btn:#49a59c;--btn-h:#3a847d;--accent:#C8410B">
  <a href="../shop/sanders-the-next-level/" aria-label="Shedeur Sanders The Next Level Shirt">
   <div class="ph"><span class="tagpill hot">Trending</span><span class="glow"></span><span class="sweep"></span>
    <img src="../img/p/sanders-the-next-level-front.webp" alt="Shedeur Sanders The Next Level Shirt - SANDERS - THE NEXT LEVEL" width="530" height="630">
@@ -170,7 +191,7 @@
    <p>Green and gold for the frozen tundra faithful - cheesehead humour, Lambeau tributes, EST 1919 crests and Go Pack Go scripts on tees, hoodies and crewn</p></div>
   <a class="link" href="../green-bay-packers-shirts/">View all 37 Green Bay designs &rarr;</a>
  </div>
- <div class="grid"><article class="card reveal" style="--ca:#1A6B47;--ca-ink:#155739;--ca-tint:#EFF6F2;--ca-2:#D8A21A;--btn:#49a59c;--btn-h:#3a847d;--accent:#1A6B47">
+ <div class="grid"><article class="card reveal" data-type="T-Shirt" data-team="green-bay-packers" style="--ca:#1A6B47;--ca-ink:#155739;--ca-tint:#EFF6F2;--ca-2:#D8A21A;--btn:#49a59c;--btn-h:#3a847d;--accent:#1A6B47">
  <a href="../shop/limited-edition-grb41/" aria-label="Limited Edition GRB41">
   <div class="ph"><span class="tagpill">Classic</span><span class="glow"></span><span class="sweep"></span>
    <img src="../img/p/limited-edition-grb41-front.webp" alt="Limited Edition GRB41 - LIMITED EDITION GRB41" width="530" height="630">
@@ -181,7 +202,7 @@
    <h3>Limited Edition GRB41</h3>
    <span class="price">$24.99</span>
   </div>
- </a></article><article class="card reveal" style="--ca:#1A6B47;--ca-ink:#155739;--ca-tint:#EFF6F2;--ca-2:#D8A21A;--btn:#49a59c;--btn-h:#3a847d;--accent:#1A6B47">
+ </a></article><article class="card reveal" data-type="T-Shirt" data-team="green-bay-packers" style="--ca:#1A6B47;--ca-ink:#155739;--ca-tint:#EFF6F2;--ca-2:#D8A21A;--btn:#49a59c;--btn-h:#3a847d;--accent:#1A6B47">
  <a href="../shop/limited-edition-grb37/" aria-label="This Girl Loves The Pack Shirt">
   <div class="ph"><span class="tagpill">Gift</span><span class="glow"></span><span class="sweep"></span>
    <img src="../img/p/limited-edition-grb37-front.webp" alt="This Girl Loves The Pack Shirt - THIS GIRL LOVES THE PACK with crown and hands" width="530" height="630">
@@ -192,7 +213,7 @@
    <h3>This Girl Loves The Pack Shirt</h3>
    <span class="price">$24.99</span>
   </div>
- </a></article><article class="card reveal" style="--ca:#1A6B47;--ca-ink:#155739;--ca-tint:#EFF6F2;--ca-2:#D8A21A;--btn:#49a59c;--btn-h:#3a847d;--accent:#1A6B47">
+ </a></article><article class="card reveal" data-type="T-Shirt" data-team="green-bay-packers" style="--ca:#1A6B47;--ca-ink:#155739;--ca-tint:#EFF6F2;--ca-2:#D8A21A;--btn:#49a59c;--btn-h:#3a847d;--accent:#1A6B47">
  <a href="../shop/limited-edition-grb36/" aria-label="Jordan Love 10 Flag Number Shirt">
   <div class="ph"><span class="tagpill">Player</span><span class="glow"></span><span class="sweep"></span>
    <img src="../img/p/limited-edition-grb36-front.webp" alt="Jordan Love 10 Flag Number Shirt - Player with a stars and stripes number 10" width="530" height="630">
@@ -203,7 +224,7 @@
    <h3>Jordan Love 10 Flag Number Shirt</h3>
    <span class="price">$24.99</span>
   </div>
- </a></article><article class="card reveal" style="--ca:#1A6B47;--ca-ink:#155739;--ca-tint:#EFF6F2;--ca-2:#D8A21A;--btn:#49a59c;--btn-h:#3a847d;--accent:#1A6B47">
+ </a></article><article class="card reveal" data-type="Mug" data-team="green-bay-packers" style="--ca:#1A6B47;--ca-ink:#155739;--ca-tint:#EFF6F2;--ca-2:#D8A21A;--btn:#49a59c;--btn-h:#3a847d;--accent:#1A6B47">
  <a href="../shop/limited-edition-grb35/" aria-label="Cheese Heart Green Bay Mug">
   <div class="ph"><span class="tagpill">Funny</span><span class="glow"></span><span class="sweep"></span>
    <img src="../img/p/limited-edition-grb35-front.webp" alt="Cheese Heart Green Bay Mug - Cheese wedge heart on a black mug" width="530" height="630">
@@ -221,7 +242,7 @@
    <p>Celebrate your pride for the city with classic vintage-style designs - worn-in athletic prints, star-city lettering and Texas pride, for game days and</p></div>
   <a class="link" href="../dallas-cowboys-shirts/">View all 10 Dallas designs &rarr;</a>
  </div>
- <div class="grid"><article class="card reveal" style="--ca:#2C4A72;--ca-ink:#26405F;--ca-tint:#F2F5F9;--ca-2:#97A6B8;--btn:#49a59c;--btn-h:#3a847d;--accent:#2C4A72">
+ <div class="grid"><article class="card reveal" data-type="T-Shirt" data-team="dallas-cowboys" style="--ca:#2C4A72;--ca-ink:#26405F;--ca-tint:#F2F5F9;--ca-2:#97A6B8;--btn:#49a59c;--btn-h:#3a847d;--accent:#2C4A72">
  <a href="../shop/doomsday-defense-tee/" aria-label="Doomsday Defense Dallas Football Shirt">
   <div class="ph"><span class="tagpill">Vintage</span><span class="glow"></span><span class="sweep"></span>
    <img src="../img/p/doomsday-defense-tee-front.webp" alt="Doomsday Defense Dallas Football Shirt - DOOMSDAY DEFENSE with skull in a retro helmet and stars" width="530" height="630">
@@ -232,7 +253,7 @@
    <h3>Doomsday Defense Dallas Football Shirt</h3>
    <span class="price">$21.99</span>
   </div>
- </a></article><article class="card reveal" style="--ca:#2C4A72;--ca-ink:#26405F;--ca-tint:#F2F5F9;--ca-2:#97A6B8;--btn:#49a59c;--btn-h:#3a847d;--accent:#2C4A72">
+ </a></article><article class="card reveal" data-type="T-Shirt" data-team="dallas-cowboys" style="--ca:#2C4A72;--ca-ink:#26405F;--ca-tint:#F2F5F9;--ca-2:#97A6B8;--btn:#49a59c;--btn-h:#3a847d;--accent:#2C4A72">
  <a href="../shop/girly-vintage-texas-pride/" aria-label="This Girl Loves Cowboys Women&#x27;s Shirt">
   <div class="ph"><span class="tagpill">Gift</span><span class="glow"></span><span class="sweep"></span>
    <img src="../img/p/girly-vintage-texas-pride-front.webp" alt="This Girl Loves Cowboys Women&#x27;s Shirt - THIS GIRL LOVES COWBOYS with football and stars" width="530" height="630">
@@ -243,7 +264,7 @@
    <h3>This Girl Loves Cowboys Women&#x27;s Shirt</h3>
    <span class="price">$21.99</span>
   </div>
- </a></article><article class="card reveal" style="--ca:#2C4A72;--ca-ink:#26405F;--ca-tint:#F2F5F9;--ca-2:#97A6B8;--btn:#49a59c;--btn-h:#3a847d;--accent:#2C4A72">
+ </a></article><article class="card reveal" data-type="T-Shirt" data-team="dallas-cowboys" style="--ca:#2C4A72;--ca-ink:#26405F;--ca-tint:#F2F5F9;--ca-2:#97A6B8;--btn:#49a59c;--btn-h:#3a847d;--accent:#2C4A72">
  <a href="../shop/dallas-football-vintage-style-tee/" aria-label="Dallas Football Star Lightning Vintage Shirt">
   <div class="ph"><span class="tagpill">Vintage</span><span class="glow"></span><span class="sweep"></span>
    <img src="../img/p/dallas-football-vintage-style-tee-front.webp" alt="Dallas Football Star Lightning Vintage Shirt - DALLAS FOOTBALL with star, lightning bolts and football" width="530" height="630">
@@ -254,7 +275,7 @@
    <h3>Dallas Football Star Lightning Vintage Shirt</h3>
    <span class="price">$21.99</span>
   </div>
- </a></article><article class="card reveal" style="--ca:#2C4A72;--ca-ink:#26405F;--ca-tint:#F2F5F9;--ca-2:#97A6B8;--btn:#49a59c;--btn-h:#3a847d;--accent:#2C4A72">
+ </a></article><article class="card reveal" data-type="T-Shirt" data-team="dallas-cowboys" style="--ca:#2C4A72;--ca-ink:#26405F;--ca-tint:#F2F5F9;--ca-2:#97A6B8;--btn:#49a59c;--btn-h:#3a847d;--accent:#2C4A72">
  <a href="../shop/dallas-football-vintage-athletic-style-f/" aria-label="Dallas Football 1960 Helmet Vintage Shirt">
   <div class="ph"><span class="tagpill">Vintage</span><span class="glow"></span><span class="sweep"></span>
    <img src="../img/p/dallas-football-vintage-athletic-style-f-front.webp" alt="Dallas Football 1960 Helmet Vintage Shirt - DALLAS FOOTBALL 1960 DALLAS, TEXAS with retro helmet" width="530" height="630">
@@ -267,7 +288,9 @@
   </div>
  </a></article></div>
 </div></section>
-</div></main>
+</div>
+<button class="findpill" id="findpill" data-target="#quickfind" aria-label="Find a design">
+ <span aria-hidden="true">&#128269;</span> Find your design</button></main>
 <footer>
  <div class="wrap">
   <div class="fgrid">
