@@ -274,6 +274,23 @@ Result: 3 Trending, 29 Throwback, 102 neutral - and it flags **product gaps**: n
 the news that you have no design for. That is your product roadmap, generated for you every day in
 `trend-report.md` (also uploaded as a workflow artifact).
 
+### Who's-who gate in the marketing engine (8 Sep 2026)
+
+The trend pipeline tags, but tagging is not enough: after the Myles Garrett trade his name *trended*,
+so his delisted designs scored their way into the top-24 live drops and 18 of 60 Pinterest pins -
+all linking to product pages that had been removed on 2 Sep ("Shop This Drop" → 404). The marketing
+engine now enforces the rule instead of merely demoting it:
+
+- `marketing/plan.py` and `marketing/live_engine.py` **hard-skip every slug in `data/delisted.json`**
+  when building the queue - delisted designs can no longer appear in the plan, the calendar,
+  `/drops/`, the Pinterest feed, or the three-day pulse, no matter how hard they trend.
+- `marketing/copy_vault.py` never uses a headline that names a throwback person as a caption hook
+  (the trade story was the #1 Cleveland headline), so current products' captions stay clean too.
+- `src/drops_page.py` and the drops ItemList schema in `src/build.py` drop any entry whose product
+  page is not in the built catalogue - a stale `live_drops.json` can never publish a dead link.
+- `refresh.yml` now runs `marketing/live_engine.py` in the daily build, so `/drops/` and the
+  Pinterest feed regenerate twice a day instead of only on manual runs.
+
 **Manual override:** create `data/trend_overrides.json` like
 `{"some-product-slug": "hot"}` to force a tag regardless of the news.
 
