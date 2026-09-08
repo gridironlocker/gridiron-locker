@@ -2,24 +2,24 @@
  "generated": "2026-09-08",
  "window_days": 10,
  "fti_formula": "round(100 * entity_mentions / peak_mentions_in_window)",
- "peak_mentions": 22,
+ "peak_mentions": 27,
  "stats": {
   "products": 127,
   "collections": 4,
   "images": 969,
   "avg_price": 26.21,
   "hot": 5,
-  "throwback": 13,
-  "steady": 109,
-  "gaps": 6,
-  "moments": 2,
+  "throwback": 4,
+  "steady": 118,
+  "gaps": 5,
+  "moments": 3,
   "tracked_names": 18,
   "dead_campaigns": 5
  },
  "fti_rows": [
   {
    "name": "deshaun watson",
-   "mentions": 22,
+   "mentions": 27,
    "index": 100,
    "status": "trending",
    "gap": true,
@@ -28,35 +28,35 @@
   },
   {
    "name": "shedeur sanders",
-   "mentions": 20,
-   "index": 91,
+   "mentions": 24,
+   "index": 89,
    "status": "trending",
    "gap": false,
    "shoppable": true,
    "collection": "cleveland-browns"
   },
   {
-   "name": "josh jacobs",
-   "mentions": 15,
-   "index": 68,
-   "status": "trending",
-   "gap": true,
-   "shoppable": false,
-   "collection": "green-bay-packers"
-  },
-  {
    "name": "bryce underwood",
-   "mentions": 10,
-   "index": 45,
+   "mentions": 17,
+   "index": 63,
    "status": "trending",
    "gap": false,
    "shoppable": true,
    "collection": "michigan"
   },
   {
+   "name": "josh jacobs",
+   "mentions": 13,
+   "index": 48,
+   "status": "trending",
+   "gap": true,
+   "shoppable": false,
+   "collection": "green-bay-packers"
+  },
+  {
    "name": "kyle whittingham",
-   "mentions": 10,
-   "index": 45,
+   "mentions": 12,
+   "index": 44,
    "status": "trending",
    "gap": true,
    "shoppable": false,
@@ -65,61 +65,61 @@
   {
    "name": "todd monken",
    "mentions": 10,
-   "index": 45,
+   "index": 37,
    "status": "trending",
    "gap": true,
    "shoppable": false,
    "collection": "cleveland-browns"
   },
   {
-   "name": "micah parsons",
-   "mentions": 8,
-   "index": 36,
-   "status": "trending",
-   "gap": false,
-   "shoppable": true,
-   "collection": "green-bay-packers"
-  },
-  {
    "name": "dak prescott",
    "mentions": 6,
-   "index": 27,
+   "index": 22,
    "status": "trending",
    "gap": true,
    "shoppable": false,
    "collection": "dallas-cowboys"
   },
   {
+   "name": "micah parsons",
+   "mentions": 6,
+   "index": 22,
+   "status": "trending",
+   "gap": false,
+   "shoppable": true,
+   "collection": "green-bay-packers"
+  },
+  {
    "name": "myles garrett",
-   "mentions": 4,
-   "index": 18,
+   "mentions": 6,
+   "index": 22,
    "status": "trending",
    "gap": false,
    "shoppable": true,
    "collection": "cleveland-browns"
   },
   {
-   "name": "matt lafleur",
-   "mentions": 3,
-   "index": 14,
-   "status": "trending",
-   "gap": true,
-   "shoppable": false,
-   "collection": "green-bay-packers"
-  },
-  {
    "name": "ceedee lamb",
    "mentions": 2,
-   "index": 9,
+   "index": 7,
    "status": "steady",
    "gap": false,
    "shoppable": false,
    "collection": "dallas-cowboys"
   },
   {
+   "name": "jordan love",
+   "mentions": 1,
+   "index": 4,
+   "status": "steady",
+   "gap": false,
+   "shoppable": true,
+   "collection": "green-bay-packers"
+  },
+  {
    "name": "kevin stefanski",
    "mentions": 1,
-   "index": 5,
+   "index": 4,
    "status": "steady",
    "gap": false,
    "shoppable": true,
@@ -153,15 +153,6 @@
    "collection": "cleveland-browns"
   },
   {
-   "name": "jordan love",
-   "mentions": 0,
-   "index": 0,
-   "status": "quiet",
-   "gap": false,
-   "shoppable": true,
-   "collection": "green-bay-packers"
-  },
-  {
    "name": "jordan marshall",
    "mentions": 0,
    "index": 0,
@@ -169,6 +160,15 @@
    "gap": false,
    "shoppable": false,
    "collection": "michigan"
+  },
+  {
+   "name": "matt lafleur",
+   "mentions": 0,
+   "index": 0,
+   "status": "quiet",
+   "gap": false,
+   "shoppable": false,
+   "collection": "green-bay-packers"
   },
   {
    "name": "robert tonyan",
@@ -183,7 +183,7 @@
  "gaps": [
   {
    "name": "deshaun watson",
-   "mentions": 22,
+   "mentions": 27,
    "index": 100,
    "status": "trending",
    "gap": true,
@@ -192,8 +192,8 @@
   },
   {
    "name": "josh jacobs",
-   "mentions": 15,
-   "index": 68,
+   "mentions": 13,
+   "index": 48,
    "status": "trending",
    "gap": true,
    "shoppable": false,
@@ -201,8 +201,8 @@
   },
   {
    "name": "kyle whittingham",
-   "mentions": 10,
-   "index": 45,
+   "mentions": 12,
+   "index": 44,
    "status": "trending",
    "gap": true,
    "shoppable": false,
@@ -211,7 +211,7 @@
   {
    "name": "todd monken",
    "mentions": 10,
-   "index": 45,
+   "index": 37,
    "status": "trending",
    "gap": true,
    "shoppable": false,
@@ -220,20 +220,11 @@
   {
    "name": "dak prescott",
    "mentions": 6,
-   "index": 27,
+   "index": 22,
    "status": "trending",
    "gap": true,
    "shoppable": false,
    "collection": "dallas-cowboys"
-  },
-  {
-   "name": "matt lafleur",
-   "mentions": 3,
-   "index": 14,
-   "status": "trending",
-   "gap": true,
-   "shoppable": false,
-   "collection": "green-bay-packers"
   }
  ],
  "collections": [
@@ -250,7 +241,7 @@
    "gaps": [
     {
      "name": "deshaun watson",
-     "mentions": 22,
+     "mentions": 27,
      "index": 100,
      "status": "trending",
      "gap": true,
@@ -260,7 +251,7 @@
     {
      "name": "todd monken",
      "mentions": 10,
-     "index": 45,
+     "index": 37,
      "status": "trending",
      "gap": true,
      "shoppable": false,
@@ -271,11 +262,11 @@
     "browns",
     "cleveland",
     "watson",
-    "roster",
-    "todd",
-    "monken",
+    "deshaun",
     "shedeur",
-    "sanders"
+    "sanders",
+    "todd",
+    "monken"
    ],
    "headline_count": 100,
    "headlines": [
@@ -286,10 +277,10 @@
      "pub": "Sun, 30 Aug 2026 07:00:00 GMT"
     },
     {
-     "title": "Cleveland Browns set initial 53-man roster",
-     "url": "https://news.google.com/rss/articles/CBMic0FVX3lxTE9ZMDZVVmNSem5BQ09qS25wU2N2SG56NnV3SUVPbF9XdnJ1bGxhZ3BfX3lEMHoxYTNoZ280Mi04dmhIallUbDBVZXVzVVNnUGFYVkhXYzFPNmN5MklFZU1lLTl1ankxR3pPa1J6c1d5ci1NQmPSAXhBVV95cUxOYkxibGJaZWdwNWtYdXhIaE1xUmNpSl82VkV1SU1fanV5MVVzRFV6M2dHOXlrR0cyQmtOTzU3c0E2RjhUU1FxUWJ1SnhZQ3NDVlROSTBqVER1cWxOSWJwOWFjdWFFd3hYeGFlV3ZrekpUb1MzQnZtcmw?oc=5",
-     "source": "FOX 8 News",
-     "pub": "Sun, 30 Aug 2026 07:00:00 GMT"
+     "title": "Cleveland Browns have a strategy that may just be crazy enough to work",
+     "url": "https://news.google.com/rss/articles/CBMizgFBVV95cUxOR2xkSGFFZlJkVHpxWi03RU1hSmZJQVFwZlVkRkw3cTdpZU53SFI5TGN6cy1zU3E3elZsX0kzSnhETF9jeHVva1NBY0EtVkZOaC1tY3VTM2lkNDlaOUdESFBLaThJM1pkTUdXSk1RUFZXVmVQRUJqVzFvQVZOcTBBNTR0VTdma0xFTkpmUkQ3b1pkUFhJT3ZWWUtsV0NMUmFCd2FoUGFvaVFHUjdfZnpLMzdKQ0VuYWZEWlNYa3F1ajU0bTF3ZkdHbS1TV0EwQQ?oc=5",
+     "source": "Dawgs By Nature",
+     "pub": "Wed, 02 Sep 2026 23:10:52 GMT"
     },
     {
      "title": "Would the Browns consider throwing the ball to QB Taylen Green? The surprise of camp re-signed to the practic",
@@ -298,10 +289,10 @@
      "pub": "Fri, 04 Sep 2026 12:16:00 GMT"
     },
     {
-     "title": "Cleveland Browns have a strategy that may just be crazy enough to work",
-     "url": "https://news.google.com/rss/articles/CBMizgFBVV95cUxOR2xkSGFFZlJkVHpxWi03RU1hSmZJQVFwZlVkRkw3cTdpZU53SFI5TGN6cy1zU3E3elZsX0kzSnhETF9jeHVva1NBY0EtVkZOaC1tY3VTM2lkNDlaOUdESFBLaThJM1pkTUdXSk1RUFZXVmVQRUJqVzFvQVZOcTBBNTR0VTdma0xFTkpmUkQ3b1pkUFhJT3ZWWUtsV0NMUmFCd2FoUGFvaVFHUjdfZnpLMzdKQ0VuYWZEWlNYa3F1ajU0bTF3ZkdHbS1TV0EwQQ?oc=5",
-     "source": "Dawgs By Nature",
-     "pub": "Wed, 02 Sep 2026 23:10:52 GMT"
+     "title": "Life without Myles Garrett: What to expect from Browns defense",
+     "url": "https://news.google.com/rss/articles/CBMisgFBVV95cUxPVUVCMzBkUjNNaV85Mkdic0xwS2k2S25fSHNaUWVyQ3dvcmYxX0JEdWtYdnN4OGcyQlhSekZrdnNwUFNXTkFJNWdQdXltb3ZQQWZXWWlDVkZXYlNNVHdRMF9WUlh1ci1uWlRxM3ZmbkVoRU5lRFRKWW9WdkMwR1ZJa3prSkk1YVhBbDZGOFNqOU0tNW4taUNTZ0hCbVZnMG5xZkRNV0xGNVhCNzl3RVV6aDlR?oc=5",
+     "source": "espn.com",
+     "pub": "Wed, 02 Sep 2026 10:00:00 GMT"
     },
     {
      "title": "Cleveland Browns reset under Todd Monken after trading Myles Garrett and parting with Stefanski",
@@ -326,7 +317,7 @@
     {
      "name": "dak prescott",
      "mentions": 6,
-     "index": 27,
+     "index": 22,
      "status": "trending",
      "gap": true,
      "shoppable": false,
@@ -337,11 +328,11 @@
     "cowboys",
     "dallas",
     "milton",
+    "jones",
     "practice",
     "squad",
-    "jones",
-    "roster",
-    "mailbag"
+    "mailbag",
+    "trade"
    ],
    "headline_count": 100,
    "headlines": [
@@ -387,21 +378,12 @@
    "products": 37,
    "avg_price": 25.18,
    "hot": 0,
-   "throwback": 9,
+   "throwback": 0,
    "gaps": [
     {
      "name": "josh jacobs",
-     "mentions": 15,
-     "index": 68,
-     "status": "trending",
-     "gap": true,
-     "shoppable": false,
-     "collection": "green-bay-packers"
-    },
-    {
-     "name": "matt lafleur",
-     "mentions": 3,
-     "index": 14,
+     "mentions": 13,
+     "index": 48,
      "status": "trending",
      "gap": true,
      "shoppable": false,
@@ -411,11 +393,11 @@
    "top_terms": [
     "packers",
     "green",
-    "josh",
-    "jacobs",
     "september",
     "south",
     "america",
+    "josh",
+    "jacobs",
     "trade"
    ],
    "headline_count": 100,
@@ -439,10 +421,10 @@
      "pub": "Sat, 05 Sep 2026 13:40:53 GMT"
     },
     {
-     "title": "Three new Packers players are making an impression in Green Bay",
-     "url": "https://news.google.com/rss/articles/CBMiuAFBVV95cUxQZ1NvTzVwR3VIN2U2SDVnRld2U0F6cTFfQXg2TzFyTGhNQTl3bmdTbkkzaU80OHp0X3pFRW1vYWZZWjRJWVlVSThWcklmTjdoOTZyMkNQYTdhSUpuUXRISUw0WkxUTmFaNGd1R0VYSDdtOFdHc3BWYktGeDIzZlhxVVRPVzBVaURkZFpqRkM4Ujdhd0h6OVg4NVJNNjdOUVk5V2szcXQ4anRQZDVJY01sVlNjRDJ4cERH?oc=5",
-     "source": "acmepackingcompany.com",
-     "pub": "Wed, 02 Sep 2026 14:12:01 GMT"
+     "title": "Packers Film Review: TE Mark Redman",
+     "url": "https://news.google.com/rss/articles/CBMipAFBVV95cUxNVWliV2lXTjV2WS1BYmpxTTV1cjBBZHBEQ0dubmdySG9jUGU2UkFZMDhTQ3VjWGlKazNWYk92VVcxWG1nX0g2QjVRT3lxWUVURGFkS3ZWN3pvMGhfT19KWWxBOU1jQVBYaVl5RUpxelJTQ2ZvejBLcXBNU3dtM3dxRlF0QkcteFFsT3JreTdzQjVra3Byd2dVdTB6VG5NWXptWm0wTw?oc=5",
+     "source": "Acme Packing Company",
+     "pub": "Tue, 01 Sep 2026 17:26:19 GMT"
     },
     {
      "title": "Packers trade for Steelers RB Kaleb Johnson as Josh Jacobs lands on Commissioner's Exempt List",
@@ -466,8 +448,8 @@
    "gaps": [
     {
      "name": "kyle whittingham",
-     "mentions": 10,
-     "index": 45,
+     "mentions": 12,
+     "index": 44,
      "status": "trending",
      "gap": true,
      "shoppable": false,
@@ -478,8 +460,8 @@
     "michigan",
     "football",
     "western",
-    "mary",
     "hail",
+    "mary",
     "wolverines",
     "second",
     "whittingham"
@@ -505,16 +487,16 @@
      "pub": "Sun, 06 Sep 2026 02:49:51 GMT"
     },
     {
-     "title": "How to watch Michigan vs Western Michigan: Live stream College Football, NCAA, TV channel",
-     "url": "https://news.google.com/rss/articles/CBMiiwFBVV95cUxOMWpkVFgwUGZPY1NJazVaNGtGR1FQaE1XRFlzN1BPemZYMkliT1NMdjBvS19US294M1ZuVkM4d1dzMkNRTnZVczlXSFp3SVNaVHR6UWNfMUx2TUFYNGg0bjdjNDY3VzA4enJQTm1kenJENjNMN0lrMGdkT3lGRXFzZDM3SGhhbDVSeWl3?oc=5",
-     "source": "Yahoo Sports",
-     "pub": "Sat, 05 Sep 2026 22:45:00 GMT"
-    },
-    {
      "title": "Football Opens 2026 Season at No. 16 Michigan",
      "url": "https://news.google.com/rss/articles/CBMijwFBVV95cUxNZGtsbHRyQ1lRSFBaek1LOFBZWlJmeVFZU2tsOWlCZjVVNDFCV3ZKYUNyMDk3ekNvX2xUbHllY0h3QTk3U1hqS0ZWYTFXTXlpblBiRWRNWTROLU9sMjlGRXZwcHM3THNDdGNsWkhSVy00akt1bzZRUXdObjJUNzk3U3c1QjQycFBaa3F1dzJaOA?oc=5",
      "source": "Western Michigan University Athletics",
      "pub": "Thu, 03 Sep 2026 16:04:02 GMT"
+    },
+    {
+     "title": "Clock controversy allows Michigan Wolverines to avoid massive upset against Western Michigan | OutKick",
+     "url": "https://news.google.com/rss/articles/CBMixwFBVV95cUxOS0h1S1dGMTljem5fLXY1SlRLdm1WUHJoQVV5eXNGSnRaVVZWUWRwdHRua2lRUDVOMnJJdDBpdC0xOW10N1pONzBlWDByZ1BrSmNlMy1BZzZJZWxacWxRaVpiUUp1ZTRpN1lRalRzWGc0MWpOSlJqTnVXMm1GdkpXVGNqTF9xeVpsVnBxNnF1Q1MtZDN0QzEzQWJ0Y3JHYUg4OWNtYVNVdEs0a3UwdTcyQmNVcnNhUEZXemE0bTBrZlJCWmc4dWtZ?oc=5",
+     "source": "Fox News",
+     "pub": "Sun, 06 Sep 2026 03:28:10 GMT"
     }
    ],
    "fti_count": 4
@@ -548,6 +530,16 @@
   }
  ],
  "moments": [
+  {
+   "title": "Life without Myles Garrett: What to expect from Browns defense",
+   "url": "https://news.google.com/rss/articles/CBMisgFBVV95cUxPVUVCMzBkUjNNaV85Mkdic0xwS2k2S25fSHNaUWVyQ3dvcmYxX0JEdWtYdnN4OGcyQlhSekZrdnNwUFNXTkFJNWdQdXltb3ZQQWZXWWlDVkZXYlNNVHdRMF9WUlh1ci1uWlRxM3ZmbkVoRU5lRFRKWW9WdkMwR1ZJa3prSkk1YVhBbDZGOFNqOU0tNW4taUNTZ0hCbVZnMG5xZkRNV0xGNVhCNzl3RVV6aDlR?oc=5",
+   "source": "espn.com",
+   "pub": "Wed, 02 Sep 2026 10:00:00 GMT",
+   "collection": "cleveland-browns",
+   "entities": [
+    "myles garrett"
+   ]
+  },
   {
    "title": "Cleveland Browns reset under Todd Monken after trading Myles Garrett and parting with Stefanski",
    "url": "https://news.google.com/rss/articles/CBMiswFBVV95cUxPWlJBaEphNEoxVC1BX0d1MWtyOUNHb1VTTlpPNFo5eVpZTVc5Y1B5MXdCX3hKeHFMQTRmdmdSQ2JjZlRncG1qSEdiejN2MDE3bUNuZmtPSTZxcHFFM1FPcGwwbFB5TzEteU1HcUlVRW1QaWx1RkxLck9HdE1TRGd0NGVrMnEwMDRTWlZPMFJuZzRaS0d0QVd2bE43T1dETjdLdEZTZzJXeHJqYV9YV0NpT19TYw?oc=5",
