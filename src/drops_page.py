@@ -108,8 +108,8 @@ def page_drops_html(collections, order, model_lookup):
 
     body = f"""
 <main id="main">
-<section class="cbanner compact" style="padding:0">
- <div class="band"><img src="/img/hero-home.jpg?v=3" alt="Live drops" width="1933" height="814" fetchpriority="high"></div>
+<section class="cbanner compact homeband" style="padding:0">
+ <div class="band"><img src="/img/hero-home.jpg?v=4" alt="Live drops" width="1983" height="793" fetchpriority="high"></div>
  <div class="cb-in">
   <span class="eyebrow"><span class="dot"></span> Live · updated {esc(generated)} · trends from {esc(str(trends_date))}</span>
   <h1>Today's <span class="accentword">Trending Drops</span></h1>

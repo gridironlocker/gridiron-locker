@@ -230,15 +230,21 @@ class TeamCollectionPages(unittest.TestCase):
         self.assertIn("aspect-ratio:1933/813", comp)
 
     def test_hero_bands_are_uncropped(self):
-        # Each banner band matches its art's native ratio (home 1933x814,
+        # Each banner band matches its art's native ratio (home 1983x793,
         # teams 1933x813) at every breakpoint so the full banner shows and
         # none of them get cropped to a 16:9 box or a wide strip.
         base = css_block(self.css, ".cbanner .band")
-        self.assertIn("aspect-ratio:1933/814", base)
+        self.assertIn("aspect-ratio:1983/793", base)
         comp = css_block(self.css, ".cbanner.compact .band")
         self.assertIn("aspect-ratio:1933/813", comp)
+        # /drops/ shows the home poster inside the compact layout, so it keeps
+        # the home ratio instead of the team one.
+        self.assertIn("aspect-ratio:1983/793",
+                      css_block(self.css, ".cbanner.compact.homeband .band"))
         self.assertRegex(page("index.html"),
-                         r'<div class="band"><img\b[^>]*width="1933" height="814"')
+                         r'<div class="band"><img\b[^>]*width="1983" height="793"')
+        self.assertRegex(page("drops/index.html"),
+                         r'<div class="band"><img\b[^>]*width="1983" height="793"')
         for k, html in self.pages.items():
             self.assertRegex(html,
                              r'<div class="band"><img\b[^>]*width="1933" height="813"', k)
@@ -421,12 +427,18 @@ class ArtworkHygiene(unittest.TestCase):
         pngs = [f for f in os.listdir(img) if f.lower().endswith(".png")]
         self.assertEqual(pngs, [], pngs)
         self.assertTrue(os.path.isdir(os.path.join(ROOT, "artwork-source")))
-        heroes = ["/img/hero-home.jpg?v=3"] + [COLLECTIONS[k]["hero"] for k in ORDER]
+        home = "/img/hero-home.jpg?v=4"          # swapped 2026-09-08
+        heroes = [home] + [COLLECTIONS[k]["hero"] for k in ORDER]
+        self.assertTrue(home.endswith("?v=4"), home)
+        for k in ORDER:                          # team banners unchanged
+            self.assertTrue(COLLECTIONS[k]["hero"].endswith("?v=3"), COLLECTIONS[k]["hero"])
         for url in heroes:
-            self.assertTrue(url.endswith("?v=3"), url)
             hero = os.path.join(SITE, url.lstrip("/").split("?")[0])
             self.assertTrue(os.path.isfile(hero), hero)
             self.assertLess(os.path.getsize(hero), 750 * 1024, hero)
+        # the home poster's PNG master is archived, never deployed
+        self.assertTrue(os.path.isfile(
+            os.path.join(ROOT, "artwork-source", "gridironlocker-hero-image1.png")))
 
 
 class Homepage(unittest.TestCase):
@@ -512,9 +524,39 @@ class Homepage(unittest.TestCase):
         self.assertNotIn("best seller", sec.lower())
         self.assertNotIn("bestseller", sec.lower())
 
+    def test_hero_copy_does_not_repeat_the_artwork(self):
+        # The hero poster (site/img/hero-home.jpg, 1983x793) ships with its own
+        # eyebrow, headline and two support lines baked into the pixels:
+        #   "football. fans. culture." / "GEAR UP. KEEP IT." /
+        #   "Original fan-made apparel for the teams we love." /
+        #   "Four cities. Four fanbases. One locker."
+        # The white block under the band must add information the art can't
+        # carry (live count, made-to-order, sizes, shipping, routes in) and
+        # never restate the poster - that is the duplication this guards.
+        hero = between(self.html, '<section class="cbanner"', "</section>")
+        band = between(hero, '<div class="band">', "</div>")
+        copy = between(hero, '<div class="cb-in">', "</div>")
+        for phrase in ("football. fans. culture.", "gear up", "keep it",
+                       "original fan-made", "four cities", "four fanbases",
+                       "one locker", "gridiron locker",
+                       "cleveland", "green bay", "dallas", "michigan"):
+            self.assertNotIn(phrase, copy.lower(), phrase)
+        # ...but the poster's words are still available to screen readers, and
+        # the page still ships a real <h1> for search engines.
+        self.assertIn("Original fan-made apparel for the teams we love.", band)
+        self.assertIn('<h1 class="sr-only">', copy)
+        self.assertIn("Fan-Made Football Tees, Hoodies &amp; Gear", copy)
+        self.assertIn("position:absolute", css_block(self.css, ".sr-only"))
+        # and the block still does its job: live count + fulfilment + 2 routes
+        self.assertRegex(copy, r"\d+ fan designs")
+        self.assertIn("3XL", copy)
+        self.assertIn("shipped worldwide with tracking", copy)
+        self.assertIn('href="./collections/"', copy)
+        self.assertIn('href="./drops/"', copy)
+
     def test_seo_and_hero_preserved(self):
         self.assertIn('<link rel="canonical" href="https://gridironlocker.store/">', self.html)
-        self.assertIn("hero-home.jpg?v=3", self.html)
+        self.assertIn("hero-home.jpg?v=4", self.html)
         self.assertIn('"@type":"WebSite"', self.html)
         self.assertIn('"@type":"Organization"', self.html)
 

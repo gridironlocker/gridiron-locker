@@ -153,9 +153,9 @@ header{position:sticky;top:0;z-index:60;background:#fff;border-bottom:1px solid 
    dark team hero can't fight the white page.
    ============================================================= */
 .cbanner{background:#fff;border-bottom:1px solid var(--line)}
-/* The banner band is locked to the home artwork's native 1933:814 ratio at
+/* The banner band is locked to the home artwork's native 1983:793 ratio at
    every breakpoint so the hero banner is never cropped - the full image shows. */
-.cbanner .band{position:relative;aspect-ratio:1933/814;overflow:hidden;background:var(--ca-tint)}
+.cbanner .band{position:relative;aspect-ratio:1983/793;overflow:hidden;background:var(--ca-tint)}
 .cbanner .band img{width:100%;height:100%;object-fit:cover;object-position:center}
 .cbanner .band:after{content:'';position:absolute;left:0;right:0;bottom:0;height:4px;
   background:linear-gradient(90deg,var(--ca) 0,var(--ca) 45%,var(--ca-2) 45%,var(--ca-2) 100%)}
@@ -173,6 +173,10 @@ header{position:sticky;top:0;z-index:60;background:#fff;border-bottom:1px solid 
    art, so the band matches that ratio - full uncropped art with tighter copy
    so the ticker and the product grid arrive sooner. */
 .cbanner.compact .band{aspect-ratio:1933/813}
+/* /drops/ reuses the home poster (1983x793), not a team banner. Without this
+   override the compact band's 1933/813 box crops ~5% off each side of the art,
+   taking the wordmark's edge and the "GO BLUE" mark with it. */
+.cbanner.compact.homeband .band{aspect-ratio:1983/793}
 .cbanner.compact .cb-in{padding:14px 16px 16px}
 .cbanner.compact h1{font-size:clamp(1.2rem,4.2vw,1.8rem);margin-bottom:6px}
 .cbanner.compact p.lede{font-size:.88rem;margin-bottom:8px}
