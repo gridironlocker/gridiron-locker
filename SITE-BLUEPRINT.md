@@ -78,7 +78,12 @@ Slugs come straight from Viralstyle URLs, so one slug = one campaign.
 Top-to-bottom sections (from `build.py`):
 1. **Promo bar** — thin announcement strip
 2. **Header / nav** — brand + links + mobile nav
-3. **Home banner** (`cbanner`) — hero image band + copy on white
+3. **Home banner** (`cbanner`) — hero image band + copy on white. The band is a
+   finished poster (1983x793): wordmark, eyebrow, headline and two support
+   lines are baked into the art, so the copy block under it only adds what the
+   art cannot carry — live design count, made-to-order, sizes, shipping — plus
+   the two CTAs. The `<h1>` is `.sr-only` (the poster already *shows* the
+   headline) and the band's `alt` transcribes the baked copy.
 4. **News ticker** — live headlines (Week 1 hook)
 5. **Week 1 section** (`wksec`) — season opener urgency + kickoff countdown
 6. **Fan Trend Index strip** (`ftisec`) — compact four-entry strip, links to the full index

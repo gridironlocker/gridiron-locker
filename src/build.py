@@ -451,7 +451,7 @@ def head(title, desc, path, image=None, schema=None, keywords=None, col=None,
     # one page that must stay out of the index.
     robots = ("noindex,follow" if noindex
               else "index,follow,max-image-preview:large,max-snippet:-1")
-    img = DOMAIN + (image or "/img/hero-home.jpg?v=3")
+    img = DOMAIN + (image or "/img/hero-home.jpg?v=4")
     kw = f'<meta name="keywords" content="{esc(", ".join(keywords[:14]))}">' if keywords else ""
     # A page that belongs to one collection wears that collection's tokens at
     # :root, so its chips and rules are team-coloured while CTAs stay teal.
@@ -947,17 +947,26 @@ def railcard(it):
 # then the copy underneath on white. The old 4-slide ken-burns rotator put
 # white text over a darkened photo, which is the single thing that made the
 # site look nothing like the storefront it hands off to.
+#
+# The 2026-09-08 hero art (site/img/hero-home.jpg, 1983x793) is a finished
+# poster: wordmark, "football. fans. culture." eyebrow, the "Gear up. Keep
+# it." headline and its two support lines are all baked into the pixels. So
+# the white block below the band no longer restates any of it - repeating a
+# headline in HTML directly under the same headline in the art is the classic
+# way a hero ends up looking like a mistake. What the art cannot carry is
+# live: the catalogue size, the made-to-order promise, sizes and shipping, and
+# the two routes into the shop. The <h1> stays for search engines and screen
+# readers (visually hidden, since the poster already shows the headline) and
+# the band's alt text transcribes the baked copy for anyone who can't see it.
 def home_banner():
     n = len(ALL)
-    teams = ", ".join(COLLECTIONS[k]["short"] for k in ORDER[:-1])
     return f"""<section class="cbanner" style="padding:0">
- <div class="band"><img src="/img/hero-home.jpg?v=3" alt="{esc(BRAND)} fan apparel"
-  width="1933" height="814" fetchpriority="high"></div>
+ <div class="band"><img src="/img/hero-home.jpg?v=4" alt="{esc(BRAND)} - Gear up. Keep it. Original fan-made apparel for the teams we love."
+  width="1983" height="793" fetchpriority="high"></div>
  <div class="cb-in">
-  <span class="eyebrow"><span class="dot"></span> {n} fan designs &middot; {len(ORDER)} team collections</span>
-  <h1>{esc(CFG['tagline'])}</h1>
-  <p class="lede">Original fan-made graphics for {esc(teams)} and {esc(COLLECTIONS[ORDER[-1]]['short'])}
-  supporters. Printed on demand, sizes S&ndash;3XL, shipped worldwide with tracking.</p>
+  <h1 class="sr-only">{esc(CFG['tagline'])}</h1>
+  <span class="eyebrow"><span class="dot"></span> {n} fan designs &middot; made to order</span>
+  <p class="lede">Sizes S&ndash;3XL in unisex and women's cuts. Printed when you order, shipped worldwide with tracking.</p>
   <div class="btnrow">
    <a class="btn lg" href="/collections/">Shop by team &rarr;</a>
    <a class="btn ghost lg" href="/drops/">Trending now</a>
@@ -1137,7 +1146,7 @@ def page_home():
 <button class="findpill" id="findpill" data-target="#quickfind" aria-label="Find a design">
  <span aria-hidden="true">&#128269;</span> Find your design</button></main>"""
     URLS.append((DOMAIN + "/", "1.0", "daily"))
-    write("index.html", head(f"{BRAND} | {CFG['tagline']}", desc, path, "/img/hero-home.jpg?v=3", schema,
+    write("index.html", head(f"{BRAND} | {CFG['tagline']}", desc, path, "/img/hero-home.jpg?v=4", schema,
                              ["football fan shirts", "nfl fan t shirts", "custom football tees",
                               "cleveland browns shirts", "green bay packers shirts",
                               "dallas cowboys shirt", "michigan football shirt"])
@@ -1184,7 +1193,7 @@ def page_collections_index():
  <span aria-hidden="true">&#128269;</span> Find your design</button></main>"""
     URLS.append((DOMAIN + path, "0.9", "weekly"))
     write("collections/index.html", head("All Football Fan Collections | " + BRAND, desc, path,
-                                         "/img/hero-home.jpg?v=3", schema) + header() + body + footer())
+                                         "/img/hero-home.jpg?v=4", schema) + header() + body + footer())
 
 
 def page_search():
@@ -1260,7 +1269,7 @@ def page_search():
 </div></div></main>"""
     URLS.append((DOMAIN + path, "0.6", "daily"))
     write("search/index.html",
-          head(f"Search All {n} Fan Designs | {BRAND}", desc, path, "/img/hero-home.jpg?v=3",
+          head(f"Search All {n} Fan Designs | {BRAND}", desc, path, "/img/hero-home.jpg?v=4",
                schema, ["all fan shirts", "search football fan apparel",
                         "football fan design search", "custom fan tee search"])
           + header() + body + footer())
@@ -1940,7 +1949,7 @@ border-top:3px solid var(--ca)">
            "description": desc, "datePublished": TODAY, "dateModified": DATA_DATE,
            "author": {"@type": "Organization", "name": BRAND},
            "publisher": {"@type": "Organization", "name": BRAND},
-           "mainEntityOfPage": DOMAIN + path, "image": DOMAIN + "/img/hero-home.jpg?v=3"}
+           "mainEntityOfPage": DOMAIN + path, "image": DOMAIN + "/img/hero-home.jpg?v=4"}
     body = f"""{cb}<main id="main"><section style="padding-top:6px"><div class="wrap prose">
 <h1>{title}</h1>
 <p class="muted">Updated {TODAY} &middot; {sum(len(v) for v in WEEK1_SLATE.values())} Week 1 graphics &middot;
@@ -1981,7 +1990,7 @@ fan-created work.</p>
     URLS.append((DOMAIN + path, "0.7", "weekly"))
     write("guides/2026-week-1-shirts/index.html",
           head(f"2026 Week 1 Fan Shirts: Kickoff Fits & Slogan Tees | {BRAND}", desc, path,
-               "/img/hero-home.jpg?v=3", [cbs, art, faq_schema],
+               "/img/hero-home.jpg?v=4", [cbs, art, faq_schema],
                ["week 1 fan shirt", "2026 week 1 football tee", "kickoff game day shirt",
                 "michigan week 1 shirt", "cleveland week 1 shirt", "packers week 1 shirt",
                 "dallas week 1 shirt", "slogan football tee"])
@@ -2092,10 +2101,10 @@ def page_season():
 </div>"""
     desc = ("2026 football season hub: Week 1 dates, what changed on each roster, and the fan shirts "
             "trending right now for Cleveland, Green Bay, Dallas and Michigan supporters.")
-    logo = {"@type": "ImageObject", "url": DOMAIN + "/img/hero-home.jpg?v=3"}
+    logo = {"@type": "ImageObject", "url": DOMAIN + "/img/hero-home.jpg?v=4"}
     schema = [cbs, {"@context": "https://schema.org", "@type": "Article",
                     "headline": "2026 Season Fan Apparel Hub",
-                    "description": desc, "image": DOMAIN + "/img/hero-home.jpg?v=3",
+                    "description": desc, "image": DOMAIN + "/img/hero-home.jpg?v=4",
                     "datePublished": TODAY, "dateModified": DATA_DATE,
                     "author": {"@type": "Organization", "name": f"{BRAND} Fan Desk",
                                "url": DOMAIN + path},
@@ -2131,7 +2140,7 @@ def page_season():
 </div></section></div></main>"""
     URLS.append((DOMAIN + path, "0.9", "weekly"))
     write("2026-season/index.html",
-          head(f"2026 Season Fan Shirt Hub | {BRAND}", desc, path, "/img/hero-home.jpg?v=3", schema,
+          head(f"2026 Season Fan Shirt Hub | {BRAND}", desc, path, "/img/hero-home.jpg?v=4", schema,
                [x for k in ORDER for x in SEASON[k]["hot"]])
           + header() + body + footer())
 
@@ -2240,7 +2249,7 @@ def page_fti():
 </div></section></div></main>"""
     URLS.append((DOMAIN + path, "0.8", "daily"))
     write("fan-trend-index/index.html",
-          head(f"Fan Trend Index | {BRAND}", desc, path, "/img/hero-home.jpg?v=3", schema,
+          head(f"Fan Trend Index | {BRAND}", desc, path, "/img/hero-home.jpg?v=4", schema,
                ["fan trend index", "nfl player trends 2026", "browns trending players",
                 "packers trending players", "michigan football trends"])
           + header() + body + footer())
@@ -2306,7 +2315,7 @@ def page_drops():
     URLS.append((DOMAIN + path, "0.95", "daily"))
     write("drops/index.html",
           head(f"Today's Trending Fan Drops — Live | {BRAND}", desc, path,
-               "/img/hero-home.jpg?v=3", schema,
+               "/img/hero-home.jpg?v=4", schema,
                ["trending fan shirts", "live drops", "shedeur sanders shirt",
                 "browns roster shirt", "michigan miracle shirt", "packers trending",
                 "dallas trending shirt", "today's drops", "fan gear trending"])
