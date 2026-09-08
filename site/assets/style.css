@@ -823,7 +823,8 @@ footer .logo{color:var(--ink)}
   line-height:.9;letter-spacing:.01em;text-transform:uppercase;color:var(--ink);margin:0}
 .hero-title .up{color:var(--ca,var(--btn))}
 .hero-brush{display:inline-block;font-family:var(--brush);font-size:clamp(1.8rem,4.6vw,3.6rem);
-  color:#111418;transform:rotate(-2deg);margin:.18em 0 .2em;position:relative;line-height:1}
+  color:#111418;transform:rotate(-2deg);margin:.18em 0 .2em;position:relative;line-height:1;
+  text-transform:uppercase;letter-spacing:.02em}
 .hero-brush:after{content:'';position:absolute;left:-.08em;right:0;bottom:.05em;height:.42em;
   background:rgba(73,165,156,.18);transform:skewX(-14deg);border-radius:40% 60% 55% 45%;z-index:-1}
 .hero-sub{max-width:52ch;color:var(--muted);font-size:.96rem;line-height:1.6;margin:12px 0 0}
