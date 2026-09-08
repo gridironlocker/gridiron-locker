@@ -548,6 +548,7 @@ def header(active=""):
  <div class="wrap nav">
   <a class="logo" href="/"><span class="mark">GL</span> {esc(BRAND)}</a>
   <nav class="links">
+   <a href="/drops/">Live Drops</a>
    <a href="/collections/">All Collections</a>
    {links}
    <a href="/2026-season/">2026 Season</a>
@@ -557,7 +558,7 @@ def header(active=""):
   <button class="burger" aria-label="Menu" onclick="document.getElementById('mn').classList.toggle('open')">&#9776;</button>
  </div>
  <div class="mobnav" id="mn">
-  <a href="/">Home</a><a href="/collections/">All Collections</a>{mob}
+  <a href="/">Home</a><a href="/drops/">Live Drops</a><a href="/collections/">All Collections</a>{mob}
   <a href="/2026-season/">2026 Season Hub</a><a href="/fan-trend-index/">Fan Trend Index</a>
   <a href="/guides/">Buying Guides</a><a href="/size-guide/">Size Guide</a>
   <a href="/shipping/">Shipping &amp; Returns</a><a href="/about/">About</a>
@@ -1995,6 +1996,71 @@ def page_fti():
           + header() + body + footer())
 
 
+# ---------------------------------------------------------------- drops — live benefit engine
+def page_drops():
+    """Public /drops/ page — live trending products with unique headline-aware copy.
+
+    This is the benefit-first page: it catches trending searches (e.g. 'Shedeur Sanders shirt')
+    with fresh daily content, unique per-team voices, and real headlines. Google ranks fresh,
+    unique, headline-rich pages. Pinterest pins from this feed live for months.
+    """
+    try:
+        from drops_page import page_drops_html
+    except Exception as e:
+        print(f"drops page generation failed: {e}")
+        return
+    path = "/drops/"
+    cb, cbs = crumbs([("Home", "/"), ("Live Drops", None)], path)
+
+    # Build lookup for full product data
+    lookup = {it["slug"]: it for it in ALL}
+
+    drops_body = page_drops_html(COLLECTIONS, ORDER, lookup)
+
+    desc = (f"Today's trending fan drops — live from the headlines. {len(lookup)} designs, "
+            f"4 team voices, 0 recycled captions. Updated daily from real team news for "
+            f"Cleveland, Green Bay, Dallas and Michigan fans.")
+
+    # Load drops for schema
+    try:
+        drops_data = json.load(open(os.path.join(ROOT, "data/live_drops.json"), encoding="utf-8"))
+        drops_list = drops_data.get("drops", [])[:12]
+    except Exception:
+        drops_list = []
+
+    schema = [
+        cbs,
+        {
+            "@context": "https://schema.org",
+            "@type": "CollectionPage",
+            "name": "Today's Trending Fan Drops",
+            "description": desc,
+            "url": DOMAIN + path,
+            "dateModified": TODAY,
+            "isPartOf": {"@type": "WebSite", "name": BRAND, "url": DOMAIN},
+            "mainEntity": {
+                "@type": "ItemList",
+                "numberOfItems": len(drops_list),
+                "itemListElement": [
+                    {"@type": "ListItem", "position": n+1, "url": DOMAIN + f"/shop/{d['slug']}/", "name": d["name"]}
+                    for n, d in enumerate(drops_list)
+                ],
+            },
+        },
+    ]
+
+    body = f"""{ticker()}<div class="light">{cb}{drops_body}</div>"""
+
+    URLS.append((DOMAIN + path, "0.95", "daily"))
+    write("drops/index.html",
+          head(f"Today's Trending Fan Drops — Live | {BRAND}", desc, path,
+               "/img/hero-home.jpg?v=3", schema,
+               ["trending fan shirts", "live drops", "shedeur sanders shirt",
+                "browns roster shirt", "michigan miracle shirt", "packers trending",
+                "dallas trending shirt", "today's drops", "fan gear trending"])
+          + header() + body + footer())
+
+
 # ---------------------------------------------------------------- extras
 def page_404():
     body = """<main id="main"><section><div class="wrap center" style="padding:70px 0">
@@ -2485,6 +2551,7 @@ def main():
     page_week1_graphics()
     page_season()
     page_fti()
+    page_drops()
     page_static()
     page_404()
     assets()
