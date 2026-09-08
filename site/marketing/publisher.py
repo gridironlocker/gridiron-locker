@@ -6,8 +6,8 @@ PUBLISH_APPROVED=true, an approved public image URL, and the platform's official
 credential. No browser automation or credential storage is used.
 
 This first adapter intentionally supports still-image publishing where the
-platform API supports it (Facebook Pages and Pinterest). X, TikTok, YouTube,
-and Instagram need platform-specific media/OAuth/app approval and are reported
+platform API supports it (Facebook Pages, Instagram via Meta Graph API, and Pinterest).
+X, TikTok, and YouTube need platform-specific media/OAuth/app approval and are reported
 as blocked instead of being faked.
 """
 from __future__ import annotations
@@ -65,9 +65,33 @@ def pinterest(row: dict[str, Any], image_url: str) -> dict[str, Any]:
         return {"status": "error", "reason": str(exc)}
 
 
+def instagram(row: dict[str, Any], image_url: str) -> dict[str, Any]:
+    ig_user_id = os.getenv("INSTAGRAM_ACCOUNT_ID", "").strip()
+    token = os.getenv("META_PAGE_ACCESS_TOKEN", "").strip()
+    if not ig_user_id or not token:
+        return {
+            "status": "not_configured",
+            "reason": "INSTAGRAM_ACCOUNT_ID and META_PAGE_ACCESS_TOKEN are required to publish to @gridironlocker1 via Instagram Graph API.",
+        }
+    try:
+        creation = post_form(
+            f"https://graph.facebook.com/v20.0/{ig_user_id}/media",
+            {"image_url": image_url, "caption": row["copy"]["captions"]["instagram"], "access_token": token},
+        )
+        container_id = creation.get("id")
+        if not container_id:
+            return {"status": "error", "reason": f"Container creation failed: {creation}"}
+        published = post_form(
+            f"https://graph.facebook.com/v20.0/{ig_user_id}/media_publish",
+            {"creation_id": container_id, "access_token": token},
+        )
+        return {"status": "published", "response": published}
+    except Exception as exc:
+        return {"status": "error", "reason": str(exc)}
+
+
 def unsupported(platform: str) -> dict[str, Any]:
     reasons = {
-        "instagram": "Instagram automation is disabled for this business until the account/licensing issue is resolved.",
         "x": "X image publishing needs a user-authorized media upload connection; text-only automation is intentionally not enabled here.",
         "tiktok": "TikTok requires an approved Content Posting API app and video media; an image-only row cannot be auto-published.",
         "youtube": "YouTube requires an authorized video upload flow; an image-only row cannot be auto-published.",
@@ -95,6 +119,8 @@ def main() -> None:
                     result.update({"status": "blocked", "reason": "Compliance gate is not clear."})
                 elif platform == "facebook":
                     result.update(facebook(row, image_url))
+                elif platform == "instagram":
+                    result.update(instagram(row, image_url))
                 elif platform == "pinterest":
                     result.update(pinterest(row, image_url))
                 else:

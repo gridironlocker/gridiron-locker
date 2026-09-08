@@ -141,10 +141,13 @@ def build_designs_unique(products, facts, order, trends, people):
         )
     return designs
 
-def build_live_drops(designs, trends):
+def build_live_drops(designs, trends, delisted_slugs=None):
     """Top trending products with live headlines — for public /drops/ page"""
+    if delisted_slugs is None:
+        delisted_slugs = set()
+    active_designs = [d for d in designs if d["slug"] not in delisted_slugs]
     # Filter top 24 by score, but prioritize those with headline matches
-    trending = sorted(designs, key=lambda d: (0 if d["score_breakdown"]["headline_name_bonus"] else 1, -d["score"]))[:24]
+    trending = sorted(active_designs, key=lambda d: (0 if d["score_breakdown"]["headline_name_bonus"] else 1, -d["score"]))[:24]
     drops = []
     for d in trending:
         ckey = d["collection"]
@@ -332,7 +335,9 @@ def main():
     print(f"wrote {out} · {plan['summary']['design_count']} designs · top {plan['summary']['top_score']} · unique copy v1")
 
     # Write live_drops.json
-    drops = build_live_drops(plan["queue"], trends)
+    delisted_info = read_json(ROOT / "data" / "delisted.json") if (ROOT / "data" / "delisted.json").exists() else {}
+    delisted_slugs = set(delisted_info.get("slugs", {}).keys())
+    drops = build_live_drops(plan["queue"], trends, delisted_slugs=delisted_slugs)
     drops_path = MARKETING_DIR / "live_drops.json"
     drops_path.write_text(json.dumps(drops, indent=2, ensure_ascii=False)+"\n", encoding="utf-8")
     print(f"wrote {drops_path} · {drops['count']} drops")

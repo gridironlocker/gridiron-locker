@@ -206,8 +206,9 @@ class CollectionsIndex(unittest.TestCase):
                 if s in delisted or s not in live:
                     continue
                 img = live[s].get("img") or {}
-                if any(isinstance(f, str) and f.startswith("/")
-                       and os.path.isfile(os.path.join(SITE, f.lstrip("/"))) for f in img.values()):
+                if any((isinstance(f, str) and f.startswith("/") and os.path.isfile(os.path.join(SITE, f.lstrip("/")))
+                        or (isinstance(f, str) and f.startswith("https://assets.viralstyle.com/")))
+                       for f in img.values()):
                     expected += 1
             card = re.search(r'<a class="teamcircle[^"]*"[^>]*href="[^"]*%s/"[^>]*>.*?</a>'
                              % COLLECTIONS[k]["slug"], self.html, re.S).group(0)
