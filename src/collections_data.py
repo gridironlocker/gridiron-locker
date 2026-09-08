@@ -25,6 +25,8 @@ COLLECTIONS = {
         logo="/img/browns-logo1.webp?v=1",
         store="https://viralstyle.com/store/kebystore/Cleveland-Browns/1",
         chant="Here We Go Brownies",
+        # Short cultural phrase used as the headline of the homepage team card.
+        phrase="Dawg Pound",
         keywords=[
             "cleveland browns shirts", "dawg pound shirt", "browns fan gear",
             "cleveland football t-shirt", "browns hoodie", "cleveland ohio apparel",
@@ -69,6 +71,7 @@ COLLECTIONS = {
         logo="/img/dallas-logo1.webp?v=1",
         store="https://viralstyle.com/store/kebystore/dallas-vintage-sports/1",
         chant="How 'Bout Them Cowboys",
+        phrase="Star Power",
         keywords=[
             "dallas cowboys shirt", "vintage dallas football tee", "texas pride shirt",
             "doomsday defense shirt", "dallas football t-shirt", "this girl loves cowboys",
@@ -112,6 +115,7 @@ COLLECTIONS = {
         logo="/img/green-bay-logo1.webp?v=1",
         store="https://viralstyle.com/store/kebystore/Packss/1",
         chant="Go Pack Go",
+        phrase="Go Pack Go",
         keywords=[
             "green bay packers shirt", "go pack go t-shirt", "cheesehead shirt",
             "jordan love shirt", "packers hoodie", "wisconsin football tee",
@@ -155,6 +159,7 @@ COLLECTIONS = {
         logo="/img/michigan-logo1.webp?v=1",
         store="https://viralstyle.com/store/kebystore/MICHIG/1",
         chant="Go Blue",
+        phrase="Go Blue",
         keywords=[
             "michigan football shirt", "go blue t-shirt", "michigan vs everybody shirt",
             "jj mccarthy shirt", "michigan sweatshirt", "ann arbor apparel",

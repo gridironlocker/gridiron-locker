@@ -75,23 +75,49 @@ Slugs come straight from Viralstyle URLs, so one slug = one campaign.
 ## 4. Page anatomy
 
 ### Homepage (`index.html`)
-Top-to-bottom sections (from `build.py`):
-1. **Promo bar** — thin announcement strip
-2. **Header / nav** — brand + links + mobile nav
-3. **Home banner** (`cbanner`) — hero image band + copy on white. The band is a
-   finished poster (1983x793): wordmark, eyebrow, headline and two support
-   lines are baked into the art, so the copy block under it only adds what the
-   art cannot carry — live design count, made-to-order, sizes, shipping — plus
-   the two CTAs. The `<h1>` is `.sr-only` (the poster already *shows* the
-   headline) and the band's `alt` transcribes the baked copy.
-4. **News ticker** — live headlines (Week 1 hook)
-5. **Week 1 section** (`wksec`) — season opener urgency + kickoff countdown
-6. **Fan Trend Index strip** (`ftisec`) — compact four-entry strip, links to the full index
-7. **Shop By Team** (`teamnav-grid`) — rounded horizontal nav cards with circular team
-   thumbnails (2 columns desktop, 1 mobile)
-8. **4 collection sections** (`teamsec`) — one block per team, accent-colored, ordered by next kickoff
-9. **Custom apparel section** (`customsec`) — custom-design offer + form
-10. **Footer** (disclaimers, links, trademark route)
+The homepage is a **shopping funnel**, not a long catalogue. Section order is
+deliberate — brand, then team, then product — so a visitor meets real
+merchandise inside the second viewport instead of scrolling past four
+editorial bands to find out what is for sale.
+
+1. **Promo bar** — thin announcement strip (season status is derived from `SEASON`)
+2. **Header** (`header()`) — GL logo + wordmark, the seven shopping destinations
+   (All Collections / Cleveland / Green Bay / Dallas / Michigan / Trending / Guides)
+   and search. **No account icon, no cart icon**: checkout happens on the
+   fulfilment partner, so those controls promised state this site does not own.
+3. **Hero** (`home_banner()`, `.hero.editorial`) — ~40% white editorial copy panel
+   (`FOOTBALL. FANS. CULTURE.` / `Gear Up.` / brush `Keep it.` / two CTAs / live
+   catalogue facts) and ~60% cinematic locker-room artwork (`/img/hero-locker.jpg`,
+   a crop of the approved poster — gear only, no people). The `<h1>` is real text;
+   the art is the LCP element and is eager + `fetchpriority="high"`.
+   Capped at `min(78vh,660px)` so "Shop By Team" is already in view.
+4. **Shop navigation** (`shop_nav()`) — a slim sticky strip under the header on
+   desktop and a fixed bottom bar (Shop by team / Trending / All designs) on
+   phones, revealed after the hero and hidden again over the footer.
+5. **Shop By Team** (`shop_by_team()` → `team_card()`) — four cinematic team cards
+   (`/img/team-*.jpg`), each the **whole card is one link**: team name, fan phrase
+   (Dawg Pound / Go Pack Go / Star Power / Go Blue), live design count, arrow.
+   4-up desktop, 2-up tablet **and phone** (never four tall stacked cards).
+6. **Shop The Locker** (`shop_the_locker()` → `product_rail()`) — the first product
+   surface: a scroll-snapping rail of ten `product_card()`s (four visible with the
+   fifth peeking), desktop arrows, and a "view all designs" end tile.
+7. **Trending Now** (`trending_now()`) — 4-column product grid (2 on phones) of the
+   designs the Fan Trend Index is scoring hot, then `View All Designs →`.
+8. **Trust strip** (`trust()`) — purchase confidence, once, after the products.
+9. **2026 Season** (`season_section()`) — the editorial beat: derived headline,
+   kickoff countdown, each team's opener from `SEASON`, `Explore The Season →`.
+10. **Team collections** (`team_section()` ×4) — four featured designs per team,
+    ordered by next kickoff, `Explore <team> →`.
+11. **Buying guides** (`guide_grid()`) — four editorial cards pointing at real pages.
+12. **Custom design** (`custom_design()`) — compact offer + the unchanged FormSubmit form.
+13. **Fan Trend Index strip** (`fti_strip()`) + **news ticker** (`newsticker()`).
+14. **Newsletter** (`brand_newsletter()`) — "Stay In The Locker", email + Join.
+15. **Footer** — Shop / Help / Brand / Compliance columns + fan-made disclaimer.
+
+Every product surface skips the slugs the surface above it already showed, so the
+34 cards on the page are 34 different designs. The floating custom-design popup is
+suppressed here (the full section is on the page and it would fight the mobile
+shopping bar for the same corner).
 
 ### Product page (`/shop/<slug>/`)
 - **Breadcrumbs** (`crumbs`) → home / collection / product

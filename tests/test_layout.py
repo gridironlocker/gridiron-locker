@@ -243,9 +243,10 @@ class TeamCollectionPages(unittest.TestCase):
         # the home ratio instead of the team one.
         self.assertIn("aspect-ratio:1983/793",
                       css_block(self.css, ".cbanner.compact.homeband .band"))
-        # the home page now uses the HTML hero; /drops/ + team pages keep bands
+        # the home page now uses the HTML hero + one cinematic art panel;
+        # /drops/ + team pages keep the full banner bands
         self.assertRegex(page("index.html"), r'<section class="hero editorial"')
-        self.assertRegex(page("index.html"), r'class="hero-shots"')
+        self.assertRegex(page("index.html"), r'class="hero-art"')
         self.assertRegex(page("drops/index.html"),
                          r'<div class="band"><img\b[^>]*width="1983" height="793"')
         for k, html in self.pages.items():
@@ -445,36 +446,238 @@ class ArtworkHygiene(unittest.TestCase):
 
 
 class Homepage(unittest.TestCase):
+    """The storefront funnel: brand -> team -> product -> trending -> editorial.
+
+    These assertions exist because the homepage's job changed: it is no longer
+    a long, beautiful catalogue, it is a shopping funnel. Products have to be
+    reachable inside the first two or three viewports, the team collections
+    have to be one tap from anywhere, and the header must stay free of
+    account/cart furniture this store does not own.
+    """
+
     def setUp(self):
         self.html = page("index.html")
         self.css = page("assets/style.css")
+        self.js = page("assets/app.js")
 
-    def test_shop_by_team_editorial_cards(self):
-        sec = between(self.html, '<section class="teamdeck-sec">', "</section>")
+    # ---------------------------------------------------------------- header
+    def test_header_has_no_account_or_cart_ui(self):
+        for marker in ('id="acctBtn"', 'id="cartBtn"', 'id="acctPop"', 'id="cartPop"',
+                       'id="cartCount"', 'class="navico', 'aria-label="Cart"',
+                       'aria-label="Account"'):
+            self.assertNotIn(marker, self.html, marker)
+        for marker in ("acctBtn", "cartBtn", "cartCount", "acctPop", "cartPop"):
+            self.assertNotIn(marker, self.js, marker)
+        for marker in (".navico", ".header-pop"):
+            self.assertNotIn(marker, self.css, marker)
+
+    def test_header_keeps_every_shopping_destination_and_search(self):
+        nav = between(self.html, '<nav class="links"', "</nav>")
+        for href in ["./collections/"] + [f'./{COLLECTIONS[k]["slug"]}/' for k in ORDER] \
+                + ["./drops/", "./guides/"]:
+            self.assertIn(f'href="{href}"', nav, href)
+        # search survives in the header (desktop input + mobile panel)
+        self.assertIn('class="navsearch"', self.html)
+        self.assertIn('class="gsearch"', self.html)
+        self.assertIn('id="ms"', self.html)
+
+    # ------------------------------------------------------------------ hero
+    def test_hero_is_split_editorial_plus_cinematic_art(self):
+        hero = between(self.html, '<section class="hero editorial"', "</section>")
+        self.assertIn("Football. Fans. Culture.", hero)
+        self.assertIn('<h1 class="hero-title">', hero)
+        self.assertEqual(self.html.count("<h1"), 1)          # exactly one H1
+        self.assertIn("Keep it.", hero)
+        self.assertIn("Original fan-made apparel for the teams we love.", hero)
+        self.assertIn("Four cities. Four fanbases. One locker.", hero)
+        self.assertIn("Shop By Team", hero)
+        self.assertIn("Trending Now", hero)
+        self.assertIn("./collections/", hero)
+        self.assertIn("./drops/", hero)
+        self.assertRegex(hero, r"\d+ fan designs")
+        self.assertIn("S&ndash;3XL", hero)
+        self.assertIn("Worldwide shipping", hero)
+        # the LCP image is eager, prioritised and responsive - never lazy
+        art = re.search(r'<img class="hero-art"[^>]*>', hero).group(0)
+        self.assertIn('fetchpriority="high"', art)
+        self.assertNotIn('loading="lazy"', art)
+        self.assertIn("srcset=", art)
+        self.assertIn('width="1400"', art)
+        self.assertIn('alt="', art)
+        for name in ("hero-locker.jpg", "hero-locker-sm.jpg"):
+            f = os.path.join(SITE, "img", name)
+            self.assertTrue(os.path.isfile(f), name)
+            self.assertLess(os.path.getsize(f), 300 * 1024, name)
+        # the hero headline is visible text (crawlable), not sr-only
+        self.assertIn("position:absolute", css_block(self.css, ".sr-only"))
+
+    def test_hero_stays_short_enough_to_reveal_the_shop(self):
+        grid = css_block(self.css, ".hero-grid")
+        self.assertIn("min-height:min(78vh,660px)", grid)
+        mob = media_rules(self.css, 920)
+        self.assertIn(".hero-grid{grid-template-columns:1fr", mob)
+        self.assertIn(".hero-stage{order:-1}", mob)
+
+    # --------------------------------------------------------- funnel order
+    def test_product_first_funnel_order(self):
+        markers = [
+            '<section class="hero editorial"',   # brand
+            'class="shopbar"',                   # sticky shop nav (desktop)
+            '<section class="teamdeck-sec"',     # which team?
+            '<section class="lockersec"',        # Shop The Locker (products)
+            '<section class="trendsec"',         # Trending Now (products)
+            '<section class="wksec"',            # 2026 season (editorial)
+            '<section class="teamsec"',          # deeper team browsing
+            '<section class="guidesec"',         # buying guides
+            '<section class="customsec"',        # custom design
+            '<section class="ftisec"',           # fan trend index
+            '<section class="brandsec"',         # newsletter
+            "<footer>",
+        ]
+        pos = 0
+        for m in markers:
+            i = self.html.index(m, pos)
+            self.assertGreater(i, pos, "order: %s" % m)
+            pos = i
+        # products must come before every editorial band
+        first_product = self.html.index('class="pcard')
+        for later in ('<section class="wksec"', '<section class="guidesec"',
+                      '<section class="ftisec"', 'class="newsticker"'):
+            self.assertLess(first_product, self.html.index(later), later)
+
+    def test_main_landmark_and_skip_link(self):
+        self.assertIn('<a class="skip" href="#main">', self.html)
+        self.assertIn('<main id="main">', self.html)
+        self.assertEqual(self.html.count("</main>"), 1)
+
+    # ---------------------------------------------------------- shop by team
+    def test_shop_by_team_cards_are_whole_card_links(self):
+        sec = between(self.html, '<section class="teamdeck-sec" id="shop-by-team">', "</section>")
         self.assertIn("Shop By", sec)
-        cards = re.findall(r'<a class="teamcard[^"]*"[^>]*>(.*?)</a>', sec, re.S)
+        cards = re.findall(r'<a class="teamcard[^"]*"[^>]*href="([^"]+)"(.*?)</a>', sec, re.S)
         self.assertEqual(len(cards), len(ORDER))
-        for k, card in zip(ORDER, cards):
+        for k, (href, card) in zip(ORDER, cards):
             c = COLLECTIONS[k]
-            self.assertIn(os.path.basename(c["hero"]), card)          # team imagery
-            self.assertIn(c["name"], card)
-            self.assertRegex(card, r"\d+ designs")
-            self.assertIn("&rarr;", card)
-            self.assertIn(c["chant"].replace("'", "&#x27;"), card)    # tagline
-        self.assertNotIn('class="colcard', self.html)
-        nav = css_block(self.css, ".teamcard")
-        self.assertIn("display:flex", nav)
-        self.assertIn("border-radius:18px", nav)
+            self.assertEqual(href, f'./{c["slug"]}/')                 # whole card links
+            self.assertIn(c["short"], card)
+            self.assertIn(c["phrase"], card)                          # cultural phrase
+            self.assertRegex(card, r"\d+ designs")                    # live count
+            self.assertIn("&rarr;", card)                             # arrow affordance
+            self.assertNotIn("<button", card)
+            art = os.path.basename(f'/img/team-{k.split("-")[0]}.jpg')
+            self.assertIn("/img/team-", card)
+        # four across, two on tablets and phones - never four tall stacked cards
         self.assertIn("repeat(4,minmax(0,1fr))", css_block(self.css, ".teamdeck-grid"))
         self.assertIn(".teamdeck-grid{grid-template-columns:repeat(2,minmax(0,1fr))",
                       media_rules(self.css, 980))
-        self.assertIn(".teamdeck-grid{grid-template-columns:1fr", media_rules(self.css, 560))
+        self.assertNotIn(".teamdeck-grid{grid-template-columns:1fr", media_rules(self.css, 560))
 
-    def test_why_this_locker_removed(self):
-        self.assertNotIn("Why this locker", self.html)
-        self.assertNotIn('class="whystrip"', self.html)
-        self.assertNotIn("whystrip", self.css)
+    def test_team_card_counts_match_the_live_catalogue(self):
+        live = load_json("data/collections.json")
+        sec = between(self.html, '<section class="teamdeck-sec" id="shop-by-team">', "</section>")
+        counts = [int(n) for n in re.findall(r"(\d+) designs", sec)]
+        self.assertEqual(len(counts), len(ORDER))
+        for k, n in zip(ORDER, counts):
+            self.assertGreater(n, 0, k)
+            self.assertLessEqual(n, len(live[k]["products"]), k)      # never invented
+        self.assertIn(f"{sum(counts)} fan designs", self.html)        # hero total agrees
 
+    # ------------------------------------------------------- shop the locker
+    def test_shop_the_locker_is_a_product_rail_right_after_the_teams(self):
+        self.assertLess(self.html.index('<section class="teamdeck-sec"'),
+                        self.html.index('<section class="lockersec"'))
+        sec = between(self.html, '<section class="lockersec"', "</section>")
+        self.assertIn("Shop The", sec)
+        self.assertIn("Fan-made gear worth wearing on game day.", sec)
+        self.assertGreaterEqual(sec.count('class="pcard'), 8)
+        # never a dead end: a rail-end tile plus an "all designs" link
+        self.assertIn('class="rail-end" href="./collections/"', sec)
+        self.assertIn('href="./search/"', sec)
+        # desktop arrows exist and are wired; touch just swipes
+        self.assertIn('class="rail-nav" data-rail="lockerRail"', sec)
+        self.assertEqual(sec.count('<button class="rn"'), 2)
+        self.assertIn("rail-nav", self.js)
+        rail = css_block(self.css, ".prail")
+        self.assertIn("overflow-x:auto", rail)
+        self.assertIn("scroll-snap-type:x proximity", rail)
+        self.assertIn("flex:0 0 clamp(200px,23vw,252px)", css_block(self.css, ".prail>*"))
+
+    def test_product_cards_are_clean_and_normalised(self):
+        card = re.search(r'<a class="pcard[^>]*>.*?</a>', self.html, re.S).group(0)
+        for part in ('class="pc-ph"', "<img", 'class="pc-meta"', "<h3 class=\"pc-name\"",
+                     'class="pc-price"', "View design"):
+            self.assertIn(part, card, part)
+        self.assertIn("$", card)
+        self.assertNotIn("<button", card)                     # the tile is one link
+        ph = css_block(self.css, ".pc-ph")
+        self.assertIn("aspect-ratio:1/1", ph)                 # one shape for every mockup
+        self.assertIn("object-fit:contain", css_block(self.css, ".pc-ph img"))
+        # no fake urgency anywhere on the page
+        low = self.html.lower()
+        for banned in ("only 3 left", "hurry", "selling fast", "best seller", "bestseller",
+                       "limited time offer", "act now"):
+            self.assertNotIn(banned, low, banned)
+
+    def test_every_homepage_product_link_is_a_real_product_page(self):
+        slugs = set(re.findall(r'<a class="pcard[^"]*" href="\./shop/([^/]+)/"', self.html))
+        self.assertGreaterEqual(len(slugs), 20)
+        for slug in slugs:
+            self.assertTrue(os.path.isfile(os.path.join(SITE, "shop", slug, "index.html")), slug)
+
+    # -------------------------------------------------------------- trending
+    def test_trending_now_is_a_four_column_grid_of_real_designs(self):
+        sec = between(self.html, '<section class="trendsec" id="trending">', "</section>")
+        self.assertIn("Trending", sec)
+        self.assertEqual(sec.count('class="pcard'), 8)
+        self.assertIn('href="./drops/"', sec)
+        self.assertIn("View All Designs", sec)
+        self.assertNotIn("best seller", sec.lower())
+        self.assertIn("repeat(4,minmax(0,1fr))", css_block(self.css, ".pgrid.four"))
+        self.assertIn(".pgrid.four{grid-template-columns:repeat(2,minmax(0,1fr))",
+                      media_rules(self.css, 700))
+
+    # ---------------------------------------------------------------- season
+    def test_season_block_is_editorial_and_data_driven(self):
+        sec = between(self.html, '<section class="wksec" id="season">', "</section>")
+        self.assertIn("2026 season", sec)
+        self.assertRegex(sec, r"The Season Is <span[^>]*>(Live|Almost Here)")
+        self.assertIn("Explore The Season", sec)
+        self.assertIn('href="./2026-season/"', sec)
+
+    # ------------------------------------------------------- team collections
+    def test_team_sections_and_counts(self):
+        secs = re.findall(r'<section class="teamsec"(.*?)</section>', self.html, re.S)
+        self.assertEqual(len(secs), 4)
+        for s in secs:
+            self.assertEqual(len(re.findall(r'<a class="pcard', s)), 4)
+            self.assertIn("Explore", s)
+
+    # ---------------------------------------------------------------- guides
+    def test_guides_sit_below_the_products_and_link_real_pages(self):
+        self.assertLess(self.html.index('<section class="trendsec"'),
+                        self.html.index('<section class="guidesec"'))
+        sec = between(self.html, '<section class="guidesec"', "</section>")
+        for href in ("./guides/2026-week-1-shirts/", "./guides/", "./size-guide/", "./shipping/"):
+            self.assertIn(f'href="{href}"', sec, href)
+        for href in set(re.findall(r'href="\.\/([^"]*)"', sec)):
+            self.assertTrue(os.path.isfile(os.path.join(SITE, href, "index.html")), href)
+
+    # ---------------------------------------------------------------- custom
+    def test_custom_design_form_is_preserved(self):
+        sec = between(self.html, '<section class="customsec" id="custom-design">', "</section>")
+        self.assertIn("Your idea.", sec)
+        self.assertIn("Request Custom Apparel", sec)
+        self.assertIn('id="customForm"', sec)
+        self.assertIn('data-formsubmit="1"', sec)
+        for field in ('name="name"', 'name="email"', 'name="team"', 'name="garment"',
+                      'name="idea"', 'name="details"', 'name="_subject"', 'name="_honey"'):
+            self.assertIn(field, sec, field)
+        self.assertIn('id="formmsg"', sec)
+        # the homepage does not also fire the floating custom-design popup
+        self.assertNotIn('id="csPop"', self.html)
+        self.assertIn('id="csPop"', page("cleveland-browns-shirts/index.html"))
+
+    # ------------------------------------------------------- index/newsletter
     def test_compact_four_entry_fti_strip(self):
         sec = between(self.html, '<section class="ftisec">', "</section>")
         self.assertEqual(sec.count('class="fti-chip"'), 4)
@@ -488,73 +691,69 @@ class Homepage(unittest.TestCase):
         self.assertEqual(fti.count('class="fti-card reveal"'), len(rows))
         self.assertGreater(len(rows), 4)
 
-    def test_team_sections_and_counts(self):
-        secs = re.findall(r'<section class="teamsec"(.*?)</section>', self.html, re.S)
-        self.assertEqual(len(secs), 4)
-        for s in secs:
-            self.assertEqual(len(re.findall(r'<article class="card', s)), 4)
-        total = sum(int(n) for n in re.findall(r"View all (\d+) [A-Za-z ]+ designs", self.html))
-        self.assertIn(f"{total} fan designs", self.html)   # banner count is the live total
+    def test_newsletter_is_last_and_still_works(self):
+        sec = between(self.html, '<section class="brandsec" id="newsletter">', "</section>")
+        self.assertIn("Stay In The", sec)
+        self.assertIn("Football culture, new designs and game-day inspiration.", sec)
+        self.assertIn('id="newsForm"', sec)
+        self.assertIn('id="newsEmail"', sec)
+        self.assertIn("Join", sec)
+        self.assertLess(self.html.index('<section class="ftisec"'),
+                        self.html.index('<section class="brandsec"'))
 
-    def test_shopping_first_order(self):
-        # Landing sequence is buying intent first, editorial last.
-        markers = [
-            '<section class="hero editorial"',   # copy + four-team collage
-            '<section class="teamdeck-sec"',     # pick a team
-            'class="trust"',                     # purchase confidence
-            '<section class="featured-sec"',     # real product cards
-            '<section class="railsec"',          # trending now rail
-            '<section class="lockersec"',        # promotional locker panel
-            'class="cdbar"',                     # week-1 countdown
-            '<section class="teamsec"',          # product sections
-            '<section class="guidesec"',         # buying guides
-            '<section class="brandsec"',         # newsletter / brand
-            '<section class="ftisec"',           # headline strip
-            'class="newsticker"',                # live news bar
-        ]
-        pos = 0
-        for m in markers:
-            i = self.html.index(m, pos)
-            self.assertGreater(i, pos, "order: %s" % m)
-            pos = i
-        # hero primary CTA goes to the collections, secondary to drops
-        hero = between(self.html, '<section class="hero editorial"', "</section>")
-        self.assertIn("./collections/", hero)
-        self.assertIn("./drops/", hero)
-        self.assertIn("Trending Now", hero)
+    # ------------------------------------------------- sticky shop navigation
+    def test_sticky_shop_navigation_desktop_and_mobile(self):
+        bar = between(self.html, '<div class="shopbar" id="shopbar">', "</div>\n<nav")
+        for k in ORDER:
+            self.assertIn(f'href="./{COLLECTIONS[k]["slug"]}/"', bar, k)
+        self.assertIn('href="./drops/"', bar)
+        self.assertIn('href="./search/"', bar)
+        self.assertIn("position:sticky", media_rules(self.css, 0) + self.css)
+        self.assertIn(".shopbar{display:none}", self.css)
+        mob = between(self.html, '<nav class="mobshop" id="mobshop"', "</nav>")
+        self.assertIn("#shop-by-team", mob)
+        self.assertIn("#trending", mob)
+        self.assertIn('href="./search/"', mob)
+        self.assertIn("hidden", self.html[self.html.index('<nav class="mobshop"'):][:200])
+        self.assertIn("env(safe-area-inset-bottom)", css_block(self.css, ".mobshop"))
+        self.assertIn("mobshop", self.js)
 
-    def test_trending_rail_uses_real_signals(self):
-        sec = between(self.html, '<section class="railsec">', "</section>")
-        tiles = re.findall(r'class="railcard"', sec)
-        self.assertGreaterEqual(len(tiles), 4)
-        self.assertLessEqual(len(tiles), 8)
-        self.assertIn("href=\"./drops/\"", sec)
-        # honest label: never a fake "best seller" badge
-        self.assertNotIn("best seller", sec.lower())
-        self.assertNotIn("bestseller", sec.lower())
+    # ---------------------------------------------------------------- footer
+    def test_footer_columns(self):
+        foot = self.html[self.html.index("<footer>"):]
+        for head in ("Shop", "Help", "Brand", "Compliance"):
+            self.assertIn(f"<h2>{head}</h2>", foot, head)
+        for href in ("./collections/", "./drops/", "./faq/", "./shipping/", "./contact/",
+                     "./about/", "./guides/", "./trademark-notice/", "./privacy/"):
+            self.assertIn(f'href="{href}"', foot, href)
+        self.assertIn("not affiliated with", foot)
+        for banned in ("official merchandise", "officially licensed", "authorized dealer"):
+            self.assertNotIn(banned, foot.lower(), banned)
 
-    def test_hero_copy_matches_reference(self):
-        # The homepage hero is now a real editorial copy block (not a photo
-        # poster): eyebrow, huge headline, brush word, live catalogue facts
-        # and two product routes, plus a four-team product collage beside it.
-        hero = between(self.html, '<section class="hero editorial"', "</section>")
-        self.assertIn("Football. Fans. Culture.", hero)
-        self.assertIn('<h1 class="hero-title">', hero)
-        self.assertIn("Keep it.", hero)
-        self.assertEqual(len(re.findall(r'<a class="hero-shot', hero)), len(ORDER))
-        self.assertRegex(hero, r"\d+ fan designs")
-        self.assertIn("S&ndash;3XL", hero)
-        self.assertIn("Worldwide shipping", hero)
-        self.assertIn("./collections/", hero)
-        self.assertIn("./drops/", hero)
-        # the hero headline is visible text (crawlable), not sr-only
-        self.assertIn("position:absolute", css_block(self.css, ".sr-only"))
-
+    # ------------------------------------------------------------------- SEO
     def test_seo_and_hero_preserved(self):
         self.assertIn('<link rel="canonical" href="https://gridironlocker.store/">', self.html)
-        self.assertIn("hero-home.jpg?v=4", self.html)
+        self.assertIn("hero-home.jpg?v=4", self.html)          # OG image unchanged
         self.assertIn('"@type":"WebSite"', self.html)
         self.assertIn('"@type":"Organization"', self.html)
+        self.assertIn('"@type":"ItemList"', self.html)
+        self.assertIn('<meta name="description"', self.html)
+        # heading order never skips a level
+        levels = [int(t) for t in re.findall(r"<h([1-3])[ >]", self.html)]
+        self.assertEqual(levels[0], 1)
+        for prev, cur in zip(levels, levels[1:]):
+            self.assertLessEqual(cur - prev, 1)
+
+    def test_below_the_fold_imagery_is_lazy(self):
+        body = self.html[self.html.index('<section class="teamdeck-sec"'):]
+        imgs = re.findall(r"<img [^>]*>", body)
+        self.assertGreater(len(imgs), 20)
+        eager = [i for i in imgs if 'loading="lazy"' not in i]
+        self.assertLessEqual(len(eager), 6, eager[:3])         # only the first rail tiles
+        for img in imgs:
+            self.assertIn("alt=", img)
+            self.assertIn("width=", img)
+            self.assertIn("height=", img)
 
 
 class SearchCatalogue(unittest.TestCase):

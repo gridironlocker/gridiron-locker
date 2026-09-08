@@ -119,37 +119,58 @@ header{position:sticky;top:0;z-index:60;background:#fff;border-bottom:1px solid 
 .nav .links a:hover{color:var(--ink)}
 .nav .links a[aria-current]{color:var(--ink);box-shadow:inset 0 -2px 0 var(--ca)}
 .navtools{display:flex;align-items:center;gap:6px;margin-left:auto}
-.navico{display:flex;align-items:center;gap:7px;background:#fff;border:1px solid var(--line2);
-  border-radius:99px;padding:8px 12px;color:var(--ink2);font-size:.74rem;font-weight:700;
-  cursor:pointer;font-family:var(--font);line-height:1;transition:border-color .15s,color .15s,background .15s}
-.navico:hover{border-color:var(--ink);color:var(--ink)}
-.navico.on{background:var(--ink);color:#fff;border-color:var(--ink)}
-.navico svg{display:block}
-.navico .cct{min-width:17px;height:17px;border-radius:99px;background:var(--btn);color:#fff;
-  font-size:.62rem;font-weight:800;display:grid;place-items:center;padding:0 4px}
 .burger{background:#fff;border:1px solid var(--line2);color:var(--ink);width:40px;height:36px;
   border-radius:9px;display:none;cursor:pointer;line-height:1;padding:0;place-items:center}
 .burger span{display:block;width:16px;height:2px;background:var(--ink);margin:2px auto;border-radius:2px}
 .burger.on span:nth-child(1){transform:translateY(4px) rotate(45deg)}
 .burger.on span:nth-child(2){opacity:0}
 .burger.on span:nth-child(3){transform:translateY(-4px) rotate(-45deg)}
-.header-pop{position:absolute;top:calc(100% + 8px);right:16px;z-index:80;width:280px;background:#fff;
-  border:1px solid var(--line2);border-radius:16px;box-shadow:var(--shadow-lg);padding:14px}
-.header-pop[hidden]{display:none}
-.header-pop .hp-kicker{display:block;font-size:.68rem;font-weight:800;letter-spacing:.12em;
-  text-transform:uppercase;color:var(--muted);margin-bottom:6px}
-.header-pop p{margin:0 0 10px;font-size:.82rem;color:var(--muted);line-height:1.5}
-.header-pop a{display:block;padding:7px 4px;font-size:.86rem;font-weight:600;color:var(--ink2);
-  border-top:1px solid var(--line)}
-.header-pop a:first-of-type{border-top:0}
-.header-pop a:hover{color:var(--ink);text-decoration:underline}
 .mobnav{display:none;border-top:1px solid var(--line);background:#fff}
 .mobnav.open{display:block}
 .mobnav a{display:block;padding:12px 16px;font-weight:600;font-size:.9rem;color:var(--ink2);
   border-bottom:1px solid var(--line)}
 .mobnav a:last-child{border-bottom:0}
-@media(max-width:1180px){.navico .nlab{display:none}.navico{padding:8px 10px}}
 @media(max-width:980px){.nav .links{display:none}.searchbtn{display:block}.burger{display:grid}}
+/* 320px: the wordmark, search button and burger have to share 288px of
+   content width without the logo's nowrap pushing the burger off-screen. */
+@media(max-width:400px){.nav{gap:10px}.logo{gap:8px}.logo .wordmark{font-size:.92rem}
+  .logo .mark{width:28px;height:28px}}
+/* Compact sticky state: the header keeps its height (so sticky offsets stay
+   predictable) and only gains a hairline shadow once the page has moved. */
+header.stuck{box-shadow:0 1px 14px rgba(16,24,40,.08)}
+
+/* ============ STICKY SHOP BAR (desktop, below the hero) ============ */
+/* Sticks under the header the moment the hero has scrolled away, so the four
+   collections are one click from anywhere on the page. Deliberately slim -
+   36px of hairline, no fills, no shadows. */
+.shopbar{display:none}
+.sb-in{display:flex;align-items:center;gap:16px;height:42px}
+.sb-lab{font-size:.66rem;font-weight:800;letter-spacing:.14em;text-transform:uppercase;color:var(--ink)}
+.sb-links{display:flex;gap:16px;min-width:0;overflow:hidden}
+.sb-links a{font-size:.78rem;font-weight:700;color:var(--muted);white-space:nowrap;transition:color .15s}
+.sb-links a:hover{color:var(--ink)}
+.sb-all{margin-left:auto;font-size:.76rem;font-weight:800;color:var(--ink);white-space:nowrap}
+.sb-all:hover{text-decoration:underline}
+@media(min-width:981px){
+  .shopbar{display:block;position:sticky;top:64px;z-index:55;background:rgba(255,255,255,.96);
+    backdrop-filter:blur(8px);border-bottom:1px solid var(--line)}
+}
+
+/* ============ MOBILE SHOPPING BAR ============ */
+/* Phones get the same idea as a fixed bottom bar. It is revealed by app.js
+   after the hero and hidden again over the footer; [hidden] keeps it out of
+   the accessibility tree until then. */
+.mobshop{position:fixed;left:0;right:0;bottom:0;z-index:72;display:grid;
+  grid-template-columns:repeat(3,1fr);background:rgba(255,255,255,.97);
+  border-top:1px solid var(--line2);backdrop-filter:blur(10px);
+  padding-bottom:env(safe-area-inset-bottom);box-shadow:0 -6px 22px rgba(16,24,40,.08)}
+.mobshop[hidden]{display:none}
+.mobshop a{padding:13px 6px;text-align:center;font-size:.74rem;font-weight:800;letter-spacing:.02em;
+  color:var(--ink);border-left:1px solid var(--line)}
+.mobshop a:first-child{border-left:0}
+.mobshop a:active{background:var(--bg3)}
+body.has-mobshop{padding-bottom:56px}
+@media(min-width:981px){.mobshop{display:none}body.has-mobshop{padding-bottom:0}}
 
 /* ============ BUTTONS ============ */
 .btn{display:inline-flex;align-items:center;justify-content:center;gap:8px;
@@ -243,7 +264,10 @@ section{padding:clamp(30px,4.5vw,52px) 0}
 .sechead{display:flex;align-items:flex-end;justify-content:space-between;gap:14px;
   margin-bottom:20px;flex-wrap:wrap}
 .sechead>div{flex:1 1 auto;min-width:0}
-.sechead h2{margin-bottom:5px}
+.sechead h2{margin-bottom:5px;font-family:var(--display);text-transform:uppercase;
+  letter-spacing:.01em;font-size:clamp(1.45rem,3.2vw,2.15rem);line-height:1.04}
+.wkhead h2{font-family:var(--display);text-transform:uppercase;letter-spacing:.01em;
+  font-size:clamp(1.45rem,3.2vw,2.15rem);line-height:1.04}
 .sechead p{margin:0;color:var(--muted);max-width:88ch;font-size:.92rem}
 /* .light was the old "light island inside a dark site" wrapper.
    The whole site is light now, so it only has to stay transparent. */
@@ -377,15 +401,6 @@ section{padding:clamp(30px,4.5vw,52px) 0}
   padding:4px 7px;border-radius:5px;border:1px solid var(--line)}
 .tagpill.hot{background:var(--ca);color:#fff;border-color:var(--ca)}
 .tagpill.thr{background:var(--ink);color:#fff;border-color:var(--ink)}
-
-/* compact rail tile */
-.railcard{display:flex;flex-direction:column;gap:3px;width:170px;flex:none;background:#fff;
-  border:1px solid var(--line);border-radius:var(--radius);padding:8px}
-.railcard .ph{display:block;position:relative;aspect-ratio:1/1;background:#fff}
-.railcard .ph img{width:100%;height:100%;object-fit:contain}
-.railcard .meta{font-size:.62rem;color:#9aa0a8;text-transform:uppercase;letter-spacing:.06em;font-weight:700}
-.railcard .nm{font-size:.8rem;color:var(--ink2);line-height:1.3}
-.railcard .pr{font-size:.9rem;font-weight:800;color:var(--ink)}
 
 /* ============ FILTER TOOLS ============ */
 .tools{display:flex;gap:8px;flex-wrap:wrap;align-items:center;margin-bottom:16px;padding:12px;
@@ -602,6 +617,11 @@ footer .logo{color:var(--ink)}
 .disclaim{background:#fff;border:1px solid var(--line);border-radius:9px;padding:14px 16px;
   font-size:.76rem;color:var(--muted);margin-top:18px}
 
+/* ============ TEAM COLLECTION SECTIONS (homepage, deeper browsing) ====== */
+.teamsec{border-top:1px solid var(--line);padding:34px 0}
+.teamsec .sechead h2{font-family:var(--display);text-transform:uppercase;letter-spacing:.01em;
+  font-size:clamp(1.3rem,2.6vw,1.9rem)}
+
 /* ============ CUSTOM DESIGN SECTION ============ */
 .customsec{background:var(--bg2);border-top:1px solid var(--line);border-bottom:1px solid var(--line)}
 .customsec h2{color:var(--ink)}
@@ -617,8 +637,11 @@ footer .logo{color:var(--ink)}
   padding:24px 24px;box-shadow:none;display:flex;flex-direction:column;justify-content:center;
   height:100%;min-height:0;max-width:none;margin:0}
 .customform form{display:grid;gap:13px}
-.customform .cf-head{font-family:var(--font);font-size:1.15rem;font-weight:800;letter-spacing:-.01em;
-  color:var(--ink);margin:0 0 2px;text-transform:none}
+.customform h2{font-family:var(--display);text-transform:uppercase;letter-spacing:.01em;
+  font-size:clamp(1.5rem,3.2vw,2.1rem);line-height:1.02;margin:0 0 12px}
+.customform .cf-lead{color:var(--muted);font-size:.92rem;line-height:1.6;margin:0 0 18px;max-width:52ch}
+.customform .cf-head{font-family:var(--font);font-size:1.05rem;font-weight:800;letter-spacing:-.01em;
+  color:var(--ink);margin:0 0 2px;text-transform:none;padding-top:14px;border-top:1px solid var(--line)}
 .customform .cf-sub{margin:0 0 4px;font-size:.9rem;color:var(--muted);line-height:1.5}
 .customform .row{display:grid;grid-template-columns:1fr 1fr;gap:13px}
 .customform label{display:grid;gap:6px;font-size:.68rem;font-weight:800;letter-spacing:.06em;
@@ -753,17 +776,6 @@ footer .logo{color:var(--ink)}
 @media(max-width:760px){.findpill{display:block}}
 @media(max-width:560px){.chipslabel{min-width:0}.toolswrap{top:56px}}
 
-/* ============ TRENDING RAIL (homepage + collections hub) ============ */
-/* Horizontal, scroll-snapping rail of compact tiles for the store-wide
-   'Trending Now' row. Reuses .railcard (170px tiles, front image, price). */
-.railsec{padding:28px 0 8px}
-.rail{display:flex;gap:12px;overflow-x:auto;padding:4px 2px 12px;scroll-snap-type:x proximity;
-  -webkit-overflow-scrolling:touch}
-.rail::-webkit-scrollbar{height:8px}
-.rail::-webkit-scrollbar-track{background:transparent}
-.rail::-webkit-scrollbar-thumb{background:var(--line2);border-radius:99px}
-.railcard{scroll-snap-align:start}
-
 /* ============ QUICK VIEW (every product card) ============ */
 /* .qv sits at the top-right of the card, a SIBLING of the card link (an
    interactive control inside <a> is invalid HTML). On pointer devices it
@@ -807,119 +819,190 @@ footer .logo{color:var(--ink)}
 }
 
 /* =============================================================
-   EDITORIAL STOREFRONT (2026-09-08 reference)
+   EDITORIAL STOREFRONT
+   -------------------------------------------------------------
+   The homepage funnel: hero -> shop by team -> shop the locker ->
+   trending -> season -> team collections -> guides -> custom ->
+   trend index -> newsletter. White premium base, dark editorial
+   type, cinematic football artwork, team colour only in accents.
    ============================================================= */
+
+/* ---- Anchored sections clear the sticky header ---- */
+#hero,#shop-by-team,#shop-the-locker,#trending,#season,#guides,#custom-design,#newsletter{
+  scroll-margin-top:112px}
+
+/* ---- HERO: ~40% editorial copy / ~60% cinematic football panel ---- */
 .hero{background:#fff;border-bottom:1px solid var(--line);position:relative;padding:0;overflow:hidden}
-/* textured white editorial section */
+/* paper/screen-print texture, kept faint so the page never reads as dirty */
 .hero:before{content:'';position:absolute;inset:0;pointer-events:none;opacity:.55;
   background-image:radial-gradient(rgba(17,20,24,.05) 1px,transparent 1px),radial-gradient(rgba(17,20,24,.03) 1px,transparent 1px);
   background-size:22px 22px,44px 44px;background-position:0 0,11px 11px}
-.hero-grid{position:relative;display:grid;grid-template-columns:minmax(0,1.04fr) minmax(0,.96fr);
-  gap:36px;align-items:center;padding:56px 16px 46px;min-height:560px}
-.hero-copy{position:relative;z-index:1}
-.hero-kicker{display:block;font-family:var(--display);font-size:clamp(.92rem,1.7vw,1.12rem);
-  letter-spacing:.18em;text-transform:uppercase;color:var(--muted);margin-bottom:14px}
-.hero-title{font-family:var(--display);font-weight:800;font-size:clamp(3.2rem,8.4vw,7.4rem);
+.hero-grid{position:relative;display:grid;grid-template-columns:minmax(0,.78fr) minmax(0,1.22fr);
+  gap:40px;align-items:stretch;padding:44px 16px;min-height:min(78vh,660px)}
+.hero-copy{position:relative;z-index:1;align-self:center;padding:6px 0}
+.hero-kicker{display:block;font-size:clamp(.74rem,1.1vw,.86rem);font-weight:800;
+  letter-spacing:.22em;text-transform:uppercase;color:var(--ink2);margin-bottom:14px}
+.hero-title{font-family:var(--display);font-weight:800;font-size:clamp(3rem,6.6vw,5.6rem);
   line-height:.9;letter-spacing:.01em;text-transform:uppercase;color:var(--ink);margin:0}
-.hero-title .up{color:var(--ca,var(--btn))}
-.hero-brush{display:inline-block;font-family:var(--brush);font-size:clamp(1.8rem,4.6vw,3.6rem);
-  color:#111418;transform:rotate(-2deg);margin:.18em 0 .2em;position:relative;line-height:1;
+.hero-title .up{color:var(--ink)}
+.hero-brush{display:inline-block;font-family:var(--brush);font-size:clamp(1.7rem,3.8vw,3.1rem);
+  color:#111418;transform:rotate(-2deg);margin:.14em 0 .18em;position:relative;line-height:1;
   text-transform:uppercase;letter-spacing:.02em}
-.hero-brush:after{content:'';position:absolute;left:-.08em;right:0;bottom:.05em;height:.42em;
-  background:rgba(73,165,156,.18);transform:skewX(-14deg);border-radius:40% 60% 55% 45%;z-index:-1}
-.hero-sub{max-width:52ch;color:var(--muted);font-size:.96rem;line-height:1.6;margin:12px 0 0}
+/* the painted stroke under "Keep it." - the reference artwork's yellow slash */
+.hero-brush:after{content:'';position:absolute;left:-.06em;right:-.02em;bottom:.02em;height:.34em;
+  background:#F2B01E;opacity:.85;transform:skewX(-14deg);border-radius:45% 55% 50% 50%;z-index:-1}
+.hero-sub{max-width:44ch;color:var(--ink2);font-size:1rem;line-height:1.6;margin:14px 0 0}
 .hero-facts{display:flex;flex-wrap:wrap;gap:8px 26px;margin-top:20px;padding-top:16px;
   border-top:1px solid var(--line);font-size:.72rem;font-weight:800;letter-spacing:.08em;
   text-transform:uppercase;color:var(--muted)}
 .hero-facts span{position:relative}
 .hero-facts span+span:before{content:'';position:absolute;left:-15px;top:50%;width:4px;height:4px;
   border-radius:99px;background:var(--line2);transform:translateY(-50%)}
-.hero-stage{position:relative;z-index:1}
-.hero-shots{display:grid;grid-template-columns:1fr 1fr;gap:12px}
-.hero-shot{position:relative;display:block;border-radius:16px;overflow:hidden;aspect-ratio:4/5;
-  border:1px solid var(--line);background:var(--ca-tint);min-width:0}
-.hero-shot img{width:100%;height:100%;object-fit:cover;object-position:center;transition:transform .45s ease}
-.hero-shot:hover img{transform:scale(1.045)}
-.hero-shot .hs-shade{position:absolute;inset:0;background:linear-gradient(180deg,transparent 44%,rgba(10,11,13,.55));pointer-events:none}
-.hero-shot .hs-tag{position:absolute;top:10px;left:10px;z-index:2;background:#fff;color:var(--ca-ink);
-  font-weight:800;font-size:.64rem;letter-spacing:.08em;text-transform:uppercase;padding:5px 9px;
-  border-radius:99px;border:1px solid var(--line)}
-.hero-shot .hs-count{position:absolute;top:10px;right:10px;z-index:2;color:#fff;font-size:.6rem;
-  font-weight:800;letter-spacing:.08em;text-transform:uppercase;background:rgba(10,11,13,.55);
-  padding:5px 8px;border-radius:99px}
-.hero-shot .hs-go{position:absolute;left:10px;bottom:10px;z-index:2;color:#fff;font-weight:700;
-  font-size:.78rem;display:flex;align-items:center;gap:6px}
-.hero-shot .hs-go i{font-style:normal;transition:transform .2s}
-.hero-shot:hover .hs-go i{transform:translateX(4px)}
+.hero-stage{position:relative;z-index:1;min-width:0;display:flex}
+.hero-art{width:100%;height:100%;min-height:320px;object-fit:cover;object-position:center;
+  border-radius:14px;border:1px solid var(--line);background:var(--bg3)}
 @media(max-width:920px){
-  .hero-grid{grid-template-columns:1fr;gap:26px;padding:42px 16px 34px;min-height:0}
-  .hero-shots{grid-template-columns:repeat(4,1fr)}
-  .hero-shot{aspect-ratio:4/5}
+  .hero-grid{grid-template-columns:1fr;gap:20px;padding:28px 16px 26px;min-height:0}
+  .hero-stage{order:-1}
+  .hero-art{min-height:0;height:auto;aspect-ratio:16/10;border-radius:12px}
+  .hero-sub{max-width:none}
 }
-@media(max-width:640px){
-  .hero-shots{grid-template-columns:repeat(2,1fr);gap:8px}
-  .hero-shot{aspect-ratio:4/5}
-  .hero-facts{gap:8px 16px}
+@media(max-width:560px){
+  .hero-art{aspect-ratio:3/2}
+  .hero-title{font-size:clamp(2.6rem,15vw,3.4rem)}
+  .hero-facts{gap:6px 16px;font-size:.66rem}
   .hero-facts span+span:before{display:none}
 }
 
-/* ---- Shop By Team: editorial image cards ---- */
-.teamdeck-sec{padding:42px 0 10px}
+/* ---- Section head tools (rail arrows + link) ---- */
+.sechead-tools{display:flex;align-items:center;gap:14px}
+.secfoot{display:flex;align-items:center;gap:18px;flex-wrap:wrap;margin-top:22px}
+.rail-nav{display:none;gap:6px}
+.rail-nav .rn{width:34px;height:34px;border-radius:99px;border:1px solid var(--line2);background:#fff;
+  color:var(--ink);font-size:.9rem;cursor:pointer;display:grid;place-items:center;line-height:1;
+  transition:border-color .15s,background .15s,opacity .15s}
+.rail-nav .rn:hover:not(:disabled){border-color:var(--ink);background:var(--bg2)}
+.rail-nav .rn:disabled{opacity:.32;cursor:default}
+@media(min-width:761px) and (hover:hover){.rail-nav{display:flex}}
+
+/* ---- PRODUCT CARD (homepage) ---- */
+/* One <a>: image, team + garment, name, price, "View design". Normalised
+   square image box with object-fit:contain so a mug and a hoodie mockup
+   occupy exactly the same area on the shelf. */
+.pcard{display:flex;flex-direction:column;background:#fff;border:1px solid var(--line);
+  border-radius:10px;overflow:hidden;min-width:0;
+  transition:border-color .18s ease,transform .18s ease,box-shadow .18s ease}
+.pcard:hover{border-color:var(--line2);transform:translateY(-3px);box-shadow:var(--shadow-lg)}
+.pcard:focus-visible{outline:2px solid var(--ink);outline-offset:2px}
+.pc-ph{position:relative;display:block;aspect-ratio:1/1;background:#fff;overflow:hidden}
+.pc-ph img{position:absolute;inset:0;width:100%;height:100%;object-fit:contain;
+  transition:transform .45s ease}
+.pcard:hover .pc-ph img{transform:scale(1.04)}
+.pc-hot{position:absolute;top:8px;left:8px;z-index:3;background:var(--ca);color:#fff;
+  font-size:.58rem;font-weight:800;letter-spacing:.09em;text-transform:uppercase;
+  padding:4px 7px;border-radius:5px}
+.pc-body{display:flex;flex-direction:column;gap:4px;padding:11px 12px 12px;
+  border-top:1px solid #f2f3f5;flex:1}
+.pc-meta{font-size:.62rem;font-weight:800;letter-spacing:.08em;text-transform:uppercase;color:var(--ca-ink)}
+.pc-name{font-size:.86rem;font-weight:600;color:var(--ink2);margin:0;line-height:1.35;
+  letter-spacing:0;font-family:var(--font)}
+.pcard:hover .pc-name{color:var(--ink)}
+.pc-foot{display:flex;align-items:baseline;justify-content:space-between;gap:10px;margin-top:auto;
+  padding-top:8px}
+.pc-price{font-size:.98rem;font-weight:800;color:var(--ink)}
+.pc-go{font-size:.7rem;font-weight:800;letter-spacing:.04em;text-transform:uppercase;color:var(--muted);
+  white-space:nowrap;display:inline-flex;align-items:center;gap:5px}
+.pcard:hover .pc-go{color:var(--ink)}
+.pc-go i{font-style:normal;transition:transform .18s}
+.pcard:hover .pc-go i{transform:translateX(3px)}
+/* same reasoning as the team cards: at two columns on a 320px screen the
+   price and the CTA get their own line instead of overflowing the tile */
+@media(max-width:560px){.pc-name{font-size:.8rem}.pc-go{font-size:.64rem}
+  .pc-foot{flex-direction:column;align-items:flex-start;gap:2px}}
+
+/* ---- PRODUCT GRIDS ---- */
+.pgrid{display:grid;gap:14px}
+.pgrid.four{grid-template-columns:repeat(4,minmax(0,1fr))}
+@media(max-width:900px){.pgrid.four{grid-template-columns:repeat(3,minmax(0,1fr))}}
+@media(max-width:700px){.pgrid.four{grid-template-columns:repeat(2,minmax(0,1fr));gap:10px}}
+
+/* ---- PRODUCT RAIL ---- */
+/* Four tiles on a desktop with the fifth peeking (the affordance that says
+   "this scrolls"); phones swipe it instead of stacking a dozen cards. */
+.prail{display:flex;gap:14px;overflow-x:auto;padding:2px 2px 14px;scroll-snap-type:x proximity;
+  -webkit-overflow-scrolling:touch;scrollbar-width:thin}
+.prail>*{flex:0 0 clamp(200px,23vw,252px);scroll-snap-align:start}
+.prail::-webkit-scrollbar{height:8px}
+.prail::-webkit-scrollbar-track{background:transparent}
+.prail::-webkit-scrollbar-thumb{background:var(--line2);border-radius:99px}
+.rail-end{display:flex;flex-direction:column;align-items:flex-start;justify-content:center;gap:10px;
+  border:1px dashed var(--line2);border-radius:10px;padding:20px;background:var(--bg2);
+  transition:border-color .18s,background .18s}
+.rail-end:hover{border-color:var(--ink);background:#fff}
+.rail-end .re-lab{font-family:var(--display);text-transform:uppercase;letter-spacing:.02em;
+  font-size:1.05rem;line-height:1.1;color:var(--ink)}
+.rail-end .re-go{width:34px;height:34px;border-radius:99px;background:var(--ink);color:#fff;
+  display:grid;place-items:center;transition:transform .18s}
+.rail-end:hover .re-go{transform:translateX(3px)}
+@media(max-width:560px){.prail>*{flex:0 0 62vw}}
+
+/* ---- SHOP THE LOCKER / TRENDING sections ---- */
+.lockersec{padding:34px 0 10px}
+.trendsec{padding:30px 0 34px;border-bottom:1px solid var(--line)}
+
+/* ---- Shop By Team: cinematic team cards ---- */
+.teamdeck-sec{padding:40px 0 12px}
 .teamdeck-grid{display:grid;grid-template-columns:repeat(4,minmax(0,1fr));gap:14px}
-.teamcard{display:flex;flex-direction:column;background:#fff;border:1px solid var(--line);
-  border-radius:18px;overflow:hidden;min-width:0;transition:transform .2s ease,box-shadow .2s ease,border-color .2s ease}
+.teamcard{position:relative;display:flex;flex-direction:column;background:#fff;
+  border:1px solid var(--line);border-radius:12px;overflow:hidden;min-width:0;
+  transition:transform .2s ease,box-shadow .2s ease,border-color .2s ease}
 .teamcard:hover{transform:translateY(-4px);border-color:var(--ca);box-shadow:var(--shadow-lg)}
-.teamcard .tc-ph{position:relative;aspect-ratio:16/10;overflow:hidden;background:var(--ca-tint)}
-.teamcard .tc-ph img{width:100%;height:100%;object-fit:cover;object-position:center;transition:transform .45s ease}
+.teamcard:focus-visible{outline:2px solid var(--ink);outline-offset:2px}
+.teamcard .tc-ph{position:relative;display:block;aspect-ratio:1/1;overflow:hidden;background:#101216}
+.teamcard .tc-ph img{width:100%;height:100%;object-fit:cover;object-position:center;
+  transition:transform .5s ease}
 .teamcard:hover .tc-ph img{transform:scale(1.05)}
-.teamcard .tc-ph:after{content:'';position:absolute;left:0;right:0;bottom:0;height:4px;
+.teamcard .tc-shade{position:absolute;inset:0;
+  background:linear-gradient(180deg,rgba(10,11,13,0) 38%,rgba(10,11,13,.82) 100%)}
+.teamcard .tc-over{position:absolute;left:14px;right:14px;bottom:12px;z-index:2;display:block}
+.teamcard .tc-name{display:block;font-family:var(--display);font-size:clamp(1.3rem,2.5vw,1.9rem);
+  line-height:1;letter-spacing:.01em;text-transform:uppercase;color:#fff}
+.teamcard .tc-phrase{display:block;margin-top:5px;font-size:.68rem;font-weight:800;
+  letter-spacing:.14em;text-transform:uppercase;color:#fff;opacity:.92}
+/* the team-colour rule that ties the artwork to the card body */
+.teamcard .tc-ph:after{content:'';position:absolute;left:0;right:0;bottom:0;height:4px;z-index:3;
   background:linear-gradient(90deg,var(--ca) 0,var(--ca-2) 100%)}
-.teamcard .tc-body{display:flex;flex-direction:column;gap:4px;padding:14px 14px 16px;flex:1}
-.teamcard .tc-count{align-self:flex-start;font-size:.6rem;font-weight:800;letter-spacing:.1em;
-  text-transform:uppercase;color:var(--ca-ink);background:var(--ca-tint);border:1px solid var(--line);
-  padding:3px 8px;border-radius:99px}
-.teamcard .tc-name{font-size:.98rem;font-weight:800;color:var(--ink);letter-spacing:-.01em;line-height:1.25}
-.teamcard .tc-tag{font-size:.8rem;color:var(--muted);line-height:1.4}
-.teamcard .tc-go{margin-top:auto;padding-top:10px;font-size:.78rem;font-weight:800;color:var(--ca-ink);
-  display:flex;align-items:center;gap:7px}
+.teamcard .tc-body{display:flex;align-items:center;justify-content:space-between;gap:10px;
+  padding:12px 14px 13px}
+.teamcard .tc-count{font-size:.62rem;font-weight:800;letter-spacing:.1em;text-transform:uppercase;
+  color:var(--ca-ink);background:var(--ca-tint);border:1px solid var(--line);padding:3px 8px;
+  border-radius:99px;white-space:nowrap}
+.teamcard .tc-go{font-size:.76rem;font-weight:800;color:var(--ink);display:inline-flex;
+  align-items:center;gap:6px;white-space:nowrap}
 .teamcard .tc-go i{font-style:normal;transition:transform .2s}
 .teamcard:hover .tc-go i{transform:translateX(4px)}
 @media(max-width:980px){.teamdeck-grid{grid-template-columns:repeat(2,minmax(0,1fr))}}
-@media(max-width:560px){.teamdeck-grid{grid-template-columns:1fr}}
-
-/* ---- Featured Collection ---- */
-.featured-sec{padding:36px 0 10px}
-.featured-grid{grid-template-columns:repeat(auto-fill,minmax(230px,1fr))}
-
-/* ---- Locker panel ---- */
-.lockersec{padding:38px 0}
-.locker-grid{display:grid;grid-template-columns:minmax(0,.82fr) minmax(0,1.18fr);gap:24px;align-items:stretch}
-.locker-panel{background:#111418;color:#fff;border-radius:22px;padding:40px 34px;display:flex;
-  flex-direction:column;justify-content:center;position:relative;overflow:hidden}
-.locker-panel:before{content:'';position:absolute;right:-90px;top:-90px;width:260px;height:260px;
-  border-radius:50%;background:radial-gradient(circle,rgba(255,255,255,.09),transparent 65%)}
-.locker-panel .lp-kicker{font-size:.64rem;font-weight:800;letter-spacing:.13em;text-transform:uppercase;
-  color:rgba(255,255,255,.62);margin-bottom:10px}
-.locker-panel h2{font-family:var(--display);font-size:clamp(1.7rem,3.4vw,2.9rem);color:#fff;
-  text-transform:uppercase;line-height:1.02;letter-spacing:.01em;margin:0 0 14px}
-.locker-panel h2 span{color:var(--ca,var(--btn))}
-.locker-panel p{color:rgba(255,255,255,.78);max-width:42ch;margin:0 0 18px}
-.btn.light{background:#fff;color:#111418;border-color:#fff}
-.btn.light:hover{background:#f1f2f4;border-color:#f1f2f4;color:#111418}
-.locker-products{display:grid;grid-template-columns:repeat(2,minmax(0,1fr));gap:14px;align-items:start}
-@media(max-width:920px){.locker-grid{grid-template-columns:1fr}.locker-products{grid-template-columns:repeat(2,minmax(0,1fr))}}
-@media(max-width:560px){.locker-products{grid-template-columns:repeat(2,minmax(0,1fr));gap:10px}
-  .locker-panel{padding:30px 22px}}
+@media(max-width:560px){
+  .teamdeck-grid{gap:10px}
+  .teamcard .tc-ph{aspect-ratio:4/3}
+  /* two cards share ~139px each at 320px: stack the count and the CTA rather
+     than letting two nowrap runs fight over one row */
+  .teamcard .tc-body{flex-direction:column;align-items:flex-start;padding:10px 11px 11px;gap:6px}
+  .teamcard .tc-count{font-size:.56rem;padding:3px 6px}
+  .teamcard .tc-go{font-size:.72rem}
+}
 
 /* ---- Buying guides ---- */
 .guidesec{padding:34px 0}
 .guide-grid{display:grid;grid-template-columns:repeat(4,minmax(0,1fr));gap:12px}
-.guide-card{display:flex;flex-direction:column;gap:7px;background:#fff;border:1px solid var(--line);
-  border-radius:14px;padding:16px 16px 15px;min-width:0;transition:border-color .18s,box-shadow .18s}
-.guide-card:hover{border-color:var(--line2);box-shadow:var(--shadow)}
+.guide-card{display:flex;flex-direction:column;gap:8px;background:#fff;border:1px solid var(--line);
+  border-radius:12px;padding:18px 16px 16px;min-width:0;
+  transition:border-color .18s,box-shadow .18s,transform .18s}
+.guide-card:hover{border-color:var(--line2);box-shadow:var(--shadow);transform:translateY(-2px)}
 .guide-card .gc-kick{font-size:.6rem;font-weight:800;letter-spacing:.1em;text-transform:uppercase;color:var(--muted)}
-.guide-card b{font-size:.9rem;color:var(--ink)}
-.guide-card .gc-go{margin-top:auto;font-size:.72rem;font-weight:800;color:var(--ca-ink,var(--btn))}
+.guide-card b{font-size:.98rem;color:var(--ink);line-height:1.3}
+.guide-card .gc-sub{font-size:.82rem;color:var(--muted);line-height:1.5}
+.guide-card .gc-go{margin-top:auto;padding-top:6px;font-size:.72rem;font-weight:800;color:var(--ink)}
 @media(max-width:900px){.guide-grid{grid-template-columns:repeat(2,minmax(0,1fr))}}
 @media(max-width:560px){.guide-grid{grid-template-columns:1fr}}
 

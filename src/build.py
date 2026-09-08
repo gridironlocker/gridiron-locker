@@ -572,21 +572,26 @@ def header(active=""):
     yielded its desktop slot). Still the only sane way to make a nav change:
     edit it here, never in the built site/*.html files, because the daily
     refresh workflow re-runs this generator.
+
+    There is deliberately NO account or cart control. Checkout happens on the
+    fulfilment partner, so an account icon led to an explainer popover and a
+    cart icon to a favourites hint - two pieces of storefront furniture that
+    promised state this site does not own, in the two slots a visitor's eye
+    goes to first. The header's only job is product discovery: logo, the seven
+    shopping destinations, and search.
     """
     links = "".join(
         f'<a href="/{COLLECTIONS[k]["slug"]}/"{" aria-current=page" if active == k else ""}>{COLLECTIONS[k]["short"]}</a>'
         for k in ORDER)
     mob = "".join(f'<a href="/{COLLECTIONS[k]["slug"]}/">{COLLECTIONS[k]["name"]}</a>' for k in ORDER)
     search_ico = '<svg width="17" height="17" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.8" aria-hidden="true"><circle cx="11" cy="11" r="6.2"/><path d="M20 20l-4.3-4.3"/></svg>'
-    acct_ico = '<svg width="18" height="18" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.8" aria-hidden="true"><circle cx="12" cy="8" r="3.7"/><path d="M4.4 20c.8-4 3.7-6.4 7.6-6.4s6.8 2.4 7.6 6.4"/></svg>'
-    cart_ico = '<svg width="18" height="18" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.8" aria-hidden="true"><path d="M4 5h2l1.6 9.2a2 2 0 0 0 2 1.6h7.6a2 2 0 0 0 2-1.6L20 8H7"/><circle cx="10" cy="20" r="1.35"/><circle cx="17" cy="20" r="1.35"/></svg>'
     return f"""\
 <a class="skip" href="#main">Skip to content</a>
 <div class="promo">{season_promo()} &middot; Printed on demand in the USA &middot; Worldwide shipping</div>
 <header>
  <div class="wrap nav">
   <a class="logo" href="/"><span class="mark">GL</span><span class="wordmark">{esc(BRAND)}</span></a>
-  <nav class="links">
+  <nav class="links" aria-label="Shop">
    <a href="/collections/">All Collections</a>
    {links}
    <a href="/drops/">Trending</a>
@@ -597,22 +602,10 @@ def header(active=""):
     <input class="gsearch" type="search" placeholder="Search designs..." aria-label="Search all designs" autocomplete="off">
     <span class="gs-ico" aria-hidden="true">{search_ico}</span>
    </span>
-   <button class="navico" id="acctBtn" type="button" aria-label="Account" aria-expanded="false">{acct_ico}<span class="nlab">Account</span></button>
-   <button class="navico cart" id="cartBtn" type="button" aria-label="Cart" aria-expanded="false">{cart_ico}<span class="nlab">Cart</span><span class="cct" id="cartCount">0</span></button>
    <button class="searchbtn" aria-label="Search designs"
     onclick="var m=document.getElementById('ms');m.classList.toggle('open');var i=m.querySelector('input');if(m.classList.contains('open')&&i)i.focus()">{search_ico}</button>
    <button class="burger" id="navToggle" aria-label="Open menu" aria-expanded="false"><span></span><span></span><span></span></button>
   </div>
- </div>
- <div class="header-pop" id="acctPop" hidden>
-  <span class="hp-kicker">Your account</span>
-  <p>Checkout is handled securely by our print partner.</p>
-  <a href="/contact/">Order help</a><a href="/shipping/">Shipping &amp; returns</a><a href="/faq/">Shipping FAQ</a>
- </div>
- <div class="header-pop cart" id="cartPop" hidden>
-  <span class="hp-kicker">Your cart</span>
-  <p>Saved favourites live here on this device and are ready to check out in one click.</p>
-  <a class="btn block" href="/search/">Browse all designs</a><a href="/drops/">Trending drops</a>
  </div>
  <div class="mobsearch" id="ms"><span class="gs"><input class="gsearch" type="search"
   placeholder="Search all {len(ALL)} designs..." aria-label="Search all designs" autocomplete="off"></span></div>
@@ -770,8 +763,18 @@ def newsticker():
     return f'<div class="newsticker"><div class="track">{run}{run2}</div></div>'
 
 
-def week1_section():
-    """Homepage Week 1 hook: season kickoff countdown + each team's Week 1."""
+def season_section():
+    """Homepage 2026 Season block: the editorial beat, placed AFTER shopping.
+
+    Everything on it is read from SEASON (src/collections_data.py) - opener,
+    kickoff timestamp and the one-line status per team - so nothing here can
+    drift into invented scores, stats or news. The headline itself is derived:
+    once the earliest opener has passed, the season is live.
+    """
+    first = min(SEASON[k]["kickoff"][:10] for k in ORDER)
+    live = first <= TODAY
+    title = ("The Season Is <span class=\"accentword\">Live.</span>" if live
+             else "The Season Is <span class=\"accentword\">Almost Here.</span>")
     rows = ""
     for k in ORDER:
         c, se = COLLECTIONS[k], SEASON[k]
@@ -779,21 +782,22 @@ def week1_section():
  <b class="wk-name">{esc(c['short'])}</b>
  <span class="wk-game">{se['opener']}</span>
  <span class="wk-note">{esc(se['headline'])}</span>
- <span class="wk-go">Shop &rarr;</span>
+ <span class="wk-go">Shop {esc(c['short'])} &rarr;</span>
 </a>"""
-    return f"""<section class="wksec"><div class="wrap">
+    return f"""<section class="wksec" id="season"><div class="wrap">
  <div class="wkhead reveal">
-  <span class="eyebrow"><span class="dot"></span> 2026 season &middot; Week 1</span>
-  <h2>Week 1 Is <span class="accentword">Almost Here</span></h2>
-  <p>The NFL kicks off Wednesday Sept 9 with the first full Sunday slate on Sept 13, and Michigan
-  opens earlier on Sept 5. Here is how Week 1 looks for every team we cover - grab your design
-  now. Delivery timing is an estimate, and arrival before a specific game is not guaranteed.</p>
+  <span class="eyebrow"><span class="dot"></span> 2026 season</span>
+  <h2>{title}</h2>
+  <p>Current football culture, fan energy and designs for game day. Here is how the openers
+  look for every team we cover. Delivery timing is an estimate, and arrival before a specific
+  game is not guaranteed.</p>
  </div>
 </div>
 {countdown_bar()}
 <div class="wrap">
  <div class="wkgrid">{rows}</div>
- <div class="wkcta"><a class="btn" href="/2026-season/">Full 2026 Season Hub &rarr;</a></div>
+ <div class="wkcta"><a class="btn" href="/2026-season/">Explore The Season &rarr;</a>
+  <a class="link" href="/drops/">Trending drops &rarr;</a></div>
 </div></section>"""
 
 
@@ -833,22 +837,29 @@ def team_circle_card(k):
             f'<span class="tc-go">Shop {esc(c["short"])} <span aria-hidden="true">&rarr;</span></span></a>')
 
 
-def team_section(k, limit=4):
-    """One per-team product block: heading, blurb, four cards, 'View all' link.
+def team_section(k, limit=4, exclude=()):
+    """One per-team product block: heading, blurb, four cards, collection CTA.
 
-    Shared by the homepage and /collections/ so both pages render exactly the
-    same block and the design count is always the live catalogue size.
+    Deeper browsing for a visitor who already knows their side, so it sits
+    below the store-wide product surfaces. The card count is deliberately
+    small (4) - this is a door into the collection, not the collection.
     """
     c = COLLECTIONS[k]
-    picks = MODEL[k][:limit]
-    tcards = "".join(card(i, eager=(n < 4)) for n, i in enumerate(picks))
-    return f"""<section class="teamsec" style="border-top:1px solid var(--line);{theme_vars(k)}"><div class="wrap">
+    # Prefer designs this page has not shown yet, then top up from the front
+    # of the collection so the block is always full.
+    picks = [x for x in MODEL[k] if x["slug"] not in exclude][:limit]
+    have = {x["slug"] for x in picks}
+    if len(picks) < limit:
+        picks += [x for x in MODEL[k] if x["slug"] not in have][:limit - len(picks)]
+    tcards = "".join(product_card(i) for i in picks)
+    return f"""<section class="teamsec" style="{theme_vars(k)}"><div class="wrap">
  <div class="sechead reveal">
-  <div><h2><span class="accentword">{esc(c['short'])}</span> Collection</h2>
+  <div><span class="eyebrow"><span class="dot"></span> {len(MODEL[k])} designs</span>
+   <h2><span class="accentword">{esc(c['short'])}</span> Collection</h2>
    <p>{esc(c['banner'][:150])}</p></div>
-  <a class="link" href="/{c['slug']}/">View all {len(MODEL[k])} {esc(c['short'])} designs &rarr;</a>
+  <a class="link" href="/{c['slug']}/">Explore {esc(c['short'])} &rarr;</a>
  </div>
- <div class="grid">{tcards}</div>
+ <div class="pgrid four">{tcards}</div>
 </div></section>"""
 
 
@@ -861,9 +872,29 @@ def trust():
 </div>"""
 
 
-def footer():
-    cl = "".join(f'<a href="/{COLLECTIONS[k]["slug"]}/">{COLLECTIONS[k]["name"]}</a>' for k in ORDER)
+def footer(popup=True):
+    """Sitewide footer: Shop / Help / Brand / Compliance, then the fan-made
+    disclaimer. The columns mirror the header's shopping destinations so the
+    bottom of any page is a second, complete route back into the catalogue.
+
+    `popup` renders the once-per-session custom-design offer. The homepage
+    passes False: it already carries the full custom-design section, and a
+    floating card there would fight the mobile shopping bar for the same
+    corner of a phone screen.
+    """
+    cl = "".join(f'<a href="/{COLLECTIONS[k]["slug"]}/">{COLLECTIONS[k]["short"]}</a>' for k in ORDER)
     soc = "".join(f'<a href="{u}{SOCIAL_UTM}" target="_blank" rel="noopener">{esc(n)}</a>' for n, u in SOCIALS)
+    cspop = """
+<div class="cs-pop" id="csPop" role="dialog" aria-modal="true" aria-label="Custom design offer" hidden>
+ <button class="cs-pop-close" id="csPopClose" aria-label="Close">&#10005;</button>
+ <img src="/img/custom-tee-pop.jpg" alt="Custom t-shirt design" loading="lazy" width="780" height="1302">
+ <div class="cs-pop-body">
+  <span class="cs-pop-kicker">Made to order</span>
+  <h3>Want a <span class="accentword">Custom Design</span>?</h3>
+  <p>Your nickname, catchphrase or team slogan - printed on tees, hoodies, mugs &amp; more. No minimum order.</p>
+  <button class="btn lg" id="csPopGo">Tell Us Your Idea &rarr;</button>
+ </div>
+</div>""" if popup else ""
     return f"""
 <footer>
  <div class="wrap">
@@ -873,13 +904,17 @@ def footer():
     <p>{esc(CFG['tagline'])}. Independent, fan-made football graphics printed on demand and
     shipped worldwide. {len(ALL)} designs across {len(ORDER)} collections.</p>
    </div>
-   <div><h2>Collections</h2>{cl}<a href="/collections/">View all</a></div>
-   <div><h2>Help</h2><a href="/size-guide/">Size Guide</a><a href="/shipping/">Shipping &amp; Returns</a>
-    <a href="/faq/">FAQ</a><a href="/contact/">Contact</a></div>
-   <div><h2>Company</h2><a href="/about/">About Us</a><a href="/2026-season/">2026 Season</a>
-    <a href="/fan-trend-index/">Fan Trend Index</a><a href="/guides/">Buying Guides</a>
-    <a href="/trademark-notice/">Trademark Notice</a><a href="/privacy/">Privacy Policy</a></div>
-   <div><h2>Follow</h2>{soc}</div>
+   <div><h2>Shop</h2><a href="/collections/">All Collections</a>{cl}
+    <a href="/drops/">Trending</a><a href="/search/">All Designs</a></div>
+   <div><h2>Help</h2><a href="/faq/">FAQ</a><a href="/shipping/">Shipping</a>
+    <a href="/shipping/">Returns</a><a href="/size-guide/">Size Guide</a>
+    <a href="/contact/">Contact</a></div>
+   <div><h2>Brand</h2><a href="/about/">About</a><a href="/#custom-design">Custom Design</a>
+    <a href="/guides/">Buying Guides</a><a href="/2026-season/">2026 Season</a>
+    <a href="/fan-trend-index/">Fan Trend Index</a></div>
+   <div><h2>Compliance</h2><a href="/trademark-notice/">Trademark Notice</a>
+    <a href="/privacy/">Privacy Policy</a>
+    <h2 style="margin-top:16px">Follow</h2>{soc}</div>
   </div>
   <div class="disclaim"><strong>Independent fan store.</strong> {esc(BRAND)} is not affiliated with,
    endorsed by, sponsored by or licensed by the National Football League, any NFL club, the NCAA,
@@ -890,17 +925,7 @@ def footer():
    Prices shown in USD and set by the fulfilment partner; final price, colour and size options are
    confirmed at checkout.</div>
  </div>
-</footer>
-<div class="cs-pop" id="csPop" role="dialog" aria-modal="true" aria-label="Custom design offer" hidden>
- <button class="cs-pop-close" id="csPopClose" aria-label="Close">&#10005;</button>
- <img src="/img/custom-tee-pop.jpg" alt="Custom t-shirt design" loading="lazy" width="780" height="1302">
- <div class="cs-pop-body">
-  <span class="cs-pop-kicker">Made to order</span>
-  <h3>Want a <span class="accentword">Custom Design</span>?</h3>
-  <p>Your nickname, catchphrase or team slogan - printed on tees, hoodies, mugs &amp; more. No minimum order.</p>
-  <button class="btn lg" id="csPopGo">Tell Us Your Idea &rarr;</button>
- </div>
-</div>
+</footer>{cspop}
 <button class="totop" id="totop" aria-label="Back to top">&uarr;</button>
 <div class="toast" id="favMsg" aria-live="polite" hidden></div>
 <script src="/assets/app.js" defer></script>
@@ -952,134 +977,348 @@ def card(it, eager=False):
  <button class="fav" type="button" aria-label="Favourite {esc(it['name'])}" aria-pressed="false" data-slug="{it['slug']}"><svg width="16" height="16" viewBox="0 0 24 24" aria-hidden="true"><path d="M12 20.4 4.8 13.2a4.6 4.6 0 1 1 6.5-6.5l.7.7.7-.7a4.6 4.6 0 1 1 6.5 6.5Z"/></svg></button></article>"""
 
 
-def railcard(it):
-    """Compact horizontal tile for the auto-scrolling Trending rail."""
-    tv = theme_vars(it["col"])
-    tag = '<span class="tagpill hot">Trending</span>' if it.get("trend") == "hot" else ""
-    return f"""<a class="railcard" href="{it['url']}" style="{tv}">
- <span class="ph"><img src="{it['front']}" alt="{esc(it['name'])}" loading="lazy" decoding="async" width="212" height="252">{tag}</span>
- <span class="meta">{esc(it['garment'])}</span>
- <span class="nm">{esc(it['name'])}</span>
- <span class="pr">${it['price']:.2f}</span>
-</a>"""
+def product_card(it, eager=False):
+    """Homepage product tile - the reusable ProductCard.
+
+    One <a>, so the whole tile is the link (image, team + garment, name,
+    price and a "View design" affordance). Nothing else: no quick-view
+    chrome, no favourite heart, no sale badge, no countdown, no "only 3
+    left". The catalogue pages keep the richer card() because they need the
+    filter attributes and quick view; the homepage's only job is to move a
+    visitor to a product page in one tap.
+
+    Images are normalised by CSS (square box, object-fit:contain, white
+    background) so a mug and a hoodie mockup occupy exactly the same area -
+    the intrinsic width/height attributes stay on the tag so the grid never
+    shifts while the artwork loads.
+    """
+    lazy = "" if eager else ' loading="lazy" decoding="async"'
+    hot = '<span class="pc-hot">Trending</span>' if it.get("trend") == "hot" else ""
+    c = COLLECTIONS[it["col"]]
+    return (f'<a class="pcard reveal" href="{it["url"]}" style="{theme_vars(it["col"])}" '
+            f'data-slug="{it["slug"]}">'
+            f'<span class="pc-ph">{hot}'
+            f'<img src="{it["front"]}" alt="{esc(it["name"])} - {esc(it["art"][:70])}" '
+            f'width="530" height="630"{lazy}></span>'
+            f'<span class="pc-body">'
+            f'<span class="pc-meta">{esc(c["short"])} &middot; {esc(it["garment"])}</span>'
+            f'<h3 class="pc-name">{esc(it["name"])}</h3>'
+            f'<span class="pc-foot"><span class="pc-price">${it["price"]:.2f}</span>'
+            f'<span class="pc-go">View design <i aria-hidden="true">&rarr;</i></span></span>'
+            f'</span></a>')
 
 
-# Homepage hero. Two-part editorial composition matching the storefront
-# reference: a textured white copy block on the left ("FOOTBALL. FANS.
-# CULTURE." / "GEAR UP." / brush "KEEP IT.") and a four-team locker/product
-# collage on the right. Everything that can change (catalogue size, price
-# count, delivery, sizes) is rendered from the live model so the generator
-# stays the single source of truth - the HTML never hard-codes a product.
+def rail_nav(rail_id):
+    """Desktop-only scroll affordance for a ProductRail (touch just swipes)."""
+    return (f'<span class="rail-nav" data-rail="{rail_id}">'
+            f'<button class="rn" type="button" data-dir="-1" aria-controls="{rail_id}"'
+            f' aria-label="Scroll products left"><span aria-hidden="true">&larr;</span></button>'
+            f'<button class="rn" type="button" data-dir="1" aria-controls="{rail_id}"'
+            f' aria-label="Scroll products right"><span aria-hidden="true">&rarr;</span></button></span>')
 
 
-def hero_team_card(k):
-    c = COLLECTIONS[k]
-    img = MODEL[k][0]["front"] if MODEL[k] else c["hero"]
-    return (f'<a class="hero-shot reveal" style="{theme_vars(k)}" href="/{c["slug"]}/">'
-            f'<img src="{img}" alt="{esc(c["name"])} fan design" loading="lazy" decoding="async" width="530" height="630">'
-            f'<span class="hs-shade" aria-hidden="true"></span>'
-            f'<span class="hs-tag">{esc(c["short"])}</span>'
-            f'<span class="hs-count">{len(MODEL[k])} designs</span>'
-            f'<span class="hs-go">Shop <i aria-hidden="true">&rarr;</i></span></a>')
+def product_rail(items, rail_id, cta_href, cta_label):
+    """Reusable ProductRail: a horizontal, scroll-snapping row of ProductCards
+    that ends in a "view all" tile, so the rail is never a dead end.
+
+    Desktop shows four tiles with the fifth peeking (the affordance that says
+    "this scrolls"); phones swipe it natively instead of stacking a dozen
+    cards vertically."""
+    tiles = "".join(product_card(it, eager=(n < 2)) for n, it in enumerate(items))
+    end = (f'<a class="rail-end" href="{cta_href}"><span class="re-lab">{cta_label}</span>'
+           f'<span class="re-go" aria-hidden="true">&rarr;</span></a>')
+    return f'<div class="prail" id="{rail_id}">{tiles}{end}</div>'
 
 
-def team_card(k):
-    """Homepage 'Shop By Team' entry: image card with team colour treatment,
-    live design count, fan tagline and an arrow interaction."""
-    c = COLLECTIONS[k]
-    return (f'<a class="teamcard reveal" style="{theme_vars(k)}" href="/{c["slug"]}/">'
-            f'<span class="tc-ph"><img src="{c["hero"]}" alt="{esc(c["name"])}" loading="lazy" decoding="async" width="600" height="280">'
-            f'<span class="tc-shade" aria-hidden="true"></span></span>'
-            f'<span class="tc-body"><span class="tc-count">{len(MODEL[k])} designs</span>'
-            f'<b class="tc-name">{esc(c["name"])}</b>'
-            f'<span class="tc-tag">{esc(c["chant"])}</span>'
-            f'<span class="tc-go">Shop {esc(c["short"])} <i aria-hidden="true">&rarr;</i></span></span></a>')
-
-
-# Order-independent editorial product picks: one per team (next kickoff
-# first), then the live headline-hot designs, then the rest of the catalogue.
-# No slug is hard-coded, so a re-crawl rebalances the feature automatically.
-def featured_picks(limit=8):
-    picks = []
+def locker_picks(limit=10):
+    """Products for the "Shop The Locker" rail: a round-robin across the four
+    collections (next kickoff first), each lane led by its headline-hot
+    designs. Every fanbase is represented in the first four tiles, and no
+    slug is hard-coded, so a re-crawl re-balances the rail automatically."""
+    lanes = []
     for k in HOMEPAGE_ORDER:
-        if len(picks) >= limit:
-            break
-        if MODEL[k]:
-            picks.append(MODEL[k][0])
-    for it in [x for x in ALL if x.get("trend") == "hot"]:
-        if len(picks) >= limit:
-            break
-        if it not in picks:
-            picks.append(it)
-    for it in ALL:
-        if len(picks) >= limit:
-            break
-        if it not in picks:
-            picks.append(it)
-    return picks[:limit]
+        hot = [x for x in MODEL[k] if x.get("trend") == "hot"]
+        lanes.append(hot + [x for x in MODEL[k] if x.get("trend") != "hot"])
+    picks, i = [], 0
+    while len(picks) < limit and any(len(lane) > i for lane in lanes):
+        for lane in lanes:
+            if i < len(lane) and len(picks) < limit:
+                picks.append(lane[i])
+        i += 1
+    return picks
 
 
-def featured_section(limit=8):
-    picks = featured_picks(limit)
-    cards = "".join(card(i, eager=(n < 4)) for n, i in enumerate(picks))
-    return f"""<section class="featured-sec"><div class="wrap">
+def shop_the_locker(limit=10, picks=None):
+    """The first product surface on the homepage, directly under Shop By Team.
+
+    A visitor who has not picked a side still meets real merchandise inside
+    the second viewport - price, name and a link into the product page -
+    instead of another editorial band."""
+    picks = locker_picks(limit) if picks is None else picks
+    if len(picks) < 4:
+        return ""
+    return f"""<section class="lockersec" id="shop-the-locker"><div class="wrap">
  <div class="sechead reveal"><div>
-  <span class="eyebrow"><span class="dot"></span> Hand-picked from the locker</span>
-  <h2>Featured <span class="accentword">Collection</span></h2>
-  <p>A rotating edit of original fan art - new drops, current headlines and the designs our four fanbases keep coming back for.</p></div>
-  <a class="link" href="/collections/">All {len(ALL)} designs &rarr;</a></div>
- <div class="grid featured-grid">{cards}</div>
+  <span class="eyebrow"><span class="dot"></span> In the locker &middot; {len(ALL)} designs</span>
+  <h2>Shop The <span class="accentword">Locker</span></h2>
+  <p>Fan-made gear worth wearing on game day.</p></div>
+  <span class="sechead-tools">{rail_nav('lockerRail')}
+   <a class="link" href="/search/">All {len(ALL)} designs &rarr;</a></span></div>
+ {product_rail(picks, 'lockerRail', '/collections/', 'View all designs')}
 </div></section>"""
 
 
-def locker_panel(limit=4):
-    """Dark 'THE LOCKER IS ALWAYS OPEN' proof card sitting beside a small
-    row of real products - never a decorative graphic with no products."""
-    hot = [x for x in ALL if x.get("trend") == "hot"]
-    picks = (hot[:limit] if len(hot) >= limit else ALL[:limit])
-    cards = "".join(card(i) for i in picks[:limit])
-    return f"""<section class="lockersec"><div class="wrap">
- <div class="locker-grid">
-  <div class="locker-panel reveal">
-   <span class="lp-kicker">The fan-first locker &middot; est. 2026</span>
-   <h2>The locker is <span>always open</span></h2>
-   <p>Original artwork for the teams you love, printed on demand and shipped worldwide. No dead stock, no fade - just the locker, open every game week.</p>
-   <a class="btn lg light" href="/collections/">Enter the locker &rarr;</a>
+def trending_now(limit=8, exclude=()):
+    """Store-wide 'Trending Now' grid.
+
+    Honesty matters here: there is no sales feed (checkout happens on the
+    fulfilment partner), so a 'best seller' label would be a fake badge. The
+    grid shows the designs the live Fan Trend Index is actually scoring hot
+    in the last 10 days of public team headlines, with the rest of the
+    catalogue filling any gap so it never looks thin. Re-scored every build.
+
+    `exclude` holds the slugs a previous section already showed, so the
+    homepage spends its cards on as much of the catalogue as it can instead
+    of printing the same four designs three times.
+    """
+    fresh = [x for x in ALL if x["slug"] not in exclude]
+    picks = [x for x in fresh if x.get("trend") == "hot"][:limit]
+    have = {x["slug"] for x in picks}
+    if len(picks) < limit:
+        picks += [x for x in fresh if x["slug"] not in have][:limit - len(picks)]
+    have = {x["slug"] for x in picks}
+    if len(picks) < limit:   # tiny catalogue: repeats beat an empty shelf
+        picks += [x for x in ALL if x["slug"] not in have][:limit - len(picks)]
+    if len(picks) < 4:
+        return ""
+    tiles = "".join(product_card(i) for i in picks)
+    return f"""<section class="trendsec" id="trending"><div class="wrap">
+ <div class="sechead reveal"><div><span class="eyebrow"><span class="dot"></span> Fresh from the headlines</span>
+  <h2>Trending <span class="accentword">Now</span></h2>
+  <p>The designs this week's team headlines are pushing - re-scored daily from public news.</p></div>
+  <a class="link" href="/drops/">All live drops &rarr;</a></div>
+ <div class="pgrid four">{tiles}</div>
+ <div class="secfoot"><a class="btn" href="/search/">View All Designs &rarr;</a>
+  <a class="link" href="/collections/">Shop by team &rarr;</a></div>
+</div></section>"""
+
+
+def team_card(k):
+    """Homepage 'Shop By Team' entry - the reusable TeamCard.
+
+    A single <a>: the whole card is the link, the arrow is only an
+    affordance. Cinematic team artwork (a product-led crop of the team's
+    banner, see src/crop_art.py), the team name in display type, the fan
+    phrase, the live design count and an arrow CTA. The four cards share one
+    composition, one type treatment and one lighting philosophy - only the
+    colour tokens and the artwork change."""
+    c = COLLECTIONS[k]
+    art = TEAM_CARD_ART[k]
+    return (f'<a class="teamcard reveal" style="{theme_vars(k)}" href="/{c["slug"]}/">'
+            f'<span class="tc-ph"><img src="{art}" alt="{esc(c["short"])} fan gear - hoodie, '
+            f'beanie and helmet in team colours" loading="lazy" decoding="async" '
+            f'width="620" height="695">'
+            f'<span class="tc-shade" aria-hidden="true"></span>'
+            f'<span class="tc-over"><b class="tc-name">{esc(c["short"])}</b>'
+            f'<span class="tc-phrase">{esc(c["phrase"])}</span></span></span>'
+            f'<span class="tc-body"><span class="tc-count">{len(MODEL[k])} designs</span>'
+            f'<span class="tc-go">Shop {esc(c["short"])} <i aria-hidden="true">&rarr;</i></span>'
+            f'</span></a>')
+
+
+def shop_by_team():
+    """Section 1 of the funnel after the hero: which team are you?"""
+    cards = "".join(team_card(k) for k in ORDER)
+    return f"""<section class="teamdeck-sec" id="shop-by-team"><div class="wrap">
+ <div class="sechead reveal"><div>
+  <span class="eyebrow"><span class="dot"></span> Four teams &middot; four fanbases</span>
+  <h2>Shop By <span class="accentword">Team</span></h2>
+  <p>Four dedicated collections, each with its own artwork language, colour palette and fan
+  slang. Pick your side.</p></div>
+  <a class="link" href="/collections/">All collections &rarr;</a></div>
+ <div class="teamdeck-grid">{cards}</div>
+</div></section>"""
+
+
+def shop_nav():
+    """Compact shopping navigation for a visitor who is already deep in the page.
+
+    Two renderings of the same idea, each shown only where it belongs:
+      * desktop - a slim sticky strip that parks under the header once the
+        hero has scrolled away, so the team collections are one click away
+        from anywhere on the page;
+      * phones - a fixed bottom bar (Shop by team / Trending / All designs)
+        that appears after the hero and hides again over the footer, where
+        the same links are already on screen. Safe-area padding keeps it
+        clear of the iOS home indicator.
+    """
+    links = "".join(f'<a href="/{COLLECTIONS[k]["slug"]}/">{esc(COLLECTIONS[k]["short"])}</a>'
+                    for k in ORDER)
+    return f"""<div class="shopbar" id="shopbar">
+ <div class="wrap sb-in">
+  <span class="sb-lab">Shop</span>
+  <nav class="sb-links" aria-label="Shop collections">{links}
+   <a href="/drops/">Trending</a></nav>
+  <a class="sb-all" href="/search/">All {len(ALL)} designs <span aria-hidden="true">&rarr;</span></a>
+ </div>
+</div>
+<nav class="mobshop" id="mobshop" aria-label="Shop shortcuts" hidden>
+ <a href="#shop-by-team">Shop by team</a>
+ <a href="#trending">Trending</a>
+ <a href="/search/">All designs</a>
+</nav>"""
+
+
+# Homepage hero. Two-part editorial composition matching the storefront
+# reference art: a textured white copy block on the left ("FOOTBALL. FANS.
+# CULTURE." / "GEAR UP." / brush "KEEP IT.") and, on the right, the cinematic
+# locker-room panel from the same artwork - hoodies, helmets, a football and
+# the brush strokes, no people. The headline is real HTML text (crawlable,
+# responsive, translatable), never a picture of type, and everything that can
+# change - catalogue size, sizes, delivery - is rendered from the live model.
+HERO_ART = "/img/hero-locker.jpg"
+HERO_ART_SM = "/img/hero-locker-sm.jpg"
+# Product-led crops of the four team banners, generated by src/crop_art.py.
+TEAM_CARD_ART = {
+    "cleveland-browns": "/img/team-cleveland.jpg",
+    "green-bay-packers": "/img/team-greenbay.jpg",
+    "dallas-cowboys": "/img/team-dallas.jpg",
+    "michigan": "/img/team-michigan.jpg",
+}
+
+
+def home_banner():
+    """Split editorial hero: ~40% copy panel, ~60% cinematic football imagery.
+
+    Kept deliberately short (about 78vh on a desktop, far less on a phone) so
+    "Shop By Team" is already in view, or one flick away, when the page
+    settles. The hero image is the LCP element: it is eager, high-priority
+    and served in two widths - never lazy-loaded.
+    """
+    n = len(ALL)
+    return f"""<section class="hero editorial" id="hero"><div class="wrap hero-grid">
+ <div class="hero-copy">
+  <span class="hero-kicker">Football. Fans. Culture.</span>
+  <h1 class="hero-title">Gear <span class="up">Up.</span></h1>
+  <span class="hero-brush">Keep it.</span>
+  <p class="hero-sub">Original fan-made apparel for the teams we love.<br>
+  Four cities. Four fanbases. One locker.</p>
+  <div class="btnrow">
+   <a class="btn lg" href="/collections/">Shop By Team &rarr;</a>
+   <a class="btn ghost lg" href="/drops/">Trending Now &rarr;</a>
   </div>
-  <div class="locker-products">{cards}</div>
+  <div class="hero-facts"><span>{n} fan designs</span><span>S&ndash;3XL</span><span>Worldwide shipping</span></div>
+ </div>
+ <div class="hero-stage">
+  <img class="hero-art" src="{HERO_ART}"
+   srcset="{HERO_ART_SM} 760w, {HERO_ART} 1400w"
+   sizes="(max-width:920px) 100vw, 58vw"
+   alt="{esc(BRAND)} fan-made hoodies, football helmets and a football lined up in a locker room"
+   width="1400" height="827" fetchpriority="high" decoding="async">
  </div>
 </div></section>"""
 
 
-def guide_strip():
-    """Buying-guides entry: four short utility cards at the bottom of the
-    storefront so a first-time buyer never has to hunt for the answers."""
-    name = esc(BRAND)
+def guide_grid():
+    """Buying guides - editorial cards, below the shopping experience.
+
+    Every card points at a page that already exists (the four team buying
+    guides, the Week 1 guide, the size guide); no invented URLs, no invented
+    titles. Guides answer the questions a first-time fan-apparel buyer asks
+    once they have seen the product, which is why they sit here and not
+    above the catalogue."""
     cards = "".join([
-        f'<a class="guide-card reveal" href="/guides/2026-week-1-shirts/"><span class="gc-kick">Game day</span><b>2026 Week 1 Shirts</b><span class="gc-go">Read &rarr;</span></a>',
-        f'<a class="guide-card reveal" href="/size-guide/"><span class="gc-kick">Fit</span><b>Size Guide</b><span class="gc-go">Read &rarr;</span></a>',
-        f'<a class="guide-card reveal" href="/shipping/"><span class="gc-kick">Delivery</span><b>Shipping &amp; Returns</b><span class="gc-go">Read &rarr;</span></a>',
-        f'<a class="guide-card reveal" href="/faq/"><span class="gc-kick">Help</span><b>FAQ</b><span class="gc-go">Read &rarr;</span></a>',
+        '<a class="guide-card reveal" href="/guides/2026-week-1-shirts/">'
+        '<span class="gc-kick">Game day</span>'
+        '<b>What To Wear On Game Day</b>'
+        '<span class="gc-sub">The 2026 Week 1 fan-shirt guide: what fans are wearing for the '
+        'openers, team by team.</span><span class="gc-go">Read the guide &rarr;</span></a>',
+        '<a class="guide-card reveal" href="/guides/">'
+        '<span class="gc-kick">Team shirts</span>'
+        '<b>Team Shirt Guide</b>'
+        '<span class="gc-sub">Cleveland, Green Bay, Dallas and Michigan - what makes a good '
+        'shirt for each fanbase.</span><span class="gc-go">All buying guides &rarr;</span></a>',
+        '<a class="guide-card reveal" href="/size-guide/">'
+        '<span class="gc-kick">Fit</span>'
+        '<b>How To Pick The Right Fan Fit</b>'
+        '<span class="gc-sub">Measurements for every cut we print, S-3XL, unisex and '
+        "women's.</span><span class=\"gc-go\">Size guide &rarr;</span></a>",
+        '<a class="guide-card reveal" href="/shipping/">'
+        '<span class="gc-kick">Delivery</span>'
+        '<b>Shipping &amp; Returns</b>'
+        f'<span class="gc-sub">Printed on demand in the USA, {DELIVERY_TIME} to your door, '
+        '30-day misprint replacement.</span><span class="gc-go">Read the details &rarr;</span></a>',
     ])
-    return f"""<section class="guidesec"><div class="wrap">
+    return f"""<section class="guidesec" id="guides"><div class="wrap">
  <div class="sechead reveal"><div>
   <span class="eyebrow"><span class="dot"></span> Know what you are buying</span>
   <h2>Buying <span class="accentword">Guides</span></h2>
-  <p>{name}'s sizing, shipping and care answers in one place - no guesswork before checkout.</p></div>
+  <p>Sizing, shipping and game-day answers in one place - no guesswork before checkout.</p></div>
   <a class="link" href="/guides/">All guides &rarr;</a></div>
  <div class="guide-grid">{cards}</div>
 </div></section>"""
 
 
+def custom_design():
+    """Compact custom-design section. The form is unchanged - same field
+    names, same FormSubmit hidden inputs, same #customForm / #formmsg hooks
+    app.js binds to - it is only re-framed so it reads as one confident
+    offer instead of a second storefront."""
+    return f"""<section class="customsec" id="custom-design"><div class="wrap">
+ <div class="customrow reveal">
+  <div class="customimg">
+   <img src="/img/custom-tee.jpg" alt="Custom t-shirt design - make your own fan apparel"
+    loading="lazy" decoding="async" width="1192" height="1494">
+  </div>
+  <div class="customform">
+   <span class="eyebrow"><span class="dot"></span> Made to order</span>
+   <h2>Your idea.<br>Your colors.<br><span class="accentword">Your game day.</span></h2>
+   <p class="cf-lead">Want something different? A nickname, a catchphrase, a family crest, a
+   group slogan, a memorial, a gift for your crew - we turn it into original fan apparel you can
+   buy one at a time.</p>
+   <form id="customForm"
+         method="POST" data-formsubmit="1" aria-label="Custom design request form" novalidate>
+    <div class="cf-head">Tell us about your idea</div>
+    <p class="cf-sub">Send us the details and we'll reply with a proof and a price.</p>
+    <input type="hidden" name="_subject" value="New Custom Design Request from your website">
+    <input type="hidden" name="_template" value="table">
+    <input type="hidden" name="_captcha" value="false">
+    <input type="text" name="_honey" style="display:none" tabindex="-1" autocomplete="off">
+    <div class="row">
+     <label>Your name<input type="text" name="name" required placeholder="John Doe" autocomplete="name"></label>
+     <label>Your email<input type="email" name="email" required placeholder="you@example.com" autocomplete="email"></label>
+    </div>
+    <div class="row">
+     <label>Team / theme<select name="team" required>
+      <option value="">Choose</option><option>Cleveland</option><option>Green Bay</option>
+      <option>Dallas</option><option>Michigan</option><option>Other / custom</option></select></label>
+     <label>Garment<select name="garment">
+      <option value="">Choose</option><option>T-Shirt</option><option>Hoodie</option>
+      <option>Sweatshirt</option><option>Long Sleeve</option><option>Mug</option><option>Beanie</option>
+      <option>Other</option></select></label>
+    </div>
+    <label>Your idea<input type="text" name="idea" required
+     placeholder="e.g. 'GO BROWNS', a nickname, a catchphrase"></label>
+    <label>Anything else?<textarea name="details" rows="3"
+     placeholder="Sizes, quantity, or the story behind the design (optional)"></textarea></label>
+    <button class="btn block lg" type="submit">Request Custom Apparel &rarr;</button>
+    <p class="formmsg" id="formmsg" aria-live="polite">We'll reply by email, usually within 1&ndash;2 days.</p>
+   </form>
+  </div>
+ </div>
+</div></section>"""
+
+
 def brand_newsletter():
-    """Bottom brand + email signup. Static-site friendly: FormSubmit fallback
-    handled in app.js, so no backend and no third-party account required."""
-    return f"""<section class="brandsec" id="brand"><div class="wrap">
+    """Bottom email signup. Static-site friendly: FormSubmit fallback handled
+    in app.js, so no backend and no third-party account required. Kept
+    deliberately small - it is the last thing on the page, not the loudest."""
+    return f"""<section class="brandsec" id="newsletter"><div class="wrap">
  <div class="brand-grid">
   <div class="brand-copy reveal">
    <span class="eyebrow"><span class="dot"></span> Join the locker</span>
-   <h2>Never miss a <span>drop.</span></h2>
-   <p>New original designs, weekly game-day news and the occasional fan-first deal. One email a week, no spam.</p>
+   <h2>Stay In The <span>Locker.</span></h2>
+   <p>Football culture, new designs and game-day inspiration. One email a week, no spam.</p>
    <div class="brand-tags"><span>Cleveland</span><span>Green Bay</span><span>Dallas</span><span>Michigan</span></div>
   </div>
   <form class="newsform reveal" id="newsForm" method="POST" aria-label="Newsletter signup" novalidate>
@@ -1093,55 +1332,6 @@ def brand_newsletter():
    <p class="formmsg" id="newsMsg" aria-live="polite">We only email about the locker. Unsubscribe anytime.</p>
   </form>
  </div>
-</div></section>"""
-
-
-def home_banner():
-    """Two-part editorial hero: HTML copy on the left (so it scales and is
-    crawlable), four-team product collage on the right (live product art)."""
-    n = len(ALL)
-    tiles = "".join(hero_team_card(k) for k in ORDER)
-    return f"""<section class="hero editorial" id="hero"><div class="wrap hero-grid">
- <div class="hero-copy">
-  <span class="hero-kicker">Football. Fans. Culture.</span>
-  <h1 class="hero-title">Gear <span class="up">Up.</span></h1>
-  <span class="hero-brush">Keep it.</span>
-  <p class="hero-sub">{esc(BRAND)} is independent, fan-made football apparel for the four teams we love - Cleveland, Green Bay, Dallas and Michigan. {n} original designs, printed when you order.</p>
-  <div class="btnrow">
-   <a class="btn lg" href="/collections/">Shop By Team &rarr;</a>
-   <a class="btn ghost lg" href="/drops/">Trending Now</a>
-  </div>
-  <div class="hero-facts"><span>{n} fan designs</span><span>S&ndash;3XL</span><span>Worldwide shipping</span></div>
- </div>
- <div class="hero-stage"><div class="hero-shots">{tiles}</div></div>
-</div></section>"""
-
-
-
-
-def trending_rail(limit=8):
-    """Store-wide 'Trending Now' rail.
-
-    Honesty matters here: there is no sales feed (checkout happens on the
-    fulfilment partner), so a 'best seller' label would be a fake badge. The
-    rail shows the designs the live Fan Trend Index is actually scoring hot
-    in the last 10 days of public team headlines, with top featured designs
-    filling any gap so the rail never looks thin. Re-scored on every build.
-    """
-    hot = [x for x in ALL if x.get("trend") == "hot"]
-    picks = hot[:limit]
-    if len(picks) < limit:
-        have = {x["slug"] for x in picks}
-        picks += [x for x in ALL if x["slug"] not in have][:limit - len(picks)]
-    if len(picks) < 4:
-        return ""
-    tiles = "".join(railcard(i) for i in picks)
-    return f"""<section class="railsec"><div class="wrap">
- <div class="sechead reveal"><div><span class="eyebrow"><span class="dot"></span> Fresh from the headlines</span>
-  <h2>Trending <span class="accentword">Now</span></h2>
-  <p>The designs this week's team headlines are pushing - re-scored daily from public news.</p></div>
-  <a class="link" href="/drops/">All live drops &rarr;</a></div>
- <div class="rail">{tiles}</div>
 </div></section>"""
 
 
@@ -1202,13 +1392,35 @@ def quick_find():
 
 # ---------------------------------------------------------------- pages
 def page_home():
+    """The storefront homepage.
+
+    Section order is the funnel, and it is deliberate:
+
+        HERO -> SHOP BY TEAM -> SHOP THE LOCKER -> TRENDING NOW ->
+        2026 SEASON -> TEAM COLLECTIONS -> GUIDES -> CUSTOM -> TREND INDEX ->
+        NEWSLETTER -> FOOTER
+
+    Brand, then team, then product - a visitor meets real merchandise inside
+    the second viewport instead of scrolling through four editorial bands to
+    find out what is for sale. Everything below "2026 Season" is the
+    editorial/authority half of the page and is ordered by how many visitors
+    it serves.
+    """
     path = "/"
-    # Per-team sections — never mix teams on the homepage. Ordered by next
-    # kickoff so the team playing soonest is the first block you meet.
-    team_sections = "".join(team_section(k) for k in HOMEPAGE_ORDER)
-    # "Shop By Team": four editorial image cards with team colour treatments
-    # (fixed ORDER - only the product sections follow the kickoff).
-    colcards = "".join(team_card(k) for k in ORDER)
+    # Each product surface skips what the surface above it already showed, so
+    # the homepage puts as much of the catalogue in front of a visitor as it
+    # can instead of repeating the same handful of designs.
+    locker = locker_picks()
+    shown = {x["slug"] for x in locker}
+    trending = trending_now(exclude=shown)
+    shown |= set(re.findall(r'href="/shop/([^/]+)/"', trending))
+    # Per-team sections - never mix teams. Ordered by next kickoff so the team
+    # playing soonest is the first block you meet.
+    team_sections = ""
+    for k in HOMEPAGE_ORDER:
+        block = team_section(k, exclude=shown)
+        shown |= set(re.findall(r'href="/shop/([^/]+)/"', block))
+        team_sections += block
     schema = [
         {"@context": "https://schema.org", "@type": "Organization", "name": BRAND, "url": DOMAIN,
          "logo": DOMAIN + "/img/favicon.svg",
@@ -1224,80 +1436,29 @@ def page_home():
     ]
     desc = (f"Fan-made football tees, hoodies and gear across {len(ORDER)} team collections: "
             f"Cleveland, Green Bay, Dallas and Michigan. {len(ALL)} original designs, S-3XL, shipped worldwide.")
-    body = f"""{home_banner()}
-<section class="teamdeck-sec"><div class="wrap">
- <div class="sechead reveal"><div>
-  <span class="eyebrow"><span class="dot"></span> Four teams &middot; four fanbases</span>
-  <h2>Shop By <span class="accentword">Team</span></h2>
-  <p>Four dedicated collections, each with its own artwork language, colour palette and fan slang. Pick your side.</p></div>
-  <a class="link" href="/collections/">All collections &rarr;</a></div>
- <div class="teamdeck-grid">{colcards}</div>
-</div></section>
+    body = f"""<main id="main">
+{home_banner()}
+{shop_nav()}
+{shop_by_team()}
+{shop_the_locker(picks=locker)}
+{trending}
 {trust()}
-{featured_section()}
-{trending_rail()}
-{locker_panel()}
-{week1_section()}
+{season_section()}
 <div class="light">
 {team_sections}
 </div>
-{guide_strip()}
-<section class="customsec"><div class="wrap">
- <div class="sechead reveal"><div>
-  <span class="eyebrow"><span class="dot"></span> Made to order</span>
-  <h2>Want A <span class="accentword">Custom Design</span>?</h2>
-  <p style="max-width:70ch">Bring your own idea - a nickname, a catchphrase, a family crest, a group or
-  team slogan, a memorial, a gift for your crew. We turn it into original fan apparel you can buy one
-  at a time.</p>
- </div></div>
- <div class="customrow reveal">
-  <div class="customimg">
-   <img src="/img/custom-tee.jpg" alt="Custom t-shirt design - make your own fan apparel"
-    loading="lazy" width="1192" height="1494">
-  </div>
-  <div class="customform">
-   <form id="customForm"
-         method="POST" data-formsubmit="1" aria-label="Custom design request form" novalidate>
-    <div class="cf-head">Tell us about your idea</div>
-    <p class="cf-sub">Send us the details and we'll reply with a proof and a price.</p>
-    <input type="hidden" name="_subject" value="New Custom Design Request from your website">
-    <input type="hidden" name="_template" value="table">
-    <input type="hidden" name="_captcha" value="false">
-    <input type="text" name="_honey" style="display:none" tabindex="-1" autocomplete="off">
-    <div class="row">
-     <label>Your name<input type="text" name="name" required placeholder="John Doe" autocomplete="name"></label>
-     <label>Your email<input type="email" name="email" required placeholder="you@example.com" autocomplete="email"></label>
-    </div>
-    <div class="row">
-     <label>Team / theme<select name="team" required>
-      <option value="">Choose</option><option>Cleveland</option><option>Green Bay</option>
-      <option>Dallas</option><option>Michigan</option><option>Other / custom</option></select></label>
-     <label>Garment<select name="garment">
-      <option value="">Choose</option><option>T-Shirt</option><option>Hoodie</option>
-      <option>Sweatshirt</option><option>Long Sleeve</option><option>Mug</option><option>Beanie</option>
-      <option>Other</option></select></label>
-    </div>
-    <label>Your idea<input type="text" name="idea" required
-     placeholder="e.g. 'GO BROWNS', a nickname, a catchphrase"></label>
-    <label>Anything else?<textarea name="details" rows="3"
-     placeholder="Sizes, quantity, or the story behind the design (optional)"></textarea></label>
-    <button class="btn block lg" type="submit">Send My Idea &rarr;</button>
-    <p class="formmsg" id="formmsg" aria-live="polite">We'll reply by email, usually within 1&ndash;2 days.</p>
-   </form>
-  </div>
- </div>
-</div></section>
-{brand_newsletter()}
+{guide_grid()}
+{custom_design()}
 {fti_strip()}
-{newsticker()}</main>"""
+{newsticker()}
+{brand_newsletter()}
+</main>"""
     URLS.append((DOMAIN + "/", "1.0", "daily"))
     write("index.html", head(f"{BRAND} | {CFG['tagline']}", desc, path, "/img/hero-home.jpg?v=4", schema,
                              ["football fan shirts", "nfl fan t shirts", "custom football tees",
                               "cleveland browns shirts", "green bay packers shirts",
                               "dallas cowboys shirt", "michigan football shirt"])
-          + header() + body + footer())
-
-
+          + header() + body + footer(popup=False))
 
 
 def page_collections_index():
@@ -2699,7 +2860,10 @@ document.querySelectorAll('.thumb,.swatch,.stylechip').forEach(function(b){
       setTimeout(function(){if(!ok){}},1500);
     }catch(err){fallback()}
     function fallback(){
-      var body='Name: '+name+'\\nEmail: '+email+'\\nTeam/theme: '+(form.querySelector('select[name=team]').value)+'\\nGarment: '+(form.querySelector('select[name=garment]').value)+'\\nIdea: '+idea+'\\nSizes: '+(form.querySelector('input[name=sizes]').value)+'\\nDetails: '+(form.querySelector('textarea[name=details]').value);
+      // read() tolerates a field that is not on this version of the form -
+      // the mailto fallback must never throw, it is the last resort.
+      function read(sel){var el=form.querySelector(sel);return el?el.value:'';}
+      var body='Name: '+name+'\\nEmail: '+email+'\\nTeam/theme: '+read('select[name=team]')+'\\nGarment: '+read('select[name=garment]')+'\\nIdea: '+idea+'\\nDetails: '+read('textarea[name=details]');
       window.location.href='mailto:'+atob(CUSTOM_EMAIL)+'?subject='+encodeURIComponent('Custom Design Request from '+name)+'&body='+encodeURIComponent(body);
       if(msg)msg.textContent='Opening your email app with your request - hit send and we will get back to you within 1-2 days.';
     }
@@ -2738,53 +2902,87 @@ document.querySelectorAll('.thumb,.swatch,.stylechip').forEach(function(b){
   if(go)go.addEventListener('click',function(){
     dismiss();
     var target=document.querySelector('.customsec')||document.querySelector('.customform');
-    if(target)target.scrollIntoView({behavior:'smooth',block:'start'});
+    if(target){target.scrollIntoView({behavior:'smooth',block:'start'});return;}
+    // no custom section on this page - send them to the one on the homepage
+    location.href=(document.body.getAttribute('data-root')||'./')+'#custom-design';
   });
 })();
 
-// ---------- mobile nav + header utility popovers ----------
+// ---------- mobile nav ----------
+// The header carries no account or cart control by design: checkout happens
+// on the fulfilment partner, so those popovers promised state this site does
+// not own. Logo, shopping links, search - nothing else.
 (function(){
   var nb=document.getElementById('navToggle'), mn=document.getElementById('mn');
-  if(nb&&mn){
-    nb.addEventListener('click',function(){
-      var open=mn.classList.toggle('open');
-      nb.classList.toggle('on',open);
-      nb.setAttribute('aria-expanded',open?'true':'false');
-      nb.setAttribute('aria-label',open?'Close menu':'Open menu');
-    });
-  }
-  function closeAll(){
-    ['acctPop','cartPop'].forEach(function(id){var p=document.getElementById(id); if(p)p.hidden=true;});
-    ['acctBtn','cartBtn'].forEach(function(id){
-      var b=document.getElementById(id);
-      if(b){b.classList.remove('on');b.setAttribute('aria-expanded','false');}
-    });
-  }
-  [['acctBtn','acctPop'],['cartBtn','cartPop']].forEach(function(pair){
-    var btn=document.getElementById(pair[0]), pop=document.getElementById(pair[1]);
-    if(!btn||!pop)return;
-    btn.addEventListener('click',function(e){
-      e.stopPropagation();
-      closeAll();
-      var open=pop.hidden;
-      pop.hidden=!open;
-      btn.classList.toggle('on',open);
-      btn.setAttribute('aria-expanded',open?'true':'false');
-    });
-    pop.addEventListener('click',function(e){e.stopPropagation();});
+  if(!nb||!mn)return;
+  nb.addEventListener('click',function(){
+    var open=mn.classList.toggle('open');
+    nb.classList.toggle('on',open);
+    nb.setAttribute('aria-expanded',open?'true':'false');
+    nb.setAttribute('aria-label',open?'Close menu':'Open menu');
   });
-  document.addEventListener('click',closeAll);
 })();
 
-// ---------- favourites + cart hint (device-side, no backend) ----------
+// ---------- product rails: arrow controls (pointer devices) ----------
+// Touch swipes the rail natively; the arrows page it by one viewport-width
+// of tiles and disable themselves at each end so they never lie.
+(function(){
+  var navs=[].slice.call(document.querySelectorAll('.rail-nav'));
+  if(!navs.length)return;
+  navs.forEach(function(nav){
+    var rail=document.getElementById(nav.getAttribute('data-rail'));
+    if(!rail)return;
+    var btns=[].slice.call(nav.querySelectorAll('.rn'));
+    function sync(){
+      var max=rail.scrollWidth-rail.clientWidth-2;
+      btns.forEach(function(b){
+        var back=b.getAttribute('data-dir')==='-1';
+        b.disabled = max<=0 || (back ? rail.scrollLeft<=2 : rail.scrollLeft>=max);
+      });
+    }
+    btns.forEach(function(b){
+      b.addEventListener('click',function(){
+        var step=Math.max(240,Math.round(rail.clientWidth*0.86));
+        rail.scrollBy({left:step*parseInt(b.getAttribute('data-dir'),10),behavior:'smooth'});
+      });
+    });
+    rail.addEventListener('scroll',sync,{passive:true});
+    window.addEventListener('resize',sync);
+    sync();
+  });
+})();
+
+// ---------- mobile shopping bar (homepage) ----------
+// A compact "Shop by team / Trending / All designs" bar so a visitor deep in
+// the page never has to scroll back to the header. It appears once the hero
+// is gone and hides again over the footer, where the same links already are.
+(function(){
+  var bar=document.getElementById('mobshop');
+  if(!bar)return;
+  var hero=document.getElementById('hero'), foot=document.querySelector('footer');
+  var nearFooter=false;
+  if(foot&&'IntersectionObserver' in window){
+    new IntersectionObserver(function(en){
+      nearFooter=en[0].isIntersecting; update();
+    },{rootMargin:'0px 0px -40% 0px'}).observe(foot);
+  }
+  function update(){
+    var past=(window.scrollY||0) > (hero?hero.offsetHeight*0.75:400);
+    var show=past&&!nearFooter;
+    if(show===!bar.hidden)return;
+    bar.hidden=!show;
+    document.body.classList.toggle('has-mobshop',show);
+  }
+  window.addEventListener('scroll',update,{passive:true});
+  window.addEventListener('resize',update);
+  update();
+})();
+
+// ---------- favourites (device-side, no backend) ----------
 (function(){
   var key='gl_favs';
   function read(){ try{return JSON.parse(localStorage.getItem(key)||'[]');}catch(e){return [];} }
   function write(a){ try{localStorage.setItem(key,JSON.stringify(a));}catch(e){} }
-  function count(){
-    var n=read().length, cc=document.getElementById('cartCount');
-    if(cc)cc.textContent=n;
-  }
   var msg=document.getElementById('favMsg');
   function toast(t){
     if(!msg)return;
@@ -2804,10 +3002,9 @@ document.querySelectorAll('.thumb,.swatch,.stylechip').forEach(function(b){
           nm=card?card.querySelector('h3').textContent:'design';
       if(i>-1){a.splice(i,1); toast('Removed "'+nm+'" from favourites.');}
       else{a.unshift(slug); toast('Saved "'+nm+'" to favourites.');}
-      write(a); draw(); count();
+      write(a); draw();
     });
   });
-  count();
 })();
 
 // ---------- newsletter signup (FormSubmit, no backend needed) ----------
