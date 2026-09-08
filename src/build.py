@@ -2021,10 +2021,12 @@ def page_drops():
             f"4 team voices, 0 recycled captions. Updated daily from real team news for "
             f"Cleveland, Green Bay, Dallas and Michigan fans.")
 
-    # Load drops for schema
+    # Load drops for schema. Same dead-link guard as drops_page.py: only drops
+    # whose product page the build actually published may enter the ItemList —
+    # schema URLs must never point at delisted pages that 404.
     try:
         drops_data = json.load(open(os.path.join(ROOT, "data/live_drops.json"), encoding="utf-8"))
-        drops_list = drops_data.get("drops", [])[:12]
+        drops_list = [d for d in drops_data.get("drops", []) if d.get("slug") in lookup][:12]
     except Exception:
         drops_list = []
 
