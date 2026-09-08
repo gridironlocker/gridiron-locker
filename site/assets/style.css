@@ -1,4 +1,4 @@
-@import url('https://fonts.googleapis.com/css2?family=Anton&family=Permanent+Marker&family=Inter:wght@400;600;700;800&display=swap');
+@import url('https://fonts.googleapis.com/css2?family=Bebas+Neue&family=Permanent+Marker&family=Inter:wght@400;600;700;800&display=swap');
 
 /* =============================================================
    Gridiron Locker - neutral storefront theme
@@ -57,7 +57,7 @@
   --radius:10px;
   --max:1180px;
   --font:'Inter',-apple-system,BlinkMacSystemFont,'Segoe UI',Roboto,Helvetica,Arial,sans-serif;
-  --display:'Anton',Georgia,'Arial Narrow',sans-serif;
+  --display:'Bebas Neue',Georgia,'Arial Narrow',sans-serif;
   --brush:'Permanent Marker','Comic Sans MS',cursive;
   --shadow:0 1px 2px rgba(16,24,40,.05);
   --shadow-lg:0 18px 44px rgba(16,24,40,.12);
@@ -264,9 +264,9 @@ section{padding:clamp(30px,4.5vw,52px) 0}
 .sechead{display:flex;align-items:flex-end;justify-content:space-between;gap:14px;
   margin-bottom:20px;flex-wrap:wrap}
 .sechead>div{flex:1 1 auto;min-width:0}
-.sechead h2{margin-bottom:5px;font-family:var(--display);text-transform:uppercase;
+.sechead h2{margin-bottom:5px;font-family:var(--display);font-weight:400;font-synthesis-weight:none;text-transform:uppercase;
   letter-spacing:.01em;font-size:clamp(1.45rem,3.2vw,2.15rem);line-height:1.04}
-.wkhead h2{font-family:var(--display);text-transform:uppercase;letter-spacing:.01em;
+.wkhead h2{font-family:var(--display);font-weight:400;font-synthesis-weight:none;text-transform:uppercase;letter-spacing:.01em;
   font-size:clamp(1.45rem,3.2vw,2.15rem);line-height:1.04}
 .sechead p{margin:0;color:var(--muted);max-width:88ch;font-size:.92rem}
 /* .light was the old "light island inside a dark site" wrapper.
@@ -619,7 +619,7 @@ footer .logo{color:var(--ink)}
 
 /* ============ TEAM COLLECTION SECTIONS (homepage, deeper browsing) ====== */
 .teamsec{border-top:1px solid var(--line);padding:34px 0}
-.teamsec .sechead h2{font-family:var(--display);text-transform:uppercase;letter-spacing:.01em;
+.teamsec .sechead h2{font-family:var(--display);font-weight:400;font-synthesis-weight:none;text-transform:uppercase;letter-spacing:.01em;
   font-size:clamp(1.3rem,2.6vw,1.9rem)}
 
 /* ============ CUSTOM DESIGN SECTION ============ */
@@ -637,7 +637,7 @@ footer .logo{color:var(--ink)}
   padding:24px 24px;box-shadow:none;display:flex;flex-direction:column;justify-content:center;
   height:100%;min-height:0;max-width:none;margin:0}
 .customform form{display:grid;gap:13px}
-.customform h2{font-family:var(--display);text-transform:uppercase;letter-spacing:.01em;
+.customform h2{font-family:var(--display);font-weight:400;font-synthesis-weight:none;text-transform:uppercase;letter-spacing:.01em;
   font-size:clamp(1.5rem,3.2vw,2.1rem);line-height:1.02;margin:0 0 12px}
 .customform .cf-lead{color:var(--muted);font-size:.92rem;line-height:1.6;margin:0 0 18px;max-width:52ch}
 .customform .cf-head{font-family:var(--font);font-size:1.05rem;font-weight:800;letter-spacing:-.01em;
@@ -747,11 +747,15 @@ footer .logo{color:var(--ink)}
 .qf-chip.hot{border-color:var(--ca);background:var(--ca-tint);color:var(--ca-ink)}
 .qf-chip.hot em{background:#fff}
 
-/* ============ STICKY TOOLBAR (team pages + /search/) ============ */
-.toolswrap{position:sticky;top:60px;z-index:45;background:rgba(255,255,255,.95);
-  backdrop-filter:blur(10px);-webkit-backdrop-filter:blur(10px);
-  border:1px solid var(--line2);border-radius:16px;padding:12px;
-  box-shadow:0 14px 34px rgba(16,20,26,.10);margin-bottom:16px}
+/* ============ DOCKED FILTER BAR (team pages + /search/) ============ */
+/* Collection filter/search/sort bar that parks against the header as the
+   visitor scrolls. Compact and full-width inside the page gutter so the
+   controls remain one tap away on phones without a floating pill. */
+.toolswrap{position:sticky;top:60px;z-index:45;background:rgba(255,255,255,.96);
+  backdrop-filter:blur(12px);-webkit-backdrop-filter:blur(12px);
+  border:0;border-bottom:1px solid var(--line2);border-radius:12px;
+  box-shadow:0 10px 24px rgba(16,20,26,.08);padding:12px;
+  margin:0 -14px 16px}
 .toolswrap .tools{padding:0;margin-bottom:0;border:0;background:transparent}
 .toolswrap .gs{flex:1;min-width:180px}
 .toolswrap .gs input{width:100%}
@@ -766,15 +770,7 @@ footer .logo{color:var(--ink)}
 .chipslabel{font-size:.7rem;font-weight:800;letter-spacing:.08em;text-transform:uppercase;
   color:var(--muted);min-width:60px}
 
-/* ============ MOBILE FIND PILL (landing + team pages) ============ */
-.findpill{display:none;position:fixed;left:50%;bottom:14px;transform:translate(-50%,90px);
-  z-index:80;background:var(--btn);color:#fff;border:0;border-radius:99px;padding:13px 22px;
-  font-family:var(--font);font-size:.92rem;font-weight:800;letter-spacing:.01em;
-  box-shadow:0 12px 30px rgba(16,20,26,.35);transition:transform .25s,background .15s;cursor:pointer}
-.findpill:hover{background:var(--btn-h)}
-.findpill.on{transform:translate(-50%,0)}
-@media(max-width:760px){.findpill{display:block}}
-@media(max-width:560px){.chipslabel{min-width:0}.toolswrap{top:56px}}
+@media(max-width:560px){.chipslabel{min-width:0}.toolswrap{top:56px;margin:0 -10px 14px}}
 
 /* ============ QUICK VIEW (every product card) ============ */
 /* .qv sits at the top-right of the card, a SIBLING of the card link (an
@@ -842,7 +838,7 @@ footer .logo{color:var(--ink)}
 .hero-copy{position:relative;z-index:1;align-self:center;padding:6px 0}
 .hero-kicker{display:block;font-size:clamp(.74rem,1.1vw,.86rem);font-weight:800;
   letter-spacing:.22em;text-transform:uppercase;color:var(--ink2);margin-bottom:14px}
-.hero-title{font-family:var(--display);font-weight:800;font-size:clamp(3rem,6.6vw,5.6rem);
+.hero-title{font-family:var(--display);font-weight:400;font-synthesis-weight:none;font-size:clamp(3rem,6.6vw,5.6rem);
   line-height:.9;letter-spacing:.01em;text-transform:uppercase;color:var(--ink);margin:0}
 .hero-title .up{color:var(--ink)}
 .hero-brush{display:inline-block;font-family:var(--brush);font-size:clamp(1.7rem,3.8vw,3.1rem);
@@ -939,7 +935,7 @@ footer .logo{color:var(--ink)}
   border:1px dashed var(--line2);border-radius:10px;padding:20px;background:var(--bg2);
   transition:border-color .18s,background .18s}
 .rail-end:hover{border-color:var(--ink);background:#fff}
-.rail-end .re-lab{font-family:var(--display);text-transform:uppercase;letter-spacing:.02em;
+.rail-end .re-lab{font-family:var(--display);font-weight:400;font-synthesis-weight:none;text-transform:uppercase;letter-spacing:.02em;
   font-size:1.05rem;line-height:1.1;color:var(--ink)}
 .rail-end .re-go{width:34px;height:34px;border-radius:99px;background:var(--ink);color:#fff;
   display:grid;place-items:center;transition:transform .18s}
@@ -965,7 +961,7 @@ footer .logo{color:var(--ink)}
 .teamcard .tc-shade{position:absolute;inset:0;
   background:linear-gradient(180deg,rgba(10,11,13,0) 38%,rgba(10,11,13,.82) 100%)}
 .teamcard .tc-over{position:absolute;left:14px;right:14px;bottom:12px;z-index:2;display:block}
-.teamcard .tc-name{display:block;font-family:var(--display);font-size:clamp(1.3rem,2.5vw,1.9rem);
+.teamcard .tc-name{display:block;font-family:var(--display);font-weight:400;font-synthesis-weight:none;font-size:clamp(1.3rem,2.5vw,1.9rem);
   line-height:1;letter-spacing:.01em;text-transform:uppercase;color:#fff}
 .teamcard .tc-phrase{display:block;margin-top:5px;font-size:.68rem;font-weight:800;
   letter-spacing:.14em;text-transform:uppercase;color:#fff;opacity:.92}

@@ -942,6 +942,16 @@ NEW_BROWNS_URLS = {
     "limited-edition-the-wall-graham":
         "https://viralstyle.com/kebystore/limited-edition-the-wall-graham",
 }
+NEW_ZERO_ONE = [
+    "limited-edition-0-01-football",
+    "limited-edition-0-01-h-a-i-l",
+]
+NEW_ZERO_ONE_URLS = {
+    "limited-edition-0-01-football":
+        "https://viralstyle.com/kebystore/limited-edition-0-01-football",
+    "limited-edition-0-01-h-a-i-l":
+        "https://viralstyle.com/kebystore/limited-edition-0-01-h-a-i-l",
+}
 # Locked-in hero / logo URLs from current main - must never drift.
 HERO_LOGO_LOCK = {
     "cleveland-browns": ("/img/hero-cleveland.jpg?v=3", "/img/browns-logo1.webp?v=1"),
@@ -1049,6 +1059,82 @@ class ThreeNewBrownsProducts(unittest.TestCase):
         for k in ORDER:
             html = page(f"{COLLECTIONS[k]['slug']}/index.html")
             self.assertIn(COLLECTIONS[k]["hero"].split("?")[0], html, k)
+
+
+NEW_ZERO_ONE_NAMES = {
+    "limited-edition-0-01-football": "Limited Edition 0-01 Football Michigan Tee",
+    "limited-edition-0-01-h-a-i-l": "Limited Edition 0-01 H A I L Michigan Tee",
+}
+
+
+class MichiganZeroOneProducts(unittest.TestCase):
+    """Regression coverage for the two Michigan 0-01 designs.
+
+    These campaigns are added before the daily refresh downloads their
+    mockups, so their product pages hot-link Viralstyle assets until dl.py
+    produces local WebP. abs_url() must let those remote URLs through
+    untouched - never prefix the store domain a second time.
+    """
+
+    @classmethod
+    def setUpClass(cls):
+        cls.products = load_json("data/products.json")
+        cls.live = load_json("data/products_live.json")
+        cls.cols = load_json("data/collections.json")
+
+    def test_slugs_in_source_catalogue(self):
+        for slug in NEW_ZERO_ONE:
+            self.assertIn(slug, self.products, slug)
+            self.assertIn(slug, self.live, slug)
+
+    def test_belong_to_michigan_collection(self):
+        slugs = [p["slug"] for p in self.cols["michigan"]["products"]]
+        for slug in NEW_ZERO_ONE:
+            self.assertIn(slug, slugs, slug)
+        self.assertGreaterEqual(len(slugs), 17)
+
+    def test_product_pages_generated_with_checkout(self):
+        for slug in NEW_ZERO_ONE:
+            fp = os.path.join(SITE, "shop", slug, "index.html")
+            self.assertTrue(os.path.isfile(fp), slug)
+            html = read(fp)
+            self.assertIn(NEW_ZERO_ONE_URLS[slug], html, slug)
+            self.assertIn("https://gridironlocker.store/michigan-wolverines-shirts/", html, slug)
+            self.assertIn(NEW_ZERO_ONE_NAMES[slug], html, slug)
+
+    def test_remote_fallback_and_no_double_prefix(self):
+        for slug in NEW_ZERO_ONE:
+            img = self.live[slug].get("img", {})
+            self.assertIn("front", img, slug)
+            for tag, rel in img.items():
+                if rel.startswith("/"):
+                    self.assertTrue(
+                        os.path.isfile(os.path.join(SITE, rel.lstrip("/"))),
+                        f"{slug} {rel}")
+                else:
+                    self.assertTrue(
+                        rel.startswith("https://assets.viralstyle.com/"),
+                        f"{slug} {rel}")
+                self.assertNotIn("gridironlocker.storehttps://", rel, f"{slug} {rel}")
+            html = read(os.path.join(SITE, "shop", slug, "index.html"))
+            self.assertNotIn("gridironlocker.storehttps://", html, slug)
+
+    def test_schema_and_sitemap_use_remote_images(self):
+        for slug in NEW_ZERO_ONE:
+            html = read(os.path.join(SITE, "shop", slug, "index.html"))
+            self.assertIn('"image":[', html, slug)
+            self.assertIn("assets.viralstyle.com", html.split('"image":[', 1)[1][:400], slug)
+            self.assertNotIn("https://gridironlocker.storehttps://", html, slug)
+        sm = page("sitemap-images.xml")
+        for slug in NEW_ZERO_ONE:
+            self.assertIn(slug, sm, slug)
+            self.assertNotIn("gridironlocker.storehttps://", sm, slug)
+
+    def test_catalogue_copy_added(self):
+        from catalog import CATALOG
+        for slug in NEW_ZERO_ONE:
+            self.assertIn(slug, CATALOG, slug)
+            self.assertEqual(CATALOG[slug]["name"], NEW_ZERO_ONE_NAMES[slug], slug)
 
 
 if __name__ == "__main__":
