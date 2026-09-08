@@ -186,9 +186,7 @@ From `src/collections_data.py:SEASON` + `data/trends.json`:
 
 ## 8. Social media system
 
-Live accounts: X `@gridironlocker` · TikTok `@gridironlocker` · YouTube
-`@Gridironlocker` · Pinterest `gridironlockergear` · Facebook (numeric profile
-ID — vanity URL not yet claimed) · Instagram `@gridironlocker` **(disabled)**.
+Live accounts: X `@gridironlocker1` & `@gridironlocker` · Instagram `@gridironlocker1` · Threads `@gridironlocker1` · Facebook `GridironLocker` · Pinterest `gridironlockergear` · YouTube `@Gridironlocker` · TikTok `@gridironlocker`. (Note: old bare Instagram `@gridironlocker` was disabled; active handle is `@gridironlocker1`).
 
 `marketing/social/` holds the content kit:
 
@@ -239,7 +237,7 @@ account) posts again.
   Morocco-timezone posting times, design polish.
 - **Open PR #13** (`arena/01a04a8b-gridiron-locker`): social launch kit,
   competitor playbook, dashboard "Who's who" tab.
-- **In flight:** Instagram re-launch + compliance decision (§9).
+- **In flight:** Compliance-safe publishing on `@gridironlocker1` and live drops traffic (§9).
 
 ---
 
@@ -251,10 +249,10 @@ python3 scrape_products.py    # pull details for every product
 python3 dl.py                 # download new imagery
 python3 src/trends.py         # refresh the headline trend report
 python3 src/build.py          # rebuild the site from data/
-python3 marketing/plan.py     # regenerate marketing/plan.json (134 designs)
+python3 marketing/live_engine.py  # regenerate marketing/plan.json + live_drops.json + pinterest_feed.csv
 
 # preview the planner
-cd marketing && python3 -m http.server 8000   # open /dashboard.html
+cd marketing && python3 -m http.server 8000   # open /live.html or /dashboard.html
 
 # verify timezone conversions
 node marketing/tz-verify.js
@@ -264,7 +262,7 @@ node marketing/tz-verify.js
 
 ## 12. Open questions
 
-1. **Compliance direction** — license, pivot to original designs, or status quo? (§9)
-2. **New Instagram account** — what handle/bio/content under the chosen direction?
-3. **Facebook vanity URL** — claim `facebook.com/gridironlocker` or leave numeric?
+1. **Compliance direction** — license, pivot to original fan-culture designs, or status quo? (§9)
+2. **Active Instagram account** — verified as `@gridironlocker1` using safe fan-culture copy from copy_vault.
+3. **Facebook vanity URL** — claimed at `facebook.com/GridironLocker`.
 4. **Content gaps** — designs for Watson, Underwood, Monken, Whittingham, Parsons?

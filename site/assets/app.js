@@ -35,22 +35,28 @@ document.querySelectorAll('.thumb,.swatch,.stylechip').forEach(function(b){
   var msg=document.getElementById('formmsg');
   var btn=form.querySelector('button[type=submit]');
   form.addEventListener('submit',function(e){
-    e.preventDefault();
     var name=form.querySelector('input[name=name]').value.trim(),
         email=form.querySelector('input[name=email]').value.trim(),
-        team=form.querySelector('select[name=team]').value,
-        garment=form.querySelector('select[name=garment]').value,
-        idea=form.querySelector('input[name=idea]').value.trim(),
-        details=form.querySelector('textarea[name=details]').value.trim();
-    if(!name||!email||!idea){msg.style.color='#c0392b';msg.textContent='Please fill in your name, email and the idea.';return;}
-    // Open the visitor's mail app directly. The old fetch-to-FormSubmit approach
-    // was unreliable on static hosts and never produced the requested email popup.
-    var body='Name: '+name+'\nEmail: '+email+'\nTeam/theme: '+team+'\nGarment: '+garment+'\nIdea: '+idea+'\nDetails: '+details;
-    var mailto='mailto:'+atob(CUSTOM_EMAIL)+'?subject='+encodeURIComponent('Custom Design Request from '+name)+'&body='+encodeURIComponent(body);
+        idea=form.querySelector('input[name=idea]').value.trim();
+    if(!name||!email||!idea){msg.style.color='#c0392b';msg.textContent='Please fill in your name, email and the idea.';e.preventDefault();return;}
+    e.preventDefault();
     if(btn)btn.disabled=true;
-    if(msg){msg.style.color='';msg.textContent='Opening your email app - please hit Send to submit your idea.';}
-    window.location.href=mailto;
-    setTimeout(function(){if(btn)btn.disabled=false;},1200);
+    if(msg){msg.style.color='';msg.textContent='Sending your idea...';}
+    var data=new FormData(form);
+    var ok=false;
+    try{
+      fetch(form.action,{method:'POST',body:data,mode:'no-cors'}).then(function(){
+        ok=true;
+        if(msg)msg.textContent='Thank you '+name+'! Your idea is on its way. We will reply to '+email+' within 1-2 days.';
+        form.reset(); if(btn)btn.disabled=false;
+      }).catch(function(){fallback()});
+      setTimeout(function(){if(!ok){}},1500);
+    }catch(err){fallback()}
+    function fallback(){
+      var body='Name: '+name+'\nEmail: '+email+'\nTeam/theme: '+(form.querySelector('select[name=team]').value)+'\nGarment: '+(form.querySelector('select[name=garment]').value)+'\nIdea: '+idea+'\nSizes: '+(form.querySelector('input[name=sizes]').value)+'\nDetails: '+(form.querySelector('textarea[name=details]').value);
+      window.location.href='mailto:'+atob(CUSTOM_EMAIL)+'?subject='+encodeURIComponent('Custom Design Request from '+name)+'&body='+encodeURIComponent(body);
+      if(msg)msg.textContent='Opening your email app with your request - hit send and we will get back to you within 1-2 days.';
+    }
   });
 })();
 
@@ -60,23 +66,21 @@ document.querySelectorAll('.thumb,.swatch,.stylechip').forEach(function(b){
   if(!pop)return;
   // sessionStorage: show once per browser session, not on every page
   var done;
-  try{ done=sessionStorage.getItem('csPopShownV2'); }catch(e){}
+  try{ done=sessionStorage.getItem('csPopShown'); }catch(e){}
   if(done)return;
   var shown=false;
   function maybeShow(){
     if(shown)return;
     var sc=window.scrollY||0;
-    // show once the visitor has scrolled a manageable distance
-    if(sc > Math.min((window.innerHeight||800)*.75,700)){
+    // show once the visitor has scrolled ~ 1.5 viewport heights
+    if(sc > (window.innerHeight||800)*1.5){
       shown=true;
       pop.hidden=false;
       requestAnimationFrame(function(){requestAnimationFrame(function(){pop.classList.add('on');});});
-      try{ sessionStorage.setItem('csPopShownV2','1'); }catch(e){}
+      try{ sessionStorage.setItem('csPopShown','1'); }catch(e){}
     }
   }
   window.addEventListener('scroll',maybeShow,{passive:true});
-  // Also show it for visitors who do not scroll (mobile users often do not).
-  var showTimer=setTimeout(maybeShow,4000);
   maybeShow();
   var close=document.getElementById('csPopClose');
   var go=document.getElementById('csPopGo');
@@ -85,7 +89,6 @@ document.querySelectorAll('.thumb,.swatch,.stylechip').forEach(function(b){
     setTimeout(function(){pop.hidden=true;},350);
   }
   if(close)close.addEventListener('click',dismiss);
-  document.addEventListener('keydown',function(e){if(e.key==='Escape'&&!pop.hidden)dismiss();});
   if(go)go.addEventListener('click',function(){
     dismiss();
     var target=document.querySelector('.customsec')||document.querySelector('.customform');
