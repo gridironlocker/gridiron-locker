@@ -156,7 +156,7 @@ function renderGrid(list){
     const cls=teamClass(d.collection||'');
     const label=teamLabel(d.collection||'');
     const img=d.image||'';
-    const url='../site/shop/'+d.slug+'/';
+    const url='/shop/'+d.slug+'/';
     return `<article class="card" data-team="${esc((d.collection||'').toLowerCase())}" data-text="${esc((d.name+' '+d.caption+' '+d.headline+' '+(d.team||'')).toLowerCase())}">
       <div class="card-top"><span class="team ${cls}">${esc(label)}</span><span class="why">🔥 ${esc(d.headline||'')}</span></div>
       <a class="img" href="${esc(url)}" target="_blank"><img src="${esc(img)}" alt="${esc(d.name)}" loading="lazy"></a>

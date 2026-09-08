@@ -32,7 +32,7 @@ from marketing.plan import (
     build_people_lookup, score_design, collection_trend_stage,
     compute_opportunity, BEST_TIMES, PLATFORMS, BASE_SCORE, SEASON_BONUS,
     HEADLINE_NAME_BONUS, HEADLINE_BONUS_CAP, THEME_BONUS, THROWBACK_PENALTY,
-    collection_info, make_calendar, make_news_gaps
+    collection_info, make_calendar, make_news_gaps, load_delisted
 )
 
 def read_json(p: Path):
@@ -41,12 +41,17 @@ def read_json(p: Path):
 
 def build_designs_unique(products, facts, order, trends, people):
     people_lookup = build_people_lookup(people)
+    delisted = load_delisted()
+    skipped_delisted = []
     scored = []
     term_coverage = {}
     entity_coverage = {}
     for row in order:
         slug = row.get("slug")
         ckey = row.get("col")
+        if slug in delisted:
+            skipped_delisted.append(slug)
+            continue
         product = products[slug]
         fact = facts[slug]
         trend = trends.get("collections", {}).get(ckey, {})
@@ -118,6 +123,11 @@ def build_designs_unique(products, facts, order, trends, people):
         if br["throwback"]:
             reasons.append("throwback penalty")
         item["reasons"] = reasons or ["evergreen catalogue fit"]
+    if skipped_delisted:
+        print(
+            f"who's-who gate: skipped {len(skipped_delisted)} delisted design(s) "
+            f"from the drops/pins queue: {', '.join(sorted(skipped_delisted))}"
+        )
     return designs
 
 def build_live_drops(designs, trends, delisted_slugs=None):

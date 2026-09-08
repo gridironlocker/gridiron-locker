@@ -19,6 +19,43 @@ def pick(lst: List[str], slug: str, salt: str) -> str:
         return ""
     return lst[h(slug, salt) % len(lst)]
 
+# ------------------------------------------------- who's-who headline gate
+# people.json flags traded/released/replaced players and coaches as
+# "throwback". The rule is absolute: they must not be used or mentioned in
+# posts, captions, or hashtags. Their names trend hardest right after they
+# leave (the trade story), so without this gate the #1 Cleveland headline
+# would keep naming them in captions for unrelated, still-listed designs.
+_THROWBACK_ALIASES: tuple[str, ...] | None = None
+
+def _throwback_aliases() -> tuple[str, ...]:
+    """All name fragments of throwback people, loaded once per process."""
+    global _THROWBACK_ALIASES
+    if _THROWBACK_ALIASES is None:
+        aliases: list[str] = []
+        try:
+            import json
+            from pathlib import Path
+            root = Path(__file__).resolve().parent.parent
+            people = json.loads((root / "data" / "people.json").read_text(encoding="utf-8"))
+            from marketing.plan import ENTITY_ALIASES
+            for person in people.get("people", []):
+                if str(person.get("status", "")).lower() != "throwback":
+                    continue
+                name = str(person.get("name", "")).strip().lower()
+                if name:
+                    aliases.append(name)
+                aliases.extend(a.lower() for a in ENTITY_ALIASES.get(name, ()) if a)
+        except Exception:
+            pass  # people.json missing/unreadable -> no filtering, old behaviour
+        _THROWBACK_ALIASES = tuple(sorted(set(aliases)))
+    return _THROWBACK_ALIASES
+
+def mentions_throwback(text: str) -> bool:
+    """True if the text names a departed (throwback) player or coach."""
+    t = (text or "").lower()
+    return any(a in t for a in _throwback_aliases())
+
+
 # ---------------------------------------------------------------- voices
 VOICES = {
     "cleveland-browns": {
@@ -365,6 +402,11 @@ def get_headline_for_product(ckey: str, slug: str, fact: dict, trends_data: dict
     try:
         col_trend = trends_data.get("collections", {}).get(ckey, {})
         headlines = col_trend.get("headlines", [])
+        if not headlines:
+            return "today's lineup news"
+        # Who's-who gate: a headline that names a departed player/coach can
+        # never be used as a caption hook, even as the collection fallback.
+        headlines = [hd for hd in headlines if not mentions_throwback(hd.get("title", ""))]
         if not headlines:
             return "today's lineup news"
         # Try to match entity

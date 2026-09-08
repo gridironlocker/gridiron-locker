@@ -372,8 +372,13 @@ def build_model():
             img = p.get("img") or {}
             img = OrderedDict(
                 (t, f) for t, f in img.items()
-                if isinstance(f, str) and f.startswith("/")
-                and os.path.isfile(os.path.join(SITE, f.lstrip("/"))))
+                if isinstance(f, str) and (
+                    (f.startswith("/") and os.path.isfile(os.path.join(SITE, f.lstrip("/"))))
+                    # A newly added campaign may have valid Viralstyle assets
+                    # before the local image downloader has run successfully.
+                    # Keep those remote assets as a temporary fallback.
+                    or f.startswith("https://assets.viralstyle.com/")
+                ))
             if not img:
                 continue
             if "front" not in img:
@@ -537,6 +542,15 @@ def season_promo():
 
 
 def header(active=""):
+    """Site header, shared by every page.
+
+    /drops/ is deliberately NOT in the desktop or mobile menu: it stays a
+    published, sitemap-listed page (linked from social bios and external
+    posts) but the storefront menu is collections-first. If it is ever wanted
+    back in the nav, add it here — not by editing the built site/*.html files,
+    because the daily refresh workflow re-runs this generator and would
+    restore the link.
+    """
     links = "".join(
         f'<a href="/{COLLECTIONS[k]["slug"]}/"{" aria-current=page" if active == k else ""}>{COLLECTIONS[k]["short"]}</a>'
         for k in ORDER)
@@ -548,7 +562,6 @@ def header(active=""):
  <div class="wrap nav">
   <a class="logo" href="/"><span class="mark">GL</span> {esc(BRAND)}</a>
   <nav class="links">
-   <a href="/drops/">Live Drops</a>
    <a href="/collections/">All Collections</a>
    {links}
    <a href="/2026-season/">2026 Season</a>
@@ -558,7 +571,7 @@ def header(active=""):
   <button class="burger" aria-label="Menu" onclick="document.getElementById('mn').classList.toggle('open')">&#9776;</button>
  </div>
  <div class="mobnav" id="mn">
-  <a href="/">Home</a><a href="/drops/">Live Drops</a><a href="/collections/">All Collections</a>{mob}
+  <a href="/">Home</a><a href="/collections/">All Collections</a>{mob}
   <a href="/2026-season/">2026 Season Hub</a><a href="/fan-trend-index/">Fan Trend Index</a>
   <a href="/guides/">Buying Guides</a><a href="/size-guide/">Size Guide</a>
   <a href="/shipping/">Shipping &amp; Returns</a><a href="/about/">About</a>
@@ -2021,10 +2034,12 @@ def page_drops():
             f"4 team voices, 0 recycled captions. Updated daily from real team news for "
             f"Cleveland, Green Bay, Dallas and Michigan fans.")
 
-    # Load drops for schema
+    # Load drops for schema. Same dead-link guard as drops_page.py: only drops
+    # whose product page the build actually published may enter the ItemList —
+    # schema URLs must never point at delisted pages that 404.
     try:
         drops_data = json.load(open(os.path.join(ROOT, "data/live_drops.json"), encoding="utf-8"))
-        drops_list = drops_data.get("drops", [])[:12]
+        drops_list = [d for d in drops_data.get("drops", []) if d.get("slug") in lookup][:12]
     except Exception:
         drops_list = []
 
