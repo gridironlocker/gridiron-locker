@@ -9,10 +9,10 @@ FTI = `round(100 * entity_mentions / peak_mentions_in_window)`. Peak mentions in
 | Rank | Name | Collection | Mentions | FTI | Status | Shop |
 |---|---|---|---|---|---|---|
 | 1 | deshaun watson | cleveland-browns | 27 | 100 | trending | gap — no design |
-| 2 | shedeur sanders | cleveland-browns | 22 | 81 | trending | in locker |
+| 2 | shedeur sanders | cleveland-browns | 24 | 89 | trending | in locker |
 | 3 | bryce underwood | michigan | 17 | 63 | trending | in locker |
-| 4 | josh jacobs | green-bay-packers | 12 | 44 | trending | gap — no design |
-| 5 | kyle whittingham | michigan | 11 | 41 | trending | gap — no design |
+| 4 | kyle whittingham | michigan | 13 | 48 | trending | gap — no design |
+| 5 | josh jacobs | green-bay-packers | 12 | 44 | trending | gap — no design |
 | 6 | todd monken | cleveland-browns | 11 | 41 | trending | gap — no design |
 | 7 | micah parsons | green-bay-packers | 8 | 30 | trending | in locker |
 | 8 | dak prescott | dallas-cowboys | 6 | 22 | trending | gap — no design |
@@ -37,7 +37,7 @@ FTI = `round(100 * entity_mentions / peak_mentions_in_window)`. Peak mentions in
 | Name | Headline mentions | Status | FTI |
 |---|---|---|---|
 | deshaun watson | 27 | TRENDING | 100 |
-| shedeur sanders | 22 | TRENDING | 81 |
+| shedeur sanders | 24 | TRENDING | 89 |
 | todd monken | 11 | TRENDING | 41 |
 | myles garrett | 6 | TRENDING | 22 |
 | kevin stefanski | 1 | steady | 4 |
@@ -72,9 +72,9 @@ Recent headlines:
 Recent headlines:
 - [Packers announce roster moves | Aug. 30, 2026](https://news.google.com/rss/articles/CBMiekFVX3lxTFBfRGZTYlhHM0ZLTHlPWUNtLXFGTE5McWxucTdDSlZWOHhVbmlQNlBYUFVjeEtQUXpDX0dtdEVjNE1uZ0R6d0NEMklCSHF3RjMyZXpGdDl1anhHOUFfMjMySjNKZEZxTzM2dlNZMnQ0VHRHTElxaTNCX3RB?oc=5) - Green Bay Packers
 - [September 6, 2024- Green Bay Packers play first NFL game in South America.](https://news.google.com/rss/articles/CBMisAFBVV95cUxQWlY2cFJhNE15UVZCam5TcUQtUWJBcXoxUkU1aXg1M3RGWXlXcVVIeUl4ODhaeXBpSDdkdTZTcVFTNWJ5ckF1dXJ0N2R6elJlckR3NWRpb1dXZkZTMFNySE1VUlFKX2dReXZubFl3S3lHS1Jvckp4T1VERXF6VWJOYjdaMUxtSFdUYlkxanNKaG9rRDJaOHRDd19NYmxEZm1BTXRpVjdXUU0teEFocWVNSA?oc=5) - fox8live.com
-- [Green Bay Packers receive low defensive ranking from PFF prior to Week 1 of 2026 NFL season](https://news.google.com/rss/articles/CBMihAFBVV95cUxNM2ticEhsQ1RSR1RkcVUxdm5PTXNjS0g4c3hoMmlvWkdVSnl4SWRGalFTR1NfS3QtUHRmbmkxQ1B5REV0cHhhZkJ5bENtU3ctOVhhdnA5RFVYemJ5WEg1cUx3YzZKempCWlp2R051ZHlsOGY3N0dDcS1la2xZZ1djWDJoeVU?oc=5) - Yahoo Sports
+- [Green Bay Packers receive low defensive ranking from PFF prior to Week 1 of 2026 NFL season](https://news.google.com/rss/articles/CBMihAFBVV95cUxNM2ticEhsQ1RSR1RkcVUxdm5PTXNjS0g4c3hoMmlvWkdVSnl4SWRGalFTR1NfS3QtUHRmbmkxQ1B5REV0cHhhZkJ5bENtU3ctOVhhdnA5RFVYemJ5WEg1cUx3YzZKempCWlp2R051ZHlsOGY3N0dDcS1la2xZZ1djWDJoeVU?oc=5) - sports.yahoo.com
 - [Packers Film Review: TE Mark Redman](https://news.google.com/rss/articles/CBMipAFBVV95cUxNVWliV2lXTjV2WS1BYmpxTTV1cjBBZHBEQ0dubmdySG9jUGU2UkFZMDhTQ3VjWGlKazNWYk92VVcxWG1nX0g2QjVRT3lxWUVURGFkS3ZWN3pvMGhfT19KWWxBOU1jQVBYaVl5RUpxelJTQ2ZvejBLcXBNU3dtM3dxRlF0QkcteFFsT3JreTdzQjVra3Byd2dVdTB6VG5NWXptWm0wTw?oc=5) - Acme Packing Company
-- [Packers bring back 1923-inspired uniforms for Bills matchup](https://news.google.com/rss/articles/CBMi6wFBVV95cUxNY2ZEcEFZcnNxOTZUcFFQQXdEMXk1UkRkWFhXWFp4M3IyQmNHYmtUNll3RlpYUGE3UXRSSjdGUS1MbE9obDZoTUt1Q1VnNmp6dVJ5Y29iTXpmZlE2MldmVS1zWGx2Nmd0djZDeW5LQW05OERjYktVaXB1WTRfSGh1OEVTazdaSXprcWduZVVHeVgtT3FoVllWWHpWYVlTNGgtS1hnRWF4OHRnTzNtYzlsSURIeDZaeFlqRFlJZ0VnREx3c1FGRkd3Ylk1MVFGV1cxcHhRanh4S2VOQTZyRGx0SVNkZWhNeDBXRmhF?oc=5) - Green Bay Press-Gazette
+- [Minnesota Vikings bringing back Harrison Smith for 2026 season](https://news.google.com/rss/articles/CBMiggFBVV95cUxPNVd3YmF2NnF0SFZPVHktbDQ5TWdNYnpjejFiMm0zZXQ0SVYzZVpJOEJoVTBVRHptOW44YzZKNk9qX1VjVjVXbHFTaERFajlHUy0zaDZILU54Q1F4RVplVmtaXzUtTDFwbGlSZDA3U1dpMjZuUV84eC1HX2Vwbm9jLXJn0gGHAUFVX3lxTE9OdGVIc2NYWEhrN3FEQkswMFNKekNYOFo0V0pVZ1MyUXh6dXYwS1dUR1VWSTh0OHpOWl9ueEZWS1VDX1BJLWVfM0ViSHRlVmdMUDEyc0pqMHVBN0tnRVNtUXlKUTYwSkRzekgyb25fY1c5NjBXcUZiNEQ4NDRkcDJFRzZ3dUxoSQ?oc=5) - FOX 9 Minneapolis-St. Paul
 
 ## Dallas Vintage Sports Tees
 
@@ -97,15 +97,15 @@ Recent headlines:
 | Name | Headline mentions | Status | FTI |
 |---|---|---|---|
 | bryce underwood | 17 | TRENDING | 63 |
-| kyle whittingham | 11 | TRENDING | 41 |
+| kyle whittingham | 13 | TRENDING | 48 |
 | jj mccarthy | 0 | quiet - throwback | 0 |
 | jordan marshall | 0 | quiet - throwback | 0 |
 
 **Product gap:** trending with no design in the catalogue - **kyle whittingham**
 
 Recent headlines:
-- [Western Michigan president: Big Ten's replay process not 'as good as it could be'](https://news.google.com/rss/articles/CBMiowFBVV95cUxNSjRhN29pRngwRDdrck04dE1YaXJxYlRuU25ReVVSakhFN2V0QVpQNFQ0RHVnWXVNRHdsLUFxQXhwWmRUNFNWR2hlcXZuam96NXVWMXFsVmRmRERPc1NaV3BsTFRUckgwSFNvTmZNcmxqOHIyS3FLam5qbXVJcENtUWxITTFKa2xibDJzeG9ZSENpSklJUnUzRy1SWDVycTBpa3pB?oc=5) - ESPN
 - [Michigan Miracle: Wolverines Buck Broncos on Final Play to Open Season](https://news.google.com/rss/articles/CBMisgFBVV95cUxOOHU3QWhTNzlfQXI1X2lhTEI4eU9aQkpDQkp2NTBOMTNzRDZBcTJHdGhWRll1cXlRbWR5MERYSzNORkRiUDdnTDJxV3gzc05tTDF3XzBKYVBuYUgyOWdXbzhZZGNmWURWVUNBY3dDWC1vSzZsQUlxQlpNYTAwY0UtRGVRd2JNbTJDU1FJeUo5eWg5Z29yR0daWjlqX1hZVkZXS09NazU2VHhfUTdOV2FWTWJn?oc=5) - University of Michigan Athletics
 - [Can Michigan's controversial Hail Mary win over WMU be overturned?](https://news.google.com/rss/articles/CBMi6gFBVV95cUxNUGRSV3h1ektXc0ZVYldlTHZ1elN0TkJOQmk4cmtUVE9RVERTQnpzcXM5RXVOYTRVX0RXOUg2cno0MzFCYnF2ekJnb0dpQlZaTjczUFEySlJsb1ZVeHBCYXV0dWpIZlRhUG5Oa2hQdnJQNEFGSnJUMl82bmtpQW1JUXRrSVpfcFF1c2tReTZWdVh0UHYxRzVsTnJmR3BSUGtoMUVaVmlYTzNZcmlMTXhFUFcyaWtRZHlMdG9mSmlCdm12bnlZUl9idVJnb3dFUnlzbjVLWEdGY084ZkZtamx3cjJZNFhDbGdRWUE?oc=5) - Detroit Free Press - Breaking news, sports, business, entertainment
 - [4 Immediate Takeaways From Michigan Football's Stunning Win Over WMU](https://news.google.com/rss/articles/CBMisAFBVV95cUxNck5Paktmb0w0SlZCYlNOWWRzWUM4Yk1xTmpxYUxUNEJ3anU4UEF5RFBXMUlBSmw2REJWMmhqMjZya3hacjdYZ25tbW03MDFqZ1FGV3NHTW5LZWtGeFF3SWtUWTh6c1ViQm9rc2VlcjFWR0lta3dJai1HTFhtRWlLZ0xkTHJJY1R4VzRoSmJCQWczQUl6TXpCM2tHQzBWWW8wQkxlM0MycldPQ2QtSWx1WQ?oc=5) - Sports Illustrated
 - [Football Opens 2026 Season at No. 16 Michigan](https://news.google.com/rss/articles/CBMijwFBVV95cUxNZGtsbHRyQ1lRSFBaek1LOFBZWlJmeVFZU2tsOWlCZjVVNDFCV3ZKYUNyMDk3ekNvX2xUbHllY0h3QTk3U1hqS0ZWYTFXTXlpblBiRWRNWTROLU9sMjlGRXZwcHM3THNDdGNsWkhSVy00akt1bzZRUXdObjJUNzk3U3c1QjQycFBaa3F1dzJaOA?oc=5) - Western Michigan University Athletics
+- [Clock controversy allows Michigan Wolverines to avoid massive upset against Western Michigan | OutKick](https://news.google.com/rss/articles/CBMixwFBVV95cUxOS0h1S1dGMTljem5fLXY1SlRLdm1WUHJoQVV5eXNGSnRaVVZWUWRwdHRua2lRUDVOMnJJdDBpdC0xOW10N1pONzBlWDByZ1BrSmNlMy1BZzZJZWxacWxRaVpiUUp1ZTRpN1lRalRzWGc0MWpOSlJqTnVXMm1GdkpXVGNqTF9xeVpsVnBxNnF1Q1MtZDN0QzEzQWJ0Y3JHYUg4OWNtYVNVdEs0a3UwdTcyQmNVcnNhUEZXemE0bTBrZlJCWmc4dWtZ?oc=5) - Fox News

@@ -28,8 +28,8 @@
   },
   {
    "name": "shedeur sanders",
-   "mentions": 22,
-   "index": 81,
+   "mentions": 24,
+   "index": 89,
    "status": "trending",
    "gap": false,
    "shoppable": true,
@@ -45,6 +45,15 @@
    "collection": "michigan"
   },
   {
+   "name": "kyle whittingham",
+   "mentions": 13,
+   "index": 48,
+   "status": "trending",
+   "gap": true,
+   "shoppable": false,
+   "collection": "michigan"
+  },
+  {
    "name": "josh jacobs",
    "mentions": 12,
    "index": 44,
@@ -52,15 +61,6 @@
    "gap": true,
    "shoppable": false,
    "collection": "green-bay-packers"
-  },
-  {
-   "name": "kyle whittingham",
-   "mentions": 11,
-   "index": 41,
-   "status": "trending",
-   "gap": true,
-   "shoppable": false,
-   "collection": "michigan"
   },
   {
    "name": "todd monken",
@@ -191,6 +191,15 @@
    "collection": "cleveland-browns"
   },
   {
+   "name": "kyle whittingham",
+   "mentions": 13,
+   "index": 48,
+   "status": "trending",
+   "gap": true,
+   "shoppable": false,
+   "collection": "michigan"
+  },
+  {
    "name": "josh jacobs",
    "mentions": 12,
    "index": 44,
@@ -198,15 +207,6 @@
    "gap": true,
    "shoppable": false,
    "collection": "green-bay-packers"
-  },
-  {
-   "name": "kyle whittingham",
-   "mentions": 11,
-   "index": 41,
-   "status": "trending",
-   "gap": true,
-   "shoppable": false,
-   "collection": "michigan"
   },
   {
    "name": "todd monken",
@@ -263,10 +263,10 @@
     "cleveland",
     "watson",
     "deshaun",
-    "todd",
-    "monken",
     "shedeur",
-    "sanders"
+    "sanders",
+    "todd",
+    "monken"
    ],
    "headline_count": 100,
    "headlines": [
@@ -332,7 +332,7 @@
     "squad",
     "jones",
     "tyler",
-    "roster"
+    "mailbag"
    ],
    "headline_count": 100,
    "headlines": [
@@ -417,7 +417,7 @@
     {
      "title": "Green Bay Packers receive low defensive ranking from PFF prior to Week 1 of 2026 NFL season",
      "url": "https://news.google.com/rss/articles/CBMihAFBVV95cUxNM2ticEhsQ1RSR1RkcVUxdm5PTXNjS0g4c3hoMmlvWkdVSnl4SWRGalFTR1NfS3QtUHRmbmkxQ1B5REV0cHhhZkJ5bENtU3ctOVhhdnA5RFVYemJ5WEg1cUx3YzZKempCWlp2R051ZHlsOGY3N0dDcS1la2xZZ1djWDJoeVU?oc=5",
-     "source": "Yahoo Sports",
+     "source": "sports.yahoo.com",
      "pub": "Sat, 05 Sep 2026 13:40:53 GMT"
     },
     {
@@ -427,10 +427,10 @@
      "pub": "Tue, 01 Sep 2026 17:26:19 GMT"
     },
     {
-     "title": "Packers bring back 1923-inspired uniforms for Bills matchup",
-     "url": "https://news.google.com/rss/articles/CBMi6wFBVV95cUxNY2ZEcEFZcnNxOTZUcFFQQXdEMXk1UkRkWFhXWFp4M3IyQmNHYmtUNll3RlpYUGE3UXRSSjdGUS1MbE9obDZoTUt1Q1VnNmp6dVJ5Y29iTXpmZlE2MldmVS1zWGx2Nmd0djZDeW5LQW05OERjYktVaXB1WTRfSGh1OEVTazdaSXprcWduZVVHeVgtT3FoVllWWHpWYVlTNGgtS1hnRWF4OHRnTzNtYzlsSURIeDZaeFlqRFlJZ0VnREx3c1FGRkd3Ylk1MVFGV1cxcHhRanh4S2VOQTZyRGx0SVNkZWhNeDBXRmhF?oc=5",
-     "source": "Green Bay Press-Gazette",
-     "pub": "Thu, 03 Sep 2026 21:51:00 GMT"
+     "title": "Minnesota Vikings bringing back Harrison Smith for 2026 season",
+     "url": "https://news.google.com/rss/articles/CBMiggFBVV95cUxPNVd3YmF2NnF0SFZPVHktbDQ5TWdNYnpjejFiMm0zZXQ0SVYzZVpJOEJoVTBVRHptOW44YzZKNk9qX1VjVjVXbHFTaERFajlHUy0zaDZILU54Q1F4RVplVmtaXzUtTDFwbGlSZDA3U1dpMjZuUV84eC1HX2Vwbm9jLXJn0gGHAUFVX3lxTE9OdGVIc2NYWEhrN3FEQkswMFNKekNYOFo0V0pVZ1MyUXh6dXYwS1dUR1VWSTh0OHpOWl9ueEZWS1VDX1BJLWVfM0ViSHRlVmdMUDEyc0pqMHVBN0tnRVNtUXlKUTYwSkRzekgyb25fY1c5NjBXcUZiNEQ4NDRkcDJFRzZ3dUxoSQ?oc=5",
+     "source": "FOX 9 Minneapolis-St. Paul",
+     "pub": "Tue, 08 Sep 2026 16:25:19 GMT"
     }
    ],
    "fti_count": 5
@@ -448,8 +448,8 @@
    "gaps": [
     {
      "name": "kyle whittingham",
-     "mentions": 11,
-     "index": 41,
+     "mentions": 13,
+     "index": 48,
      "status": "trending",
      "gap": true,
      "shoppable": false,
@@ -461,19 +461,13 @@
     "football",
     "western",
     "wolverines",
-    "hail",
     "mary",
-    "second",
-    "whittingham"
+    "hail",
+    "whittingham",
+    "controversial"
    ],
    "headline_count": 100,
    "headlines": [
-    {
-     "title": "Western Michigan president: Big Ten's replay process not 'as good as it could be'",
-     "url": "https://news.google.com/rss/articles/CBMiowFBVV95cUxNSjRhN29pRngwRDdrck04dE1YaXJxYlRuU25ReVVSakhFN2V0QVpQNFQ0RHVnWXVNRHdsLUFxQXhwWmRUNFNWR2hlcXZuam96NXVWMXFsVmRmRERPc1NaV3BsTFRUckgwSFNvTmZNcmxqOHIyS3FLam5qbXVJcENtUWxITTFKa2xibDJzeG9ZSENpSklJUnUzRy1SWDVycTBpa3pB?oc=5",
-     "source": "ESPN",
-     "pub": "Mon, 07 Sep 2026 01:20:00 GMT"
-    },
     {
      "title": "Michigan Miracle: Wolverines Buck Broncos on Final Play to Open Season",
      "url": "https://news.google.com/rss/articles/CBMisgFBVV95cUxOOHU3QWhTNzlfQXI1X2lhTEI4eU9aQkpDQkp2NTBOMTNzRDZBcTJHdGhWRll1cXlRbWR5MERYSzNORkRiUDdnTDJxV3gzc05tTDF3XzBKYVBuYUgyOWdXbzhZZGNmWURWVUNBY3dDWC1vSzZsQUlxQlpNYTAwY0UtRGVRd2JNbTJDU1FJeUo5eWg5Z29yR0daWjlqX1hZVkZXS09NazU2VHhfUTdOV2FWTWJn?oc=5",
@@ -497,6 +491,12 @@
      "url": "https://news.google.com/rss/articles/CBMijwFBVV95cUxNZGtsbHRyQ1lRSFBaek1LOFBZWlJmeVFZU2tsOWlCZjVVNDFCV3ZKYUNyMDk3ekNvX2xUbHllY0h3QTk3U1hqS0ZWYTFXTXlpblBiRWRNWTROLU9sMjlGRXZwcHM3THNDdGNsWkhSVy00akt1bzZRUXdObjJUNzk3U3c1QjQycFBaa3F1dzJaOA?oc=5",
      "source": "Western Michigan University Athletics",
      "pub": "Thu, 03 Sep 2026 16:04:02 GMT"
+    },
+    {
+     "title": "Clock controversy allows Michigan Wolverines to avoid massive upset against Western Michigan | OutKick",
+     "url": "https://news.google.com/rss/articles/CBMixwFBVV95cUxOS0h1S1dGMTljem5fLXY1SlRLdm1WUHJoQVV5eXNGSnRaVVZWUWRwdHRua2lRUDVOMnJJdDBpdC0xOW10N1pONzBlWDByZ1BrSmNlMy1BZzZJZWxacWxRaVpiUUp1ZTRpN1lRalRzWGc0MWpOSlJqTnVXMm1GdkpXVGNqTF9xeVpsVnBxNnF1Q1MtZDN0QzEzQWJ0Y3JHYUg4OWNtYVNVdEs0a3UwdTcyQmNVcnNhUEZXemE0bTBrZlJCWmc4dWtZ?oc=5",
+     "source": "Fox News",
+     "pub": "Sun, 06 Sep 2026 03:28:10 GMT"
     }
    ],
    "fti_count": 4
