@@ -2,7 +2,7 @@
  "generated": "2026-09-08",
  "window_days": 10,
  "fti_formula": "round(100 * entity_mentions / peak_mentions_in_window)",
- "peak_mentions": 27,
+ "peak_mentions": 25,
  "stats": {
   "products": 127,
   "collections": 4,
@@ -19,7 +19,7 @@
  "fti_rows": [
   {
    "name": "deshaun watson",
-   "mentions": 27,
+   "mentions": 25,
    "index": 100,
    "status": "trending",
    "gap": true,
@@ -29,7 +29,7 @@
   {
    "name": "shedeur sanders",
    "mentions": 22,
-   "index": 81,
+   "index": 88,
    "status": "trending",
    "gap": false,
    "shoppable": true,
@@ -38,7 +38,7 @@
   {
    "name": "bryce underwood",
    "mentions": 17,
-   "index": 63,
+   "index": 68,
    "status": "trending",
    "gap": false,
    "shoppable": true,
@@ -47,7 +47,7 @@
   {
    "name": "kyle whittingham",
    "mentions": 12,
-   "index": 44,
+   "index": 48,
    "status": "trending",
    "gap": true,
    "shoppable": false,
@@ -56,7 +56,7 @@
   {
    "name": "josh jacobs",
    "mentions": 11,
-   "index": 41,
+   "index": 44,
    "status": "trending",
    "gap": true,
    "shoppable": false,
@@ -65,7 +65,7 @@
   {
    "name": "todd monken",
    "mentions": 11,
-   "index": 41,
+   "index": 44,
    "status": "trending",
    "gap": true,
    "shoppable": false,
@@ -73,35 +73,35 @@
   },
   {
    "name": "micah parsons",
-   "mentions": 8,
-   "index": 30,
+   "mentions": 6,
+   "index": 24,
    "status": "trending",
    "gap": false,
    "shoppable": true,
    "collection": "green-bay-packers"
   },
   {
-   "name": "dak prescott",
-   "mentions": 6,
-   "index": 22,
-   "status": "trending",
-   "gap": true,
-   "shoppable": false,
-   "collection": "dallas-cowboys"
-  },
-  {
    "name": "myles garrett",
    "mentions": 6,
-   "index": 22,
+   "index": 24,
    "status": "trending",
    "gap": false,
    "shoppable": true,
    "collection": "cleveland-browns"
   },
   {
+   "name": "dak prescott",
+   "mentions": 4,
+   "index": 16,
+   "status": "trending",
+   "gap": true,
+   "shoppable": false,
+   "collection": "dallas-cowboys"
+  },
+  {
    "name": "ceedee lamb",
    "mentions": 2,
-   "index": 7,
+   "index": 8,
    "status": "steady",
    "gap": false,
    "shoppable": false,
@@ -183,7 +183,7 @@
  "gaps": [
   {
    "name": "deshaun watson",
-   "mentions": 27,
+   "mentions": 25,
    "index": 100,
    "status": "trending",
    "gap": true,
@@ -193,7 +193,7 @@
   {
    "name": "kyle whittingham",
    "mentions": 12,
-   "index": 44,
+   "index": 48,
    "status": "trending",
    "gap": true,
    "shoppable": false,
@@ -202,7 +202,7 @@
   {
    "name": "josh jacobs",
    "mentions": 11,
-   "index": 41,
+   "index": 44,
    "status": "trending",
    "gap": true,
    "shoppable": false,
@@ -211,7 +211,7 @@
   {
    "name": "todd monken",
    "mentions": 11,
-   "index": 41,
+   "index": 44,
    "status": "trending",
    "gap": true,
    "shoppable": false,
@@ -219,8 +219,8 @@
   },
   {
    "name": "dak prescott",
-   "mentions": 6,
-   "index": 22,
+   "mentions": 4,
+   "index": 16,
    "status": "trending",
    "gap": true,
    "shoppable": false,
@@ -241,7 +241,7 @@
    "gaps": [
     {
      "name": "deshaun watson",
-     "mentions": 27,
+     "mentions": 25,
      "index": 100,
      "status": "trending",
      "gap": true,
@@ -251,7 +251,7 @@
     {
      "name": "todd monken",
      "mentions": 11,
-     "index": 41,
+     "index": 44,
      "status": "trending",
      "gap": true,
      "shoppable": false,
@@ -273,13 +273,13 @@
     {
      "title": "Browns announce initial 53-man roster heading into the 2026 season",
      "url": "https://news.google.com/rss/articles/CBMipgFBVV95cUxOQk9NbzAwUnp0U0lxR0lmRTl2am13cTNaeWVrdVIwREpuVFVSZ2JnMU9VWHhGUHdKV09SU0YwTk9fZkU5am41Nk93eFlwM1Z3ejJIeU1pWHFLa0ZCWEktajFnS3A1d1ZMdlpKVnZxS0dfOVVIOGRyc0RJc0Nfb1FNWEduNTlZWjEzeUxqM2dVU2dpUFZKLUNFNEFxSHE4Tmg0THg2TkJB?oc=5",
-     "source": "Cleveland Browns",
+     "source": "clevelandbrowns.com",
      "pub": "Sun, 30 Aug 2026 07:00:00 GMT"
     },
     {
      "title": "Cleveland Browns have a strategy that may just be crazy enough to work",
      "url": "https://news.google.com/rss/articles/CBMizgFBVV95cUxOR2xkSGFFZlJkVHpxWi03RU1hSmZJQVFwZlVkRkw3cTdpZU53SFI5TGN6cy1zU3E3elZsX0kzSnhETF9jeHVva1NBY0EtVkZOaC1tY3VTM2lkNDlaOUdESFBLaThJM1pkTUdXSk1RUFZXVmVQRUJqVzFvQVZOcTBBNTR0VTdma0xFTkpmUkQ3b1pkUFhJT3ZWWUtsV0NMUmFCd2FoUGFvaVFHUjdfZnpLMzdKQ0VuYWZEWlNYa3F1ajU0bTF3ZkdHbS1TV0EwQQ?oc=5",
-     "source": "dawgsbynature.com",
+     "source": "Dawgs By Nature",
      "pub": "Wed, 02 Sep 2026 23:10:52 GMT"
     },
     {
@@ -316,8 +316,8 @@
    "gaps": [
     {
      "name": "dak prescott",
-     "mentions": 6,
-     "index": 22,
+     "mentions": 4,
+     "index": 16,
      "status": "trending",
      "gap": true,
      "shoppable": false,
@@ -327,8 +327,8 @@
    "top_terms": [
     "cowboys",
     "dallas",
-    "milton",
     "jones",
+    "milton",
     "practice",
     "squad",
     "tyler",
@@ -383,7 +383,7 @@
     {
      "name": "josh jacobs",
      "mentions": 11,
-     "index": 41,
+     "index": 44,
      "status": "trending",
      "gap": true,
      "shoppable": false,
@@ -398,7 +398,7 @@
     "america",
     "josh",
     "jacobs",
-    "trade"
+    "sign"
    ],
    "headline_count": 100,
    "headlines": [
@@ -449,7 +449,7 @@
     {
      "name": "kyle whittingham",
      "mentions": 12,
-     "index": 44,
+     "index": 48,
      "status": "trending",
      "gap": true,
      "shoppable": false,
@@ -460,8 +460,8 @@
     "michigan",
     "football",
     "western",
-    "mary",
     "wolverines",
+    "mary",
     "hail",
     "controversial",
     "whittingham"
@@ -477,13 +477,13 @@
     {
      "title": "Michigan Miracle: Wolverines Buck Broncos on Final Play to Open Season",
      "url": "https://news.google.com/rss/articles/CBMisgFBVV95cUxOOHU3QWhTNzlfQXI1X2lhTEI4eU9aQkpDQkp2NTBOMTNzRDZBcTJHdGhWRll1cXlRbWR5MERYSzNORkRiUDdnTDJxV3gzc05tTDF3XzBKYVBuYUgyOWdXbzhZZGNmWURWVUNBY3dDWC1vSzZsQUlxQlpNYTAwY0UtRGVRd2JNbTJDU1FJeUo5eWg5Z29yR0daWjlqX1hZVkZXS09NazU2VHhfUTdOV2FWTWJn?oc=5",
-     "source": "mgoblue.com",
+     "source": "University of Michigan Athletics",
      "pub": "Sun, 06 Sep 2026 07:27:46 GMT"
     },
     {
      "title": "Can Michigan's controversial Hail Mary win over WMU be overturned?",
      "url": "https://news.google.com/rss/articles/CBMi6gFBVV95cUxNUGRSV3h1ektXc0ZVYldlTHZ1elN0TkJOQmk4cmtUVE9RVERTQnpzcXM5RXVOYTRVX0RXOUg2cno0MzFCYnF2ekJnb0dpQlZaTjczUFEySlJsb1ZVeHBCYXV0dWpIZlRhUG5Oa2hQdnJQNEFGSnJUMl82bmtpQW1JUXRrSVpfcFF1c2tReTZWdVh0UHYxRzVsTnJmR3BSUGtoMUVaVmlYTzNZcmlMTXhFUFcyaWtRZHlMdG9mSmlCdm12bnlZUl9idVJnb3dFUnlzbjVLWEdGY084ZkZtamx3cjJZNFhDbGdRWUE?oc=5",
-     "source": "freep.com",
+     "source": "Detroit Free Press - Breaking news, sports, business, entertainment",
      "pub": "Sun, 06 Sep 2026 15:04:00 GMT"
     },
     {
