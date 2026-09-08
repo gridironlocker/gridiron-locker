@@ -330,6 +330,12 @@ def fti_strip(limit=FTI_STRIP_LIMIT):
 
 
 SIZES = ["S", "M", "L", "XL", "2XL", "3XL"]
+
+# Shopper-facing style filters: the design themes that actually map to a
+# purchase intent. "classic" is the catch-all for the untagged majority, so
+# it is not offered as a chip - choosing no style chip means all styles.
+SHOP_STYLE_CHIPS = [("player", "Player designs"), ("funny", "Funny"),
+                    ("retro", "Vintage"), ("family", "Gift")]
 URLS = []  # (loc, priority, changefreq)
 
 
@@ -559,12 +565,13 @@ def season_promo():
 def header(active=""):
     """Site header, shared by every page.
 
-    /drops/ is deliberately NOT in the desktop or mobile menu: it stays a
-    published, sitemap-listed page (linked from social bios and external
-    posts) but the storefront menu is collections-first. If it is ever wanted
-    back in the nav, add it here — not by editing the built site/*.html files,
-    because the daily refresh workflow re-runs this generator and would
-    restore the link.
+    The menu is shopping-first: every team plus /drops/ as "Trending" - a
+    store-wide, headline-scored entry point for visitors with no team
+    preference (it was deliberately absent from the menu until the
+    storefront-conversion pass, when the editorial /fan-trend-index/ link
+    yielded its desktop slot). Still the only sane way to make a nav change:
+    edit it here, never in the built site/*.html files, because the daily
+    refresh workflow re-runs this generator.
     """
     links = "".join(
         f'<a href="/{COLLECTIONS[k]["slug"]}/"{" aria-current=page" if active == k else ""}>{COLLECTIONS[k]["short"]}</a>'
@@ -579,8 +586,8 @@ def header(active=""):
   <nav class="links">
    <a href="/collections/">All Collections</a>
    {links}
+   <a href="/drops/">Trending</a>
    <a href="/2026-season/">2026 Season</a>
-   <a href="/fan-trend-index/">Trend Index</a>
    <a href="/guides/">Guides</a>
   </nav>
   <span class="navsearch" role="search">
@@ -594,6 +601,7 @@ def header(active=""):
   placeholder="Search all {len(ALL)} designs..." aria-label="Search all designs" autocomplete="off"></span></div>
  <div class="mobnav" id="mn">
   <a href="/">Home</a><a href="/collections/">All Collections</a>{mob}
+  <a href="/drops/">Trending Now</a>
   <a href="/2026-season/">2026 Season Hub</a><a href="/fan-trend-index/">Fan Trend Index</a>
   <a href="/guides/">Buying Guides</a><a href="/size-guide/">Size Guide</a>
   <a href="/shipping/">Shipping &amp; Returns</a><a href="/about/">About</a>
@@ -903,9 +911,12 @@ def card(it, eager=False):
     if it.get("trend") == "hot":
         tag, cls = "Trending", "tagpill hot"
     tv = theme_vars(it["col"])
-    # data-type / data-team power the /search/ catalogue filters (app.js) -
-    # the team pages read the same attributes and ignore the team dimension.
-    return f"""<article class="card reveal" data-type="{esc(it['garment'])}" data-team="{it['col']}" style="{tv}">
+    # data-type / data-team / data-theme power the /search/ catalogue
+    # filters (app.js) - the team pages read the same attributes and ignore
+    # the dimensions they do not offer. The .qv button is a sibling of the
+    # card link (never nested inside it - an interactive control inside an
+    # <a> is invalid HTML) and opens the shared quick-view modal.
+    return f"""<article class="card reveal" data-type="{esc(it['garment'])}" data-team="{it['col']}" data-theme="{it['theme']}" style="{tv}">
  <a href="{it['url']}" aria-label="{esc(it['name'])}">
   <div class="ph"><span class="{cls}">{tag}</span><span class="glow"></span><span class="sweep"></span>
    <img src="{it['front']}" alt="{esc(it['name'])} - {esc(it['art'][:70])}" width="530" height="630"{lazy}>
@@ -916,7 +927,8 @@ def card(it, eager=False):
    <h3>{esc(it['name'])}</h3>
    <span class="price">${it['price']:.2f}</span>
   </div>
- </a></article>"""
+ </a>
+ <button class="qv" type="button" aria-label="Quick view {esc(it['name'])}">Quick view</button></article>"""
 
 
 def railcard(it):
@@ -947,11 +959,37 @@ def home_banner():
   <p class="lede">Original fan-made graphics for {esc(teams)} and {esc(COLLECTIONS[ORDER[-1]]['short'])}
   supporters. Printed on demand, sizes S&ndash;3XL, shipped worldwide with tracking.</p>
   <div class="btnrow">
-   <a class="btn lg" href="/collections/">Shop all collections</a>
-   <a class="btn ghost lg" href="/2026-season/">2026 season hub</a>
+   <a class="btn lg" href="/collections/">Shop by team &rarr;</a>
+   <a class="btn ghost lg" href="/drops/">Trending now</a>
   </div>
  </div>
 </section>"""
+
+
+def trending_rail(limit=8):
+    """Store-wide 'Trending Now' rail.
+
+    Honesty matters here: there is no sales feed (checkout happens on the
+    fulfilment partner), so a 'best seller' label would be a fake badge. The
+    rail shows the designs the live Fan Trend Index is actually scoring hot
+    in the last 10 days of public team headlines, with top featured designs
+    filling any gap so the rail never looks thin. Re-scored on every build.
+    """
+    hot = [x for x in ALL if x.get("trend") == "hot"]
+    picks = hot[:limit]
+    if len(picks) < limit:
+        have = {x["slug"] for x in picks}
+        picks += [x for x in ALL if x["slug"] not in have][:limit - len(picks)]
+    if len(picks) < 4:
+        return ""
+    tiles = "".join(railcard(i) for i in picks)
+    return f"""<section class="railsec"><div class="wrap">
+ <div class="sechead reveal"><div><span class="eyebrow"><span class="dot"></span> Fresh from the headlines</span>
+  <h2>Trending <span class="accentword">Now</span></h2>
+  <p>The designs this week's team headlines are pushing - re-scored daily from public news.</p></div>
+  <a class="link" href="/drops/">All live drops &rarr;</a></div>
+ <div class="rail">{tiles}</div>
+</div></section>"""
 
 
 def quick_find():
@@ -999,7 +1037,12 @@ def quick_find():
    placeholder='Try "Shedeur", "Dawg Pound", "hoodie" or "mug"'
    aria-label="Search all designs" autocomplete="off"></span>
   <div class="qf-chips"><a class="qf-chip" href="/search/">All designs <em>{n}</em></a>
-   {team_chips}{type_chips}{trend_chips}</div>
+   {team_chips}{type_chips}
+   <a class="qf-chip" href="/search/?st=player">Player designs</a>
+   <a class="qf-chip" href="/search/?st=funny">Funny</a>
+   <a class="qf-chip" href="/search/?st=retro">Vintage</a>
+   <a class="qf-chip" href="/search/?st=family">Gift</a>
+   {trend_chips}</div>
  </div>
 </div></section>"""
 
@@ -1032,18 +1075,20 @@ def page_home():
     # visitor can jump to any of the {len(ALL)} designs without scrolling.
     body = f"""{home_banner()}
 {quick_find()}
-{newsticker()}
-{week1_section()}
-{fti_strip()}
 <section class="teamnavsec"><div class="wrap">
  <div class="sechead reveal"><div><h2>Shop By Team</h2>
   <p>Four dedicated collections, each with its own artwork language, colour palette and fan slang.</p></div>
   <a class="link" href="/collections/">All collections &rarr;</a></div>
  <div class="teamnav-grid">{colcards}</div>
 </div></section>
+{trust()}
+{trending_rail()}
+{week1_section()}
 <div class="light">
 {team_sections}
 </div>
+{fti_strip()}
+{newsticker()}
 <section class="customsec"><div class="wrap">
  <div class="sechead reveal"><div>
   <span class="eyebrow"><span class="dot"></span> Made to order</span>
@@ -1101,12 +1146,15 @@ def page_home():
 
 def page_collections_index():
     path = "/collections/"
-    # Circular team portraits in the fixed ORDER (this is navigation, not a
-    # kickoff-sorted list), then one homepage-style product block per team in
-    # HOMEPAGE_ORDER - the same ordering logic the homepage already uses, so
-    # each team appears exactly once and the soonest kickoff leads.
+    # Circular team portraits in the fixed ORDER - this page is a navigation
+    # hub, not a duplicate of the homepage. The four per-team product grids
+    # used to live here and forced visitors to scroll ~16 teaser cards before
+    # choosing a side; they are replaced by one store-wide trending row.
     cards = "".join(team_circle_card(k) for k in ORDER)
-    team_sections = "".join(team_section(k) for k in HOMEPAGE_ORDER)
+    hot = [x for x in ALL if x.get("trend") == "hot"]
+    have = {x["slug"] for x in hot}
+    trending = (hot + [x for x in ALL if x["slug"] not in have])[:8]
+    trend_cards = "".join(card(i, eager=(n < 4)) for n, i in enumerate(trending))
     cb, cbs = crumbs([("Home", "/"), ("Collections", None)], path)
     schema = [cbs, {"@context": "https://schema.org", "@type": "CollectionPage",
                     "name": "All Collections", "url": DOMAIN + path,
@@ -1123,7 +1171,14 @@ def page_collections_index():
  <div class="teamcircles">{cards}</div>
 </div></section>
 <div class="light">
-{team_sections}
+<section class="trendinghub"><div class="wrap">
+ <div class="sechead reveal"><div><span class="eyebrow"><span class="dot"></span> Fresh from the headlines</span>
+  <h2>Trending Across <span class="accentword">All Teams</span></h2>
+  <p>No team preference yet? These are the designs the last 10 days of
+  headlines are pushing - re-scored daily from public news.</p></div>
+  <a class="link" href="/drops/">All live drops &rarr;</a></div>
+ <div class="grid">{trend_cards}</div>
+</div></section>
 </div>
 <button class="findpill" id="findpill" data-target="#quickfind" aria-label="Find a design">
  <span aria-hidden="true">&#128269;</span> Find your design</button></main>"""
@@ -1155,6 +1210,8 @@ def page_search():
     team_chips = ('<button class="chip on" data-team="all">All teams</button>' + "".join(
         f'<button class="chip" data-team="{k}">{esc(COLLECTIONS[k]["short"])}</button>'
         for k in ORDER))
+    style_chips = '<button class="chip on" data-st="all">All styles</button>' + "".join(
+        f'<button class="chip" data-st="{v}">{label}</button>' for v, label in SHOP_STYLE_CHIPS)
     cards = "".join(card(i, eager=(x < 4)) for x, i in enumerate(ALL))
     cb, cbs = crumbs([("Home", "/"), ("All Designs", None)], path)
     schema = [cbs, {"@context": "https://schema.org", "@type": "CollectionPage",
@@ -1181,6 +1238,11 @@ def page_search():
    <span class="gs"><input id="q" class="gsearch" type="search"
     placeholder="Search all designs - player, slogan, team..."
     aria-label="Search all designs" autocomplete="off"></span>
+   <select id="price" aria-label="Price">
+    <option value="any">Any price</option><option value="u20">Under $20</option>
+    <option value="20-25">$20 - $25</option><option value="25-30">$25 - $30</option>
+    <option value="o30">$30+</option>
+   </select>
    <select id="sort" aria-label="Sort">
     <option value="feat">Featured</option><option value="lo">Price: low to high</option>
     <option value="hi">Price: high to low</option><option value="az">Name A-Z</option>
@@ -1188,6 +1250,7 @@ def page_search():
   </div>
   <div class="chipsrow"><span class="chipslabel">Team</span><div class="chips">{team_chips}</div></div>
   <div class="chipsrow"><span class="chipslabel">Garment</span><div class="chips">{type_chips}</div></div>
+  <div class="chipsrow"><span class="chipslabel">Style</span><div class="chips">{style_chips}</div></div>
  </div>
  <p class="muted" id="count" style="font-size:.85rem">{n} designs</p>
  <h2 class="sr-only">All Designs</h2>
@@ -1211,6 +1274,10 @@ def page_collection(k):
     types = sorted({x["garment"] for x in items})
     chips = '<button class="chip on" data-f="all">All</button>' + "".join(
         f'<button class="chip" data-f="{esc(t)}">{esc(t)}s</button>' for t in types)
+    present = {x["theme"] for x in items}
+    style_chips = '<button class="chip on" data-st="all">All styles</button>' + "".join(
+        f'<button class="chip" data-st="{v}">{label}</button>' for v, label in SHOP_STYLE_CHIPS
+        if v in present)
     cards = "".join(card(i, eager=(n < 4)) for n, i in enumerate(items))
     cb, cbs = crumbs([("Home", "/"), ("Collections", "/collections/"), (c["short"], None)], path)
     schema = [cbs,
@@ -1282,18 +1349,24 @@ def page_collection(k):
   <div class="tools">
    <input id="q" type="search" placeholder="Search {esc(c['short'])} designs..." aria-label="Search designs">
    <div class="chips">{chips}</div>
+   <select id="price" aria-label="Price">
+    <option value="any">Any price</option><option value="u20">Under $20</option>
+    <option value="20-25">$20 - $25</option><option value="25-30">$25 - $30</option>
+    <option value="o30">$30+</option>
+   </select>
    <select id="sort" aria-label="Sort">
     <option value="feat">Featured</option><option value="lo">Price: low to high</option>
     <option value="hi">Price: high to low</option><option value="az">Name A-Z</option>
    </select>
   </div>
+  <div class="chipsrow"><span class="chipslabel">Style</span><div class="chips">{style_chips}</div></div>
  </div>
+ {trust()}
  <p class="muted" id="count" style="font-size:.85rem">{len(items)} designs</p>
  <h2 class="sr-only">Collection Designs</h2>
  <div class="grid" id="pg">{cards}</div>
  <p class="muted center" id="nores" style="display:none;padding:40px 0">No designs match that search.</p>
 </div></section>
-{trust()}
 <section style="border-top:1px solid var(--line)"><div class="wrap prose reveal">
  <h2>{esc(c['short'])} In The 2026 Season</h2>
  <div class="trendbox"><b><span class="dot"></span> Season update &middot; {TODAY}</b>
@@ -2585,24 +2658,35 @@ setTimeout(function(){
 })();
 
 // ---------- collection filter / search / sort (team pages + /search/) ----------
-// Two independent dimensions: garment type (chip[data-f]) and team
-// (chip[data-team]). Team pages only emit type chips, so the team dimension
-// stays 'all' there and behaviour is unchanged.
+// Four independent dimensions: garment (chip[data-f]), team (chip[data-team]),
+// style/theme (chip[data-st], read from the card's data-theme attribute) and
+// price (#price select). A page only emits the controls it offers, so the
+// other dimensions stay at their defaults and behaviour is unchanged.
 (function(){
   var grid=document.getElementById('pg'); if(!grid)return;
   var cards=[].slice.call(grid.children);
   var q=document.getElementById('q'), sort=document.getElementById('sort'),
       count=document.getElementById('count'), nores=document.getElementById('nores');
-  var typeFilter='all', teamFilter='all';
+  var typeFilter='all', teamFilter='all', styleFilter='all', priceFilter='any';
   function price(c){return parseFloat(c.querySelector('.price').textContent.replace('$',''))}
   function name(c){return c.querySelector('h3').textContent.toLowerCase()}
   function typeOf(c){return c.getAttribute('data-type')||c.querySelector('.meta').textContent.trim()}
   function teamOf(c){return c.getAttribute('data-team')||''}
+  function styleOf(c){return c.getAttribute('data-theme')||''}
+  function inPrice(p){
+    if(priceFilter==='u20')return p<20;
+    if(priceFilter==='20-25')return p>=20&&p<25;
+    if(priceFilter==='25-30')return p>=25&&p<30;
+    if(priceFilter==='o30')return p>=30;
+    return true;
+  }
   function apply(){
     var term=(q?q.value:'').toLowerCase().trim(), n=0;
     cards.forEach(function(c){
       var ok=(typeFilter==='all'||typeOf(c)===typeFilter)&&
              (teamFilter==='all'||teamOf(c)===teamFilter)&&
+             (styleFilter==='all'||styleOf(c)===styleFilter)&&
+             inPrice(price(c))&&
              (!term||c.textContent.toLowerCase().indexOf(term)>-1);
       c.style.display=ok?'':'none'; if(ok){n++;c.classList.add('in');}
     });
@@ -2620,6 +2704,8 @@ setTimeout(function(){
     x.classList.toggle('on',x.getAttribute('data-f')===v);});}
   function markTeam(v){document.querySelectorAll('.chip[data-team]').forEach(function(x){
     x.classList.toggle('on',x.getAttribute('data-team')===v);});}
+  function markStyle(v){document.querySelectorAll('.chip[data-st]').forEach(function(x){
+    x.classList.toggle('on',x.getAttribute('data-st')===v);});}
   if(q)q.addEventListener('input',apply);
   if(sort)sort.addEventListener('change',resort);
   document.querySelectorAll('.chip[data-f]').forEach(function(b){
@@ -2628,10 +2714,17 @@ setTimeout(function(){
   document.querySelectorAll('.chip[data-team]').forEach(function(b){
     b.addEventListener('click',function(){teamFilter=b.getAttribute('data-team');markTeam(teamFilter);apply();});
   });
-  // Deep links: /search/?q=... (header search + SearchAction), ?t=team, ?g=garment
-  var u=new URLSearchParams(location.search), tu=u.get('t'), gu=u.get('g'), uq=u.get('q');
-  if(gu)typeFilter=gu; if(tu)teamFilter=tu; if(uq&&q)q.value=uq;
-  markType(typeFilter); markTeam(teamFilter); apply();
+  document.querySelectorAll('.chip[data-st]').forEach(function(b){
+    b.addEventListener('click',function(){styleFilter=b.getAttribute('data-st');markStyle(styleFilter);apply();});
+  });
+  var priceSel=document.getElementById('price');
+  if(priceSel)priceSel.addEventListener('change',function(){priceFilter=priceSel.value;apply();});
+  // Deep links: /search/?q=... (header search + SearchAction), ?t=team,
+  // ?g=garment, ?st=style (the landing quick-finder chips deep-link styles)
+  var u=new URLSearchParams(location.search), tu=u.get('t'), gu=u.get('g'),
+      su=u.get('st'), uq=u.get('q');
+  if(gu)typeFilter=gu; if(tu)teamFilter=tu; if(su)styleFilter=su; if(uq&&q)q.value=uq;
+  markType(typeFilter); markTeam(teamFilter); markStyle(styleFilter); apply();
 })();
 
 // ---------- global design search: live suggestions for every .gsearch ----------
@@ -2749,6 +2842,66 @@ setTimeout(function(){
   p.addEventListener('click',function(){
     target.scrollIntoView({behavior:'smooth',block:'start'});
     if(field)setTimeout(function(){try{field.focus({preventScroll:true});}catch(e){field.focus();}},450);
+  });
+})();
+
+// ---------- quick view: peek at a design without leaving the grid ----------
+// Every card carries a .qv button (sibling of the card link, never nested
+// inside it). One shared modal is built once and refilled from the card's
+// own DOM, so no product data is duplicated across the 127 cards. The CTA
+// hands off to the full product page - sizes and checkout live there.
+(function(){
+  var qs=[].slice.call(document.querySelectorAll('.card .qv'));
+  if(!qs.length)return;
+  var modal=document.createElement('div');
+  modal.className='qvmodal'; modal.hidden=true;
+  modal.innerHTML='<div class="qv-overlay"></div>'
+    +'<div class="qv-box" role="dialog" aria-modal="true" aria-label="Quick view">'
+    +'<button class="qv-close" type="button" aria-label="Close quick view">&#10005;</button>'
+    +'<div class="qv-imgs"><img class="qv-front" alt="" width="150" height="178">'
+    +'<img class="qv-back" alt="" width="150" height="178"></div>'
+    +'<div class="qv-info"><span class="qv-team"></span><h3 class="qv-name"></h3>'
+    +'<span class="qv-meta"></span><span class="qv-price"></span>'
+    +'<a class="btn block qv-cta" href="#">View full details &amp; buy &rarr;</a>'
+    +'<p class="muted qv-note">Size, style and colourway are chosen on the product page before checkout.</p>'
+    +'</div></div>';
+  document.body.appendChild(modal);
+  var closeBtn=modal.querySelector('.qv-close');
+  function pretty(s){return (s||'').replace(/-/g,' ').replace(/\\b\\w/g,function(ch){return ch.toUpperCase();});}
+  function open(card){
+    var a=card.querySelector('a'), front=card.querySelector('.ph > img'),
+        back=card.querySelector('.ph img.alt'),
+        name=card.querySelector('h3'), meta=card.querySelector('.meta'),
+        priceEl=card.querySelector('.price');
+    if(!a||!front)return;
+    var b=modal.querySelector('.qv-back');
+    modal.querySelector('.qv-front').src=front.getAttribute('src');
+    if(back){b.src=back.getAttribute('src');b.hidden=false;}else{b.hidden=true;}
+    modal.querySelector('.qv-name').textContent=name?name.textContent:'';
+    modal.querySelector('.qv-team').textContent=pretty(card.getAttribute('data-team'));
+    modal.querySelector('.qv-meta').textContent=meta?meta.textContent:'';
+    modal.querySelector('.qv-price').textContent=priceEl?priceEl.textContent:'';
+    modal.querySelector('.qv-cta').href=a.getAttribute('href');
+    modal.hidden=false;
+    requestAnimationFrame(function(){modal.classList.add('on');});
+    document.body.style.overflow='hidden';
+    closeBtn.focus();
+  }
+  function close(){
+    modal.classList.remove('on');
+    setTimeout(function(){modal.hidden=true;},220);
+    document.body.style.overflow='';
+  }
+  qs.forEach(function(b){
+    b.addEventListener('click',function(e){
+      e.preventDefault(); e.stopPropagation();
+      open(b.closest('.card'));
+    });
+  });
+  closeBtn.addEventListener('click',close);
+  modal.querySelector('.qv-overlay').addEventListener('click',close);
+  document.addEventListener('keydown',function(e){
+    if(e.key==='Escape'&&!modal.hidden)close();
   });
 })();
 """.replace("__EMAIL__", CFG["email_b64"]))

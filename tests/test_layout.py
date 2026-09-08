@@ -174,23 +174,16 @@ class CollectionsIndex(unittest.TestCase):
             first = c["intro"].format(**c).split(".")[0]
             self.assertIn(first, html)
 
-    def test_four_team_product_sections(self):
-        secs = re.findall(r'<section class="teamsec"(.*?)</section>', self.html, re.S)
-        self.assertEqual(len(secs), 4)
-        shorts = [re.search(r'<span class="accentword">([^<]+)</span> Collection', s).group(1)
-                  for s in secs]
-        self.assertEqual(sorted(shorts), sorted(COLLECTIONS[k]["short"] for k in ORDER))
-        self.assertEqual(len(set(shorts)), 4, "duplicate team section")   # no duplicate Green Bay
-        self.assertEqual(shorts.count("Green Bay"), 1)
-        for s in secs:
-            self.assertEqual(len(re.findall(r'<article class="card', s)), 4)
-            self.assertRegex(s, r"View all \d+ [A-Za-z ]+ designs")
+    def test_hub_is_navigation_with_trending_row(self):
+        # /collections/ is a navigation hub, not a duplicate of the
+        # homepage: one circle per team plus a single store-wide trending
+        # row. The four per-team product grids lived here before and forced
+        # visitors to scroll ~16 teaser cards before choosing a side.
+        self.assertNotIn('class="teamsec"', self.html)
+        self.assertIn("Trending Across", self.html)
+        self.assertEqual(len(re.findall(r'<article class="card', self.html)), 8)
+        self.assertIn('./drops/', self.html)
 
-    def test_reuses_homepage_ordering(self):
-        home = page("index.html")
-        order = lambda h: re.findall(  # noqa: E731
-            r'<section class="teamsec".*?<span class="accentword">([^<]+)</span> Collection', h, re.S)
-        self.assertEqual(order(self.html), order(home))
 
     def test_counts_are_dynamic(self):
         live = load_json("data/products_live.json")
@@ -213,7 +206,6 @@ class CollectionsIndex(unittest.TestCase):
             card = re.search(r'<a class="teamcircle[^"]*"[^>]*href="[^"]*%s/"[^>]*>.*?</a>'
                              % COLLECTIONS[k]["slug"], self.html, re.S).group(0)
             self.assertIn(f"{expected} designs", card, k)
-            self.assertIn(f"View all {expected} {COLLECTIONS[k]['short']} designs", self.html)
 
 
 class TeamCollectionPages(unittest.TestCase):
@@ -253,16 +245,20 @@ class TeamCollectionPages(unittest.TestCase):
         for ratio in ("16/9", "32/9", "21/9", "5/1"):
             self.assertNotIn(f"aspect-ratio:{ratio}", self.css, ratio)
 
-    def test_grid_before_trust_description_news_trends(self):
+    def test_trust_in_product_zone_then_description_news_trends(self):
         for k, html in self.pages.items():
-            grid = html.index('<section id="grid"')
-            self.assertLess(html.index('class="ticker"'), grid, k)
-            self.assertLess(grid, html.index('class="trust"'), k)
-            self.assertLess(grid, html.index("In The 2026 Season"), k)
-            self.assertLess(grid, html.index("About the "), k)
+            sec = html.index('<section id="grid"')
+            cards = html.index('<div class="grid" id="pg">')
+            self.assertLess(html.index('class="ticker"'), sec, k)
+            # the purchase-confidence strip sits with the products (toolbar
+            # zone), not below a 60-card grid nobody scrolls past
+            self.assertLess(sec, html.index('class="trust"'), k)
+            self.assertLess(html.index('class="trust"'), cards, k)
+            self.assertLess(cards, html.index("In The 2026 Season"), k)
+            self.assertLess(cards, html.index("About the "), k)
             for marker in ('class="ftibox"', 'class="newsbox', 'class="trendbox"'):
                 if marker in html:
-                    self.assertLess(grid, html.index(marker), f"{k}: {marker}")
+                    self.assertLess(cards, html.index(marker), f"{k}: {marker}")
 
     def test_grid_is_complete_and_tooling_present(self):
         for k, html in self.pages.items():
@@ -483,11 +479,80 @@ class Homepage(unittest.TestCase):
         total = sum(int(n) for n in re.findall(r"View all (\d+) [A-Za-z ]+ designs", self.html))
         self.assertIn(f"{total} fan designs", self.html)   # banner count is the live total
 
+    def test_shopping_first_order(self):
+        # Landing sequence is buying intent first, editorial last.
+        markers = [
+            '<section class="quickfind"',        # jump to any design
+            '<section class="teamnavsec"',       # pick a team
+            'class="trust"',                     # purchase confidence
+            '<section class="railsec"',          # trending now rail
+            'class="cdbar"',                     # week-1 countdown
+            '<section class="teamsec"',          # product sections
+            '<section class="ftisec"',           # headline strip
+            'class="newsticker"',                # live news bar
+            '<section class="customsec"',        # made-to-order (last)
+        ]
+        pos = 0
+        for m in markers:
+            i = self.html.index(m, pos)
+            self.assertGreater(i, pos, "order: %s" % m)
+            pos = i
+        # hero secondary CTA points at the trending drops page
+        hero = between(self.html, '<section class="cbanner"', "</section>")
+        self.assertIn("href=\"./drops/\"", hero)
+        self.assertIn("Trending now", hero)
+
+    def test_trending_rail_uses_real_signals(self):
+        sec = between(self.html, '<section class="railsec">', "</section>")
+        tiles = re.findall(r'class="railcard"', sec)
+        self.assertGreaterEqual(len(tiles), 4)
+        self.assertLessEqual(len(tiles), 8)
+        self.assertIn("href=\"./drops/\"", sec)
+        # honest label: never a fake "best seller" badge
+        self.assertNotIn("best seller", sec.lower())
+        self.assertNotIn("bestseller", sec.lower())
+
     def test_seo_and_hero_preserved(self):
         self.assertIn('<link rel="canonical" href="https://gridironlocker.store/">', self.html)
         self.assertIn("hero-home.jpg?v=3", self.html)
         self.assertIn('"@type":"WebSite"', self.html)
         self.assertIn('"@type":"Organization"', self.html)
+
+
+class SearchCatalogue(unittest.TestCase):
+    def setUp(self):
+        self.html = page("search/index.html")
+        self.js = page("assets/app.js")
+
+    def test_all_designs_indexed(self):
+        # rendered designs = live feed entries that still have artwork;
+        # assert a floor so a silent data regression is caught loudly
+        self.assertGreaterEqual(len(re.findall(r'<article class="card', self.html)), 100)
+
+    def test_filter_dimensions_present(self):
+        for marker in ('id="q"', 'id="sort"', 'id="price"',
+                       'data-st="player"', 'data-st="funny"',
+                       'data-st="retro"', 'data-st="family"',
+                       'data-team="cleveland-browns"', 'data-f="T-Shirt"'):
+            self.assertIn(marker, self.html, marker)
+        for opt in ("Under $20", "$20 - $25", "$25 - $30", "$30+"):
+            self.assertIn(opt, self.html, opt)
+
+    def test_cards_carry_filter_attributes(self):
+        for marker in ("data-type=", "data-team=", "data-theme="):
+            self.assertIn(marker, self.html, marker)
+
+    def test_quick_view_button_on_every_card(self):
+        self.assertEqual(len(re.findall(r'class="qv"', self.html)),
+                         len(re.findall(r'<article class="card', self.html)))
+
+    def test_quick_view_modal_wired(self):
+        for marker in ("qvmodal", "qv-overlay", "qv-cta", "Quick view"):
+            self.assertIn(marker, self.js, marker)
+
+    def test_style_filter_reads_theme_attribute(self):
+        self.assertIn("styleOf", self.js)
+        self.assertIn("data-theme", self.js)
 
 
 class CatalogueIntegrity(unittest.TestCase):

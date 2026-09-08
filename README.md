@@ -59,7 +59,20 @@ re-run the build to add them:
   sorting and `?q=` / `?t=` / `?g=` parameters (the endpoint the SearchAction schema advertises).
   Team collection pages get a sticky toolbar - collection-switch tabs plus the search / filter /
   sort controls stay on screen while visitors scroll the grid, and phones get a "Find your design"
-  pill that jumps straight back to it.
+  pill that jumps straight back to it. Filters are four independent dimensions (team, garment,
+  style - player / funny / vintage / gift - and price band) and every dimension deep-links
+  (`?q=` / `?t=` / `?g=` / `?st=`).
+- **Shopping-first homepage**: hero art sells the ready-made catalogue ("fan-made football gear -
+  Cleveland, Green Bay, Dallas, Michigan") instead of custom apparel, and the page is ordered
+  by buying intent: quick finder, shop-by-team, trust strip, a store-wide **Trending Now** rail
+  (the designs the Fan Trend Index is scoring hot - an honest signal, since checkout happens on
+  the fulfilment partner and there is no sales feed to back a "best seller" badge), Week-1
+  countdown, product sections, then editorial (headline strip, news ticker, custom-design form).
+  `/collections/` is a navigation hub (team circles + one trending row) rather than a duplicate
+  of the homepage, and the header gained a **Trending** link to `/drops/`.
+- **Quick view**: every product card carries a quick-view button that opens a shared modal
+  (front + back, price, CTA to the full product page) so visitors compare designs without
+  leaving the grid - sizes and checkout stay on the product page.
 
 ## Why it ranks
 

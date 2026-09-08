@@ -168,24 +168,35 @@ setTimeout(function(){
 })();
 
 // ---------- collection filter / search / sort (team pages + /search/) ----------
-// Two independent dimensions: garment type (chip[data-f]) and team
-// (chip[data-team]). Team pages only emit type chips, so the team dimension
-// stays 'all' there and behaviour is unchanged.
+// Four independent dimensions: garment (chip[data-f]), team (chip[data-team]),
+// style/theme (chip[data-st], read from the card's data-theme attribute) and
+// price (#price select). A page only emits the controls it offers, so the
+// other dimensions stay at their defaults and behaviour is unchanged.
 (function(){
   var grid=document.getElementById('pg'); if(!grid)return;
   var cards=[].slice.call(grid.children);
   var q=document.getElementById('q'), sort=document.getElementById('sort'),
       count=document.getElementById('count'), nores=document.getElementById('nores');
-  var typeFilter='all', teamFilter='all';
+  var typeFilter='all', teamFilter='all', styleFilter='all', priceFilter='any';
   function price(c){return parseFloat(c.querySelector('.price').textContent.replace('$',''))}
   function name(c){return c.querySelector('h3').textContent.toLowerCase()}
   function typeOf(c){return c.getAttribute('data-type')||c.querySelector('.meta').textContent.trim()}
   function teamOf(c){return c.getAttribute('data-team')||''}
+  function styleOf(c){return c.getAttribute('data-theme')||''}
+  function inPrice(p){
+    if(priceFilter==='u20')return p<20;
+    if(priceFilter==='20-25')return p>=20&&p<25;
+    if(priceFilter==='25-30')return p>=25&&p<30;
+    if(priceFilter==='o30')return p>=30;
+    return true;
+  }
   function apply(){
     var term=(q?q.value:'').toLowerCase().trim(), n=0;
     cards.forEach(function(c){
       var ok=(typeFilter==='all'||typeOf(c)===typeFilter)&&
              (teamFilter==='all'||teamOf(c)===teamFilter)&&
+             (styleFilter==='all'||styleOf(c)===styleFilter)&&
+             inPrice(price(c))&&
              (!term||c.textContent.toLowerCase().indexOf(term)>-1);
       c.style.display=ok?'':'none'; if(ok){n++;c.classList.add('in');}
     });
@@ -203,6 +214,8 @@ setTimeout(function(){
     x.classList.toggle('on',x.getAttribute('data-f')===v);});}
   function markTeam(v){document.querySelectorAll('.chip[data-team]').forEach(function(x){
     x.classList.toggle('on',x.getAttribute('data-team')===v);});}
+  function markStyle(v){document.querySelectorAll('.chip[data-st]').forEach(function(x){
+    x.classList.toggle('on',x.getAttribute('data-st')===v);});}
   if(q)q.addEventListener('input',apply);
   if(sort)sort.addEventListener('change',resort);
   document.querySelectorAll('.chip[data-f]').forEach(function(b){
@@ -211,10 +224,17 @@ setTimeout(function(){
   document.querySelectorAll('.chip[data-team]').forEach(function(b){
     b.addEventListener('click',function(){teamFilter=b.getAttribute('data-team');markTeam(teamFilter);apply();});
   });
-  // Deep links: /search/?q=... (header search + SearchAction), ?t=team, ?g=garment
-  var u=new URLSearchParams(location.search), tu=u.get('t'), gu=u.get('g'), uq=u.get('q');
-  if(gu)typeFilter=gu; if(tu)teamFilter=tu; if(uq&&q)q.value=uq;
-  markType(typeFilter); markTeam(teamFilter); apply();
+  document.querySelectorAll('.chip[data-st]').forEach(function(b){
+    b.addEventListener('click',function(){styleFilter=b.getAttribute('data-st');markStyle(styleFilter);apply();});
+  });
+  var priceSel=document.getElementById('price');
+  if(priceSel)priceSel.addEventListener('change',function(){priceFilter=priceSel.value;apply();});
+  // Deep links: /search/?q=... (header search + SearchAction), ?t=team,
+  // ?g=garment, ?st=style (the landing quick-finder chips deep-link styles)
+  var u=new URLSearchParams(location.search), tu=u.get('t'), gu=u.get('g'),
+      su=u.get('st'), uq=u.get('q');
+  if(gu)typeFilter=gu; if(tu)teamFilter=tu; if(su)styleFilter=su; if(uq&&q)q.value=uq;
+  markType(typeFilter); markTeam(teamFilter); markStyle(styleFilter); apply();
 })();
 
 // ---------- global design search: live suggestions for every .gsearch ----------
@@ -332,5 +352,65 @@ setTimeout(function(){
   p.addEventListener('click',function(){
     target.scrollIntoView({behavior:'smooth',block:'start'});
     if(field)setTimeout(function(){try{field.focus({preventScroll:true});}catch(e){field.focus();}},450);
+  });
+})();
+
+// ---------- quick view: peek at a design without leaving the grid ----------
+// Every card carries a .qv button (sibling of the card link, never nested
+// inside it). One shared modal is built once and refilled from the card's
+// own DOM, so no product data is duplicated across the 127 cards. The CTA
+// hands off to the full product page - sizes and checkout live there.
+(function(){
+  var qs=[].slice.call(document.querySelectorAll('.card .qv'));
+  if(!qs.length)return;
+  var modal=document.createElement('div');
+  modal.className='qvmodal'; modal.hidden=true;
+  modal.innerHTML='<div class="qv-overlay"></div>'
+    +'<div class="qv-box" role="dialog" aria-modal="true" aria-label="Quick view">'
+    +'<button class="qv-close" type="button" aria-label="Close quick view">&#10005;</button>'
+    +'<div class="qv-imgs"><img class="qv-front" alt="" width="150" height="178">'
+    +'<img class="qv-back" alt="" width="150" height="178"></div>'
+    +'<div class="qv-info"><span class="qv-team"></span><h3 class="qv-name"></h3>'
+    +'<span class="qv-meta"></span><span class="qv-price"></span>'
+    +'<a class="btn block qv-cta" href="#">View full details &amp; buy &rarr;</a>'
+    +'<p class="muted qv-note">Size, style and colourway are chosen on the product page before checkout.</p>'
+    +'</div></div>';
+  document.body.appendChild(modal);
+  var closeBtn=modal.querySelector('.qv-close');
+  function pretty(s){return (s||'').replace(/-/g,' ').replace(/\b\w/g,function(ch){return ch.toUpperCase();});}
+  function open(card){
+    var a=card.querySelector('a'), front=card.querySelector('.ph > img'),
+        back=card.querySelector('.ph img.alt'),
+        name=card.querySelector('h3'), meta=card.querySelector('.meta'),
+        priceEl=card.querySelector('.price');
+    if(!a||!front)return;
+    var b=modal.querySelector('.qv-back');
+    modal.querySelector('.qv-front').src=front.getAttribute('src');
+    if(back){b.src=back.getAttribute('src');b.hidden=false;}else{b.hidden=true;}
+    modal.querySelector('.qv-name').textContent=name?name.textContent:'';
+    modal.querySelector('.qv-team').textContent=pretty(card.getAttribute('data-team'));
+    modal.querySelector('.qv-meta').textContent=meta?meta.textContent:'';
+    modal.querySelector('.qv-price').textContent=priceEl?priceEl.textContent:'';
+    modal.querySelector('.qv-cta').href=a.getAttribute('href');
+    modal.hidden=false;
+    requestAnimationFrame(function(){modal.classList.add('on');});
+    document.body.style.overflow='hidden';
+    closeBtn.focus();
+  }
+  function close(){
+    modal.classList.remove('on');
+    setTimeout(function(){modal.hidden=true;},220);
+    document.body.style.overflow='';
+  }
+  qs.forEach(function(b){
+    b.addEventListener('click',function(e){
+      e.preventDefault(); e.stopPropagation();
+      open(b.closest('.card'));
+    });
+  });
+  closeBtn.addEventListener('click',close);
+  modal.querySelector('.qv-overlay').addEventListener('click',close);
+  document.addEventListener('keydown',function(e){
+    if(e.key==='Escape'&&!modal.hidden)close();
   });
 })();

@@ -720,3 +720,56 @@ footer .logo{color:var(--ink)}
 .findpill.on{transform:translate(-50%,0)}
 @media(max-width:760px){.findpill{display:block}}
 @media(max-width:560px){.chipslabel{min-width:0}.toolswrap{top:56px}}
+
+/* ============ TRENDING RAIL (homepage + collections hub) ============ */
+/* Horizontal, scroll-snapping rail of compact tiles for the store-wide
+   'Trending Now' row. Reuses .railcard (170px tiles, front image, price). */
+.railsec{padding:28px 0 8px}
+.rail{display:flex;gap:12px;overflow-x:auto;padding:4px 2px 12px;scroll-snap-type:x proximity;
+  -webkit-overflow-scrolling:touch}
+.rail::-webkit-scrollbar{height:8px}
+.rail::-webkit-scrollbar-track{background:transparent}
+.rail::-webkit-scrollbar-thumb{background:var(--line2);border-radius:99px}
+.railcard{scroll-snap-align:start}
+
+/* ============ QUICK VIEW (every product card) ============ */
+/* .qv sits at the top-right of the card, a SIBLING of the card link (an
+   interactive control inside <a> is invalid HTML). On pointer devices it
+   reveals on hover; on touch it is always visible. */
+.qv{position:absolute;top:10px;right:10px;z-index:6;background:rgba(17,20,24,.85);color:#fff;
+  border:0;border-radius:99px;padding:7px 12px;font-family:var(--font);font-size:.68rem;
+  font-weight:700;letter-spacing:.02em;cursor:pointer;transition:opacity .15s,background .15s}
+.qv:hover{background:var(--ink)}
+.qv:focus-visible{outline:2px solid var(--ink);outline-offset:2px;opacity:1}
+@media(hover:hover){
+  .card .qv{opacity:0}
+  .card:hover .qv,.card:focus-within .qv{opacity:1}
+}
+.qvmodal{position:fixed;inset:0;z-index:90;display:grid;place-items:center;padding:16px}
+.qvmodal[hidden]{display:none}
+.qv-overlay{position:absolute;inset:0;background:rgba(10,11,13,.62);opacity:0;transition:opacity .22s}
+.qv-box{position:relative;display:flex;gap:22px;background:#fff;border-radius:20px;max-width:760px;
+  width:100%;padding:22px;box-shadow:0 30px 80px rgba(0,0,0,.4);opacity:0;
+  transform:translateY(14px) scale(.98);transition:opacity .22s,transform .22s;
+  max-height:calc(100vh - 32px);overflow:auto}
+.qvmodal.on .qv-overlay{opacity:1}
+.qvmodal.on .qv-box{opacity:1;transform:none}
+.qv-close{position:absolute;top:10px;right:12px;z-index:2;background:#f2f4f6;border:0;width:34px;
+  height:34px;border-radius:50%;font-size:.9rem;cursor:pointer;color:var(--ink2)}
+.qv-close:hover{background:var(--line2)}
+.qv-imgs{display:flex;gap:10px;flex:none}
+.qv-imgs img{width:150px;height:178px;object-fit:cover;border-radius:12px;background:#f2f4f6}
+.qv-imgs img[hidden]{display:none}
+.qv-info{display:flex;flex-direction:column;gap:6px;min-width:0}
+.qv-team{font-size:.7rem;font-weight:800;letter-spacing:.08em;text-transform:uppercase;
+  color:var(--ca,var(--muted))}
+.qv-name{margin:0;font-size:1.15rem;line-height:1.3}
+.qv-meta{font-size:.72rem;color:var(--muted);text-transform:uppercase;letter-spacing:.05em;
+  font-weight:700}
+.qv-price{font-size:1.25rem;font-weight:800;color:var(--ink)}
+.qv-cta{margin-top:10px;text-align:center}
+.qv-note{font-size:.78rem;margin:0}
+@media(max-width:640px){
+  .qv-box{flex-direction:column;padding:16px;gap:14px}
+  .qv-imgs img{width:118px;height:140px}
+}
