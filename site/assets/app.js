@@ -53,7 +53,10 @@ document.querySelectorAll('.thumb,.swatch,.stylechip').forEach(function(b){
       setTimeout(function(){if(!ok){}},1500);
     }catch(err){fallback()}
     function fallback(){
-      var body='Name: '+name+'\nEmail: '+email+'\nTeam/theme: '+(form.querySelector('select[name=team]').value)+'\nGarment: '+(form.querySelector('select[name=garment]').value)+'\nIdea: '+idea+'\nSizes: '+(form.querySelector('input[name=sizes]').value)+'\nDetails: '+(form.querySelector('textarea[name=details]').value);
+      // read() tolerates a field that is not on this version of the form -
+      // the mailto fallback must never throw, it is the last resort.
+      function read(sel){var el=form.querySelector(sel);return el?el.value:'';}
+      var body='Name: '+name+'\nEmail: '+email+'\nTeam/theme: '+read('select[name=team]')+'\nGarment: '+read('select[name=garment]')+'\nIdea: '+idea+'\nDetails: '+read('textarea[name=details]');
       window.location.href='mailto:'+atob(CUSTOM_EMAIL)+'?subject='+encodeURIComponent('Custom Design Request from '+name)+'&body='+encodeURIComponent(body);
       if(msg)msg.textContent='Opening your email app with your request - hit send and we will get back to you within 1-2 days.';
     }
@@ -92,53 +95,89 @@ document.querySelectorAll('.thumb,.swatch,.stylechip').forEach(function(b){
   if(go)go.addEventListener('click',function(){
     dismiss();
     var target=document.querySelector('.customsec')||document.querySelector('.customform');
-    if(target)target.scrollIntoView({behavior:'smooth',block:'start'});
+    if(target){target.scrollIntoView({behavior:'smooth',block:'start'});return;}
+    // no custom section on this page - send them to the one on the homepage
+    location.href=(document.body.getAttribute('data-root')||'./')+'#custom-design';
   });
 })();
 
-// ---------- mobile nav + header utility popovers ----------
+// ---------- mobile nav ----------
+// The header carries no account or cart control by design: checkout happens
+// on the fulfilment partner, so those popovers promised state this site does
+// not own. Logo, shopping links, search - nothing else.
 (function(){
   var nb=document.getElementById('navToggle'), mn=document.getElementById('mn');
-  if(nb&&mn){
-    nb.addEventListener('click',function(){
-      var open=mn.classList.toggle('open');
-      nb.classList.toggle('on',open);
-      nb.setAttribute('aria-expanded',open?'true':'false');
-      nb.setAttribute('aria-label',open?'Close menu':'Open menu');
-    });
-  }
-  function closeAll(){
-    ['acctPop','cartPop'].forEach(function(id){var p=document.getElementById(id); if(p)p.hidden=true;});
-    ['acctBtn','cartBtn'].forEach(function(id){
-      var b=document.getElementById(id);
-      if(b){b.classList.remove('on');b.setAttribute('aria-expanded','false');}
-    });
-  }
-  [['acctBtn','acctPop'],['cartBtn','cartPop']].forEach(function(pair){
-    var btn=document.getElementById(pair[0]), pop=document.getElementById(pair[1]);
-    if(!btn||!pop)return;
-    btn.addEventListener('click',function(e){
-      e.stopPropagation();
-      closeAll();
-      var open=pop.hidden;
-      pop.hidden=!open;
-      btn.classList.toggle('on',open);
-      btn.setAttribute('aria-expanded',open?'true':'false');
-    });
-    pop.addEventListener('click',function(e){e.stopPropagation();});
+  if(!nb||!mn)return;
+  nb.addEventListener('click',function(){
+    var open=mn.classList.toggle('open');
+    nb.classList.toggle('on',open);
+    nb.setAttribute('aria-expanded',open?'true':'false');
+    nb.setAttribute('aria-label',open?'Close menu':'Open menu');
   });
-  document.addEventListener('click',closeAll);
 })();
 
-// ---------- favourites + cart hint (device-side, no backend) ----------
+// ---------- product rails: arrow controls (pointer devices) ----------
+// Touch swipes the rail natively; the arrows page it by one viewport-width
+// of tiles and disable themselves at each end so they never lie.
+(function(){
+  var navs=[].slice.call(document.querySelectorAll('.rail-nav'));
+  if(!navs.length)return;
+  navs.forEach(function(nav){
+    var rail=document.getElementById(nav.getAttribute('data-rail'));
+    if(!rail)return;
+    var btns=[].slice.call(nav.querySelectorAll('.rn'));
+    function sync(){
+      var max=rail.scrollWidth-rail.clientWidth-2;
+      btns.forEach(function(b){
+        var back=b.getAttribute('data-dir')==='-1';
+        b.disabled = max<=0 || (back ? rail.scrollLeft<=2 : rail.scrollLeft>=max);
+      });
+    }
+    var calm=window.matchMedia&&window.matchMedia('(prefers-reduced-motion:reduce)').matches;
+    btns.forEach(function(b){
+      b.addEventListener('click',function(){
+        var step=Math.max(240,Math.round(rail.clientWidth*0.86));
+        rail.scrollBy({left:step*parseInt(b.getAttribute('data-dir'),10),
+                       behavior:calm?'auto':'smooth'});
+      });
+    });
+    rail.addEventListener('scroll',sync,{passive:true});
+    window.addEventListener('resize',sync);
+    sync();
+  });
+})();
+
+// ---------- mobile shopping bar (homepage) ----------
+// A compact "Shop by team / Trending / All designs" bar so a visitor deep in
+// the page never has to scroll back to the header. It appears once the hero
+// is gone and hides again over the footer, where the same links already are.
+(function(){
+  var bar=document.getElementById('mobshop');
+  if(!bar)return;
+  var hero=document.getElementById('hero'), foot=document.querySelector('footer');
+  var nearFooter=false;
+  if(foot&&'IntersectionObserver' in window){
+    new IntersectionObserver(function(en){
+      nearFooter=en[0].isIntersecting; update();
+    },{rootMargin:'0px 0px -40% 0px'}).observe(foot);
+  }
+  function update(){
+    var past=(window.scrollY||0) > (hero?hero.offsetHeight*0.75:400);
+    var show=past&&!nearFooter;
+    if(show===!bar.hidden)return;
+    bar.hidden=!show;
+    document.body.classList.toggle('has-mobshop',show);
+  }
+  window.addEventListener('scroll',update,{passive:true});
+  window.addEventListener('resize',update);
+  update();
+})();
+
+// ---------- favourites (device-side, no backend) ----------
 (function(){
   var key='gl_favs';
   function read(){ try{return JSON.parse(localStorage.getItem(key)||'[]');}catch(e){return [];} }
   function write(a){ try{localStorage.setItem(key,JSON.stringify(a));}catch(e){} }
-  function count(){
-    var n=read().length, cc=document.getElementById('cartCount');
-    if(cc)cc.textContent=n;
-  }
   var msg=document.getElementById('favMsg');
   function toast(t){
     if(!msg)return;
@@ -158,10 +197,9 @@ document.querySelectorAll('.thumb,.swatch,.stylechip').forEach(function(b){
           nm=card?card.querySelector('h3').textContent:'design';
       if(i>-1){a.splice(i,1); toast('Removed "'+nm+'" from favourites.');}
       else{a.unshift(slug); toast('Saved "'+nm+'" to favourites.');}
-      write(a); draw(); count();
+      write(a); draw();
     });
   });
-  count();
 })();
 
 // ---------- newsletter signup (FormSubmit, no backend needed) ----------

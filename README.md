@@ -363,3 +363,44 @@ Completed:
 
 This commit syncs arena/01a03ad9 to main and adds this note so a PR can be opened for this branch.
 
+
+## Homepage rebuild (storefront funnel)
+
+The homepage was rebuilt around one goal: **reduce the distance between landing and
+seeing a product you might buy.** It used to open with a poster band, a ticker, a
+countdown and two editorial blocks before the first price appeared. It now runs
+brand → team → product → trending → editorial:
+
+`HEADER · HERO · SHOP BY TEAM · SHOP THE LOCKER · TRENDING NOW · 2026 SEASON ·
+TEAM COLLECTIONS · BUYING GUIDES · CUSTOM DESIGN · FAN TREND INDEX · NEWSLETTER · FOOTER`
+
+What changed, and why:
+
+- **Header** — account and cart icons removed. Checkout happens on the fulfilment
+  partner, so those two controls only opened explainer popovers while occupying the
+  two spots a visitor looks at first. Search, the four teams, Trending and Guides stay.
+- **Hero** — a real split: ~40% editorial copy (`FOOTBALL. FANS. CULTURE.` / `Gear Up.` /
+  brush `Keep it.`) and ~60% cinematic locker artwork cropped from the approved poster
+  (gear only, no people). The headline is HTML text, the art is the LCP image
+  (eager, `fetchpriority="high"`, two widths), and the whole thing is capped at
+  `min(78vh,660px)` so "Shop By Team" is in view without scrolling far.
+- **Shop By Team** — four whole-card links with the team name, the fan phrase
+  (Dawg Pound / Go Pack Go / Star Power / Go Blue), the live design count and an arrow.
+  Two columns on phones, not four full-width stacks.
+- **Shop The Locker** — new: a swipeable product rail (four visible, fifth peeking) that
+  puts real designs, prices and links in the second viewport.
+- **Trending Now** — a 4-up product grid of headline-scored designs, then `View All Designs →`.
+- **Product cards** — one reusable `product_card()`: image in a normalised square box,
+  team + garment, name, price, "View design". No fake badges, no countdowns, no urgency.
+- **Shop navigation** — a slim sticky strip under the header on desktop and a fixed
+  bottom bar (Shop by team / Trending / All designs) on phones, both revealed after the hero.
+- **No duplicate merchandising** — each product surface skips the designs the surface
+  above it showed, so 34 cards on the page are 34 different designs.
+- **Images** — `src/crop_art.py` derives the hero panel and the four team-card crops from
+  the approved banners. The team cards used to download 1.4 MB of 1933px banner art to
+  paint 280px thumbnails; they are now ~90 KB each.
+
+Preserved exactly: product/collection URLs, prices, imagery, SEO (title, description,
+canonical, OG, JSON-LD), search, the custom-design form, the newsletter, analytics,
+the fan-made disclaimer. `tests/test_layout.py` encodes the new funnel: run
+`python3 src/build.py && python3 tests/test_layout.py` after any change.
