@@ -15,7 +15,16 @@ DOMAIN = CFG["domain"].rstrip("/")
 
 
 def abs_url(path):
-    """Return an absolute URL for a site path on the configured domain."""
+    """Return an absolute URL for a site path on the configured domain.
+
+    Idempotent for full URLs: a freshly added campaign can hot-link its
+    Viralstyle mockups while dl.py has not downloaded them locally yet, and
+    those must pass through untouched instead of becoming domain+URL.
+    """
+    if not path:
+        return path
+    if path.startswith("http://") or path.startswith("https://"):
+        return path
     return DOMAIN + path
 BRAND = CFG["site_name"]
 TODAY = datetime.date.today().isoformat()
@@ -451,7 +460,7 @@ def head(title, desc, path, image=None, schema=None, keywords=None, col=None,
     # one page that must stay out of the index.
     robots = ("noindex,follow" if noindex
               else "index,follow,max-image-preview:large,max-snippet:-1")
-    img = DOMAIN + (image or "/img/hero-home.jpg?v=4")
+    img = abs_url(image or "/img/hero-home.jpg?v=4")
     kw = f'<meta name="keywords" content="{esc(", ".join(keywords[:14]))}">' if keywords else ""
     # A page that belongs to one collection wears that collection's tokens at
     # :root, so its chips and rules are team-coloured while CTAs stay teal.
@@ -1497,8 +1506,7 @@ def page_collections_index():
  <div class="grid">{trend_cards}</div>
 </div></section>
 </div>
-<button class="findpill" id="findpill" data-target="#quickfind" aria-label="Find a design">
- <span aria-hidden="true">&#128269;</span> Find your design</button></main>"""
+</main>"""
     URLS.append((DOMAIN + path, "0.9", "weekly"))
     write("collections/index.html", head("All Football Fan Collections | " + BRAND, desc, path,
                                          "/img/hero-home.jpg?v=4", schema) + header() + body + footer())
@@ -1707,8 +1715,7 @@ def page_collection(k):
  <p><a class="link" href="/guides/{c['slug']}-buying-guide/">Read the {esc(c['short'])} buying guide &rarr;</a></p>
 </div></section>
 </div>
-<button class="findpill" id="findpill" data-target="#grid" aria-label="Find a design">
- <span aria-hidden="true">&#128269;</span> Find your design</button></main>"""
+</main>"""
     URLS.append((DOMAIN + path, "0.9", "daily"))
     write(f"{c['slug']}/index.html",
          head(f"{c['name']} | {BRAND}", desc, path, c["hero"], schema,
@@ -1763,7 +1770,7 @@ def page_product(it):
               {"@context": "https://schema.org", "@type": "Product",
                "name": it["name"], "sku": it["slug"],
                "description": re.sub("<[^>]+>", " ", desc_html)[:600].strip(),
-               "image": [DOMAIN + g for g in it["gallery"][:6]],
+               "image": [abs_url(g) for g in it["gallery"][:6]],
                "brand": {"@type": "Brand", "name": BRAND},
                "category": f"{c['name']} > {it['garment']}",
                "material": "Cotton" if it["garment"] in ("T-Shirt", "Hoodie", "Sweatshirt") else "Mixed",
@@ -3273,23 +3280,6 @@ setTimeout(function(){
     if(h){e.preventDefault();h.focus();}
   });
   load();
-})();
-
-// ---------- mobile "find your design" pill (landing + team pages) ----------
-// Keeps a phone visitor one tap from the search while they scroll: the pill
-// appears after the first scroll and smooth-scrolls back to the finder
-// (or the sticky collection toolbar on team pages) and focuses the box.
-(function(){
-  var p=document.getElementById('findpill'); if(!p)return;
-  var target=document.querySelector(p.getAttribute('data-target')||'#quickfind');
-  if(!target)return;
-  var field=target.querySelector('input.gsearch, input#q');
-  function on(){p.classList.toggle('on',(window.scrollY||0)>420);}
-  window.addEventListener('scroll',on,{passive:true}); on();
-  p.addEventListener('click',function(){
-    target.scrollIntoView({behavior:'smooth',block:'start'});
-    if(field)setTimeout(function(){try{field.focus({preventScroll:true});}catch(e){field.focus();}},450);
-  });
 })();
 
 // ---------- quick view: peek at a design without leaving the grid ----------

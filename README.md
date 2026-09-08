@@ -57,9 +57,8 @@ re-run the build to add them:
   one-tap team / garment / trending-player shortlists that deep-link into `/search/`. The
   `/search/` page is a real indexable catalogue of all designs with team + garment filters,
   sorting and `?q=` / `?t=` / `?g=` parameters (the endpoint the SearchAction schema advertises).
-  Team collection pages get a sticky toolbar - collection-switch tabs plus the search / filter /
-  sort controls stay on screen while visitors scroll the grid, and phones get a "Find your design"
-  pill that jumps straight back to it. Filters are four independent dimensions (team, garment,
+  Team collection pages get a docked filter bar - collection-switch tabs plus the search / filter /
+  sort controls stay on screen while visitors scroll the grid. Filters are four independent dimensions (team, garment,
   style - player / funny / vintage / gift - and price band) and every dimension deep-links
   (`?q=` / `?t=` / `?g=` / `?st=`).
 - **Shopping-first homepage**: hero art sells the ready-made catalogue ("fan-made football gear -

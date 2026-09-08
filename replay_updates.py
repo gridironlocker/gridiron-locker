@@ -240,12 +240,14 @@ def scrape_entry(slug, c):
 
 
 def with_img_map(entry):
-    """Attach the local image map dl.py writes into products_live.json.
+    """Attach the image map dl.py writes into products_live.json.
 
-    Only images that actually exist under site/ are advertised - a failed
-    dl.py pass must never put broken images on the product pages (build.py
-    applies the same guard when it renders). Once dl.py downloads the real
-    c0-c5 swatches, the next replay/build cycle picks them up again."""
+    Local WebP/JPG wins when the file exists under site/. For a freshly added
+    campaign whose mockups have not been downloaded yet, fall back to the
+    campaign's remote Viralstyle URL so the product page is live from the
+    first build. A failed dl.py pass therefore never removes an image that is
+    already advertised; once dl.py downloads the real c0-c5 swatches the next
+    replay/build cycle swaps those local files in."""
     slug = entry["slug"]
     urls = [("front", entry["front"]), ("back", entry.get("back"))]
     for i, u in enumerate(entry.get("swatches", [])[:6]):
@@ -260,6 +262,10 @@ def with_img_map(entry):
             img[tag] = webp
         elif os.path.isfile(os.path.join(ROOT, "site", jpg.lstrip("/"))):
             img[tag] = jpg
+        else:
+            # Remote fallback: keep the page built (and the mockup shown)
+            # before the refresh workflow downloads the local WebP.
+            img[tag] = u
     entry["img"] = img
     return entry
 

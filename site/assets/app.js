@@ -468,23 +468,6 @@ setTimeout(function(){
   load();
 })();
 
-// ---------- mobile "find your design" pill (landing + team pages) ----------
-// Keeps a phone visitor one tap from the search while they scroll: the pill
-// appears after the first scroll and smooth-scrolls back to the finder
-// (or the sticky collection toolbar on team pages) and focuses the box.
-(function(){
-  var p=document.getElementById('findpill'); if(!p)return;
-  var target=document.querySelector(p.getAttribute('data-target')||'#quickfind');
-  if(!target)return;
-  var field=target.querySelector('input.gsearch, input#q');
-  function on(){p.classList.toggle('on',(window.scrollY||0)>420);}
-  window.addEventListener('scroll',on,{passive:true}); on();
-  p.addEventListener('click',function(){
-    target.scrollIntoView({behavior:'smooth',block:'start'});
-    if(field)setTimeout(function(){try{field.focus({preventScroll:true});}catch(e){field.focus();}},450);
-  });
-})();
-
 // ---------- quick view: peek at a design without leaving the grid ----------
 // Every card carries a .qv button (sibling of the card link, never nested
 // inside it). One shared modal is built once and refilled from the card's
