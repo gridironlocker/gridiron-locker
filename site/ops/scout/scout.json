@@ -2,7 +2,7 @@
  "generated": "2026-09-08",
  "window_days": 10,
  "fti_formula": "round(100 * entity_mentions / peak_mentions_in_window)",
- "peak_mentions": 25,
+ "peak_mentions": 27,
  "stats": {
   "products": 129,
   "collections": 4,
@@ -19,7 +19,7 @@
  "fti_rows": [
   {
    "name": "deshaun watson",
-   "mentions": 25,
+   "mentions": 27,
    "index": 100,
    "status": "trending",
    "gap": true,
@@ -29,7 +29,7 @@
   {
    "name": "shedeur sanders",
    "mentions": 22,
-   "index": 88,
+   "index": 81,
    "status": "trending",
    "gap": false,
    "shoppable": true,
@@ -38,7 +38,7 @@
   {
    "name": "bryce underwood",
    "mentions": 17,
-   "index": 68,
+   "index": 63,
    "status": "trending",
    "gap": false,
    "shoppable": true,
@@ -46,35 +46,44 @@
   },
   {
    "name": "kyle whittingham",
-   "mentions": 12,
-   "index": 48,
+   "mentions": 11,
+   "index": 41,
    "status": "trending",
    "gap": true,
    "shoppable": false,
    "collection": "michigan"
   },
   {
-   "name": "josh jacobs",
-   "mentions": 11,
-   "index": 44,
-   "status": "trending",
-   "gap": true,
-   "shoppable": false,
-   "collection": "green-bay-packers"
-  },
-  {
    "name": "todd monken",
    "mentions": 11,
-   "index": 44,
+   "index": 41,
    "status": "trending",
    "gap": true,
    "shoppable": false,
    "collection": "cleveland-browns"
   },
   {
-   "name": "micah parsons",
+   "name": "josh jacobs",
+   "mentions": 10,
+   "index": 37,
+   "status": "trending",
+   "gap": true,
+   "shoppable": false,
+   "collection": "green-bay-packers"
+  },
+  {
+   "name": "dak prescott",
    "mentions": 6,
-   "index": 24,
+   "index": 22,
+   "status": "trending",
+   "gap": true,
+   "shoppable": false,
+   "collection": "dallas-cowboys"
+  },
+  {
+   "name": "micah parsons",
+   "mentions": 4,
+   "index": 15,
    "status": "trending",
    "gap": false,
    "shoppable": true,
@@ -82,26 +91,17 @@
   },
   {
    "name": "myles garrett",
-   "mentions": 6,
-   "index": 24,
+   "mentions": 4,
+   "index": 15,
    "status": "trending",
    "gap": false,
    "shoppable": true,
    "collection": "cleveland-browns"
   },
   {
-   "name": "dak prescott",
-   "mentions": 4,
-   "index": 16,
-   "status": "trending",
-   "gap": true,
-   "shoppable": false,
-   "collection": "dallas-cowboys"
-  },
-  {
    "name": "ceedee lamb",
    "mentions": 2,
-   "index": 8,
+   "index": 7,
    "status": "steady",
    "gap": false,
    "shoppable": false,
@@ -109,8 +109,8 @@
   },
   {
    "name": "jordan love",
-   "mentions": 1,
-   "index": 4,
+   "mentions": 2,
+   "index": 7,
    "status": "steady",
    "gap": false,
    "shoppable": true,
@@ -124,6 +124,15 @@
    "gap": false,
    "shoppable": true,
    "collection": "cleveland-browns"
+  },
+  {
+   "name": "matt lafleur",
+   "mentions": 1,
+   "index": 4,
+   "status": "steady",
+   "gap": false,
+   "shoppable": false,
+   "collection": "green-bay-packers"
   },
   {
    "name": "denzel ward",
@@ -162,15 +171,6 @@
    "collection": "michigan"
   },
   {
-   "name": "matt lafleur",
-   "mentions": 0,
-   "index": 0,
-   "status": "quiet",
-   "gap": false,
-   "shoppable": false,
-   "collection": "green-bay-packers"
-  },
-  {
    "name": "robert tonyan",
    "mentions": 0,
    "index": 0,
@@ -183,7 +183,7 @@
  "gaps": [
   {
    "name": "deshaun watson",
-   "mentions": 25,
+   "mentions": 27,
    "index": 100,
    "status": "trending",
    "gap": true,
@@ -192,35 +192,35 @@
   },
   {
    "name": "kyle whittingham",
-   "mentions": 12,
-   "index": 48,
+   "mentions": 11,
+   "index": 41,
    "status": "trending",
    "gap": true,
    "shoppable": false,
    "collection": "michigan"
   },
   {
-   "name": "josh jacobs",
-   "mentions": 11,
-   "index": 44,
-   "status": "trending",
-   "gap": true,
-   "shoppable": false,
-   "collection": "green-bay-packers"
-  },
-  {
    "name": "todd monken",
    "mentions": 11,
-   "index": 44,
+   "index": 41,
    "status": "trending",
    "gap": true,
    "shoppable": false,
    "collection": "cleveland-browns"
   },
   {
+   "name": "josh jacobs",
+   "mentions": 10,
+   "index": 37,
+   "status": "trending",
+   "gap": true,
+   "shoppable": false,
+   "collection": "green-bay-packers"
+  },
+  {
    "name": "dak prescott",
-   "mentions": 4,
-   "index": 16,
+   "mentions": 6,
+   "index": 22,
    "status": "trending",
    "gap": true,
    "shoppable": false,
@@ -241,7 +241,7 @@
    "gaps": [
     {
      "name": "deshaun watson",
-     "mentions": 25,
+     "mentions": 27,
      "index": 100,
      "status": "trending",
      "gap": true,
@@ -251,7 +251,7 @@
     {
      "name": "todd monken",
      "mentions": 11,
-     "index": 44,
+     "index": 41,
      "status": "trending",
      "gap": true,
      "shoppable": false,
@@ -273,14 +273,8 @@
     {
      "title": "Browns announce initial 53-man roster heading into the 2026 season",
      "url": "https://news.google.com/rss/articles/CBMipgFBVV95cUxOQk9NbzAwUnp0U0lxR0lmRTl2am13cTNaeWVrdVIwREpuVFVSZ2JnMU9VWHhGUHdKV09SU0YwTk9fZkU5am41Nk93eFlwM1Z3ejJIeU1pWHFLa0ZCWEktajFnS3A1d1ZMdlpKVnZxS0dfOVVIOGRyc0RJc0Nfb1FNWEduNTlZWjEzeUxqM2dVU2dpUFZKLUNFNEFxSHE4Tmg0THg2TkJB?oc=5",
-     "source": "clevelandbrowns.com",
+     "source": "Cleveland Browns",
      "pub": "Sun, 30 Aug 2026 07:00:00 GMT"
-    },
-    {
-     "title": "Cleveland Browns have a strategy that may just be crazy enough to work",
-     "url": "https://news.google.com/rss/articles/CBMizgFBVV95cUxOR2xkSGFFZlJkVHpxWi03RU1hSmZJQVFwZlVkRkw3cTdpZU53SFI5TGN6cy1zU3E3elZsX0kzSnhETF9jeHVva1NBY0EtVkZOaC1tY3VTM2lkNDlaOUdESFBLaThJM1pkTUdXSk1RUFZXVmVQRUJqVzFvQVZOcTBBNTR0VTdma0xFTkpmUkQ3b1pkUFhJT3ZWWUtsV0NMUmFCd2FoUGFvaVFHUjdfZnpLMzdKQ0VuYWZEWlNYa3F1ajU0bTF3ZkdHbS1TV0EwQQ?oc=5",
-     "source": "Dawgs By Nature",
-     "pub": "Wed, 02 Sep 2026 23:10:52 GMT"
     },
     {
      "title": "Would the Browns consider throwing the ball to QB Taylen Green? The surprise of camp re-signed to the practic",
@@ -299,6 +293,12 @@
      "url": "https://news.google.com/rss/articles/CBMiswFBVV95cUxPWlJBaEphNEoxVC1BX0d1MWtyOUNHb1VTTlpPNFo5eVpZTVc5Y1B5MXdCX3hKeHFMQTRmdmdSQ2JjZlRncG1qSEdiejN2MDE3bUNuZmtPSTZxcHFFM1FPcGwwbFB5TzEteU1HcUlVRW1QaWx1RkxLck9HdE1TRGd0NGVrMnEwMDRTWlZPMFJuZzRaS0d0QVd2bE43T1dETjdLdEZTZzJXeHJqYV9YV0NpT19TYw?oc=5",
      "source": "Fox News",
      "pub": "Thu, 03 Sep 2026 21:30:23 GMT"
+    },
+    {
+     "title": "Browns rookie \u2018already driving league buzz\u2019 heading into Week 1",
+     "url": "https://news.google.com/rss/articles/CBMirwFBVV95cUxQNFVMVHlaakJVcklaOW1rX3RSNUh6WFR4XzRzNXFQbkR6Y2FRY1dXN0NDdFI5Wk5UUzg3dFN4MGNJa0FsdkVzV2RiODBUeDlGaGI5SlZNZnlyeWVwYmdKamt2aVFXd3FEQmtSNUd4bUV0aUQtemg4OUlXRFBPei0wY0pmUWVGbG5RR1RtMmdYZEtqbnZLbkszNWtzZlcyV3I3Zzc0TWRCa3VrNTZpem9B?oc=5",
+     "source": "Dawgs By Nature",
+     "pub": "Tue, 08 Sep 2026 16:24:37 GMT"
     }
    ],
    "fti_count": 7
@@ -316,8 +316,8 @@
    "gaps": [
     {
      "name": "dak prescott",
-     "mentions": 4,
-     "index": 16,
+     "mentions": 6,
+     "index": 22,
      "status": "trending",
      "gap": true,
      "shoppable": false,
@@ -327,12 +327,12 @@
    "top_terms": [
     "cowboys",
     "dallas",
-    "jones",
     "milton",
+    "jones",
     "practice",
     "squad",
     "tyler",
-    "roster"
+    "mailbag"
    ],
    "headline_count": 100,
    "headlines": [
@@ -382,8 +382,8 @@
    "gaps": [
     {
      "name": "josh jacobs",
-     "mentions": 11,
-     "index": 44,
+     "mentions": 10,
+     "index": 37,
      "status": "trending",
      "gap": true,
      "shoppable": false,
@@ -398,7 +398,7 @@
     "america",
     "josh",
     "jacobs",
-    "sign"
+    "trade"
    ],
    "headline_count": 100,
    "headlines": [
@@ -448,8 +448,8 @@
    "gaps": [
     {
      "name": "kyle whittingham",
-     "mentions": 12,
-     "index": 48,
+     "mentions": 11,
+     "index": 41,
      "status": "trending",
      "gap": true,
      "shoppable": false,
@@ -472,7 +472,7 @@
      "title": "Official Statement Regarding Western Michigan - Michigan Football Game",
      "url": "https://news.google.com/rss/articles/CBMitAFBVV95cUxQTkFMOXJPcHMwOEMyVlRxb3BZMWhwVlJkaERybEZoS09VMVFlVDJPSUdIeUxjSUl6LXUtOVZ0RnVuWEdZV2JHT1NkaTd0YlJxVFVESUdEcGxmd2VFbXBuZjFqUFdZZEFPQTlPRk53U25kV0tYY0llc05HdkZIWXBvQTRzWXdNcU5tTHVwakd5SDYxSjNrSFc3N0dvQm9EQ2tkVHNPejNEN21FeUh4bnhfc05YQkc?oc=5",
      "source": "Mid-American Conference",
-     "pub": "Tue, 08 Sep 2026 18:26:26 GMT"
+     "pub": "Tue, 08 Sep 2026 22:14:48 GMT"
     },
     {
      "title": "Michigan Miracle: Wolverines Buck Broncos on Final Play to Open Season",
