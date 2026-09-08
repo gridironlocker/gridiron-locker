@@ -284,6 +284,12 @@ engine now enforces the rule instead of merely demoting it:
 - `marketing/plan.py` and `marketing/live_engine.py` **hard-skip every slug in `data/delisted.json`**
   when building the queue - delisted designs can no longer appear in the plan, the calendar,
   `/drops/`, the Pinterest feed, or the three-day pulse, no matter how hard they trend.
+- The same two generators also skip, with a warning, any order slug whose **supplier campaign has
+  ended** (missing from the re-crawled `data/products.json`) or that has no facts entry. The first
+  crawl after the owner ended the retired campaigns on Viralstyle crashed the daily build for six
+  straight runs ("Order row ... is missing from data/products.json"); an ended campaign is de facto
+  retired, so it is skipped - and `limited-edition-24n157` (Go Browns Player Hoodie, campaign ended
+  8 Sep 2026) is now in `data/delisted.json` with its store page removed.
 - `marketing/copy_vault.py` never uses a headline that names a throwback person as a caption hook
   (the trade story was the #1 Cleveland headline), so current products' captions stay clean too.
 - `src/drops_page.py` and the drops ItemList schema in `src/build.py` drop any entry whose product
