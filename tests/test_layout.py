@@ -38,6 +38,7 @@ import os
 import re
 import sys
 import unittest
+from html import unescape
 
 ROOT = os.path.dirname(os.path.dirname(os.path.abspath(__file__)))
 SITE = os.path.join(ROOT, "site")
@@ -390,13 +391,191 @@ class ProductPages(unittest.TestCase):
             self.assertNotIn(term, self.js, term)
         self.assertNotIn(".uc", self.css)
 
-    def test_seamless_checkout_copy(self):
+    # ---- SEO landing page, not a mini-checkout -------------------------
+    # Gridiron Locker = discovery + persuasion + SEO. Viralstyle =
+    # configuration + transaction. These tests are the guard rail on that
+    # separation: a product page may PRESENT verified options, never let the
+    # visitor pick them here.
+
+    def test_no_mini_checkout_controls(self):
+        """No style / size / colourway picker and no checkout button."""
+        self.assertTrue(self.pages)
+        banned_markup = ('class="stylechip', 'class="swatch', 'class="size"',
+                         'class="size ', 'class="sizes"', 'class="swatchrow"',
+                         'class="stylelist"', 'class="opts"', "Colourway preview",
+                         "checkoutnote", "<select", "<form")
+        banned_copy = ("Continue to Secure Checkout", "Add to bag", "Add to cart",
+                       "Secure Checkout &rarr;", "Buy Now &rarr;",
+                       "You're almost there")
         for slug, html in self.pages.items():
-            self.assertIn("You're almost there - finish on our print partner's secure checkout.",
-                          html, slug)
-            self.assertNotIn("This opens our print partner's secure checkout in a new tab", html, slug)
-            self.assertIn("Continue to Secure Checkout", html, slug)
+            for term in banned_markup + banned_copy:
+                self.assertNotIn(term, html, f"{slug}: {term}")
+        # the retired controls must be gone from the shared assets too
+        for term in (".stylechip", ".swatch", ".sizes{", ".size{", ".checkoutnote", ".opts{"):
+            self.assertNotIn(term, self.css, term)
+        for term in ("'.size'", ".stylechip", ".swatch"):
+            self.assertNotIn(term, self.js, term)
+
+    def test_shop_now_is_the_only_conversion_action(self):
+        live = load_json("data/products_live.json")
+        for slug, html in self.pages.items():
+            ctas = re.findall(r'<a class="btn[^"]*shopnow"[^>]*>(.*?)</a>', html, re.S)
+            self.assertGreaterEqual(len(ctas), 3, slug)      # hero + band + sticky
+            for label in ctas:
+                self.assertIn("Shop Now", label, slug)
+            # every CTA points at this product's own Viralstyle campaign
+            hrefs = re.findall(r'<a class="btn[^"]*shopnow" href="([^"]+)"', html)
+            self.assertTrue(hrefs, slug)
+            for href in hrefs:
+                self.assertEqual(href, live[slug]["url"], slug)
+            # and no other outbound purchase link sneaks onto the page
+            for href in re.findall(r'href="(https://viralstyle\.com[^"]*)"', html):
+                self.assertEqual(href, live[slug]["url"], slug)
+
+    def test_cta_explains_the_handoff(self):
+        for slug, html in self.pages.items():
+            self.assertIn("on the Viralstyle product page", html, slug)
+            self.assertIn("Gridiron Locker never takes payment", html, slug)
             self.assertIn("30-day misprint replacement", html, slug)
+
+    def test_top_and_bottom_cta(self):
+        """A visitor must never have to scroll back up to convert."""
+        for slug, html in self.pages.items():
+            hero = html.index('data-placement="hero"')
+            band = html.index('data-placement="footer_band"')
+            self.assertLess(hero, band, slug)
+            self.assertIn('data-placement="sticky_bar"', html, slug)
+            self.assertLess(hero, html.index('<h2>About This Design</h2>'), slug)
+
+    def test_handoff_is_tracked(self):
+        """Product landing page -> Viralstyle CTR must be measurable."""
+        self.assertIn("shop_now_click", self.js)
+        self.assertIn("placement:d.placement", self.js)
+        self.assertIn("viralstyle_checkout_click", self.js)      # legacy event kept
+        for slug, html in self.pages.items():
+            for attr in ("data-slug=", "data-price=", "data-collection=", "data-placement="):
+                self.assertIn(attr, html, slug)
+
+    def test_landing_page_sections_present(self):
+        wanted = ("About This Design", "The Idea Behind The Design", "Who It's For",
+                  "Game-Day Wear", "Available Colours",
+                  "Size Information", "Product Details", "Shipping &amp; Delivery",
+                  "Frequently Asked Questions")
+        for slug, html in self.pages.items():
+            for section in wanted:
+                self.assertIn(section, html, f"{slug}: {section}")
+            # non-apparel items say "Available Products" instead
+            self.assertTrue("Available Apparel" in html or "Available Products" in html, slug)
+
+    def test_h1_is_the_product_name(self):
+        live = load_json("data/products_live.json")
+        for slug, html in self.pages.items():
+            h1 = re.search(r"<h1>(.*?)</h1>", html, re.S).group(1).strip()
+            self.assertTrue(h1, slug)
+            self.assertNotIn("<", h1, slug)
+            self.assertIn(h1, html, slug)
+            self.assertNotIn("Shop", h1, slug)
+
+    def test_titles_and_metas_are_unique_per_product(self):
+        import build  # noqa: E402
+        names = {it["slug"]: it["name"] for it in build.ALL}
+        titles = {}
+        metas = {}
+        for slug, html in self.pages.items():
+            t = re.search(r"<title>(.*?)</title>", html, re.S).group(1)
+            m = re.search(r'<meta name="description" content="(.*?)">', html, re.S).group(1)
+            # 60 chars is the SERP budget; a design whose own name is longer
+            # than that falls back to the bare name rather than truncating it.
+            if len(unescape(t)) > 60:
+                self.assertEqual(unescape(t), names[slug], slug)
+            self.assertLessEqual(len(unescape(m)), 160, f"{slug}: {m}")
+            self.assertGreater(len(unescape(m)), 70, f"{slug}: {m}")
+            titles.setdefault(t, []).append(slug)
+            metas.setdefault(m, []).append(slug)
+        dupe_t = {k: v for k, v in titles.items() if len(v) > 1}
+        dupe_m = {k: v for k, v in metas.items() if len(v) > 1}
+        self.assertEqual(dupe_t, {})
+        self.assertEqual(dupe_m, {})
+
+    def test_product_copy_is_not_boilerplate(self):
+        """The template is shared; the story must not be."""
+        stories = {}
+        for slug, html in self.pages.items():
+            m = re.search(r"<h2>The Idea Behind The Design</h2>(.*?)</div>", html, re.S)
+            self.assertIsNotNone(m, slug)
+            stories.setdefault(re.sub(r"\s+", " ", m.group(1)), []).append(slug)
+        # with 100+ designs, a handful of hash collisions is fine; one giant
+        # identical block across the catalogue is not.
+        biggest = max(len(v) for v in stories.values())
+        self.assertLess(biggest, max(4, len(self.pages) // 8), biggest)
+
+    def test_no_invented_colour_names(self):
+        """Colour NAMES are not in the crawled data, so we must never print them
+        as if they were verified swatches."""
+        named = re.compile(r'class="(?:swatch|colorchip|colourchip)"')
+        for slug, html in self.pages.items():
+            self.assertIsNone(named.search(html), slug)
+            body = html.split('<h2 id="colours">Available Colours</h2>', 1)
+            if len(body) < 2:
+                self.fail(slug)
+            section = body[1].split("</section>", 1)[0]
+            self.assertIn("Viralstyle product page", section, slug)
+
+    def test_colour_claims_match_the_campaign_data(self):
+        import build  # noqa: E402
+        by_slug = {it["slug"]: it for it in build.ALL}
+        for slug, html in self.pages.items():
+            it = by_slug[slug]
+            if it["colours"] > 1:
+                self.assertIn(f"{it['colours']} colour variations", html, slug)
+                self.assertIn(f"{it['colours']} colourways", html, slug)
+            else:
+                self.assertIn("Multiple colour options may be available", html, slug)
+                self.assertNotIn("colour variations", html, slug)
+
+    def test_style_and_size_claims_match_the_campaign_data(self):
+        import build  # noqa: E402
+        by_slug = {it["slug"]: it for it in build.ALL}
+        for slug, html in self.pages.items():
+            it = by_slug[slug]
+            if len(it["styles"]) > 1:
+                self.assertIn(f"{len(it['styles'])} garment styles", html, slug)
+                for style in it["styles"]:
+                    self.assertIn(style.replace("'", "&#x27;"), html, f"{slug}: {style}")
+            if it["garment"] not in ("Mug", "Phone Case", "Beanie"):
+                sizes = it["sizes_avail"]
+                self.assertIn(f"Sizes {sizes[0]}-{sizes[-1]}", html, slug)
+                # a campaign that stops at 2XL must not advertise 3XL
+                for absent in [s for s in build.SIZES if s not in sizes]:
+                    self.assertNotIn(f"-{absent}<", html, f"{slug}: {absent}")
+
+    def test_no_fabricated_trust_signals(self):
+        """No invented ratings, reviews, review counts, stock or discounts."""
+        for slug, html in self.pages.items():
+            for term in ("aggregateRating", "reviewCount", "ratingValue", "fan ratings",
+                         'class="stars"', 'class="strike"', 'class="save"',
+                         "Save 3", "left in stock", "Only ", "selling fast",
+                         "Limited stock", "Hurry"):
+                self.assertNotIn(term, html, f"{slug}: {term}")
+
+    def test_internal_linking(self):
+        import build  # noqa: E402
+        by_slug = {it["slug"]: it for it in build.ALL}
+        for slug, html in self.pages.items():
+            col = build.COLLECTIONS[by_slug[slug]["col"]]
+            for href in (f'/{col["slug"]}/', "/collections/",
+                         f'/guides/{col["slug"]}-buying-guide/', "/2026-season/",
+                         "/drops/", "/size-guide/"):
+                self.assertIn(href.lstrip("/"), html, f"{slug}: {href}")
+
+    def test_breadcrumb_and_faq_schema(self):
+        for slug, html in self.pages.items():
+            types = set()
+            for m in re.finditer(r'<script type="application/ld\+json">(.*?)</script>',
+                                 html, re.S):
+                types.add(json.loads(m.group(1)).get("@type"))
+            for t in ("BreadcrumbList", "Product", "FAQPage", "Organization"):
+                self.assertIn(t, types, f"{slug}: {t}")
 
     def test_merchant_schema_on_every_offer(self):
         import build  # noqa: E402

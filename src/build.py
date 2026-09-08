@@ -5,6 +5,7 @@ sys.path.insert(0, os.path.dirname(__file__))
 from collections import OrderedDict
 from collections_data import COLLECTIONS, ORDER, SEASON, NEXT_GAME
 import seocopy as _c
+import landing as _l
 from catalog import CATALOG
 import auto_copy
 
@@ -408,7 +409,6 @@ def build_model():
             garment = _c.garment_of(f, name, styles)
             colours = max(1, sum(1 for k in img if k.startswith("c")))
             price = float(p["price_usd"])
-            compare = round(price * 1.55, 2)
             url = f"/shop/{slug}/"
             gal = [img["front"]] + ([img["back"]] if "back" in img else [])
             gal += [v for k, v in img.items() if k.startswith("c")]
@@ -416,10 +416,10 @@ def build_model():
             trend = auto_trend(ckey, slug, blob)
             lst.append(dict(trend=trend,
                 slug=slug, name=name, art=f["art"], theme=f.get("theme", "classic"),
-                garment=garment, price=price, compare=compare, colours=colours,
+                garment=garment, price=price, colours=colours,
                 styles=styles, sizes_avail=sizes_avail, url=url, gallery=gal, front=img["front"],
                 back=img.get("back", img["front"]),
-                buy=p["url"], kw=_c.keywords(f, col, garment), col=ckey,
+                buy=p["url"], kw=_l.keywords(f, col, garment, name), col=ckey,
             ))
         items[ckey] = lst
     return items
@@ -877,7 +877,7 @@ def trust():
  <div><b>Worldwide Shipping</b>Tracked to your door</div>
  <div><b>S &ndash; 3XL</b>Unisex &amp; women's cuts</div>
  <div><b>Premium Fan Art</b>Original designs</div>
- <div><b>Secure Checkout</b>Card &amp; PayPal</div>
+ <div><b>Checkout on Viralstyle</b>Card &amp; PayPal</div>
 </div>"""
 
 
@@ -1709,9 +1709,11 @@ def page_collection(k):
  <h2>Popular searches in this collection</h2>
  <p class="muted">{kwlinks}</p>
  <h2>How ordering works</h2>
- <p>Pick a design, open its product page, then tap the buy button. You will land on the secure
- checkout for that exact campaign where you confirm garment style, colour and size. Items are
- printed after the order is placed and shipped worldwide with tracking.</p>
+ <p>Pick a design and open its product page. That page is where the design, the garment styles,
+ the colourways, the sizing and the shipping facts live. When you are ready, tap <strong>Shop
+ Now</strong> and you land on the Viralstyle product page for that exact campaign, where you
+ choose garment style, colour and size and complete the order. Items are printed after the order
+ is placed and shipped worldwide with tracking.</p>
  <p><a class="link" href="/guides/{c['slug']}-buying-guide/">Read the {esc(c['short'])} buying guide &rarr;</a></p>
 </div></section>
 </div>
@@ -1723,69 +1725,138 @@ def page_collection(k):
           + header(k) + body + footer())
 
 
+def shop_now_cta(it, placement, label="Shop Now", size="lg", block=True):
+    """The one and only conversion control on a product page.
+
+    Every CTA is instrumented identically so the funnel metric we care about -
+    product landing page -> Viralstyle CTR - is measurable per placement
+    (hero, mid-page, footer band, mobile sticky bar). The click fires a
+    `shop_now_click` GA4 event and a legacy `viralstyle_checkout_click` event
+    so historical reporting keeps working.
+    """
+    cls = "btn" + (" block" if block else "") + (f" {size}" if size else "")
+    return (f'<a class="{cls} shopnow" href="{it["buy"]}" target="_blank" rel="noopener"'
+            f' data-slug="{it["slug"]}" data-price="{it["price"]:.2f}"'
+            f' data-collection="{it["col"]}" data-placement="{placement}">'
+            f'{label} <span aria-hidden="true">&rarr;</span></a>')
+
+
+def cta_note(it, colours):
+    """The sentence that removes the uncertainty about what happens next."""
+    bits = ["garment style"]
+    if colours > 1:
+        bits.append("colour")
+    if it["garment"] not in ("Mug", "Phone Case", "Beanie"):
+        bits.append("size")
+    listed = ", ".join(bits[:-1]) + " and " + bits[-1] if len(bits) > 1 else bits[0]
+    return (f'<p class="ctanote">Choose your {listed} on the Viralstyle product page. '
+            f'Checkout is completed there &ndash; Gridiron Locker never takes payment.</p>')
+
+
 def page_product(it):
+    """One design = one SEO landing page.
+
+    Gridiron Locker does discovery and persuasion; Viralstyle does
+    configuration and the transaction. So this page carries NO style picker,
+    NO size picker, NO colour picker and NO checkout button - only product
+    information and a SHOP NOW hand-off. Images remain browsable (a gallery is
+    not a purchase control) and every option list is presented as verified
+    information about the campaign, never as something to select here.
+    """
     c = COLLECTIONS[it["col"]]
     f = FACTS[it["slug"]]
     path = it["url"]
-    desc_html, bullets = _c.long_description(it["slug"], f, c, it["garment"], it["styles"],
-                                             it["colours"], f"{it['price']:.2f}")
-    _intro = re.search(r"<p>(.*?)</p>", desc_html, re.S)
-    intro_html = _intro.group(1) if _intro else f"<strong>{esc(it['name'])}</strong> - {esc(it['art'])}"
-    metad = _c.meta_description(it["name"], c, it["garment"], f"{it['price']:.2f}", it["colours"])
-    faq = _c.faqs(it["slug"], f, c, it["garment"], f"{it['price']:.2f}", it["colours"], it["styles"])
-    rating = 4.6 + (len(it["slug"]) % 4) / 10
-    reviews = 17 + (len(it["slug"]) * 7) % 180
-    colours_label = f"{it['colours']} colourway" + ("s" if it["colours"] != 1 else "")
+    slug = it["slug"]
+    price = f"{it['price']:.2f}"
+    sizes = it["sizes_avail"]
+    styles = it["styles"]
+    colours = it["colours"]
+    theme = it["theme"] if it["theme"] in _l.THEME_CONCEPT else "classic"
 
+    title = _l.meta_title(it["name"], BRAND)
+    metad = _l.meta_description(slug, it["name"], c, it["garment"], price, styles, colours, sizes)
+    hero_deck = _l.hero_line(slug, it["name"], it["art"], c, it["garment"])
+    about_html = _l.about_design(slug, f, c, it["garment"], it["art"], theme)
+    story_html = _l.design_story(slug, f, c, it["art"], theme, it["garment"])
+    who_html = _l.who_its_for(slug, c, theme, it["garment"], price)
+    wear_html = _l.gameday_wear(slug, c, it["garment"], it["art"])
+    styles_html = _l.styles_copy(slug, styles, it["garment"])
+    colour_html = _l.colour_copy(colours)
+    size_html = _l.size_copy(slug, sizes, it["garment"])
+    ship_html = _l.shipping_copy(DELIVERY_TIME, SHIP_US["shippingRate"]["value"])
+    bullets = _l.details_bullets(it["garment"], styles, sizes, colours, price)
+    faq = _l.faqs(slug, f, c, it["garment"], price, colours, styles, sizes)
+    kws = _l.keywords(f, c, it["garment"], it["name"])
+
+    # ---- gallery (informational imagery, not a configurator) --------------
     thumbs = "".join(
-        f'<button class="thumb{" on" if n == 0 else ""}" data-src="{g}" aria-label="View image {n+1}">'
+        f'<button class="thumb{" on" if n == 0 else ""}" data-src="{g}" type="button"'
+        f' aria-label="View image {n+1} of {esc(it["name"])}">'
         f'<img src="{g}" alt="{esc(it["name"])} view {n+1}" loading="lazy" width="120" height="140"></button>'
         for n, g in enumerate(it["gallery"][:10]))
-    _sz = it["sizes_avail"]
-    default_size = "L" if "L" in _sz else _sz[len(_sz) // 2]
-    sizes = "".join(f'<button class="size{" on" if s == default_size else ""}">{s}</button>' for s in _sz) \
-        if it["garment"] not in ("Mug", "Phone Case", "Beanie") else \
-        '<span class="muted" style="font-size:.86rem">One size / model selected at checkout</span>'
-    sizes_badge = f"Sizes {_sz[0]}-{_sz[-1]}"
+
+    # ---- verified option displays ----------------------------------------
+    stylelist = "".join(f'<li>{esc(s)}</li>' for s in styles)
+    stylehtml = (f'<ul class="stylegrid">{stylelist}</ul>' if styles else "")
+
+    colour_mockups = it["gallery"][2:12] if colours > 1 else []
+    colourhtml = ""
+    if colour_mockups:
+        tiles = "".join(
+            f'<figure class="cwtile"><img src="{g}" alt="{esc(it["name"])} garment colourway '
+            f'preview {n+1}" loading="lazy" width="120" height="140"></figure>'
+            for n, g in enumerate(colour_mockups))
+        colourhtml = (f'<div class="cwgrid">{tiles}</div>'
+                      f'<p class="muted small">Campaign mockups, shown for reference only. '
+                      f'Colour availability can change - the live list is on Viralstyle.</p>')
+
     _CHART = {"S": (18, 28), "M": (20, 29), "L": (22, 30),
               "XL": (24, 31), "2XL": (26, 32), "3XL": (28, 33)}
     chart_rows = "".join(
-        f'<tr><td>{s}</td><td>{_CHART[s][0]}</td><td>{_CHART[s][1]}</td></tr>' for s in _sz)
-    _gal = it["gallery"]
-    _styleimgs = _gal[:1] + _gal[2:]  # front first, then the colourway/garment swatches
-    stylechips = "".join(
-        f'<span class="stylechip{" on" if n == 0 else ""}" data-src="{_styleimgs[n % len(_styleimgs)]}">{esc(s)}</span>'
-        for n, s in enumerate(it["styles"][:8])) or \
-        f'<span class="stylechip on">{esc(it["garment"])}</span>'
-    bl = "".join(f"<li>{esc(b)}</li>" for b in bullets)
-    faqhtml = "".join(f"<details><summary>{esc(q)}</summary><p>{esc(a)}</p></details>" for q, a in faq)
+        f"<tr><td>{s}</td><td>{_CHART[s][0]}</td><td>{_CHART[s][1]}</td></tr>"
+        for s in sizes if s in _CHART)
+    chart_html = ""
+    if chart_rows and it["garment"] not in ("Mug", "Phone Case", "Beanie"):
+        chart_html = (f'<table><tr><th>Size</th><th>Chest width (in)</th><th>Body length (in)</th></tr>'
+                      f'{chart_rows}</table>'
+                      f'<p class="muted small">Lay a shirt you already own flat and compare - it '
+                      f'beats guessing. Full guide: <a href="/size-guide/">size guide</a>.</p>')
 
-    rel = [x for x in MODEL[it["col"]] if x["slug"] != it["slug"]]
+    bl = "".join(f"<li>{esc(b)}</li>" for b in bullets)
+    faqhtml = "".join(f"<details><summary>{esc(q)}</summary><p>{esc(a)}</p></details>"
+                      for q, a in faq)
+
+    # ---- internal linking -------------------------------------------------
+    rel = [x for x in MODEL[it["col"]] if x["slug"] != slug]
     rel = sorted(rel, key=lambda x: (x["theme"] != it["theme"], abs(x["price"] - it["price"])))[:4]
     relhtml = "".join(card(r) for r in rel)
 
     cb, cbs = crumbs([("Home", "/"), ("Collections", "/collections/"),
                       (c["short"], f"/{c['slug']}/"), (it["name"], None)], path)
+
+    # ---- structured data: real data only ---------------------------------
+    # No aggregateRating, no review count, no fake sale price, no invented
+    # inventory. The Offer points at the Viralstyle campaign because that is
+    # where the transaction actually happens.
     schema = [cbs,
               {"@context": "https://schema.org", "@type": "Product",
-               "name": it["name"], "sku": it["slug"],
-               "description": re.sub("<[^>]+>", " ", desc_html)[:600].strip(),
+               "name": it["name"], "sku": slug,
+               "description": re.sub("<[^>]+>", " ", about_html)[:600].strip(),
                "image": [abs_url(g) for g in it["gallery"][:6]],
                "brand": {"@type": "Brand", "name": BRAND},
                "category": f"{c['name']} > {it['garment']}",
                "material": "Cotton" if it["garment"] in ("T-Shirt", "Hoodie", "Sweatshirt") else "Mixed",
+               "size": sizes,
                # PeopleAudience (not the generic Audience) is what Google's
                # merchant listing spec reads for apparel gender targeting.
                "audience": {"@type": "PeopleAudience", "audienceType": f"{c['team']} fans",
                             "suggestedGender": audience_gender(it)},
-               "aggregateRating": {"@type": "AggregateRating", "ratingValue": round(rating, 1),
-                                   "reviewCount": reviews, "bestRating": 5},
                "offers": {"@type": "Offer", "url": it["buy"], "priceCurrency": "USD",
-                          "price": f"{it['price']:.2f}", "availability": "https://schema.org/InStock",
+                          "price": price, "availability": "https://schema.org/InStock",
                           "itemCondition": "https://schema.org/NewCondition",
                           "validFrom": TODAY,
                           "priceValidUntil": f"{datetime.date.today().year + 1}-12-31",
-                          "seller": {"@type": "Organization", "name": BRAND},
+                          "seller": {"@type": "Organization", "name": "Viralstyle"},
                           "shippingDetails": SHIP_US,
                           "hasMerchantReturnPolicy": RETURN_POLICY}},
               {"@context": "https://schema.org", "@type": "FAQPage", "mainEntity": [
@@ -1794,7 +1865,7 @@ def page_product(it):
 
     se = SEASON[it["col"]]
     blob = (it["name"] + " " + it["art"]).lower()
-    ent = entity_for_product(it["col"], it["slug"], blob)
+    ent = entity_for_product(it["col"], slug, blob)
     fti_hit = next((r for r in fti_rows(it["col"]) if r["name"] == ent), None) if ent else None
     if it.get("trend") == "hot":
         fti_note = (f' Fan Trend Index {int(fti_hit["index"])}/100 '
@@ -1806,10 +1877,24 @@ def page_product(it):
     else:
         trendhtml = ""
     momenthtml = moments_block(it["col"], entity=ent, limit=3) if ent else ""
-    kws = it["kw"] + (se["hot"][:3] if it.get("trend") == "hot" else [])
-    title = f"{it['name']} | {BRAND}"
-    if len(html.unescape(title)) > 60:
-        title = it["name"]
+
+    band_bits = [f"From ${price}"]
+    if len(styles) > 1:
+        band_bits.append(f"{len(styles)} garment styles")
+    if colours > 1:
+        band_bits.append(f"{colours} colourways")
+    if it["garment"] not in ("Mug", "Phone Case", "Beanie"):
+        band_bits.append(f"sizes {sizes[0]}-{sizes[-1]}")
+    band_line = (", ".join(band_bits)
+                 + ". Style, colour and size are chosen on the Viralstyle product page, "
+                   "where the order is completed.")
+
+    style_badge = (f"{len(styles)} garment styles" if len(styles) > 1
+                   else (esc(styles[0]) if styles else esc(it["garment"])))
+    colour_badge = (f"{colours} colourways" if colours > 1 else "Colours on Viralstyle")
+    size_badge = (f"Sizes {sizes[0]}-{sizes[-1]}"
+                  if it["garment"] not in ("Mug", "Phone Case", "Beanie") else "One size")
+
     body = f"""<main id="main"><div class="light">
 {cb}
 <div class="wrap"><div class="pdp">
@@ -1821,78 +1906,108 @@ def page_product(it):
  <div class="buybox">
   <span class="eyebrow">{esc(c['name'])}</span>
   <h1>{esc(it['name'])}</h1>
-  <div class="pricerow">
-   <span class="pricebig">${it['price']:.2f}</span>
-   <span class="strike">${it['compare']:.2f}</span>
-   <span class="save">Save {int(round((1 - it['price'] / it['compare']) * 100))}%</span>
-  </div>
-  <p style="margin:0 0 14px"><span class="stars">&#9733;&#9733;&#9733;&#9733;&#9733;</span>
-   <span class="muted" style="font-size:.84rem">{round(rating,1)} &middot; {reviews} fan ratings</span></p>
+  <p class="herodeck">{esc(hero_deck)}</p>
+  <div class="pricerow"><span class="pricebig">${price}</span>
+   <span class="pricefrom">starting price &middot; set by style on Viralstyle</span></div>
   {trendhtml}
   {momenthtml}
-  <p class="desc" style="margin:0 0 12px">{intro_html}</p>
-  <p class="muted" style="font-size:.93rem">Design reads: <strong style="color:var(--ink)">{esc(it['art'])}</strong></p>
-
-  <div class="opts"><div class="lbl">Style</div><div class="stylelist">{stylechips}</div></div>
-  <div class="opts"><div class="lbl">Size</div><div class="sizes">{sizes}</div></div>
-  {'<div class="opts"><div class="lbl">Colourway preview</div><div class="swatchrow">' + "".join(f'<button class="swatch{" on" if n == 0 else ""}" data-src="{g}"><img src="{g}" alt="colour option {n+1}" loading="lazy" width="60" height="70"></button>' for n, g in enumerate(it["gallery"][2:10])) + "</div></div>" if it["colours"] > 1 else ""}
-
-  <a class="btn block lg" href="{it['buy']}" target="_blank" rel="noopener"
-     onclick="try{{gtag('event','viralstyle_checkout_click',{{item:'{it['slug']}',price:{it['price']},collection:'{it['col']}',destination:'viralstyle.com'}})}}catch(e){{}}">
-     Continue to Secure Checkout &rarr;</a>
-  <div class="checkoutnote">
-   <span class="lock">&#128274;</span>
-   <p><strong>You're almost there &mdash; finish on our print partner's secure checkout.</strong>
-   Your style, colour and size carry straight over; pay with card or PayPal, and nothing is printed
-   until you confirm. Tracked delivery worldwide.</p>
-  </div>
-  <div class="badges"><span class="badge">{sizes_badge}</span>
-   <span class="badge">{colours_label}</span>
+  <ul class="atglance">
+   <li><b>Design</b>{esc(_l.title_case_art(it['art']))}</li>
+   <li><b>Apparel</b>{style_badge}</li>
+   <li><b>Colours</b>{colour_badge}</li>
+   <li><b>Sizes</b>{size_badge}</li>
+  </ul>
+  {shop_now_cta(it, "hero")}
+  {cta_note(it, colours)}
+  <div class="badges"><span class="badge">Fan-made, unofficial design</span>
+   <span class="badge">Printed on demand</span>
    <span class="badge">US shipping from ${SHIP_US['shippingRate']['value']}</span>
-   <span class="badge">30-day misprint replacement</span><span class="badge">Card &amp; PayPal</span></div>
-  <div class="ships">
-   <div><b>Printing:</b> starts as soon as the campaign order is placed.</div>
-   <div><b>Delivery:</b> {DELIVERY_TIME} in the US, tracked; worldwide shipping available.</div>
-   <div><b>Returns:</b> misprinted, damaged or defective items are replaced free within 30 days.</div>
-   <div><b>Sizing help:</b> <a href="/size-guide/" style="color:var(--accent)">full measurement chart</a>.</div>
-  </div>
+   <span class="badge">30-day misprint replacement</span>
+   <span class="badge">Worldwide delivery</span></div>
+  <p class="muted small">Jump to: <a href="#about">about this design</a> &middot;
+   <a href="#apparel">apparel &amp; colours</a> &middot; <a href="#sizing">sizing</a> &middot;
+   <a href="#faq">FAQ</a></p>
  </div>
 </div></div>
 
-<section style="border-top:1px solid var(--line);border-bottom:1px solid var(--line)">
- <div class="wrap">
-  <div class="prose reveal" style="max-width:none"><h2>Product Details</h2>{desc_html}</div>
-  <div class="detailcols" style="margin-top:22px">
-   <div class="panel"><h3>Key features</h3><ul class="feat">{bl}</ul></div>
-   <div class="panel"><h3>Size chart (inches)</h3>
-    <table><tr><th>Size</th><th>Chest width</th><th>Body length</th></tr>
-     {chart_rows}</table>
-    <p class="muted" style="font-size:.8rem;margin:10px 0 0">Lay a shirt you own flat and compare -
-    it beats guessing. Full guide: <a href="/size-guide/" style="color:var(--accent)">size guide</a>.</p>
-   </div>
+<section id="about" style="border-top:1px solid var(--line)"><div class="wrap">
+ <div class="lpcols">
+  <div class="prose reveal"><h2>About This Design</h2>{about_html}</div>
+  <div class="prose reveal"><h2>The Idea Behind The Design</h2>{story_html}</div>
+ </div>
+</div></section>
+
+<section style="border-top:1px solid var(--line)"><div class="wrap">
+ <div class="detailcols">
+  <div class="panel"><h3>Who It's For</h3>{who_html}</div>
+  <div class="panel"><h3>Game-Day Wear</h3>{wear_html}</div>
+ </div>
+</div></section>
+
+<section id="apparel" style="border-top:1px solid var(--line)"><div class="wrap">
+ <h2>{_l.apparel_heading(it["garment"])}</h2>
+ <div class="prose" style="max-width:80ch">{styles_html}</div>
+ {stylehtml}
+ <h2 id="colours">Available Colours</h2>
+ <div class="prose" style="max-width:80ch">{colour_html}</div>
+ {colourhtml}
+</div></section>
+
+<section id="sizing" style="border-top:1px solid var(--line)"><div class="wrap">
+ <div class="detailcols">
+  <div class="panel"><h2 style="margin-top:0">Size Information</h2>
+   <div class="prose" style="max-width:none">{size_html}</div>
+   {chart_html}</div>
+  <div class="panel"><h2 style="margin-top:0">Product Details</h2>
+   <ul class="feat">{bl}</ul></div>
+ </div>
+</div></section>
+
+<section id="shipping" style="border-top:1px solid var(--line)"><div class="wrap">
+ <div class="prose" style="max-width:80ch"><h2>Shipping &amp; Delivery</h2>{ship_html}</div>
+</div></section>
+
+<section id="faq" style="border-top:1px solid var(--line)"><div class="wrap">
+ <h2>{esc(it['name'])} &ndash; Frequently Asked Questions</h2>
+ <div style="max-width:80ch">{faqhtml}</div>
+</div></section>
+
+<section class="ctaband"><div class="wrap">
+ <div class="ctaband-in">
+  <div>
+   <span class="eyebrow">Ready for game day</span>
+   <h2>Get the {esc(it['name'])}</h2>
+   <p>{esc(band_line)}</p>
+  </div>
+  <div class="ctaband-act">
+   {shop_now_cta(it, "footer_band")}
+   {cta_note(it, colours)}
   </div>
  </div>
-</section>
-
-<section><div class="wrap">
- <h2>{esc(it['name'])} - Questions Fans Ask</h2>
- <div style="max-width:80ch">{faqhtml}</div>
 </div></section>
 
 <section style="border-top:1px solid var(--line)"><div class="wrap">
  <div class="sechead"><div><h2>More From {esc(c['short'])}</h2>
-  <p>Same collection, same print quality.</p></div>
+  <p>Same collection, same print partner, same hand-off to Viralstyle.</p></div>
   <a class="link" href="/{c['slug']}/">View all {len(MODEL[it['col']])} designs &rarr;</a></div>
  <div class="grid">{relhtml}</div>
+ <div class="linkrow">
+  <a class="link" href="/{c['slug']}/">{esc(c['name'])} collection</a>
+  <a class="link" href="/collections/">All collections</a>
+  <a class="link" href="/guides/{c['slug']}-buying-guide/">{esc(c['short'])} buying guide</a>
+  <a class="link" href="/2026-season/">2026 season hub</a>
+  <a class="link" href="/drops/">Trending designs</a>
+  <a class="link" href="/size-guide/">Size guide</a>
+ </div>
 </div></section>
 </div>
 
 <div class="sticky">
- <span class="p">${it['price']:.2f}</span>
- <a class="btn" href="{it['buy']}" target="_blank" rel="noopener">Buy Now &rarr;</a>
+ <span class="p">${price}</span>
+ {shop_now_cta(it, "sticky_bar", label="Shop Now", size="", block=False)}
 </div></main>"""
     URLS.append((DOMAIN + path, "0.8", "weekly"))
-    write(f"shop/{it['slug']}/index.html",
+    write(f"shop/{slug}/index.html",
           head(title, metad, path, it["front"], schema, kws, col=it["col"])
           + header(it["col"]) + body + footer())
 
@@ -1937,7 +2052,7 @@ silhouette, size up if you layer.</p>
 </ul>
 <h2>Beanies, mugs and phone cases</h2>
 <p>Beanies are one size fits most adults. Mugs are 11 oz ceramic. Phone cases are selected by exact
-device model on the checkout page.</p>
+device model on the Viralstyle product page.</p>
 <h2>Care</h2>
 <p>Machine wash warm inside out with like colours, non-chlorine bleach only if needed, tumble dry
 medium, do not iron directly onto the print. All-over printed items are dye-sublimated, so the
@@ -1953,13 +2068,14 @@ chose and then shipped. That is why the catalogue can hold hundreds of designs w
 selling out, and why delivery takes a little longer than warehouse retail.</p>
 <h2>Production time</h2>
 <p>Most campaigns print within a few business days of the order being placed. Larger campaign runs
-close on a set date and print together, which is shown on the checkout page for that design.</p>
+close on a set date and print together, which is shown on the Viralstyle product page for that
+design.</p>
 <h2>Delivery</h2>
 <p>Worldwide shipping is available. Domestic US orders typically arrive fastest; international
 orders vary by destination and customs. Tracking is issued when the parcel is dispatched.</p>
 <h2>Returns, exchanges and misprints</h2>
 <p>Because each item is made to order, returns are handled by the fulfilment partner under their
-return policy shown at checkout. If an item arrives misprinted, damaged or the wrong size was sent,
+return policy shown on Viralstyle. If an item arrives misprinted, damaged or the wrong size was sent,
 contact support with a photo and your order number and it will be replaced.</p>
 <h2>Wrong size ordered?</h2>
 <p>Check the <a href="/size-guide/">size guide</a> before ordering - it is the single biggest cause
@@ -1973,10 +2089,11 @@ of avoidable exchanges. If you are between sizes, go up.</p>
          "is not affiliated with, endorsed by, sponsored by or licensed by the NFL, any NFL club, the "
          "NCAA, any university or any player. Team, city and player names are used descriptively."),
         ("Where do I actually pay?",
-         "On the fulfilment partner's secure checkout. Every buy button on this site opens the "
-         "official product page for that exact design, where you pick style, colour and size."),
+         "On Viralstyle. Gridiron Locker is the storefront and the design library; it never takes "
+         "payment. Every Shop Now button opens the Viralstyle product page for that exact design, "
+         "where you pick garment style, colour and size and complete checkout."),
         ("What payment methods are accepted?",
-         "Major credit and debit cards and PayPal, processed on the secure checkout page."),
+         "Major credit and debit cards and PayPal, processed by Viralstyle on their checkout."),
         ("What sizes are available?",
          "S to 3XL on apparel, in unisex and women's cuts depending on the style. Beanies are one "
          "size, mugs are 11 oz, phone cases are chosen by device model."),
@@ -1985,7 +2102,8 @@ of avoidable exchanges. If you are between sizes, go up.</p>
          "arrival before a specific game is not guaranteed."),
         ("Can I get a design on a different garment?",
          "Many designs are offered on tees, women's cuts, tanks, V-necks, hoodies, crewnecks and long "
-         "sleeves. The full style list for each design is on its product page and at checkout."),
+         "sleeves. The verified style list for each design is on its product page here, and the "
+         "selection itself happens on Viralstyle."),
         ("Do you ship internationally?",
          "Yes, worldwide shipping is available with tracking."),
         ("Can I request a custom design?",
@@ -2244,7 +2362,8 @@ border-top:3px solid var(--ca)">
          "layering over a hoodie, go up one."),
         ("Can I get a Week 1 slogan on a hoodie, crewneck, beanie or mug?",
          "Yes. Most slogans run across tees, hoodies, crewnecks, long sleeves, beanies and mugs - "
-         "pick the garment and colourway on the product page before adding to your bag."),
+         "each design's product page lists the styles its campaign actually offers, and you pick "
+         "the garment and colourway on Viralstyle."),
         ("Do you ship outside the United States?",
          "Yes, worldwide with tracked dispatch. See the shipping page for current estimates before "
          "you order for a specific kickoff date."),
@@ -2824,19 +2943,30 @@ function toggleGroup(sel,me){
   document.querySelectorAll(sel).forEach(function(x){x.classList.remove('on')});
   me.classList.add('on');
 }
-document.querySelectorAll('.thumb,.swatch,.stylechip').forEach(function(b){
-  b.addEventListener('click',function(){
-    var grp;
-    if(b.classList.contains('thumb'))grp='.thumb';
-    else if(b.classList.contains('swatch'))grp='.swatch';
-    else if(b.classList.contains('stylechip'))grp='.stylechip';
-    setStage(b);
-    if(grp)toggleGroup(grp,b);
-  });
+// Thumbnails only. A product page has no style / size / colour selector by
+// design: Gridiron Locker presents the design, Viralstyle configures and sells
+// it. The gallery is imagery, not a purchase control.
+document.querySelectorAll('.thumb').forEach(function(b){
+  b.addEventListener('click',function(){setStage(b);toggleGroup('.thumb',b);});
 });
-['.size'].forEach(function(sel){
-  document.querySelectorAll(sel).forEach(function(b){
-    b.addEventListener('click',function(){toggleGroup(sel,b)});
+
+// ---------- SHOP NOW hand-off tracking ----------
+// The only conversion action on a product page. Every button reports its
+// placement (hero / footer_band / sticky_bar) so the metric that matters -
+// product landing page -> Viralstyle click-through rate - is measurable, and
+// so we can see WHICH CTA earns the click.
+document.querySelectorAll('a.shopnow').forEach(function(a){
+  a.addEventListener('click',function(){
+    var d=a.dataset||{};
+    try{gtag('event','shop_now_click',{
+      item_id:d.slug,value:parseFloat(d.price||'0'),currency:'USD',
+      collection:d.collection,placement:d.placement,destination:'viralstyle.com'
+    });}catch(e){}
+    // legacy event name kept so existing GA4 reports do not break
+    try{gtag('event','viralstyle_checkout_click',{
+      item:d.slug,price:parseFloat(d.price||'0'),collection:d.collection,
+      placement:d.placement,destination:'viralstyle.com'
+    });}catch(e){}
   });
 });
 
@@ -3286,7 +3416,7 @@ setTimeout(function(){
 // Every card carries a .qv button (sibling of the card link, never nested
 // inside it). One shared modal is built once and refilled from the card's
 // own DOM, so no product data is duplicated across the 127 cards. The CTA
-// hands off to the full product page - sizes and checkout live there.
+// hands off to the full product landing page; Viralstyle handles checkout.
 (function(){
   var qs=[].slice.call(document.querySelectorAll('.card .qv'));
   if(!qs.length)return;
@@ -3299,8 +3429,8 @@ setTimeout(function(){
     +'<img class="qv-back" alt="" width="150" height="178"></div>'
     +'<div class="qv-info"><span class="qv-team"></span><h3 class="qv-name"></h3>'
     +'<span class="qv-meta"></span><span class="qv-price"></span>'
-    +'<a class="btn block qv-cta" href="#">View full details &amp; buy &rarr;</a>'
-    +'<p class="muted qv-note">Size, style and colourway are chosen on the product page before checkout.</p>'
+    +'<a class="btn block qv-cta" href="#">See the full design &rarr;</a>'
+    +'<p class="muted qv-note">The design story, apparel styles, colours and sizing are on the product page. Orders are completed on Viralstyle.</p>'
     +'</div></div>';
   document.body.appendChild(modal);
   var closeBtn=modal.querySelector('.qv-close');

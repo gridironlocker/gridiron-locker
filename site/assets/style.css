@@ -4,7 +4,7 @@
    Gridiron Locker - neutral storefront theme
    -------------------------------------------------------------
    Written to sit visually next to the Viralstyle storefront the
-   "Continue to Secure Checkout" button hands off to: white page,
+   "Shop Now" button hands off to: white page,
    1px hairlines, one plain sans, flat product tiles, plain dark
    prices. No dark chrome, no gradients, no glow.
 
@@ -439,51 +439,59 @@ section{padding:clamp(30px,4.5vw,52px) 0}
 .thumb.on{border:2px solid var(--ca)}
 .thumb img{width:100%;height:100%;object-fit:contain;padding:4%}
 
-.buybox h1{margin-bottom:10px;font-size:clamp(1.25rem,3.4vw,1.7rem)}
+.buybox h1{margin-bottom:8px;font-size:clamp(1.35rem,3.8vw,1.95rem)}
 .buybox p.desc{font-size:.94rem;line-height:1.6;color:var(--ink2);margin-top:6px}
-.pricerow{display:flex;align-items:baseline;gap:10px;flex-wrap:wrap;margin-bottom:4px}
-.pricebig{font-family:var(--font);font-size:1.7rem;font-weight:800;color:var(--ink)}
-.strike{color:#9aa0a8;text-decoration:line-through;font-weight:600;font-size:.92rem}
-.save{background:#eef6f1;color:var(--ok);font-weight:800;font-size:.68rem;padding:4px 9px;
-  border-radius:5px;letter-spacing:.05em;text-transform:uppercase}
-.stars{color:#e0a800;font-size:.9rem;letter-spacing:1px}
-.opts{margin:16px 0}
-.opts .lbl{font-size:.68rem;font-weight:800;letter-spacing:.11em;text-transform:uppercase;
-  color:var(--muted);margin-bottom:8px}
-.sizes{display:flex;gap:7px;flex-wrap:wrap}
-.size{border:1px solid var(--line2);background:#fff;color:var(--ink);min-width:48px;
-  padding:10px 12px;border-radius:7px;font-weight:700;font-size:.83rem;cursor:pointer;
-  font-family:var(--font);transition:border-color .15s}
-.size:hover{border-color:#b9bfc7}
-.size.on{border-color:var(--btn);background:var(--btn);color:#fff}
-.stylelist{display:flex;flex-wrap:wrap;gap:7px}
-.stylechip{border:1px solid var(--line2);background:#fff;color:var(--ink2);padding:9px 13px;
-  border-radius:7px;font-size:.79rem;font-weight:600;cursor:pointer;font-family:var(--font);
-  transition:border-color .15s}
-.stylechip:hover{border-color:#b9bfc7}
-.stylechip.on{border-color:var(--ca);color:var(--ca-ink);background:var(--ca-tint)}
-.swatchrow{display:flex;gap:8px;flex-wrap:wrap}
-.swatch{width:52px;height:52px;border-radius:8px;overflow:hidden;border:1px solid var(--line);
-  background:#fff;cursor:pointer;padding:0;transition:border-color .15s}
-.swatch:hover{border-color:var(--line2)}
-.swatch.on{border:2px solid var(--ca)}
-.swatch img{width:100%;height:100%;object-fit:contain;padding:5%}
+.herodeck{font-size:1rem;line-height:1.6;color:var(--ink2);margin:0 0 16px}
+.pricerow{display:flex;align-items:baseline;gap:10px;flex-wrap:wrap;margin-bottom:14px}
+.pricebig{font-family:var(--font);font-size:1.85rem;font-weight:800;color:var(--ink)}
+.pricefrom{font-size:.76rem;color:var(--muted);letter-spacing:.02em}
+
+/* At-a-glance facts: information ABOUT the campaign, never a selector. */
+.atglance{list-style:none;margin:0 0 18px;padding:0;display:grid;
+  grid-template-columns:1fr 1fr;gap:1px;background:var(--line);
+  border:1px solid var(--line);border-radius:10px;overflow:hidden}
+@media(max-width:420px){.atglance{grid-template-columns:1fr}}
+.atglance li{background:#fff;padding:11px 13px;font-size:.86rem;color:var(--ink2)}
+.atglance b{display:block;font-size:.63rem;font-weight:800;letter-spacing:.11em;
+  text-transform:uppercase;color:var(--muted);margin-bottom:3px}
+
+/* the note that sets expectations right after the hand-off CTA */
+.ctanote{margin:10px 0 4px;font-size:.82rem;line-height:1.55;color:var(--muted)}
 .ships{font-size:.83rem;color:var(--muted);margin-top:12px;display:grid;gap:6px}
 .ships b{color:var(--ink)}
-.badges{display:flex;gap:7px;flex-wrap:wrap;margin-top:13px}
+.badges{display:flex;gap:7px;flex-wrap:wrap;margin-top:14px}
 .badge{font-size:.68rem;font-weight:700;letter-spacing:.04em;border:1px solid var(--line);
   border-radius:99px;padding:6px 11px;color:var(--muted)}
 .trendbox{background:var(--ca-tint);border:1px solid var(--line);border-radius:9px;
   padding:13px 15px;margin-bottom:14px;font-size:.85rem;color:var(--ink2)}
 .trendbox b{color:var(--ca-ink);text-transform:uppercase;letter-spacing:.08em;font-size:.68rem;
   display:flex;align-items:center;gap:7px;margin-bottom:4px}
+.small{font-size:.78rem;line-height:1.55}
 
-/* the note that sets expectations right before the hand-off */
-.checkoutnote{display:flex;gap:10px;align-items:flex-start;background:#f5faf7;
-  border:1px solid #cfe6da;border-radius:9px;padding:11px 13px;margin:12px 0 4px}
-.checkoutnote .lock{font-size:1rem;line-height:1.35;flex:0 0 auto}
-.checkoutnote p{margin:0;font-size:.79rem;line-height:1.5;color:var(--muted)}
-.checkoutnote strong{color:var(--ink);display:block;margin-bottom:2px;font-size:.81rem}
+/* ---- landing-page content bands ---- */
+.lpcols{display:grid;grid-template-columns:1fr 1fr;gap:34px;align-items:start}
+@media(max-width:860px){.lpcols{grid-template-columns:1fr;gap:8px}}
+.lpcols .prose{max-width:none}
+.stylegrid{list-style:none;margin:14px 0 0;padding:0;display:grid;
+  grid-template-columns:repeat(auto-fill,minmax(190px,1fr));gap:8px}
+.stylegrid li{border:1px solid var(--line);border-radius:8px;padding:10px 13px;
+  font-size:.84rem;font-weight:600;color:var(--ink2);background:#fff}
+.cwgrid{display:grid;grid-template-columns:repeat(auto-fill,minmax(96px,1fr));gap:10px;
+  margin:14px 0 8px}
+.cwtile{margin:0;border:1px solid var(--line);border-radius:9px;background:#fff;
+  aspect-ratio:1/1;display:grid;place-items:center;overflow:hidden}
+.cwtile img{width:100%;height:100%;object-fit:contain;padding:6%}
+.linkrow{display:flex;flex-wrap:wrap;gap:8px 18px;margin-top:22px;
+  padding-top:18px;border-top:1px solid var(--line)}
+
+/* the second CTA: a full-width band so nobody scrolls back to the top */
+.ctaband{background:var(--ca-tint);border-top:1px solid var(--line);
+  border-bottom:1px solid var(--line)}
+.ctaband-in{display:grid;grid-template-columns:1.25fr .75fr;gap:28px;align-items:center}
+@media(max-width:800px){.ctaband-in{grid-template-columns:1fr;gap:16px}}
+.ctaband h2{margin:6px 0 8px}
+.ctaband p{color:var(--ink2);margin:0;font-size:.94rem;line-height:1.6}
+.ctaband-act .ctanote{margin-top:10px}
 
 /* ============ CONTENT ============ */
 .prose{max-width:74ch}
