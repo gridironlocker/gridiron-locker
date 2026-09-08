@@ -20,7 +20,7 @@
 <meta name="twitter:image" content="https://gridironlocker.store/img/hero-home.jpg?v=4">
 <meta name="theme-color" content="#ffffff">
 <link rel="icon" href="./img/favicon.svg" type="image/svg+xml">
-<link rel="stylesheet" href="./assets/style.css?v=3788c91a">
+<link rel="stylesheet" href="./assets/style.css?v=e4aa15c4">
 <script>document.documentElement.className+=" js"</script>
 
 <script type="application/ld+json">{"@context":"https://schema.org","@type":"Organization","name":"Gridiron Locker","url":"https://gridironlocker.store","logo":"https://gridironlocker.store/img/favicon.svg","description":"Independent fan-made football apparel store with 127 original designs.","sameAs":["https://x.com/gridironlocker","https://x.com/gridironlocker1","https://www.instagram.com/gridironlocker1","https://www.threads.net/@gridironlocker1","https://www.facebook.com/GridironLocker/","https://www.pinterest.com/gridironlockergear/","https://www.youtube.com/@Gridironlocker"]}</script><script type="application/ld+json">{"@context":"https://schema.org","@type":"WebSite","name":"Gridiron Locker","url":"https://gridironlocker.store","potentialAction":{"@type":"SearchAction","target":"https://gridironlocker.store/search/?q={search_term_string}","query-input":"required name=search_term_string"}}</script><script type="application/ld+json">{"@context":"https://schema.org","@type":"ItemList","itemListElement":[{"@type":"ListItem","position":1,"url":"https://gridironlocker.store/cleveland-browns-shirts/","name":"Cleveland Browns Fan Shirts"},{"@type":"ListItem","position":2,"url":"https://gridironlocker.store/green-bay-packers-shirts/","name":"Green Bay Packers Fan Shirts"},{"@type":"ListItem","position":3,"url":"https://gridironlocker.store/dallas-cowboys-shirts/","name":"Dallas Vintage Sports Tees"},{"@type":"ListItem","position":4,"url":"https://gridironlocker.store/michigan-wolverines-shirts/","name":"Michigan Go Blue Apparel"}]}</script>
@@ -33,25 +33,38 @@
   gtag('config', 'G-5RHGJSLZNG');
 </script>
 </head>
-<body data-root="./">
-<a class="skip" href="#main">Skip to content</a>
+<body data-root="./"><a class="skip" href="#main">Skip to content</a>
 <div class="promo">2026 season is live &middot; Printed on demand in the USA &middot; Worldwide shipping</div>
 <header>
  <div class="wrap nav">
-  <a class="logo" href="./"><span class="mark">GL</span> Gridiron Locker</a>
+  <a class="logo" href="./"><span class="mark">GL</span><span class="wordmark">Gridiron Locker</span></a>
   <nav class="links">
    <a href="./collections/">All Collections</a>
    <a href="./cleveland-browns-shirts/">Cleveland</a><a href="./green-bay-packers-shirts/">Green Bay</a><a href="./dallas-cowboys-shirts/">Dallas</a><a href="./michigan-wolverines-shirts/">Michigan</a>
    <a href="./drops/">Trending</a>
-   <a href="./2026-season/">2026 Season</a>
    <a href="./guides/">Guides</a>
   </nav>
-  <span class="navsearch" role="search">
-   <input class="gsearch" type="search" placeholder="Search designs..." aria-label="Search all designs" autocomplete="off">
-   <span class="gs-ico" aria-hidden="true">&#128269;</span>
-  </span>
-  <button class="searchbtn" aria-label="Search designs"
-   onclick="var m=document.getElementById('ms');m.classList.toggle('open');var i=m.querySelector('input');if(m.classList.contains('open')&&i)i.focus()">&#128269;</button>
+  <div class="navtools">
+   <span class="navsearch" role="search">
+    <input class="gsearch" type="search" placeholder="Search designs..." aria-label="Search all designs" autocomplete="off">
+    <span class="gs-ico" aria-hidden="true"><svg width="17" height="17" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.8" aria-hidden="true"><circle cx="11" cy="11" r="6.2"/><path d="M20 20l-4.3-4.3"/></svg></span>
+   </span>
+   <button class="navico" id="acctBtn" type="button" aria-label="Account" aria-expanded="false"><svg width="18" height="18" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.8" aria-hidden="true"><circle cx="12" cy="8" r="3.7"/><path d="M4.4 20c.8-4 3.7-6.4 7.6-6.4s6.8 2.4 7.6 6.4"/></svg><span class="nlab">Account</span></button>
+   <button class="navico cart" id="cartBtn" type="button" aria-label="Cart" aria-expanded="false"><svg width="18" height="18" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.8" aria-hidden="true"><path d="M4 5h2l1.6 9.2a2 2 0 0 0 2 1.6h7.6a2 2 0 0 0 2-1.6L20 8H7"/><circle cx="10" cy="20" r="1.35"/><circle cx="17" cy="20" r="1.35"/></svg><span class="nlab">Cart</span><span class="cct" id="cartCount">0</span></button>
+   <button class="searchbtn" aria-label="Search designs"
+    onclick="var m=document.getElementById('ms');m.classList.toggle('open');var i=m.querySelector('input');if(m.classList.contains('open')&&i)i.focus()"><svg width="17" height="17" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.8" aria-hidden="true"><circle cx="11" cy="11" r="6.2"/><path d="M20 20l-4.3-4.3"/></svg></button>
+   <button class="burger" id="navToggle" aria-label="Open menu" aria-expanded="false"><span></span><span></span><span></span></button>
+  </div>
+ </div>
+ <div class="header-pop" id="acctPop" hidden>
+  <span class="hp-kicker">Your account</span>
+  <p>Checkout is handled securely by our print partner.</p>
+  <a href="./contact/">Order help</a><a href="./shipping/">Shipping &amp; returns</a><a href="./faq/">Shipping FAQ</a>
+ </div>
+ <div class="header-pop cart" id="cartPop" hidden>
+  <span class="hp-kicker">Your cart</span>
+  <p>Saved favourites live here on this device and are ready to check out in one click.</p>
+  <a class="btn block" href="./search/">Browse all designs</a><a href="./drops/">Trending drops</a>
  </div>
  <div class="mobsearch" id="ms"><span class="gs"><input class="gsearch" type="search"
   placeholder="Search all 127 designs..." aria-label="Search all designs" autocomplete="off"></span></div>
@@ -62,50 +75,146 @@
   <a href="./guides/">Buying Guides</a><a href="./size-guide/">Size Guide</a>
   <a href="./shipping/">Shipping &amp; Returns</a><a href="./about/">About</a>
  </div>
-</header><section class="cbanner" style="padding:0">
- <div class="band"><img src="./img/hero-home.jpg?v=4" alt="Gridiron Locker - Gear up. Keep it. Original fan-made apparel for the teams we love."
-  width="1983" height="793" fetchpriority="high"></div>
- <div class="cb-in">
-  <h1 class="sr-only">Fan-Made Football Tees, Hoodies &amp; Gear</h1>
-  <span class="eyebrow"><span class="dot"></span> 127 fan designs &middot; made to order</span>
-  <p class="lede">Sizes S&ndash;3XL in unisex and women's cuts. Printed when you order, shipped worldwide with tracking.</p>
+</header><section class="hero editorial" id="hero"><div class="wrap hero-grid">
+ <div class="hero-copy">
+  <span class="hero-kicker">Football. Fans. Culture.</span>
+  <h1 class="hero-title">Gear <span class="up">Up.</span></h1>
+  <span class="hero-brush">Keep it.</span>
+  <p class="hero-sub">Gridiron Locker is independent, fan-made football apparel for the four teams we love - Cleveland, Green Bay, Dallas and Michigan. 127 original designs, printed when you order.</p>
   <div class="btnrow">
-   <a class="btn lg" href="./collections/">Shop by team &rarr;</a>
-   <a class="btn ghost lg" href="./drops/">Trending now</a>
+   <a class="btn lg" href="./collections/">Shop By Team &rarr;</a>
+   <a class="btn ghost lg" href="./drops/">Trending Now</a>
   </div>
+  <div class="hero-facts"><span>127 fan designs</span><span>S&ndash;3XL</span><span>Worldwide shipping</span></div>
  </div>
-</section>
-<section class="quickfind" id="quickfind"><div class="wrap">
- <div class="qf-head reveal">
-  <span class="eyebrow"><span class="dot"></span> 127 designs &middot; live search</span>
-  <h2>Find A <span class="accentword">Design</span></h2>
-  <p>Search by player, slogan, team or garment - or tap a shortlist and you are in.</p>
- </div>
- <div class="qf-box reveal">
-  <span class="gs"><input class="gsearch" type="search"
-   placeholder='Try "Shedeur", "Dawg Pound", "hoodie" or "mug"'
-   aria-label="Search all designs" autocomplete="off"></span>
-  <div class="qf-chips"><a class="qf-chip" href="./search/">All designs <em>127</em></a>
-   <a class="qf-chip" style="--ca:#C8410B;--ca-ink:#9C3208;--ca-tint:#FDF3EE;--ca-2:#3B2415;--btn:#49a59c;--btn-h:#3a847d;--accent:#C8410B" href="./search/?t=cleveland-browns">Cleveland</a><a class="qf-chip" style="--ca:#1A6B47;--ca-ink:#155739;--ca-tint:#EFF6F2;--ca-2:#D8A21A;--btn:#49a59c;--btn-h:#3a847d;--accent:#1A6B47" href="./search/?t=green-bay-packers">Green Bay</a><a class="qf-chip" style="--ca:#2C4A72;--ca-ink:#26405F;--ca-tint:#F2F5F9;--ca-2:#97A6B8;--btn:#49a59c;--btn-h:#3a847d;--accent:#2C4A72" href="./search/?t=dallas-cowboys">Dallas</a><a class="qf-chip" style="--ca:#00274C;--ca-ink:#00274C;--ca-tint:#F2F5F9;--ca-2:#E8B800;--btn:#49a59c;--btn-h:#3a847d;--accent:#00274C" href="./search/?t=michigan">Michigan</a><a class="qf-chip" href="./search/?g=T-Shirt">T-Shirts <em>89</em></a><a class="qf-chip" href="./search/?g=Sweatshirt">Sweatshirts <em>25</em></a><a class="qf-chip" href="./search/?g=Hoodie">Hoodies <em>4</em></a><a class="qf-chip" href="./search/?g=Beanie">Beanies <em>3</em></a><a class="qf-chip" href="./search/?g=Phone Case">Phone Cases <em>3</em></a>
-   <a class="qf-chip" href="./search/?st=player">Player designs</a>
-   <a class="qf-chip" href="./search/?st=funny">Funny</a>
-   <a class="qf-chip" href="./search/?st=retro">Vintage</a>
-   <a class="qf-chip" href="./search/?st=family">Gift</a>
-   <a class="qf-chip hot" style="--ca:#C8410B;--ca-ink:#9C3208;--ca-tint:#FDF3EE;--ca-2:#3B2415;--btn:#49a59c;--btn-h:#3a847d;--accent:#C8410B" href="./search/?q=shedeur sanders">Shedeur Sanders <em>trending</em></a><a class="qf-chip hot" style="--ca:#00274C;--ca-ink:#00274C;--ca-tint:#F2F5F9;--ca-2:#E8B800;--btn:#49a59c;--btn-h:#3a847d;--accent:#00274C" href="./search/?q=bryce underwood">Bryce Underwood <em>trending</em></a><a class="qf-chip hot" style="--ca:#1A6B47;--ca-ink:#155739;--ca-tint:#EFF6F2;--ca-2:#D8A21A;--btn:#49a59c;--btn-h:#3a847d;--accent:#1A6B47" href="./search/?q=jordan love">Jordan Love <em>trending</em></a><a class="qf-chip hot" style="--ca:#C8410B;--ca-ink:#9C3208;--ca-tint:#FDF3EE;--ca-2:#3B2415;--btn:#49a59c;--btn-h:#3a847d;--accent:#C8410B" href="./search/?q=denzel ward">Denzel Ward <em>trending</em></a></div>
- </div>
+ <div class="hero-stage"><div class="hero-shots"><a class="hero-shot reveal" style="--ca:#C8410B;--ca-ink:#9C3208;--ca-tint:#FDF3EE;--ca-2:#3B2415;--btn:#49a59c;--btn-h:#3a847d;--accent:#C8410B" href="./cleveland-browns-shirts/"><img src="./img/p/limited-edition-the-wall-graham-front.webp" alt="Cleveland Browns Fan Shirts fan design" loading="lazy" decoding="async" width="530" height="630"><span class="hs-shade" aria-hidden="true"></span><span class="hs-tag">Cleveland</span><span class="hs-count">63 designs</span><span class="hs-go">Shop <i aria-hidden="true">&rarr;</i></span></a><a class="hero-shot reveal" style="--ca:#1A6B47;--ca-ink:#155739;--ca-tint:#EFF6F2;--ca-2:#D8A21A;--btn:#49a59c;--btn-h:#3a847d;--accent:#1A6B47" href="./green-bay-packers-shirts/"><img src="./img/p/limited-edition-grb41-front.webp" alt="Green Bay Packers Fan Shirts fan design" loading="lazy" decoding="async" width="530" height="630"><span class="hs-shade" aria-hidden="true"></span><span class="hs-tag">Green Bay</span><span class="hs-count">37 designs</span><span class="hs-go">Shop <i aria-hidden="true">&rarr;</i></span></a><a class="hero-shot reveal" style="--ca:#2C4A72;--ca-ink:#26405F;--ca-tint:#F2F5F9;--ca-2:#97A6B8;--btn:#49a59c;--btn-h:#3a847d;--accent:#2C4A72" href="./dallas-cowboys-shirts/"><img src="./img/p/doomsday-defense-tee-front.webp" alt="Dallas Vintage Sports Tees fan design" loading="lazy" decoding="async" width="530" height="630"><span class="hs-shade" aria-hidden="true"></span><span class="hs-tag">Dallas</span><span class="hs-count">10 designs</span><span class="hs-go">Shop <i aria-hidden="true">&rarr;</i></span></a><a class="hero-shot reveal" style="--ca:#00274C;--ca-ink:#00274C;--ca-tint:#F2F5F9;--ca-2:#E8B800;--btn:#49a59c;--btn-h:#3a847d;--accent:#00274C" href="./michigan-wolverines-shirts/"><img src="./img/p/limited-edition-tee-0-01-1-front.webp" alt="Michigan Go Blue Apparel fan design" loading="lazy" decoding="async" width="530" height="630"><span class="hs-shade" aria-hidden="true"></span><span class="hs-tag">Michigan</span><span class="hs-count">17 designs</span><span class="hs-go">Shop <i aria-hidden="true">&rarr;</i></span></a></div></div>
 </div></section>
-<section class="teamnavsec"><div class="wrap">
- <div class="sechead reveal"><div><h2>Shop By Team</h2>
-  <p>Four dedicated collections, each with its own artwork language, colour palette and fan slang.</p></div>
+<section class="teamdeck-sec"><div class="wrap">
+ <div class="sechead reveal"><div>
+  <span class="eyebrow"><span class="dot"></span> Four teams &middot; four fanbases</span>
+  <h2>Shop By <span class="accentword">Team</span></h2>
+  <p>Four dedicated collections, each with its own artwork language, colour palette and fan slang. Pick your side.</p></div>
   <a class="link" href="./collections/">All collections &rarr;</a></div>
- <div class="teamnav-grid"><a class="teamnav reveal" style="--ca:#C8410B;--ca-ink:#9C3208;--ca-tint:#FDF3EE;--ca-2:#3B2415;--btn:#49a59c;--btn-h:#3a847d;--accent:#C8410B" href="./cleveland-browns-shirts/"><span class="tportrait"><img src="./img/browns-logo1.webp?v=1" alt="" loading="lazy" decoding="async" width="72" height="72"></span><span class="tn-body"><span class="cnt">63 designs</span><b class="tn-name">Cleveland Browns Fan Shirts</b><span class="tn-sub">Cleveland, Ohio &middot; Here We Go Brownies</span></span><span class="go" aria-hidden="true">&rarr;</span></a><a class="teamnav reveal" style="--ca:#1A6B47;--ca-ink:#155739;--ca-tint:#EFF6F2;--ca-2:#D8A21A;--btn:#49a59c;--btn-h:#3a847d;--accent:#1A6B47" href="./green-bay-packers-shirts/"><span class="tportrait"><img src="./img/green-bay-logo1.webp?v=1" alt="" loading="lazy" decoding="async" width="72" height="72"></span><span class="tn-body"><span class="cnt">37 designs</span><b class="tn-name">Green Bay Packers Fan Shirts</b><span class="tn-sub">Green Bay, Wisconsin &middot; Go Pack Go</span></span><span class="go" aria-hidden="true">&rarr;</span></a><a class="teamnav reveal" style="--ca:#2C4A72;--ca-ink:#26405F;--ca-tint:#F2F5F9;--ca-2:#97A6B8;--btn:#49a59c;--btn-h:#3a847d;--accent:#2C4A72" href="./dallas-cowboys-shirts/"><span class="tportrait"><img src="./img/dallas-logo1.webp?v=1" alt="" loading="lazy" decoding="async" width="72" height="72"></span><span class="tn-body"><span class="cnt">10 designs</span><b class="tn-name">Dallas Vintage Sports Tees</b><span class="tn-sub">Dallas, Texas &middot; How &#x27;Bout Them Cowboys</span></span><span class="go" aria-hidden="true">&rarr;</span></a><a class="teamnav reveal" style="--ca:#00274C;--ca-ink:#00274C;--ca-tint:#F2F5F9;--ca-2:#E8B800;--btn:#49a59c;--btn-h:#3a847d;--accent:#00274C" href="./michigan-wolverines-shirts/"><span class="tportrait"><img src="./img/michigan-logo1.webp?v=1" alt="" loading="lazy" decoding="async" width="72" height="72"></span><span class="tn-body"><span class="cnt">17 designs</span><b class="tn-name">Michigan Go Blue Apparel</b><span class="tn-sub">Ann Arbor, Michigan &middot; Go Blue</span></span><span class="go" aria-hidden="true">&rarr;</span></a></div>
+ <div class="teamdeck-grid"><a class="teamcard reveal" style="--ca:#C8410B;--ca-ink:#9C3208;--ca-tint:#FDF3EE;--ca-2:#3B2415;--btn:#49a59c;--btn-h:#3a847d;--accent:#C8410B" href="./cleveland-browns-shirts/"><span class="tc-ph"><img src="./img/hero-cleveland.jpg?v=3" alt="Cleveland Browns Fan Shirts" loading="lazy" decoding="async" width="600" height="280"><span class="tc-shade" aria-hidden="true"></span></span><span class="tc-body"><span class="tc-count">63 designs</span><b class="tc-name">Cleveland Browns Fan Shirts</b><span class="tc-tag">Here We Go Brownies</span><span class="tc-go">Shop Cleveland <i aria-hidden="true">&rarr;</i></span></span></a><a class="teamcard reveal" style="--ca:#1A6B47;--ca-ink:#155739;--ca-tint:#EFF6F2;--ca-2:#D8A21A;--btn:#49a59c;--btn-h:#3a847d;--accent:#1A6B47" href="./green-bay-packers-shirts/"><span class="tc-ph"><img src="./img/hero-greenbay.jpg?v=3" alt="Green Bay Packers Fan Shirts" loading="lazy" decoding="async" width="600" height="280"><span class="tc-shade" aria-hidden="true"></span></span><span class="tc-body"><span class="tc-count">37 designs</span><b class="tc-name">Green Bay Packers Fan Shirts</b><span class="tc-tag">Go Pack Go</span><span class="tc-go">Shop Green Bay <i aria-hidden="true">&rarr;</i></span></span></a><a class="teamcard reveal" style="--ca:#2C4A72;--ca-ink:#26405F;--ca-tint:#F2F5F9;--ca-2:#97A6B8;--btn:#49a59c;--btn-h:#3a847d;--accent:#2C4A72" href="./dallas-cowboys-shirts/"><span class="tc-ph"><img src="./img/hero-dallas.jpg?v=3" alt="Dallas Vintage Sports Tees" loading="lazy" decoding="async" width="600" height="280"><span class="tc-shade" aria-hidden="true"></span></span><span class="tc-body"><span class="tc-count">10 designs</span><b class="tc-name">Dallas Vintage Sports Tees</b><span class="tc-tag">How &#x27;Bout Them Cowboys</span><span class="tc-go">Shop Dallas <i aria-hidden="true">&rarr;</i></span></span></a><a class="teamcard reveal" style="--ca:#00274C;--ca-ink:#00274C;--ca-tint:#F2F5F9;--ca-2:#E8B800;--btn:#49a59c;--btn-h:#3a847d;--accent:#00274C" href="./michigan-wolverines-shirts/"><span class="tc-ph"><img src="./img/hero-michigan.jpg?v=3" alt="Michigan Go Blue Apparel" loading="lazy" decoding="async" width="600" height="280"><span class="tc-shade" aria-hidden="true"></span></span><span class="tc-body"><span class="tc-count">17 designs</span><b class="tc-name">Michigan Go Blue Apparel</b><span class="tc-tag">Go Blue</span><span class="tc-go">Shop Michigan <i aria-hidden="true">&rarr;</i></span></span></a></div>
 </div></section>
 <div class="trust">
- <div><b>Printed On Demand</b>No dead stock</div>
- <div><b>S - 3XL</b>Unisex &amp; women's cuts</div>
- <div><b>Worldwide Shipping</b>Tracked dispatch</div>
+ <div><b>Worldwide Shipping</b>Tracked to your door</div>
+ <div><b>S &ndash; 3XL</b>Unisex &amp; women's cuts</div>
+ <div><b>Premium Fan Art</b>Original designs</div>
  <div><b>Secure Checkout</b>Card &amp; PayPal</div>
 </div>
+<section class="featured-sec"><div class="wrap">
+ <div class="sechead reveal"><div>
+  <span class="eyebrow"><span class="dot"></span> Hand-picked from the locker</span>
+  <h2>Featured <span class="accentword">Collection</span></h2>
+  <p>A rotating edit of original fan art - new drops, current headlines and the designs our four fanbases keep coming back for.</p></div>
+  <a class="link" href="./collections/">All 127 designs &rarr;</a></div>
+ <div class="grid featured-grid"><article class="card reveal" data-slug="limited-edition-tee-0-01-1" data-type="T-Shirt" data-team="michigan" data-theme="classic" style="--ca:#00274C;--ca-ink:#00274C;--ca-tint:#F2F5F9;--ca-2:#E8B800;--btn:#49a59c;--btn-h:#3a847d;--accent:#00274C">
+ <a href="./shop/limited-edition-tee-0-01-1/" aria-label="Limited Edition 0-01 Michigan Tee">
+  <div class="ph"><span class="tagpill">Classic</span><span class="glow"></span><span class="sweep"></span>
+   <img src="./img/p/limited-edition-tee-0-01-1-front.webp" alt="Limited Edition 0-01 Michigan Tee - Limited Edition 0-01 graphic" width="530" height="630">
+   <img class="alt" src="./img/p/limited-edition-tee-0-01-1-back.webp" alt="Limited Edition 0-01 Michigan Tee back view" width="530" height="630" loading="lazy" decoding="async">
+  </div>
+  <div class="body">
+   <span class="meta">T-Shirt</span>
+   <h3>Limited Edition 0-01 Michigan Tee</h3>
+   <span class="price">$21.99</span>
+  </div>
+ </a>
+ <button class="qv" type="button" aria-label="Quick view Limited Edition 0-01 Michigan Tee">Quick view</button>
+ <button class="fav" type="button" aria-label="Favourite Limited Edition 0-01 Michigan Tee" aria-pressed="false" data-slug="limited-edition-tee-0-01-1"><svg width="16" height="16" viewBox="0 0 24 24" aria-hidden="true"><path d="M12 20.4 4.8 13.2a4.6 4.6 0 1 1 6.5-6.5l.7.7.7-.7a4.6 4.6 0 1 1 6.5 6.5Z"/></svg></button></article><article class="card reveal" data-slug="limited-edition-the-wall-graham" data-type="T-Shirt" data-team="cleveland-browns" data-theme="player" style="--ca:#C8410B;--ca-ink:#9C3208;--ca-tint:#FDF3EE;--ca-2:#3B2415;--btn:#49a59c;--btn-h:#3a847d;--accent:#C8410B">
+ <a href="./shop/limited-edition-the-wall-graham/" aria-label="The Wall Graham Browns Shirt">
+  <div class="ph"><span class="tagpill">Player</span><span class="glow"></span><span class="sweep"></span>
+   <img src="./img/p/limited-edition-the-wall-graham-front.webp" alt="The Wall Graham Browns Shirt - THE WALL - MASON GRAHAM 94" width="530" height="630">
+   <img class="alt" src="./img/p/limited-edition-the-wall-graham-back.webp" alt="The Wall Graham Browns Shirt back view" width="530" height="630" loading="lazy" decoding="async">
+  </div>
+  <div class="body">
+   <span class="meta">T-Shirt</span>
+   <h3>The Wall Graham Browns Shirt</h3>
+   <span class="price">$21.99</span>
+  </div>
+ </a>
+ <button class="qv" type="button" aria-label="Quick view The Wall Graham Browns Shirt">Quick view</button>
+ <button class="fav" type="button" aria-label="Favourite The Wall Graham Browns Shirt" aria-pressed="false" data-slug="limited-edition-the-wall-graham"><svg width="16" height="16" viewBox="0 0 24 24" aria-hidden="true"><path d="M12 20.4 4.8 13.2a4.6 4.6 0 1 1 6.5-6.5l.7.7.7-.7a4.6 4.6 0 1 1 6.5 6.5Z"/></svg></button></article><article class="card reveal" data-slug="limited-edition-grb41" data-type="T-Shirt" data-team="green-bay-packers" data-theme="classic" style="--ca:#1A6B47;--ca-ink:#155739;--ca-tint:#EFF6F2;--ca-2:#D8A21A;--btn:#49a59c;--btn-h:#3a847d;--accent:#1A6B47">
+ <a href="./shop/limited-edition-grb41/" aria-label="Limited Edition GRB41">
+  <div class="ph"><span class="tagpill">Classic</span><span class="glow"></span><span class="sweep"></span>
+   <img src="./img/p/limited-edition-grb41-front.webp" alt="Limited Edition GRB41 - LIMITED EDITION GRB41" width="530" height="630">
+   <img class="alt" src="./img/p/limited-edition-grb41-back.webp" alt="Limited Edition GRB41 back view" width="530" height="630" loading="lazy" decoding="async">
+  </div>
+  <div class="body">
+   <span class="meta">T-Shirt</span>
+   <h3>Limited Edition GRB41</h3>
+   <span class="price">$24.99</span>
+  </div>
+ </a>
+ <button class="qv" type="button" aria-label="Quick view Limited Edition GRB41">Quick view</button>
+ <button class="fav" type="button" aria-label="Favourite Limited Edition GRB41" aria-pressed="false" data-slug="limited-edition-grb41"><svg width="16" height="16" viewBox="0 0 24 24" aria-hidden="true"><path d="M12 20.4 4.8 13.2a4.6 4.6 0 1 1 6.5-6.5l.7.7.7-.7a4.6 4.6 0 1 1 6.5 6.5Z"/></svg></button></article><article class="card reveal" data-slug="doomsday-defense-tee" data-type="T-Shirt" data-team="dallas-cowboys" data-theme="retro" style="--ca:#2C4A72;--ca-ink:#26405F;--ca-tint:#F2F5F9;--ca-2:#97A6B8;--btn:#49a59c;--btn-h:#3a847d;--accent:#2C4A72">
+ <a href="./shop/doomsday-defense-tee/" aria-label="Doomsday Defense Dallas Football Shirt">
+  <div class="ph"><span class="tagpill">Vintage</span><span class="glow"></span><span class="sweep"></span>
+   <img src="./img/p/doomsday-defense-tee-front.webp" alt="Doomsday Defense Dallas Football Shirt - DOOMSDAY DEFENSE with skull in a retro helmet and stars" width="530" height="630">
+   <img class="alt" src="./img/p/doomsday-defense-tee-back.webp" alt="Doomsday Defense Dallas Football Shirt back view" width="530" height="630" loading="lazy" decoding="async">
+  </div>
+  <div class="body">
+   <span class="meta">T-Shirt</span>
+   <h3>Doomsday Defense Dallas Football Shirt</h3>
+   <span class="price">$21.99</span>
+  </div>
+ </a>
+ <button class="qv" type="button" aria-label="Quick view Doomsday Defense Dallas Football Shirt">Quick view</button>
+ <button class="fav" type="button" aria-label="Favourite Doomsday Defense Dallas Football Shirt" aria-pressed="false" data-slug="doomsday-defense-tee"><svg width="16" height="16" viewBox="0 0 24 24" aria-hidden="true"><path d="M12 20.4 4.8 13.2a4.6 4.6 0 1 1 6.5-6.5l.7.7.7-.7a4.6 4.6 0 1 1 6.5 6.5Z"/></svg></button></article><article class="card reveal" data-slug="sanders-the-next-level" data-type="T-Shirt" data-team="cleveland-browns" data-theme="player" style="--ca:#C8410B;--ca-ink:#9C3208;--ca-tint:#FDF3EE;--ca-2:#3B2415;--btn:#49a59c;--btn-h:#3a847d;--accent:#C8410B">
+ <a href="./shop/sanders-the-next-level/" aria-label="Shedeur Sanders The Next Level Shirt">
+  <div class="ph"><span class="tagpill hot">Trending</span><span class="glow"></span><span class="sweep"></span>
+   <img src="./img/p/sanders-the-next-level-front.webp" alt="Shedeur Sanders The Next Level Shirt - SANDERS - THE NEXT LEVEL" width="530" height="630" loading="lazy" decoding="async">
+   <img class="alt" src="./img/p/sanders-the-next-level-back.webp" alt="Shedeur Sanders The Next Level Shirt back view" width="530" height="630" loading="lazy" decoding="async">
+  </div>
+  <div class="body">
+   <span class="meta">T-Shirt</span>
+   <h3>Shedeur Sanders The Next Level Shirt</h3>
+   <span class="price">$21.99</span>
+  </div>
+ </a>
+ <button class="qv" type="button" aria-label="Quick view Shedeur Sanders The Next Level Shirt">Quick view</button>
+ <button class="fav" type="button" aria-label="Favourite Shedeur Sanders The Next Level Shirt" aria-pressed="false" data-slug="sanders-the-next-level"><svg width="16" height="16" viewBox="0 0 24 24" aria-hidden="true"><path d="M12 20.4 4.8 13.2a4.6 4.6 0 1 1 6.5-6.5l.7.7.7-.7a4.6 4.6 0 1 1 6.5 6.5Z"/></svg></button></article><article class="card reveal" data-slug="sanders-13-special-edition" data-type="T-Shirt" data-team="cleveland-browns" data-theme="player" style="--ca:#C8410B;--ca-ink:#9C3208;--ca-tint:#FDF3EE;--ca-2:#3B2415;--btn:#49a59c;--btn-h:#3a847d;--accent:#C8410B">
+ <a href="./shop/sanders-13-special-edition/" aria-label="Shedeur Sanders 12 They Forgot Who I Am Shirt">
+  <div class="ph"><span class="tagpill hot">Trending</span><span class="glow"></span><span class="sweep"></span>
+   <img src="./img/p/sanders-13-special-edition-front.webp" alt="Shedeur Sanders 12 They Forgot Who I Am Shirt - THEY FORGOT WHO I AM - SANDERS SHEDEUR - BROWNS 12" width="530" height="630" loading="lazy" decoding="async">
+   <img class="alt" src="./img/p/sanders-13-special-edition-back.webp" alt="Shedeur Sanders 12 They Forgot Who I Am Shirt back view" width="530" height="630" loading="lazy" decoding="async">
+  </div>
+  <div class="body">
+   <span class="meta">T-Shirt</span>
+   <h3>Shedeur Sanders 12 They Forgot Who I Am Shirt</h3>
+   <span class="price">$22.99</span>
+  </div>
+ </a>
+ <button class="qv" type="button" aria-label="Quick view Shedeur Sanders 12 They Forgot Who I Am Shirt">Quick view</button>
+ <button class="fav" type="button" aria-label="Favourite Shedeur Sanders 12 They Forgot Who I Am Shirt" aria-pressed="false" data-slug="sanders-13-special-edition"><svg width="16" height="16" viewBox="0 0 24 24" aria-hidden="true"><path d="M12 20.4 4.8 13.2a4.6 4.6 0 1 1 6.5-6.5l.7.7.7-.7a4.6 4.6 0 1 1 6.5 6.5Z"/></svg></button></article><article class="card reveal" data-slug="sanders-12-special-edition" data-type="T-Shirt" data-team="cleveland-browns" data-theme="player" style="--ca:#C8410B;--ca-ink:#9C3208;--ca-tint:#FDF3EE;--ca-2:#3B2415;--btn:#49a59c;--btn-h:#3a847d;--accent:#C8410B">
+ <a href="./shop/sanders-12-special-edition/" aria-label="Sanders QB 12 Signature Shirt">
+  <div class="ph"><span class="tagpill hot">Trending</span><span class="glow"></span><span class="sweep"></span>
+   <img src="./img/p/sanders-12-special-edition-front.webp" alt="Sanders QB 12 Signature Shirt - SANDERS QB 12 with signature" width="530" height="630" loading="lazy" decoding="async">
+   <img class="alt" src="./img/p/sanders-12-special-edition-back.webp" alt="Sanders QB 12 Signature Shirt back view" width="530" height="630" loading="lazy" decoding="async">
+  </div>
+  <div class="body">
+   <span class="meta">T-Shirt</span>
+   <h3>Sanders QB 12 Signature Shirt</h3>
+   <span class="price">$22.99</span>
+  </div>
+ </a>
+ <button class="qv" type="button" aria-label="Quick view Sanders QB 12 Signature Shirt">Quick view</button>
+ <button class="fav" type="button" aria-label="Favourite Sanders QB 12 Signature Shirt" aria-pressed="false" data-slug="sanders-12-special-edition"><svg width="16" height="16" viewBox="0 0 24 24" aria-hidden="true"><path d="M12 20.4 4.8 13.2a4.6 4.6 0 1 1 6.5-6.5l.7.7.7-.7a4.6 4.6 0 1 1 6.5 6.5Z"/></svg></button></article><article class="card reveal" data-slug="sanders-special-edition" data-type="T-Shirt" data-team="cleveland-browns" data-theme="player" style="--ca:#C8410B;--ca-ink:#9C3208;--ca-tint:#FDF3EE;--ca-2:#3B2415;--btn:#49a59c;--btn-h:#3a847d;--accent:#C8410B">
+ <a href="./shop/sanders-special-edition/" aria-label="Sanders QB Signature White Shirt">
+  <div class="ph"><span class="tagpill hot">Trending</span><span class="glow"></span><span class="sweep"></span>
+   <img src="./img/p/sanders-special-edition-front.webp" alt="Sanders QB Signature White Shirt - SANDERS QB 12 signature, white colorway" width="530" height="630" loading="lazy" decoding="async">
+   <img class="alt" src="./img/p/sanders-special-edition-back.webp" alt="Sanders QB Signature White Shirt back view" width="530" height="630" loading="lazy" decoding="async">
+  </div>
+  <div class="body">
+   <span class="meta">T-Shirt</span>
+   <h3>Sanders QB Signature White Shirt</h3>
+   <span class="price">$22.99</span>
+  </div>
+ </a>
+ <button class="qv" type="button" aria-label="Quick view Sanders QB Signature White Shirt">Quick view</button>
+ <button class="fav" type="button" aria-label="Favourite Sanders QB Signature White Shirt" aria-pressed="false" data-slug="sanders-special-edition"><svg width="16" height="16" viewBox="0 0 24 24" aria-hidden="true"><path d="M12 20.4 4.8 13.2a4.6 4.6 0 1 1 6.5-6.5l.7.7.7-.7a4.6 4.6 0 1 1 6.5 6.5Z"/></svg></button></article></div>
+</div></section>
 <section class="railsec"><div class="wrap">
  <div class="sechead reveal"><div><span class="eyebrow"><span class="dot"></span> Fresh from the headlines</span>
   <h2>Trending <span class="accentword">Now</span></h2>
@@ -152,6 +261,69 @@
  <span class="nm">No Fly Zone Denzel Ward Browns Shirt</span>
  <span class="pr">$21.99</span>
 </a></div>
+</div></section>
+<section class="lockersec"><div class="wrap">
+ <div class="locker-grid">
+  <div class="locker-panel reveal">
+   <span class="lp-kicker">The fan-first locker &middot; est. 2026</span>
+   <h2>The locker is <span>always open</span></h2>
+   <p>Original artwork for the teams you love, printed on demand and shipped worldwide. No dead stock, no fade - just the locker, open every game week.</p>
+   <a class="btn lg light" href="./collections/">Enter the locker &rarr;</a>
+  </div>
+  <div class="locker-products"><article class="card reveal" data-slug="sanders-the-next-level" data-type="T-Shirt" data-team="cleveland-browns" data-theme="player" style="--ca:#C8410B;--ca-ink:#9C3208;--ca-tint:#FDF3EE;--ca-2:#3B2415;--btn:#49a59c;--btn-h:#3a847d;--accent:#C8410B">
+ <a href="./shop/sanders-the-next-level/" aria-label="Shedeur Sanders The Next Level Shirt">
+  <div class="ph"><span class="tagpill hot">Trending</span><span class="glow"></span><span class="sweep"></span>
+   <img src="./img/p/sanders-the-next-level-front.webp" alt="Shedeur Sanders The Next Level Shirt - SANDERS - THE NEXT LEVEL" width="530" height="630" loading="lazy" decoding="async">
+   <img class="alt" src="./img/p/sanders-the-next-level-back.webp" alt="Shedeur Sanders The Next Level Shirt back view" width="530" height="630" loading="lazy" decoding="async">
+  </div>
+  <div class="body">
+   <span class="meta">T-Shirt</span>
+   <h3>Shedeur Sanders The Next Level Shirt</h3>
+   <span class="price">$21.99</span>
+  </div>
+ </a>
+ <button class="qv" type="button" aria-label="Quick view Shedeur Sanders The Next Level Shirt">Quick view</button>
+ <button class="fav" type="button" aria-label="Favourite Shedeur Sanders The Next Level Shirt" aria-pressed="false" data-slug="sanders-the-next-level"><svg width="16" height="16" viewBox="0 0 24 24" aria-hidden="true"><path d="M12 20.4 4.8 13.2a4.6 4.6 0 1 1 6.5-6.5l.7.7.7-.7a4.6 4.6 0 1 1 6.5 6.5Z"/></svg></button></article><article class="card reveal" data-slug="sanders-13-special-edition" data-type="T-Shirt" data-team="cleveland-browns" data-theme="player" style="--ca:#C8410B;--ca-ink:#9C3208;--ca-tint:#FDF3EE;--ca-2:#3B2415;--btn:#49a59c;--btn-h:#3a847d;--accent:#C8410B">
+ <a href="./shop/sanders-13-special-edition/" aria-label="Shedeur Sanders 12 They Forgot Who I Am Shirt">
+  <div class="ph"><span class="tagpill hot">Trending</span><span class="glow"></span><span class="sweep"></span>
+   <img src="./img/p/sanders-13-special-edition-front.webp" alt="Shedeur Sanders 12 They Forgot Who I Am Shirt - THEY FORGOT WHO I AM - SANDERS SHEDEUR - BROWNS 12" width="530" height="630" loading="lazy" decoding="async">
+   <img class="alt" src="./img/p/sanders-13-special-edition-back.webp" alt="Shedeur Sanders 12 They Forgot Who I Am Shirt back view" width="530" height="630" loading="lazy" decoding="async">
+  </div>
+  <div class="body">
+   <span class="meta">T-Shirt</span>
+   <h3>Shedeur Sanders 12 They Forgot Who I Am Shirt</h3>
+   <span class="price">$22.99</span>
+  </div>
+ </a>
+ <button class="qv" type="button" aria-label="Quick view Shedeur Sanders 12 They Forgot Who I Am Shirt">Quick view</button>
+ <button class="fav" type="button" aria-label="Favourite Shedeur Sanders 12 They Forgot Who I Am Shirt" aria-pressed="false" data-slug="sanders-13-special-edition"><svg width="16" height="16" viewBox="0 0 24 24" aria-hidden="true"><path d="M12 20.4 4.8 13.2a4.6 4.6 0 1 1 6.5-6.5l.7.7.7-.7a4.6 4.6 0 1 1 6.5 6.5Z"/></svg></button></article><article class="card reveal" data-slug="sanders-12-special-edition" data-type="T-Shirt" data-team="cleveland-browns" data-theme="player" style="--ca:#C8410B;--ca-ink:#9C3208;--ca-tint:#FDF3EE;--ca-2:#3B2415;--btn:#49a59c;--btn-h:#3a847d;--accent:#C8410B">
+ <a href="./shop/sanders-12-special-edition/" aria-label="Sanders QB 12 Signature Shirt">
+  <div class="ph"><span class="tagpill hot">Trending</span><span class="glow"></span><span class="sweep"></span>
+   <img src="./img/p/sanders-12-special-edition-front.webp" alt="Sanders QB 12 Signature Shirt - SANDERS QB 12 with signature" width="530" height="630" loading="lazy" decoding="async">
+   <img class="alt" src="./img/p/sanders-12-special-edition-back.webp" alt="Sanders QB 12 Signature Shirt back view" width="530" height="630" loading="lazy" decoding="async">
+  </div>
+  <div class="body">
+   <span class="meta">T-Shirt</span>
+   <h3>Sanders QB 12 Signature Shirt</h3>
+   <span class="price">$22.99</span>
+  </div>
+ </a>
+ <button class="qv" type="button" aria-label="Quick view Sanders QB 12 Signature Shirt">Quick view</button>
+ <button class="fav" type="button" aria-label="Favourite Sanders QB 12 Signature Shirt" aria-pressed="false" data-slug="sanders-12-special-edition"><svg width="16" height="16" viewBox="0 0 24 24" aria-hidden="true"><path d="M12 20.4 4.8 13.2a4.6 4.6 0 1 1 6.5-6.5l.7.7.7-.7a4.6 4.6 0 1 1 6.5 6.5Z"/></svg></button></article><article class="card reveal" data-slug="sanders-special-edition" data-type="T-Shirt" data-team="cleveland-browns" data-theme="player" style="--ca:#C8410B;--ca-ink:#9C3208;--ca-tint:#FDF3EE;--ca-2:#3B2415;--btn:#49a59c;--btn-h:#3a847d;--accent:#C8410B">
+ <a href="./shop/sanders-special-edition/" aria-label="Sanders QB Signature White Shirt">
+  <div class="ph"><span class="tagpill hot">Trending</span><span class="glow"></span><span class="sweep"></span>
+   <img src="./img/p/sanders-special-edition-front.webp" alt="Sanders QB Signature White Shirt - SANDERS QB 12 signature, white colorway" width="530" height="630" loading="lazy" decoding="async">
+   <img class="alt" src="./img/p/sanders-special-edition-back.webp" alt="Sanders QB Signature White Shirt back view" width="530" height="630" loading="lazy" decoding="async">
+  </div>
+  <div class="body">
+   <span class="meta">T-Shirt</span>
+   <h3>Sanders QB Signature White Shirt</h3>
+   <span class="price">$22.99</span>
+  </div>
+ </a>
+ <button class="qv" type="button" aria-label="Quick view Sanders QB Signature White Shirt">Quick view</button>
+ <button class="fav" type="button" aria-label="Favourite Sanders QB Signature White Shirt" aria-pressed="false" data-slug="sanders-special-edition"><svg width="16" height="16" viewBox="0 0 24 24" aria-hidden="true"><path d="M12 20.4 4.8 13.2a4.6 4.6 0 1 1 6.5-6.5l.7.7.7-.7a4.6 4.6 0 1 1 6.5 6.5Z"/></svg></button></article></div>
+ </div>
 </div></section>
 <section class="wksec"><div class="wrap">
  <div class="wkhead reveal">
@@ -201,7 +373,7 @@
    <p>Vintage-inspired football gear built for Saturdays in Ann Arbor - worn-in athletic prints, block lettering, classic maize and navy, timeless gridiron </p></div>
   <a class="link" href="./michigan-wolverines-shirts/">View all 17 Michigan designs &rarr;</a>
  </div>
- <div class="grid"><article class="card reveal" data-type="T-Shirt" data-team="michigan" data-theme="classic" style="--ca:#00274C;--ca-ink:#00274C;--ca-tint:#F2F5F9;--ca-2:#E8B800;--btn:#49a59c;--btn-h:#3a847d;--accent:#00274C">
+ <div class="grid"><article class="card reveal" data-slug="limited-edition-tee-0-01-1" data-type="T-Shirt" data-team="michigan" data-theme="classic" style="--ca:#00274C;--ca-ink:#00274C;--ca-tint:#F2F5F9;--ca-2:#E8B800;--btn:#49a59c;--btn-h:#3a847d;--accent:#00274C">
  <a href="./shop/limited-edition-tee-0-01-1/" aria-label="Limited Edition 0-01 Michigan Tee">
   <div class="ph"><span class="tagpill">Classic</span><span class="glow"></span><span class="sweep"></span>
    <img src="./img/p/limited-edition-tee-0-01-1-front.webp" alt="Limited Edition 0-01 Michigan Tee - Limited Edition 0-01 graphic" width="530" height="630">
@@ -213,7 +385,8 @@
    <span class="price">$21.99</span>
   </div>
  </a>
- <button class="qv" type="button" aria-label="Quick view Limited Edition 0-01 Michigan Tee">Quick view</button></article><article class="card reveal" data-type="T-Shirt" data-team="michigan" data-theme="player" style="--ca:#00274C;--ca-ink:#00274C;--ca-tint:#F2F5F9;--ca-2:#E8B800;--btn:#49a59c;--btn-h:#3a847d;--accent:#00274C">
+ <button class="qv" type="button" aria-label="Quick view Limited Edition 0-01 Michigan Tee">Quick view</button>
+ <button class="fav" type="button" aria-label="Favourite Limited Edition 0-01 Michigan Tee" aria-pressed="false" data-slug="limited-edition-tee-0-01-1"><svg width="16" height="16" viewBox="0 0 24 24" aria-hidden="true"><path d="M12 20.4 4.8 13.2a4.6 4.6 0 1 1 6.5-6.5l.7.7.7-.7a4.6 4.6 0 1 1 6.5 6.5Z"/></svg></button></article><article class="card reveal" data-slug="second-act-qb19-limited-edition" data-type="T-Shirt" data-team="michigan" data-theme="player" style="--ca:#00274C;--ca-ink:#00274C;--ca-tint:#F2F5F9;--ca-2:#E8B800;--btn:#49a59c;--btn-h:#3a847d;--accent:#00274C">
  <a href="./shop/second-act-qb19-limited-edition/" aria-label="Second Act QB19 Limited Edition Tee">
   <div class="ph"><span class="tagpill">Player</span><span class="glow"></span><span class="sweep"></span>
    <img src="./img/p/second-act-qb19-limited-edition-front.webp" alt="Second Act QB19 Limited Edition Tee - LIMITED EDITION QB19 SECOND ACT" width="530" height="630">
@@ -225,7 +398,8 @@
    <span class="price">$21.99</span>
   </div>
  </a>
- <button class="qv" type="button" aria-label="Quick view Second Act QB19 Limited Edition Tee">Quick view</button></article><article class="card reveal" data-type="T-Shirt" data-team="michigan" data-theme="classic" style="--ca:#00274C;--ca-ink:#00274C;--ca-tint:#F2F5F9;--ca-2:#E8B800;--btn:#49a59c;--btn-h:#3a847d;--accent:#00274C">
+ <button class="qv" type="button" aria-label="Quick view Second Act QB19 Limited Edition Tee">Quick view</button>
+ <button class="fav" type="button" aria-label="Favourite Second Act QB19 Limited Edition Tee" aria-pressed="false" data-slug="second-act-qb19-limited-edition"><svg width="16" height="16" viewBox="0 0 24 24" aria-hidden="true"><path d="M12 20.4 4.8 13.2a4.6 4.6 0 1 1 6.5-6.5l.7.7.7-.7a4.6 4.6 0 1 1 6.5 6.5Z"/></svg></button></article><article class="card reveal" data-slug="second-act-qb19-vintage-football-tee" data-type="T-Shirt" data-team="michigan" data-theme="classic" style="--ca:#00274C;--ca-ink:#00274C;--ca-tint:#F2F5F9;--ca-2:#E8B800;--btn:#49a59c;--btn-h:#3a847d;--accent:#00274C">
  <a href="./shop/second-act-qb19-vintage-football-tee/" aria-label="Second Act QB19 Vintage Football Tee">
   <div class="ph"><span class="tagpill">Classic</span><span class="glow"></span><span class="sweep"></span>
    <img src="./img/p/second-act-qb19-vintage-football-tee-front.webp" alt="Second Act QB19 Vintage Football Tee - SECOND ACT QB19 VINTAGE FOOTBALL TEE" width="530" height="630">
@@ -237,7 +411,8 @@
    <span class="price">$32.99</span>
   </div>
  </a>
- <button class="qv" type="button" aria-label="Quick view Second Act QB19 Vintage Football Tee">Quick view</button></article><article class="card reveal" data-type="T-Shirt" data-team="michigan" data-theme="player" style="--ca:#00274C;--ca-ink:#00274C;--ca-tint:#F2F5F9;--ca-2:#E8B800;--btn:#49a59c;--btn-h:#3a847d;--accent:#00274C">
+ <button class="qv" type="button" aria-label="Quick view Second Act QB19 Vintage Football Tee">Quick view</button>
+ <button class="fav" type="button" aria-label="Favourite Second Act QB19 Vintage Football Tee" aria-pressed="false" data-slug="second-act-qb19-vintage-football-tee"><svg width="16" height="16" viewBox="0 0 24 24" aria-hidden="true"><path d="M12 20.4 4.8 13.2a4.6 4.6 0 1 1 6.5-6.5l.7.7.7-.7a4.6 4.6 0 1 1 6.5 6.5Z"/></svg></button></article><article class="card reveal" data-slug="limited-edition-second-act-qb19" data-type="T-Shirt" data-team="michigan" data-theme="player" style="--ca:#00274C;--ca-ink:#00274C;--ca-tint:#F2F5F9;--ca-2:#E8B800;--btn:#49a59c;--btn-h:#3a847d;--accent:#00274C">
  <a href="./shop/limited-edition-second-act-qb19/" aria-label="Second Act QB19 Michigan Tee">
   <div class="ph"><span class="tagpill hot">Trending</span><span class="glow"></span><span class="sweep"></span>
    <img src="./img/p/limited-edition-second-act-qb19-front.webp" alt="Second Act QB19 Michigan Tee - SECOND ACT QB19 - the Underwood era in Ann Arbor" width="530" height="630">
@@ -249,14 +424,15 @@
    <span class="price">$21.99</span>
   </div>
  </a>
- <button class="qv" type="button" aria-label="Quick view Second Act QB19 Michigan Tee">Quick view</button></article></div>
+ <button class="qv" type="button" aria-label="Quick view Second Act QB19 Michigan Tee">Quick view</button>
+ <button class="fav" type="button" aria-label="Favourite Second Act QB19 Michigan Tee" aria-pressed="false" data-slug="limited-edition-second-act-qb19"><svg width="16" height="16" viewBox="0 0 24 24" aria-hidden="true"><path d="M12 20.4 4.8 13.2a4.6 4.6 0 1 1 6.5-6.5l.7.7.7-.7a4.6 4.6 0 1 1 6.5 6.5Z"/></svg></button></article></div>
 </div></section><section class="teamsec" style="border-top:1px solid var(--line);--ca:#C8410B;--ca-ink:#9C3208;--ca-tint:#FDF3EE;--ca-2:#3B2415;--btn:#49a59c;--btn-h:#3a847d;--accent:#C8410B"><div class="wrap">
  <div class="sechead reveal">
   <div><h2><span class="accentword">Cleveland</span> Collection</h2>
    <p>Orange and brown Dawg Pound apparel - bulldog graphics, Cleveland skylines, playoff slogans and quarterback tributes, printed on tees, hoodies, crewne</p></div>
   <a class="link" href="./cleveland-browns-shirts/">View all 63 Cleveland designs &rarr;</a>
  </div>
- <div class="grid"><article class="card reveal" data-type="T-Shirt" data-team="cleveland-browns" data-theme="player" style="--ca:#C8410B;--ca-ink:#9C3208;--ca-tint:#FDF3EE;--ca-2:#3B2415;--btn:#49a59c;--btn-h:#3a847d;--accent:#C8410B">
+ <div class="grid"><article class="card reveal" data-slug="limited-edition-the-wall-graham" data-type="T-Shirt" data-team="cleveland-browns" data-theme="player" style="--ca:#C8410B;--ca-ink:#9C3208;--ca-tint:#FDF3EE;--ca-2:#3B2415;--btn:#49a59c;--btn-h:#3a847d;--accent:#C8410B">
  <a href="./shop/limited-edition-the-wall-graham/" aria-label="The Wall Graham Browns Shirt">
   <div class="ph"><span class="tagpill">Player</span><span class="glow"></span><span class="sweep"></span>
    <img src="./img/p/limited-edition-the-wall-graham-front.webp" alt="The Wall Graham Browns Shirt - THE WALL - MASON GRAHAM 94" width="530" height="630">
@@ -268,7 +444,8 @@
    <span class="price">$21.99</span>
   </div>
  </a>
- <button class="qv" type="button" aria-label="Quick view The Wall Graham Browns Shirt">Quick view</button></article><article class="card reveal" data-type="T-Shirt" data-team="cleveland-browns" data-theme="player" style="--ca:#C8410B;--ca-ink:#9C3208;--ca-tint:#FDF3EE;--ca-2:#3B2415;--btn:#49a59c;--btn-h:#3a847d;--accent:#C8410B">
+ <button class="qv" type="button" aria-label="Quick view The Wall Graham Browns Shirt">Quick view</button>
+ <button class="fav" type="button" aria-label="Favourite The Wall Graham Browns Shirt" aria-pressed="false" data-slug="limited-edition-the-wall-graham"><svg width="16" height="16" viewBox="0 0 24 24" aria-hidden="true"><path d="M12 20.4 4.8 13.2a4.6 4.6 0 1 1 6.5-6.5l.7.7.7-.7a4.6 4.6 0 1 1 6.5 6.5Z"/></svg></button></article><article class="card reveal" data-slug="limited-edition-rock-out-denzel" data-type="T-Shirt" data-team="cleveland-browns" data-theme="player" style="--ca:#C8410B;--ca-ink:#9C3208;--ca-tint:#FDF3EE;--ca-2:#3B2415;--btn:#49a59c;--btn-h:#3a847d;--accent:#C8410B">
  <a href="./shop/limited-edition-rock-out-denzel/" aria-label="Denzel Ward Rock Out Browns Shirt">
   <div class="ph"><span class="tagpill">Player</span><span class="glow"></span><span class="sweep"></span>
    <img src="./img/p/limited-edition-rock-out-denzel-front.webp" alt="Denzel Ward Rock Out Browns Shirt - ROCK OUT - DENZEL WARD 21" width="530" height="630">
@@ -280,7 +457,8 @@
    <span class="price">$21.99</span>
   </div>
  </a>
- <button class="qv" type="button" aria-label="Quick view Denzel Ward Rock Out Browns Shirt">Quick view</button></article><article class="card reveal" data-type="T-Shirt" data-team="cleveland-browns" data-theme="player" style="--ca:#C8410B;--ca-ink:#9C3208;--ca-tint:#FDF3EE;--ca-2:#3B2415;--btn:#49a59c;--btn-h:#3a847d;--accent:#C8410B">
+ <button class="qv" type="button" aria-label="Quick view Denzel Ward Rock Out Browns Shirt">Quick view</button>
+ <button class="fav" type="button" aria-label="Favourite Denzel Ward Rock Out Browns Shirt" aria-pressed="false" data-slug="limited-edition-rock-out-denzel"><svg width="16" height="16" viewBox="0 0 24 24" aria-hidden="true"><path d="M12 20.4 4.8 13.2a4.6 4.6 0 1 1 6.5-6.5l.7.7.7-.7a4.6 4.6 0 1 1 6.5 6.5Z"/></svg></button></article><article class="card reveal" data-slug="limited-edition-no-fly-zone-denzel" data-type="T-Shirt" data-team="cleveland-browns" data-theme="player" style="--ca:#C8410B;--ca-ink:#9C3208;--ca-tint:#FDF3EE;--ca-2:#3B2415;--btn:#49a59c;--btn-h:#3a847d;--accent:#C8410B">
  <a href="./shop/limited-edition-no-fly-zone-denzel/" aria-label="No Fly Zone Denzel Ward Browns Shirt">
   <div class="ph"><span class="tagpill">Player</span><span class="glow"></span><span class="sweep"></span>
    <img src="./img/p/limited-edition-no-fly-zone-denzel-front.webp" alt="No Fly Zone Denzel Ward Browns Shirt - NO FLY ZONE - DENZEL WARD 21" width="530" height="630">
@@ -292,7 +470,8 @@
    <span class="price">$21.99</span>
   </div>
  </a>
- <button class="qv" type="button" aria-label="Quick view No Fly Zone Denzel Ward Browns Shirt">Quick view</button></article><article class="card reveal" data-type="T-Shirt" data-team="cleveland-browns" data-theme="player" style="--ca:#C8410B;--ca-ink:#9C3208;--ca-tint:#FDF3EE;--ca-2:#3B2415;--btn:#49a59c;--btn-h:#3a847d;--accent:#C8410B">
+ <button class="qv" type="button" aria-label="Quick view No Fly Zone Denzel Ward Browns Shirt">Quick view</button>
+ <button class="fav" type="button" aria-label="Favourite No Fly Zone Denzel Ward Browns Shirt" aria-pressed="false" data-slug="limited-edition-no-fly-zone-denzel"><svg width="16" height="16" viewBox="0 0 24 24" aria-hidden="true"><path d="M12 20.4 4.8 13.2a4.6 4.6 0 1 1 6.5-6.5l.7.7.7-.7a4.6 4.6 0 1 1 6.5 6.5Z"/></svg></button></article><article class="card reveal" data-slug="sanders-the-next-level" data-type="T-Shirt" data-team="cleveland-browns" data-theme="player" style="--ca:#C8410B;--ca-ink:#9C3208;--ca-tint:#FDF3EE;--ca-2:#3B2415;--btn:#49a59c;--btn-h:#3a847d;--accent:#C8410B">
  <a href="./shop/sanders-the-next-level/" aria-label="Shedeur Sanders The Next Level Shirt">
   <div class="ph"><span class="tagpill hot">Trending</span><span class="glow"></span><span class="sweep"></span>
    <img src="./img/p/sanders-the-next-level-front.webp" alt="Shedeur Sanders The Next Level Shirt - SANDERS - THE NEXT LEVEL" width="530" height="630">
@@ -304,14 +483,15 @@
    <span class="price">$21.99</span>
   </div>
  </a>
- <button class="qv" type="button" aria-label="Quick view Shedeur Sanders The Next Level Shirt">Quick view</button></article></div>
+ <button class="qv" type="button" aria-label="Quick view Shedeur Sanders The Next Level Shirt">Quick view</button>
+ <button class="fav" type="button" aria-label="Favourite Shedeur Sanders The Next Level Shirt" aria-pressed="false" data-slug="sanders-the-next-level"><svg width="16" height="16" viewBox="0 0 24 24" aria-hidden="true"><path d="M12 20.4 4.8 13.2a4.6 4.6 0 1 1 6.5-6.5l.7.7.7-.7a4.6 4.6 0 1 1 6.5 6.5Z"/></svg></button></article></div>
 </div></section><section class="teamsec" style="border-top:1px solid var(--line);--ca:#1A6B47;--ca-ink:#155739;--ca-tint:#EFF6F2;--ca-2:#D8A21A;--btn:#49a59c;--btn-h:#3a847d;--accent:#1A6B47"><div class="wrap">
  <div class="sechead reveal">
   <div><h2><span class="accentword">Green Bay</span> Collection</h2>
    <p>Green and gold for the frozen tundra faithful - cheesehead humour, Lambeau tributes, EST 1919 crests and Go Pack Go scripts on tees, hoodies and crewn</p></div>
   <a class="link" href="./green-bay-packers-shirts/">View all 37 Green Bay designs &rarr;</a>
  </div>
- <div class="grid"><article class="card reveal" data-type="T-Shirt" data-team="green-bay-packers" data-theme="classic" style="--ca:#1A6B47;--ca-ink:#155739;--ca-tint:#EFF6F2;--ca-2:#D8A21A;--btn:#49a59c;--btn-h:#3a847d;--accent:#1A6B47">
+ <div class="grid"><article class="card reveal" data-slug="limited-edition-grb41" data-type="T-Shirt" data-team="green-bay-packers" data-theme="classic" style="--ca:#1A6B47;--ca-ink:#155739;--ca-tint:#EFF6F2;--ca-2:#D8A21A;--btn:#49a59c;--btn-h:#3a847d;--accent:#1A6B47">
  <a href="./shop/limited-edition-grb41/" aria-label="Limited Edition GRB41">
   <div class="ph"><span class="tagpill">Classic</span><span class="glow"></span><span class="sweep"></span>
    <img src="./img/p/limited-edition-grb41-front.webp" alt="Limited Edition GRB41 - LIMITED EDITION GRB41" width="530" height="630">
@@ -323,7 +503,8 @@
    <span class="price">$24.99</span>
   </div>
  </a>
- <button class="qv" type="button" aria-label="Quick view Limited Edition GRB41">Quick view</button></article><article class="card reveal" data-type="T-Shirt" data-team="green-bay-packers" data-theme="family" style="--ca:#1A6B47;--ca-ink:#155739;--ca-tint:#EFF6F2;--ca-2:#D8A21A;--btn:#49a59c;--btn-h:#3a847d;--accent:#1A6B47">
+ <button class="qv" type="button" aria-label="Quick view Limited Edition GRB41">Quick view</button>
+ <button class="fav" type="button" aria-label="Favourite Limited Edition GRB41" aria-pressed="false" data-slug="limited-edition-grb41"><svg width="16" height="16" viewBox="0 0 24 24" aria-hidden="true"><path d="M12 20.4 4.8 13.2a4.6 4.6 0 1 1 6.5-6.5l.7.7.7-.7a4.6 4.6 0 1 1 6.5 6.5Z"/></svg></button></article><article class="card reveal" data-slug="limited-edition-grb37" data-type="T-Shirt" data-team="green-bay-packers" data-theme="family" style="--ca:#1A6B47;--ca-ink:#155739;--ca-tint:#EFF6F2;--ca-2:#D8A21A;--btn:#49a59c;--btn-h:#3a847d;--accent:#1A6B47">
  <a href="./shop/limited-edition-grb37/" aria-label="This Girl Loves The Pack Shirt">
   <div class="ph"><span class="tagpill">Gift</span><span class="glow"></span><span class="sweep"></span>
    <img src="./img/p/limited-edition-grb37-front.webp" alt="This Girl Loves The Pack Shirt - THIS GIRL LOVES THE PACK with crown and hands" width="530" height="630">
@@ -335,7 +516,8 @@
    <span class="price">$24.99</span>
   </div>
  </a>
- <button class="qv" type="button" aria-label="Quick view This Girl Loves The Pack Shirt">Quick view</button></article><article class="card reveal" data-type="T-Shirt" data-team="green-bay-packers" data-theme="player" style="--ca:#1A6B47;--ca-ink:#155739;--ca-tint:#EFF6F2;--ca-2:#D8A21A;--btn:#49a59c;--btn-h:#3a847d;--accent:#1A6B47">
+ <button class="qv" type="button" aria-label="Quick view This Girl Loves The Pack Shirt">Quick view</button>
+ <button class="fav" type="button" aria-label="Favourite This Girl Loves The Pack Shirt" aria-pressed="false" data-slug="limited-edition-grb37"><svg width="16" height="16" viewBox="0 0 24 24" aria-hidden="true"><path d="M12 20.4 4.8 13.2a4.6 4.6 0 1 1 6.5-6.5l.7.7.7-.7a4.6 4.6 0 1 1 6.5 6.5Z"/></svg></button></article><article class="card reveal" data-slug="limited-edition-grb36" data-type="T-Shirt" data-team="green-bay-packers" data-theme="player" style="--ca:#1A6B47;--ca-ink:#155739;--ca-tint:#EFF6F2;--ca-2:#D8A21A;--btn:#49a59c;--btn-h:#3a847d;--accent:#1A6B47">
  <a href="./shop/limited-edition-grb36/" aria-label="Jordan Love 10 Flag Number Shirt">
   <div class="ph"><span class="tagpill">Player</span><span class="glow"></span><span class="sweep"></span>
    <img src="./img/p/limited-edition-grb36-front.webp" alt="Jordan Love 10 Flag Number Shirt - Player with a stars and stripes number 10" width="530" height="630">
@@ -347,7 +529,8 @@
    <span class="price">$24.99</span>
   </div>
  </a>
- <button class="qv" type="button" aria-label="Quick view Jordan Love 10 Flag Number Shirt">Quick view</button></article><article class="card reveal" data-type="Mug" data-team="green-bay-packers" data-theme="funny" style="--ca:#1A6B47;--ca-ink:#155739;--ca-tint:#EFF6F2;--ca-2:#D8A21A;--btn:#49a59c;--btn-h:#3a847d;--accent:#1A6B47">
+ <button class="qv" type="button" aria-label="Quick view Jordan Love 10 Flag Number Shirt">Quick view</button>
+ <button class="fav" type="button" aria-label="Favourite Jordan Love 10 Flag Number Shirt" aria-pressed="false" data-slug="limited-edition-grb36"><svg width="16" height="16" viewBox="0 0 24 24" aria-hidden="true"><path d="M12 20.4 4.8 13.2a4.6 4.6 0 1 1 6.5-6.5l.7.7.7-.7a4.6 4.6 0 1 1 6.5 6.5Z"/></svg></button></article><article class="card reveal" data-slug="limited-edition-grb35" data-type="Mug" data-team="green-bay-packers" data-theme="funny" style="--ca:#1A6B47;--ca-ink:#155739;--ca-tint:#EFF6F2;--ca-2:#D8A21A;--btn:#49a59c;--btn-h:#3a847d;--accent:#1A6B47">
  <a href="./shop/limited-edition-grb35/" aria-label="Cheese Heart Green Bay Mug">
   <div class="ph"><span class="tagpill">Funny</span><span class="glow"></span><span class="sweep"></span>
    <img src="./img/p/limited-edition-grb35-front.webp" alt="Cheese Heart Green Bay Mug - Cheese wedge heart on a black mug" width="530" height="630">
@@ -359,14 +542,15 @@
    <span class="price">$19.99</span>
   </div>
  </a>
- <button class="qv" type="button" aria-label="Quick view Cheese Heart Green Bay Mug">Quick view</button></article></div>
+ <button class="qv" type="button" aria-label="Quick view Cheese Heart Green Bay Mug">Quick view</button>
+ <button class="fav" type="button" aria-label="Favourite Cheese Heart Green Bay Mug" aria-pressed="false" data-slug="limited-edition-grb35"><svg width="16" height="16" viewBox="0 0 24 24" aria-hidden="true"><path d="M12 20.4 4.8 13.2a4.6 4.6 0 1 1 6.5-6.5l.7.7.7-.7a4.6 4.6 0 1 1 6.5 6.5Z"/></svg></button></article></div>
 </div></section><section class="teamsec" style="border-top:1px solid var(--line);--ca:#2C4A72;--ca-ink:#26405F;--ca-tint:#F2F5F9;--ca-2:#97A6B8;--btn:#49a59c;--btn-h:#3a847d;--accent:#2C4A72"><div class="wrap">
  <div class="sechead reveal">
   <div><h2><span class="accentword">Dallas</span> Collection</h2>
    <p>Celebrate your pride for the city with classic vintage-style designs - worn-in athletic prints, star-city lettering and Texas pride, for game days and</p></div>
   <a class="link" href="./dallas-cowboys-shirts/">View all 10 Dallas designs &rarr;</a>
  </div>
- <div class="grid"><article class="card reveal" data-type="T-Shirt" data-team="dallas-cowboys" data-theme="retro" style="--ca:#2C4A72;--ca-ink:#26405F;--ca-tint:#F2F5F9;--ca-2:#97A6B8;--btn:#49a59c;--btn-h:#3a847d;--accent:#2C4A72">
+ <div class="grid"><article class="card reveal" data-slug="doomsday-defense-tee" data-type="T-Shirt" data-team="dallas-cowboys" data-theme="retro" style="--ca:#2C4A72;--ca-ink:#26405F;--ca-tint:#F2F5F9;--ca-2:#97A6B8;--btn:#49a59c;--btn-h:#3a847d;--accent:#2C4A72">
  <a href="./shop/doomsday-defense-tee/" aria-label="Doomsday Defense Dallas Football Shirt">
   <div class="ph"><span class="tagpill">Vintage</span><span class="glow"></span><span class="sweep"></span>
    <img src="./img/p/doomsday-defense-tee-front.webp" alt="Doomsday Defense Dallas Football Shirt - DOOMSDAY DEFENSE with skull in a retro helmet and stars" width="530" height="630">
@@ -378,7 +562,8 @@
    <span class="price">$21.99</span>
   </div>
  </a>
- <button class="qv" type="button" aria-label="Quick view Doomsday Defense Dallas Football Shirt">Quick view</button></article><article class="card reveal" data-type="T-Shirt" data-team="dallas-cowboys" data-theme="family" style="--ca:#2C4A72;--ca-ink:#26405F;--ca-tint:#F2F5F9;--ca-2:#97A6B8;--btn:#49a59c;--btn-h:#3a847d;--accent:#2C4A72">
+ <button class="qv" type="button" aria-label="Quick view Doomsday Defense Dallas Football Shirt">Quick view</button>
+ <button class="fav" type="button" aria-label="Favourite Doomsday Defense Dallas Football Shirt" aria-pressed="false" data-slug="doomsday-defense-tee"><svg width="16" height="16" viewBox="0 0 24 24" aria-hidden="true"><path d="M12 20.4 4.8 13.2a4.6 4.6 0 1 1 6.5-6.5l.7.7.7-.7a4.6 4.6 0 1 1 6.5 6.5Z"/></svg></button></article><article class="card reveal" data-slug="girly-vintage-texas-pride" data-type="T-Shirt" data-team="dallas-cowboys" data-theme="family" style="--ca:#2C4A72;--ca-ink:#26405F;--ca-tint:#F2F5F9;--ca-2:#97A6B8;--btn:#49a59c;--btn-h:#3a847d;--accent:#2C4A72">
  <a href="./shop/girly-vintage-texas-pride/" aria-label="This Girl Loves Cowboys Women&#x27;s Shirt">
   <div class="ph"><span class="tagpill">Gift</span><span class="glow"></span><span class="sweep"></span>
    <img src="./img/p/girly-vintage-texas-pride-front.webp" alt="This Girl Loves Cowboys Women&#x27;s Shirt - THIS GIRL LOVES COWBOYS with football and stars" width="530" height="630">
@@ -390,7 +575,8 @@
    <span class="price">$21.99</span>
   </div>
  </a>
- <button class="qv" type="button" aria-label="Quick view This Girl Loves Cowboys Women&#x27;s Shirt">Quick view</button></article><article class="card reveal" data-type="T-Shirt" data-team="dallas-cowboys" data-theme="retro" style="--ca:#2C4A72;--ca-ink:#26405F;--ca-tint:#F2F5F9;--ca-2:#97A6B8;--btn:#49a59c;--btn-h:#3a847d;--accent:#2C4A72">
+ <button class="qv" type="button" aria-label="Quick view This Girl Loves Cowboys Women&#x27;s Shirt">Quick view</button>
+ <button class="fav" type="button" aria-label="Favourite This Girl Loves Cowboys Women&#x27;s Shirt" aria-pressed="false" data-slug="girly-vintage-texas-pride"><svg width="16" height="16" viewBox="0 0 24 24" aria-hidden="true"><path d="M12 20.4 4.8 13.2a4.6 4.6 0 1 1 6.5-6.5l.7.7.7-.7a4.6 4.6 0 1 1 6.5 6.5Z"/></svg></button></article><article class="card reveal" data-slug="dallas-football-vintage-style-tee" data-type="T-Shirt" data-team="dallas-cowboys" data-theme="retro" style="--ca:#2C4A72;--ca-ink:#26405F;--ca-tint:#F2F5F9;--ca-2:#97A6B8;--btn:#49a59c;--btn-h:#3a847d;--accent:#2C4A72">
  <a href="./shop/dallas-football-vintage-style-tee/" aria-label="Dallas Football Star Lightning Vintage Shirt">
   <div class="ph"><span class="tagpill">Vintage</span><span class="glow"></span><span class="sweep"></span>
    <img src="./img/p/dallas-football-vintage-style-tee-front.webp" alt="Dallas Football Star Lightning Vintage Shirt - DALLAS FOOTBALL with star, lightning bolts and football" width="530" height="630">
@@ -402,7 +588,8 @@
    <span class="price">$21.99</span>
   </div>
  </a>
- <button class="qv" type="button" aria-label="Quick view Dallas Football Star Lightning Vintage Shirt">Quick view</button></article><article class="card reveal" data-type="T-Shirt" data-team="dallas-cowboys" data-theme="retro" style="--ca:#2C4A72;--ca-ink:#26405F;--ca-tint:#F2F5F9;--ca-2:#97A6B8;--btn:#49a59c;--btn-h:#3a847d;--accent:#2C4A72">
+ <button class="qv" type="button" aria-label="Quick view Dallas Football Star Lightning Vintage Shirt">Quick view</button>
+ <button class="fav" type="button" aria-label="Favourite Dallas Football Star Lightning Vintage Shirt" aria-pressed="false" data-slug="dallas-football-vintage-style-tee"><svg width="16" height="16" viewBox="0 0 24 24" aria-hidden="true"><path d="M12 20.4 4.8 13.2a4.6 4.6 0 1 1 6.5-6.5l.7.7.7-.7a4.6 4.6 0 1 1 6.5 6.5Z"/></svg></button></article><article class="card reveal" data-slug="dallas-football-vintage-athletic-style-f" data-type="T-Shirt" data-team="dallas-cowboys" data-theme="retro" style="--ca:#2C4A72;--ca-ink:#26405F;--ca-tint:#F2F5F9;--ca-2:#97A6B8;--btn:#49a59c;--btn-h:#3a847d;--accent:#2C4A72">
  <a href="./shop/dallas-football-vintage-athletic-style-f/" aria-label="Dallas Football 1960 Helmet Vintage Shirt">
   <div class="ph"><span class="tagpill">Vintage</span><span class="glow"></span><span class="sweep"></span>
    <img src="./img/p/dallas-football-vintage-athletic-style-f-front.webp" alt="Dallas Football 1960 Helmet Vintage Shirt - DALLAS FOOTBALL 1960 DALLAS, TEXAS with retro helmet" width="530" height="630">
@@ -414,11 +601,18 @@
    <span class="price">$21.99</span>
   </div>
  </a>
- <button class="qv" type="button" aria-label="Quick view Dallas Football 1960 Helmet Vintage Shirt">Quick view</button></article></div>
+ <button class="qv" type="button" aria-label="Quick view Dallas Football 1960 Helmet Vintage Shirt">Quick view</button>
+ <button class="fav" type="button" aria-label="Favourite Dallas Football 1960 Helmet Vintage Shirt" aria-pressed="false" data-slug="dallas-football-vintage-athletic-style-f"><svg width="16" height="16" viewBox="0 0 24 24" aria-hidden="true"><path d="M12 20.4 4.8 13.2a4.6 4.6 0 1 1 6.5-6.5l.7.7.7-.7a4.6 4.6 0 1 1 6.5 6.5Z"/></svg></button></article></div>
 </div></section>
 </div>
-<section class="ftisec"><div class="wrap"><div class="sechead reveal"><div><span class="eyebrow"><span class="dot"></span> Live · updated 2026-09-08</span><h2>Fan <span class="accentword">Trend Index</span></h2><p>Who the headlines are actually about, scored 0-100 against the hottest name in our four fanbases.</p></div><a class="link" href="./fan-trend-index/">Full index &rarr;</a></div><div class="fti-chips"><a class="fti-chip" style="--ca:#C8410B;--ca-ink:#9C3208;--ca-tint:#FDF3EE;--ca-2:#3B2415;--btn:#49a59c;--btn-h:#3a847d;--accent:#C8410B" href="./fan-trend-index/"><b>#1 · 100</b><span>Deshaun Watson</span><em>Cleveland</em></a><a class="fti-chip" style="--ca:#C8410B;--ca-ink:#9C3208;--ca-tint:#FDF3EE;--ca-2:#3B2415;--btn:#49a59c;--btn-h:#3a847d;--accent:#C8410B" href="./shop/sanders-the-next-level/"><b>#2 · 83</b><span>Shedeur Sanders</span><em>Cleveland</em></a><a class="fti-chip" style="--ca:#00274C;--ca-ink:#00274C;--ca-tint:#F2F5F9;--ca-2:#E8B800;--btn:#49a59c;--btn-h:#3a847d;--accent:#00274C" href="./shop/limited-edition-second-act-qb19/"><b>#3 · 59</b><span>Bryce Underwood</span><em>Michigan</em></a><a class="fti-chip" style="--ca:#00274C;--ca-ink:#00274C;--ca-tint:#F2F5F9;--ca-2:#E8B800;--btn:#49a59c;--btn-h:#3a847d;--accent:#00274C" href="./fan-trend-index/"><b>#4 · 45</b><span>Kyle Whittingham</span><em>Michigan</em></a></div></div></section>
-<div class="newsticker"><div class="track"><a href="https://news.google.com/rss/articles/CBMipgFBVV95cUxOQk9NbzAwUnp0U0lxR0lmRTl2am13cTNaeWVrdVIwREpuVFVSZ2JnMU9VWHhGUHdKV09SU0YwTk9fZkU5am41Nk93eFlwM1Z3ejJIeU1pWHFLa0ZCWEktajFnS3A1d1ZMdlpKVnZxS0dfOVVIOGRyc0RJc0Nfb1FNWEduNTlZWjEzeUxqM2dVU2dpUFZKLUNFNEFxSHE4Tmg0THg2TkJB?oc=5" target="_blank" rel="nofollow noopener"><i class="hot">[Cleveland] Browns announce initial 53-man roster heading into the 2026 season</i></a><a href="https://news.google.com/rss/articles/CBMizgFBVV95cUxOR2xkSGFFZlJkVHpxWi03RU1hSmZJQVFwZlVkRkw3cTdpZU53SFI5TGN6cy1zU3E3elZsX0kzSnhETF9jeHVva1NBY0EtVkZOaC1tY3VTM2lkNDlaOUdESFBLaThJM1pkTUdXSk1RUFZXVmVQRUJqVzFvQVZOcTBBNTR0VTdma0xFTkpmUkQ3b1pkUFhJT3ZWWUtsV0NMUmFCd2FoUGFvaVFHUjdfZnpLMzdKQ0VuYWZEWlNYa3F1ajU0bTF3ZkdHbS1TV0EwQQ?oc=5" target="_blank" rel="nofollow noopener"><i class="hot">[Cleveland] Cleveland Browns have a strategy that may just be crazy enough to work</i></a><a href="https://news.google.com/rss/articles/CBMigAJBVV95cUxONUpuLUo5c0RpZzdocE9IYlUwYTNzU19Lb1VLWWwyaVhNQnFYOS1iMk45Vm44NnlNTU4tZTlkSllLcGJyYmNkQVZGRkJsN2E1S1JaZndMYnllYUp1VHlLekJpTFRUb2NUY2FYT2lLMkdlNjcwRlo3NnAxSlBxaFdCclJCZUMtQlpPcHJCdDZWSUo5eVk0eHJwVHpRTVBkNkk1Sml0a3JOQnJ5RDE3QWg5MHRtRUhMQUVSdFZPcTlRaE9fQW9XTlRoT3B3a18xcUc4WGRzWVZYV24tQ21rMV9SN1RtekhqWkZlLWw0SGpfaUxtdG1aWjlaRWVKeDRWejdD0gGUAkFVX3lxTE5jdU1LdkUzb0N5MVdUYVBpN3cyQzRpc2Jvc1AtcE9ZNHMzVkI3a1JJbjdEeWRXa2pzdkxHLUFMTlE4cVdPQV9NaTRZM1ZSNWs2TVhlVmVOS3lGNkJqa0wtZ05yekp0d0U1VHNkLWF6Tk51WkI1VE54UHI1NFp5emdaLWFxdjFIdzF0SzJWaWwyb3BhX3h4bDNJVTNQQkVVRzdlNi1fNmtheHJCekFQS3FjV1NSQWU3NDB0VnVYOXh2TmExNFprczRPeWZiYmUzYkcyZHR2bWo0MExnM0Z6aWp0c1N3NWZOTVlLQjJhd2RDa1Brd2xzV0pXbGczdUdpSFZkQnJBcmNSWXlDQWZmQWhFbUVGSw?oc=5" target="_blank" rel="nofollow noopener"><i class="hot">[Cleveland] Would the Browns consider throwing the ball to QB Taylen Green? The surprise of camp re-signed to the practic</i></a><a href="https://news.google.com/rss/articles/CBMiekFVX3lxTFBfRGZTYlhHM0ZLTHlPWUNtLXFGTE5McWxucTdDSlZWOHhVbmlQNlBYUFVjeEtQUXpDX0dtdEVjNE1uZ0R6d0NEMklCSHF3RjMyZXpGdDl1anhHOUFfMjMySjNKZEZxTzM2dlNZMnQ0VHRHTElxaTNCX3RB?oc=5" target="_blank" rel="nofollow noopener"><i class="hot">[Green Bay] Packers announce roster moves | Aug. 30, 2026</i></a><a href="https://news.google.com/rss/articles/CBMisAFBVV95cUxQWlY2cFJhNE15UVZCam5TcUQtUWJBcXoxUkU1aXg1M3RGWXlXcVVIeUl4ODhaeXBpSDdkdTZTcVFTNWJ5ckF1dXJ0N2R6elJlckR3NWRpb1dXZkZTMFNySE1VUlFKX2dReXZubFl3S3lHS1Jvckp4T1VERXF6VWJOYjdaMUxtSFdUYlkxanNKaG9rRDJaOHRDd19NYmxEZm1BTXRpVjdXUU0teEFocWVNSA?oc=5" target="_blank" rel="nofollow noopener"><i class="hot">[Green Bay] September 6, 2024- Green Bay Packers play first NFL game in South America.</i></a><a href="https://news.google.com/rss/articles/CBMihAFBVV95cUxNM2ticEhsQ1RSR1RkcVUxdm5PTXNjS0g4c3hoMmlvWkdVSnl4SWRGalFTR1NfS3QtUHRmbmkxQ1B5REV0cHhhZkJ5bENtU3ctOVhhdnA5RFVYemJ5WEg1cUx3YzZKempCWlp2R051ZHlsOGY3N0dDcS1la2xZZ1djWDJoeVU?oc=5" target="_blank" rel="nofollow noopener"><i class="hot">[Green Bay] Green Bay Packers receive low defensive ranking from PFF prior to Week 1 of 2026 NFL season</i></a><a href="https://news.google.com/rss/articles/CBMisAFBVV95cUxQTlZuQ1hPOWZNQzcwM0VzeEZoMnU3ekpVcDN1SmhNbndlMXgwdXNuOTJtR3loUWQzbkVIZGRhZEw0ZVp2SS1zaVZvc1NEQVBlYWl3RmFBT1pNdzhlcGJDeFp2aXZlTUxOMWx3YmUxRWx1blR6VVBIaGwwQkt6NkN2Mjlkb1p1WG1VczRnYnRSZmQzVlNhQ0V5b3VCRG81NnB5Zk1IaXdvSFVaelFtYnNSNw?oc=5" target="_blank" rel="nofollow noopener"><i class="hot">[Dallas] Emari Demercado returns &#x27;home&#x27; to Dallas, has reason to be excited with Cowboys</i></a><a href="https://news.google.com/rss/articles/CBMikgFBVV95cUxQX0tpcWhUdjhDclVYM2JvN1lyMHNnSmdYNVE5MVVPd0oyZGFQMjhJN3lBRU1pckEwNzROWUtKUG9YZ0ZLdTBfY0p1UENxazJWNE5yY1A2NWtMZTFlNWI4cVl1RXhicTU3eWQ0akRnUDFPTUNSeFZOMFl6Tl81MThYQTZOajduWExHS3BNWjUxMER1UQ?oc=5" target="_blank" rel="nofollow noopener"><i class="hot">[Dallas] Cowboys release initial 53-man roster for 2026 season</i></a><a href="https://news.google.com/rss/articles/CBMimwFBVV95cUxOVnFmOWNWdTg3Ykh0c1FPaWF6ZXZXOWdTWDNBTFdEUVFNTXdZUTJIcFZ4aWdmSXB3SkhIbW5COXdzRl9uVWloOVNjUzVRMjZSNWVsOS1PWWVrdnc4Z0hYMzNQT1NrTWxYQm1ZQlI1N1RtOWFGc0xvX1J3ZFlpYVp3SzBtc1kzcFprbUJOSEk0SENjNmt3eHVqeVllYw?oc=5" target="_blank" rel="nofollow noopener"><i class="hot">[Dallas] Why the Cowboys chose Sam Howell as their backup quarterback</i></a><a href="https://news.google.com/rss/articles/CBMitAFBVV95cUxQTkFMOXJPcHMwOEMyVlRxb3BZMWhwVlJkaERybEZoS09VMVFlVDJPSUdIeUxjSUl6LXUtOVZ0RnVuWEdZV2JHT1NkaTd0YlJxVFVESUdEcGxmd2VFbXBuZjFqUFdZZEFPQTlPRk53U25kV0tYY0llc05HdkZIWXBvQTRzWXdNcU5tTHVwakd5SDYxSjNrSFc3N0dvQm9EQ2tkVHNPejNEN21FeUh4bnhfc05YQkc?oc=5" target="_blank" rel="nofollow noopener"><i class="hot">[Michigan] Official Statement Regarding Western Michigan - Michigan Football Game</i></a><a href="https://news.google.com/rss/articles/CBMisgFBVV95cUxOOHU3QWhTNzlfQXI1X2lhTEI4eU9aQkpDQkp2NTBOMTNzRDZBcTJHdGhWRll1cXlRbWR5MERYSzNORkRiUDdnTDJxV3gzc05tTDF3XzBKYVBuYUgyOWdXbzhZZGNmWURWVUNBY3dDWC1vSzZsQUlxQlpNYTAwY0UtRGVRd2JNbTJDU1FJeUo5eWg5Z29yR0daWjlqX1hZVkZXS09NazU2VHhfUTdOV2FWTWJn?oc=5" target="_blank" rel="nofollow noopener"><i class="hot">[Michigan] Michigan Miracle: Wolverines Buck Broncos on Final Play to Open Season</i></a><a href="https://news.google.com/rss/articles/CBMi6gFBVV95cUxNUGRSV3h1ektXc0ZVYldlTHZ1elN0TkJOQmk4cmtUVE9RVERTQnpzcXM5RXVOYTRVX0RXOUg2cno0MzFCYnF2ekJnb0dpQlZaTjczUFEySlJsb1ZVeHBCYXV0dWpIZlRhUG5Oa2hQdnJQNEFGSnJUMl82bmtpQW1JUXRrSVpfcFF1c2tReTZWdVh0UHYxRzVsTnJmR3BSUGtoMUVaVmlYTzNZcmlMTXhFUFcyaWtRZHlMdG9mSmlCdm12bnlZUl9idVJnb3dFUnlzbjVLWEdGY084ZkZtamx3cjJZNFhDbGdRWUE?oc=5" target="_blank" rel="nofollow noopener"><i class="hot">[Michigan] Can Michigan&#x27;s controversial Hail Mary win over WMU be overturned?</i></a><a aria-hidden="true" tabindex="-1" href="https://news.google.com/rss/articles/CBMipgFBVV95cUxOQk9NbzAwUnp0U0lxR0lmRTl2am13cTNaeWVrdVIwREpuVFVSZ2JnMU9VWHhGUHdKV09SU0YwTk9fZkU5am41Nk93eFlwM1Z3ejJIeU1pWHFLa0ZCWEktajFnS3A1d1ZMdlpKVnZxS0dfOVVIOGRyc0RJc0Nfb1FNWEduNTlZWjEzeUxqM2dVU2dpUFZKLUNFNEFxSHE4Tmg0THg2TkJB?oc=5" target="_blank" rel="nofollow noopener"><i class="hot">[Cleveland] Browns announce initial 53-man roster heading into the 2026 season</i></a><a aria-hidden="true" tabindex="-1" href="https://news.google.com/rss/articles/CBMizgFBVV95cUxOR2xkSGFFZlJkVHpxWi03RU1hSmZJQVFwZlVkRkw3cTdpZU53SFI5TGN6cy1zU3E3elZsX0kzSnhETF9jeHVva1NBY0EtVkZOaC1tY3VTM2lkNDlaOUdESFBLaThJM1pkTUdXSk1RUFZXVmVQRUJqVzFvQVZOcTBBNTR0VTdma0xFTkpmUkQ3b1pkUFhJT3ZWWUtsV0NMUmFCd2FoUGFvaVFHUjdfZnpLMzdKQ0VuYWZEWlNYa3F1ajU0bTF3ZkdHbS1TV0EwQQ?oc=5" target="_blank" rel="nofollow noopener"><i class="hot">[Cleveland] Cleveland Browns have a strategy that may just be crazy enough to work</i></a><a aria-hidden="true" tabindex="-1" href="https://news.google.com/rss/articles/CBMigAJBVV95cUxONUpuLUo5c0RpZzdocE9IYlUwYTNzU19Lb1VLWWwyaVhNQnFYOS1iMk45Vm44NnlNTU4tZTlkSllLcGJyYmNkQVZGRkJsN2E1S1JaZndMYnllYUp1VHlLekJpTFRUb2NUY2FYT2lLMkdlNjcwRlo3NnAxSlBxaFdCclJCZUMtQlpPcHJCdDZWSUo5eVk0eHJwVHpRTVBkNkk1Sml0a3JOQnJ5RDE3QWg5MHRtRUhMQUVSdFZPcTlRaE9fQW9XTlRoT3B3a18xcUc4WGRzWVZYV24tQ21rMV9SN1RtekhqWkZlLWw0SGpfaUxtdG1aWjlaRWVKeDRWejdD0gGUAkFVX3lxTE5jdU1LdkUzb0N5MVdUYVBpN3cyQzRpc2Jvc1AtcE9ZNHMzVkI3a1JJbjdEeWRXa2pzdkxHLUFMTlE4cVdPQV9NaTRZM1ZSNWs2TVhlVmVOS3lGNkJqa0wtZ05yekp0d0U1VHNkLWF6Tk51WkI1VE54UHI1NFp5emdaLWFxdjFIdzF0SzJWaWwyb3BhX3h4bDNJVTNQQkVVRzdlNi1fNmtheHJCekFQS3FjV1NSQWU3NDB0VnVYOXh2TmExNFprczRPeWZiYmUzYkcyZHR2bWo0MExnM0Z6aWp0c1N3NWZOTVlLQjJhd2RDa1Brd2xzV0pXbGczdUdpSFZkQnJBcmNSWXlDQWZmQWhFbUVGSw?oc=5" target="_blank" rel="nofollow noopener"><i class="hot">[Cleveland] Would the Browns consider throwing the ball to QB Taylen Green? The surprise of camp re-signed to the practic</i></a><a aria-hidden="true" tabindex="-1" href="https://news.google.com/rss/articles/CBMiekFVX3lxTFBfRGZTYlhHM0ZLTHlPWUNtLXFGTE5McWxucTdDSlZWOHhVbmlQNlBYUFVjeEtQUXpDX0dtdEVjNE1uZ0R6d0NEMklCSHF3RjMyZXpGdDl1anhHOUFfMjMySjNKZEZxTzM2dlNZMnQ0VHRHTElxaTNCX3RB?oc=5" target="_blank" rel="nofollow noopener"><i class="hot">[Green Bay] Packers announce roster moves | Aug. 30, 2026</i></a><a aria-hidden="true" tabindex="-1" href="https://news.google.com/rss/articles/CBMisAFBVV95cUxQWlY2cFJhNE15UVZCam5TcUQtUWJBcXoxUkU1aXg1M3RGWXlXcVVIeUl4ODhaeXBpSDdkdTZTcVFTNWJ5ckF1dXJ0N2R6elJlckR3NWRpb1dXZkZTMFNySE1VUlFKX2dReXZubFl3S3lHS1Jvckp4T1VERXF6VWJOYjdaMUxtSFdUYlkxanNKaG9rRDJaOHRDd19NYmxEZm1BTXRpVjdXUU0teEFocWVNSA?oc=5" target="_blank" rel="nofollow noopener"><i class="hot">[Green Bay] September 6, 2024- Green Bay Packers play first NFL game in South America.</i></a><a aria-hidden="true" tabindex="-1" href="https://news.google.com/rss/articles/CBMihAFBVV95cUxNM2ticEhsQ1RSR1RkcVUxdm5PTXNjS0g4c3hoMmlvWkdVSnl4SWRGalFTR1NfS3QtUHRmbmkxQ1B5REV0cHhhZkJ5bENtU3ctOVhhdnA5RFVYemJ5WEg1cUx3YzZKempCWlp2R051ZHlsOGY3N0dDcS1la2xZZ1djWDJoeVU?oc=5" target="_blank" rel="nofollow noopener"><i class="hot">[Green Bay] Green Bay Packers receive low defensive ranking from PFF prior to Week 1 of 2026 NFL season</i></a><a aria-hidden="true" tabindex="-1" href="https://news.google.com/rss/articles/CBMisAFBVV95cUxQTlZuQ1hPOWZNQzcwM0VzeEZoMnU3ekpVcDN1SmhNbndlMXgwdXNuOTJtR3loUWQzbkVIZGRhZEw0ZVp2SS1zaVZvc1NEQVBlYWl3RmFBT1pNdzhlcGJDeFp2aXZlTUxOMWx3YmUxRWx1blR6VVBIaGwwQkt6NkN2Mjlkb1p1WG1VczRnYnRSZmQzVlNhQ0V5b3VCRG81NnB5Zk1IaXdvSFVaelFtYnNSNw?oc=5" target="_blank" rel="nofollow noopener"><i class="hot">[Dallas] Emari Demercado returns &#x27;home&#x27; to Dallas, has reason to be excited with Cowboys</i></a><a aria-hidden="true" tabindex="-1" href="https://news.google.com/rss/articles/CBMikgFBVV95cUxQX0tpcWhUdjhDclVYM2JvN1lyMHNnSmdYNVE5MVVPd0oyZGFQMjhJN3lBRU1pckEwNzROWUtKUG9YZ0ZLdTBfY0p1UENxazJWNE5yY1A2NWtMZTFlNWI4cVl1RXhicTU3eWQ0akRnUDFPTUNSeFZOMFl6Tl81MThYQTZOajduWExHS3BNWjUxMER1UQ?oc=5" target="_blank" rel="nofollow noopener"><i class="hot">[Dallas] Cowboys release initial 53-man roster for 2026 season</i></a><a aria-hidden="true" tabindex="-1" href="https://news.google.com/rss/articles/CBMimwFBVV95cUxOVnFmOWNWdTg3Ykh0c1FPaWF6ZXZXOWdTWDNBTFdEUVFNTXdZUTJIcFZ4aWdmSXB3SkhIbW5COXdzRl9uVWloOVNjUzVRMjZSNWVsOS1PWWVrdnc4Z0hYMzNQT1NrTWxYQm1ZQlI1N1RtOWFGc0xvX1J3ZFlpYVp3SzBtc1kzcFprbUJOSEk0SENjNmt3eHVqeVllYw?oc=5" target="_blank" rel="nofollow noopener"><i class="hot">[Dallas] Why the Cowboys chose Sam Howell as their backup quarterback</i></a><a aria-hidden="true" tabindex="-1" href="https://news.google.com/rss/articles/CBMitAFBVV95cUxQTkFMOXJPcHMwOEMyVlRxb3BZMWhwVlJkaERybEZoS09VMVFlVDJPSUdIeUxjSUl6LXUtOVZ0RnVuWEdZV2JHT1NkaTd0YlJxVFVESUdEcGxmd2VFbXBuZjFqUFdZZEFPQTlPRk53U25kV0tYY0llc05HdkZIWXBvQTRzWXdNcU5tTHVwakd5SDYxSjNrSFc3N0dvQm9EQ2tkVHNPejNEN21FeUh4bnhfc05YQkc?oc=5" target="_blank" rel="nofollow noopener"><i class="hot">[Michigan] Official Statement Regarding Western Michigan - Michigan Football Game</i></a><a aria-hidden="true" tabindex="-1" href="https://news.google.com/rss/articles/CBMisgFBVV95cUxOOHU3QWhTNzlfQXI1X2lhTEI4eU9aQkpDQkp2NTBOMTNzRDZBcTJHdGhWRll1cXlRbWR5MERYSzNORkRiUDdnTDJxV3gzc05tTDF3XzBKYVBuYUgyOWdXbzhZZGNmWURWVUNBY3dDWC1vSzZsQUlxQlpNYTAwY0UtRGVRd2JNbTJDU1FJeUo5eWg5Z29yR0daWjlqX1hZVkZXS09NazU2VHhfUTdOV2FWTWJn?oc=5" target="_blank" rel="nofollow noopener"><i class="hot">[Michigan] Michigan Miracle: Wolverines Buck Broncos on Final Play to Open Season</i></a><a aria-hidden="true" tabindex="-1" href="https://news.google.com/rss/articles/CBMi6gFBVV95cUxNUGRSV3h1ektXc0ZVYldlTHZ1elN0TkJOQmk4cmtUVE9RVERTQnpzcXM5RXVOYTRVX0RXOUg2cno0MzFCYnF2ekJnb0dpQlZaTjczUFEySlJsb1ZVeHBCYXV0dWpIZlRhUG5Oa2hQdnJQNEFGSnJUMl82bmtpQW1JUXRrSVpfcFF1c2tReTZWdVh0UHYxRzVsTnJmR3BSUGtoMUVaVmlYTzNZcmlMTXhFUFcyaWtRZHlMdG9mSmlCdm12bnlZUl9idVJnb3dFUnlzbjVLWEdGY084ZkZtamx3cjJZNFhDbGdRWUE?oc=5" target="_blank" rel="nofollow noopener"><i class="hot">[Michigan] Can Michigan&#x27;s controversial Hail Mary win over WMU be overturned?</i></a></div></div>
+<section class="guidesec"><div class="wrap">
+ <div class="sechead reveal"><div>
+  <span class="eyebrow"><span class="dot"></span> Know what you are buying</span>
+  <h2>Buying <span class="accentword">Guides</span></h2>
+  <p>Gridiron Locker's sizing, shipping and care answers in one place - no guesswork before checkout.</p></div>
+  <a class="link" href="./guides/">All guides &rarr;</a></div>
+ <div class="guide-grid"><a class="guide-card reveal" href="./guides/2026-week-1-shirts/"><span class="gc-kick">Game day</span><b>2026 Week 1 Shirts</b><span class="gc-go">Read &rarr;</span></a><a class="guide-card reveal" href="./size-guide/"><span class="gc-kick">Fit</span><b>Size Guide</b><span class="gc-go">Read &rarr;</span></a><a class="guide-card reveal" href="./shipping/"><span class="gc-kick">Delivery</span><b>Shipping &amp; Returns</b><span class="gc-go">Read &rarr;</span></a><a class="guide-card reveal" href="./faq/"><span class="gc-kick">Help</span><b>FAQ</b><span class="gc-go">Read &rarr;</span></a></div>
+</div></section>
 <section class="customsec"><div class="wrap">
  <div class="sechead reveal"><div>
   <span class="eyebrow"><span class="dot"></span> Made to order</span>
@@ -464,8 +658,28 @@
   </div>
  </div>
 </div></section>
-<button class="findpill" id="findpill" data-target="#quickfind" aria-label="Find a design">
- <span aria-hidden="true">&#128269;</span> Find your design</button></main>
+<section class="brandsec" id="brand"><div class="wrap">
+ <div class="brand-grid">
+  <div class="brand-copy reveal">
+   <span class="eyebrow"><span class="dot"></span> Join the locker</span>
+   <h2>Never miss a <span>drop.</span></h2>
+   <p>New original designs, weekly game-day news and the occasional fan-first deal. One email a week, no spam.</p>
+   <div class="brand-tags"><span>Cleveland</span><span>Green Bay</span><span>Dallas</span><span>Michigan</span></div>
+  </div>
+  <form class="newsform reveal" id="newsForm" method="POST" aria-label="Newsletter signup" novalidate>
+   <input type="hidden" name="_subject" value="Newsletter signup">
+   <input type="hidden" name="_template" value="table">
+   <input type="hidden" name="_captcha" value="false">
+   <input type="text" name="_honey" style="display:none" tabindex="-1" autocomplete="off">
+   <label for="newsEmail">Email address</label>
+   <span class="nf-row"><input id="newsEmail" type="email" name="email" required placeholder="you@example.com" autocomplete="email">
+   <button class="btn" type="submit">Join &rarr;</button></span>
+   <p class="formmsg" id="newsMsg" aria-live="polite">We only email about the locker. Unsubscribe anytime.</p>
+  </form>
+ </div>
+</div></section>
+<section class="ftisec"><div class="wrap"><div class="sechead reveal"><div><span class="eyebrow"><span class="dot"></span> Live · updated 2026-09-08</span><h2>Fan <span class="accentword">Trend Index</span></h2><p>Who the headlines are actually about, scored 0-100 against the hottest name in our four fanbases.</p></div><a class="link" href="./fan-trend-index/">Full index &rarr;</a></div><div class="fti-chips"><a class="fti-chip" style="--ca:#C8410B;--ca-ink:#9C3208;--ca-tint:#FDF3EE;--ca-2:#3B2415;--btn:#49a59c;--btn-h:#3a847d;--accent:#C8410B" href="./fan-trend-index/"><b>#1 · 100</b><span>Deshaun Watson</span><em>Cleveland</em></a><a class="fti-chip" style="--ca:#C8410B;--ca-ink:#9C3208;--ca-tint:#FDF3EE;--ca-2:#3B2415;--btn:#49a59c;--btn-h:#3a847d;--accent:#C8410B" href="./shop/sanders-the-next-level/"><b>#2 · 83</b><span>Shedeur Sanders</span><em>Cleveland</em></a><a class="fti-chip" style="--ca:#00274C;--ca-ink:#00274C;--ca-tint:#F2F5F9;--ca-2:#E8B800;--btn:#49a59c;--btn-h:#3a847d;--accent:#00274C" href="./shop/limited-edition-second-act-qb19/"><b>#3 · 59</b><span>Bryce Underwood</span><em>Michigan</em></a><a class="fti-chip" style="--ca:#00274C;--ca-ink:#00274C;--ca-tint:#F2F5F9;--ca-2:#E8B800;--btn:#49a59c;--btn-h:#3a847d;--accent:#00274C" href="./fan-trend-index/"><b>#4 · 45</b><span>Kyle Whittingham</span><em>Michigan</em></a></div></div></section>
+<div class="newsticker"><div class="track"><a href="https://news.google.com/rss/articles/CBMipgFBVV95cUxOQk9NbzAwUnp0U0lxR0lmRTl2am13cTNaeWVrdVIwREpuVFVSZ2JnMU9VWHhGUHdKV09SU0YwTk9fZkU5am41Nk93eFlwM1Z3ejJIeU1pWHFLa0ZCWEktajFnS3A1d1ZMdlpKVnZxS0dfOVVIOGRyc0RJc0Nfb1FNWEduNTlZWjEzeUxqM2dVU2dpUFZKLUNFNEFxSHE4Tmg0THg2TkJB?oc=5" target="_blank" rel="nofollow noopener"><i class="hot">[Cleveland] Browns announce initial 53-man roster heading into the 2026 season</i></a><a href="https://news.google.com/rss/articles/CBMizgFBVV95cUxOR2xkSGFFZlJkVHpxWi03RU1hSmZJQVFwZlVkRkw3cTdpZU53SFI5TGN6cy1zU3E3elZsX0kzSnhETF9jeHVva1NBY0EtVkZOaC1tY3VTM2lkNDlaOUdESFBLaThJM1pkTUdXSk1RUFZXVmVQRUJqVzFvQVZOcTBBNTR0VTdma0xFTkpmUkQ3b1pkUFhJT3ZWWUtsV0NMUmFCd2FoUGFvaVFHUjdfZnpLMzdKQ0VuYWZEWlNYa3F1ajU0bTF3ZkdHbS1TV0EwQQ?oc=5" target="_blank" rel="nofollow noopener"><i class="hot">[Cleveland] Cleveland Browns have a strategy that may just be crazy enough to work</i></a><a href="https://news.google.com/rss/articles/CBMigAJBVV95cUxONUpuLUo5c0RpZzdocE9IYlUwYTNzU19Lb1VLWWwyaVhNQnFYOS1iMk45Vm44NnlNTU4tZTlkSllLcGJyYmNkQVZGRkJsN2E1S1JaZndMYnllYUp1VHlLekJpTFRUb2NUY2FYT2lLMkdlNjcwRlo3NnAxSlBxaFdCclJCZUMtQlpPcHJCdDZWSUo5eVk0eHJwVHpRTVBkNkk1Sml0a3JOQnJ5RDE3QWg5MHRtRUhMQUVSdFZPcTlRaE9fQW9XTlRoT3B3a18xcUc4WGRzWVZYV24tQ21rMV9SN1RtekhqWkZlLWw0SGpfaUxtdG1aWjlaRWVKeDRWejdD0gGUAkFVX3lxTE5jdU1LdkUzb0N5MVdUYVBpN3cyQzRpc2Jvc1AtcE9ZNHMzVkI3a1JJbjdEeWRXa2pzdkxHLUFMTlE4cVdPQV9NaTRZM1ZSNWs2TVhlVmVOS3lGNkJqa0wtZ05yekp0d0U1VHNkLWF6Tk51WkI1VE54UHI1NFp5emdaLWFxdjFIdzF0SzJWaWwyb3BhX3h4bDNJVTNQQkVVRzdlNi1fNmtheHJCekFQS3FjV1NSQWU3NDB0VnVYOXh2TmExNFprczRPeWZiYmUzYkcyZHR2bWo0MExnM0Z6aWp0c1N3NWZOTVlLQjJhd2RDa1Brd2xzV0pXbGczdUdpSFZkQnJBcmNSWXlDQWZmQWhFbUVGSw?oc=5" target="_blank" rel="nofollow noopener"><i class="hot">[Cleveland] Would the Browns consider throwing the ball to QB Taylen Green? The surprise of camp re-signed to the practic</i></a><a href="https://news.google.com/rss/articles/CBMiekFVX3lxTFBfRGZTYlhHM0ZLTHlPWUNtLXFGTE5McWxucTdDSlZWOHhVbmlQNlBYUFVjeEtQUXpDX0dtdEVjNE1uZ0R6d0NEMklCSHF3RjMyZXpGdDl1anhHOUFfMjMySjNKZEZxTzM2dlNZMnQ0VHRHTElxaTNCX3RB?oc=5" target="_blank" rel="nofollow noopener"><i class="hot">[Green Bay] Packers announce roster moves | Aug. 30, 2026</i></a><a href="https://news.google.com/rss/articles/CBMisAFBVV95cUxQWlY2cFJhNE15UVZCam5TcUQtUWJBcXoxUkU1aXg1M3RGWXlXcVVIeUl4ODhaeXBpSDdkdTZTcVFTNWJ5ckF1dXJ0N2R6elJlckR3NWRpb1dXZkZTMFNySE1VUlFKX2dReXZubFl3S3lHS1Jvckp4T1VERXF6VWJOYjdaMUxtSFdUYlkxanNKaG9rRDJaOHRDd19NYmxEZm1BTXRpVjdXUU0teEFocWVNSA?oc=5" target="_blank" rel="nofollow noopener"><i class="hot">[Green Bay] September 6, 2024- Green Bay Packers play first NFL game in South America.</i></a><a href="https://news.google.com/rss/articles/CBMihAFBVV95cUxNM2ticEhsQ1RSR1RkcVUxdm5PTXNjS0g4c3hoMmlvWkdVSnl4SWRGalFTR1NfS3QtUHRmbmkxQ1B5REV0cHhhZkJ5bENtU3ctOVhhdnA5RFVYemJ5WEg1cUx3YzZKempCWlp2R051ZHlsOGY3N0dDcS1la2xZZ1djWDJoeVU?oc=5" target="_blank" rel="nofollow noopener"><i class="hot">[Green Bay] Green Bay Packers receive low defensive ranking from PFF prior to Week 1 of 2026 NFL season</i></a><a href="https://news.google.com/rss/articles/CBMisAFBVV95cUxQTlZuQ1hPOWZNQzcwM0VzeEZoMnU3ekpVcDN1SmhNbndlMXgwdXNuOTJtR3loUWQzbkVIZGRhZEw0ZVp2SS1zaVZvc1NEQVBlYWl3RmFBT1pNdzhlcGJDeFp2aXZlTUxOMWx3YmUxRWx1blR6VVBIaGwwQkt6NkN2Mjlkb1p1WG1VczRnYnRSZmQzVlNhQ0V5b3VCRG81NnB5Zk1IaXdvSFVaelFtYnNSNw?oc=5" target="_blank" rel="nofollow noopener"><i class="hot">[Dallas] Emari Demercado returns &#x27;home&#x27; to Dallas, has reason to be excited with Cowboys</i></a><a href="https://news.google.com/rss/articles/CBMikgFBVV95cUxQX0tpcWhUdjhDclVYM2JvN1lyMHNnSmdYNVE5MVVPd0oyZGFQMjhJN3lBRU1pckEwNzROWUtKUG9YZ0ZLdTBfY0p1UENxazJWNE5yY1A2NWtMZTFlNWI4cVl1RXhicTU3eWQ0akRnUDFPTUNSeFZOMFl6Tl81MThYQTZOajduWExHS3BNWjUxMER1UQ?oc=5" target="_blank" rel="nofollow noopener"><i class="hot">[Dallas] Cowboys release initial 53-man roster for 2026 season</i></a><a href="https://news.google.com/rss/articles/CBMimwFBVV95cUxOVnFmOWNWdTg3Ykh0c1FPaWF6ZXZXOWdTWDNBTFdEUVFNTXdZUTJIcFZ4aWdmSXB3SkhIbW5COXdzRl9uVWloOVNjUzVRMjZSNWVsOS1PWWVrdnc4Z0hYMzNQT1NrTWxYQm1ZQlI1N1RtOWFGc0xvX1J3ZFlpYVp3SzBtc1kzcFprbUJOSEk0SENjNmt3eHVqeVllYw?oc=5" target="_blank" rel="nofollow noopener"><i class="hot">[Dallas] Why the Cowboys chose Sam Howell as their backup quarterback</i></a><a href="https://news.google.com/rss/articles/CBMitAFBVV95cUxQTkFMOXJPcHMwOEMyVlRxb3BZMWhwVlJkaERybEZoS09VMVFlVDJPSUdIeUxjSUl6LXUtOVZ0RnVuWEdZV2JHT1NkaTd0YlJxVFVESUdEcGxmd2VFbXBuZjFqUFdZZEFPQTlPRk53U25kV0tYY0llc05HdkZIWXBvQTRzWXdNcU5tTHVwakd5SDYxSjNrSFc3N0dvQm9EQ2tkVHNPejNEN21FeUh4bnhfc05YQkc?oc=5" target="_blank" rel="nofollow noopener"><i class="hot">[Michigan] Official Statement Regarding Western Michigan - Michigan Football Game</i></a><a href="https://news.google.com/rss/articles/CBMisgFBVV95cUxOOHU3QWhTNzlfQXI1X2lhTEI4eU9aQkpDQkp2NTBOMTNzRDZBcTJHdGhWRll1cXlRbWR5MERYSzNORkRiUDdnTDJxV3gzc05tTDF3XzBKYVBuYUgyOWdXbzhZZGNmWURWVUNBY3dDWC1vSzZsQUlxQlpNYTAwY0UtRGVRd2JNbTJDU1FJeUo5eWg5Z29yR0daWjlqX1hZVkZXS09NazU2VHhfUTdOV2FWTWJn?oc=5" target="_blank" rel="nofollow noopener"><i class="hot">[Michigan] Michigan Miracle: Wolverines Buck Broncos on Final Play to Open Season</i></a><a href="https://news.google.com/rss/articles/CBMi6gFBVV95cUxNUGRSV3h1ektXc0ZVYldlTHZ1elN0TkJOQmk4cmtUVE9RVERTQnpzcXM5RXVOYTRVX0RXOUg2cno0MzFCYnF2ekJnb0dpQlZaTjczUFEySlJsb1ZVeHBCYXV0dWpIZlRhUG5Oa2hQdnJQNEFGSnJUMl82bmtpQW1JUXRrSVpfcFF1c2tReTZWdVh0UHYxRzVsTnJmR3BSUGtoMUVaVmlYTzNZcmlMTXhFUFcyaWtRZHlMdG9mSmlCdm12bnlZUl9idVJnb3dFUnlzbjVLWEdGY084ZkZtamx3cjJZNFhDbGdRWUE?oc=5" target="_blank" rel="nofollow noopener"><i class="hot">[Michigan] Can Michigan&#x27;s controversial Hail Mary win over WMU be overturned?</i></a><a aria-hidden="true" tabindex="-1" href="https://news.google.com/rss/articles/CBMipgFBVV95cUxOQk9NbzAwUnp0U0lxR0lmRTl2am13cTNaeWVrdVIwREpuVFVSZ2JnMU9VWHhGUHdKV09SU0YwTk9fZkU5am41Nk93eFlwM1Z3ejJIeU1pWHFLa0ZCWEktajFnS3A1d1ZMdlpKVnZxS0dfOVVIOGRyc0RJc0Nfb1FNWEduNTlZWjEzeUxqM2dVU2dpUFZKLUNFNEFxSHE4Tmg0THg2TkJB?oc=5" target="_blank" rel="nofollow noopener"><i class="hot">[Cleveland] Browns announce initial 53-man roster heading into the 2026 season</i></a><a aria-hidden="true" tabindex="-1" href="https://news.google.com/rss/articles/CBMizgFBVV95cUxOR2xkSGFFZlJkVHpxWi03RU1hSmZJQVFwZlVkRkw3cTdpZU53SFI5TGN6cy1zU3E3elZsX0kzSnhETF9jeHVva1NBY0EtVkZOaC1tY3VTM2lkNDlaOUdESFBLaThJM1pkTUdXSk1RUFZXVmVQRUJqVzFvQVZOcTBBNTR0VTdma0xFTkpmUkQ3b1pkUFhJT3ZWWUtsV0NMUmFCd2FoUGFvaVFHUjdfZnpLMzdKQ0VuYWZEWlNYa3F1ajU0bTF3ZkdHbS1TV0EwQQ?oc=5" target="_blank" rel="nofollow noopener"><i class="hot">[Cleveland] Cleveland Browns have a strategy that may just be crazy enough to work</i></a><a aria-hidden="true" tabindex="-1" href="https://news.google.com/rss/articles/CBMigAJBVV95cUxONUpuLUo5c0RpZzdocE9IYlUwYTNzU19Lb1VLWWwyaVhNQnFYOS1iMk45Vm44NnlNTU4tZTlkSllLcGJyYmNkQVZGRkJsN2E1S1JaZndMYnllYUp1VHlLekJpTFRUb2NUY2FYT2lLMkdlNjcwRlo3NnAxSlBxaFdCclJCZUMtQlpPcHJCdDZWSUo5eVk0eHJwVHpRTVBkNkk1Sml0a3JOQnJ5RDE3QWg5MHRtRUhMQUVSdFZPcTlRaE9fQW9XTlRoT3B3a18xcUc4WGRzWVZYV24tQ21rMV9SN1RtekhqWkZlLWw0SGpfaUxtdG1aWjlaRWVKeDRWejdD0gGUAkFVX3lxTE5jdU1LdkUzb0N5MVdUYVBpN3cyQzRpc2Jvc1AtcE9ZNHMzVkI3a1JJbjdEeWRXa2pzdkxHLUFMTlE4cVdPQV9NaTRZM1ZSNWs2TVhlVmVOS3lGNkJqa0wtZ05yekp0d0U1VHNkLWF6Tk51WkI1VE54UHI1NFp5emdaLWFxdjFIdzF0SzJWaWwyb3BhX3h4bDNJVTNQQkVVRzdlNi1fNmtheHJCekFQS3FjV1NSQWU3NDB0VnVYOXh2TmExNFprczRPeWZiYmUzYkcyZHR2bWo0MExnM0Z6aWp0c1N3NWZOTVlLQjJhd2RDa1Brd2xzV0pXbGczdUdpSFZkQnJBcmNSWXlDQWZmQWhFbUVGSw?oc=5" target="_blank" rel="nofollow noopener"><i class="hot">[Cleveland] Would the Browns consider throwing the ball to QB Taylen Green? The surprise of camp re-signed to the practic</i></a><a aria-hidden="true" tabindex="-1" href="https://news.google.com/rss/articles/CBMiekFVX3lxTFBfRGZTYlhHM0ZLTHlPWUNtLXFGTE5McWxucTdDSlZWOHhVbmlQNlBYUFVjeEtQUXpDX0dtdEVjNE1uZ0R6d0NEMklCSHF3RjMyZXpGdDl1anhHOUFfMjMySjNKZEZxTzM2dlNZMnQ0VHRHTElxaTNCX3RB?oc=5" target="_blank" rel="nofollow noopener"><i class="hot">[Green Bay] Packers announce roster moves | Aug. 30, 2026</i></a><a aria-hidden="true" tabindex="-1" href="https://news.google.com/rss/articles/CBMisAFBVV95cUxQWlY2cFJhNE15UVZCam5TcUQtUWJBcXoxUkU1aXg1M3RGWXlXcVVIeUl4ODhaeXBpSDdkdTZTcVFTNWJ5ckF1dXJ0N2R6elJlckR3NWRpb1dXZkZTMFNySE1VUlFKX2dReXZubFl3S3lHS1Jvckp4T1VERXF6VWJOYjdaMUxtSFdUYlkxanNKaG9rRDJaOHRDd19NYmxEZm1BTXRpVjdXUU0teEFocWVNSA?oc=5" target="_blank" rel="nofollow noopener"><i class="hot">[Green Bay] September 6, 2024- Green Bay Packers play first NFL game in South America.</i></a><a aria-hidden="true" tabindex="-1" href="https://news.google.com/rss/articles/CBMihAFBVV95cUxNM2ticEhsQ1RSR1RkcVUxdm5PTXNjS0g4c3hoMmlvWkdVSnl4SWRGalFTR1NfS3QtUHRmbmkxQ1B5REV0cHhhZkJ5bENtU3ctOVhhdnA5RFVYemJ5WEg1cUx3YzZKempCWlp2R051ZHlsOGY3N0dDcS1la2xZZ1djWDJoeVU?oc=5" target="_blank" rel="nofollow noopener"><i class="hot">[Green Bay] Green Bay Packers receive low defensive ranking from PFF prior to Week 1 of 2026 NFL season</i></a><a aria-hidden="true" tabindex="-1" href="https://news.google.com/rss/articles/CBMisAFBVV95cUxQTlZuQ1hPOWZNQzcwM0VzeEZoMnU3ekpVcDN1SmhNbndlMXgwdXNuOTJtR3loUWQzbkVIZGRhZEw0ZVp2SS1zaVZvc1NEQVBlYWl3RmFBT1pNdzhlcGJDeFp2aXZlTUxOMWx3YmUxRWx1blR6VVBIaGwwQkt6NkN2Mjlkb1p1WG1VczRnYnRSZmQzVlNhQ0V5b3VCRG81NnB5Zk1IaXdvSFVaelFtYnNSNw?oc=5" target="_blank" rel="nofollow noopener"><i class="hot">[Dallas] Emari Demercado returns &#x27;home&#x27; to Dallas, has reason to be excited with Cowboys</i></a><a aria-hidden="true" tabindex="-1" href="https://news.google.com/rss/articles/CBMikgFBVV95cUxQX0tpcWhUdjhDclVYM2JvN1lyMHNnSmdYNVE5MVVPd0oyZGFQMjhJN3lBRU1pckEwNzROWUtKUG9YZ0ZLdTBfY0p1UENxazJWNE5yY1A2NWtMZTFlNWI4cVl1RXhicTU3eWQ0akRnUDFPTUNSeFZOMFl6Tl81MThYQTZOajduWExHS3BNWjUxMER1UQ?oc=5" target="_blank" rel="nofollow noopener"><i class="hot">[Dallas] Cowboys release initial 53-man roster for 2026 season</i></a><a aria-hidden="true" tabindex="-1" href="https://news.google.com/rss/articles/CBMimwFBVV95cUxOVnFmOWNWdTg3Ykh0c1FPaWF6ZXZXOWdTWDNBTFdEUVFNTXdZUTJIcFZ4aWdmSXB3SkhIbW5COXdzRl9uVWloOVNjUzVRMjZSNWVsOS1PWWVrdnc4Z0hYMzNQT1NrTWxYQm1ZQlI1N1RtOWFGc0xvX1J3ZFlpYVp3SzBtc1kzcFprbUJOSEk0SENjNmt3eHVqeVllYw?oc=5" target="_blank" rel="nofollow noopener"><i class="hot">[Dallas] Why the Cowboys chose Sam Howell as their backup quarterback</i></a><a aria-hidden="true" tabindex="-1" href="https://news.google.com/rss/articles/CBMitAFBVV95cUxQTkFMOXJPcHMwOEMyVlRxb3BZMWhwVlJkaERybEZoS09VMVFlVDJPSUdIeUxjSUl6LXUtOVZ0RnVuWEdZV2JHT1NkaTd0YlJxVFVESUdEcGxmd2VFbXBuZjFqUFdZZEFPQTlPRk53U25kV0tYY0llc05HdkZIWXBvQTRzWXdNcU5tTHVwakd5SDYxSjNrSFc3N0dvQm9EQ2tkVHNPejNEN21FeUh4bnhfc05YQkc?oc=5" target="_blank" rel="nofollow noopener"><i class="hot">[Michigan] Official Statement Regarding Western Michigan - Michigan Football Game</i></a><a aria-hidden="true" tabindex="-1" href="https://news.google.com/rss/articles/CBMisgFBVV95cUxOOHU3QWhTNzlfQXI1X2lhTEI4eU9aQkpDQkp2NTBOMTNzRDZBcTJHdGhWRll1cXlRbWR5MERYSzNORkRiUDdnTDJxV3gzc05tTDF3XzBKYVBuYUgyOWdXbzhZZGNmWURWVUNBY3dDWC1vSzZsQUlxQlpNYTAwY0UtRGVRd2JNbTJDU1FJeUo5eWg5Z29yR0daWjlqX1hZVkZXS09NazU2VHhfUTdOV2FWTWJn?oc=5" target="_blank" rel="nofollow noopener"><i class="hot">[Michigan] Michigan Miracle: Wolverines Buck Broncos on Final Play to Open Season</i></a><a aria-hidden="true" tabindex="-1" href="https://news.google.com/rss/articles/CBMi6gFBVV95cUxNUGRSV3h1ektXc0ZVYldlTHZ1elN0TkJOQmk4cmtUVE9RVERTQnpzcXM5RXVOYTRVX0RXOUg2cno0MzFCYnF2ekJnb0dpQlZaTjczUFEySlJsb1ZVeHBCYXV0dWpIZlRhUG5Oa2hQdnJQNEFGSnJUMl82bmtpQW1JUXRrSVpfcFF1c2tReTZWdVh0UHYxRzVsTnJmR3BSUGtoMUVaVmlYTzNZcmlMTXhFUFcyaWtRZHlMdG9mSmlCdm12bnlZUl9idVJnb3dFUnlzbjVLWEdGY084ZkZtamx3cjJZNFhDbGdRWUE?oc=5" target="_blank" rel="nofollow noopener"><i class="hot">[Michigan] Can Michigan&#x27;s controversial Hail Mary win over WMU be overturned?</i></a></div></div></main>
 <footer>
  <div class="wrap">
   <div class="fgrid">
@@ -503,5 +717,6 @@
  </div>
 </div>
 <button class="totop" id="totop" aria-label="Back to top">&uarr;</button>
+<div class="toast" id="favMsg" aria-live="polite" hidden></div>
 <script src="./assets/app.js" defer></script>
 </body></html>

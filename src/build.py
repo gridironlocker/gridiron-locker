@@ -577,25 +577,42 @@ def header(active=""):
         f'<a href="/{COLLECTIONS[k]["slug"]}/"{" aria-current=page" if active == k else ""}>{COLLECTIONS[k]["short"]}</a>'
         for k in ORDER)
     mob = "".join(f'<a href="/{COLLECTIONS[k]["slug"]}/">{COLLECTIONS[k]["name"]}</a>' for k in ORDER)
-    return f"""
+    search_ico = '<svg width="17" height="17" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.8" aria-hidden="true"><circle cx="11" cy="11" r="6.2"/><path d="M20 20l-4.3-4.3"/></svg>'
+    acct_ico = '<svg width="18" height="18" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.8" aria-hidden="true"><circle cx="12" cy="8" r="3.7"/><path d="M4.4 20c.8-4 3.7-6.4 7.6-6.4s6.8 2.4 7.6 6.4"/></svg>'
+    cart_ico = '<svg width="18" height="18" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.8" aria-hidden="true"><path d="M4 5h2l1.6 9.2a2 2 0 0 0 2 1.6h7.6a2 2 0 0 0 2-1.6L20 8H7"/><circle cx="10" cy="20" r="1.35"/><circle cx="17" cy="20" r="1.35"/></svg>'
+    return f"""\
 <a class="skip" href="#main">Skip to content</a>
 <div class="promo">{season_promo()} &middot; Printed on demand in the USA &middot; Worldwide shipping</div>
 <header>
  <div class="wrap nav">
-  <a class="logo" href="/"><span class="mark">GL</span> {esc(BRAND)}</a>
+  <a class="logo" href="/"><span class="mark">GL</span><span class="wordmark">{esc(BRAND)}</span></a>
   <nav class="links">
    <a href="/collections/">All Collections</a>
    {links}
    <a href="/drops/">Trending</a>
-   <a href="/2026-season/">2026 Season</a>
    <a href="/guides/">Guides</a>
   </nav>
-  <span class="navsearch" role="search">
-   <input class="gsearch" type="search" placeholder="Search designs..." aria-label="Search all designs" autocomplete="off">
-   <span class="gs-ico" aria-hidden="true">&#128269;</span>
-  </span>
-  <button class="searchbtn" aria-label="Search designs"
-   onclick="var m=document.getElementById('ms');m.classList.toggle('open');var i=m.querySelector('input');if(m.classList.contains('open')&&i)i.focus()">&#128269;</button>
+  <div class="navtools">
+   <span class="navsearch" role="search">
+    <input class="gsearch" type="search" placeholder="Search designs..." aria-label="Search all designs" autocomplete="off">
+    <span class="gs-ico" aria-hidden="true">{search_ico}</span>
+   </span>
+   <button class="navico" id="acctBtn" type="button" aria-label="Account" aria-expanded="false">{acct_ico}<span class="nlab">Account</span></button>
+   <button class="navico cart" id="cartBtn" type="button" aria-label="Cart" aria-expanded="false">{cart_ico}<span class="nlab">Cart</span><span class="cct" id="cartCount">0</span></button>
+   <button class="searchbtn" aria-label="Search designs"
+    onclick="var m=document.getElementById('ms');m.classList.toggle('open');var i=m.querySelector('input');if(m.classList.contains('open')&&i)i.focus()">{search_ico}</button>
+   <button class="burger" id="navToggle" aria-label="Open menu" aria-expanded="false"><span></span><span></span><span></span></button>
+  </div>
+ </div>
+ <div class="header-pop" id="acctPop" hidden>
+  <span class="hp-kicker">Your account</span>
+  <p>Checkout is handled securely by our print partner.</p>
+  <a href="/contact/">Order help</a><a href="/shipping/">Shipping &amp; returns</a><a href="/faq/">Shipping FAQ</a>
+ </div>
+ <div class="header-pop cart" id="cartPop" hidden>
+  <span class="hp-kicker">Your cart</span>
+  <p>Saved favourites live here on this device and are ready to check out in one click.</p>
+  <a class="btn block" href="/search/">Browse all designs</a><a href="/drops/">Trending drops</a>
  </div>
  <div class="mobsearch" id="ms"><span class="gs"><input class="gsearch" type="search"
   placeholder="Search all {len(ALL)} designs..." aria-label="Search all designs" autocomplete="off"></span></div>
@@ -837,9 +854,9 @@ def team_section(k, limit=4):
 
 def trust():
     return """<div class="trust">
- <div><b>Printed On Demand</b>No dead stock</div>
- <div><b>S - 3XL</b>Unisex &amp; women's cuts</div>
- <div><b>Worldwide Shipping</b>Tracked dispatch</div>
+ <div><b>Worldwide Shipping</b>Tracked to your door</div>
+ <div><b>S &ndash; 3XL</b>Unisex &amp; women's cuts</div>
+ <div><b>Premium Fan Art</b>Original designs</div>
  <div><b>Secure Checkout</b>Card &amp; PayPal</div>
 </div>"""
 
@@ -884,7 +901,9 @@ def footer():
   <button class="btn lg" id="csPopGo">Tell Us Your Idea &rarr;</button>
  </div>
 </div>
-<button class="totop" id="totop" aria-label="Back to top">&uarr;</button>\n<script src="/assets/app.js" defer></script>
+<button class="totop" id="totop" aria-label="Back to top">&uarr;</button>
+<div class="toast" id="favMsg" aria-live="polite" hidden></div>
+<script src="/assets/app.js" defer></script>
 </body></html>"""
 
 
@@ -915,8 +934,9 @@ def card(it, eager=False):
     # filters (app.js) - the team pages read the same attributes and ignore
     # the dimensions they do not offer. The .qv button is a sibling of the
     # card link (never nested inside it - an interactive control inside an
-    # <a> is invalid HTML) and opens the shared quick-view modal.
-    return f"""<article class="card reveal" data-type="{esc(it['garment'])}" data-team="{it['col']}" data-theme="{it['theme']}" style="{tv}">
+    # <a> is invalid HTML) and opens the shared quick-view modal. .fav is a
+    # device-side favourite toggle (localStorage, no backend).
+    return f"""<article class="card reveal" data-slug="{it['slug']}" data-type="{esc(it['garment'])}" data-team="{it['col']}" data-theme="{it['theme']}" style="{tv}">
  <a href="{it['url']}" aria-label="{esc(it['name'])}">
   <div class="ph"><span class="{cls}">{tag}</span><span class="glow"></span><span class="sweep"></span>
    <img src="{it['front']}" alt="{esc(it['name'])} - {esc(it['art'][:70])}" width="530" height="630"{lazy}>
@@ -928,7 +948,8 @@ def card(it, eager=False):
    <span class="price">${it['price']:.2f}</span>
   </div>
  </a>
- <button class="qv" type="button" aria-label="Quick view {esc(it['name'])}">Quick view</button></article>"""
+ <button class="qv" type="button" aria-label="Quick view {esc(it['name'])}">Quick view</button>
+ <button class="fav" type="button" aria-label="Favourite {esc(it['name'])}" aria-pressed="false" data-slug="{it['slug']}"><svg width="16" height="16" viewBox="0 0 24 24" aria-hidden="true"><path d="M12 20.4 4.8 13.2a4.6 4.6 0 1 1 6.5-6.5l.7.7.7-.7a4.6 4.6 0 1 1 6.5 6.5Z"/></svg></button></article>"""
 
 
 def railcard(it):
@@ -943,36 +964,159 @@ def railcard(it):
 </a>"""
 
 
-# Homepage banner. Same geometry as every collection banner: image band,
-# then the copy underneath on white. The old 4-slide ken-burns rotator put
-# white text over a darkened photo, which is the single thing that made the
-# site look nothing like the storefront it hands off to.
-#
-# The 2026-09-08 hero art (site/img/hero-home.jpg, 1983x793) is a finished
-# poster: wordmark, "football. fans. culture." eyebrow, the "Gear up. Keep
-# it." headline and its two support lines are all baked into the pixels. So
-# the white block below the band no longer restates any of it - repeating a
-# headline in HTML directly under the same headline in the art is the classic
-# way a hero ends up looking like a mistake. What the art cannot carry is
-# live: the catalogue size, the made-to-order promise, sizes and shipping, and
-# the two routes into the shop. The <h1> stays for search engines and screen
-# readers (visually hidden, since the poster already shows the headline) and
-# the band's alt text transcribes the baked copy for anyone who can't see it.
-def home_banner():
-    n = len(ALL)
-    return f"""<section class="cbanner" style="padding:0">
- <div class="band"><img src="/img/hero-home.jpg?v=4" alt="{esc(BRAND)} - Gear up. Keep it. Original fan-made apparel for the teams we love."
-  width="1983" height="793" fetchpriority="high"></div>
- <div class="cb-in">
-  <h1 class="sr-only">{esc(CFG['tagline'])}</h1>
-  <span class="eyebrow"><span class="dot"></span> {n} fan designs &middot; made to order</span>
-  <p class="lede">Sizes S&ndash;3XL in unisex and women's cuts. Printed when you order, shipped worldwide with tracking.</p>
-  <div class="btnrow">
-   <a class="btn lg" href="/collections/">Shop by team &rarr;</a>
-   <a class="btn ghost lg" href="/drops/">Trending now</a>
+# Homepage hero. Two-part editorial composition matching the storefront
+# reference: a textured white copy block on the left ("FOOTBALL. FANS.
+# CULTURE." / "GEAR UP." / brush "KEEP IT.") and a four-team locker/product
+# collage on the right. Everything that can change (catalogue size, price
+# count, delivery, sizes) is rendered from the live model so the generator
+# stays the single source of truth - the HTML never hard-codes a product.
+
+
+def hero_team_card(k):
+    c = COLLECTIONS[k]
+    img = MODEL[k][0]["front"] if MODEL[k] else c["hero"]
+    return (f'<a class="hero-shot reveal" style="{theme_vars(k)}" href="/{c["slug"]}/">'
+            f'<img src="{img}" alt="{esc(c["name"])} fan design" loading="lazy" decoding="async" width="530" height="630">'
+            f'<span class="hs-shade" aria-hidden="true"></span>'
+            f'<span class="hs-tag">{esc(c["short"])}</span>'
+            f'<span class="hs-count">{len(MODEL[k])} designs</span>'
+            f'<span class="hs-go">Shop <i aria-hidden="true">&rarr;</i></span></a>')
+
+
+def team_card(k):
+    """Homepage 'Shop By Team' entry: image card with team colour treatment,
+    live design count, fan tagline and an arrow interaction."""
+    c = COLLECTIONS[k]
+    return (f'<a class="teamcard reveal" style="{theme_vars(k)}" href="/{c["slug"]}/">'
+            f'<span class="tc-ph"><img src="{c["hero"]}" alt="{esc(c["name"])}" loading="lazy" decoding="async" width="600" height="280">'
+            f'<span class="tc-shade" aria-hidden="true"></span></span>'
+            f'<span class="tc-body"><span class="tc-count">{len(MODEL[k])} designs</span>'
+            f'<b class="tc-name">{esc(c["name"])}</b>'
+            f'<span class="tc-tag">{esc(c["chant"])}</span>'
+            f'<span class="tc-go">Shop {esc(c["short"])} <i aria-hidden="true">&rarr;</i></span></span></a>')
+
+
+# Order-independent editorial product picks: one per team (next kickoff
+# first), then the live headline-hot designs, then the rest of the catalogue.
+# No slug is hard-coded, so a re-crawl rebalances the feature automatically.
+def featured_picks(limit=8):
+    picks = []
+    for k in HOMEPAGE_ORDER:
+        if len(picks) >= limit:
+            break
+        if MODEL[k]:
+            picks.append(MODEL[k][0])
+    for it in [x for x in ALL if x.get("trend") == "hot"]:
+        if len(picks) >= limit:
+            break
+        if it not in picks:
+            picks.append(it)
+    for it in ALL:
+        if len(picks) >= limit:
+            break
+        if it not in picks:
+            picks.append(it)
+    return picks[:limit]
+
+
+def featured_section(limit=8):
+    picks = featured_picks(limit)
+    cards = "".join(card(i, eager=(n < 4)) for n, i in enumerate(picks))
+    return f"""<section class="featured-sec"><div class="wrap">
+ <div class="sechead reveal"><div>
+  <span class="eyebrow"><span class="dot"></span> Hand-picked from the locker</span>
+  <h2>Featured <span class="accentword">Collection</span></h2>
+  <p>A rotating edit of original fan art - new drops, current headlines and the designs our four fanbases keep coming back for.</p></div>
+  <a class="link" href="/collections/">All {len(ALL)} designs &rarr;</a></div>
+ <div class="grid featured-grid">{cards}</div>
+</div></section>"""
+
+
+def locker_panel(limit=4):
+    """Dark 'THE LOCKER IS ALWAYS OPEN' proof card sitting beside a small
+    row of real products - never a decorative graphic with no products."""
+    hot = [x for x in ALL if x.get("trend") == "hot"]
+    picks = (hot[:limit] if len(hot) >= limit else ALL[:limit])
+    cards = "".join(card(i) for i in picks[:limit])
+    return f"""<section class="lockersec"><div class="wrap">
+ <div class="locker-grid">
+  <div class="locker-panel reveal">
+   <span class="lp-kicker">The fan-first locker &middot; est. 2026</span>
+   <h2>The locker is <span>always open</span></h2>
+   <p>Original artwork for the teams you love, printed on demand and shipped worldwide. No dead stock, no fade - just the locker, open every game week.</p>
+   <a class="btn lg light" href="/collections/">Enter the locker &rarr;</a>
   </div>
+  <div class="locker-products">{cards}</div>
  </div>
-</section>"""
+</div></section>"""
+
+
+def guide_strip():
+    """Buying-guides entry: four short utility cards at the bottom of the
+    storefront so a first-time buyer never has to hunt for the answers."""
+    name = esc(BRAND)
+    cards = "".join([
+        f'<a class="guide-card reveal" href="/guides/2026-week-1-shirts/"><span class="gc-kick">Game day</span><b>2026 Week 1 Shirts</b><span class="gc-go">Read &rarr;</span></a>',
+        f'<a class="guide-card reveal" href="/size-guide/"><span class="gc-kick">Fit</span><b>Size Guide</b><span class="gc-go">Read &rarr;</span></a>',
+        f'<a class="guide-card reveal" href="/shipping/"><span class="gc-kick">Delivery</span><b>Shipping &amp; Returns</b><span class="gc-go">Read &rarr;</span></a>',
+        f'<a class="guide-card reveal" href="/faq/"><span class="gc-kick">Help</span><b>FAQ</b><span class="gc-go">Read &rarr;</span></a>',
+    ])
+    return f"""<section class="guidesec"><div class="wrap">
+ <div class="sechead reveal"><div>
+  <span class="eyebrow"><span class="dot"></span> Know what you are buying</span>
+  <h2>Buying <span class="accentword">Guides</span></h2>
+  <p>{name}'s sizing, shipping and care answers in one place - no guesswork before checkout.</p></div>
+  <a class="link" href="/guides/">All guides &rarr;</a></div>
+ <div class="guide-grid">{cards}</div>
+</div></section>"""
+
+
+def brand_newsletter():
+    """Bottom brand + email signup. Static-site friendly: FormSubmit fallback
+    handled in app.js, so no backend and no third-party account required."""
+    return f"""<section class="brandsec" id="brand"><div class="wrap">
+ <div class="brand-grid">
+  <div class="brand-copy reveal">
+   <span class="eyebrow"><span class="dot"></span> Join the locker</span>
+   <h2>Never miss a <span>drop.</span></h2>
+   <p>New original designs, weekly game-day news and the occasional fan-first deal. One email a week, no spam.</p>
+   <div class="brand-tags"><span>Cleveland</span><span>Green Bay</span><span>Dallas</span><span>Michigan</span></div>
+  </div>
+  <form class="newsform reveal" id="newsForm" method="POST" aria-label="Newsletter signup" novalidate>
+   <input type="hidden" name="_subject" value="Newsletter signup">
+   <input type="hidden" name="_template" value="table">
+   <input type="hidden" name="_captcha" value="false">
+   <input type="text" name="_honey" style="display:none" tabindex="-1" autocomplete="off">
+   <label for="newsEmail">Email address</label>
+   <span class="nf-row"><input id="newsEmail" type="email" name="email" required placeholder="you@example.com" autocomplete="email">
+   <button class="btn" type="submit">Join &rarr;</button></span>
+   <p class="formmsg" id="newsMsg" aria-live="polite">We only email about the locker. Unsubscribe anytime.</p>
+  </form>
+ </div>
+</div></section>"""
+
+
+def home_banner():
+    """Two-part editorial hero: HTML copy on the left (so it scales and is
+    crawlable), four-team product collage on the right (live product art)."""
+    n = len(ALL)
+    tiles = "".join(hero_team_card(k) for k in ORDER)
+    return f"""<section class="hero editorial" id="hero"><div class="wrap hero-grid">
+ <div class="hero-copy">
+  <span class="hero-kicker">Football. Fans. Culture.</span>
+  <h1 class="hero-title">Gear <span class="up">Up.</span></h1>
+  <span class="hero-brush">Keep it.</span>
+  <p class="hero-sub">{esc(BRAND)} is independent, fan-made football apparel for the four teams we love - Cleveland, Green Bay, Dallas and Michigan. {n} original designs, printed when you order.</p>
+  <div class="btnrow">
+   <a class="btn lg" href="/collections/">Shop By Team &rarr;</a>
+   <a class="btn ghost lg" href="/drops/">Trending Now</a>
+  </div>
+  <div class="hero-facts"><span>{n} fan designs</span><span>S&ndash;3XL</span><span>Worldwide shipping</span></div>
+ </div>
+ <div class="hero-stage"><div class="hero-shots">{tiles}</div></div>
+</div></section>"""
+
+
 
 
 def trending_rail(limit=8):
@@ -1062,9 +1206,9 @@ def page_home():
     # Per-team sections — never mix teams on the homepage. Ordered by next
     # kickoff so the team playing soonest is the first block you meet.
     team_sections = "".join(team_section(k) for k in HOMEPAGE_ORDER)
-    # "Shop By Team": rounded horizontal navigation cards with circular
-    # thumbnails (fixed ORDER - only the product sections follow the kickoff).
-    colcards = "".join(team_nav_card(k) for k in ORDER)
+    # "Shop By Team": four editorial image cards with team colour treatments
+    # (fixed ORDER - only the product sections follow the kickoff).
+    colcards = "".join(team_card(k) for k in ORDER)
     schema = [
         {"@context": "https://schema.org", "@type": "Organization", "name": BRAND, "url": DOMAIN,
          "logo": DOMAIN + "/img/favicon.svg",
@@ -1080,24 +1224,24 @@ def page_home():
     ]
     desc = (f"Fan-made football tees, hoodies and gear across {len(ORDER)} team collections: "
             f"Cleveland, Green Bay, Dallas and Michigan. {len(ALL)} original designs, S-3XL, shipped worldwide.")
-    # Product-first landing: the quick finder comes right under the hero so a
-    # visitor can jump to any of the {len(ALL)} designs without scrolling.
     body = f"""{home_banner()}
-{quick_find()}
-<section class="teamnavsec"><div class="wrap">
- <div class="sechead reveal"><div><h2>Shop By Team</h2>
-  <p>Four dedicated collections, each with its own artwork language, colour palette and fan slang.</p></div>
+<section class="teamdeck-sec"><div class="wrap">
+ <div class="sechead reveal"><div>
+  <span class="eyebrow"><span class="dot"></span> Four teams &middot; four fanbases</span>
+  <h2>Shop By <span class="accentword">Team</span></h2>
+  <p>Four dedicated collections, each with its own artwork language, colour palette and fan slang. Pick your side.</p></div>
   <a class="link" href="/collections/">All collections &rarr;</a></div>
- <div class="teamnav-grid">{colcards}</div>
+ <div class="teamdeck-grid">{colcards}</div>
 </div></section>
 {trust()}
+{featured_section()}
 {trending_rail()}
+{locker_panel()}
 {week1_section()}
 <div class="light">
 {team_sections}
 </div>
-{fti_strip()}
-{newsticker()}
+{guide_strip()}
 <section class="customsec"><div class="wrap">
  <div class="sechead reveal"><div>
   <span class="eyebrow"><span class="dot"></span> Made to order</span>
@@ -1143,14 +1287,17 @@ def page_home():
   </div>
  </div>
 </div></section>
-<button class="findpill" id="findpill" data-target="#quickfind" aria-label="Find a design">
- <span aria-hidden="true">&#128269;</span> Find your design</button></main>"""
+{brand_newsletter()}
+{fti_strip()}
+{newsticker()}</main>"""
     URLS.append((DOMAIN + "/", "1.0", "daily"))
     write("index.html", head(f"{BRAND} | {CFG['tagline']}", desc, path, "/img/hero-home.jpg?v=4", schema,
                              ["football fan shirts", "nfl fan t shirts", "custom football tees",
                               "cleveland browns shirts", "green bay packers shirts",
                               "dallas cowboys shirt", "michigan football shirt"])
           + header() + body + footer())
+
+
 
 
 def page_collections_index():
@@ -2592,6 +2739,98 @@ document.querySelectorAll('.thumb,.swatch,.stylechip').forEach(function(b){
     dismiss();
     var target=document.querySelector('.customsec')||document.querySelector('.customform');
     if(target)target.scrollIntoView({behavior:'smooth',block:'start'});
+  });
+})();
+
+// ---------- mobile nav + header utility popovers ----------
+(function(){
+  var nb=document.getElementById('navToggle'), mn=document.getElementById('mn');
+  if(nb&&mn){
+    nb.addEventListener('click',function(){
+      var open=mn.classList.toggle('open');
+      nb.classList.toggle('on',open);
+      nb.setAttribute('aria-expanded',open?'true':'false');
+      nb.setAttribute('aria-label',open?'Close menu':'Open menu');
+    });
+  }
+  function closeAll(){
+    ['acctPop','cartPop'].forEach(function(id){var p=document.getElementById(id); if(p)p.hidden=true;});
+    ['acctBtn','cartBtn'].forEach(function(id){
+      var b=document.getElementById(id);
+      if(b){b.classList.remove('on');b.setAttribute('aria-expanded','false');}
+    });
+  }
+  [['acctBtn','acctPop'],['cartBtn','cartPop']].forEach(function(pair){
+    var btn=document.getElementById(pair[0]), pop=document.getElementById(pair[1]);
+    if(!btn||!pop)return;
+    btn.addEventListener('click',function(e){
+      e.stopPropagation();
+      closeAll();
+      var open=pop.hidden;
+      pop.hidden=!open;
+      btn.classList.toggle('on',open);
+      btn.setAttribute('aria-expanded',open?'true':'false');
+    });
+    pop.addEventListener('click',function(e){e.stopPropagation();});
+  });
+  document.addEventListener('click',closeAll);
+})();
+
+// ---------- favourites + cart hint (device-side, no backend) ----------
+(function(){
+  var key='gl_favs';
+  function read(){ try{return JSON.parse(localStorage.getItem(key)||'[]');}catch(e){return [];} }
+  function write(a){ try{localStorage.setItem(key,JSON.stringify(a));}catch(e){} }
+  function count(){
+    var n=read().length, cc=document.getElementById('cartCount');
+    if(cc)cc.textContent=n;
+  }
+  var msg=document.getElementById('favMsg');
+  function toast(t){
+    if(!msg)return;
+    msg.textContent=t; msg.hidden=false; msg.classList.add('on');
+    clearTimeout(msg._t); msg._t=setTimeout(function(){msg.classList.remove('on');msg.hidden=true;},1600);
+  }
+  document.querySelectorAll('.card .fav').forEach(function(b){
+    var slug=b.getAttribute('data-slug');
+    function draw(){
+      var on=read().indexOf(slug)>-1;
+      b.classList.toggle('on',on); b.setAttribute('aria-pressed',on?'true':'false');
+    }
+    draw();
+    b.addEventListener('click',function(e){
+      e.preventDefault(); e.stopPropagation();
+      var a=read(), i=a.indexOf(slug), card=b.closest('.card'),
+          nm=card?card.querySelector('h3').textContent:'design';
+      if(i>-1){a.splice(i,1); toast('Removed "'+nm+'" from favourites.');}
+      else{a.unshift(slug); toast('Saved "'+nm+'" to favourites.');}
+      write(a); draw(); count();
+    });
+  });
+  count();
+})();
+
+// ---------- newsletter signup (FormSubmit, no backend needed) ----------
+(function(){
+  var form=document.getElementById('newsForm'); if(!form)return;
+  form.action='https://formsubmit.co/'+atob(CUSTOM_EMAIL);
+  var msg=document.getElementById('newsMsg'), btn=form.querySelector('button');
+  form.addEventListener('submit',function(e){
+    e.preventDefault();
+    var email=form.querySelector('input[name=email]').value.trim();
+    if(!email||email.indexOf('@')<1){
+      if(msg){msg.style.color='#c0392b';msg.textContent='Please enter a valid email address.';}
+      return;
+    }
+    if(btn)btn.disabled=true;
+    if(msg){msg.style.color='';msg.textContent='Joining the locker...';}
+    fetch(form.action,{method:'POST',body:new FormData(form),mode:'no-cors'}).then(function(){
+      if(msg)msg.textContent='Welcome to the locker. Check your inbox to confirm.';
+      form.reset(); if(btn)btn.disabled=false;
+    }).catch(function(){
+      if(msg)msg.textContent='Almost there - email us directly to join.';
+      if(btn)btn.disabled=false;
+    });
   });
 })();
 
