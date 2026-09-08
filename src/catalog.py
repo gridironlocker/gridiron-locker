@@ -180,6 +180,7 @@ CATALOG = {
 "limited-edition-grb18": dict(name="The Future Is Green Packers Shirt", art="THE FUTURE IS GREEN", kw=["future is green shirt","packers future tee","green bay optimism shirt"], theme="classic"),
 "limited-edition-grb20": dict(name="Sunday Funday Green Bay Bars Shirt", art="SUNDAY FUNDAY with gold bars", kw=["sunday funday packers shirt","green bay olive tee","packers gameday shirt"], theme="classic"),
 # ---------------- MICHIGAN ----------------
+"limited-edition-tee-0-01-1": dict(name="Limited Edition 0-01 Michigan Tee", art="Limited Edition 0-01 graphic", kw=["limited edition michigan tee", "michigan football shirt", "go blue limited edition shirt", "michigan wolverines fan gear", "ann arbor football tee"], theme="classic"),
 "limited-edition-m-9-v3": dict(name="J.J. McCarthy 9 Michigan Shirt", art="Michigan quarterback 9 splash art", kw=["jj mccarthy shirt","michigan 9 tee","go blue quarterback shirt"], theme="player"),
 "limited-edition-m-9-v2": dict(name="The Legend Of J.J. McCarthy Women's Shirt", art="THE LEGEND OF J.J. MCCARTHY with player and M", kw=["jj mccarthy womens shirt","michigan legend tee","go blue 9 shirt"], theme="player"),
 "limited-edition-m-9-v1": dict(name="McCarthy 9 Michigan Kneel Shirt", art="MCCARTHY 9 kneeling player", kw=["mccarthy 9 shirt","michigan qb tee","go blue shirt"], theme="player"),

@@ -372,8 +372,13 @@ def build_model():
             img = p.get("img") or {}
             img = OrderedDict(
                 (t, f) for t, f in img.items()
-                if isinstance(f, str) and f.startswith("/")
-                and os.path.isfile(os.path.join(SITE, f.lstrip("/"))))
+                if isinstance(f, str) and (
+                    (f.startswith("/") and os.path.isfile(os.path.join(SITE, f.lstrip("/"))))
+                    # A newly added campaign may have valid Viralstyle assets
+                    # before the local image downloader has run successfully.
+                    # Keep those remote assets as a temporary fallback.
+                    or f.startswith("https://assets.viralstyle.com/")
+                ))
             if not img:
                 continue
             if "front" not in img:
