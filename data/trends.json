@@ -60,22 +60,22 @@
    ],
    "entity_mentions": {
     "shedeur sanders": 24,
-    "deshaun watson": 27,
+    "deshaun watson": 29,
     "joe flacco": 0,
     "myles garrett": 6,
     "kevin stefanski": 1,
     "denzel ward": 0,
-    "todd monken": 11
+    "todd monken": 12
    },
    "top_terms": [
     "browns",
     "cleveland",
     "watson",
     "deshaun",
-    "shedeur",
-    "sanders",
     "todd",
     "monken",
+    "shedeur",
+    "sanders",
     "squad",
     "practice",
     "green",
@@ -109,7 +109,7 @@
    "fan_trend_index": [
     {
      "name": "deshaun watson",
-     "mentions": 27,
+     "mentions": 29,
      "index": 100,
      "status": "trending",
      "gap": true,
@@ -118,14 +118,14 @@
     {
      "name": "shedeur sanders",
      "mentions": 24,
-     "index": 89,
+     "index": 83,
      "status": "trending",
      "gap": false,
      "shoppable": true
     },
     {
      "name": "todd monken",
-     "mentions": 11,
+     "mentions": 12,
      "index": 41,
      "status": "trending",
      "gap": true,
@@ -134,7 +134,7 @@
     {
      "name": "myles garrett",
      "mentions": 6,
-     "index": 22,
+     "index": 21,
      "status": "trending",
      "gap": false,
      "shoppable": true
@@ -142,7 +142,7 @@
     {
      "name": "kevin stefanski",
      "mentions": 1,
-     "index": 4,
+     "index": 3,
      "status": "steady",
      "gap": false,
      "shoppable": true
@@ -221,7 +221,7 @@
     }
    ],
    "entity_mentions": {
-    "jordan love": 2,
+    "jordan love": 1,
     "micah parsons": 8,
     "robert tonyan": 0,
     "josh jacobs": 12,
@@ -247,7 +247,7 @@
     {
      "name": "josh jacobs",
      "mentions": 12,
-     "index": 44,
+     "index": 41,
      "status": "trending",
      "gap": true,
      "shoppable": false
@@ -255,15 +255,15 @@
     {
      "name": "micah parsons",
      "mentions": 8,
-     "index": 30,
+     "index": 28,
      "status": "trending",
      "gap": false,
      "shoppable": true
     },
     {
      "name": "jordan love",
-     "mentions": 2,
-     "index": 7,
+     "mentions": 1,
+     "index": 3,
      "status": "steady",
      "gap": false,
      "shoppable": true
@@ -342,7 +342,7 @@
     }
    ],
    "entity_mentions": {
-    "dak prescott": 6,
+    "dak prescott": 4,
     "ceedee lamb": 2
    },
    "top_terms": [
@@ -353,8 +353,8 @@
     "squad",
     "jones",
     "tyler",
-    "mailbag",
     "smith",
+    "mailbag",
     "trade",
     "roster",
     "jaydon"
@@ -364,8 +364,8 @@
    "fan_trend_index": [
     {
      "name": "dak prescott",
-     "mentions": 6,
-     "index": 22,
+     "mentions": 4,
+     "index": 14,
      "status": "trending",
      "gap": true,
      "shoppable": false
@@ -387,6 +387,12 @@
    "query": "Michigan Wolverines football",
    "headlines": [
     {
+     "title": "Official Statement Regarding Western Michigan - Michigan Football Game",
+     "url": "https://news.google.com/rss/articles/CBMitAFBVV95cUxQTkFMOXJPcHMwOEMyVlRxb3BZMWhwVlJkaERybEZoS09VMVFlVDJPSUdIeUxjSUl6LXUtOVZ0RnVuWEdZV2JHT1NkaTd0YlJxVFVESUdEcGxmd2VFbXBuZjFqUFdZZEFPQTlPRk53U25kV0tYY0llc05HdkZIWXBvQTRzWXdNcU5tTHVwakd5SDYxSjNrSFc3N0dvQm9EQ2tkVHNPejNEN21FeUh4bnhfc05YQkc?oc=5",
+     "source": "Mid-American Conference",
+     "pub": "Tue, 08 Sep 2026 18:26:26 GMT"
+    },
+    {
      "title": "Michigan Miracle: Wolverines Buck Broncos on Final Play to Open Season",
      "url": "https://news.google.com/rss/articles/CBMisgFBVV95cUxOOHU3QWhTNzlfQXI1X2lhTEI4eU9aQkpDQkp2NTBOMTNzRDZBcTJHdGhWRll1cXlRbWR5MERYSzNORkRiUDdnTDJxV3gzc05tTDF3XzBKYVBuYUgyOWdXbzhZZGNmWURWVUNBY3dDWC1vSzZsQUlxQlpNYTAwY0UtRGVRd2JNbTJDU1FJeUo5eWg5Z29yR0daWjlqX1hZVkZXS09NazU2VHhfUTdOV2FWTWJn?oc=5",
      "source": "University of Michigan Athletics",
@@ -399,10 +405,10 @@
      "pub": "Sun, 06 Sep 2026 15:04:00 GMT"
     },
     {
-     "title": "4 Immediate Takeaways From Michigan Football's Stunning Win Over WMU",
-     "url": "https://news.google.com/rss/articles/CBMisAFBVV95cUxNck5Paktmb0w0SlZCYlNOWWRzWUM4Yk1xTmpxYUxUNEJ3anU4UEF5RFBXMUlBSmw2REJWMmhqMjZya3hacjdYZ25tbW03MDFqZ1FGV3NHTW5LZWtGeFF3SWtUWTh6c1ViQm9rc2VlcjFWR0lta3dJai1HTFhtRWlLZ0xkTHJJY1R4VzRoSmJCQWczQUl6TXpCM2tHQzBWWW8wQkxlM0MycldPQ2QtSWx1WQ?oc=5",
+     "title": "Michigan Football's Hail Mary Win vs. WMU Drops Wolverines in AP Top 25",
+     "url": "https://news.google.com/rss/articles/CBMiswFBVV95cUxNd2hnV1JicE9wR0xHdUVkV2NINTlnakVfQVo2VksxUEUzWmc5WjVDUWNaZVUwcGV0X0dTZmlYSWxucGg3Z19EeU8zX1NxcG5sdFBVTThTTG1MR3FjZE9OQ1lnX2w3czZlOUZLdnd2QkRyQjZKZkZsbGQ3V2V4Mk1UeUdXQXpnNW96NEtqMHVuSDhkOUV3TUtwUTFWN0pRTUREZmxFSkJiQzhEMDlhQXJCbDB2UQ?oc=5",
      "source": "Sports Illustrated",
-     "pub": "Sun, 06 Sep 2026 03:03:37 GMT"
+     "pub": "Tue, 08 Sep 2026 18:01:22 GMT"
     },
     {
      "title": "Football Opens 2026 Season at No. 16 Michigan",
@@ -427,12 +433,6 @@
      "url": "https://news.google.com/rss/articles/CBMijwFBVV95cUxPOFk4SnpWTTNRYzg2aDhOOFJHUXNFbWI2cG9aUUQtVFB5T3NpNFdRZTJHd29kZy1obUJhaWtXSFk4d24yakNFQjJaOExyc0s1ZElkLVN0Wl9TN2pMVWhxc3I2aEhSVlpqRGZybm5kdjRRZXd6NWxFandhaFJYOGpMWXdFZWNZZzBsWUZVRXN5MA?oc=5",
      "source": "sports.yahoo.com",
      "pub": "Sun, 06 Sep 2026 05:30:00 GMT"
-    },
-    {
-     "title": "Western Michigan might not be a pushover, but that does not lower the stakes for Michigan",
-     "url": "https://news.google.com/rss/articles/CBMiwAFBVV95cUxNbDZIbXAzdnQ2MHF2SEpfX0RNSExsaEdZZ0F0Q1IwTmNnQmp5Q1ZEMHB0cWxTLU1rT0dLMkNmdmgzSEJGd3MwNElLY1pwM3FKNjYwQzEzclBZd2tqekZ2aXotMno3aUpZLUpXT3hDbjJYeUltVzd5THVyWWxUdFo2QmNKMlNMODhjdU15cllxRWdob1JiWndyRGNWUnR6RGRBU2ozQU8yX0s0RnVYZDhucmxzbjVBdHVOUHpWOGlRU00?oc=5",
-     "source": "Maize n Brew",
-     "pub": "Wed, 02 Sep 2026 18:00:00 GMT"
     }
    ],
    "entity_mentions": {
@@ -445,15 +445,15 @@
     "michigan",
     "football",
     "western",
-    "wolverines",
     "mary",
+    "wolverines",
     "hail",
     "whittingham",
     "controversial",
     "second",
     "kyle",
     "underwood",
-    "bryce"
+    "controversy"
    ],
    "headline_count": 100,
    "moments": [],
@@ -461,7 +461,7 @@
     {
      "name": "bryce underwood",
      "mentions": 17,
-     "index": 63,
+     "index": 59,
      "status": "trending",
      "gap": false,
      "shoppable": true
@@ -469,7 +469,7 @@
     {
      "name": "kyle whittingham",
      "mentions": 13,
-     "index": 48,
+     "index": 45,
      "status": "trending",
      "gap": true,
      "shoppable": false
@@ -495,13 +495,13 @@
  },
  "fan_trend_index": {
   "formula": "round(100 * entity_mentions / peak_mentions_in_window)",
-  "peak_mentions": 27,
+  "peak_mentions": 29,
   "window_days": 10,
   "generated": "2026-09-08",
   "rows": [
    {
     "name": "deshaun watson",
-    "mentions": 27,
+    "mentions": 29,
     "index": 100,
     "status": "trending",
     "gap": true,
@@ -511,7 +511,7 @@
    {
     "name": "shedeur sanders",
     "mentions": 24,
-    "index": 89,
+    "index": 83,
     "status": "trending",
     "gap": false,
     "shoppable": true,
@@ -520,7 +520,7 @@
    {
     "name": "bryce underwood",
     "mentions": 17,
-    "index": 63,
+    "index": 59,
     "status": "trending",
     "gap": false,
     "shoppable": true,
@@ -529,7 +529,7 @@
    {
     "name": "kyle whittingham",
     "mentions": 13,
-    "index": 48,
+    "index": 45,
     "status": "trending",
     "gap": true,
     "shoppable": false,
@@ -538,7 +538,7 @@
    {
     "name": "josh jacobs",
     "mentions": 12,
-    "index": 44,
+    "index": 41,
     "status": "trending",
     "gap": true,
     "shoppable": false,
@@ -546,7 +546,7 @@
    },
    {
     "name": "todd monken",
-    "mentions": 11,
+    "mentions": 12,
     "index": 41,
     "status": "trending",
     "gap": true,
@@ -556,29 +556,29 @@
    {
     "name": "micah parsons",
     "mentions": 8,
-    "index": 30,
+    "index": 28,
     "status": "trending",
     "gap": false,
     "shoppable": true,
     "collection": "green-bay-packers"
    },
    {
-    "name": "dak prescott",
-    "mentions": 6,
-    "index": 22,
-    "status": "trending",
-    "gap": true,
-    "shoppable": false,
-    "collection": "dallas-cowboys"
-   },
-   {
     "name": "myles garrett",
     "mentions": 6,
-    "index": 22,
+    "index": 21,
     "status": "trending",
     "gap": false,
     "shoppable": true,
     "collection": "cleveland-browns"
+   },
+   {
+    "name": "dak prescott",
+    "mentions": 4,
+    "index": 14,
+    "status": "trending",
+    "gap": true,
+    "shoppable": false,
+    "collection": "dallas-cowboys"
    },
    {
     "name": "ceedee lamb",
@@ -591,8 +591,8 @@
    },
    {
     "name": "jordan love",
-    "mentions": 2,
-    "index": 7,
+    "mentions": 1,
+    "index": 3,
     "status": "steady",
     "gap": false,
     "shoppable": true,
@@ -601,7 +601,7 @@
    {
     "name": "kevin stefanski",
     "mentions": 1,
-    "index": 4,
+    "index": 3,
     "status": "steady",
     "gap": false,
     "shoppable": true,
