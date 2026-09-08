@@ -2,24 +2,24 @@
  "generated": "2026-09-08",
  "window_days": 10,
  "fti_formula": "round(100 * entity_mentions / peak_mentions_in_window)",
- "peak_mentions": 17,
+ "peak_mentions": 28,
  "stats": {
   "products": 127,
   "collections": 4,
   "images": 969,
   "avg_price": 26.21,
   "hot": 5,
-  "throwback": 9,
-  "steady": 113,
+  "throwback": 13,
+  "steady": 109,
   "gaps": 5,
-  "moments": 1,
+  "moments": 2,
   "tracked_names": 18,
   "dead_campaigns": 5
  },
  "fti_rows": [
   {
    "name": "deshaun watson",
-   "mentions": 17,
+   "mentions": 28,
    "index": 100,
    "status": "trending",
    "gap": true,
@@ -27,81 +27,81 @@
    "collection": "cleveland-browns"
   },
   {
-   "name": "josh jacobs",
-   "mentions": 13,
-   "index": 76,
-   "status": "trending",
-   "gap": true,
-   "shoppable": false,
-   "collection": "green-bay-packers"
-  },
-  {
    "name": "shedeur sanders",
-   "mentions": 12,
-   "index": 71,
+   "mentions": 28,
+   "index": 100,
    "status": "trending",
    "gap": false,
    "shoppable": true,
    "collection": "cleveland-browns"
   },
   {
-   "name": "bryce underwood",
-   "mentions": 8,
-   "index": 47,
-   "status": "trending",
-   "gap": false,
-   "shoppable": true,
-   "collection": "michigan"
-  },
-  {
-   "name": "kyle whittingham",
-   "mentions": 8,
-   "index": 47,
+   "name": "josh jacobs",
+   "mentions": 13,
+   "index": 46,
    "status": "trending",
    "gap": true,
    "shoppable": false,
+   "collection": "green-bay-packers"
+  },
+  {
+   "name": "todd monken",
+   "mentions": 12,
+   "index": 43,
+   "status": "trending",
+   "gap": true,
+   "shoppable": false,
+   "collection": "cleveland-browns"
+  },
+  {
+   "name": "kyle whittingham",
+   "mentions": 9,
+   "index": 32,
+   "status": "trending",
+   "gap": true,
+   "shoppable": false,
+   "collection": "michigan"
+  },
+  {
+   "name": "bryce underwood",
+   "mentions": 8,
+   "index": 29,
+   "status": "trending",
+   "gap": false,
+   "shoppable": true,
    "collection": "michigan"
   },
   {
    "name": "micah parsons",
    "mentions": 8,
-   "index": 47,
+   "index": 29,
    "status": "trending",
    "gap": false,
    "shoppable": true,
    "collection": "green-bay-packers"
   },
   {
-   "name": "myles garrett",
-   "mentions": 6,
-   "index": 35,
-   "status": "trending",
-   "gap": false,
-   "shoppable": true,
-   "collection": "cleveland-browns"
-  },
-  {
-   "name": "todd monken",
-   "mentions": 6,
-   "index": 35,
-   "status": "trending",
-   "gap": true,
-   "shoppable": false,
-   "collection": "cleveland-browns"
-  },
-  {
    "name": "dak prescott",
    "mentions": 4,
-   "index": 24,
+   "index": 14,
    "status": "trending",
    "gap": true,
    "shoppable": false,
    "collection": "dallas-cowboys"
   },
   {
+   "name": "myles garrett",
+   "mentions": 4,
+   "index": 14,
+   "status": "trending",
+   "gap": false,
+   "shoppable": true,
+   "collection": "cleveland-browns"
+  },
+  {
    "name": "ceedee lamb",
    "mentions": 2,
-   "index": 12,
+   "index": 7,
    "status": "steady",
    "gap": false,
    "shoppable": false,
@@ -110,7 +110,7 @@
   {
    "name": "matt lafleur",
    "mentions": 2,
-   "index": 12,
+   "index": 7,
    "status": "steady",
    "gap": false,
    "shoppable": false,
@@ -183,7 +183,7 @@
  "gaps": [
   {
    "name": "deshaun watson",
-   "mentions": 17,
+   "mentions": 28,
    "index": 100,
    "status": "trending",
    "gap": true,
@@ -193,7 +193,7 @@
   {
    "name": "josh jacobs",
    "mentions": 13,
-   "index": 76,
+   "index": 46,
    "status": "trending",
    "gap": true,
    "shoppable": false,
@@ -210,17 +210,26 @@
   },
   {
    "name": "todd monken",
-   "mentions": 6,
-   "index": 35,
+   "mentions": 12,
+   "index": 43,
    "status": "trending",
    "gap": true,
    "shoppable": false,
    "collection": "cleveland-browns"
   },
   {
+   "name": "kyle whittingham",
+   "mentions": 9,
+   "index": 32,
+   "status": "trending",
+   "gap": true,
+   "shoppable": false,
+   "collection": "michigan"
+  },
+  {
    "name": "dak prescott",
    "mentions": 4,
-   "index": 24,
+   "index": 14,
    "status": "trending",
    "gap": true,
    "shoppable": false,
@@ -237,11 +246,11 @@
    "products": 63,
    "avg_price": 26.75,
    "hot": 4,
-   "throwback": 0,
+   "throwback": 4,
    "gaps": [
     {
      "name": "deshaun watson",
-     "mentions": 17,
+     "mentions": 28,
      "index": 100,
      "status": "trending",
      "gap": true,
@@ -250,8 +259,8 @@
     },
     {
      "name": "todd monken",
-     "mentions": 6,
-     "index": 35,
+     "mentions": 12,
+     "index": 43,
      "status": "trending",
      "gap": true,
      "shoppable": false,
@@ -261,12 +270,12 @@
    "top_terms": [
     "browns",
     "cleveland",
-    "roster",
     "watson",
-    "draft",
+    "roster",
+    "shedeur",
+    "sanders",
     "deshaun",
-    "todd",
-    "monken"
+    "todd"
    ],
    "headline_count": 100,
    "headlines": [
@@ -275,6 +284,18 @@
      "url": "https://news.google.com/rss/articles/CBMipgFBVV95cUxOQk9NbzAwUnp0U0lxR0lmRTl2am13cTNaeWVrdVIwREpuVFVSZ2JnMU9VWHhGUHdKV09SU0YwTk9fZkU5am41Nk93eFlwM1Z3ejJIeU1pWHFLa0ZCWEktajFnS3A1d1ZMdlpKVnZxS0dfOVVIOGRyc0RJc0Nfb1FNWEduNTlZWjEzeUxqM2dVU2dpUFZKLUNFNEFxSHE4Tmg0THg2TkJB?oc=5",
      "source": "Cleveland Browns",
      "pub": "Sun, 30 Aug 2026 07:00:00 GMT"
+    },
+    {
+     "title": "Cleveland Browns set initial 53-man roster",
+     "url": "https://news.google.com/rss/articles/CBMic0FVX3lxTE9ZMDZVVmNSem5BQ09qS25wU2N2SG56NnV3SUVPbF9XdnJ1bGxhZ3BfX3lEMHoxYTNoZ280Mi04dmhIallUbDBVZXVzVVNnUGFYVkhXYzFPNmN5MklFZU1lLTl1ankxR3pPa1J6c1d5ci1NQmPSAXhBVV95cUxOYkxibGJaZWdwNWtYdXhIaE1xUmNpSl82VkV1SU1fanV5MVVzRFV6M2dHOXlrR0cyQmtOTzU3c0E2RjhUU1FxUWJ1SnhZQ3NDVlROSTBqVER1cWxOSWJwOWFjdWFFd3hYeGFlV3ZrekpUb1MzQnZtcmw?oc=5",
+     "source": "FOX 8 News",
+     "pub": "Sun, 30 Aug 2026 07:00:00 GMT"
+    },
+    {
+     "title": "Would the Browns consider throwing the ball to QB Taylen Green? The surprise of camp re-signed to the practic",
+     "url": "https://news.google.com/rss/articles/CBMigAJBVV95cUxONUpuLUo5c0RpZzdocE9IYlUwYTNzU19Lb1VLWWwyaVhNQnFYOS1iMk45Vm44NnlNTU4tZTlkSllLcGJyYmNkQVZGRkJsN2E1S1JaZndMYnllYUp1VHlLekJpTFRUb2NUY2FYT2lLMkdlNjcwRlo3NnAxSlBxaFdCclJCZUMtQlpPcHJCdDZWSUo5eVk0eHJwVHpRTVBkNkk1Sml0a3JOQnJ5RDE3QWg5MHRtRUhMQUVSdFZPcTlRaE9fQW9XTlRoT3B3a18xcUc4WGRzWVZYV24tQ21rMV9SN1RtekhqWkZlLWw0SGpfaUxtdG1aWjlaRWVKeDRWejdD0gGUAkFVX3lxTE5jdU1LdkUzb0N5MVdUYVBpN3cyQzRpc2Jvc1AtcE9ZNHMzVkI3a1JJbjdEeWRXa2pzdkxHLUFMTlE4cVdPQV9NaTRZM1ZSNWs2TVhlVmVOS3lGNkJqa0wtZ05yekp0d0U1VHNkLWF6Tk51WkI1VE54UHI1NFp5emdaLWFxdjFIdzF0SzJWaWwyb3BhX3h4bDNJVTNQQkVVRzdlNi1fNmtheHJCekFQS3FjV1NSQWU3NDB0VnVYOXh2TmExNFprczRPeWZiYmUzYkcyZHR2bWo0MExnM0Z6aWp0c1N3NWZOTVlLQjJhd2RDa1Brd2xzV0pXbGczdUdpSFZkQnJBcmNSWXlDQWZmQWhFbUVGSw?oc=5",
+     "source": "Cleveland.com",
+     "pub": "Fri, 04 Sep 2026 19:43:00 GMT"
     },
     {
      "title": "Cleveland Browns have a strategy that may just be crazy enough to work",
@@ -317,7 +338,7 @@
     {
      "name": "dak prescott",
      "mentions": 4,
-     "index": 24,
+     "index": 14,
      "status": "trending",
      "gap": true,
      "shoppable": false,
@@ -332,7 +353,7 @@
     "squad",
     "roster",
     "jones",
-    "jaydon"
+    "broderick"
    ],
    "headline_count": 100,
    "headlines": [
@@ -383,7 +404,7 @@
     {
      "name": "josh jacobs",
      "mentions": 13,
-     "index": 76,
+     "index": 46,
      "status": "trending",
      "gap": true,
      "shoppable": false,
@@ -448,8 +469,8 @@
    "gaps": [
     {
      "name": "kyle whittingham",
-     "mentions": 8,
-     "index": 47,
+     "mentions": 9,
+     "index": 32,
      "status": "trending",
      "gap": true,
      "shoppable": false,
