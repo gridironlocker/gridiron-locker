@@ -26,6 +26,22 @@ sys.path.insert(0, str(SRC_DIR))
 from collections_data import SEASON  # noqa: E402  (path is set immediately above)
 
 
+def load_delisted() -> set[str]:
+    """Slugs retired from the store (departed players/coaches, pulled artwork).
+
+    data/delisted.json is the same source of truth src/build.py uses to skip
+    product pages. The marketing queue must respect it too, or the plan will
+    schedule posts — and /drops/ will publish "Shop This Drop" links — for
+    pages that no longer exist. A traded player trending in the headlines is
+    exactly when his retired designs would otherwise score their way back in.
+    """
+    try:
+        data = json.loads((ROOT / "data" / "delisted.json").read_text(encoding="utf-8"))
+        return set(data.get("slugs", {}))
+    except Exception:
+        return set()
+
+
 PLATFORMS = ("instagram", "tiktok", "facebook", "x", "pinterest")
 BASE_SCORE = 50
 SEASON_BONUS = 22
@@ -802,6 +818,8 @@ def build_designs(
     people: dict[str, Any],
 ) -> list[dict[str, Any]]:
     people_lookup = build_people_lookup(people)
+    delisted = load_delisted()
+    skipped_delisted: list[str] = []
 
     # Pass 1 — score every design and accumulate per-collection signal coverage
     # so the content-gap and cannibalization factors are evidence-based.
@@ -813,6 +831,9 @@ def build_designs(
         ckey = row.get("col")
         if not slug or not ckey:
             raise ValueError(f"Malformed order row: {row!r}")
+        if slug in delisted:
+            skipped_delisted.append(slug)
+            continue
         if slug not in products:
             raise ValueError(f"Order row {slug!r} is missing from data/products.json")
         if slug not in facts:
@@ -880,6 +901,11 @@ def build_designs(
         if breakdown["throwback"]:
             reasons.append("throwback penalty")
         item["reasons"] = reasons or ["evergreen catalogue fit"]
+    if skipped_delisted:
+        print(
+            f"who's-who gate: skipped {len(skipped_delisted)} delisted design(s) "
+            f"from the marketing queue: {', '.join(sorted(skipped_delisted))}"
+        )
     return designs
 
 
@@ -974,8 +1000,13 @@ def build_plan(
         raise ValueError("data/order.json must contain 134 unique design slugs")
 
     designs = build_designs(products, facts, order, trends, people)
-    if len(designs) != 134:
-        raise ValueError(f"Expected 134 generated designs; found {len(designs)}")
+    # Every order row must resolve to exactly one queue entry or one skipped
+    # delisted slug — the queue is the promotable catalogue, so its size moves
+    # with data/delisted.json instead of being pinned to a magic number.
+    delisted_in_order = load_delisted() & {row.get("slug") for row in order}
+    expected = len(order) - len(delisted_in_order)
+    if len(designs) != expected:
+        raise ValueError(f"Expected {expected} promotable designs; found {len(designs)}")
 
     generated_on = dt.date.today()
     gaps = make_news_gaps(trends)

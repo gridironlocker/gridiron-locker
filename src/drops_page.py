@@ -82,7 +82,12 @@ def build_drops_cards(drops, model_lookup):
 def page_drops_html(collections, order, model_lookup):
     drops_data = load_drops()
     trends = load_trends()
-    drops = drops_data.get("drops", [])[:24]
+    # Dead-link guard: model_lookup holds every product the site build actually
+    # published. Delisted designs (traded/released players, pulled artwork) are
+    # skipped by the build, so any drop whose slug is missing from the lookup
+    # has no live product page — rendering its card would publish a "Shop This
+    # Drop" link that 404s. Drop it instead, even if live_drops.json is stale.
+    drops = [d for d in drops_data.get("drops", []) if d.get("slug") in model_lookup][:24]
     generated = drops_data.get("generated", "today")
     trends_date = drops_data.get("trends_date", trends.get("generated","today"))
 

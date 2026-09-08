@@ -76,6 +76,7 @@ jobs:
       - name: Build three-day marketing pulse
         run: |
           python marketing/plan.py
+          python marketing/live_engine.py
           python marketing/commercial_agent.py
           python marketing/three_day_pulse.py
 
