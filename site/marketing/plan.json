@@ -22,7 +22,7 @@
     ],
     "output_file": "marketing/plan.json",
     "trend_window_days": 10,
-    "trends_generated_on": "2026-09-07",
+    "trends_generated_on": "2026-09-08",
     "vault_version": "v1 - team-specific voices, 20+ openers per team, headline-aware"
   },
   "score_rules": {
@@ -94,9 +94,9 @@
   "summary": {
     "design_count": 103,
     "top_score": 100,
-    "throwback_count": 31,
+    "throwback_count": 30,
     "season_match_count": 26,
-    "headline_gap_count": 4,
+    "headline_gap_count": 5,
     "headline_count": 400,
     "unique_copy": true,
     "vault": "team-specific voices, headline injection"
@@ -133,12 +133,12 @@
         "headline_name_matches": [
           {
             "name": "shedeur sanders",
-            "mentions": 22,
-            "repeated_mentions": 22,
+            "mentions": 12,
+            "repeated_mentions": 12,
             "throwback_signal": false
           }
         ],
-        "headline_name_repeat_count": 22,
+        "headline_name_repeat_count": 12,
         "headline_name_bonus": 30,
         "playoff_or_player_theme": true,
         "playoff_or_player_bonus": 6,
@@ -334,12 +334,12 @@
         "headline_name_matches": [
           {
             "name": "shedeur sanders",
-            "mentions": 22,
-            "repeated_mentions": 22,
+            "mentions": 12,
+            "repeated_mentions": 12,
             "throwback_signal": false
           }
         ],
-        "headline_name_repeat_count": 22,
+        "headline_name_repeat_count": 12,
         "headline_name_bonus": 30,
         "playoff_or_player_theme": true,
         "playoff_or_player_bonus": 6,
@@ -532,12 +532,12 @@
         "headline_name_matches": [
           {
             "name": "shedeur sanders",
-            "mentions": 22,
-            "repeated_mentions": 22,
+            "mentions": 12,
+            "repeated_mentions": 12,
             "throwback_signal": false
           }
         ],
-        "headline_name_repeat_count": 22,
+        "headline_name_repeat_count": 12,
         "headline_name_bonus": 30,
         "playoff_or_player_theme": true,
         "playoff_or_player_bonus": 6,
@@ -3343,6 +3343,203 @@
       ]
     },
     {
+      "slug": "denzel",
+      "source_index": 7,
+      "collection": "cleveland-browns",
+      "collection_label": "Cleveland Browns",
+      "name": "Denzel Ward Make Them Know Your Name Shirt",
+      "catalogue_title": "Denzel",
+      "design_text": "MAKE THEM KNOW YOUR NAME - DENZEL WARD 21 - BROWNS",
+      "theme": "player",
+      "product_type": "Apparel",
+      "price_usd": "24.99",
+      "product_url": "https://viralstyle.com/kebystore/denzel",
+      "image_url": "https://assets.viralstyle.com/campaigns/75996d02-8f45-0664-d1fb-70f2126af326/M5BGGM-qel8qEv-y0QZY80-front-large.jpg",
+      "keywords": [
+        "denzel ward shirt",
+        "browns 21 tee",
+        "cleveland cornerback shirt"
+      ],
+      "score": 56,
+      "score_breakdown": {
+        "score": 56,
+        "score_raw": 56,
+        "base": 50,
+        "season_search_terms": [],
+        "season_search_term_bonus": 0,
+        "headline_name_matches": [
+          {
+            "name": "denzel ward",
+            "mentions": 1,
+            "repeated_mentions": 0,
+            "throwback_signal": false
+          }
+        ],
+        "headline_name_repeat_count": 0,
+        "headline_name_bonus": 0,
+        "playoff_or_player_theme": true,
+        "playoff_or_player_bonus": 6,
+        "throwback": false,
+        "throwback_entities": [],
+        "throwback_penalty": 0
+      },
+      "opportunity": {
+        "score": 58.2,
+        "confidence": 65,
+        "factors": {
+          "audience": 80,
+          "search": 55,
+          "velocity": 30,
+          "gap": 50,
+          "competition": 50,
+          "business": 70,
+          "authority": 95,
+          "longevity": 30,
+          "distribution": 75
+        },
+        "weights": {
+          "audience": 20,
+          "search": 15,
+          "velocity": 15,
+          "gap": 15,
+          "competition": 10,
+          "business": 10,
+          "authority": 5,
+          "longevity": 5,
+          "distribution": 5
+        },
+        "trend_stage": "MAINSTREAM",
+        "opportunity_type": "Commercial",
+        "decision": "IMPROVE",
+        "decision_reason": "Attractive but needs a sharper angle or evidence",
+        "gates": {
+          "audience": {
+            "passed": true,
+            "note": "Targeted fanbase defined"
+          },
+          "evidence": {
+            "passed": true,
+            "note": "Hot query / entity match"
+          },
+          "differentiation": {
+            "passed": true,
+            "note": "Original design copy present (estimate — no rival comparison yet)"
+          },
+          "discovery": {
+            "passed": true,
+            "note": "Searchable terms present"
+          },
+          "business": {
+            "passed": true,
+            "note": "Commercial product"
+          },
+          "risk": {
+            "passed": true,
+            "note": "No elevated risk flagged"
+          },
+          "cannibalization": {
+            "passed": false,
+            "note": "No hot-term overlap"
+          }
+        },
+        "compliance": {
+          "terms": [
+            "browns",
+            "cleveland",
+            "denzel ward"
+          ],
+          "team_terms": [
+            "browns",
+            "cleveland"
+          ],
+          "person_terms": [
+            "denzel ward"
+          ],
+          "throwback_terms": [],
+          "level": "medium",
+          "social_safe": false,
+          "social_blocked": true
+        },
+        "evidence": {
+          "has_season_terms": false,
+          "has_headline_momentum": false,
+          "has_current_person": true,
+          "competitive_data": "estimate — no live rival data"
+        }
+      },
+      "platforms": {
+        "instagram": {
+          "caption": "Muni Lot at 7AM, lake wind in your face, and Browns announce initial 53-man roster heading into the 2026 season. Denzel Ward Make Them Know Your Name Shirt just makes sense. Tap the link in bio to see colourways and sizes.",
+          "hashtags": [
+            "#clevelandfootball",
+            "#denzelwardshirt",
+            "#browns21tee",
+            "#brownsfans",
+            "#fanfavorite",
+            "#dawgpound",
+            "#clevelandcornerbacks",
+            "#playertee"
+          ],
+          "prompt": "Rain-fresh autumn tailgate at dawn beside an empty stadium concourse; ember orange and deep cocoa illumination, wet pavement reflections, drifting mist; focused momentum, confident calm, and an energized atmosphere; vertical 4:5 framing, cinematic editorial atmosphere, natural light, tactile detail, and generous negative space"
+        },
+        "tiktok": {
+          "caption": "CLE moms, Browns dads, Browns announce initial 53-man roster heading into the 2026 season — Denzel Ward Make Them Know Your Name Shirt for the family. Comment 'GO' and we'll drop the link.",
+          "hashtags": [
+            "#brownsfans",
+            "#playertee",
+            "#clevelandfootball",
+            "#browns21tee",
+            "#fanfavorite",
+            "#dawgpound",
+            "#denzelwardshirt",
+            "#clevelandcornerbacks"
+          ],
+          "prompt": "Rain-fresh autumn tailgate at dawn beside an empty stadium concourse; ember orange and deep cocoa illumination, wet pavement reflections, drifting mist; focused momentum, confident calm, and an energized atmosphere; vertical 9:16 framing with a strong center of calm negative space, cinematic editorial atmosphere, natural light, tactile detail, and generous negative space"
+        },
+        "facebook": {
+          "caption": "Not officially licensed, just officially Cleveland. Browns announce initial 53-man roster heading into the 2026 season — Denzel Ward Make Them Know Your Name Shirt is independent fan art for the loyal. Tap through to see all colourways and garment styles.",
+          "hashtags": [
+            "#playertee",
+            "#clevelandfootball",
+            "#dawgpound",
+            "#clevelandcornerbacks",
+            "#fanfavorite",
+            "#denzelwardshirt"
+          ],
+          "prompt": "Rain-fresh autumn tailgate at dawn beside an empty stadium concourse; ember orange and deep cocoa illumination, wet pavement reflections, drifting mist; focused momentum, confident calm, and an energized atmosphere; horizontal 16:9 framing, cinematic editorial atmosphere, natural light, tactile detail, and generous negative space"
+        },
+        "x": {
+          "caption": "Denzel Ward Make Them Know Your Name Shirt — Browns announce initial 53-man roster heading into the 2026 season energy. Dawg Pound, you know what to do. https://viralstyle.com/kebystore/denzel",
+          "hashtags": [
+            "#denzelwardshirt",
+            "#playertee",
+            "#dawgpound",
+            "#brownsfans"
+          ],
+          "prompt": "Rain-fresh autumn tailgate at dawn beside an empty stadium concourse; ember orange and deep cocoa illumination, wet pavement reflections, drifting mist; focused momentum, confident calm, and an energized atmosphere; horizontal 16:9 framing with a wide horizon, cinematic editorial atmosphere, natural light, tactile detail, and generous negative space"
+        },
+        "pinterest": {
+          "caption": "Denzel Ward Make Them Know Your Name Shirt - Cleveland Browns Outfit Inspo | Game Day to Everyday. Tap to see colourways, sizes, and secure checkout.",
+          "hashtags": [
+            "#clevelandcornerbacks",
+            "#denzelwardshirt",
+            "#browns21tee",
+            "#dawgpound",
+            "#fanfavorite",
+            "#playertee",
+            "#brownsfans",
+            "#clevelandfootball"
+          ],
+          "prompt": "Rain-fresh autumn tailgate at dawn beside an empty stadium concourse; ember orange and deep cocoa illumination, wet pavement reflections, drifting mist; focused momentum, confident calm, and an energized atmosphere; vertical 2:3 framing with an airy editorial composition, cinematic editorial atmosphere, natural light, tactile detail, and generous negative space"
+        }
+      },
+      "live_headline": "Browns announce initial 53-man roster heading into the 2026 season",
+      "rank": 18,
+      "reasons": [
+        "playoff/player theme"
+      ]
+    },
+    {
       "slug": "all-we-want-all-we-got",
       "source_index": 10,
       "collection": "cleveland-browns",
@@ -3526,7 +3723,7 @@
         }
       },
       "live_headline": "Browns announce initial 53-man roster heading into the 2026 season",
-      "rank": 18,
+      "rank": 19,
       "reasons": [
         "playoff/player theme"
       ]
@@ -3713,7 +3910,7 @@
         }
       },
       "live_headline": "Browns announce initial 53-man roster heading into the 2026 season",
-      "rank": 19,
+      "rank": 20,
       "reasons": [
         "playoff/player theme"
       ]
@@ -3904,7 +4101,7 @@
         }
       },
       "live_headline": "Browns announce initial 53-man roster heading into the 2026 season",
-      "rank": 20,
+      "rank": 21,
       "reasons": [
         "playoff/player theme"
       ]
@@ -4093,7 +4290,7 @@
         }
       },
       "live_headline": "Browns announce initial 53-man roster heading into the 2026 season",
-      "rank": 21,
+      "rank": 22,
       "reasons": [
         "playoff/player theme"
       ]
@@ -4294,7 +4491,7 @@
         }
       },
       "live_headline": "Packers announce roster moves",
-      "rank": 22,
+      "rank": 23,
       "reasons": [
         "2026 search match",
         "playoff/player theme",
@@ -4497,7 +4694,7 @@
         }
       },
       "live_headline": "Packers announce roster moves",
-      "rank": 23,
+      "rank": 24,
       "reasons": [
         "2026 search match",
         "playoff/player theme",
@@ -4700,7 +4897,7 @@
         }
       },
       "live_headline": "Packers announce roster moves",
-      "rank": 24,
+      "rank": 25,
       "reasons": [
         "2026 search match",
         "playoff/player theme",
@@ -4903,7 +5100,7 @@
         }
       },
       "live_headline": "Packers announce roster moves",
-      "rank": 25,
+      "rank": 26,
       "reasons": [
         "2026 search match",
         "playoff/player theme",
@@ -5106,7 +5303,7 @@
         }
       },
       "live_headline": "Packers announce roster moves",
-      "rank": 26,
+      "rank": 27,
       "reasons": [
         "2026 search match",
         "playoff/player theme",
@@ -5309,7 +5506,7 @@
         }
       },
       "live_headline": "Packers announce roster moves",
-      "rank": 27,
+      "rank": 28,
       "reasons": [
         "2026 search match",
         "playoff/player theme",
@@ -5492,7 +5689,7 @@
         }
       },
       "live_headline": "Browns announce initial 53-man roster heading into the 2026 season",
-      "rank": 28,
+      "rank": 29,
       "reasons": [
         "evergreen catalogue fit"
       ]
@@ -5677,7 +5874,7 @@
         }
       },
       "live_headline": "Browns announce initial 53-man roster heading into the 2026 season",
-      "rank": 29,
+      "rank": 30,
       "reasons": [
         "evergreen catalogue fit"
       ]
@@ -5866,7 +6063,7 @@
         }
       },
       "live_headline": "Browns announce initial 53-man roster heading into the 2026 season",
-      "rank": 30,
+      "rank": 31,
       "reasons": [
         "evergreen catalogue fit"
       ]
@@ -6051,7 +6248,7 @@
         }
       },
       "live_headline": "Browns announce initial 53-man roster heading into the 2026 season",
-      "rank": 31,
+      "rank": 32,
       "reasons": [
         "evergreen catalogue fit"
       ]
@@ -6238,7 +6435,7 @@
         }
       },
       "live_headline": "Browns announce initial 53-man roster heading into the 2026 season",
-      "rank": 32,
+      "rank": 33,
       "reasons": [
         "evergreen catalogue fit"
       ]
@@ -6423,7 +6620,7 @@
         }
       },
       "live_headline": "Browns announce initial 53-man roster heading into the 2026 season",
-      "rank": 33,
+      "rank": 34,
       "reasons": [
         "evergreen catalogue fit"
       ]
@@ -6610,7 +6807,7 @@
         }
       },
       "live_headline": "Browns announce initial 53-man roster heading into the 2026 season",
-      "rank": 34,
+      "rank": 35,
       "reasons": [
         "evergreen catalogue fit"
       ]
@@ -6791,7 +6988,7 @@
         }
       },
       "live_headline": "Browns announce initial 53-man roster heading into the 2026 season",
-      "rank": 35,
+      "rank": 36,
       "reasons": [
         "evergreen catalogue fit"
       ]
@@ -6982,7 +7179,7 @@
         }
       },
       "live_headline": "Browns announce initial 53-man roster heading into the 2026 season",
-      "rank": 36,
+      "rank": 37,
       "reasons": [
         "evergreen catalogue fit"
       ]
@@ -7169,7 +7366,7 @@
         }
       },
       "live_headline": "Browns announce initial 53-man roster heading into the 2026 season",
-      "rank": 37,
+      "rank": 38,
       "reasons": [
         "evergreen catalogue fit"
       ]
@@ -7356,7 +7553,7 @@
         }
       },
       "live_headline": "Browns announce initial 53-man roster heading into the 2026 season",
-      "rank": 38,
+      "rank": 39,
       "reasons": [
         "evergreen catalogue fit"
       ]
@@ -7543,7 +7740,7 @@
         }
       },
       "live_headline": "Browns announce initial 53-man roster heading into the 2026 season",
-      "rank": 39,
+      "rank": 40,
       "reasons": [
         "evergreen catalogue fit"
       ]
@@ -7728,7 +7925,7 @@
         }
       },
       "live_headline": "Browns announce initial 53-man roster heading into the 2026 season",
-      "rank": 40,
+      "rank": 41,
       "reasons": [
         "evergreen catalogue fit"
       ]
@@ -7915,7 +8112,7 @@
         }
       },
       "live_headline": "Browns announce initial 53-man roster heading into the 2026 season",
-      "rank": 41,
+      "rank": 42,
       "reasons": [
         "evergreen catalogue fit"
       ]
@@ -8102,7 +8299,7 @@
         }
       },
       "live_headline": "Browns announce initial 53-man roster heading into the 2026 season",
-      "rank": 42,
+      "rank": 43,
       "reasons": [
         "evergreen catalogue fit"
       ]
@@ -8287,7 +8484,7 @@
         }
       },
       "live_headline": "Browns announce initial 53-man roster heading into the 2026 season",
-      "rank": 43,
+      "rank": 44,
       "reasons": [
         "evergreen catalogue fit"
       ]
@@ -8474,7 +8671,7 @@
         }
       },
       "live_headline": "Browns announce initial 53-man roster heading into the 2026 season",
-      "rank": 44,
+      "rank": 45,
       "reasons": [
         "evergreen catalogue fit"
       ]
@@ -8661,7 +8858,7 @@
         }
       },
       "live_headline": "Browns announce initial 53-man roster heading into the 2026 season",
-      "rank": 45,
+      "rank": 46,
       "reasons": [
         "evergreen catalogue fit"
       ]
@@ -8848,7 +9045,7 @@
         }
       },
       "live_headline": "Browns announce initial 53-man roster heading into the 2026 season",
-      "rank": 46,
+      "rank": 47,
       "reasons": [
         "evergreen catalogue fit"
       ]
@@ -9035,7 +9232,7 @@
         }
       },
       "live_headline": "Browns announce initial 53-man roster heading into the 2026 season",
-      "rank": 47,
+      "rank": 48,
       "reasons": [
         "evergreen catalogue fit"
       ]
@@ -9220,7 +9417,7 @@
         }
       },
       "live_headline": "Browns announce initial 53-man roster heading into the 2026 season",
-      "rank": 48,
+      "rank": 49,
       "reasons": [
         "evergreen catalogue fit"
       ]
@@ -9405,7 +9602,7 @@
         }
       },
       "live_headline": "Browns announce initial 53-man roster heading into the 2026 season",
-      "rank": 49,
+      "rank": 50,
       "reasons": [
         "evergreen catalogue fit"
       ]
@@ -9590,7 +9787,7 @@
         }
       },
       "live_headline": "Browns announce initial 53-man roster heading into the 2026 season",
-      "rank": 50,
+      "rank": 51,
       "reasons": [
         "evergreen catalogue fit"
       ]
@@ -9779,7 +9976,7 @@
         }
       },
       "live_headline": "Browns announce initial 53-man roster heading into the 2026 season",
-      "rank": 51,
+      "rank": 52,
       "reasons": [
         "evergreen catalogue fit"
       ]
@@ -9966,7 +10163,7 @@
         }
       },
       "live_headline": "Browns announce initial 53-man roster heading into the 2026 season",
-      "rank": 52,
+      "rank": 53,
       "reasons": [
         "evergreen catalogue fit"
       ]
@@ -10153,7 +10350,7 @@
         }
       },
       "live_headline": "Browns announce initial 53-man roster heading into the 2026 season",
-      "rank": 53,
+      "rank": 54,
       "reasons": [
         "evergreen catalogue fit"
       ]
@@ -10340,7 +10537,7 @@
         }
       },
       "live_headline": "Browns announce initial 53-man roster heading into the 2026 season",
-      "rank": 54,
+      "rank": 55,
       "reasons": [
         "evergreen catalogue fit"
       ]
@@ -10527,7 +10724,7 @@
         }
       },
       "live_headline": "Browns announce initial 53-man roster heading into the 2026 season",
-      "rank": 55,
+      "rank": 56,
       "reasons": [
         "evergreen catalogue fit"
       ]
@@ -10712,7 +10909,7 @@
         }
       },
       "live_headline": "Browns announce initial 53-man roster heading into the 2026 season",
-      "rank": 56,
+      "rank": 57,
       "reasons": [
         "evergreen catalogue fit"
       ]
@@ -10897,7 +11094,7 @@
         }
       },
       "live_headline": "Browns announce initial 53-man roster heading into the 2026 season",
-      "rank": 57,
+      "rank": 58,
       "reasons": [
         "evergreen catalogue fit"
       ]
@@ -11082,7 +11279,7 @@
         }
       },
       "live_headline": "Browns announce initial 53-man roster heading into the 2026 season",
-      "rank": 58,
+      "rank": 59,
       "reasons": [
         "evergreen catalogue fit"
       ]
@@ -11269,7 +11466,7 @@
         }
       },
       "live_headline": "Browns announce initial 53-man roster heading into the 2026 season",
-      "rank": 59,
+      "rank": 60,
       "reasons": [
         "evergreen catalogue fit"
       ]
@@ -11456,7 +11653,7 @@
         }
       },
       "live_headline": "Browns announce initial 53-man roster heading into the 2026 season",
-      "rank": 60,
+      "rank": 61,
       "reasons": [
         "evergreen catalogue fit"
       ]
@@ -11643,7 +11840,7 @@
         }
       },
       "live_headline": "Browns announce initial 53-man roster heading into the 2026 season",
-      "rank": 61,
+      "rank": 62,
       "reasons": [
         "evergreen catalogue fit"
       ]
@@ -11832,7 +12029,7 @@
         }
       },
       "live_headline": "Browns announce initial 53-man roster heading into the 2026 season",
-      "rank": 62,
+      "rank": 63,
       "reasons": [
         "evergreen catalogue fit"
       ]
@@ -12017,7 +12214,7 @@
         }
       },
       "live_headline": "Browns announce initial 53-man roster heading into the 2026 season",
-      "rank": 63,
+      "rank": 64,
       "reasons": [
         "evergreen catalogue fit"
       ]
@@ -12204,7 +12401,7 @@
         }
       },
       "live_headline": "Browns announce initial 53-man roster heading into the 2026 season",
-      "rank": 64,
+      "rank": 65,
       "reasons": [
         "evergreen catalogue fit"
       ]
@@ -12389,7 +12586,7 @@
         }
       },
       "live_headline": "Browns announce initial 53-man roster heading into the 2026 season",
-      "rank": 65,
+      "rank": 66,
       "reasons": [
         "evergreen catalogue fit"
       ]
@@ -12576,7 +12773,7 @@
         }
       },
       "live_headline": "Browns announce initial 53-man roster heading into the 2026 season",
-      "rank": 66,
+      "rank": 67,
       "reasons": [
         "evergreen catalogue fit"
       ]
@@ -12761,7 +12958,7 @@
         }
       },
       "live_headline": "Browns announce initial 53-man roster heading into the 2026 season",
-      "rank": 67,
+      "rank": 68,
       "reasons": [
         "evergreen catalogue fit"
       ]
@@ -12946,7 +13143,7 @@
         }
       },
       "live_headline": "Browns announce initial 53-man roster heading into the 2026 season",
-      "rank": 68,
+      "rank": 69,
       "reasons": [
         "evergreen catalogue fit"
       ]
@@ -13131,7 +13328,7 @@
         }
       },
       "live_headline": "Browns announce initial 53-man roster heading into the 2026 season",
-      "rank": 69,
+      "rank": 70,
       "reasons": [
         "evergreen catalogue fit"
       ]
@@ -13316,7 +13513,7 @@
         }
       },
       "live_headline": "Browns announce initial 53-man roster heading into the 2026 season",
-      "rank": 70,
+      "rank": 71,
       "reasons": [
         "evergreen catalogue fit"
       ]
@@ -13501,7 +13698,7 @@
         }
       },
       "live_headline": "Browns announce initial 53-man roster heading into the 2026 season",
-      "rank": 71,
+      "rank": 72,
       "reasons": [
         "evergreen catalogue fit"
       ]
@@ -13682,7 +13879,7 @@
         }
       },
       "live_headline": "Browns announce initial 53-man roster heading into the 2026 season",
-      "rank": 72,
+      "rank": 73,
       "reasons": [
         "evergreen catalogue fit"
       ]
@@ -13863,7 +14060,7 @@
         }
       },
       "live_headline": "Browns announce initial 53-man roster heading into the 2026 season",
-      "rank": 73,
+      "rank": 74,
       "reasons": [
         "evergreen catalogue fit"
       ]
@@ -14044,7 +14241,7 @@
         }
       },
       "live_headline": "Browns announce initial 53-man roster heading into the 2026 season",
-      "rank": 74,
+      "rank": 75,
       "reasons": [
         "evergreen catalogue fit"
       ]
@@ -14229,7 +14426,7 @@
         }
       },
       "live_headline": "Cowboys release initial 53-man roster for 2026 season",
-      "rank": 75,
+      "rank": 76,
       "reasons": [
         "evergreen catalogue fit"
       ]
@@ -14414,7 +14611,7 @@
         }
       },
       "live_headline": "Cowboys release initial 53-man roster for 2026 season",
-      "rank": 76,
+      "rank": 77,
       "reasons": [
         "evergreen catalogue fit"
       ]
@@ -14599,7 +14796,7 @@
         }
       },
       "live_headline": "Cowboys release initial 53-man roster for 2026 season",
-      "rank": 77,
+      "rank": 78,
       "reasons": [
         "evergreen catalogue fit"
       ]
@@ -14788,7 +14985,7 @@
         }
       },
       "live_headline": "Packers announce roster moves",
-      "rank": 78,
+      "rank": 79,
       "reasons": [
         "evergreen catalogue fit"
       ]
@@ -14989,7 +15186,7 @@
         }
       },
       "live_headline": "Packers announce roster moves",
-      "rank": 79,
+      "rank": 80,
       "reasons": [
         "2026 search match",
         "throwback penalty"
@@ -15190,7 +15387,7 @@
         }
       },
       "live_headline": "Packers announce roster moves",
-      "rank": 80,
+      "rank": 81,
       "reasons": [
         "2026 search match",
         "throwback penalty"
@@ -15390,209 +15587,9 @@
         }
       },
       "live_headline": "Packers announce roster moves",
-      "rank": 81,
-      "reasons": [
-        "2026 search match",
-        "throwback penalty"
-      ]
-    },
-    {
-      "slug": "denzel",
-      "source_index": 7,
-      "collection": "cleveland-browns",
-      "collection_label": "Cleveland Browns",
-      "name": "Denzel Ward Make Them Know Your Name Shirt",
-      "catalogue_title": "Denzel",
-      "design_text": "MAKE THEM KNOW YOUR NAME - DENZEL WARD 21 - BROWNS",
-      "theme": "player",
-      "product_type": "Apparel",
-      "price_usd": "24.99",
-      "product_url": "https://viralstyle.com/kebystore/denzel",
-      "image_url": "https://assets.viralstyle.com/campaigns/75996d02-8f45-0664-d1fb-70f2126af326/M5BGGM-qel8qEv-y0QZY80-front-large.jpg",
-      "keywords": [
-        "denzel ward shirt",
-        "browns 21 tee",
-        "cleveland cornerback shirt"
-      ],
-      "score": 31,
-      "score_breakdown": {
-        "score": 31,
-        "score_raw": 31,
-        "base": 50,
-        "season_search_terms": [],
-        "season_search_term_bonus": 0,
-        "headline_name_matches": [
-          {
-            "name": "denzel ward",
-            "mentions": 0,
-            "repeated_mentions": 0,
-            "throwback_signal": true
-          }
-        ],
-        "headline_name_repeat_count": 0,
-        "headline_name_bonus": 0,
-        "playoff_or_player_theme": true,
-        "playoff_or_player_bonus": 6,
-        "throwback": true,
-        "throwback_entities": [
-          "denzel ward"
-        ],
-        "throwback_penalty": -25
-      },
-      "opportunity": {
-        "score": 38.5,
-        "confidence": 65,
-        "factors": {
-          "audience": 50,
-          "search": 35,
-          "velocity": 10,
-          "gap": 50,
-          "competition": 30,
-          "business": 55,
-          "authority": 55,
-          "longevity": 10,
-          "distribution": 50
-        },
-        "weights": {
-          "audience": 20,
-          "search": 15,
-          "velocity": 15,
-          "gap": 15,
-          "competition": 10,
-          "business": 10,
-          "authority": 5,
-          "longevity": 5,
-          "distribution": 5
-        },
-        "trend_stage": "DECLINING",
-        "opportunity_type": "Commercial",
-        "decision": "REJECT",
-        "decision_reason": "Departed player/coach — keep listed, do not promote",
-        "gates": {
-          "audience": {
-            "passed": true,
-            "note": "Targeted fanbase defined"
-          },
-          "evidence": {
-            "passed": true,
-            "note": "Hot query / entity match"
-          },
-          "differentiation": {
-            "passed": true,
-            "note": "Original design copy present (estimate — no rival comparison yet)"
-          },
-          "discovery": {
-            "passed": true,
-            "note": "Searchable terms present"
-          },
-          "business": {
-            "passed": true,
-            "note": "Commercial product"
-          },
-          "risk": {
-            "passed": false,
-            "note": "IP/throwback risk"
-          },
-          "cannibalization": {
-            "passed": false,
-            "note": "No hot-term overlap"
-          }
-        },
-        "compliance": {
-          "terms": [
-            "browns",
-            "cleveland",
-            "denzel ward"
-          ],
-          "team_terms": [
-            "browns",
-            "cleveland"
-          ],
-          "person_terms": [
-            "denzel ward"
-          ],
-          "throwback_terms": [],
-          "level": "medium",
-          "social_safe": false,
-          "social_blocked": true
-        },
-        "evidence": {
-          "has_season_terms": false,
-          "has_headline_momentum": false,
-          "has_current_person": true,
-          "competitive_data": "estimate — no live rival data"
-        }
-      },
-      "platforms": {
-        "instagram": {
-          "caption": "Muni Lot at 7AM, lake wind in your face, and Browns announce initial 53-man roster heading into the 2026 season. Denzel Ward Make Them Know Your Name Shirt just makes sense. Tap the link in bio to see colourways and sizes.",
-          "hashtags": [
-            "#clevelandfootball",
-            "#denzelwardshirt",
-            "#browns21tee",
-            "#brownsfans",
-            "#fanfavorite",
-            "#dawgpound",
-            "#clevelandcornerbacks",
-            "#playertee"
-          ],
-          "prompt": "Rain-fresh autumn tailgate at dawn beside an empty stadium concourse; ember orange and deep cocoa illumination, wet pavement reflections, drifting mist; nostalgic warmth, muted contrast, and a reflective atmosphere; vertical 4:5 framing, cinematic editorial atmosphere, natural light, tactile detail, and generous negative space"
-        },
-        "tiktok": {
-          "caption": "CLE moms, Browns dads, Browns announce initial 53-man roster heading into the 2026 season — Denzel Ward Make Them Know Your Name Shirt for the family. Comment 'GO' and we'll drop the link.",
-          "hashtags": [
-            "#brownsfans",
-            "#playertee",
-            "#clevelandfootball",
-            "#browns21tee",
-            "#fanfavorite",
-            "#dawgpound",
-            "#denzelwardshirt",
-            "#clevelandcornerbacks"
-          ],
-          "prompt": "Rain-fresh autumn tailgate at dawn beside an empty stadium concourse; ember orange and deep cocoa illumination, wet pavement reflections, drifting mist; nostalgic warmth, muted contrast, and a reflective atmosphere; vertical 9:16 framing with a strong center of calm negative space, cinematic editorial atmosphere, natural light, tactile detail, and generous negative space"
-        },
-        "facebook": {
-          "caption": "Not officially licensed, just officially Cleveland. Browns announce initial 53-man roster heading into the 2026 season — Denzel Ward Make Them Know Your Name Shirt is independent fan art for the loyal. Tap through to see all colourways and garment styles.",
-          "hashtags": [
-            "#playertee",
-            "#clevelandfootball",
-            "#dawgpound",
-            "#clevelandcornerbacks",
-            "#fanfavorite",
-            "#denzelwardshirt"
-          ],
-          "prompt": "Rain-fresh autumn tailgate at dawn beside an empty stadium concourse; ember orange and deep cocoa illumination, wet pavement reflections, drifting mist; nostalgic warmth, muted contrast, and a reflective atmosphere; horizontal 16:9 framing, cinematic editorial atmosphere, natural light, tactile detail, and generous negative space"
-        },
-        "x": {
-          "caption": "Denzel Ward Make Them Know Your Name Shirt — Browns announce initial 53-man roster heading into the 2026 season energy. Dawg Pound, you know what to do. https://viralstyle.com/kebystore/denzel",
-          "hashtags": [
-            "#denzelwardshirt",
-            "#playertee",
-            "#dawgpound",
-            "#brownsfans"
-          ],
-          "prompt": "Rain-fresh autumn tailgate at dawn beside an empty stadium concourse; ember orange and deep cocoa illumination, wet pavement reflections, drifting mist; nostalgic warmth, muted contrast, and a reflective atmosphere; horizontal 16:9 framing with a wide horizon, cinematic editorial atmosphere, natural light, tactile detail, and generous negative space"
-        },
-        "pinterest": {
-          "caption": "Denzel Ward Make Them Know Your Name Shirt - Cleveland Browns Outfit Inspo | Game Day to Everyday. Tap to see colourways, sizes, and secure checkout.",
-          "hashtags": [
-            "#clevelandcornerbacks",
-            "#denzelwardshirt",
-            "#browns21tee",
-            "#dawgpound",
-            "#fanfavorite",
-            "#playertee",
-            "#brownsfans",
-            "#clevelandfootball"
-          ],
-          "prompt": "Rain-fresh autumn tailgate at dawn beside an empty stadium concourse; ember orange and deep cocoa illumination, wet pavement reflections, drifting mist; nostalgic warmth, muted contrast, and a reflective atmosphere; vertical 2:3 framing with an airy editorial composition, cinematic editorial atmosphere, natural light, tactile detail, and generous negative space"
-        }
-      },
-      "live_headline": "Browns announce initial 53-man roster heading into the 2026 season",
       "rank": 82,
       "reasons": [
-        "playoff/player theme",
+        "2026 search match",
         "throwback penalty"
       ]
     },
@@ -21251,15 +21248,15 @@
       "gaps": [
         {
           "name": "deshaun watson",
-          "mentions": 26,
+          "mentions": 17,
           "angle": "Current conversation around Deshaun Watson",
-          "copy_text": "Opportunity: explore an independent fan-made Cleveland concept around Deshaun Watson while the conversation is active (26 recent headline mentions). Validate the current context before publishing."
+          "copy_text": "Opportunity: explore an independent fan-made Cleveland concept around Deshaun Watson while the conversation is active (17 recent headline mentions). Validate the current context before publishing."
         },
         {
           "name": "todd monken",
-          "mentions": 9,
+          "mentions": 6,
           "angle": "Current conversation around Todd Monken",
-          "copy_text": "Opportunity: explore an independent fan-made Cleveland concept around Todd Monken while the conversation is active (9 recent headline mentions). Validate the current context before publishing."
+          "copy_text": "Opportunity: explore an independent fan-made Cleveland concept around Todd Monken while the conversation is active (6 recent headline mentions). Validate the current context before publishing."
         }
       ],
       "top_headlines": [
@@ -21270,57 +21267,57 @@
           "pub": "Sun, 30 Aug 2026 07:00:00 GMT"
         },
         {
-          "title": "Cleveland Browns set initial 53-man roster",
-          "url": "https://news.google.com/rss/articles/CBMic0FVX3lxTE9ZMDZVVmNSem5BQ09qS25wU2N2SG56NnV3SUVPbF9XdnJ1bGxhZ3BfX3lEMHoxYTNoZ280Mi04dmhIallUbDBVZXVzVVNnUGFYVkhXYzFPNmN5MklFZU1lLTl1ankxR3pPa1J6c1d5ci1NQmPSAXhBVV95cUxOYkxibGJaZWdwNWtYdXhIaE1xUmNpSl82VkV1SU1fanV5MVVzRFV6M2dHOXlrR0cyQmtOTzU3c0E2RjhUU1FxUWJ1SnhZQ3NDVlROSTBqVER1cWxOSWJwOWFjdWFFd3hYeGFlV3ZrekpUb1MzQnZtcmw?oc=5",
-          "source": "FOX 8 News",
-          "pub": "Sun, 30 Aug 2026 21:03:38 GMT"
-        },
-        {
-          "title": "Would the Browns consider throwing the ball to QB Taylen Green? The surprise of camp re-signed to the practic",
-          "url": "https://news.google.com/rss/articles/CBMigAJBVV95cUxONUpuLUo5c0RpZzdocE9IYlUwYTNzU19Lb1VLWWwyaVhNQnFYOS1iMk45Vm44NnlNTU4tZTlkSllLcGJyYmNkQVZGRkJsN2E1S1JaZndMYnllYUp1VHlLekJpTFRUb2NUY2FYT2lLMkdlNjcwRlo3NnAxSlBxaFdCclJCZUMtQlpPcHJCdDZWSUo5eVk0eHJwVHpRTVBkNkk1Sml0a3JOQnJ5RDE3QWg5MHRtRUhMQUVSdFZPcTlRaE9fQW9XTlRoT3B3a18xcUc4WGRzWVZYV24tQ21rMV9SN1RtekhqWkZlLWw0SGpfaUxtdG1aWjlaRWVKeDRWejdD0gGUAkFVX3lxTE5jdU1LdkUzb0N5MVdUYVBpN3cyQzRpc2Jvc1AtcE9ZNHMzVkI3a1JJbjdEeWRXa2pzdkxHLUFMTlE4cVdPQV9NaTRZM1ZSNWs2TVhlVmVOS3lGNkJqa0wtZ05yekp0d0U1VHNkLWF6Tk51WkI1VE54UHI1NFp5emdaLWFxdjFIdzF0SzJWaWwyb3BhX3h4bDNJVTNQQkVVRzdlNi1fNmtheHJCekFQS3FjV1NSQWU3NDB0VnVYOXh2TmExNFprczRPeWZiYmUzYkcyZHR2bWo0MExnM0Z6aWp0c1N3NWZOTVlLQjJhd2RDa1Brd2xzV0pXbGczdUdpSFZkQnJBcmNSWXlDQWZmQWhFbUVGSw?oc=5",
-          "source": "Cleveland.com",
-          "pub": "Fri, 04 Sep 2026 19:43:00 GMT"
-        },
-        {
           "title": "Cleveland Browns have a strategy that may just be crazy enough to work",
           "url": "https://news.google.com/rss/articles/CBMizgFBVV95cUxOR2xkSGFFZlJkVHpxWi03RU1hSmZJQVFwZlVkRkw3cTdpZU53SFI5TGN6cy1zU3E3elZsX0kzSnhETF9jeHVva1NBY0EtVkZOaC1tY3VTM2lkNDlaOUdESFBLaThJM1pkTUdXSk1RUFZXVmVQRUJqVzFvQVZOcTBBNTR0VTdma0xFTkpmUkQ3b1pkUFhJT3ZWWUtsV0NMUmFCd2FoUGFvaVFHUjdfZnpLMzdKQ0VuYWZEWlNYa3F1ajU0bTF3ZkdHbS1TV0EwQQ?oc=5",
           "source": "Dawgs By Nature",
           "pub": "Wed, 02 Sep 2026 23:10:52 GMT"
         },
         {
-          "title": "Cleveland Browns reset under Todd Monken after trading Myles Garrett and parting with Stefanski",
-          "url": "https://news.google.com/rss/articles/CBMiswFBVV95cUxPWlJBaEphNEoxVC1BX0d1MWtyOUNHb1VTTlpPNFo5eVpZTVc5Y1B5MXdCX3hKeHFMQTRmdmdSQ2JjZlRncG1qSEdiejN2MDE3bUNuZmtPSTZxcHFFM1FPcGwwbFB5TzEteU1HcUlVRW1QaWx1RkxLck9HdE1TRGd0NGVrMnEwMDRTWlZPMFJuZzRaS0d0QVd2bE43T1dETjdLdEZTZzJXeHJqYV9YV0NpT19TYw?oc=5",
-          "source": "Fox News",
-          "pub": "Thu, 03 Sep 2026 21:30:23 GMT"
+          "title": "Cleveland Browns set initial 53-man roster",
+          "url": "https://news.google.com/rss/articles/CBMic0FVX3lxTE9ZMDZVVmNSem5BQ09qS25wU2N2SG56NnV3SUVPbF9XdnJ1bGxhZ3BfX3lEMHoxYTNoZ280Mi04dmhIallUbDBVZXVzVVNnUGFYVkhXYzFPNmN5MklFZU1lLTl1ankxR3pPa1J6c1d5ci1NQmPSAXhBVV95cUxOYkxibGJaZWdwNWtYdXhIaE1xUmNpSl82VkV1SU1fanV5MVVzRFV6M2dHOXlrR0cyQmtOTzU3c0E2RjhUU1FxUWJ1SnhZQ3NDVlROSTBqVER1cWxOSWJwOWFjdWFFd3hYeGFlV3ZrekpUb1MzQnZtcmw?oc=5",
+          "source": "FOX 8 News",
+          "pub": "Sun, 30 Aug 2026 07:00:00 GMT"
+        },
+        {
+          "title": "How long before Todd Monken turns to Shedeur Sanders if Deshaun Watson struggles? Hey, Mary Kay!",
+          "url": "https://news.google.com/rss/articles/CBMi1gFBVV95cUxPVDljdkxlQWhrdWYyRFBPNGw4RE81cmhrVlRQZDNvbGdVMnBENUluSEdUbTRoVW1wOXktUV9Qdndqc2tKeU1SekNRaXNTVkQ1SERuNnhQLU5fWXlZaTlZcmV2NEFPdDdzS0ZlRjFGWkM2ZTdnRlljNThvaUI5WU4ydnlXbjU2UWROckJlajZyZU1vTk9VU2ZCc2czQmJZdzJWTHB4MW5jclVnTnFoLU1POVFzY2lGZVVoN3JaVXRwMWVFLWEteU5NbWlzTUFpcFRZUFBycDhR0gHqAUFVX3lxTE1tZlBWUXpFeU9sSFFJc09GSGM4SlRNRWlGbXdOY3Z3TlZMNUJzX0MxbmtSRnJIN0FrNTZmeFRmWG9MbHZvcFU3X2tLNjhrMGVGNXFveU4wTjg2TUx5cVU5YkFISXdVc2ZxQ3F5SjVYMmkteThFWkw1WXVfdDlUZ3dsNkFfWFhFNXlGMjJ2R0hNczR4ckhNZUwtdFVLWDNPLUo3cTZWN2U0c2h4NWNnVWRWM2c3U3RGLXdfazFoMUdkbFgtNWlwSnpHRzV6WVViclEtVDZiT3dHR1ItWTVUd2c4SmhwdU9qNEV4UQ?oc=5",
+          "source": "Cleveland.com",
+          "pub": "Sun, 06 Sep 2026 09:03:00 GMT"
+        },
+        {
+          "title": "Browns officially announce final roster cuts",
+          "url": "https://news.google.com/rss/articles/CBMilwFBVV95cUxNVkdSZ3dvdUVkWHZoYW1iLXR4LWhXS3BSUXRldmFMeUtieFpnTjZQcFkyWDFVNXJ6aVlYU2JOSkpxdFVfSFN3VWhvZXBZZFlKdTJyYm40TDVQc0lsOGJMcTBhb3NpNEJtTkx3TW5xLVhlN2NwaGRPNzUtTExTNmxYUDNIem9UZzJ3UFFibWEtZzNISTRvVzEw0gGcAUFVX3lxTE81RHYwZnZmOUNGUjhsWUdKZXdTd1dPMnNRVkRma0d5a2JiYWF0Wm1vNFF3bmxWSGkxZXhHcVQ5WjdhdDdJMGY0cXBBa1hQSmJCQ2VmY1BiX2pGTnVrNTIxLVRfajdER3kwM3F1SzFLdkdkaE1ma1dBSndrUTZGWXdISWNOa0UtRFdLMjV2a09HdE5vaGpxclBYMlpWMw?oc=5",
+          "source": "WKBN.com",
+          "pub": "Sun, 30 Aug 2026 20:47:53 GMT"
         }
       ],
       "covered_names": [
         {
           "name": "deshaun watson",
-          "mentions": 26
+          "mentions": 17
         },
         {
           "name": "shedeur sanders",
-          "mentions": 22
-        },
-        {
-          "name": "todd monken",
-          "mentions": 9
+          "mentions": 12
         },
         {
           "name": "myles garrett",
-          "mentions": 4
+          "mentions": 6
         },
         {
-          "name": "kevin stefanski",
-          "mentions": 1
+          "name": "todd monken",
+          "mentions": 6
         },
         {
           "name": "denzel ward",
-          "mentions": 0
+          "mentions": 1
         },
         {
           "name": "joe flacco",
+          "mentions": 0
+        },
+        {
+          "name": "kevin stefanski",
           "mentions": 0
         }
       ]
@@ -21342,7 +21339,7 @@
         {
           "title": "Packers announce roster moves | Aug. 30, 2026",
           "url": "https://news.google.com/rss/articles/CBMiekFVX3lxTFBfRGZTYlhHM0ZLTHlPWUNtLXFGTE5McWxucTdDSlZWOHhVbmlQNlBYUFVjeEtQUXpDX0dtdEVjNE1uZ0R6d0NEMklCSHF3RjMyZXpGdDl1anhHOUFfMjMySjNKZEZxTzM2dlNZMnQ0VHRHTElxaTNCX3RB?oc=5",
-          "source": "Green Bay Packers",
+          "source": "Packers.com",
           "pub": "Sun, 30 Aug 2026 07:00:00 GMT"
         },
         {
@@ -21354,7 +21351,7 @@
         {
           "title": "Three new Packers players are making an impression in Green Bay",
           "url": "https://news.google.com/rss/articles/CBMiuAFBVV95cUxQZ1NvTzVwR3VIN2U2SDVnRld2U0F6cTFfQXg2TzFyTGhNQTl3bmdTbkkzaU80OHp0X3pFRW1vYWZZWjRJWVlVSThWcklmTjdoOTZyMkNQYTdhSUpuUXRISUw0WkxUTmFaNGd1R0VYSDdtOFdHc3BWYktGeDIzZlhxVVRPVzBVaURkZFpqRkM4Ujdhd0h6OVg4NVJNNjdOUVk5V2szcXQ4anRQZDVJY01sVlNjRDJ4cERH?oc=5",
-          "source": "acmepackingcompany.com",
+          "source": "Acme Packing Company",
           "pub": "Wed, 02 Sep 2026 14:12:01 GMT"
         },
         {
@@ -21398,7 +21395,14 @@
       "collection_label": "Dallas Cowboys",
       "query": "Dallas Cowboys",
       "headline_count": 100,
-      "gaps": [],
+      "gaps": [
+        {
+          "name": "dak prescott",
+          "mentions": 4,
+          "angle": "Current conversation around Dak Prescott",
+          "copy_text": "Opportunity: explore an independent fan-made Dallas concept around Dak Prescott while the conversation is active (4 recent headline mentions). Validate the current context before publishing."
+        }
+      ],
       "top_headlines": [
         {
           "title": "Cowboys release initial 53-man roster for 2026 season",
@@ -21433,11 +21437,11 @@
       ],
       "covered_names": [
         {
-          "name": "ceedee lamb",
-          "mentions": 2
+          "name": "dak prescott",
+          "mentions": 4
         },
         {
-          "name": "dak prescott",
+          "name": "ceedee lamb",
           "mentions": 2
         }
       ]
@@ -21459,20 +21463,14 @@
         {
           "title": "Michigan Miracle: Wolverines Buck Broncos on Final Play to Open Season",
           "url": "https://news.google.com/rss/articles/CBMisgFBVV95cUxOOHU3QWhTNzlfQXI1X2lhTEI4eU9aQkpDQkp2NTBOMTNzRDZBcTJHdGhWRll1cXlRbWR5MERYSzNORkRiUDdnTDJxV3gzc05tTDF3XzBKYVBuYUgyOWdXbzhZZGNmWURWVUNBY3dDWC1vSzZsQUlxQlpNYTAwY0UtRGVRd2JNbTJDU1FJeUo5eWg5Z29yR0daWjlqX1hZVkZXS09NazU2VHhfUTdOV2FWTWJn?oc=5",
-          "source": "mgoblue.com",
+          "source": "University of Michigan Athletics",
           "pub": "Sun, 06 Sep 2026 07:27:46 GMT"
         },
         {
           "title": "4 Immediate Takeaways From Michigan Football's Stunning Win Over WMU",
           "url": "https://news.google.com/rss/articles/CBMisAFBVV95cUxNck5Paktmb0w0SlZCYlNOWWRzWUM4Yk1xTmpxYUxUNEJ3anU4UEF5RFBXMUlBSmw2REJWMmhqMjZya3hacjdYZ25tbW03MDFqZ1FGV3NHTW5LZWtGeFF3SWtUWTh6c1ViQm9rc2VlcjFWR0lta3dJai1HTFhtRWlLZ0xkTHJJY1R4VzRoSmJCQWczQUl6TXpCM2tHQzBWWW8wQkxlM0MycldPQ2QtSWx1WQ?oc=5",
           "source": "Sports Illustrated",
-          "pub": "Sun, 06 Sep 2026 02:49:51 GMT"
-        },
-        {
-          "title": "Can Michigan's controversial Hail Mary win over WMU be overturned?",
-          "url": "https://news.google.com/rss/articles/CBMi6gFBVV95cUxNUGRSV3h1ektXc0ZVYldlTHZ1elN0TkJOQmk4cmtUVE9RVERTQnpzcXM5RXVOYTRVX0RXOUg2cno0MzFCYnF2ekJnb0dpQlZaTjczUFEySlJsb1ZVeHBCYXV0dWpIZlRhUG5Oa2hQdnJQNEFGSnJUMl82bmtpQW1JUXRrSVpfcFF1c2tReTZWdVh0UHYxRzVsTnJmR3BSUGtoMUVaVmlYTzNZcmlMTXhFUFcyaWtRZHlMdG9mSmlCdm12bnlZUl9idVJnb3dFUnlzbjVLWEdGY084ZkZtamx3cjJZNFhDbGdRWUE?oc=5",
-          "source": "Detroit Free Press - Breaking news, sports, business, entertainment",
-          "pub": "Sun, 06 Sep 2026 15:04:00 GMT"
+          "pub": "Sun, 06 Sep 2026 03:03:37 GMT"
         },
         {
           "title": "How to watch Michigan vs Western Michigan: Live stream College Football, NCAA, TV channel",
@@ -21483,14 +21481,20 @@
         {
           "title": "Football Opens 2026 Season at No. 16 Michigan",
           "url": "https://news.google.com/rss/articles/CBMijwFBVV95cUxNZGtsbHRyQ1lRSFBaek1LOFBZWlJmeVFZU2tsOWlCZjVVNDFCV3ZKYUNyMDk3ekNvX2xUbHllY0h3QTk3U1hqS0ZWYTFXTXlpblBiRWRNWTROLU9sMjlGRXZwcHM3THNDdGNsWkhSVy00akt1bzZRUXdObjJUNzk3U3c1QjQycFBaa3F1dzJaOA?oc=5",
-          "source": "wmubroncos.com",
+          "source": "Western Michigan University Athletics",
           "pub": "Thu, 03 Sep 2026 16:04:02 GMT"
+        },
+        {
+          "title": "Clock controversy allows Michigan Wolverines to avoid massive upset against Western Michigan | OutKick",
+          "url": "https://news.google.com/rss/articles/CBMixwFBVV95cUxOS0h1S1dGMTljem5fLXY1SlRLdm1WUHJoQVV5eXNGSnRaVVZWUWRwdHRua2lRUDVOMnJJdDBpdC0xOW10N1pONzBlWDByZ1BrSmNlMy1BZzZJZWxacWxRaVpiUUp1ZTRpN1lRalRzWGc0MWpOSlJqTnVXMm1GdkpXVGNqTF9xeVpsVnBxNnF1Q1MtZDN0QzEzQWJ0Y3JHYUg4OWNtYVNVdEs0a3UwdTcyQmNVcnNhUEZXemE0bTBrZlJCWmc4dWtZ?oc=5",
+          "source": "Fox News",
+          "pub": "Sun, 06 Sep 2026 03:28:10 GMT"
         }
       ],
       "covered_names": [
         {
           "name": "bryce underwood",
-          "mentions": 9
+          "mentions": 8
         },
         {
           "name": "kyle whittingham",
@@ -21748,6 +21752,20 @@
     },
     {
       "rank": 18,
+      "slug": "denzel",
+      "name": "Denzel Ward Make Them Know Your Name Shirt",
+      "collection": "Cleveland Browns",
+      "score": 56,
+      "prompts": {
+        "instagram": "Rain-fresh autumn tailgate at dawn beside an empty stadium concourse; ember orange and deep cocoa illumination, wet pavement reflections, drifting mist; focused momentum, confident calm, and an energized atmosphere; vertical 4:5 framing, cinematic editorial atmosphere, natural light, tactile detail, and generous negative space",
+        "tiktok": "Rain-fresh autumn tailgate at dawn beside an empty stadium concourse; ember orange and deep cocoa illumination, wet pavement reflections, drifting mist; focused momentum, confident calm, and an energized atmosphere; vertical 9:16 framing with a strong center of calm negative space, cinematic editorial atmosphere, natural light, tactile detail, and generous negative space",
+        "facebook": "Rain-fresh autumn tailgate at dawn beside an empty stadium concourse; ember orange and deep cocoa illumination, wet pavement reflections, drifting mist; focused momentum, confident calm, and an energized atmosphere; horizontal 16:9 framing, cinematic editorial atmosphere, natural light, tactile detail, and generous negative space",
+        "x": "Rain-fresh autumn tailgate at dawn beside an empty stadium concourse; ember orange and deep cocoa illumination, wet pavement reflections, drifting mist; focused momentum, confident calm, and an energized atmosphere; horizontal 16:9 framing with a wide horizon, cinematic editorial atmosphere, natural light, tactile detail, and generous negative space",
+        "pinterest": "Rain-fresh autumn tailgate at dawn beside an empty stadium concourse; ember orange and deep cocoa illumination, wet pavement reflections, drifting mist; focused momentum, confident calm, and an energized atmosphere; vertical 2:3 framing with an airy editorial composition, cinematic editorial atmosphere, natural light, tactile detail, and generous negative space"
+      }
+    },
+    {
+      "rank": 19,
       "slug": "all-we-want-all-we-got",
       "name": "Cleveland Under Dawgs All We Got Shirt",
       "collection": "Cleveland Browns",
@@ -21761,7 +21779,7 @@
       }
     },
     {
-      "rank": 19,
+      "rank": 20,
       "slug": "playoffs-never-giveup",
       "name": "Playoffs Never Give Up Dawg Shirt",
       "collection": "Cleveland Browns",
@@ -21775,7 +21793,7 @@
       }
     },
     {
-      "rank": 20,
+      "rank": 21,
       "slug": "play-off-pound-shirt",
       "name": "Playoff Pound And Determined Shirt",
       "collection": "Cleveland Browns",
@@ -21789,7 +21807,7 @@
       }
     },
     {
-      "rank": 21,
+      "rank": 22,
       "slug": "all-we-want-all-we-got-25",
       "name": "Cleveland Under Dawgs Playoffs Shirt",
       "collection": "Cleveland Browns",
@@ -21803,7 +21821,7 @@
       }
     },
     {
-      "rank": 22,
+      "rank": 23,
       "slug": "limited-edition-grb31",
       "name": "Jordan Love 10 Green Bay Hoodie",
       "collection": "Green Bay Packers",
@@ -21817,7 +21835,7 @@
       }
     },
     {
-      "rank": 23,
+      "rank": 24,
       "slug": "limited-edition-grb30",
       "name": "Jordan Freaking Love Shirt",
       "collection": "Green Bay Packers",
@@ -21831,7 +21849,7 @@
       }
     },
     {
-      "rank": 24,
+      "rank": 25,
       "slug": "limited-edition-grb36",
       "name": "Jordan Love 10 Flag Number Shirt",
       "collection": "Green Bay Packers",
@@ -21845,7 +21863,7 @@
       }
     },
     {
-      "rank": 25,
+      "rank": 26,
       "slug": "limited-edition-grb24",
       "name": "Love 10 Jersey Back Shirt",
       "collection": "Green Bay Packers",
@@ -21859,7 +21877,7 @@
       }
     },
     {
-      "rank": 26,
+      "rank": 27,
       "slug": "limited-edition-grb4",
       "name": "Let The 10VE Begin Green Bay Shirt",
       "collection": "Green Bay Packers",
@@ -21873,7 +21891,7 @@
       }
     },
     {
-      "rank": 27,
+      "rank": 28,
       "slug": "limited-edition-grb11",
       "name": "Jordan Love Is All You Need Shirt",
       "collection": "Green Bay Packers",
@@ -21887,7 +21905,7 @@
       }
     },
     {
-      "rank": 28,
+      "rank": 29,
       "slug": "bend-football-fans",
       "name": "Bend & Snap Funny Football Shirt",
       "collection": "Cleveland Browns",
@@ -21901,7 +21919,7 @@
       }
     },
     {
-      "rank": 29,
+      "rank": 30,
       "slug": "cleveland-its-not-that-bad-have-a-beer",
       "name": "Cleveland It's Not That Bad Have A Beer Shirt",
       "collection": "Cleveland Browns",
@@ -21915,7 +21933,7 @@
       }
     },
     {
-      "rank": 30,
+      "rank": 31,
       "slug": "limited-edition-br-summer-2024",
       "name": "Cleveland Summer Slam Shirt",
       "collection": "Cleveland Browns",
@@ -21929,7 +21947,7 @@
       }
     },
     {
-      "rank": 31,
+      "rank": 32,
       "slug": "ohio-cleveland-fans",
       "name": "Ohio Football Cleveland State Outline Shirt",
       "collection": "Cleveland Browns",
@@ -21943,7 +21961,7 @@
       }
     },
     {
-      "rank": 32,
+      "rank": 33,
       "slug": "beware-of-dawg",
       "name": "Beware Of Dawg Cleveland Shirt",
       "collection": "Cleveland Browns",
@@ -21957,7 +21975,7 @@
       }
     },
     {
-      "rank": 33,
+      "rank": 34,
       "slug": "lets-go-cleveland",
       "name": "Let's Go Cleveland Football Shirt",
       "collection": "Cleveland Browns",
@@ -21971,7 +21989,7 @@
       }
     },
     {
-      "rank": 34,
+      "rank": 35,
       "slug": "this-girl-loves-browns-coach",
       "name": "This Girl Loves Browns' Coach Hoodie",
       "collection": "Cleveland Browns",
@@ -21985,7 +22003,7 @@
       }
     },
     {
-      "rank": 35,
+      "rank": 36,
       "slug": "my-heart-is-on-that-field",
       "name": "My Heart Is On That Field Football Shirt",
       "collection": "Cleveland Browns",
@@ -21999,7 +22017,7 @@
       }
     },
     {
-      "rank": 36,
+      "rank": 37,
       "slug": "dawg-pound",
       "name": "Cleveland Browns Dawg Pound Shirt",
       "collection": "Cleveland Browns",
@@ -22013,7 +22031,7 @@
       }
     },
     {
-      "rank": 37,
+      "rank": 38,
       "slug": "whispered-go-browns",
       "name": "So I Whispered Go Browns Funny Shirt",
       "collection": "Cleveland Browns",
@@ -22027,7 +22045,7 @@
       }
     },
     {
-      "rank": 38,
+      "rank": 39,
       "slug": "winter-hat-beanie-go-browns",
       "name": "Go Browns Orange Winter Beanie",
       "collection": "Cleveland Browns",
@@ -22041,7 +22059,7 @@
       }
     },
     {
-      "rank": 39,
+      "rank": 40,
       "slug": "limited-edition-lfg",
       "name": "LFG CLE Cleveland Sweatshirt",
       "collection": "Cleveland Browns",
@@ -22055,7 +22073,7 @@
       }
     },
     {
-      "rank": 40,
+      "rank": 41,
       "slug": "winter-hat-beanie-cleveland",
       "name": "Cleveland Black Winter Beanie",
       "collection": "Cleveland Browns",
@@ -22069,7 +22087,7 @@
       }
     },
     {
-      "rank": 41,
+      "rank": 42,
       "slug": "winter-hat-beanie-browns",
       "name": "Browns Orange Winter Beanie",
       "collection": "Cleveland Browns",
@@ -22083,7 +22101,7 @@
       }
     },
     {
-      "rank": 42,
+      "rank": 43,
       "slug": "limited-edition-2024n2",
       "name": "Dawg Life Bulldog Sweatshirt",
       "collection": "Cleveland Browns",
@@ -22097,7 +22115,7 @@
       }
     },
     {
-      "rank": 43,
+      "rank": 44,
       "slug": "limited-edition-241",
       "name": "Cleveland Skyline Football Shirt",
       "collection": "Cleveland Browns",
@@ -22111,7 +22129,7 @@
       }
     },
     {
-      "rank": 44,
+      "rank": 45,
       "slug": "limited-edition-our-coach",
       "name": "Our Coach Is Hotter Than Yours Sweatshirt",
       "collection": "Cleveland Browns",
@@ -22125,7 +22143,7 @@
       }
     },
     {
-      "rank": 45,
+      "rank": 46,
       "slug": "limited-edition-66",
       "name": "CLVLAND Find A Way By Any Means Sweatshirt",
       "collection": "Cleveland Browns",
@@ -22139,7 +22157,7 @@
       }
     },
     {
-      "rank": 46,
+      "rank": 47,
       "slug": "limited-edition-s-u-n-d-a-y-s",
       "name": "Sundays Are For The Browns Sweatshirt",
       "collection": "Cleveland Browns",
@@ -22153,7 +22171,7 @@
       }
     },
     {
-      "rank": 47,
+      "rank": 48,
       "slug": "limited-edition-d-w-a-g-s",
       "name": "Sundays Are For The Dawgs Red Sweatshirt",
       "collection": "Cleveland Browns",
@@ -22167,7 +22185,7 @@
       }
     },
     {
-      "rank": 48,
+      "rank": 49,
       "slug": "limited-edition-c2",
       "name": "CLE Script Football White Sweatshirt",
       "collection": "Cleveland Browns",
@@ -22181,7 +22199,7 @@
       }
     },
     {
-      "rank": 49,
+      "rank": 50,
       "slug": "limited-edition-c1",
       "name": "CLE Script Football Red Sweatshirt",
       "collection": "Cleveland Browns",
@@ -22195,7 +22213,7 @@
       }
     },
     {
-      "rank": 50,
+      "rank": 51,
       "slug": "limited-edition-b-e-k-i-n-d",
       "name": "Be Kind Cleveland Elf Sweatshirt",
       "collection": "Cleveland Browns",
@@ -22209,7 +22227,7 @@
       }
     },
     {
-      "rank": 51,
+      "rank": 52,
       "slug": "limited-edition-d-w-a-g",
       "name": "Dawg Pound Bulldog Red Sweatshirt",
       "collection": "Cleveland Browns",
@@ -22223,7 +22241,7 @@
       }
     },
     {
-      "rank": 52,
+      "rank": 53,
       "slug": "limited-edition-b-r-o-w-n-s-h-e-l-m-e-t",
       "name": "Cleveland Helmet Phone Case",
       "collection": "Cleveland Browns",
@@ -22237,7 +22255,7 @@
       }
     },
     {
-      "rank": 53,
+      "rank": 54,
       "slug": "limited-edition-cle-mug",
       "name": "Victory Monday Cleveland Coffee Mug",
       "collection": "Cleveland Browns",
@@ -22251,7 +22269,7 @@
       }
     },
     {
-      "rank": 54,
+      "rank": 55,
       "slug": "limited-edition-victory-morning",
       "name": "Victory Monday Red Sweatshirt",
       "collection": "Cleveland Browns",
@@ -22265,7 +22283,7 @@
       }
     },
     {
-      "rank": 55,
+      "rank": 56,
       "slug": "limited-edition-b-r-o-w-n-s1",
       "name": "Refuse To Surrender Winning Is Coming Sweatshirt",
       "collection": "Cleveland Browns",
@@ -22279,7 +22297,7 @@
       }
     },
     {
-      "rank": 56,
+      "rank": 57,
       "slug": "limited-edition-c-l-e-aint-for-sissies",
       "name": "Cleveland Ain't For Sissies Sweatshirt",
       "collection": "Cleveland Browns",
@@ -22293,7 +22311,7 @@
       }
     },
     {
-      "rank": 57,
+      "rank": 58,
       "slug": "limited-edition-rise-and-shine",
       "name": "Rise And Shine It's Game Day Sweatshirt",
       "collection": "Cleveland Browns",
@@ -22307,7 +22325,7 @@
       }
     },
     {
-      "rank": 58,
+      "rank": 59,
       "slug": "limited-edition-cleveland-lovers",
       "name": "I'll Always Be Your Biggest Fan Sweatshirt",
       "collection": "Cleveland Browns",
@@ -22321,7 +22339,7 @@
       }
     },
     {
-      "rank": 59,
+      "rank": 60,
       "slug": "limited-edition-b-r-o-w-n-s-cleveland-ca",
       "name": "Cleveland Helmet Splatter Phone Case",
       "collection": "Cleveland Browns",
@@ -22335,7 +22353,7 @@
       }
     },
     {
-      "rank": 60,
+      "rank": 61,
       "slug": "limited-edition-b-r-o-w-n-s",
       "name": "Cleveland Helmet Flag Phone Case",
       "collection": "Cleveland Browns",
@@ -22349,7 +22367,7 @@
       }
     },
     {
-      "rank": 61,
+      "rank": 62,
       "slug": "limited-edition-cleveland-fans",
       "name": "Stomping On These Haters Browns Style Sweatshirt",
       "collection": "Cleveland Browns",
@@ -22363,7 +22381,7 @@
       }
     },
     {
-      "rank": 62,
+      "rank": 63,
       "slug": "limited-edition-cleveland",
       "name": "Cleveland Bulldog Red Sweatshirt",
       "collection": "Cleveland Browns",
@@ -22377,7 +22395,7 @@
       }
     },
     {
-      "rank": 63,
+      "rank": 64,
       "slug": "d-a-w-g-b-i-t-c-limited-edition",
       "name": "Cleveland Bitcoin Bulldawgs Sweatshirt",
       "collection": "Cleveland Browns",
@@ -22391,7 +22409,7 @@
       }
     },
     {
-      "rank": 64,
+      "rank": 65,
       "slug": "i-love-b-r-o-w-n-s-limited-edition",
       "name": "I Love Browns Heart Sweatshirt",
       "collection": "Cleveland Browns",
@@ -22405,7 +22423,7 @@
       }
     },
     {
-      "rank": 65,
+      "rank": 66,
       "slug": "d-a-w-g-s-limited-edition",
       "name": "Sundays Are For The Dawgs Est 1946 Shirt",
       "collection": "Cleveland Browns",
@@ -22419,7 +22437,7 @@
       }
     },
     {
-      "rank": 66,
+      "rank": 67,
       "slug": "b-r-o-w-n-s-sugar-skull-halloween-long",
       "name": "Cleveland Sugar Skull Halloween All-Over Long Sleeve",
       "collection": "Cleveland Browns",
@@ -22433,7 +22451,7 @@
       }
     },
     {
-      "rank": 67,
+      "rank": 68,
       "slug": "br-sugar-skull-halloween",
       "name": "Cleveland Sugar Skull Halloween All-Over Shirt",
       "collection": "Cleveland Browns",
@@ -22447,7 +22465,7 @@
       }
     },
     {
-      "rank": 68,
+      "rank": 69,
       "slug": "cleveland-retro-vintage-classic-ohio-fan",
       "name": "Cleveland Retro Skyline Football Shirt",
       "collection": "Cleveland Browns",
@@ -22461,7 +22479,7 @@
       }
     },
     {
-      "rank": 69,
+      "rank": 70,
       "slug": "cleveland-retro-vintage-classic-ohio-shi-1",
       "name": "Cleveland Ohio Retro Bulldog Gameday Shirt",
       "collection": "Cleveland Browns",
@@ -22475,7 +22493,7 @@
       }
     },
     {
-      "rank": 70,
+      "rank": 71,
       "slug": "cleveland-retro-vintage-classic-ohio-shi",
       "name": "Cleveland Ohio Retro Bulldog Shirt",
       "collection": "Cleveland Browns",
@@ -22489,7 +22507,7 @@
       }
     },
     {
-      "rank": 71,
+      "rank": 72,
       "slug": "cleveland-retro-vintage-classic-ohio-gif",
       "name": "Vintage Cleveland Script Hoodie",
       "collection": "Cleveland Browns",
@@ -22503,7 +22521,7 @@
       }
     },
     {
-      "rank": 72,
+      "rank": 73,
       "slug": "line-man-dad-football-t-shirt",
       "name": "Lineman Dad Football Shirt",
       "collection": "Cleveland Browns",
@@ -22517,7 +22535,7 @@
       }
     },
     {
-      "rank": 73,
+      "rank": 74,
       "slug": "my-life-is-for-football-t-shirt",
       "name": "My Life Is For Football Shirt",
       "collection": "Cleveland Browns",
@@ -22531,7 +22549,7 @@
       }
     },
     {
-      "rank": 74,
+      "rank": 75,
       "slug": "dibs-on-the-coach-football-funny-football-1",
       "name": "Dibs On The Coach Funny Football Shirt",
       "collection": "Cleveland Browns",
@@ -22545,7 +22563,7 @@
       }
     },
     {
-      "rank": 75,
+      "rank": 76,
       "slug": "vintage-country",
       "name": "Y'all Can Kiss My Dallas Longhorn Shirt",
       "collection": "Dallas Cowboys",
@@ -22559,7 +22577,7 @@
       }
     },
     {
-      "rank": 76,
+      "rank": 77,
       "slug": "dallas-flag-tee",
       "name": "Dallas American Flag Vertical Shirt",
       "collection": "Dallas Cowboys",
@@ -22573,7 +22591,7 @@
       }
     },
     {
-      "rank": 77,
+      "rank": 78,
       "slug": "vintage-texas-pride",
       "name": "Dallas Texas State Flag Pride Shirt",
       "collection": "Dallas Cowboys",
@@ -22587,7 +22605,7 @@
       }
     },
     {
-      "rank": 78,
+      "rank": 79,
       "slug": "limited-edition-grb35",
       "name": "Cheese Heart Green Bay Mug",
       "collection": "Green Bay Packers",
@@ -22601,7 +22619,7 @@
       }
     },
     {
-      "rank": 79,
+      "rank": 80,
       "slug": "limited-edition-grb33",
       "name": "All You Need Is Love 10 Helmet Shirt",
       "collection": "Green Bay Packers",
@@ -22615,7 +22633,7 @@
       }
     },
     {
-      "rank": 80,
+      "rank": 81,
       "slug": "limited-edition-grb5",
       "name": "Go Pack Go Stencil Shirt",
       "collection": "Green Bay Packers",
@@ -22629,7 +22647,7 @@
       }
     },
     {
-      "rank": 81,
+      "rank": 82,
       "slug": "limited-edition-grb12",
       "name": "What Would Jordan Do Retro Shirt",
       "collection": "Green Bay Packers",
@@ -22640,20 +22658,6 @@
         "facebook": "Frosty lakeside morning near an empty stadium walkway; evergreen shadows, warm green and golden sunrise, breath-cold air, wood-and-metal textures; nostalgic warmth, muted contrast, and a reflective atmosphere; horizontal 16:9 framing, cinematic editorial atmosphere, natural light, tactile detail, and generous negative space",
         "x": "Frosty lakeside morning near an empty stadium walkway; evergreen shadows, warm green and golden sunrise, breath-cold air, wood-and-metal textures; nostalgic warmth, muted contrast, and a reflective atmosphere; horizontal 16:9 framing with a wide horizon, cinematic editorial atmosphere, natural light, tactile detail, and generous negative space",
         "pinterest": "Frosty lakeside morning near an empty stadium walkway; evergreen shadows, warm green and golden sunrise, breath-cold air, wood-and-metal textures; nostalgic warmth, muted contrast, and a reflective atmosphere; vertical 2:3 framing with an airy editorial composition, cinematic editorial atmosphere, natural light, tactile detail, and generous negative space"
-      }
-    },
-    {
-      "rank": 82,
-      "slug": "denzel",
-      "name": "Denzel Ward Make Them Know Your Name Shirt",
-      "collection": "Cleveland Browns",
-      "score": 31,
-      "prompts": {
-        "instagram": "Rain-fresh autumn tailgate at dawn beside an empty stadium concourse; ember orange and deep cocoa illumination, wet pavement reflections, drifting mist; nostalgic warmth, muted contrast, and a reflective atmosphere; vertical 4:5 framing, cinematic editorial atmosphere, natural light, tactile detail, and generous negative space",
-        "tiktok": "Rain-fresh autumn tailgate at dawn beside an empty stadium concourse; ember orange and deep cocoa illumination, wet pavement reflections, drifting mist; nostalgic warmth, muted contrast, and a reflective atmosphere; vertical 9:16 framing with a strong center of calm negative space, cinematic editorial atmosphere, natural light, tactile detail, and generous negative space",
-        "facebook": "Rain-fresh autumn tailgate at dawn beside an empty stadium concourse; ember orange and deep cocoa illumination, wet pavement reflections, drifting mist; nostalgic warmth, muted contrast, and a reflective atmosphere; horizontal 16:9 framing, cinematic editorial atmosphere, natural light, tactile detail, and generous negative space",
-        "x": "Rain-fresh autumn tailgate at dawn beside an empty stadium concourse; ember orange and deep cocoa illumination, wet pavement reflections, drifting mist; nostalgic warmth, muted contrast, and a reflective atmosphere; horizontal 16:9 framing with a wide horizon, cinematic editorial atmosphere, natural light, tactile detail, and generous negative space",
-        "pinterest": "Rain-fresh autumn tailgate at dawn beside an empty stadium concourse; ember orange and deep cocoa illumination, wet pavement reflections, drifting mist; nostalgic warmth, muted contrast, and a reflective atmosphere; vertical 2:3 framing with an airy editorial composition, cinematic editorial atmosphere, natural light, tactile detail, and generous negative space"
       }
     },
     {
@@ -23153,7 +23157,7 @@
       "collection": "cleveland-browns",
       "collection_label": "Cleveland Browns",
       "trend_stage": "ACCELERATING",
-      "trend_stage_note": "Active storyline with 62 recent mentions.",
+      "trend_stage_note": "Active storyline with 42 recent mentions.",
       "headline": "Shedeur Sanders vs Deshaun Watson: Cleveland names its 2026 starter this week.",
       "status": "QB1 decision expected Monday, Aug 24",
       "hot_terms": [
