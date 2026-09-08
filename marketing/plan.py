@@ -820,6 +820,7 @@ def build_designs(
     people_lookup = build_people_lookup(people)
     delisted = load_delisted()
     skipped_delisted: list[str] = []
+    skipped_ended: list[str] = []
 
     # Pass 1 — score every design and accumulate per-collection signal coverage
     # so the content-gap and cannibalization factors are evidence-based.
@@ -834,10 +835,13 @@ def build_designs(
         if slug in delisted:
             skipped_delisted.append(slug)
             continue
-        if slug not in products:
-            raise ValueError(f"Order row {slug!r} is missing from data/products.json")
-        if slug not in facts:
-            raise ValueError(f"Order row {slug!r} is missing from data/facts.json")
+        if slug not in products or slug not in facts:
+            # The campaign is no longer live at the supplier (or never got a
+            # facts entry). Its Buy button leads to a "Campaign Ended" page,
+            # so it is de facto retired: skip it instead of crashing the
+            # daily build the first crawl after the supplier listing shrinks.
+            skipped_ended.append(slug)
+            continue
         if ckey not in SEASON:
             raise ValueError(f"Order row {slug!r} has no season snapshot for {ckey!r}")
 
@@ -905,6 +909,11 @@ def build_designs(
         print(
             f"who's-who gate: skipped {len(skipped_delisted)} delisted design(s) "
             f"from the marketing queue: {', '.join(sorted(skipped_delisted))}"
+        )
+    if skipped_ended:
+        print(
+            f"ended-campaign gate: skipped {len(skipped_ended)} order slug(s) with "
+            f"no live supplier campaign or facts: {', '.join(sorted(skipped_ended))}"
         )
     return designs
 
@@ -994,17 +1003,26 @@ def build_plan(
     trends: dict[str, Any],
     people: dict[str, Any],
 ) -> dict[str, Any]:
-    if len(order) != 134:
-        raise ValueError(f"Expected 134 designs in data/order.json; found {len(order)}")
-    if len({row.get("slug") for row in order}) != 134:
-        raise ValueError("data/order.json must contain 134 unique design slugs")
+    # order.json is a snapshot; the live catalogue moves (campaigns end at the
+    # supplier, new ones are added via sheet.py). Guard against a wiped or
+    # duplicated order file, not against a different-but-real count.
+    unique_slugs = {row.get("slug") for row in order}
+    if len(order) < 100 or len(unique_slugs) != len(order):
+        raise ValueError(
+            f"data/order.json looks wrong: {len(order)} rows, {len(unique_slugs)} unique"
+        )
 
     designs = build_designs(products, facts, order, trends, people)
-    # Every order row must resolve to exactly one queue entry or one skipped
-    # delisted slug — the queue is the promotable catalogue, so its size moves
-    # with data/delisted.json instead of being pinned to a magic number.
-    delisted_in_order = load_delisted() & {row.get("slug") for row in order}
-    expected = len(order) - len(delisted_in_order)
+    # Every order row must resolve to exactly one queue entry, one skipped
+    # delisted slug, or one skipped ended/no-facts slug — the queue is the
+    # promotable catalogue, so its size moves with delisted.json and the
+    # supplier listing instead of being pinned to a magic number.
+    delisted_in_order = load_delisted() & unique_slugs
+    ended_in_order = {
+        slug for slug in unique_slugs - delisted_in_order
+        if slug not in products or slug not in facts
+    }
+    expected = len(unique_slugs) - len(delisted_in_order) - len(ended_in_order)
     if len(designs) != expected:
         raise ValueError(f"Expected {expected} promotable designs; found {len(designs)}")
 
