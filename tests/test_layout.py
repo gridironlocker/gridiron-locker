@@ -230,9 +230,11 @@ class TeamCollectionPages(unittest.TestCase):
         self.assertIn("aspect-ratio:1933/813", comp)
 
     def test_hero_bands_are_uncropped(self):
-        # Each banner band matches its art's native ratio (home 1983x793,
-        # teams 1933x813) at every breakpoint so the full banner shows and
-        # none of them get cropped to a 16:9 box or a wide strip.
+        # The homepage hero is now an editorial HTML/text collage. The
+        # collection banner bands still match their real art's native ratio
+        # (home poster 1983x793, teams 1933x813) at every breakpoint so the
+        # full banner shows and none of them get cropped to a 16:9 box or a
+        # wide strip.
         base = css_block(self.css, ".cbanner .band")
         self.assertIn("aspect-ratio:1983/793", base)
         comp = css_block(self.css, ".cbanner.compact .band")
@@ -241,8 +243,9 @@ class TeamCollectionPages(unittest.TestCase):
         # the home ratio instead of the team one.
         self.assertIn("aspect-ratio:1983/793",
                       css_block(self.css, ".cbanner.compact.homeband .band"))
-        self.assertRegex(page("index.html"),
-                         r'<div class="band"><img\b[^>]*width="1983" height="793"')
+        # the home page now uses the HTML hero; /drops/ + team pages keep bands
+        self.assertRegex(page("index.html"), r'<section class="hero editorial"')
+        self.assertRegex(page("index.html"), r'class="hero-shots"')
         self.assertRegex(page("drops/index.html"),
                          r'<div class="band"><img\b[^>]*width="1983" height="793"')
         for k, html in self.pages.items():
@@ -446,24 +449,26 @@ class Homepage(unittest.TestCase):
         self.html = page("index.html")
         self.css = page("assets/style.css")
 
-    def test_shop_by_team_nav_cards(self):
-        sec = between(self.html, '<section class="teamnavsec">', "</section>")
-        self.assertIn("Shop By Team", sec)
-        cards = re.findall(r'<a class="teamnav[^"]*"[^>]*>(.*?)</a>', sec, re.S)
+    def test_shop_by_team_editorial_cards(self):
+        sec = between(self.html, '<section class="teamdeck-sec">', "</section>")
+        self.assertIn("Shop By", sec)
+        cards = re.findall(r'<a class="teamcard[^"]*"[^>]*>(.*?)</a>', sec, re.S)
         self.assertEqual(len(cards), len(ORDER))
         for k, card in zip(ORDER, cards):
             c = COLLECTIONS[k]
-            self.assertIn('class="tportrait"', card)
-            self.assertIn(os.path.basename(c["logo"]), card)           # logo mark, uncropped
+            self.assertIn(os.path.basename(c["hero"]), card)          # team imagery
             self.assertIn(c["name"], card)
             self.assertRegex(card, r"\d+ designs")
             self.assertIn("&rarr;", card)
+            self.assertIn(c["chant"].replace("'", "&#x27;"), card)    # tagline
         self.assertNotIn('class="colcard', self.html)
-        nav = css_block(self.css, ".teamnav")
-        self.assertIn("display:flex", nav)                      # horizontal
-        self.assertIn("border-radius:18px", nav)                # rounded
-        self.assertIn("repeat(2,minmax(0,1fr))", css_block(self.css, ".teamnav-grid"))
-        self.assertIn(".teamnav-grid{grid-template-columns:1fr", media_rules(self.css, 760))
+        nav = css_block(self.css, ".teamcard")
+        self.assertIn("display:flex", nav)
+        self.assertIn("border-radius:18px", nav)
+        self.assertIn("repeat(4,minmax(0,1fr))", css_block(self.css, ".teamdeck-grid"))
+        self.assertIn(".teamdeck-grid{grid-template-columns:repeat(2,minmax(0,1fr))",
+                      media_rules(self.css, 980))
+        self.assertIn(".teamdeck-grid{grid-template-columns:1fr", media_rules(self.css, 560))
 
     def test_why_this_locker_removed(self):
         self.assertNotIn("Why this locker", self.html)
@@ -494,25 +499,29 @@ class Homepage(unittest.TestCase):
     def test_shopping_first_order(self):
         # Landing sequence is buying intent first, editorial last.
         markers = [
-            '<section class="quickfind"',        # jump to any design
-            '<section class="teamnavsec"',       # pick a team
+            '<section class="hero editorial"',   # copy + four-team collage
+            '<section class="teamdeck-sec"',     # pick a team
             'class="trust"',                     # purchase confidence
+            '<section class="featured-sec"',     # real product cards
             '<section class="railsec"',          # trending now rail
+            '<section class="lockersec"',        # promotional locker panel
             'class="cdbar"',                     # week-1 countdown
             '<section class="teamsec"',          # product sections
+            '<section class="guidesec"',         # buying guides
+            '<section class="brandsec"',         # newsletter / brand
             '<section class="ftisec"',           # headline strip
             'class="newsticker"',                # live news bar
-            '<section class="customsec"',        # made-to-order (last)
         ]
         pos = 0
         for m in markers:
             i = self.html.index(m, pos)
             self.assertGreater(i, pos, "order: %s" % m)
             pos = i
-        # hero secondary CTA points at the trending drops page
-        hero = between(self.html, '<section class="cbanner"', "</section>")
-        self.assertIn("href=\"./drops/\"", hero)
-        self.assertIn("Trending now", hero)
+        # hero primary CTA goes to the collections, secondary to drops
+        hero = between(self.html, '<section class="hero editorial"', "</section>")
+        self.assertIn("./collections/", hero)
+        self.assertIn("./drops/", hero)
+        self.assertIn("Trending Now", hero)
 
     def test_trending_rail_uses_real_signals(self):
         sec = between(self.html, '<section class="railsec">', "</section>")
@@ -524,35 +533,22 @@ class Homepage(unittest.TestCase):
         self.assertNotIn("best seller", sec.lower())
         self.assertNotIn("bestseller", sec.lower())
 
-    def test_hero_copy_does_not_repeat_the_artwork(self):
-        # The hero poster (site/img/hero-home.jpg, 1983x793) ships with its own
-        # eyebrow, headline and two support lines baked into the pixels:
-        #   "football. fans. culture." / "GEAR UP. KEEP IT." /
-        #   "Original fan-made apparel for the teams we love." /
-        #   "Four cities. Four fanbases. One locker."
-        # The white block under the band must add information the art can't
-        # carry (live count, made-to-order, sizes, shipping, routes in) and
-        # never restate the poster - that is the duplication this guards.
-        hero = between(self.html, '<section class="cbanner"', "</section>")
-        band = between(hero, '<div class="band">', "</div>")
-        copy = between(hero, '<div class="cb-in">', "</div>")
-        for phrase in ("football. fans. culture.", "gear up", "keep it",
-                       "original fan-made", "four cities", "four fanbases",
-                       "one locker", "gridiron locker",
-                       "cleveland", "green bay", "dallas", "michigan"):
-            self.assertNotIn(phrase, copy.lower(), phrase)
-        # ...but the poster's words are still available to screen readers, and
-        # the page still ships a real <h1> for search engines.
-        self.assertIn("Original fan-made apparel for the teams we love.", band)
-        self.assertIn('<h1 class="sr-only">', copy)
-        self.assertIn("Fan-Made Football Tees, Hoodies &amp; Gear", copy)
+    def test_hero_copy_matches_reference(self):
+        # The homepage hero is now a real editorial copy block (not a photo
+        # poster): eyebrow, huge headline, brush word, live catalogue facts
+        # and two product routes, plus a four-team product collage beside it.
+        hero = between(self.html, '<section class="hero editorial"', "</section>")
+        self.assertIn("Football. Fans. Culture.", hero)
+        self.assertIn('<h1 class="hero-title">', hero)
+        self.assertIn("Keep it.", hero)
+        self.assertEqual(len(re.findall(r'<a class="hero-shot', hero)), len(ORDER))
+        self.assertRegex(hero, r"\d+ fan designs")
+        self.assertIn("S&ndash;3XL", hero)
+        self.assertIn("Worldwide shipping", hero)
+        self.assertIn("./collections/", hero)
+        self.assertIn("./drops/", hero)
+        # the hero headline is visible text (crawlable), not sr-only
         self.assertIn("position:absolute", css_block(self.css, ".sr-only"))
-        # and the block still does its job: live count + fulfilment + 2 routes
-        self.assertRegex(copy, r"\d+ fan designs")
-        self.assertIn("3XL", copy)
-        self.assertIn("shipped worldwide with tracking", copy)
-        self.assertIn('href="./collections/"', copy)
-        self.assertIn('href="./drops/"', copy)
 
     def test_seo_and_hero_preserved(self):
         self.assertIn('<link rel="canonical" href="https://gridironlocker.store/">', self.html)

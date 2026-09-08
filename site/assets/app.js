@@ -96,6 +96,98 @@ document.querySelectorAll('.thumb,.swatch,.stylechip').forEach(function(b){
   });
 })();
 
+// ---------- mobile nav + header utility popovers ----------
+(function(){
+  var nb=document.getElementById('navToggle'), mn=document.getElementById('mn');
+  if(nb&&mn){
+    nb.addEventListener('click',function(){
+      var open=mn.classList.toggle('open');
+      nb.classList.toggle('on',open);
+      nb.setAttribute('aria-expanded',open?'true':'false');
+      nb.setAttribute('aria-label',open?'Close menu':'Open menu');
+    });
+  }
+  function closeAll(){
+    ['acctPop','cartPop'].forEach(function(id){var p=document.getElementById(id); if(p)p.hidden=true;});
+    ['acctBtn','cartBtn'].forEach(function(id){
+      var b=document.getElementById(id);
+      if(b){b.classList.remove('on');b.setAttribute('aria-expanded','false');}
+    });
+  }
+  [['acctBtn','acctPop'],['cartBtn','cartPop']].forEach(function(pair){
+    var btn=document.getElementById(pair[0]), pop=document.getElementById(pair[1]);
+    if(!btn||!pop)return;
+    btn.addEventListener('click',function(e){
+      e.stopPropagation();
+      closeAll();
+      var open=pop.hidden;
+      pop.hidden=!open;
+      btn.classList.toggle('on',open);
+      btn.setAttribute('aria-expanded',open?'true':'false');
+    });
+    pop.addEventListener('click',function(e){e.stopPropagation();});
+  });
+  document.addEventListener('click',closeAll);
+})();
+
+// ---------- favourites + cart hint (device-side, no backend) ----------
+(function(){
+  var key='gl_favs';
+  function read(){ try{return JSON.parse(localStorage.getItem(key)||'[]');}catch(e){return [];} }
+  function write(a){ try{localStorage.setItem(key,JSON.stringify(a));}catch(e){} }
+  function count(){
+    var n=read().length, cc=document.getElementById('cartCount');
+    if(cc)cc.textContent=n;
+  }
+  var msg=document.getElementById('favMsg');
+  function toast(t){
+    if(!msg)return;
+    msg.textContent=t; msg.hidden=false; msg.classList.add('on');
+    clearTimeout(msg._t); msg._t=setTimeout(function(){msg.classList.remove('on');msg.hidden=true;},1600);
+  }
+  document.querySelectorAll('.card .fav').forEach(function(b){
+    var slug=b.getAttribute('data-slug');
+    function draw(){
+      var on=read().indexOf(slug)>-1;
+      b.classList.toggle('on',on); b.setAttribute('aria-pressed',on?'true':'false');
+    }
+    draw();
+    b.addEventListener('click',function(e){
+      e.preventDefault(); e.stopPropagation();
+      var a=read(), i=a.indexOf(slug), card=b.closest('.card'),
+          nm=card?card.querySelector('h3').textContent:'design';
+      if(i>-1){a.splice(i,1); toast('Removed "'+nm+'" from favourites.');}
+      else{a.unshift(slug); toast('Saved "'+nm+'" to favourites.');}
+      write(a); draw(); count();
+    });
+  });
+  count();
+})();
+
+// ---------- newsletter signup (FormSubmit, no backend needed) ----------
+(function(){
+  var form=document.getElementById('newsForm'); if(!form)return;
+  form.action='https://formsubmit.co/'+atob(CUSTOM_EMAIL);
+  var msg=document.getElementById('newsMsg'), btn=form.querySelector('button');
+  form.addEventListener('submit',function(e){
+    e.preventDefault();
+    var email=form.querySelector('input[name=email]').value.trim();
+    if(!email||email.indexOf('@')<1){
+      if(msg){msg.style.color='#c0392b';msg.textContent='Please enter a valid email address.';}
+      return;
+    }
+    if(btn)btn.disabled=true;
+    if(msg){msg.style.color='';msg.textContent='Joining the locker...';}
+    fetch(form.action,{method:'POST',body:new FormData(form),mode:'no-cors'}).then(function(){
+      if(msg)msg.textContent='Welcome to the locker. Check your inbox to confirm.';
+      form.reset(); if(btn)btn.disabled=false;
+    }).catch(function(){
+      if(msg)msg.textContent='Almost there - email us directly to join.';
+      if(btn)btn.disabled=false;
+    });
+  });
+})();
+
 // ---------- reveal safety net: never leave content invisible ----------
 setTimeout(function(){
   document.querySelectorAll('.reveal').forEach(function(e){e.classList.add('in')});
