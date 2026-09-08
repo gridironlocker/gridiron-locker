@@ -43,6 +43,7 @@ def build_designs_unique(products, facts, order, trends, people):
     people_lookup = build_people_lookup(people)
     delisted = load_delisted()
     skipped_delisted = []
+    skipped_ended = []
     scored = []
     term_coverage = {}
     entity_coverage = {}
@@ -51,6 +52,11 @@ def build_designs_unique(products, facts, order, trends, people):
         ckey = row.get("col")
         if slug in delisted:
             skipped_delisted.append(slug)
+            continue
+        if slug not in products or slug not in facts:
+            # Campaign no longer live at the supplier (or no facts entry):
+            # de facto retired — skip instead of crashing the daily build.
+            skipped_ended.append(slug)
             continue
         product = products[slug]
         fact = facts[slug]
@@ -128,6 +134,11 @@ def build_designs_unique(products, facts, order, trends, people):
             f"who's-who gate: skipped {len(skipped_delisted)} delisted design(s) "
             f"from the drops/pins queue: {', '.join(sorted(skipped_delisted))}"
         )
+    if skipped_ended:
+        print(
+            f"ended-campaign gate: skipped {len(skipped_ended)} order slug(s) with "
+            f"no live supplier campaign or facts: {', '.join(sorted(skipped_ended))}"
+        )
     return designs
 
 def build_live_drops(designs, trends, delisted_slugs=None):
@@ -186,8 +197,11 @@ def build_pinterest_feed(designs):
     return rows
 
 def build_plan(products, facts, order, trends, people):
-    if len(order) != 134:
-        raise ValueError(f"Expected 134 designs, got {len(order)}")
+    if len(order) < 100 or len({row.get("slug") for row in order}) != len(order):
+        raise ValueError(
+            f"data/order.json looks wrong: {len(order)} rows, "
+            f"{len({row.get('slug') for row in order})} unique"
+        )
     designs = build_designs_unique(products, facts, order, trends, people)
     generated_on = dt.date.today()
     gaps = make_news_gaps(trends)
