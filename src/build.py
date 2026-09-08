@@ -2940,10 +2940,12 @@ document.querySelectorAll('.thumb,.swatch,.stylechip').forEach(function(b){
         b.disabled = max<=0 || (back ? rail.scrollLeft<=2 : rail.scrollLeft>=max);
       });
     }
+    var calm=window.matchMedia&&window.matchMedia('(prefers-reduced-motion:reduce)').matches;
     btns.forEach(function(b){
       b.addEventListener('click',function(){
         var step=Math.max(240,Math.round(rail.clientWidth*0.86));
-        rail.scrollBy({left:step*parseInt(b.getAttribute('data-dir'),10),behavior:'smooth'});
+        rail.scrollBy({left:step*parseInt(b.getAttribute('data-dir'),10),
+                       behavior:calm?'auto':'smooth'});
       });
     });
     rail.addEventListener('scroll',sync,{passive:true});
