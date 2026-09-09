@@ -1,5 +1,5 @@
 {
- "generated": "2026-09-08",
+ "generated": "2026-09-09",
  "window_days": 10,
  "fti_formula": "round(100 * entity_mentions / peak_mentions_in_window)",
  "peak_mentions": 27,
@@ -28,8 +28,8 @@
   },
   {
    "name": "shedeur sanders",
-   "mentions": 22,
-   "index": 81,
+   "mentions": 24,
+   "index": 89,
    "status": "trending",
    "gap": false,
    "shoppable": true,
@@ -37,12 +37,21 @@
   },
   {
    "name": "bryce underwood",
-   "mentions": 17,
-   "index": 63,
+   "mentions": 19,
+   "index": 70,
    "status": "trending",
    "gap": false,
    "shoppable": true,
    "collection": "michigan"
+  },
+  {
+   "name": "josh jacobs",
+   "mentions": 11,
+   "index": 41,
+   "status": "trending",
+   "gap": true,
+   "shoppable": false,
+   "collection": "green-bay-packers"
   },
   {
    "name": "kyle whittingham",
@@ -61,15 +70,6 @@
    "gap": true,
    "shoppable": false,
    "collection": "cleveland-browns"
-  },
-  {
-   "name": "josh jacobs",
-   "mentions": 10,
-   "index": 37,
-   "status": "trending",
-   "gap": true,
-   "shoppable": false,
-   "collection": "green-bay-packers"
   },
   {
    "name": "dak prescott",
@@ -109,8 +109,8 @@
   },
   {
    "name": "jordan love",
-   "mentions": 2,
-   "index": 7,
+   "mentions": 1,
+   "index": 4,
    "status": "steady",
    "gap": false,
    "shoppable": true,
@@ -124,15 +124,6 @@
    "gap": false,
    "shoppable": true,
    "collection": "cleveland-browns"
-  },
-  {
-   "name": "matt lafleur",
-   "mentions": 1,
-   "index": 4,
-   "status": "steady",
-   "gap": false,
-   "shoppable": false,
-   "collection": "green-bay-packers"
   },
   {
    "name": "denzel ward",
@@ -171,6 +162,15 @@
    "collection": "michigan"
   },
   {
+   "name": "matt lafleur",
+   "mentions": 0,
+   "index": 0,
+   "status": "quiet",
+   "gap": false,
+   "shoppable": false,
+   "collection": "green-bay-packers"
+  },
+  {
    "name": "robert tonyan",
    "mentions": 0,
    "index": 0,
@@ -191,6 +191,15 @@
    "collection": "cleveland-browns"
   },
   {
+   "name": "josh jacobs",
+   "mentions": 11,
+   "index": 41,
+   "status": "trending",
+   "gap": true,
+   "shoppable": false,
+   "collection": "green-bay-packers"
+  },
+  {
    "name": "kyle whittingham",
    "mentions": 11,
    "index": 41,
@@ -207,15 +216,6 @@
    "gap": true,
    "shoppable": false,
    "collection": "cleveland-browns"
-  },
-  {
-   "name": "josh jacobs",
-   "mentions": 10,
-   "index": 37,
-   "status": "trending",
-   "gap": true,
-   "shoppable": false,
-   "collection": "green-bay-packers"
   },
   {
    "name": "dak prescott",
@@ -263,10 +263,10 @@
     "cleveland",
     "watson",
     "deshaun",
-    "todd",
-    "monken",
     "shedeur",
-    "sanders"
+    "sanders",
+    "todd",
+    "monken"
    ],
    "headline_count": 100,
    "headlines": [
@@ -289,16 +289,16 @@
      "pub": "Wed, 02 Sep 2026 10:00:00 GMT"
     },
     {
-     "title": "Cleveland Browns reset under Todd Monken after trading Myles Garrett and parting with Stefanski",
-     "url": "https://news.google.com/rss/articles/CBMiswFBVV95cUxPWlJBaEphNEoxVC1BX0d1MWtyOUNHb1VTTlpPNFo5eVpZTVc5Y1B5MXdCX3hKeHFMQTRmdmdSQ2JjZlRncG1qSEdiejN2MDE3bUNuZmtPSTZxcHFFM1FPcGwwbFB5TzEteU1HcUlVRW1QaWx1RkxLck9HdE1TRGd0NGVrMnEwMDRTWlZPMFJuZzRaS0d0QVd2bE43T1dETjdLdEZTZzJXeHJqYV9YV0NpT19TYw?oc=5",
-     "source": "Fox News",
-     "pub": "Thu, 03 Sep 2026 21:30:23 GMT"
-    },
-    {
      "title": "Browns rookie \u2018already driving league buzz\u2019 heading into Week 1",
      "url": "https://news.google.com/rss/articles/CBMirwFBVV95cUxQNFVMVHlaakJVcklaOW1rX3RSNUh6WFR4XzRzNXFQbkR6Y2FRY1dXN0NDdFI5Wk5UUzg3dFN4MGNJa0FsdkVzV2RiODBUeDlGaGI5SlZNZnlyeWVwYmdKamt2aVFXd3FEQmtSNUd4bUV0aUQtemg4OUlXRFBPei0wY0pmUWVGbG5RR1RtMmdYZEtqbnZLbkszNWtzZlcyV3I3Zzc0TWRCa3VrNTZpem9B?oc=5",
      "source": "Dawgs By Nature",
      "pub": "Tue, 08 Sep 2026 16:24:37 GMT"
+    },
+    {
+     "title": "Cleveland Browns reset under Todd Monken after trading Myles Garrett and parting with Stefanski",
+     "url": "https://news.google.com/rss/articles/CBMiswFBVV95cUxPWlJBaEphNEoxVC1BX0d1MWtyOUNHb1VTTlpPNFo5eVpZTVc5Y1B5MXdCX3hKeHFMQTRmdmdSQ2JjZlRncG1qSEdiejN2MDE3bUNuZmtPSTZxcHFFM1FPcGwwbFB5TzEteU1HcUlVRW1QaWx1RkxLck9HdE1TRGd0NGVrMnEwMDRTWlZPMFJuZzRaS0d0QVd2bE43T1dETjdLdEZTZzJXeHJqYV9YV0NpT19TYw?oc=5",
+     "source": "Fox News",
+     "pub": "Thu, 03 Sep 2026 21:30:23 GMT"
     }
    ],
    "fti_count": 7
@@ -332,7 +332,7 @@
     "practice",
     "squad",
     "tyler",
-    "mailbag"
+    "smith"
    ],
    "headline_count": 100,
    "headlines": [
@@ -382,8 +382,8 @@
    "gaps": [
     {
      "name": "josh jacobs",
-     "mentions": 10,
-     "index": 37,
+     "mentions": 11,
+     "index": 41,
      "status": "trending",
      "gap": true,
      "shoppable": false,
@@ -398,7 +398,7 @@
     "america",
     "josh",
     "jacobs",
-    "trade"
+    "sign"
    ],
    "headline_count": 100,
    "headlines": [
