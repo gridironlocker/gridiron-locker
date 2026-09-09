@@ -575,25 +575,34 @@ def season_promo():
 def header(active=""):
     """Site header, shared by every page.
 
-    The menu is shopping-first: every team plus /drops/ as "Trending" - a
-    store-wide, headline-scored entry point for visitors with no team
-    preference (it was deliberately absent from the menu until the
-    storefront-conversion pass, when the editorial /fan-trend-index/ link
-    yielded its desktop slot). Still the only sane way to make a nav change:
-    edit it here, never in the built site/*.html files, because the daily
-    refresh workflow re-runs this generator.
+    Two rows: the logo row (logo + search), then a FULL-WIDTH menu bar that
+    stays visible at every viewport. The bar is the eight shopping
+    destinations - All Collections, the four teams, Trending (/drops/, the
+    store-wide headline-scored entry point for visitors with no team
+    preference), Guides and Shop The Locker - centred, and it scrolls
+    sideways when they no longer fit instead of collapsing into a hamburger.
+    Phones previously buried the store's main entrances behind a burger tap;
+    the bar keeps them one glance away. Secondary destinations (Home, 2026
+    Season Hub, Fan Trend Index, Buying Guides, Size Guide, Shipping, About)
+    live in the footer, so removing the toggle hides nothing.
+
+    "Shop The Locker" anchors the homepage's full-catalogue rail
+    (#shop-the-locker); from any other page it lands on the homepage and
+    scrolls down to that rail.
 
     There is deliberately NO account or cart control. Checkout happens on the
     fulfilment partner, so an account icon led to an explainer popover and a
     cart icon to a favourites hint - two pieces of storefront furniture that
     promised state this site does not own, in the two slots a visitor's eye
-    goes to first. The header's only job is product discovery: logo, the seven
-    shopping destinations, and search.
+    goes to first. The header's only job is product discovery.
+
+    Still the only sane way to make a nav change: edit it here, never in the
+    built site/*.html files, because the daily refresh workflow re-runs this
+    generator.
     """
     links = "".join(
         f'<a href="/{COLLECTIONS[k]["slug"]}/"{" aria-current=page" if active == k else ""}>{COLLECTIONS[k]["short"]}</a>'
         for k in ORDER)
-    mob = "".join(f'<a href="/{COLLECTIONS[k]["slug"]}/">{COLLECTIONS[k]["name"]}</a>' for k in ORDER)
     search_ico = '<svg width="17" height="17" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.8" aria-hidden="true"><circle cx="11" cy="11" r="6.2"/><path d="M20 20l-4.3-4.3"/></svg>'
     return f"""\
 <a class="skip" href="#main">Skip to content</a>
@@ -601,12 +610,6 @@ def header(active=""):
 <header>
  <div class="wrap nav">
   <a class="logo" href="/"><span class="mark">GL</span><span class="wordmark">{esc(BRAND)}</span></a>
-  <nav class="links" aria-label="Shop">
-   <a href="/collections/">All Collections</a>
-   {links}
-   <a href="/drops/">Trending</a>
-   <a href="/guides/">Guides</a>
-  </nav>
   <div class="navtools">
    <span class="navsearch" role="search">
     <input class="gsearch" type="search" placeholder="Search designs..." aria-label="Search all designs" autocomplete="off">
@@ -614,18 +617,19 @@ def header(active=""):
    </span>
    <button class="searchbtn" aria-label="Search designs"
     onclick="var m=document.getElementById('ms');m.classList.toggle('open');var i=m.querySelector('input');if(m.classList.contains('open')&&i)i.focus()">{search_ico}</button>
-   <button class="burger" id="navToggle" aria-label="Open menu" aria-expanded="false"><span></span><span></span><span></span></button>
   </div>
  </div>
+ <nav class="menubar" aria-label="Shop">
+  <div class="mb-track">
+   <a href="/collections/">All Collections</a>
+   {links}
+   <a href="/drops/">Trending</a>
+   <a href="/guides/">Guides</a>
+   <a href="/#shop-the-locker">Shop The Locker</a>
+  </div>
+ </nav>
  <div class="mobsearch" id="ms"><span class="gs"><input class="gsearch" type="search"
   placeholder="Search all {len(ALL)} designs..." aria-label="Search all designs" autocomplete="off"></span></div>
- <div class="mobnav" id="mn">
-  <a href="/">Home</a><a href="/collections/">All Collections</a>{mob}
-  <a href="/drops/">Trending Now</a>
-  <a href="/2026-season/">2026 Season Hub</a><a href="/fan-trend-index/">Fan Trend Index</a>
-  <a href="/guides/">Buying Guides</a><a href="/size-guide/">Size Guide</a>
-  <a href="/shipping/">Shipping &amp; Returns</a><a href="/about/">About</a>
- </div>
 </header>"""
 
 
@@ -3116,21 +3120,6 @@ document.querySelectorAll('a.shopnow').forEach(function(a){
     if(target){target.scrollIntoView({behavior:'smooth',block:'start'});return;}
     // no custom section on this page - send them to the one on the homepage
     location.href=(document.body.getAttribute('data-root')||'./')+'#custom-design';
-  });
-})();
-
-// ---------- mobile nav ----------
-// The header carries no account or cart control by design: checkout happens
-// on the fulfilment partner, so those popovers promised state this site does
-// not own. Logo, shopping links, search - nothing else.
-(function(){
-  var nb=document.getElementById('navToggle'), mn=document.getElementById('mn');
-  if(!nb||!mn)return;
-  nb.addEventListener('click',function(){
-    var open=mn.classList.toggle('open');
-    nb.classList.toggle('on',open);
-    nb.setAttribute('aria-expanded',open?'true':'false');
-    nb.setAttribute('aria-label',open?'Close menu':'Open menu');
   });
 })();
 

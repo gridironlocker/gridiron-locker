@@ -154,21 +154,6 @@ document.querySelectorAll('a.shopnow').forEach(function(a){
   });
 })();
 
-// ---------- mobile nav ----------
-// The header carries no account or cart control by design: checkout happens
-// on the fulfilment partner, so those popovers promised state this site does
-// not own. Logo, shopping links, search - nothing else.
-(function(){
-  var nb=document.getElementById('navToggle'), mn=document.getElementById('mn');
-  if(!nb||!mn)return;
-  nb.addEventListener('click',function(){
-    var open=mn.classList.toggle('open');
-    nb.classList.toggle('on',open);
-    nb.setAttribute('aria-expanded',open?'true':'false');
-    nb.setAttribute('aria-label',open?'Close menu':'Open menu');
-  });
-})();
-
 // ---------- product rails: arrow controls (pointer devices) ----------
 // Touch swipes the rail natively; the arrows page it by one viewport-width
 // of tiles and disable themselves at each end so they never lie.
