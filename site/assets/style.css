@@ -273,7 +273,17 @@ section{padding:clamp(30px,4.5vw,52px) 0}
 .lightedge{display:none}
 
 /* ============ WEEK 1 TILES ============ */
-.wksec{padding:30px 0 4px}
+/* Grey band. The three editorial bands on the homepage (.wksec, .guidesec,
+   .ftisec) sit on --bg3 so their white cards read as cards instead of
+   floating on the page white. --bg3 is deliberately lighter than --line so
+   the 1px hairlines that divide the bands still show.
+   No border-top/bottom here on purpose: .trust above already draws the top
+   hairline and the first .teamsec below draws the bottom one - adding our
+   own would stack two 1px lines into a 2px seam. */
+.wksec{padding:30px 0 34px;background:var(--bg3)}
+/* The countdown bar keeps its own white stripe so it stays legible inside
+   the band (.cdbar already draws the bottom hairline). */
+.wksec .cdbar{background:#fff;border-top:1px solid var(--line)}
 .wkhead{max-width:900px;margin-bottom:16px}
 .wkhead p{color:var(--muted);max-width:78ch;font-size:.92rem}
 .wkgrid{display:grid;grid-template-columns:repeat(4,1fr);gap:12px;padding-top:20px}
@@ -547,8 +557,10 @@ ul.news li:last-child{border-bottom:0}
 ul.news a{font-weight:600;color:var(--ink2)}
 ul.news a:hover{color:var(--ink);text-decoration:underline}
 
-/* Homepage Fan Trend Index: one compact strip of four entries. */
-.ftisec{padding:22px 0 6px;border-top:1px solid var(--line)}
+/* Homepage Fan Trend Index: one compact strip of four entries.
+   Same grey band as .wksec / .guidesec. No hairlines of its own: .customsec
+   above draws its bottom border and .newsticker below draws its top one. */
+.ftisec{padding:30px 0 34px;background:var(--bg3)}
 .ftisec .sechead{margin-bottom:12px}
 .ftisec .sechead p{font-size:.86rem}
 .fti-chips{display:grid;grid-template-columns:repeat(4,minmax(0,1fr));gap:10px}
@@ -636,7 +648,10 @@ footer .logo{color:var(--ink)}
   font-size:clamp(1.3rem,2.6vw,1.9rem)}
 
 /* ============ CUSTOM DESIGN SECTION ============ */
-.customsec{background:var(--bg2);border-top:1px solid var(--line);border-bottom:1px solid var(--line)}
+/* Shares --bg3 with the guides band above and the Fan Trend Index band below
+   so the homepage's editorial half reads as one continuous grey surface
+   divided by hairlines, instead of a lighter stripe between two greys. */
+.customsec{background:var(--bg3);border-top:1px solid var(--line);border-bottom:1px solid var(--line)}
 .customsec h2{color:var(--ink)}
 .customsec .sechead p{color:var(--muted)}
 .customrow{display:grid;grid-template-columns:minmax(0,1fr) minmax(0,1.05fr);gap:28px;
@@ -1002,7 +1017,10 @@ footer .logo{color:var(--ink)}
 }
 
 /* ---- Buying guides ---- */
-.guidesec{padding:34px 0}
+/* Grey band (see .wksec). The top hairline divides it from the white team
+   collections above; .customsec below draws its own top hairline, so this
+   band carries no bottom border. */
+.guidesec{padding:34px 0;background:var(--bg3);border-top:1px solid var(--line)}
 .guide-grid{display:grid;grid-template-columns:repeat(4,minmax(0,1fr));gap:12px}
 .guide-card{display:flex;flex-direction:column;gap:8px;background:#fff;border:1px solid var(--line);
   border-radius:12px;padding:18px 16px 16px;min-width:0;
