@@ -1360,5 +1360,148 @@ class MichiganZeroOneProducts(unittest.TestCase):
             self.assertEqual(CATALOG[slug]["name"], NEW_ZERO_ONE_NAMES[slug], slug)
 
 
+class CreatorCollab(unittest.TestCase):
+    """Joe's Michigan Locker: the dedicated creator collection at /michigan/joe/.
+
+    Guard rails for the creator-collaboration contract:
+    * one permanent, addressable page with the exact brief copy,
+    * the curation in data/creators.json is what ships - no more, no less,
+    * every product link carries ?creator=JOE (the attribution forward),
+    * the commission rate stays OFF the customer-facing page (internal only),
+    * nothing reads as an official University of Michigan store.
+    """
+
+    def setUp(self):
+        self.html = page("michigan/joe/index.html")
+        self.js = page("assets/app.js")
+        self.css = page("assets/style.css")
+        self.creators = load_json("data/creators.json")["creators"]["joe"]
+
+    def test_page_exists_and_is_indexable(self):
+        self.assertIn('<link rel="canonical" href="https://gridironlocker.store/michigan/joe/">',
+                      self.html)
+        self.assertIn('content="index,follow,max-image-preview:large,max-snippet:-1"',
+                      self.html)
+        self.assertIn("<loc>https://gridironlocker.store/michigan/joe/</loc>",
+                      page("sitemap.xml"))
+        self.assertIn("data-creator-page=\"JOE\"", self.html)
+
+    def test_brief_copy_is_present(self):
+        h1 = unescape(re.search(r"<h1>(.*?)</h1>", self.html, re.S).group(1))
+        self.assertEqual(h1.replace("<span class=\"jgold\">", "").replace("</span>", ""),
+                         "JOE'S MICHIGAN LOCKER")
+        for line in ("Michigan football gear selected with Joe.",
+                     "Built for Michigan fans. Powered by Gridiron Locker.",
+                     "Shop Joe's Picks",
+                     "Joe has teamed up with Gridiron Locker to bring Michigan fans",
+                     "YOU'RE IN JOE'S LOCKER.",
+                     "Every order placed through Joe's collection supports the collaboration",
+                     "More Michigan designs coming as we build this collection together.",
+                     "Shop The Locker"):
+            self.assertIn(line, self.html, line)
+
+    def test_no_commission_terms_on_customer_page(self):
+        low = self.html.lower()
+        self.assertNotIn("20%", low)
+        self.assertNotIn("commission", low)
+        # \b so the honest "not affiliated with" disclaimer does not trip this
+        self.assertIsNone(re.search(r"\baffiliate\b", low))
+        self.assertNotIn("referral code", low)
+
+    def test_not_an_official_university_store(self):
+        low = self.html.lower()
+        for banned in ("official university of michigan store",
+                       "officially licensed michigan product. yes",
+                       "authorized retailer", "university of michigan license"):
+            self.assertNotIn(banned, low, banned)
+        self.assertIn("not an official michigan store", low)
+        self.assertIn("not affiliated with, endorsed by or licensed by the university of michigan",
+                      low)
+
+    def test_featured_row_matches_creators_json(self):
+        live = load_json("data/products_live.json")
+        row = self.html[self.html.index('id="picks"'):
+                        self.html.index('id="locker"')]
+        slugs = re.findall(r'<a class="jfeat[^"]*" href="[^"]*?/shop/([a-z0-9-]+)/\?creator=JOE"',
+                           row)
+        self.assertEqual(len(slugs), 4, slugs)
+        self.assertEqual(slugs, self.creators["featured"])
+        for s in slugs:
+            self.assertIn(s, live, s)
+
+    def test_grid_is_exactly_the_curated_picks(self):
+        live = load_json("data/products_live.json")
+        sec = self.html[self.html.index('id="locker"'):
+                        self.html.index('class="jfaq"')]
+        slugs = re.findall(r'<a class="jcard[^"]*" href="[^"]*?/shop/([a-z0-9-]+)/\?creator=JOE"',
+                           sec)
+        self.assertEqual(slugs, self.creators["picks"])
+        for s in slugs:
+            self.assertIn(s, live, s)
+
+    def test_every_card_carries_price_shop_and_creator_tag(self):
+        for m in re.finditer(r'<a class="j(?:feat|card) reveal"(.*?)(?=<a class="j(?:feat|card)|</section>)',
+                             self.html, re.S):
+            block = m.group(1)
+            self.assertIn("?creator=JOE", block, block[:80])
+            self.assertIn("$", block)
+            self.assertIn('class="jshop"', block)
+            self.assertIn("width=\"530\" height=\"630\"", block)  # no layout shift
+
+    def test_local_references_resolve(self):
+        fp = os.path.join(SITE, "michigan/joe/index.html")
+        attr = re.compile(r'(?:src|data-src|href|content)="([^"]+)"')
+        for m in attr.finditer(self.html):
+            val = m.group(1).strip()
+            if not (val.startswith("/") or val.startswith("./") or val.startswith("../")):
+                continue
+            val = val.split("#")[0].split("?")[0]
+            if val in ("", "/", "./"):
+                continue
+            cand = os.path.normpath(
+                os.path.join(SITE, val.lstrip("/")) if val.startswith("/")
+                else os.path.normpath(os.path.join(os.path.dirname(fp), val)))
+            if os.path.isdir(cand):
+                cand = os.path.join(cand, "index.html")
+            self.assertTrue(os.path.isfile(cand), f"{fp}: {val}")
+
+    def test_attribution_plumbing_in_app_js(self):
+        for term in ("gl_creator", "creator_attribution_set", "creator_page_view",
+                     "creator_session", "utm_campaign", "GL_CREATOR",
+                     "TTL=90*86400", "SameSite=Lax"):
+            self.assertIn(term, self.js, term)
+        self.assertIn("creator:window.GL_CREATOR", self.js)
+
+    def test_hero_art_ships_and_is_light(self):
+        hero = os.path.join(SITE, "img/hero-joe.jpg")
+        self.assertTrue(os.path.isfile(hero))
+        self.assertLess(os.path.getsize(hero), 750 * 1024)
+        self.assertNotIn("hero-joe.jpg",
+                         [f for f in os.listdir(os.path.join(SITE, "img"))
+                          if f.lower().endswith(".png")])
+
+    def test_mobile_first_grid_and_tap_targets(self):
+        mob = media_rules(self.css, 760)
+        self.assertIn(".jbar{display:flex", mob)
+        self.assertIn("main.jlock{padding-bottom:82px}", mob)
+        self.assertIn(".jlock .jbtn{", self.css)
+        self.assertIn("min-height:48px", self.css)
+
+    def test_footer_advertises_the_locker(self):
+        home = page("index.html")
+        self.assertIn('href="./michigan/joe/"', home)
+
+    def test_michigan_collection_links_to_the_locker(self):
+        mich = page("michigan-wolverines-shirts/index.html")
+        self.assertIn('href="../michigan/joe/"', mich)
+        self.assertIn("Joe&#x27;s Michigan Locker", mich)
+
+    def test_schema_is_a_collection_with_itemlist_and_faq(self):
+        self.assertIn('"@type":"CollectionPage"', self.html)
+        self.assertIn('"@type":"ItemList"', self.html)
+        self.assertIn('"@type":"FAQPage"', self.html)
+        self.assertIn('"@type":"BreadcrumbList"', self.html)
+
+
 if __name__ == "__main__":
     unittest.main(verbosity=2)

@@ -1,0 +1,107 @@
+<!doctype html>
+<html lang="en">
+<head>
+<meta charset="utf-8">
+<meta name="viewport" content="width=device-width,initial-scale=1">
+<meta name="robots" content="noindex,nofollow,noarchive">
+<meta name="theme-color" content="#070e1a">
+<title>Creator Program | Gridiron Locker</title>
+<style>
+:root{color-scheme:dark;--ink:#eef5ff;--muted:#93a6c2;--canvas:#070e1a;--panel:#0f1e36;--line:rgba(178,203,238,.13);--blue:#7cc8ff;--gold:#e8b800;font-family:Inter,ui-sans-serif,system-ui,sans-serif}
+body{margin:0;color:var(--ink);background:var(--canvas);line-height:1.55}
+.wrap{width:min(960px,calc(100% - 48px));margin:0 auto;padding:48px 0 80px}
+h1{font-size:1.7rem;margin:0 0 4px}h2{font-size:1.05rem;margin:34px 0 12px;color:var(--gold)}
+p{color:var(--muted);margin:8px 0}
+.card{border:1px solid var(--line);border-radius:16px;background:var(--panel);padding:20px 22px;margin-top:14px}
+table{width:100%;border-collapse:collapse;font-size:.92rem}
+td,th{padding:10px 12px;border-bottom:1px solid var(--line);text-align:left;vertical-align:top}
+th{color:var(--muted);font-weight:600;font-size:.78rem;text-transform:uppercase;letter-spacing:.06em}
+a{color:var(--blue)}
+.rate{color:var(--gold);font-weight:700;font-size:1.5rem}
+.note{border-left:3px solid var(--gold);padding:10px 14px;background:rgba(232,184,0,.06);border-radius:0 10px 10px 0;font-size:.9rem}
+code{background:rgba(255,255,255,.07);padding:1px 6px;border-radius:5px;font-size:.85em}
+</style>
+</head>
+<body>
+<div class="wrap">
+<h1>Creator Program</h1>
+<p>Private. Not indexed, not linked from public nav. Commission terms live here and in
+<code>data/creators.json</code> (single source of truth) &mdash; never on customer-facing pages.</p>
+
+<div class="note"><b>One link per creator.</b> Every creator gets a single permanent destination
+(e.g. <a href="https://gridironlocker.store/michigan/joe/">/michigan/joe/</a>). New designs are added to the
+curation without ever changing the link the creator posts from social media.</div>
+
+<h2>Active creators</h2>
+<div class="card">
+<table>
+<tr><th>Creator ID</th><th>Partner</th><th>Collection</th><th>Permanent link</th><th>Commission</th></tr>
+<tr>
+  <td><code>JOE</code></td>
+  <td>Joe &mdash; Michigan football creator</td>
+  <td>Michigan (curation: 14 picks, 4 featured)</td>
+  <td><a href="https://gridironlocker.store/michigan/joe/">gridironlocker.store/michigan/joe/</a></td>
+  <td><span class="rate">20%</span> of net product sales</td>
+</tr>
+</table>
+</div>
+
+<h2>Commission basis &mdash; Joe (JOE)</h2>
+<div class="card">
+<p><span class="rate">20%</span> of <b>net product sales</b> generated through Joe's dedicated
+collection/page, excluding: <b>taxes &middot; shipping &middot; refunds &middot; cancellations &middot; chargebacks</b>.</p>
+<p>Reconcile from Viralstyle order data: take the attributed order's product subtotal, subtract the
+excluded items above, and apply 20%. Payment terms: per the signed partnership agreement.</p>
+<div class="note"><b>Customer-facing rule:</b> the page communicates the collaboration
+(&ldquo;Joe &times; Gridiron Locker&rdquo;) and nothing more. The rate is never advertised &mdash;
+the guardrail test <code>test_no_commission_terms_on_customer_page</code> fails the build if
+&ldquo;commission&rdquo;, &ldquo;20%&rdquo; or affiliate wording reaches the public page.</div>
+</div>
+
+<h2>Attribution stack (how orders become Joe-attributed)</h2>
+<div class="card">
+<table>
+<tr><th>Layer</th><th>Mechanism</th><th>Notes</th></tr>
+<tr><td>1 &middot; Permanent referral URL</td>
+  <td><code>/michigan/joe/</code></td>
+  <td>The only link Joe needs. Lives in the header/footer of the Michigan collection page.</td></tr>
+<tr><td>2 &middot; Referral param</td>
+  <td><code>?creator=JOE</code> on every internal product link from the page</td>
+  <td>Every product card and featured tile deep-links to the product page carrying the param.</td></tr>
+<tr><td>3 &middot; Persistent cookie</td>
+  <td><code>gl_creator=JOE</code> (90-day sliding TTL, path=/, SameSite=Lax)</td>
+  <td>Set on first touch of <code>?creator=JOE</code>; refreshed on every subsequent touch.
+  Keeps attribution alive across direct visits, search, bookmarks and deep links.</td></tr>
+<tr><td>4 &middot; Checkout tagging</td>
+  <td><code>creator=JOE&amp;utm_source=creator&amp;utm_medium=referral&amp;utm_campaign=creator-JOE</code>
+  appended to the Viralstyle hand-off URL at click time</td>
+  <td>Applied to <code>a[href*="viralstyle.com"]</code> while the cookie is present, so the
+  order URL itself carries the attribution even when the buyer returns days later.</td></tr>
+<tr><td>5 &middot; GA4 events</td>
+  <td><code>creator_attribution_set</code> (cookie written), <code>creator_page_view</code>
+  (on the creator page), <code>creator_session</code> (other pages under the cookie),
+  <code>shop_now_click</code> with a <code>creator</code> dimension</td>
+  <td>Splits attributed vs organic hand-offs; <code>shop_now_click.creator=JOE</code> is the
+  funnel metric for commission reporting.</td></tr>
+</table>
+<p>Priority when reconciling: checkout URL param (layer 4) &gt; GA4 event (layer 5) &gt;
+cookie window (layer 3). A missing checkout param still leaves the GA4 trail.</p>
+</div>
+
+<h2>Workflow</h2>
+<div class="card">
+<ul style="color:var(--muted);margin:8px 0;padding-left:20px">
+<li>Add a design to Joe's locker: append the slug to <code>picks</code> (and <code>featured</code>
+for the top row) in <code>data/creators.json</code>, then rebuild. Stale slugs skip silently.</li>
+<li>Add a new creator: new record in <code>creators.json</code> with its own <code>page_slug</code>
+(e.g. <code>michigan/&lt;name&gt;</code>); the build generates the page, footer link, feed item,
+llms.txt entry and Michigan cross-link automatically.</li>
+<li>Delisting a design: as usual via <code>data/delisted.json</code> &mdash; the curation filter
+drops it from the locker on the next build.</li>
+</ul>
+</div>
+
+<p style="margin-top:28px"><a href="../index.html">&larr; Ops Index</a></p>
+</div>
+</body>
+</html>

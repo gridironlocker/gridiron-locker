@@ -142,6 +142,50 @@ except ImportError:
 DATA_DATE = TRENDS.get("generated") or TODAY
 enrich(TRENDS)
 
+# Creator collaborations (data/creators.json). A creator gets a dedicated,
+# permanently-addressable collection page (e.g. /michigan/joe/) whose every
+# internal link carries ?creator=<ID> and whose visitors are tagged with a
+# persistent attribution cookie, so the Viralstyle hand-off on ANY product
+# page stays attributable to the creator (see the attribution block in
+# assets/app.js). Commission terms live in the same record but are INTERNAL:
+# commission.customer_facing=false means the rate never renders on public
+# pages - customers see the collaboration, not the affiliate math.
+try:
+    CREATORS = json.load(open(os.path.join(ROOT, "data/creators.json"))).get("creators", {})
+except Exception:
+    CREATORS = {}
+
+
+def creator_items(cre):
+    """Resolve a creator's curated picks against the live MODEL, in order.
+
+    Unknown / delisted / imageless slugs are skipped silently so a stale
+    curation can never crash the build or ship a broken card; the curated
+    order is otherwise preserved (that order IS the curation).
+    """
+    by_slug = {x["slug"]: x for x in MODEL.get(cre.get("collection_key"), [])}
+    out, seen = [], set()
+    for slug in cre.get("picks", []):
+        if slug in by_slug and slug not in seen:
+            seen.add(slug)
+            out.append(by_slug[slug])
+    return out
+
+
+def creator_by_collection(ckey):
+    """First creator whose page belongs to this collection (for cross-links)."""
+    for cre in CREATORS.values():
+        if cre.get("collection_key") == ckey:
+            return cre
+    return None
+
+
+def creator_page_meta(cre):
+    """One-line public description of a creator page (feed / llms.txt)."""
+    c = COLLECTIONS[cre.get("collection_key", "michigan")]
+    return (f"A {c['short']} collection selected with {cre['display_name']} - "
+            f"hand-picked designs, printed on demand and shipped worldwide.")
+
 
 def auto_trend(ckey, slug, blob):
     """Trending decided from live headline volume, with manual override."""
@@ -453,7 +497,7 @@ def theme_vars(ckey):
 
 
 def head(title, desc, path, image=None, schema=None, keywords=None, col=None,
-         noindex=False):
+         noindex=False, body_attrs=""):
     canon = abs_url(path)
     # The 404 page is served (with a 200 on GitHub Pages) for every mistyped or
     # stale URL under the domain, so an "index,follow" 404 invites Google to
@@ -552,7 +596,7 @@ def head(title, desc, path, image=None, schema=None, keywords=None, col=None,
   gtag('config', 'G-5RHGJSLZNG');
 </script>
 </head>
-<body data-root="{root_prefix}">"""
+<body data-root="{root_prefix}"{body_attrs}"""
 
 
 def season_promo():
@@ -897,6 +941,10 @@ def footer(popup=True):
     corner of a phone screen.
     """
     cl = "".join(f'<a href="/{COLLECTIONS[k]["slug"]}/">{COLLECTIONS[k]["short"]}</a>' for k in ORDER)
+    # Creator collab pages are a permanent Shop destination (one link each,
+    # e.g. Joe's locker at /michigan/joe/).
+    cl_creators = "".join(
+        f'<a href="/{v["page_slug"]}/">{esc(v["page_name"])}</a>' for v in CREATORS.values())
     soc = "".join(f'<a href="{u}{SOCIAL_UTM}" target="_blank" rel="noopener">{esc(n)}</a>' for n, u in SOCIALS)
     cspop = """
 <div class="cs-pop" id="csPop" role="dialog" aria-modal="true" aria-label="Custom design offer" hidden>
@@ -918,7 +966,7 @@ def footer(popup=True):
     <p>{esc(CFG['tagline'])}. Independent, fan-made football graphics printed on demand and
     shipped worldwide. {len(ALL)} designs across {len(ORDER)} collections.</p>
    </div>
-   <div><h2>Shop</h2><a href="/collections/">All Collections</a>{cl}
+   <div><h2>Shop</h2><a href="/collections/">All Collections</a>{cl}{cl_creators}
     <a href="/drops/">Trending</a><a href="/search/">All Designs</a></div>
    <div><h2>Help</h2><a href="/faq/">FAQ</a><a href="/shipping/">Shipping</a>
     <a href="/shipping/">Returns</a><a href="/size-guide/">Size Guide</a>
@@ -1643,6 +1691,17 @@ def page_collection(k):
     se = SEASON[k]
     lore = "".join(f"<li>{esc(x)}</li>" for x in c["lore"])
     kwlinks = " &middot; ".join(esc(x) for x in c["keywords"])
+    # Creator cross-link: the team that has a creator collaboration gets a
+    # one-line pointer at the bottom of its collection page (data-driven -
+    # a future creator page appears here automatically).
+    cre_link = ""
+    cre = creator_by_collection(k)
+    if cre:
+        cre_link = (f'<p><b>New &mdash; {esc(cre["page_name"])}:</b> a creator-curated '
+                    f'capsule from this collection, built with {esc(cre["display_name"])}, '
+                    f'a {esc(cre["role"])}. '
+                    f'<a class="link" href="/{cre["page_slug"]}/">Visit '
+                    f'{esc(cre["display_name"])}\'s locker &rarr;</a></p>')
     # Page order: compact hero -> this team's moving ticker -> the complete
     # searchable / filterable / sortable grid -> trust strip -> a short season
     # note and the collection description. No countdown here (the countdown
@@ -1720,6 +1779,7 @@ def page_collection(k):
  choose garment style, colour and size and complete the order. Items are printed after the order
  is placed and shipped worldwide with tracking.</p>
  <p><a class="link" href="/guides/{c['slug']}-buying-guide/">Read the {esc(c['short'])} buying guide &rarr;</a></p>
+ {cre_link}
 </div></section>
 </div>
 </main>"""
@@ -1728,6 +1788,216 @@ def page_collection(k):
          head(f"{c['name']} | {BRAND}", desc, path, c["hero"], schema,
                c["keywords"] + se["hot"], col=k)
           + header(k) + body + footer())
+
+
+def page_creator(ckey="joe"):
+    """Creator collaboration page: Joe's Michigan Locker.
+
+    A creator gets ONE permanent, addressable destination
+    (``/{page_slug}/``, e.g. /michigan/joe/) that he links from social
+    media. The page is a premium, team-coloured shopping surface for the
+    creator's hand-picked designs (data/creators.json: ``picks`` /
+    ``featured``), and it is the attribution root of the collaboration:
+
+    * every internal product link carries ``?creator=<ID>`` so the
+      product page refreshes the persistent ``gl_creator`` cookie, and
+    * assets/app.js then tags the outbound Viralstyle hand-off on ANY
+      page with ``creator=<ID>`` + UTM, so orders stay attributed to the
+      creator for the cookie window (90 days) - direct link, organic
+      search, bookmark or deep link.
+
+    The commission rate in the creator record is INTERNAL: it documents
+    what the owner owes the creator (net product sales, excl. taxes /
+    shipping / refunds / cancellations / chargebacks) and never renders
+    on the customer-facing page.
+    """
+    cre = CREATORS.get(ckey)
+    if not cre:
+        return
+    ckey_col = cre["collection_key"]
+    c = COLLECTIONS[ckey_col]
+    items = creator_items(cre)
+    if not items:
+        print(f"creator {ckey!r}: no live picks - page skipped")
+        return
+    track = (cre.get("attribution") or {}).get("creator_id") or cre["id"]
+    path = f"/{cre['page_slug']}/"
+    prices = sorted(x["price"] for x in items)
+    minp, maxp = prices[0], prices[-1]
+    cre_page_desc = (f"Joe's Michigan Locker: Michigan football gear selected with Joe. "
+                     f"Game-day tees, crewnecks and vintage-inspired designs, printed on "
+                     f"demand and shipped worldwide.")
+    types = sorted({x["garment"] for x in items})
+    feat_slugs = [s for s in cre.get("featured", []) if s in {x["slug"] for x in items}]
+    by_slug = {x["slug"]: x for x in items}
+    feat = [by_slug[s] for s in feat_slugs] or items[:4]
+    kw = ["joe's michigan locker", "michigan football shirt", "go blue t-shirt",
+          "michigan vs everybody shirt", "ann arbor football gear", "qb19 shirt",
+          "michigan sweatshirt", "maize and navy tee", "michigan game day shirt",
+          "wolverines fan gear"]
+
+    def jlink(it):
+        """Internal product link that carries the creator id forward."""
+        return f"/shop/{it['slug']}/?creator={track}"
+
+    def jcard(it, cls, eager=False):
+        lazy = "" if eager else ' loading="lazy" decoding="async"'
+        tag = {"player": "Player Story", "retro": "Vintage", "funny": "Culture"}.get(it["theme"], "Game Day")
+        return (f'<a class="{cls} reveal" href="{jlink(it)}" '
+                f'data-slug="{it["slug"]}" data-price="{it["price"]:.2f}" '
+                f'data-creator="{track}" data-collection="{ckey_col}">'
+                f'<span class="jph"><img src="{it["front"]}" '
+                f'alt="{esc(it["name"])} - {esc(it["art"][:70])}" '
+                f'width="530" height="630"{lazy}></span>'
+                f'<span class="jb">'
+                f'<h3 class="jname">{esc(it["name"])}</h3>'
+                f'<span class="jmeta">{esc(it["garment"])} &middot; {esc(c["short"])}</span>'
+                f'<span class="jfoot"><span class="jprice">${it["price"]:.2f}</span>'
+                f'<span class="jtag">{tag}</span></span>'
+                f'</span>'
+                f'<span class="jshop" aria-hidden="true">Shop <i>&rarr;</i></span>'
+                f'</a>')
+
+    feat_cards = "".join(jcard(it, "jfeat", eager=(n < 2)) for n, it in enumerate(feat))
+    grid_cards = "".join(jcard(it, "jcard", eager=(n < 2)) for n, it in enumerate(items))
+
+    faq = [
+        ("What is Joe's Michigan Locker?",
+         "A creator collaboration: Joe, a Michigan football creator, hand-picks "
+         "designs from Gridiron Locker's Michigan collection and builds this "
+         "dedicated locker for his audience. It is one permanent link - new "
+         "designs are added to Joe's locker without ever changing it."),
+        ("Are these officially licensed Michigan products?",
+         "No. Everything here is independent, fan-made artwork. Gridiron Locker "
+         "is not affiliated with, endorsed by or licensed by the University of "
+         "Michigan, the NCAA or any player. All trademarks are the property of "
+         "their respective owners."),
+        ("How does ordering work?",
+         "Tap any design to see the full story, garment styles, colours and "
+         "sizing. Then Shop Now opens the checkout page for that exact design, "
+         "where you choose garment style, colour and size. Items are printed on "
+         "demand and shipped worldwide with tracking."),
+    ]
+
+    cb, cbs = crumbs([("Home", "/"), ("Michigan", f"/{c['slug']}/"),
+                      ("Joe's Michigan Locker", None)], path)
+    schema = [cbs,
+              {"@context": "https://schema.org", "@type": "CollectionPage",
+               "name": "Joe's Michigan Locker", "url": DOMAIN + path,
+               "description": cre_page_desc,
+               "isPartOf": {"@type": "WebSite", "name": BRAND, "url": DOMAIN},
+               "about": {"@type": "ItemList", "numberOfItems": len(items),
+                         "itemListElement": [
+                             {"@type": "ListItem", "position": n + 1,
+                              "url": DOMAIN + f"/shop/{x['slug']}/", "name": x["name"]}
+                             for n, x in enumerate(items)]}},
+              {"@context": "https://schema.org", "@type": "FAQPage",
+               "mainEntity": [
+                   {"@type": "Question", "name": q,
+                    "acceptedAnswer": {"@type": "Answer", "text": a}}
+                   for q, a in faq]}]
+
+    desc_bits = f"{len(items)} hand-picked designs &middot; from ${minp:.2f} &middot; " \
+                f"{', '.join(types[:3])} &middot; printed on demand &middot; ships worldwide"
+    body = f"""
+<main id="main" class="jlock">
+<section class="jhero">
+ <div class="wrap jhero-grid">
+  <div class="jcopy">
+   <span class="jeyebrow"><span class="jdiamond"></span> A Gridiron Locker &times; Joe Collaboration</span>
+   <h1>JOE'S MICHIGAN <span class="jgold">LOCKER</span></h1>
+   <p class="jsub">Michigan football gear selected with Joe.</p>
+   <p class="jsupp">Built for Michigan fans. Powered by Gridiron Locker.</p>
+   <div class="jctas">
+    <a class="jbtn" href="#picks">Shop Joe's Picks</a>
+    <a class="jbtn ghost" href="/{c['slug']}/">All Michigan</a>
+   </div>
+   <p class="jfacts">{desc_bits}</p>
+  </div>
+  <div class="jart">
+   <img src="/img/hero-joe.jpg" alt="Vintage football on a locker-room bench beside folded navy and maize shirts"
+    width="1933" height="813" fetchpriority="high" decoding="async">
+  </div>
+ </div>
+</section>
+
+<section class="jintro">
+ <div class="wrap">
+  <span class="jeyebrow"><span class="jdiamond"></span> Joe's Picks</span>
+  <h2>A locker built by a fan</h2>
+  <blockquote class="jquote">
+   <p>Joe has teamed up with Gridiron Locker to bring Michigan fans a collection of
+   designs built around the moments, stories and culture that make Michigan football special.</p>
+   <cite>Joe &times; Gridiron Locker</cite>
+  </blockquote>
+  <p class="jnote">This is not an official Michigan store. It is a creator-curated selection of
+  independent, fan-made artwork from Gridiron Locker's Michigan collection - hand-picked by Joe
+  for his audience, printed on demand in the USA and shipped worldwide.</p>
+ </div>
+</section>
+
+<section id="picks" class="jpicks">
+ <div class="wrap">
+  <div class="jsechead reveal">
+   <span class="jeyebrow"><span class="jdiamond"></span> Featured</span>
+   <h2>Joe's Top Picks</h2>
+   <p>Four designs Joe is most excited to see on the street this season.</p>
+  </div>
+  <div class="jfeat-row">{feat_cards}</div>
+ </div>
+</section>
+
+<section id="locker" class="jgridsec">
+ <div class="wrap">
+  <div class="jsechead reveal">
+   <span class="jeyebrow"><span class="jdiamond"></span> The Locker</span>
+   <h2>Joe's Michigan Collection</h2>
+   <p>Every design in this locker was picked by Joe from the Gridiron Locker Michigan
+   collection - game-day tees, crewnecks and vintage-inspired pieces with original artwork.
+   No official logos, no licensed assets: just Michigan football culture.</p>
+  </div>
+  <div class="jtrustwrap reveal">{trust()}</div>
+  <div class="jgrid">{grid_cards}</div>
+ </div>
+</section>
+
+<section class="jfaq">
+ <div class="wrap">
+  <div class="jsechead reveal">
+   <span class="jeyebrow"><span class="jdiamond"></span> Good to know</span>
+   <h2>Frequently Asked Questions</h2>
+  </div>
+  {"".join(f'<details class="jqa reveal"><summary>{esc(q)}</summary><p>{esc(a)}</p></details>' for q, a in faq)}
+ </div>
+</section>
+
+<section class="jcollab">
+ <div class="wrap center reveal">
+  <h2>YOU'RE IN JOE'S LOCKER.</h2>
+  <p>Every order placed through Joe's collection supports the collaboration and helps us
+  create more Michigan football designs together.</p>
+ </div>
+</section>
+
+<section class="jfinal">
+ <div class="wrap center reveal">
+  <span class="jeyebrow navy"><span class="jdiamond navy"></span> Joe &times; Gridiron Locker</span>
+  <h2>JOE'S MICHIGAN LOCKER</h2>
+  <p>More Michigan designs coming as we build this collection together.</p>
+  <a class="jbtn navy" href="#locker">Shop The Locker</a>
+ </div>
+</section>
+<div class="jbar">
+ <span class="jbar-l"><b>Joe's Michigan Locker</b><span>from ${minp:.2f}</span></span>
+ <a class="jbtn" href="#picks">Shop Picks</a>
+</div>
+</main>"""
+
+    URLS.append((DOMAIN + path, "0.9", "weekly"))
+    write(f"{cre['page_slug']}/index.html",
+          head(f"{cre['page_name']} | {BRAND}", cre_page_desc, path, "/img/hero-joe.jpg",
+               schema, kw, col=ckey_col, body_attrs=f' data-creator-page="{track}"')
+          + header(ckey_col) + body + footer())
 
 
 def shop_now_cta(it, placement, label="Shop Now", size="lg", block=True):
@@ -2908,6 +3178,11 @@ Sitemap: {DOMAIN}/sitemap-images.xml
         fitems += (f"<item><title>{esc(c['name'])} - updated {DATA_DATE}</title>"
                    f"<link>{link}</link><guid isPermaLink='false'>{link}#{DATA_DATE}</guid>"
                    f"<description>{esc(desc)}</description></item>")
+    for cre in CREATORS.values():
+        u = DOMAIN + f"/{cre['page_slug']}/"
+        fitems += (f"<item><title>{esc(cre['page_name'])} - updated {DATA_DATE}</title>"
+                   f"<link>{u}</link><guid isPermaLink='false'>{u}#{DATA_DATE}</guid>"
+                   f"<description>{esc(creator_page_meta(cre))}</description></item>")
     for it in [x for x in ALL if x.get("trend") == "hot"][:12]:
         u = DOMAIN + it["url"]
         fitems += (f"<item><title>{esc(it['name'])}</title><link>{u}</link>"
@@ -2933,6 +3208,9 @@ Sitemap: {DOMAIN}/sitemap-images.xml
     prod_lines = "\n".join(
         f"- [{it['name']}]({DOMAIN}{it['url']}) - {it['garment']}, ${it['price']:.2f}"
         for it in featured)
+    creator_lines = "\n".join(
+        f"- [{cre['page_name']}]({DOMAIN}/{cre['page_slug']}/) - creator collaboration: "
+        f"{creator_page_meta(cre)}" for cre in CREATORS.values())
     write("llms.txt", f"""# {BRAND}
 
 > {CFG['tagline']} - independent, fan-made football apparel (graphic tees, hoodies,
@@ -2952,6 +3230,7 @@ Sitemap: {DOMAIN}/sitemap-images.xml
 - [Fan Trend Index]({DOMAIN}/fan-trend-index/) - 0-100 score of who the headlines are about, plus live player moments
 - [Buying guides]({DOMAIN}/guides/) - how to pick the right fan shirt per team
 - [2026 Week 1 fan shirts]({DOMAIN}/guides/2026-week-1-shirts/) - Week 1 kickoff dates (Michigan Sept 5, NFL Sunday Sept 13) and the slogan tees to order
+{creator_lines}
 - [Custom apparel]({DOMAIN}/contact/) - custom name, colourway and crew orders
 
 ## Facts
@@ -2998,26 +3277,71 @@ document.querySelectorAll('.cwtile').forEach(function(b,i){
   });
 });
 
+// ---------- creator attribution: referral param -> persistent cookie ----------
+// Creator collab pages (e.g. Joe's Michigan Locker at /michigan/joe/) send
+// visitors through ?creator=<ID>. The first such touch sets a persistent
+// cookie (gl_creator, 90-day sliding TTL); while that cookie is present the
+// outbound Viralstyle hand-off on ANY page is tagged with creator=<ID> +
+// UTM before the click, so an order stays attributed to the creator even
+// when the buyer later returns via search, a bookmark or a deep link.
+// Commission reconciliation is an off-site exercise (ops/creators) - this
+// block is purely the attribution plumbing and never shows a rate to users.
+(function(){
+  var KEY='gl_creator', TTL=90*86400;
+  function setCk(v){try{document.cookie=KEY+'='+encodeURIComponent(v)+'; max-age='+TTL+'; path=/; SameSite=Lax';}catch(e){}}
+  function cur(){
+    try{var m=document.cookie.match(new RegExp('(?:^|; )'+KEY+'=([^;]*)'));return m?m[1]:'';}catch(e){return ''}
+  }
+  var p='';
+  try{p=(new URLSearchParams(location.search).get('creator')||'').trim().toUpperCase();}catch(e){}
+  if(p&&/^[A-Z0-9_-]{1,32}$/.test(p)&&cur()!==p){
+    setCk(p);
+    try{gtag('event','creator_attribution_set',{creator_id:p,page:location.pathname,referrer:document.referrer||''});}catch(e){}
+  }
+  var c=cur();
+  window.GL_CREATOR=c;
+  if(!c)return;
+  var onCreatorPage=!!document.body.getAttribute('data-creator-page');
+  try{
+    gtag('event',onCreatorPage?'creator_page_view':'creator_session',{
+      creator_id:onCreatorPage?document.body.getAttribute('data-creator-page'):c,
+      page:location.pathname
+    });
+  }catch(e){}
+  // Tag every outbound checkout link (Shop Now on product pages, any direct
+  // creator CTA) so the order URL itself carries the attribution.
+  var tag='creator='+encodeURIComponent(c)+'&utm_source=creator&utm_medium=referral&utm_campaign=creator-'+encodeURIComponent(c);
+  document.querySelectorAll('a[href*="viralstyle.com"]').forEach(function(a){
+    var h=a.getAttribute('href');
+    if(!h||/[?&](creator|utm_source)=/.test(h))return;
+    a.setAttribute('href',h+(h.indexOf('?')<0?'?':'&')+tag);
+  });
+})();
+
 // ---------- SHOP NOW hand-off tracking ----------
 // The only conversion action on a product page. Every button reports its
 // placement (hero / apparel / footer_band / sticky_bar) so the metric that
 // matters - product landing page -> Viralstyle click-through rate - is
-// measurable, and so we can see WHICH CTA earns the click.
+// measurable, and so we can see WHICH CTA earns the click. The creator
+// dimension (window.GL_CREATOR, set above from the persistent cookie) is
+// attached to every event so attributed vs organic hand-offs split cleanly.
 document.querySelectorAll('a.shopnow').forEach(function(a){
   a.addEventListener('click',function(){
     var d=a.dataset||{};
     try{gtag('event','shop_now_click',{
       item_id:d.slug,value:parseFloat(d.price||'0'),currency:'USD',
-      collection:d.collection,placement:d.placement,destination:'viralstyle.com'
+      collection:d.collection,placement:d.placement,creator:window.GL_CREATOR||'',
+      destination:'viralstyle.com'
     });}catch(e){}
     // legacy event name kept so existing GA4 reports do not break
     try{gtag('event','viralstyle_checkout_click',{
       item:d.slug,price:parseFloat(d.price||'0'),collection:d.collection,
-      placement:d.placement,destination:'viralstyle.com'
+      placement:d.placement,creator:window.GL_CREATOR||'',destination:'viralstyle.com'
     });}catch(e){}
     try{gtag('event','viralstyle_redirect',{
       item_id:d.slug,value:parseFloat(d.price||'0'),currency:'USD',
-      collection:d.collection,placement:d.placement,destination:'viralstyle.com'
+      collection:d.collection,placement:d.placement,creator:window.GL_CREATOR||'',
+      destination:'viralstyle.com'
     });}catch(e){}
   });
 });
@@ -3656,6 +3980,8 @@ def main():
     page_search()
     for k in ORDER:
         page_collection(k)
+    for ckey in CREATORS:
+        page_creator(ckey)
     for it in ALL:
         page_product(it)
     page_guides()

@@ -57,6 +57,7 @@ templated but varied so no two pages read alike.
 | Season hub | `/2026-season/` | 1 |
 | Fan Trend Index | `/fan-trend-index/` | 1 |
 | Trust/info | `/about/`, `/contact/`, `/faq/`, `/shipping/`, `/size-guide/`, `/privacy/`, `/trademark-notice/` | 7 |
+| Creator collaborations | `/michigan/joe/` (Joe's Michigan Locker) | 1 |
 | 404 | `/404.html` | 1 |
 | Marketing | `/marketing/dashboard.html` | 1 (planner UI) |
 
@@ -69,6 +70,19 @@ Cleveland Browns **78** · Green Bay Packers **34** · Michigan **12** · Dallas
 e.g. /shop/sanders-13-special-edition/       (folder with its own index.html)
 ```
 Slugs come straight from Viralstyle URLs, so one slug = one campaign.
+
+### URL convention (creator collaboration)
+```
+/<collection>/<creator>/        e.g. /michigan/joe/   (Joe's Michigan Locker)
+```
+Creator pages are generated from `data/creators.json` (`page_creator()` in
+`src/build.py`): a permanent, addressable destination per creator, a curated
+`picks`/`featured` subset of that creator's collection, and the attribution
+root of the collaboration — internal links carry `?creator=<ID>`, a persistent
+`gl_creator` cookie is set on first touch, and `assets/app.js` tags the
+outbound Viralstyle hand-off (creator + UTM) while the cookie lives, so orders
+stay attributed to the creator. Commission terms in the same JSON record are
+internal (ops/creators) and never render on the public page.
 
 ---
 
