@@ -1,0 +1,61 @@
+{
+  "program": "Gridiron Locker creator collaborations",
+  "updated": "2026-09-09",
+  "creators": {
+    "joe": {
+      "id": "JOE",
+      "display_name": "Joe",
+      "role": "Michigan football creator",
+      "page_slug": "michigan/joe",
+      "page_name": "Joe's Michigan Locker",
+      "page_tagline": "A Gridiron Locker x Joe Collaboration",
+      "collection_key": "michigan",
+      "one_link": "https://gridironlocker.store/michigan/joe/",
+      "commission": {
+        "rate_pct": 20,
+        "basis": "net product sales",
+        "exclusions": ["taxes", "shipping", "refunds", "cancellations", "chargebacks"],
+        "customer_facing": false
+      },
+      "attribution": {
+        "creator_id": "JOE",
+        "cookie_name": "gl_creator",
+        "cookie_ttl_days": 90,
+        "checkout_query": { "creator": "JOE" },
+        "utm": {
+          "utm_source": "creator",
+          "utm_medium": "referral",
+          "utm_campaign": "creator-JOE"
+        },
+        "ga4_events": [
+          "creator_attribution_set",
+          "creator_page_view",
+          "creator_session",
+          "shop_now_click (creator dimension)"
+        ]
+      },
+      "featured": [
+        "limited-edition-second-act-qb19",
+        "limited-edition-m-fans",
+        "second-act-qb19-vintage-football-tee",
+        "limited-edition-m-fans-n27"
+      ],
+      "picks": [
+        "limited-edition-second-act-qb19",
+        "limited-edition-m-fans",
+        "second-act-qb19-vintage-football-tee",
+        "limited-edition-m-fans-n27",
+        "limited-edition-go-blue",
+        "limited-edition-m-vs-all",
+        "limited-edition-0-01-h-a-i-l",
+        "limited-edition-0-01-football",
+        "limited-edition-qb19",
+        "limited-edition-m-fans-n26",
+        "limited-edition-m-fans-n28",
+        "limited-edition-m-go-blue",
+        "second-act-qb19-limited-edition",
+        "limited-edition-m"
+      ]
+    }
+  }
+}

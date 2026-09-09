@@ -1093,3 +1093,167 @@ footer .logo{color:var(--ink)}
   .teamnav{padding:12px 14px;gap:13px}
   .teamnav .tportrait{width:60px;height:60px}
 }
+
+/* =============================================================
+   CREATOR COLLABORATION - JOE'S MICHIGAN LOCKER (/michigan/joe/)
+   -------------------------------------------------------------
+   A self-contained, team-coloured editorial skin for creator
+   pages: deep navy surfaces, maize/gold action, cream type and a
+   subtle film-grain texture. Everything is scoped under .jlock so
+   the shared white storefront (header, footer, other pages) is
+   untouched. CTA fills use their own --jl-* tokens; the shared
+   teal --btn/--btn-h pair is left exactly as the guardrails
+   expect. Mobile first: 2-up product grids, 48px+ tap targets,
+   a fixed bottom shop bar under 760px.
+   ============================================================= */
+.jlock{
+  --jl-deep:#060f21; --jl-navy:#0a1b36; --jl-panel:#0e2142;
+  --jl-maize:#e8b800; --jl-maize2:#f4c63f; --jl-cream:#f2eddf;
+  background:var(--jl-deep); color:var(--jl-cream);
+}
+/* film-grain texture, kept whisper-quiet so photos stay the star */
+.jlock .jhero::after,.jlock .jcollab::after{content:"";position:absolute;inset:0;pointer-events:none;
+  opacity:.05;background-image:url("data:image/svg+xml,%3Csvg xmlns='http://www.w3.org/2000/svg' width='140' height='140'%3E%3Cfilter id='n'%3E%3CfeTurbulence type='fractalNoise' baseFrequency='0.85' numOctaves='2'/%3E%3C/filter%3E%3Crect width='100%25' height='100%25' filter='url(%23n)'/%3E%3C/svg%3E")}
+
+/* ---- shared bits ---- */
+.jlock .jeyebrow{display:inline-flex;align-items:center;gap:9px;font-size:.68rem;font-weight:800;
+  letter-spacing:.22em;text-transform:uppercase;color:var(--jl-maize)}
+.jlock .jdiamond{width:7px;height:7px;background:var(--jl-maize);transform:rotate(45deg);flex:none}
+.jlock .jbtn{display:inline-flex;align-items:center;justify-content:center;min-height:48px;
+  padding:12px 26px;background:var(--jl-maize);color:#0a1322;font-weight:800;font-size:.9rem;
+  letter-spacing:.07em;text-transform:uppercase;border-radius:10px;border:1px solid transparent;
+  transition:background .15s,border-color .15s,color .15s}
+.jlock .jbtn:hover{background:var(--jl-maize2)}
+.jlock .jbtn.ghost{background:transparent;color:var(--jl-cream);border-color:rgba(242,237,223,.4)}
+.jlock .jbtn.ghost:hover{border-color:var(--jl-maize);color:var(--jl-maize);background:transparent}
+.jlock .jbtn.navy{background:#0a1322;color:var(--jl-cream)}
+.jlock .jbtn.navy:hover{background:#152a4d}
+.jlock .jsechead{max-width:660px;margin:0 0 26px}
+.jlock .jsechead h2{font-family:var(--display);font-size:clamp(1.9rem,4.6vw,2.7rem);
+  letter-spacing:.03em;color:#fff;margin:10px 0 8px;text-transform:uppercase}
+.jlock .jsechead p{color:rgba(242,237,223,.62);margin:0;font-size:.95rem}
+
+/* ---- hero ---- */
+.jlock .jhero{position:relative;overflow:hidden;border-bottom:1px solid rgba(232,184,0,.2);
+  background:radial-gradient(900px 420px at 84% -10%,rgba(232,184,0,.16),transparent 65%),
+  linear-gradient(165deg,#0c2044 0%,#081729 55%,var(--jl-deep) 100%)}
+.jlock .jhero-grid{position:relative;display:grid;grid-template-columns:1.02fr .98fr;gap:40px;
+  align-items:center;padding:64px 0 58px}
+.jlock .jcopy h1{font-family:var(--display);font-size:clamp(2.9rem,7.4vw,5rem);line-height:.94;
+  letter-spacing:.015em;color:#fff;margin:18px 0 14px;text-transform:uppercase}
+.jlock .jgold{color:var(--jl-maize)}
+.jlock .jsub{font-size:clamp(1.05rem,2.4vw,1.3rem);font-weight:700;color:var(--jl-cream);margin:0 0 6px}
+.jlock .jsupp{color:rgba(242,237,223,.6);font-size:.95rem;margin:0 0 26px}
+.jlock .jctas{display:flex;gap:12px;flex-wrap:wrap}
+.jlock .jfacts{margin:24px 0 0;font-size:.76rem;letter-spacing:.03em;color:rgba(242,237,223,.5)}
+.jlock .jart img{width:100%;aspect-ratio:16/10;object-fit:cover;object-position:62% center;
+  border-radius:16px;border:1px solid rgba(232,184,0,.28);box-shadow:0 30px 60px rgba(0,0,0,.45)}
+
+/* ---- Joe's introduction ---- */
+.jlock .jintro{padding:62px 0 8px}
+.jlock .jintro h2{font-family:var(--display);font-size:clamp(1.9rem,4.6vw,2.7rem);letter-spacing:.03em;
+  color:#fff;margin:10px 0 0;text-transform:uppercase}
+.jlock .jquote{margin:24px 0 0;border-left:3px solid var(--jl-maize);padding:6px 0 6px 20px;max-width:760px}
+.jlock .jquote p{font-size:clamp(1.08rem,2.6vw,1.4rem);line-height:1.5;color:#fff;font-weight:600;margin:0 0 10px}
+.jlock .jquote cite{font-style:normal;font-size:.82rem;font-weight:700;letter-spacing:.14em;
+  text-transform:uppercase;color:var(--jl-maize)}
+.jlock .jnote{max-width:760px;color:rgba(242,237,223,.6);font-size:.92rem;margin-top:18px}
+
+/* ---- product cards (featured + grid share one anatomy) ---- */
+.jlock .jfeat,.jlock .jcard{position:relative;display:flex;flex-direction:column;background:var(--jl-panel);
+  border:1px solid rgba(255,255,255,.08);border-radius:14px;overflow:hidden;min-width:0;
+  transition:transform .18s,border-color .18s,box-shadow .18s}
+.jlock .jfeat:hover,.jlock .jcard:hover{transform:translateY(-3px);border-color:rgba(232,184,0,.55);
+  box-shadow:0 18px 40px rgba(0,0,0,.4)}
+.jlock .jph{position:relative;display:grid;place-items:center;background:#f4f1e8;padding:6%;
+  aspect-ratio:53/57}
+.jlock .jph img{width:100%;height:100%;object-fit:contain}
+.jlock .jb{display:flex;flex-direction:column;gap:4px;padding:13px 14px 12px;flex:1}
+.jlock .jname{font-size:.97rem;font-weight:700;color:#fff;line-height:1.3;margin:0;
+  display:-webkit-box;-webkit-line-clamp:2;-webkit-box-orient:vertical;overflow:hidden}
+.jlock .jmeta{font-size:.66rem;font-weight:700;letter-spacing:.13em;text-transform:uppercase;
+  color:rgba(242,237,223,.5)}
+.jlock .jfoot{display:flex;align-items:center;justify-content:space-between;gap:10px;margin-top:auto;padding-top:7px}
+.jlock .jprice{font-weight:800;color:var(--jl-maize);font-size:1rem}
+.jlock .jtag{font-size:.62rem;font-weight:800;letter-spacing:.12em;text-transform:uppercase;
+  color:var(--jl-maize);border:1px solid rgba(232,184,0,.4);border-radius:99px;padding:2px 8px;white-space:nowrap}
+.jlock .jshop{display:flex;align-items:center;justify-content:center;gap:8px;min-height:46px;
+  background:var(--jl-maize);color:#0a1322;font-weight:800;letter-spacing:.14em;font-size:.82rem;
+  text-transform:uppercase}
+.jlock .jshop i{font-style:normal;transition:transform .18s}
+.jlock .jfeat:hover .jshop i,.jlock .jcard:hover .jshop i{transform:translateX(4px)}
+
+/* ---- featured row ---- */
+.jlock .jpicks{padding:46px 0 6px}
+.jlock .jfeat-row{display:grid;grid-template-columns:repeat(2,1fr);gap:12px}
+.jlock .jfeat-row .jph{aspect-ratio:1/1.06}
+
+/* ---- the locker (full collection) ---- */
+.jlock .jgridsec{padding:42px 0 14px}
+.jlock .jtrustwrap{margin:0 0 24px;border:1px solid rgba(255,255,255,.1);border-radius:12px;overflow:hidden}
+.jlock .jtrustwrap .trust{background:rgba(255,255,255,.04);border-bottom-color:transparent}
+.jlock .jtrustwrap .trust div{color:rgba(242,237,223,.62);border-right-color:rgba(255,255,255,.08);
+  border-bottom-color:rgba(255,255,255,.08)}
+.jlock .jtrustwrap .trust b{color:var(--jl-cream)}
+.jlock .jgrid{display:grid;grid-template-columns:repeat(2,1fr);gap:12px}
+
+/* ---- FAQ ---- */
+.jlock .jfaq{padding:40px 0 16px}
+.jlock .jqa{background:rgba(255,255,255,.03);border:1px solid rgba(255,255,255,.08);border-radius:12px;
+  margin-bottom:10px;overflow:hidden}
+.jlock .jqa summary{cursor:pointer;list-style:none;padding:15px 18px;font-weight:700;color:#fff;
+  display:flex;justify-content:space-between;align-items:center;gap:14px;min-height:48px}
+.jlock .jqa summary::-webkit-details-marker{display:none}
+.jlock .jqa summary::after{content:"+";color:var(--jl-maize);font-size:1.35rem;line-height:1;flex:none}
+.jlock .jqa[open] summary::after{content:"\2013"}
+.jlock .jqa p{padding:0 18px 16px;margin:0;color:rgba(242,237,223,.68);font-size:.92rem}
+
+/* ---- collaboration message ---- */
+.jlock .jcollab{position:relative;margin-top:52px;padding:72px 0;text-align:center;overflow:hidden;
+  background:radial-gradient(700px 300px at 50% 0,rgba(232,184,0,.13),transparent 70%),
+  linear-gradient(180deg,#0b1c38,var(--jl-deep));
+  border-top:1px solid rgba(232,184,0,.22);border-bottom:1px solid rgba(232,184,0,.22)}
+.jlock .jcollab h2{position:relative;font-family:var(--display);font-size:clamp(2.1rem,6vw,3.5rem);
+  letter-spacing:.05em;color:#fff;margin:0 0 12px;text-transform:uppercase}
+.jlock .jcollab p{position:relative;max-width:580px;margin:0 auto;color:rgba(242,237,223,.72)}
+
+/* ---- final creator CTA ---- */
+.jlock .jfinal{padding:72px 0;text-align:center;
+  background:linear-gradient(135deg,#e9ba06 0%,#d19f00 100%)}
+.jlock .jfinal .jeyebrow{color:#0a1322}
+.jlock .jfinal .jdiamond{background:#0a1322}
+.jlock .jfinal h2{font-family:var(--display);font-size:clamp(2.3rem,6.5vw,4rem);letter-spacing:.04em;
+  color:#0a1322;margin:10px 0 8px;text-transform:uppercase}
+.jlock .jfinal p{color:rgba(10,19,34,.78);font-weight:600;margin:0 0 26px}
+
+/* ---- mobile shop bar + responsive ---- */
+.jlock .jbar{display:none}
+@media(min-width:640px){
+  .jlock .jgrid{grid-template-columns:repeat(3,1fr);gap:14px}
+}
+@media(min-width:980px){
+  .jlock .jfeat-row{grid-template-columns:repeat(4,1fr);gap:16px}
+  .jlock .jgrid{grid-template-columns:repeat(4,1fr);gap:16px}
+}
+@media(max-width:760px){
+  .jlock .jhero-grid{grid-template-columns:1fr;gap:26px;padding:42px 0 34px}
+  .jlock .jart{order:2}
+  .jlock .jcopy h1{margin-top:14px}
+  .jlock .jintro{padding-top:46px}
+  .jlock .jpicks,.jlock .jgridsec,.jlock .jfaq{padding-top:36px}
+  .jlock .jb{padding:10px 10px 10px}
+  .jlock .jname{font-size:.88rem}
+  .jlock .jshop{min-height:44px;font-size:.78rem}
+  .jlock .jgrid{gap:10px}
+  .jlock .jfeat-row{gap:10px}
+  .jlock .jbar{display:flex;align-items:center;justify-content:space-between;gap:12px;position:fixed;
+    left:0;right:0;bottom:0;z-index:70;background:rgba(6,15,33,.97);
+    -webkit-backdrop-filter:blur(8px);backdrop-filter:blur(8px);
+    border-top:1px solid rgba(232,184,0,.3);
+    padding:10px 14px calc(10px + env(safe-area-inset-bottom))}
+  .jlock .jbar-l{display:flex;flex-direction:column;line-height:1.3;min-width:0}
+  .jlock .jbar-l b{color:#fff;font-size:.84rem;letter-spacing:.02em;white-space:nowrap}
+  .jlock .jbar-l span{color:var(--jl-maize);font-size:.74rem;font-weight:700}
+  .jlock .jbar .jbtn{min-height:46px;padding:10px 20px;font-size:.82rem;flex:none}
+  main.jlock{padding-bottom:82px}
+}

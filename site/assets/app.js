@@ -29,26 +29,71 @@ document.querySelectorAll('.cwtile').forEach(function(b,i){
   });
 });
 
+// ---------- creator attribution: referral param -> persistent cookie ----------
+// Creator collab pages (e.g. Joe's Michigan Locker at /michigan/joe/) send
+// visitors through ?creator=<ID>. The first such touch sets a persistent
+// cookie (gl_creator, 90-day sliding TTL); while that cookie is present the
+// outbound Viralstyle hand-off on ANY page is tagged with creator=<ID> +
+// UTM before the click, so an order stays attributed to the creator even
+// when the buyer later returns via search, a bookmark or a deep link.
+// Commission reconciliation is an off-site exercise (ops/creators) - this
+// block is purely the attribution plumbing and never shows a rate to users.
+(function(){
+  var KEY='gl_creator', TTL=90*86400;
+  function setCk(v){try{document.cookie=KEY+'='+encodeURIComponent(v)+'; max-age='+TTL+'; path=/; SameSite=Lax';}catch(e){}}
+  function cur(){
+    try{var m=document.cookie.match(new RegExp('(?:^|; )'+KEY+'=([^;]*)'));return m?m[1]:'';}catch(e){return ''}
+  }
+  var p='';
+  try{p=(new URLSearchParams(location.search).get('creator')||'').trim().toUpperCase();}catch(e){}
+  if(p&&/^[A-Z0-9_-]{1,32}$/.test(p)&&cur()!==p){
+    setCk(p);
+    try{gtag('event','creator_attribution_set',{creator_id:p,page:location.pathname,referrer:document.referrer||''});}catch(e){}
+  }
+  var c=cur();
+  window.GL_CREATOR=c;
+  if(!c)return;
+  var onCreatorPage=!!document.body.getAttribute('data-creator-page');
+  try{
+    gtag('event',onCreatorPage?'creator_page_view':'creator_session',{
+      creator_id:onCreatorPage?document.body.getAttribute('data-creator-page'):c,
+      page:location.pathname
+    });
+  }catch(e){}
+  // Tag every outbound checkout link (Shop Now on product pages, any direct
+  // creator CTA) so the order URL itself carries the attribution.
+  var tag='creator='+encodeURIComponent(c)+'&utm_source=creator&utm_medium=referral&utm_campaign=creator-'+encodeURIComponent(c);
+  document.querySelectorAll('a[href*="viralstyle.com"]').forEach(function(a){
+    var h=a.getAttribute('href');
+    if(!h||/[?&](creator|utm_source)=/.test(h))return;
+    a.setAttribute('href',h+(h.indexOf('?')<0?'?':'&')+tag);
+  });
+})();
+
 // ---------- SHOP NOW hand-off tracking ----------
 // The only conversion action on a product page. Every button reports its
 // placement (hero / apparel / footer_band / sticky_bar) so the metric that
 // matters - product landing page -> Viralstyle click-through rate - is
-// measurable, and so we can see WHICH CTA earns the click.
+// measurable, and so we can see WHICH CTA earns the click. The creator
+// dimension (window.GL_CREATOR, set above from the persistent cookie) is
+// attached to every event so attributed vs organic hand-offs split cleanly.
 document.querySelectorAll('a.shopnow').forEach(function(a){
   a.addEventListener('click',function(){
     var d=a.dataset||{};
     try{gtag('event','shop_now_click',{
       item_id:d.slug,value:parseFloat(d.price||'0'),currency:'USD',
-      collection:d.collection,placement:d.placement,destination:'viralstyle.com'
+      collection:d.collection,placement:d.placement,creator:window.GL_CREATOR||'',
+      destination:'viralstyle.com'
     });}catch(e){}
     // legacy event name kept so existing GA4 reports do not break
     try{gtag('event','viralstyle_checkout_click',{
       item:d.slug,price:parseFloat(d.price||'0'),collection:d.collection,
-      placement:d.placement,destination:'viralstyle.com'
+      placement:d.placement,creator:window.GL_CREATOR||'',destination:'viralstyle.com'
     });}catch(e){}
     try{gtag('event','viralstyle_redirect',{
       item_id:d.slug,value:parseFloat(d.price||'0'),currency:'USD',
-      collection:d.collection,placement:d.placement,destination:'viralstyle.com'
+      collection:d.collection,placement:d.placement,creator:window.GL_CREATOR||'',
+      destination:'viralstyle.com'
     });}catch(e){}
   });
 });
