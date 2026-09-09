@@ -10,19 +10,30 @@ function toggleGroup(sel,me){
   document.querySelectorAll(sel).forEach(function(x){x.classList.remove('on')});
   me.classList.add('on');
 }
-document.querySelectorAll('.thumb,.swatch,.stylechip').forEach(function(b){
-  b.addEventListener('click',function(){
-    var grp;
-    if(b.classList.contains('thumb'))grp='.thumb';
-    else if(b.classList.contains('swatch'))grp='.swatch';
-    else if(b.classList.contains('stylechip'))grp='.stylechip';
-    setStage(b);
-    if(grp)toggleGroup(grp,b);
-  });
+// Thumbnails only. A product page has no style / size / colour selector by
+// design: Gridiron Locker presents the design, Viralstyle configures and sells
+// it. The gallery is imagery, not a purchase control.
+document.querySelectorAll('.thumb').forEach(function(b){
+  b.addEventListener('click',function(){setStage(b);toggleGroup('.thumb',b);});
 });
-['.size'].forEach(function(sel){
-  document.querySelectorAll(sel).forEach(function(b){
-    b.addEventListener('click',function(){toggleGroup(sel,b)});
+
+// ---------- SHOP NOW hand-off tracking ----------
+// The only conversion action on a product page. Every button reports its
+// placement (hero / footer_band / sticky_bar) so the metric that matters -
+// product landing page -> Viralstyle click-through rate - is measurable, and
+// so we can see WHICH CTA earns the click.
+document.querySelectorAll('a.shopnow').forEach(function(a){
+  a.addEventListener('click',function(){
+    var d=a.dataset||{};
+    try{gtag('event','shop_now_click',{
+      item_id:d.slug,value:parseFloat(d.price||'0'),currency:'USD',
+      collection:d.collection,placement:d.placement,destination:'viralstyle.com'
+    });}catch(e){}
+    // legacy event name kept so existing GA4 reports do not break
+    try{gtag('event','viralstyle_checkout_click',{
+      item:d.slug,price:parseFloat(d.price||'0'),collection:d.collection,
+      placement:d.placement,destination:'viralstyle.com'
+    });}catch(e){}
   });
 });
 
@@ -472,7 +483,7 @@ setTimeout(function(){
 // Every card carries a .qv button (sibling of the card link, never nested
 // inside it). One shared modal is built once and refilled from the card's
 // own DOM, so no product data is duplicated across the 127 cards. The CTA
-// hands off to the full product page - sizes and checkout live there.
+// hands off to the full product landing page; Viralstyle handles checkout.
 (function(){
   var qs=[].slice.call(document.querySelectorAll('.card .qv'));
   if(!qs.length)return;
@@ -485,8 +496,8 @@ setTimeout(function(){
     +'<img class="qv-back" alt="" width="150" height="178"></div>'
     +'<div class="qv-info"><span class="qv-team"></span><h3 class="qv-name"></h3>'
     +'<span class="qv-meta"></span><span class="qv-price"></span>'
-    +'<a class="btn block qv-cta" href="#">View full details &amp; buy &rarr;</a>'
-    +'<p class="muted qv-note">Size, style and colourway are chosen on the product page before checkout.</p>'
+    +'<a class="btn block qv-cta" href="#">See the full design &rarr;</a>'
+    +'<p class="muted qv-note">The design story, apparel styles, colours and sizing are on the product page. Orders are completed on Viralstyle.</p>'
     +'</div></div>';
   document.body.appendChild(modal);
   var closeBtn=modal.querySelector('.qv-close');

@@ -43,9 +43,16 @@ re-run the build to add them:
 
 ## Why this converts
 
-- **NFLShop-style product page**: big gallery + colourway swatches, style chips, size selector,
-  price + slashed compare-at price + save %, star rating, urgency strip, trust badges,
-  sticky mobile buy bar that never leaves the screen.
+- **Product pages are SEO landing pages, not a half-checkout.** Gridiron Locker does discovery,
+  persuasion and SEO; **Viralstyle does configuration and the transaction**. A product page has
+  **no style picker, no size picker, no colourway picker and no checkout button** - it presents the
+  design (big gallery), the story, the verified apparel styles / colourways / sizes, the product
+  details, shipping and an FAQ, and offers exactly one conversion action: **SHOP NOW →**, which
+  opens that design's Viralstyle campaign. The CTA appears three times (hero, mid-page band,
+  sticky mobile bar) and every instance is followed by the line that removes the uncertainty:
+  *"Choose your garment style, colour and size on the Viralstyle product page."*
+  See `src/landing.py` for the copy generator and `ProductPages` in `tests/test_layout.py` for the
+  guard rails (no pickers, no fabricated ratings/reviews, no invented colour names).
 - **gvartwork-style visuals**: dark premium theme, cinematic AI hero art per collection, and each
   collection re-skins the accent colour (orange / gold / silver-navy / maize).
 - **Mobile first**: 2-up product grid on phones, tap-friendly targets, sticky CTA, no layout shift
@@ -71,7 +78,7 @@ re-run the build to add them:
   of the homepage, and the header gained a **Trending** link to `/drops/`.
 - **Quick view**: every product card carries a quick-view button that opens a shared modal
   (front + back, price, CTA to the full product page) so visitors compare designs without
-  leaving the grid - sizes and checkout stay on the product page.
+  leaving the grid - the design story lives on the product page and checkout lives on Viralstyle.
 
 ## Why it ranks
 
@@ -113,8 +120,11 @@ Then rebuild: `python3 src/build.py`
 1. Google Search Console → add the domain → submit `/sitemap.xml`.
 2. Bing Webmaster Tools → same.
 3. Paste your GA4 / Meta Pixel snippet into the `head()` function in `src/build.py` and rebuild —
-   checkout clicks already fire a `viralstyle_checkout_click` event (carrying the product slug,
-   price and collection) if `gtag` exists.
+   SHOP NOW clicks already fire a `shop_now_click` GA4 event (product slug, price, collection and
+   the CTA `placement`: `hero` / `footer_band` / `sticky_bar`) plus the legacy
+   `viralstyle_checkout_click` event, if `gtag` exists. The metric that matters is
+   **product landing page views → SHOP NOW clicks = handoff CTR**, split by placement so you can
+   see which CTA earns the click.
 
 ---
 

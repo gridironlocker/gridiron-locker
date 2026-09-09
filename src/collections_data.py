@@ -46,7 +46,7 @@ COLLECTIONS = {
         ],
         faq_extra=[
             ("Do these shirts come in Dawg Pound orange and brown?",
-             "Most designs are offered on black, white, orange, brown, heather grey, navy and red garments. Pick the colourway you want on the checkout page before adding to your bag."),
+             "Garment colourways are set per campaign, so the range differs from design to design. Each product page previews the colourways that design's campaign published; the authoritative, current list is on the Viralstyle product page, where you pick the one you want."),
         ],
     ),
     "dallas-cowboys": dict(
