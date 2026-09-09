@@ -445,22 +445,28 @@ class ProductPages(unittest.TestCase):
             band = html.index('data-placement="footer_band"')
             self.assertLess(hero, band, slug)
             self.assertIn('data-placement="sticky_bar"', html, slug)
-            self.assertLess(hero, html.index('<h2>About This Design</h2>'), slug)
+            self.assertLess(hero, html.index('<h2 id="colours">Available Colours</h2>'), slug)
+            self.assertIn('data-placement="apparel"', html, slug)
 
     def test_handoff_is_tracked(self):
         """Product landing page -> Viralstyle CTR must be measurable."""
         self.assertIn("shop_now_click", self.js)
         self.assertIn("placement:d.placement", self.js)
         self.assertIn("viralstyle_checkout_click", self.js)      # legacy event kept
+        self.assertIn("product_page_view", self.js)
+        self.assertIn("viralstyle_redirect", self.js)
+        self.assertIn("colorway_interaction", self.js)
+        self.assertIn("related_product_click", self.js)
+        self.assertIn("collection_click", self.js)
         for slug, html in self.pages.items():
             for attr in ("data-slug=", "data-price=", "data-collection=", "data-placement="):
                 self.assertIn(attr, html, slug)
 
     def test_landing_page_sections_present(self):
-        wanted = ("About This Design", "The Idea Behind The Design", "Who It's For",
-                  "Game-Day Wear", "Available Colours",
+        wanted = ("Available Colours", "The Idea Behind The Design", "Why It Stands Out",
+                  "Who It's For", "Built for Game Day",
                   "Size Information", "Product Details", "Shipping &amp; Delivery",
-                  "Frequently Asked Questions")
+                  "Frequently Asked Questions", "Ready to gear up?")
         for slug, html in self.pages.items():
             for section in wanted:
                 self.assertIn(section, html, f"{slug}: {section}")
@@ -500,14 +506,24 @@ class ProductPages(unittest.TestCase):
     def test_product_copy_is_not_boilerplate(self):
         """The template is shared; the story must not be."""
         stories = {}
+        shorts = {}
+        whys = {}
         for slug, html in self.pages.items():
             m = re.search(r"<h2>The Idea Behind The Design</h2>(.*?)</div>", html, re.S)
             self.assertIsNotNone(m, slug)
             stories.setdefault(re.sub(r"\s+", " ", m.group(1)), []).append(slug)
+            d = re.search(r'<p class="herodeck">(.*?)</p>', html, re.S)
+            self.assertIsNotNone(d, slug)
+            shorts.setdefault(re.sub(r"\s+", " ", d.group(1)), []).append(slug)
+            w = re.search(r"<h2>Why It Stands Out</h2>(.*?)</div>", html, re.S)
+            self.assertIsNotNone(w, slug)
+            whys.setdefault(re.sub(r"\s+", " ", w.group(1)), []).append(slug)
         # with 100+ designs, a handful of hash collisions is fine; one giant
         # identical block across the catalogue is not.
-        biggest = max(len(v) for v in stories.values())
-        self.assertLess(biggest, max(4, len(self.pages) // 8), biggest)
+        cap = max(4, len(self.pages) // 8)
+        self.assertLess(max(len(v) for v in stories.values()), cap)
+        self.assertLess(max(len(v) for v in shorts.values()), cap)
+        self.assertLess(max(len(v) for v in whys.values()), cap)
 
     def test_no_invented_colour_names(self):
         """Colour NAMES are not in the crawled data, so we must never print them
@@ -557,6 +573,27 @@ class ProductPages(unittest.TestCase):
                          "Save 3", "left in stock", "Only ", "selling fast",
                          "Limited stock", "Hurry"):
                 self.assertNotIn(term, html, f"{slug}: {term}")
+
+    def test_related_products_same_collection(self):
+        """Related rail is 4-8 designs from the same collection, never mixed."""
+        import build  # noqa: E402
+        by_slug = {it["slug"]: it for it in build.ALL}
+        for slug, html in self.pages.items():
+            block = html.split('id="related"', 1)
+            self.assertEqual(len(block), 2, slug)
+            section = block[1].split("</section>", 1)[0]
+            hrefs = re.findall(r'href="(?:\.\./)+shop/([^/]+)/"', section)
+            # cards + maybe none else; related grid only
+            grid = section.split('class="grid related"', 1)
+            self.assertEqual(len(grid), 2, slug)
+            cards = re.findall(r'<article class="card[^"]*" data-slug="([^"]+)"',
+                               grid[1].split("linkrow", 1)[0])
+            self.assertGreaterEqual(len(cards), min(4, len(build.MODEL[by_slug[slug]["col"]]) - 1), slug)
+            self.assertLessEqual(len(cards), 8, slug)
+            own = by_slug[slug]["col"]
+            for other in cards:
+                self.assertNotEqual(other, slug, slug)
+                self.assertEqual(by_slug[other]["col"], own, f"{slug} -> {other}")
 
     def test_internal_linking(self):
         import build  # noqa: E402
@@ -1299,10 +1336,17 @@ class MichiganZeroOneProducts(unittest.TestCase):
             self.assertNotIn("gridironlocker.storehttps://", html, slug)
 
     def test_schema_and_sitemap_use_remote_images(self):
+        # Until dl.py lands local WebP the Product schema hot-links Viralstyle
+        # assets; once they are local, abs_url() prefixes the store domain.
+        # Either is valid - a double-prefixed URL is not.
         for slug in NEW_ZERO_ONE:
             html = read(os.path.join(SITE, "shop", slug, "index.html"))
             self.assertIn('"image":[', html, slug)
-            self.assertIn("assets.viralstyle.com", html.split('"image":[', 1)[1][:400], slug)
+            snippet = html.split('"image":[', 1)[1][:500]
+            self.assertTrue(
+                "assets.viralstyle.com" in snippet
+                or "/img/p/" + slug in snippet,
+                slug)
             self.assertNotIn("https://gridironlocker.storehttps://", html, slug)
         sm = page("sitemap-images.xml")
         for slug in NEW_ZERO_ONE:
