@@ -17,11 +17,23 @@ document.querySelectorAll('.thumb').forEach(function(b){
   b.addEventListener('click',function(){setStage(b);toggleGroup('.thumb',b);});
 });
 
+// Colourway mockups are gallery previews, not selectors. Clicking one only
+// swaps the stage image; style/colour/size are still chosen on Viralstyle.
+document.querySelectorAll('.cwtile').forEach(function(b,i){
+  b.addEventListener('click',function(){
+    setStage(b);
+    try{gtag('event','colorway_interaction',{
+      item_id:(document.querySelector('main.pdp-page')||{}).dataset&&document.querySelector('main.pdp-page').dataset.slug,
+      index:i+1,destination:'gallery'
+    });}catch(e){}
+  });
+});
+
 // ---------- SHOP NOW hand-off tracking ----------
 // The only conversion action on a product page. Every button reports its
-// placement (hero / footer_band / sticky_bar) so the metric that matters -
-// product landing page -> Viralstyle click-through rate - is measurable, and
-// so we can see WHICH CTA earns the click.
+// placement (hero / apparel / footer_band / sticky_bar) so the metric that
+// matters - product landing page -> Viralstyle click-through rate - is
+// measurable, and so we can see WHICH CTA earns the click.
 document.querySelectorAll('a.shopnow').forEach(function(a){
   a.addEventListener('click',function(){
     var d=a.dataset||{};
@@ -34,8 +46,38 @@ document.querySelectorAll('a.shopnow').forEach(function(a){
       item:d.slug,price:parseFloat(d.price||'0'),collection:d.collection,
       placement:d.placement,destination:'viralstyle.com'
     });}catch(e){}
+    try{gtag('event','viralstyle_redirect',{
+      item_id:d.slug,value:parseFloat(d.price||'0'),currency:'USD',
+      collection:d.collection,placement:d.placement,destination:'viralstyle.com'
+    });}catch(e){}
   });
 });
+
+// ---------- product landing analytics ----------
+(function(){
+  var page=document.querySelector('main.pdp-page');
+  if(!page)return;
+  var d=page.dataset||{};
+  try{gtag('event','product_page_view',{
+    item_id:d.slug,value:parseFloat(d.price||'0'),currency:'USD',
+    collection:d.collection
+  });}catch(e){}
+  document.querySelectorAll('#related .related a[href*="/shop/"]').forEach(function(a){
+    a.addEventListener('click',function(){
+      try{gtag('event','related_product_click',{
+        item_id:d.slug,related:a.getAttribute('href'),collection:d.collection
+      });}catch(e){}
+    });
+  });
+  document.querySelectorAll('a.col-link').forEach(function(a){
+    a.addEventListener('click',function(){
+      try{gtag('event','collection_click',{
+        item_id:d.slug,collection:a.dataset.collection||d.collection,
+        href:a.getAttribute('href')
+      });}catch(e){}
+    });
+  });
+})();
 
 // ---------- custom design form (FormSubmit, no backend needed) ----------
 // The destination address is assembled at runtime from a base64 token so the

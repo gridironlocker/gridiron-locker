@@ -420,6 +420,7 @@ def build_model():
                 styles=styles, sizes_avail=sizes_avail, url=url, gallery=gal, front=img["front"],
                 back=img.get("back", img["front"]),
                 buy=p["url"], kw=_l.keywords(f, col, garment, name), col=ckey,
+                features=p.get("features") or "",
             ))
         items[ckey] = lst
     return items
@@ -1773,26 +1774,32 @@ def page_product(it):
     colours = it["colours"]
     theme = it["theme"] if it["theme"] in _l.THEME_CONCEPT else "classic"
 
-    title = _l.meta_title(it["name"], BRAND)
-    metad = _l.meta_description(slug, it["name"], c, it["garment"], price, styles, colours, sizes)
-    hero_deck = _l.hero_line(slug, it["name"], it["art"], c, it["garment"])
-    about_html = _l.about_design(slug, f, c, it["garment"], it["art"], theme)
+    title = _l.meta_title(it["name"], BRAND, slug=slug, col=c,
+                          garment=it["garment"], theme=theme, art=it["art"])
+    metad = _l.meta_description(slug, it["name"], c, it["garment"], price, styles,
+                                colours, sizes, art=it["art"])
+    hero_deck = _l.short_description(slug, it["name"], it["art"], c, it["garment"], theme)
     story_html = _l.design_story(slug, f, c, it["art"], theme, it["garment"])
-    who_html = _l.who_its_for(slug, c, theme, it["garment"], price)
+    why_html = _l.why_it_stands_out(slug, f, c, it["art"], theme, it["garment"])
+    who_html = _l.who_its_for(slug, c, theme, it["garment"], price,
+                              name=it["name"], art=it["art"])
     wear_html = _l.gameday_wear(slug, c, it["garment"], it["art"])
     styles_html = _l.styles_copy(slug, styles, it["garment"])
     colour_html = _l.colour_copy(colours)
     size_html = _l.size_copy(slug, sizes, it["garment"])
     ship_html = _l.shipping_copy(DELIVERY_TIME, SHIP_US["shippingRate"]["value"])
-    bullets = _l.details_bullets(it["garment"], styles, sizes, colours, price)
+    bullets = _l.details_bullets(it["garment"], styles, sizes, colours, price,
+                                 features=it.get("features") or "")
     faq = _l.faqs(slug, f, c, it["garment"], price, colours, styles, sizes)
     kws = _l.keywords(f, c, it["garment"], it["name"])
+    stage_alt = _l.image_alt(it["name"], it["art"], it["garment"], c["team"])
 
     # ---- gallery (informational imagery, not a configurator) --------------
     thumbs = "".join(
         f'<button class="thumb{" on" if n == 0 else ""}" data-src="{g}" type="button"'
         f' aria-label="View image {n+1} of {esc(it["name"])}">'
-        f'<img src="{g}" alt="{esc(it["name"])} view {n+1}" loading="lazy" width="120" height="140"></button>'
+        f'<img src="{g}" alt="{esc(_l.image_alt(it["name"], it["art"], it["garment"], c["team"], n+1))}" '
+        f'loading="lazy" width="120" height="140"></button>'
         for n, g in enumerate(it["gallery"][:10]))
 
     # ---- verified option displays ----------------------------------------
@@ -1803,12 +1810,14 @@ def page_product(it):
     colourhtml = ""
     if colour_mockups:
         tiles = "".join(
-            f'<figure class="cwtile"><img src="{g}" alt="{esc(it["name"])} garment colourway '
-            f'preview {n+1}" loading="lazy" width="120" height="140"></figure>'
+            f'<button type="button" class="cwtile" data-src="{g}" '
+            f'aria-label="View campaign mockup {n+1} of {esc(it["name"])}">'
+            f'<img src="{g}" alt="{esc(_l.image_alt(it["name"], it["art"], it["garment"], c["team"], n+1))} '
+            f'campaign mockup" loading="lazy" width="180" height="180"></button>'
             for n, g in enumerate(colour_mockups))
         colourhtml = (f'<div class="cwgrid">{tiles}</div>'
-                      f'<p class="muted small">Campaign mockups, shown for reference only. '
-                      f'Colour availability can change - the live list is on Viralstyle.</p>')
+                      f'<p class="muted small">Colour previews are shown to help you choose your look. '
+                      f'Final colour selection is made on Viralstyle.</p>')
 
     _CHART = {"S": (18, 28), "M": (20, 29), "L": (22, 30),
               "XL": (24, 31), "2XL": (26, 32), "3XL": (28, 33)}
@@ -1827,9 +1836,12 @@ def page_product(it):
                       for q, a in faq)
 
     # ---- internal linking -------------------------------------------------
+    # Same collection only (never random unrelated teams). Prefer the same
+    # design theme, then similar price. Spec wants 4-8 related products.
     rel = [x for x in MODEL[it["col"]] if x["slug"] != slug]
-    rel = sorted(rel, key=lambda x: (x["theme"] != it["theme"], abs(x["price"] - it["price"])))[:4]
+    rel = sorted(rel, key=lambda x: (x["theme"] != it["theme"], abs(x["price"] - it["price"])))[:6]
     relhtml = "".join(card(r) for r in rel)
+    disclose = esc(_l.disclosure())
 
     cb, cbs = crumbs([("Home", "/"), ("Collections", "/collections/"),
                       (c["short"], f"/{c['slug']}/"), (it["name"], None)], path)
@@ -1838,27 +1850,37 @@ def page_product(it):
     # No aggregateRating, no review count, no fake sale price, no invented
     # inventory. The Offer points at the Viralstyle campaign because that is
     # where the transaction actually happens.
-    schema = [cbs,
-              {"@context": "https://schema.org", "@type": "Product",
-               "name": it["name"], "sku": slug,
-               "description": re.sub("<[^>]+>", " ", about_html)[:600].strip(),
-               "image": [abs_url(g) for g in it["gallery"][:6]],
-               "brand": {"@type": "Brand", "name": BRAND},
-               "category": f"{c['name']} > {it['garment']}",
-               "material": "Cotton" if it["garment"] in ("T-Shirt", "Hoodie", "Sweatshirt") else "Mixed",
-               "size": sizes,
-               # PeopleAudience (not the generic Audience) is what Google's
-               # merchant listing spec reads for apparel gender targeting.
-               "audience": {"@type": "PeopleAudience", "audienceType": f"{c['team']} fans",
-                            "suggestedGender": audience_gender(it)},
-               "offers": {"@type": "Offer", "url": it["buy"], "priceCurrency": "USD",
-                          "price": price, "availability": "https://schema.org/InStock",
-                          "itemCondition": "https://schema.org/NewCondition",
-                          "validFrom": TODAY,
-                          "priceValidUntil": f"{datetime.date.today().year + 1}-12-31",
-                          "seller": {"@type": "Organization", "name": "Viralstyle"},
-                          "shippingDetails": SHIP_US,
-                          "hasMerchantReturnPolicy": RETURN_POLICY}},
+    schema_product = {
+        "@context": "https://schema.org", "@type": "Product",
+        "name": it["name"], "sku": slug,
+        "description": re.sub(r"\s+", " ", hero_deck)[:600].strip(),
+        "image": [abs_url(g) for g in it["gallery"][:6]],
+        "brand": {"@type": "Brand", "name": BRAND},
+        "category": f"{c['name']} > {it['garment']}",
+        "size": sizes,
+        # PeopleAudience (not the generic Audience) is what Google's
+        # merchant listing spec reads for apparel gender targeting.
+        "audience": {"@type": "PeopleAudience", "audienceType": f"{c['team']} fans",
+                     "suggestedGender": audience_gender(it)},
+        "offers": {"@type": "Offer", "url": it["buy"], "priceCurrency": "USD",
+                   "price": price, "availability": "https://schema.org/InStock",
+                   "itemCondition": "https://schema.org/NewCondition",
+                   "validFrom": TODAY,
+                   "priceValidUntil": f"{datetime.date.today().year + 1}-12-31",
+                   "seller": {"@type": "Organization", "name": "Viralstyle"},
+                   "shippingDetails": SHIP_US,
+                   "hasMerchantReturnPolicy": RETURN_POLICY},
+    }
+    feats = (it.get("features") or "").lower()
+    if "cotton" in feats and "poly" in feats:
+        schema_product["material"] = "Cotton/Polyester"
+    elif "cotton" in feats:
+        schema_product["material"] = "Cotton"
+    elif "acrylic" in feats:
+        schema_product["material"] = "Acrylic"
+    elif "polyester" in feats:
+        schema_product["material"] = "Polyester"
+    schema = [cbs, schema_product,
               {"@context": "https://schema.org", "@type": "FAQPage", "mainEntity": [
                   {"@type": "Question", "name": q,
                    "acceptedAnswer": {"@type": "Answer", "text": a}} for q, a in faq]}]
@@ -1876,7 +1898,8 @@ def page_product(it):
                      f'{esc(c["short"])} collection this week.{fti_note}</div>')
     else:
         trendhtml = ""
-    momenthtml = moments_block(it["col"], entity=ent, limit=3) if ent else ""
+    # Player-moment headlines stay off the conversion fold; the PDP is a
+    # landing page, not a news hub.
 
     band_bits = [f"From ${price}"]
     if len(styles) > 1:
@@ -1895,11 +1918,11 @@ def page_product(it):
     size_badge = (f"Sizes {sizes[0]}-{sizes[-1]}"
                   if it["garment"] not in ("Mug", "Phone Case", "Beanie") else "One size")
 
-    body = f"""<main id="main"><div class="light">
+    body = f"""<main id="main" class="pdp-page" data-slug="{slug}" data-collection="{it['col']}" data-price="{price}"><div class="light">
 {cb}
 <div class="wrap"><div class="pdp">
  <div class="gallery">
-  <div class="stage"><img id="stage" src="{it['gallery'][0]}" alt="{esc(it['name'])} - {esc(it['art'])}"
+  <div class="stage"><img id="stage" src="{it['gallery'][0]}" alt="{esc(stage_alt)}"
    width="530" height="630" fetchpriority="high"></div>
   <div class="thumbs">{thumbs}</div>
  </div>
@@ -1910,7 +1933,6 @@ def page_product(it):
   <div class="pricerow"><span class="pricebig">${price}</span>
    <span class="pricefrom">starting price &middot; set by style on Viralstyle</span></div>
   {trendhtml}
-  {momenthtml}
   <ul class="atglance">
    <li><b>Design</b>{esc(_l.title_case_art(it['art']))}</li>
    <li><b>Apparel</b>{style_badge}</li>
@@ -1919,38 +1941,48 @@ def page_product(it):
   </ul>
   {shop_now_cta(it, "hero")}
   {cta_note(it, colours)}
+  <p class="ctanote flow">Final garment style, colour, size and quantity selection is completed on Viralstyle.</p>
   <div class="badges"><span class="badge">Fan-made, unofficial design</span>
    <span class="badge">Printed on demand</span>
    <span class="badge">US shipping from ${SHIP_US['shippingRate']['value']}</span>
    <span class="badge">30-day misprint replacement</span>
    <span class="badge">Worldwide delivery</span></div>
-  <p class="muted small">Jump to: <a href="#about">about this design</a> &middot;
-   <a href="#apparel">apparel &amp; colours</a> &middot; <a href="#sizing">sizing</a> &middot;
-   <a href="#faq">FAQ</a></p>
+  <p class="muted small">Jump to: <a href="#colours">colourways</a> &middot;
+   <a href="#apparel">apparel</a> &middot; <a href="#story">story</a> &middot;
+   <a href="#sizing">sizing</a> &middot; <a href="#faq">FAQ</a></p>
  </div>
 </div></div>
 
-<section id="about" style="border-top:1px solid var(--line)"><div class="wrap">
- <div class="lpcols">
-  <div class="prose reveal"><h2>About This Design</h2>{about_html}</div>
-  <div class="prose reveal"><h2>The Idea Behind The Design</h2>{story_html}</div>
- </div>
-</div></section>
-
 <section style="border-top:1px solid var(--line)"><div class="wrap">
- <div class="detailcols">
-  <div class="panel"><h3>Who It's For</h3>{who_html}</div>
-  <div class="panel"><h3>Game-Day Wear</h3>{wear_html}</div>
- </div>
+ <h2 id="colours">Available Colours</h2>
+ <div class="prose" style="max-width:80ch">{colour_html}</div>
+ {colourhtml}
 </div></section>
 
 <section id="apparel" style="border-top:1px solid var(--line)"><div class="wrap">
  <h2>{_l.apparel_heading(it["garment"])}</h2>
  <div class="prose" style="max-width:80ch">{styles_html}</div>
  {stylehtml}
- <h2 id="colours">Available Colours</h2>
- <div class="prose" style="max-width:80ch">{colour_html}</div>
- {colourhtml}
+ <div class="midcta">
+  {shop_now_cta(it, "apparel")}
+  <p class="ctanote">Choose your garment style, colour and size on Viralstyle before completing your purchase.</p>
+ </div>
+</div></section>
+
+<section id="story" style="border-top:1px solid var(--line)"><div class="wrap">
+ <div class="prose reveal storycopy"><h2>The Idea Behind The Design</h2>{story_html}</div>
+</div></section>
+
+<section id="why" style="border-top:1px solid var(--line)"><div class="wrap">
+ <div class="prose reveal"><h2>Why It Stands Out</h2>{why_html}</div>
+</div></section>
+
+<section id="who" style="border-top:1px solid var(--line)"><div class="wrap">
+ <div class="detailcols">
+  <div class="panel"><h2 style="margin-top:0">Who It's For</h2>{who_html}</div>
+  <div class="panel"><h2 style="margin-top:0">Built for Game Day</h2>{wear_html}</div>
+ </div>
+ <p class="disclose">{disclose}</p>
 </div></section>
 
 <section id="sizing" style="border-top:1px solid var(--line)"><div class="wrap">
@@ -1975,7 +2007,7 @@ def page_product(it):
 <section class="ctaband"><div class="wrap">
  <div class="ctaband-in">
   <div>
-   <span class="eyebrow">Ready for game day</span>
+   <span class="eyebrow">Ready to gear up?</span>
    <h2>Get the {esc(it['name'])}</h2>
    <p>{esc(band_line)}</p>
   </div>
@@ -1986,13 +2018,13 @@ def page_product(it):
  </div>
 </div></section>
 
-<section style="border-top:1px solid var(--line)"><div class="wrap">
+<section id="related" style="border-top:1px solid var(--line)"><div class="wrap">
  <div class="sechead"><div><h2>More From {esc(c['short'])}</h2>
   <p>Same collection, same print partner, same hand-off to Viralstyle.</p></div>
-  <a class="link" href="/{c['slug']}/">View all {len(MODEL[it['col']])} designs &rarr;</a></div>
- <div class="grid">{relhtml}</div>
+  <a class="link col-link" href="/{c['slug']}/" data-collection="{it['col']}">View all {len(MODEL[it['col']])} designs &rarr;</a></div>
+ <div class="grid related">{relhtml}</div>
  <div class="linkrow">
-  <a class="link" href="/{c['slug']}/">{esc(c['name'])} collection</a>
+  <a class="link col-link" href="/{c['slug']}/" data-collection="{it['col']}">{esc(c['name'])} collection</a>
   <a class="link" href="/collections/">All collections</a>
   <a class="link" href="/guides/{c['slug']}-buying-guide/">{esc(c['short'])} buying guide</a>
   <a class="link" href="/2026-season/">2026 season hub</a>
@@ -2950,11 +2982,23 @@ document.querySelectorAll('.thumb').forEach(function(b){
   b.addEventListener('click',function(){setStage(b);toggleGroup('.thumb',b);});
 });
 
+// Colourway mockups are gallery previews, not selectors. Clicking one only
+// swaps the stage image; style/colour/size are still chosen on Viralstyle.
+document.querySelectorAll('.cwtile').forEach(function(b,i){
+  b.addEventListener('click',function(){
+    setStage(b);
+    try{gtag('event','colorway_interaction',{
+      item_id:(document.querySelector('main.pdp-page')||{}).dataset&&document.querySelector('main.pdp-page').dataset.slug,
+      index:i+1,destination:'gallery'
+    });}catch(e){}
+  });
+});
+
 // ---------- SHOP NOW hand-off tracking ----------
 // The only conversion action on a product page. Every button reports its
-// placement (hero / footer_band / sticky_bar) so the metric that matters -
-// product landing page -> Viralstyle click-through rate - is measurable, and
-// so we can see WHICH CTA earns the click.
+// placement (hero / apparel / footer_band / sticky_bar) so the metric that
+// matters - product landing page -> Viralstyle click-through rate - is
+// measurable, and so we can see WHICH CTA earns the click.
 document.querySelectorAll('a.shopnow').forEach(function(a){
   a.addEventListener('click',function(){
     var d=a.dataset||{};
@@ -2967,8 +3011,38 @@ document.querySelectorAll('a.shopnow').forEach(function(a){
       item:d.slug,price:parseFloat(d.price||'0'),collection:d.collection,
       placement:d.placement,destination:'viralstyle.com'
     });}catch(e){}
+    try{gtag('event','viralstyle_redirect',{
+      item_id:d.slug,value:parseFloat(d.price||'0'),currency:'USD',
+      collection:d.collection,placement:d.placement,destination:'viralstyle.com'
+    });}catch(e){}
   });
 });
+
+// ---------- product landing analytics ----------
+(function(){
+  var page=document.querySelector('main.pdp-page');
+  if(!page)return;
+  var d=page.dataset||{};
+  try{gtag('event','product_page_view',{
+    item_id:d.slug,value:parseFloat(d.price||'0'),currency:'USD',
+    collection:d.collection
+  });}catch(e){}
+  document.querySelectorAll('#related .related a[href*="/shop/"]').forEach(function(a){
+    a.addEventListener('click',function(){
+      try{gtag('event','related_product_click',{
+        item_id:d.slug,related:a.getAttribute('href'),collection:d.collection
+      });}catch(e){}
+    });
+  });
+  document.querySelectorAll('a.col-link').forEach(function(a){
+    a.addEventListener('click',function(){
+      try{gtag('event','collection_click',{
+        item_id:d.slug,collection:a.dataset.collection||d.collection,
+        href:a.getAttribute('href')
+      });}catch(e){}
+    });
+  });
+})();
 
 // ---------- custom design form (FormSubmit, no backend needed) ----------
 // The destination address is assembled at runtime from a base64 token so the
