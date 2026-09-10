@@ -1107,7 +1107,7 @@ footer .logo{color:var(--ink)}
    a fixed bottom shop bar under 760px.
    ============================================================= */
 .jlock{
-  --jl-deep:#060f21; --jl-navy:#0a1b36; --jl-panel:#0e2142;
+  --jl-deep:#0a1c38; --jl-navy:#0a1b36; --jl-panel:#0e2142;
   --jl-maize:#e8b800; --jl-maize2:#f4c63f; --jl-cream:#f2eddf;
   background:var(--jl-deep); color:var(--jl-cream);
 }
@@ -1135,8 +1135,8 @@ footer .logo{color:var(--ink)}
 
 /* ---- hero ---- */
 .jlock .jhero{position:relative;overflow:hidden;border-bottom:1px solid rgba(232,184,0,.2);
-  background:radial-gradient(900px 420px at 84% -10%,rgba(232,184,0,.16),transparent 65%),
-  linear-gradient(165deg,#0c2044 0%,#081729 55%,var(--jl-deep) 100%)}
+  background:radial-gradient(900px 420px at 84% -10%,rgba(232,184,0,.22),transparent 65%),
+  linear-gradient(165deg,#17396b 0%,#11294f 55%,var(--jl-deep) 100%)}
 .jlock .jhero-grid{position:relative;display:grid;grid-template-columns:1.02fr .98fr;gap:40px;
   align-items:center;padding:64px 0 58px}
 .jlock .jcopy h1{font-family:var(--display);font-size:clamp(2.9rem,7.4vw,5rem);line-height:.94;
@@ -1147,6 +1147,7 @@ footer .logo{color:var(--ink)}
 .jlock .jctas{display:flex;gap:12px;flex-wrap:wrap}
 .jlock .jfacts{margin:24px 0 0;font-size:.76rem;letter-spacing:.03em;color:rgba(242,237,223,.5)}
 .jlock .jart img{width:100%;aspect-ratio:16/10;object-fit:cover;object-position:62% center;
+  filter:brightness(1.12);
   border-radius:16px;border:1px solid rgba(232,184,0,.28);box-shadow:0 30px 60px rgba(0,0,0,.45)}
 
 /* ---- Joe's introduction ---- */
