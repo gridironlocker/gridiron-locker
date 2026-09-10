@@ -1,0 +1,71 @@
+name: Daily site health check
+
+# The refresh pipeline verifies its own build before it publishes. This is the
+# other half: once a day - and on demand - it checks the LIVE store over HTTPS,
+# at the URLs a customer uses, and fails loudly when production is serving
+# something broken: a 404 that pages still link to, a hero whose JPG was
+# replaced but never uploaded, a deploy that is behind the repo, a sitemap that
+# stopped being refreshed, structured data that no longer parses.
+#
+# Run it by hand after a deploy, or before a push campaign, to prove the site
+# is actually serving what the repo says it is.
+
+on:
+  workflow_dispatch:
+    inputs:
+      base:
+        description: "Site to check"
+        required: false
+        default: "https://gridironlocker.store"
+  schedule:
+    # 07:45 UTC, well after the 06:15 refresh has published and been deployed.
+    - cron: "45 7 * * *"
+
+permissions:
+  contents: read
+
+concurrency:
+  group: health-check
+  cancel-in-progress: false
+
+jobs:
+  health:
+    runs-on: ubuntu-latest
+    steps:
+      - uses: actions/checkout@v4
+
+      - uses: actions/setup-python@v5
+        with:
+          python-version: "3.12"
+
+      - name: Install dependencies
+        run: pip install --quiet requests Pillow
+
+      - name: Repo layout tests (the checked-in build vs its own rules)
+        run: python3 -m unittest discover -s tests -p "test_*.py"
+
+      - name: Check production
+        env:
+          BASE: ${{ github.event.inputs.base || 'https://gridironlocker.store' }}
+        run: |
+          echo "Checking $BASE"
+          python3 ops/health_check.py --base "$BASE" | tee health-report.txt
+
+      - name: Summarise
+        if: always()
+        run: |
+          {
+            echo "### Daily site health check"
+            echo
+            echo '```'
+            tail -n 40 health-report.txt 2>/dev/null || echo "no report produced"
+            echo '```'
+          } >> "$GITHUB_STEP_SUMMARY"
+
+      - name: Keep the report
+        if: always()
+        uses: actions/upload-artifact@v4
+        with:
+          name: health-report
+          path: health-report.txt
+          if-no-files-found: ignore

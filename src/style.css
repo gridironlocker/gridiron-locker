@@ -204,9 +204,10 @@ body.has-mobshop{padding-bottom:56px}
    dark team hero can't fight the white page.
    ============================================================= */
 .cbanner{background:#fff;border-bottom:1px solid var(--line)}
-/* The banner band is locked to the home artwork's native 1983:793 ratio at
-   every breakpoint so the hero banner is never cropped - the full image shows. */
-.cbanner .band{position:relative;aspect-ratio:1983/793;overflow:hidden;background:var(--ca-tint)}
+/* Every banner in the set (the home poster and the four team banners) was
+   exported at 2048x768, so one ratio locks the band at every breakpoint and
+   the artwork always shows complete - never cropped, never letterboxed. */
+.cbanner .band{position:relative;aspect-ratio:2048/768;overflow:hidden;background:var(--ca-tint)}
 .cbanner .band img{width:100%;height:100%;object-fit:cover;object-position:center}
 .cbanner .band:after{content:'';position:absolute;left:0;right:0;bottom:0;height:4px;
   background:linear-gradient(90deg,var(--ca) 0,var(--ca) 45%,var(--ca-2) 45%,var(--ca-2) 100%)}
@@ -220,20 +221,30 @@ body.has-mobshop{padding-bottom:56px}
 @media(min-width:760px){
   .cbanner .cb-in{padding:24px 16px 30px}
 }
-/* Compact variant for team collection pages: the team banners are 1933x813
-   art, so the band matches that ratio - full uncropped art with tighter copy
-   so the ticker and the product grid arrive sooner. */
-.cbanner.compact .band{aspect-ratio:1933/813}
-/* /drops/ reuses the home poster (1983x793), not a team banner. Without this
-   override the compact band's 1933/813 box crops ~5% off each side of the art,
-   taking the wordmark's edge and the "GO BLUE" mark with it. */
-.cbanner.compact.homeband .band{aspect-ratio:1983/793}
+/* Compact variant for team collection pages and /drops/: same 2048:768 band
+   (the whole set shares one ratio now), just tighter copy so the ticker and
+   the product grid arrive sooner. */
 .cbanner.compact .cb-in{padding:14px 16px 16px}
 .cbanner.compact h1{font-size:clamp(1.2rem,4.2vw,1.8rem);margin-bottom:6px}
 .cbanner.compact p.lede{font-size:.88rem;margin-bottom:8px}
 .cbanner.compact .vs{margin-bottom:0}
 @media(min-width:760px){
   .cbanner.compact .cb-in{padding:16px 16px 18px}
+}
+/* Homepage variant: the same band and the same copy block, but the brand
+   statement is the page's H1, so it runs bigger than a collection title. */
+.cbanner.home .cb-in{padding:26px 16px 30px}
+.cbanner.home .hero-title{font-size:clamp(2.2rem,6vw,3.6rem);letter-spacing:.005em;
+  margin-bottom:0}
+.cbanner.home .hero-sub{font-size:1.02rem;color:var(--ink2);max-width:52ch;
+  margin:12px 0 0;line-height:1.6}
+.cbanner.home .btnrow{margin-top:18px}
+@media(min-width:760px){
+  .cbanner.home .cb-in{padding:30px 16px 36px}
+}
+@media(max-width:560px){
+  .cbanner.home .cb-in{padding:20px 16px 24px}
+  .cbanner.home .hero-brush{font-size:clamp(1.5rem,8vw,1.9rem)}
 }
 
 /* ============ COUNTDOWN BAR ============ */
@@ -859,14 +870,7 @@ footer .logo{color:var(--ink)}
 #hero,#shop-by-team,#shop-the-locker,#trending,#season,#guides,#custom-design,#newsletter{
   scroll-margin-top:130px}
 
-/* ---- HERO: ~40% editorial copy / ~60% cinematic football panel ---- */
-.hero{background:#fff;border-bottom:1px solid var(--line);position:relative;padding:0;overflow:hidden}
-/* paper/screen-print texture, kept faint so the page never reads as dirty */
-.hero:before{content:'';position:absolute;inset:0;pointer-events:none;opacity:.55;
-  background-image:radial-gradient(rgba(17,20,24,.05) 1px,transparent 1px),radial-gradient(rgba(17,20,24,.03) 1px,transparent 1px);
-  background-size:22px 22px,44px 44px;background-position:0 0,11px 11px}
-.hero-grid{position:relative;display:grid;grid-template-columns:minmax(0,.78fr) minmax(0,1.22fr);
-  gap:40px;align-items:stretch;padding:44px 16px;min-height:min(78vh,660px)}
+/* ---- HERO COPY BLOCK: the brand statement under the home band ---- */
 .hero-copy{position:relative;z-index:1;align-self:center;padding:6px 0}
 .hero-kicker{display:block;font-size:clamp(.74rem,1.1vw,.86rem);font-weight:800;
   letter-spacing:.22em;text-transform:uppercase;color:var(--ink2);margin-bottom:14px}
@@ -886,18 +890,10 @@ footer .logo{color:var(--ink)}
 .hero-facts span{position:relative}
 .hero-facts span+span:before{content:'';position:absolute;left:-15px;top:50%;width:4px;height:4px;
   border-radius:99px;background:var(--line2);transform:translateY(-50%)}
-.hero-stage{position:relative;z-index:1;min-width:0;display:flex}
-.hero-art{width:100%;height:100%;min-height:320px;object-fit:cover;object-position:center;
-  border-radius:14px;border:1px solid var(--line);background:var(--bg3)}
 @media(max-width:920px){
-  .hero-grid{grid-template-columns:1fr;gap:20px;padding:28px 16px 26px;min-height:0}
-  .hero-stage{order:-1}
-  .hero-art{min-height:0;height:auto;aspect-ratio:16/10;border-radius:12px}
   .hero-sub{max-width:none}
 }
 @media(max-width:560px){
-  .hero-art{aspect-ratio:3/2}
-  .hero-title{font-size:clamp(2.6rem,15vw,3.4rem)}
   .hero-facts{gap:6px 16px;font-size:.66rem}
   .hero-facts span+span:before{display:none}
 }

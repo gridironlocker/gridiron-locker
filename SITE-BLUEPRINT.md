@@ -99,17 +99,20 @@ editorial bands to find out what is for sale.
    (All Collections / Cleveland / Green Bay / Dallas / Michigan / Trending / Guides)
    and search. **No account icon, no cart icon**: checkout happens on the
    fulfilment partner, so those controls promised state this site does not own.
-3. **Hero** (`home_banner()`, `.hero.editorial`) — ~40% white editorial copy panel
-   (`FOOTBALL. FANS. CULTURE.` / `Gear Up.` / brush `Keep it.` / two CTAs / live
-   catalogue facts) and ~60% cinematic locker-room artwork (`/img/hero-locker.jpg`,
-   a crop of the approved poster — gear only, no people). The `<h1>` is real text;
-   the art is the LCP element and is eager + `fetchpriority="high"`.
-   Capped at `min(78vh,660px)` so "Shop By Team" is already in view.
+3. **Hero** (`home_banner()`, `.cbanner.home`) — the approved poster shown
+   **whole** as a full-width band (native 2048:768, the same ratio and the same
+   band component as the collection pages), then a compact white copy block
+   underneath: `FOOTBALL. FANS. CULTURE.` / `Gear Up.` / brush `Keep it.` / two
+   CTAs / live catalogue facts. The poster's own wordmark and headline are
+   painted into the pixels, so the copy block never restates them and the art is
+   never cropped; the `<h1>` is real text and the band is the LCP element
+   (eager, `fetchpriority="high"`). "Shop By Team" stays one short scroll away.
 4. **Shop navigation** (`shop_nav()`) — a slim sticky strip under the header on
    desktop and a fixed bottom bar (Shop by team / Trending / All designs) on
    phones, revealed after the hero and hidden again over the footer.
 5. **Shop By Team** (`shop_by_team()` → `team_card()`) — four cinematic team cards
-   (`/img/team-*.jpg`), each the **whole card is one link**: team name, fan phrase
+   (`/img/team-*.jpg`, 640x640 product-led crops of each team banner — see
+   `src/crop_art.py`), each the **whole card is one link**: team name, fan phrase
    (Dawg Pound / Go Pack Go / Star Power / Go Blue), live design count, arrow.
    4-up desktop, 2-up tablet **and phone** (never four tall stacked cards).
 6. **Shop The Locker** (`shop_the_locker()` → `product_rail()`) — the first product
@@ -262,7 +265,8 @@ Config (`src/config.json`) drives site name, tagline, domain, contact email
 
 | Path | Contents |
 |---|---|
-| `img/hero-*.jpg` | 4 cinematic collection heroes + home hero |
+| `img/hero-*.jpg` | 5 banners at 2048x768: home poster + 4 team banners (bands) |
+| `img/team-*.jpg` | 4 square 640x640 team-banner crops (homepage team deck) |
 | `img/lifestyle-1.jpg`, `custom-tee*.jpg` | lifestyle + custom-offer shots |
 | `img/favicon.svg` | site icon |
 | `img/p/<slug>-*.jpg` | **1,011 product images** |
@@ -297,6 +301,11 @@ page read authentically.
 - **`refresh.yml`** — daily 06:15 UTC: Monday crawls (`scrape_list.py`,
   `scrape_products.py`, `dl.py`), refresh `trends.json`, rebuild, auto-commit
   `Auto-refresh: trends + rebuild <date>`.
+- **`health-check.yml`** — daily 07:45 UTC and on demand: runs the repo's test
+  suite, then `ops/health_check.py` against production — every important URL,
+  the sitemap in full, the JSON-LD, the hero bands (declared ratio vs the real
+  pixels of the served JPG) and the deployed artwork vs this checkout. It fails
+  the run instead of the customer.
 
 Local preview: serve `site/` with any static server
 (`python3 -m http.server` in `site/`).

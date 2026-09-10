@@ -348,6 +348,10 @@ Being straight with you:
 - `src/trends.py` - headline fetcher + trend scorer + gap report
 - `src/indexnow.py` - instant Bing/Yandex/Naver submission
 - `.github/workflows/refresh.yml` - the daily scheduler
+- `.github/workflows/health-check.yml` + `ops/health_check.py` - the daily check of the
+  **live** site (all key URLs, the sitemap, JSON-LD, the hero bands' real pixel ratios,
+  deployed artwork vs this checkout, catalogue freshness). Run it by hand from the
+  Actions tab after any deploy; a red run lists exactly what production is serving wrong.
 - `site/feed.xml` - RSS feed of trending designs
 - `trend-report.md` - your daily opportunity briefing
 
@@ -389,11 +393,12 @@ What changed, and why:
 - **Header** — account and cart icons removed. Checkout happens on the fulfilment
   partner, so those two controls only opened explainer popovers while occupying the
   two spots a visitor looks at first. Search, the four teams, Trending and Guides stay.
-- **Hero** — a real split: ~40% editorial copy (`FOOTBALL. FANS. CULTURE.` / `Gear Up.` /
-  brush `Keep it.`) and ~60% cinematic locker artwork cropped from the approved poster
-  (gear only, no people). The headline is HTML text, the art is the LCP image
-  (eager, `fetchpriority="high"`, two widths), and the whole thing is capped at
-  `min(78vh,660px)` so "Shop By Team" is in view without scrolling far.
+- **Hero** — the owner's poster shown whole, full width, at its native 2048:768 (the
+  same band the four collection pages and `/drops/` use), with a compact copy block
+  beneath it: `FOOTBALL. FANS. CULTURE.` / `Gear Up.` / brush `Keep it.` / two CTAs /
+  live catalogue facts. The poster's wordmark and headline are painted into the art, so
+  it is never cropped and the copy never repeats it; the `<h1>` is real text and the
+  band is the LCP image (eager, `fetchpriority="high"`).
 - **Shop By Team** — four whole-card links with the team name, the fan phrase
   (Dawg Pound / Go Pack Go / Star Power / Go Blue), the live design count and an arrow.
   Two columns on phones, not four full-width stacks.
