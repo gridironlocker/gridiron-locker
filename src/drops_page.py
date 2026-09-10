@@ -127,11 +127,8 @@ def page_drops_html(collections, order, model_lookup):
     # How many of these are genuinely tagged hot by the live trend system.
     hot = sum(1 for d in drops if model_lookup[d["slug"]].get("trend") == "hot")
 
-    chips = ""
-    for k in order:
-        short = collections[k]["short"]
-        chips += f'<button class="chip" data-filter="{k}">{esc(short)}</button>'
-    chips = f'<button class="chip on" data-filter="all">All Drops</button>' + chips
+    team_opts = '<option value="all">All teams</option>' + "".join(
+        f'<option value="{k}">{esc(collections[k]["short"])}</option>' for k in order)
 
     body = f"""
 <main id="main">
@@ -150,9 +147,12 @@ def page_drops_html(collections, order, model_lookup):
 </section>
 
 <div class="wrap">
-<div class="tools" style="margin-top:18px">
-  <div class="chips" id="dropChips">{chips}</div>
-  <input id="dropQ" type="search" placeholder="Search drops - e.g. Sanders, Michigan, Doomsday..." aria-label="Search drops" style="margin-top:12px;width:100%;max-width:420px;padding:10px 14px;border:1px solid var(--line);border-radius:10px">
+<div class="filterbar" style="margin-top:18px" role="search">
+ <div class="frow">
+  <input id="dropQ" type="search" placeholder="Search drops - e.g. Sanders, Michigan, Doomsday..." aria-label="Search drops">
+  <select id="dropTeam" aria-label="Filter drops by team">{team_opts}</select>
+ </div>
+ <div class="fmeta"><span id="dropCount">{len(drops)} drops</span><button type="button" class="fclear" id="dropClear">Clear all</button></div>
 </div>
 
 <div class="stats" style="margin:22px 0">
@@ -196,29 +196,29 @@ def page_drops_html(collections, order, model_lookup):
 <script>
 (function(){{
   var grid=document.getElementById('dropsGrid');
-  var chips=document.getElementById('dropChips');
+  var sel=document.getElementById('dropTeam');
   var q=document.getElementById('dropQ');
-  if(!grid||!chips)return;
+  var count=document.getElementById('dropCount');
+  var clear=document.getElementById('dropClear');
+  if(!grid||!sel)return;
   var cards=[].slice.call(grid.children);
-  var filter='all';
   function apply(){{
-    var term=(q&&q.value||'').toLowerCase().trim();
+    var filter=sel.value||'all';
+    var term=(q&&q.value||'').toLowerCase().trim(), n=0;
     cards.forEach(function(c){{
       var col=c.getAttribute('data-col')||'';
       var txt=c.textContent.toLowerCase();
       var ok=(filter==='all'||col===filter)&&(!term||txt.indexOf(term)>-1);
-      c.style.display=ok?'':'none';
+      c.style.display=ok?'':'none'; if(ok)n++;
     }});
+    if(count)count.textContent=n+' drop'+(n===1?'':'s');
   }}
-  chips.querySelectorAll('.chip').forEach(function(b){{
-    b.addEventListener('click',function(){{
-      chips.querySelectorAll('.chip').forEach(function(x){{x.classList.remove('on')}});
-      b.classList.add('on');
-      filter=b.getAttribute('data-filter')||'all';
-      apply();
-    }});
-  }});
+  sel.addEventListener('change',apply);
   if(q)q.addEventListener('input',apply);
+  if(clear)clear.addEventListener('click',function(){{
+    sel.value='all'; if(q)q.value=''; apply(); if(q)q.focus();
+  }});
+  apply();
 }})();
 </script>
 """

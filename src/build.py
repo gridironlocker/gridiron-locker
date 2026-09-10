@@ -409,7 +409,7 @@ SIZES = ["S", "M", "L", "XL", "2XL", "3XL"]
 
 # Shopper-facing style filters: the design themes that actually map to a
 # purchase intent. "classic" is the catch-all for the untagged majority, so
-# it is not offered as a chip - choosing no style chip means all styles.
+# it is not offered as a filter - choosing no style filter means all styles.
 SHOP_STYLE_CHIPS = [("player", "Player designs"), ("funny", "Funny"),
                     ("retro", "Vintage"), ("family", "Gift")]
 URLS = []  # (loc, priority, changefreq)
@@ -1621,18 +1621,19 @@ def page_search():
     path = "/search/"
     n = len(ALL)
     prices = sorted(x["price"] for x in ALL)
-    # Garment chips in catalogue-size order (most stock first).
+    # Garment dropdown options in catalogue-size order (most stock first),
+    # with per-garment counts like every standard merch store.
     counts = {}
     for it in ALL:
         counts[it["garment"]] = counts.get(it["garment"], 0) + 1
     types = sorted(counts, key=lambda t: (-counts[t], t))
-    type_chips = '<button class="chip on" data-f="all">All</button>' + "".join(
-        f'<button class="chip" data-f="{esc(t)}">{esc(t)}s</button>' for t in types)
-    team_chips = ('<button class="chip on" data-team="all">All teams</button>' + "".join(
-        f'<button class="chip" data-team="{k}">{esc(COLLECTIONS[k]["short"])}</button>'
-        for k in ORDER))
-    style_chips = '<button class="chip on" data-st="all">All styles</button>' + "".join(
-        f'<button class="chip" data-st="{v}">{label}</button>' for v, label in SHOP_STYLE_CHIPS)
+    type_opts = '<option value="all">All products</option>' + "".join(
+        f'<option value="{esc(t)}">{esc(t)}s ({counts[t]})</option>' for t in types)
+    team_opts = '<option value="all">All teams</option>' + "".join(
+        f'<option value="{k}">{esc(COLLECTIONS[k]["short"])} ({len(MODEL[k])})</option>'
+        for k in ORDER)
+    style_opts = '<option value="all">All styles</option>' + "".join(
+        f'<option value="{v}">{label}</option>' for v, label in SHOP_STYLE_CHIPS)
     cards = "".join(card(i, eager=(x < 4)) for x, i in enumerate(ALL))
     cb, cbs = crumbs([("Home", "/"), ("All Designs", None)], path)
     schema = [cbs, {"@context": "https://schema.org", "@type": "CollectionPage",
@@ -1654,26 +1655,28 @@ def page_search():
  city or garment - or narrow it down with the team and garment filters below.</p>
 </div></section>
 <div class="light"><div class="wrap">
- <div class="toolswrap">
-  <div class="tools">
+ <div class="filterbar" role="search">
+  <div class="frow">
    <span class="gs"><input id="q" class="gsearch" type="search"
     placeholder="Search all designs - player, slogan, team..."
     aria-label="Search all designs" autocomplete="off"></span>
-   <select id="price" aria-label="Price">
+   <select id="sort" aria-label="Sort by">
+    <option value="feat">Sort: Featured</option><option value="lo">Price: low to high</option>
+    <option value="hi">Price: high to low</option><option value="az">Name A-Z</option>
+   </select>
+  </div>
+  <div class="frow">
+   <select id="fTeam" aria-label="Filter by team">{team_opts}</select>
+   <select id="fType" aria-label="Filter by product">{type_opts}</select>
+   <select id="fStyle" aria-label="Filter by style">{style_opts}</select>
+   <select id="price" aria-label="Filter by price">
     <option value="any">Any price</option><option value="u20">Under $20</option>
     <option value="20-25">$20 - $25</option><option value="25-30">$25 - $30</option>
     <option value="o30">$30+</option>
    </select>
-   <select id="sort" aria-label="Sort">
-    <option value="feat">Featured</option><option value="lo">Price: low to high</option>
-    <option value="hi">Price: high to low</option><option value="az">Name A-Z</option>
-   </select>
   </div>
-  <div class="chipsrow"><span class="chipslabel">Team</span><div class="chips">{team_chips}</div></div>
-  <div class="chipsrow"><span class="chipslabel">Garment</span><div class="chips">{type_chips}</div></div>
-  <div class="chipsrow"><span class="chipslabel">Style</span><div class="chips">{style_chips}</div></div>
+  <div class="fmeta"><span id="count">{n} designs</span><button type="button" class="fclear" id="clearFilters">Clear all</button></div>
  </div>
- <p class="muted" id="count" style="font-size:.85rem">{n} designs</p>
  <h2 class="sr-only">All Designs</h2>
  <div class="grid" id="pg">{cards}</div>
  <p class="muted center" id="nores" style="display:none;padding:40px 0">No designs match that
@@ -1692,13 +1695,22 @@ def page_collection(k):
     items = MODEL[k]
     path = f"/{c['slug']}/"
     prices = sorted(x["price"] for x in items)
-    types = sorted({x["garment"] for x in items})
-    chips = '<button class="chip on" data-f="all">All</button>' + "".join(
-        f'<button class="chip" data-f="{esc(t)}">{esc(t)}s</button>' for t in types)
+    counts = {}
+    for it in items:
+        counts[it["garment"]] = counts.get(it["garment"], 0) + 1
+    types = sorted(counts)
+    type_opts = '<option value="all">All products</option>' + "".join(
+        f'<option value="{esc(t)}">{esc(t)}s ({counts[t]})</option>' for t in types)
     present = {x["theme"] for x in items}
-    style_chips = '<button class="chip on" data-st="all">All styles</button>' + "".join(
-        f'<button class="chip" data-st="{v}">{label}</button>' for v, label in SHOP_STYLE_CHIPS
+    style_opts = '<option value="all">All styles</option>' + "".join(
+        f'<option value="{v}">{label}</option>' for v, label in SHOP_STYLE_CHIPS
         if v in present)
+    # Collection switcher: a plain dropdown that navigates, so a visitor 40
+    # products deep in Cleveland can jump to Green Bay without back-buttoning.
+    col_opts = "".join(
+        f'<option value="/{COLLECTIONS[x]["slug"]}/"'
+        f'{" selected" if x == k else ""}>{esc(COLLECTIONS[x]["short"])}</option>'
+        for x in ORDER)
     cards = "".join(card(i, eager=(n < 4)) for n, i in enumerate(items))
     cb, cbs = crumbs([("Home", "/"), ("Collections", "/collections/"), (c["short"], None)], path)
     schema = [cbs,
@@ -1725,12 +1737,6 @@ def page_collection(k):
                   ] + list(c.get("faq_extra", []))]}]
     desc = (f"{c['name']} - {len(items)} fan-made designs from ${prices[0]:.2f}. "
             f"{', '.join(types[:3])}, sizes S-3XL. Printed on demand, ships worldwide.")
-    # Collection switch tabs: a visitor 40 products deep in Cleveland can jump
-    # to Green Bay without back-buttoning to the header - keeps them browsing.
-    swtabs = "".join(
-        f'<a class="swt" style="{theme_vars(x)}" href="/{COLLECTIONS[x]["slug"]}/"'
-        f'{" aria-current=page" if x == k else ""}>{esc(COLLECTIONS[x]["short"])}</a>'
-        for x in ORDER) + '<a class="swt swt-all" href="/collections/">All</a>'
     se = SEASON[k]
     played = se["kickoff"][:10] < TODAY
     lore = "".join(f"<li>{esc(x)}</li>" for x in c["lore"])
@@ -1787,25 +1793,27 @@ def page_collection(k):
 <div class="light">
 {cb}
 <section id="grid" style="padding-top:4px"><div class="wrap">
- <div class="toolswrap">
-  <div class="sw" aria-label="Switch collection">{swtabs}</div>
-  <div class="tools">
+ <div class="filterbar" role="search">
+  <div class="frow">
    <input id="q" type="search" placeholder="Search {esc(c['short'])} designs..." aria-label="Search designs">
-   <div class="chips">{chips}</div>
-   <select id="price" aria-label="Price">
+   <select id="sort" aria-label="Sort by">
+    <option value="feat">Sort: Featured</option><option value="lo">Price: low to high</option>
+    <option value="hi">Price: high to low</option><option value="az">Name A-Z</option>
+   </select>
+  </div>
+  <div class="frow">
+   <select id="fCollection" aria-label="Switch collection">{col_opts}</select>
+   <select id="fType" aria-label="Filter by product">{type_opts}</select>
+   <select id="fStyle" aria-label="Filter by style">{style_opts}</select>
+   <select id="price" aria-label="Filter by price">
     <option value="any">Any price</option><option value="u20">Under $20</option>
     <option value="20-25">$20 - $25</option><option value="25-30">$25 - $30</option>
     <option value="o30">$30+</option>
    </select>
-   <select id="sort" aria-label="Sort">
-    <option value="feat">Featured</option><option value="lo">Price: low to high</option>
-    <option value="hi">Price: high to low</option><option value="az">Name A-Z</option>
-   </select>
   </div>
-  <div class="chipsrow"><span class="chipslabel">Style</span><div class="chips">{style_chips}</div></div>
+  <div class="fmeta"><span id="count">{len(items)} designs</span><button type="button" class="fclear" id="clearFilters">Clear all</button></div>
  </div>
  {trust()}
- <p class="muted" id="count" style="font-size:.85rem">{len(items)} designs</p>
  <h2 class="sr-only">Collection Designs</h2>
  <div class="grid" id="pg">{cards}</div>
  <p class="muted center" id="nores" style="display:none;padding:40px 0">No designs match that search.</p>
@@ -3711,16 +3719,19 @@ document.querySelectorAll('a.shopnow').forEach(function(a){
   tt&&tt.addEventListener('click',function(){window.scrollTo({top:0,behavior:'smooth'})});
 })();
 
-// ---------- collection filter / search / sort (team pages + /search/) ----------
-// Four independent dimensions: garment (chip[data-f]), team (chip[data-team]),
-// style/theme (chip[data-st], read from the card's data-theme attribute) and
-// price (#price select). A page only emits the controls it offers, so the
-// other dimensions stay at their defaults and behaviour is unchanged.
+// ---------- shop filters: search + dropdowns + sort (team pages + /search/) ----------
+// Four independent dimensions: garment (#fType), team (#fTeam), style/theme
+// (#fStyle, read from the card's data-theme attribute) and price (#price).
+// A page only emits the controls it offers, so the other dimensions stay at
+// their defaults and behaviour is unchanged. Legacy .chip buttons are still
+// honoured if a page emits them, so older markup keeps working.
 (function(){
   var grid=document.getElementById('pg'); if(!grid)return;
   var cards=[].slice.call(grid.children);
   var q=document.getElementById('q'), sort=document.getElementById('sort'),
       count=document.getElementById('count'), nores=document.getElementById('nores');
+  var selType=document.getElementById('fType'), selTeam=document.getElementById('fTeam'),
+      selStyle=document.getElementById('fStyle'), priceSel=document.getElementById('price');
   var typeFilter='all', teamFilter='all', styleFilter='all', priceFilter='any';
   function price(c){return parseFloat(c.querySelector('.price').textContent.replace('$',''))}
   function name(c){return c.querySelector('h3').textContent.toLowerCase()}
@@ -3748,6 +3759,7 @@ document.querySelectorAll('a.shopnow').forEach(function(a){
     if(nores)nores.style.display=n?'none':'block';
   }
   function resort(){
+    if(!sort)return;
     var v=sort.value, arr=cards.slice();
     if(v==='lo')arr.sort(function(a,b){return price(a)-price(b)});
     if(v==='hi')arr.sort(function(a,b){return price(b)-price(a)});
@@ -3760,25 +3772,52 @@ document.querySelectorAll('a.shopnow').forEach(function(a){
     x.classList.toggle('on',x.getAttribute('data-team')===v);});}
   function markStyle(v){document.querySelectorAll('.chip[data-st]').forEach(function(x){
     x.classList.toggle('on',x.getAttribute('data-st')===v);});}
+  function hasOpt(sel,v){
+    if(!sel)return true;
+    for(var i=0;i<sel.options.length;i++){if(sel.options[i].value===v)return true;}
+    return false;
+  }
+  function syncSel(){
+    if(selType&&hasOpt(selType,typeFilter))selType.value=typeFilter;
+    if(selTeam&&hasOpt(selTeam,teamFilter))selTeam.value=teamFilter;
+    if(selStyle&&hasOpt(selStyle,styleFilter))selStyle.value=styleFilter;
+    if(priceSel&&hasOpt(priceSel,priceFilter))priceSel.value=priceFilter;
+  }
   if(q)q.addEventListener('input',apply);
   if(sort)sort.addEventListener('change',resort);
+  if(selType)selType.addEventListener('change',function(){typeFilter=selType.value;markType(typeFilter);apply();});
+  if(selTeam)selTeam.addEventListener('change',function(){teamFilter=selTeam.value;markTeam(teamFilter);apply();});
+  if(selStyle)selStyle.addEventListener('change',function(){styleFilter=selStyle.value;markStyle(styleFilter);apply();});
   document.querySelectorAll('.chip[data-f]').forEach(function(b){
-    b.addEventListener('click',function(){typeFilter=b.getAttribute('data-f');markType(typeFilter);apply();});
+    b.addEventListener('click',function(){typeFilter=b.getAttribute('data-f');markType(typeFilter);syncSel();apply();});
   });
   document.querySelectorAll('.chip[data-team]').forEach(function(b){
-    b.addEventListener('click',function(){teamFilter=b.getAttribute('data-team');markTeam(teamFilter);apply();});
+    b.addEventListener('click',function(){teamFilter=b.getAttribute('data-team');markTeam(teamFilter);syncSel();apply();});
   });
   document.querySelectorAll('.chip[data-st]').forEach(function(b){
-    b.addEventListener('click',function(){styleFilter=b.getAttribute('data-st');markStyle(styleFilter);apply();});
+    b.addEventListener('click',function(){styleFilter=b.getAttribute('data-st');markStyle(styleFilter);syncSel();apply();});
   });
-  var priceSel=document.getElementById('price');
   if(priceSel)priceSel.addEventListener('change',function(){priceFilter=priceSel.value;apply();});
+  // Collection switcher: a plain dropdown that navigates (collection pages).
+  var selCol=document.getElementById('fCollection');
+  if(selCol)selCol.addEventListener('change',function(){if(selCol.value)location.href=selCol.value;});
+  // Clear all: back to the full grid.
+  var clear=document.getElementById('clearFilters');
+  if(clear)clear.addEventListener('click',function(){
+    typeFilter='all';teamFilter='all';styleFilter='all';priceFilter='any';
+    if(q)q.value=''; if(sort)sort.value='feat';
+    markType('all');markTeam('all');markStyle('all');syncSel();resort();apply();
+    if(q)q.focus();
+  });
   // Deep links: /search/?q=... (header search + SearchAction), ?t=team,
   // ?g=garment, ?st=style (the landing quick-finder chips deep-link styles)
   var u=new URLSearchParams(location.search), tu=u.get('t'), gu=u.get('g'),
       su=u.get('st'), uq=u.get('q');
-  if(gu)typeFilter=gu; if(tu)teamFilter=tu; if(su)styleFilter=su; if(uq&&q)q.value=uq;
-  markType(typeFilter); markTeam(teamFilter); markStyle(styleFilter); apply();
+  if(gu&&hasOpt(selType,gu))typeFilter=gu;
+  if(tu&&hasOpt(selTeam,tu))teamFilter=tu;
+  if(su&&hasOpt(selStyle,su))styleFilter=su;
+  if(uq&&q)q.value=uq;
+  markType(typeFilter); markTeam(teamFilter); markStyle(styleFilter); syncSel(); apply();
 })();
 
 // ---------- global design search: live suggestions for every .gsearch ----------
