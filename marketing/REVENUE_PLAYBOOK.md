@@ -24,7 +24,7 @@ This replaces the old "marketing dashboard only" approach. You complained: no li
   - Packers: Cheesehead, Frozen Tundra, Lambeau, Go Pack Go, Titletown
   - Dallas: Star City, Doomsday, Texas swagger, Big D, Lone Star
   - Michigan: Go Blue, Maize vs Everybody, Bet, Big House, Maize out
-  - Result: 134/134 unique Instagram, 134/134 unique X, 100% unique_copy = true
+  - Result: 100% unique Instagram, 100% unique X, 100% unique_copy = true
   - Each caption includes headline keyword for SEO
 
 ### 3. Pinterest traffic machine — 60 pins
@@ -35,10 +35,10 @@ This replaces the old "marketing dashboard only" approach. You complained: no li
 - **How to use:** Pinterest Business → Bulk Create → upload CSV
 
 ### 4. Live data pipeline — reliable, no API keys
-- **Input:** `products_live.json` (117 designs) + `trends.json` (16 headlines, 26 Watson mentions, 22 Sanders mentions etc.)
+- **Input:** `products_live.json` (the live catalogue) + `trends.json` (headlines, entity mentions, etc.)
 - **Output:**
   - `marketing/live_drops.json` (24 items, score 100 top, with price, image, art, caption, headline)
-  - `marketing/plan.json` (134 queue items, each with unique per-platform captions)
+  - `marketing/plan.json` (one record per live design, each with unique per-platform captions)
   - `marketing/pinterest_feed.csv` (60 pins)
 - **No failures:** No Etsy API, no TLS, no "not_configured". First-party data only. If trends.json updates, page updates on next build.
 
@@ -73,7 +73,7 @@ Then:
 
 ## Proof it's fixed
 
-- Repetition: `python marketing/live_engine.py` prints `unique IG: 134/134, unique X: 134/134`
+- Repetition: `python marketing/live_engine.py` prints `unique IG: 100%, unique X: 100%`
 - Trend-catch: each drop-card shows `🔥 Browns announce initial 53-man roster...` as reason
 - Dynamic: `live_drops.json` has `generated: 2026-09-08`, `trends_date: 2026-09-07`
 - Public benefit: `site/drops/index.html` is 47KB, 24 cards, CollectionPage schema, not a dashboard

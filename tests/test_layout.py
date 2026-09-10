@@ -1420,15 +1420,20 @@ class CreatorCollab(unittest.TestCase):
         h1 = unescape(re.search(r"<h1>(.*?)</h1>", self.html, re.S).group(1))
         self.assertEqual(h1.replace("<span class=\"jgold\">", "").replace("</span>", ""),
                          "JOE'S MICHIGAN LOCKER")
-        for line in ("Michigan football gear selected with Joe.",
-                     "Built for Michigan fans. Powered by Gridiron Locker.",
+        for line in ("Michigan football gear, hand-picked by Joe.",
+                     "10% OFF YOUR ORDER",
+                     "USE CODE: JOE10",
                      "Shop Joe's Picks",
                      "Joe has teamed up with Gridiron Locker to bring Michigan fans",
-                     "YOU'RE IN JOE'S LOCKER.",
-                     "Every order placed through Joe's collection supports the collaboration",
                      "More Michigan designs coming as we build this collection together.",
                      "Shop The Locker"):
             self.assertIn(line, self.html, line)
+        # The brief removes the old support lines and the over-claim that every
+        # order is attributed to Joe.
+        for stale in ("Powered by Gridiron Locker",
+                      "YOU'RE IN JOE'S LOCKER.",
+                      "Every order placed through Joe's collection supports the collaboration"):
+            self.assertNotIn(stale, self.html, stale)
 
     def test_no_commission_terms_on_customer_page(self):
         low = self.html.lower()

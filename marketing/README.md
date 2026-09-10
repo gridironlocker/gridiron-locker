@@ -39,7 +39,7 @@ Google Search/Trends, Pinterest Trends, competitor feeds, analytics, orders,
 and POD cost data as unavailable until real connectors are added; it never
 fabricates those signals.
 
-The script validates the ordered catalogue and regenerates `marketing/plan.json` with all 134 designs. It has no third-party Python dependencies.
+The script validates the ordered catalogue and regenerates `marketing/plan.json` with every live design. It has no third-party Python dependencies.
 
 To view the dashboard locally, serve the folder so the browser can fetch its sibling JSON file:
 
@@ -118,7 +118,7 @@ The generated JSON contains:
 
 - `meta` and `score_rules` — provenance, source files, platform list, and scoring constants;
 - `season_context` — the current season status, opener, search terms, and legacy notes;
-- `queue` — 134 complete design records with product links, source image links, scores, breakdowns, five platform packages, and a TREND-MASTER `opportunity` record;
+- `queue` — complete design records with product links, source image links, scores, breakdowns, five platform packages, and a TREND-MASTER `opportunity` record;
 - `calendar` — legacy 14-day planner for reference;
 - `three-day-pulse.json` — rolling three-day product/trend/copy brief refreshed from current signals;
 - `social-signals.json` — source statuses and public trend evidence used by the rolling pulse;

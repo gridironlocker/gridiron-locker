@@ -217,10 +217,10 @@ def headline_block(ckey, limit=5):
     for h in c["headlines"][:limit]:
         src = f' <span class="muted">({esc(h["source"])})</span>' if h.get("source") else ""
         lis += (f'<li><a href="{esc(h["url"])}" target="_blank" rel="nofollow noopener">'
-                f'{esc(h["title"])}</a>{src}</li>')
+                f'{esc(clean_headline(h["title"]))}</a>{src}</li>')
     return (f'<div class="newsbox"><h3>Latest {esc(COLLECTIONS[ckey]["short"])} headlines</h3>'
             f'<ul class="news">{lis}</ul>'
-            f'<p class="muted" style="font-size:.76rem;margin:10px 0 0">Headlines auto-refreshed '
+            f'<p class="muted" style="font-size:.76rem;margin:10px 0 0">Headlines updated '
             f'{esc(DATA_DATE)} from public news feeds. Linked stories belong to their publishers; '
             f'we are not affiliated with them.</p></div>')
 
@@ -245,6 +245,28 @@ def pretty_name(name):
         return _NICE_NAMES[key]
     return " ".join(w.upper() if w in ("jj", "qb", "qb1") else w.title()
                     for w in key.replace("-", " ").split())
+
+
+def clean_headline(t):
+    """Trim a news headline to its first complete sentence.
+
+    Google News occasionally appends a truncated snippet to a title
+    (e.g. "...to QB Taylen Green? The surprise of camp re-signed to the
+    practic..."). Keep the first sentence so the page never shows a mid-word
+    cut; fall back to a word-boundary cut for over-long titles.
+    """
+    t = (t or "").strip()
+    if not t:
+        return t
+    for m in re.finditer(r"[.!?]\s", t):
+        head = t[:m.start() + 1].strip()
+        if len(head) >= 24:
+            return head
+        break
+    if len(t) > 110:
+        cut = t[:110].rsplit(" ", 1)[0].rstrip(" ,-")
+        return cut + "\u2026"
+    return t
 
 
 def entity_for_product(ckey, slug, blob):
@@ -301,7 +323,7 @@ def fti_block(ckey=None, limit=8, heading=None):
             f'<a class="link" href="/fan-trend-index/">Full index &rarr;</a></div>'
             f'<p class="muted" style="font-size:.76rem;margin:0 0 12px">0-100 vs the hottest '
             f'name in the last {(TRENDS.get("fan_trend_index") or {}).get("window_days", 10)}-day '
-            f'headline window (peak {peak} mentions). Formula: <code>{esc(FTI_FORMULA)}</code>.</p>'
+            f'headline window (peak {peak} mentions).</p>'
             f'<div class="fti-board">{lis}</div></div>')
 
 
@@ -335,7 +357,7 @@ def moments_block(ckey=None, entity=None, limit=5):
                 shop_html += '<span class="fti-gap">no design in the locker yet</span>'
         lis += (f'<li class="moment"><div class="moment-who">{who}</div>'
                 f'<a href="{esc(m.get("url") or "#")}" target="_blank" rel="nofollow noopener">'
-                f'{esc(m.get("title") or "")}</a> {src}{shop_html}</li>')
+                f'{esc(clean_headline(m.get("title") or ""))}</a> {src}{shop_html}</li>')
     label = "Live player moments"
     if entity:
         label = f'Live {esc(pretty_name(entity))} moments'
@@ -344,7 +366,7 @@ def moments_block(ckey=None, entity=None, limit=5):
     return (f'<div class="newsbox momentsbox"><h3>{label}</h3>'
             f'<ul class="moments">{lis}</ul>'
             f'<p class="muted" style="font-size:.76rem;margin:10px 0 0">Moments are public headlines '
-            f'that name a player or coach we track. Auto-refreshed {esc(DATA_DATE)}. '
+            f'that name a player or coach we follow. Updated {esc(DATA_DATE)}. '
             f'Stories belong to their publishers; we are not affiliated with them.</p></div>')
 
 
@@ -679,13 +701,30 @@ def header(active=""):
 
 
 
+def next_kickoff_ckey(keys=None):
+    """Collection whose next kickoff is the earliest one still ahead of now.
+
+    A game that has already finished is never counted down to; the next
+    fixture on the shared schedule wins. None when every opener is in the
+    past (callers then skip the countdown bar).
+    """
+    keys = keys if keys is not None else list(ORDER)
+    upcoming = [k for k in keys if SEASON[k]["kickoff"][:10] >= TODAY]
+    if not upcoming:
+        return None
+    return min(upcoming, key=lambda k: SEASON[k]["kickoff"])
+
+
 def countdown_bar(ckey=None):
     if ckey:
         se = SEASON[ckey]
         label = COLLECTIONS[ckey]["short"] + " kickoff"
     else:
-        se = SEASON["cleveland-browns"]
-        label = "NFL Week 1 kickoff"
+        ckey = next_kickoff_ckey()
+        if not ckey:
+            return ""
+        se = SEASON[ckey]
+        label = "Next kickoff"
     return f"""<div class="cdbar"><div class="wrap in">
  <span class="lbl">{label} &middot; {se['opener']}</span>
  <span class="cd" data-deadline="{se['kickoff']}">
@@ -791,26 +830,29 @@ def ticker_live_terms(ckey, limit=3):
 
 
 def ticker(ckey=None):
-    """Moving keyword bar. With a collection key it is strictly that team's
-    terms (team-safe live news terms + that team's evergreen slogans + store
-    terms); shared pages interleave all four teams."""
+    """Keyword strip under the collection hero. With a collection key it is
+    strictly that team's terms (team-safe live news terms + that team's
+    evergreen slogans + store terms); shared pages interleave all four teams.
+
+    Each term is rendered exactly once - there is no duplicated copy for a
+    marquee loop, so a visitor (and any crawler) reads each keyword once."""
     live = []
     for k in ([ckey] if ckey else ORDER):
         live += ticker_live_terms(k)
     evergreen = (TEAM_TICKER_TERMS[ckey] + STORE_TICKER_TERMS) if ckey else TICKER_TERMS
     terms = (live + list(evergreen))[:16]
     run = "".join(f'<i class="{"hot" if h else ""}">{esc(t)}</i>' for t, h in terms)
-    run_dup = run.replace('<i ', '<i aria-hidden="true" ')
-    return f'<div class="ticker"><div class="track">{run}{run_dup}</div></div>'
+    return f'<div class="ticker"><div class="track">{run}</div></div>'
 
 
 def newsticker():
-    """Moving bar of LIVE news headlines (not product cards) pulled from trends.json."""
+    """Strip of LIVE news headlines (not product cards) pulled from trends.json,
+    shown once each at the bottom of the homepage."""
     items = []
     for k in ORDER:
         short = COLLECTIONS[k]["short"]
         for h in TRENDS.get("collections", {}).get(k, {}).get("headlines", [])[:3]:
-            t = h.get("title", "").strip()
+            t = clean_headline(h.get("title", ""))
             if len(t) > 3:
                 items.append((f"[{short}] {t}", h.get("url", "")))
     if not items:
@@ -818,8 +860,7 @@ def newsticker():
     run = "".join(
         f'<a href="{esc(u)}" target="_blank" rel="nofollow noopener"><i class="hot">{esc(t)}</i></a>'
         for t, u in items) or ""
-    run2 = run.replace('<a href', '<a aria-hidden="true" tabindex="-1" href')
-    return f'<div class="newsticker"><div class="track">{run}{run2}</div></div>'
+    return f'<div class="newsticker"><div class="track">{run}</div></div>'
 
 
 def season_section():
@@ -1158,7 +1199,7 @@ def trending_now(limit=8, exclude=()):
     return f"""<section class="trendsec" id="trending"><div class="wrap">
  <div class="sechead reveal"><div><span class="eyebrow"><span class="dot"></span> Fresh from the headlines</span>
   <h2>Trending <span class="accentword">Now</span></h2>
-  <p>The designs this week's team headlines are pushing - re-scored daily from public news.</p></div>
+  <p>The designs this week's football headlines are pushing.</p></div>
   <a class="link" href="/drops/">All live drops &rarr;</a></div>
  <div class="pgrid four">{tiles}</div>
  <div class="secfoot"><a class="btn" href="/search/">View All Designs &rarr;</a>
@@ -1555,8 +1596,8 @@ def page_collections_index():
 <section class="trendinghub"><div class="wrap">
  <div class="sechead reveal"><div><span class="eyebrow"><span class="dot"></span> Fresh from the headlines</span>
   <h2>Trending Across <span class="accentword">All Teams</span></h2>
-  <p>No team preference yet? These are the designs the last 10 days of
-  headlines are pushing - re-scored daily from public news.</p></div>
+  <p>No team preference yet? These are the designs this week's football
+  headlines are pushing.</p></div>
   <a class="link" href="/drops/">All live drops &rarr;</a></div>
  <div class="grid">{trend_cards}</div>
 </div></section>
@@ -1691,6 +1732,7 @@ def page_collection(k):
         f'{" aria-current=page" if x == k else ""}>{esc(COLLECTIONS[x]["short"])}</a>'
         for x in ORDER) + '<a class="swt swt-all" href="/collections/">All</a>'
     se = SEASON[k]
+    played = se["kickoff"][:10] < TODAY
     lore = "".join(f"<li>{esc(x)}</li>" for x in c["lore"])
     kwlinks = " &middot; ".join(esc(x) for x in c["keywords"])
     # Creator cross-link: the team that has a creator collaboration gets a
@@ -1721,6 +1763,17 @@ def page_collection(k):
         fti_note = (f' Hottest name in the {esc(c["short"])} headlines this week: '
                     f'<strong>{esc(pretty_name(r["name"]))}</strong> '
                     f'(Fan Trend Index {int(r["index"])}/100).')
+    # Season note: one clean line per state. A team that has already played
+    # reads the result; a team still ahead reads its opener and the current
+    # storyline. The legacy note (retired designs) sits in its own line.
+    season_head = "Final" if played else "Season update"
+    if played:
+        season_line = esc(se.get("result") or se["headline"])
+    else:
+        season_line = (f"<strong>{esc(se['opener'].replace('&middot;', '-'))}</strong>. "
+                       f"{esc(se['headline'])} {esc(se['status'])}")
+    legacy_html = (f'<p class="muted" style="font-size:.85rem">{esc(se["legacy_note"])}</p>'
+                   if se.get("legacy_note") else "")
     body = f"""
 <main id="main"><section class="cbanner compact" style="padding:0">
  <div class="band"><img src="{c['hero']}" alt="{esc(c['name'])} banner" width="2048" height="768" fetchpriority="high"></div>
@@ -1728,7 +1781,6 @@ def page_collection(k):
   <span class="eyebrow"><span class="dot"></span> {len(items)} designs &middot; from ${prices[0]:.2f}</span>
   <h1>{esc(c['h1'])}</h1>
   <p class="lede">{esc(c['banner'])}</p>
-  <p class="vs">Checkout collection: <b>{esc(c['vs_name'])}</b></p>
  </div>
 </section>
 {ticker(k)}
@@ -1760,13 +1812,13 @@ def page_collection(k):
 </div></section>
 <section style="border-top:1px solid var(--line)"><div class="wrap prose reveal">
  <h2>{esc(c['short'])} In The 2026 Season</h2>
- <div class="trendbox"><b><span class="dot"></span> Season update &middot; {TODAY}</b>
-  {esc(se['headline'])} {esc(se['status'])}.{(" " + esc(se['legacy_note'])) if se['legacy_note'] else ""}{fti_note}</div>
- <p>Fans searching for {", ".join(esc(x) for x in se['hot'][:3])} land here. Kickoff is
- <strong>{esc(re.sub('&middot;', '-', se['opener']))}</strong>, so anything ordered in the next week
- Delivery timing is an estimate; arrival before a specific game is not guaranteed. Live headlines, player moments and the full
- {esc(c['short'])} leaderboard are on the <a class="link" href="/2026-season/">2026 season hub</a>
- and the <a class="link" href="/fan-trend-index/">Fan Trend Index</a>.</p>
+ <div class="trendbox"><b><span class="dot"></span> {season_head} &middot; {TODAY}</b>
+  {season_line}{fti_note}</div>
+ {legacy_html}
+ <p>Delivery timing is an estimate; arrival before a specific game is not guaranteed.
+ Live headlines, player moments and the full {esc(c['short'])} leaderboard are on the
+ <a class="link" href="/2026-season/">2026 season hub</a> and the
+ <a class="link" href="/fan-trend-index/">Fan Trend Index</a>.</p>
  <h2>About the {esc(c['name'])} Collection</h2>
  <p>{esc(c['intro'].format(**c))} Prices start at <strong>${prices[0]:.2f}</strong> and the range
  covers {len(types)} product types: {esc(', '.join(types))}. Everything is unisex unless the design
@@ -1826,9 +1878,9 @@ def page_creator(ckey="joe"):
     path = f"/{cre['page_slug']}/"
     prices = sorted(x["price"] for x in items)
     minp, maxp = prices[0], prices[-1]
-    cre_page_desc = (f"Joe's Michigan Locker: Michigan football gear selected with Joe. "
-                     f"Game-day tees, crewnecks and vintage-inspired designs, printed on "
-                     f"demand and shipped worldwide.")
+    cre_page_desc = (f"Joe's Michigan Locker: Michigan football gear hand-picked by Joe. "
+                     f"Save 10% with code JOE10 on game-day tees, crewnecks and "
+                     f"vintage-inspired designs, printed on demand and shipped worldwide.")
     types = sorted({x["garment"] for x in items})
     feat_slugs = [s for s in cre.get("featured", []) if s in {x["slug"] for x in items}]
     by_slug = {x["slug"]: x for x in items}
@@ -1869,6 +1921,9 @@ def page_creator(ckey="joe"):
          "designs from Gridiron Locker's Michigan collection and builds this "
          "dedicated locker for his audience. It is one permanent link - new "
          "designs are added to Joe's locker without ever changing it."),
+        ("How do I use Joe's discount code?",
+         "Enter the code JOE10 at checkout for 10% off your order. It applies "
+         "to the designs in this locker."),
         ("Are these officially licensed Michigan products?",
          "No. Everything here is independent, fan-made artwork. Gridiron Locker "
          "is not affiliated with, endorsed by or licensed by the University of "
@@ -1908,8 +1963,12 @@ def page_creator(ckey="joe"):
   <div class="jcopy">
    <span class="jeyebrow"><span class="jdiamond"></span> A Gridiron Locker &times; Joe Collaboration</span>
    <h1>JOE'S MICHIGAN <span class="jgold">LOCKER</span></h1>
-   <p class="jsub">Michigan football gear selected with Joe.</p>
-   <p class="jsupp">Built for Michigan fans. Powered by Gridiron Locker.</p>
+   <p class="jsub">Michigan football gear, hand-picked by Joe.</p>
+   <div class="joffer">
+    <span class="joffer-off">10% OFF YOUR ORDER</span>
+    <span class="joffer-code">USE CODE: JOE10</span>
+    <span class="joffer-note">Enter the code at checkout.</span>
+   </div>
    <div class="jctas">
     <a class="jbtn" href="#picks">Shop Joe's Picks</a>
     <a class="jbtn ghost" href="/{c['slug']}/">All Michigan</a>
@@ -1975,9 +2034,10 @@ def page_creator(ckey="joe"):
 
 <section class="jcollab">
  <div class="wrap center">
-  <h2>YOU'RE IN JOE'S LOCKER.</h2>
-  <p>Every order placed through Joe's collection supports the collaboration and helps us
-  create more Michigan football designs together.</p>
+  <h2>JOE &times; GRIDIRON <span class="jgold">LOCKER</span></h2>
+  <p>Joe's Michigan Locker brings together his favourite Gridiron Locker designs in one place -
+  built for Michigan fans and selected with Joe. Use code <strong>JOE10</strong> at checkout for
+  10% off your order.</p>
  </div>
 </section>
 
@@ -2682,7 +2742,7 @@ border-top:3px solid var(--ca)">
                                   "acceptedAnswer": {"@type": "Answer", "text": a}}
                                  for q, a in faqs]}
 
-    next_k = min(WEEK1_ORDER, key=lambda k: SEASON[k]["kickoff"])
+    next_k = next_kickoff_ckey(WEEK1_ORDER)
     title = "2026 Week 1 Fan Shirts: Kickoff Fits &amp; Slogan Tees"
     desc = ("Week 1 2026 kickoff fits for Michigan, Cleveland, Green Bay and Dallas: kickoff dates, "
             "the slogan tees and crewnecks to order now, sizing and print-on-demand lead times.")
@@ -2696,10 +2756,11 @@ border-top:3px solid var(--ca)">
 <h1>{title}</h1>
 <p class="muted">Updated {TODAY} &middot; {sum(len(v) for v in WEEK1_SLATE.values())} Week 1 graphics &middot;
 {len(ALL)} designs in the locker</p>
-<p>Week 1 of the 2026 season lands across two weekends: <strong>Michigan opens on Sept 5</strong>
-against Western Michigan, and the NFL Sunday slate kicks off on <strong>Sept 13</strong> with
-Cleveland at Jacksonville, Green Bay at Minnesota and Dallas in prime time against the Giants.
-Everything below is printed after you order it. Delivery timing is an estimate, and arrival before a specific game is not guaranteed.</p>
+<p>Week 1 of the 2026 season: <strong>Michigan's Sept 5 opener against Western Michigan is final</strong>
+- the Wolverines won it on a last-second Hail Mary. The NFL Sunday slate kicks off on
+<strong>Sept 13</strong> with Cleveland at Jacksonville, Green Bay at Minnesota and Dallas in prime
+time against the Giants. Everything below is printed after you order it. Delivery timing is an
+estimate, and arrival before a specific game is not guaranteed.</p>
 <h2>Week 1 at a glance</h2>
 <table>
 <tr><th>Team</th><th>Kickoff</th><th>Week 1</th><th>Slogan direction</th></tr>
@@ -2736,7 +2797,7 @@ fan-created work.</p>
                ["week 1 fan shirt", "2026 week 1 football tee", "kickoff game day shirt",
                 "michigan week 1 shirt", "cleveland week 1 shirt", "packers week 1 shirt",
                 "dallas week 1 shirt", "slogan football tee"])
-          + header() + countdown_bar(next_k) + body + footer())
+          + header() + (countdown_bar(next_k) if next_k else "") + body + footer())
 
 
 def page_guides():
@@ -2828,11 +2889,15 @@ def page_season():
     blocks = ""
     for k in ORDER:
         c, se = COLLECTIONS[k], SEASON[k]
+        played = se["kickoff"][:10] < TODAY
         picks = [x for x in MODEL[k] if x.get("trend") == "hot"][:4] or MODEL[k][:4]
         note = ('<p class="muted">' + esc(se["legacy_note"]) + "</p>") if se["legacy_note"] else ""
+        status_line = (f"<p><strong>{esc(se['headline'])}</strong> {esc(se['status'])}.</p>"
+                       if not played else
+                       f"<p><strong>Final.</strong> {esc(se.get('result') or (se['headline'] + ' ' + se['status']))}</p>")
         blocks += f"""<div class="panel reveal" style="margin-bottom:20px;border-top:3px solid var(--ca);{theme_vars(k)}">
  <h2 style="color:var(--ca-ink)">{esc(c['short'])} &middot; {esc(se['opener'].replace('&middot;','-'))}</h2>
- <p><strong>{esc(se['headline'])}</strong> {esc(se['status'])}.</p>
+ {status_line}
  {note}
  <p class="muted" style="font-size:.85rem">Searched this week: {", ".join(esc(x) for x in se['hot'])}</p>
  {fti_block(k, 5)}
@@ -2856,11 +2921,12 @@ def page_season():
 <section style="padding-top:6px"><div class="wrap">
  <h1>The 2026 Season <span class="accentword">Fan Shirt Hub</span></h1>
  <p class="muted" style="font-size:.85rem;margin-top:8px">By the {BRAND} Fan Desk &middot;
- re-checked daily from live team news &middot; updated {DATA_DATE}</p>
- <p class="muted" style="max-width:72ch">Updated {DATA_DATE}. The NFL season kicks off Wednesday
- <strong>September 9</strong>, with the first full Sunday slate on <strong>September 13</strong>.
- College football starts earlier - Michigan opens <strong>September 5</strong>. Here is what changed
- on each roster this year, and which designs fans are buying because of it.
+ updated {DATA_DATE}</p>
+ <p class="muted" style="max-width:72ch">Updated {DATA_DATE}. Michigan's opener is already in the books -
+ the Wolverines beat Western Michigan on a last-second Hail Mary on <strong>September 5</strong> and
+ host No. 11 Oklahoma next. The NFL Week 1 Sunday slate is <strong>September 13</strong>: Cleveland at
+ Jacksonville, Green Bay at Minnesota and Dallas in prime time against the Giants. Here is what
+ changed on each roster this year, and which designs fans are buying because of it.
  See the <a class="link" href="/fan-trend-index/">Fan Trend Index</a> for the 0–100 score behind
  every Trending tag.</p>
  {fti_block(None, 8, heading="Fan Trend Index · all four fanbases")}
@@ -2930,9 +2996,10 @@ def page_fti():
             f'FTI {int(g["index"])}, {int(g["mentions"])} mentions</li>'
             for g in gaps)
         gap_html = (f'<div class="panel" style="margin:22px 0">'
-                    f'<h2>Product gaps the news is already writing</h2>'
-                    f'<p class="muted">These names cleared the trending bar ({HOT_MIN}+ mentions) '
-                    f'and we do not have a design yet. That is the product roadmap, not a slogan.</p>'
+                    f'<h2>Names trending that we do not have a design for yet</h2>'
+                    f'<p class="muted">These names are all over the headlines right now and we '
+                    f'do not have a matching design in the locker yet. Want one? '
+                    f'<a class="link" href="/contact/">Request a custom design</a>.</p>'
                     f'<ul>{items}</ul></div>')
     moments_html = moments_block(None, limit=16)
     desc = (f"Fan Trend Index for Cleveland, Green Bay, Dallas and Michigan — "
@@ -2962,28 +3029,27 @@ def page_fti():
 <section style="padding-top:6px"><div class="wrap">
  <span class="eyebrow"><span class="dot"></span> Live · {esc(DATA_DATE)} · {window}-day window</span>
  <h1>Fan <span class="accentword">Trend Index</span></h1>
- <p class="muted" style="max-width:72ch">The news pipeline, scored. Every day we pull public
- headlines for Cleveland, Green Bay, Dallas and Michigan, count how often each tracked player
- or coach is named, and turn that count into a 0–100 index against the hottest name in the
- window (peak this run: <strong>{peak} mentions</strong>). Formula:
- <code>{esc(FTI_FORMULA)}</code>. This is the same evidence that tags designs
- <strong>Trending</strong> — now readable as a leaderboard,
- with the headlines (live player moments) attached.</p>
+ <p class="muted" style="max-width:72ch">Who the football headlines are actually about.
+ Every day we read the public headlines for Cleveland, Green Bay, Dallas and Michigan, count how
+ often each tracked player or coach is named, and turn that count into a 0&ndash;100 score against
+ the hottest name in the window (peak this run: <strong>{peak} mentions</strong>). The same signal
+ tags designs <strong>Trending</strong> - here it reads as a leaderboard, with the headlines
+ (live player moments) attached.</p>
  <div class="stats" style="margin:26px 0 8px">
   <div class="stat"><b>{len(rows)}</b><span>Tracked names</span></div>
   <div class="stat"><b>{peak}</b><span>Peak mentions</span></div>
   <div class="stat"><b>{len(TRENDS.get("moments") or [])}</b><span>Player moments</span></div>
-  <div class="stat"><b>{len(gaps)}</b><span>Design gaps</span></div>
+  <div class="stat"><b>{len(gaps)}</b><span>No design yet</span></div>
  </div>
  <div class="fti-grid" style="margin-top:28px">{board}</div>
  {gap_html}
  <div style="margin-top:28px">{moments_html}</div>
  <div class="prose" style="margin-top:34px">
   <h2>How to read this</h2>
-  <p><strong>100</strong> is whoever the headlines named most in the window — not a claim they
+  <p><strong>100</strong> is whoever the headlines named most in the window - not a claim they
   are the best player, the most searched, or the most bought. It is a share-of-voice score
-  from the feeds we already crawl. Names at 0 are quiet this window. Names at
-  {HOT_MIN}+ mentions get Trending.</p>
+  from the public headlines we read. Quiet names score 0. Names that clear the trending bar
+  get a Trending tag.</p>
   <p>Linked stories belong to their publishers. {esc(BRAND)} is independent fan-made apparel,
   not affiliated with any team, league, university or player.
   <a class="link" href="/2026-season/">Back to the 2026 season hub →</a></p>
@@ -2999,11 +3065,10 @@ def page_fti():
 
 # ---------------------------------------------------------------- drops — live benefit engine
 def page_drops():
-    """Public /drops/ page — live trending products with unique headline-aware copy.
+    """Public /drops/ page - the customer-facing "Trending Now" storefront.
 
-    This is the benefit-first page: it catches trending searches (e.g. 'Shedeur Sanders shirt')
-    with fresh daily content, unique per-team voices, and real headlines. Google ranks fresh,
-    unique, headline-rich pages. Pinterest pins from this feed live for months.
+    Shows the live drops (headline-scored products) with a short, human
+    description per design. The page body lives in src/drops_page.py.
     """
     try:
         from drops_page import page_drops_html
@@ -3018,9 +3083,9 @@ def page_drops():
 
     drops_body = page_drops_html(COLLECTIONS, ORDER, lookup)
 
-    desc = (f"Today's trending fan drops — live from the headlines. {len(lookup)} designs, "
-            f"4 team voices, 0 recycled captions. Updated daily from real team news for "
-            f"Cleveland, Green Bay, Dallas and Michigan fans.")
+    desc = (f"Today's trending fan drops - fresh fan-made designs inspired by the football "
+            f"stories fans are talking about right now. Updated regularly for Cleveland, "
+            f"Green Bay, Dallas and Michigan fans.")
 
     # Load drops for schema. Same dead-link guard as drops_page.py: only drops
     # whose product page the build actually published may enter the ItemList —
@@ -3106,9 +3171,9 @@ def assets():
 # Everything here is meant to be crawled and indexed.
 
 User-agent: *
-Disallow: /marketing/plan.json
-# ops/ is the private control room (operator board, scout, design drop) - not
-# part of the storefront, and never linked from public nav.
+# marketing/ and ops/ are the owner's internal planning + control rooms -
+# they are noindex, never in the sitemap and never linked from public nav.
+Disallow: /marketing/
 Disallow: /ops/
 Allow: /
 

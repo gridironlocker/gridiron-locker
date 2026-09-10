@@ -170,7 +170,7 @@ stages to the real tools, and never claim a stage ran if the workflow didn't:
 | Prompt stage | Gridiron Locker mechanism |
 |---|---|
 | OBSERVE / DETECT | `src/trends.py` → `data/trends.json` + `trend-report.md` (10-day headline window) |
-| SCORE / VALIDATE | `marketing/plan.py` → `marketing/plan.json` (134 designs scored 0–100) |
+| SCORE / VALIDATE | `marketing/plan.py` → `marketing/plan.json` (every live design scored 0-100) |
 | CREATE / OPTIMIZE | `src/build.py` → `site/` (all 158 pages + schema + sitemap) |
 | PUBLISH | GitHub Actions `deploy.yml` — **only** via a merged PR to `main` (human approval) |
 | REFRESH | GitHub Actions `refresh.yml` — daily 06:15 UTC crawl + rebuild |

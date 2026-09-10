@@ -47,12 +47,12 @@ and lead with a design that maps to a live 2026 trend.
    campaign shots — chest-down framing, styled layers, film grain, cinematic
    grade. Visually we out-class a flat-lay 10 out of 10 times.
 2. **Rivals wait for a moment to happen.** We already have a **trend-scoring
-   engine** (134 designs ranked against live search terms + repeated headline
+   engine** (designs ranked against live search terms + repeated headline
    mentions) — we can pick the design *before* the story peaks, not after.
 3. **Rivals ignore the female fashion angle in this niche.** The NFL's own data
    says young women are the growth audience. We lean into outfit-transition and
    wearing-vs-styling content while rivals post "shop now" product shots.
-4. **Rivals sell one moment.** We sell the *locker*: 134 designs across four
+4. **Rivals sell one moment.** We sell the *locker*: designs across four
    fanbases, so every trend post links into a whole catalog.
 
 ---
