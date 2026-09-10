@@ -252,7 +252,7 @@ def collect():
         sitemap_count = 0
     indexnow_key = cfg.get("indexnow_key", "")
     search = [
-        ("sitemap urls", str(sitemap_count), sitemap_count == 129 or sitemap_count > 0),
+        ("sitemap urls", str(sitemap_count), sitemap_count > 0),
         ("domain", domain, domain == "https://gridironlocker.store"),
         ("GSC file googleae06215486ed6c17.html",
          "present" if os.path.exists(os.path.join(ROOT, "site/googleae06215486ed6c17.html")) else "missing",

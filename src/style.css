@@ -90,8 +90,8 @@ code{font-size:.85em;background:var(--bg3);padding:1px 6px;border-radius:5px;col
 
 :focus-visible{outline:2px solid var(--ink);outline-offset:2px}
 
-/* Motion: only a soft fade-up on first paint, and the two marquees.
-   Everything else (ken burns, shine, floaty, hover lift) is gone. */
+/* Motion: only a soft fade-up on first paint. Everything else
+   (ken burns, shine, floaty, hover lift, marquees) is gone. */
 .reveal{opacity:1}
 /* `.pre` is added by app.js at runtime: content stays fully visible when JS is
    disabled, blocked or fails to load. The fade-up only ever hides elements
@@ -100,7 +100,6 @@ code{font-size:.85em;background:var(--bg3);padding:1px 6px;border-radius:5px;col
 .js .reveal.pre{opacity:0;transform:translateY(10px);
   transition:opacity .45s ease,transform .45s ease}
 .js .reveal.pre.in,.js .reveal.in{opacity:1;transform:none}
-@keyframes marquee{0%{transform:translateX(0)}100%{transform:translateX(-50%)}}
 @keyframes pulse{0%,100%{opacity:1}50%{opacity:.4}}
 @media (prefers-reduced-motion:reduce){
   *{animation:none!important;transition-duration:.01ms!important}
@@ -314,25 +313,25 @@ section{padding:clamp(30px,4.5vw,52px) 0}
 @media(max-width:1000px){.wkgrid{grid-template-columns:repeat(2,1fr)}}
 @media(max-width:560px){.wkgrid{grid-template-columns:1fr}}
 
-/* ============ TICKERS ============ */
+/* ============ TICKERS ============
+   Each term is rendered once - no duplicated copy for a marquee loop. The
+   strips wrap cleanly, so a visitor (and any crawler) reads every keyword
+   exactly once. */
 .ticker{overflow:hidden;border-top:1px solid var(--line);border-bottom:1px solid var(--line);
-  background:var(--bg2);padding:10px 0;white-space:nowrap;position:relative}
-.ticker .track{display:inline-flex;gap:30px;animation:marquee 46s linear infinite;will-change:transform}
-.ticker:hover .track{animation-play-state:paused}
+  background:var(--bg2);padding:10px 0;position:relative}
+.ticker .track{display:flex;flex-wrap:wrap;row-gap:4px}
 .ticker i{font-style:normal;font-weight:600;letter-spacing:.06em;font-size:.76rem;color:var(--muted);
-  display:inline-flex;align-items:center;gap:30px;text-transform:uppercase}
+  display:inline-flex;align-items:center;gap:12px;text-transform:uppercase;padding:2px 16px 2px 0}
 .ticker i:after{content:'';width:4px;height:4px;border-radius:99px;background:var(--line2);
   display:inline-block}
 .ticker i.hot{color:var(--ca-ink)}
 
 .newsticker{overflow:hidden;border-top:1px solid var(--line);border-bottom:1px solid var(--line);
-  background:#fff;padding:13px 0;white-space:nowrap;position:relative}
-.newsticker .track{display:inline-flex;align-items:center;gap:40px;
-  animation:marquee 90s linear infinite;will-change:transform}
-.newsticker:hover .track{animation-play-state:paused}
+  background:#fff;padding:13px 0;position:relative}
+.newsticker .track{display:flex;flex-wrap:wrap;row-gap:8px}
 .newsticker a{color:inherit;display:inline-flex;align-items:center}
 .newsticker i{font-style:normal;font-weight:500;font-size:.92rem;color:var(--ink2);
-  display:inline-flex;align-items:center;gap:40px;line-height:1.4}
+  display:inline-flex;align-items:center;gap:14px;line-height:1.4;padding:2px 20px 2px 0}
 .newsticker i:after{content:'';width:4px;height:4px;border-radius:99px;background:var(--line2)}
 .newsticker i.hot{color:var(--ink);font-weight:600}
 .newsticker a:hover i{color:var(--ca-ink)}
@@ -1144,6 +1143,16 @@ footer .logo{color:var(--ink)}
 .jlock .jgold{color:var(--jl-maize)}
 .jlock .jsub{font-size:clamp(1.05rem,2.4vw,1.3rem);font-weight:700;color:var(--jl-cream);margin:0 0 6px}
 .jlock .jsupp{color:rgba(242,237,223,.6);font-size:.95rem;margin:0 0 26px}
+/* Joe's fan offer: the JOE10 discount, shown immediately under the hero line */
+.jlock .joffer{display:flex;flex-direction:column;gap:2px;align-items:flex-start;
+  margin:18px 0 22px;padding:14px 18px;max-width:420px;border-radius:12px;
+  background:linear-gradient(135deg,var(--jl-maize) 0%,#d19f00 100%);
+  border:1px solid rgba(232,184,0,.5);box-shadow:0 14px 30px rgba(0,0,0,.35)}
+.jlock .joffer-off{font-size:clamp(1.05rem,2.4vw,1.35rem);font-weight:900;letter-spacing:.08em;
+  color:#0a1322;text-transform:uppercase}
+.jlock .joffer-code{font-size:.95rem;font-weight:800;letter-spacing:.16em;color:#0a1322;
+  text-transform:uppercase}
+.jlock .joffer-note{font-size:.76rem;font-weight:600;color:rgba(10,19,34,.72);margin-top:2px}
 .jlock .jctas{display:flex;gap:12px;flex-wrap:wrap}
 .jlock .jfacts{margin:24px 0 0;font-size:.76rem;letter-spacing:.03em;color:rgba(242,237,223,.5)}
 .jlock .jart img{width:100%;aspect-ratio:16/10;object-fit:cover;object-position:62% center;

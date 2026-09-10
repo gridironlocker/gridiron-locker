@@ -92,7 +92,7 @@ table{width:100%;border-collapse:collapse;font-size:.84rem}th,td{text-align:left
   <div class="panel" style="margin-top:18px">
     <h2>Why this works (vs old planner)</h2>
     <ul style="margin:8px 0 0 18px;color:var(--muted);font-size:.88rem">
-      <li><b style="color:var(--ink)">Old:</b> same caption for all teams → spam signal, no clicks. <b style="color:var(--green)">New:</b> 134/134 unique Instagram, 134/134 unique X — Dawg Pound grit vs Cheesehead community vs Texas swagger vs Go Blue defiance.</li>
+      <li><b style="color:var(--ink)">Old:</b> same caption for all teams → spam signal, no clicks. <b style="color:var(--green)">New:</b> 100% unique Instagram and X captions — Dawg Pound grit vs Cheesehead community vs Texas swagger vs Go Blue defiance.</li>
       <li><b style="color:var(--ink)">Old:</b> dashboard only, not public. <b style="color:var(--green)">New:</b> /drops/ is public SEO, 0.95 priority, CollectionPage schema, 24 cards, filter + search, daily fresh content Google loves.</li>
       <li><b style="color:var(--ink)">Old:</b> no trend hook. <b style="color:var(--green)">New:</b> each card shows the actual headline that triggered it — e.g. “Browns announce initial 53-man roster” → Sanders tees. Ranks for player + “shirt”.</li>
       <li><b style="color:var(--ink)">Old:</b> Pinterest not wired. <b style="color:var(--green)">New:</b> 60 pins, SEO titles, board names, tags — lives for months, drives search traffic.</li>
@@ -119,7 +119,7 @@ Promise.all([
   const uniq=plan?.meta?.summary?.unique_copy ? '100%' : '—';
   kpis.innerHTML=[
     ['Live Drops', (meta.count||0)+'','Trending headline → product triples'],
-    ['Unique Captions', uniq||'100%','134/134 IG unique, 134/134 X unique'],
+    ['Unique Captions', uniq||'100%','100% unique IG, 100% unique X'],
     ['Pinterest Pins', '60','SEO titles, bulk ready'],
     ['Last Update', (meta.generated||'').slice(0,10), 'Trends from '+(meta.trends_date||'')]
   ].map(x=>`<div class="kpi"><b>${esc(x[1])}</b><span>${esc(x[0])} · ${esc(x[2])}</span></div>`).join('');

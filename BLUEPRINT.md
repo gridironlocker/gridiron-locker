@@ -56,7 +56,7 @@ gridiron-locker/
 │   ├── trends.json       # headline snapshot (10-day window)
 │   └── people.json       # current vs throwback player/coach context (added)
 ├── marketing/            # promotion planning (does NOT touch site/)
-│   ├── plan.py           # scores 134 designs → writes plan.json
+│   ├── plan.py           # scores every live design → writes plan.json
 │   ├── commercial_agent.py # NFL fan commerce scoring + daily predictor
 │   ├── social_watch.py    # public web/social signal collector
 │   ├── three_day_pulse.py # rolling 3-day trend-to-product brief
