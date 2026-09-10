@@ -309,15 +309,27 @@ document.querySelectorAll('a.shopnow').forEach(function(a){
   });
 })();
 
-// ---------- reveal safety net: never leave content invisible ----------
-setTimeout(function(){
-  document.querySelectorAll('.reveal').forEach(function(e){e.classList.add('in')});
-},2600);
-
-// ---------- scroll reveal ----------
+// ---------- scroll reveal (progressive enhancement: never hide without JS) ----------
+// The `.pre` gate is added HERE, at runtime, so content is visible by default:
+// if this file is blocked, slow, or an earlier statement throws, nothing is
+// ever hidden and the page still paints in full (no white screen). When this
+// runs (deferred, before first paint), below-fold elements hide and fade up
+// on scroll; in-viewport elements are revealed synchronously in the same task
+// so there is no flash.
 (function(){
   var els=[].slice.call(document.querySelectorAll('.reveal'));
-  if(!('IntersectionObserver' in window)){els.forEach(function(e){e.classList.add('in')});return;}
+  if(!els.length)return;
+  els.forEach(function(e){e.classList.add('pre')});
+  function inView(el){
+    try{
+      var r=el.getBoundingClientRect(), h=window.innerHeight||800;
+      return r.top < h*0.94 && r.bottom > 0;
+    }catch(err){return true;}
+  }
+  var below=[];
+  els.forEach(function(e){ if(inView(e)){e.classList.add('in');} else {below.push(e);} });
+  if(!below.length)return;
+  if(!('IntersectionObserver' in window)){below.forEach(function(e){e.classList.add('in')});return;}
   var io=new IntersectionObserver(function(en){
     en.forEach(function(e,i){
       if(e.isIntersecting){
@@ -327,7 +339,11 @@ setTimeout(function(){
       }
     });
   },{rootMargin:'0px 0px -8% 0px',threshold:.06});
-  els.forEach(function(e){io.observe(e)});
+  below.forEach(function(e){io.observe(e)});
+  // Safety net: never leave content invisible (slow IO, odd embeds, no scroll).
+  setTimeout(function(){
+    below.forEach(function(e){e.classList.add('in')});
+  },2600);
 })();
 
 // ---------- count up ----------

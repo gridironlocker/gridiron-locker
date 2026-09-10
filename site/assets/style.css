@@ -93,14 +93,18 @@ code{font-size:.85em;background:var(--bg3);padding:1px 6px;border-radius:5px;col
 /* Motion: only a soft fade-up on first paint, and the two marquees.
    Everything else (ken burns, shine, floaty, hover lift) is gone. */
 .reveal{opacity:1}
-.js .reveal{opacity:0;transform:translateY(10px);
+/* `.pre` is added by app.js at runtime: content stays fully visible when JS is
+   disabled, blocked or fails to load. The fade-up only ever hides elements
+   that running JS has already gated, so a missing/broken script can never
+   leave a blank page behind (the white-screen failure). */
+.js .reveal.pre{opacity:0;transform:translateY(10px);
   transition:opacity .45s ease,transform .45s ease}
-.js .reveal.in{opacity:1;transform:none}
+.js .reveal.pre.in,.js .reveal.in{opacity:1;transform:none}
 @keyframes marquee{0%{transform:translateX(0)}100%{transform:translateX(-50%)}}
 @keyframes pulse{0%,100%{opacity:1}50%{opacity:.4}}
 @media (prefers-reduced-motion:reduce){
   *{animation:none!important;transition-duration:.01ms!important}
-  .reveal{opacity:1;transform:none}
+  .reveal,.js .reveal.pre{opacity:1;transform:none}
 }
 
 /* ============ PROMO BAR ============ */
