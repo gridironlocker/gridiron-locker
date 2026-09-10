@@ -399,11 +399,25 @@ What changed, and why:
   partner, so those two controls only opened explainer popovers while occupying the
   two spots a visitor looks at first. Search, the four teams, Trending and Guides stay.
 - **Hero** — the owner's poster shown whole, full width, at its native 2048:768 (the
-  same band the four collection pages and `/drops/` use), with a compact copy block
-  beneath it: `FOOTBALL. FANS. CULTURE.` / `Gear Up.` / brush `Keep it.` / two CTAs /
-  live catalogue facts. The poster's wordmark and headline are painted into the art, so
-  it is never cropped and the copy never repeats it; the `<h1>` is real text and the
-  band is the LCP image (eager, `fetchpriority="high"`).
+  same band the four collection pages and `/drops/` use), with one **centred** copy
+  block beneath it: `FOOTBALL. FANS. CULTURE.` / `Gear Up.` / the poster's yellow as a
+  short rule / two matched CTAs / live catalogue facts. The poster's wordmark and
+  headline are painted into the art, so it is never cropped and the copy never repeats
+  it — the brushed `Keep it.` line that used to sit under the `<h1>` copied the
+  poster's own brushwork and read as a second headline, so it is gone. Every rule for
+  the block is scoped to `.cbanner.home`, because `.cbanner h1` also matches this `<h1>`
+  and was quietly sizing it as a collection title. The `<h1>` is real text and the band
+  is the LCP image (eager, `fetchpriority="high"`).
+- **Moving bars** — the keyword strip under a collection hero (`.ticker`) and the live
+  headline strip above the home footer (`.newsticker`) scroll again. Both were left as
+  `flex-wrap:wrap` static lists when their keyframes were deleted, which is the ragged
+  "moving bars not moving" state. They now share one seamless marquee: the track holds
+  the items plus an `aria-hidden` clone of the same items and translates exactly `-50%`,
+  so the loop has no seam and no duplicated copy for screen readers, the tab order or
+  the outbound links. `--dur` is written inline by `build.py` from the length of the
+  text, so speed stays constant whatever the list; the bar pauses on hover/focus so a
+  headline can be clicked, and under `prefers-reduced-motion` it becomes a plain
+  horizontal scroll with the clone dropped.
 - **Shop By Team** — four whole-card links with the team name, the fan phrase
   (Dawg Pound / Go Pack Go / Star Power / Go Blue), the live design count and an arrow.
   Two columns on phones, not four full-width stacks.

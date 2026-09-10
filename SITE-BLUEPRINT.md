@@ -101,12 +101,13 @@ editorial bands to find out what is for sale.
    fulfilment partner, so those controls promised state this site does not own.
 3. **Hero** (`home_banner()`, `.cbanner.home`) — the approved poster shown
    **whole** as a full-width band (native 2048:768, the same ratio and the same
-   band component as the collection pages), then a compact white copy block
-   underneath: `FOOTBALL. FANS. CULTURE.` / `Gear Up.` / brush `Keep it.` / two
-   CTAs / live catalogue facts. The poster's own wordmark and headline are
-   painted into the pixels, so the copy block never restates them and the art is
-   never cropped; the `<h1>` is real text and the band is the LCP element
-   (eager, `fetchpriority="high"`). "Shop By Team" stays one short scroll away.
+   band component as the collection pages), then one **centred** white copy block
+   underneath: `FOOTBALL. FANS. CULTURE.` / `Gear Up.` / the poster's yellow as a
+   short rule / two matched CTAs / live catalogue facts. The poster's own wordmark
+   and headline are painted into the pixels, so the copy block never restates them
+   (the brushed `Keep it.` line that did is gone) and the art is never cropped; the
+   `<h1>` is real text and the band is the LCP element (eager,
+   `fetchpriority="high"`). "Shop By Team" stays one short scroll away.
 4. **Shop navigation** (`shop_nav()`) — a slim sticky strip under the header on
    desktop and a fixed bottom bar (Shop by team / Trending / All designs) on
    phones, revealed after the hero and hidden again over the footer.
