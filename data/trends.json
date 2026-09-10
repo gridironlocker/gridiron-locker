@@ -64,7 +64,7 @@
     "joe flacco": 0,
     "myles garrett": 2,
     "kevin stefanski": 0,
-    "denzel ward": 2,
+    "denzel ward": 3,
     "todd monken": 6
    },
    "top_terms": [
@@ -77,9 +77,9 @@
     "shedeur",
     "sanders",
     "september",
+    "rumors",
     "practice",
-    "todd",
-    "monken"
+    "todd"
    ],
    "headline_count": 100,
    "moments": [
@@ -131,9 +131,9 @@
     },
     {
      "name": "denzel ward",
-     "mentions": 2,
-     "index": 9,
-     "status": "steady",
+     "mentions": 3,
+     "index": 13,
+     "status": "trending",
      "gap": false,
      "shoppable": true
     },
@@ -220,11 +220,11 @@
     }
    ],
    "entity_mentions": {
-    "jordan love": 2,
-    "micah parsons": 4,
+    "jordan love": 4,
+    "micah parsons": 2,
     "robert tonyan": 0,
-    "josh jacobs": 11,
-    "matt lafleur": 4
+    "josh jacobs": 18,
+    "matt lafleur": 3
    },
    "top_terms": [
     "packers",
@@ -236,25 +236,32 @@
     "injury",
     "sign",
     "practice",
-    "sept",
-    "opener",
-    "court"
+    "ahead",
+    "opener"
    ],
    "headline_count": 100,
    "moments": [],
    "fan_trend_index": [
     {
      "name": "josh jacobs",
-     "mentions": 11,
-     "index": 48,
+     "mentions": 18,
+     "index": 78,
      "status": "trending",
      "gap": true,
      "shoppable": false
     },
     {
-     "name": "matt lafleur",
+     "name": "jordan love",
      "mentions": 4,
      "index": 17,
+     "status": "trending",
+     "gap": false,
+     "shoppable": true
+    },
+    {
+     "name": "matt lafleur",
+     "mentions": 3,
+     "index": 13,
      "status": "trending",
      "gap": true,
      "shoppable": false
@@ -520,6 +527,15 @@
     "collection": "michigan"
    },
    {
+    "name": "josh jacobs",
+    "mentions": 18,
+    "index": 78,
+    "status": "trending",
+    "gap": true,
+    "shoppable": false,
+    "collection": "cleveland-browns"
+   },
+   {
     "name": "deshaun watson",
     "mentions": 17,
     "index": 74,
@@ -536,15 +552,6 @@
     "gap": false,
     "shoppable": true,
     "collection": "cleveland-browns"
-   },
-   {
-    "name": "josh jacobs",
-    "mentions": 11,
-    "index": 48,
-    "status": "trending",
-    "gap": true,
-    "shoppable": false,
-    "collection": "green-bay-packers"
    },
    {
     "name": "dak prescott",
@@ -583,16 +590,7 @@
     "collection": "dallas-cowboys"
    },
    {
-    "name": "matt lafleur",
-    "mentions": 4,
-    "index": 17,
-    "status": "trending",
-    "gap": true,
-    "shoppable": false,
-    "collection": "green-bay-packers"
-   },
-   {
-    "name": "micah parsons",
+    "name": "jordan love",
     "mentions": 4,
     "index": 17,
     "status": "trending",
@@ -602,15 +600,24 @@
    },
    {
     "name": "denzel ward",
-    "mentions": 2,
-    "index": 9,
-    "status": "steady",
+    "mentions": 3,
+    "index": 13,
+    "status": "trending",
     "gap": false,
     "shoppable": true,
     "collection": "cleveland-browns"
    },
    {
-    "name": "jordan love",
+    "name": "matt lafleur",
+    "mentions": 3,
+    "index": 13,
+    "status": "trending",
+    "gap": true,
+    "shoppable": false,
+    "collection": "green-bay-packers"
+   },
+   {
+    "name": "micah parsons",
     "mentions": 2,
     "index": 9,
     "status": "steady",
@@ -692,6 +699,16 @@
    "pub": "Fri, 04 Sep 2026 09:03:00 GMT",
    "entities": [
     "deshaun watson"
+   ],
+   "collection": "cleveland-browns"
+  },
+  {
+   "title": "Michigan football eve: Final thoughts on Underwood, the defense, transfers",
+   "url": "https://news.google.com/rss/articles/CBMixAFBVV95cUxNaUJXc0FYUFRkRnZPd1p3a3l5WklHamJsVXZQOHY4N0JKWWFPNHo4MllLMEJyS3ZXOFZtdG5Gb1N4ODBra2ZjRHYwTWxSeTJ4NDVqbzE1UzJrYVBfT0I0VFJQMzY1Vjh5ZHlBWHE1Y0NoUGl6dzQtRlA4Q1p1bHE5VnVyMkNheFhSSGF0Z3FZU3l5ZHhFUVRJUHlDVjgzUFhQakVXdXNsX0tab2FEOGNHRDd6enJ2czhXX0xSRWdoMnBydXgz0gHYAUFVX3lxTE1JYXhWOGs1S01KckpLUXRoVTJlM3JWem9McGw5d0RzSlBKNjhzVVJMSDROU1MzRFVtY2V3NEwwRXVxaVgxWmoyVmhWd1FUZmZCa2J2NUtZVm16Z1JrYzZ2MTZmdEstM25HMWxrLUdSaWR2NExLUTY2MS1iQ05pQW1VRkpoTEpqOHhLSG1MclFNZFJxQmhxN1ZxYWx5Z3F5SEYyZ09fUDZhY191WHhuNmktd3ZOSExpaEhWSmdTYzdvZjJUVjJiUDM1ODY0czJjcmRBYnZWbEhBUw?oc=5",
+   "source": "MLive.com",
+   "pub": "Fri, 04 Sep 2026 11:15:00 GMT",
+   "entities": [
+    "bryce underwood"
    ],
    "collection": "cleveland-browns"
   },

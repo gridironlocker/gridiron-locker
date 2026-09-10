@@ -9,17 +9,17 @@ FTI = `round(100 * entity_mentions / peak_mentions_in_window)`. Peak mentions in
 | Rank | Name | Collection | Mentions | FTI | Status | Shop |
 |---|---|---|---|---|---|---|
 | 1 | bryce underwood | michigan | 23 | 100 | trending | in locker |
-| 2 | deshaun watson | cleveland-browns | 17 | 74 | trending | gap — no design |
-| 3 | shedeur sanders | cleveland-browns | 16 | 70 | trending | in locker |
-| 4 | josh jacobs | green-bay-packers | 11 | 48 | trending | gap — no design |
+| 2 | josh jacobs | green-bay-packers | 18 | 78 | trending | gap — no design |
+| 3 | deshaun watson | cleveland-browns | 17 | 74 | trending | gap — no design |
+| 4 | shedeur sanders | cleveland-browns | 16 | 70 | trending | in locker |
 | 5 | dak prescott | dallas-cowboys | 6 | 26 | trending | gap — no design |
 | 6 | kyle whittingham | michigan | 6 | 26 | trending | gap — no design |
 | 7 | todd monken | cleveland-browns | 6 | 26 | trending | gap — no design |
 | 8 | ceedee lamb | dallas-cowboys | 4 | 17 | trending | gap — no design |
-| 9 | matt lafleur | green-bay-packers | 4 | 17 | trending | gap — no design |
-| 10 | micah parsons | green-bay-packers | 4 | 17 | trending | in locker |
-| 11 | denzel ward | cleveland-browns | 2 | 9 | steady | in locker |
-| 12 | jordan love | green-bay-packers | 2 | 9 | steady | in locker |
+| 9 | jordan love | green-bay-packers | 4 | 17 | trending | in locker |
+| 10 | denzel ward | cleveland-browns | 3 | 13 | trending | in locker |
+| 11 | matt lafleur | green-bay-packers | 3 | 13 | trending | gap — no design |
+| 12 | micah parsons | green-bay-packers | 2 | 9 | steady | in locker |
 | 13 | myles garrett | cleveland-browns | 2 | 9 | steady | in locker |
 | 14 | jj mccarthy | michigan | 0 | 0 | quiet | in locker |
 | 15 | joe flacco | cleveland-browns | 0 | 0 | quiet | in locker |
@@ -31,6 +31,7 @@ FTI = `round(100 * entity_mentions / peak_mentions_in_window)`. Peak mentions in
 
 - **todd monken** — [Todd Monken names captains for Week 1 vs. Jaguars](https://news.google.com/rss/articles/CBMijgFBVV95cUxNTkVjOUZRTGRMNXFtRUdMZnFHSVViVkVKYVRJUGhoamVZUmhrektrZ2RwMllsck5UbmlLMDUyMlZ0N1FiejZYNEVCTTlqSGJydzVrYzk5eEkxQkVSYkN1WVcxY0steTh5bUJNU0hjUEhhamV2dlVZd2lHUWpDa2VSbkZGdFR2VGRwTnhpdkN3?oc=5) — Cleveland Browns
 - **deshaun watson** — [Why are the Browns starting Deshaun Watson? Here’s the deal – Terry Pluto](https://news.google.com/rss/articles/CBMitAFBVV95cUxNYldGdnhPWmM2VkUxQVlOQTJFYllycVJ3cG9BZXAtUTJhcWtXcS1nM2I0ZWV5Q25SNmRCcjZ6UmpMMTVDdHlEaW5ZazBSV0xubWViUXowRG9NRWV5VmtZSnRnNzZFRFc2WXFPaDJMRE5NMUJqR1NuYXJkOXo4S1hMZzFvTDZpUmJ2UGttU25fSFdtQXllX01VQUJjYzhrV29wTjh4STFrQWxrazdVc01fWFJlNFnSAcgBQVVfeXFMUFF0blVkMkgtdXJtdEtCWEJCbGpTX094N0F5OUJjTWR3R2pOeUxBQXlFUVk0ZTE4N1Fpd0xRdzJzbGhvSUZleVN5THl2OXZhQXE2RXhOVEpqVHJwbGlsRzdUdC1vU08yOVYxU085ejFaUWc1bnU0R25LMG10QndVTVRiV3FMTnBTUGJFc0pfU1BzekN4bUE0STZMejRKY050OFl5MlN2OGw1S0JmbURaX1V3ZEFocUd6eGo5eDZBeWN5MHV6RUlyakY?oc=5) — Cleveland.com
+- **shedeur sanders** — [Browns legend states what Shedeur Sanders needs to fix](https://news.google.com/rss/articles/CBMipAFBVV95cUxNUm9iS25XWExiTnhzZmZlOHpDSkpkSXBEaEhzUEpvUThNdVI3UTB2dGxGXzhDaGtpaUdGMGdlR2c2SWlNek5oQ1U0bEVrekFHX2tuQlFjT2FpM0J1dlFwYmpJcG1LUFJwXzZWbjU3RUxkOVloaG11WXg0RzNIQUlMT1FYT3ZuVzRfb3dKT2JoTE10MnpzNUFkYkpFWmhpQjQxTm9TOQ?oc=5) — Dawgs By Nature
 - **bryce underwood** — [Michigan football eve: Final thoughts on Underwood, the defense, transfers](https://news.google.com/rss/articles/CBMixAFBVV95cUxNaUJXc0FYUFRkRnZPd1p3a3l5WklHamJsVXZQOHY4N0JKWWFPNHo4MllLMEJyS3ZXOFZtdG5Gb1N4ODBra2ZjRHYwTWxSeTJ4NDVqbzE1UzJrYVBfT0I0VFJQMzY1Vjh5ZHlBWHE1Y0NoUGl6dzQtRlA4Q1p1bHE5VnVyMkNheFhSSGF0Z3FZU3l5ZHhFUVRJUHlDVjgzUFhQakVXdXNsX0tab2FEOGNHRDd6enJ2czhXX0xSRWdoMnBydXgz0gHYAUFVX3lxTE1JYXhWOGs1S01KckpLUXRoVTJlM3JWem9McGw5d0RzSlBKNjhzVVJMSDROU1MzRFVtY2V3NEwwRXVxaVgxWmoyVmhWd1FUZmZCa2J2NUtZVm16Z1JrYzZ2MTZmdEstM25HMWxrLUdSaWR2NExLUTY2MS1iQ05pQW1VRkpoTEpqOHhLSG1MclFNZFJxQmhxN1ZxYWx5Z3F5SEYyZ09fUDZhY191WHhuNmktd3ZOSExpaEhWSmdTYzdvZjJUVjJiUDM1ODY0czJjcmRBYnZWbEhBUw?oc=5) — MLive.com
 
 ## Cleveland Browns Fan Shirts
@@ -40,8 +41,8 @@ FTI = `round(100 * entity_mentions / peak_mentions_in_window)`. Peak mentions in
 | deshaun watson | 17 | TRENDING | 74 |
 | shedeur sanders | 16 | TRENDING | 70 |
 | todd monken | 6 | TRENDING | 26 |
+| denzel ward | 3 | TRENDING | 13 |
 | myles garrett | 2 | steady | 9 |
-| denzel ward | 2 | steady | 9 |
 | joe flacco | 0 | quiet - throwback | 0 |
 | kevin stefanski | 0 | quiet - throwback | 0 |
 
@@ -62,19 +63,18 @@ Recent headlines:
 
 | Name | Headline mentions | Status | FTI |
 |---|---|---|---|
-| josh jacobs | 11 | TRENDING | 48 |
-| micah parsons | 4 | TRENDING | 17 |
-| matt lafleur | 4 | TRENDING | 17 |
-| jordan love | 2 | steady | 9 |
+| josh jacobs | 18 | TRENDING | 78 |
+| jordan love | 4 | TRENDING | 17 |
+| matt lafleur | 3 | TRENDING | 13 |
+| micah parsons | 2 | steady | 9 |
 | robert tonyan | 0 | quiet - throwback | 0 |
 
 **Product gap:** trending with no design in the catalogue - **josh jacobs, matt lafleur**
 
 Recent headlines:
-- [Packers announce roster moves | Sept. 2, 2026](https://news.google.com/rss/articles/CBMiekFVX3lxTE1BbnlYQkkwNjJFeFBBcy1TSzlRcTVnUG9XYWxpYUZpc0pRZDBaR2xNWVp1U1hVcXBEc3dLTWJMbnNCYWN1WW10d3RWTXZrV1d4eFVQNk4zeUJyWTZvUm1MMlprYmZxMFB2eTdsRDJnbGdfdEpnTTFSeW93?oc=5) - Green Bay Packers
-- [Minnesota Vikings bringing back Harrison Smith for 2026 season](https://news.google.com/rss/articles/CBMiggFBVV95cUxPNVd3YmF2NnF0SFZPVHktbDQ5TWdNYnpjejFiMm0zZXQ0SVYzZVpJOEJoVTBVRHptOW44YzZKNk9qX1VjVjVXbHFTaERFajlHUy0zaDZILU54Q1F4RVplVmtaXzUtTDFwbGlSZDA3U1dpMjZuUV84eC1HX2Vwbm9jLXJn0gGHAUFVX3lxTE9OdGVIc2NYWEhrN3FEQkswMFNKekNYOFo0V0pVZ1MyUXh6dXYwS1dUR1VWSTh0OHpOWl9ueEZWS1VDX1BJLWVfM0ViSHRlVmdMUDEyc0pqMHVBN0tnRVNtUXlKUTYwSkRzekgyb25fY1c5NjBXcUZiNEQ4NDRkcDJFRzZ3dUxoSQ?oc=5) - FOX 9 Minneapolis-St. Paul
+- [It’s all ‘Go Pack Go’ for new RB Kaleb Johnson](https://news.google.com/rss/articles/CBMijAFBVV95cUxPTjIzOU16b2FlbXptRGtJc0t3OHA5MzVoOU5ydDZRNTNEQ1duOWhKVzRCWWFzUVlVOWozN2FkT051emw1MnVMUHFtRkhGWndQYnhFTUVxeTM0Q0dKNWZWcFNkd0lvWEpEMExXNmFYdFA1ZXRvLVVGX2w1VXcydGNDTXFZbTJoOFNkWjFELQ?oc=5) - Green Bay Packers
+- [New Cheesehead TV Book About Packers History Launches in Green Bay](https://news.google.com/rss/articles/CBMiogFBVV95cUxPVEhaUkUwangxSlNfLXl4YWpYRXU3OWVCOExhWGNFMFowNHpBQlVpOTdNT1FMV2xManFkX0YxRG1KSGd0SUNsbDk5XzdMWnhYZlFYVVdrc0ZETkJjLXBTXzZLSTRKaFdyMml4ZmptWXdDTXNvTk1oblU0UVBPcHU4Sk5NRFM1dV9DdG1kR2gxY2Jaa2xjNGlzNkRtN0hPamJweFE?oc=5) - Cheesehead TV
 - [Green Bay Packers Make Decision on $77 Million Starter Ahead of Vikings Opener](https://news.google.com/rss/articles/CBMihAFBVV95cUxPbFZYNUhSVzZ3bndXYnhxZktRdDFCNFlFTXRSWlNnYVk5cy1UdWhYODlNV3VVMndZR1pwMjVfSnhMVEZEcGtuTGdVejRlVFRPWl81TEg3c0lJQVZFc1R1NHJVdlZUUUdrSjFTSFVQeGx3Q0tfd2RCa0NZdWpFdi1OMm9HdmI?oc=5) - sports.yahoo.com
-- [Packers Film Review: TE Mark Redman](https://news.google.com/rss/articles/CBMipAFBVV95cUxNVWliV2lXTjV2WS1BYmpxTTV1cjBBZHBEQ0dubmdySG9jUGU2UkFZMDhTQ3VjWGlKazNWYk92VVcxWG1nX0g2QjVRT3lxWUVURGFkS3ZWN3pvMGhfT19KWWxBOU1jQVBYaVl5RUpxelJTQ2ZvejBLcXBNU3dtM3dxRlF0QkcteFFsT3JreTdzQjVra3Byd2dVdTB6VG5NWXptWm0wTw?oc=5) - Acme Packing Company
 - [Green Bay Packers 2026 NFL Playoff Simulator](https://news.google.com/rss/articles/CBMiuAFBVV95cUxNX2IzS0JOZ1hqUlNXQkRhakFneFMydXVsUHY3ajg0QnZEMXhJS2VUUWF4WTdGbVlrX2ZDM0dDblVMQnFFV3dnbmpNbDRTc1hOMm5LR2hiVlZDZ19yelEwZUlnR1h3blo0RnZXVmU2Um5EbHJZeFMyeVV0cktOcVF2MVRfYXcwblhwa3VpaDFQY2F6RmdSNW01RG1sTjZUb3JGOC1RU2FIX0JlNGJ4WDFocU42aTBaXzg1?oc=5) - The New York Times
 
 ## Dallas Vintage Sports Tees
