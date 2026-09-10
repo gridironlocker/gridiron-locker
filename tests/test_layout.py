@@ -737,7 +737,6 @@ class Homepage(unittest.TestCase):
         self.assertIn("Football. Fans. Culture.", hero)
         self.assertIn('<h1 class="hero-title">', hero)
         self.assertEqual(self.html.count("<h1"), 1)          # exactly one H1
-        self.assertIn("Keep it.", hero)
         self.assertIn("Original fan-made apparel for the teams we love.", hero)
         self.assertIn("Four cities. Four fanbases. One locker.", hero)
         self.assertIn("Shop By Team", hero)
@@ -747,6 +746,15 @@ class Homepage(unittest.TestCase):
         self.assertRegex(hero, r"\d+ fan designs")
         self.assertIn("S&ndash;3XL", hero)
         self.assertIn("Worldwide shipping", hero)
+        # ONE headline voice: the block must not restate the poster's brushwork
+        # under itself. "Keep it." (a marker-font second headline with a yellow
+        # slash) used to sit there, copying the "FOOTBALL LIVES HERE" painted in
+        # the artwork above it. The yellow survives only as .hero-rule.
+        self.assertNotIn("hero-brush", hero)
+        self.assertNotIn("hero-brush", self.css)
+        self.assertNotIn("Keep it.", hero)
+        self.assertIn('class="hero-rule"', hero)
+        self.assertEqual(hero.count("<h1"), 1)
         # the hero headline is visible text (crawlable), not sr-only
         self.assertIn("position:absolute", css_block(self.css, ".sr-only"))
         # the band keeps the artwork's native ratio, so the poster never crops
@@ -765,6 +773,91 @@ class Homepage(unittest.TestCase):
         self.assertIn(".cbanner.home .cb-in{padding:20px 16px 24px}", mob)
 
     # --------------------------------------------------------- funnel order
+    def test_hero_copy_block_is_one_centred_statement(self):
+        # The block under the poster used to fight itself: three headline-ish
+        # rows, and two rules for .hero-title in two different parts of the
+        # stylesheet, so whichever came later sized the H1. One scoped block
+        # owns the copy now, and the type scale is stated exactly once.
+        hero_css = between(self.css, "HERO COPY BLOCK", "Section head tools")
+        for sel in (".cbanner.home .hero-copy", ".cbanner.home .hero-kicker",
+                    ".cbanner.home .hero-title", ".cbanner.home .hero-sub",
+                    ".cbanner.home .hero-cta", ".cbanner.home .hero-facts"):
+            self.assertIn(sel + "{", hero_css, sel)
+        # centred, one column, capped measure
+        self.assertIn("align-items:center", css_block(self.css, ".cbanner.home .hero-copy"))
+        self.assertIn("text-align:center", css_block(self.css, ".cbanner.home .hero-copy"))
+        # the ONLY rules that size the home H1: the banner block above keeps its
+        # collection-title defaults and must not also carry home-hero sizing,
+        # which is how two halves of the file ended up fighting over the block.
+        banner_css = between(self.css, "COLLECTION / PAGE BANNER", "COUNTDOWN BAR")
+        for sel in (".cbanner.home .hero-title", ".cbanner.home .hero-sub",
+                    ".cbanner.home .hero-kicker", ".cbanner.home .btnrow"):
+            self.assertNotIn(sel, banner_css, sel)
+        self.assertIn(".cbanner.home .cb-in{padding:24px 16px 28px}", banner_css)
+        # the two CTAs are a matched pair that cannot overflow a phone
+        cta = css_block(self.css, ".cbanner.home .hero-cta")
+        self.assertIn("justify-content:center", cta)
+        self.assertIn("white-space:nowrap", css_block(self.css, ".cbanner.home .hero-cta .btn"))
+        mob = media_rules(self.css, 560)
+        self.assertIn(".cbanner.home .hero-cta .btn{flex:1 1 0;min-width:0", mob)
+
+    def test_moving_bars_actually_move(self):
+        """Both ticker bars are real marquees, not wrapped static lists.
+
+        The bars used to scroll. When the keyframes were deleted the tracks kept
+        `flex-wrap:wrap`, so each bar became a ragged paragraph of keywords that
+        never moved - "the moving bars not moving and ruined". They must:
+          * animate the track with a keyframe ending at -50% (the track holds
+            the real items plus an identical aria-hidden clone, so -50% loops
+            with no seam and no jump),
+          * carry a --dur measured from their own content, so a short keyword
+            list does not sprint and a wall of headlines does not crawl,
+          * stay on one line, with items that cannot wrap or shrink,
+          * pause on hover/focus so a headline can be clicked, not chased,
+          * degrade to a plain horizontal scroll, clone hidden, when the
+            visitor has asked for reduced motion.
+        """
+        track = css_block(self.css, ".ticker .track,.newsticker .track")
+        self.assertIn("animation:tickmove var(--dur,34s) linear infinite", track)
+        self.assertIn("flex-wrap:nowrap", track)
+        self.assertNotIn("flex-wrap:wrap", track)
+        self.assertIn("@keyframes tickmove", self.css)
+        self.assertIn("translate3d(-50%,0,0)", self.css)
+        self.assertIn("animation-play-state:paused", self.css)
+        for sel in (".ticker i", ".newsticker i"):
+            self.assertIn("white-space:nowrap", css_block(self.css, sel), sel)
+            self.assertIn("flex:none", css_block(self.css, sel), sel)
+        self.assertIn(".tk-clone{display:none}", self.css)   # reduced-motion fallback
+
+    def test_moving_bars_carry_a_seamless_track(self):
+        for rel, cls in (("index.html", "newsticker"),
+                         (f"{COLLECTIONS['cleveland-browns']['slug']}/index.html", "ticker")):
+            html = page(rel)
+            bar = re.search(r'<div class="%s">(.*?)</div></div>' % cls, html, re.S)
+            self.assertTrue(bar, f"{rel}: {cls} bar missing")
+            track = bar.group(1)
+            self.assertEqual(track.count('<div class="track"'), 1, rel)
+            m = re.search(r'<div class="track" style="--dur:(\d+\.\d)s">', track)
+            self.assertTrue(m, f"{rel}: track needs an inline --dur")
+            self.assertLess(10.0, float(m.group(1)), rel)
+            self.assertGreater(300.0, float(m.group(1)), rel)
+            # exactly one clone, marked presentational
+            self.assertEqual(track.count('<span class="tk-clone" aria-hidden="true">'), 1, rel)
+            run, _, clone = track.partition('<span class="tk-clone"')
+            self.assertEqual(len(re.findall(r"<i\b", run)), len(re.findall(r"<i\b", clone)),
+                             f"{rel}: clone must repeat every term for a seamless loop")
+            self.assertIn("<i", clone, rel)
+
+    def test_news_bar_clone_carries_no_links(self):
+        # The readable bar links out to the news sources; the loop's clone is
+        # visual only, so no term is duplicated in the tab order or in the
+        # outbound links of the page.
+        news = re.search(r'<div class="newsticker">(.*?)</div></div>', self.html, re.S).group(1)
+        run, _, clone = news.partition('<span class="tk-clone"')
+        self.assertIn("<a ", run)
+        self.assertNotIn("<a ", clone)
+        self.assertNotIn("href", clone)
+
     def test_product_first_funnel_order(self):
         markers = [
             '<section class="cbanner home"',      # brand

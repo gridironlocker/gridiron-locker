@@ -90,8 +90,9 @@ code{font-size:.85em;background:var(--bg3);padding:1px 6px;border-radius:5px;col
 
 :focus-visible{outline:2px solid var(--ink);outline-offset:2px}
 
-/* Motion: only a soft fade-up on first paint. Everything else
-   (ken burns, shine, floaty, hover lift, marquees) is gone. */
+/* Motion: a soft fade-up on first paint, plus the two ticker bars' marquee
+   (see TICKERS). Nothing else moves - no ken burns, shine, floaty or hover
+   lift; the page earns its motion by showing live copy, not by wobbling. */
 .reveal{opacity:1}
 /* `.pre` is added by app.js at runtime: content stays fully visible when JS is
    disabled, blocked or fails to load. The fade-up only ever hides elements
@@ -230,20 +231,16 @@ body.has-mobshop{padding-bottom:56px}
 @media(min-width:760px){
   .cbanner.compact .cb-in{padding:16px 16px 18px}
 }
-/* Homepage variant: the same band and the same copy block, but the brand
-   statement is the page's H1, so it runs bigger than a collection title. */
-.cbanner.home .cb-in{padding:26px 16px 30px}
-.cbanner.home .hero-title{font-size:clamp(2.2rem,6vw,3.6rem);letter-spacing:.005em;
-  margin-bottom:0}
-.cbanner.home .hero-sub{font-size:1.02rem;color:var(--ink2);max-width:52ch;
-  margin:12px 0 0;line-height:1.6}
-.cbanner.home .btnrow{margin-top:18px}
+/* Homepage variant: the same band, and the brand statement under it sized in
+   the HERO COPY BLOCK further down. Only the vertical rhythm of the copy box
+   is page-specific here, so there is exactly one rule per declaration and the
+   two blocks can never fight over the headline. */
+.cbanner.home .cb-in{padding:24px 16px 28px}
 @media(min-width:760px){
-  .cbanner.home .cb-in{padding:30px 16px 36px}
+  .cbanner.home .cb-in{padding:36px 16px 42px}
 }
 @media(max-width:560px){
   .cbanner.home .cb-in{padding:20px 16px 24px}
-  .cbanner.home .hero-brush{font-size:clamp(1.5rem,8vw,1.9rem)}
 }
 
 /* ============ COUNTDOWN BAR ============ */
@@ -313,28 +310,67 @@ section{padding:clamp(30px,4.5vw,52px) 0}
 @media(max-width:1000px){.wkgrid{grid-template-columns:repeat(2,1fr)}}
 @media(max-width:560px){.wkgrid{grid-template-columns:1fr}}
 
-/* ============ TICKERS ============
-   Each term is rendered once - no duplicated copy for a marquee loop. The
-   strips wrap cleanly, so a visitor (and any crawler) reads every keyword
-   exactly once. */
-.ticker{overflow:hidden;border-top:1px solid var(--line);border-bottom:1px solid var(--line);
-  background:var(--bg2);padding:10px 0;position:relative}
-.ticker .track{display:flex;flex-wrap:wrap;row-gap:4px}
+/* ============ TICKERS - the moving bars ============
+   Two marquee strips share one animation:
+     .ticker      - keyword bar under a collection hero
+     .newsticker  - live headline bar above the homepage footer
+   build.py writes the real items and then an aria-hidden clone of exactly the
+   same items into one track, and the track translates -50%: the loop has no
+   seam and no jump, and the bar is a single line of text instead of a wrapped
+   paragraph (the "ruined" look it had when the loop was removed but the
+   wrapping markup was left behind).
+   The clone is presentational only - assistive tech, the tab order and the
+   outbound links each see every term once, because the clone is aria-hidden
+   and carries no anchors.
+   --dur is written inline by build.py from the length of the text, so both bars
+   travel at a constant, readable speed instead of sprinting when the list is
+   short. Hover or focus parks the bar so a headline can be clicked, not chased. */
+.ticker,.newsticker{position:relative;overflow:hidden;
+  border-top:1px solid var(--line);border-bottom:1px solid var(--line);
+  -webkit-mask-image:linear-gradient(90deg,transparent,#000 44px,#000 calc(100% - 44px),transparent);
+  mask-image:linear-gradient(90deg,transparent,#000 44px,#000 calc(100% - 44px),transparent)}
+.ticker{background:var(--bg2);padding:9px 0}
+.newsticker{background:#fff;padding:12px 0}
+.ticker .track,.newsticker .track{display:flex;align-items:center;flex-wrap:nowrap;width:max-content;
+  animation:tickmove var(--dur,34s) linear infinite;will-change:transform}
+.ticker:hover .track,.ticker:focus-within .track,.newsticker:hover .track,
+.newsticker:focus-within .track{animation-play-state:paused}
+.tk-clone{display:inline-flex;align-items:center}
+@keyframes tickmove{
+  from{transform:translate3d(0,0,0)}
+  to{transform:translate3d(-50%,0,0)}
+}
+/* Items never wrap or shrink: the track is sized by its content, so one term
+   breaking onto a second line would desynchronise the whole loop. */
 .ticker i{font-style:normal;font-weight:600;letter-spacing:.06em;font-size:.76rem;color:var(--muted);
-  display:inline-flex;align-items:center;gap:12px;text-transform:uppercase;padding:2px 16px 2px 0}
+  display:inline-flex;align-items:center;gap:12px;text-transform:uppercase;padding:2px 16px 2px 0;
+  white-space:nowrap;flex:none}
 .ticker i:after{content:'';width:4px;height:4px;border-radius:99px;background:var(--line2);
-  display:inline-block}
+  display:inline-block;flex:none}
 .ticker i.hot{color:var(--ca-ink)}
 
-.newsticker{overflow:hidden;border-top:1px solid var(--line);border-bottom:1px solid var(--line);
-  background:#fff;padding:13px 0;position:relative}
-.newsticker .track{display:flex;flex-wrap:wrap;row-gap:8px}
-.newsticker a{color:inherit;display:inline-flex;align-items:center}
+.newsticker a{color:inherit;display:inline-flex;align-items:center;flex:none}
 .newsticker i{font-style:normal;font-weight:500;font-size:.92rem;color:var(--ink2);
-  display:inline-flex;align-items:center;gap:14px;line-height:1.4;padding:2px 20px 2px 0}
-.newsticker i:after{content:'';width:4px;height:4px;border-radius:99px;background:var(--line2)}
+  display:inline-flex;align-items:center;gap:14px;line-height:1.4;padding:2px 20px 2px 0;
+  white-space:nowrap;flex:none}
+.newsticker i:after{content:'';width:4px;height:4px;border-radius:99px;background:var(--line2);
+  flex:none}
 .newsticker i.hot{color:var(--ink);font-weight:600}
 .newsticker a:hover i{color:var(--ca-ink)}
+/* on a phone the same 44px fade would eat a third of the bar, so it shortens */
+@media(max-width:560px){
+  .ticker,.newsticker{
+    -webkit-mask-image:linear-gradient(90deg,transparent,#000 18px,#000 calc(100% - 18px),transparent);
+    mask-image:linear-gradient(90deg,transparent,#000 18px,#000 calc(100% - 18px),transparent)}
+}
+@media (prefers-reduced-motion:reduce){
+  /* The site-wide `animation:none` stops the loop, which would leave the items
+     past the right edge unreachable. So for these two bars the fallback is a
+     plain horizontal scroll of the real items, with the clone dropped. */
+  .ticker,.newsticker{overflow-x:auto;scrollbar-width:thin;-webkit-mask-image:none;mask-image:none}
+  .ticker .track,.newsticker .track{padding:0 16px}
+  .tk-clone{display:none}
+}
 
 /* =============================================================
    TEAM PORTRAIT - the team logo mark masked to a circle
@@ -876,32 +912,55 @@ footer .logo{color:var(--ink)}
 #hero,#shop-by-team,#shop-the-locker,#trending,#season,#guides,#custom-design,#newsletter{
   scroll-margin-top:130px}
 
-/* ---- HERO COPY BLOCK: the brand statement under the home band ---- */
-.hero-copy{position:relative;z-index:1;align-self:center;padding:6px 0}
-.hero-kicker{display:block;font-size:clamp(.74rem,1.1vw,.86rem);font-weight:800;
-  letter-spacing:.22em;text-transform:uppercase;color:var(--ink2);margin-bottom:14px}
-.hero-title{font-family:var(--display);font-weight:400;font-synthesis-weight:none;font-size:clamp(3rem,6.6vw,5.6rem);
-  line-height:.9;letter-spacing:.01em;text-transform:uppercase;color:var(--ink);margin:0}
-.hero-title .up{color:var(--ink)}
-.hero-brush{display:inline-block;font-family:var(--brush);font-size:clamp(1.7rem,3.8vw,3.1rem);
-  color:#111418;transform:rotate(-2deg);margin:.14em 0 .18em;position:relative;line-height:1;
-  text-transform:uppercase;letter-spacing:.02em}
-/* the painted stroke under "Keep it." - the reference artwork's yellow slash */
-.hero-brush:after{content:'';position:absolute;left:-.06em;right:-.02em;bottom:.02em;height:.34em;
-  background:#F2B01E;opacity:.85;transform:skewX(-14deg);border-radius:45% 55% 50% 50%;z-index:-1}
-.hero-sub{max-width:44ch;color:var(--ink2);font-size:1rem;line-height:1.6;margin:14px 0 0}
-.hero-facts{display:flex;flex-wrap:wrap;gap:8px 26px;margin-top:20px;padding-top:16px;
-  border-top:1px solid var(--line);font-size:.72rem;font-weight:800;letter-spacing:.08em;
-  text-transform:uppercase;color:var(--muted)}
-.hero-facts span{position:relative}
-.hero-facts span+span:before{content:'';position:absolute;left:-15px;top:50%;width:4px;height:4px;
-  border-radius:99px;background:var(--line2);transform:translateY(-50%)}
+/* ---- HERO COPY BLOCK: the brand statement under the home band ----
+   One column, one axis, centred under a centred poster: eyebrow -> display
+   H1 -> the poster's yellow as a single rule -> one line of sub-copy -> two
+   matched CTAs -> a hairline of live facts. Nothing in it repeats what the
+   artwork already says, which is what the old brushed "Keep it." line did.
+
+   Every rule is scoped to .cbanner.home on purpose: .cbanner h1 and
+   .cbanner .hero-title in the banner block above already match this H1 (they
+   size the collection-page titles) and an unscoped .hero-title would lose that
+   cascade fight, leaving the homepage headline at collection size - the exact
+   way this block got quietly mangled before. */
+.cbanner.home .hero-copy{position:relative;z-index:1;display:flex;flex-direction:column;
+  align-items:center;text-align:center;max-width:820px;margin:0 auto;padding:0}
+.cbanner.home .hero-kicker{display:inline-flex;align-items:center;gap:10px;
+  font-size:.76rem;font-weight:800;letter-spacing:.22em;text-transform:uppercase;
+  color:var(--muted);margin:0 0 14px}
+/* hairlines either side so the line reads as a label, not a lost sentence */
+.cbanner.home .hero-kicker:before,.cbanner.home .hero-kicker:after{content:'';flex:none;
+  width:22px;height:2px;background:var(--line2)}
+.cbanner.home .hero-title{font-family:var(--display);font-weight:400;font-synthesis-weight:none;
+  font-size:clamp(2.5rem,7vw,4.2rem);line-height:.94;letter-spacing:.02em;text-transform:uppercase;
+  color:var(--ink);margin:0}
+/* the poster's yellow slash, quoted once, as a rule under the headline */
+.cbanner.home .hero-rule{display:block;width:clamp(64px,9vw,104px);height:6px;margin:16px auto 0;
+  background:#F2B01E;border-radius:3px;transform:skewX(-16deg)}
+/* 54ch is measured to the copy itself: the first sentence is 48 characters, so
+   the manual <br> is what splits the two lines instead of an awkward ragged
+   wrap under a centred headline. */
+.cbanner.home .hero-sub{max-width:54ch;margin:16px 0 0;color:var(--ink2);font-size:1.02rem;
+  line-height:1.6}
+/* The two CTAs are one pair: same height, same padding, equal widths when
+   they have to share a line. flex-basis:0 + nowrap text means they split the
+   row evenly and can never push the page sideways on a narrow phone. */
+.cbanner.home .hero-cta{justify-content:center;gap:12px;margin-top:24px}
+.cbanner.home .hero-cta .btn{white-space:nowrap}
+.cbanner.home .hero-facts{display:flex;justify-content:center;flex-wrap:wrap;gap:8px 26px;
+  width:100%;max-width:520px;margin:26px auto 0;padding-top:16px;border-top:1px solid var(--line);
+  font-size:.72rem;font-weight:800;letter-spacing:.08em;text-transform:uppercase;color:var(--muted)}
+.cbanner.home .hero-facts span{position:relative}
+.cbanner.home .hero-facts span+span:before{content:'';position:absolute;left:-15px;top:50%;
+  width:4px;height:4px;border-radius:99px;background:var(--line2);transform:translateY(-50%)}
 @media(max-width:920px){
-  .hero-sub{max-width:none}
+  .cbanner.home .hero-sub{max-width:none}
 }
 @media(max-width:560px){
-  .hero-facts{gap:6px 16px;font-size:.66rem}
-  .hero-facts span+span:before{display:none}
+  .cbanner.home .hero-cta{flex-direction:row;gap:10px}
+  .cbanner.home .hero-cta .btn{flex:1 1 0;min-width:0;padding:13px 12px;font-size:.85rem}
+  .cbanner.home .hero-facts{gap:6px 16px;font-size:.66rem;max-width:none}
+  .cbanner.home .hero-facts span+span:before{display:none}
 }
 
 /* ---- Section head tools (rail arrows + link) ---- */
