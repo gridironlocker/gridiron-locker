@@ -186,9 +186,13 @@ jobs:
         # The steps above verified the build; this verifies the deploy - the
         # site as a customer sees it, over HTTPS, seconds after Pages went
         # live. Same checker as the "Daily site health check" workflow, which
-        # also runs it on its own schedule and on demand. It never blocks
-        # publishing (the store is already live by now), but a failure
-        # annotates the run instead of waiting for someone to notice.
+        # also runs it on its own schedule and on demand.
+        #
+        # continue-on-error keeps the publish steps (already done) untouched
+        # and lets the run reach the gate below, which is what actually marks
+        # the run failed - so "the deploy went out" and "the deploy is
+        # healthy" are separate, legible answers.
+        id: livecheck
         continue-on-error: true
         run: |
           python3 ops/health_check.py --base https://gridironlocker.store | tee live-health.txt
@@ -197,12 +201,31 @@ jobs:
         if: always()
         run: |
           {
-            echo "### Live site health check (post-deploy)"
+            echo "### Live site health check (post-deploy): ${{ steps.livecheck.outcome }}"
             echo
             echo '```'
             tail -n 30 live-health.txt 2>/dev/null || echo "check did not run"
             echo '```'
           } >> "$GITHUB_STEP_SUMMARY"
+
+      - name: Keep the live health report
+        if: always()
+        uses: actions/upload-artifact@v4
+        with:
+          # The outcome is in the name so the verdict is readable from the
+          # run's artifact list without downloading anything.
+          name: live-health-${{ steps.livecheck.outcome || 'not-run' }}
+          path: live-health.txt
+          if-no-files-found: ignore
+
+      - name: Live health gate
+        # A red run here means one thing: the site published, and the live
+        # check found something wrong with it. Nothing is rolled back - the
+        # store is already live - so this is a "go look now" signal.
+        if: steps.livecheck.outcome == 'failure'
+        run: |
+          echo "::error::The live site failed its post-deploy health check. See the step log above."
+          exit 1
 
       - name: Upload trend report
         uses: actions/upload-artifact@v4
