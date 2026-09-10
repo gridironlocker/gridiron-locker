@@ -36,7 +36,8 @@ The website is a ranking engine; Viralstyle is the fulfillment + payment layer.
 gridiron-locker/
 ├── .github/workflows/
 │   ├── deploy.yml        # publishes ./site to GitHub Pages on push to main
-│   └── refresh.yml       # daily automation (see §6)
+│   ├── refresh.yml       # daily automation (see §6)
+│   └── health-check.yml  # daily check of the LIVE site (ops/health_check.py)
 ├── site/                 # the generated storefront (deployed as-is)
 │   ├── *.html            # 158 pages: home, collections, 134 products, guides, trust pages
 │   └── img/              # 1,019 self-hosted images (1,011 product + hero/lifestyle)

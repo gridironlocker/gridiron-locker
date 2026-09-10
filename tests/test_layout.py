@@ -18,6 +18,10 @@ Covered:
     panels, team-specific ticker, <= 3 Fan Trend Index rows, 2-col mobile grid,
     description kept below the products.
   * Countdowns outside collection pages are unchanged.
+  * Homepage hero: the approved 2048:768 poster shown whole as a band (the same
+    band component, ratio and image the collection pages use), with the
+    editorial copy block - crawlable <h1>, CTAs, live catalogue facts - beneath
+    it, so the artwork is never cropped and never restated in text.
   * Homepage: rounded horizontal "Shop By Team" nav cards with circular
     logo thumbnails (2 desktop / 1 mobile), no "Why this locker", compact four-entry
     Fan Trend Index strip; the full index page still lists everything.
@@ -43,6 +47,7 @@ from html import unescape
 ROOT = os.path.dirname(os.path.dirname(os.path.abspath(__file__)))
 SITE = os.path.join(ROOT, "site")
 SRC = os.path.join(ROOT, "src")
+IMG = os.path.join(SITE, "img")
 sys.path.insert(0, SRC)
 
 from collections_data import COLLECTIONS, ORDER  # noqa: E402
@@ -228,33 +233,26 @@ class TeamCollectionPages(unittest.TestCase):
             self.assertTrue(after.startswith('<div class="ticker">'),
                             f"{k}: ticker must immediately follow the hero")
         comp = css_block(self.css, ".cbanner.compact .band")
-        self.assertIn("aspect-ratio:1933/813", comp)
+        # the compact band inherits the set's one ratio; only the copy tightens
+        self.assertNotIn("aspect-ratio", comp)
 
     def test_hero_bands_are_uncropped(self):
-        # The homepage hero is now an editorial HTML/text collage. The
-        # collection banner bands still match their real art's native ratio
-        # (home poster 1983x793, teams 1933x813) at every breakpoint so the
-        # full banner shows and none of them get cropped to a 16:9 box or a
-        # wide strip.
+        # Every banner in the set - the home poster and the four team banners -
+        # is 2048x768, so one ratio locks the band at every breakpoint and the
+        # full artwork shows: no cropping to a 16:9 box, no wide strips, and no
+        # per-page ratio overrides left to drift.
         base = css_block(self.css, ".cbanner .band")
-        self.assertIn("aspect-ratio:1983/793", base)
-        comp = css_block(self.css, ".cbanner.compact .band")
-        self.assertIn("aspect-ratio:1933/813", comp)
-        # /drops/ shows the home poster inside the compact layout, so it keeps
-        # the home ratio instead of the team one.
-        self.assertIn("aspect-ratio:1983/793",
-                      css_block(self.css, ".cbanner.compact.homeband .band"))
-        # the home page now uses the HTML hero + one cinematic art panel;
-        # /drops/ + team pages keep the full banner bands
-        self.assertRegex(page("index.html"), r'<section class="hero editorial"')
-        self.assertRegex(page("index.html"), r'class="hero-art"')
-        self.assertRegex(page("drops/index.html"),
-                         r'<div class="band"><img\b[^>]*width="1983" height="793"')
+        self.assertIn("aspect-ratio:2048/768", base)
+        for html, name in ((page("index.html"), "home"), (page("drops/index.html"), "drops")):
+            self.assertRegex(html,
+                             r'<div class="band"><img\b[^>]*width="2048" height="768"', name)
         for k, html in self.pages.items():
             self.assertRegex(html,
-                             r'<div class="band"><img\b[^>]*width="1933" height="813"', k)
-        for ratio in ("16/9", "32/9", "21/9", "5/1"):
+                             r'<div class="band"><img\b[^>]*width="2048" height="768"', k)
+        # the superseded ratios and the /drops/ ratio override are gone
+        for ratio in ("16/9", "32/9", "21/9", "5/1", "1983/793", "1933/813"):
             self.assertNotIn(f"aspect-ratio:{ratio}", self.css, ratio)
+        self.assertNotIn("homeband", self.css)
 
     def test_trust_in_product_zone_then_description_news_trends(self):
         for k, html in self.pages.items():
@@ -647,18 +645,44 @@ class ArtworkHygiene(unittest.TestCase):
         pngs = [f for f in os.listdir(img) if f.lower().endswith(".png")]
         self.assertEqual(pngs, [], pngs)
         self.assertTrue(os.path.isdir(os.path.join(ROOT, "artwork-source")))
-        home = "/img/hero-home.jpg?v=4"          # swapped 2026-09-08
+        home = "/img/hero-home.jpg?v=5"          # repostered 2026-09-10
         heroes = [home] + [COLLECTIONS[k]["hero"] for k in ORDER]
-        self.assertTrue(home.endswith("?v=4"), home)
-        for k in ORDER:                          # team banners unchanged
-            self.assertTrue(COLLECTIONS[k]["hero"].endswith("?v=3"), COLLECTIONS[k]["hero"])
+        self.assertTrue(home.endswith("?v=5"), home)
+        for k in ORDER:                          # team banners repostered too
+            self.assertTrue(COLLECTIONS[k]["hero"].endswith("?v=4"), COLLECTIONS[k]["hero"])
         for url in heroes:
             hero = os.path.join(SITE, url.lstrip("/").split("?")[0])
             self.assertTrue(os.path.isfile(hero), hero)
             self.assertLess(os.path.getsize(hero), 750 * 1024, hero)
-        # the home poster's PNG master is archived, never deployed
-        self.assertTrue(os.path.isfile(
-            os.path.join(ROOT, "artwork-source", "gridironlocker-hero-image1.png")))
+        # the PNG masters of the current set are archived, never deployed
+        for master in ("gridironlocker-hero-image2.png", "Cleveland browns banner2.png",
+                       "Dallas cowboys banner2.png", "green bay banner2.png",
+                       "Mich banner2.png"):
+            self.assertTrue(os.path.isfile(
+                os.path.join(ROOT, "artwork-source", master)), master)
+        # ...and the retired crops from the previous set are no longer shipped
+        for dead in ("hero-locker.jpg", "hero-locker-sm.jpg"):
+            self.assertFalse(os.path.exists(os.path.join(IMG, dead)), dead)
+
+    def test_team_card_crops_hold_no_painted_headline(self):
+        # The square homepage team cards are crops of the team banners. Every
+        # caption in the set is painted into the left ~1030px, so the crop box
+        # must start at or right of x=1280: otherwise a card repeats the
+        # headline its own HTML type already carries.
+        src = read(os.path.join(SRC, "crop_art.py"))
+        box = re.search(r"CROP\s*=\s*\((\d+),\s*(\d+),\s*(\d+),\s*(\d+)\)", src)
+        self.assertIsNotNone(box, "crop_art.py must define a single CROP box")
+        x0, y0, x1, y1 = (int(v) for v in box.groups())
+        self.assertGreaterEqual(x0, 1280, "crop must clear the painted caption")
+        self.assertEqual((y0, y1), (0, 768), "crop must span the artwork's full height")
+        self.assertEqual(x1, 2048, "crop must reach the right edge of the banner")
+        cards = {"cleveland-browns": "team-cleveland.jpg",
+                 "green-bay-packers": "team-greenbay.jpg",
+                 "dallas-cowboys": "team-dallas.jpg",
+                 "michigan": "team-michigan.jpg"}
+        for k in ORDER:
+            art = os.path.join(SITE, "img", cards[k])
+            self.assertTrue(os.path.isfile(art), art)
 
 
 class Homepage(unittest.TestCase):
@@ -688,7 +712,7 @@ class Homepage(unittest.TestCase):
             self.assertNotIn(marker, self.css, marker)
 
     def test_header_keeps_every_shopping_destination_and_search(self):
-        nav = between(self.html, '<nav class="links"', "</nav>")
+        nav = between(self.html, '<nav class="menubar"', "</nav>")
         for href in ["./collections/"] + [f'./{COLLECTIONS[k]["slug"]}/' for k in ORDER] \
                 + ["./drops/", "./guides/"]:
             self.assertIn(f'href="{href}"', nav, href)
@@ -698,8 +722,18 @@ class Homepage(unittest.TestCase):
         self.assertIn('id="ms"', self.html)
 
     # ------------------------------------------------------------------ hero
-    def test_hero_is_split_editorial_plus_cinematic_art(self):
-        hero = between(self.html, '<section class="hero editorial"', "</section>")
+    def test_hero_is_the_whole_poster_plus_a_copy_block(self):
+        # The owner's poster is a finished wide piece of art whose wordmark and
+        # headline are painted into the pixels, so the homepage shows it whole
+        # (native 2048:768 band) instead of cropping it into a side panel, and
+        # puts its own crawlable headline in the copy block underneath.
+        hero = between(self.html, '<section class="cbanner home"', "</section>")
+        band = re.search(r'<div class="band"><img\b[^>]*>', hero).group(0)
+        self.assertIn("hero-home.jpg?v=5", band)
+        self.assertIn('width="2048" height="768"', band)
+        self.assertIn('fetchpriority="high"', band)
+        self.assertNotIn('loading="lazy"', band)
+        self.assertIn('alt="', band)
         self.assertIn("Football. Fans. Culture.", hero)
         self.assertIn('<h1 class="hero-title">', hero)
         self.assertEqual(self.html.count("<h1"), 1)          # exactly one H1
@@ -713,31 +747,27 @@ class Homepage(unittest.TestCase):
         self.assertRegex(hero, r"\d+ fan designs")
         self.assertIn("S&ndash;3XL", hero)
         self.assertIn("Worldwide shipping", hero)
-        # the LCP image is eager, prioritised and responsive - never lazy
-        art = re.search(r'<img class="hero-art"[^>]*>', hero).group(0)
-        self.assertIn('fetchpriority="high"', art)
-        self.assertNotIn('loading="lazy"', art)
-        self.assertIn("srcset=", art)
-        self.assertIn('width="1400"', art)
-        self.assertIn('alt="', art)
-        for name in ("hero-locker.jpg", "hero-locker-sm.jpg"):
-            f = os.path.join(SITE, "img", name)
-            self.assertTrue(os.path.isfile(f), name)
-            self.assertLess(os.path.getsize(f), 300 * 1024, name)
         # the hero headline is visible text (crawlable), not sr-only
         self.assertIn("position:absolute", css_block(self.css, ".sr-only"))
+        # the band keeps the artwork's native ratio, so the poster never crops
+        self.assertIn("aspect-ratio:2048/768", css_block(self.css, ".cbanner .band"))
+        # the home band reuses the collection band: no ratio of its own
+        self.assertNotIn("aspect-ratio", css_block(self.css, ".cbanner.home .band"))
 
     def test_hero_stays_short_enough_to_reveal_the_shop(self):
-        grid = css_block(self.css, ".hero-grid")
-        self.assertIn("min-height:min(78vh,660px)", grid)
-        mob = media_rules(self.css, 920)
-        self.assertIn(".hero-grid{grid-template-columns:1fr", mob)
-        self.assertIn(".hero-stage{order:-1}", mob)
+        # A 2048:768 band plus a compact copy block: on a phone the band is
+        # ~40vh and the copy is about one screen, so "Shop By Team" is one
+        # flick away.
+        band = css_block(self.css, ".cbanner .band")
+        self.assertNotIn("min-height", band)                 # never letterboxed
+        self.assertIn("aspect-ratio:2048/768", band)
+        mob = media_rules(self.css, 560)
+        self.assertIn(".cbanner.home .cb-in{padding:20px 16px 24px}", mob)
 
     # --------------------------------------------------------- funnel order
     def test_product_first_funnel_order(self):
         markers = [
-            '<section class="hero editorial"',   # brand
+            '<section class="cbanner home"',      # brand
             'class="shopbar"',                   # sticky shop nav (desktop)
             '<section class="teamdeck-sec"',     # which team?
             '<section class="lockersec"',        # Shop The Locker (products)
@@ -949,7 +979,7 @@ class Homepage(unittest.TestCase):
     # ------------------------------------------------------------------- SEO
     def test_seo_and_hero_preserved(self):
         self.assertIn('<link rel="canonical" href="https://gridironlocker.store/">', self.html)
-        self.assertIn("hero-home.jpg?v=4", self.html)          # OG image unchanged
+        self.assertIn("hero-home.jpg?v=5", self.html)          # OG image = new poster
         self.assertIn('"@type":"WebSite"', self.html)
         self.assertIn('"@type":"Organization"', self.html)
         self.assertIn('"@type":"ItemList"', self.html)
@@ -1170,10 +1200,10 @@ NEW_ZERO_ONE_URLS = {
 }
 # Locked-in hero / logo URLs from current main - must never drift.
 HERO_LOGO_LOCK = {
-    "cleveland-browns": ("/img/hero-cleveland.jpg?v=3", "/img/browns-logo1.webp?v=1"),
-    "dallas-cowboys": ("/img/hero-dallas.jpg?v=3", "/img/dallas-logo1.webp?v=1"),
-    "green-bay-packers": ("/img/hero-greenbay.jpg?v=3", "/img/green-bay-logo1.webp?v=1"),
-    "michigan": ("/img/hero-michigan.jpg?v=3", "/img/michigan-logo1.webp?v=1"),
+    "cleveland-browns": ("/img/hero-cleveland.jpg?v=4", "/img/browns-logo1.webp?v=1"),
+    "dallas-cowboys": ("/img/hero-dallas.jpg?v=4", "/img/dallas-logo1.webp?v=1"),
+    "green-bay-packers": ("/img/hero-greenbay.jpg?v=4", "/img/green-bay-logo1.webp?v=1"),
+    "michigan": ("/img/hero-michigan.jpg?v=4", "/img/michigan-logo1.webp?v=1"),
 }
 
 

@@ -1,24 +1,15 @@
 #!/usr/bin/env python3
-"""Derive the homepage art crops from the approved Gridiron Locker banners.
+"""Derive the storefront's square team-card art from the approved team banners.
 
-The storefront artwork is authored as wide banners (1983x793 for the home
-poster, 1933x813 per team) with the brand lockup painted into the image. Those
-files are perfect for a full-width band on a collection page, but the homepage
-needs two other shapes:
+Every banner in the set is authored as a wide 2048x768 piece: the painted GL
+wordmark and the team headline sit on the left, the product photography runs
+across the right. The collection pages and /drops/ use those banners whole, as
+full-width bands, so nothing is ever cropped there.
 
-  * the hero's cinematic panel - the right-hand two thirds of the home poster
-    (hoodies, helmets, football, brush strokes, locker room) with the painted
-    "GEAR UP. KEEP IT." headline cropped away, because the homepage renders
-    that headline as real, crawlable HTML text next to it;
-  * the "Shop By Team" cards - a tall, product-led crop of each team banner
-    that deliberately excludes the painted "GRIDIRON LOCKER / CUSTOM APPAREL"
-    lockup, so four cards side by side do not repeat the same words four
-    times and the card's own HTML typography carries the message.
-
-Cropping (instead of shipping the full banners) is also the single biggest
-homepage performance win: the four team banners are ~350 KB each at 1933px
-wide but are painted into ~280px cards, so the browser used to download
-1.4 MB of artwork to render 4 thumbnails.
+The one place a banner cannot be used raw is the homepage "Shop By Team" deck,
+whose cards are square. This script cuts the product-led square on the right of
+each team banner - shirts, hoodies and helmets with no headline in frame, so
+four cards side by side do not repeat the same type four times.
 
 Nothing here invents artwork: every output is a crop + resize of an approved
 source file that already ships in site/img/. Re-run after replacing a banner:
@@ -32,27 +23,25 @@ from PIL import Image
 ROOT = os.path.dirname(os.path.dirname(os.path.abspath(__file__)))
 IMG = os.path.join(ROOT, "site", "img")
 
-# (source, crop box, output width, output name, jpeg quality)
-# Boxes are in source pixels. The team boxes stop at x=600 because the painted
-# lockup on every team banner starts at ~x=616.
+# (source, crop box, output size, output name, jpeg quality)
+# The boxes start at x=1280 because that is where every banner's painted
+# headline and support line have ended - the crop is pure product photography.
+CROP = (1280, 0, 2048, 768)
 JOBS = [
-    ("hero-home.jpg", (640, 0, 1983, 793), 1400, "hero-locker.jpg", 80),
-    ("hero-home.jpg", (640, 0, 1983, 793), 760, "hero-locker-sm.jpg", 78),
-    ("hero-cleveland.jpg", (0, 140, 600, 813), 620, "team-cleveland.jpg", 80),
-    ("hero-greenbay.jpg", (0, 140, 600, 813), 620, "team-greenbay.jpg", 80),
-    ("hero-dallas.jpg", (0, 140, 600, 813), 620, "team-dallas.jpg", 80),
-    ("hero-michigan.jpg", (0, 140, 600, 813), 620, "team-michigan.jpg", 80),
+    ("hero-cleveland.jpg", CROP, (640, 640), "team-cleveland.jpg", 82),
+    ("hero-greenbay.jpg", CROP, (640, 640), "team-greenbay.jpg", 82),
+    ("hero-dallas.jpg", CROP, (640, 640), "team-dallas.jpg", 82),
+    ("hero-michigan.jpg", CROP, (640, 640), "team-michigan.jpg", 82),
 ]
 
 
 def main():
-    for src, box, width, out, quality in JOBS:
+    for src, box, size, out, quality in JOBS:
         im = Image.open(os.path.join(IMG, src)).convert("RGB").crop(box)
-        height = round(width * im.height / im.width)
-        im = im.resize((width, height), Image.LANCZOS)
+        im = im.resize(size, Image.LANCZOS)
         path = os.path.join(IMG, out)
         im.save(path, quality=quality, optimize=True, progressive=True)
-        print(f"{out}: {width}x{height}  {os.path.getsize(path) // 1024} KB")
+        print(f"{out}: {size[0]}x{size[1]}  {os.path.getsize(path) // 1024} KB")
 
 
 if __name__ == "__main__":
