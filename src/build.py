@@ -1318,7 +1318,7 @@ def home_banner():
     <a class="btn lg" href="/collections/">Shop By Team &rarr;</a>
     <a class="btn ghost lg" href="/drops/">Trending Now &rarr;</a>
    </div>
-   <div class="hero-facts"><span>{n} fan designs</span><span>S&ndash;3XL</span><span>Worldwide shipping</span></div>
+   <div class="hero-facts"><span>{n} fan designs</span> <span>S&ndash;3XL</span> <span>Worldwide shipping</span></div>
   </div>
  </div>
 </section>"""
