@@ -9,17 +9,17 @@ FTI = `round(100 * entity_mentions / peak_mentions_in_window)`. Peak mentions in
 | Rank | Name | Collection | Mentions | FTI | Status | Shop |
 |---|---|---|---|---|---|---|
 | 1 | bryce underwood | michigan | 21 | 100 | trending | in locker |
-| 2 | shedeur sanders | cleveland-browns | 20 | 95 | trending | in locker |
-| 3 | deshaun watson | cleveland-browns | 19 | 90 | trending | gap — no design |
-| 4 | josh jacobs | green-bay-packers | 15 | 71 | trending | gap — no design |
-| 5 | jordan love | green-bay-packers | 6 | 29 | trending | in locker |
+| 2 | deshaun watson | cleveland-browns | 17 | 81 | trending | gap — no design |
+| 3 | shedeur sanders | cleveland-browns | 14 | 67 | trending | in locker |
+| 4 | josh jacobs | green-bay-packers | 12 | 57 | trending | gap — no design |
+| 5 | dak prescott | dallas-cowboys | 6 | 29 | trending | gap — no design |
 | 6 | kyle whittingham | michigan | 6 | 29 | trending | gap — no design |
-| 7 | todd monken | cleveland-browns | 5 | 24 | trending | gap — no design |
+| 7 | todd monken | cleveland-browns | 6 | 29 | trending | gap — no design |
 | 8 | ceedee lamb | dallas-cowboys | 4 | 19 | trending | gap — no design |
-| 9 | dak prescott | dallas-cowboys | 4 | 19 | trending | gap — no design |
-| 10 | matt lafleur | green-bay-packers | 4 | 19 | trending | gap — no design |
-| 11 | denzel ward | cleveland-browns | 2 | 10 | steady | in locker |
-| 12 | micah parsons | green-bay-packers | 2 | 10 | steady | in locker |
+| 9 | matt lafleur | green-bay-packers | 4 | 19 | trending | gap — no design |
+| 10 | micah parsons | green-bay-packers | 4 | 19 | trending | in locker |
+| 11 | denzel ward | cleveland-browns | 3 | 14 | trending | in locker |
+| 12 | jordan love | green-bay-packers | 2 | 10 | steady | in locker |
 | 13 | myles garrett | cleveland-browns | 2 | 10 | steady | in locker |
 | 14 | jj mccarthy | michigan | 0 | 0 | quiet | in locker |
 | 15 | joe flacco | cleveland-browns | 0 | 0 | quiet | in locker |
@@ -30,19 +30,18 @@ FTI = `round(100 * entity_mentions / peak_mentions_in_window)`. Peak mentions in
 ## Live player moments
 
 - **todd monken** — [Todd Monken names captains for Week 1 vs. Jaguars](https://news.google.com/rss/articles/CBMijgFBVV95cUxNTkVjOUZRTGRMNXFtRUdMZnFHSVViVkVKYVRJUGhoamVZUmhrektrZ2RwMllsck5UbmlLMDUyMlZ0N1FiejZYNEVCTTlqSGJydzVrYzk5eEkxQkVSYkN1WVcxY0steTh5bUJNU0hjUEhhamV2dlVZd2lHUWpDa2VSbkZGdFR2VGRwTnhpdkN3?oc=5) — Cleveland Browns
-- **shedeur sanders, deshaun watson, todd monken** — [How long before Todd Monken turns to Shedeur Sanders if Deshaun Watson struggles? Hey, Mary Kay!](https://news.google.com/rss/articles/CBMi1gFBVV95cUxPVDljdkxlQWhrdWYyRFBPNGw4RE81cmhrVlRQZDNvbGdVMnBENUluSEdUbTRoVW1wOXktUV9Qdndqc2tKeU1SekNRaXNTVkQ1SERuNnhQLU5fWXlZaTlZcmV2NEFPdDdzS0ZlRjFGWkM2ZTdnRlljNThvaUI5WU4ydnlXbjU2UWROckJlajZyZU1vTk9VU2ZCc2czQmJZdzJWTHB4MW5jclVnTnFoLU1POVFzY2lGZVVoN3JaVXRwMWVFLWEteU5NbWlzTUFpcFRZUFBycDhR0gHqAUFVX3lxTE1tZlBWUXpFeU9sSFFJc09GSGM4SlRNRWlGbXdOY3Z3TlZMNUJzX0MxbmtSRnJIN0FrNTZmeFRmWG9MbHZvcFU3X2tLNjhrMGVGNXFveU4wTjg2TUx5cVU5YkFISXdVc2ZxQ3F5SjVYMmkteThFWkw1WXVfdDlUZ3dsNkFfWFhFNXlGMjJ2R0hNczR4ckhNZUwtdFVLWDNPLUo3cTZWN2U0c2h4NWNnVWRWM2c3U3RGLXdfazFoMUdkbFgtNWlwSnpHRzV6WVViclEtVDZiT3dHR1ItWTVUd2c4SmhwdU9qNEV4UQ?oc=5) — Cleveland.com
-- **shedeur sanders** — [Browns legend states what Shedeur Sanders needs to fix](https://news.google.com/rss/articles/CBMipAFBVV95cUxNUm9iS25XWExiTnhzZmZlOHpDSkpkSXBEaEhzUEpvUThNdVI3UTB2dGxGXzhDaGtpaUdGMGdlR2c2SWlNek5oQ1U0bEVrekFHX2tuQlFjT2FpM0J1dlFwYmpJcG1LUFJwXzZWbjU3RUxkOVloaG11WXg0RzNIQUlMT1FYT3ZuVzRfb3dKT2JoTE10MnpzNUFkYkpFWmhpQjQxTm9TOQ?oc=5) — Dawgs By Nature
+- **deshaun watson** — [Why are the Browns starting Deshaun Watson? Here’s the deal – Terry Pluto](https://news.google.com/rss/articles/CBMitAFBVV95cUxNYldGdnhPWmM2VkUxQVlOQTJFYllycVJ3cG9BZXAtUTJhcWtXcS1nM2I0ZWV5Q25SNmRCcjZ6UmpMMTVDdHlEaW5ZazBSV0xubWViUXowRG9NRWV5VmtZSnRnNzZFRFc2WXFPaDJMRE5NMUJqR1NuYXJkOXo4S1hMZzFvTDZpUmJ2UGttU25fSFdtQXllX01VQUJjYzhrV29wTjh4STFrQWxrazdVc01fWFJlNFnSAcgBQVVfeXFMUFF0blVkMkgtdXJtdEtCWEJCbGpTX094N0F5OUJjTWR3R2pOeUxBQXlFUVk0ZTE4N1Fpd0xRdzJzbGhvSUZleVN5THl2OXZhQXE2RXhOVEpqVHJwbGlsRzdUdC1vU08yOVYxU085ejFaUWc1bnU0R25LMG10QndVTVRiV3FMTnBTUGJFc0pfU1BzekN4bUE0STZMejRKY050OFl5MlN2OGw1S0JmbURaX1V3ZEFocUd6eGo5eDZBeWN5MHV6RUlyakY?oc=5) — Cleveland.com
 - **bryce underwood** — [Michigan football eve: Final thoughts on Underwood, the defense, transfers](https://news.google.com/rss/articles/CBMixAFBVV95cUxNaUJXc0FYUFRkRnZPd1p3a3l5WklHamJsVXZQOHY4N0JKWWFPNHo4MllLMEJyS3ZXOFZtdG5Gb1N4ODBra2ZjRHYwTWxSeTJ4NDVqbzE1UzJrYVBfT0I0VFJQMzY1Vjh5ZHlBWHE1Y0NoUGl6dzQtRlA4Q1p1bHE5VnVyMkNheFhSSGF0Z3FZU3l5ZHhFUVRJUHlDVjgzUFhQakVXdXNsX0tab2FEOGNHRDd6enJ2czhXX0xSRWdoMnBydXgz0gHYAUFVX3lxTE1JYXhWOGs1S01KckpLUXRoVTJlM3JWem9McGw5d0RzSlBKNjhzVVJMSDROU1MzRFVtY2V3NEwwRXVxaVgxWmoyVmhWd1FUZmZCa2J2NUtZVm16Z1JrYzZ2MTZmdEstM25HMWxrLUdSaWR2NExLUTY2MS1iQ05pQW1VRkpoTEpqOHhLSG1MclFNZFJxQmhxN1ZxYWx5Z3F5SEYyZ09fUDZhY191WHhuNmktd3ZOSExpaEhWSmdTYzdvZjJUVjJiUDM1ODY0czJjcmRBYnZWbEhBUw?oc=5) — MLive.com
 
 ## Cleveland Browns Fan Shirts
 
 | Name | Headline mentions | Status | FTI |
 |---|---|---|---|
-| shedeur sanders | 20 | TRENDING | 95 |
-| deshaun watson | 19 | TRENDING | 90 |
-| todd monken | 5 | TRENDING | 24 |
+| deshaun watson | 17 | TRENDING | 81 |
+| shedeur sanders | 14 | TRENDING | 67 |
+| todd monken | 6 | TRENDING | 29 |
+| denzel ward | 3 | TRENDING | 14 |
 | myles garrett | 2 | steady | 10 |
-| denzel ward | 2 | steady | 10 |
 | joe flacco | 0 | quiet - throwback | 0 |
 | kevin stefanski | 0 | quiet - throwback | 0 |
 
@@ -50,40 +49,39 @@ FTI = `round(100 * entity_mentions / peak_mentions_in_window)`. Peak mentions in
 
 Live player moments:
 - **todd monken** — [Todd Monken names captains for Week 1 vs. Jaguars](https://news.google.com/rss/articles/CBMijgFBVV95cUxNTkVjOUZRTGRMNXFtRUdMZnFHSVViVkVKYVRJUGhoamVZUmhrektrZ2RwMllsck5UbmlLMDUyMlZ0N1FiejZYNEVCTTlqSGJydzVrYzk5eEkxQkVSYkN1WVcxY0steTh5bUJNU0hjUEhhamV2dlVZd2lHUWpDa2VSbkZGdFR2VGRwTnhpdkN3?oc=5) - Cleveland Browns
-- **shedeur sanders, deshaun watson, todd monken** — [How long before Todd Monken turns to Shedeur Sanders if Deshaun Watson struggles? Hey, Mary Kay!](https://news.google.com/rss/articles/CBMi1gFBVV95cUxPVDljdkxlQWhrdWYyRFBPNGw4RE81cmhrVlRQZDNvbGdVMnBENUluSEdUbTRoVW1wOXktUV9Qdndqc2tKeU1SekNRaXNTVkQ1SERuNnhQLU5fWXlZaTlZcmV2NEFPdDdzS0ZlRjFGWkM2ZTdnRlljNThvaUI5WU4ydnlXbjU2UWROckJlajZyZU1vTk9VU2ZCc2czQmJZdzJWTHB4MW5jclVnTnFoLU1POVFzY2lGZVVoN3JaVXRwMWVFLWEteU5NbWlzTUFpcFRZUFBycDhR0gHqAUFVX3lxTE1tZlBWUXpFeU9sSFFJc09GSGM4SlRNRWlGbXdOY3Z3TlZMNUJzX0MxbmtSRnJIN0FrNTZmeFRmWG9MbHZvcFU3X2tLNjhrMGVGNXFveU4wTjg2TUx5cVU5YkFISXdVc2ZxQ3F5SjVYMmkteThFWkw1WXVfdDlUZ3dsNkFfWFhFNXlGMjJ2R0hNczR4ckhNZUwtdFVLWDNPLUo3cTZWN2U0c2h4NWNnVWRWM2c3U3RGLXdfazFoMUdkbFgtNWlwSnpHRzV6WVViclEtVDZiT3dHR1ItWTVUd2c4SmhwdU9qNEV4UQ?oc=5) - Cleveland.com
-- **shedeur sanders** — [Browns legend states what Shedeur Sanders needs to fix](https://news.google.com/rss/articles/CBMipAFBVV95cUxNUm9iS25XWExiTnhzZmZlOHpDSkpkSXBEaEhzUEpvUThNdVI3UTB2dGxGXzhDaGtpaUdGMGdlR2c2SWlNek5oQ1U0bEVrekFHX2tuQlFjT2FpM0J1dlFwYmpJcG1LUFJwXzZWbjU3RUxkOVloaG11WXg0RzNIQUlMT1FYT3ZuVzRfb3dKT2JoTE10MnpzNUFkYkpFWmhpQjQxTm9TOQ?oc=5) - Dawgs By Nature
+- **deshaun watson** — [Why are the Browns starting Deshaun Watson? Here’s the deal – Terry Pluto](https://news.google.com/rss/articles/CBMitAFBVV95cUxNYldGdnhPWmM2VkUxQVlOQTJFYllycVJ3cG9BZXAtUTJhcWtXcS1nM2I0ZWV5Q25SNmRCcjZ6UmpMMTVDdHlEaW5ZazBSV0xubWViUXowRG9NRWV5VmtZSnRnNzZFRFc2WXFPaDJMRE5NMUJqR1NuYXJkOXo4S1hMZzFvTDZpUmJ2UGttU25fSFdtQXllX01VQUJjYzhrV29wTjh4STFrQWxrazdVc01fWFJlNFnSAcgBQVVfeXFMUFF0blVkMkgtdXJtdEtCWEJCbGpTX094N0F5OUJjTWR3R2pOeUxBQXlFUVk0ZTE4N1Fpd0xRdzJzbGhvSUZleVN5THl2OXZhQXE2RXhOVEpqVHJwbGlsRzdUdC1vU08yOVYxU085ejFaUWc1bnU0R25LMG10QndVTVRiV3FMTnBTUGJFc0pfU1BzekN4bUE0STZMejRKY050OFl5MlN2OGw1S0JmbURaX1V3ZEFocUd6eGo5eDZBeWN5MHV6RUlyakY?oc=5) - Cleveland.com
 
 Recent headlines:
-- [Browns sign WR Bryce Oliver to the practice squad](https://news.google.com/rss/articles/CBMijwFBVV95cUxPT0VXZHVna2NTaFpQeExVN1dUVHZXYkZoaXdDNFNHY1U1R3FESzQ2LXpMeUllOFJLV240MmNQYjBQYThRdzhXejZ3MGdVZzVYZnF2THJTVTZyelpqanhhMy1Eenp2TlpoY2RQYUVkOFZ1Q1l2RkxBQ1B4RWFJbFZpWDJmY0ltZEFmVExRMFJlcw?oc=5) - Cleveland Browns
-- [Cleveland Browns have a strategy that may just be crazy enough to work](https://news.google.com/rss/articles/CBMizgFBVV95cUxOR2xkSGFFZlJkVHpxWi03RU1hSmZJQVFwZlVkRkw3cTdpZU53SFI5TGN6cy1zU3E3elZsX0kzSnhETF9jeHVva1NBY0EtVkZOaC1tY3VTM2lkNDlaOUdESFBLaThJM1pkTUdXSk1RUFZXVmVQRUJqVzFvQVZOcTBBNTR0VTdma0xFTkpmUkQ3b1pkUFhJT3ZWWUtsV0NMUmFCd2FoUGFvaVFHUjdfZnpLMzdKQ0VuYWZEWlNYa3F1ajU0bTF3ZkdHbS1TV0EwQQ?oc=5) - Dawgs By Nature
 - [Would the Browns consider throwing the ball to QB Taylen Green? The surprise of camp re-signed to the practic](https://news.google.com/rss/articles/CBMigAJBVV95cUxONUpuLUo5c0RpZzdocE9IYlUwYTNzU19Lb1VLWWwyaVhNQnFYOS1iMk45Vm44NnlNTU4tZTlkSllLcGJyYmNkQVZGRkJsN2E1S1JaZndMYnllYUp1VHlLekJpTFRUb2NUY2FYT2lLMkdlNjcwRlo3NnAxSlBxaFdCclJCZUMtQlpPcHJCdDZWSUo5eVk0eHJwVHpRTVBkNkk1Sml0a3JOQnJ5RDE3QWg5MHRtRUhMQUVSdFZPcTlRaE9fQW9XTlRoT3B3a18xcUc4WGRzWVZYV24tQ21rMV9SN1RtekhqWkZlLWw0SGpfaUxtdG1aWjlaRWVKeDRWejdD0gGUAkFVX3lxTE5jdU1LdkUzb0N5MVdUYVBpN3cyQzRpc2Jvc1AtcE9ZNHMzVkI3a1JJbjdEeWRXa2pzdkxHLUFMTlE4cVdPQV9NaTRZM1ZSNWs2TVhlVmVOS3lGNkJqa0wtZ05yekp0d0U1VHNkLWF6Tk51WkI1VE54UHI1NFp5emdaLWFxdjFIdzF0SzJWaWwyb3BhX3h4bDNJVTNQQkVVRzdlNi1fNmtheHJCekFQS3FjV1NSQWU3NDB0VnVYOXh2TmExNFprczRPeWZiYmUzYkcyZHR2bWo0MExnM0Z6aWp0c1N3NWZOTVlLQjJhd2RDa1Brd2xzV0pXbGczdUdpSFZkQnJBcmNSWXlDQWZmQWhFbUVGSw?oc=5) - Cleveland.com
+- [Browns sign WR Bryce Oliver to the practice squad](https://news.google.com/rss/articles/CBMijwFBVV95cUxPT0VXZHVna2NTaFpQeExVN1dUVHZXYkZoaXdDNFNHY1U1R3FESzQ2LXpMeUllOFJLV240MmNQYjBQYThRdzhXejZ3MGdVZzVYZnF2THJTVTZyelpqanhhMy1Eenp2TlpoY2RQYUVkOFZ1Q1l2RkxBQ1B4RWFJbFZpWDJmY0ltZEFmVExRMFJlcw?oc=5) - Cleveland Browns
 - [5 Cleveland Browns Under the Most Pressure Entering the 2026 NFL Season](https://news.google.com/rss/articles/CBMirAFBVV95cUxPSV9RYkNDSVpiaWx4aHYwbzhTUmZmek1obENsUnVPWjgzR1RuUGh4TGxmaWY3YkxCMG8wbHFvWi12d19HTTM0cWZIOHlnNzhwbS1mVGNyN1ZvdkxXdFAwQVFkYjQ2cjdMczNSLUg4OUF6a1k2eUd0STh3b0VjY3JnMUZCcjkwVVdtMnZCT2M4YUxCeUU5ZlhiSkJZTnNJX0JWRWN0dkpmc1gyTks5?oc=5) - Bleacher Report
+- [Long list of former Browns who didn’t make final rosters this past week](https://news.google.com/rss/articles/CBMi2wFBVV95cUxNVVdGZnlwRkpZdUlzZ2R3R2FJT3FLakcxOHktdXVxX1BvbGxXS3BLcnBhM043QUNrd3ZDVjN3VENWWXM1LXdldVNXcDh6Slc5eE9ieEVtUnFFdW5FbnZDUWpPLWkzVnBfcFh2ekVwWXV6UTZtUTVmbXYwZ0xMSGllc3FncTd5VEJxZGxlSElZbGlXeWlQVXhlczNwVE93Q1lwZFlyeXczMmhsYlIxVXBTaWNVVF9NRmt0Q1h6UVNNZG9xUy12VkRTbFFmajNUX0NZWVNnUzFtZ2ZfMnc?oc=5) - Dawgs By Nature
 - [Todd Monken names captains for Week 1 vs. Jaguars](https://news.google.com/rss/articles/CBMijgFBVV95cUxNTkVjOUZRTGRMNXFtRUdMZnFHSVViVkVKYVRJUGhoamVZUmhrektrZ2RwMllsck5UbmlLMDUyMlZ0N1FiejZYNEVCTTlqSGJydzVrYzk5eEkxQkVSYkN1WVcxY0steTh5bUJNU0hjUEhhamV2dlVZd2lHUWpDa2VSbkZGdFR2VGRwTnhpdkN3?oc=5) - Cleveland Browns
 
 ## Green Bay Packers Fan Shirts
 
 | Name | Headline mentions | Status | FTI |
 |---|---|---|---|
-| josh jacobs | 15 | TRENDING | 71 |
-| jordan love | 6 | TRENDING | 29 |
+| josh jacobs | 12 | TRENDING | 57 |
+| micah parsons | 4 | TRENDING | 19 |
 | matt lafleur | 4 | TRENDING | 19 |
-| micah parsons | 2 | steady | 10 |
+| jordan love | 2 | steady | 10 |
 | robert tonyan | 0 | quiet - throwback | 0 |
 
 **Product gap:** trending with no design in the catalogue - **josh jacobs, matt lafleur**
 
 Recent headlines:
-- [It’s all ‘Go Pack Go’ for new RB Kaleb Johnson](https://news.google.com/rss/articles/CBMijAFBVV95cUxPTjIzOU16b2FlbXptRGtJc0t3OHA5MzVoOU5ydDZRNTNEQ1duOWhKVzRCWWFzUVlVOWozN2FkT051emw1MnVMUHFtRkhGWndQYnhFTUVxeTM0Q0dKNWZWcFNkd0lvWEpEMExXNmFYdFA1ZXRvLVVGX2w1VXcydGNDTXFZbTJoOFNkWjFELQ?oc=5) - Green Bay Packers
-- [New Cheesehead TV Book About Packers History Launches in Green Bay](https://news.google.com/rss/articles/CBMiogFBVV95cUxPVEhaUkUwangxSlNfLXl4YWpYRXU3OWVCOExhWGNFMFowNHpBQlVpOTdNT1FMV2xManFkX0YxRG1KSGd0SUNsbDk5XzdMWnhYZlFYVVdrc0ZETkJjLXBTXzZLSTRKaFdyMml4ZmptWXdDTXNvTk1oblU0UVBPcHU4Sk5NRFM1dV9DdG1kR2gxY2Jaa2xjNGlzNkRtN0hPamJweFE?oc=5) - Cheesehead TV
-- [Green Bay Packers Make Decision on $77 Million Starter Ahead of Vikings Opener](https://news.google.com/rss/articles/CBMihAFBVV95cUxPbFZYNUhSVzZ3bndXYnhxZktRdDFCNFlFTXRSWlNnYVk5cy1UdWhYODlNV3VVMndZR1pwMjVfSnhMVEZEcGtuTGdVejRlVFRPWl81TEg3c0lJQVZFc1R1NHJVdlZUUUdrSjFTSFVQeGx3Q0tfd2RCa0NZdWpFdi1OMm9HdmI?oc=5) - sports.yahoo.com
+- [Packers announce roster moves | Sept. 2, 2026](https://news.google.com/rss/articles/CBMiekFVX3lxTE1BbnlYQkkwNjJFeFBBcy1TSzlRcTVnUG9XYWxpYUZpc0pRZDBaR2xNWVp1U1hVcXBEc3dLTWJMbnNCYWN1WW10d3RWTXZrV1d4eFVQNk4zeUJyWTZvUm1MMlprYmZxMFB2eTdsRDJnbGdfdEpnTTFSeW93?oc=5) - Green Bay Packers
+- [Minnesota Vikings bringing back Harrison Smith for 2026 season](https://news.google.com/rss/articles/CBMiggFBVV95cUxPNVd3YmF2NnF0SFZPVHktbDQ5TWdNYnpjejFiMm0zZXQ0SVYzZVpJOEJoVTBVRHptOW44YzZKNk9qX1VjVjVXbHFTaERFajlHUy0zaDZILU54Q1F4RVplVmtaXzUtTDFwbGlSZDA3U1dpMjZuUV84eC1HX2Vwbm9jLXJn0gGHAUFVX3lxTE9OdGVIc2NYWEhrN3FEQkswMFNKekNYOFo0V0pVZ1MyUXh6dXYwS1dUR1VWSTh0OHpOWl9ueEZWS1VDX1BJLWVfM0ViSHRlVmdMUDEyc0pqMHVBN0tnRVNtUXlKUTYwSkRzekgyb25fY1c5NjBXcUZiNEQ4NDRkcDJFRzZ3dUxoSQ?oc=5) - fox9.com
+- [Green Bay Packers Make Decision on $77 Million Starter Ahead of Vikings Opener](https://news.google.com/rss/articles/CBMihAFBVV95cUxPbFZYNUhSVzZ3bndXYnhxZktRdDFCNFlFTXRSWlNnYVk5cy1UdWhYODlNV3VVMndZR1pwMjVfSnhMVEZEcGtuTGdVejRlVFRPWl81TEg3c0lJQVZFc1R1NHJVdlZUUUdrSjFTSFVQeGx3Q0tfd2RCa0NZdWpFdi1OMm9HdmI?oc=5) - Yahoo Sports
+- [Packers Film Review: TE Mark Redman](https://news.google.com/rss/articles/CBMipAFBVV95cUxNVWliV2lXTjV2WS1BYmpxTTV1cjBBZHBEQ0dubmdySG9jUGU2UkFZMDhTQ3VjWGlKazNWYk92VVcxWG1nX0g2QjVRT3lxWUVURGFkS3ZWN3pvMGhfT19KWWxBOU1jQVBYaVl5RUpxelJTQ2ZvejBLcXBNU3dtM3dxRlF0QkcteFFsT3JreTdzQjVra3Byd2dVdTB6VG5NWXptWm0wTw?oc=5) - Acme Packing Company
 - [Green Bay Packers 2026 NFL Playoff Simulator](https://news.google.com/rss/articles/CBMiuAFBVV95cUxNX2IzS0JOZ1hqUlNXQkRhakFneFMydXVsUHY3ajg0QnZEMXhJS2VUUWF4WTdGbVlrX2ZDM0dDblVMQnFFV3dnbmpNbDRTc1hOMm5LR2hiVlZDZ19yelEwZUlnR1h3blo0RnZXVmU2Um5EbHJZeFMyeVV0cktOcVF2MVRfYXcwblhwa3VpaDFQY2F6RmdSNW01RG1sTjZUb3JGOC1RU2FIX0JlNGJ4WDFocU42aTBaXzg1?oc=5) - The New York Times
-- [Packers face real test against Vikings in Week 1](https://news.google.com/rss/articles/CBMiwAFBVV95cUxOZWtoSDd2YWhaLThTcm9yenFRU3hDdmltNDhrOFNSSzRlSmd4OFZCNlptRExkUjdTVlJ0blJONTFWbmc4NWpRVHJFR1FVekJQbjd6dmROM080MFlDZU1WYldFVEEzX05Xa1VWS2JYc2daN2tnck5fZ3k1WF9JUVl1R0x6d1JuazVtRjZkbmt5aFByTDJRTjZnZVNLZFRQV0NzbGpYams4MHJZX3BOeW5WYzlSTmdnaTRKSTB5eVRUZkk?oc=5) - Acme Packing Company
 
 ## Dallas Vintage Sports Tees
 
 | Name | Headline mentions | Status | FTI |
 |---|---|---|---|
-| dak prescott | 4 | TRENDING | 19 |
+| dak prescott | 6 | TRENDING | 29 |
 | ceedee lamb | 4 | TRENDING | 19 |
 
 **Product gap:** trending with no design in the catalogue - **dak prescott, ceedee lamb**
@@ -112,6 +110,6 @@ Live player moments:
 Recent headlines:
 - [Michigan football eve: Final thoughts on Underwood, the defense, transfers](https://news.google.com/rss/articles/CBMixAFBVV95cUxNaUJXc0FYUFRkRnZPd1p3a3l5WklHamJsVXZQOHY4N0JKWWFPNHo4MllLMEJyS3ZXOFZtdG5Gb1N4ODBra2ZjRHYwTWxSeTJ4NDVqbzE1UzJrYVBfT0I0VFJQMzY1Vjh5ZHlBWHE1Y0NoUGl6dzQtRlA4Q1p1bHE5VnVyMkNheFhSSGF0Z3FZU3l5ZHhFUVRJUHlDVjgzUFhQakVXdXNsX0tab2FEOGNHRDd6enJ2czhXX0xSRWdoMnBydXgz0gHYAUFVX3lxTE1JYXhWOGs1S01KckpLUXRoVTJlM3JWem9McGw5d0RzSlBKNjhzVVJMSDROU1MzRFVtY2V3NEwwRXVxaVgxWmoyVmhWd1FUZmZCa2J2NUtZVm16Z1JrYzZ2MTZmdEstM25HMWxrLUdSaWR2NExLUTY2MS1iQ05pQW1VRkpoTEpqOHhLSG1MclFNZFJxQmhxN1ZxYWx5Z3F5SEYyZ09fUDZhY191WHhuNmktd3ZOSExpaEhWSmdTYzdvZjJUVjJiUDM1ODY0czJjcmRBYnZWbEhBUw?oc=5) - MLive.com
 - [Michigan Monday: Game 2 vs. No. 11 Oklahoma](https://news.google.com/rss/articles/CBMiekFVX3lxTE1hNGs1aTJ1RW41bi1VNEpOaDdTQXZxVGptM2NsOHRlZUF5UmhpWVRQS2F3ejdSSEw5dzBWaGhYU19SZExuZm9SVjRuRkxpWEpONEZLLUw4d2E5LXNKZVo1V3c5T0RSM0p0S0ZocTFhOUxGMDRzeTczV2VR?oc=5) - University of Michigan Athletics
-- [Michigan Football's Hail Mary Win vs. WMU Drops Wolverines in AP Top 25](https://news.google.com/rss/articles/CBMiswFBVV95cUxNd2hnV1JicE9wR0xHdUVkV2NINTlnakVfQVo2VksxUEUzWmc5WjVDUWNaZVUwcGV0X0dTZmlYSWxucGg3Z19EeU8zX1NxcG5sdFBVTThTTG1MR3FjZE9OQ1lnX2w3czZlOUZLdnd2QkRyQjZKZkZsbGQ3V2V4Mk1UeUdXQXpnNW96NEtqMHVuSDhkOUV3TUtwUTFWN0pRTUREZmxFSkJiQzhEMDlhQXJCbDB2UQ?oc=5) - Sports Illustrated
+- [Michigan Football's Hail Mary Win vs. WMU Drops Wolverines in AP Top 25](https://news.google.com/rss/articles/CBMiswFBVV95cUxNd2hnV1JicE9wR0xHdUVkV2NINTlnakVfQVo2VksxUEUzWmc5WjVDUWNaZVUwcGV0X0dTZmlYSWxucGg3Z19EeU8zX1NxcG5sdFBVTThTTG1MR3FjZE9OQ1lnX2w3czZlOUZLdnd2QkRyQjZKZkZsbGQ3V2V4Mk1UeUdXQXpnNW96NEtqMHVuSDhkOUV3TUtwUTFWN0pRTUREZmxFSkJiQzhEMDlhQXJCbDB2UQ?oc=5) - si.com
 - [Football Opens 2026 Season at No. 16 Michigan](https://news.google.com/rss/articles/CBMijwFBVV95cUxNZGtsbHRyQ1lRSFBaek1LOFBZWlJmeVFZU2tsOWlCZjVVNDFCV3ZKYUNyMDk3ekNvX2xUbHllY0h3QTk3U1hqS0ZWYTFXTXlpblBiRWRNWTROLU9sMjlGRXZwcHM3THNDdGNsWkhSVy00akt1bzZRUXdObjJUNzk3U3c1QjQycFBaa3F1dzJaOA?oc=5) - Western Michigan University Athletics
 - [Clock controversy allows Michigan Wolverines to avoid massive upset against Western Michigan | OutKick](https://news.google.com/rss/articles/CBMixwFBVV95cUxOS0h1S1dGMTljem5fLXY1SlRLdm1WUHJoQVV5eXNGSnRaVVZWUWRwdHRua2lRUDVOMnJJdDBpdC0xOW10N1pONzBlWDByZ1BrSmNlMy1BZzZJZWxacWxRaVpiUUp1ZTRpN1lRalRzWGc0MWpOSlJqTnVXMm1GdkpXVGNqTF9xeVpsVnBxNnF1Q1MtZDN0QzEzQWJ0Y3JHYUg4OWNtYVNVdEs0a3UwdTcyQmNVcnNhUEZXemE0bTBrZlJCWmc4dWtZ?oc=5) - Fox News
