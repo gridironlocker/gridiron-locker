@@ -789,30 +789,37 @@ footer .logo{color:var(--ink)}
 .qf-chip.hot{border-color:var(--ca);background:var(--ca-tint);color:var(--ca-ink)}
 .qf-chip.hot em{background:#fff}
 
-/* ============ DOCKED FILTER BAR (team pages + /search/) ============ */
-/* Collection filter/search/sort bar that parks against the header as the
-   visitor scrolls. Compact and full-width inside the page gutter so the
-   controls remain one tap away on phones without a floating pill. */
-.toolswrap{position:sticky;top:100px;z-index:45;background:rgba(255,255,255,.96);
-  backdrop-filter:blur(12px);-webkit-backdrop-filter:blur(12px);
-  border:0;border-bottom:1px solid var(--line2);border-radius:12px;
-  box-shadow:0 10px 24px rgba(16,20,26,.08);padding:12px;
-  margin:0 -14px 16px}
-.toolswrap .tools{padding:0;margin-bottom:0;border:0;background:transparent}
-.toolswrap .gs{flex:1;min-width:180px}
-.toolswrap .gs input{width:100%}
-.sw{display:flex;flex-wrap:wrap;gap:7px;margin-bottom:10px}
-.swt{border:1px solid var(--line2);background:#fff;border-radius:99px;padding:6px 13px;
-  font-size:.76rem;font-weight:800;color:var(--muted);text-decoration:none;
-  transition:border-color .15s,color .15s,background .15s}
-.swt:hover{color:var(--ca-ink);border-color:var(--ca)}
-.swt[aria-current]{background:var(--ca);border-color:var(--ca);color:#fff}
-.swt-all{border-style:dashed}
-.chipsrow{display:flex;align-items:center;gap:10px;margin-top:10px;flex-wrap:wrap}
-.chipslabel{font-size:.7rem;font-weight:800;letter-spacing:.08em;text-transform:uppercase;
-  color:var(--muted);min-width:60px}
+/* ============ SHOP FILTER BAR (team pages + /search/ + /drops/) ============ */
+/* Plain merch-store toolbar: a static white card with a search field and
+   native dropdowns. Deliberately NOT sticky - no blur, no shadow, no pills,
+   no floating. The same pattern every standard storefront uses: search +
+   sort on the first row, filter dropdowns on the second, count + clear. */
+.filterbar{background:#fff;border:1px solid var(--line);border-radius:10px;
+  padding:12px;margin:0 0 14px}
+.frow{display:flex;gap:8px;flex-wrap:wrap;align-items:center}
+.frow+.frow{margin-top:8px}
+.filterbar .gs{flex:1;min-width:180px}
+.filterbar .gs input{width:100%}
+.filterbar input[type=search]{flex:1;min-width:180px;height:40px;padding:0 12px;
+  border:1px solid var(--line2);border-radius:8px;font-family:var(--font);
+  font-size:.88rem;color:var(--ink);background:#fff}
+.filterbar select{height:40px;padding:0 30px 0 12px;border:1px solid var(--line2);
+  border-radius:8px;font-family:var(--font);font-size:.88rem;color:var(--ink);
+  background-color:#fff;background-image:url("data:image/svg+xml,%3Csvg xmlns='http://www.w3.org/2000/svg' width='10' height='6' viewBox='0 0 10 6'%3E%3Cpath d='M1 1l4 4 4-4' stroke='%236b7280' stroke-width='1.6' fill='none' stroke-linecap='round'/%3E%3C/svg%3E");
+  background-repeat:no-repeat;background-position:right 11px center;
+  -webkit-appearance:none;appearance:none;cursor:pointer;max-width:100%}
+.filterbar input[type=search]:focus,.filterbar select:focus{outline:0;border-color:var(--ink)}
+.fmeta{display:flex;align-items:center;justify-content:space-between;gap:10px;
+  margin:10px 2px 0;font-size:.83rem;color:var(--muted)}
+.fclear{background:none;border:0;padding:0;font:inherit;font-size:.83rem;
+  color:var(--muted);text-decoration:underline;cursor:pointer}
+.fclear:hover{color:var(--ink)}
 
-@media(max-width:560px){.chipslabel{min-width:0}.toolswrap{top:56px;margin:0 -10px 14px}}
+@media(max-width:640px){
+  .filterbar .gs,.filterbar input[type=search]{flex:1 1 100%;min-width:0}
+  .frow:first-child select{flex:1 1 100%}
+  .frow+.frow select{flex:1 1 calc(50% - 4px);min-width:0}
+}
 
 /* ============ QUICK VIEW (every product card) ============ */
 /* .qv sits at the top-right of the card, a SIBLING of the card link (an

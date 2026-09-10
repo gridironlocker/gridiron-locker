@@ -396,16 +396,19 @@ document.querySelectorAll('a.shopnow').forEach(function(a){
   tt&&tt.addEventListener('click',function(){window.scrollTo({top:0,behavior:'smooth'})});
 })();
 
-// ---------- collection filter / search / sort (team pages + /search/) ----------
-// Four independent dimensions: garment (chip[data-f]), team (chip[data-team]),
-// style/theme (chip[data-st], read from the card's data-theme attribute) and
-// price (#price select). A page only emits the controls it offers, so the
-// other dimensions stay at their defaults and behaviour is unchanged.
+// ---------- shop filters: search + dropdowns + sort (team pages + /search/) ----------
+// Four independent dimensions: garment (#fType), team (#fTeam), style/theme
+// (#fStyle, read from the card's data-theme attribute) and price (#price).
+// A page only emits the controls it offers, so the other dimensions stay at
+// their defaults and behaviour is unchanged. Legacy .chip buttons are still
+// honoured if a page emits them, so older markup keeps working.
 (function(){
   var grid=document.getElementById('pg'); if(!grid)return;
   var cards=[].slice.call(grid.children);
   var q=document.getElementById('q'), sort=document.getElementById('sort'),
       count=document.getElementById('count'), nores=document.getElementById('nores');
+  var selType=document.getElementById('fType'), selTeam=document.getElementById('fTeam'),
+      selStyle=document.getElementById('fStyle'), priceSel=document.getElementById('price');
   var typeFilter='all', teamFilter='all', styleFilter='all', priceFilter='any';
   function price(c){return parseFloat(c.querySelector('.price').textContent.replace('$',''))}
   function name(c){return c.querySelector('h3').textContent.toLowerCase()}
@@ -433,6 +436,7 @@ document.querySelectorAll('a.shopnow').forEach(function(a){
     if(nores)nores.style.display=n?'none':'block';
   }
   function resort(){
+    if(!sort)return;
     var v=sort.value, arr=cards.slice();
     if(v==='lo')arr.sort(function(a,b){return price(a)-price(b)});
     if(v==='hi')arr.sort(function(a,b){return price(b)-price(a)});
@@ -445,25 +449,52 @@ document.querySelectorAll('a.shopnow').forEach(function(a){
     x.classList.toggle('on',x.getAttribute('data-team')===v);});}
   function markStyle(v){document.querySelectorAll('.chip[data-st]').forEach(function(x){
     x.classList.toggle('on',x.getAttribute('data-st')===v);});}
+  function hasOpt(sel,v){
+    if(!sel)return true;
+    for(var i=0;i<sel.options.length;i++){if(sel.options[i].value===v)return true;}
+    return false;
+  }
+  function syncSel(){
+    if(selType&&hasOpt(selType,typeFilter))selType.value=typeFilter;
+    if(selTeam&&hasOpt(selTeam,teamFilter))selTeam.value=teamFilter;
+    if(selStyle&&hasOpt(selStyle,styleFilter))selStyle.value=styleFilter;
+    if(priceSel&&hasOpt(priceSel,priceFilter))priceSel.value=priceFilter;
+  }
   if(q)q.addEventListener('input',apply);
   if(sort)sort.addEventListener('change',resort);
+  if(selType)selType.addEventListener('change',function(){typeFilter=selType.value;markType(typeFilter);apply();});
+  if(selTeam)selTeam.addEventListener('change',function(){teamFilter=selTeam.value;markTeam(teamFilter);apply();});
+  if(selStyle)selStyle.addEventListener('change',function(){styleFilter=selStyle.value;markStyle(styleFilter);apply();});
   document.querySelectorAll('.chip[data-f]').forEach(function(b){
-    b.addEventListener('click',function(){typeFilter=b.getAttribute('data-f');markType(typeFilter);apply();});
+    b.addEventListener('click',function(){typeFilter=b.getAttribute('data-f');markType(typeFilter);syncSel();apply();});
   });
   document.querySelectorAll('.chip[data-team]').forEach(function(b){
-    b.addEventListener('click',function(){teamFilter=b.getAttribute('data-team');markTeam(teamFilter);apply();});
+    b.addEventListener('click',function(){teamFilter=b.getAttribute('data-team');markTeam(teamFilter);syncSel();apply();});
   });
   document.querySelectorAll('.chip[data-st]').forEach(function(b){
-    b.addEventListener('click',function(){styleFilter=b.getAttribute('data-st');markStyle(styleFilter);apply();});
+    b.addEventListener('click',function(){styleFilter=b.getAttribute('data-st');markStyle(styleFilter);syncSel();apply();});
   });
-  var priceSel=document.getElementById('price');
   if(priceSel)priceSel.addEventListener('change',function(){priceFilter=priceSel.value;apply();});
+  // Collection switcher: a plain dropdown that navigates (collection pages).
+  var selCol=document.getElementById('fCollection');
+  if(selCol)selCol.addEventListener('change',function(){if(selCol.value)location.href=selCol.value;});
+  // Clear all: back to the full grid.
+  var clear=document.getElementById('clearFilters');
+  if(clear)clear.addEventListener('click',function(){
+    typeFilter='all';teamFilter='all';styleFilter='all';priceFilter='any';
+    if(q)q.value=''; if(sort)sort.value='feat';
+    markType('all');markTeam('all');markStyle('all');syncSel();resort();apply();
+    if(q)q.focus();
+  });
   // Deep links: /search/?q=... (header search + SearchAction), ?t=team,
   // ?g=garment, ?st=style (the landing quick-finder chips deep-link styles)
   var u=new URLSearchParams(location.search), tu=u.get('t'), gu=u.get('g'),
       su=u.get('st'), uq=u.get('q');
-  if(gu)typeFilter=gu; if(tu)teamFilter=tu; if(su)styleFilter=su; if(uq&&q)q.value=uq;
-  markType(typeFilter); markTeam(teamFilter); markStyle(styleFilter); apply();
+  if(gu&&hasOpt(selType,gu))typeFilter=gu;
+  if(tu&&hasOpt(selTeam,tu))teamFilter=tu;
+  if(su&&hasOpt(selStyle,su))styleFilter=su;
+  if(uq&&q)q.value=uq;
+  markType(typeFilter); markTeam(teamFilter); markStyle(styleFilter); syncSel(); apply();
 })();
 
 // ---------- global design search: live suggestions for every .gsearch ----------
