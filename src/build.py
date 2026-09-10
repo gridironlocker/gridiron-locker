@@ -668,7 +668,8 @@ def header(active=""):
     generator.
     """
     links = "".join(
-        f'<a href="/{COLLECTIONS[k]["slug"]}/"{" aria-current=page" if active == k else ""}>{COLLECTIONS[k]["short"]}</a>'
+        f'<a href="/{COLLECTIONS[k]["slug"]}/"{" aria-current=page" if active == k else ""}>'
+        f'{esc(COLLECTIONS[k].get("menu", COLLECTIONS[k]["short"]))}</a>'
         for k in ORDER)
     search_ico = '<svg width="17" height="17" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.8" aria-hidden="true"><circle cx="11" cy="11" r="6.2"/><path d="M20 20l-4.3-4.3"/></svg>'
     return f"""\
