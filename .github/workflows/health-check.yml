@@ -20,6 +20,16 @@ on:
   schedule:
     # 07:45 UTC, well after the 06:15 refresh has published and been deployed.
     - cron: "45 7 * * *"
+  push:
+    # The checker checks itself: any change to the checker or its tests runs it
+    # once against production. Those commits do not touch the storefront, so
+    # there is no deploy to race; the artwork-vs-checkout comparison is skipped
+    # anyway (--no-drift) because a push trigger cannot know a deploy landed.
+    branches: [main]
+    paths:
+      - .github/workflows/health-check.yml
+      - ops/health_check.py
+      - tests/test_health_check.py
 
 permissions:
   contents: read
@@ -47,9 +57,10 @@ jobs:
       - name: Check production
         env:
           BASE: ${{ github.event.inputs.base || 'https://gridironlocker.store' }}
+          DRIFT: ${{ github.event_name == 'push' && '--no-drift' || '' }}
         run: |
           echo "Checking $BASE"
-          python3 ops/health_check.py --base "$BASE" | tee health-report.txt
+          python3 ops/health_check.py --base "$BASE" $DRIFT | tee health-report.txt
 
       - name: Summarise
         if: always()

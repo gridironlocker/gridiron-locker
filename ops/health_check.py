@@ -477,6 +477,10 @@ def main(argv=None):
     ap.add_argument("--base", default=PRODUCTION,
                     help=f"site to check (default {PRODUCTION})")
     ap.add_argument("--verbose", action="store_true", help="print every passing check")
+    ap.add_argument("--no-drift", action="store_true",
+                    help="skip the 'deployed artwork vs this checkout' comparison; "
+                         "used by the push trigger, where the deploy that follows the "
+                         "same commit may still be propagating")
     args = ap.parse_args(argv)
 
     session = requests.Session()
@@ -499,8 +503,11 @@ def main(argv=None):
     c.check_files(session)
     print("-- hero banner bands")
     c.check_banners(session)
-    print("-- deployed artwork vs this checkout")
-    c.check_artwork_matches_repo(session)
+    if not args.no_drift:
+        print("-- deployed artwork vs this checkout")
+        c.check_artwork_matches_repo(session)
+    else:
+        print("-- deployed artwork vs this checkout (skipped: --no-drift)")
     print("-- sitemap")
     c.check_sitemap(session)
     print("-- homepage facts")
