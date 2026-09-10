@@ -1,17 +1,658 @@
 {
-  "generated_at": "2026-09-10T20:36:48+00:00",
+  "generated_at": "2026-09-10T20:39:12+00:00",
   "window": "current public signals; source-specific lookback",
   "privacy": "Public discovery signals only. No direct messages or private account data are collected.",
   "sources": {
     "google_news": {
-      "status": "error",
-      "items": [],
-      "reason": "<urlopen error TLS/SSL connection has been closed (EOF) (_ssl.c:992)>"
+      "status": "connected",
+      "items": [
+        {
+          "source": "google_news",
+          "team": "cleveland-browns",
+          "text": "Browns QB Watson cited for speeding in August, pleads not guilty - ESPN",
+          "url": "https://news.google.com/rss/articles/CBMinwFBVV95cUxON2EyRmV5QWhzLTBGS2ZEejJYNnpIUjZBNEpxUDI3SHNEYVNRQ2dhX0hWcGp6bGlYYWhYNHltMTlnUnRYdDNncVVYdVhfT3NQdW1NVmQ3dkpoVnJfZm8xa2ZTSXFQQU5PU25XQ1U3OG5rWHFFVnpRSHk0VEtocEotcnBVLVVHQXM2YzlacHhlcmNHWWlidFpjNHZyZ21FcGs?oc=5",
+          "published": "Thu, 10 Sep 2026 03:20:00 GMT",
+          "metrics": {}
+        },
+        {
+          "source": "google_news",
+          "team": "cleveland-browns",
+          "text": "3 Cleveland Browns Keys to Victory Against Jacksonville Jaguars on Sunday - Sports Illustrated",
+          "url": "https://news.google.com/rss/articles/CBMivgFBVV95cUxOdl92VkRiUG1NUlpsalRXSVBTS0c4QlJCd2UwTnNwWTNIcW5GUF9hbXVlQURwUThpWU50cWxwdzlHeEpXNEdkMmJsaDVFYTM0UkRyMkJsSWVQbkxlclRiOGIwdVp4MWZ5VzNlMGpVUkVFNXFiby0ydUZCeDRaUi1NeDRoeVVOQkJwekdXYlRwdWd1ZE1MMkE5X3lYYTdCUG1TNGJWaGluTUJYQVlnaWtodkRjdnFJdFBXbnFwT0V3?oc=5",
+          "published": "Thu, 10 Sep 2026 19:26:00 GMT",
+          "metrics": {}
+        },
+        {
+          "source": "google_news",
+          "team": "cleveland-browns",
+          "text": "The 6 best rookie WR duos in NFL history that the Browns’ KC Concepcion and Denzel Boston are up against - Cleveland.com",
+          "url": "https://news.google.com/rss/articles/CBMiqwFBVV95cUxONFpWODFFWWJFWGpSSUd2T3YxNHFXTjkyUFBQU0d2bHFOeU1OMk5nMk5rMXg1MGI2NTZ4c1Bia1pLRkRNNW9obW53SWs4ZE1zZHFDVm8talpBZ1NCcHlseWNOVlJUamt5SFk3aXpCUVRONVR1R0Fib2gtVlRKdjZyN3h1U1haLXhXQl9mbC14Y3ZVdXFHSm5XbzVRTTZCNkhabjYzTnBYeGk0NHM?oc=5",
+          "published": "Thu, 10 Sep 2026 10:00:00 GMT",
+          "metrics": {}
+        },
+        {
+          "source": "google_news",
+          "team": "cleveland-browns",
+          "text": "Browns’ offense looks to establish explosive passing attack against Jaguars - Cleveland Browns",
+          "url": "https://news.google.com/rss/articles/CBMisAFBVV95cUxNczJ2cU84ZWhpOXlOTXppclJHWFZibHJWd2VGT1dkTXRQbFlJaUFseHBBb2t5SzRBcjdFVEZtb0dQa1d3WVEzbGdtblJBaW41M0ZTOXNVekhfVU5zWmFDbmRFekpnUGxlaDVfakZIZmU3aU1UYnZlZEVITWFUc2FRSmc5aktTTW0tMms1S3FIYUdnY0lGZU13TENnQ21ibFhiWGdqWkt3R1Nxbm9WREk5bg?oc=5",
+          "published": "Wed, 09 Sep 2026 22:57:40 GMT",
+          "metrics": {}
+        },
+        {
+          "source": "google_news",
+          "team": "cleveland-browns",
+          "text": "Buffalo Bills Named Trade Suitor for Cleveland Browns' Pro Bowl WR - Yahoo Sports",
+          "url": "https://news.google.com/rss/articles/CBMiiAFBVV95cUxOVHdfb2pkbEw5R0RWTmhDV25VelIybHAwYTB2NzFtUmpyMUpnWmxkOGxHYTZhZGdsR2UzZ0l0UE1scXpOelBTa1VlVFZDR2xoQTc5NVAtWU1PWHhUODlXdmM2elpTc0IzT2NpRFF2MWpXcUhwZi1lak90Nnp2NG5nT29DY0pPN2df?oc=5",
+          "published": "Thu, 10 Sep 2026 16:07:00 GMT",
+          "metrics": {}
+        },
+        {
+          "source": "google_news",
+          "team": "cleveland-browns",
+          "text": "Denzel Ward joins Cleveland Guardians ownership group: ‘Best fans in the world’ - FOX 8 News",
+          "url": "https://news.google.com/rss/articles/CBMioAFBVV95cUxOV00ycnVVREZMcHNWTGNaSmxlU2FyaUxkdFlJc1pmNmJzMmwzRDNpQmJ0eEU3NEZLdlhvRFhtTzY4eGVoS0RTZkxxbkhSMUluZXZRSW90MEpoeEFyOEdOUUxaNDdQY1BuU2JKbEQ4RUxFa2dTNmxRMUFqZnYzblZ0cEx6OGV6NXNqN05kMkNfb01oV3lrY21HQmRUMHlFRGZS0gGmAUFVX3lxTE1wbkpxaEhqYVJ1a2NOajdYeXBiUXc4RjBRVm00bmhBR0xZVkJjdUJWaWZBNHhsa1YzVVA0ckFrczhVY283cUEzQW1MbWVIblctdWx0aF9ZSE51Vmk2REFrbkx4NzZDeHZ5bkJQdXNtSUpJXzcxd19rWkltbDZVMldKZ05IaUhRbjlDcThEVnRUckp1Vm5hbEZhSHAwdGhpNTJsdnY3cGc?oc=5",
+          "published": "Wed, 09 Sep 2026 12:31:35 GMT",
+          "metrics": {}
+        },
+        {
+          "source": "google_news",
+          "team": "cleveland-browns",
+          "text": "Browns star Denzel Ward follows Travis Kelce in joining Guardians ownership group - Cleveland.com",
+          "url": "https://news.google.com/rss/articles/CBMirwFBVV95cUxPeUhBSnJOUzVEUTJEVmRZckdSeVJkZEhiWlZTNWNPY1N4UjlrS3RsN2FndVFzSm01eGZncm1YdzQxUnJ4dkJTU2tPak1UNUhZVjRoX2Q5Z3NsNXhOZUJNb0IxbG1JX1JwWTNaLS1qdF92TFhYWVNXc1hkWGJReGx2MWZRQ18tNW1uQ0FpU2pxbWxWckpwMDRKaGxEVE5mVTlhcFVuTTR4TlpEalhVMXh3?oc=5",
+          "published": "Wed, 09 Sep 2026 12:29:00 GMT",
+          "metrics": {}
+        },
+        {
+          "source": "google_news",
+          "team": "cleveland-browns",
+          "text": "Why Denzel Ward buying a piece of the Guardians is more meaningful than it looks - Cleveland.com",
+          "url": "https://news.google.com/rss/articles/CBMixAFBVV95cUxPVnAwTEJMVEczNGd4ZVJsWGM1YjhmV0Rfa3RUMTJaUFpNTmY3MDVBT0tFNVlNVlQ1a00wQWJ3VjhPYlBoQzBJNUkzWkFTZDVYbjVKY2ttWUtWa2JicU01X3ZyUG9za3psRTAtaXY2UHVGLUJJdXp1M3lJSFV4Nkpucm5JX3YxblZRSXpuYVJVSlRXaU5kNDQteXJEVnN1WU1vcVdKbXM5X2lCRHFaTlZWamlIMGhfSU1HSVRqQVQ3SVYwc25L?oc=5",
+          "published": "Thu, 10 Sep 2026 19:00:00 GMT",
+          "metrics": {}
+        },
+        {
+          "source": "google_news",
+          "team": "cleveland-browns",
+          "text": "Browns roster sets up ‘what could be a pretty nice situation’ - Dawgs By Nature",
+          "url": "https://news.google.com/rss/articles/CBMiuwFBVV95cUxPczROVWlDSWFUajhwQ01xWEF3R3BCeWRfemphRm5WZUdrLWs0VHVJRS1sTnBBS05iSEdlSkhWVzJ6ZnJZQUpvTmQxQ3pXR2dzR1lySkhtY1hfRTlmMzY0ZFA1NGpZZDY5dFRxXzBtSDZNRGVIWl9JUURHMFU2OGlabnoxbUc3dXk3QnZuNzgwT0UwdG1mZkR0MTE0WS1aTFFzOER6dmNCaEN5SlJYSXFLVlZiOVRLbDVjMS1F?oc=5",
+          "published": "Wed, 09 Sep 2026 19:42:23 GMT",
+          "metrics": {}
+        },
+        {
+          "source": "google_news",
+          "team": "cleveland-browns",
+          "text": "Deion Sanders Opens Up on Shedeur Before Browns vs. Jaguars Game - Yahoo Sports",
+          "url": "https://news.google.com/rss/articles/CBMiiwFBVV95cUxOYUhSb0VPT0tld09yelVpZVBDYlRiVWJYUUFIOF93MlQxQm00RjdwVVZDMzdhR0NqcVFRNGZ4RUt3WlRlcFdYRGttUlp1RlNFT0Rydmp3MHM1eUpSWldUUlF2Q09RU1NXNk1NazNuRWpaQW53bUtyMzlkVWIyZHlRNTRYU3l2TnQ2Y1k0?oc=5",
+          "published": "Thu, 10 Sep 2026 12:50:31 GMT",
+          "metrics": {}
+        },
+        {
+          "source": "google_news",
+          "team": "cleveland-browns",
+          "text": "How Shedeur Sanders surprised a high school team after 11 players were arrested for robbery - MARCA",
+          "url": "https://news.google.com/rss/articles/CBMi5gFBVV95cUxOTnRIMHZXR3FOMFlzcklCRGFFX1dqTHZJVzZzSHVxcmRjWmxSaXU2SVl6NU4taHZxVDI5MTZXalR1Z2FDTWwyMTVZXzM2S1FaQ1p1bFltTnpyaWJaVEM5b2dnYWdKWlRkWTV3eS1SeFRNWUFiWkt0dUVHd2ZCVG9qekg2Z1hiTmVkeWpNQ0NXU0tfRUVBMWhYYUU2V0t3eU9CYnRIVy1KRDdRMHozUFprUGh0MmpTUTE3VWpiZWxwNC1rNnBESE85M3MyNGtFZDE2M3hPRWNRQ21IVFc2Wk9YbFJTeThZdw?oc=5",
+          "published": "Thu, 10 Sep 2026 20:21:45 GMT",
+          "metrics": {}
+        },
+        {
+          "source": "google_news",
+          "team": "cleveland-browns",
+          "text": "One thing Deshaun Watson has to improve to remain Browns' starter - ESPN",
+          "url": "https://news.google.com/rss/articles/CBMixgFBVV95cUxOM2hoSjI3MFFhYzVOMkFOZjZxMnNnYk1VQWRINFFUd2pmdG9NcVc1Z3RWM2FMbkZXMFl3U0lSTXhwWHlQV2FhODd0eXk0NTYwaDJYalljYm5GSXFjS25UYWpYWWFEdjhUaERHTHZRYmNkNGF0Y3hnc3M1RGZvazg4YmYyU0RsZ3hzRktkdkJRdGlTMV9QQzNGREdkN05GRHB3RVp3Ynd1OEZ3LUk2X1pCMUJMTXZxak9sa0ZaNDlSYzZSVVJ1cVE?oc=5",
+          "published": "Wed, 09 Sep 2026 10:03:42 GMT",
+          "metrics": {}
+        },
+        {
+          "source": "google_news",
+          "team": "cleveland-browns",
+          "text": "Byron Storer Press Conference | September 10th, 2026 - Cleveland Browns",
+          "url": "https://news.google.com/rss/articles/CBMikAFBVV95cUxNNHFkd3I3a2VNZlpFaGlMYUZreDNfOFpiNE9NTXNrZkhDd1BnakRodjhIX1ZOZmc0UTE5SERqaVh5X3JQNkNydl9pNGY3OThmZUZMcWViSWZ6ZnNULWRQUWRmaTlRcGNLaHNyd21iR0ZsbnRUVEpXbjk0UEJSQ1dXYVhmTTRwRHlrVlhMeWRUb0s?oc=5",
+          "published": "Thu, 10 Sep 2026 20:04:32 GMT",
+          "metrics": {}
+        },
+        {
+          "source": "google_news",
+          "team": "cleveland-browns",
+          "text": "Cleveland Browns Path To The Draft - Week 1 - 247Sports",
+          "url": "https://news.google.com/rss/articles/CBMisAFBVV95cUxOV0kxck80REdTemdxMUZqZEdsU1JocHI0cU9mOV9ybGxvQy15ZzhWeDhGd3JudHlNY3YxRUQwVEZBYkRfczNXOGhEVl8yNUJadGkyOWVISTFpbkFYVGlhUnZOWUlGeVBod1N0aWpqamNfWW42aFFTZVFvdFFFcEFMX0FlU3JkTmlKdk51MFlIZEdla2Q2RXlUSkxnOVo5WDAzZnRVMUxyR3JtRjhTQ3VDeA?oc=5",
+          "published": "Wed, 09 Sep 2026 10:29:00 GMT",
+          "metrics": {}
+        },
+        {
+          "source": "google_news",
+          "team": "cleveland-browns",
+          "text": "Setting 2026 Browns offensive, defensive expectations - Dawgs By Nature",
+          "url": "https://news.google.com/rss/articles/CBMitgFBVV95cUxPd0hzc0NYZm9XUGRrSm56MFpDMklFTFpyeVdJbkh2QjJUcVpWVG55NXhTMC1YcTIyZFpzc1FqT2d3SC1WblkxYjJDOTJ4MjRSQmZCTVZSem1LbXEza09Sb1YwRlRZcEprMVhxSU9YaG1vaXNxblB1ck1JN3d3WlJoeE9zaUIxXzZKMGl4aURHbm1IWmZ2YWJYU040RDM1VG5MRXdGRkpwQURRZUpsUGp2WVVkcGlfZw?oc=5",
+          "published": "Thu, 10 Sep 2026 13:33:17 GMT",
+          "metrics": {}
+        },
+        {
+          "source": "google_news",
+          "team": "cleveland-browns",
+          "text": "Opponent Focus: cleveland.com Reporter Ashley Bastock Previews Week 1, Players to Watch in Browns vs. Jaguars - Jacksonville Jaguars",
+          "url": "https://news.google.com/rss/articles/CBMi0AFBVV95cUxPd3hyX3FJODUwbHdxMzQ4eFNWMTR2MFctWUR3TlloWjFpX1pIa3IwSWx5NFVveWlhNTZSLUZJOHRGX080Ti1OQjdMLTlJejJzTHJMWnF1MjNfTXFVMGNIaDhwUG8tTWQ2aW5EdGdic1VKRWdEVFVGSXBGLTZTcTE2Q3FNMnpiXzlPanc0QlY3OFJLVm1sUV9TRlJSS2lRRHJqSEZTSkR6eGJJNnhUZFMzeEkyUnJyd2xhWW5kaVU0eF84N0h3d3BINGRDRGVENmRS?oc=5",
+          "published": "Thu, 10 Sep 2026 15:01:55 GMT",
+          "metrics": {}
+        },
+        {
+          "source": "google_news",
+          "team": "cleveland-browns",
+          "text": "Jaguars vs Browns: First Injury Report Ahead of Week 1 - Big Cat Country",
+          "url": "https://news.google.com/rss/articles/CBMiugFBVV95cUxQS2lfZVBCUTNRSWpCeGdEbTlPaTRTc1ZpQmE0LTJkMW9SX2JkOUpYV3lueUJJT0FFaVFwcGtFVE1sXzJ5NGhrenNBR2hUeWhCNFA4WTdXdDlrMkdrWS1zdzFIeTJaY2pscENmQThVVmUxUHZIOWxOMlVBOENkTk4xTlg1UmxabFRVaHVudkZnRFczQk9sbFlqS3ZRaXl5ZFFSbWgzNF9adlpocnE4VGdKZTBESUVGS3pKOWc?oc=5",
+          "published": "Thu, 10 Sep 2026 14:12:24 GMT",
+          "metrics": {}
+        },
+        {
+          "source": "google_news",
+          "team": "cleveland-browns",
+          "text": "'A wonderful community asset' | Cleveland Browns' Dee and Jimmy Haslam donate $2.9 million to West Side Market Transformation Project - WKYC",
+          "url": "https://news.google.com/rss/articles/CBMihAJBVV95cUxQNFdxQVh0NFd1eVBLejNmS2Qwci05UUwydVItRGV6VFVub3owUzRBcjE2SExNM3RFY3FsX3lJVFY4UDBwZ2FFWVlvSzhrUnptakNodS1pbWljU3BZc2dkMmxFVnE1bjJPQl9oZjBXdkJma3hleFlPbEZNWVhGa2drTzNsOEtLUDdRcDVZNXE4VXJGM05xZzZLMXpjNGV3SW1VeGEyM1VyMkItSVJ3V0FMWGthM1BSZHpUSmxETHlMb2dqbFhteS1Kd2xYWGt5aHV6bEZreHI4Y18tV2k2Sl9vNEV5TFJseWZIZjNfWTNLS0lmVXlfalEtakJyU3kyZEFjWjVobg?oc=5",
+          "published": "Thu, 10 Sep 2026 13:24:00 GMT",
+          "metrics": {}
+        },
+        {
+          "source": "google_news",
+          "team": "cleveland-browns",
+          "text": "Week 1 could get ugly for Browns as rebuilt offensive line jumps into the deep end - Dawg Pound Daily",
+          "url": "https://news.google.com/rss/articles/CBMirgFBVV95cUxOVmFtdnFuTGNVU0tGSjk1VE5tbnVzdDhXWkxVX0hrdjJxUV96UkNIRVFNM0xKZXh1NFdvY3Y4QkFDREtOY1dtb2ptbHd6OHBUV1FxRWdLR0Q5aGxIV19adEpXY1BhTEtOdnZwME9hYnROTXdQRGJoOEZCUFpCN2p4MHVrb3pBdDc1bG96b3IyOFpZRXh3T3ZPelZNN0tYSUxPNk5RbnptYTh2cHlyOUE?oc=5",
+          "published": "Thu, 10 Sep 2026 13:00:02 GMT",
+          "metrics": {}
+        },
+        {
+          "source": "google_news",
+          "team": "cleveland-browns",
+          "text": "Report: Deshaun Watson was cited for speeding on August 26 - NBC Sports",
+          "url": "https://news.google.com/rss/articles/CBMiuwFBVV95cUxQelN0NmFSQ1V4WW4yWUpmN200Z2phSGV1NVpKb2VoRnVpY2NIbC1yd3NJWG1UUVlORlZRdnJiNFBWTlRvWUU1OUJFblU2aG5JbHc0bTVObjc0TEg2ei1JYWhGUHFpN05qelVFNjVIczBrVU14RWotd0d0am9pRXBubjZlZDdEeThka1l4WmNObTZqT2xCT0hqdHdzWVBFc3cydDJQaVctLW85UHZuNUJNd0w1b0U3dUVBN1RZ?oc=5",
+          "published": "Thu, 10 Sep 2026 04:33:11 GMT",
+          "metrics": {}
+        },
+        {
+          "source": "google_news",
+          "team": "green-bay-packers",
+          "text": "Packers announce roster moves | Sept. 9, 2026 - Green Bay Packers",
+          "url": "https://news.google.com/rss/articles/CBMiekFVX3lxTFBsTWdRNmRuS1dYQ2JadU9oekdrNEJQLXl0VE5vWHhPTkU1dVprZ3dEQkZOQXZZdnpicVhON3Q2Z0EzTGRhUTZIMGVpbWotZDQyUGZadnc1b0FxTFV4TVVuZDc2NVNWdjkwRWlYZUhNUWIxSUJGbElkczVn?oc=5",
+          "published": "Wed, 09 Sep 2026 20:45:59 GMT",
+          "metrics": {}
+        },
+        {
+          "source": "google_news",
+          "team": "green-bay-packers",
+          "text": "Packers RB Josh Jacobs pleads no contest to misdemeanor charges - ESPN",
+          "url": "https://news.google.com/rss/articles/CBMiqAFBVV95cUxQZXgwZzVobk5fVWoyZlJoOWZMVFdJRjVTWk1ZNzVXMUJvNlR6aE5ucC01dTVZRHp0cU85Q21OVDRuNmpZTXFwMGVkZ0RxNlo4SlhwRUhrZElvNFNabzc5U3BLcWZQdVAxa2hndEpRcWZYUnlVVFhJdkpsc0hJU1hMYXRBa3hGT0MwSHBxa29KNUlqNE1wVmNkTTlaUm1TUDBNMnRxMmJ5ZzU?oc=5",
+          "published": "Thu, 10 Sep 2026 16:18:00 GMT",
+          "metrics": {}
+        },
+        {
+          "source": "google_news",
+          "team": "green-bay-packers",
+          "text": "Packers vs. Vikings | How to watch, stream & listen | Week 1 - Green Bay Packers",
+          "url": "https://news.google.com/rss/articles/CBMijwFBVV95cUxOUTZWVkRCNjV1eW82UjF2S0ZoZFB5cnZUWWVqVVlIem0yNW9WdzRYcHdxOU1RYk5lSXhXTmFaeHJxX09Xa3M2MEs2djRMZ3EtcDA2Zkp4Z2hTZnMtN0JfbXRZNnVmOEN1QlpZWWRuVDBMdldlV0QtM05qeVhiVVVuQ1NxenFGS0hBNW1uVkNZRQ?oc=5",
+          "published": "Wed, 09 Sep 2026 19:40:53 GMT",
+          "metrics": {}
+        },
+        {
+          "source": "google_news",
+          "team": "green-bay-packers",
+          "text": "Aaron Rodgers responds to Packers' LaFleur saying Jordan Love is better pre-snap QB: 'Matt's a clown, man' - CBS Sports",
+          "url": "https://news.google.com/rss/articles/CBMikwFBVV95cUxOY2RSTHdOU3U3aGxmX3hERFlIT0ZoU0Nlem54aGRFYk0yOWdBRmF3RWdRZmp1ZWx6RXJud1FROE1hV2xDYmRDVGtRY2lCX042V0kzVVRmYk1yWTgzUnY2M3FobkZ6VzZTQXBJQnhDUC04TGRUZEZzUWhqUDQwNUxmaDNsV0Z2NEpLZVFNc0xkTTNUbFk?oc=5",
+          "published": "Thu, 10 Sep 2026 19:13:20 GMT",
+          "metrics": {}
+        },
+        {
+          "source": "google_news",
+          "team": "green-bay-packers",
+          "text": "Aaron Rodgers unsure if Packers would ever invite him to return - ESPN",
+          "url": "https://news.google.com/rss/articles/CBMilwFBVV95cUxQdXY3X0NxM29DZzJ3V3ZhbkhVSjBoRlM2UHc5bzB1c0NqRXh5WnFraWZXZWxtOFE4bGVPMzNxX3pXSVoyRUdsR3ZwTXpNSWZCVl9yRXJJSVN3ZnBlUnBBQUdoSVU2MWpNQWdSaGp3UElUSmduS3ZUdWVPZWp0ZzZpUnJSNm5XUkFJUUF3Nm1SUWNuaVVKSWg0?oc=5",
+          "published": "Thu, 10 Sep 2026 14:47:00 GMT",
+          "metrics": {}
+        },
+        {
+          "source": "google_news",
+          "team": "green-bay-packers",
+          "text": "Jordan Love embraces life as husband, new father and Packers QB1 | Exclusive - Packers News",
+          "url": "https://news.google.com/rss/articles/CBMi3gFBVV95cUxOWDVrRnVxWlRsSGt1TGhUdk5PWlJXUGl2aXpZTW4zdHFsLVJ0RFRHdUd6dGtwUHpPUU9PTUFmV2FEbnpWZWNVVmgyWDlpbjFKN1VqTmNjdUEtbVJwc3lNcTJHMVFLcm1tOFd3QmIxU2RYN21MMjI2NTNNRHZHR0lhbjkzV3NNR0lGQnd0QlVnbXBMTWNieDEzY0JtV2h0V2YtdWZ3WnFTS2V5UFhoaUxPNVdMXzFrMTZkSDBhVERuV0UzaE84UDIwUGJGM1JfV3NtVHdqbWE4VkFsODgzMkE?oc=5",
+          "published": "Thu, 10 Sep 2026 18:06:00 GMT",
+          "metrics": {}
+        },
+        {
+          "source": "google_news",
+          "team": "green-bay-packers",
+          "text": "Can Packers offensive line stay healthy, survive season? | Tom Silverstein - Packers News",
+          "url": "https://news.google.com/rss/articles/CBMi6AFBVV95cUxNM1I4Uk9RSFR5cnZQZFhEbVFYbWhabXVBWUVJcEx6U3VfaVNhOE9hNGtISjBiMXlfZ0thN0NZSERyeEw5c0E4bDRLT3NJT2xfOFJfNTRyY3JscnRYWlNJdFZscGxoSkRvZkZqZkk2WFptd3VLbFhsZ01CN3lpWVR3ZzVnZXJEM1dBcFRUZFkyU2wyU1kzM3EzeGVuM29GNFk2SVdoQVAwa0k3bWx4OE5abWFkdVdXOTJ0Tm9IbXp5MUViMWZrTVhneXQxZGhwNEV4RWFXTU51aGE0d0swbU0xdU51MVZySFdD?oc=5",
+          "published": "Wed, 09 Sep 2026 13:39:00 GMT",
+          "metrics": {}
+        },
+        {
+          "source": "google_news",
+          "team": "green-bay-packers",
+          "text": "Packers $88M Starter Announces Week 1 Decision - heavy.com",
+          "url": "https://news.google.com/rss/articles/CBMifkFVX3lxTFBDSnVHY0JqMThwOUVFcFRxQ1p3NTVZRldqQmVONWgzMVptSlg5amRwUldTX1duRHBROUoxQWlqaS1XejdFMFlOZDdNVUl0Zk5mNVJEcGRPRGhubldaTldJVkZ1NU95ejBDTzR3OUtPRmM1dkQySHlDMHlTSUVwZw?oc=5",
+          "published": "Wed, 09 Sep 2026 20:44:16 GMT",
+          "metrics": {}
+        },
+        {
+          "source": "google_news",
+          "team": "green-bay-packers",
+          "text": "Best Green Bay Packers player to wear No. 65 proved to be a seventh-round steal - Lombardi Ave",
+          "url": "https://news.google.com/rss/articles/CBMilgFBVV95cUxPMTk2YWZZVUc0RUtIekFrTk1VbUNGVzdnZ2JlOGVzVTd2YWVBSXlCb3pfTXh3SndEQTJ6MkRHajVSYUI0cXF5Q3JrTEhFaEdkMEVuRzltYWpyekd1dlV3WEtDVWpULXpMWlN3TFdMMzdBRVhQVmpPUjFFNDNWdDRFWHpMUmptbUxxZjgyLTlzWGxMS2hSeUE?oc=5",
+          "published": "Wed, 09 Sep 2026 15:00:03 GMT",
+          "metrics": {}
+        },
+        {
+          "source": "google_news",
+          "team": "green-bay-packers",
+          "text": "Best Green Bay Packers player to wear No. 66 wildly wanted to play for the Bears - Lombardi Ave",
+          "url": "https://news.google.com/rss/articles/CBMiqgFBVV95cUxObkVtT2NsS1RxSEZ4LUo1bUtDR3JxQkxDaVpxTmtmczduLWg0dTRIcEMzSEdLQ3lLRDRTdGEwWGlYdTFRTlYwcW5ZV01pdFllRFpJUGJ5bzF1Qzg4cGcya0I1U1pqbFhKeHdYT2J3S1lsQ1dTOG9sXzFoTnlQeUVnS3hQdWRVUHlJTWRCdmpvYUs5TXB1Tms3SGstTWhlRTVOTEtFekFKeW85UQ?oc=5",
+          "published": "Thu, 10 Sep 2026 14:00:03 GMT",
+          "metrics": {}
+        },
+        {
+          "source": "google_news",
+          "team": "green-bay-packers",
+          "text": "What Will Be the Packers Biggest Offseason Regret? - Cheesehead TV",
+          "url": "https://news.google.com/rss/articles/CBMiiwFBVV95cUxNTk81bS1hd0VCRm9QNm9wTzhsQzU5eXl5b1BXTHJxNEttNDluUkVnOW5TOTlJSkJ5T1RDVFpoUEtVeG0wWUpoZzBZOTh0ekpCSndNQjVYcFJNNGNwSFptaldhY1hOSnF1d1RTSEFTSTVSUXA5eDduY1RDLV9jc1ZvMkYzZk1rUTczaFJz?oc=5",
+          "published": "Thu, 10 Sep 2026 15:46:08 GMT",
+          "metrics": {}
+        },
+        {
+          "source": "google_news",
+          "team": "green-bay-packers",
+          "text": "New NFL Rumors on Tucker Kraft's 'Relatively Strong' Packers Contract Offer Ahead of Week 1 - Bleacher Report",
+          "url": "https://news.google.com/rss/articles/CBMixgFBVV95cUxOVVFSSDU3dEg0WEloMm53UGZWRlZpQk5UNjBiUlRaZm5xcUpLQm5RUDVfclpGTUh2QmJnaDBqdTN2ckx4UkFBYU51d2JyWjlZU0EwRFFxS0hLQnkzMVVONVZaMmRpWk5qbi15dFJ2OHc0aGxvM29aWk01WkdEZU56Zlg4NW9FNXJMT1dwM3FvZlFPSFlybjM4R3g2TFNDdjRRdXExOGFlMWNvZ3BNc3NSbzE2ejFCR3ZWTW1kMmFBUDRDTnE0R2c?oc=5",
+          "published": "Thu, 10 Sep 2026 17:27:10 GMT",
+          "metrics": {}
+        },
+        {
+          "source": "google_news",
+          "team": "green-bay-packers",
+          "text": "Packers trade for Steelers RB Kaleb Johnson as Josh Jacobs lands on Commissioner's Exempt List - NFL.com",
+          "url": "https://news.google.com/rss/articles/CBMiwAFBVV95cUxPcXFvRjN4U1ZDdXYyc25UakJpZUhlOTNlN1JubU44NThfS1FYRnVrZmc1SWxHWGNNcFE5MG8wTUdSdEw1VFVmblkxUVM1dXhLS3pmZjZ0dmdHellWbkwwV2hMOWI4NUJCVjJWd0pvWi1feFFuNWJ0Z3o1N0E3cDFHLUZRXzl1dEFqeHZKYWVXVDdSdmlBeFVVNkVBbGdnYjQyWjBtdVB4UHpJaTFITWdvc3FJRlVLZHVKR01BYWdUZl8?oc=5",
+          "published": "Sun, 30 Aug 2026 07:00:00 GMT",
+          "metrics": {}
+        },
+        {
+          "source": "google_news",
+          "team": "green-bay-packers",
+          "text": "Packers' Josh Jacobs placed on commissioner's exempt list while he faces misdemeanor charges - AP News",
+          "url": "https://news.google.com/rss/articles/CBMihgFBVV95cUxNVnp6M0V6dC11ZHlUTy1fZFd0eW9MdW1BZ3U1TzhUemFjay10UVZ3d0JzeE54ZDc4WEc4cVRLM1dlM1JwOUtZcU90VGVjOHAtaVpJaklYN19tNTVFaVVBUFR2RHUzbFlvNUJfR2ltRUFfNkxTaHZDQmJSNkJscDFkWEpPMVBlQQ?oc=5",
+          "published": "Sun, 30 Aug 2026 07:00:00 GMT",
+          "metrics": {}
+        },
+        {
+          "source": "google_news",
+          "team": "green-bay-packers",
+          "text": "Packers face real test against Vikings in Week 1 - Acme Packing Company",
+          "url": "https://news.google.com/rss/articles/CBMiwAFBVV95cUxOZWtoSDd2YWhaLThTcm9yenFRU3hDdmltNDhrOFNSSzRlSmd4OFZCNlptRExkUjdTVlJ0blJONTFWbmc4NWpRVHJFR1FVekJQbjd6dmROM080MFlDZU1WYldFVEEzX05Xa1VWS2JYc2daN2tnck5fZ3k1WF9JUVl1R0x6d1JuazVtRjZkbmt5aFByTDJRTjZnZVNLZFRQV0NzbGpYams4MHJZX3BOeW5WYzlSTmdnaTRKSTB5eVRUZkk?oc=5",
+          "published": "Thu, 10 Sep 2026 14:56:49 GMT",
+          "metrics": {}
+        },
+        {
+          "source": "google_news",
+          "team": "green-bay-packers",
+          "text": "Packers get clarity on Josh Jacobs' situation after running back resolves legal case, and NFL decision is the next step - A to Z Sports",
+          "url": "https://news.google.com/rss/articles/CBMikwFBVV95cUxQdHpuMzNBdnoyeUhubWlSZVVJWU9GU2R0eVNwTDl3R3RMLUJiX3gtbi11cU9ZMEJ6eHBPSmVfQ2RoUnBHOGk5bjJ3aHVJQkVxT0U3OWRPcmFGdmFHSmJJZjNGLXBNSk5RRWN0OG1sZFZ3VFdyWXB3c08xcHMyV0dpdlBhZ1NlLVFlbzNrRWlDX1R6cUk?oc=5",
+          "published": "Thu, 10 Sep 2026 16:50:56 GMT",
+          "metrics": {}
+        },
+        {
+          "source": "google_news",
+          "team": "green-bay-packers",
+          "text": "Inbox: That scouting window never closes - Green Bay Packers",
+          "url": "https://news.google.com/rss/articles/CBMiiAFBVV95cUxPX0pzc0NVdXBDcDBtVjdjektXa0hvUGJRRXQtNFZONEVnZjVpUVhxVmUzeTJiVEpZb3QwaWt1cGxRd21rSjBVTVBVNUhwdExRYUdKdjB5cllYNFo4WmdqVzQzdXQzc09BX2JhVXhidk55MVR1VE1lSGtYMlpGOXZHak5JdGpOdzRs?oc=5",
+          "published": "Thu, 10 Sep 2026 13:31:57 GMT",
+          "metrics": {}
+        },
+        {
+          "source": "google_news",
+          "team": "green-bay-packers",
+          "text": "Green Bay Packers 2026 NFL Playoff Simulator - The New York Times",
+          "url": "https://news.google.com/rss/articles/CBMiuAFBVV95cUxNX2IzS0JOZ1hqUlNXQkRhakFneFMydXVsUHY3ajg0QnZEMXhJS2VUUWF4WTdGbVlrX2ZDM0dDblVMQnFFV3dnbmpNbDRTc1hOMm5LR2hiVlZDZ19yelEwZUlnR1h3blo0RnZXVmU2Um5EbHJZeFMyeVV0cktOcVF2MVRfYXcwblhwa3VpaDFQY2F6RmdSNW01RG1sTjZUb3JGOC1RU2FIX0JlNGJ4WDFocU42aTBaXzg1?oc=5",
+          "published": "Thu, 10 Sep 2026 03:37:09 GMT",
+          "metrics": {}
+        },
+        {
+          "source": "google_news",
+          "team": "green-bay-packers",
+          "text": "Matt LaFleur gives blunt Josh Jacobs update ahead of Green Bay Packers opener - Yahoo Sports",
+          "url": "https://news.google.com/rss/articles/CBMihAFBVV95cUxPeVBhQkJ5WjloaHo5QUVxVTVxVXdKbGdhb0tIX285eUl4aUJNcWtDVVI5dnZVRTVBUjFPUDBpMTFLRVMza3NHaC04SFNCN19HVU5WeXlDVkV4aTBTQ081cEs5eWxGVGs3QVBKa25MamFHZHhES0kxLUZtczFZSzVfd21OaVg?oc=5",
+          "published": "Thu, 10 Sep 2026 11:15:28 GMT",
+          "metrics": {}
+        },
+        {
+          "source": "google_news",
+          "team": "green-bay-packers",
+          "text": "\"I take full responsibility\": Packers RB Josh Jacobs found guilty of misdemeanor battery - WTMJ",
+          "url": "https://news.google.com/rss/articles/CBMiuwFBVV95cUxOcl9Kemk0Z3A5WHZwYmE5VVlEMkF4c21wMjQzcm5VQjZQMGUtSTcydGgybi1EVzVZcnVMWnFWWDBYM1JJWldEYlYtcnhGQzdkdVFMY2Y4V0VvaFpfVXNwSkxtYngwcVpOcDJHX1RyaWFlYUhOUHZZMFRLRTkxWUpvWHdaMnZPUDNJUUltMXEybTI2bDhzWXY2dVRJMG8yenltX0tpeml3QThXZnk2TVcySmpFTzVrQkRDc2dR?oc=5",
+          "published": "Thu, 10 Sep 2026 20:03:45 GMT",
+          "metrics": {}
+        },
+        {
+          "source": "google_news",
+          "team": "dallas-cowboys",
+          "text": "George Pickens believes he and CeeDee Lamb are 'the best' WR duo in the NFL - Dallas Cowboys",
+          "url": "https://news.google.com/rss/articles/CBMirAFBVV95cUxNNHNrZzJrWmczc0RVbEwzVmx6QjIxQWpha2Z3TmdhNHJQYVZvN2xQRHB3N3ZyQXN1MVp4NlpZbVlhMHc5Y1UtLUtacF9OUmppTUFGNTdQb1lFRG44VF9FRXhlVkljNlFZM2lHeGtEaUFrR0pDYnhVcEJvSWlTemg4VW9kU2R3VUU4N3dOb2NPcDdtajc5b3E5S0VPSVRDSkFKa0wyNDVCemk3N0lh?oc=5",
+          "published": "Wed, 09 Sep 2026 21:36:11 GMT",
+          "metrics": {}
+        },
+        {
+          "source": "google_news",
+          "team": "dallas-cowboys",
+          "text": "Dallas Cowboys Cheerleader Reece Weaver swaps boots for Broadway - BBC",
+          "url": "https://news.google.com/rss/articles/CBMiWkFVX3lxTE5XQXloY2dTUDVXZTZoQ1pyMWVYVTA5b1dRejNKeXQyMXZITEFRdnN1eFZtZGxxeVplT3RsSFZQQnZsUEFfRUFiQVg2VlpoamJyMTRValRQb0dHdw?oc=5",
+          "published": "Wed, 09 Sep 2026 11:44:51 GMT",
+          "metrics": {}
+        },
+        {
+          "source": "google_news",
+          "team": "dallas-cowboys",
+          "text": "Cowboys' latest package of promises is ready to be opened. Will it live up to the hype? - Dallas News",
+          "url": "https://news.google.com/rss/articles/CBMiswFBVV95cUxQY2tlQVlCSjExZ2tqTGVFVUx1NUxKRE1RcW1qTHNGbmUydmhXXzAzS0xFaER3TWlfQzBGY3AtS3Q1b2FGSnFadlRYbWg5OVVlZlEwU0MxU2VXU3ZiMWxaQ1lTSU1yYXdnc18tRnhGZnJtYkluTWhfRlhmMl8wSjJrUHpyb3VzWkJIN0xqWnRua0VqQnFwY3h6QkJvcy1MNHA2ZllkcWYtdnd4Q1VidHk4Q1J1TQ?oc=5",
+          "published": "Thu, 10 Sep 2026 18:34:29 GMT",
+          "metrics": {}
+        },
+        {
+          "source": "google_news",
+          "team": "dallas-cowboys",
+          "text": "Cowboys Named Possible Trade Suitors For Edge Rusher Jerry Jones Would Deem 'Substantive' - Sports Illustrated",
+          "url": "https://news.google.com/rss/articles/CBMixAFBVV95cUxOOHBmTXVjLTI3eDBWV3k5MjdnT0tnbW56cEh4SjRSZ2RWaDI1aVdKTkJUYUR0cVpXSVdpVnE5SldpVjZ3bHBzZ2pTeXh2VjkzOW1ScnlOVlFyTFVIbGxNZ2ZDclMyRDNuTEsydzc3Q3lrMDY4aVUwQmNadEc0NVhkUF9yR2ZtcXR1SF8xX3FwWXE2ZjRXNXpYSDVjZ0pGbzV5eWJjRHVWdmVYT1N1ZVZWT2xLc19iS1lqMTFpdFl4Y3hGcGtp?oc=5",
+          "published": "Thu, 10 Sep 2026 17:45:00 GMT",
+          "metrics": {}
+        },
+        {
+          "source": "google_news",
+          "team": "dallas-cowboys",
+          "text": "Mick Shots: Inexplicably rough 2026 road start - Dallas Cowboys",
+          "url": "https://news.google.com/rss/articles/CBMihwFBVV95cUxNRkNTNl9WR2tweDNyMnlUS3otellEbFJoaUlFNjc1T0REbVNuV0pZd3BjWFkxUTR0Qzg5d01VdjNtbmhuRnNKVlVGSGxMYm91Tzc1V3ZETDAwUnEzalM5Q3Y1YldtRzR4RG9JMDdmUk9mUmVySlRsY1N0VS1IWkRQdkFFaEV1WDA?oc=5",
+          "published": "Thu, 10 Sep 2026 02:32:11 GMT",
+          "metrics": {}
+        },
+        {
+          "source": "google_news",
+          "team": "dallas-cowboys",
+          "text": "The NFL’s Most Valuable Teams 2026 - Forbes",
+          "url": "https://news.google.com/rss/articles/CBMilgFBVV95cUxOOUZvN21NRmk0aVROck9uSnZKSWZ1dm5LUy1wUk13OWtKLWJ4czJOVndrVzlHb2tiMnY1MTQ2ZUZWeW5IajBINnNKejBQd2pDS2NkS2FpLXlLakhlMUZlMHdxdTF4VWhERU1sMmNGRl9HdDl4ZHZBN21HbU40TUdVcUNwTld4WXJLNExtNHF3bk13Rl8zc0E?oc=5",
+          "published": "Wed, 09 Sep 2026 20:29:15 GMT",
+          "metrics": {}
+        },
+        {
+          "source": "google_news",
+          "team": "dallas-cowboys",
+          "text": "Dallas Cowboys ranked #8 in Week 1 Power Rankings - NFL.com",
+          "url": "https://news.google.com/rss/articles/CBMid0FVX3lxTE9xTXdyZTFYZzFZZVZxUWlQdEg3UldGa0MyOVJ1aXFJLXFIWVkxYnF0ZFlkclR2bThLUjR4Z3R1VV8tRl9haUZHQXFuSzRCTTVXRjhfa0dNN2hsenpmVzdUcW9LRGFKVUJfSXlGdm9VNmJCV0paWGRN?oc=5",
+          "published": "Wed, 09 Sep 2026 00:34:52 GMT",
+          "metrics": {}
+        },
+        {
+          "source": "google_news",
+          "team": "dallas-cowboys",
+          "text": "1. Dallas Cowboys - cnbc.com",
+          "url": "https://news.google.com/rss/articles/CBMiogFBVV95cUxQSDRTc2lmNTY0ODVyeFdWV0tZbzZFNHVUSlUxV2xiNFF2WXgwWXYwWXJMNG9iYzlVZUVjZTZRQzBaYU05ekRUUlR3VHRDNnNtNGxPV05pTVgwOHVtZDFWWDZQMWhFbU80UkFSd1hwLUU5Y2ZhTFBmWTR6RWx3bUc4QjhiY0p1VjhiT2FjVko1b1JIMnBVdlR3WTJ4cUJ3RHZQeFHSAacBQVVfeXFMT3hkbE5kNGRiaFNzQmtGdXUyZHpQWDdjTE55RVFuWEJuTlh3b2toUXM3c3oyZEl0MXNKdVhzOWhtZDctN3VqeUU4enJtZ3FqWXhGRUNPRGdabDdqalBIMndmM2hndGtwQ0NZOURFUDVWVUJZTDRCdUhvcXQ5YkE4emlMeVpidjJXQ1VScWRHRjNqT2VONnJjcl9jc2hyeTE3VkJvWl83SVk?oc=5",
+          "published": "Wed, 09 Sep 2026 09:55:01 GMT",
+          "metrics": {}
+        },
+        {
+          "source": "google_news",
+          "team": "dallas-cowboys",
+          "text": "Injury Report: Statuses for Giants vs. Cowboys on Sunday Night Football - Giants.com",
+          "url": "https://news.google.com/rss/articles/CBMirwFBVV95cUxQaGRCWm5MZzktXzFFd2M0UFQxOXA0VzJBV1pfNUd1WTZ0T0wxUzFSbnBJMVVZMXF0OFdlaGJDcVk2NjVjYWZlN0dEYzRKVzNLVVlZOFotSmJlWWhmMUlDMW95ZGI1T21HVWx6ck9TNFpLVHJuRHJrSUp0a09OYnNXQ1hLVmdRUlh4eWNrNEg4Yk5UWkZqOFBFdWU1TnZKYjFvM2psT0NWSjV3X240V000?oc=5",
+          "published": "Wed, 09 Sep 2026 20:22:12 GMT",
+          "metrics": {}
+        },
+        {
+          "source": "google_news",
+          "team": "dallas-cowboys",
+          "text": "Dallas Cowboys 2026 NFL Playoff Simulator - The New York Times",
+          "url": "https://news.google.com/rss/articles/CBMitAFBVV95cUxPYnJRbkdfUUItOEM5QmoxN0VYazFoWF9JVS00SnBPTnAzRW5GQ1htRllWZmhNaGMxaV9PNE9vUE9WVXZQVWVPaTExcXU5dWFNYklncjNFRno0YXhPcndhYTJPVzhzVWRPVjVfczJOM1hUanRFSlMwcjRiY3NXb3A0dzExYVdyd1BGVlE3Yk5ZM181YUM4ZU5MaU5ia2NlVjJhRUp6eE82ZjhtSS1uTXMyMllzOWk?oc=5",
+          "published": "Tue, 08 Sep 2026 15:07:49 GMT",
+          "metrics": {}
+        },
+        {
+          "source": "google_news",
+          "team": "dallas-cowboys",
+          "text": "Dallas Cowboys TE Depth Shaky For Week 1 After Two Miss Thursday Practice - Sports Illustrated",
+          "url": "https://news.google.com/rss/articles/CBMioAFBVV95cUxPRGliakNER2pmQ3d2T2tVMm9mdGZ6YjA1WU9oQ3VfWm9SeGxnMzlfQVVGc0ZLZDg5SW9MQTVuazkwN040dEw3TTFnRFl4bmlaeWpNNnpSUHd5TXZqSjZXT285OWRsU2c3MkxXcG1laUh4ZEE2dzBrN3I0aG9sV3RvUmNpblJidE0yQzRLSHpUalVsbmZQczdENXFibkdid0V5?oc=5",
+          "published": "Thu, 10 Sep 2026 19:21:31 GMT",
+          "metrics": {}
+        },
+        {
+          "source": "google_news",
+          "team": "dallas-cowboys",
+          "text": "Dallas Cowboys add former Pro Bowl offensive lineman to practice squad - El Paso Times",
+          "url": "https://news.google.com/rss/articles/CBMi1wFBVV95cUxQVC0xY2NsYTVBWXdUU0V2alJkNll4dGN0LXNHU0J0THlXY1Y0cy1aOWRxVHdiOVNHTVhLZU9wVlpPdkFKSzVOandBSzllek41TnozbEhNSVlHTXNzS0tvRHQ3VnlfS3dUYTEyZWdRS0Y1MTFGQlp5VVlvN3A0M3hlMDBhbzlLaFBHdXVjSktla3AydFJ0QUQtUkhWd1NjaGdNRVFVUW9yVnEyd3dSRVEzLWRKU2hjUU5fUWJST1VqbVNnUmNVX3RzUEQ4dU9MaHM1S3k3c0c3cw?oc=5",
+          "published": "Thu, 10 Sep 2026 16:20:00 GMT",
+          "metrics": {}
+        },
+        {
+          "source": "google_news",
+          "team": "dallas-cowboys",
+          "text": "Science Lab: Christian Parker’s task is tall, Cowboys' window is small - Dallas Cowboys",
+          "url": "https://news.google.com/rss/articles/CBMipAFBVV95cUxOdDFEaC1LeDhkV3ZKZXBFb3ppelN4VGdRUUM1bEJ4MER6SzZpeGdtdlA3ZjktcVlVZkhicTZBSTg1SFMwM0luNDNuUnpmaTV3WU8xeG1Ka0ViRmtNeHRwYVlOVDluVk9XRmVlUmxYc0x3Zk04S015ZEdIaFVaU2dwWGVKUWJvdDBwUmY5MVJDbkJOcWVfQ3d2cXdMbVJHOWJ0emJaMA?oc=5",
+          "published": "Thu, 10 Sep 2026 16:02:12 GMT",
+          "metrics": {}
+        },
+        {
+          "source": "google_news",
+          "team": "dallas-cowboys",
+          "text": "New York Giants to honor heroes and remember 9/11 during Sunday Night Football against Dallas Cowboys - Giants.com",
+          "url": "https://news.google.com/rss/articles/CBMiyAFBVV95cUxPdlQyNEV6MEJjcGtNdmFOTFBvc04teGt6aUFkcnd5TC1mdXBvTEVoZTBKMHF2RWZJQXJodW9aZVJSVzRPd1Nxc19lU1NvMHowWE1TcEpKWUtCSHJVOVpSaHcxUHRLTmZzcVlfZGZmRW5EaTAySGJWR0lsWUxRWnlKdGZseDU0dnQtOWRXRDFZb2lsaDhjaWI4dWdiMzV1bS1xYm9Ec01rZzJGTDlGbmpEUTNNUkd0QTd0N3lFaWtQM09NNkQ0U040eg?oc=5",
+          "published": "Thu, 10 Sep 2026 14:00:35 GMT",
+          "metrics": {}
+        },
+        {
+          "source": "google_news",
+          "team": "dallas-cowboys",
+          "text": "26 bold Cowboys predictions for 2026: Schotty for Coach of the Year? Will Super Bowl drought end? - Dallas News",
+          "url": "https://news.google.com/rss/articles/CBMirwFBVV95cUxOdkZodXF0MzJMY3dUcENOZTJQNUI2dEhBREVkeUw4REpIelZVMUFyX3dCWlBaaUtwbG5waTRFYUNKSDhYakVoN2dSaFFVZXFQZDlGUnlWWUxzS2R5dm9RSTlFZ09Ja2xrRGFkRTBfQm1FbURIM0VwaFo0Rng3WDlZN25VVXYwM1ZjNnkyNzBLNkJNWThLczZqTHpiWnVHa1p2TlI5UXNLU3R1MWtjd09J?oc=5",
+          "published": "Thu, 10 Sep 2026 17:07:22 GMT",
+          "metrics": {}
+        },
+        {
+          "source": "google_news",
+          "team": "dallas-cowboys",
+          "text": "Dallas Cowboys Turned Down Trade Offers For Tyler Smith Replacement Ahead of Season - Sports Illustrated",
+          "url": "https://news.google.com/rss/articles/CBMingFBVV95cUxQLTBoMEo2U3p4NWVsU0hVTk1WY1plMno2VTJwNU1mNlJBekJ4M1hlMEhIMkdHUzdNWTRPUHM0RVotSlNnbHQxQlhoeWxMU203WmNoSWJNVlBVekJ3X0ZyUWN3NENaNnRlbU1mUHpRdXVXbklBZWYwZjZ1eGRLMEpyVW5Ed0VoaS1BOTNYbVFRM0NNSWlNUXR0c2wtQmQ4Zw?oc=5",
+          "published": "Thu, 10 Sep 2026 15:19:28 GMT",
+          "metrics": {}
+        },
+        {
+          "source": "google_news",
+          "team": "dallas-cowboys",
+          "text": "Dallas Cowboys schedule 2026: Teams, time, how to watch 2026 NFL games - El Paso Times",
+          "url": "https://news.google.com/rss/articles/CBMi4gFBVV95cUxNX2lEYnJlYXZQS3kzTkpKSXYxMVVOZW5nZEhQNTM4VTZlSUJrTk00Sy1zZWFfekwzZDNVRDRhOTFqalNMQzE0ZlBrZmVpdmFyM0gxMFpWSDQ4X192R05yLW10WENSZlpuVWc2am42Y2g5S29DTTlHeEtVd1JRcmJja3c1ZFNGV1dZTWZUeFB5bkVtU3BFY0w1Y09UcklLU054dDRvRzREU2JzaV9qZWd4R3A5WVRRRGp5UGhaOXFQcnpidzdENmtRdG1ncnVmaUw5UXZxaEg2T3BxXzE1b0pfTjhR?oc=5",
+          "published": "Thu, 10 Sep 2026 18:15:00 GMT",
+          "metrics": {}
+        },
+        {
+          "source": "google_news",
+          "team": "dallas-cowboys",
+          "text": "Cowboys Crosstalk: Leighton Vander Esch | 2026 - Dallas Cowboys",
+          "url": "https://news.google.com/rss/articles/CBMihgFBVV95cUxPRHhzWll4NVhLREUxZnZiMlNDWlZuLXJGQklsQVh6NEFIVzhEdjY0OGIxSS1LLTRfMGNzZHZTM3lzWVdYRXpsbmlSc1llM2lHR1NDRzVyakdmVk93TUd5cjgwQ2pvRXVSZ1NETEd0RkhyWmRPeEl0U19wNUdxdlZuRDVkUE04QQ?oc=5",
+          "published": "Thu, 10 Sep 2026 02:03:55 GMT",
+          "metrics": {}
+        },
+        {
+          "source": "google_news",
+          "team": "dallas-cowboys",
+          "text": "Everything Dallas Cowboys fans need to know before the 2026 season - Dallas News",
+          "url": "https://news.google.com/rss/articles/CBMirAFBVV95cUxONFpaM1Q4c240Q3dSNTFpVUZlMzJHSnA2RG1nemp1OTg2UzExWU0yVEdvYjY3QkdHY2lDS1FDWFF4RXgxaDYtSWtuOWx0MmNnNDlUUHo5SFpHdkRfejZaUnF0UkNjTWQ0bnFNOGVXVnRGUHdwME1vQWV3MjkxcFVSaXQxcXVTUlhRMVc1YXVNa1hWY0Q3M00tWVloN3JFb09MdlU2UmpsX2NQQWx1?oc=5",
+          "published": "Thu, 10 Sep 2026 12:53:24 GMT",
+          "metrics": {}
+        },
+        {
+          "source": "google_news",
+          "team": "dallas-cowboys",
+          "text": "Cowboys lose star guard Tyler Smith for 4 to 6 weeks after surgery - El Paso Times",
+          "url": "https://news.google.com/rss/articles/CBMi3wFBVV95cUxPdFRMdkpZY0ZNcjNLeHQ1eE8zM2ZHR0pudWVSU3FUOV9ubnl3Z2hUd0RTWW5yS3N3M2VUYmpsN1hoWlU2d1BOTndZX2VfeVBSQUlRdXM3MkxqeS1hLUNCNVF6YXVYLVFidFkyQUVyN2k2QlZ1YzlWYUF6dzhYR2JRVDBRZWcxdkxXdHJ2SHMyOWRYeGpOaXVTaGFENHBDZ2pFWXFXbFMta1E5bkNTaWsyTTZTMEZLQkswSG1uYi0xTkdZUU9WN25CNUVKNUU4b2RfcXA3TTMwX2d2Sy1PdFBR?oc=5",
+          "published": "Thu, 10 Sep 2026 15:45:00 GMT",
+          "metrics": {}
+        },
+        {
+          "source": "google_news",
+          "team": "michigan",
+          "text": "LSU soars into top 10, Michigan tumbles from top 30 in college football rankings - CBS Sports",
+          "url": "https://news.google.com/rss/articles/CBMipAFBVV95cUxQOC1JekV3QWVnbWpNYWhrdk9EeUhSb1F6MVpzZXlpOFFMUm9FXzFNenFLeXBMbTNxM25qZG5OVmM1NnJoTzhXUjJmQXZCQ1M4dW9JdmItYnJBQnRqWENXLXZQSktVUUEtbV9EdVBKYXo5OTBtT184VTNhblh3VWlSdzA0SjBZWTJXZ1Q5aTR2eEJjT3hnTmVTaUF3QjBtdkV5UmppUA?oc=5",
+          "published": "Wed, 09 Sep 2026 14:53:14 GMT",
+          "metrics": {}
+        },
+        {
+          "source": "google_news",
+          "team": "michigan",
+          "text": "While critics pile on, Michigan teammates keep faith in Bryce Underwood - MLive.com",
+          "url": "https://news.google.com/rss/articles/CBMiwwFBVV95cUxQbi1XQmF1SEF5MGJIWXhTTlVJTUhObWtISnlJb1FsRnh0ZXNaaDBrZ2FzN3Z1aHVwdE1RLXFvOUE3Z3NoUGN4S2hVazVJaGNBV1JDSnZnN0FsZC1LU0tCWGlJZGU5RWt5RXhZSXV6VGJJRWRydUtPRnpGaV84TWNJZWJ4VWNSM19nQUhoQzlIUkxENnN0MGRBYUxheWNnMlBycFJ5SkkzRk1iWDlxeklaS1RpbEQ1NXN6UzBNZTV5RFk3NVHSAdcBQVVfeXFMTUktMksxeENXUW4yVFJwWGdJQ2QtOThlSmQtcDdNZF9IS1BkUzRSUVc4cmZNbWk2SjRreWRhblp1Y19hNmNFZF95NWFLSElhWGV0T2JFX2ZOc21KbW9qNW5wZFpQMWtxSUQzQ0VzV3A5MDk0WnJzTUlDRS1Ya1loZ3dhenVSZkdRZk10VTUxajFqRjhrVFpwV2ZJUGRiYURBWm5XWWhUNWVCb3BGY0xIWHpHVFRHMFRQemtBMVAxVjFpakhBaTh0WXk1WFJVLWpsR25mV21qTmc?oc=5",
+          "published": "Wed, 09 Sep 2026 15:38:00 GMT",
+          "metrics": {}
+        },
+        {
+          "source": "google_news",
+          "team": "michigan",
+          "text": "Staff predictions: Michigan vs. Oklahoma — a lot to prove - On3",
+          "url": "https://news.google.com/rss/articles/CBMiqAFBVV95cUxPZGJiZnJhaFZxckFyVy13SUpILXJnbUlGR2hsdnM5U3NzVXA4bHlJZnJOYVFPNHN6MkRkZkdZT1dXYnFKQmFwTXJBbTZGYUtNTHpIUU9NSTIzcnduT2NXc0ZsVl81VzQtNjNrVEFodnRjTWNMSzM4ZDhhNHVzQVBtLUxwREpFTnFjVzNXT3V5UlZVcXpVZndGSlFpRmdiTzM1RVJjN3o4NWY?oc=5",
+          "published": "Thu, 10 Sep 2026 17:33:14 GMT",
+          "metrics": {}
+        },
+        {
+          "source": "google_news",
+          "team": "michigan",
+          "text": "NCAA establishes 'standard timing protocol' in wake of Michigan win - ESPN",
+          "url": "https://news.google.com/rss/articles/CBMitAFBVV95cUxQTkVWVnZSaWdEZC1qVmR4TGxGamZIaGpQaUJqbi1sclVhS2c4eFVxQ3JmcXlZRGEwWTVrUEd4aEp3YkdaT1FvNzNpV0d4ai1qdXc0Ymp2cXY4bWpHOFMwNGlabW1GejVRaVV4MnhPTVdJc2FQQmo3bENzMERRaGJ5TGxwWHVqS3lKVjdlcEhwTklnV2lqNW85T19UMXlvb1k5Mi1hNGMwdmZXdEVKcHB2eWtRNUM?oc=5",
+          "published": "Wed, 09 Sep 2026 01:55:00 GMT",
+          "metrics": {}
+        },
+        {
+          "source": "google_news",
+          "team": "michigan",
+          "text": "Michigan, LSU And The Price Of Being Right In College Football - FOX Sports",
+          "url": "https://news.google.com/rss/articles/CBMinwFBVV95cUxQaFZERVhMTTV0VEkxYTlJZ0pIYXpqVHluN0ViMXNqNDFlSEM4RGdiY3FjYTMzMFkxbWVCWVZvUjlFUW9RZUxVb2l5dkdKZjdBUFZlMURhdzNoR1NoNWIxVVZ2bGdQV3hLNTg4MUxicVg0SzFrR3N0ZFlCejQtdUZfSnNmaFd4MTYzclF5MmJTQUUxR0pGZmFFM0pnazBQcW_SAZ8BQVVfeXFMTW5UWFJPeW9TbHBnYWVDaC0wdUpZVzBqemFGRy1vVzVFR3dmVWh5RDVPa1I3LWlRNFJoSTZPSkVndmdvOTJHYjRDY3hFNkZEUmZjLURYcTV6eUpRVzh5MnkzU3NEY253WVV1X3Q2eDNlOV9ScnJRWE4xekhDQkdLQ081X0toeVYwZzBtQUNuRFlTN1lEMURCMkdDMkxIYTlr?oc=5",
+          "published": "Wed, 09 Sep 2026 23:13:30 GMT",
+          "metrics": {}
+        },
+        {
+          "source": "google_news",
+          "team": "michigan",
+          "text": "Inside Michigan football's players-only meeting after the Western Michigan game - 247Sports",
+          "url": "https://news.google.com/rss/articles/CBMi0gFBVV95cUxPcHZMQU5rY3dNaERDWkVkQzJrb0hSUjdfNWp6NExxNEFLZ0xERDRNR3NtYkRvaFZVbERfTWI2LW90MFVBemZoR0tDRHpYZHYyczF0R3psQWNXMEQ1c0ZkMDBhMEMtcS0wQlJJaDhYNlNwX2hqT2VDQ1lwcV85VGhTNzFhX0VPdWpTM2doWDNUb240NHhVNEFBUlJjaUpZbXNiYUxnWHVRc3BDaTlDbm9nLUs2cWswdU00WFZTa01SeXd2bEdmaHhobkJOdFR5TEoyS2c?oc=5",
+          "published": "Tue, 08 Sep 2026 21:51:00 GMT",
+          "metrics": {}
+        },
+        {
+          "source": "google_news",
+          "team": "michigan",
+          "text": "MAC to appeal controversial Western Michigan loss, says replay error gave UM extra second - The Athletic - The New York Times",
+          "url": "https://news.google.com/rss/articles/CBMioAFBVV95cUxPTWQ1YzI3bEJnaGRRVXg3eEdUN1BobnJyUFFGR3p4eHFFeGc3NmFTcW5tOFhYLWs3RExKelhHWURaUGN4Wkt5aXVYbmp5UklHMktwMTFwUmlLelAxeGRqSE9BTlg3YkNEeDJMa0xIQWk0aVVSdEVDUnQxZjNJRTZxNWxJcHQzTngzWmhqNi12d3MwT2FacnJ2MmRCYWVRa1Y4?oc=5",
+          "published": "Wed, 09 Sep 2026 00:29:04 GMT",
+          "metrics": {}
+        },
+        {
+          "source": "google_news",
+          "team": "michigan",
+          "text": "I Thought I’d Seen Every Kind of Sports Scandal. Then Came This Football Game Last Saturday. - Slate Magazine",
+          "url": "https://news.google.com/rss/articles/CBMijgFBVV95cUxOSGwtYVA0bDVWMkI2a2JpYnhtYXFJZlVzOVQwaUMxV1VnbnZwRWRoS25BNUhyR0tjclI5WHQ3cmc2ZDllS1lXUzJFdmR6RFBGZGJDejlIWkEzbWJNU29lcW5TWGVibjczaFQyOFZiV1pmOXZHdTlCVkExc3VtQmtEZHFvR0wybkllX3VCeFRB?oc=5",
+          "published": "Wed, 09 Sep 2026 17:40:00 GMT",
+          "metrics": {}
+        },
+        {
+          "source": "google_news",
+          "team": "michigan",
+          "text": "Michigan eager to turn the page after 'soft' and 'embarrassing' opener - Detroit Free Press",
+          "url": "https://news.google.com/rss/articles/CBMi1AFBVV95cUxNUG9JT1JxNnJmQUNub2pYZHdwRlB6aWl6SlhMUlBzZnNYTUlmT0djbmdmVEFZMW1Nb2o2NTR0amFuUVN3WVFBMVNYenRyb3hPbkdsVkhtaThwWGkyWm1mZ2NjS0s5VXNHQ2t1SkZzWDhGdENteDBzMm9vUFVaM1RLeldNY3pEZnlMTzdKdzhNbW51aE9YZUw0c0R5cE03a29zYTl1Y1pBM2N3dF9qbEluSWxlVGJLTWtiMkFGWjU2MmRPZWRmRno2MXRWWW96b180MlF5dw?oc=5",
+          "published": "Wed, 09 Sep 2026 09:12:00 GMT",
+          "metrics": {}
+        },
+        {
+          "source": "google_news",
+          "team": "michigan",
+          "text": "‘It’s hard for me to accept it’: Urban Meyer says Western Michigan ‘beat the Wolverines’ - thecomeback.com",
+          "url": "https://news.google.com/rss/articles/CBMixwFBVV95cUxPYVZPT21DNDdzN2g1YUJlTmxzV05nN2JkSjdxaEVEdkFkbE1VNno0TnJuSTQ4LS02eURNU25kbXlUSlZsN1ZiaDFJWXdJU2dqOTJJTTBhcEU3Um9IMDRIanl2ckFoang5QVhrT3l0YjRsUkV0T3h4ZHlfNDhCTV9sY3FGdS1PMTQ2NTZheU83LWZGdEFBOWpqT2NGaWp2Nkcyemw5Rl9pYUpvbmtfRmVYRDQ0c2tOQTVGd193TmRxRFBiOVFfd0dR?oc=5",
+          "published": "Thu, 10 Sep 2026 14:28:02 GMT",
+          "metrics": {}
+        },
+        {
+          "source": "google_news",
+          "team": "michigan",
+          "text": "How a Player-Led Meeting Could Change Everything for Michigan Football - Sports Illustrated",
+          "url": "https://news.google.com/rss/articles/CBMitgFBVV95cUxQamltdU11T2hHX0h5U2RROVJfVWdiWkwzcHIxQk1YcHNmNjlPb2VHSWVUWjhYekJZQ2tROHVXQlVqOTUzcjZuNUN1VHEtRVM3dlVVcHhCcjBQdXVubk92T2p3ODduOThnVEFONElnWE16Szg2R3ZoYkdNNVFEcV80NEdYNFZ0Q0hrcTlaWVU5czVfempBWE1LWG93blFmMVhFTGJ5QVVRWFJOZUJ3NFA3ZWk3M3ZyQQ?oc=5",
+          "published": "Wed, 09 Sep 2026 17:30:00 GMT",
+          "metrics": {}
+        },
+        {
+          "source": "google_news",
+          "team": "michigan",
+          "text": "Shop last minute tickets for Michigan vs Oklahoma football at the Big House - USA Today",
+          "url": "https://news.google.com/rss/articles/CBMi0AFBVV95cUxPZ2c1MEh4U3FNcVA1STd1SzVKV21oRVdKaHlsT3FXY3EzcUtkaFlWbDlSeTNNTE1zM0FiV1ZUYlhlaFZReXVuQk8wdklYOC1DWmFTa0FSa1FqNm9ja1dmcnVtOF9oT3JVVks4TS0yVFZlRmJZZFRPVFFqQ2hXWHFJTHhQQjc0anRRTkNOdWR3b0V0cGExUUJpMGpnSDZCR1BYZ1FuWExvLUU1a2wxNlUtZmx1cHZ4UTE3ZGt1eUpHdGZtaVZDWGhIX0NxVXFRRk5a?oc=5",
+          "published": "Thu, 10 Sep 2026 15:48:02 GMT",
+          "metrics": {}
+        },
+        {
+          "source": "google_news",
+          "team": "michigan",
+          "text": "Michigan football eve: Final thoughts on Underwood, the defense, transfers - MLive.com",
+          "url": "https://news.google.com/rss/articles/CBMixAFBVV95cUxNaUJXc0FYUFRkRnZPd1p3a3l5WklHamJsVXZQOHY4N0JKWWFPNHo4MllLMEJyS3ZXOFZtdG5Gb1N4ODBra2ZjRHYwTWxSeTJ4NDVqbzE1UzJrYVBfT0I0VFJQMzY1Vjh5ZHlBWHE1Y0NoUGl6dzQtRlA4Q1p1bHE5VnVyMkNheFhSSGF0Z3FZU3l5ZHhFUVRJUHlDVjgzUFhQakVXdXNsX0tab2FEOGNHRDd6enJ2czhXX0xSRWdoMnBydXgz0gHYAUFVX3lxTE1JYXhWOGs1S01KckpLUXRoVTJlM3JWem9McGw5d0RzSlBKNjhzVVJMSDROU1MzRFVtY2V3NEwwRXVxaVgxWmoyVmhWd1FUZmZCa2J2NUtZVm16Z1JrYzZ2MTZmdEstM25HMWxrLUdSaWR2NExLUTY2MS1iQ05pQW1VRkpoTEpqOHhLSG1MclFNZFJxQmhxN1ZxYWx5Z3F5SEYyZ09fUDZhY191WHhuNmktd3ZOSExpaEhWSmdTYzdvZjJUVjJiUDM1ODY0czJjcmRBYnZWbEhBUw?oc=5",
+          "published": "Fri, 04 Sep 2026 11:15:00 GMT",
+          "metrics": {}
+        },
+        {
+          "source": "google_news",
+          "team": "michigan",
+          "text": "How to Watch: Michigan Football vs Oklahoma, other top games of Week 2 - Yahoo Sports",
+          "url": "https://news.google.com/rss/articles/CBMijAFBVV95cUxQUnI5OTdxdU5JcXNxRzJfNU5QeEFIQjFuZEowYXBpREJSa3J2SVJtT1FqVVozX3lISDItN0Qxdy0zQzZ4UTZYcEZZaGdtRnE3YXZyQ25yeExvNzlkU1FnX3FZSkJ1MDRMNXdJZkRpZUtMUXNwd2lZbUFQaFFtN2FUVHBaMzN0RU5WNU5xMg?oc=5",
+          "published": "Thu, 10 Sep 2026 20:00:00 GMT",
+          "metrics": {}
+        },
+        {
+          "source": "google_news",
+          "team": "michigan",
+          "text": "Michigan football coach Kyle Whittingham appeared to put Bryce Underwood on notice earlier this week. See link below ⬇️ 📸 Junfu Han, Detroit Free Press - facebook.com",
+          "url": "https://news.google.com/rss/articles/CBMi3wFBVV95cUxNbldwcDJ0RVNIOGlLUUdicEpXM2N3SHJMeVoxU2ZvYjZabjZlWkJjdnFuU25iN1gwY253OWFhcWhTMFprbUlTNWRpNG5wcjhBWWZqUThTZ29Ya2lqUXhjUkVQU055QjlYMWdLWTl4clRDSGNabDlhSjRWSTlySnZmN2lXZEdCby11dHExTVV6NG1RY3M1ZG81ZERTMzdJc2dsVFltUEVzNHdJOGdvX2JRM0VUaEJTVkFuQXRaaF8tTThfQlE2X21IUUlIemk2bHhrdGl5ZFBOei1OQlpMVTRJ?oc=5",
+          "published": "Thu, 10 Sep 2026 17:30:59 GMT",
+          "metrics": {}
+        },
+        {
+          "source": "google_news",
+          "team": "michigan",
+          "text": "How & Where to Watch Western Michigan vs. Michigan - NBC TV Network",
+          "url": "https://news.google.com/rss/articles/CBMihAFBVV95cUxQcTlsbG9WSmdLSFYtM3UzMTJweERQZDFDSHIyeE9LYVVyNVBLdzM1Yk9TWU5SUi1vU0haTE10ODcycF9FdVlLR0FWLXFDbjhqZ25NMHZXUnJMeENtTHZDWEttY2hVYUdqcnF6R0dDQkFQVWJYV241ZG10M3JReVBYX0dEV00?oc=5",
+          "published": "Sat, 05 Sep 2026 11:02:02 GMT",
+          "metrics": {}
+        },
+        {
+          "source": "google_news",
+          "team": "michigan",
+          "text": "Michigan has more problems than a clock controversy with No. 11 Oklahoma coming to the Big House - Bozeman Daily Chronicle",
+          "url": "https://news.google.com/rss/articles/CBMikwJBVV95cUxPQlIwcUZSTEFKTTdRY0ozZVJzQmtrc0FVZEwxQ1pyZmpWUlpuVExwNndjNE1HNUZIRzQ5UlpfVXdUYjFLNVV5YVhfWllOUXFFRE1KYThXdWZ4SmtQcEpYRVc3aVR5SHJmM2JpNG9Ka2s5dk9LMWRoeGNsc3NqWkp5ZHh6SGtJNmZoeDVrNDl1TlpWM0xPeHVGczVvVjJrMVRueGRxN3NPYjlidEszMW9ONjE5YzEySFFPZ3N4N0FlSDV1ektMSVNuWWU2SzBVZkVtZlF1cXphNjRZUzlieUxDSkFkMGxkOThXRnJvdFhUcE9rZTRfVGxrX1EyTUtEX05pT1dMbFJYVWFnYTVhbGUwMkNWRQ?oc=5",
+          "published": "Thu, 10 Sep 2026 18:30:50 GMT",
+          "metrics": {}
+        },
+        {
+          "source": "google_news",
+          "team": "michigan",
+          "text": "Michigan football vs Western Michigan time, channel, streaming and odds - Detroit Free Press",
+          "url": "https://news.google.com/rss/articles/CBMi-AFBVV95cUxOX3BFUjE3Rk9rVTFXRFBXb3p5cHEyNE1pVUQ1T3NCaVB5QjRfZ0daenNCT1NqemxDRldyeTVjS3l5SDRhZlNWTllicjBXRHFLeVYyT0FCNkp1YmxMYWRMMmJWdmMwbmtTb2llZFhNckJCVFJLdmdPVE9Ic3lKUXowUjdmWXpDSlBFLS1KVTdJcEFoQ0tQb01DLVlzaENMTlExblA4OXNkZmFValNkbEJYZno4WklfWC1uRVUxLVBfVDdyb2FhQ0lja0g3YzhEdnhyVW1QSXZUUG9aN19lT094eFFJY3V5ZmdMREdxSWlsdTBqTTNBWmVwbw?oc=5",
+          "published": "Sat, 05 Sep 2026 21:30:00 GMT",
+          "metrics": {}
+        },
+        {
+          "source": "google_news",
+          "team": "michigan",
+          "text": "Bryce Underwood addresses Kyle Whittingham's comments about remaining starting QB at Michigan - Fox News",
+          "url": "https://news.google.com/rss/articles/CBMivgFBVV95cUxNdkRnQ1NCOUctRmp0SWZHd0VQRGFwMVVpLU9wenZPVjRFS3hZcGxrUmNZOElOVGFncW0xOWhrRkNYVzJFbmgySXg3VkNPcUN5b2xIcVNlOEFkTDQ4YnpTUWlsUlpJSHMtZ0l1M2lCVWFsMFp4UjhPN25UZUxFb1BZZEJKWkJBa21uS2lYLVJEcUVNSDhEWEtleElJVF9Tbng2bk1zbTQ2NldLUXI1b0diY1dEMmNldjVFWnFxMWtn?oc=5",
+          "published": "Thu, 10 Sep 2026 01:25:56 GMT",
+          "metrics": {}
+        },
+        {
+          "source": "google_news",
+          "team": "michigan",
+          "text": "Keys to the game, Michigan vs. Oklahoma — how can the Wolverines win? - On3",
+          "url": "https://news.google.com/rss/articles/CBMitwFBVV95cUxOd21NMEtCQW5VSlVIOE13cU51eHR2MlFVMGhDdlUyVVBxNzltRGs2NWFaTS1NdDBMVW9EcnhQUHRRcXZwcDlYdE9HX05RWm5mYW14Y3huR2tDWGROSVdNYk0xOURBM3d2QXk4RlUwbzJRZFlfMjRyQ1pMNmhwU0dCSWdMZWozMVdjYmg4Sk8tUXFfYWpUUVk0QURTMk9UcENRbUp6UTlKRVFXZzV1czV3SHNUN3F3bzg?oc=5",
+          "published": "Thu, 10 Sep 2026 15:00:56 GMT",
+          "metrics": {}
+        }
+      ],
+      "reason": null
     },
     "reddit": {
       "status": "error",
       "items": [],
-      "reason": "<urlopen error TLS/SSL connection has been closed (EOF) (_ssl.c:992)>"
+      "reason": "HTTP Error 403: Blocked"
     },
     "x": {
       "status": "not_configured",
@@ -170,25 +811,9 @@
         {
           "source": "repository_trend_snapshot",
           "team": "green-bay-packers",
-          "text": "Are Packers favored to beat Vikings in Week 1? NFL matchups, odds",
-          "url": "https://news.google.com/rss/articles/CBMi2AFBVV95cUxPcE5fTHdwV0k3VVdGSTc5VmFsV0RxaDE3UDhzV0pKZzVzcUJNUlVHYnlUakZTc2IxX0ttaFB0S2NEckJyeUpKUXNaTEpYSzhpZGUtb0VCbFgySDNKRm9jUDljd2o3ejJ4RWwtSHlwbndVSUdrbE9ycGQ5YWtiU1FpeWxhYmlRTHJKb3NjTkVKaGpsRUhNZmY2bk9NQ043TUx1ZW9rQWY2ck9jZHpFQi1CU2pHR1NQb2hOZnFqVDNUeDBaMGotUUprYndmMFR0X2ZneXRpRlgyQUg?oc=5",
-          "published": "Wed, 09 Sep 2026 17:37:00 GMT",
-          "metrics": {}
-        },
-        {
-          "source": "repository_trend_snapshot",
-          "team": "dallas-cowboys",
-          "text": "Emari Demercado returns 'home' to Dallas, has reason to be excited with Cowboys",
-          "url": "https://news.google.com/rss/articles/CBMisAFBVV95cUxQTlZuQ1hPOWZNQzcwM0VzeEZoMnU3ekpVcDN1SmhNbndlMXgwdXNuOTJtR3loUWQzbkVIZGRhZEw0ZVp2SS1zaVZvc1NEQVBlYWl3RmFBT1pNdzhlcGJDeFp2aXZlTUxOMWx3YmUxRWx1blR6VVBIaGwwQkt6NkN2Mjlkb1p1WG1VczRnYnRSZmQzVlNhQ0V5b3VCRG81NnB5Zk1IaXdvSFVaelFtYnNSNw?oc=5",
-          "published": "Tue, 01 Sep 2026 07:00:00 GMT",
-          "metrics": {}
-        },
-        {
-          "source": "repository_trend_snapshot",
-          "team": "dallas-cowboys",
-          "text": "Quinnen Williams: Culture, growth of Cowboys' defense is 'night and day'",
-          "url": "https://news.google.com/rss/articles/CBMipAFBVV95cUxOT0lzOUlYMUVnMFpaVkdmbFBaLTVIZk9KbnBWbU5IQVJtYS1GdmQ0VGFuWnl3Q21OcGtJbWd4RGN2enljMFpiMGx3WWVBYkdKYWdxN0dhMWdyMHFMRUpJMEJObVUxeFJpeGxwb3J3VmM2Y1JnbnlkZFJhS3dwQ2R3eWlPSUxaN0xXU01mb0pfZFo5cWFmeDlaYVpqRXVwSUVUMG53QQ?oc=5",
-          "published": "Wed, 02 Sep 2026 17:16:04 GMT",
+          "text": "Aaron Rodgers unsure if Packers would ever invite him to return",
+          "url": "https://news.google.com/rss/articles/CBMilwFBVV95cUxQdXY3X0NxM29DZzJ3V3ZhbkhVSjBoRlM2UHc5bzB1c0NqRXh5WnFraWZXZWxtOFE4bGVPMzNxX3pXSVoyRUdsR3ZwTXpNSWZCVl9yRXJJSVN3ZnBlUnBBQUdoSVU2MWpNQWdSaGp3UElUSmduS3ZUdWVPZWp0ZzZpUnJSNm5XUkFJUUF3Nm1SUWNuaVVKSWg0?oc=5",
+          "published": "Thu, 10 Sep 2026 14:47:00 GMT",
           "metrics": {}
         },
         {
@@ -197,6 +822,14 @@
           "text": "Transactions: Cowboys make 3 OL moves",
           "url": "https://news.google.com/rss/articles/CBMiiwFBVV95cUxNNEJROXNIZmJLczR0MFMxZTNRRXl0UTlhN0ZtVERDcWh6NV9lOFROM1VhSDJoQ3NLSjFGZ2dEYS02QkgwSjNybXBOOTI4Y2VVd3VrVU1nUGJEX0NOaHVIbnd4RnMycjVkcEl6ZWhfXzJfS2JCTENvZUpDNll3R0pqOExEdVBvTGRrXy1B?oc=5",
           "published": "Thu, 03 Sep 2026 07:00:00 GMT",
+          "metrics": {}
+        },
+        {
+          "source": "repository_trend_snapshot",
+          "team": "dallas-cowboys",
+          "text": "Giants vs. Cowboys: How to Watch, Listen & Live Stream Week 1",
+          "url": "https://news.google.com/rss/articles/CBMilAFBVV95cUxORzNEdUVuOURwYUM1WEo4SGdMbUhrTURxM0E5VzBBQmhiNHMwc0FtRjdYSmFWaUhiUTVDYW9oakotVmpsbm40cWpDdnlYY1g3N0luM2p6Uk5JVlNNNDBpNlFKUVM5ZnIyNkkxTUlIWlB1WlMzM2FoSDZ5ZWJJZnVHdmNXNGRocS03Qy1NUFdVc3lkekRT?oc=5",
+          "published": "Mon, 07 Sep 2026 16:14:24 GMT",
           "metrics": {}
         },
         {
@@ -220,7 +853,7 @@
           "team": "dallas-cowboys",
           "text": "Mick Shots: Filling this major void just in time",
           "url": "https://news.google.com/rss/articles/CBMiigFBVV95cUxOckttN0NkRThkUGZmMEY0V253UVlqVkZETnBWZEZqQmFYelRSaE5seVNDaEd4SExVbXNyVTk3QlZvMGpHU18xLTByR2NULWF1dHJtN3RQNk13VUMydWg3bTZUY2RPUjBhQUNpQ2NhZ1F6ZlQ5RjJHcHhQSnhGZGRaZmticFRKLUZXYWc?oc=5",
-          "published": "Wed, 02 Sep 2026 22:04:46 GMT",
+          "published": "Wed, 02 Sep 2026 07:00:00 GMT",
           "metrics": {}
         },
         {
@@ -237,6 +870,14 @@
           "text": "Cowboys have a 'ton of confidence' in T.J. Bass filling in for Tyler Smith",
           "url": "https://news.google.com/rss/articles/CBMiqgFBVV95cUxONkdZX2VXX2JXeU5CX25mWGFWa3dPOG5vZURNdzFSd0lwdFJxYjVaZnFscEtPWjV6dlo3U2hOSTJLdi1mb191TGhSdmZsUFdxekRKNkFxQ3FhcWtuQk5RZGJYWGI0UjVxMm1WUmFKdWRfNzE5Wmx0ajFzZWdyLThPcjQ2U2I1akxkeUg5OE1jQzNuOVR4RjBFN05OVE9WblYwVVlFeHZQSFh2QQ?oc=5",
           "published": "Tue, 08 Sep 2026 09:31:21 GMT",
+          "metrics": {}
+        },
+        {
+          "source": "repository_trend_snapshot",
+          "team": "dallas-cowboys",
+          "text": "Von Miller on looming debut for the Cowboys: 'My smile is back'",
+          "url": "https://news.google.com/rss/articles/CBMimwFBVV95cUxOcGY0OHRiSVpzenJzUGR1Ym94UTF6LXVkeG45UXBYcnhkazFEWkluOE1zMEJQWmtKcFpSR3ZNS0lLY0xwVFdMbVlva2ZNRXp1ZVktYmlJY3locEIwb2tvcHMzaWlrSTBpa3gxUUVjOWp1X3Bzc1BDNks0X19KYk1BTk9oSWVQSE9hbU9IQzlZRTZGTzBpX29EaVNGYw?oc=5",
+          "published": "Sat, 05 Sep 2026 04:15:12 GMT",
           "metrics": {}
         },
         {
@@ -308,6 +949,646 @@
     }
   },
   "items": [
+    {
+      "source": "google_news",
+      "team": "cleveland-browns",
+      "text": "Browns QB Watson cited for speeding in August, pleads not guilty - ESPN",
+      "url": "https://news.google.com/rss/articles/CBMinwFBVV95cUxON2EyRmV5QWhzLTBGS2ZEejJYNnpIUjZBNEpxUDI3SHNEYVNRQ2dhX0hWcGp6bGlYYWhYNHltMTlnUnRYdDNncVVYdVhfT3NQdW1NVmQ3dkpoVnJfZm8xa2ZTSXFQQU5PU25XQ1U3OG5rWHFFVnpRSHk0VEtocEotcnBVLVVHQXM2YzlacHhlcmNHWWlidFpjNHZyZ21FcGs?oc=5",
+      "published": "Thu, 10 Sep 2026 03:20:00 GMT",
+      "metrics": {}
+    },
+    {
+      "source": "google_news",
+      "team": "cleveland-browns",
+      "text": "3 Cleveland Browns Keys to Victory Against Jacksonville Jaguars on Sunday - Sports Illustrated",
+      "url": "https://news.google.com/rss/articles/CBMivgFBVV95cUxOdl92VkRiUG1NUlpsalRXSVBTS0c4QlJCd2UwTnNwWTNIcW5GUF9hbXVlQURwUThpWU50cWxwdzlHeEpXNEdkMmJsaDVFYTM0UkRyMkJsSWVQbkxlclRiOGIwdVp4MWZ5VzNlMGpVUkVFNXFiby0ydUZCeDRaUi1NeDRoeVVOQkJwekdXYlRwdWd1ZE1MMkE5X3lYYTdCUG1TNGJWaGluTUJYQVlnaWtodkRjdnFJdFBXbnFwT0V3?oc=5",
+      "published": "Thu, 10 Sep 2026 19:26:00 GMT",
+      "metrics": {}
+    },
+    {
+      "source": "google_news",
+      "team": "cleveland-browns",
+      "text": "The 6 best rookie WR duos in NFL history that the Browns’ KC Concepcion and Denzel Boston are up against - Cleveland.com",
+      "url": "https://news.google.com/rss/articles/CBMiqwFBVV95cUxONFpWODFFWWJFWGpSSUd2T3YxNHFXTjkyUFBQU0d2bHFOeU1OMk5nMk5rMXg1MGI2NTZ4c1Bia1pLRkRNNW9obW53SWs4ZE1zZHFDVm8talpBZ1NCcHlseWNOVlJUamt5SFk3aXpCUVRONVR1R0Fib2gtVlRKdjZyN3h1U1haLXhXQl9mbC14Y3ZVdXFHSm5XbzVRTTZCNkhabjYzTnBYeGk0NHM?oc=5",
+      "published": "Thu, 10 Sep 2026 10:00:00 GMT",
+      "metrics": {}
+    },
+    {
+      "source": "google_news",
+      "team": "cleveland-browns",
+      "text": "Browns’ offense looks to establish explosive passing attack against Jaguars - Cleveland Browns",
+      "url": "https://news.google.com/rss/articles/CBMisAFBVV95cUxNczJ2cU84ZWhpOXlOTXppclJHWFZibHJWd2VGT1dkTXRQbFlJaUFseHBBb2t5SzRBcjdFVEZtb0dQa1d3WVEzbGdtblJBaW41M0ZTOXNVekhfVU5zWmFDbmRFekpnUGxlaDVfakZIZmU3aU1UYnZlZEVITWFUc2FRSmc5aktTTW0tMms1S3FIYUdnY0lGZU13TENnQ21ibFhiWGdqWkt3R1Nxbm9WREk5bg?oc=5",
+      "published": "Wed, 09 Sep 2026 22:57:40 GMT",
+      "metrics": {}
+    },
+    {
+      "source": "google_news",
+      "team": "cleveland-browns",
+      "text": "Buffalo Bills Named Trade Suitor for Cleveland Browns' Pro Bowl WR - Yahoo Sports",
+      "url": "https://news.google.com/rss/articles/CBMiiAFBVV95cUxOVHdfb2pkbEw5R0RWTmhDV25VelIybHAwYTB2NzFtUmpyMUpnWmxkOGxHYTZhZGdsR2UzZ0l0UE1scXpOelBTa1VlVFZDR2xoQTc5NVAtWU1PWHhUODlXdmM2elpTc0IzT2NpRFF2MWpXcUhwZi1lak90Nnp2NG5nT29DY0pPN2df?oc=5",
+      "published": "Thu, 10 Sep 2026 16:07:00 GMT",
+      "metrics": {}
+    },
+    {
+      "source": "google_news",
+      "team": "cleveland-browns",
+      "text": "Denzel Ward joins Cleveland Guardians ownership group: ‘Best fans in the world’ - FOX 8 News",
+      "url": "https://news.google.com/rss/articles/CBMioAFBVV95cUxOV00ycnVVREZMcHNWTGNaSmxlU2FyaUxkdFlJc1pmNmJzMmwzRDNpQmJ0eEU3NEZLdlhvRFhtTzY4eGVoS0RTZkxxbkhSMUluZXZRSW90MEpoeEFyOEdOUUxaNDdQY1BuU2JKbEQ4RUxFa2dTNmxRMUFqZnYzblZ0cEx6OGV6NXNqN05kMkNfb01oV3lrY21HQmRUMHlFRGZS0gGmAUFVX3lxTE1wbkpxaEhqYVJ1a2NOajdYeXBiUXc4RjBRVm00bmhBR0xZVkJjdUJWaWZBNHhsa1YzVVA0ckFrczhVY283cUEzQW1MbWVIblctdWx0aF9ZSE51Vmk2REFrbkx4NzZDeHZ5bkJQdXNtSUpJXzcxd19rWkltbDZVMldKZ05IaUhRbjlDcThEVnRUckp1Vm5hbEZhSHAwdGhpNTJsdnY3cGc?oc=5",
+      "published": "Wed, 09 Sep 2026 12:31:35 GMT",
+      "metrics": {}
+    },
+    {
+      "source": "google_news",
+      "team": "cleveland-browns",
+      "text": "Browns star Denzel Ward follows Travis Kelce in joining Guardians ownership group - Cleveland.com",
+      "url": "https://news.google.com/rss/articles/CBMirwFBVV95cUxPeUhBSnJOUzVEUTJEVmRZckdSeVJkZEhiWlZTNWNPY1N4UjlrS3RsN2FndVFzSm01eGZncm1YdzQxUnJ4dkJTU2tPak1UNUhZVjRoX2Q5Z3NsNXhOZUJNb0IxbG1JX1JwWTNaLS1qdF92TFhYWVNXc1hkWGJReGx2MWZRQ18tNW1uQ0FpU2pxbWxWckpwMDRKaGxEVE5mVTlhcFVuTTR4TlpEalhVMXh3?oc=5",
+      "published": "Wed, 09 Sep 2026 12:29:00 GMT",
+      "metrics": {}
+    },
+    {
+      "source": "google_news",
+      "team": "cleveland-browns",
+      "text": "Why Denzel Ward buying a piece of the Guardians is more meaningful than it looks - Cleveland.com",
+      "url": "https://news.google.com/rss/articles/CBMixAFBVV95cUxPVnAwTEJMVEczNGd4ZVJsWGM1YjhmV0Rfa3RUMTJaUFpNTmY3MDVBT0tFNVlNVlQ1a00wQWJ3VjhPYlBoQzBJNUkzWkFTZDVYbjVKY2ttWUtWa2JicU01X3ZyUG9za3psRTAtaXY2UHVGLUJJdXp1M3lJSFV4Nkpucm5JX3YxblZRSXpuYVJVSlRXaU5kNDQteXJEVnN1WU1vcVdKbXM5X2lCRHFaTlZWamlIMGhfSU1HSVRqQVQ3SVYwc25L?oc=5",
+      "published": "Thu, 10 Sep 2026 19:00:00 GMT",
+      "metrics": {}
+    },
+    {
+      "source": "google_news",
+      "team": "cleveland-browns",
+      "text": "Browns roster sets up ‘what could be a pretty nice situation’ - Dawgs By Nature",
+      "url": "https://news.google.com/rss/articles/CBMiuwFBVV95cUxPczROVWlDSWFUajhwQ01xWEF3R3BCeWRfemphRm5WZUdrLWs0VHVJRS1sTnBBS05iSEdlSkhWVzJ6ZnJZQUpvTmQxQ3pXR2dzR1lySkhtY1hfRTlmMzY0ZFA1NGpZZDY5dFRxXzBtSDZNRGVIWl9JUURHMFU2OGlabnoxbUc3dXk3QnZuNzgwT0UwdG1mZkR0MTE0WS1aTFFzOER6dmNCaEN5SlJYSXFLVlZiOVRLbDVjMS1F?oc=5",
+      "published": "Wed, 09 Sep 2026 19:42:23 GMT",
+      "metrics": {}
+    },
+    {
+      "source": "google_news",
+      "team": "cleveland-browns",
+      "text": "Deion Sanders Opens Up on Shedeur Before Browns vs. Jaguars Game - Yahoo Sports",
+      "url": "https://news.google.com/rss/articles/CBMiiwFBVV95cUxOYUhSb0VPT0tld09yelVpZVBDYlRiVWJYUUFIOF93MlQxQm00RjdwVVZDMzdhR0NqcVFRNGZ4RUt3WlRlcFdYRGttUlp1RlNFT0Rydmp3MHM1eUpSWldUUlF2Q09RU1NXNk1NazNuRWpaQW53bUtyMzlkVWIyZHlRNTRYU3l2TnQ2Y1k0?oc=5",
+      "published": "Thu, 10 Sep 2026 12:50:31 GMT",
+      "metrics": {}
+    },
+    {
+      "source": "google_news",
+      "team": "cleveland-browns",
+      "text": "How Shedeur Sanders surprised a high school team after 11 players were arrested for robbery - MARCA",
+      "url": "https://news.google.com/rss/articles/CBMi5gFBVV95cUxOTnRIMHZXR3FOMFlzcklCRGFFX1dqTHZJVzZzSHVxcmRjWmxSaXU2SVl6NU4taHZxVDI5MTZXalR1Z2FDTWwyMTVZXzM2S1FaQ1p1bFltTnpyaWJaVEM5b2dnYWdKWlRkWTV3eS1SeFRNWUFiWkt0dUVHd2ZCVG9qekg2Z1hiTmVkeWpNQ0NXU0tfRUVBMWhYYUU2V0t3eU9CYnRIVy1KRDdRMHozUFprUGh0MmpTUTE3VWpiZWxwNC1rNnBESE85M3MyNGtFZDE2M3hPRWNRQ21IVFc2Wk9YbFJTeThZdw?oc=5",
+      "published": "Thu, 10 Sep 2026 20:21:45 GMT",
+      "metrics": {}
+    },
+    {
+      "source": "google_news",
+      "team": "cleveland-browns",
+      "text": "One thing Deshaun Watson has to improve to remain Browns' starter - ESPN",
+      "url": "https://news.google.com/rss/articles/CBMixgFBVV95cUxOM2hoSjI3MFFhYzVOMkFOZjZxMnNnYk1VQWRINFFUd2pmdG9NcVc1Z3RWM2FMbkZXMFl3U0lSTXhwWHlQV2FhODd0eXk0NTYwaDJYalljYm5GSXFjS25UYWpYWWFEdjhUaERHTHZRYmNkNGF0Y3hnc3M1RGZvazg4YmYyU0RsZ3hzRktkdkJRdGlTMV9QQzNGREdkN05GRHB3RVp3Ynd1OEZ3LUk2X1pCMUJMTXZxak9sa0ZaNDlSYzZSVVJ1cVE?oc=5",
+      "published": "Wed, 09 Sep 2026 10:03:42 GMT",
+      "metrics": {}
+    },
+    {
+      "source": "google_news",
+      "team": "cleveland-browns",
+      "text": "Byron Storer Press Conference | September 10th, 2026 - Cleveland Browns",
+      "url": "https://news.google.com/rss/articles/CBMikAFBVV95cUxNNHFkd3I3a2VNZlpFaGlMYUZreDNfOFpiNE9NTXNrZkhDd1BnakRodjhIX1ZOZmc0UTE5SERqaVh5X3JQNkNydl9pNGY3OThmZUZMcWViSWZ6ZnNULWRQUWRmaTlRcGNLaHNyd21iR0ZsbnRUVEpXbjk0UEJSQ1dXYVhmTTRwRHlrVlhMeWRUb0s?oc=5",
+      "published": "Thu, 10 Sep 2026 20:04:32 GMT",
+      "metrics": {}
+    },
+    {
+      "source": "google_news",
+      "team": "cleveland-browns",
+      "text": "Cleveland Browns Path To The Draft - Week 1 - 247Sports",
+      "url": "https://news.google.com/rss/articles/CBMisAFBVV95cUxOV0kxck80REdTemdxMUZqZEdsU1JocHI0cU9mOV9ybGxvQy15ZzhWeDhGd3JudHlNY3YxRUQwVEZBYkRfczNXOGhEVl8yNUJadGkyOWVISTFpbkFYVGlhUnZOWUlGeVBod1N0aWpqamNfWW42aFFTZVFvdFFFcEFMX0FlU3JkTmlKdk51MFlIZEdla2Q2RXlUSkxnOVo5WDAzZnRVMUxyR3JtRjhTQ3VDeA?oc=5",
+      "published": "Wed, 09 Sep 2026 10:29:00 GMT",
+      "metrics": {}
+    },
+    {
+      "source": "google_news",
+      "team": "cleveland-browns",
+      "text": "Setting 2026 Browns offensive, defensive expectations - Dawgs By Nature",
+      "url": "https://news.google.com/rss/articles/CBMitgFBVV95cUxPd0hzc0NYZm9XUGRrSm56MFpDMklFTFpyeVdJbkh2QjJUcVpWVG55NXhTMC1YcTIyZFpzc1FqT2d3SC1WblkxYjJDOTJ4MjRSQmZCTVZSem1LbXEza09Sb1YwRlRZcEprMVhxSU9YaG1vaXNxblB1ck1JN3d3WlJoeE9zaUIxXzZKMGl4aURHbm1IWmZ2YWJYU040RDM1VG5MRXdGRkpwQURRZUpsUGp2WVVkcGlfZw?oc=5",
+      "published": "Thu, 10 Sep 2026 13:33:17 GMT",
+      "metrics": {}
+    },
+    {
+      "source": "google_news",
+      "team": "cleveland-browns",
+      "text": "Opponent Focus: cleveland.com Reporter Ashley Bastock Previews Week 1, Players to Watch in Browns vs. Jaguars - Jacksonville Jaguars",
+      "url": "https://news.google.com/rss/articles/CBMi0AFBVV95cUxPd3hyX3FJODUwbHdxMzQ4eFNWMTR2MFctWUR3TlloWjFpX1pIa3IwSWx5NFVveWlhNTZSLUZJOHRGX080Ti1OQjdMLTlJejJzTHJMWnF1MjNfTXFVMGNIaDhwUG8tTWQ2aW5EdGdic1VKRWdEVFVGSXBGLTZTcTE2Q3FNMnpiXzlPanc0QlY3OFJLVm1sUV9TRlJSS2lRRHJqSEZTSkR6eGJJNnhUZFMzeEkyUnJyd2xhWW5kaVU0eF84N0h3d3BINGRDRGVENmRS?oc=5",
+      "published": "Thu, 10 Sep 2026 15:01:55 GMT",
+      "metrics": {}
+    },
+    {
+      "source": "google_news",
+      "team": "cleveland-browns",
+      "text": "Jaguars vs Browns: First Injury Report Ahead of Week 1 - Big Cat Country",
+      "url": "https://news.google.com/rss/articles/CBMiugFBVV95cUxQS2lfZVBCUTNRSWpCeGdEbTlPaTRTc1ZpQmE0LTJkMW9SX2JkOUpYV3lueUJJT0FFaVFwcGtFVE1sXzJ5NGhrenNBR2hUeWhCNFA4WTdXdDlrMkdrWS1zdzFIeTJaY2pscENmQThVVmUxUHZIOWxOMlVBOENkTk4xTlg1UmxabFRVaHVudkZnRFczQk9sbFlqS3ZRaXl5ZFFSbWgzNF9adlpocnE4VGdKZTBESUVGS3pKOWc?oc=5",
+      "published": "Thu, 10 Sep 2026 14:12:24 GMT",
+      "metrics": {}
+    },
+    {
+      "source": "google_news",
+      "team": "cleveland-browns",
+      "text": "'A wonderful community asset' | Cleveland Browns' Dee and Jimmy Haslam donate $2.9 million to West Side Market Transformation Project - WKYC",
+      "url": "https://news.google.com/rss/articles/CBMihAJBVV95cUxQNFdxQVh0NFd1eVBLejNmS2Qwci05UUwydVItRGV6VFVub3owUzRBcjE2SExNM3RFY3FsX3lJVFY4UDBwZ2FFWVlvSzhrUnptakNodS1pbWljU3BZc2dkMmxFVnE1bjJPQl9oZjBXdkJma3hleFlPbEZNWVhGa2drTzNsOEtLUDdRcDVZNXE4VXJGM05xZzZLMXpjNGV3SW1VeGEyM1VyMkItSVJ3V0FMWGthM1BSZHpUSmxETHlMb2dqbFhteS1Kd2xYWGt5aHV6bEZreHI4Y18tV2k2Sl9vNEV5TFJseWZIZjNfWTNLS0lmVXlfalEtakJyU3kyZEFjWjVobg?oc=5",
+      "published": "Thu, 10 Sep 2026 13:24:00 GMT",
+      "metrics": {}
+    },
+    {
+      "source": "google_news",
+      "team": "cleveland-browns",
+      "text": "Week 1 could get ugly for Browns as rebuilt offensive line jumps into the deep end - Dawg Pound Daily",
+      "url": "https://news.google.com/rss/articles/CBMirgFBVV95cUxOVmFtdnFuTGNVU0tGSjk1VE5tbnVzdDhXWkxVX0hrdjJxUV96UkNIRVFNM0xKZXh1NFdvY3Y4QkFDREtOY1dtb2ptbHd6OHBUV1FxRWdLR0Q5aGxIV19adEpXY1BhTEtOdnZwME9hYnROTXdQRGJoOEZCUFpCN2p4MHVrb3pBdDc1bG96b3IyOFpZRXh3T3ZPelZNN0tYSUxPNk5RbnptYTh2cHlyOUE?oc=5",
+      "published": "Thu, 10 Sep 2026 13:00:02 GMT",
+      "metrics": {}
+    },
+    {
+      "source": "google_news",
+      "team": "cleveland-browns",
+      "text": "Report: Deshaun Watson was cited for speeding on August 26 - NBC Sports",
+      "url": "https://news.google.com/rss/articles/CBMiuwFBVV95cUxQelN0NmFSQ1V4WW4yWUpmN200Z2phSGV1NVpKb2VoRnVpY2NIbC1yd3NJWG1UUVlORlZRdnJiNFBWTlRvWUU1OUJFblU2aG5JbHc0bTVObjc0TEg2ei1JYWhGUHFpN05qelVFNjVIczBrVU14RWotd0d0am9pRXBubjZlZDdEeThka1l4WmNObTZqT2xCT0hqdHdzWVBFc3cydDJQaVctLW85UHZuNUJNd0w1b0U3dUVBN1RZ?oc=5",
+      "published": "Thu, 10 Sep 2026 04:33:11 GMT",
+      "metrics": {}
+    },
+    {
+      "source": "google_news",
+      "team": "green-bay-packers",
+      "text": "Packers announce roster moves | Sept. 9, 2026 - Green Bay Packers",
+      "url": "https://news.google.com/rss/articles/CBMiekFVX3lxTFBsTWdRNmRuS1dYQ2JadU9oekdrNEJQLXl0VE5vWHhPTkU1dVprZ3dEQkZOQXZZdnpicVhON3Q2Z0EzTGRhUTZIMGVpbWotZDQyUGZadnc1b0FxTFV4TVVuZDc2NVNWdjkwRWlYZUhNUWIxSUJGbElkczVn?oc=5",
+      "published": "Wed, 09 Sep 2026 20:45:59 GMT",
+      "metrics": {}
+    },
+    {
+      "source": "google_news",
+      "team": "green-bay-packers",
+      "text": "Packers RB Josh Jacobs pleads no contest to misdemeanor charges - ESPN",
+      "url": "https://news.google.com/rss/articles/CBMiqAFBVV95cUxQZXgwZzVobk5fVWoyZlJoOWZMVFdJRjVTWk1ZNzVXMUJvNlR6aE5ucC01dTVZRHp0cU85Q21OVDRuNmpZTXFwMGVkZ0RxNlo4SlhwRUhrZElvNFNabzc5U3BLcWZQdVAxa2hndEpRcWZYUnlVVFhJdkpsc0hJU1hMYXRBa3hGT0MwSHBxa29KNUlqNE1wVmNkTTlaUm1TUDBNMnRxMmJ5ZzU?oc=5",
+      "published": "Thu, 10 Sep 2026 16:18:00 GMT",
+      "metrics": {}
+    },
+    {
+      "source": "google_news",
+      "team": "green-bay-packers",
+      "text": "Packers vs. Vikings | How to watch, stream & listen | Week 1 - Green Bay Packers",
+      "url": "https://news.google.com/rss/articles/CBMijwFBVV95cUxOUTZWVkRCNjV1eW82UjF2S0ZoZFB5cnZUWWVqVVlIem0yNW9WdzRYcHdxOU1RYk5lSXhXTmFaeHJxX09Xa3M2MEs2djRMZ3EtcDA2Zkp4Z2hTZnMtN0JfbXRZNnVmOEN1QlpZWWRuVDBMdldlV0QtM05qeVhiVVVuQ1NxenFGS0hBNW1uVkNZRQ?oc=5",
+      "published": "Wed, 09 Sep 2026 19:40:53 GMT",
+      "metrics": {}
+    },
+    {
+      "source": "google_news",
+      "team": "green-bay-packers",
+      "text": "Aaron Rodgers responds to Packers' LaFleur saying Jordan Love is better pre-snap QB: 'Matt's a clown, man' - CBS Sports",
+      "url": "https://news.google.com/rss/articles/CBMikwFBVV95cUxOY2RSTHdOU3U3aGxmX3hERFlIT0ZoU0Nlem54aGRFYk0yOWdBRmF3RWdRZmp1ZWx6RXJud1FROE1hV2xDYmRDVGtRY2lCX042V0kzVVRmYk1yWTgzUnY2M3FobkZ6VzZTQXBJQnhDUC04TGRUZEZzUWhqUDQwNUxmaDNsV0Z2NEpLZVFNc0xkTTNUbFk?oc=5",
+      "published": "Thu, 10 Sep 2026 19:13:20 GMT",
+      "metrics": {}
+    },
+    {
+      "source": "google_news",
+      "team": "green-bay-packers",
+      "text": "Aaron Rodgers unsure if Packers would ever invite him to return - ESPN",
+      "url": "https://news.google.com/rss/articles/CBMilwFBVV95cUxQdXY3X0NxM29DZzJ3V3ZhbkhVSjBoRlM2UHc5bzB1c0NqRXh5WnFraWZXZWxtOFE4bGVPMzNxX3pXSVoyRUdsR3ZwTXpNSWZCVl9yRXJJSVN3ZnBlUnBBQUdoSVU2MWpNQWdSaGp3UElUSmduS3ZUdWVPZWp0ZzZpUnJSNm5XUkFJUUF3Nm1SUWNuaVVKSWg0?oc=5",
+      "published": "Thu, 10 Sep 2026 14:47:00 GMT",
+      "metrics": {}
+    },
+    {
+      "source": "google_news",
+      "team": "green-bay-packers",
+      "text": "Jordan Love embraces life as husband, new father and Packers QB1 | Exclusive - Packers News",
+      "url": "https://news.google.com/rss/articles/CBMi3gFBVV95cUxOWDVrRnVxWlRsSGt1TGhUdk5PWlJXUGl2aXpZTW4zdHFsLVJ0RFRHdUd6dGtwUHpPUU9PTUFmV2FEbnpWZWNVVmgyWDlpbjFKN1VqTmNjdUEtbVJwc3lNcTJHMVFLcm1tOFd3QmIxU2RYN21MMjI2NTNNRHZHR0lhbjkzV3NNR0lGQnd0QlVnbXBMTWNieDEzY0JtV2h0V2YtdWZ3WnFTS2V5UFhoaUxPNVdMXzFrMTZkSDBhVERuV0UzaE84UDIwUGJGM1JfV3NtVHdqbWE4VkFsODgzMkE?oc=5",
+      "published": "Thu, 10 Sep 2026 18:06:00 GMT",
+      "metrics": {}
+    },
+    {
+      "source": "google_news",
+      "team": "green-bay-packers",
+      "text": "Can Packers offensive line stay healthy, survive season? | Tom Silverstein - Packers News",
+      "url": "https://news.google.com/rss/articles/CBMi6AFBVV95cUxNM1I4Uk9RSFR5cnZQZFhEbVFYbWhabXVBWUVJcEx6U3VfaVNhOE9hNGtISjBiMXlfZ0thN0NZSERyeEw5c0E4bDRLT3NJT2xfOFJfNTRyY3JscnRYWlNJdFZscGxoSkRvZkZqZkk2WFptd3VLbFhsZ01CN3lpWVR3ZzVnZXJEM1dBcFRUZFkyU2wyU1kzM3EzeGVuM29GNFk2SVdoQVAwa0k3bWx4OE5abWFkdVdXOTJ0Tm9IbXp5MUViMWZrTVhneXQxZGhwNEV4RWFXTU51aGE0d0swbU0xdU51MVZySFdD?oc=5",
+      "published": "Wed, 09 Sep 2026 13:39:00 GMT",
+      "metrics": {}
+    },
+    {
+      "source": "google_news",
+      "team": "green-bay-packers",
+      "text": "Packers $88M Starter Announces Week 1 Decision - heavy.com",
+      "url": "https://news.google.com/rss/articles/CBMifkFVX3lxTFBDSnVHY0JqMThwOUVFcFRxQ1p3NTVZRldqQmVONWgzMVptSlg5amRwUldTX1duRHBROUoxQWlqaS1XejdFMFlOZDdNVUl0Zk5mNVJEcGRPRGhubldaTldJVkZ1NU95ejBDTzR3OUtPRmM1dkQySHlDMHlTSUVwZw?oc=5",
+      "published": "Wed, 09 Sep 2026 20:44:16 GMT",
+      "metrics": {}
+    },
+    {
+      "source": "google_news",
+      "team": "green-bay-packers",
+      "text": "Best Green Bay Packers player to wear No. 65 proved to be a seventh-round steal - Lombardi Ave",
+      "url": "https://news.google.com/rss/articles/CBMilgFBVV95cUxPMTk2YWZZVUc0RUtIekFrTk1VbUNGVzdnZ2JlOGVzVTd2YWVBSXlCb3pfTXh3SndEQTJ6MkRHajVSYUI0cXF5Q3JrTEhFaEdkMEVuRzltYWpyekd1dlV3WEtDVWpULXpMWlN3TFdMMzdBRVhQVmpPUjFFNDNWdDRFWHpMUmptbUxxZjgyLTlzWGxMS2hSeUE?oc=5",
+      "published": "Wed, 09 Sep 2026 15:00:03 GMT",
+      "metrics": {}
+    },
+    {
+      "source": "google_news",
+      "team": "green-bay-packers",
+      "text": "Best Green Bay Packers player to wear No. 66 wildly wanted to play for the Bears - Lombardi Ave",
+      "url": "https://news.google.com/rss/articles/CBMiqgFBVV95cUxObkVtT2NsS1RxSEZ4LUo1bUtDR3JxQkxDaVpxTmtmczduLWg0dTRIcEMzSEdLQ3lLRDRTdGEwWGlYdTFRTlYwcW5ZV01pdFllRFpJUGJ5bzF1Qzg4cGcya0I1U1pqbFhKeHdYT2J3S1lsQ1dTOG9sXzFoTnlQeUVnS3hQdWRVUHlJTWRCdmpvYUs5TXB1Tms3SGstTWhlRTVOTEtFekFKeW85UQ?oc=5",
+      "published": "Thu, 10 Sep 2026 14:00:03 GMT",
+      "metrics": {}
+    },
+    {
+      "source": "google_news",
+      "team": "green-bay-packers",
+      "text": "What Will Be the Packers Biggest Offseason Regret? - Cheesehead TV",
+      "url": "https://news.google.com/rss/articles/CBMiiwFBVV95cUxNTk81bS1hd0VCRm9QNm9wTzhsQzU5eXl5b1BXTHJxNEttNDluUkVnOW5TOTlJSkJ5T1RDVFpoUEtVeG0wWUpoZzBZOTh0ekpCSndNQjVYcFJNNGNwSFptaldhY1hOSnF1d1RTSEFTSTVSUXA5eDduY1RDLV9jc1ZvMkYzZk1rUTczaFJz?oc=5",
+      "published": "Thu, 10 Sep 2026 15:46:08 GMT",
+      "metrics": {}
+    },
+    {
+      "source": "google_news",
+      "team": "green-bay-packers",
+      "text": "New NFL Rumors on Tucker Kraft's 'Relatively Strong' Packers Contract Offer Ahead of Week 1 - Bleacher Report",
+      "url": "https://news.google.com/rss/articles/CBMixgFBVV95cUxOVVFSSDU3dEg0WEloMm53UGZWRlZpQk5UNjBiUlRaZm5xcUpLQm5RUDVfclpGTUh2QmJnaDBqdTN2ckx4UkFBYU51d2JyWjlZU0EwRFFxS0hLQnkzMVVONVZaMmRpWk5qbi15dFJ2OHc0aGxvM29aWk01WkdEZU56Zlg4NW9FNXJMT1dwM3FvZlFPSFlybjM4R3g2TFNDdjRRdXExOGFlMWNvZ3BNc3NSbzE2ejFCR3ZWTW1kMmFBUDRDTnE0R2c?oc=5",
+      "published": "Thu, 10 Sep 2026 17:27:10 GMT",
+      "metrics": {}
+    },
+    {
+      "source": "google_news",
+      "team": "green-bay-packers",
+      "text": "Packers trade for Steelers RB Kaleb Johnson as Josh Jacobs lands on Commissioner's Exempt List - NFL.com",
+      "url": "https://news.google.com/rss/articles/CBMiwAFBVV95cUxPcXFvRjN4U1ZDdXYyc25UakJpZUhlOTNlN1JubU44NThfS1FYRnVrZmc1SWxHWGNNcFE5MG8wTUdSdEw1VFVmblkxUVM1dXhLS3pmZjZ0dmdHellWbkwwV2hMOWI4NUJCVjJWd0pvWi1feFFuNWJ0Z3o1N0E3cDFHLUZRXzl1dEFqeHZKYWVXVDdSdmlBeFVVNkVBbGdnYjQyWjBtdVB4UHpJaTFITWdvc3FJRlVLZHVKR01BYWdUZl8?oc=5",
+      "published": "Sun, 30 Aug 2026 07:00:00 GMT",
+      "metrics": {}
+    },
+    {
+      "source": "google_news",
+      "team": "green-bay-packers",
+      "text": "Packers' Josh Jacobs placed on commissioner's exempt list while he faces misdemeanor charges - AP News",
+      "url": "https://news.google.com/rss/articles/CBMihgFBVV95cUxNVnp6M0V6dC11ZHlUTy1fZFd0eW9MdW1BZ3U1TzhUemFjay10UVZ3d0JzeE54ZDc4WEc4cVRLM1dlM1JwOUtZcU90VGVjOHAtaVpJaklYN19tNTVFaVVBUFR2RHUzbFlvNUJfR2ltRUFfNkxTaHZDQmJSNkJscDFkWEpPMVBlQQ?oc=5",
+      "published": "Sun, 30 Aug 2026 07:00:00 GMT",
+      "metrics": {}
+    },
+    {
+      "source": "google_news",
+      "team": "green-bay-packers",
+      "text": "Packers face real test against Vikings in Week 1 - Acme Packing Company",
+      "url": "https://news.google.com/rss/articles/CBMiwAFBVV95cUxOZWtoSDd2YWhaLThTcm9yenFRU3hDdmltNDhrOFNSSzRlSmd4OFZCNlptRExkUjdTVlJ0blJONTFWbmc4NWpRVHJFR1FVekJQbjd6dmROM080MFlDZU1WYldFVEEzX05Xa1VWS2JYc2daN2tnck5fZ3k1WF9JUVl1R0x6d1JuazVtRjZkbmt5aFByTDJRTjZnZVNLZFRQV0NzbGpYams4MHJZX3BOeW5WYzlSTmdnaTRKSTB5eVRUZkk?oc=5",
+      "published": "Thu, 10 Sep 2026 14:56:49 GMT",
+      "metrics": {}
+    },
+    {
+      "source": "google_news",
+      "team": "green-bay-packers",
+      "text": "Packers get clarity on Josh Jacobs' situation after running back resolves legal case, and NFL decision is the next step - A to Z Sports",
+      "url": "https://news.google.com/rss/articles/CBMikwFBVV95cUxQdHpuMzNBdnoyeUhubWlSZVVJWU9GU2R0eVNwTDl3R3RMLUJiX3gtbi11cU9ZMEJ6eHBPSmVfQ2RoUnBHOGk5bjJ3aHVJQkVxT0U3OWRPcmFGdmFHSmJJZjNGLXBNSk5RRWN0OG1sZFZ3VFdyWXB3c08xcHMyV0dpdlBhZ1NlLVFlbzNrRWlDX1R6cUk?oc=5",
+      "published": "Thu, 10 Sep 2026 16:50:56 GMT",
+      "metrics": {}
+    },
+    {
+      "source": "google_news",
+      "team": "green-bay-packers",
+      "text": "Inbox: That scouting window never closes - Green Bay Packers",
+      "url": "https://news.google.com/rss/articles/CBMiiAFBVV95cUxPX0pzc0NVdXBDcDBtVjdjektXa0hvUGJRRXQtNFZONEVnZjVpUVhxVmUzeTJiVEpZb3QwaWt1cGxRd21rSjBVTVBVNUhwdExRYUdKdjB5cllYNFo4WmdqVzQzdXQzc09BX2JhVXhidk55MVR1VE1lSGtYMlpGOXZHak5JdGpOdzRs?oc=5",
+      "published": "Thu, 10 Sep 2026 13:31:57 GMT",
+      "metrics": {}
+    },
+    {
+      "source": "google_news",
+      "team": "green-bay-packers",
+      "text": "Green Bay Packers 2026 NFL Playoff Simulator - The New York Times",
+      "url": "https://news.google.com/rss/articles/CBMiuAFBVV95cUxNX2IzS0JOZ1hqUlNXQkRhakFneFMydXVsUHY3ajg0QnZEMXhJS2VUUWF4WTdGbVlrX2ZDM0dDblVMQnFFV3dnbmpNbDRTc1hOMm5LR2hiVlZDZ19yelEwZUlnR1h3blo0RnZXVmU2Um5EbHJZeFMyeVV0cktOcVF2MVRfYXcwblhwa3VpaDFQY2F6RmdSNW01RG1sTjZUb3JGOC1RU2FIX0JlNGJ4WDFocU42aTBaXzg1?oc=5",
+      "published": "Thu, 10 Sep 2026 03:37:09 GMT",
+      "metrics": {}
+    },
+    {
+      "source": "google_news",
+      "team": "green-bay-packers",
+      "text": "Matt LaFleur gives blunt Josh Jacobs update ahead of Green Bay Packers opener - Yahoo Sports",
+      "url": "https://news.google.com/rss/articles/CBMihAFBVV95cUxPeVBhQkJ5WjloaHo5QUVxVTVxVXdKbGdhb0tIX285eUl4aUJNcWtDVVI5dnZVRTVBUjFPUDBpMTFLRVMza3NHaC04SFNCN19HVU5WeXlDVkV4aTBTQ081cEs5eWxGVGs3QVBKa25MamFHZHhES0kxLUZtczFZSzVfd21OaVg?oc=5",
+      "published": "Thu, 10 Sep 2026 11:15:28 GMT",
+      "metrics": {}
+    },
+    {
+      "source": "google_news",
+      "team": "green-bay-packers",
+      "text": "\"I take full responsibility\": Packers RB Josh Jacobs found guilty of misdemeanor battery - WTMJ",
+      "url": "https://news.google.com/rss/articles/CBMiuwFBVV95cUxOcl9Kemk0Z3A5WHZwYmE5VVlEMkF4c21wMjQzcm5VQjZQMGUtSTcydGgybi1EVzVZcnVMWnFWWDBYM1JJWldEYlYtcnhGQzdkdVFMY2Y4V0VvaFpfVXNwSkxtYngwcVpOcDJHX1RyaWFlYUhOUHZZMFRLRTkxWUpvWHdaMnZPUDNJUUltMXEybTI2bDhzWXY2dVRJMG8yenltX0tpeml3QThXZnk2TVcySmpFTzVrQkRDc2dR?oc=5",
+      "published": "Thu, 10 Sep 2026 20:03:45 GMT",
+      "metrics": {}
+    },
+    {
+      "source": "google_news",
+      "team": "dallas-cowboys",
+      "text": "George Pickens believes he and CeeDee Lamb are 'the best' WR duo in the NFL - Dallas Cowboys",
+      "url": "https://news.google.com/rss/articles/CBMirAFBVV95cUxNNHNrZzJrWmczc0RVbEwzVmx6QjIxQWpha2Z3TmdhNHJQYVZvN2xQRHB3N3ZyQXN1MVp4NlpZbVlhMHc5Y1UtLUtacF9OUmppTUFGNTdQb1lFRG44VF9FRXhlVkljNlFZM2lHeGtEaUFrR0pDYnhVcEJvSWlTemg4VW9kU2R3VUU4N3dOb2NPcDdtajc5b3E5S0VPSVRDSkFKa0wyNDVCemk3N0lh?oc=5",
+      "published": "Wed, 09 Sep 2026 21:36:11 GMT",
+      "metrics": {}
+    },
+    {
+      "source": "google_news",
+      "team": "dallas-cowboys",
+      "text": "Dallas Cowboys Cheerleader Reece Weaver swaps boots for Broadway - BBC",
+      "url": "https://news.google.com/rss/articles/CBMiWkFVX3lxTE5XQXloY2dTUDVXZTZoQ1pyMWVYVTA5b1dRejNKeXQyMXZITEFRdnN1eFZtZGxxeVplT3RsSFZQQnZsUEFfRUFiQVg2VlpoamJyMTRValRQb0dHdw?oc=5",
+      "published": "Wed, 09 Sep 2026 11:44:51 GMT",
+      "metrics": {}
+    },
+    {
+      "source": "google_news",
+      "team": "dallas-cowboys",
+      "text": "Cowboys' latest package of promises is ready to be opened. Will it live up to the hype? - Dallas News",
+      "url": "https://news.google.com/rss/articles/CBMiswFBVV95cUxQY2tlQVlCSjExZ2tqTGVFVUx1NUxKRE1RcW1qTHNGbmUydmhXXzAzS0xFaER3TWlfQzBGY3AtS3Q1b2FGSnFadlRYbWg5OVVlZlEwU0MxU2VXU3ZiMWxaQ1lTSU1yYXdnc18tRnhGZnJtYkluTWhfRlhmMl8wSjJrUHpyb3VzWkJIN0xqWnRua0VqQnFwY3h6QkJvcy1MNHA2ZllkcWYtdnd4Q1VidHk4Q1J1TQ?oc=5",
+      "published": "Thu, 10 Sep 2026 18:34:29 GMT",
+      "metrics": {}
+    },
+    {
+      "source": "google_news",
+      "team": "dallas-cowboys",
+      "text": "Cowboys Named Possible Trade Suitors For Edge Rusher Jerry Jones Would Deem 'Substantive' - Sports Illustrated",
+      "url": "https://news.google.com/rss/articles/CBMixAFBVV95cUxOOHBmTXVjLTI3eDBWV3k5MjdnT0tnbW56cEh4SjRSZ2RWaDI1aVdKTkJUYUR0cVpXSVdpVnE5SldpVjZ3bHBzZ2pTeXh2VjkzOW1ScnlOVlFyTFVIbGxNZ2ZDclMyRDNuTEsydzc3Q3lrMDY4aVUwQmNadEc0NVhkUF9yR2ZtcXR1SF8xX3FwWXE2ZjRXNXpYSDVjZ0pGbzV5eWJjRHVWdmVYT1N1ZVZWT2xLc19iS1lqMTFpdFl4Y3hGcGtp?oc=5",
+      "published": "Thu, 10 Sep 2026 17:45:00 GMT",
+      "metrics": {}
+    },
+    {
+      "source": "google_news",
+      "team": "dallas-cowboys",
+      "text": "Mick Shots: Inexplicably rough 2026 road start - Dallas Cowboys",
+      "url": "https://news.google.com/rss/articles/CBMihwFBVV95cUxNRkNTNl9WR2tweDNyMnlUS3otellEbFJoaUlFNjc1T0REbVNuV0pZd3BjWFkxUTR0Qzg5d01VdjNtbmhuRnNKVlVGSGxMYm91Tzc1V3ZETDAwUnEzalM5Q3Y1YldtRzR4RG9JMDdmUk9mUmVySlRsY1N0VS1IWkRQdkFFaEV1WDA?oc=5",
+      "published": "Thu, 10 Sep 2026 02:32:11 GMT",
+      "metrics": {}
+    },
+    {
+      "source": "google_news",
+      "team": "dallas-cowboys",
+      "text": "The NFL’s Most Valuable Teams 2026 - Forbes",
+      "url": "https://news.google.com/rss/articles/CBMilgFBVV95cUxOOUZvN21NRmk0aVROck9uSnZKSWZ1dm5LUy1wUk13OWtKLWJ4czJOVndrVzlHb2tiMnY1MTQ2ZUZWeW5IajBINnNKejBQd2pDS2NkS2FpLXlLakhlMUZlMHdxdTF4VWhERU1sMmNGRl9HdDl4ZHZBN21HbU40TUdVcUNwTld4WXJLNExtNHF3bk13Rl8zc0E?oc=5",
+      "published": "Wed, 09 Sep 2026 20:29:15 GMT",
+      "metrics": {}
+    },
+    {
+      "source": "google_news",
+      "team": "dallas-cowboys",
+      "text": "Dallas Cowboys ranked #8 in Week 1 Power Rankings - NFL.com",
+      "url": "https://news.google.com/rss/articles/CBMid0FVX3lxTE9xTXdyZTFYZzFZZVZxUWlQdEg3UldGa0MyOVJ1aXFJLXFIWVkxYnF0ZFlkclR2bThLUjR4Z3R1VV8tRl9haUZHQXFuSzRCTTVXRjhfa0dNN2hsenpmVzdUcW9LRGFKVUJfSXlGdm9VNmJCV0paWGRN?oc=5",
+      "published": "Wed, 09 Sep 2026 00:34:52 GMT",
+      "metrics": {}
+    },
+    {
+      "source": "google_news",
+      "team": "dallas-cowboys",
+      "text": "1. Dallas Cowboys - cnbc.com",
+      "url": "https://news.google.com/rss/articles/CBMiogFBVV95cUxQSDRTc2lmNTY0ODVyeFdWV0tZbzZFNHVUSlUxV2xiNFF2WXgwWXYwWXJMNG9iYzlVZUVjZTZRQzBaYU05ekRUUlR3VHRDNnNtNGxPV05pTVgwOHVtZDFWWDZQMWhFbU80UkFSd1hwLUU5Y2ZhTFBmWTR6RWx3bUc4QjhiY0p1VjhiT2FjVko1b1JIMnBVdlR3WTJ4cUJ3RHZQeFHSAacBQVVfeXFMT3hkbE5kNGRiaFNzQmtGdXUyZHpQWDdjTE55RVFuWEJuTlh3b2toUXM3c3oyZEl0MXNKdVhzOWhtZDctN3VqeUU4enJtZ3FqWXhGRUNPRGdabDdqalBIMndmM2hndGtwQ0NZOURFUDVWVUJZTDRCdUhvcXQ5YkE4emlMeVpidjJXQ1VScWRHRjNqT2VONnJjcl9jc2hyeTE3VkJvWl83SVk?oc=5",
+      "published": "Wed, 09 Sep 2026 09:55:01 GMT",
+      "metrics": {}
+    },
+    {
+      "source": "google_news",
+      "team": "dallas-cowboys",
+      "text": "Injury Report: Statuses for Giants vs. Cowboys on Sunday Night Football - Giants.com",
+      "url": "https://news.google.com/rss/articles/CBMirwFBVV95cUxQaGRCWm5MZzktXzFFd2M0UFQxOXA0VzJBV1pfNUd1WTZ0T0wxUzFSbnBJMVVZMXF0OFdlaGJDcVk2NjVjYWZlN0dEYzRKVzNLVVlZOFotSmJlWWhmMUlDMW95ZGI1T21HVWx6ck9TNFpLVHJuRHJrSUp0a09OYnNXQ1hLVmdRUlh4eWNrNEg4Yk5UWkZqOFBFdWU1TnZKYjFvM2psT0NWSjV3X240V000?oc=5",
+      "published": "Wed, 09 Sep 2026 20:22:12 GMT",
+      "metrics": {}
+    },
+    {
+      "source": "google_news",
+      "team": "dallas-cowboys",
+      "text": "Dallas Cowboys 2026 NFL Playoff Simulator - The New York Times",
+      "url": "https://news.google.com/rss/articles/CBMitAFBVV95cUxPYnJRbkdfUUItOEM5QmoxN0VYazFoWF9JVS00SnBPTnAzRW5GQ1htRllWZmhNaGMxaV9PNE9vUE9WVXZQVWVPaTExcXU5dWFNYklncjNFRno0YXhPcndhYTJPVzhzVWRPVjVfczJOM1hUanRFSlMwcjRiY3NXb3A0dzExYVdyd1BGVlE3Yk5ZM181YUM4ZU5MaU5ia2NlVjJhRUp6eE82ZjhtSS1uTXMyMllzOWk?oc=5",
+      "published": "Tue, 08 Sep 2026 15:07:49 GMT",
+      "metrics": {}
+    },
+    {
+      "source": "google_news",
+      "team": "dallas-cowboys",
+      "text": "Dallas Cowboys TE Depth Shaky For Week 1 After Two Miss Thursday Practice - Sports Illustrated",
+      "url": "https://news.google.com/rss/articles/CBMioAFBVV95cUxPRGliakNER2pmQ3d2T2tVMm9mdGZ6YjA1WU9oQ3VfWm9SeGxnMzlfQVVGc0ZLZDg5SW9MQTVuazkwN040dEw3TTFnRFl4bmlaeWpNNnpSUHd5TXZqSjZXT285OWRsU2c3MkxXcG1laUh4ZEE2dzBrN3I0aG9sV3RvUmNpblJidE0yQzRLSHpUalVsbmZQczdENXFibkdid0V5?oc=5",
+      "published": "Thu, 10 Sep 2026 19:21:31 GMT",
+      "metrics": {}
+    },
+    {
+      "source": "google_news",
+      "team": "dallas-cowboys",
+      "text": "Dallas Cowboys add former Pro Bowl offensive lineman to practice squad - El Paso Times",
+      "url": "https://news.google.com/rss/articles/CBMi1wFBVV95cUxQVC0xY2NsYTVBWXdUU0V2alJkNll4dGN0LXNHU0J0THlXY1Y0cy1aOWRxVHdiOVNHTVhLZU9wVlpPdkFKSzVOandBSzllek41TnozbEhNSVlHTXNzS0tvRHQ3VnlfS3dUYTEyZWdRS0Y1MTFGQlp5VVlvN3A0M3hlMDBhbzlLaFBHdXVjSktla3AydFJ0QUQtUkhWd1NjaGdNRVFVUW9yVnEyd3dSRVEzLWRKU2hjUU5fUWJST1VqbVNnUmNVX3RzUEQ4dU9MaHM1S3k3c0c3cw?oc=5",
+      "published": "Thu, 10 Sep 2026 16:20:00 GMT",
+      "metrics": {}
+    },
+    {
+      "source": "google_news",
+      "team": "dallas-cowboys",
+      "text": "Science Lab: Christian Parker’s task is tall, Cowboys' window is small - Dallas Cowboys",
+      "url": "https://news.google.com/rss/articles/CBMipAFBVV95cUxOdDFEaC1LeDhkV3ZKZXBFb3ppelN4VGdRUUM1bEJ4MER6SzZpeGdtdlA3ZjktcVlVZkhicTZBSTg1SFMwM0luNDNuUnpmaTV3WU8xeG1Ka0ViRmtNeHRwYVlOVDluVk9XRmVlUmxYc0x3Zk04S015ZEdIaFVaU2dwWGVKUWJvdDBwUmY5MVJDbkJOcWVfQ3d2cXdMbVJHOWJ0emJaMA?oc=5",
+      "published": "Thu, 10 Sep 2026 16:02:12 GMT",
+      "metrics": {}
+    },
+    {
+      "source": "google_news",
+      "team": "dallas-cowboys",
+      "text": "New York Giants to honor heroes and remember 9/11 during Sunday Night Football against Dallas Cowboys - Giants.com",
+      "url": "https://news.google.com/rss/articles/CBMiyAFBVV95cUxPdlQyNEV6MEJjcGtNdmFOTFBvc04teGt6aUFkcnd5TC1mdXBvTEVoZTBKMHF2RWZJQXJodW9aZVJSVzRPd1Nxc19lU1NvMHowWE1TcEpKWUtCSHJVOVpSaHcxUHRLTmZzcVlfZGZmRW5EaTAySGJWR0lsWUxRWnlKdGZseDU0dnQtOWRXRDFZb2lsaDhjaWI4dWdiMzV1bS1xYm9Ec01rZzJGTDlGbmpEUTNNUkd0QTd0N3lFaWtQM09NNkQ0U040eg?oc=5",
+      "published": "Thu, 10 Sep 2026 14:00:35 GMT",
+      "metrics": {}
+    },
+    {
+      "source": "google_news",
+      "team": "dallas-cowboys",
+      "text": "26 bold Cowboys predictions for 2026: Schotty for Coach of the Year? Will Super Bowl drought end? - Dallas News",
+      "url": "https://news.google.com/rss/articles/CBMirwFBVV95cUxOdkZodXF0MzJMY3dUcENOZTJQNUI2dEhBREVkeUw4REpIelZVMUFyX3dCWlBaaUtwbG5waTRFYUNKSDhYakVoN2dSaFFVZXFQZDlGUnlWWUxzS2R5dm9RSTlFZ09Ja2xrRGFkRTBfQm1FbURIM0VwaFo0Rng3WDlZN25VVXYwM1ZjNnkyNzBLNkJNWThLczZqTHpiWnVHa1p2TlI5UXNLU3R1MWtjd09J?oc=5",
+      "published": "Thu, 10 Sep 2026 17:07:22 GMT",
+      "metrics": {}
+    },
+    {
+      "source": "google_news",
+      "team": "dallas-cowboys",
+      "text": "Dallas Cowboys Turned Down Trade Offers For Tyler Smith Replacement Ahead of Season - Sports Illustrated",
+      "url": "https://news.google.com/rss/articles/CBMingFBVV95cUxQLTBoMEo2U3p4NWVsU0hVTk1WY1plMno2VTJwNU1mNlJBekJ4M1hlMEhIMkdHUzdNWTRPUHM0RVotSlNnbHQxQlhoeWxMU203WmNoSWJNVlBVekJ3X0ZyUWN3NENaNnRlbU1mUHpRdXVXbklBZWYwZjZ1eGRLMEpyVW5Ed0VoaS1BOTNYbVFRM0NNSWlNUXR0c2wtQmQ4Zw?oc=5",
+      "published": "Thu, 10 Sep 2026 15:19:28 GMT",
+      "metrics": {}
+    },
+    {
+      "source": "google_news",
+      "team": "dallas-cowboys",
+      "text": "Dallas Cowboys schedule 2026: Teams, time, how to watch 2026 NFL games - El Paso Times",
+      "url": "https://news.google.com/rss/articles/CBMi4gFBVV95cUxNX2lEYnJlYXZQS3kzTkpKSXYxMVVOZW5nZEhQNTM4VTZlSUJrTk00Sy1zZWFfekwzZDNVRDRhOTFqalNMQzE0ZlBrZmVpdmFyM0gxMFpWSDQ4X192R05yLW10WENSZlpuVWc2am42Y2g5S29DTTlHeEtVd1JRcmJja3c1ZFNGV1dZTWZUeFB5bkVtU3BFY0w1Y09UcklLU054dDRvRzREU2JzaV9qZWd4R3A5WVRRRGp5UGhaOXFQcnpidzdENmtRdG1ncnVmaUw5UXZxaEg2T3BxXzE1b0pfTjhR?oc=5",
+      "published": "Thu, 10 Sep 2026 18:15:00 GMT",
+      "metrics": {}
+    },
+    {
+      "source": "google_news",
+      "team": "dallas-cowboys",
+      "text": "Cowboys Crosstalk: Leighton Vander Esch | 2026 - Dallas Cowboys",
+      "url": "https://news.google.com/rss/articles/CBMihgFBVV95cUxPRHhzWll4NVhLREUxZnZiMlNDWlZuLXJGQklsQVh6NEFIVzhEdjY0OGIxSS1LLTRfMGNzZHZTM3lzWVdYRXpsbmlSc1llM2lHR1NDRzVyakdmVk93TUd5cjgwQ2pvRXVSZ1NETEd0RkhyWmRPeEl0U19wNUdxdlZuRDVkUE04QQ?oc=5",
+      "published": "Thu, 10 Sep 2026 02:03:55 GMT",
+      "metrics": {}
+    },
+    {
+      "source": "google_news",
+      "team": "dallas-cowboys",
+      "text": "Everything Dallas Cowboys fans need to know before the 2026 season - Dallas News",
+      "url": "https://news.google.com/rss/articles/CBMirAFBVV95cUxONFpaM1Q4c240Q3dSNTFpVUZlMzJHSnA2RG1nemp1OTg2UzExWU0yVEdvYjY3QkdHY2lDS1FDWFF4RXgxaDYtSWtuOWx0MmNnNDlUUHo5SFpHdkRfejZaUnF0UkNjTWQ0bnFNOGVXVnRGUHdwME1vQWV3MjkxcFVSaXQxcXVTUlhRMVc1YXVNa1hWY0Q3M00tWVloN3JFb09MdlU2UmpsX2NQQWx1?oc=5",
+      "published": "Thu, 10 Sep 2026 12:53:24 GMT",
+      "metrics": {}
+    },
+    {
+      "source": "google_news",
+      "team": "dallas-cowboys",
+      "text": "Cowboys lose star guard Tyler Smith for 4 to 6 weeks after surgery - El Paso Times",
+      "url": "https://news.google.com/rss/articles/CBMi3wFBVV95cUxPdFRMdkpZY0ZNcjNLeHQ1eE8zM2ZHR0pudWVSU3FUOV9ubnl3Z2hUd0RTWW5yS3N3M2VUYmpsN1hoWlU2d1BOTndZX2VfeVBSQUlRdXM3MkxqeS1hLUNCNVF6YXVYLVFidFkyQUVyN2k2QlZ1YzlWYUF6dzhYR2JRVDBRZWcxdkxXdHJ2SHMyOWRYeGpOaXVTaGFENHBDZ2pFWXFXbFMta1E5bkNTaWsyTTZTMEZLQkswSG1uYi0xTkdZUU9WN25CNUVKNUU4b2RfcXA3TTMwX2d2Sy1PdFBR?oc=5",
+      "published": "Thu, 10 Sep 2026 15:45:00 GMT",
+      "metrics": {}
+    },
+    {
+      "source": "google_news",
+      "team": "michigan",
+      "text": "LSU soars into top 10, Michigan tumbles from top 30 in college football rankings - CBS Sports",
+      "url": "https://news.google.com/rss/articles/CBMipAFBVV95cUxQOC1JekV3QWVnbWpNYWhrdk9EeUhSb1F6MVpzZXlpOFFMUm9FXzFNenFLeXBMbTNxM25qZG5OVmM1NnJoTzhXUjJmQXZCQ1M4dW9JdmItYnJBQnRqWENXLXZQSktVUUEtbV9EdVBKYXo5OTBtT184VTNhblh3VWlSdzA0SjBZWTJXZ1Q5aTR2eEJjT3hnTmVTaUF3QjBtdkV5UmppUA?oc=5",
+      "published": "Wed, 09 Sep 2026 14:53:14 GMT",
+      "metrics": {}
+    },
+    {
+      "source": "google_news",
+      "team": "michigan",
+      "text": "While critics pile on, Michigan teammates keep faith in Bryce Underwood - MLive.com",
+      "url": "https://news.google.com/rss/articles/CBMiwwFBVV95cUxQbi1XQmF1SEF5MGJIWXhTTlVJTUhObWtISnlJb1FsRnh0ZXNaaDBrZ2FzN3Z1aHVwdE1RLXFvOUE3Z3NoUGN4S2hVazVJaGNBV1JDSnZnN0FsZC1LU0tCWGlJZGU5RWt5RXhZSXV6VGJJRWRydUtPRnpGaV84TWNJZWJ4VWNSM19nQUhoQzlIUkxENnN0MGRBYUxheWNnMlBycFJ5SkkzRk1iWDlxeklaS1RpbEQ1NXN6UzBNZTV5RFk3NVHSAdcBQVVfeXFMTUktMksxeENXUW4yVFJwWGdJQ2QtOThlSmQtcDdNZF9IS1BkUzRSUVc4cmZNbWk2SjRreWRhblp1Y19hNmNFZF95NWFLSElhWGV0T2JFX2ZOc21KbW9qNW5wZFpQMWtxSUQzQ0VzV3A5MDk0WnJzTUlDRS1Ya1loZ3dhenVSZkdRZk10VTUxajFqRjhrVFpwV2ZJUGRiYURBWm5XWWhUNWVCb3BGY0xIWHpHVFRHMFRQemtBMVAxVjFpakhBaTh0WXk1WFJVLWpsR25mV21qTmc?oc=5",
+      "published": "Wed, 09 Sep 2026 15:38:00 GMT",
+      "metrics": {}
+    },
+    {
+      "source": "google_news",
+      "team": "michigan",
+      "text": "Staff predictions: Michigan vs. Oklahoma — a lot to prove - On3",
+      "url": "https://news.google.com/rss/articles/CBMiqAFBVV95cUxPZGJiZnJhaFZxckFyVy13SUpILXJnbUlGR2hsdnM5U3NzVXA4bHlJZnJOYVFPNHN6MkRkZkdZT1dXYnFKQmFwTXJBbTZGYUtNTHpIUU9NSTIzcnduT2NXc0ZsVl81VzQtNjNrVEFodnRjTWNMSzM4ZDhhNHVzQVBtLUxwREpFTnFjVzNXT3V5UlZVcXpVZndGSlFpRmdiTzM1RVJjN3o4NWY?oc=5",
+      "published": "Thu, 10 Sep 2026 17:33:14 GMT",
+      "metrics": {}
+    },
+    {
+      "source": "google_news",
+      "team": "michigan",
+      "text": "NCAA establishes 'standard timing protocol' in wake of Michigan win - ESPN",
+      "url": "https://news.google.com/rss/articles/CBMitAFBVV95cUxQTkVWVnZSaWdEZC1qVmR4TGxGamZIaGpQaUJqbi1sclVhS2c4eFVxQ3JmcXlZRGEwWTVrUEd4aEp3YkdaT1FvNzNpV0d4ai1qdXc0Ymp2cXY4bWpHOFMwNGlabW1GejVRaVV4MnhPTVdJc2FQQmo3bENzMERRaGJ5TGxwWHVqS3lKVjdlcEhwTklnV2lqNW85T19UMXlvb1k5Mi1hNGMwdmZXdEVKcHB2eWtRNUM?oc=5",
+      "published": "Wed, 09 Sep 2026 01:55:00 GMT",
+      "metrics": {}
+    },
+    {
+      "source": "google_news",
+      "team": "michigan",
+      "text": "Michigan, LSU And The Price Of Being Right In College Football - FOX Sports",
+      "url": "https://news.google.com/rss/articles/CBMinwFBVV95cUxQaFZERVhMTTV0VEkxYTlJZ0pIYXpqVHluN0ViMXNqNDFlSEM4RGdiY3FjYTMzMFkxbWVCWVZvUjlFUW9RZUxVb2l5dkdKZjdBUFZlMURhdzNoR1NoNWIxVVZ2bGdQV3hLNTg4MUxicVg0SzFrR3N0ZFlCejQtdUZfSnNmaFd4MTYzclF5MmJTQUUxR0pGZmFFM0pnazBQcW_SAZ8BQVVfeXFMTW5UWFJPeW9TbHBnYWVDaC0wdUpZVzBqemFGRy1vVzVFR3dmVWh5RDVPa1I3LWlRNFJoSTZPSkVndmdvOTJHYjRDY3hFNkZEUmZjLURYcTV6eUpRVzh5MnkzU3NEY253WVV1X3Q2eDNlOV9ScnJRWE4xekhDQkdLQ081X0toeVYwZzBtQUNuRFlTN1lEMURCMkdDMkxIYTlr?oc=5",
+      "published": "Wed, 09 Sep 2026 23:13:30 GMT",
+      "metrics": {}
+    },
+    {
+      "source": "google_news",
+      "team": "michigan",
+      "text": "Inside Michigan football's players-only meeting after the Western Michigan game - 247Sports",
+      "url": "https://news.google.com/rss/articles/CBMi0gFBVV95cUxPcHZMQU5rY3dNaERDWkVkQzJrb0hSUjdfNWp6NExxNEFLZ0xERDRNR3NtYkRvaFZVbERfTWI2LW90MFVBemZoR0tDRHpYZHYyczF0R3psQWNXMEQ1c0ZkMDBhMEMtcS0wQlJJaDhYNlNwX2hqT2VDQ1lwcV85VGhTNzFhX0VPdWpTM2doWDNUb240NHhVNEFBUlJjaUpZbXNiYUxnWHVRc3BDaTlDbm9nLUs2cWswdU00WFZTa01SeXd2bEdmaHhobkJOdFR5TEoyS2c?oc=5",
+      "published": "Tue, 08 Sep 2026 21:51:00 GMT",
+      "metrics": {}
+    },
+    {
+      "source": "google_news",
+      "team": "michigan",
+      "text": "MAC to appeal controversial Western Michigan loss, says replay error gave UM extra second - The Athletic - The New York Times",
+      "url": "https://news.google.com/rss/articles/CBMioAFBVV95cUxPTWQ1YzI3bEJnaGRRVXg3eEdUN1BobnJyUFFGR3p4eHFFeGc3NmFTcW5tOFhYLWs3RExKelhHWURaUGN4Wkt5aXVYbmp5UklHMktwMTFwUmlLelAxeGRqSE9BTlg3YkNEeDJMa0xIQWk0aVVSdEVDUnQxZjNJRTZxNWxJcHQzTngzWmhqNi12d3MwT2FacnJ2MmRCYWVRa1Y4?oc=5",
+      "published": "Wed, 09 Sep 2026 00:29:04 GMT",
+      "metrics": {}
+    },
+    {
+      "source": "google_news",
+      "team": "michigan",
+      "text": "I Thought I’d Seen Every Kind of Sports Scandal. Then Came This Football Game Last Saturday. - Slate Magazine",
+      "url": "https://news.google.com/rss/articles/CBMijgFBVV95cUxOSGwtYVA0bDVWMkI2a2JpYnhtYXFJZlVzOVQwaUMxV1VnbnZwRWRoS25BNUhyR0tjclI5WHQ3cmc2ZDllS1lXUzJFdmR6RFBGZGJDejlIWkEzbWJNU29lcW5TWGVibjczaFQyOFZiV1pmOXZHdTlCVkExc3VtQmtEZHFvR0wybkllX3VCeFRB?oc=5",
+      "published": "Wed, 09 Sep 2026 17:40:00 GMT",
+      "metrics": {}
+    },
+    {
+      "source": "google_news",
+      "team": "michigan",
+      "text": "Michigan eager to turn the page after 'soft' and 'embarrassing' opener - Detroit Free Press",
+      "url": "https://news.google.com/rss/articles/CBMi1AFBVV95cUxNUG9JT1JxNnJmQUNub2pYZHdwRlB6aWl6SlhMUlBzZnNYTUlmT0djbmdmVEFZMW1Nb2o2NTR0amFuUVN3WVFBMVNYenRyb3hPbkdsVkhtaThwWGkyWm1mZ2NjS0s5VXNHQ2t1SkZzWDhGdENteDBzMm9vUFVaM1RLeldNY3pEZnlMTzdKdzhNbW51aE9YZUw0c0R5cE03a29zYTl1Y1pBM2N3dF9qbEluSWxlVGJLTWtiMkFGWjU2MmRPZWRmRno2MXRWWW96b180MlF5dw?oc=5",
+      "published": "Wed, 09 Sep 2026 09:12:00 GMT",
+      "metrics": {}
+    },
+    {
+      "source": "google_news",
+      "team": "michigan",
+      "text": "‘It’s hard for me to accept it’: Urban Meyer says Western Michigan ‘beat the Wolverines’ - thecomeback.com",
+      "url": "https://news.google.com/rss/articles/CBMixwFBVV95cUxPYVZPT21DNDdzN2g1YUJlTmxzV05nN2JkSjdxaEVEdkFkbE1VNno0TnJuSTQ4LS02eURNU25kbXlUSlZsN1ZiaDFJWXdJU2dqOTJJTTBhcEU3Um9IMDRIanl2ckFoang5QVhrT3l0YjRsUkV0T3h4ZHlfNDhCTV9sY3FGdS1PMTQ2NTZheU83LWZGdEFBOWpqT2NGaWp2Nkcyemw5Rl9pYUpvbmtfRmVYRDQ0c2tOQTVGd193TmRxRFBiOVFfd0dR?oc=5",
+      "published": "Thu, 10 Sep 2026 14:28:02 GMT",
+      "metrics": {}
+    },
+    {
+      "source": "google_news",
+      "team": "michigan",
+      "text": "How a Player-Led Meeting Could Change Everything for Michigan Football - Sports Illustrated",
+      "url": "https://news.google.com/rss/articles/CBMitgFBVV95cUxQamltdU11T2hHX0h5U2RROVJfVWdiWkwzcHIxQk1YcHNmNjlPb2VHSWVUWjhYekJZQ2tROHVXQlVqOTUzcjZuNUN1VHEtRVM3dlVVcHhCcjBQdXVubk92T2p3ODduOThnVEFONElnWE16Szg2R3ZoYkdNNVFEcV80NEdYNFZ0Q0hrcTlaWVU5czVfempBWE1LWG93blFmMVhFTGJ5QVVRWFJOZUJ3NFA3ZWk3M3ZyQQ?oc=5",
+      "published": "Wed, 09 Sep 2026 17:30:00 GMT",
+      "metrics": {}
+    },
+    {
+      "source": "google_news",
+      "team": "michigan",
+      "text": "Shop last minute tickets for Michigan vs Oklahoma football at the Big House - USA Today",
+      "url": "https://news.google.com/rss/articles/CBMi0AFBVV95cUxPZ2c1MEh4U3FNcVA1STd1SzVKV21oRVdKaHlsT3FXY3EzcUtkaFlWbDlSeTNNTE1zM0FiV1ZUYlhlaFZReXVuQk8wdklYOC1DWmFTa0FSa1FqNm9ja1dmcnVtOF9oT3JVVks4TS0yVFZlRmJZZFRPVFFqQ2hXWHFJTHhQQjc0anRRTkNOdWR3b0V0cGExUUJpMGpnSDZCR1BYZ1FuWExvLUU1a2wxNlUtZmx1cHZ4UTE3ZGt1eUpHdGZtaVZDWGhIX0NxVXFRRk5a?oc=5",
+      "published": "Thu, 10 Sep 2026 15:48:02 GMT",
+      "metrics": {}
+    },
+    {
+      "source": "google_news",
+      "team": "michigan",
+      "text": "Michigan football eve: Final thoughts on Underwood, the defense, transfers - MLive.com",
+      "url": "https://news.google.com/rss/articles/CBMixAFBVV95cUxNaUJXc0FYUFRkRnZPd1p3a3l5WklHamJsVXZQOHY4N0JKWWFPNHo4MllLMEJyS3ZXOFZtdG5Gb1N4ODBra2ZjRHYwTWxSeTJ4NDVqbzE1UzJrYVBfT0I0VFJQMzY1Vjh5ZHlBWHE1Y0NoUGl6dzQtRlA4Q1p1bHE5VnVyMkNheFhSSGF0Z3FZU3l5ZHhFUVRJUHlDVjgzUFhQakVXdXNsX0tab2FEOGNHRDd6enJ2czhXX0xSRWdoMnBydXgz0gHYAUFVX3lxTE1JYXhWOGs1S01KckpLUXRoVTJlM3JWem9McGw5d0RzSlBKNjhzVVJMSDROU1MzRFVtY2V3NEwwRXVxaVgxWmoyVmhWd1FUZmZCa2J2NUtZVm16Z1JrYzZ2MTZmdEstM25HMWxrLUdSaWR2NExLUTY2MS1iQ05pQW1VRkpoTEpqOHhLSG1MclFNZFJxQmhxN1ZxYWx5Z3F5SEYyZ09fUDZhY191WHhuNmktd3ZOSExpaEhWSmdTYzdvZjJUVjJiUDM1ODY0czJjcmRBYnZWbEhBUw?oc=5",
+      "published": "Fri, 04 Sep 2026 11:15:00 GMT",
+      "metrics": {}
+    },
+    {
+      "source": "google_news",
+      "team": "michigan",
+      "text": "How to Watch: Michigan Football vs Oklahoma, other top games of Week 2 - Yahoo Sports",
+      "url": "https://news.google.com/rss/articles/CBMijAFBVV95cUxQUnI5OTdxdU5JcXNxRzJfNU5QeEFIQjFuZEowYXBpREJSa3J2SVJtT1FqVVozX3lISDItN0Qxdy0zQzZ4UTZYcEZZaGdtRnE3YXZyQ25yeExvNzlkU1FnX3FZSkJ1MDRMNXdJZkRpZUtMUXNwd2lZbUFQaFFtN2FUVHBaMzN0RU5WNU5xMg?oc=5",
+      "published": "Thu, 10 Sep 2026 20:00:00 GMT",
+      "metrics": {}
+    },
+    {
+      "source": "google_news",
+      "team": "michigan",
+      "text": "Michigan football coach Kyle Whittingham appeared to put Bryce Underwood on notice earlier this week. See link below ⬇️ 📸 Junfu Han, Detroit Free Press - facebook.com",
+      "url": "https://news.google.com/rss/articles/CBMi3wFBVV95cUxNbldwcDJ0RVNIOGlLUUdicEpXM2N3SHJMeVoxU2ZvYjZabjZlWkJjdnFuU25iN1gwY253OWFhcWhTMFprbUlTNWRpNG5wcjhBWWZqUThTZ29Ya2lqUXhjUkVQU055QjlYMWdLWTl4clRDSGNabDlhSjRWSTlySnZmN2lXZEdCby11dHExTVV6NG1RY3M1ZG81ZERTMzdJc2dsVFltUEVzNHdJOGdvX2JRM0VUaEJTVkFuQXRaaF8tTThfQlE2X21IUUlIemk2bHhrdGl5ZFBOei1OQlpMVTRJ?oc=5",
+      "published": "Thu, 10 Sep 2026 17:30:59 GMT",
+      "metrics": {}
+    },
+    {
+      "source": "google_news",
+      "team": "michigan",
+      "text": "How & Where to Watch Western Michigan vs. Michigan - NBC TV Network",
+      "url": "https://news.google.com/rss/articles/CBMihAFBVV95cUxQcTlsbG9WSmdLSFYtM3UzMTJweERQZDFDSHIyeE9LYVVyNVBLdzM1Yk9TWU5SUi1vU0haTE10ODcycF9FdVlLR0FWLXFDbjhqZ25NMHZXUnJMeENtTHZDWEttY2hVYUdqcnF6R0dDQkFQVWJYV241ZG10M3JReVBYX0dEV00?oc=5",
+      "published": "Sat, 05 Sep 2026 11:02:02 GMT",
+      "metrics": {}
+    },
+    {
+      "source": "google_news",
+      "team": "michigan",
+      "text": "Michigan has more problems than a clock controversy with No. 11 Oklahoma coming to the Big House - Bozeman Daily Chronicle",
+      "url": "https://news.google.com/rss/articles/CBMikwJBVV95cUxPQlIwcUZSTEFKTTdRY0ozZVJzQmtrc0FVZEwxQ1pyZmpWUlpuVExwNndjNE1HNUZIRzQ5UlpfVXdUYjFLNVV5YVhfWllOUXFFRE1KYThXdWZ4SmtQcEpYRVc3aVR5SHJmM2JpNG9Ka2s5dk9LMWRoeGNsc3NqWkp5ZHh6SGtJNmZoeDVrNDl1TlpWM0xPeHVGczVvVjJrMVRueGRxN3NPYjlidEszMW9ONjE5YzEySFFPZ3N4N0FlSDV1ektMSVNuWWU2SzBVZkVtZlF1cXphNjRZUzlieUxDSkFkMGxkOThXRnJvdFhUcE9rZTRfVGxrX1EyTUtEX05pT1dMbFJYVWFnYTVhbGUwMkNWRQ?oc=5",
+      "published": "Thu, 10 Sep 2026 18:30:50 GMT",
+      "metrics": {}
+    },
+    {
+      "source": "google_news",
+      "team": "michigan",
+      "text": "Michigan football vs Western Michigan time, channel, streaming and odds - Detroit Free Press",
+      "url": "https://news.google.com/rss/articles/CBMi-AFBVV95cUxOX3BFUjE3Rk9rVTFXRFBXb3p5cHEyNE1pVUQ1T3NCaVB5QjRfZ0daenNCT1NqemxDRldyeTVjS3l5SDRhZlNWTllicjBXRHFLeVYyT0FCNkp1YmxMYWRMMmJWdmMwbmtTb2llZFhNckJCVFJLdmdPVE9Ic3lKUXowUjdmWXpDSlBFLS1KVTdJcEFoQ0tQb01DLVlzaENMTlExblA4OXNkZmFValNkbEJYZno4WklfWC1uRVUxLVBfVDdyb2FhQ0lja0g3YzhEdnhyVW1QSXZUUG9aN19lT094eFFJY3V5ZmdMREdxSWlsdTBqTTNBWmVwbw?oc=5",
+      "published": "Sat, 05 Sep 2026 21:30:00 GMT",
+      "metrics": {}
+    },
+    {
+      "source": "google_news",
+      "team": "michigan",
+      "text": "Bryce Underwood addresses Kyle Whittingham's comments about remaining starting QB at Michigan - Fox News",
+      "url": "https://news.google.com/rss/articles/CBMivgFBVV95cUxNdkRnQ1NCOUctRmp0SWZHd0VQRGFwMVVpLU9wenZPVjRFS3hZcGxrUmNZOElOVGFncW0xOWhrRkNYVzJFbmgySXg3VkNPcUN5b2xIcVNlOEFkTDQ4YnpTUWlsUlpJSHMtZ0l1M2lCVWFsMFp4UjhPN25UZUxFb1BZZEJKWkJBa21uS2lYLVJEcUVNSDhEWEtleElJVF9Tbng2bk1zbTQ2NldLUXI1b0diY1dEMmNldjVFWnFxMWtn?oc=5",
+      "published": "Thu, 10 Sep 2026 01:25:56 GMT",
+      "metrics": {}
+    },
+    {
+      "source": "google_news",
+      "team": "michigan",
+      "text": "Keys to the game, Michigan vs. Oklahoma — how can the Wolverines win? - On3",
+      "url": "https://news.google.com/rss/articles/CBMitwFBVV95cUxOd21NMEtCQW5VSlVIOE13cU51eHR2MlFVMGhDdlUyVVBxNzltRGs2NWFaTS1NdDBMVW9EcnhQUHRRcXZwcDlYdE9HX05RWm5mYW14Y3huR2tDWGROSVdNYk0xOURBM3d2QXk4RlUwbzJRZFlfMjRyQ1pMNmhwU0dCSWdMZWozMVdjYmg4Sk8tUXFfYWpUUVk0QURTMk9UcENRbUp6UTlKRVFXZzV1czV3SHNUN3F3bzg?oc=5",
+      "published": "Thu, 10 Sep 2026 15:00:56 GMT",
+      "metrics": {}
+    },
     {
       "source": "repository_trend_snapshot",
       "team": "cleveland-browns",
@@ -431,25 +1712,9 @@
     {
       "source": "repository_trend_snapshot",
       "team": "green-bay-packers",
-      "text": "Are Packers favored to beat Vikings in Week 1? NFL matchups, odds",
-      "url": "https://news.google.com/rss/articles/CBMi2AFBVV95cUxPcE5fTHdwV0k3VVdGSTc5VmFsV0RxaDE3UDhzV0pKZzVzcUJNUlVHYnlUakZTc2IxX0ttaFB0S2NEckJyeUpKUXNaTEpYSzhpZGUtb0VCbFgySDNKRm9jUDljd2o3ejJ4RWwtSHlwbndVSUdrbE9ycGQ5YWtiU1FpeWxhYmlRTHJKb3NjTkVKaGpsRUhNZmY2bk9NQ043TUx1ZW9rQWY2ck9jZHpFQi1CU2pHR1NQb2hOZnFqVDNUeDBaMGotUUprYndmMFR0X2ZneXRpRlgyQUg?oc=5",
-      "published": "Wed, 09 Sep 2026 17:37:00 GMT",
-      "metrics": {}
-    },
-    {
-      "source": "repository_trend_snapshot",
-      "team": "dallas-cowboys",
-      "text": "Emari Demercado returns 'home' to Dallas, has reason to be excited with Cowboys",
-      "url": "https://news.google.com/rss/articles/CBMisAFBVV95cUxQTlZuQ1hPOWZNQzcwM0VzeEZoMnU3ekpVcDN1SmhNbndlMXgwdXNuOTJtR3loUWQzbkVIZGRhZEw0ZVp2SS1zaVZvc1NEQVBlYWl3RmFBT1pNdzhlcGJDeFp2aXZlTUxOMWx3YmUxRWx1blR6VVBIaGwwQkt6NkN2Mjlkb1p1WG1VczRnYnRSZmQzVlNhQ0V5b3VCRG81NnB5Zk1IaXdvSFVaelFtYnNSNw?oc=5",
-      "published": "Tue, 01 Sep 2026 07:00:00 GMT",
-      "metrics": {}
-    },
-    {
-      "source": "repository_trend_snapshot",
-      "team": "dallas-cowboys",
-      "text": "Quinnen Williams: Culture, growth of Cowboys' defense is 'night and day'",
-      "url": "https://news.google.com/rss/articles/CBMipAFBVV95cUxOT0lzOUlYMUVnMFpaVkdmbFBaLTVIZk9KbnBWbU5IQVJtYS1GdmQ0VGFuWnl3Q21OcGtJbWd4RGN2enljMFpiMGx3WWVBYkdKYWdxN0dhMWdyMHFMRUpJMEJObVUxeFJpeGxwb3J3VmM2Y1JnbnlkZFJhS3dwQ2R3eWlPSUxaN0xXU01mb0pfZFo5cWFmeDlaYVpqRXVwSUVUMG53QQ?oc=5",
-      "published": "Wed, 02 Sep 2026 17:16:04 GMT",
+      "text": "Aaron Rodgers unsure if Packers would ever invite him to return",
+      "url": "https://news.google.com/rss/articles/CBMilwFBVV95cUxQdXY3X0NxM29DZzJ3V3ZhbkhVSjBoRlM2UHc5bzB1c0NqRXh5WnFraWZXZWxtOFE4bGVPMzNxX3pXSVoyRUdsR3ZwTXpNSWZCVl9yRXJJSVN3ZnBlUnBBQUdoSVU2MWpNQWdSaGp3UElUSmduS3ZUdWVPZWp0ZzZpUnJSNm5XUkFJUUF3Nm1SUWNuaVVKSWg0?oc=5",
+      "published": "Thu, 10 Sep 2026 14:47:00 GMT",
       "metrics": {}
     },
     {
@@ -458,6 +1723,14 @@
       "text": "Transactions: Cowboys make 3 OL moves",
       "url": "https://news.google.com/rss/articles/CBMiiwFBVV95cUxNNEJROXNIZmJLczR0MFMxZTNRRXl0UTlhN0ZtVERDcWh6NV9lOFROM1VhSDJoQ3NLSjFGZ2dEYS02QkgwSjNybXBOOTI4Y2VVd3VrVU1nUGJEX0NOaHVIbnd4RnMycjVkcEl6ZWhfXzJfS2JCTENvZUpDNll3R0pqOExEdVBvTGRrXy1B?oc=5",
       "published": "Thu, 03 Sep 2026 07:00:00 GMT",
+      "metrics": {}
+    },
+    {
+      "source": "repository_trend_snapshot",
+      "team": "dallas-cowboys",
+      "text": "Giants vs. Cowboys: How to Watch, Listen & Live Stream Week 1",
+      "url": "https://news.google.com/rss/articles/CBMilAFBVV95cUxORzNEdUVuOURwYUM1WEo4SGdMbUhrTURxM0E5VzBBQmhiNHMwc0FtRjdYSmFWaUhiUTVDYW9oakotVmpsbm40cWpDdnlYY1g3N0luM2p6Uk5JVlNNNDBpNlFKUVM5ZnIyNkkxTUlIWlB1WlMzM2FoSDZ5ZWJJZnVHdmNXNGRocS03Qy1NUFdVc3lkekRT?oc=5",
+      "published": "Mon, 07 Sep 2026 16:14:24 GMT",
       "metrics": {}
     },
     {
@@ -481,7 +1754,7 @@
       "team": "dallas-cowboys",
       "text": "Mick Shots: Filling this major void just in time",
       "url": "https://news.google.com/rss/articles/CBMiigFBVV95cUxOckttN0NkRThkUGZmMEY0V253UVlqVkZETnBWZEZqQmFYelRSaE5seVNDaEd4SExVbXNyVTk3QlZvMGpHU18xLTByR2NULWF1dHJtN3RQNk13VUMydWg3bTZUY2RPUjBhQUNpQ2NhZ1F6ZlQ5RjJHcHhQSnhGZGRaZmticFRKLUZXYWc?oc=5",
-      "published": "Wed, 02 Sep 2026 22:04:46 GMT",
+      "published": "Wed, 02 Sep 2026 07:00:00 GMT",
       "metrics": {}
     },
     {
@@ -498,6 +1771,14 @@
       "text": "Cowboys have a 'ton of confidence' in T.J. Bass filling in for Tyler Smith",
       "url": "https://news.google.com/rss/articles/CBMiqgFBVV95cUxONkdZX2VXX2JXeU5CX25mWGFWa3dPOG5vZURNdzFSd0lwdFJxYjVaZnFscEtPWjV6dlo3U2hOSTJLdi1mb191TGhSdmZsUFdxekRKNkFxQ3FhcWtuQk5RZGJYWGI0UjVxMm1WUmFKdWRfNzE5Wmx0ajFzZWdyLThPcjQ2U2I1akxkeUg5OE1jQzNuOVR4RjBFN05OVE9WblYwVVlFeHZQSFh2QQ?oc=5",
       "published": "Tue, 08 Sep 2026 09:31:21 GMT",
+      "metrics": {}
+    },
+    {
+      "source": "repository_trend_snapshot",
+      "team": "dallas-cowboys",
+      "text": "Von Miller on looming debut for the Cowboys: 'My smile is back'",
+      "url": "https://news.google.com/rss/articles/CBMimwFBVV95cUxOcGY0OHRiSVpzenJzUGR1Ym94UTF6LXVkeG45UXBYcnhkazFEWkluOE1zMEJQWmtKcFpSR3ZNS0lLY0xwVFdMbVlva2ZNRXp1ZVktYmlJY3locEIwb2tvcHMzaWlrSTBpa3gxUUVjOWp1X3Bzc1BDNks0X19KYk1BTk9oSWVQSE9hbU9IQzlZRTZGTzBpX29EaVNGYw?oc=5",
+      "published": "Sat, 05 Sep 2026 04:15:12 GMT",
       "metrics": {}
     },
     {
@@ -566,7 +1847,9 @@
     }
   ],
   "summary": {
-    "connected_sources": [],
-    "item_count": 32
+    "connected_sources": [
+      "google_news"
+    ],
+    "item_count": 112
   }
 }
