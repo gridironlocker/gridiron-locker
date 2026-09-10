@@ -1,19 +1,17 @@
 {
   "meta": {
-    "generated_on": "2026-09-09",
+    "generated_on": "2026-09-10",
     "generator": "marketing/three_day_pulse.py",
     "horizon_days": 3,
     "refresh_rule": "Regenerate after every web/social signal collection; this is not an evergreen content calendar.",
-    "connected_sources": [
-      "google_news"
-    ],
+    "connected_sources": [],
     "human_approval_required": true,
     "auto_publish_enabled": false
   },
   "mission": "Find what fans are talking about now, match it to an existing product, and prepare only the next three days of platform-native copy.",
   "days": [
     {
-      "date": "2026-09-09",
+      "date": "2026-09-10",
       "label": "today",
       "opportunities": [
         {
@@ -23,35 +21,35 @@
           "team": "Cleveland Browns",
           "trend": {
             "team": "cleveland-browns",
-            "story": "Browns quarterback Deshaun Watson fighting speeding ticket - FOX 8 News",
+            "story": "Why Luke Floriea wasn’t signed to the Browns practice squad and who was: Mary Kay Cabot",
             "emotion": "confident",
             "stage": "ACCELERATING",
-            "signal_count": 28,
+            "signal_count": 8,
             "sources": [
               {
-                "source": "google_news",
-                "text": "Browns quarterback Deshaun Watson fighting speeding ticket - FOX 8 News",
-                "url": "https://news.google.com/rss/articles/CBMiiAFBVV95cUxQSG55MjYwRDhmNmJieWZNZTNQV21GMUVnSGdBQkZRajJueFBqOG0tem83VUMxVHh5VWhzMTBiRTltdjlUcURaVTk4OTBBSkV4SGVoZ3FWZUV3YzlpcGx2SVVNWXNnRjRpNmt6TG11N1VGeV9ZWkdIdHc1OExTWm9sNUNfaThiZ2lr?oc=5"
+                "source": "repository_trend_snapshot",
+                "text": "Why Luke Floriea wasn’t signed to the Browns practice squad and who was: Mary Kay Cabot",
+                "url": "https://news.google.com/rss/articles/CBMiywFBVV95cUxNUVV0ckgwcmVuM1h4N3BtUEt3cExzdGxuQzY5YXFBZXpaSVc1aGpJWHNOVmNQTHgxZFFReU82M2xKWmpKdHhfSy16Uk5yODZVeDFnQXFLN19UWnE4X0lIc3NCT01xZFY0VTRmNVd1emJoRXJqVkoydGRPSE9jYUtWNEFWT29IV3p2WnlSZ3VIMFJJdHNoclpLekoyMlNPUENPUGFpU3N5X2g0WVE4LXFQNzJ5V2IzNEhhUWZnRG9zOXhQenc1bVRmOFZTd9IB3wFBVV95cUxNNVp2a0dVZm9Gai01MDl1bjBBTVYzUlU5cWxxRE5oTUVTcGV5aWFqSnBWbFNQdnhnYTVHSHBxRjVXRG1pWUZnNENlbEwwQWhVQlAxdk9ab1NtaXdwVXRXSExXa3ZzZzMxSmVBejZtQ1NmY1J1WnNmM09Hc0o0VTZYcVJrNmQyRFlPb0FBMWV2ekxpVlNWYjF6TnRKWGd4MEM4aGFqTVZDSFFGazJTQldqY1dFMHlCbW9pUFpvX2ppSXhZRDl3ajkyT1F6aXVVOWlzXzY1YWxKYkQ3LWdKVW1r?oc=5"
               },
               {
-                "source": "google_news",
-                "text": "One thing Deshaun Watson has to improve to remain Browns' starter - ESPN",
-                "url": "https://news.google.com/rss/articles/CBMixgFBVV95cUxOM2hoSjI3MFFhYzVOMkFOZjZxMnNnYk1VQWRINFFUd2pmdG9NcVc1Z3RWM2FMbkZXMFl3U0lSTXhwWHlQV2FhODd0eXk0NTYwaDJYalljYm5GSXFjS25UYWpYWWFEdjhUaERHTHZRYmNkNGF0Y3hnc3M1RGZvazg4YmYyU0RsZ3hzRktkdkJRdGlTMV9QQzNGREdkN05GRHB3RVp3Ynd1OEZ3LUk2X1pCMUJMTXZxak9sa0ZaNDlSYzZSVVJ1cVE?oc=5"
+                "source": "repository_trend_snapshot",
+                "text": "Browns sign WR Bryce Oliver to the practice squad",
+                "url": "https://news.google.com/rss/articles/CBMijwFBVV95cUxPT0VXZHVna2NTaFpQeExVN1dUVHZXYkZoaXdDNFNHY1U1R3FESzQ2LXpMeUllOFJLV240MmNQYjBQYThRdzhXejZ3MGdVZzVYZnF2THJTVTZyelpqanhhMy1Eenp2TlpoY2RQYUVkOFZ1Q1l2RkxBQ1B4RWFJbFZpWDJmY0ltZEFmVExRMFJlcw?oc=5"
               },
               {
-                "source": "google_news",
-                "text": "4 Days Until Week 1: 4 Reasons Why 2026 Could Be Dumpster Fire Year for the Browns - Sports Illustrated",
-                "url": "https://news.google.com/rss/articles/CBMiyAFBVV95cUxOVDV4ZGlLVDBPWEY5dTM4Y3JVUGtzRFhCNVc1RTViemJZUUNmaFVNTlFleGEyLXIwckJaUGMwbzU1OTdTTjRMNk5oUVNUUFRQd0tOVkRIQnh5aXNjTTgzLTBsenI5b3RjRGFEdHJSdG9iNFJJQ1hYQlJaMkRyczFDY3duaHk2VGRpOEczaS1GdVVoVE5VeFltMklzYjRKTVVEa2I0YThzTjdzZjJpdnNHTHR0Ynk3cHNaaWJBNVJjLXdtNmNNZVQ2Qw?oc=5"
+                "source": "repository_trend_snapshot",
+                "text": "5 Cleveland Browns Under the Most Pressure Entering the 2026 NFL Season",
+                "url": "https://news.google.com/rss/articles/CBMirAFBVV95cUxPSV9RYkNDSVpiaWx4aHYwbzhTUmZmek1obENsUnVPWjgzR1RuUGh4TGxmaWY3YkxCMG8wbHFvWi12d19HTTM0cWZIOHlnNzhwbS1mVGNyN1ZvdkxXdFAwQVFkYjQ2cjdMczNSLUg4OUF6a1k2eUd0STh3b0VjY3JnMUZCcjkwVVdtMnZCT2M4YUxCeUU5ZlhiSkJZTnNJX0JWRWN0dkpmc1gyTks5?oc=5"
               },
               {
-                "source": "google_news",
-                "text": "Why Jared Goff and the Lions are powered by championship drive, not last year’s pain - Cleveland.com",
-                "url": "https://news.google.com/rss/articles/CBMiyAFBVV95cUxNVmtjZEtWYkhQLWJkVEVncUFSZVNxN0NMdXNJaVVYakYyUFliUkhKaGsyRkkzSWtmTW1GQi16bExucU1BNnhOVFI1cjFaLVN3dkxfazFrb0pvSXNwdGVPWnpVZWQybkV4SmNRV0NIaWJ6bUpvWUFtbDJLaWZGQjdPQzhYZHlyR002YUxDaUlfbmQ1MnlQVHFCRkwxLVZYSTJSUWRnTmlvdl8xWF9VSk9pdE1sRDk3NzhuNGFYb0hOUWpMUlZuZmNTVw?oc=5"
+                "source": "repository_trend_snapshot",
+                "text": "Browns legend states what Shedeur Sanders needs to fix",
+                "url": "https://news.google.com/rss/articles/CBMipAFBVV95cUxNUm9iS25XWExiTnhzZmZlOHpDSkpkSXBEaEhzUEpvUThNdVI3UTB2dGxGXzhDaGtpaUdGMGdlR2c2SWlNek5oQ1U0bEVrekFHX2tuQlFjT2FpM0J1dlFwYmpJcG1LUFJwXzZWbjU3RUxkOVloaG11WXg0RzNIQUlMT1FYT3ZuVzRfb3dKT2JoTE10MnpzNUFkYkpFWmhpQjQxTm9TOQ?oc=5"
               },
               {
-                "source": "google_news",
-                "text": "Browns star joins Cleveland Guardians ownership group - WKBN.com",
-                "url": "https://news.google.com/rss/articles/CBMioAFBVV95cUxNYjZVdXI2ZFZRZ0FpZkhVR2lUQ0U3QXBrQ256NnNkQkdBZWdtbmpuSmJNbE9zaVUwOHZCeVNaUXNieVRwUnQ4WFpDZWtwdWtueGFObHZYODh0SUtrLVBTbmpKMnJyY0kxNkczWU5XSjhuWGtiQ0Q5dVNmSzg5NWF5eThkY2VfdGxmT3dLbTZvTV9uZk8zVkVmQU43Yk9YRjkw0gGmAUFVX3lxTE5XU0JFUURRNWhkM2F5REF2bzlRTVJGTVBwYnh1WWtzVDdRVlBuY1hZUXU1QjFJdUlOYTBUQ3czMGVvN2xTeU9rbm8xNEk1MXBqR2FKTzhuMGdoZFBQTHhXaFkxTEw2bC1NeXRqZjJRd2trSTBid0w1eUhiTjFMeWd0cXJtR2ZvQ0JzSlFLMkNqSG95S284RWk4RlVYajJxaEtqZ3I1Wnc?oc=5"
+                "source": "repository_trend_snapshot",
+                "text": "Todd Monken names captains for Week 1 vs. Jaguars",
+                "url": "https://news.google.com/rss/articles/CBMijgFBVV95cUxNTkVjOUZRTGRMNXFtRUdMZnFHSVViVkVKYVRJUGhoamVZUmhrektrZ2RwMllsck5UbmlLMDUyMlZ0N1FiejZYNEVCTTlqSGJydzVrYzk5eEkxQkVSYkN1WVcxY0steTh5bUJNU0hjUEhhamV2dlVZd2lHUWpDa2VSbkZGdFR2VGRwTnhpdkN3?oc=5"
               }
             ],
             "evidence": "public signal collector"
@@ -64,11 +62,11 @@
             "hook_template": "No slogan, no filler: {line}",
             "angle_label": "Fan identity statement",
             "hook": "No slogan, no filler: “THEY FORGOT WHO I AM” on a tee at $22.99.",
-            "ad_copy": "No slogan, no filler: “THEY FORGOT WHO I AM” on a tee at $22.99. Angle: fan identity statement. Signal driving it: Browns quarterback Deshaun Watson fighting speeding ticket - FOX 8 News Product: Shedeur Sanders 12 They Forgot Who I Am Shirt (shedeur sanders shirt). Verify licensing and the live listing before promotion.",
+            "ad_copy": "No slogan, no filler: “THEY FORGOT WHO I AM” on a tee at $22.99. Angle: fan identity statement. Signal driving it: Why Luke Floriea wasn’t signed to the Browns practice squad and who was: Mary Kay Cabot Product: Shedeur Sanders 12 They Forgot Who I Am Shirt (shedeur sanders shirt). Verify licensing and the live listing before promotion.",
             "captions": {
-              "instagram": "Closet upgrade. No slogan, no filler: “THEY FORGOT WHO I AM” on a tee at $22.99. Why now: Browns quarterback Deshaun Watson fighting speeding ticket - FOX 8 News Tap through to the product page. #clevelandbrowns #shedeursandersshirt #sandersbrownsqbtee",
-              "facebook": "No slogan, no filler: “THEY FORGOT WHO I AM” on a tee at $22.99. Context for Cleveland Browns fans: Browns quarterback Deshaun Watson fighting speeding ticket - FOX 8 News It is a tee at $22.99 from the Cleveland Browns collection. Tap through to the product page. https://viralstyle.com/kebystore/sanders-13-special-edition",
-              "x": "No slogan, no filler: “THEY FORGOT WHO I AM” on a tee at $22.99. Browns quarterback Deshaun Watson fighting speeding ticket - FOX 8 News https://viralstyle.com/kebystore/sanders-13-special-edition",
+              "instagram": "Closet upgrade. No slogan, no filler: “THEY FORGOT WHO I AM” on a tee at $22.99. Why now: Why Luke Floriea wasn’t signed to the Browns practice squad and who was: Mary Kay Cabot Tap through to the product page. #clevelandbrowns #shedeursandersshirt #sandersbrownsqbtee",
+              "facebook": "No slogan, no filler: “THEY FORGOT WHO I AM” on a tee at $22.99. Context for Cleveland Browns fans: Why Luke Floriea wasn’t signed to the Browns practice squad and who was: Mary Kay Cabot It is a tee at $22.99 from the Cleveland Browns collection. Tap through to the product page. https://viralstyle.com/kebystore/sanders-13-special-edition",
+              "x": "No slogan, no filler: “THEY FORGOT WHO I AM” on a tee at $22.99. Why Luke Floriea wasn’t signed to the Browns practice squad and who was: Mary Kay Cabot https://viralstyle.com/kebystore/sanders-13-special-edition",
               "tiktok": "Fit check: No slogan, no filler: “THEY FORGOT WHO I AM” on a tee at $22.99. Script beat: Say who you root for before you say a word. Show the print, then the fit, then the price.",
               "pinterest": "Shedeur Sanders 12 They Forgot Who I Am Shirt - shedeur sanders shirt idea for Cleveland Browns fans. Say who you root for before you say a word. Tee at $22.99."
             },
@@ -102,58 +100,58 @@
           "team": "Green Bay Packers",
           "trend": {
             "team": "green-bay-packers",
-            "story": "Packers-Vikings Injury Report | Sept. 9, 2026 - Green Bay Packers",
-            "emotion": "worried",
+            "story": "Minnesota Vikings bringing back Harrison Smith for 2026 season",
+            "emotion": "hyped",
             "stage": "ACCELERATING",
-            "signal_count": 28,
+            "signal_count": 8,
             "sources": [
               {
-                "source": "google_news",
-                "text": "Packers announce roster moves | Sept. 9, 2026 - Green Bay Packers",
+                "source": "repository_trend_snapshot",
+                "text": "Packers announce roster moves | Sept. 9, 2026",
                 "url": "https://news.google.com/rss/articles/CBMiekFVX3lxTFBsTWdRNmRuS1dYQ2JadU9oekdrNEJQLXl0VE5vWHhPTkU1dVprZ3dEQkZOQXZZdnpicVhON3Q2Z0EzTGRhUTZIMGVpbWotZDQyUGZadnc1b0FxTFV4TVVuZDc2NVNWdjkwRWlYZUhNUWIxSUJGbElkczVn?oc=5"
               },
               {
-                "source": "google_news",
-                "text": "Packers-Vikings Injury Report | Sept. 9, 2026 - Green Bay Packers",
-                "url": "https://news.google.com/rss/articles/CBMiekFVX3lxTFBTZldqczg4ei01cFU1RXlhd1M2aWhfZVdVU2NIQXJQdFlVQ05nSjZyN2cza2xLTGhVQ21zdGNVYnpKVXFmX05RMjFld2RsaTVzenVlRWFETm1ZU1NYV0VWbzh1Qm5zdXNBWVJDYTJzcXlvVGliVXd4dFRn?oc=5"
+                "source": "repository_trend_snapshot",
+                "text": "Minnesota Vikings bringing back Harrison Smith for 2026 season",
+                "url": "https://news.google.com/rss/articles/CBMiggFBVV95cUxPNVd3YmF2NnF0SFZPVHktbDQ5TWdNYnpjejFiMm0zZXQ0SVYzZVpJOEJoVTBVRHptOW44YzZKNk9qX1VjVjVXbHFTaERFajlHUy0zaDZILU54Q1F4RVplVmtaXzUtTDFwbGlSZDA3U1dpMjZuUV84eC1HX2Vwbm9jLXJn0gGHAUFVX3lxTE9OdGVIc2NYWEhrN3FEQkswMFNKekNYOFo0V0pVZ1MyUXh6dXYwS1dUR1VWSTh0OHpOWl9ueEZWS1VDX1BJLWVfM0ViSHRlVmdMUDEyc0pqMHVBN0tnRVNtUXlKUTYwSkRzekgyb25fY1c5NjBXcUZiNEQ4NDRkcDJFRzZ3dUxoSQ?oc=5"
               },
               {
-                "source": "google_news",
-                "text": "Matt LaFleur Reveals Why Packers Rookie Won Starting Job - heavy.com",
-                "url": "https://news.google.com/rss/articles/CBMihAFBVV95cUxNU0FkV0g5R3JKc1lNNm1PbXp5QzcxaFVueEU3VURIOTlZM0lqeW5fd2dHdnVNemp0SEpsWGktaFBoeklkaDBfNU5kX2Q2XzhQOUlpcTdUTDV0SzE2b2U5SGpKb2VPS1RTRlFUcE0wWUdqb0R5WERwSHZpRXhEdnJ3MVZMXzQ?oc=5"
+                "source": "repository_trend_snapshot",
+                "text": "September 6, 2024- Green Bay Packers play first NFL game in South America.",
+                "url": "https://news.google.com/rss/articles/CBMisAFBVV95cUxQWlY2cFJhNE15UVZCam5TcUQtUWJBcXoxUkU1aXg1M3RGWXlXcVVIeUl4ODhaeXBpSDdkdTZTcVFTNWJ5ckF1dXJ0N2R6elJlckR3NWRpb1dXZkZTMFNySE1VUlFKX2dReXZubFl3S3lHS1Jvckp4T1VERXF6VWJOYjdaMUxtSFdUYlkxanNKaG9rRDJaOHRDd19NYmxEZm1BTXRpVjdXUU0teEFocWVNSA?oc=5"
               },
               {
-                "source": "google_news",
-                "text": "Packers Salary Cap: Jonnu Smith contract details released - Acme Packing Company",
-                "url": "https://news.google.com/rss/articles/CBMivAFBVV95cUxPZk5hV19ab240YXNTbVRSZmxtTG81cFFzZ2xGQ3NvR0tWZEctRmlOV21FbEJxMUIyWUhKLTBFM3IyZHBpelZGTmt4ZFF1X20zb25wS0JDd0QwOGRCTnNPNlFpWGZOemx1b0FmbkthOTlZZUNwbGY0M05kWnJoMy1KZjdESWhBQUl4Y3BwblExckJycEtHWVdNYlhOUGozTl8zY3lXX1hKN3VHZDBTTHRTbDctdHhOalFrV0JoeQ?oc=5"
+                "source": "repository_trend_snapshot",
+                "text": "Packers Film Review: TE Mark Redman",
+                "url": "https://news.google.com/rss/articles/CBMipAFBVV95cUxNVWliV2lXTjV2WS1BYmpxTTV1cjBBZHBEQ0dubmdySG9jUGU2UkFZMDhTQ3VjWGlKazNWYk92VVcxWG1nX0g2QjVRT3lxWUVURGFkS3ZWN3pvMGhfT19KWWxBOU1jQVBYaVl5RUpxelJTQ2ZvejBLcXBNU3dtM3dxRlF0QkcteFFsT3JreTdzQjVra3Byd2dVdTB6VG5NWXptWm0wTw?oc=5"
               },
               {
-                "source": "google_news",
-                "text": "Hello Wisconsin: Picking the Packers’ Regular Season Games - Cheesehead TV",
-                "url": "https://news.google.com/rss/articles/CBMilAFBVV95cUxNRVQ5R3lrYkRVeEVYay1nclkwY3lXWDhGUEloV25DcEZIcUVKSjBRQ01EZ2pnZ2V3SkhRWlJsdmwxS3JwblYtcXNNdFVtT1c0cE85b1Jwbmh4c1pIREpkYU9ZNmVWRHhBeTljU2RseVJlRDJSbGIxQzE1NTg4WFhKaERna1ZlY2k4dXJybExOQmNSdlFH?oc=5"
+                "source": "repository_trend_snapshot",
+                "text": "Green Bay Packers 2026 NFL Playoff Simulator",
+                "url": "https://news.google.com/rss/articles/CBMiuAFBVV95cUxNX2IzS0JOZ1hqUlNXQkRhakFneFMydXVsUHY3ajg0QnZEMXhJS2VUUWF4WTdGbVlrX2ZDM0dDblVMQnFFV3dnbmpNbDRTc1hOMm5LR2hiVlZDZ19yelEwZUlnR1h3blo0RnZXVmU2Um5EbHJZeFMyeVV0cktOcVF2MVRfYXcwblhwa3VpaDFQY2F6RmdSNW01RG1sTjZUb3JGOC1RU2FIX0JlNGJ4WDFocU42aTBaXzg1?oc=5"
               }
             ],
             "evidence": "public signal collector"
           },
-          "fan_emotion": "worried",
+          "fan_emotion": "hyped",
           "creative_angle": "News reaction",
-          "product_signal_score": 143.4,
+          "product_signal_score": 155.4,
           "copy": {
             "angle": "news_react",
-            "hook_template": "The storyline moved this morning; the merch shelf did not. {line}",
+            "hook_template": "One headline, one {team} reaction piece: {line}",
             "angle_label": "News reaction",
-            "hook": "The storyline moved this morning; the merch shelf did not. “10 LOVE WITH PLAYER AND GOLD 10” on a hoodie at $36.99.",
-            "ad_copy": "The storyline moved this morning; the merch shelf did not. “10 LOVE WITH PLAYER AND GOLD 10” on a hoodie at $36.99. Angle: news reaction. Signal driving it: Packers-Vikings Injury Report | Sept. 9, 2026 - Green Bay Packers Product: Jordan Love 10 Green Bay Hoodie (jordan love hoodie). Verify licensing and the live listing before promotion.",
+            "hook": "One headline, one Green Bay Packers reaction piece: “10 LOVE WITH PLAYER AND GOLD 10” on a hoodie at $36.99.",
+            "ad_copy": "One headline, one Green Bay Packers reaction piece: “10 LOVE WITH PLAYER AND GOLD 10” on a hoodie at $36.99. Angle: news reaction. Signal driving it: Minnesota Vikings bringing back Harrison Smith for 2026 season Product: Jordan Love 10 Green Bay Hoodie (jordan love hoodie). Verify licensing and the live listing before promotion.",
             "captions": {
-              "instagram": "Closet upgrade. The storyline moved this morning; the merch shelf did not. “10 LOVE WITH PLAYER AND GOLD 10” on a hoodie at $36.99. Why now: Packers-Vikings Injury Report | Sept. 9, 2026 - Green Bay Packers Tap through to the product page. #greenbaypackers #jordanlovehoodie #packers10sweatshirt",
-              "facebook": "The storyline moved this morning; the merch shelf did not. “10 LOVE WITH PLAYER AND GOLD 10” on a hoodie at $36.99. Context for Green Bay Packers fans: Packers-Vikings Injury Report | Sept. 9, 2026 - Green Bay Packers It is a hoodie at $36.99 from the Green Bay Packers collection. Tap through to the product page. https://viralstyle.com/kebystore/limited-edition-grb31",
-              "x": "The storyline moved this morning; the merch shelf did not. “10 LOVE WITH PLAYER AND GOLD 10” on a hoodie at $36.99. Packers-Vikings Injury Report | Sept. 9, 2026 - Green Bay Packers https://viralstyle.com/kebystore/limited-edition-grb31",
-              "tiktok": "Fit check: The storyline moved this morning; the merch shelf did not. “10 LOVE WITH PLAYER AND GOLD 10” on a hoodie at $36.99. Script beat: React to the storyline that is moving right now. Show the print, then the fit, then the price.",
+              "instagram": "Read the shirt. One headline, one Green Bay Packers reaction piece: “10 LOVE WITH PLAYER AND GOLD 10” on a hoodie at $36.99. Why now: Minnesota Vikings bringing back Harrison Smith for 2026 season Link in bio for the listing. #greenbaypackers #jordanlovehoodie #packers10sweatshirt",
+              "facebook": "One headline, one Green Bay Packers reaction piece: “10 LOVE WITH PLAYER AND GOLD 10” on a hoodie at $36.99. Context for Green Bay Packers fans: Minnesota Vikings bringing back Harrison Smith for 2026 season It is a hoodie at $36.99 from the Green Bay Packers collection. Link in bio for the listing. https://viralstyle.com/kebystore/limited-edition-grb31",
+              "x": "One headline, one Green Bay Packers reaction piece: “10 LOVE WITH PLAYER AND GOLD 10” on a hoodie at $36.99. Minnesota Vikings bringing back Harrison Smith for 2026 season https://viralstyle.com/kebystore/limited-edition-grb31",
+              "tiktok": "POV: One headline, one Green Bay Packers reaction piece: “10 LOVE WITH PLAYER AND GOLD 10” on a hoodie at $36.99. Script beat: React to the storyline that is moving right now. Show the print, then the fit, then the price.",
               "pinterest": "Jordan Love 10 Green Bay Hoodie - jordan love hoodie idea for Green Bay Packers fans. React to the storyline that is moving right now. Hoodie at $36.99."
             },
             "pinterest": {
               "title": "Jordan Love 10 Green Bay Hoodie: Jordan Love Hoodie",
-              "description": "News reaction pin for Green Bay Packers fans feeling worried. “10 LOVE WITH PLAYER AND GOLD 10” on a hoodie at $36.99. Use only after the product and licensing review.",
+              "description": "News reaction pin for Green Bay Packers fans feeling hyped. “10 LOVE WITH PLAYER AND GOLD 10” on a hoodie at $36.99. Use only after the product and licensing review.",
               "keywords": [
                 "jordan love hoodie",
                 "packers 10 sweatshirt",
@@ -181,35 +179,35 @@
           "team": "Michigan Wolverines",
           "trend": {
             "team": "michigan",
-            "story": "Former Michigan QB drops to No. 3 on Vikings’ depth chart entering season opener - MLive.com",
+            "story": "Clock controversy allows Michigan Wolverines to avoid massive upset against Western Michigan | OutKick",
             "emotion": "confident",
             "stage": "ACCELERATING",
-            "signal_count": 28,
+            "signal_count": 8,
             "sources": [
               {
-                "source": "google_news",
-                "text": "NCAA establishes 'standard timing protocol' in wake of Michigan win - ESPN",
-                "url": "https://news.google.com/rss/articles/CBMitAFBVV95cUxQTkVWVnZSaWdEZC1qVmR4TGxGamZIaGpQaUJqbi1sclVhS2c4eFVxQ3JmcXlZRGEwWTVrUEd4aEp3YkdaT1FvNzNpV0d4ai1qdXc0Ymp2cXY4bWpHOFMwNGlabW1GejVRaVV4MnhPTVdJc2FQQmo3bENzMERRaGJ5TGxwWHVqS3lKVjdlcEhwTklnV2lqNW85T19UMXlvb1k5Mi1hNGMwdmZXdEVKcHB2eWtRNUM?oc=5"
+                "source": "repository_trend_snapshot",
+                "text": "Michigan Monday: Game 2 vs. No. 11 Oklahoma",
+                "url": "https://news.google.com/rss/articles/CBMiekFVX3lxTE1hNGs1aTJ1RW41bi1VNEpOaDdTQXZxVGptM2NsOHRlZUF5UmhpWVRQS2F3ejdSSEw5dzBWaGhYU19SZExuZm9SVjRuRkxpWEpONEZLLUw4d2E5LXNKZVo1V3c5T0RSM0p0S0ZocTFhOUxGMDRzeTczV2VR?oc=5"
               },
               {
-                "source": "google_news",
-                "text": "Michigan football didn't hire Kyle Whittingham to babysit a 5-star QB | Opinion - USA Today",
-                "url": "https://news.google.com/rss/articles/CBMiyAFBVV95cUxPdW5jbm9qVDM5QV9ieFF3b2hvNkMyR1FWd2lRTl93c1lULXdjMkUydDBuS2xJVm1Ob1RsNk9rZTBlUk1TTk5NNHhFQzBCbnhiekdyMTRNWWVhNFlONUhPTGNINFFYN1BSNWN0VWhlRXZpM2RSMUhrdzQ3MnRIdTlMR1IwdVVQWmI2NFl6cGxVZDk1SWpNN19pNTJzNWZ6bGtHNVlyV08zelpENjlZQy16YVZqUlNLN0JYeGxyc2FaemdyTHpGM1Vldw?oc=5"
+                "source": "repository_trend_snapshot",
+                "text": "Michigan Football's Hail Mary Win vs. WMU Drops Wolverines in AP Top 25",
+                "url": "https://news.google.com/rss/articles/CBMiswFBVV95cUxNd2hnV1JicE9wR0xHdUVkV2NINTlnakVfQVo2VksxUEUzWmc5WjVDUWNaZVUwcGV0X0dTZmlYSWxucGg3Z19EeU8zX1NxcG5sdFBVTThTTG1MR3FjZE9OQ1lnX2w3czZlOUZLdnd2QkRyQjZKZkZsbGQ3V2V4Mk1UeUdXQXpnNW96NEtqMHVuSDhkOUV3TUtwUTFWN0pRTUREZmxFSkJiQzhEMDlhQXJCbDB2UQ?oc=5"
               },
               {
-                "source": "google_news",
-                "text": "Reading between the lines: Rod Moore's impact, Oklahoma players to watch and 'very hungry' Wolverines - On3",
-                "url": "https://news.google.com/rss/articles/CBMizAFBVV95cUxObnNzV1pfRXJXTXZjc2lTeFRiZWRKR1N1dnNMaFN3ZU1jeDZCNzhPaldoTl96cVFqOG5jUDF0WnBhSVhlOExJQkR1OU1zUk53M1Z4RTZ5dXZqNkFoQno0WWswcU8xM2Fhd1N3WkY1bzdPXy1VZFMzaHMxcXpGZ0dBYUNQWmdhUTVqMjBSci1FbEVPUnBUTFVHelNGVFgtT2txWEdNWXpwTWdOLV95cWZ3bG9qM21NMkpSSkdKbFdzNy15T21JMk1YZkEyalY?oc=5"
+                "source": "repository_trend_snapshot",
+                "text": "Football Opens 2026 Season at No. 16 Michigan",
+                "url": "https://news.google.com/rss/articles/CBMijwFBVV95cUxNZGtsbHRyQ1lRSFBaek1LOFBZWlJmeVFZU2tsOWlCZjVVNDFCV3ZKYUNyMDk3ekNvX2xUbHllY0h3QTk3U1hqS0ZWYTFXTXlpblBiRWRNWTROLU9sMjlGRXZwcHM3THNDdGNsWkhSVy00akt1bzZRUXdObjJUNzk3U3c1QjQycFBaa3F1dzJaOA?oc=5"
               },
               {
-                "source": "google_news",
-                "text": "Former Michigan QB drops to No. 3 on Vikings’ depth chart entering season opener - MLive.com",
-                "url": "https://news.google.com/rss/articles/CBMizgFBVV95cUxOUG95aEJEanpqMzQySWpNOFhWdkdmYjdjZDFWcGVTQkJvdkFjUzkzWTdocEs3UXBtQjRlR1VHSjUxT3o3cVRWSFJqM1RKR1F1NjQtc0lVeEdfcjdwb1RDeFZzcHh0R0NmN2otaXYxd09ad0xNcHkzdjR5VFdETjNZY1RqNDdXOFJ1WkZrR1pHcXhDaTlPdmJzdXI2V0dSd2dKalVZMGtXOU1hUWMwV29XSVRZSUZ0VzFUS3VkV2NIY1pDSHRVMHY2a2pNX0ZzUdIB4gFBVV95cUxQOUNidVRFMTJJSEtvc0xMOWVMM2tMQy1FcTZrQzh3WlZKNzNYeXdCa19kYzJGNzE0ZTd5bmYtM2NUanh4a2VXTmgzRzJuZ1VqbXU4VVFVY20yWnpXWVRjV2hRMjJPZXY4V0pfMDY0eDM0ZEJXU0RiR0xhQkd2elZmSzUtLWNSNUdYRGo3Ny1RWGJWNENLNWVRNTRCQVdmRXJ4eDI0YThBZm9JdFpQVVRfUFF1OFJ2bjJRRW5YVVphSFVtZ29oaDVMVEVoYWdoVk95OUx1ZUp0NlIyTks0SEk4czh3?oc=5"
+                "source": "repository_trend_snapshot",
+                "text": "Clock controversy allows Michigan Wolverines to avoid massive upset against Western Michigan | OutKick",
+                "url": "https://news.google.com/rss/articles/CBMixwFBVV95cUxOS0h1S1dGMTljem5fLXY1SlRLdm1WUHJoQVV5eXNGSnRaVVZWUWRwdHRua2lRUDVOMnJJdDBpdC0xOW10N1pONzBlWDByZ1BrSmNlMy1BZzZJZWxacWxRaVpiUUp1ZTRpN1lRalRzWGc0MWpOSlJqTnVXMm1GdkpXVGNqTF9xeVpsVnBxNnF1Q1MtZDN0QzEzQWJ0Y3JHYUg4OWNtYVNVdEs0a3UwdTcyQmNVcnNhUEZXemE0bTBrZlJCWmc4dWtZ?oc=5"
               },
               {
-                "source": "google_news",
-                "text": "Michigan Football must fix a broken run game before it’s too late - Maize n Brew",
-                "url": "https://news.google.com/rss/articles/CBMiogJBVV95cUxQZThxM2NHUk1hOVFaTTZKSTlPd0FDNGhfb0kzU3NQTVJrSGRmTjZRUlY5d1VnUUJRSXBuY2RuYXdfaFMzZVBPSkgwS21ZU1Rfd2RmSG9vVXdyRW1MLTRuRUVsOU9BVXZVMWtHSjk5YXlZeHBnZGNWU2VUSUw5Qzh6TF9nNlZ0STdESzgyT1FQd3RYRTJ0bFRwZ2lIdlMzOGwzVDVSaXBQR2ZKd3JOZksxUHZ2STlpeGU2NjZvSHU1d0xCUmc4SklJdllYQkhCU0VwMVprMjdiQzRlbzdBN2hMdTFIcFBsQnFBZ01IVzJSMVk5U3YzQ3d6RE56RWNOMVI5ZXBnbm13YUJhMUNlYkZLMjVNQjhmYkFTOW9nUXBNNkM3QQ?oc=5"
+                "source": "repository_trend_snapshot",
+                "text": "Big Ten explains controversial ending to Michigan-Western Michigan",
+                "url": "https://news.google.com/rss/articles/CBMijwFBVV95cUxPOFk4SnpWTTNRYzg2aDhOOFJHUXNFbWI2cG9aUUQtVFB5T3NpNFdRZTJHd29kZy1obUJhaWtXSFk4d24yakNFQjJaOExyc0s1ZElkLVN0Wl9TN2pMVWhxc3I2aEhSVlpqRGZybm5kdjRRZXd6NWxFandhaFJYOGpMWXdFZWNZZzBsWUZVRXN5MA?oc=5"
               }
             ],
             "evidence": "public signal collector"
@@ -219,15 +217,15 @@
           "product_signal_score": 113.5,
           "copy": {
             "angle": "styling",
-            "hook_template": "Pair it with denim and forget it is fan gear. {line}",
+            "hook_template": "Game day fit, weekday wearable. {line}",
             "angle_label": "Outfit styling",
-            "hook": "Pair it with denim and forget it is fan gear. “MICHIGAN BET ORNATE LETTERING” on a sweatshirt at $32.99.",
-            "ad_copy": "Pair it with denim and forget it is fan gear. “MICHIGAN BET ORNATE LETTERING” on a sweatshirt at $32.99. Angle: outfit styling. Signal driving it: Former Michigan QB drops to No. 3 on Vikings’ depth chart entering season opener - MLive.com Product: Michigan Bet Ornate Sweatshirt (michigan bet shirt). Verify licensing and the live listing before promotion.",
+            "hook": "Game day fit, weekday wearable. “MICHIGAN BET ORNATE LETTERING” on a sweatshirt at $32.99.",
+            "ad_copy": "Game day fit, weekday wearable. “MICHIGAN BET ORNATE LETTERING” on a sweatshirt at $32.99. Angle: outfit styling. Signal driving it: Clock controversy allows Michigan Wolverines to avoid massive upset against Western Michigan | OutKick Product: Michigan Bet Ornate Sweatshirt (michigan bet shirt). Verify licensing and the live listing before promotion.",
             "captions": {
-              "instagram": "Locked in. Pair it with denim and forget it is fan gear. “MICHIGAN BET ORNATE LETTERING” on a sweatshirt at $32.99. Why now: Former Michigan QB drops to No. 3 on Vikings’ depth chart entering season opener - MLive.com Full details on the listing. #michiganwolverines #michiganbetshirt #gobluecrewneck",
-              "facebook": "Pair it with denim and forget it is fan gear. “MICHIGAN BET ORNATE LETTERING” on a sweatshirt at $32.99. Context for Michigan Wolverines fans: Former Michigan QB drops to No. 3 on Vikings’ depth chart entering season opener - MLive.com It is a sweatshirt at $32.99 from the Michigan Wolverines collection. Full details on the listing. https://viralstyle.com/kebystore/limited-edition-m-fans-n29",
-              "x": "Pair it with denim and forget it is fan gear. “MICHIGAN BET ORNATE LETTERING” on a sweatshirt at $32.99. Former Michigan QB drops to No. 3 on Vikings’ depth chart entering season opener - MLive.c https://viralstyle.com/kebystore/limited-edition-m-fans-n29",
-              "tiktok": "Storytime, short version: Pair it with denim and forget it is fan gear. “MICHIGAN BET ORNATE LETTERING” on a sweatshirt at $32.99. Script beat: Show how the piece is worn, not just what it says. Show the print, then the fit, then the price.",
+              "instagram": "One piece, whole mood. Game day fit, weekday wearable. “MICHIGAN BET ORNATE LETTERING” on a sweatshirt at $32.99. Why now: Clock controversy allows Michigan Wolverines to avoid massive upset against Western Michigan | OutKick Sizes and colours are on the product page. #michiganwolverines #michiganbetshirt #gobluecrewneck",
+              "facebook": "Game day fit, weekday wearable. “MICHIGAN BET ORNATE LETTERING” on a sweatshirt at $32.99. Context for Michigan Wolverines fans: Clock controversy allows Michigan Wolverines to avoid massive upset against Western Michigan | OutKick It is a sweatshirt at $32.99 from the Michigan Wolverines collection. Sizes and colours are on the product page. https://viralstyle.com/kebystore/limited-edition-m-fans-n29",
+              "x": "Game day fit, weekday wearable. “MICHIGAN BET ORNATE LETTERING” on a sweatshirt at $32.99. Clock controversy allows Michigan Wolverines to avoid massive upset against Western Michig https://viralstyle.com/kebystore/limited-edition-m-fans-n29",
+              "tiktok": "Three seconds of Michigan Wolverines truth: Game day fit, weekday wearable. “MICHIGAN BET ORNATE LETTERING” on a sweatshirt at $32.99. Script beat: Show how the piece is worn, not just what it says. Show the print, then the fit, then the price.",
               "pinterest": "Michigan Bet Ornate Sweatshirt - michigan bet shirt idea for Michigan Wolverines fans. Show how the piece is worn, not just what it says. Sweatshirt at $32.99."
             },
             "pinterest": {
@@ -260,35 +258,35 @@
           "team": "Dallas Cowboys",
           "trend": {
             "team": "dallas-cowboys",
-            "story": "Frisco native achieves dream of becoming a Dallas Cowboys Cheerleader - NBC 5 Dallas-Fort Worth",
+            "story": "Transactions: Cowboys make 3 OL moves",
             "emotion": "hyped",
             "stage": "ACCELERATING",
-            "signal_count": 28,
+            "signal_count": 8,
             "sources": [
               {
-                "source": "google_news",
-                "text": "Reece Weaver of ‘Dallas Cowboys Cheerleaders’ Makes Her Broadway Debut - The New York Times",
-                "url": "https://news.google.com/rss/articles/CBMiiAFBVV95cUxOaDNqQTVmX0dQWUpPUzZfNU95NTg5TWRpcGh3VWRiZFFfb2o5SzM3S2lyMWZocVU1RVBRaF9VSzVWRWdIZkdHNGpEVUJ0b3IySWRNMXNQa0diTGxZdk83TXB6SENYU3QtOVJTUWFoWlFsanRLbVBhTXBXR2tyTF9uTW5hUmxaaEVw?oc=5"
+                "source": "repository_trend_snapshot",
+                "text": "Emari Demercado returns 'home' to Dallas, has reason to be excited with Cowboys",
+                "url": "https://news.google.com/rss/articles/CBMisAFBVV95cUxQTlZuQ1hPOWZNQzcwM0VzeEZoMnU3ekpVcDN1SmhNbndlMXgwdXNuOTJtR3loUWQzbkVIZGRhZEw0ZVp2SS1zaVZvc1NEQVBlYWl3RmFBT1pNdzhlcGJDeFp2aXZlTUxOMWx3YmUxRWx1blR6VVBIaGwwQkt6NkN2Mjlkb1p1WG1VczRnYnRSZmQzVlNhQ0V5b3VCRG81NnB5Zk1IaXdvSFVaelFtYnNSNw?oc=5"
               },
               {
-                "source": "google_news",
-                "text": "Dallas Cowboys Cheerleader Reece Weaver swaps boots for Broadway - BBC",
-                "url": "https://news.google.com/rss/articles/CBMiWkFVX3lxTE5XQXloY2dTUDVXZTZoQ1pyMWVYVTA5b1dRejNKeXQyMXZITEFRdnN1eFZtZGxxeVplT3RsSFZQQnZsUEFfRUFiQVg2VlpoamJyMTRValRQb0dHdw?oc=5"
+                "source": "repository_trend_snapshot",
+                "text": "Quinnen Williams: Culture, growth of Cowboys' defense is 'night and day'",
+                "url": "https://news.google.com/rss/articles/CBMipAFBVV95cUxOT0lzOUlYMUVnMFpaVkdmbFBaLTVIZk9KbnBWbU5IQVJtYS1GdmQ0VGFuWnl3Q21OcGtJbWd4RGN2enljMFpiMGx3WWVBYkdKYWdxN0dhMWdyMHFMRUpJMEJObVUxeFJpeGxwb3J3VmM2Y1JnbnlkZFJhS3dwQ2R3eWlPSUxaN0xXU01mb0pfZFo5cWFmeDlaYVpqRXVwSUVUMG53QQ?oc=5"
               },
               {
-                "source": "google_news",
-                "text": "Frisco native achieves dream of becoming a Dallas Cowboys Cheerleader - NBC 5 Dallas-Fort Worth",
-                "url": "https://news.google.com/rss/articles/CBMiuwFBVV95cUxPNE1WWURRUUVDRXNuenNVdXpyRHdDOFFKUnZ4WTgtamhTdEJ2UUdKSktLS0gwVncxbVRDQVAteXZFUFlpMXdlVkxQVlpLR2FDaERnOXpQR3ZVRVBXR2Z6WGtac2xFc25Ha3N4VEcxdkRRZ0FlaTR1ZFBuek8xUWN0QkZDWUM1bHRfendOdnNZZm1lb2l2Y3dnM2NUUXB5UVRoMks5UEVHX0pqdFl6N25LemcwWktxQnR6X0NZ0gHDAUFVX3lxTE9sVGN0OXYzbDFrUV9MRXc2dkhSQzliMTFwLW5aQlBZcU02bDRsUVVlTldLTlZsaWw5d2taY3RJUmpHMmRwdDl2TUVRN0ppZWhOX1ZTRUVxZVExQXhqNHhrUXl4bmpZNm5qMmlrYldqbGI3MGREQ2RLTS1SY0hSN09ZcE56dXUtNVBDLXhBS1hFNFFfbWFRcTFfX3Bmb3ZqSDY0V0w1YUh0aENyRkZLUUtHeEJsNVFfbGRHcXpaNWhkanRRRQ?oc=5"
+                "source": "repository_trend_snapshot",
+                "text": "Transactions: Cowboys make 3 OL moves",
+                "url": "https://news.google.com/rss/articles/CBMiiwFBVV95cUxNNEJROXNIZmJLczR0MFMxZTNRRXl0UTlhN0ZtVERDcWh6NV9lOFROM1VhSDJoQ3NLSjFGZ2dEYS02QkgwSjNybXBOOTI4Y2VVd3VrVU1nUGJEX0NOaHVIbnd4RnMycjVkcEl6ZWhfXzJfS2JCTENvZUpDNll3R0pqOExEdVBvTGRrXy1B?oc=5"
               },
               {
-                "source": "google_news",
-                "text": "Jerry Jones: Cowboys are 'in play' to make potential trade - Dallas Cowboys",
-                "url": "https://news.google.com/rss/articles/CBMilAFBVV95cUxNOWhsenJLOUZONi1zZXdFa2didkpJR3JnOFVIT2dpcFZrc0J4RDNNazg0Y0tlWXdKM1RwenZreng5TUREN0hlNGt6R1E4b2hfOE9zTnEyT05SNzNNRWlhcjFSRGNXWGtmOW9qVnRxOWZEYTFLckJucFlGZTF0cGxDekhSTGcya0lkbGdvVmRhRUxuVzdQ?oc=5"
+                "source": "repository_trend_snapshot",
+                "text": "Cowboys waive quarterback Joe Milton",
+                "url": "https://news.google.com/rss/articles/CBMie0FVX3lxTE1iQV9sbGtmSnFXeXFBeUxKcXE2akZuVm03S21rRjB5ZG81WGlZLXREdDFobWxyMjd1UC1vUktPOFN0bkliZFBjNXpKSkdmMkg2NFg1aDBIY1Y3dlIzLVdreHNRZUNYZ180RWNpZ1RTUjJoaFJiSXE5UHRSdw?oc=5"
               },
               {
-                "source": "google_news",
-                "text": "Is George Pickens becoming the Cowboys’ top receiver? (Video) - Fort Worth Star-Telegram",
-                "url": "https://news.google.com/rss/articles/CBMigwFBVV95cUxPakdhcG15WGZfdnBFYWtSMmtEd2xYSk1hWkxRVG5fdTYzTEQwcHNmNGNIcm92WWdiaHYxQzd1M1hPQ3dWX0dOelF6RDhxd2xNclBsZFBGV3VLSkFRdmtKb0M2UzdMTFY4SjdSTFk5aUlyWi1zYV9EU2V6OGtFNm8yaVJvRQ?oc=5"
+                "source": "repository_trend_snapshot",
+                "text": "Why the Cowboys chose Sam Howell as their backup quarterback",
+                "url": "https://news.google.com/rss/articles/CBMimwFBVV95cUxOVnFmOWNWdTg3Ykh0c1FPaWF6ZXZXOWdTWDNBTFdEUVFNTXdZUTJIcFZ4aWdmSXB3SkhIbW5COXdzRl9uVWloOVNjUzVRMjZSNWVsOS1PWWVrdnc4Z0hYMzNQT1NrTWxYQm1ZQlI1N1RtOWFGc0xvX1J3ZFlpYVp3SzBtc1kzcFprbUJOSEk0SENjNmt3eHVqeVllYw?oc=5"
               }
             ],
             "evidence": "public signal collector"
@@ -298,15 +296,15 @@
           "product_signal_score": 111.4,
           "copy": {
             "angle": "gift",
-            "hook_template": "There is one {team} fan in every family who is impossible to shop for. {line}",
+            "hook_template": "Gift-ready {team} pick: {line}",
             "angle_label": "Gift / relationship",
-            "hook": "There is one Dallas Cowboys fan in every family who is impossible to shop for. “THIS GIRL LOVES COWBOYS WITH FOOTBALL AND STARS” on a women's tee at $21.99.",
-            "ad_copy": "There is one Dallas Cowboys fan in every family who is impossible to shop for. “THIS GIRL LOVES COWBOYS WITH FOOTBALL AND STARS” on a women's tee at $21.99. Angle: gift / relationship. Signal driving it: Frisco native achieves dream of becoming a Dallas Cowboys Cheerleader - NBC 5 Dallas-Fort Worth Product: This Girl Loves Cowboys Women's Shirt (this girl loves cowboys). Verify licensing and the live listing before promotion.",
+            "hook": "Gift-ready Dallas Cowboys pick: “THIS GIRL LOVES COWBOYS WITH FOOTBALL AND STARS” on a women's tee at $21.99.",
+            "ad_copy": "Gift-ready Dallas Cowboys pick: “THIS GIRL LOVES COWBOYS WITH FOOTBALL AND STARS” on a women's tee at $21.99. Angle: gift / relationship. Signal driving it: Transactions: Cowboys make 3 OL moves Product: This Girl Loves Cowboys Women's Shirt (this girl loves cowboys). Verify licensing and the live listing before promotion.",
             "captions": {
-              "instagram": "Saved for Sunday. There is one Dallas Cowboys fan in every family who is impossible to shop for. “THIS GIRL LOVES COWBOYS WITH FOOTBALL AND STARS” on a women's tee at $21.99. Why now: Frisco native achieves dream of becoming a Dallas Cowboys Cheerleader - NBC 5 Dallas-Fort Worth See it on the shop page. #dallascowboys #thisgirllovescowboys #dallaswomensshirt",
-              "facebook": "There is one Dallas Cowboys fan in every family who is impossible to shop for. “THIS GIRL LOVES COWBOYS WITH FOOTBALL AND STARS” on a women's tee at $21.99. Context for Dallas Cowboys fans: Frisco native achieves dream of becoming a Dallas Cowboys Cheerleader - NBC 5 Dallas-Fort Worth It is a women's tee at $21.99 from the Dallas Cowboys collection. See it on the shop page. https://viralstyle.com/kebystore/girly-vintage-texas-pride",
-              "x": "There is one Dallas Cowboys fan in every family who is impossible to shop for. “THIS GIRL LOVES COWBOYS WITH FOOTBALL AND STARS” on a women's tee at $21.99. Frisco native achieves dream of becoming a Dallas Cowboys Cheerleader - NBC 5 Dallas-Fort https://viralstyle.com/kebysto…",
-              "tiktok": "Nobody asked, but: There is one Dallas Cowboys fan in every family who is impossible to shop for. “THIS GIRL LOVES COWBOYS WITH FOOTBALL AND STARS” on a women's tee at $21.99. Script beat: Frame the product as a gift for a specific person. Show the print, then the fit, then the price.",
+              "instagram": "Saved for Sunday. Gift-ready Dallas Cowboys pick: “THIS GIRL LOVES COWBOYS WITH FOOTBALL AND STARS” on a women's tee at $21.99. Why now: Transactions: Cowboys make 3 OL moves See it on the shop page. #dallascowboys #thisgirllovescowboys #dallaswomensshirt",
+              "facebook": "Gift-ready Dallas Cowboys pick: “THIS GIRL LOVES COWBOYS WITH FOOTBALL AND STARS” on a women's tee at $21.99. Context for Dallas Cowboys fans: Transactions: Cowboys make 3 OL moves It is a women's tee at $21.99 from the Dallas Cowboys collection. See it on the shop page. https://viralstyle.com/kebystore/girly-vintage-texas-pride",
+              "x": "Gift-ready Dallas Cowboys pick: “THIS GIRL LOVES COWBOYS WITH FOOTBALL AND STARS” on a women's tee at $21.99. Transactions: Cowboys make 3 OL moves https://viralstyle.com/kebystore/girly-vintage-texas-pride",
+              "tiktok": "Nobody asked, but: Gift-ready Dallas Cowboys pick: “THIS GIRL LOVES COWBOYS WITH FOOTBALL AND STARS” on a women's tee at $21.99. Script beat: Frame the product as a gift for a specific person. Show the print, then the fit, then the price.",
               "pinterest": "This Girl Loves Cowboys Women's Shirt - this girl loves cowboys idea for Dallas Cowboys fans. Frame the product as a gift for a specific person. Women's tee at $21.99."
             },
             "pinterest": {
@@ -335,7 +333,7 @@
       ]
     },
     {
-      "date": "2026-09-10",
+      "date": "2026-09-11",
       "label": "tomorrow",
       "opportunities": [
         {
@@ -345,35 +343,35 @@
           "team": "Cleveland Browns",
           "trend": {
             "team": "cleveland-browns",
-            "story": "One thing Deshaun Watson has to improve to remain Browns' starter - ESPN",
+            "story": "Browns sign WR Bryce Oliver to the practice squad",
             "emotion": "confident",
             "stage": "ACCELERATING",
-            "signal_count": 28,
+            "signal_count": 8,
             "sources": [
               {
-                "source": "google_news",
-                "text": "Browns quarterback Deshaun Watson fighting speeding ticket - FOX 8 News",
-                "url": "https://news.google.com/rss/articles/CBMiiAFBVV95cUxQSG55MjYwRDhmNmJieWZNZTNQV21GMUVnSGdBQkZRajJueFBqOG0tem83VUMxVHh5VWhzMTBiRTltdjlUcURaVTk4OTBBSkV4SGVoZ3FWZUV3YzlpcGx2SVVNWXNnRjRpNmt6TG11N1VGeV9ZWkdIdHc1OExTWm9sNUNfaThiZ2lr?oc=5"
+                "source": "repository_trend_snapshot",
+                "text": "Why Luke Floriea wasn’t signed to the Browns practice squad and who was: Mary Kay Cabot",
+                "url": "https://news.google.com/rss/articles/CBMiywFBVV95cUxNUVV0ckgwcmVuM1h4N3BtUEt3cExzdGxuQzY5YXFBZXpaSVc1aGpJWHNOVmNQTHgxZFFReU82M2xKWmpKdHhfSy16Uk5yODZVeDFnQXFLN19UWnE4X0lIc3NCT01xZFY0VTRmNVd1emJoRXJqVkoydGRPSE9jYUtWNEFWT29IV3p2WnlSZ3VIMFJJdHNoclpLekoyMlNPUENPUGFpU3N5X2g0WVE4LXFQNzJ5V2IzNEhhUWZnRG9zOXhQenc1bVRmOFZTd9IB3wFBVV95cUxNNVp2a0dVZm9Gai01MDl1bjBBTVYzUlU5cWxxRE5oTUVTcGV5aWFqSnBWbFNQdnhnYTVHSHBxRjVXRG1pWUZnNENlbEwwQWhVQlAxdk9ab1NtaXdwVXRXSExXa3ZzZzMxSmVBejZtQ1NmY1J1WnNmM09Hc0o0VTZYcVJrNmQyRFlPb0FBMWV2ekxpVlNWYjF6TnRKWGd4MEM4aGFqTVZDSFFGazJTQldqY1dFMHlCbW9pUFpvX2ppSXhZRDl3ajkyT1F6aXVVOWlzXzY1YWxKYkQ3LWdKVW1r?oc=5"
               },
               {
-                "source": "google_news",
-                "text": "One thing Deshaun Watson has to improve to remain Browns' starter - ESPN",
-                "url": "https://news.google.com/rss/articles/CBMixgFBVV95cUxOM2hoSjI3MFFhYzVOMkFOZjZxMnNnYk1VQWRINFFUd2pmdG9NcVc1Z3RWM2FMbkZXMFl3U0lSTXhwWHlQV2FhODd0eXk0NTYwaDJYalljYm5GSXFjS25UYWpYWWFEdjhUaERHTHZRYmNkNGF0Y3hnc3M1RGZvazg4YmYyU0RsZ3hzRktkdkJRdGlTMV9QQzNGREdkN05GRHB3RVp3Ynd1OEZ3LUk2X1pCMUJMTXZxak9sa0ZaNDlSYzZSVVJ1cVE?oc=5"
+                "source": "repository_trend_snapshot",
+                "text": "Browns sign WR Bryce Oliver to the practice squad",
+                "url": "https://news.google.com/rss/articles/CBMijwFBVV95cUxPT0VXZHVna2NTaFpQeExVN1dUVHZXYkZoaXdDNFNHY1U1R3FESzQ2LXpMeUllOFJLV240MmNQYjBQYThRdzhXejZ3MGdVZzVYZnF2THJTVTZyelpqanhhMy1Eenp2TlpoY2RQYUVkOFZ1Q1l2RkxBQ1B4RWFJbFZpWDJmY0ltZEFmVExRMFJlcw?oc=5"
               },
               {
-                "source": "google_news",
-                "text": "4 Days Until Week 1: 4 Reasons Why 2026 Could Be Dumpster Fire Year for the Browns - Sports Illustrated",
-                "url": "https://news.google.com/rss/articles/CBMiyAFBVV95cUxOVDV4ZGlLVDBPWEY5dTM4Y3JVUGtzRFhCNVc1RTViemJZUUNmaFVNTlFleGEyLXIwckJaUGMwbzU1OTdTTjRMNk5oUVNUUFRQd0tOVkRIQnh5aXNjTTgzLTBsenI5b3RjRGFEdHJSdG9iNFJJQ1hYQlJaMkRyczFDY3duaHk2VGRpOEczaS1GdVVoVE5VeFltMklzYjRKTVVEa2I0YThzTjdzZjJpdnNHTHR0Ynk3cHNaaWJBNVJjLXdtNmNNZVQ2Qw?oc=5"
+                "source": "repository_trend_snapshot",
+                "text": "5 Cleveland Browns Under the Most Pressure Entering the 2026 NFL Season",
+                "url": "https://news.google.com/rss/articles/CBMirAFBVV95cUxPSV9RYkNDSVpiaWx4aHYwbzhTUmZmek1obENsUnVPWjgzR1RuUGh4TGxmaWY3YkxCMG8wbHFvWi12d19HTTM0cWZIOHlnNzhwbS1mVGNyN1ZvdkxXdFAwQVFkYjQ2cjdMczNSLUg4OUF6a1k2eUd0STh3b0VjY3JnMUZCcjkwVVdtMnZCT2M4YUxCeUU5ZlhiSkJZTnNJX0JWRWN0dkpmc1gyTks5?oc=5"
               },
               {
-                "source": "google_news",
-                "text": "Why Jared Goff and the Lions are powered by championship drive, not last year’s pain - Cleveland.com",
-                "url": "https://news.google.com/rss/articles/CBMiyAFBVV95cUxNVmtjZEtWYkhQLWJkVEVncUFSZVNxN0NMdXNJaVVYakYyUFliUkhKaGsyRkkzSWtmTW1GQi16bExucU1BNnhOVFI1cjFaLVN3dkxfazFrb0pvSXNwdGVPWnpVZWQybkV4SmNRV0NIaWJ6bUpvWUFtbDJLaWZGQjdPQzhYZHlyR002YUxDaUlfbmQ1MnlQVHFCRkwxLVZYSTJSUWRnTmlvdl8xWF9VSk9pdE1sRDk3NzhuNGFYb0hOUWpMUlZuZmNTVw?oc=5"
+                "source": "repository_trend_snapshot",
+                "text": "Browns legend states what Shedeur Sanders needs to fix",
+                "url": "https://news.google.com/rss/articles/CBMipAFBVV95cUxNUm9iS25XWExiTnhzZmZlOHpDSkpkSXBEaEhzUEpvUThNdVI3UTB2dGxGXzhDaGtpaUdGMGdlR2c2SWlNek5oQ1U0bEVrekFHX2tuQlFjT2FpM0J1dlFwYmpJcG1LUFJwXzZWbjU3RUxkOVloaG11WXg0RzNIQUlMT1FYT3ZuVzRfb3dKT2JoTE10MnpzNUFkYkpFWmhpQjQxTm9TOQ?oc=5"
               },
               {
-                "source": "google_news",
-                "text": "Browns star joins Cleveland Guardians ownership group - WKBN.com",
-                "url": "https://news.google.com/rss/articles/CBMioAFBVV95cUxNYjZVdXI2ZFZRZ0FpZkhVR2lUQ0U3QXBrQ256NnNkQkdBZWdtbmpuSmJNbE9zaVUwOHZCeVNaUXNieVRwUnQ4WFpDZWtwdWtueGFObHZYODh0SUtrLVBTbmpKMnJyY0kxNkczWU5XSjhuWGtiQ0Q5dVNmSzg5NWF5eThkY2VfdGxmT3dLbTZvTV9uZk8zVkVmQU43Yk9YRjkw0gGmAUFVX3lxTE5XU0JFUURRNWhkM2F5REF2bzlRTVJGTVBwYnh1WWtzVDdRVlBuY1hZUXU1QjFJdUlOYTBUQ3czMGVvN2xTeU9rbm8xNEk1MXBqR2FKTzhuMGdoZFBQTHhXaFkxTEw2bC1NeXRqZjJRd2trSTBid0w1eUhiTjFMeWd0cXJtR2ZvQ0JzSlFLMkNqSG95S284RWk4RlVYajJxaEtqZ3I1Wnc?oc=5"
+                "source": "repository_trend_snapshot",
+                "text": "Todd Monken names captains for Week 1 vs. Jaguars",
+                "url": "https://news.google.com/rss/articles/CBMijgFBVV95cUxNTkVjOUZRTGRMNXFtRUdMZnFHSVViVkVKYVRJUGhoamVZUmhrektrZ2RwMllsck5UbmlLMDUyMlZ0N1FiejZYNEVCTTlqSGJydzVrYzk5eEkxQkVSYkN1WVcxY0steTh5bUJNU0hjUEhhamV2dlVZd2lHUWpDa2VSbkZGdFR2VGRwTnhpdkN3?oc=5"
               }
             ],
             "evidence": "public signal collector"
@@ -386,12 +384,12 @@
             "hook_template": "You can spot a real {team} fan before kickoff. {line}",
             "angle_label": "Fan identity statement",
             "hook": "You can spot a real Cleveland Browns fan before kickoff. “SANDERS QB 12 WITH SIGNATURE” on a tee at $22.99.",
-            "ad_copy": "You can spot a real Cleveland Browns fan before kickoff. “SANDERS QB 12 WITH SIGNATURE” on a tee at $22.99. Angle: fan identity statement. Signal driving it: One thing Deshaun Watson has to improve to remain Browns' starter - ESPN Product: Sanders QB 12 Signature Shirt (sanders qb shirt). Verify licensing and the live listing before promotion.",
+            "ad_copy": "You can spot a real Cleveland Browns fan before kickoff. “SANDERS QB 12 WITH SIGNATURE” on a tee at $22.99. Angle: fan identity statement. Signal driving it: Browns sign WR Bryce Oliver to the practice squad Product: Sanders QB 12 Signature Shirt (sanders qb shirt). Verify licensing and the live listing before promotion.",
             "captions": {
-              "instagram": "Saved for Sunday. You can spot a real Cleveland Browns fan before kickoff. “SANDERS QB 12 WITH SIGNATURE” on a tee at $22.99. Why now: One thing Deshaun Watson has to improve to remain Browns' starter - ESPN See it on the shop page. #clevelandbrowns #sandersqbshirt #browns12quarterbacktee",
-              "facebook": "You can spot a real Cleveland Browns fan before kickoff. “SANDERS QB 12 WITH SIGNATURE” on a tee at $22.99. Context for Cleveland Browns fans: One thing Deshaun Watson has to improve to remain Browns' starter - ESPN It is a tee at $22.99 from the Cleveland Browns collection. See it on the shop page. https://viralstyle.com/kebystore/sanders-12-special-edition",
-              "x": "You can spot a real Cleveland Browns fan before kickoff. “SANDERS QB 12 WITH SIGNATURE” on a tee at $22.99. One thing Deshaun Watson has to improve to remain Browns' starter - ESPN https://viralstyle.com/kebystore/sanders-12-special-edition",
-              "tiktok": "Nobody asked, but: You can spot a real Cleveland Browns fan before kickoff. “SANDERS QB 12 WITH SIGNATURE” on a tee at $22.99. Script beat: Say who you root for before you say a word. Show the print, then the fit, then the price.",
+              "instagram": "Locked in. You can spot a real Cleveland Browns fan before kickoff. “SANDERS QB 12 WITH SIGNATURE” on a tee at $22.99. Why now: Browns sign WR Bryce Oliver to the practice squad Full details on the listing. #clevelandbrowns #sandersqbshirt #browns12quarterbacktee",
+              "facebook": "You can spot a real Cleveland Browns fan before kickoff. “SANDERS QB 12 WITH SIGNATURE” on a tee at $22.99. Context for Cleveland Browns fans: Browns sign WR Bryce Oliver to the practice squad It is a tee at $22.99 from the Cleveland Browns collection. Full details on the listing. https://viralstyle.com/kebystore/sanders-12-special-edition",
+              "x": "You can spot a real Cleveland Browns fan before kickoff. “SANDERS QB 12 WITH SIGNATURE” on a tee at $22.99. Browns sign WR Bryce Oliver to the practice squad https://viralstyle.com/kebystore/sanders-12-special-edition",
+              "tiktok": "Storytime, short version: You can spot a real Cleveland Browns fan before kickoff. “SANDERS QB 12 WITH SIGNATURE” on a tee at $22.99. Script beat: Say who you root for before you say a word. Show the print, then the fit, then the price.",
               "pinterest": "Sanders QB 12 Signature Shirt - sanders qb shirt idea for Cleveland Browns fans. Say who you root for before you say a word. Tee at $22.99."
             },
             "pinterest": {
@@ -424,58 +422,58 @@
           "team": "Green Bay Packers",
           "trend": {
             "team": "green-bay-packers",
-            "story": "Matt LaFleur Reveals Why Packers Rookie Won Starting Job - heavy.com",
-            "emotion": "worried",
+            "story": "September 6, 2024- Green Bay Packers play first NFL game in South America.",
+            "emotion": "hyped",
             "stage": "ACCELERATING",
-            "signal_count": 28,
+            "signal_count": 8,
             "sources": [
               {
-                "source": "google_news",
-                "text": "Packers announce roster moves | Sept. 9, 2026 - Green Bay Packers",
+                "source": "repository_trend_snapshot",
+                "text": "Packers announce roster moves | Sept. 9, 2026",
                 "url": "https://news.google.com/rss/articles/CBMiekFVX3lxTFBsTWdRNmRuS1dYQ2JadU9oekdrNEJQLXl0VE5vWHhPTkU1dVprZ3dEQkZOQXZZdnpicVhON3Q2Z0EzTGRhUTZIMGVpbWotZDQyUGZadnc1b0FxTFV4TVVuZDc2NVNWdjkwRWlYZUhNUWIxSUJGbElkczVn?oc=5"
               },
               {
-                "source": "google_news",
-                "text": "Packers-Vikings Injury Report | Sept. 9, 2026 - Green Bay Packers",
-                "url": "https://news.google.com/rss/articles/CBMiekFVX3lxTFBTZldqczg4ei01cFU1RXlhd1M2aWhfZVdVU2NIQXJQdFlVQ05nSjZyN2cza2xLTGhVQ21zdGNVYnpKVXFmX05RMjFld2RsaTVzenVlRWFETm1ZU1NYV0VWbzh1Qm5zdXNBWVJDYTJzcXlvVGliVXd4dFRn?oc=5"
+                "source": "repository_trend_snapshot",
+                "text": "Minnesota Vikings bringing back Harrison Smith for 2026 season",
+                "url": "https://news.google.com/rss/articles/CBMiggFBVV95cUxPNVd3YmF2NnF0SFZPVHktbDQ5TWdNYnpjejFiMm0zZXQ0SVYzZVpJOEJoVTBVRHptOW44YzZKNk9qX1VjVjVXbHFTaERFajlHUy0zaDZILU54Q1F4RVplVmtaXzUtTDFwbGlSZDA3U1dpMjZuUV84eC1HX2Vwbm9jLXJn0gGHAUFVX3lxTE9OdGVIc2NYWEhrN3FEQkswMFNKekNYOFo0V0pVZ1MyUXh6dXYwS1dUR1VWSTh0OHpOWl9ueEZWS1VDX1BJLWVfM0ViSHRlVmdMUDEyc0pqMHVBN0tnRVNtUXlKUTYwSkRzekgyb25fY1c5NjBXcUZiNEQ4NDRkcDJFRzZ3dUxoSQ?oc=5"
               },
               {
-                "source": "google_news",
-                "text": "Matt LaFleur Reveals Why Packers Rookie Won Starting Job - heavy.com",
-                "url": "https://news.google.com/rss/articles/CBMihAFBVV95cUxNU0FkV0g5R3JKc1lNNm1PbXp5QzcxaFVueEU3VURIOTlZM0lqeW5fd2dHdnVNemp0SEpsWGktaFBoeklkaDBfNU5kX2Q2XzhQOUlpcTdUTDV0SzE2b2U5SGpKb2VPS1RTRlFUcE0wWUdqb0R5WERwSHZpRXhEdnJ3MVZMXzQ?oc=5"
+                "source": "repository_trend_snapshot",
+                "text": "September 6, 2024- Green Bay Packers play first NFL game in South America.",
+                "url": "https://news.google.com/rss/articles/CBMisAFBVV95cUxQWlY2cFJhNE15UVZCam5TcUQtUWJBcXoxUkU1aXg1M3RGWXlXcVVIeUl4ODhaeXBpSDdkdTZTcVFTNWJ5ckF1dXJ0N2R6elJlckR3NWRpb1dXZkZTMFNySE1VUlFKX2dReXZubFl3S3lHS1Jvckp4T1VERXF6VWJOYjdaMUxtSFdUYlkxanNKaG9rRDJaOHRDd19NYmxEZm1BTXRpVjdXUU0teEFocWVNSA?oc=5"
               },
               {
-                "source": "google_news",
-                "text": "Packers Salary Cap: Jonnu Smith contract details released - Acme Packing Company",
-                "url": "https://news.google.com/rss/articles/CBMivAFBVV95cUxPZk5hV19ab240YXNTbVRSZmxtTG81cFFzZ2xGQ3NvR0tWZEctRmlOV21FbEJxMUIyWUhKLTBFM3IyZHBpelZGTmt4ZFF1X20zb25wS0JDd0QwOGRCTnNPNlFpWGZOemx1b0FmbkthOTlZZUNwbGY0M05kWnJoMy1KZjdESWhBQUl4Y3BwblExckJycEtHWVdNYlhOUGozTl8zY3lXX1hKN3VHZDBTTHRTbDctdHhOalFrV0JoeQ?oc=5"
+                "source": "repository_trend_snapshot",
+                "text": "Packers Film Review: TE Mark Redman",
+                "url": "https://news.google.com/rss/articles/CBMipAFBVV95cUxNVWliV2lXTjV2WS1BYmpxTTV1cjBBZHBEQ0dubmdySG9jUGU2UkFZMDhTQ3VjWGlKazNWYk92VVcxWG1nX0g2QjVRT3lxWUVURGFkS3ZWN3pvMGhfT19KWWxBOU1jQVBYaVl5RUpxelJTQ2ZvejBLcXBNU3dtM3dxRlF0QkcteFFsT3JreTdzQjVra3Byd2dVdTB6VG5NWXptWm0wTw?oc=5"
               },
               {
-                "source": "google_news",
-                "text": "Hello Wisconsin: Picking the Packers’ Regular Season Games - Cheesehead TV",
-                "url": "https://news.google.com/rss/articles/CBMilAFBVV95cUxNRVQ5R3lrYkRVeEVYay1nclkwY3lXWDhGUEloV25DcEZIcUVKSjBRQ01EZ2pnZ2V3SkhRWlJsdmwxS3JwblYtcXNNdFVtT1c0cE85b1Jwbmh4c1pIREpkYU9ZNmVWRHhBeTljU2RseVJlRDJSbGIxQzE1NTg4WFhKaERna1ZlY2k4dXJybExOQmNSdlFH?oc=5"
+                "source": "repository_trend_snapshot",
+                "text": "Green Bay Packers 2026 NFL Playoff Simulator",
+                "url": "https://news.google.com/rss/articles/CBMiuAFBVV95cUxNX2IzS0JOZ1hqUlNXQkRhakFneFMydXVsUHY3ajg0QnZEMXhJS2VUUWF4WTdGbVlrX2ZDM0dDblVMQnFFV3dnbmpNbDRTc1hOMm5LR2hiVlZDZ19yelEwZUlnR1h3blo0RnZXVmU2Um5EbHJZeFMyeVV0cktOcVF2MVRfYXcwblhwa3VpaDFQY2F6RmdSNW01RG1sTjZUb3JGOC1RU2FIX0JlNGJ4WDFocU42aTBaXzg1?oc=5"
               }
             ],
             "evidence": "public signal collector"
           },
-          "fan_emotion": "worried",
+          "fan_emotion": "hyped",
           "creative_angle": "News reaction",
-          "product_signal_score": 143.4,
+          "product_signal_score": 155.4,
           "copy": {
             "angle": "news_react",
-            "hook_template": "Everyone in the {team} timeline is arguing about the same thing today. {line}",
+            "hook_template": "The storyline moved this morning; the merch shelf did not. {line}",
             "angle_label": "News reaction",
-            "hook": "Everyone in the Green Bay Packers timeline is arguing about the same thing today. “JORDAN FREAKING LOVE” on a tee at $24.99.",
-            "ad_copy": "Everyone in the Green Bay Packers timeline is arguing about the same thing today. “JORDAN FREAKING LOVE” on a tee at $24.99. Angle: news reaction. Signal driving it: Matt LaFleur Reveals Why Packers Rookie Won Starting Job - heavy.com Product: Jordan Freaking Love Shirt (jordan love shirt). Verify licensing and the live listing before promotion.",
+            "hook": "The storyline moved this morning; the merch shelf did not. “JORDAN FREAKING LOVE” on a tee at $24.99.",
+            "ad_copy": "The storyline moved this morning; the merch shelf did not. “JORDAN FREAKING LOVE” on a tee at $24.99. Angle: news reaction. Signal driving it: September 6, 2024- Green Bay Packers play first NFL game in South America. Product: Jordan Freaking Love Shirt (jordan love shirt). Verify licensing and the live listing before promotion.",
             "captions": {
-              "instagram": "Locked in. Everyone in the Green Bay Packers timeline is arguing about the same thing today. “JORDAN FREAKING LOVE” on a tee at $24.99. Why now: Matt LaFleur Reveals Why Packers Rookie Won Starting Job - heavy.com Full details on the listing. #greenbaypackers #jordanloveshirt #packersqbtee",
-              "facebook": "Everyone in the Green Bay Packers timeline is arguing about the same thing today. “JORDAN FREAKING LOVE” on a tee at $24.99. Context for Green Bay Packers fans: Matt LaFleur Reveals Why Packers Rookie Won Starting Job - heavy.com It is a tee at $24.99 from the Green Bay Packers collection. Full details on the listing. https://viralstyle.com/kebystore/limited-edition-grb30",
-              "x": "Everyone in the Green Bay Packers timeline is arguing about the same thing today. “JORDAN FREAKING LOVE” on a tee at $24.99. Matt LaFleur Reveals Why Packers Rookie Won Starting Job - heavy.com https://viralstyle.com/kebystore/limited-edition-grb30",
-              "tiktok": "Storytime, short version: Everyone in the Green Bay Packers timeline is arguing about the same thing today. “JORDAN FREAKING LOVE” on a tee at $24.99. Script beat: React to the storyline that is moving right now. Show the print, then the fit, then the price.",
+              "instagram": "Saved for Sunday. The storyline moved this morning; the merch shelf did not. “JORDAN FREAKING LOVE” on a tee at $24.99. Why now: September 6, 2024- Green Bay Packers play first NFL game in South America. See it on the shop page. #greenbaypackers #jordanloveshirt #packersqbtee",
+              "facebook": "The storyline moved this morning; the merch shelf did not. “JORDAN FREAKING LOVE” on a tee at $24.99. Context for Green Bay Packers fans: September 6, 2024- Green Bay Packers play first NFL game in South America. It is a tee at $24.99 from the Green Bay Packers collection. See it on the shop page. https://viralstyle.com/kebystore/limited-edition-grb30",
+              "x": "The storyline moved this morning; the merch shelf did not. “JORDAN FREAKING LOVE” on a tee at $24.99. September 6, 2024- Green Bay Packers play first NFL game in South America. https://viralstyle.com/kebystore/limited-edition-grb30",
+              "tiktok": "Nobody asked, but: The storyline moved this morning; the merch shelf did not. “JORDAN FREAKING LOVE” on a tee at $24.99. Script beat: React to the storyline that is moving right now. Show the print, then the fit, then the price.",
               "pinterest": "Jordan Freaking Love Shirt - jordan love shirt idea for Green Bay Packers fans. React to the storyline that is moving right now. Tee at $24.99."
             },
             "pinterest": {
               "title": "Jordan Freaking Love Shirt: Jordan Love Shirt",
-              "description": "News reaction pin for Green Bay Packers fans feeling worried. “JORDAN FREAKING LOVE” on a tee at $24.99. Use only after the product and licensing review.",
+              "description": "News reaction pin for Green Bay Packers fans feeling hyped. “JORDAN FREAKING LOVE” on a tee at $24.99. Use only after the product and licensing review.",
               "keywords": [
                 "jordan love shirt",
                 "packers qb tee",
@@ -503,35 +501,35 @@
           "team": "Michigan Wolverines",
           "trend": {
             "team": "michigan",
-            "story": "Michigan Football must fix a broken run game before it’s too late - Maize n Brew",
+            "story": "Big Ten explains controversial ending to Michigan-Western Michigan",
             "emotion": "confident",
             "stage": "ACCELERATING",
-            "signal_count": 28,
+            "signal_count": 8,
             "sources": [
               {
-                "source": "google_news",
-                "text": "NCAA establishes 'standard timing protocol' in wake of Michigan win - ESPN",
-                "url": "https://news.google.com/rss/articles/CBMitAFBVV95cUxQTkVWVnZSaWdEZC1qVmR4TGxGamZIaGpQaUJqbi1sclVhS2c4eFVxQ3JmcXlZRGEwWTVrUEd4aEp3YkdaT1FvNzNpV0d4ai1qdXc0Ymp2cXY4bWpHOFMwNGlabW1GejVRaVV4MnhPTVdJc2FQQmo3bENzMERRaGJ5TGxwWHVqS3lKVjdlcEhwTklnV2lqNW85T19UMXlvb1k5Mi1hNGMwdmZXdEVKcHB2eWtRNUM?oc=5"
+                "source": "repository_trend_snapshot",
+                "text": "Michigan Monday: Game 2 vs. No. 11 Oklahoma",
+                "url": "https://news.google.com/rss/articles/CBMiekFVX3lxTE1hNGs1aTJ1RW41bi1VNEpOaDdTQXZxVGptM2NsOHRlZUF5UmhpWVRQS2F3ejdSSEw5dzBWaGhYU19SZExuZm9SVjRuRkxpWEpONEZLLUw4d2E5LXNKZVo1V3c5T0RSM0p0S0ZocTFhOUxGMDRzeTczV2VR?oc=5"
               },
               {
-                "source": "google_news",
-                "text": "Michigan football didn't hire Kyle Whittingham to babysit a 5-star QB | Opinion - USA Today",
-                "url": "https://news.google.com/rss/articles/CBMiyAFBVV95cUxPdW5jbm9qVDM5QV9ieFF3b2hvNkMyR1FWd2lRTl93c1lULXdjMkUydDBuS2xJVm1Ob1RsNk9rZTBlUk1TTk5NNHhFQzBCbnhiekdyMTRNWWVhNFlONUhPTGNINFFYN1BSNWN0VWhlRXZpM2RSMUhrdzQ3MnRIdTlMR1IwdVVQWmI2NFl6cGxVZDk1SWpNN19pNTJzNWZ6bGtHNVlyV08zelpENjlZQy16YVZqUlNLN0JYeGxyc2FaemdyTHpGM1Vldw?oc=5"
+                "source": "repository_trend_snapshot",
+                "text": "Michigan Football's Hail Mary Win vs. WMU Drops Wolverines in AP Top 25",
+                "url": "https://news.google.com/rss/articles/CBMiswFBVV95cUxNd2hnV1JicE9wR0xHdUVkV2NINTlnakVfQVo2VksxUEUzWmc5WjVDUWNaZVUwcGV0X0dTZmlYSWxucGg3Z19EeU8zX1NxcG5sdFBVTThTTG1MR3FjZE9OQ1lnX2w3czZlOUZLdnd2QkRyQjZKZkZsbGQ3V2V4Mk1UeUdXQXpnNW96NEtqMHVuSDhkOUV3TUtwUTFWN0pRTUREZmxFSkJiQzhEMDlhQXJCbDB2UQ?oc=5"
               },
               {
-                "source": "google_news",
-                "text": "Reading between the lines: Rod Moore's impact, Oklahoma players to watch and 'very hungry' Wolverines - On3",
-                "url": "https://news.google.com/rss/articles/CBMizAFBVV95cUxObnNzV1pfRXJXTXZjc2lTeFRiZWRKR1N1dnNMaFN3ZU1jeDZCNzhPaldoTl96cVFqOG5jUDF0WnBhSVhlOExJQkR1OU1zUk53M1Z4RTZ5dXZqNkFoQno0WWswcU8xM2Fhd1N3WkY1bzdPXy1VZFMzaHMxcXpGZ0dBYUNQWmdhUTVqMjBSci1FbEVPUnBUTFVHelNGVFgtT2txWEdNWXpwTWdOLV95cWZ3bG9qM21NMkpSSkdKbFdzNy15T21JMk1YZkEyalY?oc=5"
+                "source": "repository_trend_snapshot",
+                "text": "Football Opens 2026 Season at No. 16 Michigan",
+                "url": "https://news.google.com/rss/articles/CBMijwFBVV95cUxNZGtsbHRyQ1lRSFBaek1LOFBZWlJmeVFZU2tsOWlCZjVVNDFCV3ZKYUNyMDk3ekNvX2xUbHllY0h3QTk3U1hqS0ZWYTFXTXlpblBiRWRNWTROLU9sMjlGRXZwcHM3THNDdGNsWkhSVy00akt1bzZRUXdObjJUNzk3U3c1QjQycFBaa3F1dzJaOA?oc=5"
               },
               {
-                "source": "google_news",
-                "text": "Former Michigan QB drops to No. 3 on Vikings’ depth chart entering season opener - MLive.com",
-                "url": "https://news.google.com/rss/articles/CBMizgFBVV95cUxOUG95aEJEanpqMzQySWpNOFhWdkdmYjdjZDFWcGVTQkJvdkFjUzkzWTdocEs3UXBtQjRlR1VHSjUxT3o3cVRWSFJqM1RKR1F1NjQtc0lVeEdfcjdwb1RDeFZzcHh0R0NmN2otaXYxd09ad0xNcHkzdjR5VFdETjNZY1RqNDdXOFJ1WkZrR1pHcXhDaTlPdmJzdXI2V0dSd2dKalVZMGtXOU1hUWMwV29XSVRZSUZ0VzFUS3VkV2NIY1pDSHRVMHY2a2pNX0ZzUdIB4gFBVV95cUxQOUNidVRFMTJJSEtvc0xMOWVMM2tMQy1FcTZrQzh3WlZKNzNYeXdCa19kYzJGNzE0ZTd5bmYtM2NUanh4a2VXTmgzRzJuZ1VqbXU4VVFVY20yWnpXWVRjV2hRMjJPZXY4V0pfMDY0eDM0ZEJXU0RiR0xhQkd2elZmSzUtLWNSNUdYRGo3Ny1RWGJWNENLNWVRNTRCQVdmRXJ4eDI0YThBZm9JdFpQVVRfUFF1OFJ2bjJRRW5YVVphSFVtZ29oaDVMVEVoYWdoVk95OUx1ZUp0NlIyTks0SEk4czh3?oc=5"
+                "source": "repository_trend_snapshot",
+                "text": "Clock controversy allows Michigan Wolverines to avoid massive upset against Western Michigan | OutKick",
+                "url": "https://news.google.com/rss/articles/CBMixwFBVV95cUxOS0h1S1dGMTljem5fLXY1SlRLdm1WUHJoQVV5eXNGSnRaVVZWUWRwdHRua2lRUDVOMnJJdDBpdC0xOW10N1pONzBlWDByZ1BrSmNlMy1BZzZJZWxacWxRaVpiUUp1ZTRpN1lRalRzWGc0MWpOSlJqTnVXMm1GdkpXVGNqTF9xeVpsVnBxNnF1Q1MtZDN0QzEzQWJ0Y3JHYUg4OWNtYVNVdEs0a3UwdTcyQmNVcnNhUEZXemE0bTBrZlJCWmc4dWtZ?oc=5"
               },
               {
-                "source": "google_news",
-                "text": "Michigan Football must fix a broken run game before it’s too late - Maize n Brew",
-                "url": "https://news.google.com/rss/articles/CBMiogJBVV95cUxQZThxM2NHUk1hOVFaTTZKSTlPd0FDNGhfb0kzU3NQTVJrSGRmTjZRUlY5d1VnUUJRSXBuY2RuYXdfaFMzZVBPSkgwS21ZU1Rfd2RmSG9vVXdyRW1MLTRuRUVsOU9BVXZVMWtHSjk5YXlZeHBnZGNWU2VUSUw5Qzh6TF9nNlZ0STdESzgyT1FQd3RYRTJ0bFRwZ2lIdlMzOGwzVDVSaXBQR2ZKd3JOZksxUHZ2STlpeGU2NjZvSHU1d0xCUmc4SklJdllYQkhCU0VwMVprMjdiQzRlbzdBN2hMdTFIcFBsQnFBZ01IVzJSMVk5U3YzQ3d6RE56RWNOMVI5ZXBnbm13YUJhMUNlYkZLMjVNQjhmYkFTOW9nUXBNNkM3QQ?oc=5"
+                "source": "repository_trend_snapshot",
+                "text": "Big Ten explains controversial ending to Michigan-Western Michigan",
+                "url": "https://news.google.com/rss/articles/CBMijwFBVV95cUxPOFk4SnpWTTNRYzg2aDhOOFJHUXNFbWI2cG9aUUQtVFB5T3NpNFdRZTJHd29kZy1obUJhaWtXSFk4d24yakNFQjJaOExyc0s1ZElkLVN0Wl9TN2pMVWhxc3I2aEhSVlpqRGZybm5kdjRRZXd6NWxFandhaFJYOGpMWXdFZWNZZzBsWUZVRXN5MA?oc=5"
               }
             ],
             "evidence": "public signal collector"
@@ -544,12 +542,12 @@
             "hook_template": "How {team} fans are actually dressing this season: {line}",
             "angle_label": "Outfit styling",
             "hook": "How Michigan Wolverines fans are actually dressing this season: “MICHIGAN” on a sweatshirt at $29.99.",
-            "ad_copy": "How Michigan Wolverines fans are actually dressing this season: “MICHIGAN” on a sweatshirt at $29.99. Angle: outfit styling. Signal driving it: Michigan Football must fix a broken run game before it’s too late - Maize n Brew Product: Michigan Vs Everybody Navy Sweatshirt (michigan vs everybody sweatshirt). Verify licensing and the live listing before promotion.",
+            "ad_copy": "How Michigan Wolverines fans are actually dressing this season: “MICHIGAN” on a sweatshirt at $29.99. Angle: outfit styling. Signal driving it: Big Ten explains controversial ending to Michigan-Western Michigan Product: Michigan Vs Everybody Navy Sweatshirt (michigan vs everybody sweatshirt). Verify licensing and the live listing before promotion.",
             "captions": {
-              "instagram": "Read the shirt. How Michigan Wolverines fans are actually dressing this season: “MICHIGAN” on a sweatshirt at $29.99. Why now: Michigan Football must fix a broken run game before it’s too late - Maize n Brew Link in bio for the listing. #michiganwolverines #michiganvseverybodysweatshirt #gobluenavycrewneck",
-              "facebook": "How Michigan Wolverines fans are actually dressing this season: “MICHIGAN” on a sweatshirt at $29.99. Context for Michigan Wolverines fans: Michigan Football must fix a broken run game before it’s too late - Maize n Brew It is a sweatshirt at $29.99 from the Michigan Wolverines collection. Link in bio for the listing. https://viralstyle.com/kebystore/limited-edition-m-fans",
-              "x": "How Michigan Wolverines fans are actually dressing this season: “MICHIGAN” on a sweatshirt at $29.99. Michigan Football must fix a broken run game before it’s too late - Maize n Brew https://viralstyle.com/kebystore/limited-edition-m-fans",
-              "tiktok": "POV: How Michigan Wolverines fans are actually dressing this season: “MICHIGAN” on a sweatshirt at $29.99. Script beat: Show how the piece is worn, not just what it says. Show the print, then the fit, then the price.",
+              "instagram": "Closet upgrade. How Michigan Wolverines fans are actually dressing this season: “MICHIGAN” on a sweatshirt at $29.99. Why now: Big Ten explains controversial ending to Michigan-Western Michigan Tap through to the product page. #michiganwolverines #michiganvseverybodysweatshirt #gobluenavycrewneck",
+              "facebook": "How Michigan Wolverines fans are actually dressing this season: “MICHIGAN” on a sweatshirt at $29.99. Context for Michigan Wolverines fans: Big Ten explains controversial ending to Michigan-Western Michigan It is a sweatshirt at $29.99 from the Michigan Wolverines collection. Tap through to the product page. https://viralstyle.com/kebystore/limited-edition-m-fans",
+              "x": "How Michigan Wolverines fans are actually dressing this season: “MICHIGAN” on a sweatshirt at $29.99. Big Ten explains controversial ending to Michigan-Western Michigan https://viralstyle.com/kebystore/limited-edition-m-fans",
+              "tiktok": "Fit check: How Michigan Wolverines fans are actually dressing this season: “MICHIGAN” on a sweatshirt at $29.99. Script beat: Show how the piece is worn, not just what it says. Show the print, then the fit, then the price.",
               "pinterest": "Michigan Vs Everybody Navy Sweatshirt - michigan vs everybody sweatshirt idea for Michigan Wolverines fans. Show how the piece is worn, not just what it says. Sweatshirt at $29.99."
             },
             "pinterest": {
@@ -582,35 +580,35 @@
           "team": "Dallas Cowboys",
           "trend": {
             "team": "dallas-cowboys",
-            "story": "Jerry Jones: Cowboys are 'in play' to make potential trade - Dallas Cowboys",
+            "story": "Cowboys waive quarterback Joe Milton",
             "emotion": "hyped",
             "stage": "ACCELERATING",
-            "signal_count": 28,
+            "signal_count": 8,
             "sources": [
               {
-                "source": "google_news",
-                "text": "Reece Weaver of ‘Dallas Cowboys Cheerleaders’ Makes Her Broadway Debut - The New York Times",
-                "url": "https://news.google.com/rss/articles/CBMiiAFBVV95cUxOaDNqQTVmX0dQWUpPUzZfNU95NTg5TWRpcGh3VWRiZFFfb2o5SzM3S2lyMWZocVU1RVBRaF9VSzVWRWdIZkdHNGpEVUJ0b3IySWRNMXNQa0diTGxZdk83TXB6SENYU3QtOVJTUWFoWlFsanRLbVBhTXBXR2tyTF9uTW5hUmxaaEVw?oc=5"
+                "source": "repository_trend_snapshot",
+                "text": "Emari Demercado returns 'home' to Dallas, has reason to be excited with Cowboys",
+                "url": "https://news.google.com/rss/articles/CBMisAFBVV95cUxQTlZuQ1hPOWZNQzcwM0VzeEZoMnU3ekpVcDN1SmhNbndlMXgwdXNuOTJtR3loUWQzbkVIZGRhZEw0ZVp2SS1zaVZvc1NEQVBlYWl3RmFBT1pNdzhlcGJDeFp2aXZlTUxOMWx3YmUxRWx1blR6VVBIaGwwQkt6NkN2Mjlkb1p1WG1VczRnYnRSZmQzVlNhQ0V5b3VCRG81NnB5Zk1IaXdvSFVaelFtYnNSNw?oc=5"
               },
               {
-                "source": "google_news",
-                "text": "Dallas Cowboys Cheerleader Reece Weaver swaps boots for Broadway - BBC",
-                "url": "https://news.google.com/rss/articles/CBMiWkFVX3lxTE5XQXloY2dTUDVXZTZoQ1pyMWVYVTA5b1dRejNKeXQyMXZITEFRdnN1eFZtZGxxeVplT3RsSFZQQnZsUEFfRUFiQVg2VlpoamJyMTRValRQb0dHdw?oc=5"
+                "source": "repository_trend_snapshot",
+                "text": "Quinnen Williams: Culture, growth of Cowboys' defense is 'night and day'",
+                "url": "https://news.google.com/rss/articles/CBMipAFBVV95cUxOT0lzOUlYMUVnMFpaVkdmbFBaLTVIZk9KbnBWbU5IQVJtYS1GdmQ0VGFuWnl3Q21OcGtJbWd4RGN2enljMFpiMGx3WWVBYkdKYWdxN0dhMWdyMHFMRUpJMEJObVUxeFJpeGxwb3J3VmM2Y1JnbnlkZFJhS3dwQ2R3eWlPSUxaN0xXU01mb0pfZFo5cWFmeDlaYVpqRXVwSUVUMG53QQ?oc=5"
               },
               {
-                "source": "google_news",
-                "text": "Frisco native achieves dream of becoming a Dallas Cowboys Cheerleader - NBC 5 Dallas-Fort Worth",
-                "url": "https://news.google.com/rss/articles/CBMiuwFBVV95cUxPNE1WWURRUUVDRXNuenNVdXpyRHdDOFFKUnZ4WTgtamhTdEJ2UUdKSktLS0gwVncxbVRDQVAteXZFUFlpMXdlVkxQVlpLR2FDaERnOXpQR3ZVRVBXR2Z6WGtac2xFc25Ha3N4VEcxdkRRZ0FlaTR1ZFBuek8xUWN0QkZDWUM1bHRfendOdnNZZm1lb2l2Y3dnM2NUUXB5UVRoMks5UEVHX0pqdFl6N25LemcwWktxQnR6X0NZ0gHDAUFVX3lxTE9sVGN0OXYzbDFrUV9MRXc2dkhSQzliMTFwLW5aQlBZcU02bDRsUVVlTldLTlZsaWw5d2taY3RJUmpHMmRwdDl2TUVRN0ppZWhOX1ZTRUVxZVExQXhqNHhrUXl4bmpZNm5qMmlrYldqbGI3MGREQ2RLTS1SY0hSN09ZcE56dXUtNVBDLXhBS1hFNFFfbWFRcTFfX3Bmb3ZqSDY0V0w1YUh0aENyRkZLUUtHeEJsNVFfbGRHcXpaNWhkanRRRQ?oc=5"
+                "source": "repository_trend_snapshot",
+                "text": "Transactions: Cowboys make 3 OL moves",
+                "url": "https://news.google.com/rss/articles/CBMiiwFBVV95cUxNNEJROXNIZmJLczR0MFMxZTNRRXl0UTlhN0ZtVERDcWh6NV9lOFROM1VhSDJoQ3NLSjFGZ2dEYS02QkgwSjNybXBOOTI4Y2VVd3VrVU1nUGJEX0NOaHVIbnd4RnMycjVkcEl6ZWhfXzJfS2JCTENvZUpDNll3R0pqOExEdVBvTGRrXy1B?oc=5"
               },
               {
-                "source": "google_news",
-                "text": "Jerry Jones: Cowboys are 'in play' to make potential trade - Dallas Cowboys",
-                "url": "https://news.google.com/rss/articles/CBMilAFBVV95cUxNOWhsenJLOUZONi1zZXdFa2didkpJR3JnOFVIT2dpcFZrc0J4RDNNazg0Y0tlWXdKM1RwenZreng5TUREN0hlNGt6R1E4b2hfOE9zTnEyT05SNzNNRWlhcjFSRGNXWGtmOW9qVnRxOWZEYTFLckJucFlGZTF0cGxDekhSTGcya0lkbGdvVmRhRUxuVzdQ?oc=5"
+                "source": "repository_trend_snapshot",
+                "text": "Cowboys waive quarterback Joe Milton",
+                "url": "https://news.google.com/rss/articles/CBMie0FVX3lxTE1iQV9sbGtmSnFXeXFBeUxKcXE2akZuVm03S21rRjB5ZG81WGlZLXREdDFobWxyMjd1UC1vUktPOFN0bkliZFBjNXpKSkdmMkg2NFg1aDBIY1Y3dlIzLVdreHNRZUNYZ180RWNpZ1RTUjJoaFJiSXE5UHRSdw?oc=5"
               },
               {
-                "source": "google_news",
-                "text": "Is George Pickens becoming the Cowboys’ top receiver? (Video) - Fort Worth Star-Telegram",
-                "url": "https://news.google.com/rss/articles/CBMigwFBVV95cUxPakdhcG15WGZfdnBFYWtSMmtEd2xYSk1hWkxRVG5fdTYzTEQwcHNmNGNIcm92WWdiaHYxQzd1M1hPQ3dWX0dOelF6RDhxd2xNclBsZFBGV3VLSkFRdmtKb0M2UzdMTFY4SjdSTFk5aUlyWi1zYV9EU2V6OGtFNm8yaVJvRQ?oc=5"
+                "source": "repository_trend_snapshot",
+                "text": "Why the Cowboys chose Sam Howell as their backup quarterback",
+                "url": "https://news.google.com/rss/articles/CBMimwFBVV95cUxOVnFmOWNWdTg3Ykh0c1FPaWF6ZXZXOWdTWDNBTFdEUVFNTXdZUTJIcFZ4aWdmSXB3SkhIbW5COXdzRl9uVWloOVNjUzVRMjZSNWVsOS1PWWVrdnc4Z0hYMzNQT1NrTWxYQm1ZQlI1N1RtOWFGc0xvX1J3ZFlpYVp3SzBtc1kzcFprbUJOSEk0SENjNmt3eHVqeVllYw?oc=5"
               }
             ],
             "evidence": "public signal collector"
@@ -620,15 +618,15 @@
           "product_signal_score": 111.4,
           "copy": {
             "angle": "throwback",
-            "hook_template": "Fans keep bringing up the old {team} era, so here it is on cotton. {line}",
+            "hook_template": "Some {team} looks aged well. {line}",
             "angle_label": "Throwback / heritage",
-            "hook": "Fans keep bringing up the old Dallas Cowboys era, so here it is on cotton. “DALLAS FOOTBALL 1960 DALLAS” on a tee at $21.99.",
-            "ad_copy": "Fans keep bringing up the old Dallas Cowboys era, so here it is on cotton. “DALLAS FOOTBALL 1960 DALLAS” on a tee at $21.99. Angle: throwback / heritage. Signal driving it: Jerry Jones: Cowboys are 'in play' to make potential trade - Dallas Cowboys Product: Dallas Football 1960 Helmet Vintage Shirt (dallas 1960 shirt). Verify licensing and the live listing before promotion.",
+            "hook": "Some Dallas Cowboys looks aged well. “DALLAS FOOTBALL 1960 DALLAS” on a tee at $21.99.",
+            "ad_copy": "Some Dallas Cowboys looks aged well. “DALLAS FOOTBALL 1960 DALLAS” on a tee at $21.99. Angle: throwback / heritage. Signal driving it: Cowboys waive quarterback Joe Milton Product: Dallas Football 1960 Helmet Vintage Shirt (dallas 1960 shirt). Verify licensing and the live listing before promotion.",
             "captions": {
-              "instagram": "Locked in. Fans keep bringing up the old Dallas Cowboys era, so here it is on cotton. “DALLAS FOOTBALL 1960 DALLAS” on a tee at $21.99. Why now: Jerry Jones: Cowboys are 'in play' to make potential trade - Dallas Cowboys Full details on the listing. #dallascowboys #dallas1960shirt #vintagedallasfootballtee",
-              "facebook": "Fans keep bringing up the old Dallas Cowboys era, so here it is on cotton. “DALLAS FOOTBALL 1960 DALLAS” on a tee at $21.99. Context for Dallas Cowboys fans: Jerry Jones: Cowboys are 'in play' to make potential trade - Dallas Cowboys It is a tee at $21.99 from the Dallas Cowboys collection. Full details on the listing. https://viralstyle.com/kebystore/dallas-football-vintage-athletic-style-f",
-              "x": "Fans keep bringing up the old Dallas Cowboys era, so here it is on cotton. “DALLAS FOOTBALL 1960 DALLAS” on a tee at $21.99. Jerry Jones: Cowboys are 'in play' to make potential trade - Dallas Cowboys https://viralstyle.com/kebystore/dallas-football-vintage-athletic-style-f",
-              "tiktok": "Storytime, short version: Fans keep bringing up the old Dallas Cowboys era, so here it is on cotton. “DALLAS FOOTBALL 1960 DALLAS” on a tee at $21.99. Script beat: Anchor the product in the era fans keep bringing up. Show the print, then the fit, then the price.",
+              "instagram": "Read the shirt. Some Dallas Cowboys looks aged well. “DALLAS FOOTBALL 1960 DALLAS” on a tee at $21.99. Why now: Cowboys waive quarterback Joe Milton Link in bio for the listing. #dallascowboys #dallas1960shirt #vintagedallasfootballtee",
+              "facebook": "Some Dallas Cowboys looks aged well. “DALLAS FOOTBALL 1960 DALLAS” on a tee at $21.99. Context for Dallas Cowboys fans: Cowboys waive quarterback Joe Milton It is a tee at $21.99 from the Dallas Cowboys collection. Link in bio for the listing. https://viralstyle.com/kebystore/dallas-football-vintage-athletic-style-f",
+              "x": "Some Dallas Cowboys looks aged well. “DALLAS FOOTBALL 1960 DALLAS” on a tee at $21.99. Cowboys waive quarterback Joe Milton https://viralstyle.com/kebystore/dallas-football-vintage-athletic-style-f",
+              "tiktok": "POV: Some Dallas Cowboys looks aged well. “DALLAS FOOTBALL 1960 DALLAS” on a tee at $21.99. Script beat: Anchor the product in the era fans keep bringing up. Show the print, then the fit, then the price.",
               "pinterest": "Dallas Football 1960 Helmet Vintage Shirt - dallas 1960 shirt idea for Dallas Cowboys fans. Anchor the product in the era fans keep bringing up. Tee at $21.99."
             },
             "pinterest": {
@@ -657,7 +655,7 @@
       ]
     },
     {
-      "date": "2026-09-11",
+      "date": "2026-09-12",
       "label": "+2 days",
       "opportunities": [
         {
@@ -667,35 +665,35 @@
           "team": "Cleveland Browns",
           "trend": {
             "team": "cleveland-browns",
-            "story": "4 Days Until Week 1: 4 Reasons Why 2026 Could Be Dumpster Fire Year for the Browns - Sports Illustrated",
+            "story": "5 Cleveland Browns Under the Most Pressure Entering the 2026 NFL Season",
             "emotion": "confident",
             "stage": "ACCELERATING",
-            "signal_count": 28,
+            "signal_count": 8,
             "sources": [
               {
-                "source": "google_news",
-                "text": "Browns quarterback Deshaun Watson fighting speeding ticket - FOX 8 News",
-                "url": "https://news.google.com/rss/articles/CBMiiAFBVV95cUxQSG55MjYwRDhmNmJieWZNZTNQV21GMUVnSGdBQkZRajJueFBqOG0tem83VUMxVHh5VWhzMTBiRTltdjlUcURaVTk4OTBBSkV4SGVoZ3FWZUV3YzlpcGx2SVVNWXNnRjRpNmt6TG11N1VGeV9ZWkdIdHc1OExTWm9sNUNfaThiZ2lr?oc=5"
+                "source": "repository_trend_snapshot",
+                "text": "Why Luke Floriea wasn’t signed to the Browns practice squad and who was: Mary Kay Cabot",
+                "url": "https://news.google.com/rss/articles/CBMiywFBVV95cUxNUVV0ckgwcmVuM1h4N3BtUEt3cExzdGxuQzY5YXFBZXpaSVc1aGpJWHNOVmNQTHgxZFFReU82M2xKWmpKdHhfSy16Uk5yODZVeDFnQXFLN19UWnE4X0lIc3NCT01xZFY0VTRmNVd1emJoRXJqVkoydGRPSE9jYUtWNEFWT29IV3p2WnlSZ3VIMFJJdHNoclpLekoyMlNPUENPUGFpU3N5X2g0WVE4LXFQNzJ5V2IzNEhhUWZnRG9zOXhQenc1bVRmOFZTd9IB3wFBVV95cUxNNVp2a0dVZm9Gai01MDl1bjBBTVYzUlU5cWxxRE5oTUVTcGV5aWFqSnBWbFNQdnhnYTVHSHBxRjVXRG1pWUZnNENlbEwwQWhVQlAxdk9ab1NtaXdwVXRXSExXa3ZzZzMxSmVBejZtQ1NmY1J1WnNmM09Hc0o0VTZYcVJrNmQyRFlPb0FBMWV2ekxpVlNWYjF6TnRKWGd4MEM4aGFqTVZDSFFGazJTQldqY1dFMHlCbW9pUFpvX2ppSXhZRDl3ajkyT1F6aXVVOWlzXzY1YWxKYkQ3LWdKVW1r?oc=5"
               },
               {
-                "source": "google_news",
-                "text": "One thing Deshaun Watson has to improve to remain Browns' starter - ESPN",
-                "url": "https://news.google.com/rss/articles/CBMixgFBVV95cUxOM2hoSjI3MFFhYzVOMkFOZjZxMnNnYk1VQWRINFFUd2pmdG9NcVc1Z3RWM2FMbkZXMFl3U0lSTXhwWHlQV2FhODd0eXk0NTYwaDJYalljYm5GSXFjS25UYWpYWWFEdjhUaERHTHZRYmNkNGF0Y3hnc3M1RGZvazg4YmYyU0RsZ3hzRktkdkJRdGlTMV9QQzNGREdkN05GRHB3RVp3Ynd1OEZ3LUk2X1pCMUJMTXZxak9sa0ZaNDlSYzZSVVJ1cVE?oc=5"
+                "source": "repository_trend_snapshot",
+                "text": "Browns sign WR Bryce Oliver to the practice squad",
+                "url": "https://news.google.com/rss/articles/CBMijwFBVV95cUxPT0VXZHVna2NTaFpQeExVN1dUVHZXYkZoaXdDNFNHY1U1R3FESzQ2LXpMeUllOFJLV240MmNQYjBQYThRdzhXejZ3MGdVZzVYZnF2THJTVTZyelpqanhhMy1Eenp2TlpoY2RQYUVkOFZ1Q1l2RkxBQ1B4RWFJbFZpWDJmY0ltZEFmVExRMFJlcw?oc=5"
               },
               {
-                "source": "google_news",
-                "text": "4 Days Until Week 1: 4 Reasons Why 2026 Could Be Dumpster Fire Year for the Browns - Sports Illustrated",
-                "url": "https://news.google.com/rss/articles/CBMiyAFBVV95cUxOVDV4ZGlLVDBPWEY5dTM4Y3JVUGtzRFhCNVc1RTViemJZUUNmaFVNTlFleGEyLXIwckJaUGMwbzU1OTdTTjRMNk5oUVNUUFRQd0tOVkRIQnh5aXNjTTgzLTBsenI5b3RjRGFEdHJSdG9iNFJJQ1hYQlJaMkRyczFDY3duaHk2VGRpOEczaS1GdVVoVE5VeFltMklzYjRKTVVEa2I0YThzTjdzZjJpdnNHTHR0Ynk3cHNaaWJBNVJjLXdtNmNNZVQ2Qw?oc=5"
+                "source": "repository_trend_snapshot",
+                "text": "5 Cleveland Browns Under the Most Pressure Entering the 2026 NFL Season",
+                "url": "https://news.google.com/rss/articles/CBMirAFBVV95cUxPSV9RYkNDSVpiaWx4aHYwbzhTUmZmek1obENsUnVPWjgzR1RuUGh4TGxmaWY3YkxCMG8wbHFvWi12d19HTTM0cWZIOHlnNzhwbS1mVGNyN1ZvdkxXdFAwQVFkYjQ2cjdMczNSLUg4OUF6a1k2eUd0STh3b0VjY3JnMUZCcjkwVVdtMnZCT2M4YUxCeUU5ZlhiSkJZTnNJX0JWRWN0dkpmc1gyTks5?oc=5"
               },
               {
-                "source": "google_news",
-                "text": "Why Jared Goff and the Lions are powered by championship drive, not last year’s pain - Cleveland.com",
-                "url": "https://news.google.com/rss/articles/CBMiyAFBVV95cUxNVmtjZEtWYkhQLWJkVEVncUFSZVNxN0NMdXNJaVVYakYyUFliUkhKaGsyRkkzSWtmTW1GQi16bExucU1BNnhOVFI1cjFaLVN3dkxfazFrb0pvSXNwdGVPWnpVZWQybkV4SmNRV0NIaWJ6bUpvWUFtbDJLaWZGQjdPQzhYZHlyR002YUxDaUlfbmQ1MnlQVHFCRkwxLVZYSTJSUWRnTmlvdl8xWF9VSk9pdE1sRDk3NzhuNGFYb0hOUWpMUlZuZmNTVw?oc=5"
+                "source": "repository_trend_snapshot",
+                "text": "Browns legend states what Shedeur Sanders needs to fix",
+                "url": "https://news.google.com/rss/articles/CBMipAFBVV95cUxNUm9iS25XWExiTnhzZmZlOHpDSkpkSXBEaEhzUEpvUThNdVI3UTB2dGxGXzhDaGtpaUdGMGdlR2c2SWlNek5oQ1U0bEVrekFHX2tuQlFjT2FpM0J1dlFwYmpJcG1LUFJwXzZWbjU3RUxkOVloaG11WXg0RzNIQUlMT1FYT3ZuVzRfb3dKT2JoTE10MnpzNUFkYkpFWmhpQjQxTm9TOQ?oc=5"
               },
               {
-                "source": "google_news",
-                "text": "Browns star joins Cleveland Guardians ownership group - WKBN.com",
-                "url": "https://news.google.com/rss/articles/CBMioAFBVV95cUxNYjZVdXI2ZFZRZ0FpZkhVR2lUQ0U3QXBrQ256NnNkQkdBZWdtbmpuSmJNbE9zaVUwOHZCeVNaUXNieVRwUnQ4WFpDZWtwdWtueGFObHZYODh0SUtrLVBTbmpKMnJyY0kxNkczWU5XSjhuWGtiQ0Q5dVNmSzg5NWF5eThkY2VfdGxmT3dLbTZvTV9uZk8zVkVmQU43Yk9YRjkw0gGmAUFVX3lxTE5XU0JFUURRNWhkM2F5REF2bzlRTVJGTVBwYnh1WWtzVDdRVlBuY1hZUXU1QjFJdUlOYTBUQ3czMGVvN2xTeU9rbm8xNEk1MXBqR2FKTzhuMGdoZFBQTHhXaFkxTEw2bC1NeXRqZjJRd2trSTBid0w1eUhiTjFMeWd0cXJtR2ZvQ0JzSlFLMkNqSG95S284RWk4RlVYajJxaEtqZ3I1Wnc?oc=5"
+                "source": "repository_trend_snapshot",
+                "text": "Todd Monken names captains for Week 1 vs. Jaguars",
+                "url": "https://news.google.com/rss/articles/CBMijgFBVV95cUxNTkVjOUZRTGRMNXFtRUdMZnFHSVViVkVKYVRJUGhoamVZUmhrektrZ2RwMllsck5UbmlLMDUyMlZ0N1FiejZYNEVCTTlqSGJydzVrYzk5eEkxQkVSYkN1WVcxY0steTh5bUJNU0hjUEhhamV2dlVZd2lHUWpDa2VSbkZGdFR2VGRwTnhpdkN3?oc=5"
               }
             ],
             "evidence": "public signal collector"
@@ -708,12 +706,12 @@
             "hook_template": "{team} fandom is not a costume - it is a wardrobe decision. {line}",
             "angle_label": "Fan identity statement",
             "hook": "Cleveland Browns fandom is not a costume - it is a wardrobe decision. “SANDERS QB 12 SIGNATURE” on a tee at $22.99.",
-            "ad_copy": "Cleveland Browns fandom is not a costume - it is a wardrobe decision. “SANDERS QB 12 SIGNATURE” on a tee at $22.99. Angle: fan identity statement. Signal driving it: 4 Days Until Week 1: 4 Reasons Why 2026 Could Be Dumpster Fire Year for the Browns - Sports Illustrated Product: Sanders QB Signature White Shirt (sanders white tee). Verify licensing and the live listing before promotion.",
+            "ad_copy": "Cleveland Browns fandom is not a costume - it is a wardrobe decision. “SANDERS QB 12 SIGNATURE” on a tee at $22.99. Angle: fan identity statement. Signal driving it: 5 Cleveland Browns Under the Most Pressure Entering the 2026 NFL Season Product: Sanders QB Signature White Shirt (sanders white tee). Verify licensing and the live listing before promotion.",
             "captions": {
-              "instagram": "Saved for Sunday. Cleveland Browns fandom is not a costume - it is a wardrobe decision. “SANDERS QB 12 SIGNATURE” on a tee at $22.99. Why now: 4 Days Until Week 1: 4 Reasons Why 2026 Could Be Dumpster Fire Year for the Browns - Sports Illustrated See it on the shop page. #clevelandbrowns #sanderswhitetee #brownsquarterbackshirt",
-              "facebook": "Cleveland Browns fandom is not a costume - it is a wardrobe decision. “SANDERS QB 12 SIGNATURE” on a tee at $22.99. Context for Cleveland Browns fans: 4 Days Until Week 1: 4 Reasons Why 2026 Could Be Dumpster Fire Year for the Browns - Sports Illustrated It is a tee at $22.99 from the Cleveland Browns collection. See it on the shop page. https://viralstyle.com/kebystore/sanders-special-edition",
-              "x": "Cleveland Browns fandom is not a costume - it is a wardrobe decision. “SANDERS QB 12 SIGNATURE” on a tee at $22.99. 4 Days Until Week 1: 4 Reasons Why 2026 Could Be Dumpster Fire Year for the Browns - Sport https://viralstyle.com/kebystore/sanders-special-edition",
-              "tiktok": "Nobody asked, but: Cleveland Browns fandom is not a costume - it is a wardrobe decision. “SANDERS QB 12 SIGNATURE” on a tee at $22.99. Script beat: Say who you root for before you say a word. Show the print, then the fit, then the price.",
+              "instagram": "Locked in. Cleveland Browns fandom is not a costume - it is a wardrobe decision. “SANDERS QB 12 SIGNATURE” on a tee at $22.99. Why now: 5 Cleveland Browns Under the Most Pressure Entering the 2026 NFL Season Full details on the listing. #clevelandbrowns #sanderswhitetee #brownsquarterbackshirt",
+              "facebook": "Cleveland Browns fandom is not a costume - it is a wardrobe decision. “SANDERS QB 12 SIGNATURE” on a tee at $22.99. Context for Cleveland Browns fans: 5 Cleveland Browns Under the Most Pressure Entering the 2026 NFL Season It is a tee at $22.99 from the Cleveland Browns collection. Full details on the listing. https://viralstyle.com/kebystore/sanders-special-edition",
+              "x": "Cleveland Browns fandom is not a costume - it is a wardrobe decision. “SANDERS QB 12 SIGNATURE” on a tee at $22.99. 5 Cleveland Browns Under the Most Pressure Entering the 2026 NFL Season https://viralstyle.com/kebystore/sanders-special-edition",
+              "tiktok": "Storytime, short version: Cleveland Browns fandom is not a costume - it is a wardrobe decision. “SANDERS QB 12 SIGNATURE” on a tee at $22.99. Script beat: Say who you root for before you say a word. Show the print, then the fit, then the price.",
               "pinterest": "Sanders QB Signature White Shirt - sanders white tee idea for Cleveland Browns fans. Say who you root for before you say a word. Tee at $22.99."
             },
             "pinterest": {
@@ -746,58 +744,58 @@
           "team": "Green Bay Packers",
           "trend": {
             "team": "green-bay-packers",
-            "story": "Packers Salary Cap: Jonnu Smith contract details released - Acme Packing Company",
-            "emotion": "worried",
+            "story": "Packers Film Review: TE Mark Redman",
+            "emotion": "hyped",
             "stage": "ACCELERATING",
-            "signal_count": 28,
+            "signal_count": 8,
             "sources": [
               {
-                "source": "google_news",
-                "text": "Packers announce roster moves | Sept. 9, 2026 - Green Bay Packers",
+                "source": "repository_trend_snapshot",
+                "text": "Packers announce roster moves | Sept. 9, 2026",
                 "url": "https://news.google.com/rss/articles/CBMiekFVX3lxTFBsTWdRNmRuS1dYQ2JadU9oekdrNEJQLXl0VE5vWHhPTkU1dVprZ3dEQkZOQXZZdnpicVhON3Q2Z0EzTGRhUTZIMGVpbWotZDQyUGZadnc1b0FxTFV4TVVuZDc2NVNWdjkwRWlYZUhNUWIxSUJGbElkczVn?oc=5"
               },
               {
-                "source": "google_news",
-                "text": "Packers-Vikings Injury Report | Sept. 9, 2026 - Green Bay Packers",
-                "url": "https://news.google.com/rss/articles/CBMiekFVX3lxTFBTZldqczg4ei01cFU1RXlhd1M2aWhfZVdVU2NIQXJQdFlVQ05nSjZyN2cza2xLTGhVQ21zdGNVYnpKVXFmX05RMjFld2RsaTVzenVlRWFETm1ZU1NYV0VWbzh1Qm5zdXNBWVJDYTJzcXlvVGliVXd4dFRn?oc=5"
+                "source": "repository_trend_snapshot",
+                "text": "Minnesota Vikings bringing back Harrison Smith for 2026 season",
+                "url": "https://news.google.com/rss/articles/CBMiggFBVV95cUxPNVd3YmF2NnF0SFZPVHktbDQ5TWdNYnpjejFiMm0zZXQ0SVYzZVpJOEJoVTBVRHptOW44YzZKNk9qX1VjVjVXbHFTaERFajlHUy0zaDZILU54Q1F4RVplVmtaXzUtTDFwbGlSZDA3U1dpMjZuUV84eC1HX2Vwbm9jLXJn0gGHAUFVX3lxTE9OdGVIc2NYWEhrN3FEQkswMFNKekNYOFo0V0pVZ1MyUXh6dXYwS1dUR1VWSTh0OHpOWl9ueEZWS1VDX1BJLWVfM0ViSHRlVmdMUDEyc0pqMHVBN0tnRVNtUXlKUTYwSkRzekgyb25fY1c5NjBXcUZiNEQ4NDRkcDJFRzZ3dUxoSQ?oc=5"
               },
               {
-                "source": "google_news",
-                "text": "Matt LaFleur Reveals Why Packers Rookie Won Starting Job - heavy.com",
-                "url": "https://news.google.com/rss/articles/CBMihAFBVV95cUxNU0FkV0g5R3JKc1lNNm1PbXp5QzcxaFVueEU3VURIOTlZM0lqeW5fd2dHdnVNemp0SEpsWGktaFBoeklkaDBfNU5kX2Q2XzhQOUlpcTdUTDV0SzE2b2U5SGpKb2VPS1RTRlFUcE0wWUdqb0R5WERwSHZpRXhEdnJ3MVZMXzQ?oc=5"
+                "source": "repository_trend_snapshot",
+                "text": "September 6, 2024- Green Bay Packers play first NFL game in South America.",
+                "url": "https://news.google.com/rss/articles/CBMisAFBVV95cUxQWlY2cFJhNE15UVZCam5TcUQtUWJBcXoxUkU1aXg1M3RGWXlXcVVIeUl4ODhaeXBpSDdkdTZTcVFTNWJ5ckF1dXJ0N2R6elJlckR3NWRpb1dXZkZTMFNySE1VUlFKX2dReXZubFl3S3lHS1Jvckp4T1VERXF6VWJOYjdaMUxtSFdUYlkxanNKaG9rRDJaOHRDd19NYmxEZm1BTXRpVjdXUU0teEFocWVNSA?oc=5"
               },
               {
-                "source": "google_news",
-                "text": "Packers Salary Cap: Jonnu Smith contract details released - Acme Packing Company",
-                "url": "https://news.google.com/rss/articles/CBMivAFBVV95cUxPZk5hV19ab240YXNTbVRSZmxtTG81cFFzZ2xGQ3NvR0tWZEctRmlOV21FbEJxMUIyWUhKLTBFM3IyZHBpelZGTmt4ZFF1X20zb25wS0JDd0QwOGRCTnNPNlFpWGZOemx1b0FmbkthOTlZZUNwbGY0M05kWnJoMy1KZjdESWhBQUl4Y3BwblExckJycEtHWVdNYlhOUGozTl8zY3lXX1hKN3VHZDBTTHRTbDctdHhOalFrV0JoeQ?oc=5"
+                "source": "repository_trend_snapshot",
+                "text": "Packers Film Review: TE Mark Redman",
+                "url": "https://news.google.com/rss/articles/CBMipAFBVV95cUxNVWliV2lXTjV2WS1BYmpxTTV1cjBBZHBEQ0dubmdySG9jUGU2UkFZMDhTQ3VjWGlKazNWYk92VVcxWG1nX0g2QjVRT3lxWUVURGFkS3ZWN3pvMGhfT19KWWxBOU1jQVBYaVl5RUpxelJTQ2ZvejBLcXBNU3dtM3dxRlF0QkcteFFsT3JreTdzQjVra3Byd2dVdTB6VG5NWXptWm0wTw?oc=5"
               },
               {
-                "source": "google_news",
-                "text": "Hello Wisconsin: Picking the Packers’ Regular Season Games - Cheesehead TV",
-                "url": "https://news.google.com/rss/articles/CBMilAFBVV95cUxNRVQ5R3lrYkRVeEVYay1nclkwY3lXWDhGUEloV25DcEZIcUVKSjBRQ01EZ2pnZ2V3SkhRWlJsdmwxS3JwblYtcXNNdFVtT1c0cE85b1Jwbmh4c1pIREpkYU9ZNmVWRHhBeTljU2RseVJlRDJSbGIxQzE1NTg4WFhKaERna1ZlY2k4dXJybExOQmNSdlFH?oc=5"
+                "source": "repository_trend_snapshot",
+                "text": "Green Bay Packers 2026 NFL Playoff Simulator",
+                "url": "https://news.google.com/rss/articles/CBMiuAFBVV95cUxNX2IzS0JOZ1hqUlNXQkRhakFneFMydXVsUHY3ajg0QnZEMXhJS2VUUWF4WTdGbVlrX2ZDM0dDblVMQnFFV3dnbmpNbDRTc1hOMm5LR2hiVlZDZ19yelEwZUlnR1h3blo0RnZXVmU2Um5EbHJZeFMyeVV0cktOcVF2MVRfYXcwblhwa3VpaDFQY2F6RmdSNW01RG1sTjZUb3JGOC1RU2FIX0JlNGJ4WDFocU42aTBaXzg1?oc=5"
               }
             ],
             "evidence": "public signal collector"
           },
-          "fan_emotion": "worried",
+          "fan_emotion": "hyped",
           "creative_angle": "News reaction",
-          "product_signal_score": 143.4,
+          "product_signal_score": 155.4,
           "copy": {
             "angle": "news_react",
-            "hook_template": "One headline, one {team} reaction piece: {line}",
+            "hook_template": "Everyone in the {team} timeline is arguing about the same thing today. {line}",
             "angle_label": "News reaction",
-            "hook": "One headline, one Green Bay Packers reaction piece: “PLAYER WITH A STARS AND STRIPES NUMBER 10” on a tee at $24.99.",
-            "ad_copy": "One headline, one Green Bay Packers reaction piece: “PLAYER WITH A STARS AND STRIPES NUMBER 10” on a tee at $24.99. Angle: news reaction. Signal driving it: Packers Salary Cap: Jonnu Smith contract details released - Acme Packing Company Product: Jordan Love 10 Flag Number Shirt (jordan love flag shirt). Verify licensing and the live listing before promotion.",
+            "hook": "Everyone in the Green Bay Packers timeline is arguing about the same thing today. “PLAYER WITH A STARS AND STRIPES NUMBER 10” on a tee at $24.99.",
+            "ad_copy": "Everyone in the Green Bay Packers timeline is arguing about the same thing today. “PLAYER WITH A STARS AND STRIPES NUMBER 10” on a tee at $24.99. Angle: news reaction. Signal driving it: Packers Film Review: TE Mark Redman Product: Jordan Love 10 Flag Number Shirt (jordan love flag shirt). Verify licensing and the live listing before promotion.",
             "captions": {
-              "instagram": "Saved for Sunday. One headline, one Green Bay Packers reaction piece: “PLAYER WITH A STARS AND STRIPES NUMBER 10” on a tee at $24.99. Why now: Packers Salary Cap: Jonnu Smith contract details released - Acme Packing Company See it on the shop page. #greenbaypackers #jordanloveflagshirt #packers10tee",
-              "facebook": "One headline, one Green Bay Packers reaction piece: “PLAYER WITH A STARS AND STRIPES NUMBER 10” on a tee at $24.99. Context for Green Bay Packers fans: Packers Salary Cap: Jonnu Smith contract details released - Acme Packing Company It is a tee at $24.99 from the Green Bay Packers collection. See it on the shop page. https://viralstyle.com/kebystore/limited-edition-grb36",
-              "x": "One headline, one Green Bay Packers reaction piece: “PLAYER WITH A STARS AND STRIPES NUMBER 10” on a tee at $24.99. Packers Salary Cap: Jonnu Smith contract details released - Acme Packing Company https://viralstyle.com/kebystore/limited-edition-grb36",
-              "tiktok": "Nobody asked, but: One headline, one Green Bay Packers reaction piece: “PLAYER WITH A STARS AND STRIPES NUMBER 10” on a tee at $24.99. Script beat: React to the storyline that is moving right now. Show the print, then the fit, then the price.",
+              "instagram": "Saved for Sunday. Everyone in the Green Bay Packers timeline is arguing about the same thing today. “PLAYER WITH A STARS AND STRIPES NUMBER 10” on a tee at $24.99. Why now: Packers Film Review: TE Mark Redman See it on the shop page. #greenbaypackers #jordanloveflagshirt #packers10tee",
+              "facebook": "Everyone in the Green Bay Packers timeline is arguing about the same thing today. “PLAYER WITH A STARS AND STRIPES NUMBER 10” on a tee at $24.99. Context for Green Bay Packers fans: Packers Film Review: TE Mark Redman It is a tee at $24.99 from the Green Bay Packers collection. See it on the shop page. https://viralstyle.com/kebystore/limited-edition-grb36",
+              "x": "Everyone in the Green Bay Packers timeline is arguing about the same thing today. “PLAYER WITH A STARS AND STRIPES NUMBER 10” on a tee at $24.99. Packers Film Review: TE Mark Redman https://viralstyle.com/kebystore/limited-edition-grb36",
+              "tiktok": "Nobody asked, but: Everyone in the Green Bay Packers timeline is arguing about the same thing today. “PLAYER WITH A STARS AND STRIPES NUMBER 10” on a tee at $24.99. Script beat: React to the storyline that is moving right now. Show the print, then the fit, then the price.",
               "pinterest": "Jordan Love 10 Flag Number Shirt - jordan love flag shirt idea for Green Bay Packers fans. React to the storyline that is moving right now. Tee at $24.99."
             },
             "pinterest": {
               "title": "Jordan Love 10 Flag Number Shirt: Jordan Love Flag Shirt",
-              "description": "News reaction pin for Green Bay Packers fans feeling worried. “PLAYER WITH A STARS AND STRIPES NUMBER 10” on a tee at $24.99. Use only after the product and licensing review.",
+              "description": "News reaction pin for Green Bay Packers fans feeling hyped. “PLAYER WITH A STARS AND STRIPES NUMBER 10” on a tee at $24.99. Use only after the product and licensing review.",
               "keywords": [
                 "jordan love flag shirt",
                 "packers 10 tee",
@@ -825,58 +823,58 @@
           "team": "Dallas Cowboys",
           "trend": {
             "team": "dallas-cowboys",
-            "story": "Is George Pickens becoming the Cowboys’ top receiver? (Video) - Fort Worth Star-Telegram",
+            "story": "Why the Cowboys chose Sam Howell as their backup quarterback",
             "emotion": "hyped",
             "stage": "ACCELERATING",
-            "signal_count": 28,
+            "signal_count": 8,
             "sources": [
               {
-                "source": "google_news",
-                "text": "Reece Weaver of ‘Dallas Cowboys Cheerleaders’ Makes Her Broadway Debut - The New York Times",
-                "url": "https://news.google.com/rss/articles/CBMiiAFBVV95cUxOaDNqQTVmX0dQWUpPUzZfNU95NTg5TWRpcGh3VWRiZFFfb2o5SzM3S2lyMWZocVU1RVBRaF9VSzVWRWdIZkdHNGpEVUJ0b3IySWRNMXNQa0diTGxZdk83TXB6SENYU3QtOVJTUWFoWlFsanRLbVBhTXBXR2tyTF9uTW5hUmxaaEVw?oc=5"
+                "source": "repository_trend_snapshot",
+                "text": "Emari Demercado returns 'home' to Dallas, has reason to be excited with Cowboys",
+                "url": "https://news.google.com/rss/articles/CBMisAFBVV95cUxQTlZuQ1hPOWZNQzcwM0VzeEZoMnU3ekpVcDN1SmhNbndlMXgwdXNuOTJtR3loUWQzbkVIZGRhZEw0ZVp2SS1zaVZvc1NEQVBlYWl3RmFBT1pNdzhlcGJDeFp2aXZlTUxOMWx3YmUxRWx1blR6VVBIaGwwQkt6NkN2Mjlkb1p1WG1VczRnYnRSZmQzVlNhQ0V5b3VCRG81NnB5Zk1IaXdvSFVaelFtYnNSNw?oc=5"
               },
               {
-                "source": "google_news",
-                "text": "Dallas Cowboys Cheerleader Reece Weaver swaps boots for Broadway - BBC",
-                "url": "https://news.google.com/rss/articles/CBMiWkFVX3lxTE5XQXloY2dTUDVXZTZoQ1pyMWVYVTA5b1dRejNKeXQyMXZITEFRdnN1eFZtZGxxeVplT3RsSFZQQnZsUEFfRUFiQVg2VlpoamJyMTRValRQb0dHdw?oc=5"
+                "source": "repository_trend_snapshot",
+                "text": "Quinnen Williams: Culture, growth of Cowboys' defense is 'night and day'",
+                "url": "https://news.google.com/rss/articles/CBMipAFBVV95cUxOT0lzOUlYMUVnMFpaVkdmbFBaLTVIZk9KbnBWbU5IQVJtYS1GdmQ0VGFuWnl3Q21OcGtJbWd4RGN2enljMFpiMGx3WWVBYkdKYWdxN0dhMWdyMHFMRUpJMEJObVUxeFJpeGxwb3J3VmM2Y1JnbnlkZFJhS3dwQ2R3eWlPSUxaN0xXU01mb0pfZFo5cWFmeDlaYVpqRXVwSUVUMG53QQ?oc=5"
               },
               {
-                "source": "google_news",
-                "text": "Frisco native achieves dream of becoming a Dallas Cowboys Cheerleader - NBC 5 Dallas-Fort Worth",
-                "url": "https://news.google.com/rss/articles/CBMiuwFBVV95cUxPNE1WWURRUUVDRXNuenNVdXpyRHdDOFFKUnZ4WTgtamhTdEJ2UUdKSktLS0gwVncxbVRDQVAteXZFUFlpMXdlVkxQVlpLR2FDaERnOXpQR3ZVRVBXR2Z6WGtac2xFc25Ha3N4VEcxdkRRZ0FlaTR1ZFBuek8xUWN0QkZDWUM1bHRfendOdnNZZm1lb2l2Y3dnM2NUUXB5UVRoMks5UEVHX0pqdFl6N25LemcwWktxQnR6X0NZ0gHDAUFVX3lxTE9sVGN0OXYzbDFrUV9MRXc2dkhSQzliMTFwLW5aQlBZcU02bDRsUVVlTldLTlZsaWw5d2taY3RJUmpHMmRwdDl2TUVRN0ppZWhOX1ZTRUVxZVExQXhqNHhrUXl4bmpZNm5qMmlrYldqbGI3MGREQ2RLTS1SY0hSN09ZcE56dXUtNVBDLXhBS1hFNFFfbWFRcTFfX3Bmb3ZqSDY0V0w1YUh0aENyRkZLUUtHeEJsNVFfbGRHcXpaNWhkanRRRQ?oc=5"
+                "source": "repository_trend_snapshot",
+                "text": "Transactions: Cowboys make 3 OL moves",
+                "url": "https://news.google.com/rss/articles/CBMiiwFBVV95cUxNNEJROXNIZmJLczR0MFMxZTNRRXl0UTlhN0ZtVERDcWh6NV9lOFROM1VhSDJoQ3NLSjFGZ2dEYS02QkgwSjNybXBOOTI4Y2VVd3VrVU1nUGJEX0NOaHVIbnd4RnMycjVkcEl6ZWhfXzJfS2JCTENvZUpDNll3R0pqOExEdVBvTGRrXy1B?oc=5"
               },
               {
-                "source": "google_news",
-                "text": "Jerry Jones: Cowboys are 'in play' to make potential trade - Dallas Cowboys",
-                "url": "https://news.google.com/rss/articles/CBMilAFBVV95cUxNOWhsenJLOUZONi1zZXdFa2didkpJR3JnOFVIT2dpcFZrc0J4RDNNazg0Y0tlWXdKM1RwenZreng5TUREN0hlNGt6R1E4b2hfOE9zTnEyT05SNzNNRWlhcjFSRGNXWGtmOW9qVnRxOWZEYTFLckJucFlGZTF0cGxDekhSTGcya0lkbGdvVmRhRUxuVzdQ?oc=5"
+                "source": "repository_trend_snapshot",
+                "text": "Cowboys waive quarterback Joe Milton",
+                "url": "https://news.google.com/rss/articles/CBMie0FVX3lxTE1iQV9sbGtmSnFXeXFBeUxKcXE2akZuVm03S21rRjB5ZG81WGlZLXREdDFobWxyMjd1UC1vUktPOFN0bkliZFBjNXpKSkdmMkg2NFg1aDBIY1Y3dlIzLVdreHNRZUNYZ180RWNpZ1RTUjJoaFJiSXE5UHRSdw?oc=5"
               },
               {
-                "source": "google_news",
-                "text": "Is George Pickens becoming the Cowboys’ top receiver? (Video) - Fort Worth Star-Telegram",
-                "url": "https://news.google.com/rss/articles/CBMigwFBVV95cUxPakdhcG15WGZfdnBFYWtSMmtEd2xYSk1hWkxRVG5fdTYzTEQwcHNmNGNIcm92WWdiaHYxQzd1M1hPQ3dWX0dOelF6RDhxd2xNclBsZFBGV3VLSkFRdmtKb0M2UzdMTFY4SjdSTFk5aUlyWi1zYV9EU2V6OGtFNm8yaVJvRQ?oc=5"
+                "source": "repository_trend_snapshot",
+                "text": "Why the Cowboys chose Sam Howell as their backup quarterback",
+                "url": "https://news.google.com/rss/articles/CBMimwFBVV95cUxOVnFmOWNWdTg3Ykh0c1FPaWF6ZXZXOWdTWDNBTFdEUVFNTXdZUTJIcFZ4aWdmSXB3SkhIbW5COXdzRl9uVWloOVNjUzVRMjZSNWVsOS1PWWVrdnc4Z0hYMzNQT1NrTWxYQm1ZQlI1N1RtOWFGc0xvX1J3ZFlpYVp3SzBtc1kzcFprbUJOSEk0SENjNmt3eHVqeVllYw?oc=5"
               }
             ],
             "evidence": "public signal collector"
           },
           "fan_emotion": "hyped",
-          "creative_angle": "Outfit styling",
+          "creative_angle": "Throwback / heritage",
           "product_signal_score": 111.4,
           "copy": {
-            "angle": "styling",
-            "hook_template": "Game day fit, weekday wearable. {line}",
-            "angle_label": "Outfit styling",
-            "hook": "Game day fit, weekday wearable. “DALLAS 1960 FOOTBALL WITH RETRO HELMET” on a tee at $21.99.",
-            "ad_copy": "Game day fit, weekday wearable. “DALLAS 1960 FOOTBALL WITH RETRO HELMET” on a tee at $21.99. Angle: outfit styling. Signal driving it: Is George Pickens becoming the Cowboys’ top receiver? (Video) - Fort Worth Star-Telegram Product: Dallas 1960 Football Helmet White Shirt (dallas white tee). Verify licensing and the live listing before promotion.",
+            "angle": "throwback",
+            "hook_template": "Fans keep bringing up the old {team} era, so here it is on cotton. {line}",
+            "angle_label": "Throwback / heritage",
+            "hook": "Fans keep bringing up the old Dallas Cowboys era, so here it is on cotton. “DALLAS 1960 FOOTBALL WITH RETRO HELMET” on a tee at $21.99.",
+            "ad_copy": "Fans keep bringing up the old Dallas Cowboys era, so here it is on cotton. “DALLAS 1960 FOOTBALL WITH RETRO HELMET” on a tee at $21.99. Angle: throwback / heritage. Signal driving it: Why the Cowboys chose Sam Howell as their backup quarterback Product: Dallas 1960 Football Helmet White Shirt (dallas white tee). Verify licensing and the live listing before promotion.",
             "captions": {
-              "instagram": "Read the shirt. Game day fit, weekday wearable. “DALLAS 1960 FOOTBALL WITH RETRO HELMET” on a tee at $21.99. Why now: Is George Pickens becoming the Cowboys’ top receiver? (Video) - Fort Worth Star-Telegram Link in bio for the listing. #dallascowboys #dallaswhitetee #vintage1960dallasshirt",
-              "facebook": "Game day fit, weekday wearable. “DALLAS 1960 FOOTBALL WITH RETRO HELMET” on a tee at $21.99. Context for Dallas Cowboys fans: Is George Pickens becoming the Cowboys’ top receiver? (Video) - Fort Worth Star-Telegram It is a tee at $21.99 from the Dallas Cowboys collection. Link in bio for the listing. https://viralstyle.com/kebystore/dallas-texas-vintage-athletic-style-t-sh",
-              "x": "Game day fit, weekday wearable. “DALLAS 1960 FOOTBALL WITH RETRO HELMET” on a tee at $21.99. Is George Pickens becoming the Cowboys’ top receiver? (Video) - Fort Worth Star-Telegram https://viralstyle.com/kebystore/dallas-texas-vintage-athletic-style-t-sh",
-              "tiktok": "POV: Game day fit, weekday wearable. “DALLAS 1960 FOOTBALL WITH RETRO HELMET” on a tee at $21.99. Script beat: Show how the piece is worn, not just what it says. Show the print, then the fit, then the price.",
-              "pinterest": "Dallas 1960 Football Helmet White Shirt - dallas white tee idea for Dallas Cowboys fans. Show how the piece is worn, not just what it says. Tee at $21.99."
+              "instagram": "Closet upgrade. Fans keep bringing up the old Dallas Cowboys era, so here it is on cotton. “DALLAS 1960 FOOTBALL WITH RETRO HELMET” on a tee at $21.99. Why now: Why the Cowboys chose Sam Howell as their backup quarterback Tap through to the product page. #dallascowboys #dallaswhitetee #vintage1960dallasshirt",
+              "facebook": "Fans keep bringing up the old Dallas Cowboys era, so here it is on cotton. “DALLAS 1960 FOOTBALL WITH RETRO HELMET” on a tee at $21.99. Context for Dallas Cowboys fans: Why the Cowboys chose Sam Howell as their backup quarterback It is a tee at $21.99 from the Dallas Cowboys collection. Tap through to the product page. https://viralstyle.com/kebystore/dallas-texas-vintage-athletic-style-t-sh",
+              "x": "Fans keep bringing up the old Dallas Cowboys era, so here it is on cotton. “DALLAS 1960 FOOTBALL WITH RETRO HELMET” on a tee at $21.99. Why the Cowboys chose Sam Howell as their backup quarterback https://viralstyle.com/kebystore/dallas-texas-vintage-athletic-style-t-sh",
+              "tiktok": "Fit check: Fans keep bringing up the old Dallas Cowboys era, so here it is on cotton. “DALLAS 1960 FOOTBALL WITH RETRO HELMET” on a tee at $21.99. Script beat: Anchor the product in the era fans keep bringing up. Show the print, then the fit, then the price.",
+              "pinterest": "Dallas 1960 Football Helmet White Shirt - dallas white tee idea for Dallas Cowboys fans. Anchor the product in the era fans keep bringing up. Tee at $21.99."
             },
             "pinterest": {
               "title": "Dallas 1960 Football Helmet White Shirt: Dallas White Tee",
-              "description": "Outfit styling pin for Dallas Cowboys fans feeling hyped. “DALLAS 1960 FOOTBALL WITH RETRO HELMET” on a tee at $21.99. Use only after the product and licensing review.",
+              "description": "Throwback / heritage pin for Dallas Cowboys fans feeling hyped. “DALLAS 1960 FOOTBALL WITH RETRO HELMET” on a tee at $21.99. Use only after the product and licensing review.",
               "keywords": [
                 "dallas white tee",
                 "vintage 1960 dallas shirt",
@@ -904,58 +902,58 @@
           "team": "Michigan Wolverines",
           "trend": {
             "team": "michigan",
-            "story": "Bryce Underwood's Comments Show He Does Not Get It - Sports Illustrated",
+            "story": "MAC appeals Michigan-Western Michigan result, asks NCAA to change result",
             "emotion": "confident",
             "stage": "ACCELERATING",
-            "signal_count": 28,
+            "signal_count": 8,
             "sources": [
               {
-                "source": "google_news",
-                "text": "NCAA establishes 'standard timing protocol' in wake of Michigan win - ESPN",
-                "url": "https://news.google.com/rss/articles/CBMitAFBVV95cUxQTkVWVnZSaWdEZC1qVmR4TGxGamZIaGpQaUJqbi1sclVhS2c4eFVxQ3JmcXlZRGEwWTVrUEd4aEp3YkdaT1FvNzNpV0d4ai1qdXc0Ymp2cXY4bWpHOFMwNGlabW1GejVRaVV4MnhPTVdJc2FQQmo3bENzMERRaGJ5TGxwWHVqS3lKVjdlcEhwTklnV2lqNW85T19UMXlvb1k5Mi1hNGMwdmZXdEVKcHB2eWtRNUM?oc=5"
+                "source": "repository_trend_snapshot",
+                "text": "Michigan Monday: Game 2 vs. No. 11 Oklahoma",
+                "url": "https://news.google.com/rss/articles/CBMiekFVX3lxTE1hNGs1aTJ1RW41bi1VNEpOaDdTQXZxVGptM2NsOHRlZUF5UmhpWVRQS2F3ejdSSEw5dzBWaGhYU19SZExuZm9SVjRuRkxpWEpONEZLLUw4d2E5LXNKZVo1V3c5T0RSM0p0S0ZocTFhOUxGMDRzeTczV2VR?oc=5"
               },
               {
-                "source": "google_news",
-                "text": "Michigan football didn't hire Kyle Whittingham to babysit a 5-star QB | Opinion - USA Today",
-                "url": "https://news.google.com/rss/articles/CBMiyAFBVV95cUxPdW5jbm9qVDM5QV9ieFF3b2hvNkMyR1FWd2lRTl93c1lULXdjMkUydDBuS2xJVm1Ob1RsNk9rZTBlUk1TTk5NNHhFQzBCbnhiekdyMTRNWWVhNFlONUhPTGNINFFYN1BSNWN0VWhlRXZpM2RSMUhrdzQ3MnRIdTlMR1IwdVVQWmI2NFl6cGxVZDk1SWpNN19pNTJzNWZ6bGtHNVlyV08zelpENjlZQy16YVZqUlNLN0JYeGxyc2FaemdyTHpGM1Vldw?oc=5"
+                "source": "repository_trend_snapshot",
+                "text": "Michigan Football's Hail Mary Win vs. WMU Drops Wolverines in AP Top 25",
+                "url": "https://news.google.com/rss/articles/CBMiswFBVV95cUxNd2hnV1JicE9wR0xHdUVkV2NINTlnakVfQVo2VksxUEUzWmc5WjVDUWNaZVUwcGV0X0dTZmlYSWxucGg3Z19EeU8zX1NxcG5sdFBVTThTTG1MR3FjZE9OQ1lnX2w3czZlOUZLdnd2QkRyQjZKZkZsbGQ3V2V4Mk1UeUdXQXpnNW96NEtqMHVuSDhkOUV3TUtwUTFWN0pRTUREZmxFSkJiQzhEMDlhQXJCbDB2UQ?oc=5"
               },
               {
-                "source": "google_news",
-                "text": "Reading between the lines: Rod Moore's impact, Oklahoma players to watch and 'very hungry' Wolverines - On3",
-                "url": "https://news.google.com/rss/articles/CBMizAFBVV95cUxObnNzV1pfRXJXTXZjc2lTeFRiZWRKR1N1dnNMaFN3ZU1jeDZCNzhPaldoTl96cVFqOG5jUDF0WnBhSVhlOExJQkR1OU1zUk53M1Z4RTZ5dXZqNkFoQno0WWswcU8xM2Fhd1N3WkY1bzdPXy1VZFMzaHMxcXpGZ0dBYUNQWmdhUTVqMjBSci1FbEVPUnBUTFVHelNGVFgtT2txWEdNWXpwTWdOLV95cWZ3bG9qM21NMkpSSkdKbFdzNy15T21JMk1YZkEyalY?oc=5"
+                "source": "repository_trend_snapshot",
+                "text": "Football Opens 2026 Season at No. 16 Michigan",
+                "url": "https://news.google.com/rss/articles/CBMijwFBVV95cUxNZGtsbHRyQ1lRSFBaek1LOFBZWlJmeVFZU2tsOWlCZjVVNDFCV3ZKYUNyMDk3ekNvX2xUbHllY0h3QTk3U1hqS0ZWYTFXTXlpblBiRWRNWTROLU9sMjlGRXZwcHM3THNDdGNsWkhSVy00akt1bzZRUXdObjJUNzk3U3c1QjQycFBaa3F1dzJaOA?oc=5"
               },
               {
-                "source": "google_news",
-                "text": "Former Michigan QB drops to No. 3 on Vikings’ depth chart entering season opener - MLive.com",
-                "url": "https://news.google.com/rss/articles/CBMizgFBVV95cUxOUG95aEJEanpqMzQySWpNOFhWdkdmYjdjZDFWcGVTQkJvdkFjUzkzWTdocEs3UXBtQjRlR1VHSjUxT3o3cVRWSFJqM1RKR1F1NjQtc0lVeEdfcjdwb1RDeFZzcHh0R0NmN2otaXYxd09ad0xNcHkzdjR5VFdETjNZY1RqNDdXOFJ1WkZrR1pHcXhDaTlPdmJzdXI2V0dSd2dKalVZMGtXOU1hUWMwV29XSVRZSUZ0VzFUS3VkV2NIY1pDSHRVMHY2a2pNX0ZzUdIB4gFBVV95cUxQOUNidVRFMTJJSEtvc0xMOWVMM2tMQy1FcTZrQzh3WlZKNzNYeXdCa19kYzJGNzE0ZTd5bmYtM2NUanh4a2VXTmgzRzJuZ1VqbXU4VVFVY20yWnpXWVRjV2hRMjJPZXY4V0pfMDY0eDM0ZEJXU0RiR0xhQkd2elZmSzUtLWNSNUdYRGo3Ny1RWGJWNENLNWVRNTRCQVdmRXJ4eDI0YThBZm9JdFpQVVRfUFF1OFJ2bjJRRW5YVVphSFVtZ29oaDVMVEVoYWdoVk95OUx1ZUp0NlIyTks0SEk4czh3?oc=5"
+                "source": "repository_trend_snapshot",
+                "text": "Clock controversy allows Michigan Wolverines to avoid massive upset against Western Michigan | OutKick",
+                "url": "https://news.google.com/rss/articles/CBMixwFBVV95cUxOS0h1S1dGMTljem5fLXY1SlRLdm1WUHJoQVV5eXNGSnRaVVZWUWRwdHRua2lRUDVOMnJJdDBpdC0xOW10N1pONzBlWDByZ1BrSmNlMy1BZzZJZWxacWxRaVpiUUp1ZTRpN1lRalRzWGc0MWpOSlJqTnVXMm1GdkpXVGNqTF9xeVpsVnBxNnF1Q1MtZDN0QzEzQWJ0Y3JHYUg4OWNtYVNVdEs0a3UwdTcyQmNVcnNhUEZXemE0bTBrZlJCWmc4dWtZ?oc=5"
               },
               {
-                "source": "google_news",
-                "text": "Michigan Football must fix a broken run game before it’s too late - Maize n Brew",
-                "url": "https://news.google.com/rss/articles/CBMiogJBVV95cUxQZThxM2NHUk1hOVFaTTZKSTlPd0FDNGhfb0kzU3NQTVJrSGRmTjZRUlY5d1VnUUJRSXBuY2RuYXdfaFMzZVBPSkgwS21ZU1Rfd2RmSG9vVXdyRW1MLTRuRUVsOU9BVXZVMWtHSjk5YXlZeHBnZGNWU2VUSUw5Qzh6TF9nNlZ0STdESzgyT1FQd3RYRTJ0bFRwZ2lIdlMzOGwzVDVSaXBQR2ZKd3JOZksxUHZ2STlpeGU2NjZvSHU1d0xCUmc4SklJdllYQkhCU0VwMVprMjdiQzRlbzdBN2hMdTFIcFBsQnFBZ01IVzJSMVk5U3YzQ3d6RE56RWNOMVI5ZXBnbm13YUJhMUNlYkZLMjVNQjhmYkFTOW9nUXBNNkM3QQ?oc=5"
+                "source": "repository_trend_snapshot",
+                "text": "Big Ten explains controversial ending to Michigan-Western Michigan",
+                "url": "https://news.google.com/rss/articles/CBMijwFBVV95cUxPOFk4SnpWTTNRYzg2aDhOOFJHUXNFbWI2cG9aUUQtVFB5T3NpNFdRZTJHd29kZy1obUJhaWtXSFk4d24yakNFQjJaOExyc0s1ZElkLVN0Wl9TN2pMVWhxc3I2aEhSVlpqRGZybm5kdjRRZXd6NWxFandhaFJYOGpMWXdFZWNZZzBsWUZVRXN5MA?oc=5"
               }
             ],
             "evidence": "public signal collector"
           },
           "fan_emotion": "confident",
-          "creative_angle": "Throwback / heritage",
+          "creative_angle": "Outfit styling",
           "product_signal_score": 111.2,
           "copy": {
-            "angle": "throwback",
-            "hook_template": "Some {team} looks aged well. {line}",
-            "angle_label": "Throwback / heritage",
-            "hook": "Some Michigan Wolverines looks aged well. “I (HEART) MICHIGAN” on a tee at $24.99.",
-            "ad_copy": "Some Michigan Wolverines looks aged well. “I (HEART) MICHIGAN” on a tee at $24.99. Angle: throwback / heritage. Signal driving it: Bryce Underwood's Comments Show He Does Not Get It - Sports Illustrated Product: I Love Michigan Heart Shirt (i love michigan shirt). Verify licensing and the live listing before promotion.",
+            "angle": "styling",
+            "hook_template": "Pair it with denim and forget it is fan gear. {line}",
+            "angle_label": "Outfit styling",
+            "hook": "Pair it with denim and forget it is fan gear. “I (HEART) MICHIGAN” on a tee at $24.99.",
+            "ad_copy": "Pair it with denim and forget it is fan gear. “I (HEART) MICHIGAN” on a tee at $24.99. Angle: outfit styling. Signal driving it: MAC appeals Michigan-Western Michigan result, asks NCAA to change result Product: I Love Michigan Heart Shirt (i love michigan shirt). Verify licensing and the live listing before promotion.",
             "captions": {
-              "instagram": "Read the shirt. Some Michigan Wolverines looks aged well. “I (HEART) MICHIGAN” on a tee at $24.99. Why now: Bryce Underwood's Comments Show He Does Not Get It - Sports Illustrated Link in bio for the listing. #michiganwolverines #ilovemichiganshirt #michiganhearttee",
-              "facebook": "Some Michigan Wolverines looks aged well. “I (HEART) MICHIGAN” on a tee at $24.99. Context for Michigan Wolverines fans: Bryce Underwood's Comments Show He Does Not Get It - Sports Illustrated It is a tee at $24.99 from the Michigan Wolverines collection. Link in bio for the listing. https://viralstyle.com/kebystore/valentine-v2",
-              "x": "Some Michigan Wolverines looks aged well. “I (HEART) MICHIGAN” on a tee at $24.99. Bryce Underwood's Comments Show He Does Not Get It - Sports Illustrated https://viralstyle.com/kebystore/valentine-v2",
-              "tiktok": "POV: Some Michigan Wolverines looks aged well. “I (HEART) MICHIGAN” on a tee at $24.99. Script beat: Anchor the product in the era fans keep bringing up. Show the print, then the fit, then the price.",
-              "pinterest": "I Love Michigan Heart Shirt - i love michigan shirt idea for Michigan Wolverines fans. Anchor the product in the era fans keep bringing up. Tee at $24.99."
+              "instagram": "Closet upgrade. Pair it with denim and forget it is fan gear. “I (HEART) MICHIGAN” on a tee at $24.99. Why now: MAC appeals Michigan-Western Michigan result, asks NCAA to change result Tap through to the product page. #michiganwolverines #ilovemichiganshirt #michiganhearttee",
+              "facebook": "Pair it with denim and forget it is fan gear. “I (HEART) MICHIGAN” on a tee at $24.99. Context for Michigan Wolverines fans: MAC appeals Michigan-Western Michigan result, asks NCAA to change result It is a tee at $24.99 from the Michigan Wolverines collection. Tap through to the product page. https://viralstyle.com/kebystore/valentine-v2",
+              "x": "Pair it with denim and forget it is fan gear. “I (HEART) MICHIGAN” on a tee at $24.99. MAC appeals Michigan-Western Michigan result, asks NCAA to change result https://viralstyle.com/kebystore/valentine-v2",
+              "tiktok": "Fit check: Pair it with denim and forget it is fan gear. “I (HEART) MICHIGAN” on a tee at $24.99. Script beat: Show how the piece is worn, not just what it says. Show the print, then the fit, then the price.",
+              "pinterest": "I Love Michigan Heart Shirt - i love michigan shirt idea for Michigan Wolverines fans. Show how the piece is worn, not just what it says. Tee at $24.99."
             },
             "pinterest": {
               "title": "I Love Michigan Heart Shirt: I Love Michigan Shirt",
-              "description": "Throwback / heritage pin for Michigan Wolverines fans feeling confident. “I (HEART) MICHIGAN” on a tee at $24.99. Use only after the product and licensing review.",
+              "description": "Outfit styling pin for Michigan Wolverines fans feeling confident. “I (HEART) MICHIGAN” on a tee at $24.99. Use only after the product and licensing review.",
               "keywords": [
                 "i love michigan shirt",
                 "michigan heart tee",
@@ -992,655 +990,14 @@
   },
   "signal_limits": {
     "google_news": {
-      "status": "connected",
-      "items": [
-        {
-          "source": "google_news",
-          "team": "cleveland-browns",
-          "text": "Browns quarterback Deshaun Watson fighting speeding ticket - FOX 8 News",
-          "url": "https://news.google.com/rss/articles/CBMiiAFBVV95cUxQSG55MjYwRDhmNmJieWZNZTNQV21GMUVnSGdBQkZRajJueFBqOG0tem83VUMxVHh5VWhzMTBiRTltdjlUcURaVTk4OTBBSkV4SGVoZ3FWZUV3YzlpcGx2SVVNWXNnRjRpNmt6TG11N1VGeV9ZWkdIdHc1OExTWm9sNUNfaThiZ2lr?oc=5",
-          "published": "Wed, 09 Sep 2026 19:42:03 GMT",
-          "metrics": {}
-        },
-        {
-          "source": "google_news",
-          "team": "cleveland-browns",
-          "text": "One thing Deshaun Watson has to improve to remain Browns' starter - ESPN",
-          "url": "https://news.google.com/rss/articles/CBMixgFBVV95cUxOM2hoSjI3MFFhYzVOMkFOZjZxMnNnYk1VQWRINFFUd2pmdG9NcVc1Z3RWM2FMbkZXMFl3U0lSTXhwWHlQV2FhODd0eXk0NTYwaDJYalljYm5GSXFjS25UYWpYWWFEdjhUaERHTHZRYmNkNGF0Y3hnc3M1RGZvazg4YmYyU0RsZ3hzRktkdkJRdGlTMV9QQzNGREdkN05GRHB3RVp3Ynd1OEZ3LUk2X1pCMUJMTXZxak9sa0ZaNDlSYzZSVVJ1cVE?oc=5",
-          "published": "Wed, 09 Sep 2026 10:03:42 GMT",
-          "metrics": {}
-        },
-        {
-          "source": "google_news",
-          "team": "cleveland-browns",
-          "text": "4 Days Until Week 1: 4 Reasons Why 2026 Could Be Dumpster Fire Year for the Browns - Sports Illustrated",
-          "url": "https://news.google.com/rss/articles/CBMiyAFBVV95cUxOVDV4ZGlLVDBPWEY5dTM4Y3JVUGtzRFhCNVc1RTViemJZUUNmaFVNTlFleGEyLXIwckJaUGMwbzU1OTdTTjRMNk5oUVNUUFRQd0tOVkRIQnh5aXNjTTgzLTBsenI5b3RjRGFEdHJSdG9iNFJJQ1hYQlJaMkRyczFDY3duaHk2VGRpOEczaS1GdVVoVE5VeFltMklzYjRKTVVEa2I0YThzTjdzZjJpdnNHTHR0Ynk3cHNaaWJBNVJjLXdtNmNNZVQ2Qw?oc=5",
-          "published": "Wed, 09 Sep 2026 23:40:00 GMT",
-          "metrics": {}
-        },
-        {
-          "source": "google_news",
-          "team": "cleveland-browns",
-          "text": "Why Jared Goff and the Lions are powered by championship drive, not last year’s pain - Cleveland.com",
-          "url": "https://news.google.com/rss/articles/CBMiyAFBVV95cUxNVmtjZEtWYkhQLWJkVEVncUFSZVNxN0NMdXNJaVVYakYyUFliUkhKaGsyRkkzSWtmTW1GQi16bExucU1BNnhOVFI1cjFaLVN3dkxfazFrb0pvSXNwdGVPWnpVZWQybkV4SmNRV0NIaWJ6bUpvWUFtbDJLaWZGQjdPQzhYZHlyR002YUxDaUlfbmQ1MnlQVHFCRkwxLVZYSTJSUWRnTmlvdl8xWF9VSk9pdE1sRDk3NzhuNGFYb0hOUWpMUlZuZmNTVw?oc=5",
-          "published": "Wed, 09 Sep 2026 23:35:00 GMT",
-          "metrics": {}
-        },
-        {
-          "source": "google_news",
-          "team": "cleveland-browns",
-          "text": "Browns star joins Cleveland Guardians ownership group - WKBN.com",
-          "url": "https://news.google.com/rss/articles/CBMioAFBVV95cUxNYjZVdXI2ZFZRZ0FpZkhVR2lUQ0U3QXBrQ256NnNkQkdBZWdtbmpuSmJNbE9zaVUwOHZCeVNaUXNieVRwUnQ4WFpDZWtwdWtueGFObHZYODh0SUtrLVBTbmpKMnJyY0kxNkczWU5XSjhuWGtiQ0Q5dVNmSzg5NWF5eThkY2VfdGxmT3dLbTZvTV9uZk8zVkVmQU43Yk9YRjkw0gGmAUFVX3lxTE5XU0JFUURRNWhkM2F5REF2bzlRTVJGTVBwYnh1WWtzVDdRVlBuY1hZUXU1QjFJdUlOYTBUQ3czMGVvN2xTeU9rbm8xNEk1MXBqR2FKTzhuMGdoZFBQTHhXaFkxTEw2bC1NeXRqZjJRd2trSTBid0w1eUhiTjFMeWd0cXJtR2ZvQ0JzSlFLMkNqSG95S284RWk4RlVYajJxaEtqZ3I1Wnc?oc=5",
-          "published": "Wed, 09 Sep 2026 12:42:29 GMT",
-          "metrics": {}
-        },
-        {
-          "source": "google_news",
-          "team": "cleveland-browns",
-          "text": "Cleveland Browns vs. Jacksonville Jaguars: Week 1 TV Map - Dawgs By Nature",
-          "url": "https://news.google.com/rss/articles/CBMiwwFBVV95cUxNMWgzMEE5U1c5bElDZDNxM1c5ZjRXWXpHLXhQbVRFVGczSXA5MmJlMTVBVk94YV9EWllJeTlvbW5RNmd6MGc2ZVVqM01FeDBFeEF5b2FVQTRyMHhCS21zWWFxaXZjOF81XzNfSWxOMmtyRXVnVUg4ZGJmSWRCTktvOWRId2NuN291ZkJLRjZkeFpUWmk3V3JoWGV1MGpFUVVrTUFVNkp4alpEazN6MDBGcEF3QWdnUXN6N19oNGFyUEYxaDA?oc=5",
-          "published": "Wed, 09 Sep 2026 15:26:52 GMT",
-          "metrics": {}
-        },
-        {
-          "source": "google_news",
-          "team": "cleveland-browns",
-          "text": "Browns Expected to Part Ways With $50 Million Pro Bowler Before Deadline - heavy.com",
-          "url": "https://news.google.com/rss/articles/CBMiogFBVV95cUxNQ1BGMUlZOTViUXN0b0U4YS1uRjFGR1plLUdzQXZYcFZfVVZFcmFhY3dkTi1hYTNDRW1QdjJlWXlBRmtzUmV3dW1hY2RkTXM4NEgxQVM4MEIyVnA2ejk2NzY4Z21xLXd4dExjT0hiVm95Q2pvOEU3M0RsY3ViQXE5NS1wSmV2R2pxZlg3TlRzaW8weUR2ZmN0c0M2NjFpRmtXT3c?oc=5",
-          "published": "Tue, 08 Sep 2026 17:44:32 GMT",
-          "metrics": {}
-        },
-        {
-          "source": "google_news",
-          "team": "cleveland-browns",
-          "text": "Browns Get Bold Trade Suggestion That Could Change Everything - Yardbarker",
-          "url": "https://news.google.com/rss/articles/CBMiuwFBVV95cUxOaGdwckVHREpFQjd4bTAtdDA3YnVuWHdRdmlrYVJBUGxCQVhwSVZsajVUVzVFTkdhYTdKb2w2WmgyWFV1Y3FtOEZiMERUM3U5VjhQaDBzRzZRNFMtMFhUeUphUmlEczNfeEltcmJUUjljdkxmZGFLOFFWc2E4dXpqSFMtWEpKVjd4a193MDZGb0dUejRVdllQUzZ2My1wbjVVZEVYT0lYUUFkRmFJeEJGaUZQbzh4ZEgyUF84?oc=5",
-          "published": "Wed, 09 Sep 2026 18:30:58 GMT",
-          "metrics": {}
-        },
-        {
-          "source": "google_news",
-          "team": "cleveland-browns",
-          "text": "Browns Predicted to Trade $52 Million Pro Bowler for Draft Asset - Yahoo Sports",
-          "url": "https://news.google.com/rss/articles/CBMiigFBVV95cUxQTnl1SnFiM3U1dks0b3ZIRWVYT1dkb2JZY2o4bXNKY3lKS0ZUc0xCV1J6RDVNd0MtYmVzZlpfZlZvOUlQSkZaRjA1U0hlM21RSlZUTVpkWUY2d21obTA4dE5veUlqMmtJandGRlk2V1IzY1VyMDVabTl0M0xab0dLMF91ZFpXNE1rUWc?oc=5",
-          "published": "Wed, 09 Sep 2026 18:39:19 GMT",
-          "metrics": {}
-        },
-        {
-          "source": "google_news",
-          "team": "cleveland-browns",
-          "text": "Browns sign DT Zion Logue to the practice squad - Cleveland Browns",
-          "url": "https://news.google.com/rss/articles/CBMijAFBVV95cUxNbGdOMUcwRndtRHltUjlrZURtc1lSTVBMaGluaUJnUmV0MUZ1eG54OXJHVUhROXc1MklOSGJiUml5RTNWNnRRbUp0U29Idk05SW9Panc3OVpCYnFGSXBJVms1SlZNWGhJMFlQVXBkMWVabzhXVzk4MGNPZC02MU9RQWV6ZThsOUNVOFdIUg?oc=5",
-          "published": "Mon, 07 Sep 2026 15:57:42 GMT",
-          "metrics": {}
-        },
-        {
-          "source": "google_news",
-          "team": "cleveland-browns",
-          "text": "Browns make 4 roster moves, including adding WR, DE, before Week 1 practice starts - Dawgs By Nature",
-          "url": "https://news.google.com/rss/articles/CBMirgFBVV95cUxPaXNKMW4tR2FOdmhpMTV5U28yRXdobXpKb1JoOXBnRjFNOEdybnFZV1kwbUhNN1E5cUxTVjRtUkFDeDdISjlUZ19iVG5TQTdvcElxd09jSDJOckExTFpnQVQzRjlxNEF6VTZtdmJwRjVSWDhDVkkyR1h4YVhmT0ZBZWQ5WlJWenRBVmpaSEkzQUR4VzFKNG8yLWdOWnFrSEJtQmo1RV9sZzBJQVNpZWc?oc=5",
-          "published": "Tue, 08 Sep 2026 20:18:41 GMT",
-          "metrics": {}
-        },
-        {
-          "source": "google_news",
-          "team": "cleveland-browns",
-          "text": "Browns Shake Up Receiver Depth Days Before Jaguars Matchup - heavy.com",
-          "url": "https://news.google.com/rss/articles/CBMijwFBVV95cUxNTExwYi1OS211czFpSndiSEprU1lZcnpwMDN4NVZHcHlQLVhJbVl6czIyem9KQ19ZdGZkc0pMVVVUTFExS0tnaVRIOWlnQmYtVnQ5bXlBbzlaY0VDRXF0NGZEV2s4WnYzQ3Y4aThNMnhsQmpXbm9pZmV0MGlfRF83enhibGF3Mll0VFo0d2licw?oc=5",
-          "published": "Tue, 08 Sep 2026 22:26:59 GMT",
-          "metrics": {}
-        },
-        {
-          "source": "google_news",
-          "team": "cleveland-browns",
-          "text": "Browns roster sets up ‘what could be a pretty nice situation’ - Dawgs By Nature",
-          "url": "https://news.google.com/rss/articles/CBMiuwFBVV95cUxPczROVWlDSWFUajhwQ01xWEF3R3BCeWRfemphRm5WZUdrLWs0VHVJRS1sTnBBS05iSEdlSkhWVzJ6ZnJZQUpvTmQxQ3pXR2dzR1lySkhtY1hfRTlmMzY0ZFA1NGpZZDY5dFRxXzBtSDZNRGVIWl9JUURHMFU2OGlabnoxbUc3dXk3QnZuNzgwT0UwdG1mZkR0MTE0WS1aTFFzOER6dmNCaEN5SlJYSXFLVlZiOVRLbDVjMS1F?oc=5",
-          "published": "Wed, 09 Sep 2026 19:42:23 GMT",
-          "metrics": {}
-        },
-        {
-          "source": "google_news",
-          "team": "cleveland-browns",
-          "text": "Denzel Ward Makes Major Career Announcement Before Browns Season - heavy.com",
-          "url": "https://news.google.com/rss/articles/CBMihgFBVV95cUxNTzhLMTFOWVNxazJqaU5QNmc1X2ltZlZranAxOE5sRW5DNkRBU0d0ZnV1TEJ3THEwQzEySVRkWWtNcXZYV1RpUGp1MHlMU0w3TFVvQk1aZDFScktkSW94LU03ODMyZnJhc2xuc0F2M181MXYxQXZSV2cxQXNmTldIVXpNZ2JyZw?oc=5",
-          "published": "Wed, 09 Sep 2026 17:14:00 GMT",
-          "metrics": {}
-        },
-        {
-          "source": "google_news",
-          "team": "cleveland-browns",
-          "text": "Browns starting QB Deshaun Watson cited for speeding in Cleveland, pleads not guilty - WKYC",
-          "url": "https://news.google.com/rss/articles/CBMi5gFBVV95cUxPNFl6cDdHQ3hnelRSS3AzQXBYeUdKX1Bubk53X1pYQlhsTHhHdjE4ZmZBdzBCNWlyZTdRcldpVDNucE9MVjBNbHU3NG1MTWlnckJZVnlDSjZuX204eGdGandxckhrdjd0SjlMdDRpbXphaHBlNDFiM2VOelZZSTdHTGdiYkhtVnVQTm1JMVlXdFEtWVpRSmFaN2haQWhBZm1DUWlEa1JTbWI1d0NyU2dXa3RRTjdxYVZ5X0dvUlVKLVdXOFhudkRmdkl6c3pHaHBfTXlUWXl5cUpIV0dYc0lpUTZ3dS1Qdw?oc=5",
-          "published": "Wed, 09 Sep 2026 20:48:00 GMT",
-          "metrics": {}
-        },
-        {
-          "source": "google_news",
-          "team": "cleveland-browns",
-          "text": "Cleveland Browns predictions for entire 2026 NFL season - Akron Beacon Journal",
-          "url": "https://news.google.com/rss/articles/CBMiugFBVV95cUxPM0NKeE5wSHlzMVV2ZWh4UmlKQVVFcVdmanZIRHpsZnlkYnhtNGcxWGs0aXJmek9UMmtuRko0N196SUxPR2g0MXJDVE5ISGt4ZlRrN1htR0hTbXVDb2xPSzJGUm8ycnJNTUFuakJRcWpKcjJxdHN4cEhnQkNqNE1ZV2g1RHhTNmVJdmI3Q19BQUVjSldWdUFFcjV4MTZueE9qa3NkX3RWWS15WWpTcFJMT0VJX0tOdTQtNnc?oc=5",
-          "published": "Wed, 09 Sep 2026 10:03:00 GMT",
-          "metrics": {}
-        },
-        {
-          "source": "google_news",
-          "team": "cleveland-browns",
-          "text": "Browns announce unofficial depth chart for Week 1 vs. the Jaguars - Cleveland Browns",
-          "url": "https://news.google.com/rss/articles/CBMiowFBVV95cUxPbDhFNWN0NVZ5LUo5Q2ZZUU4zZUFNTHpWazltWVV0enFPZ0YxNmFfS2YtMzU1dVhjR3ZrcnBwekZiaHhjZVdkTGR6Z243Z2ltazF4aFF6d1ZFV3dNWFg0OVFsNk1GTU9aanhKVGllWXBWVDM5NEE3Si15UHQwdnd6SjhEc2RRczFTakYzVWhRLUdHczZNZk9zUHExUUpnOHdFV2tz?oc=5",
-          "published": "Tue, 08 Sep 2026 16:57:42 GMT",
-          "metrics": {}
-        },
-        {
-          "source": "google_news",
-          "team": "cleveland-browns",
-          "text": "Cleveland Browns News and Rumors 9/9/26: Blame the Sphere - 247Sports",
-          "url": "https://news.google.com/rss/articles/CBMiqwFBVV95cUxPS3J2VVB1N1loUWVzcHpiYjlIYkJtMzVFeV9RZ1FqSXQxSVZuazk1ODBOcl9RVk4zX0UzVXE2R0VQXy1CTHRiODJ6OW04NTNXbGFNVVk5SnFoZU9od1dVNm9ReGs1aS1hd2pLbjdKTVJ1MHNHel9XcW96ZGM1cmxNY3BnajN6THFNRVRyS1hIMklmYTBoME5LOXJFS1ZtVnM0SDZqQm9xNHJBQnM?oc=5",
-          "published": "Wed, 09 Sep 2026 12:39:58 GMT",
-          "metrics": {}
-        },
-        {
-          "source": "google_news",
-          "team": "cleveland-browns",
-          "text": "Deshaun Watson relishes \"opportunity\" to prove he can still play - NBC Sports",
-          "url": "https://news.google.com/rss/articles/CBMiwgFBVV95cUxPRXl2eGlQbFpXRm5CcEg1RjRvMGd6MFE1QnluS0IydHBYX3dNY3ZSWmhxUHJTdDhCNXlKUmZIbHhabFhqUEoyNnRUSEtuZ2FsY0FYa1lSS0RUT29sQkZWUTRuei1KakZOVmYweERnX3lNY29EOHJnUGtzQ2h1aGpfN1RWa3N0aEUtTWxoRFdIOUp0RmtON1ZFUFlRN3RiOXI5VFZ3Q3BUTG5ycHBnRFQyT0duX2pTUjdMYjNHYzZlR3pRdw?oc=5",
-          "published": "Wed, 09 Sep 2026 21:28:51 GMT",
-          "metrics": {}
-        },
-        {
-          "source": "google_news",
-          "team": "cleveland-browns",
-          "text": "Browns Announce Plan for Shedeur Sanders After QB Move - Athlon Sports",
-          "url": "https://news.google.com/rss/articles/CBMilwFBVV95cUxOX0w4YUJsWDItUHBCOWRudl9oaWZjTGtxSmNkT3EyZjFDS09qTi1hZVU3TS05Rm1wVGhTWDgtQU5IRGtaMnVub3lXN1VfRzlNTW9lMHN2QXpZbUdkYllKZHJHX0hfX3F1VUFndjRiSmNKZUNydTBxTVFPRmxlUVhhQ0wyQ0s4MmNIYndYQXVGUFdaaEhkeEZR?oc=5",
-          "published": "Wed, 09 Sep 2026 16:43:43 GMT",
-          "metrics": {}
-        },
-        {
-          "source": "google_news",
-          "team": "green-bay-packers",
-          "text": "Packers announce roster moves | Sept. 9, 2026 - Green Bay Packers",
-          "url": "https://news.google.com/rss/articles/CBMiekFVX3lxTFBsTWdRNmRuS1dYQ2JadU9oekdrNEJQLXl0VE5vWHhPTkU1dVprZ3dEQkZOQXZZdnpicVhON3Q2Z0EzTGRhUTZIMGVpbWotZDQyUGZadnc1b0FxTFV4TVVuZDc2NVNWdjkwRWlYZUhNUWIxSUJGbElkczVn?oc=5",
-          "published": "Wed, 09 Sep 2026 20:45:59 GMT",
-          "metrics": {}
-        },
-        {
-          "source": "google_news",
-          "team": "green-bay-packers",
-          "text": "Packers-Vikings Injury Report | Sept. 9, 2026 - Green Bay Packers",
-          "url": "https://news.google.com/rss/articles/CBMiekFVX3lxTFBTZldqczg4ei01cFU1RXlhd1M2aWhfZVdVU2NIQXJQdFlVQ05nSjZyN2cza2xLTGhVQ21zdGNVYnpKVXFmX05RMjFld2RsaTVzenVlRWFETm1ZU1NYV0VWbzh1Qm5zdXNBWVJDYTJzcXlvVGliVXd4dFRn?oc=5",
-          "published": "Wed, 09 Sep 2026 21:39:59 GMT",
-          "metrics": {}
-        },
-        {
-          "source": "google_news",
-          "team": "green-bay-packers",
-          "text": "Matt LaFleur Reveals Why Packers Rookie Won Starting Job - heavy.com",
-          "url": "https://news.google.com/rss/articles/CBMihAFBVV95cUxNU0FkV0g5R3JKc1lNNm1PbXp5QzcxaFVueEU3VURIOTlZM0lqeW5fd2dHdnVNemp0SEpsWGktaFBoeklkaDBfNU5kX2Q2XzhQOUlpcTdUTDV0SzE2b2U5SGpKb2VPS1RTRlFUcE0wWUdqb0R5WERwSHZpRXhEdnJ3MVZMXzQ?oc=5",
-          "published": "Wed, 09 Sep 2026 20:36:08 GMT",
-          "metrics": {}
-        },
-        {
-          "source": "google_news",
-          "team": "green-bay-packers",
-          "text": "Packers Salary Cap: Jonnu Smith contract details released - Acme Packing Company",
-          "url": "https://news.google.com/rss/articles/CBMivAFBVV95cUxPZk5hV19ab240YXNTbVRSZmxtTG81cFFzZ2xGQ3NvR0tWZEctRmlOV21FbEJxMUIyWUhKLTBFM3IyZHBpelZGTmt4ZFF1X20zb25wS0JDd0QwOGRCTnNPNlFpWGZOemx1b0FmbkthOTlZZUNwbGY0M05kWnJoMy1KZjdESWhBQUl4Y3BwblExckJycEtHWVdNYlhOUGozTl8zY3lXX1hKN3VHZDBTTHRTbDctdHhOalFrV0JoeQ?oc=5",
-          "published": "Wed, 09 Sep 2026 20:56:34 GMT",
-          "metrics": {}
-        },
-        {
-          "source": "google_news",
-          "team": "green-bay-packers",
-          "text": "Hello Wisconsin: Picking the Packers’ Regular Season Games - Cheesehead TV",
-          "url": "https://news.google.com/rss/articles/CBMilAFBVV95cUxNRVQ5R3lrYkRVeEVYay1nclkwY3lXWDhGUEloV25DcEZIcUVKSjBRQ01EZ2pnZ2V3SkhRWlJsdmwxS3JwblYtcXNNdFVtT1c0cE85b1Jwbmh4c1pIREpkYU9ZNmVWRHhBeTljU2RseVJlRDJSbGIxQzE1NTg4WFhKaERna1ZlY2k4dXJybExOQmNSdlFH?oc=5",
-          "published": "Wed, 09 Sep 2026 18:01:18 GMT",
-          "metrics": {}
-        },
-        {
-          "source": "google_news",
-          "team": "green-bay-packers",
-          "text": "ESPN Analyst Says Packers Are ‘Hanging on for Dear Life’ - heavy.com",
-          "url": "https://news.google.com/rss/articles/CBMijgFBVV95cUxQNmpHSzlaT25ycElnWXQtMjJ3eExGNDZTZlNJSUNLVUVfSGVxWlAzZ01QajRMelktT2RBM2xDczF5d2hDN0tXOVBhVkV2c3dWNHpERUFTX00xcGdNU1dGNThqaC1Bc3ZqNC1nRHhJdFVOU0JiV094Vy1MRm54bTRuVHhkQmgxcDNLbDlZamp3?oc=5",
-          "published": "Wed, 09 Sep 2026 14:07:42 GMT",
-          "metrics": {}
-        },
-        {
-          "source": "google_news",
-          "team": "green-bay-packers",
-          "text": "Four Days Until Week 1: Packers Must Improve But Can’t Slack on Four Strengths - Sports Illustrated",
-          "url": "https://news.google.com/rss/articles/CBMisgFBVV95cUxPQzBVc2MtUFAwVi1WTGxCOWhQOFE2Q2lBSlUzUmZvdXhGQlJUWGkzaW1qOFBDaGluQVI0OXd5WjhTSFdESHNRZE9LdktSU2tsZXU5eU12SGhfMXRFVjFfZ1lJeGx2bG5PWGJFTUtUaldScFlHamhfem9PcXlnLXhwTWZGZzJFU0lrNl9ua1ltX05ndDhDVXlyem9LUldkY2ZScThERnFRM1FjVnA1OGVFOFRB?oc=5",
-          "published": "Wed, 09 Sep 2026 14:08:28 GMT",
-          "metrics": {}
-        },
-        {
-          "source": "google_news",
-          "team": "green-bay-packers",
-          "text": "Packers QB Jordan Love on Vikings exotic blitz: ‘You can get it whenever’ - Green Bay Packers",
-          "url": "https://news.google.com/rss/articles/CBMisAFBVV95cUxOWUQ0STFpUkRoRmFmTkdidXhNMUR1VVhzcnhROVBON1FRQVpCRzU5YmYzaXIwMml1NGwwc0Q3b1g5SVZzYUp6WW1tYmxTYjhjeGczdFBwTHA1MTFwN3pnUWRKdnA3MWM0ZXVuMl9lQXdUVWxUNmlubUVnWlY1QmVRSWFBZUFkVjJBYzdBYW9lZFdKakRsUjJJd21PY01xRzhCcy1Oei1PYV9LVElscGVFag?oc=5",
-          "published": "Wed, 09 Sep 2026 22:16:36 GMT",
-          "metrics": {}
-        },
-        {
-          "source": "google_news",
-          "team": "green-bay-packers",
-          "text": "The truth behind bizarre Clay Matthews photos as fans go wild - New York Post",
-          "url": "https://news.google.com/rss/articles/CBMioAFBVV95cUxNX3hiQVprQjJqYXRuTnVCcjh6eHl4N2NTbERiMHkwdnM5UGdBR0szYnMzTUpNSFZUWjBfTEZUeWtxYXBOeFViY2x6Yk9fLVE0YW1LMnAxM0RQQkVfSXBMSUVZV1BLRUE2NmtpTXhiYXloOWtFallheElZdmRhclh3dmVTajZpMi1VbWJqVWxQak5Ub2VNaFVoakVBWUt3eDZO?oc=5",
-          "published": "Wed, 09 Sep 2026 17:31:00 GMT",
-          "metrics": {}
-        },
-        {
-          "source": "google_news",
-          "team": "green-bay-packers",
-          "text": "Expectations for Packers' MarShawn Lloyd with Josh Jacobs out - ESPN",
-          "url": "https://news.google.com/rss/articles/CBMiswFBVV95cUxOWWdpQ2dfM1FrT2VySURKbS13c2pydUFSWnhZekFCeXRuNlQxVGx4ZmZLVWtJM2IwTU1ObzZCazFuUUdHYmg3SXhZcF94ejR6UkhpSS14REU2TGY0bDBEc1FjaWlfUUFvYzZDNGpoRnJDRkF3M21EVnVrZjFmSE1ZWWdpT3l6eFE4Um9feGh1b1hWWUhTVVhRSzFDOGM5NVBaT0hQa2M2dkRzRVJQZTdiSGNDTQ?oc=5",
-          "published": "Wed, 09 Sep 2026 10:00:00 GMT",
-          "metrics": {}
-        },
-        {
-          "source": "google_news",
-          "team": "green-bay-packers",
-          "text": "Packers Sign Coveted RB Amid Josh Jacobs, MarShawn Lloyd Questions - Yahoo Sports",
-          "url": "https://news.google.com/rss/articles/CBMigwFBVV95cUxNOXY3T3RHYnZjblNSbTJENEx2VEpCZTlUYk5zRDlFNDFudHBwemxJZWNHOWE5VEJDb1lQb0NSS0VEc3ZXS1RZNTNZaGVybEU1ZUEtYjBRVklENTl0bFQyN2tnZHMxeVA3VjF5dFpOLUZBSWZYMmo4T0wyUnJKR1A4ZFRhOA?oc=5",
-          "published": "Wed, 09 Sep 2026 13:00:09 GMT",
-          "metrics": {}
-        },
-        {
-          "source": "google_news",
-          "team": "green-bay-packers",
-          "text": "Fantasy Football Running Back Streamers Week 1: Is MarShawn Lloyd The Wrong Packers' RB To Target? - Sports Illustrated",
-          "url": "https://news.google.com/rss/articles/CBMiywFBVV95cUxPUE5wUVJQOHY5NGJVLXVmUUxmbjd5QWVWNzZuT0tMWWk5eHJvTnRpM0VqaHg5MzA0eEo2OVFscXBFU25HTVVmd3FKSEZMemxuS0o5djl0WE1ycnhmSDJFZHNGSjBaUWxWWHROaEJyYlFxQkMzRlNaaHFLLTAyOHlTZzhON0dJT2FKU1lRaTdjMnNCOHZZVVRxeEtocEVyREZEYkY4V043TDBvck43Q2syelNEY2FrMGllbHpuN2ZlNklzdWlmWm1pbDN5SQ?oc=5",
-          "published": "Wed, 09 Sep 2026 11:15:00 GMT",
-          "metrics": {}
-        },
-        {
-          "source": "google_news",
-          "team": "green-bay-packers",
-          "text": "Clay Matthews Shows Off Dramatic Transformation in New Photos - TMZ",
-          "url": "https://news.google.com/rss/articles/CBMihAFBVV95cUxOT3o5ZkhmLUMyczJFT3VEUlFjTDFrWDhyZmFOZjR5MGdQdkpkNGY4MmRuV0djYnJyeWJ5Z0NaU3pDcWlTeWhkeXkwdWJKVGFIUzZKblQtUmwwREZtRHF0Zkt1dnRFZmVlMW9YNEJ3ZW5Xa1R0N09ST3pTY3pMdDZxa084ZVc?oc=5",
-          "published": "Tue, 08 Sep 2026 15:30:48 GMT",
-          "metrics": {}
-        },
-        {
-          "source": "google_news",
-          "team": "green-bay-packers",
-          "text": "Packers Injury Report: Updates on the offensive line - Acme Packing Company",
-          "url": "https://news.google.com/rss/articles/CBMitgFBVV95cUxNQi14cFpSdnF4amFibGk3M0p1YmZDWE5XYTg3YlktOTNMdjRUY0h2LVZ0SmFnZm5MdmdualdxRjZhVktfUXRiQWVIZnNSa1ptYkVaV21xLUpDSlh6Q2tlRXE4UWpSSXZIZ0czdklwNFpRUVNGLVdXaFh4NHI1b2lPbmtCdHB0Z1gwLV9rMlVHRnA0Z2Z0bFpNNURhOThVNmdTSEZ1dUxHeGFWRC1aaHplUmdUcGdBQQ?oc=5",
-          "published": "Wed, 09 Sep 2026 22:04:10 GMT",
-          "metrics": {}
-        },
-        {
-          "source": "google_news",
-          "team": "green-bay-packers",
-          "text": "Can Packers offensive line stay healthy, survive season? | Tom Silverstein - Packers News",
-          "url": "https://news.google.com/rss/articles/CBMi6AFBVV95cUxNM1I4Uk9RSFR5cnZQZFhEbVFYbWhabXVBWUVJcEx6U3VfaVNhOE9hNGtISjBiMXlfZ0thN0NZSERyeEw5c0E4bDRLT3NJT2xfOFJfNTRyY3JscnRYWlNJdFZscGxoSkRvZkZqZkk2WFptd3VLbFhsZ01CN3lpWVR3ZzVnZXJEM1dBcFRUZFkyU2wyU1kzM3EzeGVuM29GNFk2SVdoQVAwa0k3bWx4OE5abWFkdVdXOTJ0Tm9IbXp5MUViMWZrTVhneXQxZGhwNEV4RWFXTU51aGE0d0swbU0xdU51MVZySFdD?oc=5",
-          "published": "Wed, 09 Sep 2026 13:39:00 GMT",
-          "metrics": {}
-        },
-        {
-          "source": "google_news",
-          "team": "green-bay-packers",
-          "text": "Packers list RT Zach Bako-Bewele, LG Aaron Banks, LT Jordan Morgan as limited in practice - NBC Sports",
-          "url": "https://news.google.com/rss/articles/CBMi4wFBVV95cUxOUHFEbXJva2cwNTFjQTBlMHhFdUg1R2o0T3hKREZzVlBWWnVac1hHc1JTZEVnNk9nZnJTTHhvdFBUajlYUHQ0cWNQU3QzYXJtRllPUUt5UjhhUTdocVdweWhrRGRtZlk2dHVINXFoTEk3WnZzelVGMWFaZ3FTemtlOFBnMm11bV9La2hiLVpBMW5ENGNWZ2JyU1pPcTk3eE1wMUJIb0pWOF9IU2RzcTZ5Rl9seGJkZGFjWXkwbm9QS3JUUmQwYVBXN1V2MThtT3BpMl9lUWw1LUJOaktDUXQ4cEtBSQ?oc=5",
-          "published": "Wed, 09 Sep 2026 22:00:27 GMT",
-          "metrics": {}
-        },
-        {
-          "source": "google_news",
-          "team": "green-bay-packers",
-          "text": "Packers Named Landing Spot for Pro Bowl Edge Rusher - Yahoo Sports",
-          "url": "https://news.google.com/rss/articles/CBMihgFBVV95cUxPbjVjdVBubFQxZmJlM1NneWgwdDFBR016RUNtcmtGdjJIa0RZdTM1TG1waGpwYjhJdzE5TjdTQ19UNkxVNkplYlNnZjAyU0NqbEVrUVE2eS15OUptaDlWTnY3eUlPTDZoVHlJWENCYVlNSVVnU3c3dW1pQ21MVnVmcDV6TERGUQ?oc=5",
-          "published": "Wed, 09 Sep 2026 19:58:07 GMT",
-          "metrics": {}
-        },
-        {
-          "source": "google_news",
-          "team": "green-bay-packers",
-          "text": "Green Bay Packers drop Week 1 depth chart: 6 takeaways - Acme Packing Company",
-          "url": "https://news.google.com/rss/articles/CBMiuAFBVV95cUxNWUZpRU9nR2xOVEV0YTdKR09fYXZIMGZXZ2d0UG5GOS16Z3pKRGV1UmgwNUpGZ3lMSkQ0WndOcVJxdl8yanJScXN5bzFKbjk0QVVKYXd3RG95d2hseFJMOTVMVHRhN0xQYlExemd0ZnRmM3pVTzIwQ2Jfb1dsTm1JdS1nVEtnbXVVMHNsV2h1bjNGUkRlUzY2czJBQk9BLVd1T1VEMHUtRWptU2laMC1nX2NhbUlmZ0dS?oc=5",
-          "published": "Wed, 09 Sep 2026 13:30:00 GMT",
-          "metrics": {}
-        },
-        {
-          "source": "google_news",
-          "team": "green-bay-packers",
-          "text": "Vikings vs. Packers Week 1 Tracker: Injury updates, predictions, storylines and more - The Viking Age",
-          "url": "https://news.google.com/rss/articles/CBMiswFBVV95cUxQQWhFOXF2NDdDTWRyQ05EdnZNcG1kX2RHXzRJUEx2WUsxVEZWaU81Wkp1eU9OeHBoWXRuZTZFNk9ZTTdhRzlfSWhfYnBFUnZDQVNmWlFGVm1XSVJkVkdUOXdnQU5kUFlGRlZfc1dkaVhnZ2pGSDRNdlRreER6Y0NYcUdiSE5NUmVodmYtODVOQzY0dTZOM0FlYS1qUmpJYkRGZmN5eTR4dFNjemlGNHFPSFNFSQ?oc=5",
-          "published": "Wed, 09 Sep 2026 22:14:38 GMT",
-          "metrics": {}
-        },
-        {
-          "source": "google_news",
-          "team": "green-bay-packers",
-          "text": "Are Packers favored to beat Vikings in Week 1? NFL matchups, odds - Milwaukee Journal Sentinel",
-          "url": "https://news.google.com/rss/articles/CBMi2AFBVV95cUxPcE5fTHdwV0k3VVdGSTc5VmFsV0RxaDE3UDhzV0pKZzVzcUJNUlVHYnlUakZTc2IxX0ttaFB0S2NEckJyeUpKUXNaTEpYSzhpZGUtb0VCbFgySDNKRm9jUDljd2o3ejJ4RWwtSHlwbndVSUdrbE9ycGQ5YWtiU1FpeWxhYmlRTHJKb3NjTkVKaGpsRUhNZmY2bk9NQ043TUx1ZW9rQWY2ck9jZHpFQi1CU2pHR1NQb2hOZnFqVDNUeDBaMGotUUprYndmMFR0X2ZneXRpRlgyQUg?oc=5",
-          "published": "Wed, 09 Sep 2026 17:37:00 GMT",
-          "metrics": {}
-        },
-        {
-          "source": "google_news",
-          "team": "dallas-cowboys",
-          "text": "Reece Weaver of ‘Dallas Cowboys Cheerleaders’ Makes Her Broadway Debut - The New York Times",
-          "url": "https://news.google.com/rss/articles/CBMiiAFBVV95cUxOaDNqQTVmX0dQWUpPUzZfNU95NTg5TWRpcGh3VWRiZFFfb2o5SzM3S2lyMWZocVU1RVBRaF9VSzVWRWdIZkdHNGpEVUJ0b3IySWRNMXNQa0diTGxZdk83TXB6SENYU3QtOVJTUWFoWlFsanRLbVBhTXBXR2tyTF9uTW5hUmxaaEVw?oc=5",
-          "published": "Mon, 07 Sep 2026 09:02:41 GMT",
-          "metrics": {}
-        },
-        {
-          "source": "google_news",
-          "team": "dallas-cowboys",
-          "text": "Dallas Cowboys Cheerleader Reece Weaver swaps boots for Broadway - BBC",
-          "url": "https://news.google.com/rss/articles/CBMiWkFVX3lxTE5XQXloY2dTUDVXZTZoQ1pyMWVYVTA5b1dRejNKeXQyMXZITEFRdnN1eFZtZGxxeVplT3RsSFZQQnZsUEFfRUFiQVg2VlpoamJyMTRValRQb0dHdw?oc=5",
-          "published": "Wed, 09 Sep 2026 11:44:51 GMT",
-          "metrics": {}
-        },
-        {
-          "source": "google_news",
-          "team": "dallas-cowboys",
-          "text": "Frisco native achieves dream of becoming a Dallas Cowboys Cheerleader - NBC 5 Dallas-Fort Worth",
-          "url": "https://news.google.com/rss/articles/CBMiuwFBVV95cUxPNE1WWURRUUVDRXNuenNVdXpyRHdDOFFKUnZ4WTgtamhTdEJ2UUdKSktLS0gwVncxbVRDQVAteXZFUFlpMXdlVkxQVlpLR2FDaERnOXpQR3ZVRVBXR2Z6WGtac2xFc25Ha3N4VEcxdkRRZ0FlaTR1ZFBuek8xUWN0QkZDWUM1bHRfendOdnNZZm1lb2l2Y3dnM2NUUXB5UVRoMks5UEVHX0pqdFl6N25LemcwWktxQnR6X0NZ0gHDAUFVX3lxTE9sVGN0OXYzbDFrUV9MRXc2dkhSQzliMTFwLW5aQlBZcU02bDRsUVVlTldLTlZsaWw5d2taY3RJUmpHMmRwdDl2TUVRN0ppZWhOX1ZTRUVxZVExQXhqNHhrUXl4bmpZNm5qMmlrYldqbGI3MGREQ2RLTS1SY0hSN09ZcE56dXUtNVBDLXhBS1hFNFFfbWFRcTFfX3Bmb3ZqSDY0V0w1YUh0aENyRkZLUUtHeEJsNVFfbGRHcXpaNWhkanRRRQ?oc=5",
-          "published": "Wed, 09 Sep 2026 20:46:36 GMT",
-          "metrics": {}
-        },
-        {
-          "source": "google_news",
-          "team": "dallas-cowboys",
-          "text": "Jerry Jones: Cowboys are 'in play' to make potential trade - Dallas Cowboys",
-          "url": "https://news.google.com/rss/articles/CBMilAFBVV95cUxNOWhsenJLOUZONi1zZXdFa2didkpJR3JnOFVIT2dpcFZrc0J4RDNNazg0Y0tlWXdKM1RwenZreng5TUREN0hlNGt6R1E4b2hfOE9zTnEyT05SNzNNRWlhcjFSRGNXWGtmOW9qVnRxOWZEYTFLckJucFlGZTF0cGxDekhSTGcya0lkbGdvVmRhRUxuVzdQ?oc=5",
-          "published": "Tue, 08 Sep 2026 17:17:21 GMT",
-          "metrics": {}
-        },
-        {
-          "source": "google_news",
-          "team": "dallas-cowboys",
-          "text": "Is George Pickens becoming the Cowboys’ top receiver? (Video) - Fort Worth Star-Telegram",
-          "url": "https://news.google.com/rss/articles/CBMigwFBVV95cUxPakdhcG15WGZfdnBFYWtSMmtEd2xYSk1hWkxRVG5fdTYzTEQwcHNmNGNIcm92WWdiaHYxQzd1M1hPQ3dWX0dOelF6RDhxd2xNclBsZFBGV3VLSkFRdmtKb0M2UzdMTFY4SjdSTFk5aUlyWi1zYV9EU2V6OGtFNm8yaVJvRQ?oc=5",
-          "published": "Wed, 09 Sep 2026 23:12:22 GMT",
-          "metrics": {}
-        },
-        {
-          "source": "google_news",
-          "team": "dallas-cowboys",
-          "text": "Cowboys get positive development on DT's availability before season opener vs. Giants - Dallas News",
-          "url": "https://news.google.com/rss/articles/CBMirwFBVV95cUxQOERWWkxrcVNERWMwOGxCUC1pSTNKRnpyaHBuMmItU3owWmF6RjJ4b0hYUHF2V0tVY2tQLWoweHdIWEZBU0NfejBrYmVRMDI3RDdubkd5R24wcUxwYVFBSWNpNHcyb0R0cnp5S3hUVGFrVlllanlHUnF4NUJDQUpTNjdSM3FsZWM5cEtRU3FhM2VmNDdmdXJwY3A0RU1YQ0MxV0FoTDJ1UTlFVzFjd0JR?oc=5",
-          "published": "Wed, 09 Sep 2026 22:10:36 GMT",
-          "metrics": {}
-        },
-        {
-          "source": "google_news",
-          "team": "dallas-cowboys",
-          "text": "Cowboys' George Pickens Responds to Greg Newsome's Bold Claim About Giants' CBs Room - Sports Illustrated",
-          "url": "https://news.google.com/rss/articles/CBMitAFBVV95cUxNcGJ2alJXaUQ5NUFQWnI0ei1HalFNNUpDeGIxYXJsOEtkdnFoU1Y2S2oxTHBmMUpkM2lVNXBSNE1CZ0xGLTZuZndKbXA4djBlUnI2dWRrYkhGRTRvLTd2SWVUY3p1cXA4VmZCbWxJUXNqc3ppTVExWjZrVEJFVmtVU1ptMVRVTzVleXl2cmVUcTNvSm1YNFNQcXl1MnFQSE1sX1NOdnBlWkFVdjNvRjlvNzFRUVE?oc=5",
-          "published": "Wed, 09 Sep 2026 23:02:03 GMT",
-          "metrics": {}
-        },
-        {
-          "source": "google_news",
-          "team": "dallas-cowboys",
-          "text": "1. Dallas Cowboys - CNBC",
-          "url": "https://news.google.com/rss/articles/CBMiogFBVV95cUxQSDRTc2lmNTY0ODVyeFdWV0tZbzZFNHVUSlUxV2xiNFF2WXgwWXYwWXJMNG9iYzlVZUVjZTZRQzBaYU05ekRUUlR3VHRDNnNtNGxPV05pTVgwOHVtZDFWWDZQMWhFbU80UkFSd1hwLUU5Y2ZhTFBmWTR6RWx3bUc4QjhiY0p1VjhiT2FjVko1b1JIMnBVdlR3WTJ4cUJ3RHZQeFHSAacBQVVfeXFMT3hkbE5kNGRiaFNzQmtGdXUyZHpQWDdjTE55RVFuWEJuTlh3b2toUXM3c3oyZEl0MXNKdVhzOWhtZDctN3VqeUU4enJtZ3FqWXhGRUNPRGdabDdqalBIMndmM2hndGtwQ0NZOURFUDVWVUJZTDRCdUhvcXQ5YkE4emlMeVpidjJXQ1VScWRHRjNqT2VONnJjcl9jc2hyeTE3VkJvWl83SVk?oc=5",
-          "published": "Wed, 09 Sep 2026 09:55:01 GMT",
-          "metrics": {}
-        },
-        {
-          "source": "google_news",
-          "team": "dallas-cowboys",
-          "text": "Injury Report: Statuses for Giants vs. Cowboys on Sunday Night Football - Giants.com",
-          "url": "https://news.google.com/rss/articles/CBMirwFBVV95cUxQaGRCWm5MZzktXzFFd2M0UFQxOXA0VzJBV1pfNUd1WTZ0T0wxUzFSbnBJMVVZMXF0OFdlaGJDcVk2NjVjYWZlN0dEYzRKVzNLVVlZOFotSmJlWWhmMUlDMW95ZGI1T21HVWx6ck9TNFpLVHJuRHJrSUp0a09OYnNXQ1hLVmdRUlh4eWNrNEg4Yk5UWkZqOFBFdWU1TnZKYjFvM2psT0NWSjV3X240V000?oc=5",
-          "published": "Wed, 09 Sep 2026 20:22:12 GMT",
-          "metrics": {}
-        },
-        {
-          "source": "google_news",
-          "team": "dallas-cowboys",
-          "text": "Cowboys have 'serious' financial room to make a trade, says Jones - ESPN",
-          "url": "https://news.google.com/rss/articles/CBMingFBVV95cUxNY2hpRWN6MlRKRHNlNGhIQmFfTmR2Rm9objYtT3ppd2UyRW5kZ05MNmlYSjNrSGw3ZnhQRVVSbE90ekp6S3ZSb1dYc2dKX3M5WWF4SE1ZY1N4MF84MXBQOFdxSU9PNl9OTUg5dk5OLWE0N1ROWWRfMUxwcVVLaE9NZEh1a1Q3ZUdWY19LUXhBREJnamFPa2p0Qzc0b2pRZw?oc=5",
-          "published": "Tue, 08 Sep 2026 15:03:00 GMT",
-          "metrics": {}
-        },
-        {
-          "source": "google_news",
-          "team": "dallas-cowboys",
-          "text": "Dallas Cowboys ranked #8 in Week 1 Power Rankings - NFL.com",
-          "url": "https://news.google.com/rss/articles/CBMid0FVX3lxTE9xTXdyZTFYZzFZZVZxUWlQdEg3UldGa0MyOVJ1aXFJLXFIWVkxYnF0ZFlkclR2bThLUjR4Z3R1VV8tRl9haUZHQXFuSzRCTTVXRjhfa0dNN2hsenpmVzdUcW9LRGFKVUJfSXlGdm9VNmJCV0paWGRN?oc=5",
-          "published": "Wed, 09 Sep 2026 00:34:52 GMT",
-          "metrics": {}
-        },
-        {
-          "source": "google_news",
-          "team": "dallas-cowboys",
-          "text": "Cowboys' Brian Schottenheimer gets surprise boost nobody saw coming - Yahoo Sports",
-          "url": "https://news.google.com/rss/articles/CBMilgFBVV95cUxORFFwdzZrQkd5bVIxVFpuUVFMTHBaX2xtQUFGX0RGVUZIOW43Y290VUYtempCUVNVVGNKQi1BdlVHcm90VmRhcWRidHZhMjVPcHBVY2ZoZ3NsZ1FtS3UyS0dHbDVmaHJQMWhjVGxwNHh6a0p5TXRoVTQ5RE5lbFVUMkIwYkFrd1B1OFB3Q2dOcFFpU3lwSFE?oc=5",
-          "published": "Tue, 08 Sep 2026 21:39:47 GMT",
-          "metrics": {}
-        },
-        {
-          "source": "google_news",
-          "team": "dallas-cowboys",
-          "text": "George Pickens believes he and CeeDee Lamb are 'the best' WR duo in the NFL - Dallas Cowboys",
-          "url": "https://news.google.com/rss/articles/CBMirAFBVV95cUxNNHNrZzJrWmczc0RVbEwzVmx6QjIxQWpha2Z3TmdhNHJQYVZvN2xQRHB3N3ZyQXN1MVp4NlpZbVlhMHc5Y1UtLUtacF9OUmppTUFGNTdQb1lFRG44VF9FRXhlVkljNlFZM2lHeGtEaUFrR0pDYnhVcEJvSWlTemg4VW9kU2R3VUU4N3dOb2NPcDdtajc5b3E5S0VPSVRDSkFKa0wyNDVCemk3N0lh?oc=5",
-          "published": "Wed, 09 Sep 2026 21:36:11 GMT",
-          "metrics": {}
-        },
-        {
-          "source": "google_news",
-          "team": "dallas-cowboys",
-          "text": "Cowboys roster move: Nick Leverett signed from practice squad to replace Tyler Smith - Blogging The Boys",
-          "url": "https://news.google.com/rss/articles/CBMitgFBVV95cUxNbndDbW9tOVNucmt4RHB4eEJWMVlvcTZJcF9TcElRYkN6U3dqWVlSaEtiNzJnMnlSQ196a2ZvSUNTaTQ0TVBpQVNVNXdKNFJwamtNY3RPWFNmVVdHUV9XTjh2MVVFVW8tODFrZktXUEgtRUdkQy1VRVVNSzU0SVJaVzhkTzJXYTJiSGN0WDM3OE1QMkFzeW5KQmNqR2dDWTlHVXZhd0QyWWw0RmZhb1NDYnFUU1JOdw?oc=5",
-          "published": "Wed, 09 Sep 2026 13:45:00 GMT",
-          "metrics": {}
-        },
-        {
-          "source": "google_news",
-          "team": "dallas-cowboys",
-          "text": "The Dallas Cowboys just quietly added a former Pro Bowler with 162 starts under his belt, and he's looking for redemption - A to Z Sports",
-          "url": "https://news.google.com/rss/articles/CBMikwFBVV95cUxPVDFfYTVjdWxVSEZ5SU5rQlpVRUpPQXNzWDRZaHZtYjdYTlZoMmlRTHhHTVQ2TkxsQ3BrQ2l1cm4xb0tXZWVKdUk5bmVjOGw2cnRtS2VTWXVOMzZWblRvYWhFV05ZaUZ0RG1xUUVBSjR4V3oyLU5sN25HUEpWdWxXR01XUEMtejlDWERneV9jYWtwdkE?oc=5",
-          "published": "Wed, 09 Sep 2026 16:05:56 GMT",
-          "metrics": {}
-        },
-        {
-          "source": "google_news",
-          "team": "dallas-cowboys",
-          "text": "Best Dallas Cowboys player to wear No. 65 is a forgotten five-time Pro Bowler - The Landry Hat",
-          "url": "https://news.google.com/rss/articles/CBMinAFBVV95cUxPNjN3SnF6aDg3c3BOV2ljQ3lFSHpwcDJId25yMDFFUjd1bDM2ekJjbHRpMjV1Nm9adkpRb0xVaURaZ3BmekZ4R2ZqLVNkUDBDenR0SnhZTWtRVU5FbzU4RmppREpGWU43MW01LTBpU1BYQ1Y5VlgtZGp3YnRhM2pTWVcxd2dXUHR1aUsyVUk0TExuaXhVaURpei10Q0g?oc=5",
-          "published": "Wed, 09 Sep 2026 11:00:04 GMT",
-          "metrics": {}
-        },
-        {
-          "source": "google_news",
-          "team": "dallas-cowboys",
-          "text": "Cowboys Land $58 Million 162-Game Starter in Late Move Days Before Giants Game - heavy.com",
-          "url": "https://news.google.com/rss/articles/CBMikwFBVV95cUxNUmNWaFpISG9HV0Jyczc4eDN2TUFNenVPcGNubE5scE9VWTdIdGF5SFVkS1Z1V2l5U3h0YjNfbkV0QWxOVlRnVEdqc0JPR05lcmFiMVFQZVZweGxoV25WbjN5RWRsRFBTeUYwbWtOT2k0RnFfbmFDYWs2aGRaMWVwbUk5NUZINjNrUXNLZi05d1pkVnc?oc=5",
-          "published": "Wed, 09 Sep 2026 17:16:02 GMT",
-          "metrics": {}
-        },
-        {
-          "source": "google_news",
-          "team": "dallas-cowboys",
-          "text": "Mailbag: How quickly can the defense gel? - Dallas Cowboys",
-          "url": "https://news.google.com/rss/articles/CBMif0FVX3lxTE9UNTJ3VFhrel9vQTQ2bTQxN25sVmE4dlNUVS1NcnZpUXZOU2l4eXhVbnB2R2g2OGFsMzhCRjhWdW9pYTFpRjlxT1k2WWJhenpaR2MyWF81d0ZScm9mcTFteG1FWE1KWXZIalZhQ1ZEcUZtRDFxNWFsOWI3eTB3dEU?oc=5",
-          "published": "Wed, 09 Sep 2026 14:01:29 GMT",
-          "metrics": {}
-        },
-        {
-          "source": "google_news",
-          "team": "dallas-cowboys",
-          "text": "Storylines: Offseason work leads to this point - Giants.com",
-          "url": "https://news.google.com/rss/articles/CBMipAFBVV95cUxPejBvcjZYVlhmdUxVRk45Z2M3YjhCZG1GdDU3Z0V6Q1dsMkRxZ2hjVzJ2al95RGZfRllxWWtmYjFQT3F2VjVqX3QxeEJNeUxZRFM4MmtXeTh6SlNZVjBaTU41TGRSZjVqbFdtNEhtSUpfbVF5M2VVOEtTaGx3NmllTWk0SV93TTVWandvRzRSYVNmdktMRHhvX3lFMXB4QlN0dHpGaw?oc=5",
-          "published": "Wed, 09 Sep 2026 22:37:45 GMT",
-          "metrics": {}
-        },
-        {
-          "source": "google_news",
-          "team": "dallas-cowboys",
-          "text": "Media Mash: Playoff Pressure - Dallas Cowboys",
-          "url": "https://news.google.com/rss/articles/CBMicEFVX3lxTE1Lek5uWFFucUJ3ajM2dTUyVjM1OUd5SUpIVkU1WXBjTmNLTGtCRWtjeFV2R1h6QkYzcEhrU1BFbnNpN3FPdDVqNDRnMnlZWGU2RUZ3VldmOXdyOWZ2SFRHTDB2bG50WERDWGI5UG4zZHA?oc=5",
-          "published": "Wed, 09 Sep 2026 23:08:53 GMT",
-          "metrics": {}
-        },
-        {
-          "source": "google_news",
-          "team": "michigan",
-          "text": "NCAA establishes 'standard timing protocol' in wake of Michigan win - ESPN",
-          "url": "https://news.google.com/rss/articles/CBMitAFBVV95cUxQTkVWVnZSaWdEZC1qVmR4TGxGamZIaGpQaUJqbi1sclVhS2c4eFVxQ3JmcXlZRGEwWTVrUEd4aEp3YkdaT1FvNzNpV0d4ai1qdXc0Ymp2cXY4bWpHOFMwNGlabW1GejVRaVV4MnhPTVdJc2FQQmo3bENzMERRaGJ5TGxwWHVqS3lKVjdlcEhwTklnV2lqNW85T19UMXlvb1k5Mi1hNGMwdmZXdEVKcHB2eWtRNUM?oc=5",
-          "published": "Wed, 09 Sep 2026 01:55:00 GMT",
-          "metrics": {}
-        },
-        {
-          "source": "google_news",
-          "team": "michigan",
-          "text": "Michigan football didn't hire Kyle Whittingham to babysit a 5-star QB | Opinion - USA Today",
-          "url": "https://news.google.com/rss/articles/CBMiyAFBVV95cUxPdW5jbm9qVDM5QV9ieFF3b2hvNkMyR1FWd2lRTl93c1lULXdjMkUydDBuS2xJVm1Ob1RsNk9rZTBlUk1TTk5NNHhFQzBCbnhiekdyMTRNWWVhNFlONUhPTGNINFFYN1BSNWN0VWhlRXZpM2RSMUhrdzQ3MnRIdTlMR1IwdVVQWmI2NFl6cGxVZDk1SWpNN19pNTJzNWZ6bGtHNVlyV08zelpENjlZQy16YVZqUlNLN0JYeGxyc2FaemdyTHpGM1Vldw?oc=5",
-          "published": "Wed, 09 Sep 2026 13:47:00 GMT",
-          "metrics": {}
-        },
-        {
-          "source": "google_news",
-          "team": "michigan",
-          "text": "Reading between the lines: Rod Moore's impact, Oklahoma players to watch and 'very hungry' Wolverines - On3",
-          "url": "https://news.google.com/rss/articles/CBMizAFBVV95cUxObnNzV1pfRXJXTXZjc2lTeFRiZWRKR1N1dnNMaFN3ZU1jeDZCNzhPaldoTl96cVFqOG5jUDF0WnBhSVhlOExJQkR1OU1zUk53M1Z4RTZ5dXZqNkFoQno0WWswcU8xM2Fhd1N3WkY1bzdPXy1VZFMzaHMxcXpGZ0dBYUNQWmdhUTVqMjBSci1FbEVPUnBUTFVHelNGVFgtT2txWEdNWXpwTWdOLV95cWZ3bG9qM21NMkpSSkdKbFdzNy15T21JMk1YZkEyalY?oc=5",
-          "published": "Wed, 09 Sep 2026 22:46:56 GMT",
-          "metrics": {}
-        },
-        {
-          "source": "google_news",
-          "team": "michigan",
-          "text": "Former Michigan QB drops to No. 3 on Vikings’ depth chart entering season opener - MLive.com",
-          "url": "https://news.google.com/rss/articles/CBMizgFBVV95cUxOUG95aEJEanpqMzQySWpNOFhWdkdmYjdjZDFWcGVTQkJvdkFjUzkzWTdocEs3UXBtQjRlR1VHSjUxT3o3cVRWSFJqM1RKR1F1NjQtc0lVeEdfcjdwb1RDeFZzcHh0R0NmN2otaXYxd09ad0xNcHkzdjR5VFdETjNZY1RqNDdXOFJ1WkZrR1pHcXhDaTlPdmJzdXI2V0dSd2dKalVZMGtXOU1hUWMwV29XSVRZSUZ0VzFUS3VkV2NIY1pDSHRVMHY2a2pNX0ZzUdIB4gFBVV95cUxQOUNidVRFMTJJSEtvc0xMOWVMM2tMQy1FcTZrQzh3WlZKNzNYeXdCa19kYzJGNzE0ZTd5bmYtM2NUanh4a2VXTmgzRzJuZ1VqbXU4VVFVY20yWnpXWVRjV2hRMjJPZXY4V0pfMDY0eDM0ZEJXU0RiR0xhQkd2elZmSzUtLWNSNUdYRGo3Ny1RWGJWNENLNWVRNTRCQVdmRXJ4eDI0YThBZm9JdFpQVVRfUFF1OFJ2bjJRRW5YVVphSFVtZ29oaDVMVEVoYWdoVk95OUx1ZUp0NlIyTks0SEk4czh3?oc=5",
-          "published": "Wed, 09 Sep 2026 21:43:00 GMT",
-          "metrics": {}
-        },
-        {
-          "source": "google_news",
-          "team": "michigan",
-          "text": "Michigan Football must fix a broken run game before it’s too late - Maize n Brew",
-          "url": "https://news.google.com/rss/articles/CBMiogJBVV95cUxQZThxM2NHUk1hOVFaTTZKSTlPd0FDNGhfb0kzU3NQTVJrSGRmTjZRUlY5d1VnUUJRSXBuY2RuYXdfaFMzZVBPSkgwS21ZU1Rfd2RmSG9vVXdyRW1MLTRuRUVsOU9BVXZVMWtHSjk5YXlZeHBnZGNWU2VUSUw5Qzh6TF9nNlZ0STdESzgyT1FQd3RYRTJ0bFRwZ2lIdlMzOGwzVDVSaXBQR2ZKd3JOZksxUHZ2STlpeGU2NjZvSHU1d0xCUmc4SklJdllYQkhCU0VwMVprMjdiQzRlbzdBN2hMdTFIcFBsQnFBZ01IVzJSMVk5U3YzQ3d6RE56RWNOMVI5ZXBnbm13YUJhMUNlYkZLMjVNQjhmYkFTOW9nUXBNNkM3QQ?oc=5",
-          "published": "Wed, 09 Sep 2026 11:00:00 GMT",
-          "metrics": {}
-        },
-        {
-          "source": "google_news",
-          "team": "michigan",
-          "text": "Bryce Underwood's Comments Show He Does Not Get It - Sports Illustrated",
-          "url": "https://news.google.com/rss/articles/CBMiqwFBVV95cUxOd1loRS1ieG14QVpDQzBuUjM0MWlMYU94cGJVR09LYU1xbTBnSDFNaFpuUFlTTC00S1FmRVByTDhwNFJaZi1KYVRrSVpCWl9VeHU2cnhpWlNBVjZZNlRMYUJjX1h5V0FLOW8xaExRX3N6SEpOOWtNYXNCbVoyTFY4YXpFelZwN1NndUJ2Yl9IajFxUFFLYVQ5YjI2V0t4b09EMVhxbTlJSUlEZ1E?oc=5",
-          "published": "Wed, 09 Sep 2026 20:00:03 GMT",
-          "metrics": {}
-        },
-        {
-          "source": "google_news",
-          "team": "michigan",
-          "text": "Urban Meyer: Michigan Has Issues ‘Even Greater’ Than Bryce Underwood - FOX Sports",
-          "url": "https://news.google.com/rss/articles/CBMipgFBVV95cUxNS09JdGc2Y0I2dnpKTFQ4TGE5N2VWN2VidzN0cmVGR3NvSC1jLXFsWEFVa21yT1RXZTg2VXNKZDh6ZXRCS0x6Qk9aMkU4NnVzQzBseVJqZ0ZEY2pSWHpkTW9yYy1kSTNyUURnS3hZczJpVmZuaDQ3dHRFeWhWN0FnY0hUdW84MHFSTWRud05rN2J3Tl9VMXE4NnNWbDUxZzFUOXRyM2dn0gGmAUFVX3lxTE03NWN6bFNvMlVHNGxGNlRoQzVsQk51SFFzbzhDeGVMZTJpS0IxT21ZRWRCZmRPamZEZlZjS2FlUUFmS3lETkJqenR6Ylp2T2FFaWlXUm1tZkhVZ0dVS3BobzZGYTRORF9la0RkMFEtMklBaE9uTkNjTVExM3M2VlJKampTS0lnWU5tdkE5TGx2Q3FZLVhMb3lCN29BSE5nN0dMYXc1UXc?oc=5",
-          "published": "Wed, 09 Sep 2026 13:11:32 GMT",
-          "metrics": {}
-        },
-        {
-          "source": "google_news",
-          "team": "michigan",
-          "text": "Michigan eager to turn the page after 'soft' and 'embarrassing' opener - freep.com",
-          "url": "https://news.google.com/rss/articles/CBMi1AFBVV95cUxNUG9JT1JxNnJmQUNub2pYZHdwRlB6aWl6SlhMUlBzZnNYTUlmT0djbmdmVEFZMW1Nb2o2NTR0amFuUVN3WVFBMVNYenRyb3hPbkdsVkhtaThwWGkyWm1mZ2NjS0s5VXNHQ2t1SkZzWDhGdENteDBzMm9vUFVaM1RLeldNY3pEZnlMTzdKdzhNbW51aE9YZUw0c0R5cE03a29zYTl1Y1pBM2N3dF9qbEluSWxlVGJLTWtiMkFGWjU2MmRPZWRmRno2MXRWWW96b180MlF5dw?oc=5",
-          "published": "Wed, 09 Sep 2026 09:12:00 GMT",
-          "metrics": {}
-        },
-        {
-          "source": "google_news",
-          "team": "michigan",
-          "text": "Michigan Monday: Game 2 vs. No. 11 Oklahoma - University of Michigan Athletics",
-          "url": "https://news.google.com/rss/articles/CBMiekFVX3lxTE1hNGs1aTJ1RW41bi1VNEpOaDdTQXZxVGptM2NsOHRlZUF5UmhpWVRQS2F3ejdSSEw5dzBWaGhYU19SZExuZm9SVjRuRkxpWEpONEZLLUw4d2E5LXNKZVo1V3c5T0RSM0p0S0ZocTFhOUxGMDRzeTczV2VR?oc=5",
-          "published": "Mon, 07 Sep 2026 19:28:59 GMT",
-          "metrics": {}
-        },
-        {
-          "source": "google_news",
-          "team": "michigan",
-          "text": "Michigan falls out of AP Top 25 college football poll after win - ESPN",
-          "url": "https://news.google.com/rss/articles/CBMirAFBVV95cUxQZkttbG4xaTFIQlREQWZwdl9qNG9pcFZWSWFZWTQxY0djZVFkOVVQSEwwdERjLWJPeEpCX3Q0STdLWWFLN1BBWWNzVlN4cFpRQ25TdFNUdHJSSDR6YXhUeVhUSHFtN3lpQkd2Ynp2MXJtb3lNb3ZNRlk0MXNHeDc3WjJXa0VCYlZCNkc0Tmg3TV9HRExJWmlHbjEyRXIwOHZQejUyWmpVYXlXSHdM?oc=5",
-          "published": "Tue, 08 Sep 2026 18:26:00 GMT",
-          "metrics": {}
-        },
-        {
-          "source": "google_news",
-          "team": "michigan",
-          "text": "How a Player-Led Meeting Could Change Everything for Michigan Football - Sports Illustrated",
-          "url": "https://news.google.com/rss/articles/CBMitgFBVV95cUxQamltdU11T2hHX0h5U2RROVJfVWdiWkwzcHIxQk1YcHNmNjlPb2VHSWVUWjhYekJZQ2tROHVXQlVqOTUzcjZuNUN1VHEtRVM3dlVVcHhCcjBQdXVubk92T2p3ODduOThnVEFONElnWE16Szg2R3ZoYkdNNVFEcV80NEdYNFZ0Q0hrcTlaWVU5czVfempBWE1LWG93blFmMVhFTGJ5QVVRWFJOZUJ3NFA3ZWk3M3ZyQQ?oc=5",
-          "published": "Wed, 09 Sep 2026 17:30:00 GMT",
-          "metrics": {}
-        },
-        {
-          "source": "google_news",
-          "team": "michigan",
-          "text": "NCAA confirms final decision on overturning WMU-Michigan result - Yahoo Sports",
-          "url": "https://news.google.com/rss/articles/CBMikwFBVV95cUxOZDZTY29yWkliZGhXd2UzQUY5NUhyTEZJMTdwU05YV210bWU5NDhYNFBlSUhhOWJmblNVdWtCWTFRbnZ2WWFEZDAwdDREc3ZfUGo2Z1cwdF94dlNIV2dEYTBiV0hiUXZWVUtUU2d5STBmQW1yR0JfLVNfWWdBXzcwRlBZSEVoeVZBdktwSUt1QzRkUjg?oc=5",
-          "published": "Wed, 09 Sep 2026 14:40:16 GMT",
-          "metrics": {}
-        },
-        {
-          "source": "google_news",
-          "team": "michigan",
-          "text": "NCAA says Michigan football win over Western Michigan will stand - freep.com",
-          "url": "https://news.google.com/rss/articles/CBMi-AFBVV95cUxQTjJlcEhwM1RtWjQxR1ZaSXE5Mno4NlE5cE84akZva1E5VzJxSWJnQ19jY3p1a3FKaHlDYzU0aGM5Q2o2c0Jpdm40aFdVYmNaUDF1MXN1aWRSMWZNS0hGckZJNnFVcXN0YThMLXNJRnR0Z2RrVHRlUWZXMHZUOXhPRFBJaVVBSWl0dnRIRVFMRFpQT0pJVzVOWXJyTXlFcDBmaUJfUDVEOFdlamtibTNBRXJmcGZMNDRWb3J6WENnVGhCcDZPVGZtUWhGZ19mekRxcTluZFpJSXg4d3hYaGtadHU1Qm9fb0tsaHZWaVdIOGEzY3h1eHRGUQ?oc=5",
-          "published": "Wed, 09 Sep 2026 15:40:00 GMT",
-          "metrics": {}
-        },
-        {
-          "source": "google_news",
-          "team": "michigan",
-          "text": "‘Soft, weak:’ Michigan football leaders sound alarm after troubling opener - MLive.com",
-          "url": "https://news.google.com/rss/articles/CBMiwwFBVV95cUxNQTlXemVWemdvalEtM2wzYjVDXzB6Qy1xQ2x3bnUxa1RmeWFZUmRpS0JHMndrYW53M1o1LXJMdk5haHNCWkd1Z0ZvRzZwNDN5MWsxWUNZNjJOYnlXbFlzVVFzUmw1WXp5ekY4U01jb2hsb205NUdnakZPWVFwTTN1Rm5nR2ltNVU4SHdOZ2JLUzNWWmFhUkpyRnNyLUlLQ3cwZXFmMnRqTEhQNmU4NXZyY3NyMC0xU2s1YjRPc2xzUTd4VG_SAdcBQVVfeXFMT2ZRNXdPQmhCTWpHOVJLWUR6cFZfSU9UVS0tLUxqT0xsMjEwV1JIbGZ0VDNrQndib09Id3B6bzRqbENqRjkwb2N6OGt1SEdOLXM1Rkhqd1Q5UURMX0wtQXFGcTBFWjdSa01Jb2gxR0pUOHQ2ZVFpRzBZcmM1d2lnTDQ0dHF5ZjdmZ19vVHZ6ZUNfbmRIZkNvT1lFRnZaaVdMczc3aWl2VVdEY2JoRE9XNnpYczYtcGVXZUcwM0ZVVHR4WjdrZ3puejhEZEVJMXB0V2FSX3Q5dmM?oc=5",
-          "published": "Wed, 09 Sep 2026 11:50:00 GMT",
-          "metrics": {}
-        },
-        {
-          "source": "google_news",
-          "team": "michigan",
-          "text": "Scouting the opponent: Michigan Wolverines - Norman Transcript",
-          "url": "https://news.google.com/rss/articles/CBMi0wFBVV95cUxQelQ1TTI5VzFqelFIa2R0X2FnRzJlZW95alg2Z2wxUllPTjd1N1hUR0R5SENTeTItaXNOWUlHdkR1SmE3ODFZQjU3cV9xT0lNcmIzbW1NWnZsYmdhdXZ3SnQtRFVRbWlGeFB4MldyWUpiRzZ4anZsWFZlaDhuZWNJUmlJNE9uOGgyZXlWTjkwRVlQVV9sR0V3Mi1nb214SHFkZWoyRGY4LXFtQVJQX0RDUTVTd2hmeHo4aWVwWkZqeDkyblRObW9KMmlrVldsME5ocElZ?oc=5",
-          "published": "Wed, 09 Sep 2026 11:00:00 GMT",
-          "metrics": {}
-        },
-        {
-          "source": "google_news",
-          "team": "michigan",
-          "text": "How & Where to Watch Western Michigan vs. Michigan - NBC TV Network",
-          "url": "https://news.google.com/rss/articles/CBMihAFBVV95cUxQcTlsbG9WSmdLSFYtM3UzMTJweERQZDFDSHIyeE9LYVVyNVBLdzM1Yk9TWU5SUi1vU0haTE10ODcycF9FdVlLR0FWLXFDbjhqZ25NMHZXUnJMeENtTHZDWEttY2hVYUdqcnF6R0dDQkFQVWJYV241ZG10M3JReVBYX0dEV00?oc=5",
-          "published": "Sat, 05 Sep 2026 11:02:02 GMT",
-          "metrics": {}
-        },
-        {
-          "source": "google_news",
-          "team": "michigan",
-          "text": "LSU soars into top 10, Michigan tumbles from top 30 in college football rankings - cbssports.com",
-          "url": "https://news.google.com/rss/articles/CBMipAFBVV95cUxQOC1JekV3QWVnbWpNYWhrdk9EeUhSb1F6MVpzZXlpOFFMUm9FXzFNenFLeXBMbTNxM25qZG5OVmM1NnJoTzhXUjJmQXZCQ1M4dW9JdmItYnJBQnRqWENXLXZQSktVUUEtbV9EdVBKYXo5OTBtT184VTNhblh3VWlSdzA0SjBZWTJXZ1Q5aTR2eEJjT3hnTmVTaUF3QjBtdkV5UmppUA?oc=5",
-          "published": "Wed, 09 Sep 2026 14:53:14 GMT",
-          "metrics": {}
-        },
-        {
-          "source": "google_news",
-          "team": "michigan",
-          "text": "Inside Michigan Football: Key position battles, depth chart news for the Wolverines - 247Sports",
-          "url": "https://news.google.com/rss/articles/CBMi1gFBVV95cUxOaUxvSnBKQ2lmY0JsX1MtdTZNelhCb0V3S0xFMDc5SlZ3dkRRVnlVc1VFeW5KdEljZXpXRVBaSUhNaVlJSjI1YjN5SjZQcE9XbmxTSkFiS01oTmxZMFJnN3Fpb1NsRlVNVVVGdk10QW1PRjB5aElSTkE0cUFlaXBlT25sOHVVSEw5S0VGMl8zOG0tcnBtbkpjcmZvQUhBYUtuZFpOZzhrRHVVWkVVWjRLVC1WeFIyNUtOV1RFT1N2OGVpQThOMXVIUXZWRWtwWW4xMXN0bldB?oc=5",
-          "published": "Wed, 09 Sep 2026 12:55:02 GMT",
-          "metrics": {}
-        },
-        {
-          "source": "google_news",
-          "team": "michigan",
-          "text": "Former Michigan Football Coach Predicts Win Over Oklahoma in Week 2 - Sports Illustrated",
-          "url": "https://news.google.com/rss/articles/CBMisgFBVV95cUxPSkJsRmxIR1JqcUxKa1ZjZ0dwcDBEZVBJbUlfcHB1TEpLWnJVX192M0FsRE15dEN0bDg5RlNzSnJPLVF3Y1NTM2lvV2dmX2hjM2piMVNPWUw2NWpsNkZkQi1EV1dkYWpMRFB6LXFsOHBpQmVncFFVRHFYcG1oc3J2ZU1uMHZQR09la3Fmb0RtZEtLR3ZEUHU2dnJaXy1QNWlQNnRhVVVnRnpPeTRhaWdaekZ3?oc=5",
-          "published": "Wed, 09 Sep 2026 13:30:00 GMT",
-          "metrics": {}
-        },
-        {
-          "source": "google_news",
-          "team": "michigan",
-          "text": "Michigan football vs Western Michigan time, channel, streaming and odds - freep.com",
-          "url": "https://news.google.com/rss/articles/CBMi-AFBVV95cUxOX3BFUjE3Rk9rVTFXRFBXb3p5cHEyNE1pVUQ1T3NCaVB5QjRfZ0daenNCT1NqemxDRldyeTVjS3l5SDRhZlNWTllicjBXRHFLeVYyT0FCNkp1YmxMYWRMMmJWdmMwbmtTb2llZFhNckJCVFJLdmdPVE9Ic3lKUXowUjdmWXpDSlBFLS1KVTdJcEFoQ0tQb01DLVlzaENMTlExblA4OXNkZmFValNkbEJYZno4WklfWC1uRVUxLVBfVDdyb2FhQ0lja0g3YzhEdnhyVW1QSXZUUG9aN19lT094eFFJY3V5ZmdMREdxSWlsdTBqTTNBWmVwbw?oc=5",
-          "published": "Sat, 05 Sep 2026 21:30:00 GMT",
-          "metrics": {}
-        }
-      ],
-      "reason": null
+      "status": "error",
+      "items": [],
+      "reason": "<urlopen error TLS/SSL connection has been closed (EOF) (_ssl.c:992)>"
     },
     "reddit": {
       "status": "error",
       "items": [],
-      "reason": "HTTP Error 403: Blocked"
+      "reason": "<urlopen error TLS/SSL connection has been closed (EOF) (_ssl.c:992)>"
     },
     "x": {
       "status": "not_configured",

@@ -1440,7 +1440,7 @@ class CreatorCollab(unittest.TestCase):
             self.assertIn(s, live, s)
 
     def test_every_card_carries_price_shop_and_creator_tag(self):
-        for m in re.finditer(r'<a class="j(?:feat|card) reveal"(.*?)(?=<a class="j(?:feat|card)|</section>)',
+        for m in re.finditer(r'<a class="j(?:feat|card)"(.*?)(?=<a class="j(?:feat|card)|</section>)',
                              self.html, re.S):
             block = m.group(1)
             self.assertIn("?creator=JOE", block, block[:80])

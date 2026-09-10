@@ -1843,7 +1843,7 @@ def page_creator(ckey="joe"):
     def jcard(it, cls, eager=False):
         lazy = "" if eager else ' loading="lazy" decoding="async"'
         tag = {"player": "Player Story", "retro": "Vintage", "funny": "Culture"}.get(it["theme"], "Game Day")
-        return (f'<a class="{cls} reveal" href="{jlink(it)}" '
+        return (f'<a class="{cls}" href="{jlink(it)}" '
                 f'data-slug="{it["slug"]}" data-price="{it["price"]:.2f}" '
                 f'data-creator="{track}" data-collection="{ckey_col}">'
                 f'<span class="jph"><img src="{it["front"]}" '
@@ -1938,7 +1938,7 @@ def page_creator(ckey="joe"):
 
 <section id="picks" class="jpicks">
  <div class="wrap">
-  <div class="jsechead reveal">
+  <div class="jsechead">
    <span class="jeyebrow"><span class="jdiamond"></span> Featured</span>
    <h2>Joe's Top Picks</h2>
    <p>Four designs Joe is most excited to see on the street this season.</p>
@@ -1949,30 +1949,30 @@ def page_creator(ckey="joe"):
 
 <section id="locker" class="jgridsec">
  <div class="wrap">
-  <div class="jsechead reveal">
+  <div class="jsechead">
    <span class="jeyebrow"><span class="jdiamond"></span> The Locker</span>
    <h2>Joe's Michigan Collection</h2>
    <p>Every design in this locker was picked by Joe from the Gridiron Locker Michigan
    collection - game-day tees, crewnecks and vintage-inspired pieces with original artwork.
    No official logos, no licensed assets: just Michigan football culture.</p>
   </div>
-  <div class="jtrustwrap reveal">{trust()}</div>
+  <div class="jtrustwrap">{trust()}</div>
   <div class="jgrid">{grid_cards}</div>
  </div>
 </section>
 
 <section class="jfaq">
  <div class="wrap">
-  <div class="jsechead reveal">
+  <div class="jsechead">
    <span class="jeyebrow"><span class="jdiamond"></span> Good to know</span>
    <h2>Frequently Asked Questions</h2>
   </div>
-  {"".join(f'<details class="jqa reveal"><summary>{esc(q)}</summary><p>{esc(a)}</p></details>' for q, a in faq)}
+  {"".join(f'<details class="jqa"><summary>{esc(q)}</summary><p>{esc(a)}</p></details>' for q, a in faq)}
  </div>
 </section>
 
 <section class="jcollab">
- <div class="wrap center reveal">
+ <div class="wrap center">
   <h2>YOU'RE IN JOE'S LOCKER.</h2>
   <p>Every order placed through Joe's collection supports the collaboration and helps us
   create more Michigan football designs together.</p>
@@ -1980,7 +1980,7 @@ def page_creator(ckey="joe"):
 </section>
 
 <section class="jfinal">
- <div class="wrap center reveal">
+ <div class="wrap center">
   <span class="jeyebrow navy"><span class="jdiamond navy"></span> Joe &times; Gridiron Locker</span>
   <h2>JOE'S MICHIGAN LOCKER</h2>
   <p>More Michigan designs coming as we build this collection together.</p>
