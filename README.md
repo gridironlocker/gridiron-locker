@@ -24,7 +24,7 @@ python3 marketing/three_day_pulse.py` to refresh the short-lived brief.
 | Item | Count |
 |---|---|
 | HTML pages | **154** |
-| Product pages (one per design) | **129** |
+| Product pages (one per design) | **130** |
 | Collection pages | 4 (+ All Collections, + Search/browse all) |
 | Creator collaboration pages | **1** (Joe's Michigan Locker, `/michigan/joe/`) |
 | SEO buying guides (articles) | 5 (4 buying guides + Week 1) |
@@ -32,7 +32,12 @@ python3 marketing/three_day_pulse.py` to refresh the short-lived brief.
 | Product images self-hosted | **1,718** |
 | Broken links / invalid schema | **0** |
 
-Collections: Cleveland Browns (63), Green Bay Packers (37), Michigan (19), Dallas (10).
+Collections: Cleveland Browns (64), Green Bay Packers (37), Michigan (19), Dallas (10).
+
+> The newest Browns campaign, `limited-edition-no-fly-zone` (added 2026-09-10 via
+> `add_campaign.py`), still hot-links its mockups from `assets.viralstyle.com`: the next Refresh
+> run's `dl.py` downloads the local WebPs and the build swaps them in. Until then the page renders
+> from the supplier CDN, which the sanity gate and `abs_url()` both expect.
 
 ### 4 dead campaigns found
 These slugs no longer return product data on Viralstyle and were excluded — relaunch them and
