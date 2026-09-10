@@ -668,7 +668,8 @@ def header(active=""):
     generator.
     """
     links = "".join(
-        f'<a href="/{COLLECTIONS[k]["slug"]}/"{" aria-current=page" if active == k else ""}>{COLLECTIONS[k]["short"]}</a>'
+        f'<a href="/{COLLECTIONS[k]["slug"]}/"{" aria-current=page" if active == k else ""}>'
+        f'{esc(COLLECTIONS[k].get("menu", COLLECTIONS[k]["short"]))}</a>'
         for k in ORDER)
     search_ico = '<svg width="17" height="17" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.8" aria-hidden="true"><circle cx="11" cy="11" r="6.2"/><path d="M20 20l-4.3-4.3"/></svg>'
     return f"""\
@@ -982,7 +983,10 @@ def footer(popup=True):
     floating card there would fight the mobile shopping bar for the same
     corner of a phone screen.
     """
-    cl = "".join(f'<a href="/{COLLECTIONS[k]["slug"]}/">{COLLECTIONS[k]["short"]}</a>' for k in ORDER)
+    cl = "".join(
+        f'<a href="/{COLLECTIONS[k]["slug"]}/">'
+        f'{esc(COLLECTIONS[k].get("menu", COLLECTIONS[k]["short"]))}</a>'
+        for k in ORDER)
     # Creator collab pages are a permanent Shop destination (one link each,
     # e.g. Joe's locker at /michigan/joe/).
     cl_creators = "".join(
@@ -1256,8 +1260,10 @@ def shop_nav():
         the same links are already on screen. Safe-area padding keeps it
         clear of the iOS home indicator.
     """
-    links = "".join(f'<a href="/{COLLECTIONS[k]["slug"]}/">{esc(COLLECTIONS[k]["short"])}</a>'
-                    for k in ORDER)
+    links = "".join(
+        f'<a href="/{COLLECTIONS[k]["slug"]}/">'
+        f'{esc(COLLECTIONS[k].get("menu", COLLECTIONS[k]["short"]))}</a>'
+        for k in ORDER)
     return f"""<div class="shopbar" id="shopbar">
  <div class="wrap sb-in">
   <span class="sb-lab">Shop</span>

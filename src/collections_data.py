@@ -7,6 +7,7 @@ COLLECTIONS = {
         slug="cleveland-browns-shirts",
         name="Cleveland Browns Fan Shirts",
         short="Cleveland",
+        menu="Browns",
         h1="Cleveland Browns Fan Shirts & Dawg Pound Apparel",
         title="Cleveland Browns Fan Shirts, Hoodies & Dawg Pound Gear",
         city="Cleveland, Ohio",
