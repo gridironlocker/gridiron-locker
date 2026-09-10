@@ -119,7 +119,7 @@
     {
      "name": "deshaun watson",
      "mentions": 17,
-     "index": 63,
+     "index": 74,
      "status": "trending",
      "gap": true,
      "shoppable": false
@@ -127,7 +127,7 @@
     {
      "name": "shedeur sanders",
      "mentions": 16,
-     "index": 59,
+     "index": 70,
      "status": "trending",
      "gap": false,
      "shoppable": true
@@ -135,7 +135,7 @@
     {
      "name": "todd monken",
      "mentions": 6,
-     "index": 22,
+     "index": 26,
      "status": "trending",
      "gap": true,
      "shoppable": false
@@ -143,7 +143,7 @@
     {
      "name": "denzel ward",
      "mentions": 2,
-     "index": 7,
+     "index": 9,
      "status": "steady",
      "gap": false,
      "shoppable": true
@@ -151,7 +151,7 @@
     {
      "name": "myles garrett",
      "mentions": 2,
-     "index": 7,
+     "index": 9,
      "status": "steady",
      "gap": false,
      "shoppable": true
@@ -234,7 +234,7 @@
     "jordan love": 7,
     "micah parsons": 2,
     "robert tonyan": 0,
-    "josh jacobs": 15,
+    "josh jacobs": 16,
     "matt lafleur": 5
    },
    "top_terms": [
@@ -256,8 +256,8 @@
    "fan_trend_index": [
     {
      "name": "josh jacobs",
-     "mentions": 15,
-     "index": 56,
+     "mentions": 16,
+     "index": 70,
      "status": "trending",
      "gap": true,
      "shoppable": false
@@ -265,7 +265,7 @@
     {
      "name": "jordan love",
      "mentions": 7,
-     "index": 26,
+     "index": 30,
      "status": "trending",
      "gap": false,
      "shoppable": true
@@ -273,7 +273,7 @@
     {
      "name": "matt lafleur",
      "mentions": 5,
-     "index": 19,
+     "index": 22,
      "status": "trending",
      "gap": true,
      "shoppable": false
@@ -281,7 +281,7 @@
     {
      "name": "micah parsons",
      "mentions": 2,
-     "index": 7,
+     "index": 9,
      "status": "steady",
      "gap": false,
      "shoppable": true
@@ -361,12 +361,12 @@
     "dallas",
     "smith",
     "tyler",
-    "jones",
     "trade",
+    "jones",
+    "make",
     "pickens",
     "offseason",
     "practice",
-    "make",
     "moves",
     "mailbag"
    ],
@@ -376,7 +376,7 @@
     {
      "name": "ceedee lamb",
      "mentions": 4,
-     "index": 15,
+     "index": 17,
      "status": "trending",
      "gap": true,
      "shoppable": false
@@ -384,7 +384,7 @@
     {
      "name": "dak prescott",
      "mentions": 4,
-     "index": 15,
+     "index": 17,
      "status": "trending",
      "gap": true,
      "shoppable": false
@@ -397,6 +397,12 @@
    ],
    "query": "Michigan Wolverines football",
    "headlines": [
+    {
+     "title": "Michigan football eve: Final thoughts on Underwood, the defense, transfers",
+     "url": "https://news.google.com/rss/articles/CBMixAFBVV95cUxNaUJXc0FYUFRkRnZPd1p3a3l5WklHamJsVXZQOHY4N0JKWWFPNHo4MllLMEJyS3ZXOFZtdG5Gb1N4ODBra2ZjRHYwTWxSeTJ4NDVqbzE1UzJrYVBfT0I0VFJQMzY1Vjh5ZHlBWHE1Y0NoUGl6dzQtRlA4Q1p1bHE5VnVyMkNheFhSSGF0Z3FZU3l5ZHhFUVRJUHlDVjgzUFhQakVXdXNsX0tab2FEOGNHRDd6enJ2czhXX0xSRWdoMnBydXgz0gHYAUFVX3lxTE1JYXhWOGs1S01KckpLUXRoVTJlM3JWem9McGw5d0RzSlBKNjhzVVJMSDROU1MzRFVtY2V3NEwwRXVxaVgxWmoyVmhWd1FUZmZCa2J2NUtZVm16Z1JrYzZ2MTZmdEstM25HMWxrLUdSaWR2NExLUTY2MS1iQ05pQW1VRkpoTEpqOHhLSG1MclFNZFJxQmhxN1ZxYWx5Z3F5SEYyZ09fUDZhY191WHhuNmktd3ZOSExpaEhWSmdTYzdvZjJUVjJiUDM1ODY0czJjcmRBYnZWbEhBUw?oc=5",
+     "source": "MLive.com",
+     "pub": "Fri, 04 Sep 2026 11:15:00 GMT"
+    },
     {
      "title": "Michigan Monday: Game 2 vs. No. 11 Oklahoma",
      "url": "https://news.google.com/rss/articles/CBMiekFVX3lxTE1hNGs1aTJ1RW41bi1VNEpOaDdTQXZxVGptM2NsOHRlZUF5UmhpWVRQS2F3ejdSSEw5dzBWaGhYU19SZExuZm9SVjRuRkxpWEpONEZLLUw4d2E5LXNKZVo1V3c5T0RSM0p0S0ZocTFhOUxGMDRzeTczV2VR?oc=5",
@@ -422,34 +428,28 @@
      "pub": "Sun, 06 Sep 2026 03:28:10 GMT"
     },
     {
+     "title": "One Second, One Hail Mary, One Unforgettable Michigan Victory",
+     "url": "https://news.google.com/rss/articles/CBMipAFBVV95cUxOeTVBSjRCZzMtWTNBVXBBNE9PRDJLeExidkQ4WmxzQlNhZkxhZlJadldmSFBudGsxVEtXcmFNcS13SVhJbFBucE5ZV1RrYUtXeHhFTW51RDhOV0wxS3B0WlBVREV3VndCclNBaWw1NzZ6d0pNNU96bmI0SkZIS0N1OTJDZWoySGhpQ2VjZHVYcVAxcnNqaEJFalhva0pORVk1MEhDQtIBpAFBVV95cUxNdkVNc295QVNmMENUYmdQd3hBcWIzVURBZ3YyNlNJSUJSRUJ5ZGN3UUdmcEZPT3V0WjUySWJtZjhSYWlHTFpfNnB1Sk1EeGZuYTVIU3ZPT0pmN0N0Wk53Wl9HbkJza1NwMUg3TWtXZjg1XzU1M1VaTmI4eHUxNEJMdVRncVYxLWUzdERFZTlGWGQ5NVozRDgzY1pDa2xTeG9DWFZTYw?oc=5",
+     "source": "FOX Sports",
+     "pub": "Sun, 06 Sep 2026 05:31:28 GMT"
+    },
+    {
+     "title": "Michigan football stuns WMU with miracle Hail Mary after game seemed over",
+     "url": "https://news.google.com/rss/articles/CBMi7wFBVV95cUxNZFo3bzVDa3dONFBQejBmamhJQ2RSWldSZ1FIellxcHdaU1BlNUt5Y0ZjSUtEYnZWR0hUang2WFQxLV9oMF9tOXU0eTBfM2k1di03OGNhZmo2ZlE5RDBMRFRmbXlmdkJ0eHQ0aG1LS0czRk9EWWRkU0hTS0UyY2xiLXI1a3BfYW1FcGpSald4Zm1aUVZ3cURzcXpTeVc4T2xISDRRcm4wajNKd0JrR2NmZmhoaGJJZU8yZTc3SjdkLUt1VU1CUUszeUVkVGNvSUE1TGdvYllJZlBLNHVzcnZaQjVhYTRmTnJBX2s0ZnVYdw?oc=5",
+     "source": "Detroit Free Press",
+     "pub": "Sun, 06 Sep 2026 03:34:15 GMT"
+    },
+    {
      "title": "Big Ten explains controversial ending to Michigan-Western Michigan",
      "url": "https://news.google.com/rss/articles/CBMijwFBVV95cUxPOFk4SnpWTTNRYzg2aDhOOFJHUXNFbWI2cG9aUUQtVFB5T3NpNFdRZTJHd29kZy1obUJhaWtXSFk4d24yakNFQjJaOExyc0s1ZElkLVN0Wl9TN2pMVWhxc3I2aEhSVlpqRGZybm5kdjRRZXd6NWxFandhaFJYOGpMWXdFZWNZZzBsWUZVRXN5MA?oc=5",
      "source": "Yahoo Sports",
-     "pub": "Sun, 06 Sep 2026 05:30:00 GMT"
-    },
-    {
-     "title": "MAC appeals Michigan-Western Michigan result, asks NCAA to change result",
-     "url": "https://news.google.com/rss/articles/CBMihwJBVV95cUxPS1NrdDBTT2tHZERKcnVXU3QzeDFMTXBaX251TEpOYzMyQ2NvZWxvWHRGcEhLQVdSZ2YwamRGYmd4azZVWjRDRER4V1FOSWwzMTc0ekFtOE1QUmg5WEs4T3Bockw4MlU3czBON1NWLTNadEtkRTZndkZ0cVFZcmlHVUcyY0tab2tvSnBObE0tTjRsQXVTUG9JLUVBejBNQWN5OGpBYzZ2Vm5Ib3JGSUhBZXFtNUJVTXh2REtEa2lVT2hNbGRpcTNBNlhha3lNazdqdWxXWjEwdVNmelctM3BlMDNSSVNQVHJXRUFuLTdqdkQ2M1hiYXpVQzlYRTZkUGpETjVQU0lac9IBjwJBVV95cUxPZnRFZ3V2SmRrQTNDY0Y2bWYyT2l1QnJaME5MNUNKTjFaXzItV0VpNVRKNmJHMk5mb2hIZ1VUZDROY1g3d3d4OGdlMW1aVU9IdEVxOGhhTVBRSFhTQnUtUVNnZzF6V3pEWWlhT1kwc3lzR0l1UEg1eW1xNTJVdko3ekZGVlhhazdieUl4elo2ckQwbFowbUJzZm1YSjRpSTZiakx5emxIOHM4WllmR3VtSGhhbzkzc2w3Qi1jdkV1aWx0VU03MzBKNjhIQmRGMk91ZXA5NGhTbVExRVhmMFNBbTAybDlvOEUtb21oNkltR05kNDh1MHZfaG4ySWJwNEZyUWc5V2xINkQxdS0wUXdr?oc=5",
-     "source": "NBC 5 Chicago",
-     "pub": "Tue, 08 Sep 2026 19:30:19 GMT"
-    },
-    {
-     "title": "NO. 16 MICHIGAN WOLVERINES HOST WESTERN MICHIGAN BRONCOS IN BIG TEN SATURDAY NIGHT SEASON DEBUT THIS SATURDAY, SEPT. 5 AT 7:30 P.M. ET ON NBC AND PEACOCK",
-     "url": "https://news.google.com/rss/articles/CBMipgJBVV95cUxNdkVMR1RybTI3WFBubW1zemg5MHlUbWlDRG1KbG1tLVdvUEJXdGZlWElndng4dThWMy1zOGh1WjJuMU5GdEVocDZXVE1CTFd3NjRfTnFXLXpmS0VMMkxxN3ZVZV85MUl3bjdVSk94VzlEU2l5M0Z2WHdmSkNNdE5qSWFIY2kwYy1RQTZyOTM4MjM0Y2NuaExMODdwbmVmUEZHQlo5UC0xaVdQWjZGeGxKYVUtME1RU3g4aExfUTEzWl81WU1JLUZmT3BYVXZuZmk2QkFlYmNkZ2FUMXRHS292N08zYWIzZmVFOVBBZ25kdmF5RE9GV0o0Z2NIc19zNWlGQWRxSVZZMzc1Z0pTeUp6dTMtTXRicDVRaFl5RkJvdElqaV9XYXc?oc=5",
-     "source": "NBC Sports",
-     "pub": "Thu, 03 Sep 2026 20:17:04 GMT"
-    },
-    {
-     "title": "Western Michigan might not be a pushover, but that does not lower the stakes for Michigan",
-     "url": "https://news.google.com/rss/articles/CBMiwAFBVV95cUxNbDZIbXAzdnQ2MHF2SEpfX0RNSExsaEdZZ0F0Q1IwTmNnQmp5Q1ZEMHB0cWxTLU1rT0dLMkNmdmgzSEJGd3MwNElLY1pwM3FKNjYwQzEzclBZd2tqekZ2aXotMno3aUpZLUpXT3hDbjJYeUltVzd5THVyWWxUdFo2QmNKMlNMODhjdU15cllxRWdob1JiWndyRGNWUnR6RGRBU2ozQU8yX0s0RnVYZDhucmxzbjVBdHVOUHpWOGlRU00?oc=5",
-     "source": "Maize n Brew",
-     "pub": "Wed, 02 Sep 2026 18:00:00 GMT"
+     "pub": "Sun, 06 Sep 2026 05:30:05 GMT"
     }
    ],
    "entity_mentions": {
-    "bryce underwood": 27,
+    "bryce underwood": 23,
     "jj mccarthy": 0,
-    "kyle whittingham": 10,
+    "kyle whittingham": 6,
     "jordan marshall": 0
    },
    "top_terms": [
@@ -457,21 +457,32 @@
     "football",
     "western",
     "mary",
-    "underwood",
     "hail",
-    "bryce",
-    "controversial",
-    "wolverines",
-    "whittingham",
+    "underwood",
     "second",
-    "college"
+    "controversial",
+    "bryce",
+    "wolverines",
+    "ncaa",
+    "last"
    ],
    "headline_count": 100,
-   "moments": [],
+   "moments": [
+    {
+     "title": "Michigan football eve: Final thoughts on Underwood, the defense, transfers",
+     "url": "https://news.google.com/rss/articles/CBMixAFBVV95cUxNaUJXc0FYUFRkRnZPd1p3a3l5WklHamJsVXZQOHY4N0JKWWFPNHo4MllLMEJyS3ZXOFZtdG5Gb1N4ODBra2ZjRHYwTWxSeTJ4NDVqbzE1UzJrYVBfT0I0VFJQMzY1Vjh5ZHlBWHE1Y0NoUGl6dzQtRlA4Q1p1bHE5VnVyMkNheFhSSGF0Z3FZU3l5ZHhFUVRJUHlDVjgzUFhQakVXdXNsX0tab2FEOGNHRDd6enJ2czhXX0xSRWdoMnBydXgz0gHYAUFVX3lxTE1JYXhWOGs1S01KckpLUXRoVTJlM3JWem9McGw5d0RzSlBKNjhzVVJMSDROU1MzRFVtY2V3NEwwRXVxaVgxWmoyVmhWd1FUZmZCa2J2NUtZVm16Z1JrYzZ2MTZmdEstM25HMWxrLUdSaWR2NExLUTY2MS1iQ05pQW1VRkpoTEpqOHhLSG1MclFNZFJxQmhxN1ZxYWx5Z3F5SEYyZ09fUDZhY191WHhuNmktd3ZOSExpaEhWSmdTYzdvZjJUVjJiUDM1ODY0czJjcmRBYnZWbEhBUw?oc=5",
+     "source": "MLive.com",
+     "pub": "Fri, 04 Sep 2026 11:15:00 GMT",
+     "entities": [
+      "bryce underwood"
+     ],
+     "collection": "michigan"
+    }
+   ],
    "fan_trend_index": [
     {
      "name": "bryce underwood",
-     "mentions": 27,
+     "mentions": 23,
      "index": 100,
      "status": "trending",
      "gap": false,
@@ -479,8 +490,8 @@
     },
     {
      "name": "kyle whittingham",
-     "mentions": 10,
-     "index": 37,
+     "mentions": 6,
+     "index": 26,
      "status": "trending",
      "gap": true,
      "shoppable": false
@@ -506,13 +517,13 @@
  },
  "fan_trend_index": {
   "formula": "round(100 * entity_mentions / peak_mentions_in_window)",
-  "peak_mentions": 27,
+  "peak_mentions": 23,
   "window_days": 10,
   "generated": "2026-09-10",
   "rows": [
    {
     "name": "bryce underwood",
-    "mentions": 27,
+    "mentions": 23,
     "index": 100,
     "status": "trending",
     "gap": false,
@@ -522,52 +533,52 @@
    {
     "name": "deshaun watson",
     "mentions": 17,
-    "index": 63,
+    "index": 74,
     "status": "trending",
     "gap": true,
     "shoppable": false,
     "collection": "cleveland-browns"
    },
    {
-    "name": "shedeur sanders",
-    "mentions": 16,
-    "index": 59,
-    "status": "trending",
-    "gap": false,
-    "shoppable": true,
-    "collection": "cleveland-browns"
-   },
-   {
     "name": "josh jacobs",
-    "mentions": 15,
-    "index": 56,
+    "mentions": 16,
+    "index": 70,
     "status": "trending",
     "gap": true,
     "shoppable": false,
     "collection": "green-bay-packers"
    },
    {
+    "name": "shedeur sanders",
+    "mentions": 16,
+    "index": 70,
+    "status": "trending",
+    "gap": false,
+    "shoppable": true,
+    "collection": "cleveland-browns"
+   },
+   {
+    "name": "jordan love",
+    "mentions": 7,
+    "index": 30,
+    "status": "trending",
+    "gap": false,
+    "shoppable": true,
+    "collection": "green-bay-packers"
+   },
+   {
     "name": "kyle whittingham",
-    "mentions": 10,
-    "index": 37,
+    "mentions": 6,
+    "index": 26,
     "status": "trending",
     "gap": true,
     "shoppable": false,
     "collection": "michigan"
    },
    {
-    "name": "jordan love",
-    "mentions": 7,
-    "index": 26,
-    "status": "trending",
-    "gap": false,
-    "shoppable": true,
-    "collection": "green-bay-packers"
-   },
-   {
     "name": "todd monken",
     "mentions": 6,
-    "index": 22,
+    "index": 26,
     "status": "trending",
     "gap": true,
     "shoppable": false,
@@ -576,7 +587,7 @@
    {
     "name": "matt lafleur",
     "mentions": 5,
-    "index": 19,
+    "index": 22,
     "status": "trending",
     "gap": true,
     "shoppable": false,
@@ -585,7 +596,7 @@
    {
     "name": "ceedee lamb",
     "mentions": 4,
-    "index": 15,
+    "index": 17,
     "status": "trending",
     "gap": true,
     "shoppable": false,
@@ -594,7 +605,7 @@
    {
     "name": "dak prescott",
     "mentions": 4,
-    "index": 15,
+    "index": 17,
     "status": "trending",
     "gap": true,
     "shoppable": false,
@@ -603,7 +614,7 @@
    {
     "name": "denzel ward",
     "mentions": 2,
-    "index": 7,
+    "index": 9,
     "status": "steady",
     "gap": false,
     "shoppable": true,
@@ -612,7 +623,7 @@
    {
     "name": "micah parsons",
     "mentions": 2,
-    "index": 7,
+    "index": 9,
     "status": "steady",
     "gap": false,
     "shoppable": true,
@@ -621,7 +632,7 @@
    {
     "name": "myles garrett",
     "mentions": 2,
-    "index": 7,
+    "index": 9,
     "status": "steady",
     "gap": false,
     "shoppable": true,
@@ -705,6 +716,16 @@
     "deshaun watson"
    ],
    "collection": "cleveland-browns"
+  },
+  {
+   "title": "Michigan football eve: Final thoughts on Underwood, the defense, transfers",
+   "url": "https://news.google.com/rss/articles/CBMixAFBVV95cUxNaUJXc0FYUFRkRnZPd1p3a3l5WklHamJsVXZQOHY4N0JKWWFPNHo4MllLMEJyS3ZXOFZtdG5Gb1N4ODBra2ZjRHYwTWxSeTJ4NDVqbzE1UzJrYVBfT0I0VFJQMzY1Vjh5ZHlBWHE1Y0NoUGl6dzQtRlA4Q1p1bHE5VnVyMkNheFhSSGF0Z3FZU3l5ZHhFUVRJUHlDVjgzUFhQakVXdXNsX0tab2FEOGNHRDd6enJ2czhXX0xSRWdoMnBydXgz0gHYAUFVX3lxTE1JYXhWOGs1S01KckpLUXRoVTJlM3JWem9McGw5d0RzSlBKNjhzVVJMSDROU1MzRFVtY2V3NEwwRXVxaVgxWmoyVmhWd1FUZmZCa2J2NUtZVm16Z1JrYzZ2MTZmdEstM25HMWxrLUdSaWR2NExLUTY2MS1iQ05pQW1VRkpoTEpqOHhLSG1MclFNZFJxQmhxN1ZxYWx5Z3F5SEYyZ09fUDZhY191WHhuNmktd3ZOSExpaEhWSmdTYzdvZjJUVjJiUDM1ODY0czJjcmRBYnZWbEhBUw?oc=5",
+   "source": "MLive.com",
+   "pub": "Fri, 04 Sep 2026 11:15:00 GMT",
+   "entities": [
+    "bryce underwood"
+   ],
+   "collection": "michigan"
   }
  ]
 }
