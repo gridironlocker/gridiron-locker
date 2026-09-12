@@ -486,3 +486,44 @@ What was built:
 
 Preserved: every existing URL, product page and guardrail. Rebuild + test:
 `python3 src/build.py && python3 -m unittest discover -s tests`.
+
+---
+
+## Two more Michigan designs live (12 Sep 2026)
+
+The Mayzing Michigan storefront published two further designs this evening (18:10 and 18:20 UTC).
+Both are now on **gridironlocker.store**, captured field-by-field from their live product pages:
+
+| Design | Colourway | Price | Product page |
+|---|---|---|---|
+| Bryce 19 | Black (Gildan 64000) | $21.00 | `/shop/bryce-19/` |
+| Respond Nothing Given Everything Earned | Navy (Gildan 64000) | $21.00 | `/shop/respond-nothing-given-everything-earned/` |
+
+- **Where they live:** `data/mayzing_michigan.json` is the Michigan source of truth for
+  `src/build.py`, so both records were added there; the hand-written SEO copy (name, artwork line,
+  long-tail keywords, theme) went into `src/catalog.py`. `Bryce 19` is tagged `player` (name +
+  number tribute - Bryce Underwood is the current Michigan QB and a 2026 captain, so it passes the
+  who's-who gate); the slogan tee is tagged `classic`.
+- **Ordering:** the Michigan file is written newest-first (verified against each Mayzing product
+  id's timestamp), so both new cards lead the Michigan collection grid. Michigan is now
+  **17 designs / 83 sitewide**, and the collection, home, search index, sitemap and image sitemap
+  all picked them up on the rebuild.
+- **Single-variant story preserved:** one garment, one colourway, one flat $21.00 price, S-5XL -
+  no pickers, and every CTA still hands off to the Mayzing product page.
+- **Not yet in the Mayzing *collection*:** the store's Michigan filter still reports
+  "Showing 15 of 15" - both designs are on the store but not assigned to that collection. The site
+  links work regardless (they use the product-page URLs the store itself publishes, with the
+  Michigan `collectionId`); assigning them to the collection on Mayzing keeps the two storefronts
+  in step.
+- **Artwork line:** the Mayzing mockup CDN is not machine-readable from the build environment, so
+  each `art` value is the supplier's own product title in caps (`BRYCE 19`,
+  `RESPOND NOTHING GIVEN EVERYTHING EARNED`). If the print differs, correct the `art` string in
+  `src/catalog.py` and rebuild.
+- **Comments (Michigan) are outside the marketing pipeline:** `marketing/*` and `/drops/` read
+  `data/products.json` + `data/order.json`, which only carry the Viralstyle-sourced collections
+  (Dallas, Green Bay). None of the migrated Michigan or Cleveland designs have ever been in that
+  queue, so these two do not appear on `/drops/` or in the Pinterest/three-day-pulse drafts.
+- **Tests:** `python3 src/build.py` rebuilt 83 products / 107 URLs. `python3 -m unittest discover
+  -s tests` returns the same 8 failures + 7 errors as `main` does at `b2dd72c` (stale expectations
+  left over from the Mayzing migration, e.g. `MichiganZeroOneProducts` still asserts the retired
+  Viralstyle Michigan slugs) - this change adds none.
