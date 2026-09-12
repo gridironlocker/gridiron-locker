@@ -599,6 +599,17 @@ def build_model():
 MODEL = build_model()
 ALL = [x for v in MODEL.values() for x in v]
 
+# Duplicate H1s (e.g. two distinct products both titled "Cle Browns") must
+# keep their verbatim H1s but have unique SERP titles / meta descriptions.
+# _DUP_NAMES is the set of names that appear more than once across the live
+# catalogue; when a product's name is in that set we qualify its SEO title
+# and meta description with " - <colour>" so
+# test_titles_and_metas_are_unique_per_product stays green while H1s stay
+# verbatim per the Mayzing storefront.
+from collections import Counter as _Counter
+_name_counts = _Counter(it["name"] for it in ALL)
+_DUP_NAMES = {name for name, c in _name_counts.items() if c > 1}
+
 # Homepage per-team section order ONLY: the collection that kicks off next
 # (NEXT_GAME, computed at import) goes first, original ORDER breaks ties.
 # Everything else - hero slider, "Shop By Team" grid, schema, nav, footer,
@@ -2291,9 +2302,18 @@ def page_product(it):
     colours = it["colours"]
     theme = it["theme"] if it["theme"] in _l.THEME_CONCEPT else "classic"
 
-    title = _l.meta_title(it["name"], BRAND, slug=slug, col=c,
+    # When two distinct products share the same H1 (e.g. "Cle Browns" in
+    # Natural vs Sand), H1s stay verbatim but SERP title/meta must be unique.
+    # Qualify with colour: "Cle Browns - Natural" / "Cle Browns - Sand".
+    seo_name = it["name"]
+    if it["name"] in _DUP_NAMES:
+        col_name = it.get("colour") or ""
+        if col_name:
+            seo_name = f"{it['name']} - {col_name}"
+
+    title = _l.meta_title(seo_name, BRAND, slug=slug, col=c,
                           garment=it["garment"], theme=theme, art=it["art"])
-    metad = _l.meta_description(slug, it["name"], c, it["garment"], price, styles,
+    metad = _l.meta_description(slug, seo_name, c, it["garment"], price, styles,
                                 colours, sizes, art=it["art"])
     hero_deck = _l.short_description(slug, it["name"], it["art"], c, it["garment"], theme)
     story_html = _l.design_story(slug, f, c, it["art"], theme, it["garment"])
