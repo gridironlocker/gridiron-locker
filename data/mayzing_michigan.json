@@ -1,0 +1,216 @@
+{
+  "_doc": "Michigan/Wolverines fulfillment (2026-09-12): Viralstyle -> Mayzing. The Michigan collection catalogue now lives in this file (every product live on the Mayzing Michigan storefront at https://gridironlocker.shop/p/michigan); src/build.py sources Michigan from this file, so a Viralstyle re-crawl cannot resurrect a Michigan page. Slugs and product names are the verbatim Mayzing product handles; checkout URLs are the real gridironlocker.shop product-page URLs captured from the live store. Mockup images are hot-linked from the Mayzing CDN (w:1000) as a temporary fallback until dl.py learns to localise them.",
+  "store": "https://gridironlocker.shop/p/michigan",
+  "store_id": "z2OF",
+  "collectionId": "YYMlCmwgKG__",
+  "partner": "Mayzing",
+  "currency": "USD",
+  "currency_note": "Price shown by the fulfilment partner at checkout; $21.00 across the Michigan tee range.",
+  "captured": "2026-09-12",
+  "products": [
+    {
+      "slug": "second-act",
+      "name": "Second Act",
+      "garment": "Classic Unisex T-shirt",
+      "blank": "Gildan 5000",
+      "price_usd": "21.00",
+      "colour_code": "GILDAN-NAVY",
+      "colour_name": "Navy",
+      "sizes": ["S", "M", "L", "XL", "2XL", "3XL", "4XL", "5XL"],
+      "handle": "second-act",
+      "product_id": "6aa55e1e32b128dbbe980778",
+      "checkout_url": "https://gridironlocker.shop/second-act?collectionId=YYMlCmwgKG__&color=GILDAN-NAVY&productId=6aa55e1e32b128dbbe980778",
+      "features": "Gildan 5000 midweight 100% cotton, classic fit, double-needle sleeve and bottom hems",
+      "img": {
+        "front": "https://buyer-experience-gateway.mayzing.com/stores/z2OF/mockups/id:miz0a9q97v20,sig:VO9k1IaaXmqh9xRs5iIuWHA4PIITRsdgE3uD_7ccbK0,c:GILDAN-NAVY,s:41a8f2db-c26c-4aa6-8f4c-7729cd25b4ee,d:6aa55e1dbae7dd95660e740c,dv:2,cpd:pdz0a9q97v0,w:1000/image.png"
+      }
+    },
+    {
+      "slug": "limited-edition-h-a-i-l-mary",
+      "name": "Limited Edition H A I L Mary",
+      "garment": "Classic Unisex T-shirt",
+      "blank": "Gildan 5000",
+      "price_usd": "21.00",
+      "colour_code": "GILDAN-NAVY",
+      "colour_name": "Navy",
+      "sizes": ["S", "M", "L", "XL", "2XL", "3XL", "4XL", "5XL"],
+      "handle": "limited-edition-h-a-i-l-mary",
+      "product_id": "6aa1f0b9534eadb8cbb5a139",
+      "checkout_url": "https://gridironlocker.shop/limited-edition-h-a-i-l-mary?collectionId=YYMlCmwgKG__&color=GILDAN-NAVY&productId=6aa1f0b9534eadb8cbb5a139",
+      "features": "Gildan 5000 midweight 100% cotton, classic fit, double-needle sleeve and bottom hems",
+      "img": {
+        "front": "https://buyer-experience-gateway.mayzing.com/stores/z2OF/mockups/id:miz0a9q97v20,sig:xu88ZLyKpSGuVsigiHe7lFwgmVcw6TYOs-TpTK0uyp0,c:GILDAN-NAVY,s:41a8f2db-c26c-4aa6-8f4c-7729cd25b4ee,d:6aa1f0b9d4d1592e0995cdcc,dv:3,cpd:pdz0a9q97v0,w:1000/image.png"
+      }
+    },
+    {
+      "slug": "one-second",
+      "name": "One Second",
+      "garment": "Classic Unisex T-shirt",
+      "blank": "Gildan 5000",
+      "price_usd": "21.00",
+      "colour_code": "GILDAN-HEATHER_SPORT_GREY",
+      "colour_name": "Heather Sport Grey",
+      "sizes": ["S", "M", "L", "XL", "2XL", "3XL", "4XL", "5XL"],
+      "handle": "one-second",
+      "product_id": "6aa1ee07ad108e6fc6bd7ce6",
+      "checkout_url": "https://gridironlocker.shop/one-second?collectionId=YYMlCmwgKG__&color=GILDAN-HEATHER_SPORT_GREY&productId=6aa1ee07ad108e6fc6bd7ce6",
+      "features": "Gildan 5000 midweight 100% cotton, classic fit, double-needle sleeve and bottom hems",
+      "img": {
+        "front": "https://buyer-experience-gateway.mayzing.com/stores/z2OF/mockups/id:miz0a9q97v80,sig:qdGiT9pETLlZFtkg5OqTGyNOrJFm46BAndy7AeLaaqA,c:GILDAN-HEATHER_SPORT_GREY,s:41a8f2db-c26c-4aa6-8f4c-7729cd25b4ee,d:6aa1ee07af44fbfba4726d5a,dv:4,cpd:pdz0a9q97v0,w:1000/image.png"
+      }
+    },
+    {
+      "slug": "m-vs-everybody",
+      "name": "M vs everybody",
+      "garment": "Classic Unisex T-shirt",
+      "blank": "Gildan 5000",
+      "price_usd": "21.00",
+      "colour_code": "GILDAN-NAVY",
+      "colour_name": "Navy",
+      "sizes": ["S", "M", "L", "XL", "2XL", "3XL", "4XL", "5XL"],
+      "handle": "m-vs-everybody",
+      "product_id": "6aa1e7c8047e2b3b0d59e904",
+      "checkout_url": "https://gridironlocker.shop/m-vs-everybody?collectionId=YYMlCmwgKG__&color=GILDAN-NAVY&productId=6aa1e7c8047e2b3b0d59e904",
+      "features": "Gildan 5000 midweight 100% cotton, classic fit, double-needle sleeve and bottom hems",
+      "img": {
+        "front": "https://buyer-experience-gateway.mayzing.com/stores/z2OF/mockups/id:miz0a9q97v20,sig:VfXPpf_H-0fyfXqwpjfnHmoJJUP5fZdhVMSDSYjmSXk,c:GILDAN-NAVY,s:41a8f2db-c26c-4aa6-8f4c-7729cd25b4ee,d:6aa1e7c8b3ed41cf335351c8,dv:2,cpd:pdz0a9q97v0,w:1000/image.png"
+      }
+    },
+    {
+      "slug": "second-act-qb19-vintage-football",
+      "name": "Second Act QB19 Vintage Football",
+      "garment": "Classic Unisex T-shirt",
+      "blank": "Gildan 5000",
+      "price_usd": "21.00",
+      "colour_code": "GILDAN-HEATHER_SPORT_GREY",
+      "colour_name": "Heather Sport Grey",
+      "sizes": ["S", "M", "L", "XL", "2XL", "3XL", "4XL", "5XL"],
+      "handle": "second-act-qb19-vintage-football",
+      "product_id": "6aa1db87f1c6bb96a2648225",
+      "checkout_url": "https://gridironlocker.shop/second-act-qb19-vintage-football?collectionId=YYMlCmwgKG__&color=GILDAN-HEATHER_SPORT_GREY&productId=6aa1db87f1c6bb96a2648225",
+      "features": "Gildan 5000 midweight 100% cotton, classic fit, double-needle sleeve and bottom hems",
+      "img": {
+        "front": "https://buyer-experience-gateway.mayzing.com/stores/z2OF/mockups/id:miz0a9q97v80,sig:ahLGha-nsWCBArIBx1N0-HC5y0aDYzLGSp_rj4cMLMo,c:GILDAN-HEATHER_SPORT_GREY,s:41a8f2db-c26c-4aa6-8f4c-7729cd25b4ee,d:6aa1db877cb568aeac5b76df,dv:2,cpd:pdz0a9q97v0,w:1000/image.png"
+      }
+    },
+    {
+      "slug": "limited-edition-go-blue",
+      "name": "Limited Edition Go Blue",
+      "garment": "Classic Unisex T-shirt",
+      "blank": "Gildan 5000",
+      "price_usd": "21.00",
+      "colour_code": "GILDAN-HEATHER_SPORT_GREY",
+      "colour_name": "Heather Sport Grey",
+      "sizes": ["S", "M", "L", "XL", "2XL", "3XL", "4XL", "5XL"],
+      "handle": "limited-edition-go-blue",
+      "product_id": "6aa1d621454c0ee365c9edc5",
+      "checkout_url": "https://gridironlocker.shop/limited-edition-go-blue?collectionId=YYMlCmwgKG__&color=GILDAN-HEATHER_SPORT_GREY&productId=6aa1d621454c0ee365c9edc5",
+      "features": "Gildan 5000 midweight 100% cotton, classic fit, double-needle sleeve and bottom hems",
+      "img": {
+        "front": "https://buyer-experience-gateway.mayzing.com/stores/z2OF/mockups/id:miz0a9q97v80,sig:xxIZbROPOXAbDAi8bb2cBO79rTpMLjqdW8na_wM7Uvg,c:GILDAN-HEATHER_SPORT_GREY,s:41a8f2db-c26c-4aa6-8f4c-7729cd25b4ee,d:6aa1d620a05d1049ccab1764,dv:5,cpd:pdz0a9q97v0,w:1000/image.png"
+      }
+    },
+    {
+      "slug": "michigan-v-everybody",
+      "name": "Michigan v Everybody",
+      "garment": "Classic Unisex T-shirt",
+      "blank": "Gildan 5000",
+      "price_usd": "21.00",
+      "colour_code": "GILDAN-HEATHER_SPORT_GREY",
+      "colour_name": "Heather Sport Grey",
+      "sizes": ["S", "M", "L", "XL", "2XL", "3XL", "4XL", "5XL"],
+      "handle": "michigan-v-everybody",
+      "product_id": "6aa1d2d97e9d71e4274ce029",
+      "checkout_url": "https://gridironlocker.shop/michigan-v-everybody?collectionId=YYMlCmwgKG__&color=GILDAN-HEATHER_SPORT_GREY&productId=6aa1d2d97e9d71e4274ce029",
+      "features": "Gildan 5000 midweight 100% cotton, classic fit, double-needle sleeve and bottom hems",
+      "img": {
+        "front": "https://buyer-experience-gateway.mayzing.com/stores/z2OF/mockups/id:miz0a9q97v80,sig:8a2tJLWXrn832FLAV-PX76aeVJ4fpsy-8UokIami4vU,c:GILDAN-HEATHER_SPORT_GREY,s:41a8f2db-c26c-4aa6-8f4c-7729cd25b4ee,d:6aa1d2d9d20b29456d6bcd05,dv:2,cpd:pdz0a9q97v0,w:1000/image.png"
+      }
+    },
+    {
+      "slug": "milf",
+      "name": "MILF",
+      "garment": "Classic Unisex T-shirt",
+      "blank": "Gildan 5000",
+      "price_usd": "21.00",
+      "colour_code": "GILDAN-NAVY",
+      "colour_name": "Navy",
+      "sizes": ["S", "M", "L", "XL", "2XL", "3XL", "4XL", "5XL"],
+      "handle": "milf",
+      "product_id": "6aa1c4502b4261ca56ecce11",
+      "checkout_url": "https://gridironlocker.shop/milf?collectionId=YYMlCmwgKG__&color=GILDAN-NAVY&productId=6aa1c4502b4261ca56ecce11",
+      "features": "Gildan 5000 midweight 100% cotton, classic fit, double-needle sleeve and bottom hems",
+      "img": {
+        "front": "https://buyer-experience-gateway.mayzing.com/stores/z2OF/mockups/id:miz0a9q97v20,sig:D55JKPUuXlsl9_KYcu136PDY03Cc3NmfaaCDuGlwUs0,c:GILDAN-NAVY,s:41a8f2db-c26c-4aa6-8f4c-7729cd25b4ee,d:6aa1c4507cbce1207951c181,dv:2,cpd:pdz0a9q97v0,w:1000/image.png"
+      }
+    },
+    {
+      "slug": "bet-m",
+      "name": "BET M",
+      "garment": "Classic Unisex T-shirt",
+      "blank": "Gildan 5000",
+      "price_usd": "21.00",
+      "colour_code": "GILDAN-NAVY",
+      "colour_name": "Navy",
+      "sizes": ["S", "M", "L", "XL", "2XL", "3XL", "4XL", "5XL"],
+      "handle": "bet-m",
+      "product_id": "6aa1b73fec16917b7f63d118",
+      "checkout_url": "https://gridironlocker.shop/bet-m?collectionId=YYMlCmwgKG__&color=GILDAN-NAVY&productId=6aa1b73fec16917b7f63d118",
+      "features": "Gildan 5000 midweight 100% cotton, classic fit, double-needle sleeve and bottom hems",
+      "img": {
+        "front": "https://buyer-experience-gateway.mayzing.com/stores/z2OF/mockups/id:miz0a9q97v20,sig:ipfuYO_fZIZwRijJ2SS892l9o-HSzYgS5g5O0n0veOI,c:GILDAN-NAVY,s:41a8f2db-c26c-4aa6-8f4c-7729cd25b4ee,d:6aa1b73f4578e43b015becb6,dv:2,cpd:pdz0a9q97v0,w:1000/image.png"
+      }
+    },
+    {
+      "slug": "michigan-bet-vintage",
+      "name": "Michigan Bet Vintage",
+      "garment": "Classic Unisex T-shirt",
+      "blank": "Gildan 5000",
+      "price_usd": "21.00",
+      "colour_code": "GILDAN-NAVY",
+      "colour_name": "Navy",
+      "sizes": ["S", "M", "L", "XL", "2XL", "3XL", "4XL", "5XL"],
+      "handle": "michigan-bet-vintage",
+      "product_id": "6aa1b73ff7b554e33d7d9453",
+      "checkout_url": "https://gridironlocker.shop/michigan-bet-vintage?collectionId=YYMlCmwgKG__&color=GILDAN-NAVY&productId=6aa1b73ff7b554e33d7d9453",
+      "features": "Gildan 5000 midweight 100% cotton, classic fit, double-needle sleeve and bottom hems",
+      "img": {
+        "front": "https://buyer-experience-gateway.mayzing.com/stores/z2OF/mockups/id:miz0a9q97v20,sig:efDzc55gS8mb9mJr4du9_0kY07rVZdanIbzKCV2o9j0,c:GILDAN-NAVY,s:41a8f2db-c26c-4aa6-8f4c-7729cd25b4ee,d:6aa1b73e7cbce12079519b5b,dv:2,cpd:pdz0a9q97v0,w:1000/image.png"
+      }
+    },
+    {
+      "slug": "michigan-revenge-tour",
+      "name": "Michigan Revenge Tour",
+      "garment": "Classic Unisex T-shirt",
+      "blank": "Gildan 5000",
+      "price_usd": "21.00",
+      "colour_code": "GILDAN-NAVY",
+      "colour_name": "Navy",
+      "sizes": ["S", "M", "L", "XL", "2XL", "3XL", "4XL", "5XL"],
+      "handle": "michigan-revenge-tour",
+      "product_id": "6aa1b3141e2a91b12ce7bb6a",
+      "checkout_url": "https://gridironlocker.shop/michigan-revenge-tour?collectionId=YYMlCmwgKG__&color=GILDAN-NAVY&productId=6aa1b3141e2a91b12ce7bb6a",
+      "features": "Gildan 5000 midweight 100% cotton, classic fit, double-needle sleeve and bottom hems",
+      "img": {
+        "front": "https://buyer-experience-gateway.mayzing.com/stores/z2OF/mockups/id:miz0a9q97v20,sig:MFhsRvSa4VRgf2hSqzOSsdNx3KVkcT6H1YjYNBrlE_E,c:GILDAN-NAVY,s:41a8f2db-c26c-4aa6-8f4c-7729cd25b4ee,d:6aa1b314a05d1049ccaad57e,dv:3,cpd:pdz0a9q97v0,w:1000/image.png"
+      }
+    },
+    {
+      "slug": "michigan-bet",
+      "name": "Michigan BET",
+      "garment": "Classic Unisex T-shirt",
+      "blank": "Gildan 5000",
+      "price_usd": "21.00",
+      "colour_code": "GILDAN-NAVY",
+      "colour_name": "Navy",
+      "sizes": ["S", "M", "L", "XL", "2XL", "3XL", "4XL", "5XL"],
+      "handle": "michigan-bet",
+      "product_id": "6aa1b1f759ee834ea2120a3f",
+      "checkout_url": "https://gridironlocker.shop/michigan-bet?collectionId=YYMlCmwgKG__&color=GILDAN-NAVY&productId=6aa1b1f759ee834ea2120a3f",
+      "features": "Gildan 5000 midweight 100% cotton, classic fit, double-needle sleeve and bottom hems",
+      "img": {
+        "front": "https://buyer-experience-gateway.mayzing.com/stores/z2OF/mockups/id:miz0a9q97v20,sig:u_BNe3t9Q3JAf9BXqumcEHG4TQ7zvP8l7w8o92F-xhw,c:GILDAN-NAVY,s:41a8f2db-c26c-4aa6-8f4c-7729cd25b4ee,d:6aa1b0244e8c460e53908172,dv:1,cpd:pdz0a9q97v0,w:1000/image.png"
+      }
+    }
+  ]
+}

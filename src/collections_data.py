@@ -6,9 +6,10 @@ from zoneinfo import ZoneInfo as _ZoneInfo
 
 # ------------------------------------------------------- fulfillment partner
 # Cleveland/Browns moved its checkout hand-off to the Mayzing storefront
-# (see data/fulfillment.json). Dallas, Green Bay and Michigan still hand off
-# to Viralstyle. Copy that names the partner must ask which collection it is
-# writing for rather than assuming one, otherwise a migrated page tells the
+# (see data/fulfillment.json) on 2026-09-12; Michigan/Wolverines followed on
+# 2026-09-12 (see data/mayzing_michigan.json). Dallas and Green Bay still hand
+# off to Viralstyle. Copy that names the partner must ask which collection it
+# is writing for rather than assuming one, otherwise a migrated page tells the
 # customer to check out somewhere the button does not take them.
 _FUL_PATH = _os.path.join(_os.path.dirname(_os.path.dirname(_os.path.abspath(__file__))),
                           "data/fulfillment.json")
@@ -20,10 +21,23 @@ FUL_COLLECTION = _FUL.get("collection", "")
 FUL_PARTNER = _FUL.get("partner", "Mayzing")
 LEGACY_PARTNER = "Viralstyle"
 
+# Collections that have migrated their checkout hand-off to the Mayzing
+# storefront. Cleveland/Browns moved on 2026-09-12; Michigan/Wolverines moved
+# on 2026-09-12 (see data/mayzing_michigan.json). Dallas and Green Bay still
+# hand off to Viralstyle. Copy that names the partner must ask which
+# collection it is writing for, otherwise a migrated page tells the customer
+# to check out somewhere the button does not take them.
+MAYZING_COLLECTIONS = {FUL_COLLECTION, "michigan"}
+
 
 def partner_of(col_key, default=LEGACY_PARTNER):
-    """Customer-facing fulfillment partner name for a collection key."""
-    return FUL_PARTNER if col_key == FUL_COLLECTION else default
+    """Customer-facing fulfillment partner name for a collection key.
+
+    Cleveland and Michigan hand off to Mayzing; Dallas and Green Bay still
+    hand off to Viralstyle. Anything that does not name a partner is left
+    partner-neutral.
+    """
+    return FUL_PARTNER if col_key in MAYZING_COLLECTIONS else default
 
 COLLECTIONS = {
     "cleveland-browns": dict(
@@ -187,7 +201,7 @@ COLLECTIONS = {
         ink="#ffffff",
         hero="/img/hero-michigan.jpg?v=4",
         logo="/img/michigan-logo1.webp?v=1",
-        store="https://viralstyle.com/store/kebystore/MICHIG/1",
+        store="https://gridironlocker.shop/p/michigan",
         chant="Go Blue",
         phrase="Go Blue",
         keywords=[

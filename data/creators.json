@@ -14,14 +14,22 @@
       "commission": {
         "rate_pct": 20,
         "basis": "net product sales",
-        "exclusions": ["taxes", "shipping", "refunds", "cancellations", "chargebacks"],
+        "exclusions": [
+          "taxes",
+          "shipping",
+          "refunds",
+          "cancellations",
+          "chargebacks"
+        ],
         "customer_facing": false
       },
       "attribution": {
         "creator_id": "JOE",
         "cookie_name": "gl_creator",
         "cookie_ttl_days": 90,
-        "checkout_query": { "creator": "JOE" },
+        "checkout_query": {
+          "creator": "JOE"
+        },
         "utm": {
           "utm_source": "creator",
           "utm_medium": "referral",
@@ -34,27 +42,26 @@
           "shop_now_click (creator dimension)"
         ]
       },
-   "featured": [
-    "limited-edition-second-act-qb19",
-    "limited-edition-m-fans-n26",
-    "second-act-qb19-vintage-football-tee",
-    "limited-edition-m-fans-n27"
-   ],
-   "picks": [
-    "limited-edition-second-act-qb19",
-    "limited-edition-m-fans-n26",
-    "second-act-qb19-vintage-football-tee",
-    "limited-edition-m-fans-n27",
-    "limited-edition-go-blue",
-    "limited-edition-m-vs-all",
-    "limited-edition-0-01-h-a-i-l",
-    "limited-edition-0-01-football",
-    "limited-edition-qb19",
-    "limited-edition-m-fans-n28",
-    "limited-edition-m-go-blue",
-    "second-act-qb19-limited-edition",
-    "limited-edition-m"
-   ]
+      "featured": [
+        "michigan-v-everybody",
+        "bet-m",
+        "second-act-qb19-vintage-football",
+        "limited-edition-go-blue"
+      ],
+      "picks": [
+        "michigan-v-everybody",
+        "bet-m",
+        "second-act-qb19-vintage-football",
+        "limited-edition-go-blue",
+        "limited-edition-h-a-i-l-mary",
+        "m-vs-everybody",
+        "michigan-bet",
+        "michigan-revenge-tour",
+        "michigan-bet-vintage",
+        "milf",
+        "one-second",
+        "second-act"
+      ]
     }
   }
 }
