@@ -270,6 +270,34 @@ def with_img_map(entry):
     return entry
 
 
+def sync_mayzing_collection(cols):
+    """Restore Cleveland's migrated catalogue after any legacy injections.
+
+    replay_updates.py historically adds directly scraped Viralstyle campaigns
+    to collection lists. Cleveland moved to Mayzing, so those campaigns must
+    remain in the raw product archives (for audit/history) but can never enter
+    the public Cleveland list or they will reappear in catalogue data and fail
+    the source-of-truth check on the next refresh.
+    """
+    path = os.path.join(ROOT, "data/mayzing_products.json")
+    try:
+        source = load(path)
+    except (OSError, ValueError):
+        return
+    col = cols.get("cleveland-browns")
+    if not col or not source.get("products"):
+        return
+    col["store_title"] = "Collection - ORANGE AND BROWN COLLECTION - Mayzing"
+    col["products"] = [
+        {
+            "slug": product["slug"],
+            "thumb": PLACEHOLDER_THUMB,
+            "title": product["name"],
+        }
+        for product in source["products"]
+    ]
+
+
 def inject_data():
     products = load(os.path.join(ROOT, "data/products.json"))
     live = load(os.path.join(ROOT, "data/products_live.json"))
@@ -294,6 +322,9 @@ def inject_data():
             "title": f"{c['title']} {c['list_price_inr']}",
         })
 
+    # A replay can contain old Cleveland Viralstyle campaigns, but the public
+    # collection must always mirror the live Mayzing storefront after replay.
+    sync_mayzing_collection(cols)
     save(os.path.join(ROOT, "data/products.json"), products)
     save(os.path.join(ROOT, "data/products_live.json"), live)
     save(os.path.join(ROOT, "data/collections.json"), cols)

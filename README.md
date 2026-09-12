@@ -23,21 +23,20 @@ python3 marketing/three_day_pulse.py` to refresh the short-lived brief.
 
 | Item | Count |
 |---|---|
-| HTML pages | **154** |
-| Product pages (one per design) | **130** |
+| HTML pages | **122** |
+| Product pages (one per design) | **85** |
 | Collection pages | 4 (+ All Collections, + Search/browse all) |
 | Creator collaboration pages | **1** (Joe's Michigan Locker, `/michigan/joe/`) |
 | SEO buying guides (articles) | 5 (4 buying guides + Week 1) |
 | Info/trust pages | Size guide, Shipping, FAQ, About, Contact, Trademark notice, Privacy, 404 |
-| Product images self-hosted | **1,718** |
+| Product images self-hosted | **1,702** |
 | Broken links / invalid schema | **0** |
 
-Collections: Cleveland Browns (64), Green Bay Packers (37), Michigan (19), Dallas (10).
+Collections: Cleveland Browns (19), Green Bay Packers (37), Michigan (19), Dallas (10).
 
-> The newest Browns campaign, `limited-edition-no-fly-zone` (added 2026-09-10 via
-> `add_campaign.py`), still hot-links its mockups from `assets.viralstyle.com`: the next Refresh
-> run's `dl.py` downloads the local WebPs and the build swaps them in. Until then the page renders
-> from the supplier CDN, which the sanity gate and `abs_url()` both expect.
+> The Browns catalogue is now sourced from the 19-product Mayzing storefront rather than the
+> legacy Viralstyle crawl. Its signed Mayzing mockups still hot-link from the supplier CDN until
+> `dl.py` localises them; the build keeps the page live with that remote fallback in the meantime.
 
 ### 4 dead campaigns found
 These slugs no longer return product data on Viralstyle and were excluded — relaunch them and
@@ -50,20 +49,20 @@ re-run the build to add them:
 ## Why this converts
 
 - **Product pages are SEO landing pages, not a half-checkout.** Gridiron Locker does discovery,
-  persuasion and SEO; **Viralstyle does configuration and the transaction**. A product page has
+  persuasion and SEO; **the fulfillment partner handles configuration and the transaction**. A product page has
   **no style picker, no size picker, no colourway picker and no checkout button** - it presents the
   design (big gallery), the story, the verified apparel styles / colourways / sizes, the product
   details, shipping and an FAQ, and offers exactly one conversion action: **SHOP NOW →**, which
-  opens that design's Viralstyle campaign. The CTA appears three times (hero, mid-page band,
+  opens that design's fulfillment-partner checkout. The CTA appears three times (hero, mid-page band,
   sticky mobile bar) and every instance is followed by the line that removes the uncertainty:
-  *"Choose your garment style, colour and size on the Viralstyle product page."*
+  *"Choose your garment style, colour and size on the fulfillment-partner product page."*
   See `src/landing.py` for the copy generator and `ProductPages` in `tests/test_layout.py` for the
   guard rails (no pickers, no fabricated ratings/reviews, no invented colour names).
 - **gvartwork-style visuals**: dark premium theme, cinematic AI hero art per collection, and each
   collection re-skins the accent colour (orange / gold / silver-navy / maize).
 - **Mobile first**: 2-up product grid on phones, tap-friendly targets, sticky CTA, no layout shift
   (every image has width/height), lazy loading below the fold.
-- **Every CTA** goes to the exact Viralstyle campaign URL for that design.
+- **Every CTA** goes to the exact fulfillment-partner checkout URL for that design.
 - **Product discovery on every landing page**: the header carries a sitewide search with live
   suggestions (backed by `assets/search-index.json`, regenerated each build), and a "Find A Design"
   panel sits directly under the hero on the home page and `/collections/` - search box plus
@@ -84,22 +83,22 @@ re-run the build to add them:
   of the homepage, and the header gained a **Trending** link to `/drops/`.
 - **Quick view**: every product card carries a quick-view button that opens a shared modal
   (front + back, price, CTA to the full product page) so visitors compare designs without
-  leaving the grid - the design story lives on the product page and checkout lives on Viralstyle.
+  leaving the grid - the design story lives on the product page and checkout lives with the fulfillment partner.
 
 ## Why it ranks
 
-- Unique `<title>`, meta description, canonical, OG + Twitter cards on all 154 pages.
+- Unique `<title>`, meta description, canonical, OG + Twitter cards on all 109 indexable pages.
 - **Real copy, not filler.** I read every artwork and wrote each page around what the design
   actually says (e.g. "Limited Edition GRB37" is now *This Girl Loves The Pack Shirt*). Descriptions
   are template-varied so no two pages read the same.
 - **Schema.org JSON-LD**: Organization, WebSite + SearchAction, CollectionPage, ItemList,
-  Product + Offer + AggregateRating, BreadcrumbList, FAQPage, Article. All validated.
-- `robots.txt` + `sitemap.xml` (150 URLs, lastmod/priority/changefreq).
+  Product + Offer, BreadcrumbList, FAQPage, Article and Dataset. All validated.
+- `robots.txt` + `sitemap.xml` (109 URLs, lastmod/priority/changefreq).
 - Internal linking: home → collections → products → related products → guides → back to collection.
 - 4 long-form buying guides targeting research keywords ("michigan fan apparel buying guide").
 - Trademark-safe framing: "fan-made / independent / not affiliated" disclaimers sitewide plus a
   dedicated trademark notice with a takedown route. This is what keeps aggressive keyword use
-  defensible while your Viralstyle listings stay clean.
+  defensible while fulfillment-partner listings stay clean.
 
 ---
 
@@ -252,7 +251,7 @@ What remains is a single 1px border, one soft shadow, and a gentle lift + 4% ima
 Same treatment on the product page gallery and thumbnails.
 
 ## Current state
-154 pages · 438 schema blocks · **0 broken links** · **0 invalid schema** · 0 console errors · **0px horizontal overflow**.
+122 generated HTML pages · 522 schema blocks · **0 broken links** · **0 invalid schema** · 0 console errors · **0px horizontal overflow**.
 
 
 ---
@@ -269,7 +268,7 @@ Casablanca) on GitHub's servers (free), with a manual "Run workflow" button too:
    the last 10 days and tags products: 3+ mentions = **Trending**, 0 mentions = **Throwback**.
 3. **Publishes the real headlines** on each collection page and the season hub, with source
    attribution and `rel="nofollow noopener"` links.
-4. **Rebuilds all 154 pages** with a fresh `lastmod` and `dateModified`.
+4. **Rebuilds all 109 indexable URLs** with a fresh `lastmod` and `dateModified`.
 5. **Commits and pushes, then deploys** the rebuilt site to GitHub Pages in the same run (the
    deploy cannot rely on the push event - GitHub does not trigger workflows from `GITHUB_TOKEN`
    pushes, so `refresh.yml` carries its own Pages deploy steps).
