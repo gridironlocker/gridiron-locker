@@ -2476,9 +2476,6 @@ def page_product(it):
    <span class="badge">US shipping from ${SHIP_US['shippingRate']['value']}</span>
    <span class="badge">30-day misprint replacement</span>
    <span class="badge">Worldwide delivery</span></div>
-  <p class="muted small">Jump to: <a href="#colours">colourways</a> &middot;
-   <a href="#apparel">apparel</a> &middot; <a href="#story">story</a> &middot;
-   <a href="#sizing">sizing</a> &middot; <a href="#faq">FAQ</a></p>
  </div>
 </div></div>
 
