@@ -236,5 +236,8 @@ CATALOG = {
 "michigan-bet-vintage": dict(name="Michigan Bet Vintage", art="MICHIGAN BET VINTAGE", kw=["michigan bet vintage shirt","michigan bet vintage tee","go blue bet shirt","michigan wolverines fan gear","ann arbor football shirt"], theme="retro", type="T-Shirt"),
 "michigan-revenge-tour": dict(name="Michigan Revenge Tour", art="MICHIGAN REVENGE TOUR", kw=["michigan revenge tour shirt","michigan revenge tour tee","go blue shirt","michigan wolverines fan gear","ann arbor football shirt"], theme="classic", type="T-Shirt"),
 "michigan-bet": dict(name="Michigan BET", art="MICHIGAN BET", kw=["michigan bet shirt","michigan bet tee","go blue bet shirt","michigan wolverines fan gear","ann arbor football shirt"], theme="classic", type="T-Shirt"),
+"maize-out": dict(name="Maize Out", art="MAIZE OUT", kw=["maize out michigan shirt","maize out tee","michigan maize shirt","go blue maize out shirt","michigan wolverines fan gear","ann arbor football shirt"], theme="classic", type="T-Shirt"),
+"michigan": dict(name="Michigan", art="MICHIGAN", kw=["michigan shirt","michigan tee","plain michigan wolverines shirt","go blue shirt","ann arbor football shirt","michigan football gift"], theme="classic", type="T-Shirt"),
+"legacy": dict(name="Legacy", art="LEGACY", kw=["legacy michigan shirt","michigan legacy tee","go blue legacy shirt","michigan wolverines fan gear","ann arbor football shirt","michigan football gift"], theme="classic", type="T-Shirt"),
 }
 
