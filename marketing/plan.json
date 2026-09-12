@@ -3,7 +3,7 @@
     "generated_on": "2026-09-12",
     "generator": "marketing/live_engine.py + copy_vault.py (unique per team)",
     "standalone": true,
-    "design_count": 103,
+    "design_count": 96,
     "platforms": [
       "instagram",
       "tiktok",
@@ -92,10 +92,10 @@
     }
   },
   "summary": {
-    "design_count": 103,
+    "design_count": 96,
     "top_score": 100,
     "throwback_count": 0,
-    "season_match_count": 26,
+    "season_match_count": 19,
     "headline_gap_count": 5,
     "headline_count": 400,
     "unique_copy": true,
@@ -4013,1328 +4013,6 @@
       ]
     },
     {
-      "slug": "valentine-v2",
-      "source_index": 125,
-      "collection": "michigan",
-      "collection_label": "Michigan Wolverines",
-      "name": "I Love Michigan Heart Shirt",
-      "catalogue_title": "Valentine V2",
-      "design_text": "I (heart) MICHIGAN",
-      "theme": "classic",
-      "product_type": "Apparel",
-      "price_usd": "24.99",
-      "product_url": "https://viralstyle.com/kebystore/valentine-v2",
-      "image_url": "https://assets.viralstyle.com/campaigns/1fe98601-8990-d994-4512-aba861b743f3/Z4Wywo-vo7zZao-Xazpv3W-front-large.jpg",
-      "keywords": [
-        "i love michigan shirt",
-        "michigan heart tee",
-        "go blue valentine gift"
-      ],
-      "score": 72,
-      "score_breakdown": {
-        "score": 72,
-        "score_raw": 72,
-        "base": 50,
-        "season_search_terms": [
-          "go blue 2026 tee"
-        ],
-        "season_search_term_bonus": 22,
-        "headline_name_matches": [],
-        "headline_name_repeat_count": 0,
-        "headline_name_bonus": 0,
-        "playoff_or_player_theme": false,
-        "playoff_or_player_bonus": 0,
-        "throwback": false,
-        "throwback_entities": [],
-        "throwback_penalty": 0
-      },
-      "opportunity": {
-        "score": 60.5,
-        "confidence": 75,
-        "factors": {
-          "audience": 75,
-          "search": 85,
-          "velocity": 30,
-          "gap": 35,
-          "competition": 70,
-          "business": 70,
-          "authority": 40,
-          "longevity": 80,
-          "distribution": 60
-        },
-        "weights": {
-          "audience": 20,
-          "search": 15,
-          "velocity": 15,
-          "gap": 15,
-          "competition": 10,
-          "business": 10,
-          "authority": 5,
-          "longevity": 5,
-          "distribution": 5
-        },
-        "trend_stage": "EMERGING",
-        "opportunity_type": "Evergreen",
-        "decision": "IMPROVE",
-        "decision_reason": "Attractive but needs a sharper angle or evidence",
-        "gates": {
-          "audience": {
-            "passed": true,
-            "note": "Targeted fanbase defined"
-          },
-          "evidence": {
-            "passed": true,
-            "note": "Hot query / entity match"
-          },
-          "differentiation": {
-            "passed": true,
-            "note": "Original design copy present (estimate — no rival comparison yet)"
-          },
-          "discovery": {
-            "passed": true,
-            "note": "Searchable terms present"
-          },
-          "business": {
-            "passed": true,
-            "note": "Commercial product"
-          },
-          "risk": {
-            "passed": true,
-            "note": "No elevated risk flagged"
-          },
-          "cannibalization": {
-            "passed": false,
-            "note": "7 sibling term match(es)"
-          }
-        },
-        "compliance": {
-          "terms": [
-            "michigan",
-            "go blue"
-          ],
-          "team_terms": [
-            "michigan",
-            "go blue"
-          ],
-          "person_terms": [],
-          "throwback_terms": [],
-          "level": "medium",
-          "social_safe": false,
-          "social_blocked": true
-        },
-        "evidence": {
-          "has_season_terms": true,
-          "has_headline_momentum": false,
-          "has_current_person": false,
-          "competitive_data": "estimate — no live rival data"
-        }
-      },
-      "platforms": {
-        "instagram": {
-          "caption": "Second Act, same Block M. Michigan football eve: Final thoughts on Underwood, the defense, tr... — I Love Michigan Heart Shirt is the new chapter. Tap the link in bio to see colourways and sizes.",
-          "hashtags": [
-            "#goblue",
-            "#gamedaystyle",
-            "#ilovemichiganshirt",
-            "#classictee",
-            "#michiganhearttee",
-            "#michiganfootball",
-            "#gobluevalentinegift",
-            "#michiganvseverybody"
-          ],
-          "prompt": "Crisp early-autumn morning on a tree-lined college-town avenue leading toward an empty stadium; maize sunrise and deep navy shade, light fog, leaves skittering across pavement; communal energy, clean contrast, and an optimistic atmosphere; vertical 4:5 framing, cinematic editorial atmosphere, natural light, tactile detail, and generous negative space"
-        },
-        "tiktok": {
-          "caption": "Victory Sunday fit: I Love Michigan Heart Shirt + Michigan football eve: Final thoughts on Underwood, the defense, tr... = Hail. Show us the fit.",
-          "hashtags": [
-            "#gobluevalentinegift",
-            "#goblue",
-            "#classictee",
-            "#ilovemichiganshirt",
-            "#michiganfootball",
-            "#michiganvseverybody",
-            "#michiganhearttee",
-            "#gamedaystyle"
-          ],
-          "prompt": "Crisp early-autumn morning on a tree-lined college-town avenue leading toward an empty stadium; maize sunrise and deep navy shade, light fog, leaves skittering across pavement; communal energy, clean contrast, and an optimistic atmosphere; vertical 9:16 framing with a strong center of calm negative space, cinematic editorial atmosphere, natural light, tactile detail, and generous negative space"
-        },
-        "facebook": {
-          "caption": "Maize and blue, block lettering, no apologies. Michigan football eve: Final thoughts on Underwood, the defense, tr... — I Love Michigan Heart Shirt with I (heart) MICHIGAN is fan-made for the Big House. Explore the design here — sizes S to 3XL, worldwide shipping.",
-          "hashtags": [
-            "#classictee",
-            "#michiganhearttee",
-            "#gamedaystyle",
-            "#michiganfootball",
-            "#gobluevalentinegift",
-            "#ilovemichiganshirt"
-          ],
-          "prompt": "Crisp early-autumn morning on a tree-lined college-town avenue leading toward an empty stadium; maize sunrise and deep navy shade, light fog, leaves skittering across pavement; communal energy, clean contrast, and an optimistic atmosphere; horizontal 16:9 framing, cinematic editorial atmosphere, natural light, tactile detail, and generous negative space"
-        },
-        "x": {
-          "caption": "I Love Michigan Heart Shirt — Michigan football eve: Final thoughts on Underwood, the defense, tr... energy. Go Blue. https://viralstyle.com/kebystore/valentine-v2",
-          "hashtags": [
-            "#michiganvseverybody",
-            "#classictee",
-            "#goblue",
-            "#michiganfootball"
-          ],
-          "prompt": "Crisp early-autumn morning on a tree-lined college-town avenue leading toward an empty stadium; maize sunrise and deep navy shade, light fog, leaves skittering across pavement; communal energy, clean contrast, and an optimistic atmosphere; horizontal 16:9 framing with a wide horizon, cinematic editorial atmosphere, natural light, tactile detail, and generous negative space"
-        },
-        "pinterest": {
-          "caption": "I Love Michigan Heart Shirt - Big House Tailgate Look | Michigan Fan Gift. Save this look for your next game day outfit.",
-          "hashtags": [
-            "#classictee",
-            "#michiganvseverybody",
-            "#goblue",
-            "#michiganfootball",
-            "#gobluevalentinegift",
-            "#ilovemichiganshirt",
-            "#gamedaystyle",
-            "#michiganhearttee"
-          ],
-          "prompt": "Crisp early-autumn morning on a tree-lined college-town avenue leading toward an empty stadium; maize sunrise and deep navy shade, light fog, leaves skittering across pavement; communal energy, clean contrast, and an optimistic atmosphere; vertical 2:3 framing with an airy editorial composition, cinematic editorial atmosphere, natural light, tactile detail, and generous negative space"
-        }
-      },
-      "live_headline": "Michigan football eve: Final thoughts on Underwood, the defense, tr...",
-      "rank": 21,
-      "reasons": [
-        "2026 search match"
-      ]
-    },
-    {
-      "slug": "limited-edition-m-fans-n30",
-      "source_index": 127,
-      "collection": "michigan",
-      "collection_label": "Michigan Wolverines",
-      "name": "Michigan Vs Everybody Grey Sweatshirt",
-      "catalogue_title": "Limited Edition M Fans N30",
-      "design_text": "MICHIGAN -VS- EVERYBODY",
-      "theme": "classic",
-      "product_type": "Apparel",
-      "price_usd": "32.99",
-      "product_url": "https://viralstyle.com/kebystore/limited-edition-m-fans-n30",
-      "image_url": "https://assets.viralstyle.com/campaigns/1fc7c819-d164-7b84-3df3-04af3afd95de/qJ3YLl-paJROM2-a1kQEG4-front-large.jpg",
-      "keywords": [
-        "michigan vs everybody",
-        "michigan grey crewneck",
-        "go blue sweatshirt"
-      ],
-      "score": 72,
-      "score_breakdown": {
-        "score": 72,
-        "score_raw": 72,
-        "base": 50,
-        "season_search_terms": [
-          "go blue 2026 tee"
-        ],
-        "season_search_term_bonus": 22,
-        "headline_name_matches": [],
-        "headline_name_repeat_count": 0,
-        "headline_name_bonus": 0,
-        "playoff_or_player_theme": false,
-        "playoff_or_player_bonus": 0,
-        "throwback": false,
-        "throwback_entities": [],
-        "throwback_penalty": 0
-      },
-      "opportunity": {
-        "score": 60.5,
-        "confidence": 75,
-        "factors": {
-          "audience": 75,
-          "search": 85,
-          "velocity": 30,
-          "gap": 35,
-          "competition": 70,
-          "business": 70,
-          "authority": 40,
-          "longevity": 80,
-          "distribution": 60
-        },
-        "weights": {
-          "audience": 20,
-          "search": 15,
-          "velocity": 15,
-          "gap": 15,
-          "competition": 10,
-          "business": 10,
-          "authority": 5,
-          "longevity": 5,
-          "distribution": 5
-        },
-        "trend_stage": "EMERGING",
-        "opportunity_type": "Evergreen",
-        "decision": "IMPROVE",
-        "decision_reason": "Attractive but needs a sharper angle or evidence",
-        "gates": {
-          "audience": {
-            "passed": true,
-            "note": "Targeted fanbase defined"
-          },
-          "evidence": {
-            "passed": true,
-            "note": "Hot query / entity match"
-          },
-          "differentiation": {
-            "passed": true,
-            "note": "Original design copy present (estimate — no rival comparison yet)"
-          },
-          "discovery": {
-            "passed": true,
-            "note": "Searchable terms present"
-          },
-          "business": {
-            "passed": true,
-            "note": "Commercial product"
-          },
-          "risk": {
-            "passed": true,
-            "note": "No elevated risk flagged"
-          },
-          "cannibalization": {
-            "passed": false,
-            "note": "7 sibling term match(es)"
-          }
-        },
-        "compliance": {
-          "terms": [
-            "michigan",
-            "go blue"
-          ],
-          "team_terms": [
-            "michigan",
-            "go blue"
-          ],
-          "person_terms": [],
-          "throwback_terms": [],
-          "level": "medium",
-          "social_safe": false,
-          "social_blocked": true
-        },
-        "evidence": {
-          "has_season_terms": true,
-          "has_headline_momentum": false,
-          "has_current_person": false,
-          "competitive_data": "estimate — no live rival data"
-        }
-      },
-      "platforms": {
-        "instagram": {
-          "caption": "Your roommate's Maize tee is borrowed. This Michigan Vs Everybody Grey Sweatshirt is yours after Michigan football eve: Final thoughts on Underwood, the defense, tr. Tap the link in bio to see colourways and sizes.",
-          "hashtags": [
-            "#gamedaystyle",
-            "#gobluesweatshirt",
-            "#goblue",
-            "#michigangreycrewneck",
-            "#michiganvseverybody",
-            "#michiganfootball",
-            "#classictee"
-          ],
-          "prompt": "Crisp early-autumn morning on a tree-lined college-town avenue leading toward an empty stadium; maize sunrise and deep navy shade, light fog, leaves skittering across pavement; communal energy, clean contrast, and an optimistic atmosphere; vertical 4:5 framing, cinematic editorial atmosphere, natural light, tactile detail, and generous negative space"
-        },
-        "tiktok": {
-          "caption": "Tell me you go to Michigan without telling me — Michigan Vs Everybody Grey Sweatshirt. Show us the fit.",
-          "hashtags": [
-            "#michiganfootball",
-            "#classictee",
-            "#gobluesweatshirt",
-            "#michiganvseverybody",
-            "#michigangreycrewneck",
-            "#gamedaystyle",
-            "#goblue"
-          ],
-          "prompt": "Crisp early-autumn morning on a tree-lined college-town avenue leading toward an empty stadium; maize sunrise and deep navy shade, light fog, leaves skittering across pavement; communal energy, clean contrast, and an optimistic atmosphere; vertical 9:16 framing with a strong center of calm negative space, cinematic editorial atmosphere, natural light, tactile detail, and generous negative space"
-        },
-        "facebook": {
-          "caption": "Ann Arbor, Michigan football eve: Final thoughts on Underwood, the defense, tr... just wrote the next chapter. Michigan Vs Everybody Grey Sweatshirt is how Go Blue wears it. Explore the design here — sizes S to 3XL, worldwide shipping.",
-          "hashtags": [
-            "#gamedaystyle",
-            "#michiganfootball",
-            "#gobluesweatshirt",
-            "#goblue",
-            "#michigangreycrewneck",
-            "#michiganvseverybody"
-          ],
-          "prompt": "Crisp early-autumn morning on a tree-lined college-town avenue leading toward an empty stadium; maize sunrise and deep navy shade, light fog, leaves skittering across pavement; communal energy, clean contrast, and an optimistic atmosphere; horizontal 16:9 framing, cinematic editorial atmosphere, natural light, tactile detail, and generous negative space"
-        },
-        "x": {
-          "caption": "Michigan Vs Everybody Grey Sweatshirt with MICHIGAN -VS- EVERYBODY. Michigan football eve: Final thoughts on Underwood, the defense, tr.... Big House ready. https://viralstyle.com/kebystore/limited-edition-m-fans-n30",
-          "hashtags": [
-            "#goblue",
-            "#gobluesweatshirt",
-            "#michiganvseverybody",
-            "#michiganfootball"
-          ],
-          "prompt": "Crisp early-autumn morning on a tree-lined college-town avenue leading toward an empty stadium; maize sunrise and deep navy shade, light fog, leaves skittering across pavement; communal energy, clean contrast, and an optimistic atmosphere; horizontal 16:9 framing with a wide horizon, cinematic editorial atmosphere, natural light, tactile detail, and generous negative space"
-        },
-        "pinterest": {
-          "caption": "Michigan Vs Everybody Grey Sweatshirt - Michigan Outfit Inspo | Campus to Game Day. Add to your tailgate outfit ideas.",
-          "hashtags": [
-            "#goblue",
-            "#michigangreycrewneck",
-            "#michiganfootball",
-            "#gobluesweatshirt",
-            "#classictee",
-            "#gamedaystyle",
-            "#michiganvseverybody"
-          ],
-          "prompt": "Crisp early-autumn morning on a tree-lined college-town avenue leading toward an empty stadium; maize sunrise and deep navy shade, light fog, leaves skittering across pavement; communal energy, clean contrast, and an optimistic atmosphere; vertical 2:3 framing with an airy editorial composition, cinematic editorial atmosphere, natural light, tactile detail, and generous negative space"
-        }
-      },
-      "live_headline": "Michigan football eve: Final thoughts on Underwood, the defense, tr...",
-      "rank": 22,
-      "reasons": [
-        "2026 search match"
-      ]
-    },
-    {
-      "slug": "limited-edition-m-fans-n29",
-      "source_index": 128,
-      "collection": "michigan",
-      "collection_label": "Michigan Wolverines",
-      "name": "Michigan Bet Ornate Sweatshirt",
-      "catalogue_title": "Limited Edition M Fans N29",
-      "design_text": "MICHIGAN BET ornate lettering",
-      "theme": "classic",
-      "product_type": "Apparel",
-      "price_usd": "32.99",
-      "product_url": "https://viralstyle.com/kebystore/limited-edition-m-fans-n29",
-      "image_url": "https://assets.viralstyle.com/campaigns/4e1a35a1-0768-b4c4-d90d-35480edb057a/k53Yyw-n8eQqpp-APJ64pn-front-large.jpg",
-      "keywords": [
-        "michigan bet shirt",
-        "go blue crewneck",
-        "michigan football sweatshirt"
-      ],
-      "score": 72,
-      "score_breakdown": {
-        "score": 72,
-        "score_raw": 72,
-        "base": 50,
-        "season_search_terms": [
-          "go blue 2026 tee",
-          "michigan football 2026 shirt"
-        ],
-        "season_search_term_bonus": 22,
-        "headline_name_matches": [],
-        "headline_name_repeat_count": 0,
-        "headline_name_bonus": 0,
-        "playoff_or_player_theme": false,
-        "playoff_or_player_bonus": 0,
-        "throwback": false,
-        "throwback_entities": [],
-        "throwback_penalty": 0
-      },
-      "opportunity": {
-        "score": 67.2,
-        "confidence": 75,
-        "factors": {
-          "audience": 75,
-          "search": 85,
-          "velocity": 30,
-          "gap": 80,
-          "competition": 70,
-          "business": 70,
-          "authority": 40,
-          "longevity": 80,
-          "distribution": 60
-        },
-        "weights": {
-          "audience": 20,
-          "search": 15,
-          "velocity": 15,
-          "gap": 15,
-          "competition": 10,
-          "business": 10,
-          "authority": 5,
-          "longevity": 5,
-          "distribution": 5
-        },
-        "trend_stage": "EMERGING",
-        "opportunity_type": "Evergreen",
-        "decision": "IMPROVE",
-        "decision_reason": "Attractive but needs a sharper angle or evidence",
-        "gates": {
-          "audience": {
-            "passed": true,
-            "note": "Targeted fanbase defined"
-          },
-          "evidence": {
-            "passed": true,
-            "note": "Hot query / entity match"
-          },
-          "differentiation": {
-            "passed": true,
-            "note": "Original design copy present (estimate — no rival comparison yet)"
-          },
-          "discovery": {
-            "passed": true,
-            "note": "Searchable terms present"
-          },
-          "business": {
-            "passed": true,
-            "note": "Commercial product"
-          },
-          "risk": {
-            "passed": true,
-            "note": "No elevated risk flagged"
-          },
-          "cannibalization": {
-            "passed": true,
-            "note": "2 sibling term match(es)"
-          }
-        },
-        "compliance": {
-          "terms": [
-            "michigan",
-            "go blue"
-          ],
-          "team_terms": [
-            "michigan",
-            "go blue"
-          ],
-          "person_terms": [],
-          "throwback_terms": [],
-          "level": "medium",
-          "social_safe": false,
-          "social_blocked": true
-        },
-        "evidence": {
-          "has_season_terms": true,
-          "has_headline_momentum": false,
-          "has_current_person": false,
-          "competitive_data": "estimate — no live rival data"
-        }
-      },
-      "platforms": {
-        "instagram": {
-          "caption": "Revenge Tour rolls on. Michigan football eve: Final thoughts on Underwood, the defense, tr... — Michigan Bet Ornate Sweatshirt is the uniform. Save for your next game day, share with your crew.",
-          "hashtags": [
-            "#gobluecrewneck",
-            "#classictee",
-            "#gamedaystyle",
-            "#michiganfootball",
-            "#goblue",
-            "#michiganbetshirt",
-            "#michiganvseverybody",
-            "#michiganfootballswea"
-          ],
-          "prompt": "Crisp early-autumn morning on a tree-lined college-town avenue leading toward an empty stadium; maize sunrise and deep navy shade, light fog, leaves skittering across pavement; communal energy, clean contrast, and an optimistic atmosphere; vertical 4:5 framing, cinematic editorial atmosphere, natural light, tactile detail, and generous negative space"
-        },
-        "tiktok": {
-          "caption": "POV: Ann Arbor hears Michigan football eve: Final thoughts on Underwood, the defense, tr... and puts on Michigan Bet Ornate Sweatshirt. Comment 'GO' and we'll drop the link.",
-          "hashtags": [
-            "#michiganfootballswea",
-            "#michiganfootball",
-            "#michiganbetshirt",
-            "#classictee",
-            "#michiganvseverybody",
-            "#gamedaystyle",
-            "#goblue",
-            "#gobluecrewneck"
-          ],
-          "prompt": "Crisp early-autumn morning on a tree-lined college-town avenue leading toward an empty stadium; maize sunrise and deep navy shade, light fog, leaves skittering across pavement; communal energy, clean contrast, and an optimistic atmosphere; vertical 9:16 framing with a strong center of calm negative space, cinematic editorial atmosphere, natural light, tactile detail, and generous negative space"
-        },
-        "facebook": {
-          "caption": "If you know what Michigan vs Everybody feels like, Michigan football eve: Final thoughts on Underwood, the defense, tr... and Michigan Bet Ornate Sweatshirt are for you. Gift-ready: beanies and mugs can't be the wrong size.",
-          "hashtags": [
-            "#gamedaystyle",
-            "#goblue",
-            "#michiganfootball",
-            "#gobluecrewneck",
-            "#classictee",
-            "#michiganbetshirt"
-          ],
-          "prompt": "Crisp early-autumn morning on a tree-lined college-town avenue leading toward an empty stadium; maize sunrise and deep navy shade, light fog, leaves skittering across pavement; communal energy, clean contrast, and an optimistic atmosphere; horizontal 16:9 framing, cinematic editorial atmosphere, natural light, tactile detail, and generous negative space"
-        },
-        "x": {
-          "caption": "Michigan football eve: Final thoughts on Underwood, the defense, tr... just dropped. Michigan Bet Ornate Sweatshirt is how Michigan answers. https://viralstyle.com/kebystore/limited-edition-m-fans-n29",
-          "hashtags": [
-            "#michiganbetshirt",
-            "#michiganvseverybody",
-            "#gobluecrewneck",
-            "#michiganfootball"
-          ],
-          "prompt": "Crisp early-autumn morning on a tree-lined college-town avenue leading toward an empty stadium; maize sunrise and deep navy shade, light fog, leaves skittering across pavement; communal energy, clean contrast, and an optimistic atmosphere; horizontal 16:9 framing with a wide horizon, cinematic editorial atmosphere, natural light, tactile detail, and generous negative space"
-        },
-        "pinterest": {
-          "caption": "Michigan Bet Ornate Sweatshirt - Michigan Outfit Inspo | Campus to Game Day. Pin this for your football gift list.",
-          "hashtags": [
-            "#michiganbetshirt",
-            "#gamedaystyle",
-            "#goblue",
-            "#classictee",
-            "#michiganfootballswea",
-            "#michiganvseverybody",
-            "#michiganfootball",
-            "#gobluecrewneck"
-          ],
-          "prompt": "Crisp early-autumn morning on a tree-lined college-town avenue leading toward an empty stadium; maize sunrise and deep navy shade, light fog, leaves skittering across pavement; communal energy, clean contrast, and an optimistic atmosphere; vertical 2:3 framing with an airy editorial composition, cinematic editorial atmosphere, natural light, tactile detail, and generous negative space"
-        }
-      },
-      "live_headline": "Michigan football eve: Final thoughts on Underwood, the defense, tr...",
-      "rank": 23,
-      "reasons": [
-        "2026 search match"
-      ]
-    },
-    {
-      "slug": "limited-edition-m-fans-n28",
-      "source_index": 129,
-      "collection": "michigan",
-      "collection_label": "Michigan Wolverines",
-      "name": "Bet M Michigan Sweatshirt",
-      "catalogue_title": "Limited Edition M Fans N28",
-      "design_text": "BET M block lettering",
-      "theme": "classic",
-      "product_type": "Apparel",
-      "price_usd": "36.99",
-      "product_url": "https://viralstyle.com/kebystore/limited-edition-m-fans-n28",
-      "image_url": "https://assets.viralstyle.com/campaigns/7cc441ff-cf12-afe4-7509-8efe08f9c3c6/k53YG6-vo7EaOY-XazqWVR-front-large.jpg",
-      "keywords": [
-        "bet michigan shirt",
-        "michigan m sweatshirt",
-        "go blue tee"
-      ],
-      "score": 72,
-      "score_breakdown": {
-        "score": 72,
-        "score_raw": 72,
-        "base": 50,
-        "season_search_terms": [
-          "go blue 2026 tee"
-        ],
-        "season_search_term_bonus": 22,
-        "headline_name_matches": [],
-        "headline_name_repeat_count": 0,
-        "headline_name_bonus": 0,
-        "playoff_or_player_theme": false,
-        "playoff_or_player_bonus": 0,
-        "throwback": false,
-        "throwback_entities": [],
-        "throwback_penalty": 0
-      },
-      "opportunity": {
-        "score": 60.5,
-        "confidence": 75,
-        "factors": {
-          "audience": 75,
-          "search": 85,
-          "velocity": 30,
-          "gap": 35,
-          "competition": 70,
-          "business": 70,
-          "authority": 40,
-          "longevity": 80,
-          "distribution": 60
-        },
-        "weights": {
-          "audience": 20,
-          "search": 15,
-          "velocity": 15,
-          "gap": 15,
-          "competition": 10,
-          "business": 10,
-          "authority": 5,
-          "longevity": 5,
-          "distribution": 5
-        },
-        "trend_stage": "EMERGING",
-        "opportunity_type": "Evergreen",
-        "decision": "IMPROVE",
-        "decision_reason": "Attractive but needs a sharper angle or evidence",
-        "gates": {
-          "audience": {
-            "passed": true,
-            "note": "Targeted fanbase defined"
-          },
-          "evidence": {
-            "passed": true,
-            "note": "Hot query / entity match"
-          },
-          "differentiation": {
-            "passed": true,
-            "note": "Original design copy present (estimate — no rival comparison yet)"
-          },
-          "discovery": {
-            "passed": true,
-            "note": "Searchable terms present"
-          },
-          "business": {
-            "passed": true,
-            "note": "Commercial product"
-          },
-          "risk": {
-            "passed": true,
-            "note": "No elevated risk flagged"
-          },
-          "cannibalization": {
-            "passed": false,
-            "note": "7 sibling term match(es)"
-          }
-        },
-        "compliance": {
-          "terms": [
-            "michigan",
-            "go blue"
-          ],
-          "team_terms": [
-            "michigan",
-            "go blue"
-          ],
-          "person_terms": [],
-          "throwback_terms": [],
-          "level": "medium",
-          "social_safe": false,
-          "social_blocked": true
-        },
-        "evidence": {
-          "has_season_terms": true,
-          "has_headline_momentum": false,
-          "has_current_person": false,
-          "competitive_data": "estimate — no live rival data"
-        }
-      },
-      "platforms": {
-        "instagram": {
-          "caption": "Bet. That's it. Michigan football eve: Final thoughts on Underwood, the defense, tr... and Bet M Michigan Sweatshirt says the rest. Save for your next game day, share with your crew.",
-          "hashtags": [
-            "#michiganmsweatshirt",
-            "#classictee",
-            "#gamedaystyle",
-            "#goblue",
-            "#michiganfootball",
-            "#gobluetee",
-            "#michiganvseverybody",
-            "#betmichiganshirt"
-          ],
-          "prompt": "Crisp early-autumn morning on a tree-lined college-town avenue leading toward an empty stadium; maize sunrise and deep navy shade, light fog, leaves skittering across pavement; communal energy, clean contrast, and an optimistic atmosphere; vertical 4:5 framing, cinematic editorial atmosphere, natural light, tactile detail, and generous negative space"
-        },
-        "tiktok": {
-          "caption": "Michigan vs Everybody, but it's just Bet M Michigan Sweatshirt after Michigan football eve: Final thoughts on Underwood, the defense, tr. POV: you already ordered it.",
-          "hashtags": [
-            "#gobluetee",
-            "#gamedaystyle",
-            "#michiganmsweatshirt",
-            "#michiganvseverybody",
-            "#michiganfootball",
-            "#classictee",
-            "#betmichiganshirt",
-            "#goblue"
-          ],
-          "prompt": "Crisp early-autumn morning on a tree-lined college-town avenue leading toward an empty stadium; maize sunrise and deep navy shade, light fog, leaves skittering across pavement; communal energy, clean contrast, and an optimistic atmosphere; vertical 9:16 framing with a strong center of calm negative space, cinematic editorial atmosphere, natural light, tactile detail, and generous negative space"
-        },
-        "facebook": {
-          "caption": "From State Street to the Big House tunnel — Michigan football eve: Final thoughts on Underwood, the defense, tr... and Bet M Michigan Sweatshirt walk the same path. Explore the design here — sizes S to 3XL, worldwide shipping.",
-          "hashtags": [
-            "#goblue",
-            "#betmichiganshirt",
-            "#michiganmsweatshirt",
-            "#michiganvseverybody",
-            "#gamedaystyle",
-            "#classictee"
-          ],
-          "prompt": "Crisp early-autumn morning on a tree-lined college-town avenue leading toward an empty stadium; maize sunrise and deep navy shade, light fog, leaves skittering across pavement; communal energy, clean contrast, and an optimistic atmosphere; horizontal 16:9 framing, cinematic editorial atmosphere, natural light, tactile detail, and generous negative space"
-        },
-        "x": {
-          "caption": "Michigan: Michigan football eve: Final thoughts on Underwood, the defense, tr... = Bet M Michigan Sweatshirt season. Maize out. https://viralstyle.com/kebystore/limited-edition-m-fans-n28",
-          "hashtags": [
-            "#michiganvseverybody",
-            "#gobluetee",
-            "#gamedaystyle",
-            "#goblue"
-          ],
-          "prompt": "Crisp early-autumn morning on a tree-lined college-town avenue leading toward an empty stadium; maize sunrise and deep navy shade, light fog, leaves skittering across pavement; communal energy, clean contrast, and an optimistic atmosphere; horizontal 16:9 framing with a wide horizon, cinematic editorial atmosphere, natural light, tactile detail, and generous negative space"
-        },
-        "pinterest": {
-          "caption": "Bet M Michigan Sweatshirt - Big House Tailgate Look | Michigan Fan Gift. Save this look for your next game day outfit.",
-          "hashtags": [
-            "#gobluetee",
-            "#goblue",
-            "#michiganfootball",
-            "#classictee",
-            "#michiganmsweatshirt",
-            "#betmichiganshirt",
-            "#michiganvseverybody",
-            "#gamedaystyle"
-          ],
-          "prompt": "Crisp early-autumn morning on a tree-lined college-town avenue leading toward an empty stadium; maize sunrise and deep navy shade, light fog, leaves skittering across pavement; communal energy, clean contrast, and an optimistic atmosphere; vertical 2:3 framing with an airy editorial composition, cinematic editorial atmosphere, natural light, tactile detail, and generous negative space"
-        }
-      },
-      "live_headline": "Michigan football eve: Final thoughts on Underwood, the defense, tr...",
-      "rank": 24,
-      "reasons": [
-        "2026 search match"
-      ]
-    },
-    {
-      "slug": "limited-edition-m-fans-n27",
-      "source_index": 130,
-      "collection": "michigan",
-      "collection_label": "Michigan Wolverines",
-      "name": "Michigan Revenge Tour Sweatshirt",
-      "catalogue_title": "Limited Edition M Fans N27",
-      "design_text": "MICHIGAN REVENGE TOUR",
-      "theme": "classic",
-      "product_type": "Apparel",
-      "price_usd": "36.99",
-      "product_url": "https://viralstyle.com/kebystore/limited-edition-m-fans-n27",
-      "image_url": "https://assets.viralstyle.com/campaigns/b77dc294-3e11-3b74-7541-0c6875f0eacd/M5A91n-9Mo8WQ4-wkrEmQR-front-large.jpg",
-      "keywords": [
-        "michigan revenge tour",
-        "go blue sweatshirt",
-        "michigan rivalry shirt"
-      ],
-      "score": 72,
-      "score_breakdown": {
-        "score": 72,
-        "score_raw": 72,
-        "base": 50,
-        "season_search_terms": [
-          "go blue 2026 tee"
-        ],
-        "season_search_term_bonus": 22,
-        "headline_name_matches": [],
-        "headline_name_repeat_count": 0,
-        "headline_name_bonus": 0,
-        "playoff_or_player_theme": false,
-        "playoff_or_player_bonus": 0,
-        "throwback": false,
-        "throwback_entities": [],
-        "throwback_penalty": 0
-      },
-      "opportunity": {
-        "score": 60.5,
-        "confidence": 75,
-        "factors": {
-          "audience": 75,
-          "search": 85,
-          "velocity": 30,
-          "gap": 35,
-          "competition": 70,
-          "business": 70,
-          "authority": 40,
-          "longevity": 80,
-          "distribution": 60
-        },
-        "weights": {
-          "audience": 20,
-          "search": 15,
-          "velocity": 15,
-          "gap": 15,
-          "competition": 10,
-          "business": 10,
-          "authority": 5,
-          "longevity": 5,
-          "distribution": 5
-        },
-        "trend_stage": "EMERGING",
-        "opportunity_type": "Evergreen",
-        "decision": "IMPROVE",
-        "decision_reason": "Attractive but needs a sharper angle or evidence",
-        "gates": {
-          "audience": {
-            "passed": true,
-            "note": "Targeted fanbase defined"
-          },
-          "evidence": {
-            "passed": true,
-            "note": "Hot query / entity match"
-          },
-          "differentiation": {
-            "passed": true,
-            "note": "Original design copy present (estimate — no rival comparison yet)"
-          },
-          "discovery": {
-            "passed": true,
-            "note": "Searchable terms present"
-          },
-          "business": {
-            "passed": true,
-            "note": "Commercial product"
-          },
-          "risk": {
-            "passed": true,
-            "note": "No elevated risk flagged"
-          },
-          "cannibalization": {
-            "passed": false,
-            "note": "7 sibling term match(es)"
-          }
-        },
-        "compliance": {
-          "terms": [
-            "michigan",
-            "go blue"
-          ],
-          "team_terms": [
-            "michigan",
-            "go blue"
-          ],
-          "person_terms": [],
-          "throwback_terms": [],
-          "level": "medium",
-          "social_safe": false,
-          "social_blocked": true
-        },
-        "evidence": {
-          "has_season_terms": true,
-          "has_headline_momentum": false,
-          "has_current_person": false,
-          "competitive_data": "estimate — no live rival data"
-        }
-      },
-      "platforms": {
-        "instagram": {
-          "caption": "Michigan football is three hours of believing. Michigan football eve: Final thoughts on Underwood, the defense, tr... — Michigan Revenge Tour Sweatshirt believes. Comment your size — S to 3XL, printed on demand.",
-          "hashtags": [
-            "#michiganfootball",
-            "#michiganrevengetour",
-            "#classictee",
-            "#michiganrivalryshirt",
-            "#michiganvseverybody",
-            "#goblue",
-            "#gamedaystyle",
-            "#gobluesweatshirt"
-          ],
-          "prompt": "Crisp early-autumn morning on a tree-lined college-town avenue leading toward an empty stadium; maize sunrise and deep navy shade, light fog, leaves skittering across pavement; communal energy, clean contrast, and an optimistic atmosphere; vertical 4:5 framing, cinematic editorial atmosphere, natural light, tactile detail, and generous negative space"
-        },
-        "tiktok": {
-          "caption": "POV: Ann Arbor hears Michigan football eve: Final thoughts on Underwood, the defense, tr... and puts on Michigan Revenge Tour Sweatshirt. POV: you already ordered it.",
-          "hashtags": [
-            "#michiganrivalryshirt",
-            "#classictee",
-            "#gamedaystyle",
-            "#goblue",
-            "#michiganrevengetour",
-            "#gobluesweatshirt",
-            "#michiganfootball",
-            "#michiganvseverybody"
-          ],
-          "prompt": "Crisp early-autumn morning on a tree-lined college-town avenue leading toward an empty stadium; maize sunrise and deep navy shade, light fog, leaves skittering across pavement; communal energy, clean contrast, and an optimistic atmosphere; vertical 9:16 framing with a strong center of calm negative space, cinematic editorial atmosphere, natural light, tactile detail, and generous negative space"
-        },
-        "facebook": {
-          "caption": "From State Street to the Big House tunnel — Michigan football eve: Final thoughts on Underwood, the defense, tr... and Michigan Revenge Tour Sweatshirt walk the same path. Gift-ready: beanies and mugs can't be the wrong size.",
-          "hashtags": [
-            "#michiganrivalryshirt",
-            "#michiganrevengetour",
-            "#michiganvseverybody",
-            "#classictee",
-            "#gobluesweatshirt",
-            "#gamedaystyle"
-          ],
-          "prompt": "Crisp early-autumn morning on a tree-lined college-town avenue leading toward an empty stadium; maize sunrise and deep navy shade, light fog, leaves skittering across pavement; communal energy, clean contrast, and an optimistic atmosphere; horizontal 16:9 framing, cinematic editorial atmosphere, natural light, tactile detail, and generous negative space"
-        },
-        "x": {
-          "caption": "Michigan football eve: Final thoughts on Underwood, the defense, tr... just dropped. Michigan Revenge Tour Sweatshirt is how Michigan answers. https://viralstyle.com/kebystore/limited-edition-m-fans-n27",
-          "hashtags": [
-            "#michiganvseverybody",
-            "#michiganfootball",
-            "#michiganrivalryshirt",
-            "#michiganrevengetour"
-          ],
-          "prompt": "Crisp early-autumn morning on a tree-lined college-town avenue leading toward an empty stadium; maize sunrise and deep navy shade, light fog, leaves skittering across pavement; communal energy, clean contrast, and an optimistic atmosphere; horizontal 16:9 framing with a wide horizon, cinematic editorial atmosphere, natural light, tactile detail, and generous negative space"
-        },
-        "pinterest": {
-          "caption": "Michigan Revenge Tour Sweatshirt - Big House Tailgate Look | Michigan Fan Gift. Add to your tailgate outfit ideas.",
-          "hashtags": [
-            "#michiganfootball",
-            "#gamedaystyle",
-            "#goblue",
-            "#classictee",
-            "#gobluesweatshirt",
-            "#michiganvseverybody",
-            "#michiganrevengetour",
-            "#michiganrivalryshirt"
-          ],
-          "prompt": "Crisp early-autumn morning on a tree-lined college-town avenue leading toward an empty stadium; maize sunrise and deep navy shade, light fog, leaves skittering across pavement; communal energy, clean contrast, and an optimistic atmosphere; vertical 2:3 framing with an airy editorial composition, cinematic editorial atmosphere, natural light, tactile detail, and generous negative space"
-        }
-      },
-      "live_headline": "Michigan football eve: Final thoughts on Underwood, the defense, tr...",
-      "rank": 25,
-      "reasons": [
-        "2026 search match"
-      ]
-    },
-    {
-      "slug": "limited-edition-m-fans-n26",
-      "source_index": 131,
-      "collection": "michigan",
-      "collection_label": "Michigan Wolverines",
-      "name": "Michigan Bet Block Sweatshirt",
-      "catalogue_title": "Limited Edition M Fans N26",
-      "design_text": "MICHIGAN BET block lettering",
-      "theme": "classic",
-      "product_type": "Apparel",
-      "price_usd": "36.99",
-      "product_url": "https://viralstyle.com/kebystore/limited-edition-m-fans-n26",
-      "image_url": "https://assets.viralstyle.com/campaigns/be235ba3-ac54-87c4-d9ca-281db3000ab1/Z4W84o-ZQaqxaW-Wmzr3ka-front-large.jpg",
-      "keywords": [
-        "michigan bet crewneck",
-        "go blue shirt",
-        "michigan navy sweatshirt"
-      ],
-      "score": 72,
-      "score_breakdown": {
-        "score": 72,
-        "score_raw": 72,
-        "base": 50,
-        "season_search_terms": [
-          "go blue 2026 tee"
-        ],
-        "season_search_term_bonus": 22,
-        "headline_name_matches": [],
-        "headline_name_repeat_count": 0,
-        "headline_name_bonus": 0,
-        "playoff_or_player_theme": false,
-        "playoff_or_player_bonus": 0,
-        "throwback": false,
-        "throwback_entities": [],
-        "throwback_penalty": 0
-      },
-      "opportunity": {
-        "score": 60.5,
-        "confidence": 75,
-        "factors": {
-          "audience": 75,
-          "search": 85,
-          "velocity": 30,
-          "gap": 35,
-          "competition": 70,
-          "business": 70,
-          "authority": 40,
-          "longevity": 80,
-          "distribution": 60
-        },
-        "weights": {
-          "audience": 20,
-          "search": 15,
-          "velocity": 15,
-          "gap": 15,
-          "competition": 10,
-          "business": 10,
-          "authority": 5,
-          "longevity": 5,
-          "distribution": 5
-        },
-        "trend_stage": "EMERGING",
-        "opportunity_type": "Evergreen",
-        "decision": "IMPROVE",
-        "decision_reason": "Attractive but needs a sharper angle or evidence",
-        "gates": {
-          "audience": {
-            "passed": true,
-            "note": "Targeted fanbase defined"
-          },
-          "evidence": {
-            "passed": true,
-            "note": "Hot query / entity match"
-          },
-          "differentiation": {
-            "passed": true,
-            "note": "Original design copy present (estimate — no rival comparison yet)"
-          },
-          "discovery": {
-            "passed": true,
-            "note": "Searchable terms present"
-          },
-          "business": {
-            "passed": true,
-            "note": "Commercial product"
-          },
-          "risk": {
-            "passed": true,
-            "note": "No elevated risk flagged"
-          },
-          "cannibalization": {
-            "passed": false,
-            "note": "7 sibling term match(es)"
-          }
-        },
-        "compliance": {
-          "terms": [
-            "michigan",
-            "go blue"
-          ],
-          "team_terms": [
-            "michigan",
-            "go blue"
-          ],
-          "person_terms": [],
-          "throwback_terms": [],
-          "level": "medium",
-          "social_safe": false,
-          "social_blocked": true
-        },
-        "evidence": {
-          "has_season_terms": true,
-          "has_headline_momentum": false,
-          "has_current_person": false,
-          "competitive_data": "estimate — no live rival data"
-        }
-      },
-      "platforms": {
-        "instagram": {
-          "caption": "Crisp October, Big House roar, Michigan football eve: Final thoughts on Underwood, the defense, tr.... Michigan Bet Block Sweatshirt fits the forecast. Save this idea and tap through to see the design.",
-          "hashtags": [
-            "#gamedaystyle",
-            "#michiganfootball",
-            "#michigannavysweatshi",
-            "#classictee",
-            "#goblueshirt",
-            "#goblue",
-            "#michiganvseverybody",
-            "#michiganbetcrewneck"
-          ],
-          "prompt": "Crisp early-autumn morning on a tree-lined college-town avenue leading toward an empty stadium; maize sunrise and deep navy shade, light fog, leaves skittering across pavement; communal energy, clean contrast, and an optimistic atmosphere; vertical 4:5 framing, cinematic editorial atmosphere, natural light, tactile detail, and generous negative space"
-        },
-        "tiktok": {
-          "caption": "When Michigan football eve: Final thoughts on Underwood, the defense, tr... hits and your Michigan Bet Block Sweatshirt already knew the ending. Fit check approved? Link in bio.",
-          "hashtags": [
-            "#gamedaystyle",
-            "#michigannavysweatshi",
-            "#michiganbetcrewneck",
-            "#goblueshirt",
-            "#goblue",
-            "#michiganfootball",
-            "#michiganvseverybody",
-            "#classictee"
-          ],
-          "prompt": "Crisp early-autumn morning on a tree-lined college-town avenue leading toward an empty stadium; maize sunrise and deep navy shade, light fog, leaves skittering across pavement; communal energy, clean contrast, and an optimistic atmosphere; vertical 9:16 framing with a strong center of calm negative space, cinematic editorial atmosphere, natural light, tactile detail, and generous negative space"
-        },
-        "facebook": {
-          "caption": "Ann Arbor, Michigan football eve: Final thoughts on Underwood, the defense, tr... just wrote the next chapter. Michigan Bet Block Sweatshirt is how Go Blue wears it. Explore the design here — sizes S to 3XL, worldwide shipping.",
-          "hashtags": [
-            "#michigannavysweatshi",
-            "#michiganbetcrewneck",
-            "#classictee",
-            "#goblue",
-            "#gamedaystyle",
-            "#goblueshirt"
-          ],
-          "prompt": "Crisp early-autumn morning on a tree-lined college-town avenue leading toward an empty stadium; maize sunrise and deep navy shade, light fog, leaves skittering across pavement; communal energy, clean contrast, and an optimistic atmosphere; horizontal 16:9 framing, cinematic editorial atmosphere, natural light, tactile detail, and generous negative space"
-        },
-        "x": {
-          "caption": "Michigan Bet Block Sweatshirt with MICHIGAN BET block lettering. Michigan football eve: Final thoughts on Underwood, the defense, tr.... Big House ready. https://viralstyle.com/kebystore/limited-edition-m-fans-n26",
-          "hashtags": [
-            "#goblue",
-            "#michiganvseverybody",
-            "#michiganfootball",
-            "#michigannavysweatshi"
-          ],
-          "prompt": "Crisp early-autumn morning on a tree-lined college-town avenue leading toward an empty stadium; maize sunrise and deep navy shade, light fog, leaves skittering across pavement; communal energy, clean contrast, and an optimistic atmosphere; horizontal 16:9 framing with a wide horizon, cinematic editorial atmosphere, natural light, tactile detail, and generous negative space"
-        },
-        "pinterest": {
-          "caption": "Michigan Bet Block Sweatshirt - Michigan Go Blue Outfit Idea | Ann Arbor Game Day Style. Tap to see colourways, sizes, and secure checkout.",
-          "hashtags": [
-            "#goblue",
-            "#gamedaystyle",
-            "#michiganvseverybody",
-            "#michiganfootball",
-            "#classictee",
-            "#michiganbetcrewneck",
-            "#michigannavysweatshi",
-            "#goblueshirt"
-          ],
-          "prompt": "Crisp early-autumn morning on a tree-lined college-town avenue leading toward an empty stadium; maize sunrise and deep navy shade, light fog, leaves skittering across pavement; communal energy, clean contrast, and an optimistic atmosphere; vertical 2:3 framing with an airy editorial composition, cinematic editorial atmosphere, natural light, tactile detail, and generous negative space"
-        }
-      },
-      "live_headline": "Michigan football eve: Final thoughts on Underwood, the defense, tr...",
-      "rank": 26,
-      "reasons": [
-        "2026 search match"
-      ]
-    },
-    {
-      "slug": "limited-edition-m-fans",
-      "source_index": 133,
-      "collection": "michigan",
-      "collection_label": "Michigan Wolverines",
-      "name": "Michigan Vs Everybody Navy Sweatshirt",
-      "catalogue_title": "Limited Edition M Fans",
-      "design_text": "MICHIGAN -VS- EVERYBODY with M logo",
-      "theme": "classic",
-      "product_type": "Apparel",
-      "price_usd": "29.99",
-      "product_url": "https://viralstyle.com/kebystore/limited-edition-m-fans",
-      "image_url": "https://assets.viralstyle.com/campaigns/57baad6e-fbaf-5f04-3da0-f645cdc42393/Ba5b1K-AP4vBom-onQX40z-front-large.jpg",
-      "keywords": [
-        "michigan vs everybody sweatshirt",
-        "go blue navy crewneck",
-        "michigan football shirt"
-      ],
-      "score": 72,
-      "score_breakdown": {
-        "score": 72,
-        "score_raw": 72,
-        "base": 50,
-        "season_search_terms": [
-          "go blue 2026 tee",
-          "michigan football 2026 shirt"
-        ],
-        "season_search_term_bonus": 22,
-        "headline_name_matches": [],
-        "headline_name_repeat_count": 0,
-        "headline_name_bonus": 0,
-        "playoff_or_player_theme": false,
-        "playoff_or_player_bonus": 0,
-        "throwback": false,
-        "throwback_entities": [],
-        "throwback_penalty": 0
-      },
-      "opportunity": {
-        "score": 67.2,
-        "confidence": 75,
-        "factors": {
-          "audience": 75,
-          "search": 85,
-          "velocity": 30,
-          "gap": 80,
-          "competition": 70,
-          "business": 70,
-          "authority": 40,
-          "longevity": 80,
-          "distribution": 60
-        },
-        "weights": {
-          "audience": 20,
-          "search": 15,
-          "velocity": 15,
-          "gap": 15,
-          "competition": 10,
-          "business": 10,
-          "authority": 5,
-          "longevity": 5,
-          "distribution": 5
-        },
-        "trend_stage": "EMERGING",
-        "opportunity_type": "Evergreen",
-        "decision": "IMPROVE",
-        "decision_reason": "Attractive but needs a sharper angle or evidence",
-        "gates": {
-          "audience": {
-            "passed": true,
-            "note": "Targeted fanbase defined"
-          },
-          "evidence": {
-            "passed": true,
-            "note": "Hot query / entity match"
-          },
-          "differentiation": {
-            "passed": true,
-            "note": "Original design copy present (estimate — no rival comparison yet)"
-          },
-          "discovery": {
-            "passed": true,
-            "note": "Searchable terms present"
-          },
-          "business": {
-            "passed": true,
-            "note": "Commercial product"
-          },
-          "risk": {
-            "passed": true,
-            "note": "No elevated risk flagged"
-          },
-          "cannibalization": {
-            "passed": true,
-            "note": "2 sibling term match(es)"
-          }
-        },
-        "compliance": {
-          "terms": [
-            "michigan",
-            "go blue"
-          ],
-          "team_terms": [
-            "michigan",
-            "go blue"
-          ],
-          "person_terms": [],
-          "throwback_terms": [],
-          "level": "medium",
-          "social_safe": false,
-          "social_blocked": true
-        },
-        "evidence": {
-          "has_season_terms": true,
-          "has_headline_momentum": false,
-          "has_current_person": false,
-          "competitive_data": "estimate — no live rival data"
-        }
-      },
-      "platforms": {
-        "instagram": {
-          "caption": "Maize and blue hits different in November. Michigan football eve: Final thoughts on Underwood, the defense, tr... — Michigan Vs Everybody Navy Sweatshirt is November. Add it to your gift list before kickoff.",
-          "hashtags": [
-            "#classictee",
-            "#michiganfootball",
-            "#michiganvseverybodys",
-            "#goblue",
-            "#gobluenavycrewneck",
-            "#michiganvseverybody",
-            "#gamedaystyle",
-            "#michiganfootballshir"
-          ],
-          "prompt": "Crisp early-autumn morning on a tree-lined college-town avenue leading toward an empty stadium; maize sunrise and deep navy shade, light fog, leaves skittering across pavement; communal energy, clean contrast, and an optimistic atmosphere; vertical 4:5 framing, cinematic editorial atmosphere, natural light, tactile detail, and generous negative space"
-        },
-        "tiktok": {
-          "caption": "Tell me you go to Michigan without telling me — Michigan Vs Everybody Navy Sweatshirt. Comment 'GO' and we'll drop the link.",
-          "hashtags": [
-            "#michiganfootballshir",
-            "#michiganvseverybodys",
-            "#goblue",
-            "#michiganvseverybody",
-            "#michiganfootball",
-            "#classictee",
-            "#gamedaystyle",
-            "#gobluenavycrewneck"
-          ],
-          "prompt": "Crisp early-autumn morning on a tree-lined college-town avenue leading toward an empty stadium; maize sunrise and deep navy shade, light fog, leaves skittering across pavement; communal energy, clean contrast, and an optimistic atmosphere; vertical 9:16 framing with a strong center of calm negative space, cinematic editorial atmosphere, natural light, tactile detail, and generous negative space"
-        },
-        "facebook": {
-          "caption": "Maize and blue, block lettering, no apologies. Michigan football eve: Final thoughts on Underwood, the defense, tr... — Michigan Vs Everybody Navy Sweatshirt with MICHIGAN -VS- EVERYBODY with M logo is fan-made for the Big House. Tap through to see all colourways and garment styles.",
-          "hashtags": [
-            "#michiganvseverybody",
-            "#michiganfootball",
-            "#gamedaystyle",
-            "#classictee",
-            "#michiganvseverybodys",
-            "#michiganfootballshir"
-          ],
-          "prompt": "Crisp early-autumn morning on a tree-lined college-town avenue leading toward an empty stadium; maize sunrise and deep navy shade, light fog, leaves skittering across pavement; communal energy, clean contrast, and an optimistic atmosphere; horizontal 16:9 framing, cinematic editorial atmosphere, natural light, tactile detail, and generous negative space"
-        },
-        "x": {
-          "caption": "Michigan: Michigan football eve: Final thoughts on Underwood, the defense, tr... = Michigan Vs Everybody Navy Sweatshirt season. Maize out. https://viralstyle.com/kebystore/limited-edition-m-fans",
-          "hashtags": [
-            "#gamedaystyle",
-            "#michiganfootballshir",
-            "#michiganfootball",
-            "#michiganvseverybody"
-          ],
-          "prompt": "Crisp early-autumn morning on a tree-lined college-town avenue leading toward an empty stadium; maize sunrise and deep navy shade, light fog, leaves skittering across pavement; communal energy, clean contrast, and an optimistic atmosphere; horizontal 16:9 framing with a wide horizon, cinematic editorial atmosphere, natural light, tactile detail, and generous negative space"
-        },
-        "pinterest": {
-          "caption": "Michigan Vs Everybody Navy Sweatshirt - Big House Tailgate Look | Michigan Fan Gift. Pin this for your football gift list.",
-          "hashtags": [
-            "#michiganfootball",
-            "#classictee",
-            "#gamedaystyle",
-            "#gobluenavycrewneck",
-            "#michiganvseverybodys",
-            "#michiganvseverybody",
-            "#goblue",
-            "#michiganfootballshir"
-          ],
-          "prompt": "Crisp early-autumn morning on a tree-lined college-town avenue leading toward an empty stadium; maize sunrise and deep navy shade, light fog, leaves skittering across pavement; communal energy, clean contrast, and an optimistic atmosphere; vertical 2:3 framing with an airy editorial composition, cinematic editorial atmosphere, natural light, tactile detail, and generous negative space"
-        }
-      },
-      "live_headline": "Michigan football eve: Final thoughts on Underwood, the defense, tr...",
-      "rank": 27,
-      "reasons": [
-        "2026 search match"
-      ]
-    },
-    {
       "slug": "all-we-want-all-we-got",
       "source_index": 10,
       "collection": "cleveland-browns",
@@ -5518,7 +4196,7 @@
         }
       },
       "live_headline": "The Browns have a QB who runs a 4.36 — so why won't they let him pl...",
-      "rank": 28,
+      "rank": 21,
       "reasons": [
         "playoff/player theme"
       ]
@@ -5705,7 +4383,7 @@
         }
       },
       "live_headline": "The Browns have a QB who runs a 4.36 — so why won't they let him pl...",
-      "rank": 29,
+      "rank": 22,
       "reasons": [
         "playoff/player theme"
       ]
@@ -5896,7 +4574,7 @@
         }
       },
       "live_headline": "The Browns have a QB who runs a 4.36 — so why won't they let him pl...",
-      "rank": 30,
+      "rank": 23,
       "reasons": [
         "playoff/player theme"
       ]
@@ -6085,7 +4763,7 @@
         }
       },
       "live_headline": "The Browns have a QB who runs a 4.36 — so why won't they let him pl...",
-      "rank": 31,
+      "rank": 24,
       "reasons": [
         "playoff/player theme"
       ]
@@ -6266,7 +4944,7 @@
         }
       },
       "live_headline": "The Browns have a QB who runs a 4.36 — so why won't they let him pl...",
-      "rank": 32,
+      "rank": 25,
       "reasons": [
         "evergreen catalogue fit"
       ]
@@ -6451,7 +5129,7 @@
         }
       },
       "live_headline": "The Browns have a QB who runs a 4.36 — so why won't they let him pl...",
-      "rank": 33,
+      "rank": 26,
       "reasons": [
         "evergreen catalogue fit"
       ]
@@ -6640,7 +5318,7 @@
         }
       },
       "live_headline": "The Browns have a QB who runs a 4.36 — so why won't they let him pl...",
-      "rank": 34,
+      "rank": 27,
       "reasons": [
         "evergreen catalogue fit"
       ]
@@ -6825,7 +5503,7 @@
         }
       },
       "live_headline": "The Browns have a QB who runs a 4.36 — so why won't they let him pl...",
-      "rank": 35,
+      "rank": 28,
       "reasons": [
         "evergreen catalogue fit"
       ]
@@ -7012,7 +5690,7 @@
         }
       },
       "live_headline": "The Browns have a QB who runs a 4.36 — so why won't they let him pl...",
-      "rank": 36,
+      "rank": 29,
       "reasons": [
         "evergreen catalogue fit"
       ]
@@ -7197,7 +5875,7 @@
         }
       },
       "live_headline": "The Browns have a QB who runs a 4.36 — so why won't they let him pl...",
-      "rank": 37,
+      "rank": 30,
       "reasons": [
         "evergreen catalogue fit"
       ]
@@ -7384,7 +6062,7 @@
         }
       },
       "live_headline": "The Browns have a QB who runs a 4.36 — so why won't they let him pl...",
-      "rank": 38,
+      "rank": 31,
       "reasons": [
         "evergreen catalogue fit"
       ]
@@ -7565,7 +6243,7 @@
         }
       },
       "live_headline": "The Browns have a QB who runs a 4.36 — so why won't they let him pl...",
-      "rank": 39,
+      "rank": 32,
       "reasons": [
         "evergreen catalogue fit"
       ]
@@ -7756,7 +6434,7 @@
         }
       },
       "live_headline": "The Browns have a QB who runs a 4.36 — so why won't they let him pl...",
-      "rank": 40,
+      "rank": 33,
       "reasons": [
         "evergreen catalogue fit"
       ]
@@ -7943,7 +6621,7 @@
         }
       },
       "live_headline": "The Browns have a QB who runs a 4.36 — so why won't they let him pl...",
-      "rank": 41,
+      "rank": 34,
       "reasons": [
         "evergreen catalogue fit"
       ]
@@ -8130,7 +6808,7 @@
         }
       },
       "live_headline": "The Browns have a QB who runs a 4.36 — so why won't they let him pl...",
-      "rank": 42,
+      "rank": 35,
       "reasons": [
         "evergreen catalogue fit"
       ]
@@ -8317,7 +6995,7 @@
         }
       },
       "live_headline": "The Browns have a QB who runs a 4.36 — so why won't they let him pl...",
-      "rank": 43,
+      "rank": 36,
       "reasons": [
         "evergreen catalogue fit"
       ]
@@ -8502,7 +7180,7 @@
         }
       },
       "live_headline": "The Browns have a QB who runs a 4.36 — so why won't they let him pl...",
-      "rank": 44,
+      "rank": 37,
       "reasons": [
         "evergreen catalogue fit"
       ]
@@ -8689,7 +7367,7 @@
         }
       },
       "live_headline": "The Browns have a QB who runs a 4.36 — so why won't they let him pl...",
-      "rank": 45,
+      "rank": 38,
       "reasons": [
         "evergreen catalogue fit"
       ]
@@ -8876,7 +7554,7 @@
         }
       },
       "live_headline": "The Browns have a QB who runs a 4.36 — so why won't they let him pl...",
-      "rank": 46,
+      "rank": 39,
       "reasons": [
         "evergreen catalogue fit"
       ]
@@ -9061,7 +7739,7 @@
         }
       },
       "live_headline": "The Browns have a QB who runs a 4.36 — so why won't they let him pl...",
-      "rank": 47,
+      "rank": 40,
       "reasons": [
         "evergreen catalogue fit"
       ]
@@ -9248,7 +7926,7 @@
         }
       },
       "live_headline": "The Browns have a QB who runs a 4.36 — so why won't they let him pl...",
-      "rank": 48,
+      "rank": 41,
       "reasons": [
         "evergreen catalogue fit"
       ]
@@ -9435,7 +8113,7 @@
         }
       },
       "live_headline": "The Browns have a QB who runs a 4.36 — so why won't they let him pl...",
-      "rank": 49,
+      "rank": 42,
       "reasons": [
         "evergreen catalogue fit"
       ]
@@ -9622,7 +8300,7 @@
         }
       },
       "live_headline": "The Browns have a QB who runs a 4.36 — so why won't they let him pl...",
-      "rank": 50,
+      "rank": 43,
       "reasons": [
         "evergreen catalogue fit"
       ]
@@ -9809,7 +8487,7 @@
         }
       },
       "live_headline": "The Browns have a QB who runs a 4.36 — so why won't they let him pl...",
-      "rank": 51,
+      "rank": 44,
       "reasons": [
         "evergreen catalogue fit"
       ]
@@ -9994,7 +8672,7 @@
         }
       },
       "live_headline": "The Browns have a QB who runs a 4.36 — so why won't they let him pl...",
-      "rank": 52,
+      "rank": 45,
       "reasons": [
         "evergreen catalogue fit"
       ]
@@ -10179,7 +8857,7 @@
         }
       },
       "live_headline": "The Browns have a QB who runs a 4.36 — so why won't they let him pl...",
-      "rank": 53,
+      "rank": 46,
       "reasons": [
         "evergreen catalogue fit"
       ]
@@ -10364,7 +9042,7 @@
         }
       },
       "live_headline": "The Browns have a QB who runs a 4.36 — so why won't they let him pl...",
-      "rank": 54,
+      "rank": 47,
       "reasons": [
         "evergreen catalogue fit"
       ]
@@ -10553,7 +9231,7 @@
         }
       },
       "live_headline": "The Browns have a QB who runs a 4.36 — so why won't they let him pl...",
-      "rank": 55,
+      "rank": 48,
       "reasons": [
         "evergreen catalogue fit"
       ]
@@ -10740,7 +9418,7 @@
         }
       },
       "live_headline": "The Browns have a QB who runs a 4.36 — so why won't they let him pl...",
-      "rank": 56,
+      "rank": 49,
       "reasons": [
         "evergreen catalogue fit"
       ]
@@ -10927,7 +9605,7 @@
         }
       },
       "live_headline": "The Browns have a QB who runs a 4.36 — so why won't they let him pl...",
-      "rank": 57,
+      "rank": 50,
       "reasons": [
         "evergreen catalogue fit"
       ]
@@ -11114,7 +9792,7 @@
         }
       },
       "live_headline": "The Browns have a QB who runs a 4.36 — so why won't they let him pl...",
-      "rank": 58,
+      "rank": 51,
       "reasons": [
         "evergreen catalogue fit"
       ]
@@ -11301,7 +9979,7 @@
         }
       },
       "live_headline": "The Browns have a QB who runs a 4.36 — so why won't they let him pl...",
-      "rank": 59,
+      "rank": 52,
       "reasons": [
         "evergreen catalogue fit"
       ]
@@ -11486,7 +10164,7 @@
         }
       },
       "live_headline": "The Browns have a QB who runs a 4.36 — so why won't they let him pl...",
-      "rank": 60,
+      "rank": 53,
       "reasons": [
         "evergreen catalogue fit"
       ]
@@ -11671,7 +10349,7 @@
         }
       },
       "live_headline": "The Browns have a QB who runs a 4.36 — so why won't they let him pl...",
-      "rank": 61,
+      "rank": 54,
       "reasons": [
         "evergreen catalogue fit"
       ]
@@ -11856,7 +10534,7 @@
         }
       },
       "live_headline": "The Browns have a QB who runs a 4.36 — so why won't they let him pl...",
-      "rank": 62,
+      "rank": 55,
       "reasons": [
         "evergreen catalogue fit"
       ]
@@ -12043,7 +10721,7 @@
         }
       },
       "live_headline": "The Browns have a QB who runs a 4.36 — so why won't they let him pl...",
-      "rank": 63,
+      "rank": 56,
       "reasons": [
         "evergreen catalogue fit"
       ]
@@ -12230,7 +10908,7 @@
         }
       },
       "live_headline": "The Browns have a QB who runs a 4.36 — so why won't they let him pl...",
-      "rank": 64,
+      "rank": 57,
       "reasons": [
         "evergreen catalogue fit"
       ]
@@ -12417,7 +11095,7 @@
         }
       },
       "live_headline": "The Browns have a QB who runs a 4.36 — so why won't they let him pl...",
-      "rank": 65,
+      "rank": 58,
       "reasons": [
         "evergreen catalogue fit"
       ]
@@ -12606,7 +11284,7 @@
         }
       },
       "live_headline": "The Browns have a QB who runs a 4.36 — so why won't they let him pl...",
-      "rank": 66,
+      "rank": 59,
       "reasons": [
         "evergreen catalogue fit"
       ]
@@ -12791,7 +11469,7 @@
         }
       },
       "live_headline": "The Browns have a QB who runs a 4.36 — so why won't they let him pl...",
-      "rank": 67,
+      "rank": 60,
       "reasons": [
         "evergreen catalogue fit"
       ]
@@ -12978,7 +11656,7 @@
         }
       },
       "live_headline": "The Browns have a QB who runs a 4.36 — so why won't they let him pl...",
-      "rank": 68,
+      "rank": 61,
       "reasons": [
         "evergreen catalogue fit"
       ]
@@ -13163,7 +11841,7 @@
         }
       },
       "live_headline": "The Browns have a QB who runs a 4.36 — so why won't they let him pl...",
-      "rank": 69,
+      "rank": 62,
       "reasons": [
         "evergreen catalogue fit"
       ]
@@ -13350,7 +12028,7 @@
         }
       },
       "live_headline": "The Browns have a QB who runs a 4.36 — so why won't they let him pl...",
-      "rank": 70,
+      "rank": 63,
       "reasons": [
         "evergreen catalogue fit"
       ]
@@ -13535,7 +12213,7 @@
         }
       },
       "live_headline": "The Browns have a QB who runs a 4.36 — so why won't they let him pl...",
-      "rank": 71,
+      "rank": 64,
       "reasons": [
         "evergreen catalogue fit"
       ]
@@ -13720,7 +12398,7 @@
         }
       },
       "live_headline": "The Browns have a QB who runs a 4.36 — so why won't they let him pl...",
-      "rank": 72,
+      "rank": 65,
       "reasons": [
         "evergreen catalogue fit"
       ]
@@ -13905,7 +12583,7 @@
         }
       },
       "live_headline": "The Browns have a QB who runs a 4.36 — so why won't they let him pl...",
-      "rank": 73,
+      "rank": 66,
       "reasons": [
         "evergreen catalogue fit"
       ]
@@ -14090,7 +12768,7 @@
         }
       },
       "live_headline": "The Browns have a QB who runs a 4.36 — so why won't they let him pl...",
-      "rank": 74,
+      "rank": 67,
       "reasons": [
         "evergreen catalogue fit"
       ]
@@ -14275,7 +12953,7 @@
         }
       },
       "live_headline": "The Browns have a QB who runs a 4.36 — so why won't they let him pl...",
-      "rank": 75,
+      "rank": 68,
       "reasons": [
         "evergreen catalogue fit"
       ]
@@ -14456,7 +13134,7 @@
         }
       },
       "live_headline": "The Browns have a QB who runs a 4.36 — so why won't they let him pl...",
-      "rank": 76,
+      "rank": 69,
       "reasons": [
         "evergreen catalogue fit"
       ]
@@ -14637,7 +13315,7 @@
         }
       },
       "live_headline": "The Browns have a QB who runs a 4.36 — so why won't they let him pl...",
-      "rank": 77,
+      "rank": 70,
       "reasons": [
         "evergreen catalogue fit"
       ]
@@ -14818,7 +13496,7 @@
         }
       },
       "live_headline": "The Browns have a QB who runs a 4.36 — so why won't they let him pl...",
-      "rank": 78,
+      "rank": 71,
       "reasons": [
         "evergreen catalogue fit"
       ]
@@ -15003,7 +13681,7 @@
         }
       },
       "live_headline": "Transactions: Cowboys make 3 OL moves",
-      "rank": 79,
+      "rank": 72,
       "reasons": [
         "evergreen catalogue fit"
       ]
@@ -15188,7 +13866,7 @@
         }
       },
       "live_headline": "Transactions: Cowboys make 3 OL moves",
-      "rank": 80,
+      "rank": 73,
       "reasons": [
         "evergreen catalogue fit"
       ]
@@ -15373,7 +14051,7 @@
         }
       },
       "live_headline": "Transactions: Cowboys make 3 OL moves",
-      "rank": 81,
+      "rank": 74,
       "reasons": [
         "evergreen catalogue fit"
       ]
@@ -15567,7 +14245,7 @@
         }
       },
       "live_headline": "Packers announce game themes for 2026 season",
-      "rank": 82,
+      "rank": 75,
       "reasons": [
         "evergreen catalogue fit"
       ]
@@ -15763,7 +14441,7 @@
         }
       },
       "live_headline": "Packers announce game themes for 2026 season",
-      "rank": 83,
+      "rank": 76,
       "reasons": [
         "evergreen catalogue fit"
       ]
@@ -15957,7 +14635,7 @@
         }
       },
       "live_headline": "Packers announce game themes for 2026 season",
-      "rank": 84,
+      "rank": 77,
       "reasons": [
         "evergreen catalogue fit"
       ]
@@ -16146,7 +14824,7 @@
         }
       },
       "live_headline": "Packers announce game themes for 2026 season",
-      "rank": 85,
+      "rank": 78,
       "reasons": [
         "evergreen catalogue fit"
       ]
@@ -16342,7 +15020,7 @@
         }
       },
       "live_headline": "Packers announce game themes for 2026 season",
-      "rank": 86,
+      "rank": 79,
       "reasons": [
         "evergreen catalogue fit"
       ]
@@ -16536,7 +15214,7 @@
         }
       },
       "live_headline": "Packers announce game themes for 2026 season",
-      "rank": 87,
+      "rank": 80,
       "reasons": [
         "evergreen catalogue fit"
       ]
@@ -16730,7 +15408,7 @@
         }
       },
       "live_headline": "Packers announce game themes for 2026 season",
-      "rank": 88,
+      "rank": 81,
       "reasons": [
         "evergreen catalogue fit"
       ]
@@ -16926,7 +15604,7 @@
         }
       },
       "live_headline": "Packers announce game themes for 2026 season",
-      "rank": 89,
+      "rank": 82,
       "reasons": [
         "evergreen catalogue fit"
       ]
@@ -17120,7 +15798,7 @@
         }
       },
       "live_headline": "Packers announce game themes for 2026 season",
-      "rank": 90,
+      "rank": 83,
       "reasons": [
         "evergreen catalogue fit"
       ]
@@ -17314,7 +15992,7 @@
         }
       },
       "live_headline": "Packers announce game themes for 2026 season",
-      "rank": 91,
+      "rank": 84,
       "reasons": [
         "evergreen catalogue fit"
       ]
@@ -17510,7 +16188,7 @@
         }
       },
       "live_headline": "Packers announce game themes for 2026 season",
-      "rank": 92,
+      "rank": 85,
       "reasons": [
         "evergreen catalogue fit"
       ]
@@ -17702,7 +16380,7 @@
         }
       },
       "live_headline": "Packers announce game themes for 2026 season",
-      "rank": 93,
+      "rank": 86,
       "reasons": [
         "evergreen catalogue fit"
       ]
@@ -17896,7 +16574,7 @@
         }
       },
       "live_headline": "Packers announce game themes for 2026 season",
-      "rank": 94,
+      "rank": 87,
       "reasons": [
         "evergreen catalogue fit"
       ]
@@ -18090,7 +16768,7 @@
         }
       },
       "live_headline": "Packers announce game themes for 2026 season",
-      "rank": 95,
+      "rank": 88,
       "reasons": [
         "evergreen catalogue fit"
       ]
@@ -18284,7 +16962,7 @@
         }
       },
       "live_headline": "Packers announce game themes for 2026 season",
-      "rank": 96,
+      "rank": 89,
       "reasons": [
         "evergreen catalogue fit"
       ]
@@ -18476,7 +17154,7 @@
         }
       },
       "live_headline": "Packers announce game themes for 2026 season",
-      "rank": 97,
+      "rank": 90,
       "reasons": [
         "evergreen catalogue fit"
       ]
@@ -18670,7 +17348,7 @@
         }
       },
       "live_headline": "Packers announce game themes for 2026 season",
-      "rank": 98,
+      "rank": 91,
       "reasons": [
         "evergreen catalogue fit"
       ]
@@ -18864,7 +17542,7 @@
         }
       },
       "live_headline": "Packers announce game themes for 2026 season",
-      "rank": 99,
+      "rank": 92,
       "reasons": [
         "evergreen catalogue fit"
       ]
@@ -19058,7 +17736,7 @@
         }
       },
       "live_headline": "Packers announce game themes for 2026 season",
-      "rank": 100,
+      "rank": 93,
       "reasons": [
         "evergreen catalogue fit"
       ]
@@ -19252,7 +17930,7 @@
         }
       },
       "live_headline": "Packers announce game themes for 2026 season",
-      "rank": 101,
+      "rank": 94,
       "reasons": [
         "evergreen catalogue fit"
       ]
@@ -19446,7 +18124,7 @@
         }
       },
       "live_headline": "Packers announce game themes for 2026 season",
-      "rank": 102,
+      "rank": 95,
       "reasons": [
         "evergreen catalogue fit"
       ]
@@ -19640,7 +18318,7 @@
         }
       },
       "live_headline": "Packers announce game themes for 2026 season",
-      "rank": 103,
+      "rank": 96,
       "reasons": [
         "evergreen catalogue fit"
       ]
@@ -21189,9 +19867,9 @@
         },
         {
           "name": "todd monken",
-          "mentions": 6,
+          "mentions": 5,
           "angle": "Current conversation around Todd Monken",
-          "copy_text": "Opportunity: explore an independent fan-made Cleveland concept around Todd Monken while the conversation is active (6 recent headline mentions). Validate the current context before publishing."
+          "copy_text": "Opportunity: explore an independent fan-made Cleveland concept around Todd Monken while the conversation is active (5 recent headline mentions). Validate the current context before publishing."
         }
       ],
       "top_headlines": [
@@ -21220,10 +19898,10 @@
           "pub": "Wed, 09 Sep 2026 10:03:00 GMT"
         },
         {
-          "title": "Browns legend states what Shedeur Sanders needs to fix",
-          "url": "https://news.google.com/rss/articles/CBMipAFBVV95cUxNUm9iS25XWExiTnhzZmZlOHpDSkpkSXBEaEhzUEpvUThNdVI3UTB2dGxGXzhDaGtpaUdGMGdlR2c2SWlNek5oQ1U0bEVrekFHX2tuQlFjT2FpM0J1dlFwYmpJcG1LUFJwXzZWbjU3RUxkOVloaG11WXg0RzNIQUlMT1FYT3ZuVzRfb3dKT2JoTE10MnpzNUFkYkpFWmhpQjQxTm9TOQ?oc=5",
-          "source": "Dawgs By Nature",
-          "pub": "Mon, 07 Sep 2026 11:43:59 GMT"
+          "title": "Cleveland Browns News and Rumors 9/11/26: Six Days",
+          "url": "https://news.google.com/rss/articles/CBMiqwFBVV95cUxPVGVLZzVocTdJXzd1RDJKME5iaS16ZmYyeFBUY0V1cU8ydkxya1ZVUDBnMnhyM0lxa1FRcDdIaENOZjBzN01ySVFnR05OYklEWDZHUVN2Yk91WEVGXzZSNVVUTFgtdjFSUVpvS1llNnBCTUtybG02QzBManM5MlNOZmVxZmVXNEZXMTVsRmNTRHlSOERTVlRqNlg4SW1hT0M3WHRLcUo1d1hmdWM?oc=5",
+          "source": "247Sports",
+          "pub": "Fri, 11 Sep 2026 22:22:11 GMT"
         }
       ],
       "covered_names": [
@@ -21233,7 +19911,7 @@
         },
         {
           "name": "todd monken",
-          "mentions": 6
+          "mentions": 5
         },
         {
           "name": "shedeur sanders",
@@ -21308,15 +19986,15 @@
           "mentions": 20
         },
         {
+          "name": "matt lafleur",
+          "mentions": 2
+        },
+        {
           "name": "micah parsons",
           "mentions": 2
         },
         {
           "name": "jordan love",
-          "mentions": 1
-        },
-        {
-          "name": "matt lafleur",
           "mentions": 1
         },
         {
@@ -21346,10 +20024,10 @@
           "pub": "Thu, 03 Sep 2026 07:00:00 GMT"
         },
         {
-          "title": "Injury Report: Statuses for Giants vs. Cowboys on Sunday Night Football",
-          "url": "https://news.google.com/rss/articles/CBMirwFBVV95cUxQaGRCWm5MZzktXzFFd2M0UFQxOXA0VzJBV1pfNUd1WTZ0T0wxUzFSbnBJMVVZMXF0OFdlaGJDcVk2NjVjYWZlN0dEYzRKVzNLVVlZOFotSmJlWWhmMUlDMW95ZGI1T21HVWx6ck9TNFpLVHJuRHJrSUp0a09OYnNXQ1hLVmdRUlh4eWNrNEg4Yk5UWkZqOFBFdWU1TnZKYjFvM2psT0NWSjV3X240V000?oc=5",
+          "title": "Giants vs. Cowboys: How to Watch, Listen & Live Stream Week 1",
+          "url": "https://news.google.com/rss/articles/CBMilAFBVV95cUxORzNEdUVuOURwYUM1WEo4SGdMbUhrTURxM0E5VzBBQmhiNHMwc0FtRjdYSmFWaUhiUTVDYW9oakotVmpsbm40cWpDdnlYY1g3N0luM2p6Uk5JVlNNNDBpNlFKUVM5ZnIyNkkxTUlIWlB1WlMzM2FoSDZ5ZWJJZnVHdmNXNGRocS03Qy1NUFdVc3lkekRT?oc=5",
           "source": "Giants.com",
-          "pub": "Fri, 11 Sep 2026 07:00:00 GMT"
+          "pub": "Mon, 07 Sep 2026 16:14:24 GMT"
         },
         {
           "title": "Mailbag: Will new culture be on full display now?",
@@ -21364,10 +20042,10 @@
           "pub": "Fri, 04 Sep 2026 07:00:00 GMT"
         },
         {
-          "title": "Cowboys have a 'ton of confidence' in T.J. Bass filling in for Tyler Smith",
-          "url": "https://news.google.com/rss/articles/CBMiqgFBVV95cUxONkdZX2VXX2JXeU5CX25mWGFWa3dPOG5vZURNdzFSd0lwdFJxYjVaZnFscEtPWjV6dlo3U2hOSTJLdi1mb191TGhSdmZsUFdxekRKNkFxQ3FhcWtuQk5RZGJYWGI0UjVxMm1WUmFKdWRfNzE5Wmx0ajFzZWdyLThPcjQ2U2I1akxkeUg5OE1jQzNuOVR4RjBFN05OVE9WblYwVVlFeHZQSFh2QQ?oc=5",
+          "title": "Big Picture: 10 big storylines for Giants & Cowboys",
+          "url": "https://news.google.com/rss/articles/CBMiiwFBVV95cUxObm5XM01mOTZOT0hHbGZFNldFMFFXWjdDUmJpM29fNzhzZGZRbzcxWVpKTW5WdG1iUHNzRlc2cjM5NTZfb3hDdE5FZlNadFhtQ3ZudkNMbFI2ZUsxUlJXMkg5dkdkbm5tcHdHQ3IzWmk0RHpXdjdYM193ME9QSTN3Tnh0T1Zya1NGSmtF?oc=5",
           "source": "Dallas Cowboys",
-          "pub": "Tue, 08 Sep 2026 09:31:21 GMT"
+          "pub": "Tue, 08 Sep 2026 21:20:41 GMT"
         }
       ],
       "covered_names": [
@@ -21408,12 +20086,6 @@
           "pub": "Mon, 07 Sep 2026 19:28:59 GMT"
         },
         {
-          "title": "How to Watch Sooners vs. Wolverines: TV Channel, Live Stream, Time",
-          "url": "https://news.google.com/rss/articles/CBMi1AFBVV95cUxOTUV2anA1OEs2TTg0Nm9zNzJJdXAzc0FMbXZXV1E4RUxEVk14bVFTRjRxLW1LMm11U3BQMWt3OGVFbXlUSmNJVjZZcEx3bUFXVnNnNWh0aDEtWWNtSkZ4NmhkMmthSnQtaHhiQUZHc0RRR2FTR28wSWtrbFhnQzRIZHBQNUx2QWZvejV1anZ0YWZIS3l2SE1Qc3NlalZERl9nUjBxWEZ1dkFNV2o4YXJBSEdPN3NDTFVpT1dId2IxRFNyNEJCZ2Z1bFlmLTVJWVdlbmJSaA?oc=5",
-          "source": "FOX Sports",
-          "pub": "Sat, 12 Sep 2026 09:33:30 GMT"
-        },
-        {
           "title": "How a Player-Led Meeting Could Change Everything for Michigan Football",
           "url": "https://news.google.com/rss/articles/CBMitgFBVV95cUxQamltdU11T2hHX0h5U2RROVJfVWdiWkwzcHIxQk1YcHNmNjlPb2VHSWVUWjhYekJZQ2tROHVXQlVqOTUzcjZuNUN1VHEtRVM3dlVVcHhCcjBQdXVubk92T2p3ODduOThnVEFONElnWE16Szg2R3ZoYkdNNVFEcV80NEdYNFZ0Q0hrcTlaWVU5czVfempBWE1LWG93blFmMVhFTGJ5QVVRWFJOZUJ3NFA3ZWk3M3ZyQQ?oc=5",
           "source": "Sports Illustrated",
@@ -21422,8 +20094,14 @@
         {
           "title": "What channel is Michigan football vs Oklahoma? Week 2 time, TV schedule",
           "url": "https://news.google.com/rss/articles/CBMi3AFBVV95cUxPOUJwX1ZxS3ZMUl81OHd3QVdaX0plSDZtSTRTV3JLR0lIZ0hGZjF6Z2dVSmMzWU5xNDFmMVRaeTJQRF9iQkpVZ19OUzFGTW1SOTR6RU1EV0JfazN2aDBxMnh2bV9DN1A1NmxHczBjZ1BKU1c0aEdXdlFJWHc5MXFQMndTRFA4NzZhb2x3TzZQWlRSd1JvdVFLNzR1UnZkbC13V1hjQXJiZjdibHd2dnZoSnhacWNocnBKazhTYkdvYU1WOW52a2dkczNsQ283d3JqdjdGQzVpNVZ1cVpt?oc=5",
-          "source": "freep.com",
+          "source": "Detroit Free Press",
           "pub": "Sat, 12 Sep 2026 14:53:00 GMT"
+        },
+        {
+          "title": "How to Watch Sooners vs. Wolverines: TV Channel, Live Stream, Time",
+          "url": "https://news.google.com/rss/articles/CBMi1AFBVV95cUxOTUV2anA1OEs2TTg0Nm9zNzJJdXAzc0FMbXZXV1E4RUxEVk14bVFTRjRxLW1LMm11U3BQMWt3OGVFbXlUSmNJVjZZcEx3bUFXVnNnNWh0aDEtWWNtSkZ4NmhkMmthSnQtaHhiQUZHc0RRR2FTR28wSWtrbFhnQzRIZHBQNUx2QWZvejV1anZ0YWZIS3l2SE1Qc3NlalZERl9nUjBxWEZ1dkFNV2o4YXJBSEdPN3NDTFVpT1dId2IxRFNyNEJCZ2Z1bFlmLTVJWVdlbmJSaA?oc=5",
+          "source": "FOX Sports",
+          "pub": "Sat, 12 Sep 2026 09:33:30 GMT"
         }
       ],
       "covered_names": [
@@ -21729,104 +20407,6 @@
     },
     {
       "rank": 21,
-      "slug": "valentine-v2",
-      "name": "I Love Michigan Heart Shirt",
-      "collection": "Michigan Wolverines",
-      "score": 72,
-      "prompts": {
-        "instagram": "Crisp early-autumn morning on a tree-lined college-town avenue leading toward an empty stadium; maize sunrise and deep navy shade, light fog, leaves skittering across pavement; communal energy, clean contrast, and an optimistic atmosphere; vertical 4:5 framing, cinematic editorial atmosphere, natural light, tactile detail, and generous negative space",
-        "tiktok": "Crisp early-autumn morning on a tree-lined college-town avenue leading toward an empty stadium; maize sunrise and deep navy shade, light fog, leaves skittering across pavement; communal energy, clean contrast, and an optimistic atmosphere; vertical 9:16 framing with a strong center of calm negative space, cinematic editorial atmosphere, natural light, tactile detail, and generous negative space",
-        "facebook": "Crisp early-autumn morning on a tree-lined college-town avenue leading toward an empty stadium; maize sunrise and deep navy shade, light fog, leaves skittering across pavement; communal energy, clean contrast, and an optimistic atmosphere; horizontal 16:9 framing, cinematic editorial atmosphere, natural light, tactile detail, and generous negative space",
-        "x": "Crisp early-autumn morning on a tree-lined college-town avenue leading toward an empty stadium; maize sunrise and deep navy shade, light fog, leaves skittering across pavement; communal energy, clean contrast, and an optimistic atmosphere; horizontal 16:9 framing with a wide horizon, cinematic editorial atmosphere, natural light, tactile detail, and generous negative space",
-        "pinterest": "Crisp early-autumn morning on a tree-lined college-town avenue leading toward an empty stadium; maize sunrise and deep navy shade, light fog, leaves skittering across pavement; communal energy, clean contrast, and an optimistic atmosphere; vertical 2:3 framing with an airy editorial composition, cinematic editorial atmosphere, natural light, tactile detail, and generous negative space"
-      }
-    },
-    {
-      "rank": 22,
-      "slug": "limited-edition-m-fans-n30",
-      "name": "Michigan Vs Everybody Grey Sweatshirt",
-      "collection": "Michigan Wolverines",
-      "score": 72,
-      "prompts": {
-        "instagram": "Crisp early-autumn morning on a tree-lined college-town avenue leading toward an empty stadium; maize sunrise and deep navy shade, light fog, leaves skittering across pavement; communal energy, clean contrast, and an optimistic atmosphere; vertical 4:5 framing, cinematic editorial atmosphere, natural light, tactile detail, and generous negative space",
-        "tiktok": "Crisp early-autumn morning on a tree-lined college-town avenue leading toward an empty stadium; maize sunrise and deep navy shade, light fog, leaves skittering across pavement; communal energy, clean contrast, and an optimistic atmosphere; vertical 9:16 framing with a strong center of calm negative space, cinematic editorial atmosphere, natural light, tactile detail, and generous negative space",
-        "facebook": "Crisp early-autumn morning on a tree-lined college-town avenue leading toward an empty stadium; maize sunrise and deep navy shade, light fog, leaves skittering across pavement; communal energy, clean contrast, and an optimistic atmosphere; horizontal 16:9 framing, cinematic editorial atmosphere, natural light, tactile detail, and generous negative space",
-        "x": "Crisp early-autumn morning on a tree-lined college-town avenue leading toward an empty stadium; maize sunrise and deep navy shade, light fog, leaves skittering across pavement; communal energy, clean contrast, and an optimistic atmosphere; horizontal 16:9 framing with a wide horizon, cinematic editorial atmosphere, natural light, tactile detail, and generous negative space",
-        "pinterest": "Crisp early-autumn morning on a tree-lined college-town avenue leading toward an empty stadium; maize sunrise and deep navy shade, light fog, leaves skittering across pavement; communal energy, clean contrast, and an optimistic atmosphere; vertical 2:3 framing with an airy editorial composition, cinematic editorial atmosphere, natural light, tactile detail, and generous negative space"
-      }
-    },
-    {
-      "rank": 23,
-      "slug": "limited-edition-m-fans-n29",
-      "name": "Michigan Bet Ornate Sweatshirt",
-      "collection": "Michigan Wolverines",
-      "score": 72,
-      "prompts": {
-        "instagram": "Crisp early-autumn morning on a tree-lined college-town avenue leading toward an empty stadium; maize sunrise and deep navy shade, light fog, leaves skittering across pavement; communal energy, clean contrast, and an optimistic atmosphere; vertical 4:5 framing, cinematic editorial atmosphere, natural light, tactile detail, and generous negative space",
-        "tiktok": "Crisp early-autumn morning on a tree-lined college-town avenue leading toward an empty stadium; maize sunrise and deep navy shade, light fog, leaves skittering across pavement; communal energy, clean contrast, and an optimistic atmosphere; vertical 9:16 framing with a strong center of calm negative space, cinematic editorial atmosphere, natural light, tactile detail, and generous negative space",
-        "facebook": "Crisp early-autumn morning on a tree-lined college-town avenue leading toward an empty stadium; maize sunrise and deep navy shade, light fog, leaves skittering across pavement; communal energy, clean contrast, and an optimistic atmosphere; horizontal 16:9 framing, cinematic editorial atmosphere, natural light, tactile detail, and generous negative space",
-        "x": "Crisp early-autumn morning on a tree-lined college-town avenue leading toward an empty stadium; maize sunrise and deep navy shade, light fog, leaves skittering across pavement; communal energy, clean contrast, and an optimistic atmosphere; horizontal 16:9 framing with a wide horizon, cinematic editorial atmosphere, natural light, tactile detail, and generous negative space",
-        "pinterest": "Crisp early-autumn morning on a tree-lined college-town avenue leading toward an empty stadium; maize sunrise and deep navy shade, light fog, leaves skittering across pavement; communal energy, clean contrast, and an optimistic atmosphere; vertical 2:3 framing with an airy editorial composition, cinematic editorial atmosphere, natural light, tactile detail, and generous negative space"
-      }
-    },
-    {
-      "rank": 24,
-      "slug": "limited-edition-m-fans-n28",
-      "name": "Bet M Michigan Sweatshirt",
-      "collection": "Michigan Wolverines",
-      "score": 72,
-      "prompts": {
-        "instagram": "Crisp early-autumn morning on a tree-lined college-town avenue leading toward an empty stadium; maize sunrise and deep navy shade, light fog, leaves skittering across pavement; communal energy, clean contrast, and an optimistic atmosphere; vertical 4:5 framing, cinematic editorial atmosphere, natural light, tactile detail, and generous negative space",
-        "tiktok": "Crisp early-autumn morning on a tree-lined college-town avenue leading toward an empty stadium; maize sunrise and deep navy shade, light fog, leaves skittering across pavement; communal energy, clean contrast, and an optimistic atmosphere; vertical 9:16 framing with a strong center of calm negative space, cinematic editorial atmosphere, natural light, tactile detail, and generous negative space",
-        "facebook": "Crisp early-autumn morning on a tree-lined college-town avenue leading toward an empty stadium; maize sunrise and deep navy shade, light fog, leaves skittering across pavement; communal energy, clean contrast, and an optimistic atmosphere; horizontal 16:9 framing, cinematic editorial atmosphere, natural light, tactile detail, and generous negative space",
-        "x": "Crisp early-autumn morning on a tree-lined college-town avenue leading toward an empty stadium; maize sunrise and deep navy shade, light fog, leaves skittering across pavement; communal energy, clean contrast, and an optimistic atmosphere; horizontal 16:9 framing with a wide horizon, cinematic editorial atmosphere, natural light, tactile detail, and generous negative space",
-        "pinterest": "Crisp early-autumn morning on a tree-lined college-town avenue leading toward an empty stadium; maize sunrise and deep navy shade, light fog, leaves skittering across pavement; communal energy, clean contrast, and an optimistic atmosphere; vertical 2:3 framing with an airy editorial composition, cinematic editorial atmosphere, natural light, tactile detail, and generous negative space"
-      }
-    },
-    {
-      "rank": 25,
-      "slug": "limited-edition-m-fans-n27",
-      "name": "Michigan Revenge Tour Sweatshirt",
-      "collection": "Michigan Wolverines",
-      "score": 72,
-      "prompts": {
-        "instagram": "Crisp early-autumn morning on a tree-lined college-town avenue leading toward an empty stadium; maize sunrise and deep navy shade, light fog, leaves skittering across pavement; communal energy, clean contrast, and an optimistic atmosphere; vertical 4:5 framing, cinematic editorial atmosphere, natural light, tactile detail, and generous negative space",
-        "tiktok": "Crisp early-autumn morning on a tree-lined college-town avenue leading toward an empty stadium; maize sunrise and deep navy shade, light fog, leaves skittering across pavement; communal energy, clean contrast, and an optimistic atmosphere; vertical 9:16 framing with a strong center of calm negative space, cinematic editorial atmosphere, natural light, tactile detail, and generous negative space",
-        "facebook": "Crisp early-autumn morning on a tree-lined college-town avenue leading toward an empty stadium; maize sunrise and deep navy shade, light fog, leaves skittering across pavement; communal energy, clean contrast, and an optimistic atmosphere; horizontal 16:9 framing, cinematic editorial atmosphere, natural light, tactile detail, and generous negative space",
-        "x": "Crisp early-autumn morning on a tree-lined college-town avenue leading toward an empty stadium; maize sunrise and deep navy shade, light fog, leaves skittering across pavement; communal energy, clean contrast, and an optimistic atmosphere; horizontal 16:9 framing with a wide horizon, cinematic editorial atmosphere, natural light, tactile detail, and generous negative space",
-        "pinterest": "Crisp early-autumn morning on a tree-lined college-town avenue leading toward an empty stadium; maize sunrise and deep navy shade, light fog, leaves skittering across pavement; communal energy, clean contrast, and an optimistic atmosphere; vertical 2:3 framing with an airy editorial composition, cinematic editorial atmosphere, natural light, tactile detail, and generous negative space"
-      }
-    },
-    {
-      "rank": 26,
-      "slug": "limited-edition-m-fans-n26",
-      "name": "Michigan Bet Block Sweatshirt",
-      "collection": "Michigan Wolverines",
-      "score": 72,
-      "prompts": {
-        "instagram": "Crisp early-autumn morning on a tree-lined college-town avenue leading toward an empty stadium; maize sunrise and deep navy shade, light fog, leaves skittering across pavement; communal energy, clean contrast, and an optimistic atmosphere; vertical 4:5 framing, cinematic editorial atmosphere, natural light, tactile detail, and generous negative space",
-        "tiktok": "Crisp early-autumn morning on a tree-lined college-town avenue leading toward an empty stadium; maize sunrise and deep navy shade, light fog, leaves skittering across pavement; communal energy, clean contrast, and an optimistic atmosphere; vertical 9:16 framing with a strong center of calm negative space, cinematic editorial atmosphere, natural light, tactile detail, and generous negative space",
-        "facebook": "Crisp early-autumn morning on a tree-lined college-town avenue leading toward an empty stadium; maize sunrise and deep navy shade, light fog, leaves skittering across pavement; communal energy, clean contrast, and an optimistic atmosphere; horizontal 16:9 framing, cinematic editorial atmosphere, natural light, tactile detail, and generous negative space",
-        "x": "Crisp early-autumn morning on a tree-lined college-town avenue leading toward an empty stadium; maize sunrise and deep navy shade, light fog, leaves skittering across pavement; communal energy, clean contrast, and an optimistic atmosphere; horizontal 16:9 framing with a wide horizon, cinematic editorial atmosphere, natural light, tactile detail, and generous negative space",
-        "pinterest": "Crisp early-autumn morning on a tree-lined college-town avenue leading toward an empty stadium; maize sunrise and deep navy shade, light fog, leaves skittering across pavement; communal energy, clean contrast, and an optimistic atmosphere; vertical 2:3 framing with an airy editorial composition, cinematic editorial atmosphere, natural light, tactile detail, and generous negative space"
-      }
-    },
-    {
-      "rank": 27,
-      "slug": "limited-edition-m-fans",
-      "name": "Michigan Vs Everybody Navy Sweatshirt",
-      "collection": "Michigan Wolverines",
-      "score": 72,
-      "prompts": {
-        "instagram": "Crisp early-autumn morning on a tree-lined college-town avenue leading toward an empty stadium; maize sunrise and deep navy shade, light fog, leaves skittering across pavement; communal energy, clean contrast, and an optimistic atmosphere; vertical 4:5 framing, cinematic editorial atmosphere, natural light, tactile detail, and generous negative space",
-        "tiktok": "Crisp early-autumn morning on a tree-lined college-town avenue leading toward an empty stadium; maize sunrise and deep navy shade, light fog, leaves skittering across pavement; communal energy, clean contrast, and an optimistic atmosphere; vertical 9:16 framing with a strong center of calm negative space, cinematic editorial atmosphere, natural light, tactile detail, and generous negative space",
-        "facebook": "Crisp early-autumn morning on a tree-lined college-town avenue leading toward an empty stadium; maize sunrise and deep navy shade, light fog, leaves skittering across pavement; communal energy, clean contrast, and an optimistic atmosphere; horizontal 16:9 framing, cinematic editorial atmosphere, natural light, tactile detail, and generous negative space",
-        "x": "Crisp early-autumn morning on a tree-lined college-town avenue leading toward an empty stadium; maize sunrise and deep navy shade, light fog, leaves skittering across pavement; communal energy, clean contrast, and an optimistic atmosphere; horizontal 16:9 framing with a wide horizon, cinematic editorial atmosphere, natural light, tactile detail, and generous negative space",
-        "pinterest": "Crisp early-autumn morning on a tree-lined college-town avenue leading toward an empty stadium; maize sunrise and deep navy shade, light fog, leaves skittering across pavement; communal energy, clean contrast, and an optimistic atmosphere; vertical 2:3 framing with an airy editorial composition, cinematic editorial atmosphere, natural light, tactile detail, and generous negative space"
-      }
-    },
-    {
-      "rank": 28,
       "slug": "all-we-want-all-we-got",
       "name": "Cleveland Under Dawgs All We Got Shirt",
       "collection": "Cleveland Browns",
@@ -21840,7 +20420,7 @@
       }
     },
     {
-      "rank": 29,
+      "rank": 22,
       "slug": "playoffs-never-giveup",
       "name": "Playoffs Never Give Up Dawg Shirt",
       "collection": "Cleveland Browns",
@@ -21854,7 +20434,7 @@
       }
     },
     {
-      "rank": 30,
+      "rank": 23,
       "slug": "play-off-pound-shirt",
       "name": "Playoff Pound And Determined Shirt",
       "collection": "Cleveland Browns",
@@ -21868,7 +20448,7 @@
       }
     },
     {
-      "rank": 31,
+      "rank": 24,
       "slug": "all-we-want-all-we-got-25",
       "name": "Cleveland Under Dawgs Playoffs Shirt",
       "collection": "Cleveland Browns",
@@ -21882,7 +20462,7 @@
       }
     },
     {
-      "rank": 32,
+      "rank": 25,
       "slug": "bend-football-fans",
       "name": "Bend & Snap Funny Football Shirt",
       "collection": "Cleveland Browns",
@@ -21896,7 +20476,7 @@
       }
     },
     {
-      "rank": 33,
+      "rank": 26,
       "slug": "cleveland-its-not-that-bad-have-a-beer",
       "name": "Cleveland It's Not That Bad Have A Beer Shirt",
       "collection": "Cleveland Browns",
@@ -21910,7 +20490,7 @@
       }
     },
     {
-      "rank": 34,
+      "rank": 27,
       "slug": "limited-edition-br-summer-2024",
       "name": "Cleveland Summer Slam Shirt",
       "collection": "Cleveland Browns",
@@ -21924,7 +20504,7 @@
       }
     },
     {
-      "rank": 35,
+      "rank": 28,
       "slug": "ohio-cleveland-fans",
       "name": "Ohio Football Cleveland State Outline Shirt",
       "collection": "Cleveland Browns",
@@ -21938,7 +20518,7 @@
       }
     },
     {
-      "rank": 36,
+      "rank": 29,
       "slug": "beware-of-dawg",
       "name": "Beware Of Dawg Cleveland Shirt",
       "collection": "Cleveland Browns",
@@ -21952,7 +20532,7 @@
       }
     },
     {
-      "rank": 37,
+      "rank": 30,
       "slug": "lets-go-cleveland",
       "name": "Let's Go Cleveland Football Shirt",
       "collection": "Cleveland Browns",
@@ -21966,7 +20546,7 @@
       }
     },
     {
-      "rank": 38,
+      "rank": 31,
       "slug": "this-girl-loves-browns-coach",
       "name": "This Girl Loves Browns' Coach Hoodie",
       "collection": "Cleveland Browns",
@@ -21980,7 +20560,7 @@
       }
     },
     {
-      "rank": 39,
+      "rank": 32,
       "slug": "my-heart-is-on-that-field",
       "name": "My Heart Is On That Field Football Shirt",
       "collection": "Cleveland Browns",
@@ -21994,7 +20574,7 @@
       }
     },
     {
-      "rank": 40,
+      "rank": 33,
       "slug": "dawg-pound",
       "name": "Cleveland Browns Dawg Pound Shirt",
       "collection": "Cleveland Browns",
@@ -22008,7 +20588,7 @@
       }
     },
     {
-      "rank": 41,
+      "rank": 34,
       "slug": "whispered-go-browns",
       "name": "So I Whispered Go Browns Funny Shirt",
       "collection": "Cleveland Browns",
@@ -22022,7 +20602,7 @@
       }
     },
     {
-      "rank": 42,
+      "rank": 35,
       "slug": "winter-hat-beanie-go-browns",
       "name": "Go Browns Orange Winter Beanie",
       "collection": "Cleveland Browns",
@@ -22036,7 +20616,7 @@
       }
     },
     {
-      "rank": 43,
+      "rank": 36,
       "slug": "limited-edition-lfg",
       "name": "LFG CLE Cleveland Sweatshirt",
       "collection": "Cleveland Browns",
@@ -22050,7 +20630,7 @@
       }
     },
     {
-      "rank": 44,
+      "rank": 37,
       "slug": "winter-hat-beanie-cleveland",
       "name": "Cleveland Black Winter Beanie",
       "collection": "Cleveland Browns",
@@ -22064,7 +20644,7 @@
       }
     },
     {
-      "rank": 45,
+      "rank": 38,
       "slug": "winter-hat-beanie-browns",
       "name": "Browns Orange Winter Beanie",
       "collection": "Cleveland Browns",
@@ -22078,7 +20658,7 @@
       }
     },
     {
-      "rank": 46,
+      "rank": 39,
       "slug": "limited-edition-2024n2",
       "name": "Dawg Life Bulldog Sweatshirt",
       "collection": "Cleveland Browns",
@@ -22092,7 +20672,7 @@
       }
     },
     {
-      "rank": 47,
+      "rank": 40,
       "slug": "limited-edition-241",
       "name": "Cleveland Skyline Football Shirt",
       "collection": "Cleveland Browns",
@@ -22106,7 +20686,7 @@
       }
     },
     {
-      "rank": 48,
+      "rank": 41,
       "slug": "limited-edition-our-coach",
       "name": "Our Coach Is Hotter Than Yours Sweatshirt",
       "collection": "Cleveland Browns",
@@ -22120,7 +20700,7 @@
       }
     },
     {
-      "rank": 49,
+      "rank": 42,
       "slug": "limited-edition-66",
       "name": "CLVLAND Find A Way By Any Means Sweatshirt",
       "collection": "Cleveland Browns",
@@ -22134,7 +20714,7 @@
       }
     },
     {
-      "rank": 50,
+      "rank": 43,
       "slug": "limited-edition-s-u-n-d-a-y-s",
       "name": "Sundays Are For The Browns Sweatshirt",
       "collection": "Cleveland Browns",
@@ -22148,7 +20728,7 @@
       }
     },
     {
-      "rank": 51,
+      "rank": 44,
       "slug": "limited-edition-d-w-a-g-s",
       "name": "Sundays Are For The Dawgs Red Sweatshirt",
       "collection": "Cleveland Browns",
@@ -22162,7 +20742,7 @@
       }
     },
     {
-      "rank": 52,
+      "rank": 45,
       "slug": "limited-edition-c2",
       "name": "CLE Script Football White Sweatshirt",
       "collection": "Cleveland Browns",
@@ -22176,7 +20756,7 @@
       }
     },
     {
-      "rank": 53,
+      "rank": 46,
       "slug": "limited-edition-c1",
       "name": "CLE Script Football Red Sweatshirt",
       "collection": "Cleveland Browns",
@@ -22190,7 +20770,7 @@
       }
     },
     {
-      "rank": 54,
+      "rank": 47,
       "slug": "limited-edition-b-e-k-i-n-d",
       "name": "Be Kind Cleveland Elf Sweatshirt",
       "collection": "Cleveland Browns",
@@ -22204,7 +20784,7 @@
       }
     },
     {
-      "rank": 55,
+      "rank": 48,
       "slug": "limited-edition-d-w-a-g",
       "name": "Dawg Pound Bulldog Red Sweatshirt",
       "collection": "Cleveland Browns",
@@ -22218,7 +20798,7 @@
       }
     },
     {
-      "rank": 56,
+      "rank": 49,
       "slug": "limited-edition-b-r-o-w-n-s-h-e-l-m-e-t",
       "name": "Cleveland Helmet Phone Case",
       "collection": "Cleveland Browns",
@@ -22232,7 +20812,7 @@
       }
     },
     {
-      "rank": 57,
+      "rank": 50,
       "slug": "limited-edition-cle-mug",
       "name": "Victory Monday Cleveland Coffee Mug",
       "collection": "Cleveland Browns",
@@ -22246,7 +20826,7 @@
       }
     },
     {
-      "rank": 58,
+      "rank": 51,
       "slug": "limited-edition-victory-morning",
       "name": "Victory Monday Red Sweatshirt",
       "collection": "Cleveland Browns",
@@ -22260,7 +20840,7 @@
       }
     },
     {
-      "rank": 59,
+      "rank": 52,
       "slug": "limited-edition-b-r-o-w-n-s1",
       "name": "Refuse To Surrender Winning Is Coming Sweatshirt",
       "collection": "Cleveland Browns",
@@ -22274,7 +20854,7 @@
       }
     },
     {
-      "rank": 60,
+      "rank": 53,
       "slug": "limited-edition-c-l-e-aint-for-sissies",
       "name": "Cleveland Ain't For Sissies Sweatshirt",
       "collection": "Cleveland Browns",
@@ -22288,7 +20868,7 @@
       }
     },
     {
-      "rank": 61,
+      "rank": 54,
       "slug": "limited-edition-rise-and-shine",
       "name": "Rise And Shine It's Game Day Sweatshirt",
       "collection": "Cleveland Browns",
@@ -22302,7 +20882,7 @@
       }
     },
     {
-      "rank": 62,
+      "rank": 55,
       "slug": "limited-edition-cleveland-lovers",
       "name": "I'll Always Be Your Biggest Fan Sweatshirt",
       "collection": "Cleveland Browns",
@@ -22316,7 +20896,7 @@
       }
     },
     {
-      "rank": 63,
+      "rank": 56,
       "slug": "limited-edition-b-r-o-w-n-s-cleveland-ca",
       "name": "Cleveland Helmet Splatter Phone Case",
       "collection": "Cleveland Browns",
@@ -22330,7 +20910,7 @@
       }
     },
     {
-      "rank": 64,
+      "rank": 57,
       "slug": "limited-edition-b-r-o-w-n-s",
       "name": "Cleveland Helmet Flag Phone Case",
       "collection": "Cleveland Browns",
@@ -22344,7 +20924,7 @@
       }
     },
     {
-      "rank": 65,
+      "rank": 58,
       "slug": "limited-edition-cleveland-fans",
       "name": "Stomping On These Haters Browns Style Sweatshirt",
       "collection": "Cleveland Browns",
@@ -22358,7 +20938,7 @@
       }
     },
     {
-      "rank": 66,
+      "rank": 59,
       "slug": "limited-edition-cleveland",
       "name": "Cleveland Bulldog Red Sweatshirt",
       "collection": "Cleveland Browns",
@@ -22372,7 +20952,7 @@
       }
     },
     {
-      "rank": 67,
+      "rank": 60,
       "slug": "d-a-w-g-b-i-t-c-limited-edition",
       "name": "Cleveland Bitcoin Bulldawgs Sweatshirt",
       "collection": "Cleveland Browns",
@@ -22386,7 +20966,7 @@
       }
     },
     {
-      "rank": 68,
+      "rank": 61,
       "slug": "i-love-b-r-o-w-n-s-limited-edition",
       "name": "I Love Browns Heart Sweatshirt",
       "collection": "Cleveland Browns",
@@ -22400,7 +20980,7 @@
       }
     },
     {
-      "rank": 69,
+      "rank": 62,
       "slug": "d-a-w-g-s-limited-edition",
       "name": "Sundays Are For The Dawgs Est 1946 Shirt",
       "collection": "Cleveland Browns",
@@ -22414,7 +20994,7 @@
       }
     },
     {
-      "rank": 70,
+      "rank": 63,
       "slug": "b-r-o-w-n-s-sugar-skull-halloween-long",
       "name": "Cleveland Sugar Skull Halloween All-Over Long Sleeve",
       "collection": "Cleveland Browns",
@@ -22428,7 +21008,7 @@
       }
     },
     {
-      "rank": 71,
+      "rank": 64,
       "slug": "br-sugar-skull-halloween",
       "name": "Cleveland Sugar Skull Halloween All-Over Shirt",
       "collection": "Cleveland Browns",
@@ -22442,7 +21022,7 @@
       }
     },
     {
-      "rank": 72,
+      "rank": 65,
       "slug": "cleveland-retro-vintage-classic-ohio-fan",
       "name": "Cleveland Retro Skyline Football Shirt",
       "collection": "Cleveland Browns",
@@ -22456,7 +21036,7 @@
       }
     },
     {
-      "rank": 73,
+      "rank": 66,
       "slug": "cleveland-retro-vintage-classic-ohio-shi-1",
       "name": "Cleveland Ohio Retro Bulldog Gameday Shirt",
       "collection": "Cleveland Browns",
@@ -22470,7 +21050,7 @@
       }
     },
     {
-      "rank": 74,
+      "rank": 67,
       "slug": "cleveland-retro-vintage-classic-ohio-shi",
       "name": "Cleveland Ohio Retro Bulldog Shirt",
       "collection": "Cleveland Browns",
@@ -22484,7 +21064,7 @@
       }
     },
     {
-      "rank": 75,
+      "rank": 68,
       "slug": "cleveland-retro-vintage-classic-ohio-gif",
       "name": "Vintage Cleveland Script Hoodie",
       "collection": "Cleveland Browns",
@@ -22498,7 +21078,7 @@
       }
     },
     {
-      "rank": 76,
+      "rank": 69,
       "slug": "line-man-dad-football-t-shirt",
       "name": "Lineman Dad Football Shirt",
       "collection": "Cleveland Browns",
@@ -22512,7 +21092,7 @@
       }
     },
     {
-      "rank": 77,
+      "rank": 70,
       "slug": "my-life-is-for-football-t-shirt",
       "name": "My Life Is For Football Shirt",
       "collection": "Cleveland Browns",
@@ -22526,7 +21106,7 @@
       }
     },
     {
-      "rank": 78,
+      "rank": 71,
       "slug": "dibs-on-the-coach-football-funny-football-1",
       "name": "Dibs On The Coach Funny Football Shirt",
       "collection": "Cleveland Browns",
@@ -22540,7 +21120,7 @@
       }
     },
     {
-      "rank": 79,
+      "rank": 72,
       "slug": "vintage-country",
       "name": "Y'all Can Kiss My Dallas Longhorn Shirt",
       "collection": "Dallas Cowboys",
@@ -22554,7 +21134,7 @@
       }
     },
     {
-      "rank": 80,
+      "rank": 73,
       "slug": "dallas-flag-tee",
       "name": "Dallas American Flag Vertical Shirt",
       "collection": "Dallas Cowboys",
@@ -22568,7 +21148,7 @@
       }
     },
     {
-      "rank": 81,
+      "rank": 74,
       "slug": "vintage-texas-pride",
       "name": "Dallas Texas State Flag Pride Shirt",
       "collection": "Dallas Cowboys",
@@ -22582,7 +21162,7 @@
       }
     },
     {
-      "rank": 82,
+      "rank": 75,
       "slug": "limited-edition-grb37",
       "name": "This Girl Loves The Pack Shirt",
       "collection": "Green Bay Packers",
@@ -22596,7 +21176,7 @@
       }
     },
     {
-      "rank": 83,
+      "rank": 76,
       "slug": "limited-edition-grb32",
       "name": "Cheese Heart Green Bay Shirt",
       "collection": "Green Bay Packers",
@@ -22610,7 +21190,7 @@
       }
     },
     {
-      "rank": 84,
+      "rank": 77,
       "slug": "limited-edition-grb29",
       "name": "Pack Is Back Green Bay Shirt",
       "collection": "Green Bay Packers",
@@ -22624,7 +21204,7 @@
       }
     },
     {
-      "rank": 85,
+      "rank": 78,
       "slug": "limited-edition-grb35",
       "name": "Cheese Heart Green Bay Mug",
       "collection": "Green Bay Packers",
@@ -22638,7 +21218,7 @@
       }
     },
     {
-      "rank": 86,
+      "rank": 79,
       "slug": "limited-edition-grb8",
       "name": "Green Bay Football Cheesehead Nation Shirt",
       "collection": "Green Bay Packers",
@@ -22652,7 +21232,7 @@
       }
     },
     {
-      "rank": 87,
+      "rank": 80,
       "slug": "limited-edition-grb7",
       "name": "Green Bay Football Cheese And Beer Shirt",
       "collection": "Green Bay Packers",
@@ -22666,7 +21246,7 @@
       }
     },
     {
-      "rank": 88,
+      "rank": 81,
       "slug": "limited-edition-grb27",
       "name": "Packers Distressed American Flag Shirt",
       "collection": "Green Bay Packers",
@@ -22680,7 +21260,7 @@
       }
     },
     {
-      "rank": 89,
+      "rank": 82,
       "slug": "limited-edition-grb26",
       "name": "Green Bay Packers Football Stars Shirt",
       "collection": "Green Bay Packers",
@@ -22694,7 +21274,7 @@
       }
     },
     {
-      "rank": 90,
+      "rank": 83,
       "slug": "limited-edition-grb1-1",
       "name": "Green Bay Vs Everyone Shirt",
       "collection": "Green Bay Packers",
@@ -22708,7 +21288,7 @@
       }
     },
     {
-      "rank": 91,
+      "rank": 84,
       "slug": "limited-edition-grb16",
       "name": "Green Bay WI Football Team Est 1919 Shirt",
       "collection": "Green Bay Packers",
@@ -22722,7 +21302,7 @@
       }
     },
     {
-      "rank": 92,
+      "rank": 85,
       "slug": "limited-edition-grb15",
       "name": "Property Of Green Bay Packers 1919 Shirt",
       "collection": "Green Bay Packers",
@@ -22736,7 +21316,7 @@
       }
     },
     {
-      "rank": 93,
+      "rank": 86,
       "slug": "limited-edition-grb25",
       "name": "Sunday Funday Wisconsin Outline Shirt",
       "collection": "Green Bay Packers",
@@ -22750,7 +21330,7 @@
       }
     },
     {
-      "rank": 94,
+      "rank": 87,
       "slug": "limited-edition-grb2",
       "name": "The Packers Make Me Drink Shirt",
       "collection": "Green Bay Packers",
@@ -22764,7 +21344,7 @@
       }
     },
     {
-      "rank": 95,
+      "rank": 88,
       "slug": "limited-edition-grb3",
       "name": "Our Coach Is Hotter Than Your Coach Shirt",
       "collection": "Green Bay Packers",
@@ -22778,7 +21358,7 @@
       }
     },
     {
-      "rank": 96,
+      "rank": 89,
       "slug": "limited-edition-grb6",
       "name": "Sunday Funday Green Bay Script Shirt",
       "collection": "Green Bay Packers",
@@ -22792,7 +21372,7 @@
       }
     },
     {
-      "rank": 97,
+      "rank": 90,
       "slug": "limited-edition-grb9",
       "name": "Wisconsin Home State Shirt",
       "collection": "Green Bay Packers",
@@ -22806,7 +21386,7 @@
       }
     },
     {
-      "rank": 98,
+      "rank": 91,
       "slug": "limited-edition-grb10",
       "name": "Green Bay Touchdown Shirt",
       "collection": "Green Bay Packers",
@@ -22820,7 +21400,7 @@
       }
     },
     {
-      "rank": 99,
+      "rank": 92,
       "slug": "limited-edition-grb13",
       "name": "Packers Retro Stacked Repeat Shirt",
       "collection": "Green Bay Packers",
@@ -22834,7 +21414,7 @@
       }
     },
     {
-      "rank": 100,
+      "rank": 93,
       "slug": "limited-edition-grb14",
       "name": "Packers Groovy Wavy White Shirt",
       "collection": "Green Bay Packers",
@@ -22848,7 +21428,7 @@
       }
     },
     {
-      "rank": 101,
+      "rank": 94,
       "slug": "limited-edition-grb17",
       "name": "Green Bay Wisconsin Minimal Shirt",
       "collection": "Green Bay Packers",
@@ -22862,7 +21442,7 @@
       }
     },
     {
-      "rank": 102,
+      "rank": 95,
       "slug": "limited-edition-grb18",
       "name": "The Future Is Green Packers Shirt",
       "collection": "Green Bay Packers",
@@ -22876,7 +21456,7 @@
       }
     },
     {
-      "rank": 103,
+      "rank": 96,
       "slug": "limited-edition-grb20",
       "name": "Sunday Funday Green Bay Bars Shirt",
       "collection": "Green Bay Packers",
@@ -23167,20 +21747,13 @@
         "go blue 2026 tee",
         "michigan football 2026 shirt"
       ],
-      "top_opportunity": {
-        "slug": "limited-edition-m-fans-n29",
-        "name": "Michigan Bet Ornate Sweatshirt",
-        "opportunity_score": 67.2,
-        "decision": "IMPROVE",
-        "trend_stage": "EMERGING",
-        "opportunity_type": "Evergreen"
-      }
+      "top_opportunity": null
     }
   ],
   "compliance": {
     "licensing_status": "UNVERIFIED",
     "restriction": "Promotional social content must not use team names, player names, player likenesses, or protected marks until licensing is verified.",
-    "social_blocked_designs": 98,
+    "social_blocked_designs": 91,
     "social_safe_designs": 5,
     "high_risk_designs": 0
   }

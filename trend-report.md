@@ -12,15 +12,15 @@ FTI = `round(100 * entity_mentions / peak_mentions_in_window)`. Peak mentions in
 | 2 | josh jacobs | green-bay-packers | 20 | 95 | trending | gap — no design |
 | 3 | bryce underwood | michigan | 19 | 90 | trending | in locker |
 | 4 | kyle whittingham | michigan | 7 | 33 | trending | gap — no design |
-| 5 | todd monken | cleveland-browns | 6 | 29 | trending | gap — no design |
+| 5 | todd monken | cleveland-browns | 5 | 24 | trending | gap — no design |
 | 6 | dak prescott | dallas-cowboys | 4 | 19 | trending | gap — no design |
 | 7 | shedeur sanders | cleveland-browns | 4 | 19 | trending | in locker |
 | 8 | ceedee lamb | dallas-cowboys | 2 | 10 | steady | — |
 | 9 | denzel ward | cleveland-browns | 2 | 10 | steady | in locker |
-| 10 | micah parsons | green-bay-packers | 2 | 10 | steady | in locker |
-| 11 | myles garrett | cleveland-browns | 2 | 10 | steady | in locker |
-| 12 | jordan love | green-bay-packers | 1 | 5 | steady | in locker |
-| 13 | matt lafleur | green-bay-packers | 1 | 5 | steady | — |
+| 10 | matt lafleur | green-bay-packers | 2 | 10 | steady | — |
+| 11 | micah parsons | green-bay-packers | 2 | 10 | steady | in locker |
+| 12 | myles garrett | cleveland-browns | 2 | 10 | steady | in locker |
+| 13 | jordan love | green-bay-packers | 1 | 5 | steady | in locker |
 | 14 | jj mccarthy | michigan | 0 | 0 | quiet | in locker |
 | 15 | joe flacco | cleveland-browns | 0 | 0 | quiet | in locker |
 | 16 | jordan marshall | michigan | 0 | 0 | quiet | — |
@@ -31,7 +31,6 @@ FTI = `round(100 * entity_mentions / peak_mentions_in_window)`. Peak mentions in
 
 - **todd monken** — [Todd Monken names captains for Week 1 vs. Jaguars](https://news.google.com/rss/articles/CBMijgFBVV95cUxNTkVjOUZRTGRMNXFtRUdMZnFHSVViVkVKYVRJUGhoamVZUmhrektrZ2RwMllsck5UbmlLMDUyMlZ0N1FiejZYNEVCTTlqSGJydzVrYzk5eEkxQkVSYkN1WVcxY0steTh5bUJNU0hjUEhhamV2dlVZd2lHUWpDa2VSbkZGdFR2VGRwTnhpdkN3?oc=5) — Cleveland Browns
 - **shedeur sanders** — [Browns legend states what Shedeur Sanders needs to fix](https://news.google.com/rss/articles/CBMipAFBVV95cUxNUm9iS25XWExiTnhzZmZlOHpDSkpkSXBEaEhzUEpvUThNdVI3UTB2dGxGXzhDaGtpaUdGMGdlR2c2SWlNek5oQ1U0bEVrekFHX2tuQlFjT2FpM0J1dlFwYmpJcG1LUFJwXzZWbjU3RUxkOVloaG11WXg0RzNIQUlMT1FYT3ZuVzRfb3dKT2JoTE10MnpzNUFkYkpFWmhpQjQxTm9TOQ?oc=5) — Dawgs By Nature
-- **todd monken** — [Browns may have package of plays for rookie QB Green, Monken says](https://news.google.com/rss/articles/CBMimAFBVV95cUxQekNhczFCWGhncG4wc0t2V2dsR2lWdkowT0dTcHJpZTVMU3NkWWxlX2FvUE80cTF0MEhRSVhMbmpMcGJoM2Fnb2NqM2tlOVpuRkZEc3ZrbDBsTGxhVnBfVlJ3cmp3TXRKSHBHRGJwN0RJUk42VzVUSTBuVm4zTzNfajVZalJXSzFsVDRJZ2wxb01vRXdhWjdZSg?oc=5) — ESPN
 - **bryce underwood** — [Michigan football eve: Final thoughts on Underwood, the defense, transfers](https://news.google.com/rss/articles/CBMixAFBVV95cUxNaUJXc0FYUFRkRnZPd1p3a3l5WklHamJsVXZQOHY4N0JKWWFPNHo4MllLMEJyS3ZXOFZtdG5Gb1N4ODBra2ZjRHYwTWxSeTJ4NDVqbzE1UzJrYVBfT0I0VFJQMzY1Vjh5ZHlBWHE1Y0NoUGl6dzQtRlA4Q1p1bHE5VnVyMkNheFhSSGF0Z3FZU3l5ZHhFUVRJUHlDVjgzUFhQakVXdXNsX0tab2FEOGNHRDd6enJ2czhXX0xSRWdoMnBydXgz0gHYAUFVX3lxTE1JYXhWOGs1S01KckpLUXRoVTJlM3JWem9McGw5d0RzSlBKNjhzVVJMSDROU1MzRFVtY2V3NEwwRXVxaVgxWmoyVmhWd1FUZmZCa2J2NUtZVm16Z1JrYzZ2MTZmdEstM25HMWxrLUdSaWR2NExLUTY2MS1iQ05pQW1VRkpoTEpqOHhLSG1MclFNZFJxQmhxN1ZxYWx5Z3F5SEYyZ09fUDZhY191WHhuNmktd3ZOSExpaEhWSmdTYzdvZjJUVjJiUDM1ODY0czJjcmRBYnZWbEhBUw?oc=5) — MLive.com
 
 ## Cleveland Browns Fan Shirts
@@ -39,7 +38,7 @@ FTI = `round(100 * entity_mentions / peak_mentions_in_window)`. Peak mentions in
 | Name | Headline mentions | Status | FTI |
 |---|---|---|---|
 | deshaun watson | 21 | TRENDING | 100 |
-| todd monken | 6 | TRENDING | 29 |
+| todd monken | 5 | TRENDING | 24 |
 | shedeur sanders | 4 | TRENDING | 19 |
 | myles garrett | 2 | steady | 10 |
 | denzel ward | 2 | steady | 10 |
@@ -51,14 +50,13 @@ FTI = `round(100 * entity_mentions / peak_mentions_in_window)`. Peak mentions in
 Live player moments:
 - **todd monken** — [Todd Monken names captains for Week 1 vs. Jaguars](https://news.google.com/rss/articles/CBMijgFBVV95cUxNTkVjOUZRTGRMNXFtRUdMZnFHSVViVkVKYVRJUGhoamVZUmhrektrZ2RwMllsck5UbmlLMDUyMlZ0N1FiejZYNEVCTTlqSGJydzVrYzk5eEkxQkVSYkN1WVcxY0steTh5bUJNU0hjUEhhamV2dlVZd2lHUWpDa2VSbkZGdFR2VGRwTnhpdkN3?oc=5) - Cleveland Browns
 - **shedeur sanders** — [Browns legend states what Shedeur Sanders needs to fix](https://news.google.com/rss/articles/CBMipAFBVV95cUxNUm9iS25XWExiTnhzZmZlOHpDSkpkSXBEaEhzUEpvUThNdVI3UTB2dGxGXzhDaGtpaUdGMGdlR2c2SWlNek5oQ1U0bEVrekFHX2tuQlFjT2FpM0J1dlFwYmpJcG1LUFJwXzZWbjU3RUxkOVloaG11WXg0RzNIQUlMT1FYT3ZuVzRfb3dKT2JoTE10MnpzNUFkYkpFWmhpQjQxTm9TOQ?oc=5) - Dawgs By Nature
-- **todd monken** — [Browns may have package of plays for rookie QB Green, Monken says](https://news.google.com/rss/articles/CBMimAFBVV95cUxQekNhczFCWGhncG4wc0t2V2dsR2lWdkowT0dTcHJpZTVMU3NkWWxlX2FvUE80cTF0MEhRSVhMbmpMcGJoM2Fnb2NqM2tlOVpuRkZEc3ZrbDBsTGxhVnBfVlJ3cmp3TXRKSHBHRGJwN0RJUk42VzVUSTBuVm4zTzNfajVZalJXSzFsVDRJZ2wxb01vRXdhWjdZSg?oc=5) - ESPN
 
 Recent headlines:
 - [The Browns have a QB who runs a 4.36 — so why won't they let him play receiver?](https://news.google.com/rss/articles/CBMigAJBVV95cUxONUpuLUo5c0RpZzdocE9IYlUwYTNzU19Lb1VLWWwyaVhNQnFYOS1iMk45Vm44NnlNTU4tZTlkSllLcGJyYmNkQVZGRkJsN2E1S1JaZndMYnllYUp1VHlLekJpTFRUb2NUY2FYT2lLMkdlNjcwRlo3NnAxSlBxaFdCclJCZUMtQlpPcHJCdDZWSUo5eVk0eHJwVHpRTVBkNkk1Sml0a3JOQnJ5RDE3QWg5MHRtRUhMQUVSdFZPcTlRaE9fQW9XTlRoT3B3a18xcUc4WGRzWVZYV24tQ21rMV9SN1RtekhqWkZlLWw0SGpfaUxtdG1aWjlaRWVKeDRWejdD?oc=5) - Cleveland.com
 - [Todd Monken names captains for Week 1 vs. Jaguars](https://news.google.com/rss/articles/CBMijgFBVV95cUxNTkVjOUZRTGRMNXFtRUdMZnFHSVViVkVKYVRJUGhoamVZUmhrektrZ2RwMllsck5UbmlLMDUyMlZ0N1FiejZYNEVCTTlqSGJydzVrYzk5eEkxQkVSYkN1WVcxY0steTh5bUJNU0hjUEhhamV2dlVZd2lHUWpDa2VSbkZGdFR2VGRwTnhpdkN3?oc=5) - Cleveland Browns
 - [Where to Watch: Browns vs. Jaguars, Week 1 of 2026 NFL Season](https://news.google.com/rss/articles/CBMikAFBVV95cUxNbno1Vm9CeXpCRlRqZUFfejVrLXZqWi0xNWIzWDc4VFJXeDRTZWN4cGJXMkxqcXdWc3ZSV2FRaFBYTndRSF9nX3lHS2lFX094enp5Nk0xSkY1WXdhVmpLaVZ2ZmZNXzM1LXRjalJZMUJnSl9rWnZoekpQby1RZGV6QkxhV1VPaWlZYy1aTjZGQ2o?oc=5) - Jaguars.com
 - [Cleveland Browns predictions for entire 2026 NFL season](https://news.google.com/rss/articles/CBMiugFBVV95cUxPM0NKeE5wSHlzMVV2ZWh4UmlKQVVFcVdmanZIRHpsZnlkYnhtNGcxWGs0aXJmek9UMmtuRko0N196SUxPR2g0MXJDVE5ISGt4ZlRrN1htR0hTbXVDb2xPSzJGUm8ycnJNTUFuakJRcWpKcjJxdHN4cEhnQkNqNE1ZV2g1RHhTNmVJdmI3Q19BQUVjSldWdUFFcjV4MTZueE9qa3NkX3RWWS15WWpTcFJMT0VJX0tOdTQtNnc?oc=5) - Akron Beacon Journal
-- [Browns legend states what Shedeur Sanders needs to fix](https://news.google.com/rss/articles/CBMipAFBVV95cUxNUm9iS25XWExiTnhzZmZlOHpDSkpkSXBEaEhzUEpvUThNdVI3UTB2dGxGXzhDaGtpaUdGMGdlR2c2SWlNek5oQ1U0bEVrekFHX2tuQlFjT2FpM0J1dlFwYmpJcG1LUFJwXzZWbjU3RUxkOVloaG11WXg0RzNIQUlMT1FYT3ZuVzRfb3dKT2JoTE10MnpzNUFkYkpFWmhpQjQxTm9TOQ?oc=5) - Dawgs By Nature
+- [Cleveland Browns News and Rumors 9/11/26: Six Days](https://news.google.com/rss/articles/CBMiqwFBVV95cUxPVGVLZzVocTdJXzd1RDJKME5iaS16ZmYyeFBUY0V1cU8ydkxya1ZVUDBnMnhyM0lxa1FRcDdIaENOZjBzN01ySVFnR05OYklEWDZHUVN2Yk91WEVGXzZSNVVUTFgtdjFSUVpvS1llNnBCTUtybG02QzBManM5MlNOZmVxZmVXNEZXMTVsRmNTRHlSOERTVlRqNlg4SW1hT0M3WHRLcUo1d1hmdWM?oc=5) - 247Sports
 
 ## Green Bay Packers Fan Shirts
 
@@ -66,8 +64,8 @@ Recent headlines:
 |---|---|---|---|
 | josh jacobs | 20 | TRENDING | 95 |
 | micah parsons | 2 | steady | 10 |
+| matt lafleur | 2 | steady | 10 |
 | jordan love | 1 | steady | 5 |
-| matt lafleur | 1 | steady | 5 |
 | robert tonyan | 0 | quiet - throwback | 0 |
 
 **Product gap:** trending with no design in the catalogue - **josh jacobs**
@@ -90,10 +88,10 @@ Recent headlines:
 
 Recent headlines:
 - [Transactions: Cowboys make 3 OL moves](https://news.google.com/rss/articles/CBMiiwFBVV95cUxNNEJROXNIZmJLczR0MFMxZTNRRXl0UTlhN0ZtVERDcWh6NV9lOFROM1VhSDJoQ3NLSjFGZ2dEYS02QkgwSjNybXBOOTI4Y2VVd3VrVU1nUGJEX0NOaHVIbnd4RnMycjVkcEl6ZWhfXzJfS2JCTENvZUpDNll3R0pqOExEdVBvTGRrXy1B?oc=5) - Dallas Cowboys
-- [Injury Report: Statuses for Giants vs. Cowboys on Sunday Night Football](https://news.google.com/rss/articles/CBMirwFBVV95cUxQaGRCWm5MZzktXzFFd2M0UFQxOXA0VzJBV1pfNUd1WTZ0T0wxUzFSbnBJMVVZMXF0OFdlaGJDcVk2NjVjYWZlN0dEYzRKVzNLVVlZOFotSmJlWWhmMUlDMW95ZGI1T21HVWx6ck9TNFpLVHJuRHJrSUp0a09OYnNXQ1hLVmdRUlh4eWNrNEg4Yk5UWkZqOFBFdWU1TnZKYjFvM2psT0NWSjV3X240V000?oc=5) - Giants.com
+- [Giants vs. Cowboys: How to Watch, Listen & Live Stream Week 1](https://news.google.com/rss/articles/CBMilAFBVV95cUxORzNEdUVuOURwYUM1WEo4SGdMbUhrTURxM0E5VzBBQmhiNHMwc0FtRjdYSmFWaUhiUTVDYW9oakotVmpsbm40cWpDdnlYY1g3N0luM2p6Uk5JVlNNNDBpNlFKUVM5ZnIyNkkxTUlIWlB1WlMzM2FoSDZ5ZWJJZnVHdmNXNGRocS03Qy1NUFdVc3lkekRT?oc=5) - Giants.com
 - [Mailbag: Will new culture be on full display now?](https://news.google.com/rss/articles/CBMiigFBVV95cUxPdzRiMUhDTEpIVFY5MUl1ejBLUTVKZVotWHR3eFhZR0JuMTZtemw4WE1pRnp6UTdJZ1o1OC0xb1RnTUp3NS04cjlBeEYxZ0RoWjN5NkZtdC1rX0J2V2NrTnlTdUc5ZzhYeDBONU0zQ0h6NjlOV0I0ZktvRlhEdUdXeXNacVhFdEx6LVE?oc=5) - Dallas Cowboys
 - [Von Miller on looming debut for the Cowboys: 'My smile is back'](https://news.google.com/rss/articles/CBMimwFBVV95cUxOcGY0OHRiSVpzenJzUGR1Ym94UTF6LXVkeG45UXBYcnhkazFEWkluOE1zMEJQWmtKcFpSR3ZNS0lLY0xwVFdMbVlva2ZNRXp1ZVktYmlJY3locEIwb2tvcHMzaWlrSTBpa3gxUUVjOWp1X3Bzc1BDNks0X19KYk1BTk9oSWVQSE9hbU9IQzlZRTZGTzBpX29EaVNGYw?oc=5) - Dallas Cowboys
-- [Cowboys have a 'ton of confidence' in T.J. Bass filling in for Tyler Smith](https://news.google.com/rss/articles/CBMiqgFBVV95cUxONkdZX2VXX2JXeU5CX25mWGFWa3dPOG5vZURNdzFSd0lwdFJxYjVaZnFscEtPWjV6dlo3U2hOSTJLdi1mb191TGhSdmZsUFdxekRKNkFxQ3FhcWtuQk5RZGJYWGI0UjVxMm1WUmFKdWRfNzE5Wmx0ajFzZWdyLThPcjQ2U2I1akxkeUg5OE1jQzNuOVR4RjBFN05OVE9WblYwVVlFeHZQSFh2QQ?oc=5) - Dallas Cowboys
+- [Big Picture: 10 big storylines for Giants & Cowboys](https://news.google.com/rss/articles/CBMiiwFBVV95cUxObm5XM01mOTZOT0hHbGZFNldFMFFXWjdDUmJpM29fNzhzZGZRbzcxWVpKTW5WdG1iUHNzRlc2cjM5NTZfb3hDdE5FZlNadFhtQ3ZudkNMbFI2ZUsxUlJXMkg5dkdkbm5tcHdHQ3IzWmk0RHpXdjdYM193ME9QSTN3Tnh0T1Zya1NGSmtF?oc=5) - Dallas Cowboys
 
 ## Michigan Go Blue Apparel
 
@@ -112,6 +110,6 @@ Live player moments:
 Recent headlines:
 - [Michigan football eve: Final thoughts on Underwood, the defense, transfers](https://news.google.com/rss/articles/CBMixAFBVV95cUxNaUJXc0FYUFRkRnZPd1p3a3l5WklHamJsVXZQOHY4N0JKWWFPNHo4MllLMEJyS3ZXOFZtdG5Gb1N4ODBra2ZjRHYwTWxSeTJ4NDVqbzE1UzJrYVBfT0I0VFJQMzY1Vjh5ZHlBWHE1Y0NoUGl6dzQtRlA4Q1p1bHE5VnVyMkNheFhSSGF0Z3FZU3l5ZHhFUVRJUHlDVjgzUFhQakVXdXNsX0tab2FEOGNHRDd6enJ2czhXX0xSRWdoMnBydXgz0gHYAUFVX3lxTE1JYXhWOGs1S01KckpLUXRoVTJlM3JWem9McGw5d0RzSlBKNjhzVVJMSDROU1MzRFVtY2V3NEwwRXVxaVgxWmoyVmhWd1FUZmZCa2J2NUtZVm16Z1JrYzZ2MTZmdEstM25HMWxrLUdSaWR2NExLUTY2MS1iQ05pQW1VRkpoTEpqOHhLSG1MclFNZFJxQmhxN1ZxYWx5Z3F5SEYyZ09fUDZhY191WHhuNmktd3ZOSExpaEhWSmdTYzdvZjJUVjJiUDM1ODY0czJjcmRBYnZWbEhBUw?oc=5) - MLive.com
 - [Michigan Monday: Game 2 vs. No. 11 Oklahoma](https://news.google.com/rss/articles/CBMiekFVX3lxTE1hNGs1aTJ1RW41bi1VNEpOaDdTQXZxVGptM2NsOHRlZUF5UmhpWVRQS2F3ejdSSEw5dzBWaGhYU19SZExuZm9SVjRuRkxpWEpONEZLLUw4d2E5LXNKZVo1V3c5T0RSM0p0S0ZocTFhOUxGMDRzeTczV2VR?oc=5) - University of Michigan Athletics
-- [How to Watch Sooners vs. Wolverines: TV Channel, Live Stream, Time](https://news.google.com/rss/articles/CBMi1AFBVV95cUxOTUV2anA1OEs2TTg0Nm9zNzJJdXAzc0FMbXZXV1E4RUxEVk14bVFTRjRxLW1LMm11U3BQMWt3OGVFbXlUSmNJVjZZcEx3bUFXVnNnNWh0aDEtWWNtSkZ4NmhkMmthSnQtaHhiQUZHc0RRR2FTR28wSWtrbFhnQzRIZHBQNUx2QWZvejV1anZ0YWZIS3l2SE1Qc3NlalZERl9nUjBxWEZ1dkFNV2o4YXJBSEdPN3NDTFVpT1dId2IxRFNyNEJCZ2Z1bFlmLTVJWVdlbmJSaA?oc=5) - FOX Sports
 - [How a Player-Led Meeting Could Change Everything for Michigan Football](https://news.google.com/rss/articles/CBMitgFBVV95cUxQamltdU11T2hHX0h5U2RROVJfVWdiWkwzcHIxQk1YcHNmNjlPb2VHSWVUWjhYekJZQ2tROHVXQlVqOTUzcjZuNUN1VHEtRVM3dlVVcHhCcjBQdXVubk92T2p3ODduOThnVEFONElnWE16Szg2R3ZoYkdNNVFEcV80NEdYNFZ0Q0hrcTlaWVU5czVfempBWE1LWG93blFmMVhFTGJ5QVVRWFJOZUJ3NFA3ZWk3M3ZyQQ?oc=5) - Sports Illustrated
-- [What channel is Michigan football vs Oklahoma? Week 2 time, TV schedule](https://news.google.com/rss/articles/CBMi3AFBVV95cUxPOUJwX1ZxS3ZMUl81OHd3QVdaX0plSDZtSTRTV3JLR0lIZ0hGZjF6Z2dVSmMzWU5xNDFmMVRaeTJQRF9iQkpVZ19OUzFGTW1SOTR6RU1EV0JfazN2aDBxMnh2bV9DN1A1NmxHczBjZ1BKU1c0aEdXdlFJWHc5MXFQMndTRFA4NzZhb2x3TzZQWlRSd1JvdVFLNzR1UnZkbC13V1hjQXJiZjdibHd2dnZoSnhacWNocnBKazhTYkdvYU1WOW52a2dkczNsQ283d3JqdjdGQzVpNVZ1cVpt?oc=5) - freep.com
+- [What channel is Michigan football vs Oklahoma? Week 2 time, TV schedule](https://news.google.com/rss/articles/CBMi3AFBVV95cUxPOUJwX1ZxS3ZMUl81OHd3QVdaX0plSDZtSTRTV3JLR0lIZ0hGZjF6Z2dVSmMzWU5xNDFmMVRaeTJQRF9iQkpVZ19OUzFGTW1SOTR6RU1EV0JfazN2aDBxMnh2bV9DN1A1NmxHczBjZ1BKU1c0aEdXdlFJWHc5MXFQMndTRFA4NzZhb2x3TzZQWlRSd1JvdVFLNzR1UnZkbC13V1hjQXJiZjdibHd2dnZoSnhacWNocnBKazhTYkdvYU1WOW52a2dkczNsQ283d3JqdjdGQzVpNVZ1cVpt?oc=5) - Detroit Free Press
+- [How to Watch Sooners vs. Wolverines: TV Channel, Live Stream, Time](https://news.google.com/rss/articles/CBMi1AFBVV95cUxOTUV2anA1OEs2TTg0Nm9zNzJJdXAzc0FMbXZXV1E4RUxEVk14bVFTRjRxLW1LMm11U3BQMWt3OGVFbXlUSmNJVjZZcEx3bUFXVnNnNWh0aDEtWWNtSkZ4NmhkMmthSnQtaHhiQUZHc0RRR2FTR28wSWtrbFhnQzRIZHBQNUx2QWZvejV1anZ0YWZIS3l2SE1Qc3NlalZERl9nUjBxWEZ1dkFNV2o4YXJBSEdPN3NDTFVpT1dId2IxRFNyNEJCZ2Z1bFlmLTVJWVdlbmJSaA?oc=5) - FOX Sports
