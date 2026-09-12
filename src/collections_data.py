@@ -1,6 +1,29 @@
 """Collection-level SEO + brand data."""
 import datetime as _dt
+import json as _json
+import os as _os
 from zoneinfo import ZoneInfo as _ZoneInfo
+
+# ------------------------------------------------------- fulfillment partner
+# Cleveland/Browns moved its checkout hand-off to the Mayzing storefront
+# (see data/fulfillment.json). Dallas, Green Bay and Michigan still hand off
+# to Viralstyle. Copy that names the partner must ask which collection it is
+# writing for rather than assuming one, otherwise a migrated page tells the
+# customer to check out somewhere the button does not take them.
+_FUL_PATH = _os.path.join(_os.path.dirname(_os.path.dirname(_os.path.abspath(__file__))),
+                          "data/fulfillment.json")
+try:
+    _FUL = _json.load(open(_FUL_PATH))
+except Exception:
+    _FUL = {}
+FUL_COLLECTION = _FUL.get("collection", "")
+FUL_PARTNER = _FUL.get("partner", "Mayzing")
+LEGACY_PARTNER = "Viralstyle"
+
+
+def partner_of(col_key, default=LEGACY_PARTNER):
+    """Customer-facing fulfillment partner name for a collection key."""
+    return FUL_PARTNER if col_key == FUL_COLLECTION else default
 
 COLLECTIONS = {
     "cleveland-browns": dict(
@@ -24,7 +47,10 @@ COLLECTIONS = {
         ink="#ffffff",
         hero="/img/hero-cleveland.jpg?v=4",
         logo="/img/browns-logo1.webp?v=1",
-        store="https://viralstyle.com/store/kebystore/Cleveland-Browns/1",
+        # Collection-level supplier storefront. Cleveland migrated to the
+        # Mayzing brown collection on 2026-09-12; the other three still point
+        # at their Viralstyle storefronts.
+        store="https://gridironlocker.shop/p/browns",
         chant="Here We Go Brownies",
         # Short cultural phrase used as the headline of the homepage team card.
         phrase="Dawg Pound",
@@ -47,7 +73,10 @@ COLLECTIONS = {
         ],
         faq_extra=[
             ("Do these shirts come in Dawg Pound orange and brown?",
-             "Garment colourways are set per campaign, so the range differs from design to design. Each product page previews the colourways that design's campaign published; the authoritative, current list is on the Viralstyle product page, where you pick the one you want."),
+             f"Brown and orange is the whole point of this collection, and it is why it moved to a "
+             f"print partner that actually carries brown. Each product page previews the colourways "
+             f"published for that design; the authoritative, current list is on the {FUL_PARTNER} "
+             f"product page, where you pick the one you want."),
         ],
     ),
     "dallas-cowboys": dict(

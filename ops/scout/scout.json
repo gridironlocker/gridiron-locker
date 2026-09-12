@@ -4,17 +4,17 @@
  "fti_formula": "round(100 * entity_mentions / peak_mentions_in_window)",
  "peak_mentions": 22,
  "stats": {
-  "products": 130,
+  "products": 73,
   "collections": 4,
-  "images": 993,
-  "avg_price": 26.11,
-  "hot": 5,
+  "images": 574,
+  "avg_price": 25.76,
+  "hot": 1,
   "throwback": 0,
-  "steady": 125,
+  "steady": 72,
   "gaps": 6,
   "moments": 4,
   "tracked_names": 18,
-  "dead_campaigns": 5
+  "dead_campaigns": 62
  },
  "fti_rows": [
   {
@@ -242,10 +242,10 @@
    "short": "Cleveland",
    "name": "Cleveland Browns Fan Shirts",
    "slug": "cleveland-browns-shirts",
-   "store": "https://viralstyle.com/store/kebystore/Cleveland-Browns/1",
-   "products": 64,
-   "avg_price": 26.66,
-   "hot": 4,
+   "store": "https://gridironlocker.shop/p/browns",
+   "products": 7,
+   "avg_price": 27.56,
+   "hot": 0,
    "throwback": 0,
    "gaps": [
     {
@@ -522,14 +522,254 @@
  ],
  "dead_campaigns": [
   {
+   "slug": "all-we-want-all-we-got",
+   "title": "All We Want All We Got",
+   "url": "https://viralstyle.com/kebystore/all-we-want-all-we-got"
+  },
+  {
+   "slug": "all-we-want-all-we-got-25",
+   "title": "All We Want All We Got 25",
+   "url": "https://viralstyle.com/kebystore/all-we-want-all-we-got-25"
+  },
+  {
+   "slug": "b-r-o-w-n-s-sugar-skull-halloween-long",
+   "title": "b r o w n s Sugar Skull Halloween long",
+   "url": "https://viralstyle.com/kebystore/b-r-o-w-n-s-sugar-skull-halloween-long"
+  },
+  {
+   "slug": "bend-football-fans",
+   "title": "Bend Football Fans",
+   "url": "https://viralstyle.com/kebystore/bend-football-fans"
+  },
+  {
+   "slug": "beware-of-dawg",
+   "title": "Beware of Dawg",
+   "url": "https://viralstyle.com/kebystore/beware-of-dawg"
+  },
+  {
+   "slug": "br-sugar-skull-halloween",
+   "title": "b r o w n s Sugar Skull Halloween",
+   "url": "https://viralstyle.com/kebystore/br-sugar-skull-halloween"
+  },
+  {
+   "slug": "cleveland-its-not-that-bad-have-a-beer",
+   "title": "Cleveland, Its Not That Bad. Have a Beer!",
+   "url": "https://viralstyle.com/kebystore/cleveland-its-not-that-bad-have-a-beer"
+  },
+  {
+   "slug": "cleveland-retro-vintage-classic-ohio-fan",
+   "title": "Cleveland retro vintage classic Ohio fans shirt",
+   "url": "https://viralstyle.com/kebystore/cleveland-retro-vintage-classic-ohio-fan"
+  },
+  {
+   "slug": "cleveland-retro-vintage-classic-ohio-gif",
+   "title": "Vintage Cleveland",
+   "url": "https://viralstyle.com/kebystore/cleveland-retro-vintage-classic-ohio-gif"
+  },
+  {
+   "slug": "cleveland-retro-vintage-classic-ohio-shi",
+   "title": "Cleveland retro vintage classic Ohio shirt",
+   "url": "https://viralstyle.com/kebystore/cleveland-retro-vintage-classic-ohio-shi"
+  },
+  {
+   "slug": "cleveland-retro-vintage-classic-ohio-shi-1",
+   "title": "Cleveland retro vintage classic Ohio Gameday shirt",
+   "url": "https://viralstyle.com/kebystore/cleveland-retro-vintage-classic-ohio-shi-1"
+  },
+  {
+   "slug": "d-a-w-g-b-i-t-c-limited-edition",
+   "title": "D a w g B i t c Limited Edition",
+   "url": "https://viralstyle.com/kebystore/d-a-w-g-b-i-t-c-limited-edition"
+  },
+  {
+   "slug": "d-a-w-g-s-limited-edition",
+   "title": "Sundays Are For The Dawgs",
+   "url": "https://viralstyle.com/kebystore/d-a-w-g-s-limited-edition"
+  },
+  {
+   "slug": "dawg-pound",
+   "title": "Dawg Pound",
+   "url": "https://viralstyle.com/kebystore/dawg-pound"
+  },
+  {
+   "slug": "denzel",
+   "title": "Denzel",
+   "url": "https://viralstyle.com/kebystore/denzel"
+  },
+  {
+   "slug": "dibs-on-the-coach-football-funny-football-1",
+   "title": "Dibs On The Coach Football Funny Football Coach Gifts",
+   "url": "https://viralstyle.com/kebystore/dibs-on-the-coach-football-funny-football-1"
+  },
+  {
+   "slug": "i-love-b-r-o-w-n-s-limited-edition",
+   "title": "I love B R O W N S Limited Edition",
+   "url": "https://viralstyle.com/kebystore/i-love-b-r-o-w-n-s-limited-edition"
+  },
+  {
+   "slug": "it-s-not-a-team-logo-browns-it-s-a-famil",
+   "title": "It s not a team logo Browns it s a family crest est 1946 shirt",
+   "url": "https://viralstyle.com/kebystore/it-s-not-a-team-logo-browns-it-s-a-famil"
+  },
+  {
+   "slug": "let-it-rip",
+   "title": "Let it Rip",
+   "url": "https://viralstyle.com/kebystore/let-it-rip"
+  },
+  {
+   "slug": "limited-edition-2024n2",
+   "title": "Limited Edition 2024N2",
+   "url": "https://viralstyle.com/kebystore/limited-edition-2024n2"
+  },
+  {
+   "slug": "limited-edition-241",
+   "title": "Cleveland",
+   "url": "https://viralstyle.com/kebystore/limited-edition-241"
+  },
+  {
+   "slug": "limited-edition-66",
+   "title": "Limited Edition 66",
+   "url": "https://viralstyle.com/kebystore/limited-edition-66"
+  },
+  {
+   "slug": "limited-edition-b-e-k-i-n-d",
+   "title": "Limited Edition B E K I N D",
+   "url": "https://viralstyle.com/kebystore/limited-edition-b-e-k-i-n-d"
+  },
+  {
+   "slug": "limited-edition-b-r-o-w-n-s",
+   "title": "Limited Edition B R O W N S",
+   "url": "https://viralstyle.com/kebystore/limited-edition-b-r-o-w-n-s"
+  },
+  {
+   "slug": "limited-edition-b-r-o-w-n-s-cleveland-ca",
+   "title": "Limited Edition B R O W N S Cleveland Case",
+   "url": "https://viralstyle.com/kebystore/limited-edition-b-r-o-w-n-s-cleveland-ca"
+  },
+  {
+   "slug": "limited-edition-b-r-o-w-n-s-h-e-l-m-e-t",
+   "title": "Limited Edition B R O W N S H E L M E T",
+   "url": "https://viralstyle.com/kebystore/limited-edition-b-r-o-w-n-s-h-e-l-m-e-t"
+  },
+  {
+   "slug": "limited-edition-b-r-o-w-n-s1",
+   "title": "Limited Edition B R O W N S",
+   "url": "https://viralstyle.com/kebystore/limited-edition-b-r-o-w-n-s1"
+  },
+  {
+   "slug": "limited-edition-br-summer-2024",
+   "title": "Limited Edition BR Summer 2024",
+   "url": "https://viralstyle.com/kebystore/limited-edition-br-summer-2024"
+  },
+  {
+   "slug": "limited-edition-c-l-e-aint-for-sissies",
+   "title": "Limited Edition C L E Aint For Sissies",
+   "url": "https://viralstyle.com/kebystore/limited-edition-c-l-e-aint-for-sissies"
+  },
+  {
+   "slug": "limited-edition-c1",
+   "title": "Cleveland CLE for Fans",
+   "url": "https://viralstyle.com/kebystore/limited-edition-c1"
+  },
+  {
+   "slug": "limited-edition-cle-mug",
+   "title": "Cleveland Victory Monday Mug",
+   "url": "https://viralstyle.com/kebystore/limited-edition-cle-mug"
+  },
+  {
+   "slug": "limited-edition-cleveland",
+   "title": "Limited Edition Cleveland",
+   "url": "https://viralstyle.com/kebystore/limited-edition-cleveland"
+  },
+  {
+   "slug": "limited-edition-cleveland-fans",
+   "title": "Limited Edition Cleveland Fans",
+   "url": "https://viralstyle.com/kebystore/limited-edition-cleveland-fans"
+  },
+  {
+   "slug": "limited-edition-cleveland-lovers",
+   "title": "Limited Edition Cleveland Lovers",
+   "url": "https://viralstyle.com/kebystore/limited-edition-cleveland-lovers"
+  },
+  {
+   "slug": "limited-edition-d-w-a-g-s",
+   "title": "Limited Edition D W A G S",
+   "url": "https://viralstyle.com/kebystore/limited-edition-d-w-a-g-s"
+  },
+  {
+   "slug": "limited-edition-lfg",
+   "title": "Limited Edition LFG",
+   "url": "https://viralstyle.com/kebystore/limited-edition-lfg"
+  },
+  {
    "slug": "limited-edition-m-fans-30",
    "title": "Limited Edition M Fans 30",
    "url": "https://viralstyle.com/kebystore/limited-edition-m-fans-30"
   },
   {
+   "slug": "limited-edition-no-fly-zone",
+   "title": "Limited Edition No Fly Zone",
+   "url": "https://viralstyle.com/kebystore/limited-edition-no-fly-zone"
+  },
+  {
+   "slug": "limited-edition-no-fly-zone-denzel",
+   "title": "Limited Edition No Fly Zone - Denzel",
+   "url": "https://viralstyle.com/kebystore/limited-edition-no-fly-zone-denzel"
+  },
+  {
+   "slug": "limited-edition-our-coach",
+   "title": "Limited Edition Our Coach",
+   "url": "https://viralstyle.com/kebystore/limited-edition-our-coach"
+  },
+  {
+   "slug": "limited-edition-rise-and-shine",
+   "title": "Rise and Shine it's Game Day",
+   "url": "https://viralstyle.com/kebystore/limited-edition-rise-and-shine"
+  },
+  {
+   "slug": "limited-edition-rock-out-denzel",
+   "title": "Limited Edition Rock Out - Denzel",
+   "url": "https://viralstyle.com/kebystore/limited-edition-rock-out-denzel"
+  },
+  {
+   "slug": "limited-edition-s-u-n-d-a-y-s",
+   "title": "Limited Edition S U N D A Y S",
+   "url": "https://viralstyle.com/kebystore/limited-edition-s-u-n-d-a-y-s"
+  },
+  {
+   "slug": "limited-edition-the-wall-graham",
+   "title": "Limited Edition The Wall - Graham",
+   "url": "https://viralstyle.com/kebystore/limited-edition-the-wall-graham"
+  },
+  {
    "slug": "limited-edition-victory",
    "title": "Limited Edition Victory",
    "url": "https://viralstyle.com/kebystore/limited-edition-victory"
+  },
+  {
+   "slug": "limited-edition-victory-morning",
+   "title": "Limited Edition Victory Monday",
+   "url": "https://viralstyle.com/kebystore/limited-edition-victory-morning"
+  },
+  {
+   "slug": "line-man-dad-football-t-shirt",
+   "title": "Line Man Dad Football T-Shirt",
+   "url": "https://viralstyle.com/kebystore/line-man-dad-football-t-shirt"
+  },
+  {
+   "slug": "my-heart-is-on-that-field",
+   "title": "My Heart Is On That Field",
+   "url": "https://viralstyle.com/kebystore/my-heart-is-on-that-field"
+  },
+  {
+   "slug": "my-life-is-for-football-t-shirt",
+   "title": "My Life is  For Football T-Shirt",
+   "url": "https://viralstyle.com/kebystore/my-life-is-for-football-t-shirt"
+  },
+  {
+   "slug": "play-off-pound-shirt",
+   "title": "Play Off Pound Shirt",
+   "url": "https://viralstyle.com/kebystore/play-off-pound-shirt"
   },
   {
    "slug": "run-the-ball",
@@ -542,9 +782,54 @@
    "url": "https://viralstyle.com/kebystore/run-the-ball-kev"
   },
   {
+   "slug": "sanders-12-special-edition",
+   "title": "Sander's 12 Special Edition",
+   "url": "https://viralstyle.com/kebystore/sanders-12-special-edition"
+  },
+  {
+   "slug": "sanders-13-special-edition",
+   "title": "Sander's 13 Special Edition",
+   "url": "https://viralstyle.com/kebystore/sanders-13-special-edition"
+  },
+  {
+   "slug": "sanders-special-edition",
+   "title": "Sander's Special Edition",
+   "url": "https://viralstyle.com/kebystore/sanders-special-edition"
+  },
+  {
+   "slug": "sanders-the-next-level",
+   "title": "Sanders The Next Level",
+   "url": "https://viralstyle.com/kebystore/sanders-the-next-level"
+  },
+  {
    "slug": "she-love-coach-kevin",
    "title": "She Loves Coach Kevin",
    "url": "https://viralstyle.com/kebystore/she-love-coach-kevin"
+  },
+  {
+   "slug": "this-girl-loves-browns-coach",
+   "title": "This Girl Loves Browns Coach",
+   "url": "https://viralstyle.com/kebystore/this-girl-loves-browns-coach"
+  },
+  {
+   "slug": "whispered-go-browns",
+   "title": "Whispered Go Browns",
+   "url": "https://viralstyle.com/kebystore/whispered-go-browns"
+  },
+  {
+   "slug": "winter-hat-beanie-browns",
+   "title": "Winter Hat Beanie Browns",
+   "url": "https://viralstyle.com/kebystore/winter-hat-beanie-browns"
+  },
+  {
+   "slug": "winter-hat-beanie-cleveland",
+   "title": "Winter Hat Beanie Cleveland",
+   "url": "https://viralstyle.com/kebystore/winter-hat-beanie-cleveland"
+  },
+  {
+   "slug": "winter-hat-beanie-go-browns",
+   "title": "Winter Hat Beanie Go Browns",
+   "url": "https://viralstyle.com/kebystore/winter-hat-beanie-go-browns"
   }
  ],
  "moments": [

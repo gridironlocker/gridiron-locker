@@ -1,0 +1,98 @@
+{
+  "_doc": "Cleveland/Browns fulfillment migration (2026-09-12): Viralstyle -> Mayzing. 'destinations' maps a Gridiron Locker design slug to the product URL on the Mayzing storefront that now sells it (same artwork, brown/gold blanks). 'hold' lists Cleveland designs with NO Mayzing equivalent yet: they are withheld from the storefront so no customer is handed to Viralstyle. As each remaining design is uploaded to Mayzing, move its slug out of 'hold' and add a 'destinations' entry - the page then returns on the next build.",
+  "partner": "Mayzing",
+  "collection": "cleveland-browns",
+  "collection_url": "https://gridironlocker.shop/p/browns",
+  "destinations": {
+    "make-them-know-your-name-denzel-1": {
+      "name": "Make Them Know Your Name",
+      "url": "https://gridironlocker.shop/make-them-know-your-name?collectionId=P19bpeU2x_Ng&color=GILDAN-DARK_CHOCOLATE&productId=6aa33fa01cdc8689e252dab3"
+    },
+    "limited-edition-c2": {
+      "name": "Browns Cle",
+      "url": "https://gridironlocker.shop/Browns-Cle?collectionId=P19bpeU2x_Ng&color=GILDAN-DARK_CHOCOLATE&productId=6aa33ae12ee22daf5e7d3cc0"
+    },
+    "limited-edition-d-w-a-g": {
+      "name": "DWAG",
+      "url": "https://gridironlocker.shop/DWAG?collectionId=P19bpeU2x_Ng&color=GILDAN-OLD_GOLD&productId=6aa337dfdb76056cb9b29f0c"
+    },
+    "lets-go-cleveland": {
+      "name": "Let's Go Cle Copy",
+      "url": "https://gridironlocker.shop/lets-go-cle-copy?collectionId=P19bpeU2x_Ng&color=GILDAN-DARK_CHOCOLATE&productId=6aa3366e5520ba111a558fb1"
+    },
+    "limited-edition-go-b-r-o-w-n-s": {
+      "name": "Go Browns",
+      "url": "https://gridironlocker.shop/go-browns?collectionId=P19bpeU2x_Ng&color=GILDAN-DARK_CHOCOLATE&productId=6aa331965520ba111a54a781"
+    },
+    "playoffs-never-giveup": {
+      "name": "Playoffs",
+      "url": "https://gridironlocker.shop/playoffs?collectionId=P19bpeU2x_Ng&color=GILDAN-DARK_CHOCOLATE&productId=6aa330865520ba111a548f86"
+    },
+    "ohio-cleveland-fans": {
+      "name": "Ohio Cle",
+      "url": "https://gridironlocker.shop/ohio-cle?collectionId=P19bpeU2x_Ng&color=GILDAN-DARK_CHOCOLATE&productId=6aa3306bd0d1f69a5d797993"
+    }
+  },
+  "hold": [
+    "limited-edition-no-fly-zone",
+    "limited-edition-the-wall-graham",
+    "limited-edition-rock-out-denzel",
+    "limited-edition-no-fly-zone-denzel",
+    "sanders-the-next-level",
+    "let-it-rip",
+    "all-we-want-all-we-got-25",
+    "sanders-13-special-edition",
+    "bend-football-fans",
+    "sanders-12-special-edition",
+    "sanders-special-edition",
+    "cleveland-its-not-that-bad-have-a-beer",
+    "denzel",
+    "limited-edition-br-summer-2024",
+    "all-we-want-all-we-got",
+    "beware-of-dawg",
+    "this-girl-loves-browns-coach",
+    "run-the-ball",
+    "run-the-ball-kev",
+    "she-love-coach-kevin",
+    "my-heart-is-on-that-field",
+    "dawg-pound",
+    "play-off-pound-shirt",
+    "whispered-go-browns",
+    "winter-hat-beanie-go-browns",
+    "limited-edition-lfg",
+    "winter-hat-beanie-cleveland",
+    "winter-hat-beanie-browns",
+    "limited-edition-2024n2",
+    "limited-edition-241",
+    "limited-edition-our-coach",
+    "limited-edition-66",
+    "limited-edition-s-u-n-d-a-y-s",
+    "limited-edition-d-w-a-g-s",
+    "limited-edition-c1",
+    "limited-edition-b-e-k-i-n-d",
+    "limited-edition-b-r-o-w-n-s-h-e-l-m-e-t",
+    "limited-edition-cle-mug",
+    "limited-edition-victory-morning",
+    "limited-edition-b-r-o-w-n-s1",
+    "limited-edition-c-l-e-aint-for-sissies",
+    "limited-edition-rise-and-shine",
+    "limited-edition-cleveland-lovers",
+    "limited-edition-b-r-o-w-n-s-cleveland-ca",
+    "limited-edition-b-r-o-w-n-s",
+    "limited-edition-cleveland-fans",
+    "limited-edition-cleveland",
+    "d-a-w-g-b-i-t-c-limited-edition",
+    "i-love-b-r-o-w-n-s-limited-edition",
+    "d-a-w-g-s-limited-edition",
+    "b-r-o-w-n-s-sugar-skull-halloween-long",
+    "br-sugar-skull-halloween",
+    "cleveland-retro-vintage-classic-ohio-fan",
+    "cleveland-retro-vintage-classic-ohio-shi-1",
+    "cleveland-retro-vintage-classic-ohio-shi",
+    "cleveland-retro-vintage-classic-ohio-gif",
+    "it-s-not-a-team-logo-browns-it-s-a-famil",
+    "line-man-dad-football-t-shirt",
+    "my-life-is-for-football-t-shirt",
+    "dibs-on-the-coach-football-funny-football-1"
+  ]
+}

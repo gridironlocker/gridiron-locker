@@ -1,6 +1,6 @@
 """SEO landing-page copy for a single design.
 
-Gridiron Locker is the discovery + SEO layer; Viralstyle is the transaction
+Gridiron Locker is the discovery + SEO layer; the fulfilment partner
 layer. Nothing in here may pretend to configure or process an order: no style
 picker, no size picker, no colour picker, no checkout.
 
@@ -10,6 +10,8 @@ invented. No player quotes, statistics, records or historical claims.
 """
 import hashlib
 import re
+
+from collections_data import partner_of
 
 import seocopy as _c
 
@@ -422,6 +424,7 @@ def meta_title(name, brand="Gridiron Locker", slug="", col=None, garment="T-Shir
 def meta_description(slug, name, col, garment, price, styles, colours, sizes, art=""):
     """Unique description: product, football context, apparel, fan-made, brand."""
     g = garment.lower()
+    P = partner_of(col.get("key"))
     team = col["team"]
     city = col["city"].split(",")[0]
     srange = f"{sizes[0]}-{sizes[-1]}" if len(sizes) > 1 else sizes[0]
@@ -433,24 +436,24 @@ def meta_description(slug, name, col, garment, price, styles, colours, sizes, ar
         (f"{name} - fan-made {g} for {team} fans, built around {art_bit}. "
          f"Printed on demand from ${price}"
          f"{f', on {stylecount} garment styles' if stylecount > 1 else ''}, sizes {srange}. "
-         f"Shop the design on Viralstyle."),
+         f"Shop the design on {P}."),
         (f"Fan-made {g} for {city} football supporters: {name}. Artwork: {art_bit}. "
          f"From ${price}, sizes {srange}"
          f"{f', {colours} garment colourways in the campaign mockups' if colours > 1 else ''}. "
-         f"Story on Gridiron Locker; checkout on Viralstyle."),
+         f"Story on Gridiron Locker; checkout on {P}."),
         (f"{name} from Gridiron Locker - unofficial, fan-made {team} football {g} "
          f"featuring {art_bit}. From ${price}, sizes {srange}, printed after you order. "
-         f"Style, colour and size are chosen on Viralstyle."),
+         f"Style, colour and size are chosen on {P}."),
         (f"The {name}: independent {team} fan apparel printed on demand. {g.capitalize()} from "
-         f"${price} in sizes {srange}, artwork {art_bit}. Design story here, checkout on Viralstyle."),
+         f"${price} in sizes {srange}, artwork {art_bit}. Design story here, checkout on {P}."),
     ]
     out = sentence(pick(variants, slug, "meta"))
     if len(out) > 158:
         fallbacks = [
             f"{name} - fan-made {g} for {team} fans, from ${price}, sizes {srange}. "
-            f"Printed on demand; style, colour and size are chosen on Viralstyle.",
+            f"Printed on demand; style, colour and size are chosen on {P}.",
             f"{name}: independent {city} football apparel from ${price}, sizes {srange}. "
-            f"Printed to order, shipped worldwide. Shop the design on Viralstyle.",
+            f"Printed to order, shipped worldwide. Shop the design on {P}.",
             f"Fan-made {team} {g}: {name}. From ${price} in sizes {srange}, printed on demand "
             f"and shipped worldwide. Design story on Gridiron Locker.",
         ]
@@ -528,6 +531,7 @@ def _motif_line(p):
 def short_description(slug, name, art, col, garment, theme="classic"):
     """50-90 word unique short description under the H1. Never a pride cliché."""
     p = profile(slug, name, art, col, garment, theme)
+    P = partner_of(col.get("key"))
     g, team, city = p["g"], p["team"], p["city"]
     art_t, phrase = p["art_title"], p["phrase"]
     v = p["voice"]
@@ -566,9 +570,9 @@ def short_description(slug, name, art, col, garment, theme="classic"):
         f"It reads as {an(THEME_LABEL.get(p['theme'], 'fan'))} {THEME_LABEL.get(p['theme'], 'fan')} design, not a reprint of a shop wall.",
     ]
     closes = [
-        f"Browse the story, the verified garment styles and the colourway mockups here, then continue to Viralstyle to choose style, colour and size.",
-        f"Gridiron Locker is where you decide if the design is yours; garment style, colour and size are confirmed on Viralstyle.",
-        f"If the graphic is the reason you stopped scrolling, the rest of the page is the proof - then SHOP NOW hands you to Viralstyle.",
+        f"Browse the story, the verified garment styles and the colourway mockups here, then continue to {P} to choose style, colour and size.",
+        f"Gridiron Locker is where you decide if the design is yours; garment style, colour and size are confirmed on {P}.",
+        f"If the graphic is the reason you stopped scrolling, the rest of the page is the proof - then SHOP NOW hands you to {P}.",
         f"Printed after you order, shipped with tracking, and never pretending this site is the checkout.",
     ]
     extras = [
@@ -768,12 +772,13 @@ def _story_difference(p, slug):
     return pick([o for o in opts if o], slug, "st4")
 
 
-def _story_close(p, slug):
+def _story_close(p, slug, col=None):
+    P = partner_of((col or {}).get("key"))
     g = p["g"]
     opts = [
         f"What you end up with is {an(g)} {g} that says something specific about being a "
         f"{p['team']} fan, rather than something generic about liking football. If that is the "
-        f"read you wanted, the rest is logistics: verified styles on this page, then Viralstyle "
+        f"read you wanted, the rest is logistics: verified styles on this page, then {P} "
         f"for the size and colour you actually wear.",
         f"It is a small idea executed cleanly, which is generally what makes fan apparel get "
         f"{p['v']} more than once a season. {p['name']} is that kind of piece.",
@@ -793,7 +798,7 @@ def design_story(slug, facts, col, art, theme, garment):
         _story_craft(p, slug),
         _story_football(p, col, slug),
         _story_difference(p, slug),
-        _story_close(p, slug),
+        _story_close(p, slug, col),
     ]
     html = paras(*chunks)
     w = word_count(html)
@@ -939,53 +944,56 @@ def gameday_wear(slug, col, garment, art):
             + f"<p>{pick(closers, slug, 'wear')}</p>")
 
 
-def styles_copy(slug, styles, garment):
+def styles_copy(slug, styles, garment, col=None):
+    P = partner_of((col or {}).get("key"))
     """AVAILABLE APPAREL - verified style list only."""
     if garment in NON_APPAREL and styles:
         return (f"<p>This artwork is published across <strong>{len(styles)} product "
                 f"variations</strong> in the campaign, listed below exactly as the campaign shows "
-                f"them. Pick the one you want on the Viralstyle product page, where each variation "
+                f"them. Pick the one you want on the {P} product page, where each variation "
                 f"carries its own price.</p>")
     if not styles:
         return (f"<p>This design is printed on a {garment.lower()}. The exact garment options for "
-                f"this campaign are listed on the Viralstyle product page.</p>")
+                f"this campaign are listed on the {P} product page.</p>")
     n = len(styles)
     if n == 1:
         return (f"<p>This campaign prints the design on one garment: <strong>{styles[0]}</strong>. "
-                f"You confirm your size on the Viralstyle product page.</p>")
+                f"You confirm your size on the {P} product page.</p>")
     return (f"<p>The campaign for this design offers <strong>{n} garment styles</strong>. "
             f"They are listed below exactly as the campaign publishes them - pick the one you "
-            f"want on the Viralstyle product page, where each style shows its own price.</p>")
+            f"want on the {P} product page, where each style shows its own price.</p>")
 
 
 def apparel_heading(garment):
     return "Available Products" if garment in NON_APPAREL else "Available Apparel"
 
 
-def colour_copy(colours):
+def colour_copy(colours, col=None):
+    P = partner_of((col or {}).get("key"))
     """AVAILABLE COLOURS - never invent names, never fake a picker."""
     if colours > 1:
         return (f"<p>This design is available in multiple garment colourways. The mockups below "
                 f"are taken from the live campaign - <strong>{colours} colour variations</strong> "
                 f"were published for this design. They are previews, not selectors: choose your "
-                f"colour, garment style and size on the Viralstyle product page.</p>"
+                f"colour, garment style and size on the {P} product page.</p>"
                 f"<p>Colour previews are shown to help you choose your look. Final colour "
-                f"selection is made on Viralstyle.</p>")
-    return ("<p>Multiple colour options may be available for this design. Garment colours are set "
-            "per campaign, so the current list is shown on the Viralstyle product page.</p>")
+                f"selection is made on {P}.</p>")
+    return (f"<p>Multiple colour options may be available for this design. Garment colours are set "
+            f"per campaign, so the current list is shown on the {P} product page.</p>")
 
 
-def size_copy(slug, sizes, garment):
+def size_copy(slug, sizes, garment, col=None):
+    P = partner_of((col or {}).get("key"))
     if garment in ("Mug", "Phone Case"):
-        return ("<p>This is not an apparel item, so there is no size to choose. Any model or "
-                "capacity options are shown on the Viralstyle product page.</p>")
+        return (f"<p>This is not an apparel item, so there is no size to choose. Any model or "
+                f"capacity options are shown on the {P} product page.</p>")
     if garment == "Beanie":
         return ("<p>One size fits most adults - a stretch knit body with a folded cuff.</p>")
     rng = f"{sizes[0]} to {sizes[-1]}"
     return (f"<p>This campaign is offered in <strong>{len(sizes)} sizes: {rng}</strong> "
             f"({', '.join(sizes)}). Sizing is unisex unless the design name says otherwise. "
             f"The measurement chart below is a guide - the size you select is confirmed on the "
-            f"Viralstyle product page.</p>")
+            f"{P} product page.</p>")
 
 
 def parse_features(feat):
@@ -1000,7 +1008,8 @@ def parse_features(feat):
     return out
 
 
-def details_bullets(garment, styles, sizes, colours, price, features=""):
+def details_bullets(garment, styles, sizes, colours, price, features="", col=None):
+    P = partner_of((col or {}).get("key"))
     g = _c.GARMENT_COPY.get(garment, _c.GARMENT_COPY["T-Shirt"])
     out = ["Independent, fan-made design - not official or licensed team merchandise",
            "Printed on demand after the order is placed, so nothing is warehouse stock"]
@@ -1011,7 +1020,7 @@ def details_bullets(garment, styles, sizes, colours, price, features=""):
         out.append(f"Sizes {sizes[0]}-{sizes[-1]} ({len(sizes)} sizes)")
     if colours > 1:
         out.append(f"{colours} garment colourways published in the campaign mockups")
-    out.append(f"Pricing starts at ${price}; each garment style is priced individually on Viralstyle")
+    out.append(f"Pricing starts at ${price}; each garment style is priced individually on {P}")
     out.append("Worldwide shipping with tracking issued at dispatch")
     verified = parse_features(features)
     if verified:
@@ -1021,14 +1030,15 @@ def details_bullets(garment, styles, sizes, colours, price, features=""):
     return out
 
 
-def shipping_copy(delivery_time, ship_from):
+def shipping_copy(delivery_time, ship_from, col=None):
+    P = partner_of((col or {}).get("key"))
     return (f"<p>Every item is printed after the order is placed - there is no warehouse stock to "
             f"ship from, which is why the catalogue can stay this wide without anything selling "
             f"out. Production takes a few business days, then the parcel moves.</p>"
             f"<p><strong>United States:</strong> standard shipping from ${ship_from}, typically "
             f"{delivery_time} from order to doorstep including production. "
             f"<strong>International:</strong> worldwide delivery is available; the exact rate and "
-            f"estimate for your address is calculated at checkout on Viralstyle.</p>"
+            f"estimate for your address is calculated at checkout on {P}.</p>"
             f"<p>If an item arrives misprinted, damaged or defective it is replaced within 30 days. "
             f"Delivery estimates are estimates - if you need a piece for a specific game, order "
             f"early in the week rather than the night before.</p>")
@@ -1042,6 +1052,7 @@ def disclosure():
 def faqs(slug, facts, col, garment, price, colours, styles, sizes):
     """Product FAQ - answers the handoff questions explicitly."""
     name = facts["name"]
+    P = partner_of(col.get("key"))
     g = garment.lower()
     art = facts.get("art") or name
     out = []
@@ -1054,17 +1065,17 @@ def faqs(slug, facts, col, garment, price, colours, styles, sizes):
         out.append((f"What colours does the {name} come in?",
                     f"This campaign published {colours} garment colour variations, previewed on "
                     f"this page as campaign mockups. Colour availability is set per campaign and "
-                    f"can change, so the current, authoritative list is on the Viralstyle product "
+                    f"can change, so the current, authoritative list is on the {P} product "
                     f"page - that is also where you select the one you want."))
     else:
         out.append((f"What colours does the {name} come in?",
-                    "Colour options vary by campaign. Visit the Viralstyle product page for this "
+                    f"Colour options vary by campaign. Visit the {P} product page for this "
                     "design to see the colours currently offered."))
 
     if garment in ("Mug", "Phone Case"):
         out.append(("What sizes or models are available?",
                     "This is not an apparel item, so there is no garment size. Any model or "
-                    "capacity choice is made on the Viralstyle product page."))
+                    f"capacity choice is made on the {P} product page."))
     elif garment == "Beanie":
         out.append(("What sizes are available?",
                     "One size fits most adults - a stretch knit body with a folded cuff."))
@@ -1072,15 +1083,15 @@ def faqs(slug, facts, col, garment, price, colours, styles, sizes):
         out.append(("What sizes are available?",
                     f"Sizes {sizes[0]} to {sizes[-1]} ({', '.join(sizes)}) for this campaign. "
                     f"Sizing is unisex; the measurement chart on this page shows chest width and "
-                    f"body length in inches. You pick your size on the Viralstyle product page."))
+                    f"body length in inches. You pick your size on the {P} product page."))
 
     out.append(("Where do I choose my shirt colour, style and size?",
-                "On Viralstyle. Gridiron Locker is where you see the design and the details; "
-                "garment style, colour and size are selected on the Viralstyle product page for "
+                f"On {P}. Gridiron Locker is where you see the design and the details; "
+                f"garment style, colour and size are selected on the {P} product page for "
                 "this campaign, immediately before checkout."))
 
     out.append(("Where is checkout completed?",
-                "Orders are placed and paid for on Viralstyle, the print-on-demand partner that "
+                f"Orders are placed and paid for on {P}, the print-on-demand partner that "
                 "runs this campaign. Gridiron Locker never takes payment or handles your card "
                 "details - the SHOP NOW button hands you over to the campaign page."))
 
@@ -1090,7 +1101,7 @@ def faqs(slug, facts, col, garment, price, colours, styles, sizes):
                 "player. Team and city names are used only to describe who the artwork is for."))
 
     out.append(("How is the product made?",
-                f"It is printed on demand. Once your order is placed on Viralstyle the {g} is "
+                f"It is printed on demand. Once your order is placed on {P} the {g} is "
                 f"printed and finished, then shipped with tracking. Nothing is pre-printed, so "
                 f"there is no dead stock and no 'sold out' on a design that is still live."))
 
@@ -1098,11 +1109,11 @@ def faqs(slug, facts, col, garment, price, colours, styles, sizes):
         out.append(("Can I get this design on a hoodie or sweatshirt instead?",
                     "The campaign offers " + ", ".join(styles[:6])
                     + (" and more. " if len(styles) > 6 else ". ")
-                    + "Each style is priced separately and selected on the Viralstyle product page."))
+                    + f"Each style is priced separately and selected on the {P} product page."))
 
     out.append(("How much does it cost?",
                 f"Pricing for this design starts at ${price}. Different garment styles carry "
-                f"different prices, and the price you pay is the one shown on Viralstyle for the "
+                f"different prices, and the price you pay is the one shown on {P} for the "
                 f"style, colour and size you select."))
 
     out += [(q, a) for q, a in col.get("faq_extra", [])]
