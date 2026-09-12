@@ -968,7 +968,7 @@ def apparel_heading(garment):
     return "Available Products" if garment in NON_APPAREL else "Available Apparel"
 
 
-def colour_copy(colours, col=None):
+def colour_copy(colours, col=None, name=None):
     P = partner_of((col or {}).get("key"))
     """AVAILABLE COLOURS - never invent names, never fake a picker."""
     if colours > 1:
@@ -978,6 +978,13 @@ def colour_copy(colours, col=None):
                 f"colour, garment style and size on the {P} product page.</p>"
                 f"<p>Colour previews are shown to help you choose your look. Final colour "
                 f"selection is made on {P}.</p>")
+    if name:
+        # A Mayzing product is published in exactly one colourway and
+        # data/mayzing_products.json carries its verified name off the
+        # storefront - state it instead of the crawled-campaign hedge below.
+        return (f"<p>This product is sold in <strong>one colourway: {name}</strong>. The mockup "
+                f"above shows it exactly as {P} prints it, and the {P} product page is where you "
+                f"confirm your size before checkout.</p>")
     return (f"<p>Multiple colour options may be available for this design. Garment colours are set "
             f"per campaign, so the current list is shown on the {P} product page.</p>")
 
@@ -1049,7 +1056,7 @@ def disclosure():
             "licensed by any team, league, university or player.")
 
 
-def faqs(slug, facts, col, garment, price, colours, styles, sizes):
+def faqs(slug, facts, col, garment, price, colours, styles, sizes, colour=None):
     """Product FAQ - answers the handoff questions explicitly."""
     name = facts["name"]
     P = partner_of(col.get("key"))
@@ -1068,9 +1075,15 @@ def faqs(slug, facts, col, garment, price, colours, styles, sizes):
                     f"can change, so the current, authoritative list is on the {P} product "
                     f"page - that is also where you select the one you want."))
     else:
-        out.append((f"What colours does the {name} come in?",
-                    f"Colour options vary by campaign. Visit the {P} product page for this "
-                    "design to see the colours currently offered."))
+        if colour:
+            out.append((f"What colours does the {name} come in?",
+                        f"This product is sold in one colourway: {colour}. Colour availability "
+                        f"is set by the campaign; if more are ever published they appear on the "
+                        f"{P} product page first."))
+        else:
+            out.append((f"What colours does the {name} come in?",
+                        f"Colour options vary by campaign. Visit the {P} product page for this "
+                        "design to see the colours currently offered."))
 
     if garment in ("Mug", "Phone Case"):
         out.append(("What sizes or models are available?",
@@ -1111,10 +1124,16 @@ def faqs(slug, facts, col, garment, price, colours, styles, sizes):
                     + (" and more. " if len(styles) > 6 else ". ")
                     + f"Each style is priced separately and selected on the {P} product page."))
 
-    out.append(("How much does it cost?",
-                f"Pricing for this design starts at ${price}. Different garment styles carry "
-                f"different prices, and the price you pay is the one shown on {P} for the "
-                f"style, colour and size you select."))
+    if styles and len(styles) == 1:
+        out.append(("How much does it cost?",
+                    f"This design is ${price} on {P}: one garment style at one flat price. The "
+                    f"final total - including any size surcharge for extended sizes - is the one "
+                    f"shown on {P} before you pay."))
+    else:
+        out.append(("How much does it cost?",
+                    f"Pricing for this design starts at ${price}. Different garment styles carry "
+                    f"different prices, and the price you pay is the one shown on {P} for the "
+                    f"style, colour and size you select."))
 
     out += [(q, a) for q, a in col.get("faq_extra", [])]
     return out[:9]
