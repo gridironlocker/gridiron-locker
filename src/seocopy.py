@@ -98,7 +98,7 @@ GARMENT_COPY = {
     "Phone Case": dict(
         blurb="a slim, impact-absorbing phone case with the artwork printed edge to edge on the back shell",
         care="Wipe clean with a damp cloth. The print sits under a protective coating.",
-        fit="Choose your exact phone model on the Viralstyle product page.",
+        fit="Choose your exact phone model on the product page.",
         bullets=["Slim profile that still fits in a pocket",
                  "Raised lip protects the camera and screen",
                  "Precise cutouts for ports, buttons and speakers",

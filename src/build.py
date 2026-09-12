@@ -101,6 +101,39 @@ try:
 except Exception:
     DELISTED = {}
 
+# Cleveland/Browns fulfillment migration (Viralstyle -> Mayzing). The whole
+# migration lives in data/fulfillment.json so it survives a re-crawl: dl.py
+# rewrites data/products_live.json from the Viralstyle storefront, so a
+# destination pinned there would be silently reverted on the next refresh.
+#   destinations - design slug -> the Mayzing product URL that now sells it
+#   hold         - Cleveland designs with no Mayzing equivalent yet; withheld
+#                  so that no Cleveland page can hand a customer to Viralstyle
+# Every other collection is untouched and keeps its crawled Viralstyle URL.
+try:
+    _FUL = json.load(open(os.path.join(ROOT, "data/fulfillment.json")))
+except Exception:
+    _FUL = {}
+FUL_DEST = _FUL.get("destinations", {})
+FUL_HOLD = set(_FUL.get("hold", []))
+FUL_COLLECTION = _FUL.get("collection", "")
+FUL_PARTNER = _FUL.get("partner", "Mayzing")
+
+
+def partner_of(col):
+    """Customer-facing fulfillment partner for a collection.
+
+    Cleveland moved to Mayzing; Dallas, Green Bay and Michigan still hand off
+    to Viralstyle, so copy that names the partner has to ask rather than
+    assume. Anything that does not name a partner is left partner-neutral.
+    """
+    return FUL_PARTNER if col == FUL_COLLECTION else "Viralstyle"
+
+
+def fulfill_buy(col, slug, default):
+    """Checkout URL for one design: the Mayzing override when one exists."""
+    entry = FUL_DEST.get(slug) if col == FUL_COLLECTION else None
+    return entry["url"] if entry else default
+
 # Effective per-design copy. Hand-written copy lives in src/catalog.py and wins
 # over data/facts.json. For any crawled slug with no hand-written entry,
 # src/auto_copy.py derives name / art / kw / theme from the campaign's own store
@@ -440,7 +473,7 @@ def build_model():
         lst = []
         for entry in COLS[ckey]["products"]:
             slug = entry["slug"]
-            if slug in DELISTED:
+            if slug in DELISTED or slug in FUL_HOLD:
                 continue
             if slug not in P:
                 continue
@@ -485,7 +518,9 @@ def build_model():
                 garment=garment, price=price, colours=colours,
                 styles=styles, sizes_avail=sizes_avail, url=url, gallery=gal, front=img["front"],
                 back=img.get("back", img["front"]),
-                buy=p["url"], kw=_l.keywords(f, col, garment, name), col=ckey,
+                buy=fulfill_buy(ckey, slug, p["url"]),
+                partner=partner_of(ckey),
+                kw=_l.keywords(f, col, garment, name), col=ckey,
                 features=p.get("features") or "",
             ))
         items[ckey] = lst
@@ -1008,7 +1043,7 @@ def trust():
  <div><b>Worldwide Shipping</b>Tracked to your door</div>
  <div><b>S &ndash; 3XL</b>Unisex &amp; women's cuts</div>
  <div><b>Premium Fan Art</b>Original designs</div>
- <div><b>Checkout on Viralstyle</b>Card &amp; PayPal</div>
+ <div><b>Secure Checkout</b>Card &amp; PayPal</div>
 </div>"""
 
 
@@ -1899,7 +1934,7 @@ def page_collection(k):
  <h2>How ordering works</h2>
  <p>Pick a design and open its product page. That page is where the design, the garment styles,
  the colourways, the sizing and the shipping facts live. When you are ready, tap <strong>Shop
- Now</strong> and you land on the Viralstyle product page for that exact campaign, where you
+ Now</strong> and you land on the {partner_of(c['key'])} product page for that exact campaign, where you
  choose garment style, colour and size and complete the order. Items are printed after the order
  is placed and shipped worldwide with tracking.</p>
  <p><a class="link" href="/guides/{c['slug']}-buying-guide/">Read the {esc(c['short'])} buying guide &rarr;</a></p>
@@ -2156,7 +2191,7 @@ def cta_note(it, colours):
     if it["garment"] not in ("Mug", "Phone Case", "Beanie"):
         bits.append("size")
     listed = ", ".join(bits[:-1]) + " and " + bits[-1] if len(bits) > 1 else bits[0]
-    return (f'<p class="ctanote">Choose your {listed} on the Viralstyle product page. '
+    return (f'<p class="ctanote">Choose your {listed} on the {it["partner"]} product page. '
             f'Checkout is completed there &ndash; Gridiron Locker never takes payment.</p>')
 
 
@@ -2190,12 +2225,12 @@ def page_product(it):
     who_html = _l.who_its_for(slug, c, theme, it["garment"], price,
                               name=it["name"], art=it["art"])
     wear_html = _l.gameday_wear(slug, c, it["garment"], it["art"])
-    styles_html = _l.styles_copy(slug, styles, it["garment"])
-    colour_html = _l.colour_copy(colours)
-    size_html = _l.size_copy(slug, sizes, it["garment"])
-    ship_html = _l.shipping_copy(DELIVERY_TIME, SHIP_US["shippingRate"]["value"])
+    styles_html = _l.styles_copy(slug, styles, it["garment"], col=c)
+    colour_html = _l.colour_copy(colours, col=c)
+    size_html = _l.size_copy(slug, sizes, it["garment"], col=c)
+    ship_html = _l.shipping_copy(DELIVERY_TIME, SHIP_US["shippingRate"]["value"], col=c)
     bullets = _l.details_bullets(it["garment"], styles, sizes, colours, price,
-                                 features=it.get("features") or "")
+                                 features=it.get("features") or "", col=c)
     faq = _l.faqs(slug, f, c, it["garment"], price, colours, styles, sizes)
     kws = _l.keywords(f, c, it["garment"], it["name"])
     stage_alt = _l.image_alt(it["name"], it["art"], it["garment"], c["team"])
@@ -2223,7 +2258,7 @@ def page_product(it):
             for n, g in enumerate(colour_mockups))
         colourhtml = (f'<div class="cwgrid">{tiles}</div>'
                       f'<p class="muted small">Colour previews are shown to help you choose your look. '
-                      f'Final colour selection is made on Viralstyle.</p>')
+                      f'Final colour selection is made on {it["partner"]}.</p>')
 
     _CHART = {"S": (18, 28), "M": (20, 29), "L": (22, 30),
               "XL": (24, 31), "2XL": (26, 32), "3XL": (28, 33)}
@@ -2273,7 +2308,7 @@ def page_product(it):
                    "itemCondition": "https://schema.org/NewCondition",
                    "validFrom": TODAY,
                    "priceValidUntil": f"{datetime.date.today().year + 1}-12-31",
-                   "seller": {"@type": "Organization", "name": "Viralstyle"},
+                   "seller": {"@type": "Organization", "name": it["partner"]},
                    "shippingDetails": SHIP_US,
                    "hasMerchantReturnPolicy": RETURN_POLICY},
     }
@@ -2315,12 +2350,12 @@ def page_product(it):
     if it["garment"] not in ("Mug", "Phone Case", "Beanie"):
         band_bits.append(f"sizes {sizes[0]}-{sizes[-1]}")
     band_line = (", ".join(band_bits)
-                 + ". Style, colour and size are chosen on the Viralstyle product page, "
+                 + f". Style, colour and size are chosen on the {it['partner']} product page, "
                    "where the order is completed.")
 
     style_badge = (f"{len(styles)} garment styles" if len(styles) > 1
                    else (esc(styles[0]) if styles else esc(it["garment"])))
-    colour_badge = (f"{colours} colourways" if colours > 1 else "Colours on Viralstyle")
+    colour_badge = (f"{colours} colourways" if colours > 1 else f"Colours on {it['partner']}")
     size_badge = (f"Sizes {sizes[0]}-{sizes[-1]}"
                   if it["garment"] not in ("Mug", "Phone Case", "Beanie") else "One size")
 
@@ -2337,7 +2372,7 @@ def page_product(it):
   <h1>{esc(it['name'])}</h1>
   <p class="herodeck">{esc(hero_deck)}</p>
   <div class="pricerow"><span class="pricebig">${price}</span>
-   <span class="pricefrom">starting price &middot; set by style on Viralstyle</span></div>
+   <span class="pricefrom">starting price &middot; set by style on {it['partner']}</span></div>
   {trendhtml}
   <ul class="atglance">
    <li><b>Design</b>{esc(_l.title_case_art(it['art']))}</li>
@@ -2347,7 +2382,7 @@ def page_product(it):
   </ul>
   {shop_now_cta(it, "hero")}
   {cta_note(it, colours)}
-  <p class="ctanote flow">Final garment style, colour, size and quantity selection is completed on Viralstyle.</p>
+  <p class="ctanote flow">Final garment style, colour, size and quantity selection is completed on {it['partner']}.</p>
   <div class="badges"><span class="badge">Fan-made, unofficial design</span>
    <span class="badge">Printed on demand</span>
    <span class="badge">US shipping from ${SHIP_US['shippingRate']['value']}</span>
@@ -2371,7 +2406,7 @@ def page_product(it):
  {stylehtml}
  <div class="midcta">
   {shop_now_cta(it, "apparel")}
-  <p class="ctanote">Choose your garment style, colour and size on Viralstyle before completing your purchase.</p>
+  <p class="ctanote">Choose your garment style, colour and size on {it['partner']} before completing your purchase.</p>
  </div>
 </div></section>
 
@@ -2426,7 +2461,7 @@ def page_product(it):
 
 <section id="related" style="border-top:1px solid var(--line)"><div class="wrap">
  <div class="sechead"><div><h2>More From {esc(c['short'])}</h2>
-  <p>Same collection, same print partner, same hand-off to Viralstyle.</p></div>
+  <p>Same collection, same print partner, same hand-off to {it['partner']}.</p></div>
   <a class="link col-link" href="/{c['slug']}/" data-collection="{it['col']}">View all {len(MODEL[it['col']])} designs &rarr;</a></div>
  <div class="grid related">{relhtml}</div>
  <div class="linkrow">
@@ -2490,7 +2525,7 @@ silhouette, size up if you layer.</p>
 </ul>
 <h2>Beanies, mugs and phone cases</h2>
 <p>Beanies are one size fits most adults. Mugs are 11 oz ceramic. Phone cases are selected by exact
-device model on the Viralstyle product page.</p>
+device model on the product page.</p>
 <h2>Care</h2>
 <p>Machine wash warm inside out with like colours, non-chlorine bleach only if needed, tumble dry
 medium, do not iron directly onto the print. All-over printed items are dye-sublimated, so the
@@ -2506,14 +2541,14 @@ chose and then shipped. That is why the catalogue can hold hundreds of designs w
 selling out, and why delivery takes a little longer than warehouse retail.</p>
 <h2>Production time</h2>
 <p>Most campaigns print within a few business days of the order being placed. Larger campaign runs
-close on a set date and print together, which is shown on the Viralstyle product page for that
+close on a set date and print together, which is shown on the product page for that
 design.</p>
 <h2>Delivery</h2>
 <p>Worldwide shipping is available. Domestic US orders typically arrive fastest; international
 orders vary by destination and customs. Tracking is issued when the parcel is dispatched.</p>
 <h2>Returns, exchanges and misprints</h2>
 <p>Because each item is made to order, returns are handled by the fulfilment partner under their
-return policy shown on Viralstyle. If an item arrives misprinted, damaged or the wrong size was sent,
+return policy shown by the fulfilment partner. If an item arrives misprinted, damaged or the wrong size was sent,
 contact support with a photo and your order number and it will be replaced.</p>
 <h2>Wrong size ordered?</h2>
 <p>Check the <a href="/size-guide/">size guide</a> before ordering - it is the single biggest cause
@@ -2527,11 +2562,11 @@ of avoidable exchanges. If you are between sizes, go up.</p>
          "is not affiliated with, endorsed by, sponsored by or licensed by the NFL, any NFL club, the "
          "NCAA, any university or any player. Team, city and player names are used descriptively."),
         ("Where do I actually pay?",
-         "On Viralstyle. Gridiron Locker is the storefront and the design library; it never takes "
-         "payment. Every Shop Now button opens the Viralstyle product page for that exact design, "
+         "With our fulfilment partner. Gridiron Locker is the storefront and the design library; it never takes "
+         "payment. Every Shop Now button opens that design's product page on the fulfilment partner, "
          "where you pick garment style, colour and size and complete checkout."),
         ("What payment methods are accepted?",
-         "Major credit and debit cards and PayPal, processed by Viralstyle on their checkout."),
+         "Major credit and debit cards and PayPal, processed by the fulfilment partner on their checkout."),
         ("What sizes are available?",
          "S to 3XL on apparel, in unisex and women's cuts depending on the style. Beanies are one "
          "size, mugs are 11 oz, phone cases are chosen by device model."),
@@ -2541,7 +2576,7 @@ of avoidable exchanges. If you are between sizes, go up.</p>
         ("Can I get a design on a different garment?",
          "Many designs are offered on tees, women's cuts, tanks, V-necks, hoodies, crewnecks and long "
          "sleeves. The verified style list for each design is on its product page here, and the "
-         "selection itself happens on Viralstyle."),
+         "selection itself happens on the fulfilment partner's product page."),
         ("Do you ship internationally?",
          "Yes, worldwide shipping is available with tracking."),
         ("Can I request a custom design?",
@@ -2801,7 +2836,7 @@ border-top:3px solid var(--ca)">
         ("Can I get a Week 1 slogan on a hoodie, crewneck, beanie or mug?",
          "Yes. Most slogans run across tees, hoodies, crewnecks, long sleeves, beanies and mugs - "
          "each design's product page lists the styles its campaign actually offers, and you pick "
-         "the garment and colourway on Viralstyle."),
+         "the garment and colourway on the product page."),
         ("Do you ship outside the United States?",
          "Yes, worldwide with tracked dispatch. See the shipping page for current estimates before "
          "you order for a specific kickoff date."),
@@ -3448,7 +3483,7 @@ document.querySelectorAll('.cwtile').forEach(function(b,i){
   // Tag every outbound checkout link (Shop Now on product pages, any direct
   // creator CTA) so the order URL itself carries the attribution.
   var tag='creator='+encodeURIComponent(c)+'&utm_source=creator&utm_medium=referral&utm_campaign=creator-'+encodeURIComponent(c);
-  document.querySelectorAll('a[href*="viralstyle.com"]').forEach(function(a){
+  document.querySelectorAll('a[href*="viralstyle.com"],a[href*="gridironlocker.shop"]').forEach(function(a){
     var h=a.getAttribute('href');
     if(!h||/[?&](creator|utm_source)=/.test(h))return;
     a.setAttribute('href',h+(h.indexOf('?')<0?'?':'&')+tag);
@@ -3458,27 +3493,32 @@ document.querySelectorAll('.cwtile').forEach(function(b,i){
 // ---------- SHOP NOW hand-off tracking ----------
 // The only conversion action on a product page. Every button reports its
 // placement (hero / apparel / footer_band / sticky_bar) so the metric that
-// matters - product landing page -> Viralstyle click-through rate - is
+// matters - product landing page -> partner click-through rate - is
 // measurable, and so we can see WHICH CTA earns the click. The creator
 // dimension (window.GL_CREATOR, set above from the persistent cookie) is
 // attached to every event so attributed vs organic hand-offs split cleanly.
+// The destination is read off the anchor rather than hardcoded, because
+// Cleveland now hands off to the Mayzing storefront while Dallas, Green Bay
+// and Michigan still hand off to Viralstyle - a fixed hostname would have
+// mislabelled every migrated click.
 document.querySelectorAll('a.shopnow').forEach(function(a){
   a.addEventListener('click',function(){
     var d=a.dataset||{};
+    var dest=((a.getAttribute('href')||'').replace(/^https?:\/\//,'').split(/[/?]/)[0])||'unknown';
     try{gtag('event','shop_now_click',{
       item_id:d.slug,value:parseFloat(d.price||'0'),currency:'USD',
       collection:d.collection,placement:d.placement,creator:window.GL_CREATOR||'',
-      destination:'viralstyle.com'
+      destination:dest
     });}catch(e){}
-    // legacy event name kept so existing GA4 reports do not break
+    // legacy event names kept so existing GA4 reports do not break
     try{gtag('event','viralstyle_checkout_click',{
       item:d.slug,price:parseFloat(d.price||'0'),collection:d.collection,
-      placement:d.placement,creator:window.GL_CREATOR||'',destination:'viralstyle.com'
+      placement:d.placement,creator:window.GL_CREATOR||'',destination:dest
     });}catch(e){}
     try{gtag('event','viralstyle_redirect',{
       item_id:d.slug,value:parseFloat(d.price||'0'),currency:'USD',
       collection:d.collection,placement:d.placement,creator:window.GL_CREATOR||'',
-      destination:'viralstyle.com'
+      destination:dest
     });}catch(e){}
   });
 });
@@ -4001,7 +4041,7 @@ document.querySelectorAll('a.shopnow').forEach(function(a){
     +'<div class="qv-info"><span class="qv-team"></span><h3 class="qv-name"></h3>'
     +'<span class="qv-meta"></span><span class="qv-price"></span>'
     +'<a class="btn block qv-cta" href="#">See the full design &rarr;</a>'
-    +'<p class="muted qv-note">The design story, apparel styles, colours and sizing are on the product page. Orders are completed on Viralstyle.</p>'
+    +'<p class="muted qv-note">The design story, apparel styles, colours and sizing are on the product page. Orders are completed on the fulfilment partner.</p>'
     +'</div></div>';
   document.body.appendChild(modal);
   var closeBtn=modal.querySelector('.qv-close');

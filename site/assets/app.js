@@ -63,7 +63,7 @@ document.querySelectorAll('.cwtile').forEach(function(b,i){
   // Tag every outbound checkout link (Shop Now on product pages, any direct
   // creator CTA) so the order URL itself carries the attribution.
   var tag='creator='+encodeURIComponent(c)+'&utm_source=creator&utm_medium=referral&utm_campaign=creator-'+encodeURIComponent(c);
-  document.querySelectorAll('a[href*="viralstyle.com"]').forEach(function(a){
+  document.querySelectorAll('a[href*="viralstyle.com"],a[href*="gridironlocker.shop"]').forEach(function(a){
     var h=a.getAttribute('href');
     if(!h||/[?&](creator|utm_source)=/.test(h))return;
     a.setAttribute('href',h+(h.indexOf('?')<0?'?':'&')+tag);
@@ -73,27 +73,32 @@ document.querySelectorAll('.cwtile').forEach(function(b,i){
 // ---------- SHOP NOW hand-off tracking ----------
 // The only conversion action on a product page. Every button reports its
 // placement (hero / apparel / footer_band / sticky_bar) so the metric that
-// matters - product landing page -> Viralstyle click-through rate - is
+// matters - product landing page -> partner click-through rate - is
 // measurable, and so we can see WHICH CTA earns the click. The creator
 // dimension (window.GL_CREATOR, set above from the persistent cookie) is
 // attached to every event so attributed vs organic hand-offs split cleanly.
+// The destination is read off the anchor rather than hardcoded, because
+// Cleveland now hands off to the Mayzing storefront while Dallas, Green Bay
+// and Michigan still hand off to Viralstyle - a fixed hostname would have
+// mislabelled every migrated click.
 document.querySelectorAll('a.shopnow').forEach(function(a){
   a.addEventListener('click',function(){
     var d=a.dataset||{};
+    var dest=((a.getAttribute('href')||'').replace(/^https?:\/\//,'').split(/[/?]/)[0])||'unknown';
     try{gtag('event','shop_now_click',{
       item_id:d.slug,value:parseFloat(d.price||'0'),currency:'USD',
       collection:d.collection,placement:d.placement,creator:window.GL_CREATOR||'',
-      destination:'viralstyle.com'
+      destination:dest
     });}catch(e){}
-    // legacy event name kept so existing GA4 reports do not break
+    // legacy event names kept so existing GA4 reports do not break
     try{gtag('event','viralstyle_checkout_click',{
       item:d.slug,price:parseFloat(d.price||'0'),collection:d.collection,
-      placement:d.placement,creator:window.GL_CREATOR||'',destination:'viralstyle.com'
+      placement:d.placement,creator:window.GL_CREATOR||'',destination:dest
     });}catch(e){}
     try{gtag('event','viralstyle_redirect',{
       item_id:d.slug,value:parseFloat(d.price||'0'),currency:'USD',
       collection:d.collection,placement:d.placement,creator:window.GL_CREATOR||'',
-      destination:'viralstyle.com'
+      destination:dest
     });}catch(e){}
   });
 });
@@ -616,7 +621,7 @@ document.querySelectorAll('a.shopnow').forEach(function(a){
     +'<div class="qv-info"><span class="qv-team"></span><h3 class="qv-name"></h3>'
     +'<span class="qv-meta"></span><span class="qv-price"></span>'
     +'<a class="btn block qv-cta" href="#">See the full design &rarr;</a>'
-    +'<p class="muted qv-note">The design story, apparel styles, colours and sizing are on the product page. Orders are completed on Viralstyle.</p>'
+    +'<p class="muted qv-note">The design story, apparel styles, colours and sizing are on the product page. Orders are completed on the fulfilment partner.</p>'
     +'</div></div>';
   document.body.appendChild(modal);
   var closeBtn=modal.querySelector('.qv-close');
