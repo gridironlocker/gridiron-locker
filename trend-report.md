@@ -14,11 +14,11 @@ FTI = `round(100 * entity_mentions / peak_mentions_in_window)`. Peak mentions in
 | 4 | kyle whittingham | michigan | 6 | 30 | trending | gap — no design |
 | 5 | todd monken | cleveland-browns | 6 | 30 | trending | gap — no design |
 | 6 | dak prescott | dallas-cowboys | 4 | 20 | trending | gap — no design |
-| 7 | shedeur sanders | cleveland-browns | 4 | 20 | trending | in locker |
-| 8 | ceedee lamb | dallas-cowboys | 2 | 10 | steady | — |
-| 9 | matt lafleur | green-bay-packers | 2 | 10 | steady | — |
-| 10 | micah parsons | green-bay-packers | 2 | 10 | steady | in locker |
-| 11 | myles garrett | cleveland-browns | 2 | 10 | steady | in locker |
+| 7 | myles garrett | cleveland-browns | 4 | 20 | trending | in locker |
+| 8 | shedeur sanders | cleveland-browns | 4 | 20 | trending | in locker |
+| 9 | ceedee lamb | dallas-cowboys | 2 | 10 | steady | — |
+| 10 | matt lafleur | green-bay-packers | 2 | 10 | steady | — |
+| 11 | micah parsons | green-bay-packers | 2 | 10 | steady | in locker |
 | 12 | denzel ward | cleveland-browns | 1 | 5 | steady | in locker |
 | 13 | jordan love | green-bay-packers | 1 | 5 | steady | in locker |
 | 14 | jj mccarthy | michigan | 0 | 0 | quiet | in locker |
@@ -40,7 +40,7 @@ FTI = `round(100 * entity_mentions / peak_mentions_in_window)`. Peak mentions in
 | deshaun watson | 20 | TRENDING | 100 |
 | todd monken | 6 | TRENDING | 30 |
 | shedeur sanders | 4 | TRENDING | 20 |
-| myles garrett | 2 | steady | 10 |
+| myles garrett | 4 | TRENDING | 20 |
 | denzel ward | 1 | steady | 5 |
 | joe flacco | 0 | quiet - throwback | 0 |
 | kevin stefanski | 0 | quiet - throwback | 0 |
@@ -109,7 +109,7 @@ Live player moments:
 
 Recent headlines:
 - [Michigan football eve: Final thoughts on Underwood, the defense, transfers](https://news.google.com/rss/articles/CBMixAFBVV95cUxNaUJXc0FYUFRkRnZPd1p3a3l5WklHamJsVXZQOHY4N0JKWWFPNHo4MllLMEJyS3ZXOFZtdG5Gb1N4ODBra2ZjRHYwTWxSeTJ4NDVqbzE1UzJrYVBfT0I0VFJQMzY1Vjh5ZHlBWHE1Y0NoUGl6dzQtRlA4Q1p1bHE5VnVyMkNheFhSSGF0Z3FZU3l5ZHhFUVRJUHlDVjgzUFhQakVXdXNsX0tab2FEOGNHRDd6enJ2czhXX0xSRWdoMnBydXgz0gHYAUFVX3lxTE1JYXhWOGs1S01KckpLUXRoVTJlM3JWem9McGw5d0RzSlBKNjhzVVJMSDROU1MzRFVtY2V3NEwwRXVxaVgxWmoyVmhWd1FUZmZCa2J2NUtZVm16Z1JrYzZ2MTZmdEstM25HMWxrLUdSaWR2NExLUTY2MS1iQ05pQW1VRkpoTEpqOHhLSG1MclFNZFJxQmhxN1ZxYWx5Z3F5SEYyZ09fUDZhY191WHhuNmktd3ZOSExpaEhWSmdTYzdvZjJUVjJiUDM1ODY0czJjcmRBYnZWbEhBUw?oc=5) - MLive.com
-- [How to Watch Sooners vs. Wolverines: TV Channel, Live Stream, Time](https://news.google.com/rss/articles/CBMi1AFBVV95cUxOTUV2anA1OEs2TTg0Nm9zNzJJdXAzc0FMbXZXV1E4RUxEVk14bVFTRjRxLW1LMm11U3BQMWt3OGVFbXlUSmNJVjZZcEx3bUFXVnNnNWh0aDEtWWNtSkZ4NmhkMmthSnQtaHhiQUZHc0RRR2FTR28wSWtrbFhnQzRIZHBQNUx2QWZvejV1anZ0YWZIS3l2SE1Qc3NlalZERl9nUjBxWEZ1dkFNV2o4YXJBSEdPN3NDTFVpT1dId2IxRFNyNEJCZ2Z1bFlmLTVJWVdlbmJSaA?oc=5) - FOX Sports
 - [Michigan Football's Hail Mary Win vs. WMU Drops Wolverines in AP Top 25](https://news.google.com/rss/articles/CBMiswFBVV95cUxNd2hnV1JicE9wR0xHdUVkV2NINTlnakVfQVo2VksxUEUzWmc5WjVDUWNaZVUwcGV0X0dTZmlYSWxucGg3Z19EeU8zX1NxcG5sdFBVTThTTG1MR3FjZE9OQ1lnX2w3czZlOUZLdnd2QkRyQjZKZkZsbGQ3V2V4Mk1UeUdXQXpnNW96NEtqMHVuSDhkOUV3TUtwUTFWN0pRTUREZmxFSkJiQzhEMDlhQXJCbDB2UQ?oc=5) - Sports Illustrated
 - [Football Opens 2026 Season at No. 16 Michigan](https://news.google.com/rss/articles/CBMijwFBVV95cUxNZGtsbHRyQ1lRSFBaek1LOFBZWlJmeVFZU2tsOWlCZjVVNDFCV3ZKYUNyMDk3ekNvX2xUbHllY0h3QTk3U1hqS0ZWYTFXTXlpblBiRWRNWTROLU9sMjlGRXZwcHM3THNDdGNsWkhSVy00akt1bzZRUXdObjJUNzk3U3c1QjQycFBaa3F1dzJaOA?oc=5) - Western Michigan University Athletics
 - [How to Watch: Michigan Football vs Oklahoma, other top games of Week 2](https://news.google.com/rss/articles/CBMi5AFBVV95cUxOdzRJdnI2ZmdtcXBJUmFXSHFJVW9jSDRuOU9JdDlsYnVKSDRKdXAwMTd2YmZkeWw1T0tPNHhHUDRhd1g1WHg0VGdSMFAxV01hRlpVcGJQOUlLSDNtWGRPWjY4bDJZWURTeVQ3V3poOTlIS3lDZVhPeUc0MEtPemt0YTUtdllhNGVzY3ZlUVk2LWtkcDR6OVR2eXVrcTNRbjJHVzJxVXdGQ1o5bGd5SkktTUdlY2hzZjhQeTVfYUx2bkFqWmlYTk90TmxHRUFFcnM2SnkzZ0tmZkQ1QnVja0QwMHh2emU?oc=5) - Maize n Brew
+- [How to Watch Sooners vs. Wolverines: TV Channel, Live Stream, Time](https://news.google.com/rss/articles/CBMi1AFBVV95cUxOTUV2anA1OEs2TTg0Nm9zNzJJdXAzc0FMbXZXV1E4RUxEVk14bVFTRjRxLW1LMm11U3BQMWt3OGVFbXlUSmNJVjZZcEx3bUFXVnNnNWh0aDEtWWNtSkZ4NmhkMmthSnQtaHhiQUZHc0RRR2FTR28wSWtrbFhnQzRIZHBQNUx2QWZvejV1anZ0YWZIS3l2SE1Qc3NlalZERl9nUjBxWEZ1dkFNV2o4YXJBSEdPN3NDTFVpT1dId2IxRFNyNEJCZ2Z1bFlmLTVJWVdlbmJSaA?oc=5) - foxsports.com
