@@ -51,6 +51,7 @@ IMG = os.path.join(SITE, "img")
 sys.path.insert(0, SRC)
 
 from collections_data import COLLECTIONS, ORDER  # noqa: E402
+import landing  # noqa: E402
 
 CTA, CTA_HOVER = "#49a59c", "#3a847d"
 
@@ -69,8 +70,22 @@ def page(rel):
     return read(os.path.join(SITE, rel))
 
 
-# Mayzing storefront catalogue (Cleveland rebuild): slug -> product record.
+# Mayzing storefront catalogues: slug -> product record. Cleveland/Browns moved
+# on 2026-09-12 and Michigan followed, so neither collection appears in the
+# Viralstyle crawl (data/products_live.json) any more. Tests that want "the
+# catalogue" must not read that one file - the master is the crawl plus these
+# two Mayzing files, which is exactly what src/build.py merges in MODEL.
 MAYZING = {p["slug"]: p for p in load_json("data/mayzing_products.json")["products"]}
+MICHIGAN = {p["slug"]: p for p in load_json("data/mayzing_michigan.json")["products"]}
+# slug -> (record, collection key) for every design on a Mayzing storefront.
+MAYZING_ALL = dict({s: (p, "cleveland-browns") for s, p in MAYZING.items()},
+                   **{s: (p, "michigan") for s, p in MICHIGAN.items()})
+
+
+def mayzing_partner(slug):
+    """Fulfillment partner for a slug: Mayzing for migrated collections,
+    Viralstyle for Dallas and Green Bay."""
+    return "Mayzing" if slug in MAYZING_ALL else "Viralstyle"
 
 
 def collection_pages():
@@ -207,6 +222,10 @@ class CollectionsIndex(unittest.TestCase):
                 # Mayzing rebuild: the collection is sourced from
                 # data/mayzing_products.json, not the Viralstyle crawl.
                 expected = len(MAYZING)
+            elif k == "michigan":
+                # Michigan migrated too: data/mayzing_michigan.json is its
+                # catalogue, so the Viralstyle crawl no longer lists it.
+                expected = len(MICHIGAN)
             else:
                 expected = self._crawl_count(cols, live, delisted, k)
             card = re.search(r'<a class="teamcircle[^"]*"[^>]*href="[^"]*%s/"[^>]*>.*?</a>'
@@ -378,9 +397,14 @@ class ProductPages(unittest.TestCase):
     @classmethod
     def setUpClass(cls):
         shop = os.path.join(SITE, "shop")
-        cls.pages = {d: read(os.path.join(shop, d, "index.html"))
-                     for d in sorted(os.listdir(shop))
-                     if os.path.isfile(os.path.join(shop, d, "index.html"))}
+        cls.pages = {d: h for d, h in
+                     ((d, read(os.path.join(shop, d, "index.html")))
+                      for d in sorted(os.listdir(shop))
+                      if os.path.isfile(os.path.join(shop, d, "index.html")))
+                     # Retired URLs carry a noindex redirect stub, not a
+                     # product page: no Product schema, no CTA, no gallery.
+                     # Those are asserted in RedirectStubs.
+                     if "data-gl-redirect" not in h}
         cls.css = page("assets/style.css")
         cls.js = page("assets/app.js")
 
@@ -436,11 +460,11 @@ class ProductPages(unittest.TestCase):
                 self.assertIn("Shop Now", label, slug)
             hrefs = re.findall(r'<a class="btn[^"]*shopnow" href="([^"]+)"', html)
             self.assertTrue(hrefs, slug)
-            if slug in MAYZING:
-                # Cleveland rebuild: every CTA hands off to the product's own
-                # Mayzing checkout URL on gridironlocker.shop.
+            if slug in MAYZING_ALL:
+                # Cleveland and Michigan: every CTA hands off to the product's
+                # own Mayzing checkout URL on gridironlocker.shop.
                 for href in hrefs:
-                    self.assertEqual(href, MAYZING[slug]["checkout_url"], slug)
+                    self.assertEqual(href, MAYZING_ALL[slug][0]["checkout_url"], slug)
                 continue
             # every CTA points at this product's own Viralstyle campaign
             for href in hrefs:
@@ -451,9 +475,14 @@ class ProductPages(unittest.TestCase):
 
     def test_cta_explains_the_handoff(self):
         for slug, html in self.pages.items():
-            partner = "Mayzing" if slug in MAYZING else "Viralstyle"
+            partner = mayzing_partner(slug)
             self.assertIn(f"on the {partner} product page", html, slug)
-            self.assertIn("30-day misprint replacement", html, slug)
+            # the 30-day replacement window is Viralstyle's published policy;
+            # Mayzing publishes none, so it must not appear on those pages
+            if partner == "Viralstyle":
+                self.assertIn("30-day misprint replacement", html, slug)
+            else:
+                self.assertNotIn("30-day misprint replacement", html, slug)
             # the buybox is a summary, not a form: the hand-off is stated once
             # beside the mid-page CTA (plus the band line and the FAQ), so the
             # two duplicate notes that used to sit under the hero button stay off.
@@ -558,7 +587,7 @@ class ProductPages(unittest.TestCase):
             if len(body) < 2:
                 self.fail(slug)
             section = body[1].split("</section>", 1)[0]
-            partner = "Mayzing" if slug in MAYZING else "Viralstyle"
+            partner = mayzing_partner(slug)
             self.assertIn(f"{partner} product page", section, slug)
 
     def test_colour_claims_match_the_campaign_data(self):
@@ -569,9 +598,10 @@ class ProductPages(unittest.TestCase):
             if it["colours"] > 1:
                 self.assertIn(f"{it['colours']} colour variations", html, slug)
                 self.assertIn(f"{it['colours']} colourways", html, slug)
-            elif slug in MAYZING:
+            elif slug in MAYZING_ALL:
                 # A Mayzing product ships in one verified colourway.
-                self.assertIn(f"one colourway: {MAYZING[slug]['colour_name']}", html, slug)
+                self.assertIn(f"one colourway: {MAYZING_ALL[slug][0]['colour_name']}",
+                              html, slug)
                 self.assertNotIn("colour variations", html, slug)
             else:
                 self.assertIn("Multiple colour options may be available", html, slug)
@@ -643,7 +673,16 @@ class ProductPages(unittest.TestCase):
                 self.assertIn(t, types, f"{slug}: {t}")
 
     def test_merchant_schema_on_every_offer(self):
+        """Merchant terms must match the partner that actually prints it.
+
+        Viralstyle publishes a US rate, a delivery window and a 30-day
+        replacement window, so its offers carry them. Mayzing publishes none
+        of the three (its page says only that delivery times vary by
+        location), so a Mayzing offer must carry neither - quoting
+        Viralstyle's $4.95 on a Mayzing product is a false merchant claim.
+        """
         import build  # noqa: E402
+        seen = {"Viralstyle": 0, "Mayzing": 0}
         for slug, html in self.pages.items():
             d = self.product_ld(html)
             self.assertIsNotNone(d, slug)
@@ -652,20 +691,80 @@ class ProductPages(unittest.TestCase):
             o = d["offers"]
             self.assertEqual(o["validFrom"], build.TODAY, slug)
             self.assertLess(o["validFrom"], o["priceValidUntil"], slug)
-            self.assertEqual(o["hasMerchantReturnPolicy"], build.RETURN_POLICY, slug)
-            self.assertEqual(o["shippingDetails"], build.SHIP_US, slug)
-            self.assertEqual(o["shippingDetails"]["shippingRate"]["value"], "4.95", slug)
-            self.assertEqual(o["hasMerchantReturnPolicy"]["merchantReturnDays"], 30, slug)
-            dt = o["shippingDetails"]["deliveryTime"]
-            self.assertEqual(dt["@type"], "ShippingDeliveryTime", slug)
-            self.assertIn("handlingTime", dt, slug)
-            self.assertIn("transitTime", dt, slug)
+            partner = o["seller"]["name"]
+            self.assertIn(partner, seen, slug)
+            seen[partner] += 1
+            terms = build.partner_offer_terms(partner)
+            self.assertEqual({k: o.get(k) for k in terms}, terms, slug)
+            if partner == "Viralstyle":
+                self.assertEqual(o["hasMerchantReturnPolicy"], build.VIRALSTYLE_RETURN, slug)
+                self.assertEqual(o["shippingDetails"], build.VIRALSTYLE_SHIP, slug)
+                self.assertEqual(o["shippingDetails"]["shippingRate"]["value"], "4.95", slug)
+                self.assertEqual(o["hasMerchantReturnPolicy"]["merchantReturnDays"], 30, slug)
+                dt = o["shippingDetails"]["deliveryTime"]
+                self.assertEqual(dt["@type"], "ShippingDeliveryTime", slug)
+                self.assertIn("handlingTime", dt, slug)
+                self.assertIn("transitTime", dt, slug)
+            else:
+                self.assertNotIn("shippingDetails", o, slug)
+                self.assertNotIn("hasMerchantReturnPolicy", o, slug)
+                self.assertNotIn("4.95", json.dumps(o), slug)
+        # both partners must actually be represented, or the branch above
+        # would pass while asserting nothing
+        self.assertGreater(seen["Viralstyle"], 0, seen)
+        self.assertGreater(seen["Mayzing"], 0, seen)
 
     def test_merchant_constants_defined_once(self):
         src = read(os.path.join(SRC, "build.py"))
-        for name in ("SHIP_US", "RETURN_POLICY", "DELIVERY_TIME"):
+        for name in ("VIRALSTYLE_SHIP", "VIRALSTYLE_RETURN", "VIRALSTYLE_DELIVERY_TIME"):
             self.assertEqual(len(re.findall(r"^%s = " % name, src, re.M)), 1, name)
         self.assertNotIn('"shippingDetails": {"@type": "OfferShippingDetails"', src)
+
+    def test_shipping_copy_is_partner_scoped(self):
+        """A Mayzing page must not quote Viralstyle's rate or window, and a
+        Viralstyle page must not claim Mayzing's checkout-time wording."""
+        import build  # noqa: E402
+        rate = "$" + build.VIRALSTYLE_SHIP["shippingRate"]["value"]
+        window = build.VIRALSTYLE_DELIVERY_TIME
+        v = m = 0
+        for slug, html in self.pages.items():
+            partner = self.product_ld(html)["offers"]["seller"]["name"]
+            if partner == "Viralstyle":
+                v += 1
+                self.assertIn(rate, html, slug)
+                self.assertIn(window, html, slug)
+            else:
+                m += 1
+                self.assertNotIn(rate, html, slug)
+                self.assertNotIn(window, html, slug)
+                # The page must name the partner that actually ships it and
+                # point the shopper at checkout instead of quoting a figure
+                # Mayzing does not publish.
+                self.assertIn(f"printed and shipped by {partner}", html.replace("\n", " "), slug)
+                self.assertIn("shown at checkout", html.replace("\n", " "), slug)
+        # the neutral branch must really omit both Viralstyle facts
+        neutral = landing.shipping_copy(build.VIRALSTYLE_DELIVERY_TIME,
+                                        build.VIRALSTYLE_SHIP["shippingRate"]["value"],
+                                        col={"key": "michigan"})
+        self.assertNotIn(rate, neutral)
+        self.assertNotIn(build.VIRALSTYLE_DELIVERY_TIME, neutral)
+        self.assertIn("Mayzing", neutral)
+        viral = landing.shipping_copy(build.VIRALSTYLE_DELIVERY_TIME,
+                                      build.VIRALSTYLE_SHIP["shippingRate"]["value"],
+                                      col={"key": "dallas-cowboys"})
+        self.assertIn(rate, viral)
+        self.assertIn(build.VIRALSTYLE_DELIVERY_TIME, viral)
+        self.assertGreater(v, 0)
+        self.assertGreater(m, 0)
+
+    def test_no_global_printed_in_usa_claim(self):
+        """The sitewide announcement bar appears on every page, so it may not
+        state a production location only one partner can support."""
+        import build  # noqa: E402
+        for slug, html in self.pages.items():
+            promo = re.search(r'<div class="promo">(.*?)</div>', html, re.S)
+            self.assertIsNotNone(promo, slug)
+            self.assertNotIn("in the USA", promo.group(1), slug)
 
 
 class ArtworkHygiene(unittest.TestCase):
@@ -774,7 +873,11 @@ class Homepage(unittest.TestCase):
         self.assertIn("./collections/", hero)
         self.assertIn("./drops/", hero)
         self.assertRegex(hero, r"\d+ fan designs")
-        self.assertIn("S&ndash;3XL", hero)
+        # Size range is derived from the catalogue, not typed: the Mayzing
+        # Gildan blanks sell S-5XL, so a hard-coded S-3XL understated it.
+        import build  # noqa: E402
+        self.assertIn(build.SIZE_RANGE_EN, hero)
+        self.assertNotIn("3XL</span>", hero)
         self.assertIn("Worldwide shipping", hero)
         # ONE headline voice: the block must not restate the poster's brushwork
         # under itself. "Keep it." (a marker-font second headline with a yellow
@@ -942,13 +1045,15 @@ class Homepage(unittest.TestCase):
         self.assertNotIn(".teamdeck-grid{grid-template-columns:1fr", media_rules(self.css, 560))
 
     def test_team_card_counts_match_the_live_catalogue(self):
-        live = load_json("data/collections.json")
+        """Card counts must equal the built catalogue exactly - one source of
+        truth, so a page can never report a total the build disagrees with."""
+        import build  # noqa: E402
         sec = between(self.html, '<section class="teamdeck-sec" id="shop-by-team">', "</section>")
         counts = [int(n) for n in re.findall(r"(\d+) designs", sec)]
         self.assertEqual(len(counts), len(ORDER))
         for k, n in zip(ORDER, counts):
-            self.assertGreater(n, 0, k)
-            self.assertLessEqual(n, len(live[k]["products"]), k)      # never invented
+            self.assertEqual(n, len(build.MODEL[k]), k)
+        self.assertEqual(sum(counts), build.N_DESIGNS)
         self.assertIn(f"{sum(counts)} fan designs", self.html)        # hero total agrees
 
     # ------------------------------------------------------- shop the locker
@@ -1167,13 +1272,14 @@ class CatalogueIntegrity(unittest.TestCase):
     def test_all_products_and_checkout_links(self):
         live = load_json("data/products_live.json")
         shop = os.path.join(SITE, "shop")
-        built = [d for d in os.listdir(shop) if os.path.isfile(os.path.join(shop, d, "index.html"))]
+        built = [d for d in os.listdir(shop) if os.path.isfile(os.path.join(shop, d, "index.html"))
+                 and "data-gl-redirect" not in read(os.path.join(shop, d, "index.html"))]
         self.assertGreaterEqual(len(built), 60)
         for slug in built:
             html = read(os.path.join(shop, slug, "index.html"))
-            if slug in MAYZING:
-                # Cleveland rebuild: Mayzing checkout URL on gridironlocker.shop
-                self.assertIn(MAYZING[slug]["checkout_url"], html, slug)
+            if slug in MAYZING_ALL:
+                # Cleveland + Michigan: Mayzing checkout URL on gridironlocker.shop
+                self.assertIn(MAYZING_ALL[slug][0]["checkout_url"], html, slug)
             else:
                 self.assertIn(live[slug]["url"], html, slug)   # Viralstyle checkout link intact
 
@@ -1298,22 +1404,23 @@ class CanonicalUrls(unittest.TestCase):
                 continue
             own = domain + "/" + os.path.dirname(rel).replace(os.sep, "/")
             own = (own + "/").replace("//", "/").replace(":/", "://")
+            # A noindex redirect stub for a retired URL deliberately
+            # canonicalises to the live page it forwards to - that IS the
+            # redirect signal, and it must not be in the sitemap. Every
+            # indexable page still has to canonicalise to itself.
+            if "data-gl-redirect" in html:
+                self.assertIn('name="robots" content="noindex', html, rel)
+                self.assertNotEqual(found.group(1), own, rel)
+                self.assertIn(found.group(1), locs,
+                              f"{rel} stub canonical is not a live page")
+                checked += 1
+                continue
             self.assertEqual(found.group(1), own, rel)
             self.assertIn(found.group(1), locs, f"{rel} canonical is missing from sitemap.xml")
             checked += 1
         self.assertGreaterEqual(checked, 100)
 
 
-NEW_ZERO_ONE = [
-    "limited-edition-0-01-football",
-    "limited-edition-0-01-h-a-i-l",
-]
-NEW_ZERO_ONE_URLS = {
-    "limited-edition-0-01-football":
-        "https://viralstyle.com/kebystore/limited-edition-0-01-football",
-    "limited-edition-0-01-h-a-i-l":
-        "https://viralstyle.com/kebystore/limited-edition-0-01-h-a-i-l",
-}
 # Locked-in hero / logo URLs from current main - must never drift.
 HERO_LOGO_LOCK = {
     "cleveland-browns": ("/img/hero-cleveland.jpg?v=4", "/img/browns-logo1.webp?v=1"),
@@ -1345,10 +1452,23 @@ class MayzingBrownsRebuild(unittest.TestCase):
         cls.cols = load_json("data/collections.json")
 
     def test_collection_mirrors_the_mayzing_file(self):
-        slugs = [p["slug"] for p in self.cols["cleveland-browns"]["products"]]
-        self.assertEqual(sorted(slugs), sorted(MAYZING),
-                         "collections.json Cleveland entry must mirror mayzing_products.json")
-        self.assertGreaterEqual(len(slugs), 13)
+        """Cleveland's page set is the Mayzing file, full stop.
+
+        data/collections.json deliberately still carries the old Viralstyle
+        slugs (zero overlap with Mayzing) so the catalogue shape stays
+        readable by other tools - build.py must not source Cleveland from it,
+        or a re-crawl would resurrect Viralstyle pages.
+        """
+        import build  # noqa: E402
+        built = [it["slug"] for it in build.MODEL["cleveland-browns"]]
+        self.assertEqual(sorted(built), sorted(MAYZING),
+                         "Cleveland pages must mirror mayzing_products.json")
+        self.assertGreaterEqual(len(built), 13)
+        stale = [p["slug"] for p in self.cols["cleveland-browns"]["products"]]
+        self.assertEqual(set(stale) & set(MAYZING), set(),
+                         "collections.json Cleveland entry is the retired Viralstyle list")
+        for slug in stale:
+            self.assertNotIn(slug, built, f"retired Viralstyle slug {slug} got a page")
 
     def test_product_pages_with_mayzing_checkout_and_no_viralstyle(self):
         built = {d for d in os.listdir(os.path.join(SITE, "shop"))
@@ -1373,12 +1493,31 @@ class MayzingBrownsRebuild(unittest.TestCase):
         self.assertNotIn("viralstyle", html.lower())
 
     def test_held_and_retired_cleveland_designs_have_no_pages(self):
-        built = {d for d in os.listdir(os.path.join(SITE, "shop"))
-                 if os.path.isfile(os.path.join(SITE, "shop", d, "index.html"))}
-        for slug in load_json("data/fulfillment.json")["hold"]:
-            self.assertNotIn(slug, built, f"held design {slug} must not have a page")
-        for slug in self.OLD_CLEVELAND_PAGES:
-            self.assertNotIn(slug, built, f"retired design {slug} must not have a page")
+        """A held/retired Cleveland design must never get a sellable page back.
+
+        Its URL does still resolve - a retired URL that 404s strands an
+        indexed, externally linked page - but only as a noindex redirect stub
+        that forwards to the Mayzing Browns collection. What must not exist is
+        a product page: no Product schema, no SHOP NOW, and no Viralstyle
+        hand-off. That is the original guard rail, asserted more precisely.
+        """
+        shop = os.path.join(SITE, "shop")
+        built = {d for d in os.listdir(shop)
+                 if os.path.isfile(os.path.join(shop, d, "index.html"))}
+        for slug in list(load_json("data/fulfillment.json")["hold"]) + \
+                list(self.OLD_CLEVELAND_PAGES):
+            if slug not in built:
+                continue
+            html = read(os.path.join(shop, slug, "index.html"))
+            why = f"retired design {slug}"
+            self.assertIn("data-gl-redirect", html, f"{why} must be a redirect stub")
+            self.assertIn('name="robots" content="noindex', html, f"{why} stub must be noindex")
+            self.assertNotIn('"@type":"Product"', html.replace(" ", ""),
+                             f"{why} must not publish Product schema")
+            self.assertNotIn("viralstyle", html.lower(),
+                             f"{why} must never hand a customer to Viralstyle")
+            self.assertRegex(html, r'data-gl-redirect="/cleveland-browns-shirts/"',
+                             f"{why} must forward to the Browns collection")
 
     def test_single_variant_story_on_every_mayzing_page(self):
         """A Mayzing product is ONE style, ONE colourway, one flat price - and
@@ -1404,87 +1543,84 @@ class MayzingBrownsRebuild(unittest.TestCase):
 
 
 
-NEW_ZERO_ONE_NAMES = {
-    "limited-edition-0-01-football": "Limited Edition 0-01 Football Michigan Tee",
-    "limited-edition-0-01-h-a-i-l": "Limited Edition 0-01 H A I L Michigan Tee",
-}
+# Michigan migrated to the Mayzing storefront on 2026-09-12, so the two
+# Viralstyle "0-01" campaigns this class used to pin no longer exist in any
+# catalogue. The regression it was written for still matters, so it now runs
+# against the real Michigan catalogue in data/mayzing_michigan.json: every
+# Michigan design must have a page, its own Mayzing checkout URL, copy facts,
+# and images that are never double-prefixed with the store domain.
+MICHIGAN_NAMES = {slug: p["name"] for slug, p in MICHIGAN.items()}
 
 
-class MichiganZeroOneProducts(unittest.TestCase):
-    """Regression coverage for the two Michigan 0-01 designs.
+class MichiganMayzingProducts(unittest.TestCase):
+    """Michigan/Wolverines is served from the Mayzing storefront.
 
-    These campaigns are added before the daily refresh downloads their
-    mockups, so their product pages hot-link Viralstyle assets until dl.py
-    produces local WebP. abs_url() must let those remote URLs through
-    untouched - never prefix the store domain a second time.
+    Its mockups are hot-linked from the Mayzing CDN until dl.py localises
+    them, so abs_url() must let remote URLs through untouched - never prefix
+    the store domain a second time.
     """
 
     @classmethod
     def setUpClass(cls):
-        cls.products = load_json("data/products.json")
-        cls.live = load_json("data/products_live.json")
+        cls.michigan = MICHIGAN
         cls.cols = load_json("data/collections.json")
 
     def test_slugs_in_source_catalogue(self):
-        for slug in NEW_ZERO_ONE:
-            self.assertIn(slug, self.products, slug)
-            self.assertIn(slug, self.live, slug)
+        self.assertGreaterEqual(len(self.michigan), 15)
+        for slug, p in self.michigan.items():
+            self.assertTrue(p.get("checkout_url", "").startswith("https://gridironlocker.shop/"),
+                            slug)
 
     def test_belong_to_michigan_collection(self):
-        slugs = [p["slug"] for p in self.cols["michigan"]["products"]]
-        for slug in NEW_ZERO_ONE:
-            self.assertIn(slug, slugs, slug)
-        self.assertGreaterEqual(len(slugs), 17)
+        """Michigan's page set comes from the Mayzing file, and the build must
+        agree with it - a Viralstyle re-crawl must not resurrect a page."""
+        import build  # noqa: E402
+        built = {it["slug"] for it in build.MODEL["michigan"]}
+        self.assertEqual(built, set(self.michigan),
+                         "Michigan pages must mirror data/mayzing_michigan.json")
+        for slug in self.michigan:
+            self.assertIn(slug, built, slug)
 
     def test_product_pages_generated_with_checkout(self):
-        for slug in NEW_ZERO_ONE:
+        for slug, p in self.michigan.items():
             fp = os.path.join(SITE, "shop", slug, "index.html")
             self.assertTrue(os.path.isfile(fp), slug)
             html = read(fp)
-            self.assertIn(NEW_ZERO_ONE_URLS[slug], html, slug)
+            self.assertIn(p["checkout_url"], html, slug)
             self.assertIn("https://gridironlocker.store/michigan-wolverines-shirts/", html, slug)
-            self.assertIn(NEW_ZERO_ONE_NAMES[slug], html, slug)
+            self.assertNotIn("viralstyle", html.lower(), slug)
 
     def test_remote_fallback_and_no_double_prefix(self):
-        for slug in NEW_ZERO_ONE:
-            img = self.live[slug].get("img", {})
+        for slug, p in self.michigan.items():
+            img = p.get("img", {})
             self.assertIn("front", img, slug)
-            for tag, rel in img.items():
-                if rel.startswith("/"):
-                    self.assertTrue(
-                        os.path.isfile(os.path.join(SITE, rel.lstrip("/"))),
-                        f"{slug} {rel}")
-                else:
-                    self.assertTrue(
-                        rel.startswith("https://assets.viralstyle.com/"),
-                        f"{slug} {rel}")
-                self.assertNotIn("gridironlocker.storehttps://", rel, f"{slug} {rel}")
+            for tag, url in img.items():
+                self.assertTrue(url.startswith("https://"), f"{slug} {tag} {url}")
+                self.assertNotIn("gridironlocker.storehttps://", url, f"{slug} {tag}")
             html = read(os.path.join(SITE, "shop", slug, "index.html"))
             self.assertNotIn("gridironlocker.storehttps://", html, slug)
 
     def test_schema_and_sitemap_use_remote_images(self):
-        # Until dl.py lands local WebP the Product schema hot-links Viralstyle
-        # assets; once they are local, abs_url() prefixes the store domain.
-        # Either is valid - a double-prefixed URL is not.
-        for slug in NEW_ZERO_ONE:
+        # The Product schema hot-links the Mayzing CDN until dl.py lands local
+        # WebP; once local, abs_url() prefixes the store domain. Either is
+        # valid - a double-prefixed URL is not.
+        for slug in self.michigan:
             html = read(os.path.join(SITE, "shop", slug, "index.html"))
             self.assertIn('"image":[', html, slug)
-            snippet = html.split('"image":[', 1)[1][:500]
+            snippet = html.split('"image":[', 1)[1][:600]
             self.assertTrue(
-                "assets.viralstyle.com" in snippet
-                or "/img/p/" + slug in snippet,
-                slug)
+                "mayzing.com" in snippet or "/img/p/" + slug in snippet, slug)
             self.assertNotIn("https://gridironlocker.storehttps://", html, slug)
         sm = page("sitemap-images.xml")
-        for slug in NEW_ZERO_ONE:
+        for slug in self.michigan:
             self.assertIn(slug, sm, slug)
             self.assertNotIn("gridironlocker.storehttps://", sm, slug)
 
     def test_catalogue_copy_added(self):
         from catalog import CATALOG
-        for slug in NEW_ZERO_ONE:
+        for slug in self.michigan:
             self.assertIn(slug, CATALOG, slug)
-            self.assertEqual(CATALOG[slug]["name"], NEW_ZERO_ONE_NAMES[slug], slug)
+            self.assertTrue(CATALOG[slug].get("name"), slug)
 
 
 class CreatorCollab(unittest.TestCase):
@@ -1551,7 +1687,8 @@ class CreatorCollab(unittest.TestCase):
                       low)
 
     def test_featured_row_matches_creators_json(self):
-        live = load_json("data/products_live.json")
+        import build  # noqa: E402
+        live = {it["slug"] for it in build.ALL}   # master catalogue, both partners
         row = self.html[self.html.index('id="picks"'):
                         self.html.index('id="locker"')]
         slugs = re.findall(r'<a class="jfeat[^"]*" href="[^"]*?/shop/([a-z0-9-]+)/\?creator=JOE"',
@@ -1562,7 +1699,8 @@ class CreatorCollab(unittest.TestCase):
             self.assertIn(s, live, s)
 
     def test_grid_is_exactly_the_curated_picks(self):
-        live = load_json("data/products_live.json")
+        import build  # noqa: E402
+        live = {it["slug"] for it in build.ALL}   # master catalogue, both partners
         sec = self.html[self.html.index('id="locker"'):
                         self.html.index('class="jfaq"')]
         slugs = re.findall(r'<a class="jcard[^"]*" href="[^"]*?/shop/([a-z0-9-]+)/\?creator=JOE"',

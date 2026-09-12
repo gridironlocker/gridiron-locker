@@ -102,8 +102,31 @@ TEAM_CARDS = [
 ]
 MAX_ART_BYTES = 750 * 1024            # the design budget for any single banner
 MAX_IMAGE_REFS_PER_PAGE = 40          # sample depth for per-page asset checks
-SITEMAP_MIN_URLS = 100                # a truncated build drops well below this
 SITEMAP_MAX_AGE_DAYS = 5              # the refresh runs twice a day
+
+
+def catalogue_counts():
+    """Master catalogue totals, straight from the build.
+
+    These thresholds used to be magic numbers (100 URLs, 100 products) that
+    quietly disagreed with the real catalogue - 81 designs across 4
+    collections - so the health check failed a perfectly complete build while
+    still missing a genuinely truncated one. Deriving them from src/build.py
+    means the sitemap is checked against the catalogue that produced it, and a
+    real regression (a truncated crawl) still trips the exact-match assert.
+    """
+    try:
+        sys.path.insert(0, os.path.join(ROOT, "src"))
+        import build
+        return len(build.ALL), {k: len(v) for k, v in build.MODEL.items()}
+    except Exception:
+        return None, None
+
+
+CATALOGUE_SIZE, COLLECTION_SIZES = catalogue_counts()
+# A truncated build drops well below the real catalogue; keep a floor so the
+# check still fires if the catalogue itself cannot be read.
+SITEMAP_MIN_URLS = 60
 
 
 class Checker:
@@ -383,8 +406,17 @@ class Checker:
             self.fail(f"/sitemap.xml: only {len(urls)} URLs (< {SITEMAP_MIN_URLS}) - "
                       f"the catalogue looks truncated")
         shop = [u for u in urls if "/shop/" in u]
-        if len(shop) < 100:
-            self.fail(f"/sitemap.xml: only {len(shop)} product URLs: the shop is incomplete")
+        if CATALOGUE_SIZE is None:
+            self.note("/sitemap.xml: catalogue unreadable, skipped the exact "
+                      "product-count check")
+        elif len(shop) != CATALOGUE_SIZE:
+            # Exact match, not a floor: the sitemap and the master catalogue
+            # are produced by the same build, so any difference means one of
+            # them is stale.
+            self.fail(f"/sitemap.xml: {len(shop)} product URLs but the catalogue "
+                      f"holds {CATALOGUE_SIZE}")
+        else:
+            self.ok(f"/sitemap.xml: {len(shop)} product URLs match the catalogue")
         for u in urls:
             if HOST not in u:
                 self.fail(f"/sitemap.xml: {u} is not on {HOST}")

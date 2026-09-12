@@ -98,18 +98,36 @@ jobs:
         run: |
           python - <<'PY'
           import json, os, re, sys
-          # 1) Catalogue size
-          live = json.load(open("data/products_live.json"))
-          nprod = len(live)
-          print(f"products_live.json: {nprod} products")
+          # 1) Catalogue size - read the MASTER catalogue, not one crawl file.
+          # data/products_live.json is only the Viralstyle half: Cleveland and
+          # Michigan are sourced from data/mayzing_products.json and
+          # data/mayzing_michigan.json. Counting that one file reported 113
+          # while the site actually builds 81, so the gate was policing a
+          # number no page agrees with. src/build.py merges all three.
+          sys.path.insert(0, "src")
+          import build
+          nprod = len(build.ALL)
+          per = ", ".join(f"{k}={len(v)}" for k, v in build.MODEL.items())
+          print(f"catalogue: {nprod} products ({per})")
           if nprod < 50:
               sys.exit(f"FAIL: only {nprod} products (< 50) - refusing to publish")
-          # 2) Sitemap depth
+          # 2) Sitemap depth - the sitemap is produced by the same build, so it
+          # must match the catalogue exactly rather than clear a magic floor.
+          # (build.URLS is only filled while main() runs, so the check reads
+          # the file the build just wrote.)
           sm = open("site/sitemap.xml", encoding="utf-8").read()
-          nlocs = len(re.findall(r"<loc>", sm))
-          print(f"site/sitemap.xml: {nlocs} <loc> urls")
-          if nlocs < 100:
-              sys.exit(f"FAIL: only {nlocs} sitemap <loc> urls (< 100) - refusing to publish")
+          locs = re.findall(r"<loc>([^<]+)</loc>", sm)
+          nlocs = len(locs)
+          nshop = len([u for u in locs if "/shop/" in u])
+          print(f"site/sitemap.xml: {nlocs} <loc> urls, {nshop} products")
+          if nshop != nprod:
+              sys.exit(f"FAIL: sitemap has {nshop} product URLs but the catalogue "
+                       f"holds {nprod} - refusing to publish")
+          if nlocs < nprod + 10:
+              sys.exit(f"FAIL: only {nlocs} sitemap <loc> urls for {nprod} "
+                       f"products - refusing to publish")
+          if len(set(locs)) != nlocs:
+              sys.exit("FAIL: sitemap contains duplicate <loc> entries - refusing to publish")
           # 3) No missing local refs across every built page
           attr = re.compile(r'(?:src|data-src|href|content)="([^"]+)"')
           missing = []

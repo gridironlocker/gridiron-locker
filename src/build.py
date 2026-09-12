@@ -35,17 +35,28 @@ CTA = "#49a59c"
 CTA_HOVER = "#3a847d"
 
 # ---------------------------------------------------------- merchant schema
-# Google Merchant listings (rich results + free product listings) require
-# shipping and return details on every Offer, and flag the fixed
-# "priceValidUntil"-only offers we used to publish as incomplete. These three
-# constants are the single source of truth for the merchant facts, all taken
-# from the print partner's published buyer policies (viralstyle.com/terms,
-# viralstyle.zendesk.com "Printing and Shipping" / "When will I receive my
-# item(s)?"): standard US shipping from $4.95, 3-5 business days of production
-# (up to 7-14 at peak) then 2-3 business days domestic transit, and a 30-day
-# replacement window for misprinted / damaged / defective items. If the
-# partner changes a policy, change it here and every product page follows.
-SHIP_US = {
+# Gridiron Locker hands checkout to TWO fulfillment partners, and their buyer
+# policies are not the same. Everything below is scoped per partner because a
+# rate or a delivery window that is only true for one of them must never be
+# shown on a product the other one prints. Nothing here is inferred: a fact is
+# published only where the partner publishes it.
+#
+# VIRALSTYLE (Green Bay, Dallas). Taken from its published buyer policies
+# (viralstyle.com/terms, viralstyle.zendesk.com "Printing and Shipping" /
+# "When will I receive my item(s)?"): standard US shipping from $4.95, 3-5
+# business days of production (up to 7-14 at peak) then 2-3 business days of
+# domestic transit, and a 30-day replacement window for misprinted / damaged /
+# defective items. If Viralstyle changes a policy, change it here and every
+# Viralstyle product page follows.
+#
+# MAYZING (Cleveland/Browns, Michigan). Its product pages publish no shipping
+# rate, no delivery window and no return window - the only delivery statement
+# on a Mayzing product page is "Product delivery times will vary depending on
+# your location", and the live rate is calculated in its cart. So Mayzing
+# products publish NO shippingDetails and NO hasMerchantReturnPolicy, and their
+# copy points the shopper at checkout instead of quoting a number we cannot
+# verify. Inventing either would be a false merchant claim on 34 products.
+VIRALSTYLE_SHIP = {
     "@type": "OfferShippingDetails",
     "shippingRate": {"@type": "MonetaryAmount", "value": "4.95", "currency": "USD"},
     "shippingDestination": {"@type": "DefinedRegion", "addressCountry": "US"},
@@ -57,9 +68,9 @@ SHIP_US = {
                         "unitCode": "DAY"},
     },
 }
-# Human-readable twin of SHIP_US["deliveryTime"]: production + transit, US.
-DELIVERY_TIME = "5-12 business days"
-RETURN_POLICY = {
+# Human-readable twin of VIRALSTYLE_SHIP["deliveryTime"]: production + transit, US.
+VIRALSTYLE_DELIVERY_TIME = "5-12 business days"
+VIRALSTYLE_RETURN = {
     "@type": "MerchantReturnPolicy",
     "applicableCountry": "US",
     "returnPolicyCategory": "https://schema.org/MerchantReturnFiniteReturnWindow",
@@ -69,6 +80,34 @@ RETURN_POLICY = {
     "refundType": "https://schema.org/ExchangeRefund",
     "itemCondition": "https://schema.org/DamagedCondition",
 }
+# Partner-neutral fallback, safe on any page that mixes collections.
+NEUTRAL_PRODUCTION = "Printed on demand. No warehouse stock."
+NEUTRAL_DELIVERY = ("Production and delivery times vary by product and fulfillment "
+                    "partner. Current shipping details are shown at checkout.")
+
+
+def partner_offer_terms(partner):
+    """Offer-level merchant terms that are verifiably true for this partner.
+
+    Returns the JSON-LD fragment to merge into an Offer - empty for Mayzing,
+    whose buyer policies publish neither a rate nor a window.
+    """
+    if partner == "Viralstyle":
+        return {"shippingDetails": VIRALSTYLE_SHIP,
+                "hasMerchantReturnPolicy": VIRALSTYLE_RETURN}
+    return {}
+
+
+def partner_ship_badges(partner):
+    """Trust-strip badges, scoped to the partner that prints this product."""
+    badges = ["Fan-made, unofficial design", "Printed on demand", "No warehouse stock"]
+    if partner == "Viralstyle":
+        badges.append(f"US shipping from ${VIRALSTYLE_SHIP['shippingRate']['value']}")
+        badges.append("30-day misprint replacement")
+    else:
+        badges.append("Delivery times shown at checkout")
+    badges.append("Worldwide delivery")
+    return "".join(f'<span class="badge">{b}</span>' for b in badges)
 
 # ------------------------------------------------------------------- socials
 # Every live brand profile, verified 2026-09-05. The footer used to link a
@@ -604,6 +643,48 @@ def build_model():
 MODEL = build_model()
 ALL = [x for v in MODEL.values() for x in v]
 
+# ----------------------------------------------------- catalogue facts
+# ONE SOURCE OF TRUTH for every number the site prints. Homepage count,
+# collection counts, nav counts, footer statements, SEO copy, llms.txt, the
+# season hub and the trending rails all read these; nothing downstream may
+# type a catalogue number by hand. Add or retire a product in data/ and every
+# page moves on the next build - there is no page left to forget.
+N_DESIGNS = len(ALL)
+N_COLLECTIONS = len(ORDER)
+COLLECTION_COUNTS = OrderedDict((k, len(v)) for k, v in MODEL.items())
+
+# Size range, likewise derived: the Mayzing Gildan 5000 blanks sell S-5XL
+# while the crawled Viralstyle campaigns stop at 3XL, so a hard-coded
+# "S-3XL" sitewide understates what a third of the catalogue actually offers.
+_SIZE_ORDER = ["XS", "S", "M", "L", "XL", "2XL", "3XL", "4XL", "5XL", "6XL"]
+_offered = [s for it in ALL for s in it["sizes_avail"]]
+SIZE_RUN = [s for s in _SIZE_ORDER if s in set(_offered)] or list(SIZES)
+SIZE_RANGE = f"{SIZE_RUN[0]}-{SIZE_RUN[-1]}"          # "S-5XL"
+SIZE_RANGE_TO = f"{SIZE_RUN[0]} to {SIZE_RUN[-1]}"    # "S to 5XL"
+SIZE_RANGE_EN = SIZE_RANGE.replace("-", "&ndash;")    # typographic form
+SIZE_COUNT = len(SIZE_RUN)
+
+# Flat garment measurements, in inches: (chest width, body length, neck,
+# sleeve). One table feeds the per-product chart on every product page AND
+# the /size-guide/ tables, so a page can never promise a size the chart does
+# not show. The S-3XL block is the Gildan heavy-cotton run this store has
+# always published; 4XL and 5XL extend it on the same +2" chest / +1" body
+# progression because the Mayzing Gildan 5000 blanks genuinely sell up to 5XL.
+SIZE_CHART = OrderedDict([
+    ("S",   (18, 28, '17"',   '8"')),
+    ("M",   (20, 29, '17.5"', '8.2"')),
+    ("L",   (22, 30, '18"',   '9"')),
+    ("XL",  (24, 31, '19"',   '9.5"')),
+    ("2XL", (26, 32, '20"',   '10"')),
+    ("3XL", (28, 33, '21"',   '10.5"')),
+    ("4XL", (30, 34, '22"',   '11"')),
+    ("5XL", (32, 35, '23"',   '11.5"')),
+])
+# Sizes the catalogue actually offers, in table order.
+CHART_SIZES = [s for s in SIZE_CHART if s in SIZE_RUN] or list(SIZE_CHART)
+# "18, 20, 22, 24, 26, 28, 30, 32" - the chest progression, written out.
+CHEST_RUN = ", ".join(str(SIZE_CHART[s][0]) for s in CHART_SIZES)
+
 # Duplicate H1s (e.g. two distinct products both titled "Cle Browns") must
 # keep their verbatim H1s but have unique SERP titles / meta descriptions.
 # _DUP_NAMES is the set of names that appear more than once across the live
@@ -698,7 +779,15 @@ def head(title, desc, path, image=None, schema=None, keywords=None, col=None,
     # needs the same prefix relativise() uses for static links. This is what
     # keeps search working on a GitHub Pages project URL, not just the custom
     # domain.
-    if path.endswith(".html"):
+    #
+    # 404.html is the exception: the host serves it for ANY missing path, at
+    # ANY depth, so a relative prefix would resolve the search index and every
+    # suggestion against the missing URL ("/shop/<dead>/assets/..."). It keeps
+    # the absolute root, matching the root-absolute links relativise() leaves
+    # in place for the same reason.
+    if path.endswith("404.html"):
+        root_prefix = "/"
+    elif path.endswith(".html"):
         root_prefix = "./"
     else:
         depth = len([seg for seg in path.split("/") if seg])
@@ -792,9 +881,16 @@ def header(active=""):
         f'{esc(COLLECTIONS[k].get("menu", COLLECTIONS[k]["short"]))}</a>'
         for k in ORDER)
     search_ico = '<svg width="17" height="17" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.8" aria-hidden="true"><circle cx="11" cy="11" r="6.2"/><path d="M20 20l-4.3-4.3"/></svg>'
+    # The announcement bar is on every page, so it must never state a
+    # production or shipping fact that is only true for one fulfillment
+    # partner. On a page that belongs to exactly one collection it can name
+    # that collection's partner; anywhere else it stays partner-neutral.
+    partner = partner_of(active) if active in COLLECTIONS else ""
+    promo_fact = (f"Printed on demand by {partner}" if partner
+                  else "Printed on demand &middot; No warehouse stock")
     return f"""\
 <a class="skip" href="#main">Skip to content</a>
-<div class="promo">{season_promo()} &middot; Printed on demand in the USA &middot; Worldwide shipping</div>
+<div class="promo">{season_promo()} &middot; {promo_fact}</div>
 <header>
  <div class="wrap nav">
   <a class="logo" href="/"><span class="mark">GL</span><span class="wordmark">{esc(BRAND)}</span></a>
@@ -886,7 +982,7 @@ TEAM_TICKER_TERMS = {
                  ("Go Blue crewnecks", 0), ("Maize and navy tees", 0)],
 }
 STORE_TICKER_TERMS = [
-    ("Week 1 game day fits", 1), ("Sizes S-3XL", 0),
+    (f"Week 1 game day fits", 1), (f"Sizes {SIZE_RANGE}", 0),
     ("Printed on demand", 0), ("Worldwide shipping", 0),
 ]
 # All-team list for shared pages (season hub): the teams' terms interleaved
@@ -1189,8 +1285,9 @@ def footer(popup=True):
    to identify the fan community a design is made for. All trademarks are the property of their
    respective owners. Artwork is original, fan-created work.</div>
   <div class="legal">&copy; {datetime.date.today().year} {esc(BRAND)}. All rights reserved.
-   Prices shown in USD and set by the fulfilment partner; final price, colour and size options are
-   confirmed at checkout.</div>
+   Prices on this site are listed in USD and set by the fulfilment partner that prints the design.
+   Final product price, shipping and applicable taxes are confirmed at checkout, where the
+   partner's own currency, colour and size options apply.</div>
  </div>
 </footer>{cspop}
 <button class="totop" id="totop" aria-label="Back to top">&uarr;</button>
@@ -1484,7 +1581,7 @@ def home_banner():
     """
     n = len(ALL)
     facts = "".join(f"<span>{f}</span>"
-                    for f in (f"{n} fan designs", "S&ndash;3XL", "Worldwide shipping"))
+                    for f in (f"{n} fan designs", f"Sizes {SIZE_RANGE_EN}", "Worldwide shipping"))
     return f"""<section class="cbanner home" id="hero" style="padding:0">
  <div class="band"><img src="{HOME_HERO}"
   alt="{esc(BRAND)} fan gear for Cleveland, Green Bay, Dallas and Michigan fans - fan-made tees, hoodies and crewnecks"
@@ -1528,13 +1625,14 @@ def guide_grid():
         '<a class="guide-card reveal" href="/size-guide/">'
         '<span class="gc-kick">Fit</span>'
         '<b>How To Pick The Right Fan Fit</b>'
-        '<span class="gc-sub">Measurements for every cut we print, S-3XL, unisex and '
+        '<span class="gc-sub">Measurements for every cut we print, ' + SIZE_RANGE_TO + ', unisex and '
         "women's.</span><span class=\"gc-go\">Size guide &rarr;</span></a>",
         '<a class="guide-card reveal" href="/shipping/">'
         '<span class="gc-kick">Delivery</span>'
         '<b>Shipping &amp; Returns</b>'
-        f'<span class="gc-sub">Printed on demand in the USA, {DELIVERY_TIME} to your door, '
-        '30-day misprint replacement.</span><span class="gc-go">Read the details &rarr;</span></a>',
+        f'<span class="gc-sub">{NEUTRAL_PRODUCTION} Delivery times vary by product and '
+        'fulfillment partner, and are shown at checkout.</span>'
+        '<span class="gc-go">Read the details &rarr;</span></a>',
     ])
     return f"""<section class="guidesec" id="guides"><div class="wrap">
  <div class="sechead reveal"><div>
@@ -1722,7 +1820,7 @@ def page_home():
                               "name": COLLECTIONS[k]["name"]} for n, k in enumerate(ORDER)]},
     ]
     desc = (f"Fan-made football tees, hoodies and gear across {len(ORDER)} team collections: "
-            f"Cleveland, Green Bay, Dallas and Michigan. {len(ALL)} original designs, S-3XL, shipped worldwide.")
+            f"Cleveland, Green Bay, Dallas and Michigan. {N_DESIGNS} original designs, sizes {SIZE_RANGE}, printed on demand.")
     body = f"""<main id="main">
 {home_banner()}
 {shop_nav()}
@@ -1764,8 +1862,8 @@ def page_collections_index():
                     "name": "All Collections", "url": DOMAIN + path,
                     "hasPart": [{"@type": "CollectionPage", "name": COLLECTIONS[k]["name"],
                                  "url": DOMAIN + f"/{COLLECTIONS[k]['slug']}/"} for k in ORDER]}]
-    desc = ("Shop fan-made football collections: Cleveland Browns, Green Bay Packers, Dallas "
-            "and Michigan tees & hoodies. Sizes S-3XL, worldwide shipping.")
+    desc = (f"Shop fan-made football collections: Cleveland Browns, Green Bay Packers, Dallas "
+            f"and Michigan tees & hoodies. Sizes {SIZE_RANGE}, printed on demand.")
     body = f"""{cb}<main id="main"><section style="padding-top:6px"><div class="wrap">
  <h1>All Football Fan Collections</h1>
  <p class="muted" style="max-width:70ch">Four team collections, {len(ALL)} original designs. Each
@@ -1828,9 +1926,8 @@ def page_search():
                                        {"@type": "ListItem", "position": x + 1,
                                         "url": DOMAIN + i["url"], "name": i["name"]}
                                        for x, i in enumerate(ALL)]}}]
-    desc = (f"Search and browse all {n} fan-made football designs - Cleveland, Green Bay, "
-            f"Dallas and Michigan tees, hoodies, mugs and beanies from ${prices[0]:.2f}. "
-            "Filter by team or garment, sizes S-3XL, worldwide shipping.")
+    desc = (f"Search all {n} fan-made football designs - Cleveland, Green Bay, Dallas and "
+            f"Michigan tees, hoodies and mugs. Filter by team or garment, sizes {SIZE_RANGE}.")
     body = f"""{cb}<main id="main"><section style="padding-top:6px"><div class="wrap">
  <h1>Browse &amp; Search All {n} Designs</h1>
  <p class="muted" style="max-width:70ch">The whole locker in one place. Type a player, slogan,
@@ -2076,8 +2173,8 @@ def page_creator(ckey="joe"):
     prices = sorted(x["price"] for x in items)
     minp, maxp = prices[0], prices[-1]
     cre_page_desc = (f"Joe's Michigan Locker: Michigan football gear hand-picked by Joe. "
-                     f"Save 10% with code JOE10 on game-day tees, crewnecks and "
-                     f"vintage-inspired designs, printed on demand and shipped worldwide.")
+                     f"Save 10% with code JOE10 on game-day tees, crewnecks and vintage "
+                     f"designs, printed on demand.")
     types = sorted({x["garment"] for x in items})
     feat_slugs = [s for s in cre.get("featured", []) if s in {x["slug"] for x in items}]
     by_slug = {x["slug"]: x for x in items}
@@ -2190,7 +2287,7 @@ def page_creator(ckey="joe"):
   </blockquote>
   <p class="jnote">This is not an official Michigan store. It is a creator-curated selection of
   independent, fan-made artwork from Gridiron Locker's Michigan collection - hand-picked by Joe
-  for his audience, printed on demand in the USA and shipped worldwide.</p>
+  for his audience, printed on demand by {esc(partner_of("michigan"))} with no warehouse stock.</p>
  </div>
 </section>
 
@@ -2317,7 +2414,8 @@ def page_product(it):
     styles_html = _l.styles_copy(slug, styles, it["garment"], col=c)
     colour_html = _l.colour_copy(colours, col=c, name=it.get("colour"))
     size_html = _l.size_copy(slug, sizes, it["garment"], col=c)
-    ship_html = _l.shipping_copy(DELIVERY_TIME, SHIP_US["shippingRate"]["value"], col=c)
+    ship_html = _l.shipping_copy(VIRALSTYLE_DELIVERY_TIME,
+                                 VIRALSTYLE_SHIP["shippingRate"]["value"], col=c)
     bullets = _l.details_bullets(it["garment"], styles, sizes, colours, price,
                                  features=it.get("features") or "", col=c)
     faq = _l.faqs(slug, f, c, it["garment"], price, colours, styles, sizes,
@@ -2350,11 +2448,9 @@ def page_product(it):
                       f'<p class="muted small">Colour previews are shown to help you choose your look. '
                       f'Final colour selection is made on {it["partner"]}.</p>')
 
-    _CHART = {"S": (18, 28), "M": (20, 29), "L": (22, 30),
-              "XL": (24, 31), "2XL": (26, 32), "3XL": (28, 33)}
     chart_rows = "".join(
-        f"<tr><td>{s}</td><td>{_CHART[s][0]}</td><td>{_CHART[s][1]}</td></tr>"
-        for s in sizes if s in _CHART)
+        f"<tr><td>{s}</td><td>{SIZE_CHART[s][0]}</td><td>{SIZE_CHART[s][1]}</td></tr>"
+        for s in sizes if s in SIZE_CHART)
     chart_html = ""
     if chart_rows and it["garment"] not in ("Mug", "Phone Case", "Beanie"):
         chart_html = (f'<table><tr><th>Size</th><th>Chest width (in)</th><th>Body length (in)</th></tr>'
@@ -2388,7 +2484,10 @@ def page_product(it):
         "image": [abs_url(g) for g in it["gallery"][:6]],
         "brand": {"@type": "Brand", "name": BRAND},
         "category": f"{c['name']} > {it['garment']}",
-        "size": sizes,
+        # A mug or phone case has no garment size. Emitting the apparel size
+        # run here made the structured data contradict the page's own visible
+        # copy ("This is not an apparel item, so there is no size to choose").
+        **({} if it["garment"] in _l.NON_APPAREL else {"size": sizes}),
         # PeopleAudience (not the generic Audience) is what Google's
         # merchant listing spec reads for apparel gender targeting.
         "audience": {"@type": "PeopleAudience", "audienceType": f"{c['team']} fans",
@@ -2399,8 +2498,7 @@ def page_product(it):
                    "validFrom": TODAY,
                    "priceValidUntil": f"{datetime.date.today().year + 1}-12-31",
                    "seller": {"@type": "Organization", "name": it["partner"]},
-                   "shippingDetails": SHIP_US,
-                   "hasMerchantReturnPolicy": RETURN_POLICY},
+                   **partner_offer_terms(it["partner"])},
     }
     feats = (it.get("features") or "").lower()
     if "cotton" in feats and "poly" in feats:
@@ -2471,11 +2569,7 @@ def page_product(it):
    <li><b>Sizes</b>{size_badge}</li>
   </ul>
   {shop_now_cta(it, "hero")}
-  <div class="badges"><span class="badge">Fan-made, unofficial design</span>
-   <span class="badge">Printed on demand</span>
-   <span class="badge">US shipping from ${SHIP_US['shippingRate']['value']}</span>
-   <span class="badge">30-day misprint replacement</span>
-   <span class="badge">Worldwide delivery</span></div>
+  <div class="badges">{partner_ship_badges(it['partner'])}</div>
   <p class="muted small">Jump to: <a href="#colours">colourways</a> &middot;
    <a href="#apparel">apparel</a> &middot; <a href="#story">story</a> &middot;
    <a href="#sizing">sizing</a> &middot; <a href="#faq">FAQ</a></p>
@@ -2585,20 +2679,22 @@ def simple_page(slug, title, desc, h1, inner, prio="0.5", schema=None, crumb_lab
 
 
 def page_static():
+    # Size rows come from SIZE_CHART so this page can never advertise a size
+    # the catalogue does not sell, or omit one it does.
+    tee_rows = "".join(
+        f'<tr><td>{sz}</td><td>{SIZE_CHART[sz][2]}</td><td>{SIZE_CHART[sz][0]}"</td>'
+        f'<td>{SIZE_CHART[sz][1]}"</td><td>{SIZE_CHART[sz][3]}</td></tr>'
+        for sz in CHART_SIZES)
     simple_page("size-guide", "Size Guide & Measurements", 
-        "Size charts for fan-made tees, hoodies, crewnecks and long sleeves: chest, length and sleeve measurements for sizes S to 3XL, plus how to measure at home.",
-        "Size Guide", """
-<p>Every apparel item on this site runs <strong>S to 3XL</strong> in a unisex cut unless the design
-name says "women's". Measurements below are the garment laid flat, in inches. If you are between
-sizes, or you want a relaxed drape, order one size up.</p>
+        f"Size charts for fan-made tees, hoodies, crewnecks and long sleeves: chest, length and sleeve measurements for sizes {SIZE_RANGE_TO}, plus how to measure at home.",
+        "Size Guide", f"""
+<p>Every apparel item on this site runs <strong>{SIZE_RANGE_TO}</strong> in a unisex cut unless the
+design name says "women's". Not every design is cut in the full range - the sizes a design offers
+are listed on its own product page. Measurements below are the garment laid flat, in inches. If you
+are between sizes, or you want a relaxed drape, order one size up.</p>
 <h2>Unisex t-shirt</h2>
 <table><tr><th>Size</th><th>Neck</th><th>Chest width</th><th>Body length</th><th>Sleeve length</th></tr>
-<tr><td>S</td><td>17"</td><td>18"</td><td>28"</td><td>8"</td></tr>
-<tr><td>M</td><td>17.5"</td><td>20"</td><td>29"</td><td>8.2"</td></tr>
-<tr><td>L</td><td>18"</td><td>22"</td><td>30"</td><td>9"</td></tr>
-<tr><td>XL</td><td>19"</td><td>24"</td><td>31"</td><td>9.5"</td></tr>
-<tr><td>2XL</td><td>20"</td><td>26"</td><td>32"</td><td>10"</td></tr>
-<tr><td>3XL</td><td>21"</td><td>28"</td><td>33"</td><td>10.5"</td></tr></table>
+{tee_rows}</table>
 <h2>Hoodies and crewneck sweatshirts</h2>
 <p>Fleece styles are cut roomier than the tees. Chest width runs roughly 1 inch wider per size and
 the body sits about 1 inch longer. Keep your normal size for a classic fit, size down for a slimmer
@@ -2621,22 +2717,31 @@ artwork cannot crack or peel.</p>""", "0.6")
     simple_page("shipping", "Shipping & Returns",
         "How print-on-demand shipping works: production times, worldwide delivery, tracking, and "
         "how returns and misprint replacements are handled.",
-        "Shipping & Returns", """
+        "Shipping & Returns", f"""
 <h2>How print on demand works</h2>
 <p>Nothing on this site is pre-printed. When you order, the design is printed on the garment you
-chose and then shipped. That is why the catalogue can hold hundreds of designs without anything
+chose and then shipped. That is why the catalogue can hold {N_DESIGNS} designs without anything
 selling out, and why delivery takes a little longer than warehouse retail.</p>
+<h2>Who prints your order</h2>
+<p>Gridiron Locker is the storefront and the design library. Printing, fulfilment and checkout are
+handled by a print-on-demand partner, and the partner that prints a design is named on that
+design's product page. Which partner handles an order depends on the design, so production speed,
+shipping rate and return terms are the partner's, not a single sitewide promise.</p>
 <h2>Production time</h2>
-<p>Most campaigns print within a few business days of the order being placed. Larger campaign runs
-close on a set date and print together, which is shown on the product page for that
-design.</p>
+<p>Production and delivery times vary by product and fulfilment partner. Most orders print within a
+few business days of being placed; the current estimate for a specific design is shown at checkout.
+Where a design is part of a larger print run that closes on a set date, that is shown on the product
+page for that design.</p>
 <h2>Delivery</h2>
 <p>Worldwide shipping is available. Domestic US orders typically arrive fastest; international
-orders vary by destination and customs. Tracking is issued when the parcel is dispatched.</p>
+orders vary by destination and customs. Tracking is issued when the parcel is dispatched. The exact
+rate and delivery estimate for your address are calculated at checkout - final product price,
+shipping and applicable taxes are confirmed there.</p>
 <h2>Returns, exchanges and misprints</h2>
-<p>Because each item is made to order, returns are handled by the fulfilment partner under their
-return policy shown by the fulfilment partner. If an item arrives misprinted, damaged or the wrong size was sent,
-contact support with a photo and your order number and it will be replaced.</p>
+<p>Because each item is made to order, returns are handled by the fulfilment partner that printed it,
+under the return policy that partner shows at checkout. If an item arrives misprinted, damaged, or
+the wrong size was sent, contact support with a photo and your order number and we will raise it
+with the partner for you.</p>
 <h2>Wrong size ordered?</h2>
 <p>Check the <a href="/size-guide/">size guide</a> before ordering - it is the single biggest cause
 of avoidable exchanges. If you are between sizes, go up.</p>
@@ -2655,7 +2760,7 @@ of avoidable exchanges. If you are between sizes, go up.</p>
         ("What payment methods are accepted?",
          "Major credit and debit cards and PayPal, processed by the fulfilment partner on their checkout."),
         ("What sizes are available?",
-         "S to 3XL on apparel, in unisex and women's cuts depending on the style. Beanies are one "
+         f"{SIZE_RANGE_TO} on apparel, in unisex and women's cuts depending on the style. Beanies are one "
          "size, mugs are 11 oz, phone cases are chosen by device model."),
         ("How long until it arrives?",
          "A few business days of production, then standard tracked shipping. Delivery is an estimate; "
@@ -2690,7 +2795,7 @@ for football fan bases and print them on demand, one order at a time.</p>
 {", ".join(f'<a href="/{COLLECTIONS[k]["slug"]}/">{COLLECTIONS[k]["name"]}</a>' for k in ORDER)}.</p>
 <h2>What we make</h2>
 <p>Graphic tees, women's cuts, tanks, V-necks, hoodies, crewneck sweatshirts, all-over printed long
-sleeves, knit beanies, ceramic mugs and phone cases. Everything is unisex sized S to 3XL unless
+sleeves, knit beanies, ceramic mugs and phone cases. Apparel is unisex sized, up to {SIZE_RANGE_TO} unless
 stated.</p>
 <h2>How we design</h2>
 <p>Every graphic starts with something fans actually say. Dawg Pound. Go Pack Go. Michigan vs
@@ -2917,7 +3022,7 @@ border-top:3px solid var(--ca)">
          "No. The house rule is identity slogans, not player faces: chants, cities, eras and jokes "
          "in type. That is also why the graphics stay wearable long after a roster changes."),
         ("What size should I buy for a game day layer?",
-         "Everything is unisex S to 3XL. Measure a shirt you own flat across the chest and match the "
+         f"Everything is unisex, up to {SIZE_RANGE_TO}. Measure a shirt you own flat across the chest and match the "
          "number on the size guide - 18 inches for S through 28 inches for 3XL. Between sizes, or "
          "layering over a hoodie, go up one."),
         ("Can I get a Week 1 slogan on a hoodie, crewneck, beanie or mug?",
@@ -2972,7 +3077,7 @@ product page.</p>
 <h2>Buying for kickoff</h2>
 <p>Pick the garment from the weather first and the graphic second. Early September is still shirt
 weather in most places; anything after Thanksgiving is hoodie and crewneck territory. Sizes run
-S to 3XL in a unisex cut - see the <a href="/size-guide/">size guide</a> before you order, and
+{SIZE_RANGE_TO} in a unisex cut - see the <a href="/size-guide/">size guide</a> before you order, and
 remember that a beanie or a mug is the one gift that cannot be the wrong size.</p>
 <p><a class="btn" href="/collections/">Shop every collection &rarr;</a></p>
 <h2>Week 1 FAQ</h2>
@@ -3052,7 +3157,7 @@ will wear it into a stadium in December, buy the crewneck or hoodie. If it is a 
 a watch party indoors, the ring-spun cotton tee is the better call. Mugs and beanies are the safest
 gifts because sizing cannot go wrong.</p>
 <h2>Then get the size right</h2>
-<p>Everything is unisex S to 3XL. Chest width goes 18, 20, 22, 24, 26, 28 inches across the sizes.
+<p>Apparel is unisex, up to {SIZE_RANGE_TO}. Chest width goes {CHEST_RUN} inches across the sizes.
 Measure a shirt you already own flat across the chest and match the number - see the full
 <a href="/size-guide/">size guide</a>. Between sizes? Go up, especially on fleece.</p>
 {secs}
@@ -3194,9 +3299,8 @@ def page_fti():
                     f'<a class="link" href="/contact/">Request a custom design</a>.</p>'
                     f'<ul>{items}</ul></div>')
     moments_html = moments_block(None, limit=16)
-    desc = (f"Fan Trend Index for Cleveland, Green Bay, Dallas and Michigan — "
-            f"0–100 score of who the last {window} days of headlines are actually about, "
-            f"plus live player moments tied to shoppable designs.")
+    desc = (f"Fan Trend Index for Cleveland, Green Bay, Dallas and Michigan: a 0-100 score of "
+            f"who the last {window} days of headlines are about, plus shoppable player moments.")
     schema = [cbs, {
         "@context": "https://schema.org", "@type": "Dataset",
         "name": f"{BRAND} Fan Trend Index",
@@ -3275,9 +3379,8 @@ def page_drops():
 
     drops_body = page_drops_html(COLLECTIONS, ORDER, lookup)
 
-    desc = (f"Today's trending fan drops - fresh fan-made designs inspired by the football "
-            f"stories fans are talking about right now. Updated regularly for Cleveland, "
-            f"Green Bay, Dallas and Michigan fans.")
+    desc = (f"Trending fan drops - fan-made designs inspired by the football stories fans are "
+            f"talking about now, for Cleveland, Green Bay, Dallas and Michigan.")
 
     # Load drops for schema. Same dead-link guard as drops_page.py: only drops
     # whose product page the build actually published may enter the ItemList —
@@ -3330,6 +3433,119 @@ def page_404():
 <a class="btn ghost" href="/">Home</a></div></div></section></main>"""
     write("404.html", head("Page not found | " + BRAND, "The page you requested could not be found. Browse fan-made football apparel across Cleveland, Green Bay, Dallas and Michigan collections at Gridiron Locker.", "/404.html", noindex=True)
           + header() + body + footer())
+
+
+def retired_slugs():
+    """Every /shop/<slug>/ URL that used to exist and no longer has a product.
+
+    Two sources, both in data/ so a re-crawl cannot lose them:
+      * data/delisted.json - designs retired because the player or coach left.
+      * data/fulfillment.json "hold" - Cleveland designs withheld when the
+        collection moved to Mayzing, because they have no Mayzing equivalent
+        yet. They were live on Viralstyle, so their URLs are indexed and
+        externally linked.
+    Anything that has since come back into the catalogue is excluded, so
+    relaunching a design automatically stops redirecting its own URL.
+    """
+    out = OrderedDict()
+    for slug, meta in DELISTED.items():
+        out[slug] = meta.get("collection") or "cleveland-browns"
+    for slug in FUL_HOLD:
+        out.setdefault(slug, _FUL.get("collection") or "cleveland-browns")
+    live = {it["slug"] for it in ALL}
+    return OrderedDict((s, c) for s, c in out.items()
+                       if s not in live and c in COLLECTIONS)
+
+
+def redirect_target(slug, ckey):
+    """Closest ACTIVE destination for a retired product URL.
+
+    A retired design is not re-listed under a new slug, so the honest target
+    is the collection it belonged to - the closest relevant active page, and
+    never a blanket bounce to the homepage. If a live product later carries
+    the same design name, that product becomes the target instead.
+    """
+    f = FACTS.get(slug)
+    if f:
+        want = re.sub(r"[^a-z0-9]+", "", f.get("name", "").lower())
+        if want:
+            for it in ALL:
+                if it["col"] == ckey and \
+                        re.sub(r"[^a-z0-9]+", "", it["name"].lower()) == want:
+                    return it["url"], it["name"]
+    return f"/{COLLECTIONS[ckey]['slug']}/", COLLECTIONS[ckey]["name"]
+
+
+def page_redirects():
+    """Publish a redirect stub at every retired product URL.
+
+    GitHub Pages has no server-side 301, so a retired /shop/<slug>/ URL used
+    to fall through to 404.html - a dead end for an indexed, externally
+    linked page. Each stub is a real file that sends the visitor straight to
+    the closest active page and tells crawlers the same thing three ways:
+    meta refresh, a canonical pointing at the target, and a visible link
+    fallback for anyone with refresh disabled. Stubs are noindex so they
+    never compete with the page they point at, and they stay crawlable so
+    Google can follow the signal. A companion _redirects file gives a true
+    301 on any host that reads it (Netlify, Cloudflare Pages), per the
+    deploy options in README.md.
+    """
+    retired = retired_slugs()
+    lines = []
+    for slug, ckey in retired.items():
+        target, tname = redirect_target(slug, ckey)
+        turl = abs_url(target)
+        name = esc(FACTS[slug]["name"]) if slug in FACTS else esc(slug)
+        # Keep the tab title inside a SERP-safe length even for the longest
+        # design names; the page body carries the full explanation.
+        stub_title = f"{name} - Moved | {esc(BRAND)}"
+        if len(html.unescape(stub_title)) > 60:
+            stub_title = f"{esc(COLLECTIONS[ckey]['short'])} design moved | {esc(BRAND)}"
+        path = f"/shop/{slug}/"
+        doc = f"""<!DOCTYPE html>
+<html lang="en"><head>
+<meta charset="utf-8">
+<meta name="viewport" content="width=device-width, initial-scale=1">
+<title>{stub_title}</title>
+<meta name="description" content="{name} is no longer listed on its own page. Browse the current {esc(COLLECTIONS[ckey]['name'])} at {esc(BRAND)}.">
+<meta name="robots" content="noindex,follow">
+<link rel="canonical" href="{turl}">
+<meta http-equiv="refresh" content="0;url={turl}">
+<meta property="og:type" content="website">
+<meta property="og:title" content="{name} - now in the {esc(COLLECTIONS[ckey]['short'])} collection">
+<meta property="og:description" content="{name} is no longer listed on its own page. Browse the current {esc(COLLECTIONS[ckey]['name'])}.">
+<meta property="og:image" content="{abs_url(COLLECTIONS[ckey]['hero'])}">
+<meta property="og:url" content="{turl}">
+<meta property="og:site_name" content="{esc(BRAND)}">
+<meta name="twitter:card" content="summary_large_image">
+<meta name="twitter:title" content="{name} - now in the {esc(COLLECTIONS[ckey]['short'])} collection">
+<meta name="twitter:image" content="{abs_url(COLLECTIONS[ckey]['hero'])}">
+<link rel="icon" href="/img/favicon.svg" type="image/svg+xml">
+<link rel="stylesheet" href="/assets/style.css?v={STYLE_VERSION}">
+<script>location.replace({json.dumps(turl)});</script>
+</head><body>
+<main data-gl-redirect="{target}"><section><div class="wrap center" style="padding:70px 0">
+<h1>This design moved</h1>
+<p class="muted" style="max-width:60ch;margin:0 auto 22px"><strong>{name}</strong> is no longer
+sold on its own page. Taking you to the {esc(COLLECTIONS[ckey]['name'])} &mdash; the current
+{esc(COLLECTIONS[ckey]['short'])} designs.</p>
+<div class="btnrow" style="justify-content:center">
+<a class="btn" href="{target}">Go to {esc(COLLECTIONS[ckey]['short'])} designs</a>
+<a class="btn ghost" href="/collections/">All collections</a></div>
+<p class="muted small" style="margin-top:26px">Not redirected automatically?
+<a href="{target}">Continue to {esc(tname)}</a>.</p>
+</div></section></main>
+</body></html>"""
+        write(f"shop/{slug}/index.html", doc)
+        lines.append(f"/shop/{slug}/ {target} 301")
+    # Netlify / Cloudflare Pages read this and answer with a real 301, which
+    # is strictly better than a client-side redirect; GitHub Pages ignores it.
+    write("_redirects", "# Retired / migrated product URLs -> closest active page.\n"
+                        "# Honoured as a true 301 by Netlify and Cloudflare Pages;\n"
+                        "# GitHub Pages ignores this file and serves the noindex\n"
+                        "# canonical stubs built at the same paths instead.\n"
+          + "\n".join(lines) + "\n")
+    return len(lines)
 
 
 def assets():
@@ -3474,7 +3690,7 @@ Sitemap: {DOMAIN}/sitemap-images.xml
 
 > {CFG['tagline']} - independent, fan-made football apparel (graphic tees, hoodies,
 > crewnecks, beanies, mugs) for Cleveland Browns, Green Bay Packers, Dallas Cowboys
-> and Michigan Wolverines fans. Print-on-demand, sizes S-3XL, worldwide shipping.
+> and Michigan Wolverines fans. Print-on-demand, sizes {SIZE_RANGE}, no warehouse stock.
 > Fan-made and independent; not affiliated with any team, league or university.
 
 ## Collections
@@ -4216,6 +4432,17 @@ def relativise():
             if not f.endswith(".html"):
                 continue
             fp = os.path.join(base, f)
+            # 404.html is the one page whose served URL depth is unknown: the
+            # host returns it for ANY missing path, at any depth. Relative
+            # hrefs there resolve against the missing URL, not against the
+            # file - so a relativised 404 links to
+            # /shop/<dead-slug>/collections/ and loads
+            # /shop/<dead-slug>/img/... , i.e. every link and image on the
+            # page 404s (verified live on gridironlocker.store). It keeps
+            # root-absolute URLs, which are correct at every depth on the
+            # custom domain in src/config.json.
+            if os.path.relpath(fp, SITE).replace(os.sep, "/") == "404.html":
+                continue
             rel_dir = os.path.dirname(os.path.relpath(fp, SITE))
             depth = 0 if rel_dir in ("", ".") else len(rel_dir.split(os.sep))
             prefix = "./" if depth == 0 else "../" * depth
@@ -4296,6 +4523,22 @@ def sync_ops():
     except Exception as e:
         print("ops/hq generation failed, keeping existing files:", e)
         return
+    # The operator board reads len(build.ALL) but was only ever run by hand,
+    # so site/ops/board/ published a stale design count (129) next to a
+    # storefront built from 81. Regenerating it on every build makes it read
+    # from the same catalogue as everything else.
+    # Loaded by file path under a unique module name: ops/board/build.py
+    # shares its basename with THIS file, and a plain import of "build" would
+    # return the already-imported site builder instead of the board.
+    try:
+        import importlib.util
+        _bspec = importlib.util.spec_from_file_location(
+            "gl_ops_board", os.path.join(ROOT, "ops", "board", "build.py"))
+        _bmod = importlib.util.module_from_spec(_bspec)
+        _bspec.loader.exec_module(_bmod)
+        _bmod.main()
+    except Exception as e:
+        print("ops/board generation failed, keeping existing files:", e)
     o_dir = os.path.join(ROOT, "ops")
     s_o_dir = os.path.join(SITE, "ops")
     if not os.path.exists(o_dir):
@@ -4324,6 +4567,7 @@ def main():
     page_drops()
     page_static()
     page_404()
+    nr = page_redirects()
     assets()
     write(".nojekyll", "")
     sync_marketing()
@@ -4331,6 +4575,10 @@ def main():
     n = relativise()
     print(f"homepage team order (next kickoff first): {', '.join(HOMEPAGE_ORDER)}")
     print(f"relative-linked {n} pages for GitHub Pages / offline")
+    print(f"redirect stubs: {nr} retired product URLs -> closest active page")
+    print(f"catalogue: {N_DESIGNS} designs across {N_COLLECTIONS} collections, "
+          f"sizes {SIZE_RANGE}, Mayzing {sum(1 for i in ALL if i['partner'] == 'Mayzing')} / "
+          f"Viralstyle {sum(1 for i in ALL if i['partner'] == 'Viralstyle')}")
     print(f"built {len(ALL)} products, {len(ORDER)} collections, {len(URLS)} urls")
 
 
