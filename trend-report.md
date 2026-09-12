@@ -9,36 +9,36 @@ FTI = `round(100 * entity_mentions / peak_mentions_in_window)`. Peak mentions in
 | Rank | Name | Collection | Mentions | FTI | Status | Shop |
 |---|---|---|---|---|---|---|
 | 1 | deshaun watson | cleveland-browns | 20 | 100 | trending | gap — no design |
-| 2 | bryce underwood | michigan | 19 | 95 | trending | in locker |
-| 3 | josh jacobs | green-bay-packers | 16 | 80 | trending | gap — no design |
-| 4 | kyle whittingham | michigan | 6 | 30 | trending | gap — no design |
-| 5 | todd monken | cleveland-browns | 6 | 30 | trending | gap — no design |
+| 2 | josh jacobs | green-bay-packers | 18 | 90 | trending | gap — no design |
+| 3 | bryce underwood | michigan | 14 | 70 | trending | in locker |
+| 4 | todd monken | cleveland-browns | 8 | 40 | trending | gap — no design |
+| 5 | kyle whittingham | michigan | 7 | 35 | trending | gap — no design |
 | 6 | dak prescott | dallas-cowboys | 4 | 20 | trending | gap — no design |
 | 7 | myles garrett | cleveland-browns | 4 | 20 | trending | in locker |
 | 8 | shedeur sanders | cleveland-browns | 4 | 20 | trending | in locker |
 | 9 | ceedee lamb | dallas-cowboys | 2 | 10 | steady | — |
-| 10 | matt lafleur | green-bay-packers | 2 | 10 | steady | — |
-| 11 | micah parsons | green-bay-packers | 2 | 10 | steady | in locker |
-| 12 | denzel ward | cleveland-browns | 1 | 5 | steady | in locker |
-| 13 | jordan love | green-bay-packers | 1 | 5 | steady | in locker |
-| 14 | jj mccarthy | michigan | 0 | 0 | quiet | in locker |
-| 15 | joe flacco | cleveland-browns | 0 | 0 | quiet | in locker |
-| 16 | jordan marshall | michigan | 0 | 0 | quiet | — |
-| 17 | kevin stefanski | cleveland-browns | 0 | 0 | quiet | in locker |
+| 10 | micah parsons | green-bay-packers | 2 | 10 | steady | in locker |
+| 11 | denzel ward | cleveland-browns | 1 | 5 | steady | in locker |
+| 12 | jordan love | green-bay-packers | 1 | 5 | steady | in locker |
+| 13 | jj mccarthy | michigan | 0 | 0 | quiet | in locker |
+| 14 | joe flacco | cleveland-browns | 0 | 0 | quiet | in locker |
+| 15 | jordan marshall | michigan | 0 | 0 | quiet | — |
+| 16 | kevin stefanski | cleveland-browns | 0 | 0 | quiet | in locker |
+| 17 | matt lafleur | green-bay-packers | 0 | 0 | quiet | — |
 | 18 | robert tonyan | green-bay-packers | 0 | 0 | quiet | in locker |
 
 ## Live player moments
 
 - **todd monken** — [Todd Monken names captains for Week 1 vs. Jaguars](https://news.google.com/rss/articles/CBMijgFBVV95cUxNTkVjOUZRTGRMNXFtRUdMZnFHSVViVkVKYVRJUGhoamVZUmhrektrZ2RwMllsck5UbmlLMDUyMlZ0N1FiejZYNEVCTTlqSGJydzVrYzk5eEkxQkVSYkN1WVcxY0steTh5bUJNU0hjUEhhamV2dlVZd2lHUWpDa2VSbkZGdFR2VGRwTnhpdkN3?oc=5) — Cleveland Browns
 - **shedeur sanders** — [Browns legend states what Shedeur Sanders needs to fix](https://news.google.com/rss/articles/CBMipAFBVV95cUxNUm9iS25XWExiTnhzZmZlOHpDSkpkSXBEaEhzUEpvUThNdVI3UTB2dGxGXzhDaGtpaUdGMGdlR2c2SWlNek5oQ1U0bEVrekFHX2tuQlFjT2FpM0J1dlFwYmpJcG1LUFJwXzZWbjU3RUxkOVloaG11WXg0RzNIQUlMT1FYT3ZuVzRfb3dKT2JoTE10MnpzNUFkYkpFWmhpQjQxTm9TOQ?oc=5) — Dawgs By Nature
-- **bryce underwood** — [Michigan football eve: Final thoughts on Underwood, the defense, transfers](https://news.google.com/rss/articles/CBMixAFBVV95cUxNaUJXc0FYUFRkRnZPd1p3a3l5WklHamJsVXZQOHY4N0JKWWFPNHo4MllLMEJyS3ZXOFZtdG5Gb1N4ODBra2ZjRHYwTWxSeTJ4NDVqbzE1UzJrYVBfT0I0VFJQMzY1Vjh5ZHlBWHE1Y0NoUGl6dzQtRlA4Q1p1bHE5VnVyMkNheFhSSGF0Z3FZU3l5ZHhFUVRJUHlDVjgzUFhQakVXdXNsX0tab2FEOGNHRDd6enJ2czhXX0xSRWdoMnBydXgz0gHYAUFVX3lxTE1JYXhWOGs1S01KckpLUXRoVTJlM3JWem9McGw5d0RzSlBKNjhzVVJMSDROU1MzRFVtY2V3NEwwRXVxaVgxWmoyVmhWd1FUZmZCa2J2NUtZVm16Z1JrYzZ2MTZmdEstM25HMWxrLUdSaWR2NExLUTY2MS1iQ05pQW1VRkpoTEpqOHhLSG1MclFNZFJxQmhxN1ZxYWx5Z3F5SEYyZ09fUDZhY191WHhuNmktd3ZOSExpaEhWSmdTYzdvZjJUVjJiUDM1ODY0czJjcmRBYnZWbEhBUw?oc=5) — MLive.com
+- **josh jacobs** — [Packers RB Josh Jacobs pleads no contest to misdemeanor charges](https://news.google.com/rss/articles/CBMiqAFBVV95cUxQZXgwZzVobk5fVWoyZlJoOWZMVFdJRjVTWk1ZNzVXMUJvNlR6aE5ucC01dTVZRHp0cU85Q21OVDRuNmpZTXFwMGVkZ0RxNlo4SlhwRUhrZElvNFNabzc5U3BLcWZQdVAxa2hndEpRcWZYUnlVVFhJdkpsc0hJU1hMYXRBa3hGT0MwSHBxa29KNUlqNE1wVmNkTTlaUm1TUDBNMnRxMmJ5ZzU?oc=5) — ESPN
 
 ## Cleveland Browns Fan Shirts
 
 | Name | Headline mentions | Status | FTI |
 |---|---|---|---|
 | deshaun watson | 20 | TRENDING | 100 |
-| todd monken | 6 | TRENDING | 30 |
+| todd monken | 8 | TRENDING | 40 |
 | shedeur sanders | 4 | TRENDING | 20 |
 | myles garrett | 4 | TRENDING | 20 |
 | denzel ward | 1 | steady | 5 |
@@ -62,20 +62,23 @@ Recent headlines:
 
 | Name | Headline mentions | Status | FTI |
 |---|---|---|---|
-| josh jacobs | 16 | TRENDING | 80 |
+| josh jacobs | 18 | TRENDING | 90 |
 | micah parsons | 2 | steady | 10 |
-| matt lafleur | 2 | steady | 10 |
 | jordan love | 1 | steady | 5 |
 | robert tonyan | 0 | quiet - throwback | 0 |
+| matt lafleur | 0 | quiet - throwback | 0 |
 
 **Product gap:** trending with no design in the catalogue - **josh jacobs**
+
+Live player moments:
+- **josh jacobs** — [Packers RB Josh Jacobs pleads no contest to misdemeanor charges](https://news.google.com/rss/articles/CBMiqAFBVV95cUxQZXgwZzVobk5fVWoyZlJoOWZMVFdJRjVTWk1ZNzVXMUJvNlR6aE5ucC01dTVZRHp0cU85Q21OVDRuNmpZTXFwMGVkZ0RxNlo4SlhwRUhrZElvNFNabzc5U3BLcWZQdVAxa2hndEpRcWZYUnlVVFhJdkpsc0hJU1hMYXRBa3hGT0MwSHBxa29KNUlqNE1wVmNkTTlaUm1TUDBNMnRxMmJ5ZzU?oc=5) - ESPN
 
 Recent headlines:
 - [Packers announce game themes for 2026 season](https://news.google.com/rss/articles/CBMifkFVX3lxTFBCelRzU2RFc0RjVmUxdVJmSnRvN2Z5UktHMllibkxYcFVMS2xuNV96WWpzXy1JM21jaWZZTmxQTHQ5Q19ZcjQ3RVZicU9na3hZZXk1aHBBdGRqclBrRm1xRXBMTnRwYkpxbEJyeVpfbGtJcGlLRnNJLTJvTDBhQQ?oc=5) - Green Bay Packers
 - [Me, my mom and our Green Bay Packers](https://news.google.com/rss/articles/CBMifEFVX3lxTE5OdXhrb3M5d3lUdUc2cGlQQ3oxN000STBwajNiOHpydHAzbmxQemc2NFVlNUFNU04zV2t0XzN6eGJUMEx5NmZmX3BfUjY0OG4zUEJUN2Y0cm9DSDJ6NDdYbjUxVTI2TTFnZWJkRUtHb2RSZ3VQampiN3BkWmQ?oc=5) - Milwaukee Neighborhood News Service
-- [Green Bay Packers News: Packers face real test in Week 1](https://news.google.com/rss/articles/CBMiwAFBVV95cUxOZWtoSDd2YWhaLThTcm9yenFRU3hDdmltNDhrOFNSSzRlSmd4OFZCNlptRExkUjdTVlJ0blJONTFWbmc4NWpRVHJFR1FVekJQbjd6dmROM080MFlDZU1WYldFVEEzX05Xa1VWS2JYc2daN2tnck5fZ3k1WF9JUVl1R0x6d1JuazVtRjZkbmt5aFByTDJRTjZnZVNLZFRQV0NzbGpYams4MHJZX3BOeW5WYzlSTmdnaTRKSTB5eVRUZkk?oc=5) - Acme Packing Company
 - [Packers release WR Bo Melton and sign him to practice squad](https://news.google.com/rss/articles/CBMiogFBVV95cUxOQk5LU3JFNWFoS3AtWE5SQURXT0ltbkhlRVYyUllGNG54M2hEVmdEdkI5YTdpMjBSeFVwTkVfcFpjaEJ4YlZhNzMwQ1NOcklaTGNuWlhOZS14QTJDY2NUb1JjZzYxaS1ub3BIVTNxNnh0b21KbzJWUzJTdm5pbm9tM2VTSHRscDhoaTB0X3hzdkMtbE9MaEVLR25yZ0wtTFAzdFE?oc=5) - WLUK
 - [Packers Make Sudden U-Turn on Former Seahawks WR After Release](https://news.google.com/rss/articles/CBMigwFBVV95cUxOSldNUGpZNi1VaUY3aG5POEladHFfOXVQYmZITUtQNDZvSUh2YW9EX0t2bTNGOTg0OEpPOFdVUWNEaG5LME1xeWY4NEEzOUdsd1hlMlF2Yk5BbUlWLVFReVI3Tmdib01YRjh1cHVVMlFrNmg0aHpvUndhbTZ3TGRfdnY0aw?oc=5) - Yahoo Sports
+- [Packers got help from long-time OL coach Harry Hiestand in camp](https://news.google.com/rss/articles/CBMiywFBVV95cUxPUlhNQU1EekhMSzc3NTZ5cFhTNlU5SURKVHAzMGRyclRBTDdhQ0xXVXZMYUNSM1F4WnpwMVVRSmh4QW9kMW0tOW94bjR2U1JSS3ZPV2xpaXRwX284SDd6THlhVDFsUU1lbUZSOFNwQ3NSbk1hcnVIeFFMOGMzbFFJR1Bpb1NrN0l1MnhTTUtLY3daWEl3eXVwMFNGLWxyMFlmSlA4VUhVSkMxQTBiLVdCNDNHY3hSbGQ0cDVMVWdFWFFvMTIxN1FPSlZZVQ?oc=5) - Acme Packing Company
 
 ## Dallas Vintage Sports Tees
 
@@ -87,29 +90,26 @@ Recent headlines:
 **Product gap:** trending with no design in the catalogue - **dak prescott**
 
 Recent headlines:
-- [Transactions: Cowboys make 3 OL moves](https://news.google.com/rss/articles/CBMiiwFBVV95cUxNNEJROXNIZmJLczR0MFMxZTNRRXl0UTlhN0ZtVERDcWh6NV9lOFROM1VhSDJoQ3NLSjFGZ2dEYS02QkgwSjNybXBOOTI4Y2VVd3VrVU1nUGJEX0NOaHVIbnd4RnMycjVkcEl6ZWhfXzJfS2JCTENvZUpDNll3R0pqOExEdVBvTGRrXy1B?oc=5) - Dallas Cowboys
+- [Mailbag: Will new culture be on full display now?](https://news.google.com/rss/articles/CBMiigFBVV95cUxPdzRiMUhDTEpIVFY5MUl1ejBLUTVKZVotWHR3eFhZR0JuMTZtemw4WE1pRnp6UTdJZ1o1OC0xb1RnTUp3NS04cjlBeEYxZ0RoWjN5NkZtdC1rX0J2V2NrTnlTdUc5ZzhYeDBONU0zQ0h6NjlOV0I0ZktvRlhEdUdXeXNacVhFdEx6LVE?oc=5) - Dallas Cowboys
 - [Dallas Cowboys add former Pro Bowl offensive lineman to practice squad](https://news.google.com/rss/articles/CBMi1wFBVV95cUxQVC0xY2NsYTVBWXdUU0V2alJkNll4dGN0LXNHU0J0THlXY1Y0cy1aOWRxVHdiOVNHTVhLZU9wVlpPdkFKSzVOandBSzllek41TnozbEhNSVlHTXNzS0tvRHQ3VnlfS3dUYTEyZWdRS0Y1MTFGQlp5VVlvN3A0M3hlMDBhbzlLaFBHdXVjSktla3AydFJ0QUQtUkhWd1NjaGdNRVFVUW9yVnEyd3dSRVEzLWRKU2hjUU5fUWJST1VqbVNnUmNVX3RzUEQ4dU9MaHM1S3k3c0c3cw?oc=5) - El Paso Times
 - [Injury Report: Statuses for Giants vs. Cowboys on Sunday Night Football](https://news.google.com/rss/articles/CBMirwFBVV95cUxQaGRCWm5MZzktXzFFd2M0UFQxOXA0VzJBV1pfNUd1WTZ0T0wxUzFSbnBJMVVZMXF0OFdlaGJDcVk2NjVjYWZlN0dEYzRKVzNLVVlZOFotSmJlWWhmMUlDMW95ZGI1T21HVWx6ck9TNFpLVHJuRHJrSUp0a09OYnNXQ1hLVmdRUlh4eWNrNEg4Yk5UWkZqOFBFdWU1TnZKYjFvM2psT0NWSjV3X240V000?oc=5) - Giants.com
-- [Mailbag: Will new culture be on full display now?](https://news.google.com/rss/articles/CBMiigFBVV95cUxPdzRiMUhDTEpIVFY5MUl1ejBLUTVKZVotWHR3eFhZR0JuMTZtemw4WE1pRnp6UTdJZ1o1OC0xb1RnTUp3NS04cjlBeEYxZ0RoWjN5NkZtdC1rX0J2V2NrTnlTdUc5ZzhYeDBONU0zQ0h6NjlOV0I0ZktvRlhEdUdXeXNacVhFdEx6LVE?oc=5) - Dallas Cowboys
 - [Von Miller on looming debut for the Cowboys: 'My smile is back'](https://news.google.com/rss/articles/CBMimwFBVV95cUxOcGY0OHRiSVpzenJzUGR1Ym94UTF6LXVkeG45UXBYcnhkazFEWkluOE1zMEJQWmtKcFpSR3ZNS0lLY0xwVFdMbVlva2ZNRXp1ZVktYmlJY3locEIwb2tvcHMzaWlrSTBpa3gxUUVjOWp1X3Bzc1BDNks0X19KYk1BTk9oSWVQSE9hbU9IQzlZRTZGTzBpX29EaVNGYw?oc=5) - Dallas Cowboys
+- [Giants vs. Cowboys: How to Watch, Listen & Live Stream Week 1](https://news.google.com/rss/articles/CBMilAFBVV95cUxORzNEdUVuOURwYUM1WEo4SGdMbUhrTURxM0E5VzBBQmhiNHMwc0FtRjdYSmFWaUhiUTVDYW9oakotVmpsbm40cWpDdnlYY1g3N0luM2p6Uk5JVlNNNDBpNlFKUVM5ZnIyNkkxTUlIWlB1WlMzM2FoSDZ5ZWJJZnVHdmNXNGRocS03Qy1NUFdVc3lkekRT?oc=5) - Giants.com
 
 ## Michigan Go Blue Apparel
 
 | Name | Headline mentions | Status | FTI |
 |---|---|---|---|
-| bryce underwood | 19 | TRENDING | 95 |
-| kyle whittingham | 6 | TRENDING | 30 |
+| bryce underwood | 14 | TRENDING | 70 |
+| kyle whittingham | 7 | TRENDING | 35 |
 | jj mccarthy | 0 | quiet - throwback | 0 |
 | jordan marshall | 0 | quiet - throwback | 0 |
 
 **Product gap:** trending with no design in the catalogue - **kyle whittingham**
 
-Live player moments:
-- **bryce underwood** — [Michigan football eve: Final thoughts on Underwood, the defense, transfers](https://news.google.com/rss/articles/CBMixAFBVV95cUxNaUJXc0FYUFRkRnZPd1p3a3l5WklHamJsVXZQOHY4N0JKWWFPNHo4MllLMEJyS3ZXOFZtdG5Gb1N4ODBra2ZjRHYwTWxSeTJ4NDVqbzE1UzJrYVBfT0I0VFJQMzY1Vjh5ZHlBWHE1Y0NoUGl6dzQtRlA4Q1p1bHE5VnVyMkNheFhSSGF0Z3FZU3l5ZHhFUVRJUHlDVjgzUFhQakVXdXNsX0tab2FEOGNHRDd6enJ2czhXX0xSRWdoMnBydXgz0gHYAUFVX3lxTE1JYXhWOGs1S01KckpLUXRoVTJlM3JWem9McGw5d0RzSlBKNjhzVVJMSDROU1MzRFVtY2V3NEwwRXVxaVgxWmoyVmhWd1FUZmZCa2J2NUtZVm16Z1JrYzZ2MTZmdEstM25HMWxrLUdSaWR2NExLUTY2MS1iQ05pQW1VRkpoTEpqOHhLSG1MclFNZFJxQmhxN1ZxYWx5Z3F5SEYyZ09fUDZhY191WHhuNmktd3ZOSExpaEhWSmdTYzdvZjJUVjJiUDM1ODY0czJjcmRBYnZWbEhBUw?oc=5) - MLive.com
-
 Recent headlines:
-- [Michigan football eve: Final thoughts on Underwood, the defense, transfers](https://news.google.com/rss/articles/CBMixAFBVV95cUxNaUJXc0FYUFRkRnZPd1p3a3l5WklHamJsVXZQOHY4N0JKWWFPNHo4MllLMEJyS3ZXOFZtdG5Gb1N4ODBra2ZjRHYwTWxSeTJ4NDVqbzE1UzJrYVBfT0I0VFJQMzY1Vjh5ZHlBWHE1Y0NoUGl6dzQtRlA4Q1p1bHE5VnVyMkNheFhSSGF0Z3FZU3l5ZHhFUVRJUHlDVjgzUFhQakVXdXNsX0tab2FEOGNHRDd6enJ2czhXX0xSRWdoMnBydXgz0gHYAUFVX3lxTE1JYXhWOGs1S01KckpLUXRoVTJlM3JWem9McGw5d0RzSlBKNjhzVVJMSDROU1MzRFVtY2V3NEwwRXVxaVgxWmoyVmhWd1FUZmZCa2J2NUtZVm16Z1JrYzZ2MTZmdEstM25HMWxrLUdSaWR2NExLUTY2MS1iQ05pQW1VRkpoTEpqOHhLSG1MclFNZFJxQmhxN1ZxYWx5Z3F5SEYyZ09fUDZhY191WHhuNmktd3ZOSExpaEhWSmdTYzdvZjJUVjJiUDM1ODY0czJjcmRBYnZWbEhBUw?oc=5) - MLive.com
-- [Michigan Football's Hail Mary Win vs. WMU Drops Wolverines in AP Top 25](https://news.google.com/rss/articles/CBMiswFBVV95cUxNd2hnV1JicE9wR0xHdUVkV2NINTlnakVfQVo2VksxUEUzWmc5WjVDUWNaZVUwcGV0X0dTZmlYSWxucGg3Z19EeU8zX1NxcG5sdFBVTThTTG1MR3FjZE9OQ1lnX2w3czZlOUZLdnd2QkRyQjZKZkZsbGQ3V2V4Mk1UeUdXQXpnNW96NEtqMHVuSDhkOUV3TUtwUTFWN0pRTUREZmxFSkJiQzhEMDlhQXJCbDB2UQ?oc=5) - Sports Illustrated
-- [Football Opens 2026 Season at No. 16 Michigan](https://news.google.com/rss/articles/CBMijwFBVV95cUxNZGtsbHRyQ1lRSFBaek1LOFBZWlJmeVFZU2tsOWlCZjVVNDFCV3ZKYUNyMDk3ekNvX2xUbHllY0h3QTk3U1hqS0ZWYTFXTXlpblBiRWRNWTROLU9sMjlGRXZwcHM3THNDdGNsWkhSVy00akt1bzZRUXdObjJUNzk3U3c1QjQycFBaa3F1dzJaOA?oc=5) - Western Michigan University Athletics
-- [How to Watch: Michigan Football vs Oklahoma, other top games of Week 2](https://news.google.com/rss/articles/CBMi5AFBVV95cUxOdzRJdnI2ZmdtcXBJUmFXSHFJVW9jSDRuOU9JdDlsYnVKSDRKdXAwMTd2YmZkeWw1T0tPNHhHUDRhd1g1WHg0VGdSMFAxV01hRlpVcGJQOUlLSDNtWGRPWjY4bDJZWURTeVQ3V3poOTlIS3lDZVhPeUc0MEtPemt0YTUtdllhNGVzY3ZlUVk2LWtkcDR6OVR2eXVrcTNRbjJHVzJxVXdGQ1o5bGd5SkktTUdlY2hzZjhQeTVfYUx2bkFqWmlYTk90TmxHRUFFcnM2SnkzZ0tmZkQ1QnVja0QwMHh2emU?oc=5) - Maize n Brew
+- [Michigan 13-12 Western Michigan (Sep 5, 2026) Game Recap](https://news.google.com/rss/articles/CBMibEFVX3lxTE96TERNb2V1VjRiTC1LX2owT2VISjc0TS1HcTk5QTFaTzJUOFJacm9UcER0ZldwSFFfWlRhQlM3UjFZRjRMTE40N2RUeWFhbWU4ODREZ3BwLW5wamp0eU12MGJJWW55TS1zcERidQ?oc=5) - ESPN
 - [How to Watch Sooners vs. Wolverines: TV Channel, Live Stream, Time](https://news.google.com/rss/articles/CBMi1AFBVV95cUxOTUV2anA1OEs2TTg0Nm9zNzJJdXAzc0FMbXZXV1E4RUxEVk14bVFTRjRxLW1LMm11U3BQMWt3OGVFbXlUSmNJVjZZcEx3bUFXVnNnNWh0aDEtWWNtSkZ4NmhkMmthSnQtaHhiQUZHc0RRR2FTR28wSWtrbFhnQzRIZHBQNUx2QWZvejV1anZ0YWZIS3l2SE1Qc3NlalZERl9nUjBxWEZ1dkFNV2o4YXJBSEdPN3NDTFVpT1dId2IxRFNyNEJCZ2Z1bFlmLTVJWVdlbmJSaA?oc=5) - foxsports.com
+- [4 Stats We Cannot Ignore From Michigan Football's Major Win vs. Oklahoma](https://news.google.com/rss/articles/CBMitAFBVV95cUxPcHk2a0J5M3VmM3V6a3hMTFBmZE1kNzV5c2NReGc1eVhEWTdBR3hwblZfZ1NxeGZwWHFjc0d2eFd5aDVVT2FzRlpyRVNzSDhTeXNyNEZqNmtTVG1vR0Q5emlsSkJWeDlVUk1RNThIYW5IS2NUa21SbUpuRkpjX0paMWJnMjRoRXRYZXlON2FaV1dvbDZZRmRiczdnNURRaFJwenc0a0toNWdVQThGT1Y5WGtxTWU?oc=5) - Sports Illustrated
+- [How to Watch: Michigan Football vs Oklahoma, other top games of Week 2](https://news.google.com/rss/articles/CBMi5AFBVV95cUxOdzRJdnI2ZmdtcXBJUmFXSHFJVW9jSDRuOU9JdDlsYnVKSDRKdXAwMTd2YmZkeWw1T0tPNHhHUDRhd1g1WHg0VGdSMFAxV01hRlpVcGJQOUlLSDNtWGRPWjY4bDJZWURTeVQ3V3poOTlIS3lDZVhPeUc0MEtPemt0YTUtdllhNGVzY3ZlUVk2LWtkcDR6OVR2eXVrcTNRbjJHVzJxVXdGQ1o5bGd5SkktTUdlY2hzZjhQeTVfYUx2bkFqWmlYTk90TmxHRUFFcnM2SnkzZ0tmZkQ1QnVja0QwMHh2emU?oc=5) - Maize n Brew
+- [Where to watch Michigan-Oklahoma football game? Time, channel, streaming, schedules](https://news.google.com/rss/articles/CBMikAFBVV95cUxQeXQ3OWY3aWhNZUhaNUhmVUdTS3pjMkhsMEloY0x3VDhXeTBSOHVfQV9ZaGR5c1pSUHJkRUFvb1pNZjh6NVM0X3ZNSFZEbENMTFl5TEdCUEtGVUxnTDNBeTNFQmpVMUdPbVg0ZzBrc3pFeEVIdnYwZmVUNS1XR0hRR3NNWG5MU081aS1ScGlYejU?oc=5) - Yahoo Sports
