@@ -196,5 +196,23 @@ CATALOG = {
 "limited-edition-m-fans-n26": dict(name="Michigan Bet Block Sweatshirt", art="MICHIGAN BET block lettering", kw=["michigan bet crewneck","go blue shirt","michigan navy sweatshirt"], theme="classic"),
 "limited-edition-victory": dict(name="Victory Sunday Michigan Helmet Sweatshirt", art="VICTORY SUNDAY with winged helmet", kw=["michigan helmet sweatshirt","victory sunday shirt","go blue crewneck"], theme="classic"),
 "limited-edition-m-fans": dict(name="Michigan Vs Everybody Navy Sweatshirt", art="MICHIGAN -VS- EVERYBODY with M logo", kw=["michigan vs everybody sweatshirt","go blue navy crewneck","michigan football shirt"], theme="classic"),
+# ---------------- CLEVELAND / MAYZING REBUILD ----------------
+# The 2026-09-12 Mayzing rebuild: names are the Mayzing product titles used
+# verbatim (several read like drafts - 'Be Awar of Dawg', 'Browns Cle',
+# 'DWAG', 'Let's Go Cle Copy', 'Ohio Cle'). Renaming should happen in Mayzing
+# admin so the storefront and this site agree; these entries then follow.
+"be-awar-of-dawg": dict(name="Be Awar of Dawg", art="BE AWAR OF DAWG", kw=["beware of dawg shirt","cleveland dawg shirt","browns bulldog tee","dawg pound shirt","funny browns shirt","cleveland football gift"], theme="funny", type="T-Shirt"),
+"cleveland-1946": dict(name="Cleveland 1946", art="CLEVELAND 1946", kw=["cleveland 1946 shirt","browns est 1946 tee","vintage cleveland shirt","cleveland football shirt","dawg pound apparel"], theme="retro", type="T-Shirt"),
+"cle-browns-dawg": dict(name="Cle Browns Dawg", art="CLE BROWNS DAWG", kw=["cle browns dawg shirt","cleveland browns dawg tee","dawg pound shirt","cleveland football t shirt"], theme="classic", type="T-Shirt"),
+"no-fly-zone": dict(name="No Fly Zone", art="NO FLY ZONE", kw=["no fly zone shirt","browns defense shirt","cleveland football tee","dawg pound shirt","browns secondary tee"], theme="classic", type="T-Shirt"),
+"cleveland": dict(name="Cleveland", art="CLEVELAND", kw=["cleveland shirt","cleveland ohio tee","cleveland football shirt","plain cleveland t shirt","cleveland gift"], theme="city", type="T-Shirt"),
+"dawg-life": dict(name="Dawg Life", art="DAWG LIFE", kw=["dawg life shirt","dawg pound tee","cleveland browns shirt","cleveland football apparel"], theme="classic", type="T-Shirt"),
+"make-them-know-your-name": dict(name="Make Them Know Your Name", art="MAKE THEM KNOW YOUR NAME", kw=["make them know your name shirt","denzel washington browns shirt","cleveland browns tee","dawg pound quote shirt"], theme="player", type="T-Shirt"),
+"browns-cle": dict(name="Browns Cle", art="BROWNS CLE", kw=["browns cle shirt","cleveland browns tee","browns football shirt","cleveland apparel"], theme="classic", type="T-Shirt"),
+"dwag": dict(name="DWAG", art="DWAG", kw=["dwag shirt","cleveland dawg shirt","funny browns tee","dawg pound shirt"], theme="funny", type="T-Shirt"),
+"lets-go-cle-copy": dict(name="Let's Go Cle Copy", art="LET'S GO CLE", kw=["lets go cle shirt","cleveland chant tee","browns slogan shirt","cleveland football t shirt"], theme="city", type="T-Shirt"),
+"go-browns": dict(name="Go Browns", art="GO BROWNS", kw=["go browns shirt","browns slogan tee","cleveland browns t shirt","cleveland football gift"], theme="classic", type="T-Shirt"),
+"playoffs": dict(name="Playoffs", art="PLAYOFFS", kw=["browns playoffs shirt","cleveland playoff tee","dawg pound playoff shirt"], theme="playoff", type="T-Shirt"),
+"ohio-cle": dict(name="Ohio Cle", art="OHIO CLE", kw=["ohio cle shirt","ohio cleveland tee","cleveland ohio shirt","ohio football tee"], theme="city", type="T-Shirt"),
 }
 

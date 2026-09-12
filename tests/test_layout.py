@@ -69,6 +69,10 @@ def page(rel):
     return read(os.path.join(SITE, rel))
 
 
+# Mayzing storefront catalogue (Cleveland rebuild): slug -> product record.
+MAYZING = {p["slug"]: p for p in load_json("data/mayzing_products.json")["products"]}
+
+
 def collection_pages():
     return {k: page(f"{COLLECTIONS[k]['slug']}/index.html") for k in ORDER}
 
@@ -199,19 +203,29 @@ class CollectionsIndex(unittest.TestCase):
         except Exception:
             delisted = {}
         for k in ORDER:
-            expected = 0
-            for e in cols[k]["products"]:
-                s = e["slug"]
-                if s in delisted or s not in live:
-                    continue
-                img = live[s].get("img") or {}
-                if any((isinstance(f, str) and f.startswith("/") and os.path.isfile(os.path.join(SITE, f.lstrip("/")))
-                        or (isinstance(f, str) and f.startswith("https://assets.viralstyle.com/")))
-                       for f in img.values()):
-                    expected += 1
+            if k == "cleveland-browns":
+                # Mayzing rebuild: the collection is sourced from
+                # data/mayzing_products.json, not the Viralstyle crawl.
+                expected = len(MAYZING)
+            else:
+                expected = self._crawl_count(cols, live, delisted, k)
             card = re.search(r'<a class="teamcircle[^"]*"[^>]*href="[^"]*%s/"[^>]*>.*?</a>'
                              % COLLECTIONS[k]["slug"], self.html, re.S).group(0)
             self.assertIn(f"{expected} designs", card, k)
+
+    @staticmethod
+    def _crawl_count(cols, live, delisted, k):
+        expected = 0
+        for e in cols[k]["products"]:
+            s = e["slug"]
+            if s in delisted or s not in live:
+                continue
+            img = live[s].get("img") or {}
+            if any((isinstance(f, str) and f.startswith("/") and os.path.isfile(os.path.join(SITE, f.lstrip("/")))
+                    or (isinstance(f, str) and f.startswith("https://assets.viralstyle.com/")))
+                   for f in img.values()):
+                expected += 1
+        return expected
 
 
 class TeamCollectionPages(unittest.TestCase):
@@ -276,7 +290,6 @@ class TeamCollectionPages(unittest.TestCase):
                              html, re.S).group(1)
             self.assertEqual(len(re.findall(r'<article class="card', grid)), n, k)
             self.assertIn('id="q" type="search"', html, k)
-            self.assertIn('data-f="all"', html, k)
             self.assertIn('id="sort"', html, k)
             self.assertIn('id="nores"', html, k)
             self.assertIn("No designs match that search.", html, k)
@@ -421,9 +434,15 @@ class ProductPages(unittest.TestCase):
             self.assertGreaterEqual(len(ctas), 3, slug)      # hero + band + sticky
             for label in ctas:
                 self.assertIn("Shop Now", label, slug)
-            # every CTA points at this product's own Viralstyle campaign
             hrefs = re.findall(r'<a class="btn[^"]*shopnow" href="([^"]+)"', html)
             self.assertTrue(hrefs, slug)
+            if slug in MAYZING:
+                # Cleveland rebuild: every CTA hands off to the product's own
+                # Mayzing checkout URL on gridironlocker.shop.
+                for href in hrefs:
+                    self.assertEqual(href, MAYZING[slug]["checkout_url"], slug)
+                continue
+            # every CTA points at this product's own Viralstyle campaign
             for href in hrefs:
                 self.assertEqual(href, live[slug]["url"], slug)
             # and no other outbound purchase link sneaks onto the page
@@ -432,7 +451,8 @@ class ProductPages(unittest.TestCase):
 
     def test_cta_explains_the_handoff(self):
         for slug, html in self.pages.items():
-            self.assertIn("on the Viralstyle product page", html, slug)
+            partner = "Mayzing" if slug in MAYZING else "Viralstyle"
+            self.assertIn(f"on the {partner} product page", html, slug)
             self.assertIn("Gridiron Locker never takes payment", html, slug)
             self.assertIn("30-day misprint replacement", html, slug)
 
@@ -533,7 +553,8 @@ class ProductPages(unittest.TestCase):
             if len(body) < 2:
                 self.fail(slug)
             section = body[1].split("</section>", 1)[0]
-            self.assertIn("Viralstyle product page", section, slug)
+            partner = "Mayzing" if slug in MAYZING else "Viralstyle"
+            self.assertIn(f"{partner} product page", section, slug)
 
     def test_colour_claims_match_the_campaign_data(self):
         import build  # noqa: E402
@@ -543,6 +564,10 @@ class ProductPages(unittest.TestCase):
             if it["colours"] > 1:
                 self.assertIn(f"{it['colours']} colour variations", html, slug)
                 self.assertIn(f"{it['colours']} colourways", html, slug)
+            elif slug in MAYZING:
+                # A Mayzing product ships in one verified colourway.
+                self.assertIn(f"one colourway: {MAYZING[slug]['colour_name']}", html, slug)
+                self.assertNotIn("colour variations", html, slug)
             else:
                 self.assertIn("Multiple colour options may be available", html, slug)
                 self.assertNotIn("colour variations", html, slug)
@@ -1101,15 +1126,17 @@ class SearchCatalogue(unittest.TestCase):
         self.js = page("assets/app.js")
 
     def test_all_designs_indexed(self):
-        # rendered designs = live feed entries that still have artwork;
+        # rendered designs = catalogue entries that still have artwork;
         # assert a floor so a silent data regression is caught loudly
-        self.assertGreaterEqual(len(re.findall(r'<article class="card', self.html)), 100)
+        # (79 designs after the two deliberate catalogue culls: PR #90 held
+        # 60 Cleveland designs back, the Mayzing rebuild re-listed 13)
+        self.assertGreaterEqual(len(re.findall(r'<article class="card', self.html)), 60)
 
     def test_filter_dimensions_present(self):
         for marker in ('id="q"', 'id="sort"', 'id="price"',
-                       'data-st="player"', 'data-st="funny"',
-                       'data-st="retro"', 'data-st="family"',
-                       'data-team="cleveland-browns"', 'data-f="T-Shirt"'):
+                       '<option value="player">', '<option value="funny">',
+                       '<option value="retro">', '<option value="family">',
+                       'data-team="cleveland-browns"', 'data-type="T-Shirt"'):
             self.assertIn(marker, self.html, marker)
         for opt in ("Under $20", "$20 - $25", "$25 - $30", "$30+"):
             self.assertIn(opt, self.html, opt)
@@ -1136,10 +1163,14 @@ class CatalogueIntegrity(unittest.TestCase):
         live = load_json("data/products_live.json")
         shop = os.path.join(SITE, "shop")
         built = [d for d in os.listdir(shop) if os.path.isfile(os.path.join(shop, d, "index.html"))]
-        self.assertGreaterEqual(len(built), 100)
+        self.assertGreaterEqual(len(built), 60)
         for slug in built:
             html = read(os.path.join(shop, slug, "index.html"))
-            self.assertIn(live[slug]["url"], html, slug)   # Viralstyle checkout link intact
+            if slug in MAYZING:
+                # Cleveland rebuild: Mayzing checkout URL on gridironlocker.shop
+                self.assertIn(MAYZING[slug]["checkout_url"], html, slug)
+            else:
+                self.assertIn(live[slug]["url"], html, slug)   # Viralstyle checkout link intact
 
     def test_no_missing_local_references(self):
         attr = re.compile(r'(?:src|data-src|href|content)="([^"]+)"')
@@ -1268,19 +1299,6 @@ class CanonicalUrls(unittest.TestCase):
         self.assertGreaterEqual(checked, 100)
 
 
-NEW_BROWNS = [
-    "limited-edition-no-fly-zone-denzel",
-    "limited-edition-rock-out-denzel",
-    "limited-edition-the-wall-graham",
-]
-NEW_BROWNS_URLS = {
-    "limited-edition-no-fly-zone-denzel":
-        "https://viralstyle.com/kebystore/limited-edition-no-fly-zone-denzel",
-    "limited-edition-rock-out-denzel":
-        "https://viralstyle.com/kebystore/limited-edition-rock-out-denzel",
-    "limited-edition-the-wall-graham":
-        "https://viralstyle.com/kebystore/limited-edition-the-wall-graham",
-}
 NEW_ZERO_ONE = [
     "limited-edition-0-01-football",
     "limited-edition-0-01-h-a-i-l",
@@ -1300,96 +1318,76 @@ HERO_LOGO_LOCK = {
 }
 
 
-class ThreeNewBrownsProducts(unittest.TestCase):
-    """Regression coverage for the three added Cleveland Browns designs."""
+class MayzingBrownsRebuild(unittest.TestCase):
+    """Regression coverage for the Cleveland/Browns Mayzing rebuild.
+
+    The whole collection is sourced from data/mayzing_products.json - every
+    product live on the Mayzing Browns storefront (gridironlocker.shop/p/browns).
+    The invariants: a Viralstyle re-crawl can never resurrect a Cleveland page,
+    no Cleveland page references Viralstyle or links off gridironlocker.shop,
+    and designs held back (no Mayzing equivalent) stay off the storefront.
+    """
+
+    # The seven Viralstyle-era pages the rebuild deleted (PR #90 destinations).
+    OLD_CLEVELAND_PAGES = [
+        "make-them-know-your-name-denzel-1", "ohio-cleveland-fans",
+        "playoffs-never-giveup", "lets-go-cleveland", "limited-edition-c2",
+        "limited-edition-d-w-a-g", "limited-edition-go-b-r-o-w-n-s",
+    ]
 
     @classmethod
     def setUpClass(cls):
-        cls.products = load_json("data/products.json")
-        cls.live = load_json("data/products_live.json")
         cls.cols = load_json("data/collections.json")
 
-    def test_slugs_in_source_catalogue(self):
-        for slug in NEW_BROWNS:
-            self.assertIn(slug, self.products, slug)
-            self.assertIn(slug, self.live, slug)
-
-    def test_belong_to_cleveland_browns_collection(self):
+    def test_collection_mirrors_the_mayzing_file(self):
         slugs = [p["slug"] for p in self.cols["cleveland-browns"]["products"]]
-        for slug in NEW_BROWNS:
-            self.assertIn(slug, slugs, slug)
-        # The exact count is deliberately not locked: the daily refresh
-        # re-crawls the catalogue, so the size legitimately drifts (85 when
-        # the three designs above were added, 66 at the last refresh). What
-        # must never change is that the three added slugs stay in the
-        # collection (asserted above) and it is still a real catalogue.
-        self.assertGreaterEqual(len(slugs), 60)
+        self.assertEqual(sorted(slugs), sorted(MAYZING),
+                         "collections.json Cleveland entry must mirror mayzing_products.json")
+        self.assertGreaterEqual(len(slugs), 13)
 
-    def test_product_pages_generated_with_checkout_and_images(self):
-        for slug in NEW_BROWNS:
-            fp = os.path.join(SITE, "shop", slug, "index.html")
-            self.assertTrue(os.path.isfile(fp), slug)
-            html = read(fp)
-            self.assertIn(NEW_BROWNS_URLS[slug], html, slug)       # checkout preserved
-            self.assertIn('https://gridironlocker.store/cleveland-browns-shirts/', html, slug)
-            img = self.live[slug].get("img", {})
-            self.assertIn("front", img, slug)
-            for tag, rel in img.items():
-                self.assertTrue(os.path.isfile(os.path.join(SITE, rel.lstrip("/"))),
-                                f"{slug} {rel}")
+    def test_product_pages_with_mayzing_checkout_and_no_viralstyle(self):
+        built = {d for d in os.listdir(os.path.join(SITE, "shop"))
+                 if os.path.isfile(os.path.join(SITE, "shop", d, "index.html"))}
+        for slug in MAYZING:
+            self.assertIn(slug, built, slug)
+            html = read(os.path.join(SITE, "shop", slug, "index.html"))
+            self.assertNotIn("viralstyle", html.lower(), slug)
+            self.assertIn(MAYZING[slug]["checkout_url"], html, slug)
+            hrefs = re.findall(r'<a class="btn[^"]*shopnow" href="([^"]+)"', html)
+            self.assertGreaterEqual(len(hrefs), 3, slug)      # hero + band + sticky
+            for href in hrefs:
+                self.assertTrue(href.startswith("https://gridironlocker.shop/"),
+                                f"{slug}: {href}")
 
-    def test_all_local_product_images_are_valid_webp(self):
-        for slug in NEW_BROWNS:
-            for tag, rel in self.live[slug].get("img", {}).items():
-                self.assertTrue(rel.endswith(".webp"), f"{slug} {rel}")
-                with open(os.path.join(SITE, rel.lstrip("/")), "rb") as fh:
-                    head = fh.read(12)
-                self.assertTrue(head.startswith(b"RIFF") and head[8:12] == b"WEBP",
-                                f"{slug} {rel} is not a WebP")
+    def test_collection_page_lists_exactly_the_mayzing_products(self):
+        html = page(f"{COLLECTIONS['cleveland-browns']['slug']}/index.html")
+        n = re.search(r'"numberOfItems":\s*(\d+)', html)
+        self.assertEqual(int(n.group(1)), len(MAYZING))
+        listed = set(re.findall(r'"url":"https://gridironlocker\.store/shop/([a-z0-9-]+)/"', html))
+        self.assertEqual(listed, set(MAYZING))
+        self.assertNotIn("viralstyle", html.lower())
 
-    def test_no_png_or_jpg_masters_for_new_products(self):
-        imgdir = os.path.join(SITE, "img")
-        for base, _, files in os.walk(imgdir):
-            for f in files:
-                low = f.lower()
-                if any(low.startswith(s) for s in NEW_BROWNS):
-                    self.assertTrue(low.endswith(".webp"), f"{base}/{f}")
-        # product mockups dir must stay WebP-only
-        pdir = os.path.join(imgdir, "p")
+    def test_held_and_retired_cleveland_designs_have_no_pages(self):
+        built = {d for d in os.listdir(os.path.join(SITE, "shop"))
+                 if os.path.isfile(os.path.join(SITE, "shop", d, "index.html"))}
+        for slug in load_json("data/fulfillment.json")["hold"]:
+            self.assertNotIn(slug, built, f"held design {slug} must not have a page")
+        for slug in self.OLD_CLEVELAND_PAGES:
+            self.assertNotIn(slug, built, f"retired design {slug} must not have a page")
+
+    def test_single_variant_story_on_every_mayzing_page(self):
+        """A Mayzing product is ONE style, ONE colourway, one flat price - and
+        the page must say so instead of the crawled-campaign hedging."""
+        for slug, p in MAYZING.items():
+            html = read(os.path.join(SITE, "shop", slug, "index.html"))
+            self.assertIn(f"one colourway: {p['colour_name']}", html, slug)
+            self.assertIn(f"{p['sizes'][0]} to {p['sizes'][-1]}", html, slug)
+            self.assertIn(f"This design is ${p['price_usd']} on Mayzing", html, slug)
+
+    def test_img_p_stays_webp_only(self):
+        pdir = os.path.join(SITE, "img", "p")
         bad = [f for f in os.listdir(pdir) if f.lower().endswith((".png", ".jpg", ".jpeg"))]
         self.assertEqual(bad, [], bad)
-
-    def test_no_countdown_or_delivery_deadline_language_on_new_pages(self):
-        banned = ("Order in", "data-orderby", 'class="uc', "ships in 2",
-                  "Arrives before kickoff", "Wear it for Week 1", "Arrives by Week 1",
-                  "before the opener", "in time for Week 1")
-        for slug in NEW_BROWNS:
-            html = read(os.path.join(SITE, "shop", slug, "index.html"))
-            for term in banned:
-                self.assertNotIn(term, html, f"{slug}: {term}")
-
-    def test_shipping_facts_and_disclaimer_on_new_pages(self):
-        for slug in NEW_BROWNS:
-            html = read(os.path.join(SITE, "shop", slug, "index.html"))
-            self.assertIn("US shipping from $4.95", html, slug)
-            self.assertIn("5-12 business days", html, slug)
-            self.assertIn("independent fan", html.lower(), slug)
-
-    def test_no_missing_local_references_on_new_pages(self):
-        attr = re.compile(r'(?:src|data-src|href|content)="([^"]+)"')
-        for slug in NEW_BROWNS:
-            fp = os.path.join(SITE, "shop", slug, "index.html")
-            for m in attr.finditer(read(fp)):
-                val = m.group(1).strip()
-                if not val.startswith("/") or val.startswith("//"):
-                    continue
-                val = val.split("#")[0].split("?")[0]
-                if val in ("", "/"):
-                    continue
-                cand = os.path.normpath(os.path.join(SITE, val.lstrip("/")))
-                if os.path.isdir(cand):
-                    cand = os.path.join(cand, "index.html")
-                self.assertTrue(os.path.isfile(cand), f"{slug}: {val}")
 
     def test_hero_and_logo_urls_unchanged(self):
         for k, (hero, logo) in HERO_LOGO_LOCK.items():
@@ -1398,6 +1396,7 @@ class ThreeNewBrownsProducts(unittest.TestCase):
         for k in ORDER:
             html = page(f"{COLLECTIONS[k]['slug']}/index.html")
             self.assertIn(COLLECTIONS[k]["hero"].split("?")[0], html, k)
+
 
 
 NEW_ZERO_ONE_NAMES = {

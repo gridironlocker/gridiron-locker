@@ -1,0 +1,246 @@
+{
+ "_doc": "Cleveland/Browns catalogue from the Mayzing storefront (2026-09-12). This file is the source of truth for the whole collection: src/build.py builds the 13 product pages and the collection page from it (mayzing_item()), replacing the Viralstyle crawl for Cleveland. data/collections.json keeps an entry per product for tools that read the catalogue shape, but build.py no longer reads Cleveland products from there - so a Viralstyle re-crawl can never resurrect a Cleveland page. Data captured from gridironlocker.shop/p/browns and each product page (title, price, colour, sizes, mockup URLs, productId). Titles are used verbatim from Mayzing - several look like drafts ('Be Awar of Dawg', 'Browns Cle', 'DWAG', 'Let's Go Cle Copy', 'Ohio Cle'); renaming should happen in Mayzing admin, not here. Mockups are hot-linked from the Mayzing CDN with signature params; run dl.py-style localisation before those signatures can expire.",
+ "store": "https://gridironlocker.shop/p/browns",
+ "store_id": "z2OF",
+ "collectionId": "P19bpeU2x_Ng",
+ "partner": "Mayzing",
+ "currency": "USD",
+ "currency_note": "Storefront collection page quotes $21.00 but some product pages render NOK 209.00 depending on session geo; 209 NOK approximates 21 USD. Price recorded here is the USD collection price. Verify currency for US customers in Mayzing admin.",
+ "captured": "2026-09-12",
+ "products": [
+  {
+   "slug": "be-awar-of-dawg",
+   "name": "Be Awar of Dawg",
+   "garment": "Men's T-Shirt",
+   "blank": "Gildan 5000",
+   "price_usd": "21.00",
+   "colour_code": "GILDAN-DARK_CHOCOLATE",
+   "colour_name": "Dark Chocolate",
+   "sizes": ["S", "M", "L", "XL", "2XL", "3XL", "4XL", "5XL"],
+   "handle": "be-awar-of-dawg",
+   "product_id": "6aa548c6f475ab73b096ff20",
+   "checkout_url": "https://gridironlocker.shop/be-awar-of-dawg?collectionId=P19bpeU2x_Ng&color=GILDAN-DARK_CHOCOLATE&productId=6aa548c6f475ab73b096ff20",
+   "features": "Gildan 5000 midweight 100% cotton, classic fit, double-needle sleeve and bottom hems",
+   "img": {
+    "front": "https://buyer-experience-gateway.mayzing.com/stores/z2OF/mockups/id:mi2vh7vm7224,sig:E7HqmPpZrs7C_s5FF6bsGALkjU4agNO8UuiBgBtxlWQ,c:GILDAN-DARK_CHOCOLATE,s:d3cfca9f-6be4-4751-94da-27ce3751a0ac,d:6aa548c674808ee772df414d,dv:2,cpd:pd2vh7vm720,w:1000/image.png",
+    "back": "https://buyer-experience-gateway.mayzing.com/stores/z2OF/mockups/id:mi2vh7vm7225,sig:GKpZVRIZJISN002O-64hlZRYBHJH9U9PRykUXLVozWI,c:GILDAN-DARK_CHOCOLATE,s:d802579f-ea09-4b75-a37e-2adc9a5bb616,cpd:pd2vh7vm720,w:1000/image.png"
+   }
+  },
+  {
+   "slug": "cleveland-1946",
+   "name": "Cleveland 1946",
+   "garment": "Men's T-Shirt",
+   "blank": "Gildan 5000",
+   "price_usd": "21.00",
+   "colour_code": "GILDAN-ASH_GREY",
+   "colour_name": "Ash Grey",
+   "sizes": ["S", "M", "L", "XL", "2XL", "3XL", "4XL", "5XL"],
+   "handle": "cleveland-1946",
+   "product_id": "6aa54591ec52fa428dbc1a0b",
+   "checkout_url": "https://gridironlocker.shop/cleveland-1946?collectionId=P19bpeU2x_Ng&color=GILDAN-ASH_GREY&productId=6aa54591ec52fa428dbc1a0b",
+   "features": "Gildan 5000 midweight 100% cotton, classic fit, double-needle sleeve and bottom hems",
+   "img": {
+    "front": "https://buyer-experience-gateway.mayzing.com/stores/z2OF/mockups/id:mi2vh7vm7218,sig:0ay2hOhEhJqM4UQhzvfdCTdYvo338CrRYwiBtKET-sg,c:GILDAN-ASH_GREY,s:d3cfca9f-6be4-4751-94da-27ce3751a0ac,d:6aa54591d6ddb715aeae5f38,dv:2,cpd:pd2vh7vm720,w:1000/image.png",
+    "back": "https://buyer-experience-gateway.mayzing.com/stores/z2OF/mockups/id:mi2vh7vm7219,sig:MSvgZwWTIYr3CBHZnAtmPt-mRXiLZIP1dpOpjZW9w4g,c:GILDAN-ASH_GREY,s:d802579f-ea09-4b75-a37e-2adc9a5bb616,cpd:pd2vh7vm720,w:1000/image.png"
+   }
+  },
+  {
+   "slug": "cle-browns-dawg",
+   "name": "Cle Browns Dawg",
+   "garment": "Men's T-Shirt",
+   "blank": "Gildan 5000",
+   "price_usd": "21.00",
+   "colour_code": "GILDAN-DARK_CHOCOLATE",
+   "colour_name": "Dark Chocolate",
+   "sizes": ["S", "M", "L", "XL", "2XL", "3XL", "4XL", "5XL"],
+   "handle": "cle-browns-dawg",
+   "product_id": "6aa54337f07fcd0322081164",
+   "checkout_url": "https://gridironlocker.shop/cle-browns-dawg?collectionId=P19bpeU2x_Ng&color=GILDAN-DARK_CHOCOLATE&productId=6aa54337f07fcd0322081164",
+   "features": "Gildan 5000 midweight 100% cotton, classic fit, double-needle sleeve and bottom hems",
+   "img": {
+    "front": "https://buyer-experience-gateway.mayzing.com/stores/z2OF/mockups/id:mi2vh7vm7224,sig:vWBCmQTE06-pxarQi3kKZRBENJJ2HGzEx84pphCC9gM,c:GILDAN-DARK_CHOCOLATE,s:d3cfca9f-6be4-4751-94da-27ce3751a0ac,d:6aa54337cfa89a7266d5cddf,dv:2,cpd:pd2vh7vm720,w:1000/image.png",
+    "back": "https://buyer-experience-gateway.mayzing.com/stores/z2OF/mockups/id:mi2vh7vm7225,sig:GKpZVRIZJISN002O-64hlZRYBHJH9U9PRykUXLVozWI,c:GILDAN-DARK_CHOCOLATE,s:d802579f-ea09-4b75-a37e-2adc9a5bb616,cpd:pd2vh7vm720,w:1000/image.png"
+   }
+  },
+  {
+   "slug": "no-fly-zone",
+   "name": "No Fly Zone",
+   "garment": "Men's T-Shirt",
+   "blank": "Gildan 5000",
+   "price_usd": "21.00",
+   "colour_code": "GILDAN-DARK_CHOCOLATE",
+   "colour_name": "Dark Chocolate",
+   "sizes": ["S", "M", "L", "XL", "2XL", "3XL", "4XL", "5XL"],
+   "handle": "no-fly-zone",
+   "product_id": "6aa3b80e2e9926a202f04f64",
+   "checkout_url": "https://gridironlocker.shop/no-fly-zone?collectionId=P19bpeU2x_Ng&color=GILDAN-DARK_CHOCOLATE&productId=6aa3b80e2e9926a202f04f64",
+   "features": "Gildan 5000 midweight 100% cotton, classic fit, double-needle sleeve and bottom hems",
+   "img": {
+    "front": "https://buyer-experience-gateway.mayzing.com/stores/z2OF/mockups/id:mi2vh7vm7224,sig:uSBqghcv2NKgyVEEtkB6BhNQp50UX-oTajVyg0GoMrM,c:GILDAN-DARK_CHOCOLATE,s:d3cfca9f-6be4-4751-94da-27ce3751a0ac,d:6aa3b80e50041ca588cbbcac,dv:2,cpd:pd2vh7vm720,w:1000/image.png",
+    "back": "https://buyer-experience-gateway.mayzing.com/stores/z2OF/mockups/id:mi2vh7vm7225,sig:GKpZVRIZJISN002O-64hlZRYBHJH9U9PRykUXLVozWI,c:GILDAN-DARK_CHOCOLATE,s:d802579f-ea09-4b75-a37e-2adc9a5bb616,cpd:pd2vh7vm720,w:1000/image.png"
+   }
+  },
+  {
+   "slug": "cleveland",
+   "name": "Cleveland",
+   "garment": "Men's T-Shirt",
+   "blank": "Gildan 5000",
+   "price_usd": "21.00",
+   "colour_code": "GILDAN-SAND",
+   "colour_name": "Sand",
+   "sizes": ["S", "M", "L", "XL", "2XL", "3XL", "4XL", "5XL"],
+   "handle": "cleveland",
+   "product_id": "6aa3b22569a11b176709b278",
+   "checkout_url": "https://gridironlocker.shop/cleveland?collectionId=P19bpeU2x_Ng&color=GILDAN-SAND&productId=6aa3b22569a11b176709b278",
+   "features": "Gildan 5000 midweight 100% cotton, classic fit, double-needle sleeve and bottom hems",
+   "img": {
+    "front": "https://buyer-experience-gateway.mayzing.com/stores/z2OF/mockups/id:mi2vh7vm720,sig:R74Q1EATya85HinFxCtTF_z_tUNP49E9BvmNa3-q0b0,c:GILDAN-SAND,s:d3cfca9f-6be4-4751-94da-27ce3751a0ac,d:6aa3b2242943c1fa19254961,dv:2,cpd:pd2vh7vm720,w:1000/image.png",
+    "back": "https://buyer-experience-gateway.mayzing.com/stores/z2OF/mockups/id:mi2vh7vm721,sig:2Bn6oyliWHNeUErWXFOJJwIiCuclLnFvcOswJsIDwu0,c:GILDAN-SAND,s:d802579f-ea09-4b75-a37e-2adc9a5bb616,cpd:pd2vh7vm720,w:1000/image.png"
+   }
+  },
+  {
+   "slug": "dawg-life",
+   "name": "Dawg Life",
+   "garment": "Men's T-Shirt",
+   "blank": "Gildan 5000",
+   "price_usd": "21.00",
+   "colour_code": "GILDAN-DARK_CHOCOLATE",
+   "colour_name": "Dark Chocolate",
+   "sizes": ["S", "M", "L", "XL", "2XL", "3XL", "4XL", "5XL"],
+   "handle": "dawg-life",
+   "product_id": "6aa3ae586e5cb9fd50dc4834",
+   "checkout_url": "https://gridironlocker.shop/dawg-life?collectionId=P19bpeU2x_Ng&color=GILDAN-DARK_CHOCOLATE&productId=6aa3ae586e5cb9fd50dc4834",
+   "features": "Gildan 5000 midweight 100% cotton, classic fit, double-needle sleeve and bottom hems",
+   "img": {
+    "front": "https://buyer-experience-gateway.mayzing.com/stores/z2OF/mockups/id:mi2vh7vm7224,sig:TkNn-lgsxP5LtPzXYYXqqsA6ql-3FnknhjcspuGXsmE,c:GILDAN-DARK_CHOCOLATE,s:d3cfca9f-6be4-4751-94da-27ce3751a0ac,d:6aa3ae58182ba82756347bfa,dv:2,cpd:pd2vh7vm720,w:1000/image.png",
+    "back": "https://buyer-experience-gateway.mayzing.com/stores/z2OF/mockups/id:mi2vh7vm7225,sig:GKpZVRIZJISN002O-64hlZRYBHJH9U9PRykUXLVozWI,c:GILDAN-DARK_CHOCOLATE,s:d802579f-ea09-4b75-a37e-2adc9a5bb616,cpd:pd2vh7vm720,w:1000/image.png"
+   }
+  },
+  {
+   "slug": "make-them-know-your-name",
+   "name": "Make Them Know Your Name",
+   "garment": "Men's T-Shirt",
+   "blank": "Gildan 5000",
+   "price_usd": "21.00",
+   "colour_code": "GILDAN-DARK_CHOCOLATE",
+   "colour_name": "Dark Chocolate",
+   "sizes": ["S", "M", "L", "XL", "2XL", "3XL", "4XL", "5XL"],
+   "handle": "make-them-know-your-name",
+   "product_id": "6aa33fa01cdc8689e252dab3",
+   "checkout_url": "https://gridironlocker.shop/make-them-know-your-name?collectionId=P19bpeU2x_Ng&color=GILDAN-DARK_CHOCOLATE&productId=6aa33fa01cdc8689e252dab3",
+   "features": "Gildan 5000 midweight 100% cotton, classic fit, double-needle sleeve and bottom hems",
+   "img": {
+    "front": "https://buyer-experience-gateway.mayzing.com/stores/z2OF/mockups/id:mi2vh7vm7224,sig:1h_D74ybWVyUfV4SAWP6RvQrSpwtTUWSaNovvJtvQic,c:GILDAN-DARK_CHOCOLATE,s:d3cfca9f-6be4-4751-94da-27ce3751a0ac,d:6aa33fa01a79d4c9bf423c6b,dv:2,cpd:pd2vh7vm720,w:1000/image.png",
+    "back": "https://buyer-experience-gateway.mayzing.com/stores/z2OF/mockups/id:mi2vh7vm7225,sig:GKpZVRIZJISN002O-64hlZRYBHJH9U9PRykUXLVozWI,c:GILDAN-DARK_CHOCOLATE,s:d802579f-ea09-4b75-a37e-2adc9a5bb616,cpd:pd2vh7vm720,w:1000/image.png"
+   }
+  },
+  {
+   "slug": "browns-cle",
+   "name": "Browns Cle",
+   "garment": "Men's T-Shirt",
+   "blank": "Gildan 5000",
+   "price_usd": "21.00",
+   "colour_code": "GILDAN-DARK_CHOCOLATE",
+   "colour_name": "Dark Chocolate",
+   "sizes": ["S", "M", "L", "XL", "2XL", "3XL", "4XL", "5XL"],
+   "handle": "Browns-Cle",
+   "product_id": "6aa33ae12ee22daf5e7d3cc0",
+   "checkout_url": "https://gridironlocker.shop/Browns-Cle?collectionId=P19bpeU2x_Ng&color=GILDAN-DARK_CHOCOLATE&productId=6aa33ae12ee22daf5e7d3cc0",
+   "features": "Gildan 5000 midweight 100% cotton, classic fit, double-needle sleeve and bottom hems",
+   "img": {
+    "front": "https://buyer-experience-gateway.mayzing.com/stores/z2OF/mockups/id:mi2vh7vm7224,sig:k43VCW-dsi-VIgiRIt5tIl0H0OfWKJPFcWl_wGkbqK4,c:GILDAN-DARK_CHOCOLATE,s:d3cfca9f-6be4-4751-94da-27ce3751a0ac,d:6aa33ae1dfc5c89f7fb27b60,dv:2,cpd:pd2vh7vm720,w:1000/image.png",
+    "back": "https://buyer-experience-gateway.mayzing.com/stores/z2OF/mockups/id:mi2vh7vm7225,sig:GKpZVRIZJISN002O-64hlZRYBHJH9U9PRykUXLVozWI,c:GILDAN-DARK_CHOCOLATE,s:d802579f-ea09-4b75-a37e-2adc9a5bb616,cpd:pd2vh7vm720,w:1000/image.png"
+   }
+  },
+  {
+   "slug": "dwag",
+   "name": "DWAG",
+   "garment": "Men's T-Shirt",
+   "blank": "Gildan 5000",
+   "price_usd": "21.00",
+   "colour_code": "GILDAN-OLD_GOLD",
+   "colour_name": "Old Gold",
+   "sizes": ["S", "M", "L", "XL", "2XL", "3XL", "4XL", "5XL"],
+   "handle": "DWAG",
+   "product_id": "6aa337dfdb76056cb9b29f0c",
+   "checkout_url": "https://gridironlocker.shop/DWAG?collectionId=P19bpeU2x_Ng&color=GILDAN-OLD_GOLD&productId=6aa337dfdb76056cb9b29f0c",
+   "features": "Gildan 5000 midweight 100% cotton, classic fit, double-needle sleeve and bottom hems",
+   "img": {
+    "front": "https://buyer-experience-gateway.mayzing.com/stores/z2OF/mockups/id:mi2vh7vm720,sig:htXV8yMDKBHhRnu9EdO91Mf5RGPufTAwuv7ZDoJkGYI,c:GILDAN-OLD_GOLD,s:d3cfca9f-6be4-4751-94da-27ce3751a0ac,d:6aa337df528704e151441208,dv:2,cpd:pd2vh7vm720,w:1000/image.png",
+    "back": "https://buyer-experience-gateway.mayzing.com/stores/z2OF/mockups/id:mi2vh7vm721,sig:6lLKmu-BLBmFzPjTWiTGA6Dnw_Ca9O7VVfZ9D6dTOS8,c:GILDAN-OLD_GOLD,s:d802579f-ea09-4b75-a37e-2adc9a5bb616,cpd:pd2vh7vm720,w:1000/image.png"
+   }
+  },
+  {
+   "slug": "lets-go-cle-copy",
+   "name": "Let's Go Cle Copy",
+   "garment": "Men's T-Shirt",
+   "blank": "Gildan 5000",
+   "price_usd": "21.00",
+   "colour_code": "GILDAN-DARK_CHOCOLATE",
+   "colour_name": "Dark Chocolate",
+   "sizes": ["S", "M", "L", "XL", "2XL", "3XL", "4XL", "5XL"],
+   "handle": "lets-go-cle-copy",
+   "product_id": "6aa3366e5520ba111a558fb1",
+   "checkout_url": "https://gridironlocker.shop/lets-go-cle-copy?collectionId=P19bpeU2x_Ng&color=GILDAN-DARK_CHOCOLATE&productId=6aa3366e5520ba111a558fb1",
+   "features": "Gildan 5000 midweight 100% cotton, classic fit, double-needle sleeve and bottom hems",
+   "img": {
+    "front": "https://buyer-experience-gateway.mayzing.com/stores/z2OF/mockups/id:mi2vh7vm7224,sig:6i-_0p2ACk3TPs7_Qe4AbaQC4GW7Dzd95JoFgaZNjv8,c:GILDAN-DARK_CHOCOLATE,s:d3cfca9f-6be4-4751-94da-27ce3751a0ac,d:6aa3366e67f456794c1fcd4d,dv:1,cpd:pd2vh7vm720,w:1000/image.png",
+    "back": "https://buyer-experience-gateway.mayzing.com/stores/z2OF/mockups/id:mi2vh7vm7225,sig:GKpZVRIZJISN002O-64hlZRYBHJH9U9PRykUXLVozWI,c:GILDAN-DARK_CHOCOLATE,s:d802579f-ea09-4b75-a37e-2adc9a5bb616,cpd:pd2vh7vm720,w:1000/image.png"
+   }
+  },
+  {
+   "slug": "go-browns",
+   "name": "Go Browns",
+   "garment": "Men's T-Shirt",
+   "blank": "Gildan 5000",
+   "price_usd": "21.00",
+   "colour_code": "GILDAN-DARK_CHOCOLATE",
+   "colour_name": "Dark Chocolate",
+   "sizes": ["S", "M", "L", "XL", "2XL", "3XL", "4XL", "5XL"],
+   "handle": "go-browns",
+   "product_id": "6aa331965520ba111a54a781",
+   "checkout_url": "https://gridironlocker.shop/go-browns?collectionId=P19bpeU2x_Ng&color=GILDAN-DARK_CHOCOLATE&productId=6aa331965520ba111a54a781",
+   "features": "Gildan 5000 midweight 100% cotton, classic fit, double-needle sleeve and bottom hems",
+   "img": {
+    "front": "https://buyer-experience-gateway.mayzing.com/stores/z2OF/mockups/id:mi2vh7vm7224,sig:qqUq4rjG2A09UmKhaNUJmqBeN82oM37mLW2bMqyPVBE,c:GILDAN-DARK_CHOCOLATE,s:d3cfca9f-6be4-4751-94da-27ce3751a0ac,d:6aa3319661e85d34ce60dd79,dv:3,cpd:pd2vh7vm720,w:1000/image.png",
+    "back": "https://buyer-experience-gateway.mayzing.com/stores/z2OF/mockups/id:mi2vh7vm7225,sig:GKpZVRIZJISN002O-64hlZRYBHJH9U9PRykUXLVozWI,c:GILDAN-DARK_CHOCOLATE,s:d802579f-ea09-4b75-a37e-2adc9a5bb616,cpd:pd2vh7vm720,w:1000/image.png"
+   }
+  },
+  {
+   "slug": "playoffs",
+   "name": "Playoffs",
+   "garment": "Men's T-Shirt",
+   "blank": "Gildan 5000",
+   "price_usd": "21.00",
+   "colour_code": "GILDAN-DARK_CHOCOLATE",
+   "colour_name": "Dark Chocolate",
+   "sizes": ["S", "M", "L", "XL", "2XL", "3XL", "4XL", "5XL"],
+   "handle": "playoffs",
+   "product_id": "6aa330865520ba111a548f86",
+   "checkout_url": "https://gridironlocker.shop/playoffs?collectionId=P19bpeU2x_Ng&color=GILDAN-DARK_CHOCOLATE&productId=6aa330865520ba111a548f86",
+   "features": "Gildan 5000 midweight 100% cotton, classic fit, double-needle sleeve and bottom hems",
+   "img": {
+    "front": "https://buyer-experience-gateway.mayzing.com/stores/z2OF/mockups/id:mi2vh7vm7224,sig:hfxYEFoB4CPuWt1MQ0RGCS_XseR6ygfV085tB2Cv1UU,c:GILDAN-DARK_CHOCOLATE,s:d3cfca9f-6be4-4751-94da-27ce3751a0ac,d:6aa33086ca315eb53cde01f7,dv:2,cpd:pd2vh7vm720,w:1000/image.png",
+    "back": "https://buyer-experience-gateway.mayzing.com/stores/z2OF/mockups/id:mi2vh7vm7225,sig:GKpZVRIZJISN002O-64hlZRYBHJH9U9PRykUXLVozWI,c:GILDAN-DARK_CHOCOLATE,s:d802579f-ea09-4b75-a37e-2adc9a5bb616,cpd:pd2vh7vm720,w:1000/image.png"
+   }
+  },
+  {
+   "slug": "ohio-cle",
+   "name": "Ohio Cle",
+   "garment": "Men's T-Shirt",
+   "blank": "Gildan 5000",
+   "price_usd": "21.00",
+   "colour_code": "GILDAN-DARK_CHOCOLATE",
+   "colour_name": "Dark Chocolate",
+   "sizes": ["S", "M", "L", "XL", "2XL", "3XL", "4XL", "5XL"],
+   "handle": "ohio-cle",
+   "product_id": "6aa3306bd0d1f69a5d797993",
+   "checkout_url": "https://gridironlocker.shop/ohio-cle?collectionId=P19bpeU2x_Ng&color=GILDAN-DARK_CHOCOLATE&productId=6aa3306bd0d1f69a5d797993",
+   "features": "Gildan 5000 midweight 100% cotton, classic fit, double-needle sleeve and bottom hems",
+   "img": {
+    "front": "https://buyer-experience-gateway.mayzing.com/stores/z2OF/mockups/id:mi2vh7vm7224,sig:yiTjKNL3BLLklKyv3mYlXASoBULX4-cA-0nxawafQ0Y,c:GILDAN-DARK_CHOCOLATE,s:d3cfca9f-6be4-4751-94da-27ce3751a0ac,d:6aa32ee11ecd5b5448c6ceed,dv:1,cpd:pd2vh7vm720,w:1000/image.png",
+    "back": "https://buyer-experience-gateway.mayzing.com/stores/z2OF/mockups/id:mi2vh7vm7225,sig:GKpZVRIZJISN002O-64hlZRYBHJH9U9PRykUXLVozWI,c:GILDAN-DARK_CHOCOLATE,s:d802579f-ea09-4b75-a37e-2adc9a5bb616,cpd:pd2vh7vm720,w:1000/image.png"
+   }
+  }
+ ]
+}

@@ -232,9 +232,13 @@ def collect():
          f"{len(camps)} campaigns injected"),
     ]
 
-    # newest campaigns
+    # newest campaigns - skip slugs that no longer build (Cleveland designs
+    # held back in the Mayzing migration, retired slugs) so the panel can
+    # never link a dead page.
     newest = []
     for slug in NEWEST:
+        if built_slugs and slug not in built_slugs:
+            continue
         e = live.get(slug) or prods.get(slug) or {}
         img = e.get("img") or {}
         ccount = sum(1 for t in img if t.startswith("c"))

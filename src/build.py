@@ -102,12 +102,17 @@ except Exception:
     DELISTED = {}
 
 # Cleveland/Browns fulfillment migration (Viralstyle -> Mayzing). The whole
-# migration lives in data/fulfillment.json so it survives a re-crawl: dl.py
-# rewrites data/products_live.json from the Viralstyle storefront, so a
-# destination pinned there would be silently reverted on the next refresh.
-#   destinations - design slug -> the Mayzing product URL that now sells it
-#   hold         - Cleveland designs with no Mayzing equivalent yet; withheld
-#                  so that no Cleveland page can hand a customer to Viralstyle
+# migration lives in data/ so it survives a re-crawl: dl.py rewrites
+# data/products_live.json from the Viralstyle storefront, so anything pinned
+# there would be silently reverted on the next refresh.
+#   data/mayzing_products.json - the Cleveland catalogue itself: every product
+#     live on the Mayzing Browns storefront (title, price, colour, sizes,
+#     mockup URLs, checkout URL). build_model() sources the collection from
+#     this file instead of data/collections.json, so a Viralstyle re-crawl
+#     can never resurrect a Cleveland page.
+#   data/fulfillment.json - partner naming plus 'hold': Cleveland designs with
+#     no Mayzing equivalent yet, withheld so no page can hand a customer to
+#     Viralstyle. As designs are uploaded to Mayzing they leave 'hold'.
 # Every other collection is untouched and keeps its crawled Viralstyle URL.
 try:
     _FUL = json.load(open(os.path.join(ROOT, "data/fulfillment.json")))
@@ -117,6 +122,11 @@ FUL_DEST = _FUL.get("destinations", {})
 FUL_HOLD = set(_FUL.get("hold", []))
 FUL_COLLECTION = _FUL.get("collection", "")
 FUL_PARTNER = _FUL.get("partner", "Mayzing")
+try:
+    _MAYZING = json.load(open(os.path.join(ROOT, "data/mayzing_products.json")))
+except Exception:
+    _MAYZING = {}
+MAYZING_PRODUCTS = OrderedDict((m["slug"], m) for m in _MAYZING.get("products", []))
 
 
 def partner_of(col):
@@ -465,12 +475,71 @@ def slugify(s):
 
 
 # ---------------------------------------------------------------- build model
+def mayzing_item(m, ckey):
+    """One catalogue item from a data/mayzing_products.json entry.
+
+    Mirrors the Viralstyle item dict built in build_model() so every renderer
+    (cards, collection grid, product pages, search, schema, sitemap) stays
+    source-agnostic. The variant story is intentionally different from the old
+    Viralstyle pages: a Mayzing product is sold in ONE garment style and ONE
+    colourway at a fixed price, so styles/colours carry exactly that - pages
+    must never advertise a choice the checkout cannot make. Mockups stay
+    hot-linked from the Mayzing CDN as a temporary fallback until dl.py learns
+    to localise them, same as a freshly added Viralstyle campaign.
+    """
+    f = FACTS[m["slug"]]
+    col = COLLECTIONS[ckey]
+    img = OrderedDict(
+        (t, u) for t, u in (m.get("img") or {}).items()
+        if isinstance(u, str) and u.startswith("https://"))
+    if not img:
+        return None
+    if "front" not in img:
+        img["front"] = next(iter(img.values()))
+    styles = [s for s in [m.get("garment")] if s]
+    # The Mayzing file is a hand-verified source of truth, so its size run is
+    # passed through as-is (Gildan 5000 genuinely sells S-5XL) - the SIZES
+    # clamp below is a guard for crawled Viralstyle campaigns only.
+    sizes_avail = [s for s in (m.get("sizes") or SIZES)] or list(SIZES)
+    name = f["name"]
+    colours = max(1, sum(1 for k in img if k.startswith("c")))
+    price = float(m["price_usd"])
+    gal = [img["front"]] + ([img["back"]] if "back" in img else [])
+    gal += [v for k, v in img.items() if k.startswith("c")]
+    blob = (name + " " + f["art"]).lower()
+    trend = auto_trend(ckey, m["slug"], blob)
+    return dict(trend=trend,
+        slug=m["slug"], name=name, art=f["art"], theme=f.get("theme", "classic"),
+        garment=_c.garment_of(f, name, styles), price=price, colours=colours,
+        styles=styles, sizes_avail=sizes_avail, url=f"/shop/{m['slug']}/",
+        gallery=gal, front=img["front"],
+        back=img.get("back", img["front"]),
+        buy=m["checkout_url"],
+        partner=partner_of(ckey),
+        colour=m.get("colour_name"),
+        kw=_l.keywords(f, col, _c.garment_of(f, name, styles), name), col=ckey,
+        features=m.get("features") or "",
+    )
+
+
 def build_model():
     items = OrderedDict()
     for ckey in ORDER:
         col = COLLECTIONS[ckey]
         col["key"] = ckey
         lst = []
+        if ckey == FUL_COLLECTION and MAYZING_PRODUCTS:
+            # Cleveland/Browns: the catalogue IS the Mayzing storefront file.
+            # data/collections.json no longer lists Cleveland products, so a
+            # re-crawl cannot resurrect a Viralstyle page for this collection.
+            for slug, m in MAYZING_PRODUCTS.items():
+                if slug in DELISTED:
+                    continue
+                it = mayzing_item(m, ckey)
+                if it:
+                    lst.append(it)
+            items[ckey] = lst
+            continue
         for entry in COLS[ckey]["products"]:
             slug = entry["slug"]
             if slug in DELISTED or slug in FUL_HOLD:
@@ -1796,6 +1865,11 @@ def page_collection(k):
     for it in items:
         counts[it["garment"]] = counts.get(it["garment"], 0) + 1
     types = sorted(counts)
+    # Size run actually offered by the collection (union of each item's run) -
+    # never assume S-3XL: the Mayzing Gildan blanks genuinely sell S-5XL.
+    _runs = [it["sizes_avail"] for it in items if it.get("sizes_avail")]
+    size_lo = min((r[0] for r in _runs), default="S")
+    size_hi = max((r[-1] for r in _runs), default="3XL")
     type_opts = '<option value="all">All products</option>' + "".join(
         f'<option value="{esc(t)}">{esc(t)}s ({counts[t]})</option>' for t in types)
     present = {x["theme"] for x in items}
@@ -1823,17 +1897,19 @@ def page_collection(k):
                   for q, a in [
                       (f"How many {c['short']} designs are available?",
                        f"There are currently {len(items)} original designs in this collection, priced "
-                       f"from ${prices[0]:.2f} to ${prices[-1]:.2f}, across {len(types)} product types: "
+                       f"from ${prices[0]:.2f} to ${prices[-1]:.2f}, across {len(types)} product "
+                       f"type{'s' if len(types) != 1 else ''}: "
                        + ", ".join(types) + "."),
                       ("Are these officially licensed?",
                        "No. These are independent fan-made graphics. They are not affiliated with, "
                        "endorsed by or licensed by any league, club, university or player."),
                       ("What sizes do you carry?",
-                       "Unisex sizes S through 3XL on apparel, plus women's cuts on many designs. "
+                       f"Unisex sizes {size_lo} through {size_hi} on apparel, plus women's cuts on "
+                       "many designs. "
                        "Full measurements are listed on every product page and in the size guide."),
                   ] + list(c.get("faq_extra", []))]}]
     desc = (f"{c['name']} - {len(items)} fan-made designs from ${prices[0]:.2f}. "
-            f"{', '.join(types[:3])}, sizes S-3XL. Printed on demand, ships worldwide.")
+            f"{', '.join(types[:3])}, sizes {size_lo}-{size_hi}. Printed on demand, ships worldwide.")
     se = SEASON[k]
     played = se["kickoff"][:10] < TODAY
     lore = "".join(f"<li>{esc(x)}</li>" for x in c["lore"])
@@ -1926,8 +2002,8 @@ def page_collection(k):
  <a class="link" href="/fan-trend-index/">Fan Trend Index</a>.</p>
  <h2>About the {esc(c['name'])} Collection</h2>
  <p>{esc(c['intro'].format(**c))} Prices start at <strong>${prices[0]:.2f}</strong> and the range
- covers {len(types)} product types: {esc(', '.join(types))}. Everything is unisex unless the design
- name says otherwise, and every apparel item runs from S to 3XL.</p>
+ covers {len(types)} product type{'s' if len(types) != 1 else ''}: {esc(', '.join(types))}. Everything is unisex unless the design
+ name says otherwise, and every apparel item runs from {size_lo} to {size_hi}.</p>
  <ul>{lore}</ul>
  <h2>Popular searches in this collection</h2>
  <p class="muted">{kwlinks}</p>
@@ -2226,12 +2302,13 @@ def page_product(it):
                               name=it["name"], art=it["art"])
     wear_html = _l.gameday_wear(slug, c, it["garment"], it["art"])
     styles_html = _l.styles_copy(slug, styles, it["garment"], col=c)
-    colour_html = _l.colour_copy(colours, col=c)
+    colour_html = _l.colour_copy(colours, col=c, name=it.get("colour"))
     size_html = _l.size_copy(slug, sizes, it["garment"], col=c)
     ship_html = _l.shipping_copy(DELIVERY_TIME, SHIP_US["shippingRate"]["value"], col=c)
     bullets = _l.details_bullets(it["garment"], styles, sizes, colours, price,
                                  features=it.get("features") or "", col=c)
-    faq = _l.faqs(slug, f, c, it["garment"], price, colours, styles, sizes)
+    faq = _l.faqs(slug, f, c, it["garment"], price, colours, styles, sizes,
+                  colour=it.get("colour"))
     kws = _l.keywords(f, c, it["garment"], it["name"])
     stage_alt = _l.image_alt(it["name"], it["art"], it["garment"], c["team"])
 
