@@ -9,15 +9,15 @@ FTI = `round(100 * entity_mentions / peak_mentions_in_window)`. Peak mentions in
 | Rank | Name | Collection | Mentions | FTI | Status | Shop |
 |---|---|---|---|---|---|---|
 | 1 | josh jacobs | green-bay-packers | 23 | 100 | trending | gap — no design |
-| 2 | deshaun watson | cleveland-browns | 21 | 91 | trending | gap — no design |
-| 3 | bryce underwood | michigan | 19 | 83 | trending | in locker |
+| 2 | bryce underwood | michigan | 19 | 83 | trending | in locker |
+| 3 | deshaun watson | cleveland-browns | 19 | 83 | trending | gap — no design |
 | 4 | kyle whittingham | michigan | 7 | 30 | trending | gap — no design |
-| 5 | todd monken | cleveland-browns | 6 | 26 | trending | gap — no design |
+| 5 | todd monken | cleveland-browns | 5 | 22 | trending | gap — no design |
 | 6 | dak prescott | dallas-cowboys | 4 | 17 | trending | gap — no design |
-| 7 | shedeur sanders | cleveland-browns | 4 | 17 | trending | in locker |
-| 8 | ceedee lamb | dallas-cowboys | 2 | 9 | steady | — |
-| 9 | denzel ward | cleveland-browns | 2 | 9 | steady | in locker |
-| 10 | micah parsons | green-bay-packers | 2 | 9 | steady | in locker |
+| 7 | micah parsons | green-bay-packers | 4 | 17 | trending | in locker |
+| 8 | shedeur sanders | cleveland-browns | 4 | 17 | trending | in locker |
+| 9 | ceedee lamb | dallas-cowboys | 2 | 9 | steady | — |
+| 10 | denzel ward | cleveland-browns | 2 | 9 | steady | in locker |
 | 11 | myles garrett | cleveland-browns | 2 | 9 | steady | in locker |
 | 12 | jordan love | green-bay-packers | 1 | 4 | steady | in locker |
 | 13 | matt lafleur | green-bay-packers | 1 | 4 | steady | — |
@@ -31,15 +31,14 @@ FTI = `round(100 * entity_mentions / peak_mentions_in_window)`. Peak mentions in
 
 - **todd monken** — [Todd Monken names captains for Week 1 vs. Jaguars](https://news.google.com/rss/articles/CBMijgFBVV95cUxNTkVjOUZRTGRMNXFtRUdMZnFHSVViVkVKYVRJUGhoamVZUmhrektrZ2RwMllsck5UbmlLMDUyMlZ0N1FiejZYNEVCTTlqSGJydzVrYzk5eEkxQkVSYkN1WVcxY0steTh5bUJNU0hjUEhhamV2dlVZd2lHUWpDa2VSbkZGdFR2VGRwTnhpdkN3?oc=5) — Cleveland Browns
 - **shedeur sanders** — [Browns legend states what Shedeur Sanders needs to fix](https://news.google.com/rss/articles/CBMipAFBVV95cUxNUm9iS25XWExiTnhzZmZlOHpDSkpkSXBEaEhzUEpvUThNdVI3UTB2dGxGXzhDaGtpaUdGMGdlR2c2SWlNek5oQ1U0bEVrekFHX2tuQlFjT2FpM0J1dlFwYmpJcG1LUFJwXzZWbjU3RUxkOVloaG11WXg0RzNIQUlMT1FYT3ZuVzRfb3dKT2JoTE10MnpzNUFkYkpFWmhpQjQxTm9TOQ?oc=5) — Dawgs By Nature
-- **todd monken** — [Browns may have package of plays for rookie QB Green, Monken says](https://news.google.com/rss/articles/CBMimAFBVV95cUxQekNhczFCWGhncG4wc0t2V2dsR2lWdkowT0dTcHJpZTVMU3NkWWxlX2FvUE80cTF0MEhRSVhMbmpMcGJoM2Fnb2NqM2tlOVpuRkZEc3ZrbDBsTGxhVnBfVlJ3cmp3TXRKSHBHRGJwN0RJUk42VzVUSTBuVm4zTzNfajVZalJXSzFsVDRJZ2wxb01vRXdhWjdZSg?oc=5) — ESPN
 - **bryce underwood** — [Michigan football eve: Final thoughts on Underwood, the defense, transfers](https://news.google.com/rss/articles/CBMixAFBVV95cUxNaUJXc0FYUFRkRnZPd1p3a3l5WklHamJsVXZQOHY4N0JKWWFPNHo4MllLMEJyS3ZXOFZtdG5Gb1N4ODBra2ZjRHYwTWxSeTJ4NDVqbzE1UzJrYVBfT0I0VFJQMzY1Vjh5ZHlBWHE1Y0NoUGl6dzQtRlA4Q1p1bHE5VnVyMkNheFhSSGF0Z3FZU3l5ZHhFUVRJUHlDVjgzUFhQakVXdXNsX0tab2FEOGNHRDd6enJ2czhXX0xSRWdoMnBydXgz0gHYAUFVX3lxTE1JYXhWOGs1S01KckpLUXRoVTJlM3JWem9McGw5d0RzSlBKNjhzVVJMSDROU1MzRFVtY2V3NEwwRXVxaVgxWmoyVmhWd1FUZmZCa2J2NUtZVm16Z1JrYzZ2MTZmdEstM25HMWxrLUdSaWR2NExLUTY2MS1iQ05pQW1VRkpoTEpqOHhLSG1MclFNZFJxQmhxN1ZxYWx5Z3F5SEYyZ09fUDZhY191WHhuNmktd3ZOSExpaEhWSmdTYzdvZjJUVjJiUDM1ODY0czJjcmRBYnZWbEhBUw?oc=5) — MLive.com
 
 ## Cleveland Browns Fan Shirts
 
 | Name | Headline mentions | Status | FTI |
 |---|---|---|---|
-| deshaun watson | 21 | TRENDING | 91 |
-| todd monken | 6 | TRENDING | 26 |
+| deshaun watson | 19 | TRENDING | 83 |
+| todd monken | 5 | TRENDING | 22 |
 | shedeur sanders | 4 | TRENDING | 17 |
 | myles garrett | 2 | steady | 9 |
 | denzel ward | 2 | steady | 9 |
@@ -51,13 +50,12 @@ FTI = `round(100 * entity_mentions / peak_mentions_in_window)`. Peak mentions in
 Live player moments:
 - **todd monken** — [Todd Monken names captains for Week 1 vs. Jaguars](https://news.google.com/rss/articles/CBMijgFBVV95cUxNTkVjOUZRTGRMNXFtRUdMZnFHSVViVkVKYVRJUGhoamVZUmhrektrZ2RwMllsck5UbmlLMDUyMlZ0N1FiejZYNEVCTTlqSGJydzVrYzk5eEkxQkVSYkN1WVcxY0steTh5bUJNU0hjUEhhamV2dlVZd2lHUWpDa2VSbkZGdFR2VGRwTnhpdkN3?oc=5) - Cleveland Browns
 - **shedeur sanders** — [Browns legend states what Shedeur Sanders needs to fix](https://news.google.com/rss/articles/CBMipAFBVV95cUxNUm9iS25XWExiTnhzZmZlOHpDSkpkSXBEaEhzUEpvUThNdVI3UTB2dGxGXzhDaGtpaUdGMGdlR2c2SWlNek5oQ1U0bEVrekFHX2tuQlFjT2FpM0J1dlFwYmpJcG1LUFJwXzZWbjU3RUxkOVloaG11WXg0RzNIQUlMT1FYT3ZuVzRfb3dKT2JoTE10MnpzNUFkYkpFWmhpQjQxTm9TOQ?oc=5) - Dawgs By Nature
-- **todd monken** — [Browns may have package of plays for rookie QB Green, Monken says](https://news.google.com/rss/articles/CBMimAFBVV95cUxQekNhczFCWGhncG4wc0t2V2dsR2lWdkowT0dTcHJpZTVMU3NkWWxlX2FvUE80cTF0MEhRSVhMbmpMcGJoM2Fnb2NqM2tlOVpuRkZEc3ZrbDBsTGxhVnBfVlJ3cmp3TXRKSHBHRGJwN0RJUk42VzVUSTBuVm4zTzNfajVZalJXSzFsVDRJZ2wxb01vRXdhWjdZSg?oc=5) - ESPN
 
 Recent headlines:
 - [The Browns have a QB who runs a 4.36 — so why won't they let him play receiver?](https://news.google.com/rss/articles/CBMigAJBVV95cUxONUpuLUo5c0RpZzdocE9IYlUwYTNzU19Lb1VLWWwyaVhNQnFYOS1iMk45Vm44NnlNTU4tZTlkSllLcGJyYmNkQVZGRkJsN2E1S1JaZndMYnllYUp1VHlLekJpTFRUb2NUY2FYT2lLMkdlNjcwRlo3NnAxSlBxaFdCclJCZUMtQlpPcHJCdDZWSUo5eVk0eHJwVHpRTVBkNkk1Sml0a3JOQnJ5RDE3QWg5MHRtRUhMQUVSdFZPcTlRaE9fQW9XTlRoT3B3a18xcUc4WGRzWVZYV24tQ21rMV9SN1RtekhqWkZlLWw0SGpfaUxtdG1aWjlaRWVKeDRWejdD?oc=5) - Cleveland.com
 - [Todd Monken names captains for Week 1 vs. Jaguars](https://news.google.com/rss/articles/CBMijgFBVV95cUxNTkVjOUZRTGRMNXFtRUdMZnFHSVViVkVKYVRJUGhoamVZUmhrektrZ2RwMllsck5UbmlLMDUyMlZ0N1FiejZYNEVCTTlqSGJydzVrYzk5eEkxQkVSYkN1WVcxY0steTh5bUJNU0hjUEhhamV2dlVZd2lHUWpDa2VSbkZGdFR2VGRwTnhpdkN3?oc=5) - Cleveland Browns
 - [Where to Watch: Browns vs. Jaguars, Week 1 of 2026 NFL Season](https://news.google.com/rss/articles/CBMikAFBVV95cUxNbno1Vm9CeXpCRlRqZUFfejVrLXZqWi0xNWIzWDc4VFJXeDRTZWN4cGJXMkxqcXdWc3ZSV2FRaFBYTndRSF9nX3lHS2lFX094enp5Nk0xSkY1WXdhVmpLaVZ2ZmZNXzM1LXRjalJZMUJnSl9rWnZoekpQby1RZGV6QkxhV1VPaWlZYy1aTjZGQ2o?oc=5) - Jaguars.com
-- [Cleveland Browns predictions for entire 2026 NFL season](https://news.google.com/rss/articles/CBMiugFBVV95cUxPM0NKeE5wSHlzMVV2ZWh4UmlKQVVFcVdmanZIRHpsZnlkYnhtNGcxWGs0aXJmek9UMmtuRko0N196SUxPR2g0MXJDVE5ISGt4ZlRrN1htR0hTbXVDb2xPSzJGUm8ycnJNTUFuakJRcWpKcjJxdHN4cEhnQkNqNE1ZV2g1RHhTNmVJdmI3Q19BQUVjSldWdUFFcjV4MTZueE9qa3NkX3RWWS15WWpTcFJMT0VJX0tOdTQtNnc?oc=5) - Akron Beacon Journal
+- [Cleveland Browns predictions for entire 2026 NFL season](https://news.google.com/rss/articles/CBMiugFBVV95cUxPM0NKeE5wSHlzMVV2ZWh4UmlKQVVFcVdmanZIRHpsZnlkYnhtNGcxWGs0aXJmek9UMmtuRko0N196SUxPR2g0MXJDVE5ISGt4ZlRrN1htR0hTbXVDb2xPSzJGUm8ycnJNTUFuakJRcWpKcjJxdHN4cEhnQkNqNE1ZV2g1RHhTNmVJdmI3Q19BQUVjSldWdUFFcjV4MTZueE9qa3NkX3RWWS15WWpTcFJMT0VJX0tOdTQtNnc?oc=5) - beaconjournal.com
 - [Browns legend states what Shedeur Sanders needs to fix](https://news.google.com/rss/articles/CBMipAFBVV95cUxNUm9iS25XWExiTnhzZmZlOHpDSkpkSXBEaEhzUEpvUThNdVI3UTB2dGxGXzhDaGtpaUdGMGdlR2c2SWlNek5oQ1U0bEVrekFHX2tuQlFjT2FpM0J1dlFwYmpJcG1LUFJwXzZWbjU3RUxkOVloaG11WXg0RzNIQUlMT1FYT3ZuVzRfb3dKT2JoTE10MnpzNUFkYkpFWmhpQjQxTm9TOQ?oc=5) - Dawgs By Nature
 
 ## Green Bay Packers Fan Shirts
@@ -65,7 +63,7 @@ Recent headlines:
 | Name | Headline mentions | Status | FTI |
 |---|---|---|---|
 | josh jacobs | 23 | TRENDING | 100 |
-| micah parsons | 2 | steady | 9 |
+| micah parsons | 4 | TRENDING | 17 |
 | jordan love | 1 | steady | 4 |
 | matt lafleur | 1 | steady | 4 |
 | robert tonyan | 0 | quiet - throwback | 0 |
@@ -73,7 +71,7 @@ Recent headlines:
 **Product gap:** trending with no design in the catalogue - **josh jacobs**
 
 Recent headlines:
-- [Packers announce game themes for 2026 season](https://news.google.com/rss/articles/CBMifkFVX3lxTFBCelRzU2RFc0RjVmUxdVJmSnRvN2Z5UktHMllibkxYcFVMS2xuNV96WWpzXy1JM21jaWZZTmxQTHQ5Q19ZcjQ3RVZicU9na3hZZXk1aHBBdGRqclBrRm1xRXBMTnRwYkpxbEJyeVpfbGtJcGlLRnNJLTJvTDBhQQ?oc=5) - Packers.com
+- [Packers announce game themes for 2026 season](https://news.google.com/rss/articles/CBMifkFVX3lxTFBCelRzU2RFc0RjVmUxdVJmSnRvN2Z5UktHMllibkxYcFVMS2xuNV96WWpzXy1JM21jaWZZTmxQTHQ5Q19ZcjQ3RVZicU9na3hZZXk1aHBBdGRqclBrRm1xRXBMTnRwYkpxbEJyeVpfbGtJcGlLRnNJLTJvTDBhQQ?oc=5) - Green Bay Packers
 - [Me, my mom and our Green Bay Packers](https://news.google.com/rss/articles/CBMifEFVX3lxTE5OdXhrb3M5d3lUdUc2cGlQQ3oxN000STBwajNiOHpydHAzbmxQemc2NFVlNUFNU04zV2t0XzN6eGJUMEx5NmZmX3BfUjY0OG4zUEJUN2Y0cm9DSDJ6NDdYbjUxVTI2TTFnZWJkRUtHb2RSZ3VQampiN3BkWmQ?oc=5) - Milwaukee Neighborhood News Service
 - [Green Bay Packers News: Packers face real test in Week 1](https://news.google.com/rss/articles/CBMiwAFBVV95cUxOZWtoSDd2YWhaLThTcm9yenFRU3hDdmltNDhrOFNSSzRlSmd4OFZCNlptRExkUjdTVlJ0blJONTFWbmc4NWpRVHJFR1FVekJQbjd6dmROM080MFlDZU1WYldFVEEzX05Xa1VWS2JYc2daN2tnck5fZ3k1WF9JUVl1R0x6d1JuazVtRjZkbmt5aFByTDJRTjZnZVNLZFRQV0NzbGpYams4MHJZX3BOeW5WYzlSTmdnaTRKSTB5eVRUZkk?oc=5) - Acme Packing Company
 - [Packers release WR Bo Melton and sign him to practice squad](https://news.google.com/rss/articles/CBMiogFBVV95cUxOQk5LU3JFNWFoS3AtWE5SQURXT0ltbkhlRVYyUllGNG54M2hEVmdEdkI5YTdpMjBSeFVwTkVfcFpjaEJ4YlZhNzMwQ1NOcklaTGNuWlhOZS14QTJDY2NUb1JjZzYxaS1ub3BIVTNxNnh0b21KbzJWUzJTdm5pbm9tM2VTSHRscDhoaTB0X3hzdkMtbE9MaEVLR25yZ0wtTFAzdFE?oc=5) - WLUK
@@ -112,6 +110,6 @@ Live player moments:
 Recent headlines:
 - [Michigan football eve: Final thoughts on Underwood, the defense, transfers](https://news.google.com/rss/articles/CBMixAFBVV95cUxNaUJXc0FYUFRkRnZPd1p3a3l5WklHamJsVXZQOHY4N0JKWWFPNHo4MllLMEJyS3ZXOFZtdG5Gb1N4ODBra2ZjRHYwTWxSeTJ4NDVqbzE1UzJrYVBfT0I0VFJQMzY1Vjh5ZHlBWHE1Y0NoUGl6dzQtRlA4Q1p1bHE5VnVyMkNheFhSSGF0Z3FZU3l5ZHhFUVRJUHlDVjgzUFhQakVXdXNsX0tab2FEOGNHRDd6enJ2czhXX0xSRWdoMnBydXgz0gHYAUFVX3lxTE1JYXhWOGs1S01KckpLUXRoVTJlM3JWem9McGw5d0RzSlBKNjhzVVJMSDROU1MzRFVtY2V3NEwwRXVxaVgxWmoyVmhWd1FUZmZCa2J2NUtZVm16Z1JrYzZ2MTZmdEstM25HMWxrLUdSaWR2NExLUTY2MS1iQ05pQW1VRkpoTEpqOHhLSG1MclFNZFJxQmhxN1ZxYWx5Z3F5SEYyZ09fUDZhY191WHhuNmktd3ZOSExpaEhWSmdTYzdvZjJUVjJiUDM1ODY0czJjcmRBYnZWbEhBUw?oc=5) - MLive.com
 - [Michigan Monday: Game 2 vs. No. 11 Oklahoma](https://news.google.com/rss/articles/CBMiekFVX3lxTE1hNGs1aTJ1RW41bi1VNEpOaDdTQXZxVGptM2NsOHRlZUF5UmhpWVRQS2F3ejdSSEw5dzBWaGhYU19SZExuZm9SVjRuRkxpWEpONEZLLUw4d2E5LXNKZVo1V3c5T0RSM0p0S0ZocTFhOUxGMDRzeTczV2VR?oc=5) - University of Michigan Athletics
-- [How a Player-Led Meeting Could Change Everything for Michigan Football](https://news.google.com/rss/articles/CBMitgFBVV95cUxQamltdU11T2hHX0h5U2RROVJfVWdiWkwzcHIxQk1YcHNmNjlPb2VHSWVUWjhYekJZQ2tROHVXQlVqOTUzcjZuNUN1VHEtRVM3dlVVcHhCcjBQdXVubk92T2p3ODduOThnVEFONElnWE16Szg2R3ZoYkdNNVFEcV80NEdYNFZ0Q0hrcTlaWVU5czVfempBWE1LWG93blFmMVhFTGJ5QVVRWFJOZUJ3NFA3ZWk3M3ZyQQ?oc=5) - Sports Illustrated
+- [How a Player-Led Meeting Could Change Everything for Michigan Football](https://news.google.com/rss/articles/CBMitgFBVV95cUxQamltdU11T2hHX0h5U2RROVJfVWdiWkwzcHIxQk1YcHNmNjlPb2VHSWVUWjhYekJZQ2tROHVXQlVqOTUzcjZuNUN1VHEtRVM3dlVVcHhCcjBQdXVubk92T2p3ODduOThnVEFONElnWE16Szg2R3ZoYkdNNVFEcV80NEdYNFZ0Q0hrcTlaWVU5czVfempBWE1LWG93blFmMVhFTGJ5QVVRWFJOZUJ3NFA3ZWk3M3ZyQQ?oc=5) - si.com
 - [What channel is Michigan football vs Oklahoma? Week 2 time, TV schedule](https://news.google.com/rss/articles/CBMi3AFBVV95cUxPOUJwX1ZxS3ZMUl81OHd3QVdaX0plSDZtSTRTV3JLR0lIZ0hGZjF6Z2dVSmMzWU5xNDFmMVRaeTJQRF9iQkpVZ19OUzFGTW1SOTR6RU1EV0JfazN2aDBxMnh2bV9DN1A1NmxHczBjZ1BKU1c0aEdXdlFJWHc5MXFQMndTRFA4NzZhb2x3TzZQWlRSd1JvdVFLNzR1UnZkbC13V1hjQXJiZjdibHd2dnZoSnhacWNocnBKazhTYkdvYU1WOW52a2dkczNsQ283d3JqdjdGQzVpNVZ1cVpt?oc=5) - Detroit Free Press
-- [How to Watch: Michigan Football vs Oklahoma, other top games of Week 2](https://news.google.com/rss/articles/CBMi5AFBVV95cUxOdzRJdnI2ZmdtcXBJUmFXSHFJVW9jSDRuOU9JdDlsYnVKSDRKdXAwMTd2YmZkeWw1T0tPNHhHUDRhd1g1WHg0VGdSMFAxV01hRlpVcGJQOUlLSDNtWGRPWjY4bDJZWURTeVQ3V3poOTlIS3lDZVhPeUc0MEtPemt0YTUtdllhNGVzY3ZlUVk2LWtkcDR6OVR2eXVrcTNRbjJHVzJxVXdGQ1o5bGd5SkktTUdlY2hzZjhQeTVfYUx2bkFqWmlYTk90TmxHRUFFcnM2SnkzZ0tmZkQ1QnVja0QwMHh2emU?oc=5) - maizenbrew.com
+- [How to Watch: Michigan Football vs Oklahoma, other top games of Week 2](https://news.google.com/rss/articles/CBMi5AFBVV95cUxOdzRJdnI2ZmdtcXBJUmFXSHFJVW9jSDRuOU9JdDlsYnVKSDRKdXAwMTd2YmZkeWw1T0tPNHhHUDRhd1g1WHg0VGdSMFAxV01hRlpVcGJQOUlLSDNtWGRPWjY4bDJZWURTeVQ3V3poOTlIS3lDZVhPeUc0MEtPemt0YTUtdllhNGVzY3ZlUVk2LWtkcDR6OVR2eXVrcTNRbjJHVzJxVXdGQ1o5bGd5SkktTUdlY2hzZjhQeTVfYUx2bkFqWmlYTk90TmxHRUFFcnM2SnkzZ0tmZkQ1QnVja0QwMHh2emU?oc=5) - Maize n Brew
