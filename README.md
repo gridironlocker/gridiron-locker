@@ -23,16 +23,21 @@ python3 marketing/three_day_pulse.py` to refresh the short-lived brief.
 
 | Item | Count |
 |---|---|
-| HTML pages | **154** |
-| Product pages (one per design) | **130** |
+| HTML pages | **109** public (+85 redirect stubs) |
+| Product pages (one per design) | **81** |
 | Collection pages | 4 (+ All Collections, + Search/browse all) |
 | Creator collaboration pages | **1** (Joe's Michigan Locker, `/michigan/joe/`) |
 | SEO buying guides (articles) | 5 (4 buying guides + Week 1) |
 | Info/trust pages | Size guide, Shipping, FAQ, About, Contact, Trademark notice, Privacy, 404 |
-| Product images self-hosted | **1,718** |
+| Product images | self-hosted Viralstyle set + Mayzing CDN mockups |
 | Broken links / invalid schema | **0** |
 
-Collections: Cleveland Browns (64), Green Bay Packers (37), Michigan (19), Dallas (10).
+Collections: Green Bay Packers (37), Cleveland Browns (19), Michigan (15), Dallas Cowboys (10).
+
+Counts are not hand-maintained: `src/build.py` computes them from the merged master
+catalogue (`data/products_live.json` + `data/mayzing_products.json` +
+`data/mayzing_michigan.json`) and prints them on every run. The numbers above are that
+output, so re-run the build and read its footer rather than trusting this table.
 
 > The newest Browns campaign, `limited-edition-no-fly-zone` (added 2026-09-10 via
 > `add_campaign.py`), still hot-links its mockups from `assets.viralstyle.com`: the next Refresh
@@ -88,7 +93,7 @@ re-run the build to add them:
 
 ## Why it ranks
 
-- Unique `<title>`, meta description, canonical, OG + Twitter cards on all 154 pages.
+- Unique `<title>`, meta description, canonical, OG + Twitter cards on every public page.
 - **Real copy, not filler.** I read every artwork and wrote each page around what the design
   actually says (e.g. "Limited Edition GRB37" is now *This Girl Loves The Pack Shirt*). Descriptions
   are template-varied so no two pages read the same.
@@ -252,7 +257,7 @@ What remains is a single 1px border, one soft shadow, and a gentle lift + 4% ima
 Same treatment on the product page gallery and thumbnails.
 
 ## Current state
-154 pages · 438 schema blocks · **0 broken links** · **0 invalid schema** · 0 console errors · **0px horizontal overflow**.
+Every public page · 502 schema blocks · **0 broken links** · **0 invalid schema** · 0 console errors · **0px horizontal overflow**.
 
 
 ---
@@ -269,7 +274,7 @@ Casablanca) on GitHub's servers (free), with a manual "Run workflow" button too:
    the last 10 days and tags products: 3+ mentions = **Trending**, 0 mentions = **Throwback**.
 3. **Publishes the real headlines** on each collection page and the season hub, with source
    attribution and `rel="nofollow noopener"` links.
-4. **Rebuilds all 154 pages** with a fresh `lastmod` and `dateModified`.
+4. **Rebuilds every page** with a fresh `lastmod` and `dateModified`.
 5. **Commits and pushes, then deploys** the rebuilt site to GitHub Pages in the same run (the
    deploy cannot rely on the push event - GitHub does not trigger workflows from `GITHUB_TOKEN`
    pushes, so `refresh.yml` carries its own Pages deploy steps).
@@ -486,102 +491,3 @@ What was built:
 
 Preserved: every existing URL, product page and guardrail. Rebuild + test:
 `python3 src/build.py && python3 -m unittest discover -s tests`.
-
----
-
-## Two more Michigan designs live (12 Sep 2026)
-
-The Mayzing Michigan storefront published two further designs this evening (18:10 and 18:20 UTC).
-Both are now on **gridironlocker.store**, captured field-by-field from their live product pages:
-
-| Design | Colourway | Price | Product page |
-|---|---|---|---|
-| Bryce 19 | Black (Gildan 64000) | $21.00 | `/shop/bryce-19/` |
-| Respond Nothing Given Everything Earned | Navy (Gildan 64000) | $21.00 | `/shop/respond-nothing-given-everything-earned/` |
-
-- **Where they live:** `data/mayzing_michigan.json` is the Michigan source of truth for
-  `src/build.py`, so both records were added there; the hand-written SEO copy (name, artwork line,
-  long-tail keywords, theme) went into `src/catalog.py`. `Bryce 19` is tagged `player` (name +
-  number tribute - Bryce Underwood is the current Michigan QB and a 2026 captain, so it passes the
-  who's-who gate); the slogan tee is tagged `classic`.
-- **Ordering:** the Michigan file is written newest-first (verified against each Mayzing product
-  id's timestamp), so both new cards lead the Michigan collection grid. Michigan is now
-  **17 designs / 83 sitewide**, and the collection, home, search index, sitemap and image sitemap
-  all picked them up on the rebuild.
-- **Single-variant story preserved:** one garment, one colourway, one flat $21.00 price, S-5XL -
-  no pickers, and every CTA still hands off to the Mayzing product page.
-- **Not yet in the Mayzing *collection*:** the store's Michigan filter still reports
-  "Showing 15 of 15" - both designs are on the store but not assigned to that collection. The site
-  links work regardless (they use the product-page URLs the store itself publishes, with the
-  Michigan `collectionId`); assigning them to the collection on Mayzing keeps the two storefronts
-  in step.
-- **Artwork line:** the Mayzing mockup CDN is not machine-readable from the build environment, so
-  each `art` value is the supplier's own product title in caps (`BRYCE 19`,
-  `RESPOND NOTHING GIVEN EVERYTHING EARNED`). If the print differs, correct the `art` string in
-  `src/catalog.py` and rebuild.
-- **Comments (Michigan) are outside the marketing pipeline:** `marketing/*` and `/drops/` read
-  `data/products.json` + `data/order.json`, which only carry the Viralstyle-sourced collections
-  (Dallas, Green Bay). None of the migrated Michigan or Cleveland designs have ever been in that
-  queue, so these two do not appear on `/drops/` or in the Pinterest/three-day-pulse drafts.
-- **Tests:** `python3 src/build.py` rebuilt 83 products / 107 URLs. `python3 -m unittest discover
-  -s tests` returns the same 8 failures + 7 errors as `main` does at `b2dd72c` (stale expectations
-  left over from the Mayzing migration, e.g. `MichiganZeroOneProducts` still asserts the retired
-  Viralstyle Michigan slugs) - this change adds none.
-
----
-
-## One more Michigan design live (12 Sep 2026, 18:55 UTC)
-
-The Mayzing Michigan storefront published a third design this evening, and it is now on
-**gridironlocker.store** — captured field-by-field from its live product page:
-
-| Design | Colourway | Price | Product page |
-|---|---|---|---|
-| Respond Nothing Given Everything Earned. | Navy (Gildan 64000) | $21.00 | `/shop/respond-nothing-given-everything-earned-tee/` |
-
-- **How the storefront was swept:** `gridironlocker.shop/p/michigan` still reports
-  "Showing 15 of 15" and `/p/browns` reports 19 of 19, but the **All** tab reports
-  **37 products**. 37 = 19 Browns + 15 in the Michigan collection + the 3 unassigned Michigan
-  designs published today (`bryce-19`, `respond-nothing-given-everything-earned`,
-  `respond-nothing-given-everything-earned-tee`). So exactly one Michigan product was missing
-  from the site — the rest of the store was already mirrored.
-- **Where it lives:** the record went into `data/mayzing_michigan.json` (the Michigan source of
-  truth `src/build.py` reads), newest-first so it leads the Michigan collection grid; the
-  hand-written SEO copy (name, artwork line, long-tail keywords, `theme="classic"`) went into
-  `src/catalog.py`. Tagged `classic`, not `player` — it is a slogan tee with no player in it.
-- **It is a second listing of the same slogan, not a rename.** Mayzing holds it as its own design
-  (design id `6aa5a0360987816cf008bbaa`, created 18:55:51 UTC) alongside
-  `respond-nothing-given-everything-earned` (design id `6aa59587688eb4bbb59c640a`, 18:10:15 UTC),
-  and the store keeps **both** on sale, so both get a page here. Deleting the older one is a
-  Mayzing-admin decision, not a build change.
-- **Naming:** the H1/SERP name keeps the supplier's own trailing full stop —
-  `Respond Nothing Given Everything Earned.` — per the "titles verbatim from Mayzing" rule. That
-  full stop also does real work: both siblings are Navy, so the duplicate-name colour qualifier
-  (`_DUP_NAMES` → `" - Navy"`) would have produced two identical `<title>`s and failed
-  `test_titles_and_metas_are_unique_per_product`. The keywords are angled at the tee itself so the
-  two pages do not chase the exact same query set. If the print differs from the title, correct the
-  `art` string in `src/catalog.py` and rebuild (the Mayzing CDN is still not machine-readable from
-  the build environment).
-- **Single-variant story preserved:** one garment (Classic Unisex T-shirt / Gildan 64000), one
-  colourway (Navy), one flat $21.00, S-5XL — no pickers, and all four SHOP NOW CTAs (hero, band,
-  sticky, schema `offers.url`) hand off to
-  `https://gridironlocker.shop/respond-nothing-given-everything-earned-tee?collectionId=YYMlCmwgKG__&color=GILDAN-NAVY&productId=6aa5a037d36087dc4a8b023a`.
-  Mockups are hot-linked from the Mayzing CDN at `w:1000` (front + back), same as the rest of the
-  migrated range, until `dl.py` learns to localise them.
-- **Still not in the Mayzing *collection*:** like the two designs added earlier today, it is on the
-  store but not assigned to the Michigan filter, so its checkout URL is the product-page link the
-  store publishes with the Michigan `collectionId` appended. Assigning all three to the collection
-  on Mayzing keeps the two storefronts in step.
-- **Counts:** Michigan is now **18 designs / 84 sitewide**; the rebuild reports
-  `built 84 products, 4 collections, 108 urls`. The collection page (`numberOfItems: 18`),
-  homepage Michigan rail, `/search/` index, `sitemap.xml`, `sitemap-images.xml`, `llms.txt` and
-  `ops/scout` all picked it up. `feed.xml` lists collections rather than designs, and
-  `product-index.csv` / `data/order.json` are Viralstyle-era artefacts that the two earlier Mayzing
-  Michigan additions were never written to — left untouched for consistency.
-- **Michigan is still outside the marketing pipeline:** `marketing/*` and `/drops/` read
-  `data/products.json` + `data/order.json`, which only carry the Viralstyle-sourced collections, so
-  this design does not appear on `/drops/` or in the Pinterest/three-day-pulse drafts either.
-- **Tests:** `python3 src/build.py && python3 -m unittest discover -s tests` → 139 tests,
-  **8 failures + 7 errors + 16 skipped — the identical set `main` already fails at `e28f8f9`**
-  (stale Viralstyle-era expectations, e.g. `MichiganZeroOneProducts`, and the Cleveland/Michigan
-  colour-copy assertions that still expect the `Viralstyle` partner string). This change adds none.

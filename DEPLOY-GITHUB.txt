@@ -77,7 +77,7 @@ git push
 #   - pulls live headlines for all four teams
 #   - re-scores every design as Trending / Throwback automatically
 #   - refreshes the headline blocks and the keyword ticker
-#   - rebuilds all 154 pages with a new lastmod + dateModified
+#   - rebuilds every page with a new lastmod + dateModified
 #   - commits, pushes (Pages redeploys), then pings IndexNow
 #   - saves trend-report.md as a downloadable artifact for you
 #

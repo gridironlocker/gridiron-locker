@@ -136,9 +136,21 @@ class ExpectationsMatchTheBuild(unittest.TestCase):
         self.assertEqual(hc.MAX_ART_BYTES, 750 * 1024)
 
     def test_sitemap_gate_is_stricter_than_the_workflows(self):
-        # refresh.yml refuses to publish under 100 <loc>; the live check must
-        # never be looser than the build gate it is policing.
-        self.assertGreaterEqual(hc.SITEMAP_MIN_URLS, 100)
+        """The live check must never be looser than the build gate it polices.
+
+        Both used to be magic numbers (100) that disagreed with the real
+        catalogue of 81 designs, so the health check failed a complete build.
+        refresh.yml now asserts the sitemap's product URLs equal the master
+        catalogue exactly; the live check keeps a floor that only catches a
+        genuinely truncated build, and its own exact-count assert does the
+        precise work.
+        """
+        self.assertGreaterEqual(hc.SITEMAP_MIN_URLS, 60)
+        self.assertLess(hc.SITEMAP_MIN_URLS, hc.CATALOGUE_SIZE,
+                        "the floor must sit below the real catalogue or every "
+                        "healthy build fails")
+        # the exact-match gate is what actually catches drift
+        self.assertGreater(hc.CATALOGUE_SIZE, 0)
 
 
 @requires_hc

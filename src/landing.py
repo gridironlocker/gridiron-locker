@@ -1038,17 +1038,36 @@ def details_bullets(garment, styles, sizes, colours, price, features="", col=Non
 
 
 def shipping_copy(delivery_time, ship_from, col=None):
+    """Shipping block for a product page.
+
+    ``delivery_time`` / ``ship_from`` are Viralstyle's published figures, so
+    they are only ever printed on a Viralstyle product. A Mayzing product
+    publishes no rate and no window - its page says only that delivery times
+    vary by location, and its cart calculates the live rate - so quoting
+    Viralstyle's numbers there would be a false shipping claim.
+    """
     P = partner_of((col or {}).get("key"))
-    return (f"<p>Every item is printed after the order is placed - there is no warehouse stock to "
-            f"ship from, which is why the catalogue can stay this wide without anything selling "
-            f"out. Production takes a few business days, then the parcel moves.</p>"
-            f"<p><strong>United States:</strong> standard shipping from ${ship_from}, typically "
-            f"{delivery_time} from order to doorstep including production. "
-            f"<strong>International:</strong> worldwide delivery is available; the exact rate and "
-            f"estimate for your address is calculated at checkout on {P}.</p>"
-            f"<p>If an item arrives misprinted, damaged or defective it is replaced within 30 days. "
-            f"Delivery estimates are estimates - if you need a piece for a specific game, order "
-            f"early in the week rather than the night before.</p>")
+    head = (f"<p>Every item is printed after the order is placed - there is no warehouse stock "
+            f"to ship from, which is why the catalogue can stay this wide without anything "
+            f"selling out. Production takes a few business days, then the parcel moves.</p>")
+    if P == "Viralstyle":
+        return (head +
+                f"<p><strong>United States:</strong> standard shipping from ${ship_from}, "
+                f"typically {delivery_time} from order to doorstep including production. "
+                f"<strong>International:</strong> worldwide delivery is available; the exact "
+                f"rate and estimate for your address is calculated at checkout on {P}.</p>"
+                f"<p>If an item arrives misprinted, damaged or defective it is replaced within "
+                f"30 days. Delivery estimates are estimates - if you need a piece for a specific "
+                f"game, order early in the week rather than the night before.</p>")
+    return (head +
+            f"<p><strong>Shipping:</strong> this design is printed and shipped by {P}, which "
+            f"calculates the live rate for your address in its cart. Production and delivery "
+            f"times vary by product and destination, so the current figures are shown at "
+            f"checkout rather than quoted here.</p>"
+            f"<p>If an item arrives misprinted, damaged or defective, contact support with a "
+            f"photo and your order number and it is handled under {P}'s return policy, shown at "
+            f"checkout. Allow extra time if you need a piece for a specific game - order early "
+            f"in the week rather than the night before.</p>")
 
 
 def disclosure():
