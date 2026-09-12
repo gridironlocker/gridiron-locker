@@ -2270,18 +2270,6 @@ def shop_now_cta(it, placement, label="Shop Now", size="lg", block=True):
             f'{label} <span aria-hidden="true">&rarr;</span></a>')
 
 
-def cta_note(it, colours):
-    """The sentence that removes the uncertainty about what happens next."""
-    bits = ["garment style"]
-    if colours > 1:
-        bits.append("colour")
-    if it["garment"] not in ("Mug", "Phone Case", "Beanie"):
-        bits.append("size")
-    listed = ", ".join(bits[:-1]) + " and " + bits[-1] if len(bits) > 1 else bits[0]
-    return (f'<p class="ctanote">Choose your {listed} on the {it["partner"]} product page. '
-            f'Checkout is completed there &ndash; Gridiron Locker never takes payment.</p>')
-
-
 def page_product(it):
     """One design = one SEO landing page.
 
@@ -2478,8 +2466,6 @@ def page_product(it):
    <li><b>Sizes</b>{size_badge}</li>
   </ul>
   {shop_now_cta(it, "hero")}
-  {cta_note(it, colours)}
-  <p class="ctanote flow">Final garment style, colour, size and quantity selection is completed on {it['partner']}.</p>
   <div class="badges"><span class="badge">Fan-made, unofficial design</span>
    <span class="badge">Printed on demand</span>
    <span class="badge">US shipping from ${SHIP_US['shippingRate']['value']}</span>
@@ -2551,7 +2537,6 @@ def page_product(it):
   </div>
   <div class="ctaband-act">
    {shop_now_cta(it, "footer_band")}
-   {cta_note(it, colours)}
   </div>
  </div>
 </div></section>

@@ -453,8 +453,13 @@ class ProductPages(unittest.TestCase):
         for slug, html in self.pages.items():
             partner = "Mayzing" if slug in MAYZING else "Viralstyle"
             self.assertIn(f"on the {partner} product page", html, slug)
-            self.assertIn("Gridiron Locker never takes payment", html, slug)
             self.assertIn("30-day misprint replacement", html, slug)
+            # the buybox is a summary, not a form: the hand-off is stated once
+            # beside the mid-page CTA (plus the band line and the FAQ), so the
+            # two duplicate notes that used to sit under the hero button stay off.
+            self.assertEqual(html.count('class="ctanote'), 1, slug)
+            self.assertNotIn("Checkout is completed there", html, slug)
+            self.assertNotIn("Final garment style, colour, size and quantity", html, slug)
 
     def test_top_and_bottom_cta(self):
         """A visitor must never have to scroll back up to convert."""
