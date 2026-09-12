@@ -224,6 +224,11 @@ CATALOG = {
 # Mayzing. Names are the Mayzing product titles used verbatim so the
 # storefront and this site agree; the checkout URL on each product page is
 # the real gridironlocker.shop product link. Artwork is the Mayzing mockup.
+# Added 2026-09-12 (later), from the two Michigan designs the store published
+# that evening - captured from their live product pages, name and artwork line
+# taken from the product title the supplier prints under, never invented.
+"bryce-19": dict(name="Bryce 19", art="BRYCE 19", kw=["bryce 19 shirt","bryce underwood michigan shirt","michigan quarterback shirt","qb19 michigan tee","michigan 19 tee","go blue football shirt"], theme="player", type="T-Shirt"),
+"respond-nothing-given-everything-earned": dict(name="Respond Nothing Given Everything Earned", art="RESPOND NOTHING GIVEN EVERYTHING EARNED", kw=["nothing given everything earned shirt","respond michigan shirt","michigan motivational tee","football quote shirt","gridiron mindset tee","go blue fan gear"], theme="classic", type="T-Shirt"),
 "second-act": dict(name="Second Act", art="SECOND ACT", kw=["second act michigan shirt","michigan football tee","go blue second act tee","ann arbor football shirt","michigan wolverines fan gear","michigan football gift"], theme="classic", type="T-Shirt"),
 "limited-edition-h-a-i-l-mary": dict(name="Limited Edition H A I L Mary", art="LIMITED EDITION H A I L MARY", kw=["hail mary michigan shirt","limited edition hail mary tee","michigan hail mary shirt","go blue hail tee","michigan wolverines fan gear","ann arbor football shirt"], theme="classic", type="T-Shirt"),
 "one-second": dict(name="One Second", art="ONE SECOND", kw=["one second michigan shirt","michigan one second tee","go blue shirt","michigan wolverines fan gear","ann arbor football shirt"], theme="classic", type="T-Shirt"),
