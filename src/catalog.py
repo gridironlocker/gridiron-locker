@@ -219,5 +219,22 @@ CATALOG = {
 "go-browns": dict(name="Go Browns", art="GO BROWNS", kw=["go browns shirt","browns slogan tee","cleveland browns t shirt","cleveland football gift"], theme="classic", type="T-Shirt"),
 "playoffs": dict(name="Playoffs", art="PLAYOFFS", kw=["browns playoffs shirt","cleveland playoff tee","dawg pound playoff shirt"], theme="playoff", type="T-Shirt"),
 "ohio-cle": dict(name="Ohio Cle", art="OHIO CLE", kw=["ohio cle shirt","ohio cleveland tee","cleveland ohio shirt","ohio football tee"], theme="city", type="T-Shirt"),
+# ---------------- MICHIGAN / MAYZING REBUILD ----------------
+# 2026-09-12 migration: the Michigan collection moved from Viralstyle to
+# Mayzing. Names are the Mayzing product titles used verbatim so the
+# storefront and this site agree; the checkout URL on each product page is
+# the real gridironlocker.shop product link. Artwork is the Mayzing mockup.
+"second-act": dict(name="Second Act", art="SECOND ACT", kw=["second act michigan shirt","michigan football tee","go blue second act tee","ann arbor football shirt","michigan wolverines fan gear","michigan football gift"], theme="classic", type="T-Shirt"),
+"limited-edition-h-a-i-l-mary": dict(name="Limited Edition H A I L Mary", art="LIMITED EDITION H A I L MARY", kw=["hail mary michigan shirt","limited edition hail mary tee","michigan hail mary shirt","go blue hail tee","michigan wolverines fan gear","ann arbor football shirt"], theme="classic", type="T-Shirt"),
+"one-second": dict(name="One Second", art="ONE SECOND", kw=["one second michigan shirt","michigan one second tee","go blue shirt","michigan wolverines fan gear","ann arbor football shirt"], theme="classic", type="T-Shirt"),
+"m-vs-everybody": dict(name="M vs everybody", art="M -VS- EVERYBODY", kw=["m vs everybody shirt","michigan vs everybody tee","go blue vs everybody shirt","michigan wolverines fan gear","ann arbor football shirt"], theme="classic", type="T-Shirt"),
+"second-act-qb19-vintage-football": dict(name="Second Act QB19 Vintage Football", art="SECOND ACT QB19 VINTAGE FOOTBALL", kw=["second act qb19 vintage football shirt","michigan qb19 vintage tee","bryce underwood michigan shirt","go blue qb19 tee","ann arbor football shirt","michigan wolverines fan gear"], theme="retro", type="T-Shirt"),
+"limited-edition-go-blue": dict(name="Limited Edition Go Blue", art="LIMITED EDITION GO BLUE", kw=["limited edition go blue shirt","go blue michigan tee","michigan wolverines shirt","ann arbor football shirt","michigan football gift"], theme="classic", type="T-Shirt"),
+"michigan-v-everybody": dict(name="Michigan v Everybody", art="MICHIGAN -VS- EVERYBODY", kw=["michigan vs everybody shirt","michigan v everybody tee","go blue vs everybody shirt","michigan wolverines fan gear","ann arbor football shirt"], theme="classic", type="T-Shirt"),
+"milf": dict(name="MILF", art="MILF", kw=["milf michigan shirt","michigan milf tee","go blue funny shirt","michigan wolverines fan gear","ann arbor football shirt"], theme="funny", type="T-Shirt"),
+"bet-m": dict(name="BET M", art="BET M", kw=["bet m michigan shirt","michigan bet m tee","go blue bet shirt","michigan wolverines fan gear","ann arbor football shirt"], theme="funny", type="T-Shirt"),
+"michigan-bet-vintage": dict(name="Michigan Bet Vintage", art="MICHIGAN BET VINTAGE", kw=["michigan bet vintage shirt","michigan bet vintage tee","go blue bet shirt","michigan wolverines fan gear","ann arbor football shirt"], theme="retro", type="T-Shirt"),
+"michigan-revenge-tour": dict(name="Michigan Revenge Tour", art="MICHIGAN REVENGE TOUR", kw=["michigan revenge tour shirt","michigan revenge tour tee","go blue shirt","michigan wolverines fan gear","ann arbor football shirt"], theme="classic", type="T-Shirt"),
+"michigan-bet": dict(name="Michigan BET", art="MICHIGAN BET", kw=["michigan bet shirt","michigan bet tee","go blue bet shirt","michigan wolverines fan gear","ann arbor football shirt"], theme="classic", type="T-Shirt"),
 }
 

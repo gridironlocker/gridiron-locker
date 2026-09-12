@@ -3,7 +3,7 @@
 import json, os, re, shutil, html, sys, datetime, hashlib
 sys.path.insert(0, os.path.dirname(__file__))
 from collections import OrderedDict
-from collections_data import COLLECTIONS, ORDER, SEASON, NEXT_GAME
+from collections_data import COLLECTIONS, ORDER, SEASON, NEXT_GAME, partner_of
 import seocopy as _c
 import landing as _l
 from catalog import CATALOG
@@ -122,21 +122,25 @@ FUL_DEST = _FUL.get("destinations", {})
 FUL_HOLD = set(_FUL.get("hold", []))
 FUL_COLLECTION = _FUL.get("collection", "")
 FUL_PARTNER = _FUL.get("partner", "Mayzing")
-try:
-    _MAYZING = json.load(open(os.path.join(ROOT, "data/mayzing_products.json")))
-except Exception:
-    _MAYZING = {}
-MAYZING_PRODUCTS = OrderedDict((m["slug"], m) for m in _MAYZING.get("products", []))
-
-
-def partner_of(col):
-    """Customer-facing fulfillment partner for a collection.
-
-    Cleveland moved to Mayzing; Dallas, Green Bay and Michigan still hand off
-    to Viralstyle, so copy that names the partner has to ask rather than
-    assume. Anything that does not name a partner is left partner-neutral.
-    """
-    return FUL_PARTNER if col == FUL_COLLECTION else "Viralstyle"
+# Mayzing-sourced collections: collection key -> OrderedDict(slug -> product).
+# Cleveland already lives in data/mayzing_products.json; Michigan (and any
+# future team) is captured the same way so a Viralstyle re-crawl can never
+# resurrect a page for that collection. Each file's "products" are the live
+# catalogue on that team's Mayzing storefront; build_model() sources the
+# collection from the file instead of data/collections.json.
+MAYZING_FILES = [
+    ("cleveland-browns", "mayzing_products.json"),
+    ("michigan", "mayzing_michigan.json"),
+]
+MAYZING_SOURCES = {}
+for _ckey, _fname in MAYZING_FILES:
+    try:
+        _mj = json.load(open(os.path.join(ROOT, "data", _fname)))
+    except Exception:
+        continue
+    _prods = _mj.get("products", [])
+    if _prods:
+        MAYZING_SOURCES[_ckey] = OrderedDict((m["slug"], m) for m in _prods)
 
 
 def fulfill_buy(col, slug, default):
@@ -528,11 +532,12 @@ def build_model():
         col = COLLECTIONS[ckey]
         col["key"] = ckey
         lst = []
-        if ckey == FUL_COLLECTION and MAYZING_PRODUCTS:
-            # Cleveland/Browns: the catalogue IS the Mayzing storefront file.
-            # data/collections.json no longer lists Cleveland products, so a
-            # re-crawl cannot resurrect a Viralstyle page for this collection.
-            for slug, m in MAYZING_PRODUCTS.items():
+        if ckey in MAYZING_SOURCES:
+            # Cleveland/Browns + Michigan: the catalogue IS the Mayzing
+            # storefront file. data/collections.json no longer lists these
+            # products, so a re-crawl cannot resurrect a Viralstyle page for
+            # this collection.
+            for slug, m in MAYZING_SOURCES[ckey].items():
                 if slug in DELISTED:
                     continue
                 it = mayzing_item(m, ckey)
@@ -2767,10 +2772,10 @@ WEEK1_PATH = "/guides/2026-week-1-shirts/"
 WEEK1_SLATE = OrderedDict((
     ("michigan", [
         dict(slot="W1-07", slogan="MICHIGAN VS EVERYBODY", garment="Sweatshirt",
-             palette="#FFCB05 on #00274C", status="live", sibling="limited-edition-m-fans-n30",
+             palette="#FFCB05 on #00274C", status="live", sibling="michigan-v-everybody",
              note="The oldest grudge in the Big Ten, four words long."),
         dict(slot="W1-08", slogan="BET", garment="Tee",
-             palette="Maize on navy", status="art", sibling="limited-edition-m-fans-n28",
+             palette="Maize on navy", status="art", sibling="bet-m",
              note="Three letters, one syllable, zero explanation needed."),
     ]),
     ("cleveland-browns", [

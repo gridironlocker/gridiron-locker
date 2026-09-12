@@ -5,7 +5,9 @@ cols={
  'cleveland-browns':{'path':'Cleveland-Browns','name':'ORANGE AND BROWN COLLECTION'},
  'dallas-cowboys':{'path':'dallas-vintage-sports','name':'DALLAS VINTAGE SPORTS'},
  'green-bay-packers':{'path':'Packss','name':'PACKS'},
- 'michigan':{'path':'MICHIG','name':'MICHIGAN'},
+ # Michigan migrated to Mayzing (see data/mayzing_michigan.json) - do NOT
+ # re-crawl it from Viralstyle, or the daily refresh would resurrect a
+ # Viralstyle Michigan collection in data/collections.json.
 }
 out={}
 for key,c in cols.items():
