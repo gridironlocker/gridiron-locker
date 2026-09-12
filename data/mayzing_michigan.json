@@ -1,5 +1,5 @@
 {
-  "_doc": "Michigan/Wolverines fulfillment (2026-09-12): Viralstyle -> Mayzing. The Michigan collection catalogue now lives in this file (every product live on the Mayzing Michigan storefront at https://gridironlocker.shop/p/michigan); src/build.py sources Michigan from this file, so a Viralstyle re-crawl cannot resurrect a Michigan page. Slugs and product names are the verbatim Mayzing product handles; checkout URLs are the real gridironlocker.shop product-page URLs captured from the live store. Mockup images are hot-linked from the Mayzing CDN (w:1000) as a temporary fallback until dl.py learns to localise them. 2026-09-12 (later): two further Michigan designs that the store published today - bryce-19 (18:20 UTC) and respond-nothing-given-everything-earned (18:10 UTC) - were captured from their live product pages and added here, so gridironlocker.store carries them too. Both are the same Gildan 64000 'Classic Unisex T-shirt' line as the rest of the Michigan range ($21.00). They are not yet assigned to the Mayzing Michigan collection filter (the store still reports 'Showing 15 of 15' in that collection), so their checkout URLs are the product-page links the store itself publishes for them, with the Michigan collectionId appended for the in-collection context.",
+  "_doc": "Michigan/Wolverines fulfillment (2026-09-12): Viralstyle -> Mayzing. The Michigan collection catalogue now lives in this file (every product live on the Mayzing Michigan storefront at https://gridironlocker.shop/p/michigan); src/build.py sources Michigan from this file, so a Viralstyle re-crawl cannot resurrect a Michigan page. Slugs and product names are the verbatim Mayzing product handles; checkout URLs are the real gridironlocker.shop product-page URLs captured from the live store. Mockup images are hot-linked from the Mayzing CDN (w:1000) as a temporary fallback until dl.py learns to localise them. 2026-09-12 (later): two further Michigan designs that the store published today - bryce-19 (18:20 UTC) and respond-nothing-given-everything-earned (18:10 UTC) - were captured from their live product pages and added here, so gridironlocker.store carries them too. Both are the same Gildan 64000 'Classic Unisex T-shirt' line as the rest of the Michigan range ($21.00). They are not yet assigned to the Mayzing Michigan collection filter (the store still reports 'Showing 15 of 15' in that collection), so their checkout URLs are the product-page links the store itself publishes for them, with the Michigan collectionId appended for the in-collection context. 2026-09-12 (latest): a third design published that evening - respond-nothing-given-everything-earned-tee (18:55 UTC, the newest product id in the store) - was captured the same way and added here, so gridironlocker.store carries it too. It is a SECOND live listing of the same slogan, uploaded as its own Mayzing design (design id 6aa5a0360987816cf008bbaa, not the 6aa59587688eb4bbb59c640a of respond-nothing-given-everything-earned), and the store keeps both on sale, so both get a page here. Its name is the verbatim supplier title INCLUDING the trailing full stop the store prints ('Respond Nothing Given Everything Earned.'); that full stop is what keeps the two sibling pages' SERP titles and meta descriptions unique - both are Navy, so the colour-qualification fallback used for duplicate names would collide. Same Gildan 64000 'Classic Unisex T-shirt' line, same $21.00, same S-5XL run, also not yet assigned to the Michigan collection filter. Store totals verified against the live storefront at capture time: 37 products = 19 Browns + 15 in the Michigan collection + these 3 unassigned Michigan designs.",
   "store": "https://gridironlocker.shop/p/michigan",
   "store_id": "z2OF",
   "collectionId": "YYMlCmwgKG__",
@@ -8,6 +8,24 @@
   "currency_note": "Price shown by the fulfilment partner at checkout; $21.00 across the Michigan tee range.",
   "captured": "2026-09-12",
   "products": [
+    {
+      "slug": "respond-nothing-given-everything-earned-tee",
+      "name": "Respond Nothing Given Everything Earned.",
+      "garment": "Classic Unisex T-shirt",
+      "blank": "Gildan 64000",
+      "price_usd": "21.00",
+      "colour_code": "GILDAN-NAVY",
+      "colour_name": "Navy",
+      "sizes": ["S", "M", "L", "XL", "2XL", "3XL", "4XL", "5XL"],
+      "handle": "respond-nothing-given-everything-earned-tee",
+      "product_id": "6aa5a037d36087dc4a8b023a",
+      "checkout_url": "https://gridironlocker.shop/respond-nothing-given-everything-earned-tee?collectionId=YYMlCmwgKG__&color=GILDAN-NAVY&productId=6aa5a037d36087dc4a8b023a",
+      "features": "Gildan 64000 soft ring-spun 100% cotton, modern classic fit, tubular body, taped neck and shoulders, double-needle sleeve and bottom hems",
+      "img": {
+        "front": "https://buyer-experience-gateway.mayzing.com/stores/z2OF/mockups/id:miz0a9q97v20,sig:9XlR1m7R6NNvpx2jVCrbcM7f8j3mVlWTmM-FAQZkhU4,c:GILDAN-NAVY,s:41a8f2db-c26c-4aa6-8f4c-7729cd25b4ee,d:6aa5a0360987816cf008bbaa,dv:2,cpd:pdz0a9q97v0,w:1000/image.png",
+        "back": "https://buyer-experience-gateway.mayzing.com/stores/z2OF/mockups/id:miz0a9q97v21,sig:Eaux_ahKtj4-e8NGDHMQdiNJYPkLc1MLqngOMy4yCns,c:GILDAN-NAVY,s:68cc43b4-f55a-46a0-9a99-5f88952ca97c,cpd:pdz0a9q97v0,w:1000/image.png"
+      }
+    },
     {
       "slug": "bryce-19",
       "name": "Bryce 19",
