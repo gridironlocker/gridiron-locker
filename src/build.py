@@ -11,7 +11,25 @@ import auto_copy
 
 ROOT = os.path.dirname(os.path.dirname(os.path.abspath(__file__)))
 SITE = os.path.join(ROOT, "site")
-CFG = json.load(open(os.path.join(ROOT, "src/config.json")))
+
+
+def read_json(*parts):
+    """Read a JSON file from the repo root, closed and UTF-8-decoded.
+
+    This replaces the ``json.load(open(...))`` idiom that this module used in
+    eleven places. That form leaks the file object until the garbage collector
+    happens to reclaim it, which CPython reports as a ResourceWarning - the test
+    suite ran with two of them in the CI log - and it leaves the decode encoding
+    up to the platform default (cp1252 on Windows), which would corrupt the
+    em-dashes and curly quotes this catalogue is full of.
+
+    Joins onto ROOT so call sites stay short: read_json("data", "facts.json").
+    """
+    with open(os.path.join(ROOT, *parts), encoding="utf-8") as fh:
+        return json.load(fh)
+
+
+CFG = read_json("src", "config.json")
 DOMAIN = CFG["domain"].rstrip("/")
 
 
@@ -28,9 +46,40 @@ def abs_url(path):
         return path
     return DOMAIN + path
 BRAND = CFG["site_name"]
-TODAY = datetime.date.today().isoformat()
+
+
+def utc_today():
+    """The build's single definition of "today", pinned to UTC.
+
+    Every date this generator stamps - Offer ``validFrom``, sitemap
+    ``lastmod``, ``datePublished``/``dateModified``, the footer copyright year -
+    used to come from ``datetime.date.today()``, which is the *local* date of
+    whatever machine ran the build. That made the output depend on the
+    operator's timezone:
+
+      * ``refresh.yml`` runs on GitHub-hosted runners (UTC) on a UTC cron
+        (``15 6 * * *`` / ``15 15 * * *``), and its freshness gate compares
+        ``data/trends.json:generated`` against ``datetime.date.today()`` - also
+        UTC there.
+      * the same build run locally in Africa/Casablanca (UTC+1, the operator's
+        timezone per BLUEPRINT.md) stamps *tomorrow's* date for the last hour of
+        each UTC day, so a local rebuild produced a diff against CI's output and
+        the date-coupled tests disagreed with the committed artefact.
+
+    Pinning to UTC makes the build reproducible on any machine and keeps it in
+    step with the cron and the freshness gate. It is deliberately NOT the
+    audience timezone (America/New_York): the refresh schedule is UTC, so a
+    UTC build date is the one that can never be ahead of the pipeline that
+    produced it.
+    """
+    return datetime.datetime.now(datetime.timezone.utc).date()
+
+
+TODAY = utc_today().isoformat()
+YEAR = utc_today().year
 STYLE_PATH = os.path.join(ROOT, "src/style.css")
-STYLE_VERSION = hashlib.sha256(open(STYLE_PATH, "rb").read()).hexdigest()[:8]
+with open(STYLE_PATH, "rb") as _style_fh:
+    STYLE_VERSION = hashlib.sha256(_style_fh.read()).hexdigest()[:8]
 CTA = "#49a59c"
 CTA_HOVER = "#3a847d"
 
@@ -130,13 +179,13 @@ SOCIALS = [
 # stay canonical for search engines.
 SOCIAL_UTM = "?utm_source=site&utm_medium=social"
 
-P = json.load(open(os.path.join(ROOT, "data/products_live.json")))
-COLS = json.load(open(os.path.join(ROOT, "data/collections.json")))
+P = read_json("data", "products_live.json")
+COLS = read_json("data", "collections.json")
 
 # Retired designs (players/coaches who left the team). A re-crawl must never
 # resurrect a page for one of these slugs, so build_model() skips them outright.
 try:
-    DELISTED = json.load(open(os.path.join(ROOT, "data/delisted.json"))).get("slugs", {})
+    DELISTED = read_json("data", "delisted.json").get("slugs", {})
 except Exception:
     DELISTED = {}
 
@@ -154,7 +203,7 @@ except Exception:
 #     Viralstyle. As designs are uploaded to Mayzing they leave 'hold'.
 # Every other collection is untouched and keeps its crawled Viralstyle URL.
 try:
-    _FUL = json.load(open(os.path.join(ROOT, "data/fulfillment.json")))
+    _FUL = read_json("data", "fulfillment.json")
 except Exception:
     _FUL = {}
 FUL_DEST = _FUL.get("destinations", {})
@@ -174,7 +223,7 @@ MAYZING_FILES = [
 MAYZING_SOURCES = {}
 for _ckey, _fname in MAYZING_FILES:
     try:
-        _mj = json.load(open(os.path.join(ROOT, "data", _fname)))
+        _mj = read_json("data", _fname)
     except Exception:
         continue
     _prods = _mj.get("products", [])
@@ -191,7 +240,7 @@ def fulfill_buy(col, slug, default):
 # over data/facts.json. For any crawled slug with no hand-written entry,
 # src/auto_copy.py derives name / art / kw / theme from the campaign's own store
 # title plus live trend topics, so a re-crawl can never crash the build.
-_FACTS_RAW = json.load(open(os.path.join(ROOT, "data/facts.json")))
+_FACTS_RAW = read_json("data", "facts.json")
 FACTS = dict(_FACTS_RAW)
 for ckey in ORDER:
     for entry in COLS.get(ckey, {}).get("products", []):
@@ -209,11 +258,11 @@ for _f in FACTS.values():
 
 # live trend data produced by src/trends.py (optional - site builds fine without it)
 try:
-    TRENDS = json.load(open(os.path.join(ROOT, "data/trends.json")))
+    TRENDS = read_json("data", "trends.json")
 except Exception:
     TRENDS = {"generated": None, "collections": {}}
 try:
-    OVERRIDES = json.load(open(os.path.join(ROOT, "data/trend_overrides.json")))
+    OVERRIDES = read_json("data", "trend_overrides.json")
 except Exception:
     OVERRIDES = {}
 try:
@@ -237,7 +286,7 @@ enrich(TRENDS)
 # commission.customer_facing=false means the rate never renders on public
 # pages - customers see the collaboration, not the affiliate math.
 try:
-    CREATORS = json.load(open(os.path.join(ROOT, "data/creators.json"))).get("creators", {})
+    CREATORS = read_json("data", "creators.json").get("creators", {})
 except Exception:
     CREATORS = {}
 
@@ -509,7 +558,10 @@ def write(path, content):
     full = os.path.join(SITE, path)
     os.makedirs(os.path.dirname(full), exist_ok=True)
     content = re.sub(r"\s*(?:&mdash;|—)\s*", " - ", content)
-    open(full, "w", encoding="utf-8").write(content)
+    # Every page the build emits goes through here, so this one leaked a handle
+    # per page (206 per build) until GC collected it.
+    with open(full, "w", encoding="utf-8") as fh:
+        fh.write(content)
 
 
 def slugify(s):
@@ -1284,7 +1336,7 @@ def footer(popup=True):
    any university or any player. All team names, city names and player names are used descriptively
    to identify the fan community a design is made for. All trademarks are the property of their
    respective owners. Artwork is original, fan-created work.</div>
-  <div class="legal">&copy; {datetime.date.today().year} {esc(BRAND)}. All rights reserved.
+  <div class="legal">&copy; {YEAR} {esc(BRAND)}. All rights reserved.
    Prices on this site are listed in USD and set by the fulfilment partner that prints the design.
    Final product price, shipping and applicable taxes are confirmed at checkout, where the
    partner's own currency, colour and size options apply.</div>
@@ -2496,7 +2548,7 @@ def page_product(it):
                    "price": price, "availability": "https://schema.org/InStock",
                    "itemCondition": "https://schema.org/NewCondition",
                    "validFrom": TODAY,
-                   "priceValidUntil": f"{datetime.date.today().year + 1}-12-31",
+                   "priceValidUntil": f"{YEAR + 1}-12-31",
                    "seller": {"@type": "Organization", "name": it["partner"]},
                    **partner_offer_terms(it["partner"])},
     }
@@ -3138,7 +3190,7 @@ people buying gifts.</p>
             secs += f"<h2>{theme_titles.get(t, t.title())}</h2><ul>{links}</ul>"
         path = f"/guides/{c['slug']}-buying-guide/"
         cb, cbs = crumbs([("Home", "/"), ("Guides", "/guides/"), (c["short"], None)], path)
-        title = f"{c['short']} Fan Apparel Buying Guide {datetime.date.today().year}"
+        title = f"{c['short']} Fan Apparel Buying Guide {YEAR}"
         desc = (f"How to choose from {len(items)} {c['short']} fan designs: sizing, garment styles, "
                 f"gift picks and price ranges from ${prices[0]:.2f}.")
         art = {"@context": "https://schema.org", "@type": "Article", "headline": title,
@@ -3386,7 +3438,7 @@ def page_drops():
     # whose product page the build actually published may enter the ItemList —
     # schema URLs must never point at delisted pages that 404.
     try:
-        drops_data = json.load(open(os.path.join(ROOT, "data/live_drops.json"), encoding="utf-8"))
+        drops_data = read_json("data", "live_drops.json")
         drops_list = [d for d in drops_data.get("drops", []) if d.get("slug") in lookup][:12]
     except Exception:
         drops_list = []
@@ -4476,10 +4528,12 @@ def relativise():
                     out.append(" ".join(bits))
                 return pre + ", ".join(out) + post
 
-            t = open(fp, encoding="utf-8").read()
+            with open(fp, encoding="utf-8") as fh:
+                t = fh.read()
             t = RELATIVISE.sub(repl, t)
             t = RELATIVISE_SRCSET.sub(repl_srcset, t)
-            open(fp, "w", encoding="utf-8").write(t)
+            with open(fp, "w", encoding="utf-8") as fh:
+                fh.write(t)
             n += 1
     return n
 

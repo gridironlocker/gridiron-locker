@@ -11,6 +11,22 @@ permissions:
   pages: write
   id-token: write
 
+# Serialize Pages deploys ACROSS workflows.
+#
+# Both this workflow and refresh.yml trigger on `push: branches: [main]` and
+# both end in actions/deploy-pages against the single `github-pages`
+# environment, so every refresh commit used to start two deployments at once:
+# this fast deploy-only run and refresh.yml's ~5 minute scrape -> build ->
+# deploy run. refresh.yml's `concurrency.group: refresh` only excluded other
+# refresh runs - it could not hold this workflow off, and this one could win the
+# race with the pre-refresh artefact.
+#
+# Sharing one group name puts both in a single queue. cancel-in-progress stays
+# false so a deploy is never killed mid-flight.
+concurrency:
+  group: pages-deploy
+  cancel-in-progress: false
+
 jobs:
   deploy:
     runs-on: ubuntu-latest

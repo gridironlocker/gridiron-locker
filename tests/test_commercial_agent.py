@@ -1,33 +1,32 @@
 #!/usr/bin/env python3
-"""Regression tests for the NFL Fan Commerce Marketing Agent brief."""
-import json
+"""Regression tests for the NFL Fan Commerce Marketing Agent brief.
+
+The generators are run inside a throwaway copy of the repository (see
+``tests/testutil.py``). Running them in-place would overwrite the tracked
+``marketing/*.json`` artefacts, which ``refresh.yml`` then commits with
+``git add -A`` - a test run must never be able to mutate the repository.
+"""
 import os
-import subprocess
 import sys
 import unittest
 
-ROOT = os.path.dirname(os.path.dirname(os.path.abspath(__file__)))
+sys.path.insert(0, os.path.dirname(os.path.abspath(__file__)))
+
+from testutil import generator_sandbox, read_json, run_generator  # noqa: E402
 
 
 class CommercialBrief(unittest.TestCase):
     @classmethod
     def setUpClass(cls):
-        subprocess.run(
-            [sys.executable, "marketing/plan.py"],
-            cwd=ROOT,
-            check=True,
-            capture_output=True,
-            text=True,
-        )
-        subprocess.run(
-            [sys.executable, "marketing/commercial_agent.py"],
-            cwd=ROOT,
-            check=True,
-            capture_output=True,
-            text=True,
-        )
-        with open(os.path.join(ROOT, "marketing", "commercial-brief.json"), encoding="utf-8") as handle:
-            cls.brief = json.load(handle)
+        cls._sandbox_cm = generator_sandbox()
+        cls.sandbox = cls._sandbox_cm.__enter__()
+        run_generator(cls.sandbox, "plan.py")
+        run_generator(cls.sandbox, "commercial_agent.py")
+        cls.brief = read_json(cls.sandbox / "marketing" / "commercial-brief.json")
+
+    @classmethod
+    def tearDownClass(cls):
+        cls._sandbox_cm.__exit__(None, None, None)
 
     def test_role_is_commercial_and_requires_approval(self):
         meta = self.brief["meta"]

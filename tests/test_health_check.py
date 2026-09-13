@@ -28,7 +28,16 @@ except ImportError as e:                             # requests / Pillow missing
 else:
     IMPORT_ERROR = None
 
-requires_hc = unittest.skipIf(hc is None, f"health check needs requests + Pillow ({IMPORT_ERROR})")
+#: All 16 tests in this module skip when requests / Pillow are missing, and a
+#: fully-skipped run still prints "OK" - so the message says how to make them
+#: actually run. These are the tests that pin ops/health_check.py, the checker
+#: that verifies the LIVE store; a local green run without them means less than
+#: a CI green run, because both workflows do install them.
+requires_hc = unittest.skipIf(
+    hc is None,
+    f"health check needs requests + Pillow ({IMPORT_ERROR}) - "
+    f"pip install -r requirements-dev.txt to run these 16 tests",
+)
 
 
 def read(*parts):

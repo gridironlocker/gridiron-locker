@@ -41,6 +41,7 @@ import json
 import os
 import re
 import sys
+import datetime
 import unittest
 from html import unescape
 
@@ -54,6 +55,39 @@ from collections_data import COLLECTIONS, ORDER  # noqa: E402
 import landing  # noqa: E402
 
 CTA, CTA_HOVER = "#49a59c", "#3a847d"
+
+#: How stale the committed build may be before this suite says so.
+#:
+#: refresh.yml rebuilds and re-stamps every date twice a day (06:15 and 15:15
+#: UTC), so a healthy repo is never more than a day behind. Two days of slack
+#: absorbs the one benign case - a run between midnight UTC and the 06:15
+#: refresh, when the build is legitimately stamped with yesterday's date -
+#: while still failing fast if the refresh pipeline dies.
+MAX_BUILD_AGE_DAYS = 2
+
+
+def iso_date(value, ctx=""):
+    """Parse an ISO ``YYYY-MM-DD`` string into a date, with a useful failure.
+
+    Schema.org date fields are only machine-readable if they are real ISO
+    dates, so every date assertion in this suite goes through here rather than
+    comparing strings.
+    """
+    try:
+        return datetime.date.fromisoformat(value)
+    except (TypeError, ValueError):
+        raise AssertionError(f"{ctx}: {value!r} is not an ISO YYYY-MM-DD date") from None
+
+
+def utc_today():
+    """Today in UTC - the clock the build and the refresh cron both run on.
+
+    ``src/build.py`` stamps ``validFrom`` / ``lastmod`` / ``datePublished`` from
+    ``build.utc_today()``. Comparing against the *local* date here would make
+    this suite disagree with the artefact for part of every day on any machine
+    that is not on UTC (the operator is on Africa/Casablanca, UTC+1).
+    """
+    return datetime.datetime.now(datetime.timezone.utc).date()
 
 
 def read(path):
@@ -125,6 +159,58 @@ class SourcesExist(unittest.TestCase):
         for k in ORDER:
             self.assertTrue(os.path.isfile(
                 os.path.join(SITE, COLLECTIONS[k]["slug"], "index.html")), k)
+
+
+class BuildFreshness(unittest.TestCase):
+    """Is the committed site the one the refresh pipeline last produced?
+
+    These tests are about *staleness*, which the rest of this suite is not: the
+    layout and schema assertions describe invariants that must hold for a build
+    of any age, while a build that stopped being refreshed is a dead pipeline.
+    Keeping the two apart is the point - before this class existed, the only
+    staleness signal in the suite was ``assertEqual(validFrom, build.TODAY)``
+    inside a merchant-schema test, so a missed refresh reported itself as
+    "Product schema is wrong on 84 pages", which sends you to the wrong file.
+
+    The dates come from ``site/sitemap.xml`` because the build stamps every
+    ``<lastmod>`` with the same ``TODAY`` it puts in ``validFrom``, so the
+    sitemap is the artefact's own record of when it was generated.
+    """
+
+    @classmethod
+    def setUpClass(cls):
+        cls.sitemap = page("sitemap.xml")
+        cls.stamps = sorted(set(re.findall(r"<lastmod>([^<]+)</lastmod>", cls.sitemap)))
+
+    def test_sitemap_carries_a_single_build_stamp(self):
+        self.assertTrue(self.stamps, "sitemap.xml has no <lastmod> entries")
+        self.assertEqual(
+            len(self.stamps), 1,
+            "sitemap.xml carries more than one build date "
+            f"({', '.join(self.stamps)}); one build stamps every <lastmod> with "
+            "the same date, so a mix means pages from two different builds are "
+            "committed together")
+
+    def test_build_is_not_from_the_future(self):
+        stamp = iso_date(self.stamps[0], "sitemap lastmod")
+        self.assertLessEqual(
+            stamp, utc_today(),
+            f"the committed site is dated {stamp}, which is in the future "
+            f"(today in UTC is {utc_today()}); check the machine clock or the "
+            "timezone src/build.py is stamping from")
+
+    def test_committed_build_is_recent(self):
+        stamp = iso_date(self.stamps[0], "sitemap lastmod")
+        age = (utc_today() - stamp).days
+        self.assertLessEqual(
+            age, MAX_BUILD_AGE_DAYS,
+            f"STALE BUILD: site/ was generated {stamp} ({age} days ago) and "
+            f"refresh.yml should have rebuilt it today. This is not a layout or "
+            f"schema defect - the daily refresh pipeline has stopped landing. "
+            f"Check the 'Refresh trends & redeploy' runs in GitHub Actions "
+            f"(its trend-freshness gate fails the run if data/trends.json was "
+            f"not regenerated), then run: python3 src/trends.py && "
+            f"python3 src/build.py")
 
 
 class CTAColours(unittest.TestCase):
@@ -689,8 +775,21 @@ class ProductPages(unittest.TestCase):
             self.assertEqual(d["audience"]["@type"], "PeopleAudience", slug)
             self.assertIn(d["audience"]["suggestedGender"], ("unisex", "female", "male"), slug)
             o = d["offers"]
-            self.assertEqual(o["validFrom"], build.TODAY, slug)
+            # validFrom is the date the build stamped, so it must be a real ISO
+            # date that is not in the future and sits inside the offer window.
+            # It is deliberately NOT compared against today's date: the site
+            # under test is a committed artefact that may legitimately have been
+            # built yesterday, and equating the two turned a stale build into a
+            # bogus "merchant schema is wrong" failure. Build staleness is
+            # asserted on its own terms in BuildFreshness, where the failure
+            # message names the real cause.
+            valid_from = iso_date(o["validFrom"], f"{slug}: offers.validFrom")
+            self.assertLessEqual(valid_from, utc_today(),
+                                 f"{slug}: offers.validFrom is in the future")
             self.assertLess(o["validFrom"], o["priceValidUntil"], slug)
+            self.assertLess(valid_from,
+                            iso_date(o["priceValidUntil"], f"{slug}: offers.priceValidUntil"),
+                            f"{slug}: the offer window must not be empty or inverted")
             partner = o["seller"]["name"]
             self.assertIn(partner, seen, slug)
             seen[partner] += 1

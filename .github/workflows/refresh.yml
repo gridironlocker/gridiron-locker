@@ -14,8 +14,14 @@ permissions:
   pages: write
   id-token: write
 
+# Shared with deploy.yml so the two workflows cannot deploy Pages at the same
+# time - see the comment there. Previously this was `group: refresh`, which
+# only excluded other refresh runs and left deploy.yml free to race it.
+#
+# The name still serialises refresh against itself (a slow scrape cannot be
+# overlapped by the next cron tick), which is what `refresh` was for.
 concurrency:
-  group: refresh
+  group: pages-deploy
   cancel-in-progress: false
 
 jobs:
@@ -160,6 +166,24 @@ jobs:
           print("OK: rebuild is sane (products, sitemap, no missing local refs)")
           PY
 
+      - name: Run the guard-rail test suite (gates the commit and the deploy)
+        run: |
+          # tests/test_layout.py reads the site/ this run just rebuilt, so it
+          # must run here - after the rebuild, before the commit. Until now the
+          # suite only ran in health-check.yml at 07:45 UTC, i.e. *after* the
+          # storefront had already been published, so a layout regression went
+          # live and was reported as a production failure the next morning.
+          #
+          # The step above checks the catalogue/sitemap mechanically; this one
+          # checks the 118 layout, copy and merchant-schema rules the README
+          # promises (no mini-checkout controls, no fabricated ratings, no
+          # invented colour names, partner-scoped shipping claims, ...).
+          #
+          # The marketing generator tests run inside a throwaway copy of the
+          # repo (tests/testutil.py) and cannot touch tracked files, so this
+          # step adds nothing to the `git add -A` below.
+          python3 -m unittest discover -s tests -p "test_*.py" -v
+
       - name: Commit changes
         id: commit
         run: |
@@ -171,7 +195,36 @@ jobs:
             echo "Nothing changed."
           else
             git commit -m "Auto-refresh: trends + rebuild $(date -u +%Y-%m-%d)"
-            git pull --rebase -X theirs origin main || { git rebase --abort; exit 1; }
+            # Remember where main was before integrating, so a conflict can be
+            # reported as "these are the commits that landed", not just a diff.
+            git fetch --quiet origin main
+            REMOTE_BEFORE="$(git rev-parse origin/main)"
+            # Integrate anything that landed on main since checkout.
+            #
+            # This used to be `git pull --rebase -X theirs`, and -X theirs is a
+            # data-loss switch: it auto-resolves every conflicting hunk in
+            # favour of the remote, silently, with no conflict and no non-zero
+            # exit. This job commits with `git add -A` across the whole repo, so
+            # the moment a refresh overlaps a hand-edit to src/catalog.py copy
+            # facts, data/creators.json (Joe's picks and commission rate) or any
+            # design doc, the human's work is dropped and the commit still
+            # succeeds. Nobody sees it happen.
+            #
+            # Now a genuine conflict fails the run loudly and prints exactly
+            # which files need a human. The storefront has already been
+            # rebuilt, verified and deployed by the steps above, so a failure
+            # here loses only the commit - not the publish.
+            if ! git pull --rebase origin main; then
+              echo "::error::Auto-refresh could not rebase onto origin/main - a human edit conflicts with this refresh. Resolve it by hand; nothing was force-resolved and nothing was pushed."
+              echo
+              echo "Conflicting paths:"
+              git diff --name-only --diff-filter=U | sed 's/^/  - /'
+              echo
+              echo "What landed on origin/main since this run checked out:"
+              git --no-pager log --oneline "${REMOTE_BEFORE}..origin/main" | sed 's/^/  /' || true
+              git rebase --abort
+              exit 1
+            fi
             git push
             echo "changed=true" >> $GITHUB_OUTPUT
           fi

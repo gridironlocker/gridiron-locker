@@ -1,0 +1,25 @@
+# Development / CI dependencies for the test suite and the pipeline tooling.
+#
+#   python3 -m venv .venv && . .venv/bin/activate
+#   pip install -r requirements-dev.txt
+#   python3 -m unittest discover -s tests -p "test_*.py"
+#
+# The runtime site generator (src/build.py) is deliberately stdlib-only - it
+# needs none of this. These are the packages the *tooling* around it uses, and
+# they are exactly what the GitHub Actions workflows already install:
+#
+#   .github/workflows/refresh.yml       requests beautifulsoup4 lxml Pillow
+#   .github/workflows/health-check.yml  requests Pillow
+#
+# Without them, tests/test_health_check.py skips all 16 of its tests and the
+# run still prints OK. Those are the tests that pin ops/health_check.py - the
+# checker that verifies the LIVE store - so installing this file is what makes
+# a local green run mean the same thing as a CI green run.
+
+# Scrapers and the live health check
+requests>=2.31
+beautifulsoup4>=4.12
+lxml>=5.1
+
+# Artwork ratio / dimension gates in ops/health_check.py
+Pillow>=10.2

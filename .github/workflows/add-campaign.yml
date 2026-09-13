@@ -13,8 +13,15 @@ on:
         options: [cleveland-browns, green-bay-packers, dallas-cowboys, michigan]
 permissions:
   contents: write
+# Shared with refresh.yml and deploy.yml: this workflow mutates
+# data/campaigns_extra.json on main, and its push is what triggers the refresh
+# pipeline that rebuilds and deploys. Serialising all three on one group keeps
+# a campaign capture from racing a refresh mid-scrape, and keeps two
+# actions/deploy-pages calls from overlapping on the single github-pages
+# environment.
 concurrency:
-  group: refresh
+  group: pages-deploy
+  cancel-in-progress: false
 jobs:
   add:
     runs-on: ubuntu-latest
@@ -37,6 +44,26 @@ jobs:
           git config user.email "actions@github.com"
           git add data/campaigns_extra.json
           git diff --staged --quiet && { echo "Nothing new captured."; exit 0; }
-          git commit -m "Add campaign(s) via workflow: ${SLUGS}"
-          git pull --rebase -X theirs origin main || { git rebase --abort; exit 1; }
+          # The slug list comes from the workflow input, not ${SLUGS}: that
+          # variable was set by `read -ra SLUGS` in the "Capture campaigns"
+          # step, and each `run:` block is a separate shell, so it was always
+          # empty here and every commit read "Add campaign(s) via workflow:".
+          git commit -m "Add campaign(s) via workflow: ${{ github.event.inputs.slugs }}"
+          # No -X theirs. It auto-resolves conflicting hunks in favour of the
+          # remote with no conflict and no failure, which would silently drop a
+          # hand-edit to data/campaigns_extra.json (or discard the campaign this
+          # run just captured). Fail loudly instead and name the files.
+          git fetch --quiet origin main
+          REMOTE_BEFORE="$(git rev-parse origin/main)"
+          if ! git pull --rebase origin main; then
+            echo "::error::Could not rebase onto origin/main - a human edit conflicts with this campaign capture. Nothing was force-resolved and nothing was pushed."
+            echo
+            echo "Conflicting paths:"
+            git diff --name-only --diff-filter=U | sed 's/^/  - /'
+            echo
+            echo "What landed on origin/main since this run checked out:"
+            git --no-pager log --oneline "${REMOTE_BEFORE}..origin/main" | sed 's/^/  /' || true
+            git rebase --abort
+            exit 1
+          fi
           git push

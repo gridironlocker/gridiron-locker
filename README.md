@@ -23,8 +23,11 @@ python3 marketing/three_day_pulse.py` to refresh the short-lived brief.
 
 | Item | Count |
 |---|---|
-| HTML pages | **109** public (+85 redirect stubs) |
-| Product pages (one per design) | **81** |
+| HTML files in `site/` | **206** (197 public + 9 internal `ops/` & `marketing/`) |
+| Public pages audited | **194** (`python3 qa_audit.py`) |
+| Redirect stubs (retired slugs) | **85** |
+| Product pages (one per design) | **84** |
+| `sitemap.xml` URLs | **108** = 84 products + 24 other indexable pages |
 | Collection pages | 4 (+ All Collections, + Search/browse all) |
 | Creator collaboration pages | **1** (Joe's Michigan Locker, `/michigan/joe/`) |
 | SEO buying guides (articles) | 5 (4 buying guides + Week 1) |
@@ -32,12 +35,20 @@ python3 marketing/three_day_pulse.py` to refresh the short-lived brief.
 | Product images | self-hosted Viralstyle set + Mayzing CDN mockups |
 | Broken links / invalid schema | **0** |
 
-Collections: Green Bay Packers (37), Cleveland Browns (19), Michigan (15), Dallas Cowboys (10).
+Collections: Green Bay Packers (37), Cleveland Browns (19), Michigan (18), Dallas Cowboys (10).
+Fulfilment split: Viralstyle 47 / Mayzing 37.
 
 Counts are not hand-maintained: `src/build.py` computes them from the merged master
 catalogue (`data/products_live.json` + `data/mayzing_products.json` +
 `data/mayzing_michigan.json`) and prints them on every run. The numbers above are that
 output, so re-run the build and read its footer rather than trusting this table.
+
+> This table drifted once already (it claimed 81 products, 109 public pages and a
+> 150-URL sitemap while the build held 84 / 194 / 108). To re-verify every number
+> in it without rebuilding:
+> `python3 qa_audit.py` prints the catalogue, the per-collection split and the
+> audited page count; `grep -o '<loc>' site/sitemap.xml | wc -l` prints the
+> sitemap size.
 
 > The newest Browns campaign, `limited-edition-no-fly-zone` (added 2026-09-10 via
 > `add_campaign.py`), still hot-links its mockups from `assets.viralstyle.com`: the next Refresh
@@ -98,8 +109,14 @@ re-run the build to add them:
   actually says (e.g. "Limited Edition GRB37" is now *This Girl Loves The Pack Shirt*). Descriptions
   are template-varied so no two pages read the same.
 - **Schema.org JSON-LD**: Organization, WebSite + SearchAction, CollectionPage, ItemList,
-  Product + Offer + AggregateRating, BreadcrumbList, FAQPage, Article. All validated.
-- `robots.txt` + `sitemap.xml` (150 URLs, lastmod/priority/changefreq).
+  Product + Offer, BreadcrumbList, FAQPage, Article. All validated.
+  **No `AggregateRating`** — checkout happens on the fulfilment partner, so there is no
+  review data to report, and inventing a rating is exactly what
+  `tests/test_layout.py::test_no_fabricated_trust_signals` fails the build for. (This line
+  used to claim AggregateRating was emitted; `grep -rl AggregateRating site/` returns nothing.)
+- `robots.txt` + `sitemap.xml` (108 URLs — 84 products + 24 other indexable pages —
+  with lastmod/priority/changefreq; the 85 retired-slug redirect stubs are noindex
+  and deliberately absent).
 - Internal linking: home → collections → products → related products → guides → back to collection.
 - 4 long-form buying guides targeting research keywords ("michigan fan apparel buying guide").
 - Trademark-safe framing: "fan-made / independent / not affiliated" disclaimers sitewide plus a
@@ -154,10 +171,18 @@ New products need one line of copy facts in `src/catalog.py`
 ## Files
 
 - `site/` — the deployable website
-- `src/build.py` — generator · `src/copy.py` — copywriting engine · `src/catalog.py` — per-design facts
+- `src/build.py` — generator · `src/seocopy.py` + `src/landing.py` — copywriting engines ·
+  `src/catalog.py` — per-design facts
 - `src/collections_data.py` — collection SEO/brand data · `src/config.json` — your settings
-- `product-index.csv` — all 134 products: name, design text, price, site URL, Viralstyle URL, keywords
+- `product-index.csv` — **a stale, hand-maintained export (111 rows), not a build output.**
+  Nothing in the repo writes it: `grep -rn product-index --include='*.py'` matches no
+  generator, and it is not produced by `src/build.py` or refreshed by `refresh.yml`. It no
+  longer agrees with the live catalogue (84 designs), so treat `python3 qa_audit.py` or
+  `build.ALL` as the source of truth and use this file only as a rough keyword sheet — or
+  wire it into the build if you want it to stay honest.
 - `data/` — scraped source data
+- `tests/` — 145 guard rails · `qa_audit.py` — read-only SEO/schema audit of `site/`
+- `requirements-dev.txt` — tooling + test deps (the generator itself is stdlib-only)
 
 ---
 
