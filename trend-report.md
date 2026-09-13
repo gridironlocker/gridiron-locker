@@ -1,6 +1,6 @@
 # Hunt Report - 2026-09-13
 
-Generated: 2026-09-13T17:32:07.353261 UTC
+Generated: 2026-09-13T17:57:32.037753 UTC
 
 ## Today's Hunt
 
@@ -12,9 +12,9 @@ Generated: 2026-09-13T17:32:07.353261 UTC
   - Browns vs. Jaguars: How to Watch, Listen & Live Stream - clevelandbrowns.com - https://news.google.com/rss/articles/CBMijwFBVV95cUxNeUIzdnc1SXBvdS1VWEp1MDJOMnpUZkdLNWMtOVF6MWF4UHd4a2lrSmZWdF9VbHZ2QlI1OEQtalNheWgwZG5jejJpUG9CdUtYOEZWZ2pxdEhRbl9kZVU2VXh4QzhWelozTFNEMWJfUHdQZmxUdXhEVEJIVzMxYUhmSVdKMWt4UzhyZDFvQmJyaw?oc=5
   - Post idea: Browns Vs. Jaguars: How To Watch, Listen hot in cleveland-browns
 
-- **Where To Watch: Browns Vs. Jaguars, Week** (cleveland-browns) - 1 mentions, FTI 0, trending
-  - Where to Watch: Browns vs. Jaguars, Week 1 of 2026 NFL Season - Jaguars.com - https://news.google.com/rss/articles/CBMikAFBVV95cUxNbno1Vm9CeXpCRlRqZUFfejVrLXZqWi0xNWIzWDc4VFJXeDRTZWN4cGJXMkxqcXdWc3ZSV2FRaFBYTndRSF9nX3lHS2lFX094enp5Nk0xSkY1WXdhVmpLaVZ2ZmZNXzM1LXRjalJZMUJnSl9rWnZoekpQby1RZGV6QkxhV1VPaWlZYy1aTjZGQ2o?oc=5
-  - Post idea: Where To Watch: Browns Vs. Jaguars, Week hot in cleveland-browns
+- **Experts' Final Analysis Before Jaguars' ** (cleveland-browns) - 1 mentions, FTI 0, trending
+  - Experts' Final Analysis Before Jaguars' Week 1 vs. Browns - Jaguars.com - https://news.google.com/rss/articles/CBMiiwFBVV95cUxONjQ1QjBieGN4ei1ST040ZWpWZzZIY3JKR19aODZZbjhNMU5aSFp1ZzBybllEYXVKNmtfU0d4RW9wZTNXMDFsa0Zoa052bHZhYU8wckY1blJJc1ljbmYxNmh6cDRqb2RDcE5icVZnSkcwcGJ5OTJwUHZLSFZqcGlEU2JaM0JvTVEtbV8w?oc=5
+  - Post idea: Experts' Final Analysis Before Jaguars'  hot in cleveland-browns
 
 - **Packers Vs. Vikings | How To Watch, Stre** (green-bay-packers) - 1 mentions, FTI 0, trending
   - Packers vs. Vikings | How to watch, stream & listen | Week 1 - Green Bay Packers - https://news.google.com/rss/articles/CBMijwFBVV95cUxOUTZWVkRCNjV1eW82UjF2S0ZoZFB5cnZUWWVqVVlIem0yNW9WdzRYcHdxOU1RYk5lSXhXTmFaeHJxX09Xa3M2MEs2djRMZ3EtcDA2Zkp4Z2hTZnMtN0JfbXRZNnVmOEN1QlpZWWRuVDBMdldlV0QtM05qeVhiVVVuQ1NxenFGS0hBNW1uVkNZRQ?oc=5
@@ -24,9 +24,9 @@ Generated: 2026-09-13T17:32:07.353261 UTC
   - Me, my mom and our Green Bay Packers - Milwaukee Neighborhood News Service - https://news.google.com/rss/articles/CBMifEFVX3lxTE5OdXhrb3M5d3lUdUc2cGlQQ3oxN000STBwajNiOHpydHAzbmxQemc2NFVlNUFNU04zV2t0XzN6eGJUMEx5NmZmX3BfUjY0OG4zUEJUN2Y0cm9DSDJ6NDdYbjUxVTI2TTFnZWJkRUtHb2RSZ3VQampiN3BkWmQ?oc=5
   - Post idea: Me, My Mom And Our Green Bay Packers hot in green-bay-packers
 
-- **Where To Watch Minnesota Vikings Vs. Gre** (green-bay-packers) - 1 mentions, FTI 0, trending
-  - Where to watch Minnesota Vikings vs. Green Bay Packers? What to know before today's game - CBS News - https://news.google.com/rss/articles/CBMiigFBVV95cUxPUlZhZW1mMHZrR1k3bnJ4SGFkRnpOclkydk11WWpBRmliWFVZTVdpNEdJYmRXRE1fMGdteFVTQkVqYUVBcGU2YUlhNFphUE5kVTJELXNvSTMzR1N4UDZPbzdWbm1mTGk2UHpqYVUtSGxWVVgyVnN4UXZ0MXNoeDRKSi13RmZwTWIzR3c?oc=5
-  - Post idea: Where To Watch Minnesota Vikings Vs. Gre hot in green-bay-packers
+- **Green Bay Packers: 3 Players That Must B** (green-bay-packers) - 1 mentions, FTI 0, trending
+  - Green Bay Packers: 3 players that must ball out vs the Minnesota Vikings in NFL season opener - Yahoo Sports - https://news.google.com/rss/articles/CBMiggFBVV95cUxNbWZsYXFidURqM19rWTNEblVfaV93ZFpscHF3dmgwcWVmRmlzRGR4bW85TFV4Ym5teHU0SG5Nd0RwNDkxWXdiY2wwWW43X3FVeHVheEZpWjNmaENOcWJHOEhYVEg0MEtsM1dGR3RJZ0lNRkRKV0xYdWpqQTVjTFkzbkdB?oc=5
+  - Post idea: Green Bay Packers: 3 Players That Must B hot in green-bay-packers
 
 - **Von Miller On Looming Debut For The Cowb** (dallas-cowboys) - 1 mentions, FTI 0, trending
   - Von Miller on looming debut for the Cowboys: 'My smile is back' - Dallas Cowboys - https://news.google.com/rss/articles/CBMimwFBVV95cUxOcGY0OHRiSVpzenJzUGR1Ym94UTF6LXVkeG45UXBYcnhkazFEWkluOE1zMEJQWmtKcFpSR3ZNS0lLY0xwVFdMbVlva2ZNRXp1ZVktYmlJY3locEIwb2tvcHMzaWlrSTBpa3gxUUVjOWp1X3Bzc1BDNks0X19KYk1BTk9oSWVQSE9hbU9IQzlZRTZGTzBpX29EaVNGYw?oc=5
@@ -41,7 +41,7 @@ Generated: 2026-09-13T17:32:07.353261 UTC
   - Post idea: Mailbag: Will New Culture Be On Full Dis hot in dallas-cowboys
 
 - **Michigan 13-12 Western Michigan (Sep 5, ** (michigan) - 1 mentions, FTI 0, trending
-  - Michigan 13-12 Western Michigan (Sep 5, 2026) Game Recap - ESPN - https://news.google.com/rss/articles/CBMibEFVX3lxTE96TERNb2V1VjRiTC1LX2owT2VISjc0TS1HcTk5QTFaTzJUOFJacm9UcER0ZldwSFFfWlRhQlM3UjFZRjRMTE40N2RUeWFhbWU4ODREZ3BwLW5wamp0eU12MGJJWW55TS1zcERidQ?oc=5
+  - Michigan 13-12 Western Michigan (Sep 5, 2026) Game Recap - espn.com - https://news.google.com/rss/articles/CBMibEFVX3lxTE96TERNb2V1VjRiTC1LX2owT2VISjc0TS1HcTk5QTFaTzJUOFJacm9UcER0ZldwSFFfWlRhQlM3UjFZRjRMTE40N2RUeWFhbWU4ODREZ3BwLW5wamp0eU12MGJJWW55TS1zcERidQ?oc=5
   - Post idea: Michigan 13-12 Western Michigan (Sep 5,  hot in michigan
 
 - **Postgame Notes: Michigan 17, #11 Oklahom** (michigan) - 1 mentions, FTI 0, trending
