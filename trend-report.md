@@ -1,6 +1,6 @@
 # Hunt Report - 2026-09-13
 
-Generated: 2026-09-13T17:57:32.037753 UTC
+Generated: 2026-09-13T18:14:20.098149 UTC
 
 ## Today's Hunt
 
@@ -9,7 +9,7 @@ Generated: 2026-09-13T17:57:32.037753 UTC
   - Post idea: The Browns Have A Qb Who Runs A 4.36 — S hot in cleveland-browns
 
 - **Browns Vs. Jaguars: How To Watch, Listen** (cleveland-browns) - 1 mentions, FTI 0, trending
-  - Browns vs. Jaguars: How to Watch, Listen & Live Stream - clevelandbrowns.com - https://news.google.com/rss/articles/CBMijwFBVV95cUxNeUIzdnc1SXBvdS1VWEp1MDJOMnpUZkdLNWMtOVF6MWF4UHd4a2lrSmZWdF9VbHZ2QlI1OEQtalNheWgwZG5jejJpUG9CdUtYOEZWZ2pxdEhRbl9kZVU2VXh4QzhWelozTFNEMWJfUHdQZmxUdXhEVEJIVzMxYUhmSVdKMWt4UzhyZDFvQmJyaw?oc=5
+  - Browns vs. Jaguars: How to Watch, Listen & Live Stream - Cleveland Browns - https://news.google.com/rss/articles/CBMijwFBVV95cUxNeUIzdnc1SXBvdS1VWEp1MDJOMnpUZkdLNWMtOVF6MWF4UHd4a2lrSmZWdF9VbHZ2QlI1OEQtalNheWgwZG5jejJpUG9CdUtYOEZWZ2pxdEhRbl9kZVU2VXh4QzhWelozTFNEMWJfUHdQZmxUdXhEVEJIVzMxYUhmSVdKMWt4UzhyZDFvQmJyaw?oc=5
   - Post idea: Browns Vs. Jaguars: How To Watch, Listen hot in cleveland-browns
 
 - **Experts' Final Analysis Before Jaguars' ** (cleveland-browns) - 1 mentions, FTI 0, trending
@@ -17,7 +17,7 @@ Generated: 2026-09-13T17:57:32.037753 UTC
   - Post idea: Experts' Final Analysis Before Jaguars'  hot in cleveland-browns
 
 - **Packers Vs. Vikings | How To Watch, Stre** (green-bay-packers) - 1 mentions, FTI 0, trending
-  - Packers vs. Vikings | How to watch, stream & listen | Week 1 - Green Bay Packers - https://news.google.com/rss/articles/CBMijwFBVV95cUxOUTZWVkRCNjV1eW82UjF2S0ZoZFB5cnZUWWVqVVlIem0yNW9WdzRYcHdxOU1RYk5lSXhXTmFaeHJxX09Xa3M2MEs2djRMZ3EtcDA2Zkp4Z2hTZnMtN0JfbXRZNnVmOEN1QlpZWWRuVDBMdldlV0QtM05qeVhiVVVuQ1NxenFGS0hBNW1uVkNZRQ?oc=5
+  - Packers vs. Vikings | How to watch, stream & listen | Week 1 - packers.com - https://news.google.com/rss/articles/CBMijwFBVV95cUxOUTZWVkRCNjV1eW82UjF2S0ZoZFB5cnZUWWVqVVlIem0yNW9WdzRYcHdxOU1RYk5lSXhXTmFaeHJxX09Xa3M2MEs2djRMZ3EtcDA2Zkp4Z2hTZnMtN0JfbXRZNnVmOEN1QlpZWWRuVDBMdldlV0QtM05qeVhiVVVuQ1NxenFGS0hBNW1uVkNZRQ?oc=5
   - Post idea: Packers Vs. Vikings | How To Watch, Stre hot in green-bay-packers
 
 - **Me, My Mom And Our Green Bay Packers** (green-bay-packers) - 1 mentions, FTI 0, trending
@@ -41,7 +41,7 @@ Generated: 2026-09-13T17:57:32.037753 UTC
   - Post idea: Mailbag: Will New Culture Be On Full Dis hot in dallas-cowboys
 
 - **Michigan 13-12 Western Michigan (Sep 5, ** (michigan) - 1 mentions, FTI 0, trending
-  - Michigan 13-12 Western Michigan (Sep 5, 2026) Game Recap - espn.com - https://news.google.com/rss/articles/CBMibEFVX3lxTE96TERNb2V1VjRiTC1LX2owT2VISjc0TS1HcTk5QTFaTzJUOFJacm9UcER0ZldwSFFfWlRhQlM3UjFZRjRMTE40N2RUeWFhbWU4ODREZ3BwLW5wamp0eU12MGJJWW55TS1zcERidQ?oc=5
+  - Michigan 13-12 Western Michigan (Sep 5, 2026) Game Recap - ESPN - https://news.google.com/rss/articles/CBMibEFVX3lxTE96TERNb2V1VjRiTC1LX2owT2VISjc0TS1HcTk5QTFaTzJUOFJacm9UcER0ZldwSFFfWlRhQlM3UjFZRjRMTE40N2RUeWFhbWU4ODREZ3BwLW5wamp0eU12MGJJWW55TS1zcERidQ?oc=5
   - Post idea: Michigan 13-12 Western Michigan (Sep 5,  hot in michigan
 
 - **Postgame Notes: Michigan 17, #11 Oklahom** (michigan) - 1 mentions, FTI 0, trending
