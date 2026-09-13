@@ -7,18 +7,20 @@ The generators are run inside a throwaway copy of the repository (see
 ``git add -A`` - a test run must never be able to mutate the repository.
 """
 import os
-import subprocess
 import sys
 import unittest
 
 sys.path.insert(0, os.path.dirname(os.path.abspath(__file__)))
 
-from testutil import ROOT, generator_sandbox, read_json, run_generator  # noqa: E402
+from testutil import generator_sandbox, read_json, run_generator, snapshot_tree  # noqa: E402
 
 
 class ThreeDayPulse(unittest.TestCase):
     @classmethod
     def setUpClass(cls):
+        # Snapshot BEFORE the generators run: anything that differs afterwards
+        # was written by this test run, full stop.
+        cls.before = snapshot_tree()
         cls._sandbox_cm = generator_sandbox()
         cls.sandbox = cls._sandbox_cm.__enter__()
         run_generator(cls.sandbox, "social_watch.py")
@@ -81,28 +83,38 @@ class ThreeDayPulse(unittest.TestCase):
         sandboxed run writes into the sandbox. If anyone ever "simplifies"
         ``testutil.generator_sandbox`` back to running the scripts in place, the
         tracked marketing artefacts would be rewritten by a test run and
-        committed by ``refresh.yml``'s ``git add -A``. This compares the tracked
-        files against the pristine HEAD blobs so that regression fails here,
-        loudly, instead of showing up as a mystery diff in someone's commit.
+        committed by ``refresh.yml``'s ``git add -A``.
+
+        The check diffs two content snapshots (``testutil.snapshot_tree``):
+        ``cls.before`` was taken in ``setUpClass`` *before* the generators ran;
+        a fresh one is taken here, *after*. That is deliberately not
+        ``git status`` - git compares the tree against HEAD, and in
+        refresh.yml social_watch.py (and the pulse builders) already rewrote
+        these very files with fresh timestamps before the test suite started,
+        so git status reports pipeline dirt as test dirt and the assertion
+        fails on every refresh run, wrongly blaming the sandbox. A
+        before/after content diff only sees what this test run wrote.
         """
-        tracked = (
-            "marketing/commercial-brief.json",
-            "marketing/plan.json",
-            "marketing/social-signals.json",
-            "marketing/three-day-pulse.json",
+        self.assertTrue(
+            self.before,
+            "snapshot_tree() found no marketing/*.json, marketing/*.csv or "
+            "data/*.json files - the guard rail would be comparing nothing",
         )
-        status = subprocess.run(
-            ["git", "status", "--porcelain", "--", *tracked],
-            cwd=ROOT,
-            check=True,
-            capture_output=True,
-            text=True,
-        ).stdout.strip()
+        after = snapshot_tree()
+        changed = {
+            path: (self.before.get(path), after.get(path))
+            for path in sorted(set(self.before) | set(after))
+            if self.before.get(path) != after.get(path)
+        }
+        detail = "\n".join(
+            f"  {path}: {(before or 'absent')[:12]} -> {(later or 'absent')[:12]}"
+            for path, (before, later) in changed.items()
+        )
         self.assertEqual(
-            status,
-            "",
+            changed,
+            {},
             "running the marketing generators modified tracked artefacts; the "
-            "test sandbox is leaking into the repository:\n" + status,
+            "test sandbox is leaking into the repository:\n" + detail,
         )
 
 
