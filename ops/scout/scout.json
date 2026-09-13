@@ -2,24 +2,24 @@
  "generated": "2026-09-13",
  "window_days": 10,
  "fti_formula": "round(100 * entity_mentions / peak_mentions_in_window)",
- "peak_mentions": 27,
+ "peak_mentions": 29,
  "stats": {
   "products": 84,
   "collections": 4,
   "images": 425,
   "avg_price": 22.96,
   "hot": 0,
-  "throwback": 1,
-  "steady": 83,
+  "throwback": 10,
+  "steady": 74,
   "gaps": 4,
-  "moments": 4,
+  "moments": 3,
   "tracked_names": 18,
   "dead_campaigns": 66
  },
  "fti_rows": [
   {
    "name": "deshaun watson",
-   "mentions": 27,
+   "mentions": 29,
    "index": 100,
    "status": "trending",
    "gap": true,
@@ -29,7 +29,7 @@
   {
    "name": "bryce underwood",
    "mentions": 14,
-   "index": 52,
+   "index": 48,
    "status": "trending",
    "gap": false,
    "shoppable": true,
@@ -38,7 +38,7 @@
   {
    "name": "josh jacobs",
    "mentions": 10,
-   "index": 37,
+   "index": 34,
    "status": "trending",
    "gap": true,
    "shoppable": false,
@@ -47,7 +47,7 @@
   {
    "name": "kyle whittingham",
    "mentions": 7,
-   "index": 26,
+   "index": 24,
    "status": "trending",
    "gap": true,
    "shoppable": false,
@@ -56,7 +56,7 @@
   {
    "name": "todd monken",
    "mentions": 7,
-   "index": 26,
+   "index": 24,
    "status": "trending",
    "gap": true,
    "shoppable": false,
@@ -65,7 +65,7 @@
   {
    "name": "shedeur sanders",
    "mentions": 4,
-   "index": 15,
+   "index": 14,
    "status": "trending",
    "gap": false,
    "shoppable": true,
@@ -108,15 +108,6 @@
    "collection": "cleveland-browns"
   },
   {
-   "name": "jordan love",
-   "mentions": 1,
-   "index": 4,
-   "status": "steady",
-   "gap": false,
-   "shoppable": true,
-   "collection": "green-bay-packers"
-  },
-  {
    "name": "denzel ward",
    "mentions": 0,
    "index": 0,
@@ -142,6 +133,15 @@
    "gap": false,
    "shoppable": true,
    "collection": "cleveland-browns"
+  },
+  {
+   "name": "jordan love",
+   "mentions": 0,
+   "index": 0,
+   "status": "quiet",
+   "gap": false,
+   "shoppable": true,
+   "collection": "green-bay-packers"
   },
   {
    "name": "jordan marshall",
@@ -183,7 +183,7 @@
  "gaps": [
   {
    "name": "deshaun watson",
-   "mentions": 27,
+   "mentions": 29,
    "index": 100,
    "status": "trending",
    "gap": true,
@@ -193,7 +193,7 @@
   {
    "name": "josh jacobs",
    "mentions": 10,
-   "index": 37,
+   "index": 34,
    "status": "trending",
    "gap": true,
    "shoppable": false,
@@ -202,7 +202,7 @@
   {
    "name": "kyle whittingham",
    "mentions": 7,
-   "index": 26,
+   "index": 24,
    "status": "trending",
    "gap": true,
    "shoppable": false,
@@ -211,7 +211,7 @@
   {
    "name": "todd monken",
    "mentions": 7,
-   "index": 26,
+   "index": 24,
    "status": "trending",
    "gap": true,
    "shoppable": false,
@@ -232,7 +232,7 @@
    "gaps": [
     {
      "name": "deshaun watson",
-     "mentions": 27,
+     "mentions": 29,
      "index": 100,
      "status": "trending",
      "gap": true,
@@ -242,7 +242,7 @@
     {
      "name": "todd monken",
      "mentions": 7,
-     "index": 26,
+     "index": 24,
      "status": "trending",
      "gap": true,
      "shoppable": false,
@@ -268,10 +268,10 @@
      "pub": "Fri, 04 Sep 2026 07:00:00 GMT"
     },
     {
-     "title": "Browns vs. Jaguars: How to Watch, Listen & Live Stream",
-     "url": "https://news.google.com/rss/articles/CBMijwFBVV95cUxNeUIzdnc1SXBvdS1VWEp1MDJOMnpUZkdLNWMtOVF6MWF4UHd4a2lrSmZWdF9VbHZ2QlI1OEQtalNheWgwZG5jejJpUG9CdUtYOEZWZ2pxdEhRbl9kZVU2VXh4QzhWelozTFNEMWJfUHdQZmxUdXhEVEJIVzMxYUhmSVdKMWt4UzhyZDFvQmJyaw?oc=5",
-     "source": "Cleveland Browns",
-     "pub": "Wed, 09 Sep 2026 19:12:40 GMT"
+     "title": "Todd Monken names captains for Week 1 vs. Jaguars",
+     "url": "https://news.google.com/rss/articles/CBMijgFBVV95cUxNTkVjOUZRTGRMNXFtRUdMZnFHSVViVkVKYVRJUGhoamVZUmhrektrZ2RwMllsck5UbmlLMDUyMlZ0N1FiejZYNEVCTTlqSGJydzVrYzk5eEkxQkVSYkN1WVcxY0steTh5bUJNU0hjUEhhamV2dlVZd2lHUWpDa2VSbkZGdFR2VGRwTnhpdkN3?oc=5",
+     "source": "clevelandbrowns.com",
+     "pub": "Tue, 08 Sep 2026 00:36:04 GMT"
     },
     {
      "title": "Experts' Final Analysis Before Jaguars' Week 1 vs. Browns",
@@ -312,8 +312,8 @@
     "malik",
     "davis",
     "tyler",
-    "watch",
-    "smith"
+    "predictions",
+    "watch"
    ],
    "headline_count": 100,
    "headlines": [
@@ -327,7 +327,7 @@
      "title": "Injury Report: Statuses for Giants vs. Cowboys on Sunday Night Football",
      "url": "https://news.google.com/rss/articles/CBMirwFBVV95cUxQaGRCWm5MZzktXzFFd2M0UFQxOXA0VzJBV1pfNUd1WTZ0T0wxUzFSbnBJMVVZMXF0OFdlaGJDcVk2NjVjYWZlN0dEYzRKVzNLVVlZOFotSmJlWWhmMUlDMW95ZGI1T21HVWx6ck9TNFpLVHJuRHJrSUp0a09OYnNXQ1hLVmdRUlh4eWNrNEg4Yk5UWkZqOFBFdWU1TnZKYjFvM2psT0NWSjV3X240V000?oc=5",
      "source": "Giants.com",
-     "pub": "Sun, 13 Sep 2026 16:35:15 GMT"
+     "pub": "Sun, 13 Sep 2026 14:39:32 GMT"
     },
     {
      "title": "Mailbag: Will new culture be on full display now?",
@@ -359,12 +359,12 @@
    "products": 37,
    "avg_price": 25.18,
    "hot": 0,
-   "throwback": 0,
+   "throwback": 9,
    "gaps": [
     {
      "name": "josh jacobs",
      "mentions": 10,
-     "index": 37,
+     "index": 34,
      "status": "trending",
      "gap": true,
      "shoppable": false,
@@ -374,19 +374,19 @@
    "top_terms": [
     "packers",
     "green",
-    "jacobs",
     "watch",
+    "jacobs",
     "josh",
-    "channel",
     "release",
-    "melton"
+    "melton",
+    "channel"
    ],
    "headline_count": 100,
    "headlines": [
     {
      "title": "Packers vs. Vikings | How to watch, stream & listen | Week 1",
      "url": "https://news.google.com/rss/articles/CBMijwFBVV95cUxOUTZWVkRCNjV1eW82UjF2S0ZoZFB5cnZUWWVqVVlIem0yNW9WdzRYcHdxOU1RYk5lSXhXTmFaeHJxX09Xa3M2MEs2djRMZ3EtcDA2Zkp4Z2hTZnMtN0JfbXRZNnVmOEN1QlpZWWRuVDBMdldlV0QtM05qeVhiVVVuQ1NxenFGS0hBNW1uVkNZRQ?oc=5",
-     "source": "packers.com",
+     "source": "Green Bay Packers",
      "pub": "Sun, 13 Sep 2026 15:35:32 GMT"
     },
     {
@@ -402,16 +402,16 @@
      "pub": "Sun, 13 Sep 2026 16:57:53 GMT"
     },
     {
-     "title": "Final Vikings Vs. Packers Injury Report for Week 1 of 2026",
-     "url": "https://news.google.com/rss/articles/CBMifEFVX3lxTFB5Sy1xSl9tS0o0M244RFJZaWstYUx1QmhxeXNXQnpIU3A5eURIcmI5Vk9vTXdyNWdyTDJ3c2c1U2Y5MFVNdDh3bmtEQXlmbVMxRG1oQnM5Sk1xc052azhUNjV5RzVLdkZLWUxmUW50SEo3eEFJbWhyOG90aDk?oc=5",
-     "source": "Minnesota Vikings",
-     "pub": "Fri, 11 Sep 2026 18:46:44 GMT"
-    },
-    {
      "title": "Where to watch Minnesota Vikings vs. Green Bay Packers? What to know before today's game",
      "url": "https://news.google.com/rss/articles/CBMiigFBVV95cUxPUlZhZW1mMHZrR1k3bnJ4SGFkRnpOclkydk11WWpBRmliWFVZTVdpNEdJYmRXRE1fMGdteFVTQkVqYUVBcGU2YUlhNFphUE5kVTJELXNvSTMzR1N4UDZPbzdWbm1mTGk2UHpqYVUtSGxWVVgyVnN4UXZ0MXNoeDRKSi13RmZwTWIzR3c?oc=5",
      "source": "CBS News",
      "pub": "Sun, 13 Sep 2026 12:00:20 GMT"
+    },
+    {
+     "title": "Final Vikings Vs. Packers Injury Report for Week 1 of 2026",
+     "url": "https://news.google.com/rss/articles/CBMifEFVX3lxTFB5Sy1xSl9tS0o0M244RFJZaWstYUx1QmhxeXNXQnpIU3A5eURIcmI5Vk9vTXdyNWdyTDJ3c2c1U2Y5MFVNdDh3bmtEQXlmbVMxRG1oQnM5Sk1xc052azhUNjV5RzVLdkZLWUxmUW50SEo3eEFJbWhyOG90aDk?oc=5",
+     "source": "Minnesota Vikings",
+     "pub": "Fri, 11 Sep 2026 18:46:44 GMT"
     }
    ],
    "fti_count": 5
@@ -430,7 +430,7 @@
     {
      "name": "kyle whittingham",
      "mentions": 7,
-     "index": 26,
+     "index": 24,
      "status": "trending",
      "gap": true,
      "shoppable": false,
@@ -440,8 +440,8 @@
    "top_terms": [
     "michigan",
     "football",
-    "western",
     "wolverines",
+    "western",
     "college",
     "watch",
     "hail",
@@ -452,7 +452,7 @@
     {
      "title": "Michigan 13-12 Western Michigan (Sep 5, 2026) Game Recap",
      "url": "https://news.google.com/rss/articles/CBMibEFVX3lxTE96TERNb2V1VjRiTC1LX2owT2VISjc0TS1HcTk5QTFaTzJUOFJacm9UcER0ZldwSFFfWlRhQlM3UjFZRjRMTE40N2RUeWFhbWU4ODREZ3BwLW5wamp0eU12MGJJWW55TS1zcERidQ?oc=5",
-     "source": "ESPN",
+     "source": "espn.com",
      "pub": "Sat, 05 Sep 2026 07:00:00 GMT"
     },
     {
@@ -817,6 +817,16 @@
  ],
  "moments": [
   {
+   "title": "Todd Monken names captains for Week 1 vs. Jaguars",
+   "url": "https://news.google.com/rss/articles/CBMijgFBVV95cUxNTkVjOUZRTGRMNXFtRUdMZnFHSVViVkVKYVRJUGhoamVZUmhrektrZ2RwMllsck5UbmlLMDUyMlZ0N1FiejZYNEVCTTlqSGJydzVrYzk5eEkxQkVSYkN1WVcxY0steTh5bUJNU0hjUEhhamV2dlVZd2lHUWpDa2VSbkZGdFR2VGRwTnhpdkN3?oc=5",
+   "source": "clevelandbrowns.com",
+   "pub": "Tue, 08 Sep 2026 00:36:04 GMT",
+   "collection": "cleveland-browns",
+   "entities": [
+    "todd monken"
+   ]
+  },
+  {
    "title": "Foye Oluokun intercepts Watson to end Cleveland's opening drive",
    "url": "https://news.google.com/rss/articles/CBMilAFBVV95cUxQbUhlSU5Nbjg0OTFRd1ZSY3lyc05ULU1pYmZBbXJObVowTmpjVjJsZDk3NUgtRG1wVTZud3hkU1pBNDZVdFNfTlpTWURXS2RwWFhIUXNmbnM2QWhnbzh1S0Q1bnl0b245ZWVCcUlRNmI4S3V0X2JBSTZZSVFEZGI5UDZpbVRJa1Zpdk85QUxZM181MjFU?oc=5",
    "source": "NFL.com",
@@ -827,16 +837,6 @@
    ]
   },
   {
-   "title": "Todd Monken names captains for Week 1 vs. Jaguars",
-   "url": "https://news.google.com/rss/articles/CBMijgFBVV95cUxNTkVjOUZRTGRMNXFtRUdMZnFHSVViVkVKYVRJUGhoamVZUmhrektrZ2RwMllsck5UbmlLMDUyMlZ0N1FiejZYNEVCTTlqSGJydzVrYzk5eEkxQkVSYkN1WVcxY0steTh5bUJNU0hjUEhhamV2dlVZd2lHUWpDa2VSbkZGdFR2VGRwTnhpdkN3?oc=5",
-   "source": "Cleveland Browns",
-   "pub": "Tue, 08 Sep 2026 00:36:04 GMT",
-   "collection": "cleveland-browns",
-   "entities": [
-    "todd monken"
-   ]
-  },
-  {
    "title": "Why are the Browns starting Deshaun Watson? Here\u2019s the deal \u2013 Terry Pluto",
    "url": "https://news.google.com/rss/articles/CBMitAFBVV95cUxNYldGdnhPWmM2VkUxQVlOQTJFYllycVJ3cG9BZXAtUTJhcWtXcS1nM2I0ZWV5Q25SNmRCcjZ6UmpMMTVDdHlEaW5ZazBSV0xubWViUXowRG9NRWV5VmtZSnRnNzZFRFc2WXFPaDJMRE5NMUJqR1NuYXJkOXo4S1hMZzFvTDZpUmJ2UGttU25fSFdtQXllX01VQUJjYzhrV29wTjh4STFrQWxrazdVc01fWFJlNFk?oc=5",
    "source": "Cleveland.com",
@@ -844,16 +844,6 @@
    "collection": "cleveland-browns",
    "entities": [
     "deshaun watson"
-   ]
-  },
-  {
-   "title": "Packers RB Josh Jacobs pleads no contest to misdemeanor charges",
-   "url": "https://news.google.com/rss/articles/CBMiqAFBVV95cUxQZXgwZzVobk5fVWoyZlJoOWZMVFdJRjVTWk1ZNzVXMUJvNlR6aE5ucC01dTVZRHp0cU85Q21OVDRuNmpZTXFwMGVkZ0RxNlo4SlhwRUhrZElvNFNabzc5U3BLcWZQdVAxa2hndEpRcWZYUnlVVFhJdkpsc0hJU1hMYXRBa3hGT0MwSHBxa29KNUlqNE1wVmNkTTlaUm1TUDBNMnRxMmJ5ZzU?oc=5",
-   "source": "ESPN",
-   "pub": "Thu, 10 Sep 2026 16:18:00 GMT",
-   "collection": "green-bay-packers",
-   "entities": [
-    "josh jacobs"
    ]
   }
  ]
