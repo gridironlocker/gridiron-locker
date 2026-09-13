@@ -28,6 +28,7 @@ never touched, and the tests still exercise the real generator code end to end.
 from __future__ import annotations
 
 import contextlib
+import hashlib
 import json
 import os
 import shutil
@@ -103,3 +104,33 @@ def read_json(path: Path):
     """Read a generated artefact from the sandbox."""
     with path.open(encoding="utf-8") as handle:
         return json.load(handle)
+
+
+def snapshot_tree() -> dict[str, str]:
+    """Content snapshot of the real repository's tracked generator artefacts.
+
+    Returns ``{repo-relative path: sha256}`` for every ``marketing/*.json``,
+    ``marketing/*.csv`` and ``data/*.json`` file.
+
+    Why a content hash and NOT ``git status --porcelain``: ``git status``
+    compares the working tree against HEAD, so it reports *pre-existing* dirt
+    as if the test run had caused it. In ``.github/workflows/refresh.yml`` the
+    step "Collect public web and social trend signals" runs ``python
+    marketing/social_watch.py`` BEFORE the guard-rail test suite, and
+    social_watch.py rewrites ``marketing/social-signals.json`` with a
+    second-precision ``generated_at`` (the plan/three-day-pulse builders do the
+    same to their own artefacts). The tree is therefore always dirty by the
+    time the tests start, and a git-status assertion fails on every single
+    refresh run - blaming the test sandbox for dirt the pipeline itself
+    created moments earlier. A content snapshot taken in-process *before* the
+    generators run, diffed against a second one taken *after* they run, can
+    only see changes the test run itself caused: that is exactly the sandbox
+    leak this guard rail exists to catch, and nothing else.
+    """
+    snapshot: dict[str, str] = {}
+    for pattern in ("marketing/*.json", "marketing/*.csv", "data/*.json"):
+        for path in sorted(ROOT.glob(pattern)):
+            if path.is_file():
+                snapshot[path.relative_to(ROOT).as_posix()] = hashlib.sha256(
+                    path.read_bytes()).hexdigest()
+    return snapshot

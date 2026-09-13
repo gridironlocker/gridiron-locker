@@ -311,7 +311,8 @@ class BoardPayload(unittest.TestCase):
         cls.payload = HI.hunt_opportunities()
 
     def test_headline_level_never_reaches_the_board(self):
-        self.assertTrue(self.payload["opportunities"])
+        # No assumption that the news cycle is busy: on a quiet night the board
+        # may be empty, and the invariants below still have to hold.
         for opp in self.payload["opportunities"]:
             self.assertIn(opp["level"], ("SIGNAL", "TREND", "OPPORTUNITY", "ACTION"))
             self.assertGreaterEqual(HI.LEVEL_RANK[opp["level"]], HI.LEVEL_RANK["SIGNAL"])
@@ -350,7 +351,11 @@ class BoardPayload(unittest.TestCase):
     def test_article_ideas_only_exist_for_opportunity_plus(self):
         eligible = {o["team"] for o in self.payload["opportunities"]
                     if o["level"] in ("OPPORTUNITY", "ACTION") and o["commercial"].get("design")}
-        self.assertTrue(self.payload["articles"])
+        if not eligible:
+            # Quiet news cycle: nothing at OPPORTUNITY+ with a matched design
+            # means the article list must be empty - no drafting from thinner
+            # evidence.
+            self.assertEqual(self.payload["articles"], [])
         for art in self.payload["articles"]:
             self.assertIn(art["team"], eligible)
             self.assertIn(art["type"], ("Medium", "Quora", "Reddit"))
@@ -361,6 +366,11 @@ class BoardPayload(unittest.TestCase):
 
     def test_the_board_answers_the_question(self):
         board = self.payload["board"]
+        if not self.payload["opportunities"]:
+            # Nothing on the board, nothing to answer - an empty night is a
+            # None board, not an invented recommendation.
+            self.assertIsNone(board)
+            return
         self.assertIsNotNone(board)
         for field in ("answer", "product", "platform", "timing", "confidence",
                       "level", "status", "status_emoji", "creative", "campaign"):
@@ -368,16 +378,53 @@ class BoardPayload(unittest.TestCase):
 
     def test_disconnected_fan_sources_are_reported_not_faked(self):
         self.assertEqual(self.payload["fan_sources_live"], [])
-        self.assertIn("no fan posts", self.payload["fan_note"])
+        # fan_connector_state has two honest disconnected phrasings - "no fan
+        # connector configured in marketing/social-signals.json" and "no fan
+        # posts observed - ...". Both must be accepted; asserting one exact
+        # sentence fails whenever the other is the truth.
+        self.assertIn("no fan", self.payload["fan_note"])
         for opp in self.payload["opportunities"]:
             self.assertEqual(opp["evidence"]["fan_posts"], 0)
 
     def test_utility_listings_are_counted_but_excluded(self):
-        """'How to watch' copy must show up as excluded, never as demand."""
-        excluded = [o for o in self.payload["opportunities"] if o["evidence"]["utility"]]
-        self.assertTrue(excluded, "expected some utility copy in the current data")
-        for opp in excluded:
-            self.assertGreater(opp["evidence"]["items"], 0)
+        """'How to watch' copy must show up as excluded, never as demand.
+
+        ``all_items`` is everything a topic matched; ``utility`` is the TV
+        listing / how-to-watch slice of it; ``items`` is the reaction left
+        after those are removed. The arithmetic must close for every card on
+        the board - busy night or quiet - instead of assuming the current
+        data happens to contain utility copy.
+        """
+        for opp in self.payload["opportunities"]:
+            e = opp["evidence"]
+            self.assertGreaterEqual(e["all_items"], 0, opp["title"])
+            self.assertGreaterEqual(e["items"], 0, opp["title"])
+            self.assertGreaterEqual(e["utility"], 0, opp["title"])
+            self.assertEqual(
+                e["items"] + e["utility"], e["all_items"],
+                f"{opp['title']}: utility listings are counted in all_items "
+                "but must be excluded from the reaction")
+
+    def test_a_quiet_news_day_gives_an_empty_board_not_a_crash(self):
+        """Feeds that come back empty must yield an empty board, not a crash.
+
+        A dead Reddit feed plus a Google News drought is a real, recurring
+        state of the world. The honest output is "nothing cleared SIGNAL",
+        with the gap named - never an exception and never invented demand.
+        """
+        payload = HI.hunt_opportunities(trends={}, signals={}, products={})
+        self.assertEqual(payload["opportunities"], [])
+        self.assertEqual(payload["filtered"], [])
+        self.assertEqual(payload["articles"], [])
+        self.assertIsNone(payload["board"])
+        self.assertEqual(
+            payload["counts"],
+            {"SIGNAL": 0, "TREND": 0, "OPPORTUNITY": 0, "ACTION": 0, "HEADLINE": 0})
+        self.assertEqual(payload["fan_sources_live"], [])
+        self.assertIn("no fan", payload["fan_note"])
+        for team, meta in payload["teams"].items():
+            self.assertEqual(meta["shown"], 0, team)
+            self.assertEqual(meta["best"], "", team)
 
     def test_the_old_generic_advice_is_gone_from_the_payload(self):
         blob = repr(self.payload).lower()
@@ -414,12 +461,24 @@ class GeneratedDashboard(unittest.TestCase):
         self.assertIn("--canvas:#070e1a", self.html)
 
     def test_dashboard_shows_evidence_product_action_and_status(self):
-        for needle in ("Opportunities — ranked by confidence", 'class="evi"', "Commercial match",
-                       "Recommended action", "Best thing Gridiron Locker should do right now",
-                       "Filtered as HEADLINE", "The ladder", "Phrase velocity", "Game state"):
+        # The evidence grid, commercial box, action box, board answer and the
+        # status emojis are per-card content. On a quiet night the board is
+        # empty and the honest dashboard is the "Nothing cleared SIGNAL" state
+        # plus the section chrome and the five-badge ladder - so the per-card
+        # needles are only required when a card actually exists.
+        quiet = "Nothing cleared SIGNAL" in self.html
+        needles = ("Opportunities — ranked by confidence", "Filtered as HEADLINE",
+                   "The ladder")
+        if not quiet:
+            needles += ('class="evi"', "Commercial match", "Recommended action",
+                        "Best thing Gridiron Locker should do right now",
+                        "Phrase velocity", "Game state")
+        for needle in needles:
             self.assertIn(needle, self.html, f"missing {needle}")
+        # The ladder always renders all five level badges, busy or quiet.
         self.assertRegex(self.html, r'class="badge lvl-(ACTION|OPPORTUNITY|TREND|SIGNAL)"')
-        self.assertRegex(self.html, r"[🟢🟡⚪🔴]")
+        if not quiet:
+            self.assertRegex(self.html, r"[🟢🟡⚪🔴]")
 
     def test_generic_headline_advice_is_gone(self):
         self.assertNotIn("with angle:", self.html)
@@ -430,7 +489,11 @@ class GeneratedDashboard(unittest.TestCase):
         self.assertIn("## What to do right now", self.report)
         self.assertIn("## Filtered as HEADLINE", self.report)
         self.assertIn("## Article ideas (OPPORTUNITY+ only)", self.report)
-        self.assertRegex(self.report, r"Level: (ACTION|OPPORTUNITY|TREND|SIGNAL)")
+        if "Nothing cleared SIGNAL this run" in self.report:
+            # Quiet night: the report says so out loud and invents no levels.
+            self.assertNotRegex(self.report, r"Level: (ACTION|OPPORTUNITY|TREND|SIGNAL)")
+        else:
+            self.assertRegex(self.report, r"Level: (ACTION|OPPORTUNITY|TREND|SIGNAL)")
 
 
 if __name__ == "__main__":
