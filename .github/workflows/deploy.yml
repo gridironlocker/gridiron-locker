@@ -27,13 +27,6 @@ jobs:
       - name: Checkout
         uses: actions/checkout@v6
 
-      - name: Publish Action Room data feeds
-        run: |
-          mkdir -p site/data site/marketing
-          cp data/trends.json site/data/trends.json
-          cp data/products_live.json site/data/products_live.json
-          if [ -f marketing/social-signals.json ]; then cp marketing/social-signals.json site/marketing/social-signals.json; fi
-
       - name: Setup Pages
         uses: actions/configure-pages@v5
 
