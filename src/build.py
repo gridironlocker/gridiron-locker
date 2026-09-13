@@ -772,7 +772,7 @@ def theme_vars(ckey):
 
 
 def head(title, desc, path, image=None, schema=None, keywords=None, col=None,
-         noindex=False, body_attrs=""):
+         noindex=False, body_attrs="", image_alt=None, image_size=None):
     canon = abs_url(path)
     # The 404 page is served (with a 200 on GitHub Pages) for every mistyped or
     # stale URL under the domain, so an "index,follow" 404 invites Google to
@@ -793,6 +793,18 @@ def head(title, desc, path, image=None, schema=None, keywords=None, col=None,
         if len(html.unescape(candidate)) <= 60:
             title = candidate
 
+    # Social unfurl polish: every share card gets alt text (accessibility plus
+    # a graceful fallback when the image cannot load), and house hero art gets
+    # explicit dimensions so clients can lay out the large-image card without
+    # fetching first. All /img/hero-* banners are 2048x768 except hero-joe
+    # (1933x813), which passes image_size explicitly; product mockups vary per
+    # file, so they carry alt text only.
+    og_alt = esc(image_alt or title)
+    _wh = image_size
+    if _wh is None and "/img/hero-" in img:
+        _wh = (2048, 768)
+    og_dim = (f'\n<meta property="og:image:width" content="{_wh[0]}">'
+              f'\n<meta property="og:image:height" content="{_wh[1]}">') if _wh else ""
     schemas = list(schema or [])
     has_org = any(isinstance(s, dict) and s.get("@type") == "Organization" for s in schemas)
     has_site = any(isinstance(s, dict) and s.get("@type") == "WebSite" for s in schemas)
@@ -859,13 +871,16 @@ def head(title, desc, path, image=None, schema=None, keywords=None, col=None,
 <meta property="og:title" content="{esc(title)}">
 <meta property="og:description" content="{esc(desc)}">
 <meta property="og:url" content="{canon}">
-<meta property="og:image" content="{img}">
+<meta property="og:image" content="{img}">{og_dim}
+<meta property="og:image:alt" content="{og_alt}">
 <meta name="twitter:card" content="summary_large_image">
+<meta name="twitter:site" content="{esc(CFG['twitter'])}">
 <meta name="twitter:title" content="{esc(title)}">
 <meta name="twitter:description" content="{esc(desc)}">
 <meta name="twitter:image" content="{img}">
-<meta name="theme-color" content="#ffffff">
-<link rel="icon" href="/img/favicon.svg" type="image/svg+xml">
+<meta name="twitter:image:alt" content="{og_alt}">
+<meta name="theme-color" content="#0a0b0d">
+<link rel="icon" href="/img/favicon.svg" sizes="any" type="image/svg+xml">
 <link rel="stylesheet" href="/assets/style.css?v={STYLE_VERSION}">
 <script>document.documentElement.className+=" js"</script>
 {acc}
@@ -1871,8 +1886,8 @@ def page_home():
          "itemListElement": [{"@type": "ListItem", "position": n + 1, "url": DOMAIN + f"/{COLLECTIONS[k]['slug']}/",
                               "name": COLLECTIONS[k]["name"]} for n, k in enumerate(ORDER)]},
     ]
-    desc = (f"Fan-made football tees, hoodies and gear across {len(ORDER)} team collections: "
-            f"Cleveland, Green Bay, Dallas and Michigan. {N_DESIGNS} original designs, sizes {SIZE_RANGE}, printed on demand.")
+    desc = (f"{BRAND}: original fan-made football apparel for Cleveland, Green Bay, "
+            f"Dallas & Michigan fans. {N_DESIGNS} designs, sizes {SIZE_RANGE}, printed on demand.")
     body = f"""<main id="main">
 {home_banner()}
 {shop_nav()}
@@ -2404,7 +2419,8 @@ def page_creator(ckey="joe"):
     URLS.append((DOMAIN + path, "0.9", "weekly"))
     write(f"{cre['page_slug']}/index.html",
           head(f"{cre['page_name']} | {BRAND}", cre_page_desc, path, "/img/hero-joe.jpg",
-               schema, kw, col=ckey_col, body_attrs=f' data-creator-page="{track}"')
+               schema, kw, col=ckey_col, body_attrs=f' data-creator-page="{track}"',
+               image_size=(1933, 813))
           + header(ckey_col) + body + footer())
 
 
