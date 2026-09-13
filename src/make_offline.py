@@ -1,16 +1,24 @@
 #!/usr/bin/env python3
 """Create site-offline/: a copy of site/ that works by double-clicking index.html
 (file:// protocol) - all root-absolute URLs become relative, and directory links
-get an explicit index.html because file:// cannot serve directory indexes."""
+get an explicit index.html because file:// cannot serve directory indexes.
+
+Run it:
+
+    python3 src/make_offline.py
+
+Do not import it for its helpers. Until this module had a ``__main__`` guard,
+simply importing it deleted and rebuilt the whole ~86 MB ``site-offline/`` tree
+at import time - so any tooling that scanned ``src/*.py`` (a linter, a test
+collector, an ``importlib.import_module`` loop over the package) silently
+produced an 86 MB artefact as a side effect of *reading* the file. Everything
+that touches the filesystem now lives in ``main()``.
+"""
 import os, re, shutil, sys
 
 ROOT = os.path.dirname(os.path.dirname(os.path.abspath(__file__)))
 SRC = os.path.join(ROOT, "site")
 DST = os.path.join(ROOT, "site-offline")
-
-if os.path.exists(DST):
-    shutil.rmtree(DST)
-shutil.copytree(SRC, DST)
 
 # src/build.py now emits canonical directory links ("../collections/") so that
 # the published site exposes exactly one crawlable URL per page. file:// cannot
@@ -47,18 +55,35 @@ def fix(html_path):
             path = path.rstrip("/") + "/index.html"
         return pre + path + tail + post
 
-    t = open(html_path, encoding="utf-8").read()
+    # `with`, not open(...).read() / open(...).write(): this runs once per page
+    # (206 times), and the inline form leaks every handle until GC collects it,
+    # which floods the run with ResourceWarnings under -W error::ResourceWarning.
+    with open(html_path, encoding="utf-8") as fh:
+        t = fh.read()
     # never rewrite inside JSON-LD / meta absolute URLs (they are full https:// already)
     t = ATTR.sub(repl, t)
-    open(html_path, "w", encoding="utf-8").write(t)
+    with open(html_path, "w", encoding="utf-8") as fh:
+        fh.write(t)
 
 
-n = 0
-for base, _, files in os.walk(DST):
-    for f in files:
-        if f.endswith(".html"):
-            fix(os.path.join(base, f))
-            n += 1
+def main():
+    if not os.path.isdir(SRC):
+        sys.exit(f"nothing to do: {SRC} does not exist - run python3 src/build.py first")
 
-# css uses no absolute asset urls, but normalise just in case
-print(f"offline build ready: {n} pages -> {DST}")
+    if os.path.exists(DST):
+        shutil.rmtree(DST)
+    shutil.copytree(SRC, DST)
+
+    n = 0
+    for base, _, files in os.walk(DST):
+        for f in files:
+            if f.endswith(".html"):
+                fix(os.path.join(base, f))
+                n += 1
+
+    # css uses no absolute asset urls, but normalise just in case
+    print(f"offline build ready: {n} pages -> {DST}")
+
+
+if __name__ == "__main__":
+    main()

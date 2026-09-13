@@ -1,27 +1,37 @@
 #!/usr/bin/env python3
-"""Regression tests for the rolling three-day trend-to-product pulse."""
-import json
+"""Regression tests for the rolling three-day trend-to-product pulse.
+
+The generators are run inside a throwaway copy of the repository (see
+``tests/testutil.py``). Running them in-place would overwrite the tracked
+``marketing/*.json`` artefacts, which ``refresh.yml`` then commits with
+``git add -A`` - a test run must never be able to mutate the repository.
+"""
 import os
 import subprocess
 import sys
 import unittest
 
-ROOT = os.path.dirname(os.path.dirname(os.path.abspath(__file__)))
+sys.path.insert(0, os.path.dirname(os.path.abspath(__file__)))
+
+from testutil import ROOT, generator_sandbox, read_json, run_generator  # noqa: E402
 
 
 class ThreeDayPulse(unittest.TestCase):
     @classmethod
     def setUpClass(cls):
-        subprocess.run([sys.executable, "marketing/social_watch.py"], cwd=ROOT, check=True, capture_output=True, text=True)
-        subprocess.run([sys.executable, "marketing/plan.py"], cwd=ROOT, check=True, capture_output=True, text=True)
-        subprocess.run([sys.executable, "marketing/three_day_pulse.py"], cwd=ROOT, check=True, capture_output=True, text=True)
-        subprocess.run([sys.executable, "marketing/publisher.py"], cwd=ROOT, check=True, capture_output=True, text=True)
-        with open(os.path.join(ROOT, "marketing", "three-day-pulse.json"), encoding="utf-8") as handle:
-            cls.pulse = json.load(handle)
-        with open(os.path.join(ROOT, "marketing", "publish-results.json"), encoding="utf-8") as handle:
-            cls.publish = json.load(handle)
-        with open(os.path.join(ROOT, "marketing", "social-signals.json"), encoding="utf-8") as handle:
-            cls.signals = json.load(handle)
+        cls._sandbox_cm = generator_sandbox()
+        cls.sandbox = cls._sandbox_cm.__enter__()
+        run_generator(cls.sandbox, "social_watch.py")
+        run_generator(cls.sandbox, "plan.py")
+        run_generator(cls.sandbox, "three_day_pulse.py")
+        run_generator(cls.sandbox, "publisher.py")
+        cls.pulse = read_json(cls.sandbox / "marketing" / "three-day-pulse.json")
+        cls.publish = read_json(cls.sandbox / "marketing" / "publish-results.json")
+        cls.signals = read_json(cls.sandbox / "marketing" / "social-signals.json")
+
+    @classmethod
+    def tearDownClass(cls):
+        cls._sandbox_cm.__exit__(None, None, None)
 
     def test_exactly_three_short_lived_days(self):
         self.assertEqual(self.pulse["meta"]["horizon_days"], 3)
@@ -63,6 +73,37 @@ class ThreeDayPulse(unittest.TestCase):
     def test_publisher_defaults_to_dry_run(self):
         self.assertEqual(self.publish["mode"], "dry_run")
         self.assertTrue(all(row["status"] == "dry_run" for row in self.publish["results"]))
+
+    def test_generators_never_touch_the_real_repository(self):
+        """The whole point of the sandbox: prove it actually holds.
+
+        Each generator resolves its output path from its own ``__file__``, so a
+        sandboxed run writes into the sandbox. If anyone ever "simplifies"
+        ``testutil.generator_sandbox`` back to running the scripts in place, the
+        tracked marketing artefacts would be rewritten by a test run and
+        committed by ``refresh.yml``'s ``git add -A``. This compares the tracked
+        files against the pristine HEAD blobs so that regression fails here,
+        loudly, instead of showing up as a mystery diff in someone's commit.
+        """
+        tracked = (
+            "marketing/commercial-brief.json",
+            "marketing/plan.json",
+            "marketing/social-signals.json",
+            "marketing/three-day-pulse.json",
+        )
+        status = subprocess.run(
+            ["git", "status", "--porcelain", "--", *tracked],
+            cwd=ROOT,
+            check=True,
+            capture_output=True,
+            text=True,
+        ).stdout.strip()
+        self.assertEqual(
+            status,
+            "",
+            "running the marketing generators modified tracked artefacts; the "
+            "test sandbox is leaking into the repository:\n" + status,
+        )
 
 
 if __name__ == "__main__":

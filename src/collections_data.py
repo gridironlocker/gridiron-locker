@@ -14,7 +14,13 @@ from zoneinfo import ZoneInfo as _ZoneInfo
 _FUL_PATH = _os.path.join(_os.path.dirname(_os.path.dirname(_os.path.abspath(__file__))),
                           "data/fulfillment.json")
 try:
-    _FUL = _json.load(open(_FUL_PATH))
+    # `with`, not `_json.load(open(...))`: the inline form leaks the handle
+    # until GC collects it (a ResourceWarning in every build and test log), and
+    # this module is imported by src/build.py, marketing/plan.py and the test
+    # suite, so it was the single most-repeated leak in the repo. The encoding
+    # is pinned because data/fulfillment.json holds prose, not just ASCII.
+    with open(_FUL_PATH, encoding="utf-8") as _fh:
+        _FUL = _json.load(_fh)
 except Exception:
     _FUL = {}
 FUL_COLLECTION = _FUL.get("collection", "")
