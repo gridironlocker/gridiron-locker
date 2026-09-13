@@ -4,220 +4,147 @@
 <meta charset="utf-8">
 <meta name="viewport" content="width=device-width,initial-scale=1">
 <meta name="robots" content="noindex,nofollow,noarchive">
-<meta name="theme-color" content="#070e1a">
-<title>HQ - Mission Control | Gridiron Locker</title>
+<title>HQ - Hunter | Gridiron Locker</title>
 <style>
-:root{color-scheme:dark;--ink:#eef5ff;--muted:#93a6c2;--mut2:#c0cfe4;--canvas:#070e1a;
---canvas2:#0b1526;--panel:#0f1e36;--panel2:#142842;--line:rgba(178,203,238,.13);
---line2:rgba(178,203,238,.25);--blue:#7cc8ff;--blue2:#3d9df5;--green:#72e0ba;
---orange:#ffb15a;--pink:#ec9cff;--red:#ff7d7d;
-font-family:Inter,ui-sans-serif,system-ui,-apple-system,BlinkMacSystemFont,"Segoe UI",sans-serif}
-*{box-sizing:border-box}html{scroll-behavior:smooth}
-body{margin:0;min-width:320px;color:var(--ink);line-height:1.55;
-background:radial-gradient(circle at 8% -8%,rgba(61,157,245,.20),transparent 38rem),
-radial-gradient(circle at 96% 4%,rgba(114,224,186,.10),transparent 34rem),var(--canvas)}
-button,input,select{font:inherit}button{cursor:pointer}a{color:var(--blue);text-decoration:none}
-a:hover{color:#c2e7ff}
-.topbar{position:sticky;top:0;z-index:30;border-bottom:1px solid var(--line);
-background:rgba(7,14,26,.92);backdrop-filter:blur(18px)}
-.topbar-inner{width:min(1400px,calc(100% - 48px));margin:0 auto;min-height:70px;display:flex;gap:14px;align-items:center;flex-wrap:wrap;padding:10px 0}
-.brand{display:flex;align-items:center;gap:12px;font-weight:800;letter-spacing:-.02em}
-.mark{display:grid;place-items:center;width:36px;height:36px;border-radius:11px;
-color:#05121f;background:linear-gradient(135deg,var(--blue),var(--green));font-weight:850}
-.brand small{display:block;font-weight:600;color:var(--muted);letter-spacing:.14em;
-text-transform:uppercase;font-size:.62rem}
-.hqnav{display:flex;gap:8px;flex-wrap:wrap;margin-left:8px}
-.hqnav a{padding:7px 13px;border:1px solid var(--line);border-radius:999px;color:var(--mut2);
-font-size:.8rem;background:rgba(255,255,255,.03);white-space:nowrap}
-.hqnav a.on{border-color:var(--blue2);color:#fff;background:rgba(61,157,245,.16)}
-.hqnav a:hover{border-color:var(--blue2);color:#fff}
-.pill{display:inline-flex;align-items:center;gap:7px;padding:7px 13px;border:1px solid var(--line2);
-border-radius:999px;color:var(--mut2);background:rgba(255,255,255,.03);font-size:.8rem;white-space:nowrap}
-.dot{width:8px;height:8px;border-radius:50%;background:var(--green);box-shadow:0 0 10px var(--green)}
-.dot.yellow{background:var(--orange);box-shadow:0 0 10px var(--orange)}
-.dot.red{background:var(--red);box-shadow:0 0 10px var(--red)}
-.dot.grey{background:var(--muted);box-shadow:none}
-.wrap{width:min(1400px,calc(100% - 48px));margin:0 auto}
-section{padding:34px 0 6px}
-h1{margin:0 0 10px;font-size:clamp(1.6rem,3.4vw,2.5rem);letter-spacing:-.03em;line-height:1.15}
-h2{margin:0 0 6px;font-size:1.25rem;letter-spacing:-.02em}
-h3{font-size:.95rem;margin:0 0 10px;letter-spacing:-.01em}
-.lead{color:var(--muted);max-width:82ch;margin:0 0 22px}
-.muted{color:var(--muted)} .small{font-size:.8rem} .mono{font-family:ui-monospace,SFMono-Regular,Menlo,monospace}
-.kpis{display:grid;grid-template-columns:repeat(auto-fit,minmax(150px,1fr));gap:12px}
-.kpi{border:1px solid var(--line);border-radius:16px;padding:16px 18px;background:linear-gradient(180deg,var(--panel),var(--canvas2))}
-.kpi b{display:block;font-size:1.7rem;line-height:1.1;letter-spacing:-.03em}
-.kpi span{color:var(--muted);font-size:.78rem}
-.card{border:1px solid var(--line);border-radius:18px;background:var(--panel);padding:20px 22px;
-box-shadow:0 14px 44px rgba(0,0,0,.22)}
-.card + .card{margin-top:22px}
-table{width:100%;border-collapse:collapse;font-size:.86rem}
-th{color:var(--muted);font-weight:650;text-align:left;padding:9px 10px;border-bottom:1px solid var(--line2);
-font-size:.72rem;letter-spacing:.08em;text-transform:uppercase;white-space:nowrap}
-td{padding:9px 10px;border-bottom:1px solid var(--line);vertical-align:middle}
-tr:hover td{background:rgba(124,200,255,.045)}
-.num{text-align:right;font-variant-numeric:tabular-nums}
-.badge{display:inline-block;padding:3px 10px;border-radius:999px;font-size:.7rem;font-weight:700;
-letter-spacing:.03em;text-transform:uppercase;border:1px solid transparent}
-.ok{color:#062b1c;background:var(--green)} .bad{color:#2b0f0f;background:var(--red)}
-.info{color:#04121f;background:var(--blue)} .warn{color:#26180a;background:var(--orange)}
-.botgrid{display:grid;grid-template-columns:repeat(auto-fit,minmax(240px,1fr));gap:12px}
-.bot{border:1px solid var(--line);border-radius:14px;padding:13px 15px;background:rgba(255,255,255,.018)}
-.bot b{display:block;font-size:.88rem} .bot span{color:var(--muted);font-size:.78rem}
-.bot code{font-family:ui-monospace,monospace;font-size:.74rem;color:var(--blue)}
-.steps{display:flex;flex-wrap:wrap;gap:8px;align-items:center;margin:12px 0}
-.step{padding:5px 12px;border:1px solid var(--line2);border-radius:999px;font-size:.76rem;color:var(--mut2);background:rgba(255,255,255,.03)}
-.arrow{color:var(--muted);font-size:.8rem}
-.cmd{background:#04090f;border:1px solid var(--line2);border-radius:12px;padding:12px 16px;
-font-family:ui-monospace,SFMono-Regular,Menlo,monospace;font-size:.82rem;color:#cfe6ff;overflow:auto}
-footer{padding:40px 0 56px;color:var(--muted);font-size:.8rem;border-top:1px solid var(--line);margin-top:40px}
-footer .wrap{display:flex;justify-content:space-between;flex-wrap:wrap;gap:12px}
+:root{color-scheme:dark;--ink:#eef5ff;--muted:#93a6c2;--canvas:#070e1a;--panel:#0f1e36;--line:rgba(178,203,238,.13);--line2:rgba(178,203,238,.25);--blue:#7cc8ff;--green:#72e0ba;--orange:#ffb15a;--red:#ff7d7d}
+*{box-sizing:border-box}body{margin:0;min-width:320px;color:var(--ink);line-height:1.55;background:var(--canvas);font-family:Inter,ui-sans-serif,system-ui,sans-serif}
+.topbar{position:sticky;top:0;z-index:30;border-bottom:1px solid var(--line);background:rgba(7,14,26,.92);backdrop-filter:blur(18px)}
+.topbar-inner{width:min(1100px,calc(100% - 32px));margin:0 auto;min-height:60px;display:flex;gap:12px;align-items:center;flex-wrap:wrap;padding:10px 0}
+.brand{font-weight:800;letter-spacing:-.02em}.brand small{display:block;font-weight:600;color:var(--muted);letter-spacing:.12em;text-transform:uppercase;font-size:.62rem}
+.pill{padding:6px 12px;border:1px solid var(--line2);border-radius:999px;color:var(--muted);background:rgba(255,255,255,.03);font-size:.8rem}
+.wrap{width:min(1100px,calc(100% - 32px));margin:0 auto}
+section{padding:28px 0 8px}h1{margin:0 0 8px;font-size:clamp(1.6rem,3vw,2.2rem)}h2{margin:0 0 10px;font-size:1.2rem}h3{margin:18px 0 8px;font-size:1rem}
+.lead{color:var(--muted);max-width:80ch;margin:0 0 18px}
+.card{border:1px solid var(--line);border-radius:16px;background:var(--panel);padding:18px 20px;margin-top:14px}
+.muted{color:var(--muted)}.small{font-size:.82rem}.mono{font-family:ui-monospace,monospace}
+.badge{display:inline-block;padding:2px 9px;border-radius:999px;font-size:.7rem;font-weight:700;text-transform:uppercase}
+.trending{background:var(--green);color:#062b1c}.steady{background:var(--blue);color:#04121f}.quiet{background:rgba(255,255,255,.08);color:var(--muted)}
+.grid{display:grid;grid-template-columns:repeat(auto-fit,minmax(300px,1fr));gap:14px}
+.item{border:1px solid var(--line);border-radius:12px;padding:14px;background:rgba(255,255,255,.02)}
+.item b{display:block;margin-bottom:4px}.item a{color:var(--blue)}
+ul{margin:8px 0;padding-left:18px}li{margin:4px 0}
 .kbd{font-family:ui-monospace,monospace;background:rgba(255,255,255,.06);padding:1px 6px;border-radius:6px;font-size:.78em}
-.runs{display:flex;flex-direction:column;gap:8px;margin-top:12px}
-.run{display:flex;gap:10px;align-items:center;padding:9px 12px;border:1px solid var(--line);border-radius:11px;background:rgba(255,255,255,.015);font-size:.82rem}
-.run .meta{color:var(--muted);font-size:.74rem}
+footer{padding:30px 0;color:var(--muted);font-size:.8rem;border-top:1px solid var(--line);margin-top:30px}
 </style>
 </head>
 <body>
 <div class="topbar"><div class="topbar-inner">
- <div class="brand"><span class="mark">H</span><span>HQ<small>Gridiron Locker - Mission Control</small></span></div>
- <nav class="hqnav" aria-label="HQ menu">
-  <a class="on" href="../../ops/hq/">HQ</a>
-  <a href="../../ops/board/">Operator Board</a>
-  <a href="../../ops/scout/">Scout</a>
-  <a href="../../ops/design-drop/">Design Drop</a>
-  <a href="../../marketing/dashboard.html">Marketing</a>
-  <a href="../../">Storefront</a>
-  <a href="https://github.com/gridironlocker/gridiron-locker/actions">GitHub Actions</a>
-  <a href="https://github.com/gridironlocker/gridiron-locker">Repo</a>
- </nav>
- <span class="pill"><span class="dot"></span>Data refresh 2026-09-13 &middot; 84 designs shipped</span>
+ <div class="brand">HUNTER<small>Gridiron Locker - You post, I hunt</small></div>
+ <span class="pill">Trend data: 2026-09-13 • 12 hunts • 0 article ideas</span>
 </div></div>
 <main class="wrap">
 <section>
- <h1>Mission <span style="color:var(--green)">Control</span></h1>
- <p class="lead">One screen over the whole store pipeline: bots, refresh cadence with live
- workflow runs, catalogue listed-vs-built, WebP image health, automatic-verification
- checklist, newest campaigns, the one-command adder and search health. Regenerated on every
- build (<span class="kbd">src/hq.py</span> &rarr; <span class="kbd">src/build.py</span>);
- private, noindex, internal use only.</p>
- <div class="kpis">
-  <div class="kpi"><b>84</b><span>Shipped designs</span></div>
-  <div class="kpi"><b>2026-09-13</b><span>Trend-data date</span></div>
-  <div class="kpi"><b>857</b><span>Product image refs</span></div>
-  <div class="kpi"><b>105</b><span>Products with 6 swatches</span></div>
-  <div class="kpi"><b>0</b><span>Missing images</span></div>
-  <div class="kpi"><b>84</b><span>Built (all collections)</span></div>
- </div>
+ <h1>You post, <span style="color:var(--green)">I hunt</span></h1>
+ <p class="lead">No more dashboards. I hunt what fans talk about, you create caption/image and post yourself. For Medium/Quora/Reddit, I draft article + image idea, you post yourself. Safe for Google, no auto-spam.</p>
 </section>
 
 <section>
- <h2>Bot menu</h2>
- <p class="muted small">Every operator command, one line each. Run from the repo root.</p>
- <div class="card"><div class="botgrid"><div class="bot"><b><code>scrape_list.py</code></b><br><span>Re-scan the 4 collection pages for new designs.</span></div><div class="bot"><b><code>scrape_products.py</code></b><br><span>Crawl each design&#x27;s full product data + images.</span></div><div class="bot"><b><code>replay_updates.py</code></b><br><span>Re-inject directly-published campaigns (idempotent).</span></div><div class="bot"><b><code>add_campaign.py</code></b><br><span>One-command adder: slug + collection -&gt; campaigns_extra.json.</span></div><div class="bot"><b><code>dl.py</code></b><br><span>Download hi-res images, auto-convert every grab to WebP.</span></div><div class="bot"><b><code>src/trends.py</code></b><br><span>Refresh trend data + Fan Trend Index from news feeds.</span></div><div class="bot"><b><code>src/build.py</code></b><br><span>Rebuild all HTML pages, sitemaps, feeds + ops dashboards.</span></div><div class="bot"><b><code>src/scout.py</code></b><br><span>Regenerate the Scout ops dashboard (/ops/scout/).</span></div><div class="bot"><b><code>src/hq.py</code></b><br><span>Regenerate this HQ mission control (/ops/hq/).</span></div><div class="bot"><b><code>src/indexnow.py</code></b><br><span>Ping IndexNow so Bing/Yandex pick up changed urls.</span></div><div class="bot"><b><code>ops/board/build.py</code></b><br><span>Regenerate the Operator Board (/ops/board/).</span></div><div class="bot"><b><code>marketing/plan.py</code></b><br><span>Refresh the marketing planner (/marketing/dashboard.html).</span></div></div></div>
+ <h2>🔥 Today's Hunt — What they talking about</h2>
+ <p class="muted small">Each card = one trending topic. Headlines are real from Google News. Post idea is for YOU to make and post on socials.</p>
+ <div class="grid">
+        <div class="item">
+          <b>The Browns Have A Qb Who Runs A 4.36 — S <span class="badge trending">trending 1 mentions</span></b>
+          <div class="muted small">Cleveland Browns • FTI 0</div>
+          <div style="margin:8px 0"><b>What they talking about:</b><ul><li><a href="https://news.google.com/rss/articles/CBMigAJBVV95cUxONUpuLUo5c0RpZzdocE9IYlUwYTNzU19Lb1VLWWwyaVhNQnFYOS1iMk45Vm44NnlNTU4tZTlkSllLcGJyYmNkQVZGRkJsN2E1S1JaZndMYnllYUp1VHlLekJpTFRUb2NUY2FYT2lLMkdlNjcwRlo3NnAxSlBxaFdCclJCZUMtQlpPcHJCdDZWSUo5eVk0eHJwVHpRTVBkNkk1Sml0a3JOQnJ5RDE3QWg5MHRtRUhMQUVSdFZPcTlRaE9fQW9XTlRoT3B3a18xcUc4WGRzWVZYV24tQ21rMV9SN1RtekhqWkZlLWw0SGpfaUxtdG1aWjlaRWVKeDRWejdD?oc=5" target="_blank">The Browns have a QB who runs a 4.36 — so why won&#x27;t they let him play receiver?</a> <span class="muted small">— Cleveland.com</span></li></ul></div>
+          <div class="small"><b>Post idea for you:</b> The Browns Have A Qb Who Runs A 4.36 — S is hot in Cleveland Browns. Fans talking about it now. Post your Cleveland Browns shirt with angle: &#x27;The Browns Have A Qb Who Runs A 4.36 — S moment&#x27;<br><b>Image idea:</b> The Browns Have A Qb Who Runs A 4.36 — S + your Cleveland Browns tee mockup</div>
+        </div>
+        
+        <div class="item">
+          <b>Browns Vs. Jaguars: How To Watch, Listen <span class="badge trending">trending 1 mentions</span></b>
+          <div class="muted small">Cleveland Browns • FTI 0</div>
+          <div style="margin:8px 0"><b>What they talking about:</b><ul><li><a href="https://news.google.com/rss/articles/CBMijwFBVV95cUxNeUIzdnc1SXBvdS1VWEp1MDJOMnpUZkdLNWMtOVF6MWF4UHd4a2lrSmZWdF9VbHZ2QlI1OEQtalNheWgwZG5jejJpUG9CdUtYOEZWZ2pxdEhRbl9kZVU2VXh4QzhWelozTFNEMWJfUHdQZmxUdXhEVEJIVzMxYUhmSVdKMWt4UzhyZDFvQmJyaw?oc=5" target="_blank">Browns vs. Jaguars: How to Watch, Listen &amp; Live Stream</a> <span class="muted small">— clevelandbrowns.com</span></li></ul></div>
+          <div class="small"><b>Post idea for you:</b> Browns Vs. Jaguars: How To Watch, Listen is hot in Cleveland Browns. Fans talking about it now. Post your Cleveland Browns shirt with angle: &#x27;Browns Vs. Jaguars: How To Watch, Listen moment&#x27;<br><b>Image idea:</b> Browns Vs. Jaguars: How To Watch, Listen + your Cleveland Browns tee mockup</div>
+        </div>
+        
+        <div class="item">
+          <b>Where To Watch: Browns Vs. Jaguars, Week <span class="badge trending">trending 1 mentions</span></b>
+          <div class="muted small">Cleveland Browns • FTI 0</div>
+          <div style="margin:8px 0"><b>What they talking about:</b><ul><li><a href="https://news.google.com/rss/articles/CBMikAFBVV95cUxNbno1Vm9CeXpCRlRqZUFfejVrLXZqWi0xNWIzWDc4VFJXeDRTZWN4cGJXMkxqcXdWc3ZSV2FRaFBYTndRSF9nX3lHS2lFX094enp5Nk0xSkY1WXdhVmpLaVZ2ZmZNXzM1LXRjalJZMUJnSl9rWnZoekpQby1RZGV6QkxhV1VPaWlZYy1aTjZGQ2o?oc=5" target="_blank">Where to Watch: Browns vs. Jaguars, Week 1 of 2026 NFL Season</a> <span class="muted small">— Jaguars.com</span></li></ul></div>
+          <div class="small"><b>Post idea for you:</b> Where To Watch: Browns Vs. Jaguars, Week is hot in Cleveland Browns. Fans talking about it now. Post your Cleveland Browns shirt with angle: &#x27;Where To Watch: Browns Vs. Jaguars, Week moment&#x27;<br><b>Image idea:</b> Where To Watch: Browns Vs. Jaguars, Week + your Cleveland Browns tee mockup</div>
+        </div>
+        
+        <div class="item">
+          <b>Packers Vs. Vikings | How To Watch, Stre <span class="badge trending">trending 1 mentions</span></b>
+          <div class="muted small">Green Bay Packers • FTI 0</div>
+          <div style="margin:8px 0"><b>What they talking about:</b><ul><li><a href="https://news.google.com/rss/articles/CBMijwFBVV95cUxOUTZWVkRCNjV1eW82UjF2S0ZoZFB5cnZUWWVqVVlIem0yNW9WdzRYcHdxOU1RYk5lSXhXTmFaeHJxX09Xa3M2MEs2djRMZ3EtcDA2Zkp4Z2hTZnMtN0JfbXRZNnVmOEN1QlpZWWRuVDBMdldlV0QtM05qeVhiVVVuQ1NxenFGS0hBNW1uVkNZRQ?oc=5" target="_blank">Packers vs. Vikings | How to watch, stream &amp; listen | Week 1</a> <span class="muted small">— Green Bay Packers</span></li></ul></div>
+          <div class="small"><b>Post idea for you:</b> Packers Vs. Vikings | How To Watch, Stre is hot in Green Bay Packers. Fans talking about it now. Post your Green Bay Packers shirt with angle: &#x27;Packers Vs. Vikings | How To Watch, Stre moment&#x27;<br><b>Image idea:</b> Packers Vs. Vikings | How To Watch, Stre + your Green Bay Packers tee mockup</div>
+        </div>
+        
+        <div class="item">
+          <b>Me, My Mom And Our Green Bay Packers <span class="badge trending">trending 1 mentions</span></b>
+          <div class="muted small">Green Bay Packers • FTI 0</div>
+          <div style="margin:8px 0"><b>What they talking about:</b><ul><li><a href="https://news.google.com/rss/articles/CBMifEFVX3lxTE5OdXhrb3M5d3lUdUc2cGlQQ3oxN000STBwajNiOHpydHAzbmxQemc2NFVlNUFNU04zV2t0XzN6eGJUMEx5NmZmX3BfUjY0OG4zUEJUN2Y0cm9DSDJ6NDdYbjUxVTI2TTFnZWJkRUtHb2RSZ3VQampiN3BkWmQ?oc=5" target="_blank">Me, my mom and our Green Bay Packers</a> <span class="muted small">— Milwaukee Neighborhood News Service</span></li></ul></div>
+          <div class="small"><b>Post idea for you:</b> Me, My Mom And Our Green Bay Packers is hot in Green Bay Packers. Fans talking about it now. Post your Green Bay Packers shirt with angle: &#x27;Me, My Mom And Our Green Bay Packers moment&#x27;<br><b>Image idea:</b> Me, My Mom And Our Green Bay Packers + your Green Bay Packers tee mockup</div>
+        </div>
+        
+        <div class="item">
+          <b>Where To Watch Minnesota Vikings Vs. Gre <span class="badge trending">trending 1 mentions</span></b>
+          <div class="muted small">Green Bay Packers • FTI 0</div>
+          <div style="margin:8px 0"><b>What they talking about:</b><ul><li><a href="https://news.google.com/rss/articles/CBMiigFBVV95cUxPUlZhZW1mMHZrR1k3bnJ4SGFkRnpOclkydk11WWpBRmliWFVZTVdpNEdJYmRXRE1fMGdteFVTQkVqYUVBcGU2YUlhNFphUE5kVTJELXNvSTMzR1N4UDZPbzdWbm1mTGk2UHpqYVUtSGxWVVgyVnN4UXZ0MXNoeDRKSi13RmZwTWIzR3c?oc=5" target="_blank">Where to watch Minnesota Vikings vs. Green Bay Packers? What to know before today&#x27;s game</a> <span class="muted small">— CBS News</span></li></ul></div>
+          <div class="small"><b>Post idea for you:</b> Where To Watch Minnesota Vikings Vs. Gre is hot in Green Bay Packers. Fans talking about it now. Post your Green Bay Packers shirt with angle: &#x27;Where To Watch Minnesota Vikings Vs. Gre moment&#x27;<br><b>Image idea:</b> Where To Watch Minnesota Vikings Vs. Gre + your Green Bay Packers tee mockup</div>
+        </div>
+        
+        <div class="item">
+          <b>Von Miller On Looming Debut For The Cowb <span class="badge trending">trending 1 mentions</span></b>
+          <div class="muted small">Dallas Cowboys • FTI 0</div>
+          <div style="margin:8px 0"><b>What they talking about:</b><ul><li><a href="https://news.google.com/rss/articles/CBMimwFBVV95cUxOcGY0OHRiSVpzenJzUGR1Ym94UTF6LXVkeG45UXBYcnhkazFEWkluOE1zMEJQWmtKcFpSR3ZNS0lLY0xwVFdMbVlva2ZNRXp1ZVktYmlJY3locEIwb2tvcHMzaWlrSTBpa3gxUUVjOWp1X3Bzc1BDNks0X19KYk1BTk9oSWVQSE9hbU9IQzlZRTZGTzBpX29EaVNGYw?oc=5" target="_blank">Von Miller on looming debut for the Cowboys: &#x27;My smile is back&#x27;</a> <span class="muted small">— Dallas Cowboys</span></li></ul></div>
+          <div class="small"><b>Post idea for you:</b> Von Miller On Looming Debut For The Cowb is hot in Dallas Cowboys. Fans talking about it now. Post your Dallas Cowboys shirt with angle: &#x27;Von Miller On Looming Debut For The Cowb moment&#x27;<br><b>Image idea:</b> Von Miller On Looming Debut For The Cowb + your Dallas Cowboys tee mockup</div>
+        </div>
+        
+        <div class="item">
+          <b>Injury Report: Statuses For Giants Vs. C <span class="badge trending">trending 1 mentions</span></b>
+          <div class="muted small">Dallas Cowboys • FTI 0</div>
+          <div style="margin:8px 0"><b>What they talking about:</b><ul><li><a href="https://news.google.com/rss/articles/CBMirwFBVV95cUxQaGRCWm5MZzktXzFFd2M0UFQxOXA0VzJBV1pfNUd1WTZ0T0wxUzFSbnBJMVVZMXF0OFdlaGJDcVk2NjVjYWZlN0dEYzRKVzNLVVlZOFotSmJlWWhmMUlDMW95ZGI1T21HVWx6ck9TNFpLVHJuRHJrSUp0a09OYnNXQ1hLVmdRUlh4eWNrNEg4Yk5UWkZqOFBFdWU1TnZKYjFvM2psT0NWSjV3X240V000?oc=5" target="_blank">Injury Report: Statuses for Giants vs. Cowboys on Sunday Night Football</a> <span class="muted small">— Giants.com</span></li></ul></div>
+          <div class="small"><b>Post idea for you:</b> Injury Report: Statuses For Giants Vs. C is hot in Dallas Cowboys. Fans talking about it now. Post your Dallas Cowboys shirt with angle: &#x27;Injury Report: Statuses For Giants Vs. C moment&#x27;<br><b>Image idea:</b> Injury Report: Statuses For Giants Vs. C + your Dallas Cowboys tee mockup</div>
+        </div>
+        
+        <div class="item">
+          <b>Mailbag: Will New Culture Be On Full Dis <span class="badge trending">trending 1 mentions</span></b>
+          <div class="muted small">Dallas Cowboys • FTI 0</div>
+          <div style="margin:8px 0"><b>What they talking about:</b><ul><li><a href="https://news.google.com/rss/articles/CBMiigFBVV95cUxPdzRiMUhDTEpIVFY5MUl1ejBLUTVKZVotWHR3eFhZR0JuMTZtemw4WE1pRnp6UTdJZ1o1OC0xb1RnTUp3NS04cjlBeEYxZ0RoWjN5NkZtdC1rX0J2V2NrTnlTdUc5ZzhYeDBONU0zQ0h6NjlOV0I0ZktvRlhEdUdXeXNacVhFdEx6LVE?oc=5" target="_blank">Mailbag: Will new culture be on full display now?</a> <span class="muted small">— Dallas Cowboys</span></li></ul></div>
+          <div class="small"><b>Post idea for you:</b> Mailbag: Will New Culture Be On Full Dis is hot in Dallas Cowboys. Fans talking about it now. Post your Dallas Cowboys shirt with angle: &#x27;Mailbag: Will New Culture Be On Full Dis moment&#x27;<br><b>Image idea:</b> Mailbag: Will New Culture Be On Full Dis + your Dallas Cowboys tee mockup</div>
+        </div>
+        
+        <div class="item">
+          <b>Michigan 13-12 Western Michigan (Sep 5,  <span class="badge trending">trending 1 mentions</span></b>
+          <div class="muted small">Michigan • FTI 0</div>
+          <div style="margin:8px 0"><b>What they talking about:</b><ul><li><a href="https://news.google.com/rss/articles/CBMibEFVX3lxTE96TERNb2V1VjRiTC1LX2owT2VISjc0TS1HcTk5QTFaTzJUOFJacm9UcER0ZldwSFFfWlRhQlM3UjFZRjRMTE40N2RUeWFhbWU4ODREZ3BwLW5wamp0eU12MGJJWW55TS1zcERidQ?oc=5" target="_blank">Michigan 13-12 Western Michigan (Sep 5, 2026) Game Recap</a> <span class="muted small">— ESPN</span></li></ul></div>
+          <div class="small"><b>Post idea for you:</b> Michigan 13-12 Western Michigan (Sep 5,  is hot in Michigan. Fans talking about it now. Post your Michigan shirt with angle: &#x27;Michigan 13-12 Western Michigan (Sep 5,  moment&#x27;<br><b>Image idea:</b> Michigan 13-12 Western Michigan (Sep 5,  + your Michigan tee mockup</div>
+        </div>
+        
+        <div class="item">
+          <b>Postgame Notes: Michigan 17, #11 Oklahom <span class="badge trending">trending 1 mentions</span></b>
+          <div class="muted small">Michigan • FTI 0</div>
+          <div style="margin:8px 0"><b>What they talking about:</b><ul><li><a href="https://news.google.com/rss/articles/CBMihgFBVV95cUxOcVFwSTAyV1JCMTBFM2NwWEJpSnVkdjlaU1FkaU5MdnM3S1JoSFJ5d3hfUVpMWE1kRFBXNDFWc0tlcUtWV1hkb29KSE5MbXFwd19nYjJ6dDZZc2NnOUZ5eFFnNEhrTThOR1pQQmNKSjFBWVpKdE9JcHlJOGZQcjVuTmdDU3lFQQ?oc=5" target="_blank">Postgame Notes: Michigan 17, #11 Oklahoma 10</a> <span class="muted small">— University of Michigan Athletics</span></li></ul></div>
+          <div class="small"><b>Post idea for you:</b> Postgame Notes: Michigan 17, #11 Oklahom is hot in Michigan. Fans talking about it now. Post your Michigan shirt with angle: &#x27;Postgame Notes: Michigan 17, #11 Oklahom moment&#x27;<br><b>Image idea:</b> Postgame Notes: Michigan 17, #11 Oklahom + your Michigan tee mockup</div>
+        </div>
+        
+        <div class="item">
+          <b>How To Watch Sooners Vs. Wolverines: Tv  <span class="badge trending">trending 1 mentions</span></b>
+          <div class="muted small">Michigan • FTI 0</div>
+          <div style="margin:8px 0"><b>What they talking about:</b><ul><li><a href="https://news.google.com/rss/articles/CBMi1AFBVV95cUxOTUV2anA1OEs2TTg0Nm9zNzJJdXAzc0FMbXZXV1E4RUxEVk14bVFTRjRxLW1LMm11U3BQMWt3OGVFbXlUSmNJVjZZcEx3bUFXVnNnNWh0aDEtWWNtSkZ4NmhkMmthSnQtaHhiQUZHc0RRR2FTR28wSWtrbFhnQzRIZHBQNUx2QWZvejV1anZ0YWZIS3l2SE1Qc3NlalZERl9nUjBxWEZ1dkFNV2o4YXJBSEdPN3NDTFVpT1dId2IxRFNyNEJCZ2Z1bFlmLTVJWVdlbmJSaA?oc=5" target="_blank">How to Watch Sooners vs. Wolverines: TV Channel, Live Stream, Time</a> <span class="muted small">— FOX Sports</span></li></ul></div>
+          <div class="small"><b>Post idea for you:</b> How To Watch Sooners Vs. Wolverines: Tv  is hot in Michigan. Fans talking about it now. Post your Michigan shirt with angle: &#x27;How To Watch Sooners Vs. Wolverines: Tv  moment&#x27;<br><b>Image idea:</b> How To Watch Sooners Vs. Wolverines: Tv  + your Michigan tee mockup</div>
+        </div>
+        </div>
 </section>
 
 <section>
- <h2>Refresh pipeline</h2>
+ <h2>📝 Article Ideas — Medium / Quora / Reddit</h2>
+ <p class="muted small">I draft, you post yourself. Each has title, where to post, outline, image idea, and where to link. 2-3 per week max, white-hat.</p>
+ <div class="grid"><p class='muted'>No article ideas — need trending entities with mentions >=2</p></div>
+</section>
+
+<section>
+ <h2>How to use</h2>
  <div class="card">
-  <p style="margin:0"><b>Schedule:</b> 2x/day <span class="kbd">06:15 &amp; 15:15 UTC</span> + every push to main + manual dispatch
-  (<span class="kbd">Actions &rarr; Refresh site &rarr; Run workflow</span>).</p>
-  <div class="steps"><span class="step">crawl</span><span class="arrow">&rarr;</span><span class="step">replay</span><span class="arrow">&rarr;</span><span class="step">dl</span><span class="arrow">&rarr;</span><span class="step">trends</span><span class="arrow">&rarr;</span><span class="step">verify</span><span class="arrow">&rarr;</span><span class="step">build</span><span class="arrow">&rarr;</span><span class="step">deploy</span><span class="arrow">&rarr;</span><span class="step">IndexNow</span></div>
-  <p class="muted small" style="margin:0">KPIs: <b style="color:var(--ink)">84 designs shipped</b> &middot;
-  trend data <b style="color:var(--ink)">2026-09-13</b> &middot; chain crawl&rarr;replay&rarr;dl&rarr;trends&rarr;verify&rarr;build&rarr;deploy&rarr;IndexNow.</p>
-  <h3 style="margin-top:18px">Live workflow runs</h3>
-  <div class="runs" id="runs"><div class="run"><span class="dot yellow"></span><div><a href="https://github.com/gridironlocker/gridiron-locker/actions/runs/34765651201"><b>Refresh trends &amp; redeploy</b></a><div class="meta">in_progress &middot; schedule &middot; main &middot; 2026-09-13</div></div></div><div class="run"><span class="dot"></span><div><a href="https://github.com/gridironlocker/gridiron-locker/actions/runs/34746109883"><b>Daily site health check</b></a><div class="meta">completed / success &middot; schedule &middot; main &middot; 2026-09-13</div></div></div><div class="run"><span class="dot"></span><div><a href="https://github.com/gridironlocker/gridiron-locker/actions/runs/34743003355"><b>Refresh trends &amp; redeploy</b></a><div class="meta">completed / success &middot; schedule &middot; main &middot; 2026-09-13</div></div></div><div class="run"><span class="dot red"></span><div><a href="https://github.com/gridironlocker/gridiron-locker/actions/runs/34737203981"><b>Refresh trends &amp; redeploy</b></a><div class="meta">completed / cancelled &middot; push &middot; main &middot; 2026-09-13</div></div></div><div class="run"><span class="dot"></span><div><a href="https://github.com/gridironlocker/gridiron-locker/actions/runs/34737203908"><b>Deploy website to GitHub Pages</b></a><div class="meta">completed / success &middot; push &middot; main &middot; 2026-09-13</div></div></div><div class="run"><span class="dot"></span><div><a href="https://github.com/gridironlocker/gridiron-locker/actions/runs/34733403667"><b>Daily site health check</b></a><div class="meta">completed / success &middot; push &middot; main &middot; 2026-09-13</div></div></div></div>
-  <p class="muted small">Source: <span class="kbd">api.github.com/repos/gridironlocker/gridiron-locker/actions/runs?per_page=6</span>.
-  Dots: <span class="badge ok">success</span> <span class="badge warn">running</span> <span class="badge bad">failed</span>.
-  Rate-limited? The snapshot above was taken at build time; the page retries live below.</p>
+  <p><b>Social:</b> Pick 1-2 hunts/day, make your own image + caption (your style), post to Pinterest, FB, X, Insta. You know your audience best.</p>
+  <p><b>Articles:</b> Pick 1 article idea, copy title/outline, write in your voice (or use draft as base), add image idea, post on Medium/Quora/Reddit yourself. Link back naturally to /collections/ or product.</p>
+  <p><b>Safe:</b> Nothing auto-posts. You approve everything. No thin content on main site. Backlinks are off-site, helpful, not spammy.</p>
+  <p class="muted small">Generated 2026-09-13 17:32 UTC by src/hq.py • Data: data/trends.json • Next: python3 src/trends.py to refresh</p>
  </div>
 </section>
 
-<section>
- <h2>Catalogue: listed vs built</h2>
- <div class="card"><table>
- <thead><tr><th>Collection</th><th class="num">Listed</th><th class="num">Built</th><th class="num">Skipped</th></tr></thead>
- <tbody><tr><td><b>Cleveland</b><br><span class="muted small">Cleveland Browns Fan Shirts</span></td><td class="num">66</td><td class="num">19</td><td class="num">47</td></tr><tr><td><b>Green Bay</b><br><span class="muted small">Green Bay Packers Fan Shirts</span></td><td class="num">37</td><td class="num">37</td><td class="num">0</td></tr><tr><td><b>Dallas</b><br><span class="muted small">Dallas Vintage Sports Tees</span></td><td class="num">10</td><td class="num">10</td><td class="num">0</td></tr><tr><td><b>Michigan</b><br><span class="muted small">Michigan Go Blue Apparel</span></td><td class="num">0</td><td class="num">18</td><td class="num">-18</td></tr></tbody></table>
- <p class="muted small">Listed = products in data/collections.json. Built = pages emitted by src/build.py
- (delisted + imageless slugs skipped). Skipped = listed - built.</p></div>
-</section>
-
-<section>
- <h2>Image health (WebP)</h2>
- <div class="card"><table><tbody>
-  <tr><td>Total refs (products_live.json img maps)</td><td class="num"><b>857</b></td></tr>
-  <tr><td>Missing files on disk</td><td class="num"><b>0</b></td></tr>
-  <tr><td>Products with 6 swatches</td><td class="num"><b>105</b></td></tr>
-  <tr><td>Products partial (1-5 swatches)</td><td class="num"><b>6</b></td></tr>
-  <tr><td>Products with none</td><td class="num"><b>2</b></td></tr>
- </tbody></table>
- <p class="muted small">All image refs resolve to files under site/img/p. Only .webp ships.</p>
- </div>
-</section>
-
-<section>
- <h2>Automatic-verification checklist</h2>
- <div class="card"><table>
- <thead><tr><th>Check</th><th>Status</th><th>Detail</th></tr></thead>
- <tbody><tr><td>trend data generated today</td><td><span class="badge ok">PASS</span></td><td class="muted small">2026-09-13 vs today 2026-09-13</td></tr><tr><td>0 broken product images</td><td><span class="badge ok">PASS</span></td><td class="muted small">857 refs, 0 missing</td></tr><tr><td>catalogue never emptied</td><td><span class="badge ok">PASS</span></td><td class="muted small">84 built, 113 live</td></tr><tr><td>delisted slugs blocked</td><td><span class="badge ok">PASS</span></td><td class="muted small">31 retired, 0 resurrected</td></tr><tr><td>replay idempotent</td><td><span class="badge bad">FAIL</span></td><td class="muted small">4 campaigns injected</td></tr></tbody></table></div>
-</section>
-
-<section>
- <h2>Newest campaigns</h2>
- <div class="card"><table>
- <thead><tr><th>Slug</th><th>Title</th><th class="num">Swatches</th><th>Sizes</th><th>Page</th></tr></thead>
- <tbody></tbody></table>
- <p class="muted small">The four directly-published campaigns injected by replay_updates.py. Swatches = c0-c5
- images in the live img map; sizes = campaign SELECT SIZE row.</p></div>
-</section>
-
-<section>
- <h2>Add-a-product</h2>
- <div class="card">
-  <p style="margin-top:0">New directly-published campaign? One command:</p>
-  <div class="cmd">python3 add_campaign.py &lt;slug&gt; &lt;collection&gt;</div>
-  <p class="muted small">Example: <span class="kbd">python3 add_campaign.py my-new-design cleveland-browns</span>
-  &rarr; merges into <span class="kbd">data/campaigns_extra.json</span> &rarr;
-  <span class="kbd">python3 replay_updates.py &amp;&amp; python3 dl.py &amp;&amp; python3 src/build.py</span>.
-  Collections: <span class="kbd">cleveland-browns, dallas-cowboys, green-bay-packers, michigan</span>.
-  Add <span class="kbd">--dry-run</span> to preview without writing. Full docs: HOW-TO-ADD-A-DESIGN.md Option A+.</p>
- </div>
-</section>
-
-<section>
- <h2>Search health</h2>
- <div class="card"><table>
- <thead><tr><th>Signal</th><th>Value</th><th>Status</th></tr></thead>
- <tbody><tr><td>sitemap urls</td><td class="mono small">108</td><td><span class="badge ok">OK</span></td></tr><tr><td>domain</td><td class="mono small">https://gridironlocker.store</td><td><span class="badge ok">OK</span></td></tr><tr><td>GSC file googleae06215486ed6c17.html</td><td class="mono small">present</td><td><span class="badge ok">OK</span></td></tr><tr><td>IndexNow key</td><td class="mono small">a7f3c19b84e2…</td><td><span class="badge ok">OK</span></td></tr><tr><td>llms.txt</td><td class="mono small">present</td><td><span class="badge ok">OK</span></td></tr></tbody></table>
- <p class="muted small">Sitemap = site/sitemap.xml url count. GSC file, IndexNow key file and llms.txt must all
- ship in site/ on every build.</p></div>
-</section>
-
-<footer><div class="wrap">
- <span>HQ &middot; mission control &middot; noindex</span>
- <span>Generated 2026-09-13 15:28 UTC by src/hq.py</span>
-</div></footer>
+<footer><div class="wrap"><span>Hunter • you post, I hunt • noindex</span><span>Gridiron Locker</span></div></footer>
 </main>
-<script>
-(function(){
-  try{
-    fetch("https://api.github.com/repos/gridironlocker/gridiron-locker/actions/runs?per_page=6")
-      .then(function(r){ if(!r.ok) throw new Error("rate-limited"); return r.json(); })
-      .then(function(j){
-        var runs=(j.workflow_runs||[]).slice(0,6);
-        if(!runs.length) return;
-        var el=document.getElementById("runs");
-        el.innerHTML=runs.map(function(w){
-          var ok=(w.conclusion==="success"), run=(w.status!=="completed");
-          var dot=run?'<span class="dot yellow"></span>':(ok?'<span class="dot"></span>':'<span class="dot red"></span>');
-          return '<div class="run">'+dot+'<div><a href=''+w.html_url+''><b>'+w.name+'</b></a>'
-            +'<div class="meta">'+w.status+(w.conclusion?" / "+w.conclusion:"")
-            +' &middot; '+w.event+' &middot; '+(w.head_branch||"")+'</div></div></div>';
-        }).join("");
-      })
-      .catch(function(){ /* keep build-time snapshot */ });
-  }catch(e){}
-})();
-</script>
 </body>
 </html>

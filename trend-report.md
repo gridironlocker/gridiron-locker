@@ -1,6 +1,6 @@
 # Hunt Report - 2026-09-13
 
-Generated: 2026-09-13T17:30:18.959934 UTC
+Generated: 2026-09-13T17:32:07.353261 UTC
 
 ## Today's Hunt
 
@@ -9,16 +9,16 @@ Generated: 2026-09-13T17:30:18.959934 UTC
   - Post idea: The Browns Have A Qb Who Runs A 4.36 — S hot in cleveland-browns
 
 - **Browns Vs. Jaguars: How To Watch, Listen** (cleveland-browns) - 1 mentions, FTI 0, trending
-  - Browns vs. Jaguars: How to Watch, Listen & Live Stream - Cleveland Browns - https://news.google.com/rss/articles/CBMijwFBVV95cUxNeUIzdnc1SXBvdS1VWEp1MDJOMnpUZkdLNWMtOVF6MWF4UHd4a2lrSmZWdF9VbHZ2QlI1OEQtalNheWgwZG5jejJpUG9CdUtYOEZWZ2pxdEhRbl9kZVU2VXh4QzhWelozTFNEMWJfUHdQZmxUdXhEVEJIVzMxYUhmSVdKMWt4UzhyZDFvQmJyaw?oc=5
+  - Browns vs. Jaguars: How to Watch, Listen & Live Stream - clevelandbrowns.com - https://news.google.com/rss/articles/CBMijwFBVV95cUxNeUIzdnc1SXBvdS1VWEp1MDJOMnpUZkdLNWMtOVF6MWF4UHd4a2lrSmZWdF9VbHZ2QlI1OEQtalNheWgwZG5jejJpUG9CdUtYOEZWZ2pxdEhRbl9kZVU2VXh4QzhWelozTFNEMWJfUHdQZmxUdXhEVEJIVzMxYUhmSVdKMWt4UzhyZDFvQmJyaw?oc=5
   - Post idea: Browns Vs. Jaguars: How To Watch, Listen hot in cleveland-browns
 
-- **Experts' Final Analysis Before Jaguars' ** (cleveland-browns) - 1 mentions, FTI 0, trending
-  - Experts' Final Analysis Before Jaguars' Week 1 vs. Browns - Jaguars.com - https://news.google.com/rss/articles/CBMiiwFBVV95cUxONjQ1QjBieGN4ei1ST040ZWpWZzZIY3JKR19aODZZbjhNMU5aSFp1ZzBybllEYXVKNmtfU0d4RW9wZTNXMDFsa0Zoa052bHZhYU8wckY1blJJc1ljbmYxNmh6cDRqb2RDcE5icVZnSkcwcGJ5OTJwUHZLSFZqcGlEU2JaM0JvTVEtbV8w?oc=5
-  - Post idea: Experts' Final Analysis Before Jaguars'  hot in cleveland-browns
+- **Where To Watch: Browns Vs. Jaguars, Week** (cleveland-browns) - 1 mentions, FTI 0, trending
+  - Where to Watch: Browns vs. Jaguars, Week 1 of 2026 NFL Season - Jaguars.com - https://news.google.com/rss/articles/CBMikAFBVV95cUxNbno1Vm9CeXpCRlRqZUFfejVrLXZqWi0xNWIzWDc4VFJXeDRTZWN4cGJXMkxqcXdWc3ZSV2FRaFBYTndRSF9nX3lHS2lFX094enp5Nk0xSkY1WXdhVmpLaVZ2ZmZNXzM1LXRjalJZMUJnSl9rWnZoekpQby1RZGV6QkxhV1VPaWlZYy1aTjZGQ2o?oc=5
+  - Post idea: Where To Watch: Browns Vs. Jaguars, Week hot in cleveland-browns
 
-- **Packers Announce Roster Moves | Sept. 12** (green-bay-packers) - 1 mentions, FTI 0, trending
-  - Packers announce roster moves | Sept. 12, 2026 - Green Bay Packers - https://news.google.com/rss/articles/CBMie0FVX3lxTE1WNlBlQ0FXdEtNclFYaGVjb3FfZ3hQQXFWRTMtOU9Xb1hYYVRhNHM0SlVYM0JFcnl3T0VPYm8zSkhrNGE2NlE2RUlpdHZoMWcybFRudHU3bFJ2QlJGbkQ0N3lmYVdfTmo1TFlPM01RTDZqLU1jandNQk4yVQ?oc=5
-  - Post idea: Packers Announce Roster Moves | Sept. 12 hot in green-bay-packers
+- **Packers Vs. Vikings | How To Watch, Stre** (green-bay-packers) - 1 mentions, FTI 0, trending
+  - Packers vs. Vikings | How to watch, stream & listen | Week 1 - Green Bay Packers - https://news.google.com/rss/articles/CBMijwFBVV95cUxOUTZWVkRCNjV1eW82UjF2S0ZoZFB5cnZUWWVqVVlIem0yNW9WdzRYcHdxOU1RYk5lSXhXTmFaeHJxX09Xa3M2MEs2djRMZ3EtcDA2Zkp4Z2hTZnMtN0JfbXRZNnVmOEN1QlpZWWRuVDBMdldlV0QtM05qeVhiVVVuQ1NxenFGS0hBNW1uVkNZRQ?oc=5
+  - Post idea: Packers Vs. Vikings | How To Watch, Stre hot in green-bay-packers
 
 - **Me, My Mom And Our Green Bay Packers** (green-bay-packers) - 1 mentions, FTI 0, trending
   - Me, my mom and our Green Bay Packers - Milwaukee Neighborhood News Service - https://news.google.com/rss/articles/CBMifEFVX3lxTE5OdXhrb3M5d3lUdUc2cGlQQ3oxN000STBwajNiOHpydHAzbmxQemc2NFVlNUFNU04zV2t0XzN6eGJUMEx5NmZmX3BfUjY0OG4zUEJUN2Y0cm9DSDJ6NDdYbjUxVTI2TTFnZWJkRUtHb2RSZ3VQampiN3BkWmQ?oc=5
@@ -33,12 +33,12 @@ Generated: 2026-09-13T17:30:18.959934 UTC
   - Post idea: Von Miller On Looming Debut For The Cowb hot in dallas-cowboys
 
 - **Injury Report: Statuses For Giants Vs. C** (dallas-cowboys) - 1 mentions, FTI 0, trending
-  - Injury Report: Statuses for Giants vs. Cowboys on Sunday Night Football - giants.com - https://news.google.com/rss/articles/CBMirwFBVV95cUxQaGRCWm5MZzktXzFFd2M0UFQxOXA0VzJBV1pfNUd1WTZ0T0wxUzFSbnBJMVVZMXF0OFdlaGJDcVk2NjVjYWZlN0dEYzRKVzNLVVlZOFotSmJlWWhmMUlDMW95ZGI1T21HVWx6ck9TNFpLVHJuRHJrSUp0a09OYnNXQ1hLVmdRUlh4eWNrNEg4Yk5UWkZqOFBFdWU1TnZKYjFvM2psT0NWSjV3X240V000?oc=5
+  - Injury Report: Statuses for Giants vs. Cowboys on Sunday Night Football - Giants.com - https://news.google.com/rss/articles/CBMirwFBVV95cUxQaGRCWm5MZzktXzFFd2M0UFQxOXA0VzJBV1pfNUd1WTZ0T0wxUzFSbnBJMVVZMXF0OFdlaGJDcVk2NjVjYWZlN0dEYzRKVzNLVVlZOFotSmJlWWhmMUlDMW95ZGI1T21HVWx6ck9TNFpLVHJuRHJrSUp0a09OYnNXQ1hLVmdRUlh4eWNrNEg4Yk5UWkZqOFBFdWU1TnZKYjFvM2psT0NWSjV3X240V000?oc=5
   - Post idea: Injury Report: Statuses For Giants Vs. C hot in dallas-cowboys
 
-- **Predicting The Dallas Cowboys' 2026 Seas** (dallas-cowboys) - 1 mentions, FTI 0, trending
-  - Predicting the Dallas Cowboys' 2026 season, NFL playoffs and Super Bowl LXI winner - dallasnews.com - https://news.google.com/rss/articles/CBMirwFBVV95cUxPM3pwQS1WMGl6eWlWeWN4SUxPZmxhTUduSjVGSXRncFd2Ykp3RFY3NG9ZWFVVVkdDMXRsTk55ZEV0Y1pjY1VRREFMd3MzeWprQ3ludG1mOGN2NmZ4bXRBUkdNTGFXc3kyUE9kS3V1TkJYVmVidEVkcmlLQVBmNy13dzhrbGVzamJCS2IyYlVzVVRsd2NIUVo3eTJTOHhCWHFFanhHaGlib2pUalVyZ2xF?oc=5
-  - Post idea: Predicting The Dallas Cowboys' 2026 Seas hot in dallas-cowboys
+- **Mailbag: Will New Culture Be On Full Dis** (dallas-cowboys) - 1 mentions, FTI 0, trending
+  - Mailbag: Will new culture be on full display now? - Dallas Cowboys - https://news.google.com/rss/articles/CBMiigFBVV95cUxPdzRiMUhDTEpIVFY5MUl1ejBLUTVKZVotWHR3eFhZR0JuMTZtemw4WE1pRnp6UTdJZ1o1OC0xb1RnTUp3NS04cjlBeEYxZ0RoWjN5NkZtdC1rX0J2V2NrTnlTdUc5ZzhYeDBONU0zQ0h6NjlOV0I0ZktvRlhEdUdXeXNacVhFdEx6LVE?oc=5
+  - Post idea: Mailbag: Will New Culture Be On Full Dis hot in dallas-cowboys
 
 - **Michigan 13-12 Western Michigan (Sep 5, ** (michigan) - 1 mentions, FTI 0, trending
   - Michigan 13-12 Western Michigan (Sep 5, 2026) Game Recap - ESPN - https://news.google.com/rss/articles/CBMibEFVX3lxTE96TERNb2V1VjRiTC1LX2owT2VISjc0TS1HcTk5QTFaTzJUOFJacm9UcER0ZldwSFFfWlRhQlM3UjFZRjRMTE40N2RUeWFhbWU4ODREZ3BwLW5wamp0eU12MGJJWW55TS1zcERidQ?oc=5
