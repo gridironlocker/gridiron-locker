@@ -166,6 +166,26 @@ jobs:
           print("OK: rebuild is sane (products, sitemap, no missing local refs)")
           PY
 
+      - name: Publish the catalogue contract for the marketing half
+        run: |
+          # data/catalogue-live.json is the single authoritative list of sellable
+          # designs, derived from build.ALL - the merged master catalogue.
+          #
+          # It exists because marketing/plan.py and marketing/live_engine.py both
+          # read data/products.json, a STALE 113-slug Viralstyle crawl artefact,
+          # as "the catalogue". The real catalogue is 84 designs after applying
+          # data/delisted.json and data/fulfillment.json's hold list. The result
+          # was 55 of 96 queue rows pointing at designs with no published page,
+          # and three unpurchasable products at the top of commercial-brief.json.
+          # See CODEX-TASKS.md Task 1 and AGENTS.md section 5.
+          #
+          # Run here - after the rebuild and its sanity gate, before the test
+          # suite - so the committed contract always matches the committed site,
+          # and so tests/test_catalogue_contract.py validates the real thing.
+          # The emitter refuses to write a contract that disagrees with the
+          # build, so a bad catalogue fails the run instead of reaching marketing.
+          python3 src/catalogue_contract.py
+
       - name: Run the guard-rail test suite (gates the commit and the deploy)
         run: |
           # tests/test_layout.py reads the site/ this run just rebuilt, so it
