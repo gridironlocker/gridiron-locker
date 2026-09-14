@@ -123,7 +123,7 @@ editorial bands to find out what is for sale.
    designs the Fan Trend Index is scoring hot, then `View All Designs →`.
 8. **Trust strip** (`trust()`) — purchase confidence, once, after the products.
 9. **2026 Season** (`season_section()`) — the editorial beat: derived headline,
-   kickoff countdown, each team's opener from `SEASON`, `Explore The Season →`.
+   each team's opener from `SEASON`, `Explore The Season →`.
 10. **Team collections** (`team_section()` ×4) — four featured designs per team,
     ordered by next kickoff, `Explore <team> →`.
 11. **Buying guides** (`guide_grid()`) — four editorial cards pointing at real pages.
@@ -203,7 +203,6 @@ Vanilla JS, single file. Features:
 - **Gallery** — `setStage`/`step` stage + thumbnail switching, gentle crossfade
 - **Option groups** — `toggleGroup` for style/size/color selection
 - **Price** — live price/compare-at/save rendering
-- **Countdown** — `tick`/`pad` kickoff countdown timer
 - **Sticky header** + **back-to-top** — on scroll (`stuck`, `tt.on`)
 - **Sticky buy bar** — `maybeShow` reveals the mobile buy bar at the right scroll depth
 - **Touch/swipe** — `touchstart/move/end` handlers (gallery swipe)
@@ -242,7 +241,7 @@ One file generates the whole site. Template functions:
 |---|---|
 | `build_model()` | assembles the in-memory site model from `data/` + config |
 | `head()` / `header()` / `footer()` | shared HTML shell (meta, nav, footer) |
-| `countdown_bar()` / `ticker()` / `newsticker()` | season urgency widgets |
+| `ticker()` / `newsticker()` | season urgency widgets |
 | `week1_section()` / `fti_strip()` / `trust()` | homepage strips |
 | `team_nav_card()` / `team_circle_card()` / `team_section()` | team navigation cards + per-team product blocks |
 | `home_banner()` | homepage banner |

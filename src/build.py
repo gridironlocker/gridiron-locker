@@ -970,40 +970,6 @@ def header(active=""):
 
 
 
-def next_kickoff_ckey(keys=None):
-    """Collection whose next kickoff is the earliest one still ahead of now.
-
-    A game that has already finished is never counted down to; the next
-    fixture on the shared schedule wins. None when every opener is in the
-    past (callers then skip the countdown bar).
-    """
-    keys = keys if keys is not None else list(ORDER)
-    upcoming = [k for k in keys if SEASON[k]["kickoff"][:10] >= TODAY]
-    if not upcoming:
-        return None
-    return min(upcoming, key=lambda k: SEASON[k]["kickoff"])
-
-
-def countdown_bar(ckey=None):
-    if ckey:
-        se = SEASON[ckey]
-        label = COLLECTIONS[ckey]["short"] + " kickoff"
-    else:
-        ckey = next_kickoff_ckey()
-        if not ckey:
-            return ""
-        se = SEASON[ckey]
-        label = "Next kickoff"
-    return f"""<div class="cdbar"><div class="wrap in">
- <span class="lbl">{label} &middot; {se['opener']}</span>
- <span class="cd" data-deadline="{se['kickoff']}">
-  <b id="cd-d">--<span>Days</span></b><b id="cd-h">--<span>Hrs</span></b>
-  <b id="cd-m">--<span>Min</span></b><b id="cd-s">--<span>Sec</span></b>
- </span>
- <span class="lbl">Kickoff information only · arrival before a specific game is not guaranteed</span>
-</div></div>"""
-
-
 def audience_gender(it):
     """schema.org suggestedGender for a design, read from its campaign styles.
 
@@ -1201,7 +1167,6 @@ def season_section():
   game is not guaranteed.</p>
  </div>
 </div>
-{countdown_bar()}
 <div class="wrap">
  <div class="wkgrid">{rows}</div>
  <div class="wkcta"><a class="btn" href="/2026-season/">Explore The Season &rarr;</a>
@@ -2092,8 +2057,8 @@ def page_collection(k):
                     f'{esc(cre["display_name"])}\'s locker &rarr;</a></p>')
     # Page order: compact hero -> this team's moving ticker -> the complete
     # searchable / filterable / sortable grid -> trust strip -> a short season
-    # note and the collection description. No countdown here (the countdown
-    # stays on the homepage / Week 1 guide, untouched).
+    # note and the collection description. No countdown here (the kickoff
+    # countdown bar has been retired site-wide).
     #
     # Product-first: the Fan Trend Index leaderboard, live player moments and
     # the headline list used to sit here too, pushing the buying-guide copy
@@ -3091,7 +3056,6 @@ border-top:3px solid var(--ca)">
                                   "acceptedAnswer": {"@type": "Answer", "text": a}}
                                  for q, a in faqs]}
 
-    next_k = next_kickoff_ckey(WEEK1_ORDER)
     title = "2026 Week 1 Fan Shirts: Kickoff Fits &amp; Slogan Tees"
     desc = ("Week 1 2026 kickoff fits for Michigan, Cleveland, Green Bay and Dallas: kickoff dates, "
             "the slogan tees and crewnecks to order now, sizing and print-on-demand lead times.")
@@ -3146,7 +3110,7 @@ fan-created work.</p>
                ["week 1 fan shirt", "2026 week 1 football tee", "kickoff game day shirt",
                 "michigan week 1 shirt", "cleveland week 1 shirt", "packers week 1 shirt",
                 "dallas week 1 shirt", "slogan football tee"])
-          + header() + (countdown_bar(next_k) if next_k else "") + body + footer())
+          + header() + body + footer())
 
 
 def page_guides():
@@ -4144,25 +4108,6 @@ document.querySelectorAll('a.shopnow').forEach(function(a){
   },{threshold:.4});
   st.forEach(function(e){io.observe(e)});
 })();
-
-// ---------- kickoff countdown ----------
-(function(){
-  var box=document.querySelector('.cd'); if(!box)return;
-  var end=new Date(box.dataset.deadline).getTime();
-  var d=document.getElementById('cd-d'),h=document.getElementById('cd-h'),
-      m=document.getElementById('cd-m'),s=document.getElementById('cd-s');
-  function pad(n){return (n<10?'0':'')+n}
-  function tick(){
-    var gap=end-Date.now();
-    if(gap<0){gap=0}
-    var dd=Math.floor(gap/864e5),hh=Math.floor(gap%864e5/36e5),
-        mm=Math.floor(gap%36e5/6e4),ss=Math.floor(gap%6e4/1e3);
-    d.childNodes[0].nodeValue=dd; h.childNodes[0].nodeValue=pad(hh);
-    m.childNodes[0].nodeValue=pad(mm); s.childNodes[0].nodeValue=pad(ss);
-  }
-  tick(); setInterval(tick,1000);
-})();
-
 
 // ---------- sticky header + back to top ----------
 (function(){

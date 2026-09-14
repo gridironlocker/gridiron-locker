@@ -94,8 +94,8 @@ re-run the build to add them:
   Cleveland, Green Bay, Dallas, Michigan") instead of custom apparel, and the page is ordered
   by buying intent: quick finder, shop-by-team, trust strip, a store-wide **Trending Now** rail
   (the designs the Fan Trend Index is scoring hot - an honest signal, since checkout happens on
-  the fulfilment partner and there is no sales feed to back a "best seller" badge), Week-1
-  countdown, product sections, then editorial (headline strip, news ticker, custom-design form).
+  the fulfilment partner and there is no sales feed to back a "best seller" badge), product
+  sections, then editorial (headline strip, news ticker, custom-design form).
   `/collections/` is a navigation hub (team circles + one trending row) rather than a duplicate
   of the homepage, and the header gained a **Trending** link to `/drops/`.
 - **Quick view**: every product card carries a quick-view button that opens a shared modal
@@ -197,7 +197,6 @@ gets a team-colour top bar, a light sweep, and the image zooms while the back vi
 No more white rectangles punched into a dark page.
 
 ## 2. The site now moves
-- **Live countdown to kickoff** in the header bar (real ticking clock, per collection).
 - **Scrolling keyword ticker** with trending terms highlighted in accent colour.
 - **Scroll-reveal animations** with stagger on every section and card.
 - **Live catalogue counters** (129 designs / 4 collections).

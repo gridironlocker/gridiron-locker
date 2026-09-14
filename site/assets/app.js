@@ -370,25 +370,6 @@ document.querySelectorAll('a.shopnow').forEach(function(a){
   st.forEach(function(e){io.observe(e)});
 })();
 
-// ---------- kickoff countdown ----------
-(function(){
-  var box=document.querySelector('.cd'); if(!box)return;
-  var end=new Date(box.dataset.deadline).getTime();
-  var d=document.getElementById('cd-d'),h=document.getElementById('cd-h'),
-      m=document.getElementById('cd-m'),s=document.getElementById('cd-s');
-  function pad(n){return (n<10?'0':'')+n}
-  function tick(){
-    var gap=end-Date.now();
-    if(gap<0){gap=0}
-    var dd=Math.floor(gap/864e5),hh=Math.floor(gap%864e5/36e5),
-        mm=Math.floor(gap%36e5/6e4),ss=Math.floor(gap%6e4/1e3);
-    d.childNodes[0].nodeValue=dd; h.childNodes[0].nodeValue=pad(hh);
-    m.childNodes[0].nodeValue=pad(mm); s.childNodes[0].nodeValue=pad(ss);
-  }
-  tick(); setInterval(tick,1000);
-})();
-
-
 // ---------- sticky header + back to top ----------
 (function(){
   var hd=document.querySelector('header'), tt=document.getElementById('totop');
