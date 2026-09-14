@@ -243,17 +243,6 @@ body.has-mobshop{padding-bottom:56px}
   .cbanner.home .cb-in{padding:20px 16px 24px}
 }
 
-/* ============ COUNTDOWN BAR ============ */
-.cdbar{background:var(--bg2);border-bottom:1px solid var(--line);padding:10px 0}
-.cdbar .in{display:flex;align-items:center;justify-content:center;gap:12px;flex-wrap:wrap;
-  font-size:.74rem;color:var(--muted)}
-.cdbar .lbl{color:var(--muted)}
-.cd{display:flex;gap:6px}
-.cd b{background:#fff;border:1px solid var(--line);border-radius:7px;padding:5px 9px;
-  font-size:.92rem;font-weight:800;min-width:42px;text-align:center;color:var(--ink);
-  display:inline-block;line-height:1.15}
-.cd b span{display:block;font-size:.54rem;color:var(--muted);letter-spacing:.09em;font-weight:600}
-
 /* ============ TRUST STRIP ============ */
 .trust{display:grid;grid-template-columns:repeat(4,1fr);border-bottom:1px solid var(--line);
   background:#fff}
@@ -292,9 +281,6 @@ section{padding:clamp(30px,4.5vw,52px) 0}
    hairline and the first .teamsec below draws the bottom one - adding our
    own would stack two 1px lines into a 2px seam. */
 .wksec{padding:30px 0 34px;background:var(--bg3)}
-/* The countdown bar keeps its own white stripe so it stays legible inside
-   the band (.cdbar already draws the bottom hairline). */
-.wksec .cdbar{background:#fff;border-top:1px solid var(--line)}
 .wkhead{max-width:900px;margin-bottom:16px}
 .wkhead p{color:var(--muted);max-width:78ch;font-size:.92rem}
 .wkgrid{display:grid;grid-template-columns:repeat(4,1fr);gap:12px;padding-top:20px}

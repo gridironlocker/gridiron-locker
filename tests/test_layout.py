@@ -17,7 +17,7 @@ Covered:
     the hero, product grid before trust / description / season news / trend
     panels, team-specific ticker, <= 3 Fan Trend Index rows, 2-col mobile grid,
     description kept below the products.
-  * Countdowns outside collection pages are unchanged.
+  * The kickoff countdown bar is gone from every page, the CSS and app.js.
   * Homepage hero: the approved 2048:768 poster shown whole as a band (the same
     band component, ratio and image the collection pages use), with the
     editorial copy block - crawlable <h1>, CTAs, live catalogue facts - beneath
@@ -465,16 +465,27 @@ class TeamCollectionPages(unittest.TestCase):
             self.assertIn(f"--ca:{c['accent']}", html, k)   # team accent kept
 
 
-class CountdownsElsewhere(unittest.TestCase):
-    def test_homepage_and_week1_guide_keep_countdown(self):
+class NoCountdownAnywhere(unittest.TestCase):
+    """The kickoff countdown bar was retired site-wide.
+
+    It used to live on the homepage season band and the Week 1 guide; the
+    purchase countdowns were removed long before that. Nothing may bring it
+    back: no .cdbar markup, no data-deadline, no ticking script, no styles.
+    """
+
+    def test_homepage_and_week1_guide_have_no_countdown(self):
         for rel in ("index.html", "guides/2026-week-1-shirts/index.html"):
             html = page(rel)
-            self.assertIn('class="cdbar"', html, rel)
-            self.assertIn("data-deadline", html, rel)
-            self.assertIn('id="cd-d"', html, rel)
+            self.assertNotIn('class="cdbar"', html, rel)
+            self.assertNotIn("data-deadline", html, rel)
+            self.assertNotIn('id="cd-d"', html, rel)
 
-    def test_countdown_script_still_shipped(self):
-        self.assertIn("kickoff countdown", page("assets/app.js"))
+    def test_countdown_script_and_styles_removed(self):
+        self.assertNotIn("kickoff countdown", page("assets/app.js"))
+        css = page("assets/style.css")
+        self.assertNotIn(".cdbar", css)
+        self.assertNotIn(".cd{", css)
+        self.assertNotIn(".cd b", css)
 
 
 class ProductPages(unittest.TestCase):
@@ -1021,7 +1032,7 @@ class Homepage(unittest.TestCase):
         # the ONLY rules that size the home H1: the banner block above keeps its
         # collection-title defaults and must not also carry home-hero sizing,
         # which is how two halves of the file ended up fighting over the block.
-        banner_css = between(self.css, "COLLECTION / PAGE BANNER", "COUNTDOWN BAR")
+        banner_css = between(self.css, "COLLECTION / PAGE BANNER", "TRUST STRIP")
         for sel in (".cbanner.home .hero-title", ".cbanner.home .hero-sub",
                     ".cbanner.home .hero-kicker", ".cbanner.home .btnrow"):
             self.assertNotIn(sel, banner_css, sel)
