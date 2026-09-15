@@ -52,14 +52,16 @@ IMG = os.path.join(SITE, "img")
 sys.path.insert(0, SRC)
 
 from collections_data import COLLECTIONS, ORDER  # noqa: E402
+import build  # noqa: E402  (import is read-only; no pages are written)
 import landing  # noqa: E402
 
 CTA, CTA_HOVER = "#49a59c", "#3a847d"
 
 #: How stale the committed build may be before this suite says so.
 #:
-#: refresh.yml rebuilds and re-stamps every date twice a day (06:15 and 15:15
-#: UTC), so a healthy repo is never more than a day behind. Two days of slack
+#: refresh.yml rebuilds twice a day (06:15 and 15:15 UTC) and re-stamps the
+#: build date in data/build-manifest.json, so a healthy repo is never more
+#: than a day behind. Two days of slack
 #: absorbs the one benign case - a run between midnight UTC and the 06:15
 #: refresh, when the build is legitimately stamped with yesterday's date -
 #: while still failing fast if the refresh pipeline dies.
@@ -172,27 +174,50 @@ class BuildFreshness(unittest.TestCase):
     inside a merchant-schema test, so a missed refresh reported itself as
     "Product schema is wrong on 84 pages", which sends you to the wrong file.
 
-    The dates come from ``site/sitemap.xml`` because the build stamps every
-    ``<lastmod>`` with the same ``TODAY`` it puts in ``validFrom``, so the
-    sitemap is the artefact's own record of when it was generated.
+    The build date now comes from ``data/build-manifest.json`` (``built``), not
+    from the sitemap. Since each URL carries the date *its own* content last
+    changed (see LastmodIsEarned below), a sitemap-wide stamp no longer exists
+    and asserting one would assert the bug. What must hold instead: a build ran
+    recently, and every URL it lists agrees with the manifest it wrote.
     """
 
     @classmethod
     def setUpClass(cls):
         cls.sitemap = page("sitemap.xml")
-        cls.stamps = sorted(set(re.findall(r"<lastmod>([^<]+)</lastmod>", cls.sitemap)))
+        cls.pairs = re.findall(r"<loc>(.*?)</loc><lastmod>(.*?)</lastmod>", cls.sitemap)
+        cls.manifest = load_json("data/build-manifest.json")
 
-    def test_sitemap_carries_a_single_build_stamp(self):
-        self.assertTrue(self.stamps, "sitemap.xml has no <lastmod> entries")
-        self.assertEqual(
-            len(self.stamps), 1,
-            "sitemap.xml carries more than one build date "
-            f"({', '.join(self.stamps)}); one build stamps every <lastmod> with "
-            "the same date, so a mix means pages from two different builds are "
-            "committed together")
+    def test_every_sitemap_url_carries_a_lastmod(self):
+        self.assertTrue(self.pairs, "sitemap.xml has no <loc>/<lastmod> pairs")
+        for url, when in self.pairs:
+            iso_date(when, f"sitemap lastmod for {url}")
+
+    def test_manifest_covers_exactly_the_sitemap_urls(self):
+        listed = {u for u, _ in self.pairs}
+        recorded = set(self.manifest["pages"])
+        self.assertEqual(listed - recorded, set(),
+                         "sitemap URLs the build manifest does not know about")
+        self.assertEqual(recorded - listed, set(),
+                         "manifest records pages that are not in the sitemap")
+
+    def test_manifest_and_sitemap_agree(self):
+        for url, when in self.pairs:
+            self.assertEqual(
+                self.manifest["pages"][url]["lastmod"], when,
+                f"{url}: sitemap says {when}, manifest says "
+                f"{self.manifest['pages'][url]['lastmod']}; both are written by "
+                "the same build, so a mismatch means two builds are committed "
+                "together")
+
+    def test_no_lastmod_is_ahead_of_the_build(self):
+        built = iso_date(self.manifest["built"], "build-manifest built")
+        for url, when in self.pairs:
+            self.assertLessEqual(
+                iso_date(when, f"sitemap lastmod for {url}"), built,
+                f"{url} claims a lastmod from the future relative to the build")
 
     def test_build_is_not_from_the_future(self):
-        stamp = iso_date(self.stamps[0], "sitemap lastmod")
+        stamp = iso_date(self.manifest["built"], "build-manifest built")
         self.assertLessEqual(
             stamp, utc_today(),
             f"the committed site is dated {stamp}, which is in the future "
@@ -200,7 +225,7 @@ class BuildFreshness(unittest.TestCase):
             "timezone src/build.py is stamping from")
 
     def test_committed_build_is_recent(self):
-        stamp = iso_date(self.stamps[0], "sitemap lastmod")
+        stamp = iso_date(self.manifest["built"], "build-manifest built")
         age = (utc_today() - stamp).days
         self.assertLessEqual(
             age, MAX_BUILD_AGE_DAYS,
@@ -211,6 +236,52 @@ class BuildFreshness(unittest.TestCase):
             f"(its trend-freshness gate fails the run if data/trends.json was "
             f"not regenerated), then run: python3 src/trends.py && "
             f"python3 src/build.py")
+
+
+class LastmodIsEarned(unittest.TestCase):
+    """``<lastmod>`` must mean "this page changed", not "the cron ran".
+
+    Every rebuild stamps TODAY into every page's date fields, so a rebuild that
+    changed nothing a reader can see used to re-date all 108 sitemap URLs, twice
+    a day, forever. A crawler that sees that stops believing the field and falls
+    back to its own schedule - which spreads the recrawl evenly over the whole
+    site instead of concentrating it on the pages that actually moved.
+
+    ``src/build.py`` decides each URL's date from a fingerprint that ignores the
+    build's own date stamps, so the rule is: unchanged content keeps its date.
+    """
+
+    def test_fingerprint_ignores_the_builds_own_date_stamps(self):
+        yesterday = '<div>same copy<script>validFrom": "2026-09-14"</script></div>'
+        today = '<div>same copy<script>validFrom": "2026-09-15"</script></div>'
+        self.assertEqual(build.page_fingerprint(yesterday),
+                         build.page_fingerprint(today))
+
+    def test_unchanged_page_keeps_its_previous_date(self):
+        html = '<html><body>same copy 2026-09-14</body></html>'
+        rebuilt = html.replace("2026-09-14", "2026-09-15")      # date-only rebuild
+        previous = {"/": {"fp": build.page_fingerprint(html), "lastmod": "2026-09-14"}}
+        plan = build.lastmod_plan({"/": rebuilt}, previous, "2026-09-15")
+        self.assertEqual(plan["/"]["lastmod"], "2026-09-14",
+                         "a date-only rebuild must not re-date the page")
+
+    def test_changed_page_takes_todays_date(self):
+        previous = {"/": {"fp": build.page_fingerprint("<p>old copy</p>"),
+                          "lastmod": "2026-09-14"}}
+        plan = build.lastmod_plan({"/": "<p>new copy</p>"}, previous, "2026-09-15")
+        self.assertEqual(plan["/"]["lastmod"], "2026-09-15")
+
+    def test_page_with_no_history_takes_todays_date(self):
+        plan = build.lastmod_plan({"/new/": "<p>brand new</p>"}, {}, "2026-09-15")
+        self.assertEqual(plan["/new/"]["lastmod"], "2026-09-15")
+
+    def test_page_with_no_record_takes_todays_date(self):
+        # Losing the manifest must fail safe - every page looks new once - and
+        # it must not borrow another URL's date.
+        previous = {"/other/": {"fp": "deadbeef", "lastmod": "2026-09-01"}}
+        plan = build.lastmod_plan({"/one/": "<p>one</p>", "/two/": "<p>two</p>"},
+                                  previous, "2026-09-15")
+        self.assertEqual({e["lastmod"] for e in plan.values()}, {"2026-09-15"})
 
 
 class CTAColours(unittest.TestCase):

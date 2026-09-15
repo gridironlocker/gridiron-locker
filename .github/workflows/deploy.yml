@@ -38,3 +38,29 @@ jobs:
       - name: Deploy
         id: deployment
         uses: actions/deploy-pages@v4
+
+      - name: Did this push change the built site?
+        id: sitediff
+        run: |
+          # IndexNow is a "these URLs changed" signal, so it must not fire on a
+          # push that only touched docs or marketing: with an unchanged site/
+          # the manifest still names the previous build's pages, and the same
+          # URLs would be re-submitted for no reason.
+          if git rev-parse --verify --quiet HEAD^ >/dev/null &&
+             ! git diff --quiet HEAD^ HEAD -- site/; then
+            echo "changed=true" >> "$GITHUB_OUTPUT"
+          else
+            echo "changed=false" >> "$GITHUB_OUTPUT"
+          fi
+
+      - name: Submit the changed pages to IndexNow
+        # refresh.yml nudges the engines after its own twice-daily rebuild. A
+        # push-shaped deploy - a merged PR adding designs, fixing a page - used
+        # to publish silently and wait up to half a day for that refresh, so
+        # the newest pages were the last ones submitted. --changed submits only
+        # the URLs whose <lastmod> is this build's date.
+        if: steps.sitediff.outputs.changed == 'true'
+        continue-on-error: true
+        run: |
+          pip install --quiet requests
+          python3 src/indexnow.py --changed
