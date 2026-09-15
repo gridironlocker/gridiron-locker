@@ -216,10 +216,11 @@ jobs:
           #
           # The marketing generator tests run inside a throwaway copy of the
           # repo (tests/testutil.py) and cannot touch tracked files, so this
-          # step adds nothing to the `git add -A` below.
-          # Written to /tmp, NOT the repo root: the `git add -A` in the Commit step
-          # below would otherwise commit it. (live-health.txt avoids this only
-          # because that step runs after the commit.)
+          # step adds nothing to the commit below.
+          # Written to /tmp, NOT the repo root: the Commit step below stages
+          # whole trees, and a stray file in the repo root would be swept up on
+          # the next run. (live-health.txt avoids this only because that step
+          # runs after the commit.)
           python3 -m unittest discover -s tests -p "test_*.py" -v 2>&1 | tee /tmp/test-suite.txt
           exit "${PIPESTATUS[0]}"
 
@@ -260,7 +261,12 @@ jobs:
         run: |
           git config user.name  "gridiron-bot"
           git config user.email "actions@github.com"
-          git add -A
+          # Scoped on purpose. `git add -A` also stages whatever a tool or a
+          # human happened to leave in the working tree, anywhere - including
+          # files marketing/README.md reserves as "never deployed" drafts. Every
+          # path the refresh legitimately produces is named here; anything else
+          # that needs committing belongs in one of them, not in the repo root.
+          git add -A site data marketing ops trend-report.md
           if git diff --staged --quiet; then
             echo "changed=false" >> $GITHUB_OUTPUT
             echo "Nothing changed."
@@ -320,9 +326,12 @@ jobs:
           fi
           python src/nudge_google.py
       - name: Ping IndexNow
+        # --changed: only the URLs this build re-dated. Announcing all 108 pages
+        # twice a day trains the endpoint to ignore us; announcing the ones that
+        # actually moved is the signal IndexNow is for.
         if: steps.commit.outputs.changed == 'true'
         continue-on-error: true
-        run: python src/indexnow.py
+        run: python src/indexnow.py --changed
 
       - name: Verify the live site (production health check)
         # The steps above verified the build; this verifies the deploy - the

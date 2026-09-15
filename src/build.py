@@ -564,6 +564,113 @@ def write(path, content):
         fh.write(content)
 
 
+BUILD_MANIFEST = os.path.join(ROOT, "data", "build-manifest.json")
+ISO_DATE_RE = re.compile(r"\d{4}-\d{2}-\d{2}")
+
+
+def page_fingerprint(html_text):
+    """Hash a page's content, ignoring the build's own date stamps.
+
+    Every rebuild stamps TODAY into validFrom / dateModified / the sitemap, so
+    raw bytes differ every single day even when nothing a reader can see
+    changed. Normalising ISO dates before hashing is what lets <lastmod>
+    answer "did this page actually change?", which is the only question a
+    crawler asks of it.
+    """
+    return hashlib.sha256(ISO_DATE_RE.sub("DATE", html_text).encode("utf-8")) \
+        .hexdigest()[:16]
+
+
+def lastmod_plan(pages, previous, today):
+    """{url: {"lastmod", "fp"}} for every URL in the sitemap.
+
+    ``pages`` is {url: html} for the pages as shipped; ``previous`` is the
+    pages map from the last build's manifest. A URL keeps the date it already
+    had while its fingerprint is unchanged and takes ``today`` the moment its
+    content moves. Pure on purpose: this rule is the part worth testing, and
+    it can be tested without running a build.
+    """
+    plan = {}
+    for url, html_text in pages.items():
+        fp = page_fingerprint(html_text)
+        prev = previous.get(url) or {}
+        keep = prev.get("lastmod") if prev.get("fp") == fp else None
+        plan[url] = {"lastmod": keep or today, "fp": fp}
+    return plan
+
+
+def page_file_for(url):
+    """The built file behind a sitemap URL."""
+    rel = url[len(DOMAIN):].strip("/")
+    return os.path.join(SITE, rel, "index.html") if rel else os.path.join(SITE, "index.html")
+
+
+def finalise_lastmod():
+    """Date each sitemap URL by when its content last actually changed.
+
+    Runs at the very end of main(), after relativise() has rewritten the pages,
+    so the fingerprints describe the exact bytes that ship. Before this, one
+    build stamped all 108 URLs with the same date twice a day, which teaches a
+    crawler that <lastmod> here means nothing - and an unreliable lastmod is
+    ignored in favour of its own scheduling, spread over days instead of the
+    pages that genuinely changed.
+
+    The manifest it writes is the build's memory of that: fingerprints and
+    dates, one entry per sitemap URL. Lose it and every page looks new once,
+    which is exactly the old behaviour, so it fails safe.
+    """
+    urls = sitemap_urls()
+    if not urls:
+        print("lastmod: no sitemap.xml yet - skipped")
+        return {}
+    previous = {}
+    if os.path.isfile(BUILD_MANIFEST):
+        try:
+            previous = read_json("data", "build-manifest.json").get("pages", {})
+        except (ValueError, OSError) as e:
+            print(f"lastmod: unreadable manifest ({e}) - treating every page as new")
+    pages = {}
+    for url in urls:
+        path = page_file_for(url)
+        if os.path.isfile(path):
+            with open(path, encoding="utf-8") as fh:
+                pages[url] = fh.read()
+    plan = lastmod_plan(pages, previous, TODAY)
+
+    sitemap = os.path.join(SITE, "sitemap.xml")
+    with open(sitemap, encoding="utf-8") as fh:
+        xml = fh.read()
+    xml = re.sub(r"<loc>(?P<loc>.*?)</loc><lastmod>.*?</lastmod>",
+                 lambda m: f"<loc>{m.group('loc')}</loc>"
+                           f"<lastmod>{plan.get(m.group('loc'), {}).get('lastmod', TODAY)}</lastmod>",
+                 xml)
+    with open(sitemap, "w", encoding="utf-8") as fh:
+        fh.write(xml)
+
+    with open(BUILD_MANIFEST, "w", encoding="utf-8") as fh:
+        json.dump({"schema_version": 1, "built": TODAY, "urls": len(plan),
+                   "pages": plan}, fh, indent=1, sort_keys=True)
+        fh.write("\n")
+    # "Re-dated" means the URL moved to TODAY from something else - not merely
+    # that its date equals TODAY, which is also true of a page that kept a date
+    # it earned earlier the same day.
+    redated = sum(1 for url, e in plan.items()
+                  if e["lastmod"] == TODAY
+                  and (previous.get(url) or {}).get("lastmod") != TODAY)
+    print(f"lastmod: {redated} of {len(plan)} urls re-dated by this build "
+          f"({len(plan) - redated} unchanged)")
+    return plan
+
+
+def sitemap_urls():
+    """Absolute URLs listed in the built sitemap.xml (empty before a build)."""
+    path = os.path.join(SITE, "sitemap.xml")
+    if not os.path.isfile(path):
+        return []
+    with open(path, encoding="utf-8") as fh:
+        return re.findall(r"<loc>(.*?)</loc>", fh.read())
+
+
 def slugify(s):
     s = re.sub(r"[^a-z0-9]+", "-", s.lower()).strip("-")
     return re.sub(r"-+", "-", s)
@@ -1571,6 +1678,27 @@ def shop_nav():
 # one typeface voice and one alignment, and the poster's yellow survives as a
 # single short rule under the headline.
 HOME_HERO = "/img/hero-home.jpg?v=5"
+
+
+def hero_srcset(hero, sizes="100vw"):
+    """Responsive candidates for a full-bleed hero band, or "" when absent.
+
+    ``src`` stays the 2048x768 master deliberately: the declared width/height,
+    the og:image tag and the ratio/byte-budget check in ops/health_check.py all
+    read it, and none of that should change. The WebP candidates produced by
+    src/prepare_images.py ride alongside it in ``srcset``, so a phone painting
+    a 390 px band fetches 74-90 KB instead of the 371-441 KB master - the
+    difference between a fast LCP and a slow one on cellular.
+
+    Returns "" if the variants are not on disk, so a checkout that has never
+    run prepare_images.py emits byte-identical markup to before.
+    """
+    stem = os.path.splitext(hero.split("?")[0])[0]          # /img/hero-home
+    cands = [f"{stem}-{w}.webp {w}w" for w in (1024, 1600)
+             if os.path.isfile(os.path.join(SITE, f"{stem}-{w}.webp".lstrip("/")))]
+    if not cands:
+        return ""
+    return f' srcset="{", ".join(cands + [hero + " 2048w"])}" sizes="{sizes}"'
 # Product-led crops of the four team banners, generated by src/crop_art.py.
 TEAM_CARD_ART = {
     "cleveland-browns": "/img/team-cleveland.jpg",
@@ -1600,7 +1728,7 @@ def home_banner():
     facts = "".join(f"<span>{f}</span>"
                     for f in (f"{n} fan designs", f"Sizes {SIZE_RANGE_EN}", "Worldwide shipping"))
     return f"""<section class="cbanner home" id="hero" style="padding:0">
- <div class="band"><img src="{HOME_HERO}"
+ <div class="band"><img src="{HOME_HERO}"{hero_srcset(HOME_HERO)}
   alt="{esc(BRAND)} fan gear for Cleveland, Green Bay, Dallas and Michigan fans - fan-made tees, hoodies and crewnecks"
   width="2048" height="768" fetchpriority="high" decoding="async"></div>
  <div class="wrap cb-in">
@@ -2085,7 +2213,7 @@ def page_collection(k):
                    if se.get("legacy_note") else "")
     body = f"""
 <main id="main"><section class="cbanner compact" style="padding:0">
- <div class="band"><img src="{c['hero']}" alt="{esc(c['name'])} banner" width="2048" height="768" fetchpriority="high"></div>
+ <div class="band"><img src="{c['hero']}"{hero_srcset(c['hero'])} alt="{esc(c['name'])} banner" width="2048" height="768" fetchpriority="high"></div>
  <div class="cb-in">
   <span class="eyebrow"><span class="dot"></span> {len(items)} designs &middot; from ${prices[0]:.2f}</span>
   <h1>{esc(c['h1'])}</h1>
@@ -3466,7 +3594,10 @@ def retired_slugs():
     out = OrderedDict()
     for slug, meta in DELISTED.items():
         out[slug] = meta.get("collection") or "cleveland-browns"
-    for slug in FUL_HOLD:
+    # sorted(): FUL_HOLD is a set, so iterating it directly gives a
+    # per-process order (PYTHONHASHSEED) and the whole _redirects file - and
+    # the stub order in it - churned on every rebuild for no reason.
+    for slug in sorted(FUL_HOLD):
         out.setdefault(slug, _FUL.get("collection") or "cleveland-browns")
     live = {it["slug"] for it in ALL}
     return OrderedDict((s, c) for s, c in out.items()
@@ -4499,7 +4630,8 @@ def sync_marketing():
         os.unlink(s_m_dir)
     elif os.path.isdir(s_m_dir):
         shutil.rmtree(s_m_dir)
-    shutil.copytree(m_dir, s_m_dir)
+    shutil.copytree(m_dir, s_m_dir,
+                    ignore=shutil.ignore_patterns("__pycache__", "*.pyc"))
 
 
 def sync_ops():
@@ -4531,11 +4663,19 @@ def sync_ops():
     # return the already-imported site builder instead of the board.
     try:
         import importlib.util
-        _bspec = importlib.util.spec_from_file_location(
-            "gl_ops_board", os.path.join(ROOT, "ops", "board", "build.py"))
-        _bmod = importlib.util.module_from_spec(_bspec)
-        _bspec.loader.exec_module(_bmod)
-        _bmod.main()
+        # Execute it without leaving a __pycache__ behind: ops/ is copied into
+        # site/ wholesale a few lines down, so bytecode for the internal board
+        # would be published to the live site as /ops/board/__pycache__/*.pyc.
+        _bytecode = sys.dont_write_bytecode
+        sys.dont_write_bytecode = True
+        try:
+            _bspec = importlib.util.spec_from_file_location(
+                "gl_ops_board", os.path.join(ROOT, "ops", "board", "build.py"))
+            _bmod = importlib.util.module_from_spec(_bspec)
+            _bspec.loader.exec_module(_bmod)
+            _bmod.main()
+        finally:
+            sys.dont_write_bytecode = _bytecode
     except Exception as e:
         print("ops/board generation failed, keeping existing files:", e)
     o_dir = os.path.join(ROOT, "ops")
@@ -4546,7 +4686,8 @@ def sync_ops():
         os.unlink(s_o_dir)
     elif os.path.isdir(s_o_dir):
         shutil.rmtree(s_o_dir)
-    shutil.copytree(o_dir, s_o_dir)
+    shutil.copytree(o_dir, s_o_dir,
+                    ignore=shutil.ignore_patterns("__pycache__", "*.pyc"))
 
 
 def main():
@@ -4572,6 +4713,7 @@ def main():
     sync_marketing()
     sync_ops()
     n = relativise()
+    finalise_lastmod()
     print(f"homepage team order (next kickoff first): {', '.join(HOMEPAGE_ORDER)}")
     print(f"relative-linked {n} pages for GitHub Pages / offline")
     print(f"redirect stubs: {nr} retired product URLs -> closest active page")

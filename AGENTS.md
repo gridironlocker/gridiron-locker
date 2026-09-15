@@ -72,9 +72,27 @@ other is how this repo breaks.
 ### 3.1 `site/` is generated — and a rebuild is not a no-op
 
 `src/build.py` writes every page, the sitemap, robots, feeds and assets. It
-stamps `validFrom`, `<lastmod>`, `datePublished` and `dateModified` from
-`build.utc_today()`. So **rebuilding on a different UTC day than the last commit
-produces a diff on every single page**, even when nothing else changed.
+stamps `validFrom`, `datePublished` and `dateModified` from
+`build.utc_today()`, and those are still re-stamped on every rebuild, so
+**rebuilding on a different UTC day than the last commit produces a diff on
+every single page**, even when nothing else changed.
+
+`<lastmod>` is the exception, and it is deliberate. Since 2026-09-15 each
+sitemap URL carries the date its own content last actually changed, decided at
+the end of `main()` by `finalise_lastmod()` from a content fingerprint that
+ignores the build's own date stamps. One build stamping all 108 URLs twice a day
+is what teaches a crawler to ignore the field. The build's memory of that is
+`data/build-manifest.json` (`{url: {lastmod, fp}}` plus `built`), so:
+
+- **`data/build-manifest.json` is storefront-owned**: written only by
+  `src/build.py`, never hand-edited, never read by `marketing/`. Losing it is
+  safe (every page looks new exactly once, i.e. the old behaviour).
+- Adding a page, or changing copy, re-dates that URL to `built`. A date-only
+  rebuild must not re-date anything - `tests/test_layout.py::LastmodIsEarned`
+  asserts both halves of that rule.
+- `tests/test_layout.py::BuildFreshness` reads `built` for staleness, not the
+  sitemap. Do not reintroduce a "every `<lastmod>` is the same date" assertion;
+  that is the bug, not the invariant.
 
 Consequences:
 
@@ -84,6 +102,12 @@ Consequences:
 - Never commit a partial rebuild. `site/` is all-or-nothing.
 - `build.py`'s `main()` also *deletes* orphan artwork from `site/img/`. Rebuild
   without network access and you can delete images you cannot re-download.
+- Hero bands ship a `srcset` whose WebP candidates are **generated, not
+  hand-made**: run `python3 src/prepare_images.py` after replacing or adding
+  hero art, then rebuild. `hero_srcset()` returns `""` when the variants are
+  missing, so a checkout that never ran it still builds the old markup. `src`
+  stays the 2048x768 master on purpose - `ops/health_check.py` downloads it and
+  enforces the ratio, so do not repoint it at a variant.
 
 ### 3.2 The catalogue has exactly one source of truth — and it is not any one file
 
@@ -99,6 +123,7 @@ currently violated. See §5.
 | `data/campaigns_extra.json` | Hand-added campaigns a re-crawl would drop; re-injected by `replay_updates.py`. |
 | `data/delisted.json` | 31 slugs retired by hand (departed players, pulled artwork). |
 | `data/fulfillment.json` | Partner naming **plus a `hold` list of 57 slugs** withheld from Viralstyle pending Mayzing upload. |
+| `data/build-manifest.json` | **Storefront-owned build state**: each sitemap URL's last-changed date and content fingerprint, plus the build date. Written by `src/build.py`; see §3.1. |
 
 **The real catalogue is the merged set that `src/build.py` computes**, after
 applying `delisted` and `fulfillment.hold`. It is currently **84 designs**:

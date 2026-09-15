@@ -1,12 +1,12 @@
 # Python bytecode / caches
-# (the daily refresh workflow does `git add -A`, so keep these out of the repo)
+# (the daily refresh workflow stages whole trees, so keep these out of the repo)
 __pycache__/
 *.py[cod]
 .venv/
 
 # Local file:// copy built by src/make_offline.py - a ~79MB duplicate of site/
-# that is never deployed. The refresh workflow's `git add -A` would otherwise
-# commit it on any machine that has run make_offline.py.
+# that is never deployed. The refresh workflow's commit step would otherwise
+# sweep it up on any machine that has run make_offline.py.
 site-offline/
 
 # Local dry-run/live publishing results; the pulse itself is the reviewed input.
