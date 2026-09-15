@@ -2,7 +2,7 @@
  "generated": "2026-09-15",
  "window_days": 10,
  "fti_formula": "round(100 * entity_mentions / peak_mentions_in_window)",
- "peak_mentions": 60,
+ "peak_mentions": 55,
  "stats": {
   "products": 84,
   "collections": 4,
@@ -19,7 +19,7 @@
  "fti_rows": [
   {
    "name": "deshaun watson",
-   "mentions": 60,
+   "mentions": 55,
    "index": 100,
    "status": "trending",
    "gap": true,
@@ -28,8 +28,8 @@
   },
   {
    "name": "bryce underwood",
-   "mentions": 19,
-   "index": 32,
+   "mentions": 17,
+   "index": 31,
    "status": "trending",
    "gap": false,
    "shoppable": true,
@@ -37,35 +37,35 @@
   },
   {
    "name": "shedeur sanders",
-   "mentions": 15,
-   "index": 25,
+   "mentions": 11,
+   "index": 20,
    "status": "trending",
    "gap": false,
    "shoppable": true,
    "collection": "cleveland-browns"
   },
   {
-   "name": "todd monken",
-   "mentions": 10,
-   "index": 17,
-   "status": "trending",
-   "gap": true,
-   "shoppable": false,
-   "collection": "cleveland-browns"
-  },
-  {
    "name": "matt lafleur",
    "mentions": 9,
-   "index": 15,
+   "index": 16,
    "status": "trending",
    "gap": true,
    "shoppable": false,
    "collection": "green-bay-packers"
   },
   {
+   "name": "todd monken",
+   "mentions": 8,
+   "index": 15,
+   "status": "trending",
+   "gap": true,
+   "shoppable": false,
+   "collection": "cleveland-browns"
+  },
+  {
    "name": "dak prescott",
    "mentions": 6,
-   "index": 10,
+   "index": 11,
    "status": "trending",
    "gap": true,
    "shoppable": false,
@@ -73,8 +73,8 @@
   },
   {
    "name": "kyle whittingham",
-   "mentions": 6,
-   "index": 10,
+   "mentions": 5,
+   "index": 9,
    "status": "trending",
    "gap": true,
    "shoppable": false,
@@ -90,7 +90,7 @@
    "collection": "dallas-cowboys"
   },
   {
-   "name": "jordan love",
+   "name": "micah parsons",
    "mentions": 4,
    "index": 7,
    "status": "trending",
@@ -99,9 +99,9 @@
    "collection": "green-bay-packers"
   },
   {
-   "name": "micah parsons",
-   "mentions": 4,
-   "index": 7,
+   "name": "jordan love",
+   "mentions": 3,
+   "index": 5,
    "status": "trending",
    "gap": false,
    "shoppable": true,
@@ -183,17 +183,8 @@
  "gaps": [
   {
    "name": "deshaun watson",
-   "mentions": 60,
+   "mentions": 55,
    "index": 100,
-   "status": "trending",
-   "gap": true,
-   "shoppable": false,
-   "collection": "cleveland-browns"
-  },
-  {
-   "name": "todd monken",
-   "mentions": 10,
-   "index": 17,
    "status": "trending",
    "gap": true,
    "shoppable": false,
@@ -202,16 +193,25 @@
   {
    "name": "matt lafleur",
    "mentions": 9,
-   "index": 15,
+   "index": 16,
    "status": "trending",
    "gap": true,
    "shoppable": false,
    "collection": "green-bay-packers"
   },
   {
+   "name": "todd monken",
+   "mentions": 8,
+   "index": 15,
+   "status": "trending",
+   "gap": true,
+   "shoppable": false,
+   "collection": "cleveland-browns"
+  },
+  {
    "name": "dak prescott",
    "mentions": 6,
-   "index": 10,
+   "index": 11,
    "status": "trending",
    "gap": true,
    "shoppable": false,
@@ -219,8 +219,8 @@
   },
   {
    "name": "kyle whittingham",
-   "mentions": 6,
-   "index": 10,
+   "mentions": 5,
+   "index": 9,
    "status": "trending",
    "gap": true,
    "shoppable": false,
@@ -259,7 +259,7 @@
    "gaps": [
     {
      "name": "deshaun watson",
-     "mentions": 60,
+     "mentions": 55,
      "index": 100,
      "status": "trending",
      "gap": true,
@@ -268,8 +268,8 @@
     },
     {
      "name": "todd monken",
-     "mentions": 10,
-     "index": 17,
+     "mentions": 8,
+     "index": 15,
      "status": "trending",
      "gap": true,
      "shoppable": false,
@@ -279,10 +279,10 @@
    "top_terms": [
     "browns",
     "watson",
-    "deshaun",
     "cleveland",
-    "monken",
+    "deshaun",
     "jacksonville",
+    "monken",
     "todd",
     "loss"
    ],
@@ -301,10 +301,10 @@
      "pub": "Sun, 13 Sep 2026 22:10:00 GMT"
     },
     {
-     "title": "Browns are a disaster in the first half vs. Jaguars. That\u2019s being kind \u2013 Terry Pluto\u2019s Scribbles",
-     "url": "https://news.google.com/rss/articles/CBMiwwFBVV95cUxOM0gwVkhsdUFNME01ZTNwSDVRTV9XMGZ2Zk5VZ0VZeWpNb1lqTzlHWTNnLXJ0UFRtcXQtZXBXdkRJcm53WmFOejZNcDdHbkNSUWR1TzVXbmlLbDR0SElaOWh6aHhCMWo3dUIwMmhqdmRQaEUxSlRST0VMaUlhTnBaYXFfa3cxTGdqdXNJMUxRV1owdEZWcDVLTnhOTnVjUE45Yk93bnZKR2F3LXQ4d2sweVJuX2Q1Y08tV0owOGw1TUhheVk?oc=5",
-     "source": "Cleveland.com",
-     "pub": "Sun, 13 Sep 2026 18:32:00 GMT"
+     "title": "Deshaun Watson remains the Cleveland Browns starting quarterback but that comes with an expiration date",
+     "url": "https://news.google.com/rss/articles/CBMitgFBVV95cUxQcU9wZExRaHZzd3RhM3Bzb3c5LUdZQ0FqZjZkb0FSRU9UbjRmTUtSbkNtRTNxWjI0UUdnd0ZZSlp3ZzY0aHJQTXRkVzhSVll1TWRWVUZHNFJ0aFNoaVRjTEdpNXpWRklabFJvbEZSRkZJWHZUUHQweFg1X3JvdFdvcUxlazk3TC1SMFdWSGZ3eTd0eDBPNU5PeTZPU0FxZFBYVE1wY3ozLTNKOUJDUktKUkJLa0hSZw?oc=5",
+     "source": "Fox News",
+     "pub": "Mon, 14 Sep 2026 20:12:35 GMT"
     },
     {
      "title": "Where to Watch: Browns vs. Jaguars, Week 1 of 2026 NFL Season",
@@ -313,10 +313,10 @@
      "pub": "Mon, 14 Sep 2026 00:55:19 GMT"
     },
     {
-     "title": "Deshaun Watson remains the Cleveland Browns starting quarterback but that comes with an expiration date",
-     "url": "https://news.google.com/rss/articles/CBMitgFBVV95cUxQcU9wZExRaHZzd3RhM3Bzb3c5LUdZQ0FqZjZkb0FSRU9UbjRmTUtSbkNtRTNxWjI0UUdnd0ZZSlp3ZzY0aHJQTXRkVzhSVll1TWRWVUZHNFJ0aFNoaVRjTEdpNXpWRklabFJvbEZSRkZJWHZUUHQweFg1X3JvdFdvcUxlazk3TC1SMFdWSGZ3eTd0eDBPNU5PeTZPU0FxZFBYVE1wY3ozLTNKOUJDUktKUkJLa0hSZw?oc=5",
-     "source": "Fox News",
-     "pub": "Mon, 14 Sep 2026 20:12:35 GMT"
+     "title": "Browns are a disaster in the first half vs. Jaguars. That\u2019s being kind \u2013 Terry Pluto\u2019s Scribbles",
+     "url": "https://news.google.com/rss/articles/CBMiwwFBVV95cUxOM0gwVkhsdUFNME01ZTNwSDVRTV9XMGZ2Zk5VZ0VZeWpNb1lqTzlHWTNnLXJ0UFRtcXQtZXBXdkRJcm53WmFOejZNcDdHbkNSUWR1TzVXbmlLbDR0SElaOWh6aHhCMWo3dUIwMmhqdmRQaEUxSlRST0VMaUlhTnBaYXFfa3cxTGdqdXNJMUxRV1owdEZWcDVLTnhOTnVjUE45Yk93bnZKR2F3LXQ4d2sweVJuX2Q1Y08tV0owOGw1TUhheVk?oc=5",
+     "source": "Cleveland.com",
+     "pub": "Sun, 13 Sep 2026 18:32:00 GMT"
     }
    ],
    "fti_count": 7
@@ -335,7 +335,7 @@
     {
      "name": "dak prescott",
      "mentions": 6,
-     "index": 10,
+     "index": 11,
      "status": "trending",
      "gap": true,
      "shoppable": false,
@@ -354,12 +354,12 @@
    "top_terms": [
     "cowboys",
     "dallas",
-    "injury",
     "loss",
+    "injury",
     "malik",
-    "york",
     "sunday",
-    "watch"
+    "night",
+    "york"
    ],
    "headline_count": 100,
    "headlines": [
@@ -410,7 +410,7 @@
     {
      "name": "matt lafleur",
      "mentions": 9,
-     "index": 15,
+     "index": 16,
      "status": "trending",
      "gap": true,
      "shoppable": false,
@@ -433,8 +433,8 @@
     "matt",
     "lafleur",
     "quarter",
-    "collapse",
-    "fourth"
+    "fourth",
+    "jacobs"
    ],
    "headline_count": 100,
    "headlines": [
@@ -457,16 +457,16 @@
      "pub": "Mon, 14 Sep 2026 05:32:00 GMT"
     },
     {
+     "title": "Vikings 39-22 Packers (Sep 13, 2026) Final Score",
+     "url": "https://news.google.com/rss/articles/CBMickFVX3lxTE0zbzdRNWZYWGlOVWVST09YdGdyelBTZ29VTzB0ZGhxQnpPVkl1TjQwUFlhbXVqMGxCOWpUSFRkdEw0cl9FYUp1aUM3U3pTSzdXVi16S1J6Y1RTanlZczEycm1pUENEcDdNWnhLT2tmbzB1dw?oc=5",
+     "source": "ESPN",
+     "pub": "Sun, 13 Sep 2026 07:00:00 GMT"
+    },
+    {
      "title": "No one can escape blame for the Packers\u2019 offensive line failure",
      "url": "https://news.google.com/rss/articles/CBMiygFBVV95cUxQbE1kY1F6MkZYYmYwRkxjekpXUE94MXprRVU0X19wLVlabW91NVgzYUNkU1pKUGNnV0x4Mm1BM3BiLTR0R0NPcGlrN2dGS243d1BRYWlJNkFENzRJOEx0ZEYwNUpDLTBld0ZocGRFLUlPRko0S1BCSm5HSkw2N2VsOE1wY3pOcVp5TmtJWXhnMHhFWFZFUlpFMjNiN3JoSlp6Q1ZiRjNGQjZ0VFcwQmN5TERvTlh6cm90d3VrdXJhZnI4bHJoUkFIRnlB?oc=5",
      "source": "Acme Packing Company",
      "pub": "Mon, 14 Sep 2026 18:00:00 GMT"
-    },
-    {
-     "title": "Green Bay Packers 2026 NFL Playoff Simulator",
-     "url": "https://news.google.com/rss/articles/CBMiuAFBVV95cUxNX2IzS0JOZ1hqUlNXQkRhakFneFMydXVsUHY3ajg0QnZEMXhJS2VUUWF4WTdGbVlrX2ZDM0dDblVMQnFFV3dnbmpNbDRTc1hOMm5LR2hiVlZDZ19yelEwZUlnR1h3blo0RnZXVmU2Um5EbHJZeFMyeVV0cktOcVF2MVRfYXcwblhwa3VpaDFQY2F6RmdSNW01RG1sTjZUb3JGOC1RU2FIX0JlNGJ4WDFocU42aTBaXzg1?oc=5",
-     "source": "The New York Times",
-     "pub": "Mon, 14 Sep 2026 12:08:38 GMT"
     }
    ],
    "fti_count": 5
@@ -484,8 +484,8 @@
    "gaps": [
     {
      "name": "kyle whittingham",
-     "mentions": 6,
-     "index": 10,
+     "mentions": 5,
+     "index": 9,
      "status": "trending",
      "gap": true,
      "shoppable": false,
@@ -497,19 +497,13 @@
     "football",
     "wolverines",
     "college",
-    "western",
     "watch",
+    "time",
     "underwood",
-    "bryce"
+    "channel"
    ],
    "headline_count": 100,
    "headlines": [
-    {
-     "title": "Michigan 13-12 Western Michigan (Sep 5, 2026) Game Recap",
-     "url": "https://news.google.com/rss/articles/CBMibEFVX3lxTE96TERNb2V1VjRiTC1LX2owT2VISjc0TS1HcTk5QTFaTzJUOFJacm9UcER0ZldwSFFfWlRhQlM3UjFZRjRMTE40N2RUeWFhbWU4ODREZ3BwLW5wamp0eU12MGJJWW55TS1zcERidQ?oc=5",
-     "source": "ESPN",
-     "pub": "Sat, 05 Sep 2026 07:00:00 GMT"
-    },
     {
      "title": "Postgame Notes: Michigan 17, #11 Oklahoma 10",
      "url": "https://news.google.com/rss/articles/CBMihgFBVV95cUxOcVFwSTAyV1JCMTBFM2NwWEJpSnVkdjlaU1FkaU5MdnM3S1JoSFJ5d3hfUVpMWE1kRFBXNDFWc0tlcUtWV1hkb29KSE5MbXFwd19nYjJ6dDZZc2NnOUZ5eFFnNEhrTThOR1pQQmNKSjFBWVpKdE9JcHlJOGZQcjVuTmdDU3lFQQ?oc=5",
@@ -533,6 +527,12 @@
      "url": "https://news.google.com/rss/articles/CBMiswFBVV95cUxNd2hnV1JicE9wR0xHdUVkV2NINTlnakVfQVo2VksxUEUzWmc5WjVDUWNaZVUwcGV0X0dTZmlYSWxucGg3Z19EeU8zX1NxcG5sdFBVTThTTG1MR3FjZE9OQ1lnX2w3czZlOUZLdnd2QkRyQjZKZkZsbGQ3V2V4Mk1UeUdXQXpnNW96NEtqMHVuSDhkOUV3TUtwUTFWN0pRTUREZmxFSkJiQzhEMDlhQXJCbDB2UQ?oc=5",
      "source": "Sports Illustrated",
      "pub": "Tue, 08 Sep 2026 18:01:22 GMT"
+    },
+    {
+     "title": "What channel is Michigan football vs Oklahoma? Week 2 time, TV schedule",
+     "url": "https://news.google.com/rss/articles/CBMi3AFBVV95cUxPOUJwX1ZxS3ZMUl81OHd3QVdaX0plSDZtSTRTV3JLR0lIZ0hGZjF6Z2dVSmMzWU5xNDFmMVRaeTJQRF9iQkpVZ19OUzFGTW1SOTR6RU1EV0JfazN2aDBxMnh2bV9DN1A1NmxHczBjZ1BKU1c0aEdXdlFJWHc5MXFQMndTRFA4NzZhb2x3TzZQWlRSd1JvdVFLNzR1UnZkbC13V1hjQXJiZjdibHd2dnZoSnhacWNocnBKazhTYkdvYU1WOW52a2dkczNsQ283d3JqdjdGQzVpNVZ1cVpt?oc=5",
+     "source": "freep.com",
+     "pub": "Sat, 12 Sep 2026 14:53:00 GMT"
     }
    ],
    "fti_count": 4
