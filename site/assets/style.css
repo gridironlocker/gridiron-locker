@@ -471,6 +471,14 @@ section{padding:clamp(30px,4.5vw,52px) 0}
 @media(max-width:920px){.pdp{grid-template-columns:1fr;gap:20px}}
 .gallery{position:sticky;top:119px}
 @media(max-width:920px){.gallery{position:static}}
+/* On phones the thumbnail grid used to stack 2-3 rows deep, pushing the
+   name, price and Shop Now button a full screen down. One swipeable row
+   keeps every image reachable and the buybox one flick away. */
+@media(max-width:920px){
+  .thumbs{display:flex;overflow-x:auto;gap:8px;padding-bottom:6px;
+    scroll-snap-type:x proximity;-webkit-overflow-scrolling:touch}
+  .thumb{flex:0 0 72px;scroll-snap-align:start}
+}
 .stage{position:relative;border:1px solid var(--line);border-radius:var(--radius);overflow:hidden;
   aspect-ratio:1/1;display:grid;place-items:center;background:#fff}
 .stage:after,.stage .glow{display:none}
@@ -491,7 +499,7 @@ section{padding:clamp(30px,4.5vw,52px) 0}
 .pricefrom{font-size:.76rem;color:var(--muted);letter-spacing:.02em}
 
 /* At-a-glance facts: information ABOUT the campaign, never a selector. */
-.atglance{list-style:none;margin:0 0 18px;padding:0;display:grid;
+.atglance{list-style:none;margin:16px 0 18px;padding:0;display:grid;
   grid-template-columns:1fr 1fr;gap:1px;background:var(--line);
   border:1px solid var(--line);border-radius:10px;overflow:hidden}
 @media(max-width:420px){.atglance{grid-template-columns:1fr}}
@@ -501,6 +509,11 @@ section{padding:clamp(30px,4.5vw,52px) 0}
 
 /* the note that sets expectations right after the hand-off CTA */
 .ctanote{margin:10px 0 4px;font-size:.82rem;line-height:1.55;color:var(--muted)}
+/* one line under the hero Shop Now: where checkout happens. Kept distinct
+   from .ctanote (which appears once, mid-page) so the hand-off reads the
+   same everywhere without duplicating the canonical note. */
+.handoff-note{margin:10px 0 0;font-size:.84rem;line-height:1.55;color:var(--muted)}
+.handoff-note b,.handoff-note strong{color:var(--ink2)}
 .ships{font-size:.83rem;color:var(--muted);margin-top:12px;display:grid;gap:6px}
 .ships b{color:var(--ink)}
 .badges{display:flex;gap:7px;flex-wrap:wrap;margin-top:14px}
@@ -543,6 +556,17 @@ section{padding:clamp(30px,4.5vw,52px) 0}
 .ctaband h2{margin:6px 0 8px}
 .ctaband p{color:var(--ink2);margin:0;font-size:.94rem;line-height:1.6}
 .ctaband-act .ctanote{margin-top:10px}
+
+/* the custom-design cross-sell: a slim band, not a second storefront. Same
+   two-column rhythm as .ctaband-in so PDP and collection pages read alike. */
+.customband{border-top:1px solid var(--line);background:#fff}
+.customband-in{display:grid;grid-template-columns:1.25fr .75fr;gap:28px;align-items:center}
+@media(max-width:800px){.customband-in{grid-template-columns:1fr;gap:12px}}
+.customband h2{margin:6px 0 8px;font-size:clamp(1.15rem,3.4vw,1.5rem)}
+.customband p{color:var(--ink2);margin:0;font-size:.94rem;line-height:1.6;max-width:62ch}
+.customband-act{text-align:right}
+@media(max-width:800px){.customband-act{text-align:left}}
+.customband-act .link{font-weight:700;font-size:1rem}
 
 /* ============ CONTENT ============ */
 .prose{max-width:74ch}
@@ -703,7 +727,17 @@ footer .logo{color:var(--ink)}
 .customform form{display:grid;gap:13px}
 .customform h2{font-family:var(--display);font-weight:400;font-synthesis-weight:none;text-transform:uppercase;letter-spacing:.01em;
   font-size:clamp(1.5rem,3.2vw,2.1rem);line-height:1.02;margin:0 0 12px}
-.customform .cf-lead{color:var(--muted);font-size:.92rem;line-height:1.6;margin:0 0 18px;max-width:52ch}
+.customform .cf-lead{color:var(--muted);font-size:.92rem;line-height:1.6;margin:0 0 14px;max-width:52ch}
+/* the proposition, stated once: you dream it, we design it. */
+.cf-dream{margin:0 0 10px;font-size:1.02rem;color:var(--ink)}
+.cf-dream strong{font-weight:800}
+/* the four things to send: team, colors, phrase, idea. Compact chips that
+   wrap on narrow phones instead of squeezing. */
+.cf-points{list-style:none;margin:0 0 18px;padding:0;display:flex;flex-wrap:wrap;gap:8px}
+.cf-points li{border:1px solid var(--line);border-radius:9px;background:#fff;
+  padding:8px 12px;font-size:.8rem;color:var(--ink2)}
+.cf-points b{display:block;font-size:.62rem;font-weight:800;letter-spacing:.1em;
+  text-transform:uppercase;color:var(--muted);margin-bottom:1px}
 .customform .cf-head{font-family:var(--font);font-size:1.05rem;font-weight:800;letter-spacing:-.01em;
   color:var(--ink);margin:0 0 2px;text-transform:none;padding-top:14px;border-top:1px solid var(--line)}
 .customform .cf-sub{margin:0 0 4px;font-size:.9rem;color:var(--muted);line-height:1.5}

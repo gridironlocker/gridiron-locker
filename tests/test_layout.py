@@ -1887,5 +1887,122 @@ class CreatorCollab(unittest.TestCase):
         self.assertIn('"@type":"BreadcrumbList"', self.html)
 
 
+class ConversionUpgrades(unittest.TestCase):
+    """The conversion pass: truthful trust strip, faster PDP hand-off,
+    visible custom-design service, completed funnel analytics.
+
+    Each test pins an improvement made without touching artwork, prices,
+    URLs, fulfilment links or the pinned layout skeleton.
+    """
+
+    @classmethod
+    def setUpClass(cls):
+        cls.home = page("index.html")
+        cls.css = page("assets/style.css")
+        cls.js = page("assets/app.js")
+        shop = os.path.join(SITE, "shop")
+        cls.pages = {d: read(os.path.join(shop, d, "index.html"))
+                     for d in sorted(os.listdir(shop))
+                     if os.path.isfile(os.path.join(shop, d, "index.html"))
+                     and "data-gl-redirect" not in
+                     read(os.path.join(shop, d, "index.html"))}
+
+    def test_trust_strip_is_truthful(self):
+        # No unsupported "premium" superlative and no hard-coded size run
+        # (the catalogue sells S-5XL; the strip used to say S-3XL).
+        sec = between(self.home, 'class="trust"', "</div>\n</div>")
+        for cell in ("Fan-Made Designs", "Made To Order",
+                     "Worldwide Shipping", "Secure Checkout"):
+            self.assertIn(cell, sec, cell)
+        self.assertNotIn("Premium", sec)
+        self.assertNotIn("3XL", sec)
+
+    def test_pdp_cta_follows_price(self):
+        # The hero Shop Now sits directly under the price row - above the
+        # facts grid - with a one-line ordering note naming the partner.
+        for slug, html in self.pages.items():
+            hero = html.index('data-placement="hero"')
+            self.assertLess(hero, html.index('class="atglance"'), slug)
+            note = re.search(r'<p class="handoff-note">(.*?)</p>', html, re.S)
+            self.assertIsNotNone(note, slug)
+            self.assertIn("Checkout happens on", note.group(1), slug)
+            # still exactly one canonical .ctanote (mid-page); the hero note
+            # is a distinct, shorter line, not a duplicate
+            self.assertEqual(html.count('class="ctanote'), 1, slug)
+
+    def test_pdp_custom_band_is_a_link_not_a_checkout(self):
+        # A custom-design cross-sell above the related rail: plain link, no
+        # .shopnow class, no form/select (still banned on PDPs).
+        for slug, html in self.pages.items():
+            band = between(html, 'class="customband"', 'id="related"')
+            self.assertIn("Want It With Your Name On It?", band, slug)
+            self.assertIn("You dream it. We design it.", band, slug)
+            m = re.search(r'<a class="link custom-link" data-placement="([^"]+)" '
+                          r'href="([^"]*#custom-design)"', band)
+            self.assertIsNotNone(m, slug)
+            self.assertNotIn("shopnow", band, slug)
+
+    def test_custom_section_states_the_proposition(self):
+        sec = between(self.home,
+                      '<section class="customsec" id="custom-design">',
+                      "</section>")
+        self.assertIn("You dream it. We design it.", sec)
+        for point in ("<b>Team</b>", "<b>Colors</b>", "<b>Phrase</b>",
+                      "<b>Idea</b>"):
+            self.assertIn(point, sec, point)
+        # the new optional field + the inquiry framing
+        self.assertIn('name="colors"', sec)
+        self.assertIn("A free inquiry, not an order", sec)
+        # every pinned field still on the form
+        for field in ('name="name"', 'name="email"', 'name="team"',
+                      'name="garment"', 'name="idea"', 'name="details"'):
+            self.assertIn(field, sec, field)
+
+    def test_custom_design_is_in_site_navigation(self):
+        nav = between(self.home, '<nav class="menubar"', "</nav>")
+        self.assertIn("Custom Design", nav)
+        self.assertIn("#custom-design", nav)
+
+    def test_collection_pages_carry_a_custom_band(self):
+        for k, html in collection_pages().items():
+            band = between(html, 'class="customband"', "In The 2026 Season")
+            self.assertIn("Your Team. Your Colors. Your Phrase.", band, k)
+            self.assertIn(COLLECTIONS[k]["short"], band, k)
+            self.assertIn("#custom-design", band, k)
+
+    def test_social_and_font_hints_in_head(self):
+        self.assertIn('<meta name="twitter:site" content="@gridironlocker">',
+                      self.home)
+        self.assertIn('<link rel="preconnect" '
+                      'href="https://fonts.googleapis.com">', self.home)
+        self.assertIn('<link rel="preconnect" '
+                      'href="https://fonts.gstatic.com" crossorigin>',
+                      self.home)
+
+    def test_funnel_analytics_completed(self):
+        for event in ("custom_cta_click", "custom_design_submit",
+                      "newsletter_signup"):
+            self.assertIn(event, self.js, event)
+        # no lead PII in the analytics payload: team/garment dimensions only
+        submit = between(self.js, "custom_design_submit", "});")
+        self.assertNotIn("name+", submit)
+        self.assertNotIn("email+", submit)
+
+    def test_new_styles_shipped(self):
+        for sel in (".handoff-note{", ".customband{", ".customband-in{",
+                    ".cf-dream{", ".cf-points{"):
+            self.assertIn(sel, self.css, sel)
+        # phones swipe thumbnails instead of stacking them over the buybox
+        mob = media_rules(self.css, 920)
+        self.assertIn(".thumbs{display:flex;overflow-x:auto", mob)
+
+    def test_collection_logos_are_light(self):
+        # 96px portraits; the Michigan file was 890KB at 1018px.
+        for f in ("michigan-logo1.webp", "dallas-logo1.webp",
+                  "browns-logo1.webp", "green-bay-logo1.webp"):
+            self.assertLess(os.path.getsize(os.path.join(IMG, f)),
+                            120 * 1024, f)
+
+
 if __name__ == "__main__":
     unittest.main(verbosity=2)
