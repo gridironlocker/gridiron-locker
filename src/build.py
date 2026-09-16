@@ -854,6 +854,7 @@ def head(title, desc, path, image=None, schema=None, keywords=None, col=None,
 {kw}
 <link rel="canonical" href="{canon}">
 <meta name="robots" content="{robots}">
+<meta name="p:domain_verify" content="b4b50fd5812ff9c5767ca434904b504b">
 <meta property="og:type" content="{'product' if path.startswith('/shop/') else 'website'}">
 <meta property="og:site_name" content="{esc(BRAND)}">
 <meta property="og:title" content="{esc(title)}">

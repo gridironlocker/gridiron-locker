@@ -1317,6 +1317,10 @@ class Homepage(unittest.TestCase):
     # ------------------------------------------------------------------- SEO
     def test_seo_and_hero_preserved(self):
         self.assertIn('<link rel="canonical" href="https://gridironlocker.store/">', self.html)
+        # Pinterest Business domain claim (Settings → Claim → website).
+        self.assertIn(
+            '<meta name="p:domain_verify" content="b4b50fd5812ff9c5767ca434904b504b">',
+            self.html)
         self.assertIn("hero-home.jpg?v=5", self.html)          # OG image = new poster
         self.assertIn('"@type":"WebSite"', self.html)
         self.assertIn('"@type":"Organization"', self.html)
