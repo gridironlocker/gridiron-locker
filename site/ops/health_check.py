@@ -27,7 +27,8 @@ What it proves, in order:
      the ones this checkout just built. This is the check that catches "new
      banners were committed but the site is still showing the old poster".
   5. Sitemap - every <loc> answers 200, the shop catalogue is whole, 404 is
-     excluded, and the lastmod date is recent (a stuck pipeline shows up here).
+     excluded, and every lastmod is a parseable, non-future source date. A
+     stable older lastmod is valid: rebuild time is not page modification time.
 
 Run it locally against a local build, or against production:
 
@@ -102,7 +103,10 @@ TEAM_CARDS = [
 ]
 MAX_ART_BYTES = 750 * 1024            # the design budget for any single banner
 MAX_IMAGE_REFS_PER_PAGE = 40          # sample depth for per-page asset checks
-SITEMAP_MAX_AGE_DAYS = 5              # the refresh runs twice a day
+# Do not impose an age limit on sitemap <lastmod>.  The build intentionally
+# keeps an unchanged URL's source date across rebuilds; freshness of the
+# refresh pipeline is checked from the deploy/health workflow, not by lying in
+# lastmod. The live checker still rejects malformed or future dates below.
 
 
 def catalogue_counts():
@@ -423,19 +427,24 @@ class Checker:
             if u.rstrip("/").endswith("/404.html"):
                 self.fail("/sitemap.xml: 404 page must never be listed")
 
-        # Freshness: the refresh pipeline rebuilds the sitemap with today's
-        # date twice a day, so a stale one means the pipeline stopped.
-        newest = max(lastmods) if lastmods else ""
-        if newest:
+        # lastmod is page/source metadata, not a build heartbeat.  An
+        # unchanged product is expected to keep an older date across a fresh
+        # deploy. Validate every value instead of requiring the newest value to
+        # be today's date, which would reward the inaccurate old behaviour.
+        parsed_lastmods = []
+        for stamp in sorted(set(lastmods)):
             try:
-                age = (date.today() - datetime.strptime(newest, "%Y-%m-%d").date()).days
-                if age > SITEMAP_MAX_AGE_DAYS:
-                    self.fail(f"/sitemap.xml: newest lastmod {newest} is {age} days old "
-                              f"- the refresh pipeline looks stuck")
-                else:
-                    self.note(f"sitemap lastmod {newest} ({age} day(s) old)")
+                parsed = datetime.strptime(stamp, "%Y-%m-%d").date()
             except ValueError:
-                self.fail(f"/sitemap.xml: unreadable lastmod {newest!r}")
+                self.fail(f"/sitemap.xml: unreadable lastmod {stamp!r}")
+                continue
+            if parsed > date.today():
+                self.fail(f"/sitemap.xml: future lastmod {stamp!r}")
+            parsed_lastmods.append(parsed)
+        if parsed_lastmods:
+            self.note("sitemap lastmod source-date range "
+                      f"{min(parsed_lastmods).isoformat()} to {max(parsed_lastmods).isoformat()} "
+                      "(stable dates retained for unchanged URLs)")
 
         # Every URL in the sitemap must answer 200 - this is the check that
         # catches links to pages that were delisted without a redirect.

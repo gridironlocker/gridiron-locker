@@ -308,17 +308,48 @@ jobs:
       - name: Deploy to GitHub Pages
         id: deployment
         uses: actions/deploy-pages@v4
-      - name: Nudge Google (GSC live inspection + WebSub)
+      - name: Nudge Google (bounded URL Inspection diagnostics + WebSub)
         continue-on-error: true
         env:
           GSC_SA_JSON: ${{ secrets.GSC_SA_JSON }}
+          GSC_REPORT_PATH: /tmp/gsc-inspection-report.json
         run: |
           pip install --quiet google-auth requests
           if [ -n "$GSC_SA_JSON" ]; then
             echo "$GSC_SA_JSON" > /tmp/gsc-sa.json
             export GSC_SA_JSON_PATH=/tmp/gsc-sa.json
           fi
+          # URL Inspection is diagnostic only. It does not submit URLs or
+          # request indexing; the script caps the changed-product sample at 50.
           python src/nudge_google.py
+      - name: Publish GSC diagnostic summary
+        if: always()
+        run: |
+          if [ -f /tmp/gsc-inspection-report.json ]; then
+            python - <<'PY' >> "$GITHUB_STEP_SUMMARY"
+          import json
+          p = json.load(open("/tmp/gsc-inspection-report.json", encoding="utf-8"))
+          print("### Search Console URL Inspection (diagnostic sample)")
+          print()
+          print("URL Inspection does not submit URLs or request indexing.")
+          print()
+          print("- Inspected: %s" % p["inspected_url_count"])
+          for k, v in sorted(p["summary"].items()):
+              print("- %s: %s" % (k.replace("_", " "), v))
+          print()
+          print("Limitations: sample-level sitemap evidence only; no site-wide submitted/indexed count.")
+          PY
+          else
+            echo "### Search Console URL Inspection" >> "$GITHUB_STEP_SUMMARY"
+            echo "No diagnostic report was produced (credentials unavailable or no changed product URLs)." >> "$GITHUB_STEP_SUMMARY"
+          fi
+      - name: Keep GSC diagnostic report
+        if: always()
+        uses: actions/upload-artifact@v4
+        with:
+          name: gsc-inspection-report
+          path: /tmp/gsc-inspection-report.json
+          if-no-files-found: ignore
       - name: Ping IndexNow
         if: steps.commit.outputs.changed == 'true'
         continue-on-error: true

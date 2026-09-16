@@ -1,28 +1,31 @@
 #!/usr/bin/env python3
-"""Nudge Google for indexing after a deploy.
+"""Run bounded, diagnostic discovery checks after a deploy.
 
 Two independent jobs, neither fatal to the workflow:
 
-1) GSC live URL Inspection - only runs if GSC_SA_JSON (a service-account key,
-   written to a file by the workflow) is present. Determines which product
-   pages changed in this push (falling back to the newest slugs in the
-   sitemap when the diff is empty, e.g. after a rebase) and asks the URL
-   Inspection API to do a *live* inspection of each one, capped at 50 URLs.
-   This doesn't index anything by itself, but it forces Google to look and
-   surfaces verdict/coverageState in the run log.
+1) Search Console URL Inspection - only runs when the workflow has provided a
+   service-account key via ``GSC_SA_JSON_PATH``. It inspects only product pages
+   changed in this push (falling back to a small newest-sitemap sample after a
+   rebase), capped at 50 URLs. URL Inspection is diagnostic: it does *not*
+   submit a URL, request indexing, force a crawl, or guarantee a fresh crawl.
+   The API response can report the current verdict/coverage state, last crawl,
+   Google's canonical, the user canonical, and sitemap evidence when Google
+   provides them. A JSON report can be written with ``GSC_REPORT_PATH``.
 
 2) WebSub (PubSubHubbub) feed ping - always runs. Tells the public hub that
-   site/feed.xml changed so any hub subscriber (including Google's own feed
-   consumers) refetches it immediately instead of on the next poll.
+   site/feed.xml changed so any hub subscriber can refetch it immediately.
+   This is a feed notification, not a Google indexing request.
 
 Run after a rebuild + deploy:  python3 src/nudge_google.py
 """
+import datetime
 import json, os, re, subprocess, sys
 
 import requests
 
 ROOT = os.path.dirname(os.path.dirname(os.path.abspath(__file__)))
-CFG = json.load(open(os.path.join(ROOT, "src/config.json")))
+with open(os.path.join(ROOT, "src/config.json"), encoding="utf-8") as fh:
+    CFG = json.load(fh)
 DOMAIN = CFG["domain"].rstrip("/")
 
 GSC_SITE_URL = f"{DOMAIN}/"
@@ -30,18 +33,105 @@ HUB_URL = "https://pubsubhubbub.appspot.com"
 MAX_URLS = 50
 
 
+def classify_index_state(verdict, coverage):
+    """Map Google's words to conservative, report-only buckets.
+
+    Search Console does not expose a universal site-wide count through URL
+    Inspection. These labels are therefore per inspected URL and retain the
+    original API strings in the report; unknown wording is never guessed.
+    """
+    text = (coverage or "").lower()
+    if "submitted and indexed" in text or "url is on google" in text:
+        return "indexed"
+    if "discovered" in text and "not indexed" in text:
+        return "discovered_but_not_indexed"
+    if "crawled" in text and "not indexed" in text:
+        return "crawled_but_not_indexed"
+    if verdict in ("FAIL", "ERROR"):
+        return "inspection_error"
+    return "unknown"
+
+
+def inspection_record(url, idx=None, error=None):
+    """Normalise fields that URL Inspection actually returns.
+
+    ``sitemap`` is the API's evidence that Google associated the inspected URL
+    with a submitted sitemap; it is not a count of all submitted URLs. The
+    distinction is kept explicit so this tool cannot fabricate a site-wide
+    submitted/indexed metric.
+    """
+    idx = idx or {}
+    verdict = idx.get("verdict")
+    coverage = idx.get("coverageState")
+    sitemaps = idx.get("sitemap") or []
+    if isinstance(sitemaps, str):
+        sitemaps = [sitemaps]
+    row = {
+        "url": url,
+        "verdict": verdict,
+        "coverage_state": coverage,
+        "state": classify_index_state(verdict, coverage),
+        "submitted_via_sitemap": bool(sitemaps),
+        "sitemap_evidence": sitemaps,
+        "last_crawl": idx.get("lastCrawlTime"),
+        "google_canonical": idx.get("googleCanonical"),
+        "user_canonical": idx.get("userCanonical"),
+        "robots_txt_state": idx.get("robotsTxtState"),
+        "indexing_state": idx.get("indexingState"),
+        "page_fetch_state": idx.get("pageFetchState"),
+    }
+    if error:
+        row["inspection_error"] = error
+        row["state"] = "inspection_error"
+    return row
+
+
+def write_gsc_report(records, requested_urls):
+    """Write an optional machine-readable report without changing the site.
+
+    The workflow sends this to /tmp and stores it as a workflow artifact. Local
+    callers can choose another path with GSC_REPORT_PATH. No report is written
+    by default, which keeps a diagnostic run from dirtying the checkout.
+    """
+    path = os.environ.get("GSC_REPORT_PATH")
+    summary = {"indexed": 0, "discovered_but_not_indexed": 0,
+               "crawled_but_not_indexed": 0, "inspection_error": 0, "unknown": 0}
+    for row in records:
+        summary[row.get("state", "unknown")] = summary.get(row.get("state", "unknown"), 0) + 1
+    report = {
+        "generated_at": datetime.datetime.now(datetime.timezone.utc).isoformat(),
+        "requested_url_count": len(requested_urls),
+        "inspected_url_count": len(records),
+        "summary": summary,
+        "records": records,
+        "limitations": [
+            "URL Inspection is diagnostic only; it does not submit URLs or request indexing.",
+            "This report covers only the inspected sample, not a site-wide Search Console count.",
+            "submitted_via_sitemap is true only when the API returned sitemap evidence for that URL.",
+            "The API may omit last crawl or canonical fields when Google has no value to report.",
+        ],
+    }
+    if path:
+        with open(path, "w", encoding="utf-8") as fh:
+            json.dump(report, fh, indent=2, sort_keys=True)
+        print(f"GSC inspection report: {path}")
+    print("GSC inspection summary (sample only): "
+          + ", ".join(f"{k}={v}" for k, v in sorted(summary.items())))
+    return report
+
+
 def gsc_inspect():
-    """Live URL Inspection API nudge for changed /shop/<slug>/ product pages."""
+    """Bounded URL Inspection diagnostics for changed product pages."""
     key_path = os.environ.get("GSC_SA_JSON_PATH")
     if not key_path or not os.path.isfile(key_path):
-        print("GSC_SA_JSON not set - skipping")
+        print("GSC_SA_JSON_PATH not set - skipping URL Inspection (diagnostic only)")
         return
 
     try:
         from google.auth.transport.requests import Request as GoogleAuthRequest
         from google.oauth2 import service_account
     except ImportError:
-        print("google-auth not installed - skipping GSC inspection")
+        print("google-auth not installed - skipping GSC URL Inspection")
         return
 
     scopes = ["https://www.googleapis.com/auth/webmasters"]
@@ -49,26 +139,27 @@ def gsc_inspect():
         creds = service_account.Credentials.from_service_account_file(key_path, scopes=scopes)
         creds.refresh(GoogleAuthRequest())
     except Exception as e:
-        print(f"GSC credential load/refresh failed: {e} - skipping GSC inspection")
+        print(f"GSC credential load/refresh failed: {e} - skipping URL Inspection")
         return
 
     urls = changed_product_urls()
     if not urls:
-        print("No product URLs to inspect - skipping GSC inspection")
+        print("No product URLs to inspect - skipping URL Inspection")
         return
 
     urls = urls[:MAX_URLS]
-    print(f"GSC live inspection: {len(urls)} url(s)")
+    print(f"GSC URL Inspection diagnostics: {len(urls)} url(s); no indexing request is made")
 
     endpoint = "https://searchconsole.googleapis.com/v1/urlInspection/index:inspect"
     headers = {
         "Authorization": f"Bearer {creds.token}",
         "Content-Type": "application/json",
     }
+    records = []
     for url in urls:
-        # The URL Inspection API only accepts these three fields; it always
-        # performs a live index-status inspection (no inspectionType /
-        # liveInspection flags exist on this endpoint - passing them 400s).
+        # The URL Inspection API accepts the inspection request fields below.
+        # It reports Google's current diagnostics; there is no submit/index
+        # request field or indexing request in this call.
         body = {
             "inspectionUrl": url,
             "siteUrl": GSC_SITE_URL,
@@ -79,13 +170,19 @@ def gsc_inspect():
             if r.status_code == 200:
                 result = r.json().get("inspectionResult", {})
                 idx = result.get("indexStatusResult", {})
-                verdict = idx.get("verdict", "?")
-                coverage = idx.get("coverageState", "?")
-                print(f"  {url} -> verdict={verdict} coverageState={coverage}")
+                row = inspection_record(url, idx)
+                print(f"  {url} -> state={row['state']} verdict={row['verdict'] or '?'} "
+                      f"coverageState={row['coverage_state'] or '?'} "
+                      f"lastCrawl={row['last_crawl'] or '?'}")
             else:
-                print(f"  {url} -> HTTP {r.status_code}: {r.text[:300]}")
+                error = f"HTTP {r.status_code}: {r.text[:300]}"
+                row = inspection_record(url, error=error)
+                print(f"  {url} -> {error}")
         except Exception as e:
+            row = inspection_record(url, error=str(e))
             print(f"  {url} -> error {e}")
+        records.append(row)
+    return write_gsc_report(records, urls)
 
 
 def changed_product_urls():

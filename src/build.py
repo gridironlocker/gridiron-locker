@@ -32,6 +32,55 @@ def read_json(*parts):
 CFG = read_json("src", "config.json")
 DOMAIN = CFG["domain"].rstrip("/")
 
+# Sitemap dates are content metadata, not build timestamps.  The old generator
+# stamped every URL with TODAY, which told crawlers that every page changed on
+# every rebuild.  Keep the small, hand-maintained date manifest in data/ so a
+# verified source date survives a crawl/build cycle; source records can also
+# provide their own date fields as the crawlers learn to capture them.
+try:
+    SITEMAP_DATES = read_json("data", "content_dates.json")
+except Exception:
+    SITEMAP_DATES = {}
+SITEMAP_DATE_FALLBACK = SITEMAP_DATES.get("fallback", "2026-09-01")
+
+
+def valid_content_date(value):
+    """Return a normalised ISO date or ``None`` for untrusted metadata.
+
+    Source crawlers may eventually record either ``YYYY-MM-DD`` or an ISO
+    timestamp.  Sitemaps use the date form so equivalent timestamps remain
+    deterministic across timezone/format changes.
+    """
+    if not isinstance(value, str):
+        return None
+    try:
+        return datetime.date.fromisoformat(value).isoformat()
+    except ValueError:
+        pass
+    try:
+        return datetime.datetime.fromisoformat(value.replace("Z", "+00:00")).date().isoformat()
+    except ValueError:
+        return None
+
+
+def record_content_date(record):
+    """Use a source record's meaningful date when one is available.
+
+    Crawlers do not currently capture a per-campaign timestamp consistently,
+    so this is deliberately conservative.  It never consults filesystem mtimes
+    or the current clock: both vary between checkout machines and would make
+    identical source data produce different sitemap output.
+    """
+    if not isinstance(record, dict):
+        return None
+    for key in ("lastmod", "last_modified", "dateModified", "modified",
+                "updated", "updated_at", "published", "published_at",
+                "created", "created_at", "captured", "generated"):
+        date_value = valid_content_date(record.get(key))
+        if date_value:
+            return date_value
+    return None
+
 
 def abs_url(path):
     """Return an absolute URL for a site path on the configured domain.
@@ -51,9 +100,13 @@ BRAND = CFG["site_name"]
 def utc_today():
     """The build's single definition of "today", pinned to UTC.
 
-    Every date this generator stamps - Offer ``validFrom``, sitemap
-    ``lastmod``, ``datePublished``/``dateModified``, the footer copyright year -
-    used to come from ``datetime.date.today()``, which is the *local* date of
+    Dynamic display/schema dates this generator stamps - Offer ``validFrom``,
+    ``datePublished``/``dateModified`` and the footer copyright year - come
+    from the UTC clock. Sitemap ``lastmod`` is intentionally separate and uses
+    source metadata, so it does not move merely because the build clock moves.
+
+    Before the sitemap fix, ``lastmod`` also came from
+    ``datetime.date.today()``, which is the *local* date of
     whatever machine ran the build. That made the output depend on the
     operator's timezone:
 
@@ -221,6 +274,7 @@ MAYZING_FILES = [
     ("michigan", "mayzing_michigan.json"),
 ]
 MAYZING_SOURCES = {}
+MAYZING_SOURCE_DATES = {}
 for _ckey, _fname in MAYZING_FILES:
     try:
         _mj = read_json("data", _fname)
@@ -229,6 +283,32 @@ for _ckey, _fname in MAYZING_FILES:
     _prods = _mj.get("products", [])
     if _prods:
         MAYZING_SOURCES[_ckey] = OrderedDict((m["slug"], m) for m in _prods)
+        # The Mayzing exports contain a verified collection capture date.  It
+        # is a source-data date, not the date on which this repository rebuilds.
+        MAYZING_SOURCE_DATES[_ckey] = (
+            record_content_date(_mj) or SITEMAP_DATE_FALLBACK
+        )
+
+
+def product_content_date(ckey, slug, record):
+    """Resolve the stable source date for one published product URL.
+
+    Priority is: a date captured on the product record, a verified per-slug
+    date in data/content_dates.json, the source catalogue capture date, then
+    the documented stable fallback.  The fallback is intentionally not TODAY:
+    the Viralstyle crawl has no reliable per-campaign modification timestamp.
+    """
+    return (record_content_date(record)
+            or valid_content_date((SITEMAP_DATES.get("products") or {}).get(slug))
+            or MAYZING_SOURCE_DATES.get(ckey)
+            or SITEMAP_DATE_FALLBACK)
+
+
+def collection_content_date(ckey):
+    """Resolve a collection's source date without using product build time."""
+    return (valid_content_date((SITEMAP_DATES.get("collections") or {}).get(ckey))
+            or MAYZING_SOURCE_DATES.get(ckey)
+            or SITEMAP_DATE_FALLBACK)
 
 
 def fulfill_buy(col, slug, default):
@@ -286,9 +366,13 @@ enrich(TRENDS)
 # commission.customer_facing=false means the rate never renders on public
 # pages - customers see the collaboration, not the affiliate math.
 try:
-    CREATORS = read_json("data", "creators.json").get("creators", {})
+    _CREATORS_DATA = read_json("data", "creators.json")
+    CREATORS = _CREATORS_DATA.get("creators", {})
+    CREATOR_SOURCE_DATE = (record_content_date(_CREATORS_DATA)
+                           or SITEMAP_DATE_FALLBACK)
 except Exception:
     CREATORS = {}
+    CREATOR_SOURCE_DATE = SITEMAP_DATE_FALLBACK
 
 
 def creator_items(cre):
@@ -614,6 +698,9 @@ def mayzing_item(m, ckey):
         colour=m.get("colour_name"),
         kw=_l.keywords(f, col, _c.garment_of(f, name, styles), name), col=ckey,
         features=m.get("features") or "",
+        # Keep this on the model so product HTML, sitemap.xml and the image
+        # sitemap all use the same source-date decision.
+        lastmod=product_content_date(ckey, m["slug"], m),
     )
 
 
@@ -687,6 +774,10 @@ def build_model():
                 partner=partner_of(ckey),
                 kw=_l.keywords(f, col, garment, name), col=ckey,
                 features=p.get("features") or "",
+                # The crawl record has no reliable per-campaign timestamp in
+                # most cases; product_content_date() therefore uses the
+                # verified manifest or stable fallback rather than TODAY.
+                lastmod=product_content_date(ckey, slug, p),
             ))
         items[ckey] = lst
     return items
@@ -694,6 +785,10 @@ def build_model():
 
 MODEL = build_model()
 ALL = [x for v in MODEL.values() for x in v]
+# Canonical product-path -> source date.  This map is deliberately independent
+# of URLS: it lets the sitemap writer emit the exact same value for a product
+# even when page generation order changes.
+PRODUCT_LASTMODS = {it["url"]: it["lastmod"] for it in ALL}
 
 # ----------------------------------------------------- catalogue facts
 # ONE SOURCE OF TRUTH for every number the site prints. Homepage count,
@@ -3622,6 +3717,54 @@ sold on its own page. Taking you to the {esc(COLLECTIONS[ckey]['name'])} &mdash;
     return len(lines)
 
 
+def sitemap_lastmod(url):
+    """Return the meaningful, deterministic last modification date for a URL.
+
+    A URL is never stamped with the build clock. Product URLs use their source
+    record/manifest date; dynamic hubs use the date of the data file they
+    visibly render; pages without a trustworthy page-level date use the stable
+    fallback documented in data/content_dates.json. In particular, a product
+    date does not fan out to every hub, so changing one product's metadata only
+    changes that product's sitemap entry.
+    """
+    path = url[len(DOMAIN):] if url.startswith(DOMAIN) else url
+    if not path.startswith("/"):
+        path = "/" + path
+    path = "/" + path.lstrip("/")
+
+    product_date = PRODUCT_LASTMODS.get(path)
+    if product_date:
+        return product_date
+
+    explicit = valid_content_date((SITEMAP_DATES.get("pages") or {}).get(path))
+    if explicit:
+        return explicit
+
+    # These pages visibly include the corresponding generated data.  Using the
+    # source file's generated date is accurate and still deterministic because
+    # the refresh pipeline writes that date before build.py runs.
+    if path in ("/", "/2026-season/", "/fan-trend-index/"):
+        return record_content_date(TRENDS) or SITEMAP_DATE_FALLBACK
+    if path == "/drops/":
+        try:
+            drops = read_json("data", "live_drops.json")
+        except Exception:
+            drops = {}
+        return record_content_date(drops) or SITEMAP_DATE_FALLBACK
+    if path == "/michigan/joe/":
+        return CREATOR_SOURCE_DATE
+
+    for ckey in ORDER:
+        if path == f"/{COLLECTIONS[ckey]['slug']}/":
+            return collection_content_date(ckey)
+
+    # Search, guides and evergreen/static pages have no reliable source-data
+    # modification field today.  Their stable baseline is preferable to a
+    # false "changed today" signal; a verified page date can be added to the
+    # manifest without changing URL architecture.
+    return SITEMAP_DATE_FALLBACK
+
+
 def assets():
     # The stylesheet is a SOURCE file (src/style.css) copied out on every
     # build. It used to live in site/assets/ and be hand-edited, which meant
@@ -3681,7 +3824,7 @@ Sitemap: {DOMAIN}/sitemap.xml
 Sitemap: {DOMAIN}/sitemap-images.xml
 """)
     urls = "".join(
-        f"<url><loc>{u}</loc><lastmod>{TODAY}</lastmod>"
+        f"<url><loc>{esc(u)}</loc><lastmod>{sitemap_lastmod(u)}</lastmod>"
         f"<changefreq>{cf}</changefreq><priority>{pr}</priority></url>"
         for u, pr, cf in URLS)
     write("sitemap.xml", '<?xml version="1.0" encoding="UTF-8"?>'
@@ -3702,6 +3845,7 @@ Sitemap: {DOMAIN}/sitemap-images.xml
         if images:
             image_urls.append(
                 '<url><loc>' + esc(DOMAIN + it["url"]) + '</loc>'
+                + '<lastmod>' + it["lastmod"] + '</lastmod>'
                 + ''.join('<image:image><image:loc>' + esc(image) + '</image:loc></image:image>'
                           for image in images)
                 + '</url>')

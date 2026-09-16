@@ -115,8 +115,11 @@ re-run the build to add them:
   `tests/test_layout.py::test_no_fabricated_trust_signals` fails the build for. (This line
   used to claim AggregateRating was emitted; `grep -rl AggregateRating site/` returns nothing.)
 - `robots.txt` + `sitemap.xml` (108 URLs — 84 products + 24 other indexable pages —
-  with lastmod/priority/changefreq; the 85 retired-slug redirect stubs are noindex
-  and deliberately absent).
+  with source-based lastmod/priority/changefreq; the 85 retired-slug redirect stubs are noindex
+  and deliberately absent). `sitemap-images.xml` covers the same 84 product URLs.
+  `src/build.py` reads verified source dates from `data/content_dates.json` and source records,
+  and uses its documented stable fallback when a supplier crawl has no per-product date; a rebuild
+  does not make an unchanged URL look new.
 - Internal linking: home → collections → products → related products → guides → back to collection.
 - 4 long-form buying guides targeting research keywords ("michigan fan apparel buying guide").
 - Trademark-safe framing: "fan-made / independent / not affiliated" disclaimers sitewide plus a
@@ -380,7 +383,11 @@ Being straight with you:
 
 ## New files
 - `src/trends.py` - headline fetcher + trend scorer + gap report
-- `src/indexnow.py` - instant Bing/Yandex/Naver submission
+- `src/indexnow.py` - bounded IndexNow submission for Bing/Yandex/Naver
+- `src/nudge_google.py` - bounded Search Console URL Inspection diagnostics plus WebSub;
+  URL Inspection reports status but does not submit URLs or request indexing. When
+  `GSC_REPORT_PATH` is set, it writes per-URL verdict/coverage, sitemap evidence, last crawl,
+  Google/user canonicals and explicit inspection errors, with sample/coverage limitations.
 - `.github/workflows/refresh.yml` - the daily scheduler
 - `.github/workflows/health-check.yml` + `ops/health_check.py` - the daily check of the
   **live** site (all key URLs, the sitemap, JSON-LD, the hero bands' real pixel ratios,
