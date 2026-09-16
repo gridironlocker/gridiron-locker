@@ -2004,5 +2004,109 @@ class ConversionUpgrades(unittest.TestCase):
                             120 * 1024, f)
 
 
+class GoogleShoppingFeed(unittest.TestCase):
+    """site/products.xml is the Google Merchant Center feed.
+
+    The Shopping tab is fed ONLY by approved Merchant Center product feeds -
+    the on-page Product schema, GA4 and Search Console never put a product
+    there - so this artefact must exist, be well-formed, and carry one
+    correct <item> per live design. A feed that drifts from the catalogue
+    means half the store is invisible in Shopping, so the assertions mirror
+    the same "sitemap must equal the catalogue" rule the sanity gate uses.
+    """
+
+    @classmethod
+    def setUpClass(cls):
+        import build  # noqa: E402  (import is read-only; no pages are written)
+        cls.build = build
+        cls.feed = page("products.xml")
+        cls.items = re.findall(r"<item>(.*?)</item>", cls.feed, re.S)
+
+    @staticmethod
+    def _fields(block):
+        """g:tag -> [values...] for one <item> block (names are lowercase)."""
+        d = {}
+        for name, val in re.findall(r"<g:([a-z_0-9]+)>(.*?)</g:\1>", block, re.S):
+            d.setdefault(name, []).append(val)
+        return d
+
+    def test_feed_is_well_formed_rss_with_base_ns(self):
+        self.assertTrue(
+            self.feed.startswith('<?xml version="1.0" encoding="utf-8"?>'),
+            "products.xml must open with the XML declaration")
+        self.assertIn('xmlns:g="http://base.google.com/ns/1.0"', self.feed,
+                      "products.xml must declare the Google base namespace")
+        self.assertIn("<channel>", self.feed)
+        import xml.etree.ElementTree as ET
+        ET.fromstring(self.feed)  # raises if the feed is not well-formed XML
+
+    def test_one_item_per_live_design(self):
+        self.assertEqual(
+            len(self.items), len(self.build.ALL),
+            f"products.xml has {len(self.items)} <item>s but the merged "
+            f"catalogue holds {len(self.build.ALL)} - a design is missing from "
+            "Shopping (or the feed is emitting a ghost)")
+
+    def test_ids_match_the_catalogue_exactly_once(self):
+        ids = [self._fields(b).get("id", ["?"])[0] for b in self.items]
+        live = {it["slug"] for it in self.build.ALL}
+        self.assertEqual(set(ids), live,
+                         "feed ids and the live catalogue disagree: "
+                         f"missing={sorted(live - set(ids))[:5]} "
+                         f"extra={sorted(set(ids) - live)[:5]}")
+        self.assertEqual(len(ids), len(set(ids)),
+                         "products.xml contains duplicate g:id values")
+
+    def test_required_attributes_and_model_facts(self):
+        by_slug = {it["slug"]: it for it in self.build.ALL}
+        for block in self.items:
+            f = self._fields(block)
+            slug = f["id"][0]
+            it = by_slug[slug]
+            for req in ("link", "title", "description", "price", "availability",
+                        "image_link", "brand", "condition", "identifier_exists",
+                        "item_group_id", "mpn", "content_language",
+                        "content_country"):
+                self.assertIn(req, f, f"{slug}: missing <g:{req}>")
+            self.assertEqual(f["link"][0], self.build.abs_url(it["url"]), slug)
+            self.assertEqual(f["price"][0], f"{it['price']:.2f} USD", slug)
+            self.assertEqual(f["availability"][0], "in stock", slug)
+            self.assertEqual(f["condition"][0], "new", slug)
+            # unique designs carry no GTIN; the sanctioned non-GTIN identifier
+            # path is identifier_exists=false + item_group_id + mpn
+            self.assertEqual(f["identifier_exists"][0], "false", slug)
+            self.assertEqual(f["item_group_id"][0], slug, slug)
+            self.assertEqual(f["mpn"][0], slug, slug)
+            self.assertEqual(f["content_country"][0], "US", slug)
+            self.assertEqual(f["content_language"][0], "en", slug)
+            self.assertLessEqual(len(f["title"][0]), 150, slug)
+            self.assertLessEqual(len(f["description"][0]), 5000, slug)
+            self.assertGreaterEqual(len(f["image_link"]), 1, slug)
+            for u in f["image_link"]:
+                self.assertTrue(u.startswith("http"), f"{slug}: {u}")
+
+    def test_product_category_and_partner_scoped_shipping(self):
+        """google_product_category must be a verified ID, and only the partner
+        that publishes a rate may declare one (same partner-scoping rule as
+        the product pages - quoting $4.95 on a Mayzing product is a false
+        merchant claim)."""
+        import build
+        by_slug = {it["slug"]: it for it in build.ALL}
+        for block in self.items:
+            f = self._fields(block)
+            slug = f["id"][0]
+            it = by_slug[slug]
+            self.assertIn("product_type", f, slug)
+            if "google_product_category" in f:
+                self.assertTrue(f["google_product_category"][0].isdigit(), slug)
+                self.assertEqual(f["google_product_category"][0],
+                                 build.GMC_PRODUCT_CATEGORY.get(it["garment"]),
+                                 f"{slug}: category does not match the map")
+            if it["partner"] == "Viralstyle":
+                self.assertEqual(f.get("shipping", ["?"])[0], "US:USD:4.95", slug)
+            else:
+                self.assertNotIn("shipping", f, slug)
+
+
 if __name__ == "__main__":
     unittest.main(verbosity=2)

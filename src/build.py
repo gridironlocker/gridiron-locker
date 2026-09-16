@@ -578,15 +578,20 @@ def mayzing_item(m, ckey):
     source-agnostic. The variant story is intentionally different from the old
     Viralstyle pages: a Mayzing product is sold in ONE garment style and ONE
     colourway at a fixed price, so styles/colours carry exactly that - pages
-    must never advertise a choice the checkout cannot make. Mockups stay
-    hot-linked from the Mayzing CDN as a temporary fallback until dl.py learns
-    to localise them, same as a freshly added Viralstyle campaign.
+    must never advertise a choice the checkout cannot make. dl.py localises
+    the mockups into site/img/p/ and rewrites img to local paths; the CDN
+    hot-link (signed URL, which expires) stays in the data file as the
+    fallback while a download has not succeeded yet - the same self-healing
+    rule as the Viralstyle branch below.
     """
     f = FACTS[m["slug"]]
     col = COLLECTIONS[ckey]
     img = OrderedDict(
         (t, u) for t, u in (m.get("img") or {}).items()
-        if isinstance(u, str) and u.startswith("https://"))
+        if isinstance(u, str) and (
+            (u.startswith("/") and os.path.isfile(os.path.join(SITE, u.lstrip("/"))))
+            or u.startswith("https://")
+        ))
     if not img:
         return None
     if "front" not in img:
@@ -3622,6 +3627,88 @@ sold on its own page. Taking you to the {esc(COLLECTIONS[ckey]['name'])} &mdash;
     return len(lines)
 
 
+# ------------------------------------------------- Google Shopping feed
+# The Shopping tab on google.com is fed exclusively by approved Google
+# Merchant Center product feeds. GA4, Search Console and the on-page Product
+# schema do NOT put a product there - they only help the page rank organically
+# and earn rich results. So the build emits one Content API for Shopping feed
+# at /products.xml covering the whole live catalogue, regenerated on every
+# rebuild like the rest of site/. GMC account setup steps: README.md,
+# "Google Shopping (Merchant Center)".
+GMC_PRODUCT_CATEGORY = {
+    # garment -> Google product category ID. IDs stay valid when Google
+    # renames a category (2025: "Clothing & Accessories" became "Apparel &
+    # Accessories"), so only map garments whose ID is verified, and let the
+    # rest ride on free-form product_type: an unverified ID risks the item
+    # being disapproved, a missing google_product_category is only a
+    # "improve your product data" suggestion.
+    "T-Shirt": "4949",  # Apparel & Accessories > Clothing > T-Shirts
+    "Mug": "2169",      # Home & Garden > Kitchen & Dining > Tableware > Drinkware > Mugs
+}
+
+
+def shopping_feed():
+    """Write site/products.xml: the Google Merchant Center product feed.
+
+    One <item> per design in ALL (the merged catalogue after delisted and
+    fulfillment.hold), in the Content API for Shopping format. Every attribute
+    is a fact the storefront already publishes: the link is the product page,
+    the price is the model price, the images are the page gallery. Shipping is
+    partner-scoped exactly like the product pages - Viralstyle publishes a
+    $4.95 US flat rate, Mayzing publishes none, so the feed must not quote a
+    rate for it. No design carries a GTIN (they are all unique), so items
+    identify themselves the sanctioned non-GTIN way: identifier_exists=false
+    plus item_group_id and mpn.
+    """
+    rows = []
+    for it in ALL:
+        c = COLLECTIONS[it["col"]]
+        slug = it["slug"]
+        theme = it["theme"] if it["theme"] in _l.THEME_CONCEPT else "classic"
+        name = it["name"]
+        if name in _DUP_NAMES and it.get("colour"):
+            name = f"{name} - {it['colour']}"
+        title = f"{c['team']} {name} {it['garment']}"[:150]
+        desc = re.sub(r"\s+", " ", _l.short_description(
+            slug, it["name"], it["art"], c, it["garment"], theme))[:5000]
+        images = [abs_url(u) for u in dict.fromkeys(it["gallery"][:10])]
+        if it["garment"] == "Mug":
+            ptype = "Home & Garden > Kitchen & Dining > Tableware > Drinkware > Mugs"
+        else:
+            ptype = f"Apparel & Accessories > Clothing > {it['garment']}s"
+        f = [("id", slug), ("item_group_id", slug), ("mpn", slug),
+             ("link", abs_url(it["url"]))]
+        f += [("image_link", u) for u in images]
+        f += [("title", title), ("description", desc),
+              ("price", f"{it['price']:.2f} {CFG['currency']}"),
+              ("availability", "in stock"), ("condition", "new"),
+              ("brand", BRAND), ("identifier_exists", "false"),
+              ("content_language", "en"), ("content_country", "US"),
+              ("channel", "online"), ("product_type", ptype),
+              ("custom_label_0", it["col"]),
+              ("custom_label_1", it["partner"]),
+              ("custom_label_2", it["garment"])]
+        gpc = GMC_PRODUCT_CATEGORY.get(it["garment"])
+        if gpc:
+            f.append(("google_product_category", gpc))
+        if it.get("colour"):
+            f.append(("color_name", it["colour"]))
+        if it["partner"] == "Viralstyle":
+            # The rate the product page itself publishes; the account-level
+            # shipping settings still define the destinations.
+            f.append(("shipping", "US:USD:4.95"))
+        rows.append("<item>" + "".join(f"<g:{k}>{esc(v)}</g:{k}>" for k, v in f) + "</item>")
+    write("products.xml",
+          '<?xml version="1.0" encoding="utf-8"?>\n'
+          '<rss version="2.0" xmlns:g="http://base.google.com/ns/1.0">\n'
+          "<channel>\n"
+          f"<title>{esc(BRAND)}</title>\n"
+          f"<link>{esc(DOMAIN)}</link>\n"
+          f"<description>{esc(BRAND + ' - ' + CFG['tagline'] + ' (independent, fan-made; not affiliated with any team)')}</description>\n"
+          + "".join(r + "\n" for r in rows)
+          + "</channel>\n</rss>\n")
+
+
 def assets():
     # The stylesheet is a SOURCE file (src/style.css) copied out on every
     # build. It used to live in site/assets/ and be hand-edited, which meant
@@ -3709,6 +3796,10 @@ Sitemap: {DOMAIN}/sitemap-images.xml
           '<urlset xmlns="http://www.sitemaps.org/schemas/sitemap/0.9" '
           'xmlns:image="http://www.google.com/schemas/sitemap-image/1.1">'
           + ''.join(image_urls) + '</urlset>')
+
+    # Google Merchant Center feed - the only way these products reach the
+    # Shopping tab. One <item> per live design, same catalogue as the sitemap.
+    shopping_feed()
     # Neutral mark: the same near-black square + white glyph as the header
     # logo. The old orange football was the last piece of the retired
     # orange-on-black identity and it clashed with the white storefront.

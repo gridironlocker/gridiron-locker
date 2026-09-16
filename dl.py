@@ -119,3 +119,51 @@ try:
 except Exception:
     pass
 json.dump(P,open('data/products_live.json','w'),indent=1)
+
+# --- Mayzing mockups (Cleveland/Browns + Michigan) -------------------------
+# Those catalogues (data/mayzing_products.json, data/mayzing_michigan.json)
+# hot-link their mockups from the Mayzing CDN with signed URLs (the "sig:"
+# path segment) that EXPIRE. Once a signature dies, 37 product pages and the
+# Google Shopping feed (site/products.xml) lose their images at once. So
+# localise them exactly like the Viralstyle assets above: download, convert to
+# .webp, and point the img map at the local file. Best-effort per image: a
+# failed download keeps the remote URL in place (build.py still accepts
+# https:// as a fallback), so this pass can never strand a product without
+# imagery.
+for fname in ('data/mayzing_products.json', 'data/mayzing_michigan.json'):
+    try:
+        with open(fname, encoding='utf-8') as fh:
+            doc = json.load(fh)
+        touched = 0
+        for m in doc.get('products', []):
+            slug = m.get('slug')
+            img = m.get('img') or {}
+            for tag, u in list(img.items()):
+                if not isinstance(u, str) or not u.startswith('https://'):
+                    continue
+                jpg = f'site/img/p/{slug}-{tag}.jpg'
+                webp = jpg[:-4] + '.webp'
+                if os.path.exists(webp) and os.path.getsize(webp) > 1000:
+                    img[tag] = webp.replace('site/', '/')
+                    touched += 1
+                    continue
+                data = None
+                try:
+                    r = S.get(u, timeout=90)
+                    if r.status_code == 200 and len(r.content) > 3000:
+                        data = r.content
+                except Exception:
+                    pass
+                if data:
+                    open(jpg, 'wb').write(data)
+                    if to_webp(jpg):
+                        img[tag] = webp.replace('site/', '/')
+                        touched += 1
+        if touched:
+            with open(fname, 'w', encoding='utf-8') as fh:
+                json.dump(doc, fh, indent=1)
+            print(f'{fname}: pointed {touched} Mayzing mockup(s) at local files')
+        else:
+            print(f'{fname}: no new Mayzing mockups localised (already local, or downloads failed)')
+    except Exception as e:
+        print(f'{fname}: Mayzing localisation failed, keeping existing images: {e}')
