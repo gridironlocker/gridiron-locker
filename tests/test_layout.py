@@ -56,14 +56,9 @@ import landing  # noqa: E402
 
 CTA, CTA_HOVER = "#49a59c", "#3a847d"
 
-#: How stale the committed build may be before this suite says so.
-#:
-#: refresh.yml rebuilds and re-stamps every date twice a day (06:15 and 15:15
-#: UTC), so a healthy repo is never more than a day behind. Two days of slack
-#: absorbs the one benign case - a run between midnight UTC and the 06:15
-#: refresh, when the build is legitimately stamped with yesterday's date -
-#: while still failing fast if the refresh pipeline dies.
-MAX_BUILD_AGE_DAYS = 2
+# Sitemap dates are source metadata and are intentionally not treated as a
+# build heartbeat.  The live health check validates their format/non-future
+# property; this layout suite validates the rendered site and schema invariants.
 
 
 def iso_date(value, ctx=""):
@@ -82,10 +77,12 @@ def iso_date(value, ctx=""):
 def utc_today():
     """Today in UTC - the clock the build and the refresh cron both run on.
 
-    ``src/build.py`` stamps ``validFrom`` / ``lastmod`` / ``datePublished`` from
-    ``build.utc_today()``. Comparing against the *local* date here would make
-    this suite disagree with the artefact for part of every day on any machine
-    that is not on UTC (the operator is on Africa/Casablanca, UTC+1).
+    ``src/build.py`` stamps dynamic schema dates from ``build.utc_today()``.
+    Sitemap ``lastmod`` is deliberately different: it comes from source
+    metadata and is tested as a stable page date in ``tests/test_sitemap.py``.
+    Comparing dynamic dates against the *local* date here would make this suite
+    disagree with the artefact for part of every day on any machine that is not
+    on UTC (the operator is on Africa/Casablanca, UTC+1).
     """
     return datetime.datetime.now(datetime.timezone.utc).date()
 
@@ -172,9 +169,10 @@ class BuildFreshness(unittest.TestCase):
     inside a merchant-schema test, so a missed refresh reported itself as
     "Product schema is wrong on 84 pages", which sends you to the wrong file.
 
-    The dates come from ``site/sitemap.xml`` because the build stamps every
-    ``<lastmod>`` with the same ``TODAY`` it puts in ``validFrom``, so the
-    sitemap is the artefact's own record of when it was generated.
+    The dates come from ``site/sitemap.xml`` and are expected to vary by page.
+    A separate sitemap regression test checks source-date selection and build
+    determinism; this class only checks that committed dates are valid and not
+    accidentally in the future.
     """
 
     @classmethod
@@ -182,35 +180,19 @@ class BuildFreshness(unittest.TestCase):
         cls.sitemap = page("sitemap.xml")
         cls.stamps = sorted(set(re.findall(r"<lastmod>([^<]+)</lastmod>", cls.sitemap)))
 
-    def test_sitemap_carries_a_single_build_stamp(self):
+    def test_sitemap_has_page_specific_source_dates(self):
         self.assertTrue(self.stamps, "sitemap.xml has no <lastmod> entries")
-        self.assertEqual(
+        self.assertGreater(
             len(self.stamps), 1,
-            "sitemap.xml carries more than one build date "
-            f"({', '.join(self.stamps)}); one build stamps every <lastmod> with "
-            "the same date, so a mix means pages from two different builds are "
-            "committed together")
+            "sitemap.xml unexpectedly uses one build date for every URL; "
+            "lastmod must represent page/source changes")
 
-    def test_build_is_not_from_the_future(self):
-        stamp = iso_date(self.stamps[0], "sitemap lastmod")
-        self.assertLessEqual(
-            stamp, utc_today(),
-            f"the committed site is dated {stamp}, which is in the future "
-            f"(today in UTC is {utc_today()}); check the machine clock or the "
-            "timezone src/build.py is stamping from")
-
-    def test_committed_build_is_recent(self):
-        stamp = iso_date(self.stamps[0], "sitemap lastmod")
-        age = (utc_today() - stamp).days
-        self.assertLessEqual(
-            age, MAX_BUILD_AGE_DAYS,
-            f"STALE BUILD: site/ was generated {stamp} ({age} days ago) and "
-            f"refresh.yml should have rebuilt it today. This is not a layout or "
-            f"schema defect - the daily refresh pipeline has stopped landing. "
-            f"Check the 'Refresh trends & redeploy' runs in GitHub Actions "
-            f"(its trend-freshness gate fails the run if data/trends.json was "
-            f"not regenerated), then run: python3 src/trends.py && "
-            f"python3 src/build.py")
+    def test_sitemap_dates_are_not_from_the_future(self):
+        for stamp in self.stamps:
+            self.assertLessEqual(
+                iso_date(stamp, "sitemap lastmod"), utc_today(),
+                f"the committed sitemap contains future date {stamp}; check "
+                "the source metadata and UTC clock")
 
 
 class CTAColours(unittest.TestCase):

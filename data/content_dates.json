@@ -1,0 +1,8 @@
+{
+  "_doc": "Stable content dates used by src/build.py for sitemap.xml and sitemap-images.xml. These are source-data dates, not build dates: a rebuild without a source change must not move <lastmod>. Product dates are recorded only when the repository has a reliable publication/capture date. Products without one use the documented fallback. Add or update an entry when a source record's meaningful content date is verified; do not set entries to the day of an unrelated rebuild.",
+  "fallback": "2026-09-01",
+  "fallback_reason": "The older Viralstyle crawl has no per-campaign created/updated timestamp. This conservative, repository-stable baseline is used instead of claiming that those pages changed on every build.",
+  "products": {
+    "limited-edition-no-fly-zone": "2026-09-10"
+  }
+}
