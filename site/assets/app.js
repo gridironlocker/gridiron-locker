@@ -103,6 +103,18 @@ document.querySelectorAll('a.shopnow').forEach(function(a){
   });
 });
 
+// ---------- custom-design CTA tracking ----------
+// The secondary funnel (nav, footer, PDP band, collection band, contact
+// page) all point at the homepage form via a.custom-link. One event with a
+// placement dimension shows which entry point earns the inquiry.
+document.querySelectorAll('a.custom-link').forEach(function(a){
+  a.addEventListener('click',function(){
+    try{gtag('event','custom_cta_click',{
+      placement:(a.dataset&&a.dataset.placement)||'unknown',page:location.pathname
+    });}catch(e){}
+  });
+});
+
 // ---------- product landing analytics ----------
 (function(){
   var page=document.querySelector('main.pdp-page');
@@ -150,6 +162,10 @@ document.querySelectorAll('a.shopnow').forEach(function(a){
     try{
       fetch(form.action,{method:'POST',body:data,mode:'no-cors'}).then(function(){
         ok=true;
+        try{gtag('event','custom_design_submit',{
+          team:form.querySelector('select[name=team]').value||'',
+          garment:form.querySelector('select[name=garment]').value||''
+        });}catch(e){}
         if(msg)msg.textContent='Thank you '+name+'! Your idea is on its way. We will reply to '+email+' within 1-2 days.';
         form.reset(); if(btn)btn.disabled=false;
       }).catch(function(){fallback()});
@@ -159,7 +175,7 @@ document.querySelectorAll('a.shopnow').forEach(function(a){
       // read() tolerates a field that is not on this version of the form -
       // the mailto fallback must never throw, it is the last resort.
       function read(sel){var el=form.querySelector(sel);return el?el.value:'';}
-      var body='Name: '+name+'\nEmail: '+email+'\nTeam/theme: '+read('select[name=team]')+'\nGarment: '+read('select[name=garment]')+'\nIdea: '+idea+'\nDetails: '+read('textarea[name=details]');
+      var body='Name: '+name+'\nEmail: '+email+'\nTeam/theme: '+read('select[name=team]')+'\nGarment: '+read('select[name=garment]')+'\nIdea: '+idea+'\nPreferred colors: '+read('input[name=colors]')+'\nDetails: '+read('textarea[name=details]');
       window.location.href='mailto:'+atob(CUSTOM_EMAIL)+'?subject='+encodeURIComponent('Custom Design Request from '+name)+'&body='+encodeURIComponent(body);
       if(msg)msg.textContent='Opening your email app with your request - hit send and we will get back to you within 1-2 days.';
     }
@@ -305,6 +321,7 @@ document.querySelectorAll('a.shopnow').forEach(function(a){
     if(btn)btn.disabled=true;
     if(msg){msg.style.color='';msg.textContent='Joining the locker...';}
     fetch(form.action,{method:'POST',body:new FormData(form),mode:'no-cors'}).then(function(){
+      try{gtag('event','newsletter_signup',{page:location.pathname});}catch(e){}
       if(msg)msg.textContent='Welcome to the locker. Check your inbox to confirm.';
       form.reset(); if(btn)btn.disabled=false;
     }).catch(function(){

@@ -862,11 +862,14 @@ def head(title, desc, path, image=None, schema=None, keywords=None, col=None,
 <meta property="og:url" content="{canon}">
 <meta property="og:image" content="{img}">
 <meta name="twitter:card" content="summary_large_image">
+<meta name="twitter:site" content="{esc(CFG['twitter'])}">
 <meta name="twitter:title" content="{esc(title)}">
 <meta name="twitter:description" content="{esc(desc)}">
 <meta name="twitter:image" content="{img}">
 <meta name="theme-color" content="#ffffff">
 <link rel="icon" href="/img/favicon.svg" type="image/svg+xml">
+<link rel="preconnect" href="https://fonts.googleapis.com">
+<link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
 <link rel="stylesheet" href="/assets/style.css?v={STYLE_VERSION}">
 <script>document.documentElement.className+=" js"</script>
 {acc}
@@ -905,11 +908,12 @@ def header(active=""):
     """Site header, shared by every page.
 
     Two rows: the logo row (logo + search), then a FULL-WIDTH menu bar that
-    stays visible at every viewport. The bar is the eight shopping
+    stays visible at every viewport. The bar is the nine shopping
     destinations - All Collections, the four teams, Trending (/drops/, the
     store-wide headline-scored entry point for visitors with no team
-    preference), Guides and Shop The Locker - centred, and it scrolls
-    sideways when they no longer fit instead of collapsing into a hamburger.
+    preference), Guides, Shop The Locker and Custom Design - centred, and it
+    scrolls sideways when they no longer fit instead of collapsing into a
+    hamburger.
     Phones previously buried the store's main entrances behind a burger tap;
     the bar keeps them one glance away. Secondary destinations (Home, 2026
     Season Hub, Fan Trend Index, Buying Guides, Size Guide, Shipping, About)
@@ -963,6 +967,7 @@ def header(active=""):
    <a href="/drops/">Trending</a>
    <a href="/guides/">Guides</a>
    <a href="/#shop-the-locker">Shop The Locker</a>
+   <a class="custom-link" data-placement="nav" href="/#custom-design">Custom Design</a>
   </div>
  </nav>
  <div class="mobsearch" id="ms"><span class="gs"><input class="gsearch" type="search"
@@ -1238,10 +1243,21 @@ def team_section(k, limit=4, exclude=()):
 
 
 def trust():
+    """Purchase-confidence strip: four factual cells, no invented claims.
+
+    This renders on the homepage and above every collection grid, so every
+    cell must be true site-wide. It previously hard-coded "S - 3XL" (the
+    Mayzing blanks sell S-5XL, so that understated a third of the catalogue)
+    and claimed "Premium Fan Art" (an unsupported quality superlative).
+    Sizes are stated data-driven where they belong (hero facts, collection
+    prose, product pages); here the strip answers "why trust this store" in
+    the brand's own supported language: fan-made, made to order, worldwide
+    shipping, secure checkout.
+    """
     return """<div class="trust">
+ <div><b>Fan-Made Designs</b>Original artwork</div>
+ <div><b>Made To Order</b>Printed after you order</div>
  <div><b>Worldwide Shipping</b>Tracked to your door</div>
- <div><b>S &ndash; 3XL</b>Unisex &amp; women's cuts</div>
- <div><b>Premium Fan Art</b>Original designs</div>
  <div><b>Secure Checkout</b>Card &amp; PayPal</div>
 </div>"""
 
@@ -1290,7 +1306,7 @@ def footer(popup=True):
    <div><h2>Help</h2><a href="/faq/">FAQ</a><a href="/shipping/">Shipping</a>
     <a href="/shipping/">Returns</a><a href="/size-guide/">Size Guide</a>
     <a href="/contact/">Contact</a></div>
-   <div><h2>Brand</h2><a href="/about/">About</a><a href="/#custom-design">Custom Design</a>
+   <div><h2>Brand</h2><a href="/about/">About</a><a class="custom-link" data-placement="footer" href="/#custom-design">Custom Design</a>
     <a href="/guides/">Buying Guides</a><a href="/2026-season/">2026 Season</a>
     <a href="/fan-trend-index/">Fan Trend Index</a></div>
    <div><h2>Compliance</h2><a href="/trademark-notice/">Trademark Notice</a>
@@ -1663,10 +1679,11 @@ def guide_grid():
 
 
 def custom_design():
-    """Compact custom-design section. The form is unchanged - same field
-    names, same FormSubmit hidden inputs, same #customForm / #formmsg hooks
-    app.js binds to - it is only re-framed so it reads as one confident
-    offer instead of a second storefront."""
+    """Compact custom-design section. The form keeps its field names,
+    FormSubmit hidden inputs and #customForm / #formmsg hooks (plus one
+    optional "colors" input the mailto fallback also reads) - it is only
+    re-framed so it reads as one confident offer: you dream it, we design
+    it, with the four things to send listed up front."""
     return f"""<section class="customsec" id="custom-design"><div class="wrap">
  <div class="customrow reveal">
   <div class="customimg">
@@ -1674,15 +1691,23 @@ def custom_design():
     loading="lazy" decoding="async" width="1024" height="1536">
   </div>
   <div class="customform">
-   <span class="eyebrow"><span class="dot"></span> Made to order</span>
+   <span class="eyebrow"><span class="dot"></span> Custom football designs</span>
    <h2>Your idea.<br>Your colors.<br><span class="accentword">Your game day.</span></h2>
-   <p class="cf-lead">Want something different? A nickname, a catchphrase, a family crest, a
-   group slogan, a memorial, a gift for your crew - we turn it into original fan apparel you can
-   buy one at a time.</p>
+   <p class="cf-dream"><strong>You dream it. We design it.</strong></p>
+   <p class="cf-lead">Have an idea for a shirt? A nickname, a catchphrase, a family motto, a
+   group slogan &mdash; tell us the team, the colors, the phrase and the idea, and we turn it
+   into original fan apparel you can buy one at a time.</p>
+   <ul class="cf-points">
+    <li><b>Team</b>Your side</li>
+    <li><b>Colors</b>Your palette</li>
+    <li><b>Phrase</b>Your wording</li>
+    <li><b>Idea</b>Your story</li>
+   </ul>
    <form id="customForm"
          method="POST" data-formsubmit="1" aria-label="Custom design request form" novalidate>
     <div class="cf-head">Tell us about your idea</div>
-    <p class="cf-sub">Send us the details and we'll reply with a proof and a price.</p>
+    <p class="cf-sub">A free inquiry, not an order &mdash; send the details and we&rsquo;ll reply
+    with a proof and a price.</p>
     <input type="hidden" name="_subject" value="New Custom Design Request from your website">
     <input type="hidden" name="_template" value="table">
     <input type="hidden" name="_captcha" value="false">
@@ -1702,6 +1727,8 @@ def custom_design():
     </div>
     <label>Your idea<input type="text" name="idea" required
      placeholder="e.g. 'GO BROWNS', a nickname, a catchphrase"></label>
+    <label>Preferred colors (optional)<input type="text" name="colors"
+     placeholder="e.g. orange and brown, maize and blue" autocomplete="off"></label>
     <label>Anything else?<textarea name="details" rows="3"
      placeholder="Sizes, quantity, or the story behind the design (optional)"></textarea></label>
     <button class="btn block lg" type="submit">Request Custom Apparel &rarr;</button>
@@ -2121,6 +2148,20 @@ def page_collection(k):
  <h2 class="sr-only">Collection Designs</h2>
  <div class="grid" id="pg">{cards}</div>
  <p class="muted center" id="nores" style="display:none;padding:40px 0">No designs match that search.</p>
+</div></section>
+<section class="customband"><div class="wrap">
+ <div class="customband-in">
+  <div>
+   <span class="eyebrow"><span class="dot"></span> Custom football designs</span>
+   <h2>Your Team. Your Colors. Your Phrase.</h2>
+   <p>Have a {esc(c['short'])} idea you don&rsquo;t see above? Tell us the team, the colors,
+   the phrase and the story &mdash; we turn it into an original one-off graphic.
+   <strong>You dream it. We design it.</strong></p>
+  </div>
+  <div class="customband-act">
+   <a class="link custom-link" data-placement="collection_band" href="/#custom-design">Start a custom design &rarr;</a>
+  </div>
+ </div>
 </div></section>
 <section style="border-top:1px solid var(--line)"><div class="wrap prose reveal">
  <h2>{esc(c['short'])} In The 2026 Season</h2>
@@ -2580,13 +2621,15 @@ def page_product(it):
   <div class="pricerow"><span class="pricebig">${price}</span>
    <span class="pricefrom">starting price &middot; set by style on {it['partner']}</span></div>
   {trendhtml}
+  {shop_now_cta(it, "hero")}
+  <p class="handoff-note">Checkout happens on {it['partner']} &mdash; pick your garment style,
+   colour and size there.</p>
   <ul class="atglance">
    <li><b>Design</b>{esc(_l.title_case_art(it['art']))}</li>
    <li><b>Apparel</b>{style_badge}</li>
    <li><b>Colours</b>{colour_badge}</li>
    <li><b>Sizes</b>{size_badge}</li>
   </ul>
-  {shop_now_cta(it, "hero")}
   <div class="badges">{partner_ship_badges(it['partner'])}</div>
   <p class="muted small">Jump to: <a href="#colours">colourways</a> &middot;
    <a href="#apparel">apparel</a> &middot; <a href="#story">story</a> &middot;
@@ -2654,6 +2697,20 @@ def page_product(it):
   </div>
   <div class="ctaband-act">
    {shop_now_cta(it, "footer_band")}
+  </div>
+ </div>
+</div></section>
+
+<section class="customband"><div class="wrap">
+ <div class="customband-in">
+  <div>
+   <span class="eyebrow"><span class="dot"></span> Custom football designs</span>
+   <h2>Want It With Your Name On It?</h2>
+   <p>We also turn fan ideas into original one-off graphics &mdash; your team,
+   your colors, your phrase. <strong>You dream it. We design it.</strong></p>
+  </div>
+  <div class="customband-act">
+   <a class="link custom-link" data-placement="pdp_band" href="/#custom-design">Start a custom design &rarr;</a>
   </div>
  </div>
 </div></section>
@@ -2875,7 +2932,7 @@ it deleted.</p>""", "0.3")
         "Get in touch about an order, a sizing question, a custom fan design request or a trademark "
         "concern.", "Contact Us", f"""
 <p>We are a small team and we answer every email.</p>
-<div class="panel"><h2>Contact form</h2><p>Use the <a href="../#customForm" style="color:var(--accent)">custom design form on the home page</a> - every message lands straight with us.</p>
+<div class="panel"><h2>Contact form</h2><p>Use the <a class="custom-link" data-placement="contact_page" href="/#custom-design" style="color:var(--accent)">custom design form on the home page</a> - every message lands straight with us.</p>
 <p class="muted">Include your order number if your question is about a delivery.</p></div>
 <h2>What to contact us about</h2>
 <ul>
@@ -3843,6 +3900,18 @@ document.querySelectorAll('a.shopnow').forEach(function(a){
   });
 });
 
+// ---------- custom-design CTA tracking ----------
+// The secondary funnel (nav, footer, PDP band, collection band, contact
+// page) all point at the homepage form via a.custom-link. One event with a
+// placement dimension shows which entry point earns the inquiry.
+document.querySelectorAll('a.custom-link').forEach(function(a){
+  a.addEventListener('click',function(){
+    try{gtag('event','custom_cta_click',{
+      placement:(a.dataset&&a.dataset.placement)||'unknown',page:location.pathname
+    });}catch(e){}
+  });
+});
+
 // ---------- product landing analytics ----------
 (function(){
   var page=document.querySelector('main.pdp-page');
@@ -3890,6 +3959,10 @@ document.querySelectorAll('a.shopnow').forEach(function(a){
     try{
       fetch(form.action,{method:'POST',body:data,mode:'no-cors'}).then(function(){
         ok=true;
+        try{gtag('event','custom_design_submit',{
+          team:form.querySelector('select[name=team]').value||'',
+          garment:form.querySelector('select[name=garment]').value||''
+        });}catch(e){}
         if(msg)msg.textContent='Thank you '+name+'! Your idea is on its way. We will reply to '+email+' within 1-2 days.';
         form.reset(); if(btn)btn.disabled=false;
       }).catch(function(){fallback()});
@@ -3899,7 +3972,7 @@ document.querySelectorAll('a.shopnow').forEach(function(a){
       // read() tolerates a field that is not on this version of the form -
       // the mailto fallback must never throw, it is the last resort.
       function read(sel){var el=form.querySelector(sel);return el?el.value:'';}
-      var body='Name: '+name+'\\nEmail: '+email+'\\nTeam/theme: '+read('select[name=team]')+'\\nGarment: '+read('select[name=garment]')+'\\nIdea: '+idea+'\\nDetails: '+read('textarea[name=details]');
+      var body='Name: '+name+'\\nEmail: '+email+'\\nTeam/theme: '+read('select[name=team]')+'\\nGarment: '+read('select[name=garment]')+'\\nIdea: '+idea+'\\nPreferred colors: '+read('input[name=colors]')+'\\nDetails: '+read('textarea[name=details]');
       window.location.href='mailto:'+atob(CUSTOM_EMAIL)+'?subject='+encodeURIComponent('Custom Design Request from '+name)+'&body='+encodeURIComponent(body);
       if(msg)msg.textContent='Opening your email app with your request - hit send and we will get back to you within 1-2 days.';
     }
@@ -4045,6 +4118,7 @@ document.querySelectorAll('a.shopnow').forEach(function(a){
     if(btn)btn.disabled=true;
     if(msg){msg.style.color='';msg.textContent='Joining the locker...';}
     fetch(form.action,{method:'POST',body:new FormData(form),mode:'no-cors'}).then(function(){
+      try{gtag('event','newsletter_signup',{page:location.pathname});}catch(e){}
       if(msg)msg.textContent='Welcome to the locker. Check your inbox to confirm.';
       form.reset(); if(btn)btn.disabled=false;
     }).catch(function(){
