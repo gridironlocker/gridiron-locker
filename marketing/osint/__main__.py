@@ -11,28 +11,20 @@
     python3 -m marketing.osint status --id N --to CONTACTED
     python3 -m marketing.osint report
     python3 -m marketing.osint cleanup [--days 180] [--apply]
-    python3 -m marketing.osint ui [--port 8520]
-    python3 -m marketing.osint build-page   (needs OSINT_PAGE_PASSWORD)
-    python3 -m marketing.osint audit
 
-Collection commands write ONLY under marketing/osint/state and
+All commands write ONLY under marketing/osint/state and
 marketing/osint/exports (or OSINT_STATE_DIR / OSINT_EXPORTS_DIR).
-build-page additionally writes the committed aggregate file
-marketing/osint/page/prospects.json — counts + password hash, no PII.
-Nothing in this package writes to site/ or data/, ever.
 """
 from __future__ import annotations
 
 import argparse
 import json
-import os
 import sys
 from pathlib import Path
 
 from . import (
-    PROSPECT_TYPES, STATUSES, audit as audit_mod, cleanup, config, db, engine,
-    exporters, importers, page as page_mod, report as report_mod, scoring,
-    suppression, ui as ui_mod,
+    PROSPECT_TYPES, STATUSES, cleanup, config, db, engine, exporters,
+    importers, report as report_mod, scoring, suppression,
 )
 
 
@@ -286,39 +278,6 @@ def cmd_list(args) -> int:
     return 0
 
 
-def cmd_ui(args) -> int:
-    _repo().conn.close()  # fail fast if the database cannot open
-    token = args.token or os.environ.get("OSINT_UI_TOKEN") or ui_mod.new_token()
-    try:
-        return ui_mod.serve(
-            args.host, args.port, token,
-            lambda: db.Repository(db.connect()),
-            open_browser=args.open,
-        )
-    except OSError as err:
-        raise SystemExit(f"cannot serve the dashboard: {err}")
-
-
-def cmd_build_page(args) -> int:
-    repo = _repo()
-    password = page_mod.require_password()
-    data = page_mod.build_page_data(repo, password)
-    problems = page_mod.validate_page_data(data)
-    if problems:
-        raise SystemExit("built page data failed validation:\n  - " + "\n  - ".join(problems))
-    out = page_mod.write_page_data(data)
-    totals = data["totals"]
-    print(f"Page data: {totals['prospects']} prospects "
-          f"({totals['with_public_email']} with email) -> {out}")
-    print("Aggregate-only (counts + password hash, no PII). Next:")
-    print("  python3 src/prospects_page.py   # re-emit ops/prospects/ + site/ops/prospects/")
-    return 0
-
-
-def cmd_audit(args) -> int:
-    return audit_mod.main()
-
-
 def build_parser() -> argparse.ArgumentParser:
     parser = argparse.ArgumentParser(
         prog="python3 -m marketing.osint",
@@ -398,20 +357,6 @@ def build_parser() -> argparse.ArgumentParser:
     p.add_argument("--all", action="store_true", help="include suppressed rows")
     p.add_argument("--mask", action="store_true", default=True)
     p.set_defaults(func=cmd_list)
-
-    p = sub.add_parser("ui", help="private local dashboard (token-gated, 127.0.0.1)")
-    p.add_argument("--host", default="127.0.0.1",
-                   help="bind address (default 127.0.0.1; 0.0.0.0 for sandbox previews only)")
-    p.add_argument("--port", type=int, default=8520)
-    p.add_argument("--token", help="dashboard token (default: OSINT_UI_TOKEN or random)")
-    p.add_argument("--open", action="store_true", help="open the dashboard in a browser")
-    p.set_defaults(func=cmd_ui)
-
-    p = sub.add_parser("build-page", help="rebuild committed aggregate page data")
-    p.set_defaults(func=cmd_build_page)
-
-    p = sub.add_parser("audit", help="safety audit: no prospect data in the public tree")
-    p.set_defaults(func=cmd_audit)
 
     return parser
 

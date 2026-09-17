@@ -10,14 +10,9 @@ Command line (run from the repository root):
     python3 -m marketing.osint export
     python3 -m marketing.osint stats
     python3 -m marketing.osint verify
-    python3 -m marketing.osint ui          # private local dashboard (token-gated)
-    python3 -m marketing.osint build-page  # committed aggregate page data (needs OSINT_PAGE_PASSWORD)
-    python3 -m marketing.osint audit       # safety audit: no prospect data in the public tree
 
 This package NEVER sends email, never writes to data/ and never writes to
-site/. Collection state lives under marketing/osint/state/ (gitignored);
-the only committed output is the aggregate-only marketing/osint/page/prospects.json
-(counts + page-password hash, no PII), rendered by src/prospects_page.py.
+site/. All state lives under marketing/osint/state/ (gitignored).
 """
 
 __version__ = "1.0.0"

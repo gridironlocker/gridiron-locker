@@ -58,9 +58,6 @@ jobs:
       - name: Pipeline health checks
         run: python3 -m marketing.osint verify
 
-      - name: Safety audit (no prospect data in the public tree)
-        run: python3 -m marketing.osint audit
-
       - name: Live smoke run (real public sources, throwaway database)
         env:
           # belt and braces: even if the live run ignored its temp state,
