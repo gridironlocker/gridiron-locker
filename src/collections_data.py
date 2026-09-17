@@ -51,8 +51,8 @@ COLLECTIONS = {
         name="Cleveland Browns Fan Shirts",
         short="Cleveland",
         menu="Browns",
-        h1="Cleveland Browns Fan Shirts & Dawg Pound Apparel",
-        title="Cleveland Browns Fan Shirts, Hoodies & Dawg Pound Gear",
+        h1="Cleveland Browns Fan Shirts & Dawg Pound Tees",
+        title="Cleveland Browns Fan Shirts & Dawg Pound Tees",
         city="Cleveland, Ohio",
         team="Browns",
         nick="Dawg Pound",
@@ -63,7 +63,7 @@ COLLECTIONS = {
         accent_tint="#FDF3EE",
         btn_hover="#A83608",
         vs_name="ORANGE AND BROWN COLLECTION",
-        banner='Orange and brown Dawg Pound apparel - bulldog graphics, Cleveland skylines, playoff slogans and quarterback tributes, printed on tees, hoodies, crewnecks, beanies and mugs.',
+        banner='Orange and brown Dawg Pound fan art - bulldog graphics, Cleveland skylines, playoff slogans and quarterback tributes, printed on campaign-specific tees.',
         ink="#ffffff",
         hero="/img/hero-cleveland.jpg?v=4",
         logo="/img/browns-logo1.webp?v=1",
@@ -80,15 +80,15 @@ COLLECTIONS = {
         position="Built for the Dawg Pound.",
         keywords=[
             "cleveland browns shirts", "dawg pound shirt", "browns fan gear",
-            "cleveland football t-shirt", "browns hoodie", "cleveland ohio apparel",
-            "browns gifts for men", "cleveland browns womens shirt",
+            "cleveland football t-shirt", "cleveland ohio apparel", "browns slogan shirt",
+            "browns gifts for men",
         ],
         intro=(
             "Every design in this collection is drawn, printed and shipped for the people who "
             "still show up when it is 19 degrees and sleeting off Lake Erie. This is "
             "{nick} apparel for the loyal: bulldog graphics, {city} skylines, playoff slogans, "
-            "coach humour and quarterback tributes, printed on soft ring-spun cotton tees, "
-            "heavyweight hoodies, crewnecks, beanies and mugs."
+            "coach humour and quarterback tributes, printed on soft ring-spun cotton tees in the "
+            "colourways published for each campaign."
         ),
         lore=[
             "Orange and brown is not an easy colour combination to love, and that is exactly the point.",
@@ -197,8 +197,8 @@ COLLECTIONS = {
         slug="michigan-wolverines-shirts",
         name="Michigan Go Blue Apparel",
         short="Michigan",
-        h1="Michigan Football Shirts, Go Blue Tees & Sweatshirts",
-        title="Michigan Football Shirts, Go Blue Tees & Sweatshirts",
+        h1="Michigan Football Shirts, Go Blue Tees & Slogan Tees",
+        title="Michigan Football Shirts, Go Blue Tees & Slogan Tees",
         city="Ann Arbor, Michigan",
         team="Michigan",
         nick="Go Blue faithful",
@@ -209,7 +209,7 @@ COLLECTIONS = {
         accent_tint="#F2F5F9",
         btn_hover="#001B36",
         vs_name="MAIZE & NAVY",
-        banner='Vintage-inspired football gear built for Saturdays in Ann Arbor - worn-in athletic prints, block lettering, classic maize and navy, timeless gridiron energy.',
+        banner='Vintage-inspired football tees built for Saturdays in Ann Arbor - worn-in athletic prints, block lettering, classic maize and navy, timeless gridiron energy.',
         ink="#ffffff",
         hero="/img/hero-michigan.jpg?v=4",
         logo="/img/michigan-logo1.webp?v=1",
@@ -219,22 +219,22 @@ COLLECTIONS = {
         position="Saturdays in Ann Arbor start here.",
         keywords=[
             "michigan football shirt", "go blue t-shirt", "michigan vs everybody shirt",
-            "jj mccarthy shirt", "michigan sweatshirt", "ann arbor apparel",
+            "bryce underwood shirt", "michigan slogan tee", "ann arbor apparel",
             "michigan wolverines gifts", "maize and blue tee",
         ],
         intro=(
-            "Maize and blue, block lettering and zero apologies. Heavyweight crewnecks and tees "
-            "built around the phrases {short} fans actually shout: Michigan vs Everybody, "
+            "Maize and blue, block lettering and zero apologies. Classic unisex tees built around "
+            "the phrases {short} fans actually shout: Michigan vs Everybody, "
             "Revenge Tour, Victory Sunday and Bet."
         ),
         lore=[
             "Michigan vs Everybody is less a slogan than a weather report in Ann Arbor.",
             "The winged helmet is the most recognisable silhouette in college football.",
-            "Heavy navy crewnecks are the unofficial uniform of a Big Ten November.",
+            "Navy tees are an easy layer for a Big Ten Saturday, from the tailgate to the final whistle.",
         ],
         faq_extra=[
-            ("Do the Michigan designs run big?",
-             "The crewneck sweatshirts in this collection are unisex and roomy. If you want a slim fit, order one size down; if you are layering over a hoodie, keep your normal size."),
+            ("What fit do the Michigan tees use?",
+             "The Mayzing campaign lists a classic unisex tee fit. Check each product page and the size guide before ordering; if you are between sizes or layering, go up one."),
         ],
     ),
 }
@@ -247,7 +247,7 @@ ORDER = ["cleveland-browns", "green-bay-packers", "dallas-cowboys", "michigan"]
 # upcoming). `result` is set once a game is complete so date-sensitive pages
 # can render a recap instead of a countdown. When the next fixture happens,
 # update this dict - every page reads it, so nothing else has to change.
-SEASON = {'cleveland-browns': {'status': 'Todd Monken has named his captains for Week 1.', 'headline': 'Cleveland opens the season at Jacksonville with Sanders and Watson leading the QB room.', 'kickoff': '2026-09-13T13:00:00-04:00', 'opener': 'Week 1 &middot; Sept 13 at Jacksonville', 'hot': ['shedeur sanders shirt', 'sanders browns qb shirt', 'browns qb1 2026 shirt', 'sanders 2026 tee'], 'legacy_note': 'Designs for departed players and coaches - Joe Flacco, Myles Garrett and Kevin Stefanski - were retired ahead of the 2026 season; Garrett was traded in June 2026 and Todd Monken took over as head coach.', 'result': ''}, 'green-bay-packers': {'status': 'Jordan Love enters 2026 as QB1 with Josh Jacobs carrying the run game.', 'headline': 'Green Bay opens Week 1 at Minnesota with Love under centre.', 'kickoff': '2026-09-13T16:25:00-05:00', 'opener': 'Week 1 &middot; Sept 13 at Minnesota', 'hot': ['jordan love 2026 shirt', 'packers 2026 shirt', 'go pack go 2026 tee', 'packers week 1 shirt'], 'legacy_note': '', 'result': ''}, 'dallas-cowboys': {'status': 'Dallas opens in prime time on Sunday night.', 'headline': 'Dallas kicks off 2026 on Sunday night at the Giants.', 'kickoff': '2026-09-13T20:20:00-05:00', 'opener': 'Week 1 &middot; Sept 13 at NY Giants (SNF)', 'hot': ['dallas 2026 shirt', 'cowboys week 1 shirt', 'dallas football 2026 tee', 'texas football shirt 2026'], 'legacy_note': '', 'result': ''}, 'michigan': {'status': 'The Wolverines host No. 11 Oklahoma on Saturday.', 'headline': 'Michigan opened 2026 with a last-second Hail Mary win over Western Michigan.', 'kickoff': '2026-09-05T19:30:00-04:00', 'opener': 'Final &middot; Sept 5 vs Western Michigan', 'hot': ['bryce underwood shirt', 'michigan 2026 shirt', 'go blue 2026 tee', 'michigan football 2026 shirt'], 'legacy_note': 'J.J. McCarthy designs were retired - Bryce Underwood is the current QB and a 2026 team captain.', 'result': 'Michigan opened the 2026 season on Sept 5 with a Hail Mary win over Western Michigan. The Wolverines host No. 11 Oklahoma on Saturday.'}}
+SEASON = {'cleveland-browns': {'status': 'Cleveland travels to Tampa Bay for Week 2.', 'headline': 'Cleveland lost 34-10 at Jacksonville in Week 1.', 'kickoff': '2026-09-13T13:00:00-04:00', 'opener': 'Week 1 &middot; Sept 13 at Jacksonville', 'hot': ['shedeur sanders shirt', 'sanders browns qb shirt', 'browns qb1 2026 shirt', 'sanders 2026 tee'], 'legacy_note': 'Designs for departed players and coaches - Joe Flacco, Myles Garrett and Kevin Stefanski - were retired ahead of the 2026 season; Garrett was traded in June 2026 and Todd Monken took over as head coach.', 'result': 'Cleveland lost 34-10 at Jacksonville on Sept 13. Deshaun Watson started and is expected to start again in Week 2.'}, 'green-bay-packers': {'status': 'Green Bay travels to the New York Jets for Week 2.', 'headline': 'Green Bay lost 39-22 at Minnesota in Week 1.', 'kickoff': '2026-09-13T16:25:00-05:00', 'opener': 'Week 1 &middot; Sept 13 at Minnesota', 'hot': ['jordan love 2026 shirt', 'packers 2026 shirt', 'go pack go 2026 tee', 'packers week 1 shirt'], 'legacy_note': '', 'result': 'Green Bay lost 39-22 at Minnesota on Sept 13.'}, 'dallas-cowboys': {'status': 'Dallas hosts Washington in Week 2.', 'headline': 'Dallas lost 28-20 at the Giants in Week 1.', 'kickoff': '2026-09-13T20:20:00-05:00', 'opener': 'Week 1 &middot; Sept 13 at NY Giants (SNF)', 'hot': ['dallas 2026 shirt', 'cowboys week 1 shirt', 'dallas football 2026 tee', 'texas football shirt 2026'], 'legacy_note': '', 'result': 'Dallas lost 28-20 at the Giants on Sept 13.'}, 'michigan': {'status': 'Michigan hosts UTEP on Saturday.', 'headline': 'Michigan beat No. 11 Oklahoma 17-10 on Sept 12.', 'kickoff': '2026-09-05T19:30:00-04:00', 'opener': 'Final &middot; Sept 5 vs Western Michigan', 'hot': ['bryce underwood shirt', 'michigan 2026 shirt', 'go blue 2026 tee', 'michigan football 2026 shirt'], 'legacy_note': 'J.J. McCarthy designs were retired - Bryce Underwood is the current QB and a 2026 team captain.', 'result': 'Michigan beat No. 11 Oklahoma 17-10 on Sept 12 after opening the season with a last-second Hail Mary win over Western Michigan.'}}
 
 
 # ---------------------------------------------------------------- next game
