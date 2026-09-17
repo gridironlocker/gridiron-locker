@@ -23,6 +23,7 @@ The split is by *path*, not by topic, because paths are what actually collide:
 | `src/**` | **Arena** | The generator. Runtime is stdlib-only — do not add third-party imports. |
 | `artwork-source/**` | **Arena** | PNG masters. Never deployed. |
 | `marketing/**` | **ChatGPT** | Planners, generators, dashboards, social kit. |
+| `marketing/osint/**` | **Arena** (owner-directed) | Private prospect engine created 2026-09-17 at the owner's request; docs in `marketing/osint/README.md`. Its `state/` and `exports/` subdirs are gitignored and MUST stay that way — they hold prospect contact data. It never writes to `data/` or `site/`. `osint-verify.yml` commits/deploys nothing and must not join `pages-deploy`. |
 | `ops/**` | **shared** | `ops/health_check.py` = Arena. `ops/scout`, `ops/board`, `ops/marketing`, `ops/hq` are *generated* — see §3.4. |
 | `data/**` | **shared, read-mostly** | Written by the scrapers and by hand. See §3.2 — this is the most dangerous directory in the repo. |
 | `tests/**` | **split** | `test_layout.py`, `test_health_check.py` = Arena. `test_three_day_pulse.py`, `test_commercial_agent.py` = ChatGPT. `testutil.py` = shared contract. |

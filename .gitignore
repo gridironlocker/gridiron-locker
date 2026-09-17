@@ -13,3 +13,11 @@ site-offline/
 marketing/publish-results.json
 site/marketing/publish-results.json
 
+# PRIVATE OSINT prospect engine state — NEVER commit prospect data.
+# The refresh workflow commits with `git add -A`, so this guard is load-bearing.
+# Collected contact data is sensitive marketing data (see marketing/osint/README.md).
+marketing/osint/state/
+marketing/osint/exports/
+*.prospects.db
+
+
