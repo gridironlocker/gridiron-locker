@@ -4757,6 +4757,29 @@ def relativise():
     return n
 
 
+def _sync_ignore_private(dirpath, names):
+    """shutil.copytree ignore: never publish OSINT private state (or caches).
+
+    The marketing/ and ops/ mirrors are deployed to the PUBLIC site, but a
+    local checkout that has run collection holds prospect contact data in
+    marketing/osint/state/ + exports/. Without this filter a local rebuild
+    would copy the private database straight into site/ (and refresh.yml's
+    `git add -A` would commit it — .gitignore only covers the source paths).
+    marketing/osint/page/ is also excluded: it is a build INPUT (like data/,
+    which is never deployed), not a dashboard — the rendered gate page is the
+    only public surface.
+    """
+    ignored = set()
+    for name in names:
+        if name == "__pycache__" or name == "suppression.csv":
+            ignored.add(name)
+        elif name.endswith((".db", ".sqlite", ".sqlite3")):
+            ignored.add(name)
+        elif os.path.basename(dirpath) == "osint" and name in ("state", "exports", "page"):
+            ignored.add(name)
+    return ignored
+
+
 def sync_marketing():
     """Copy the marketing planner into the built site so GitHub Pages publishes
     /marketing/dashboard.html and /marketing/plan.json.
@@ -4773,7 +4796,7 @@ def sync_marketing():
         os.unlink(s_m_dir)
     elif os.path.isdir(s_m_dir):
         shutil.rmtree(s_m_dir)
-    shutil.copytree(m_dir, s_m_dir)
+    shutil.copytree(m_dir, s_m_dir, ignore=_sync_ignore_private)
 
 
 def sync_ops():
@@ -4812,6 +4835,14 @@ def sync_ops():
         _bmod.main()
     except Exception as e:
         print("ops/board generation failed, keeping existing files:", e)
+    # The OSINT prospect pipeline renders from the committed aggregate JSON
+    # (marketing/osint/page/prospects.json); a missing file renders an honest
+    # placeholder, so the build never requires marketing/ to exist.
+    try:
+        import prospects_page
+        prospects_page.render_into(os.path.join(ROOT, "ops", "prospects", "index.html"))
+    except Exception as e:
+        print("ops/prospects generation failed, keeping existing files:", e)
     o_dir = os.path.join(ROOT, "ops")
     s_o_dir = os.path.join(SITE, "ops")
     if not os.path.exists(o_dir):
@@ -4820,7 +4851,7 @@ def sync_ops():
         os.unlink(s_o_dir)
     elif os.path.isdir(s_o_dir):
         shutil.rmtree(s_o_dir)
-    shutil.copytree(o_dir, s_o_dir)
+    shutil.copytree(o_dir, s_o_dir, ignore=_sync_ignore_private)
 
 
 def main():
