@@ -489,6 +489,24 @@ class TestPipeline(TempStateCase):
         self.assertIn("dawgblogfans.com", domains)
         self.assertNotIn("espn.com", domains)
 
+    def test_news_collector_self_disables_when_robots_disallows(self):
+        # The real news.google.com/robots.txt disallows /rss/search (verified
+        # live 2026-09-17). With an equivalent fixture the collector must
+        # report DISABLED — an honest status, never a bypass.
+        routes = fake_routes()
+        routes["https://news.google.com/robots.txt"] = (
+            200, "text/plain", "User-agent: *\nDisallow: /\n"
+        )
+        repo, result = self._run(fetcher=fake_fetcher(routes))
+        news_status = {s.name: s for s in result["statuses"]}["news"]
+        self.assertEqual(news_status.state, "DISABLED")
+        self.assertIn("robots.txt", news_status.detail)
+        # and no news-web prospects were stored from a disallowed source
+        count = repo.conn.execute(
+            "SELECT COUNT(*) FROM prospects WHERE platform = 'news-web'"
+        ).fetchone()[0]
+        self.assertEqual(count, 0)
+
     def test_robots_disallow_is_respected_never_bypassed(self):
         routes = fake_routes()
         routes["https://www.examplepod.com/robots.txt"] = (

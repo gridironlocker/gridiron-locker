@@ -31,7 +31,7 @@ never touches the public storefront, and never commits prospect data to this
 | Collector | Status | Access path | Notes |
 |---|---|---|---|
 | `podcasts` | **LIVE** | Apple iTunes Search API (public, documented, no key) | Team-keyword search → public directory metadata → the show's own public RSS feed (description, website, `itunes:owner` contact email, latest episode date) |
-| `news` | **LIVE** | Google News RSS (public feed, same source the repo's trend system already uses) | Finds independent publishers covering our teams; major national outlets are skipped |
+| `news` | **ROBOTS-GATED** | Google News RSS (public feed) — currently reports DISABLED | Live check on 2026-09-17: `news.google.com/robots.txt` disallows `/rss/search` for `User-agent: *`, so the collector refuses and reports the reason (no bypass). It re-probes every run and re-enables itself if Google ever opens the path. Trend signals are unaffected — they come from the repo's existing `data/trends.json` |
 | `websites` | **LIVE** | Curated seeds (`seeds/websites.json`) + shared website enrichment | Robots-checked crawl of homepage + up to 2 contact-ish pages per site; extracts only published emails; records public social links (stored, never crawled) |
 | `youtube` | **LIVE with key** | Official YouTube Data API v3 | Set `YOUTUBE_API_KEY`. Public channel search + statistics; a business email only when the channel itself publishes one in its description with contact intent |
 | `instagram` | **DISABLED** | — | Instagram ToS prohibits automated collection; Basic Display API shut down Dec 2024; Graph API only covers accounts you own. Manual CSV import instead |
@@ -231,9 +231,15 @@ marketing/osint/
 
 * Instagram/TikTok/X/Pinterest are import-only (see §2). That is a feature of
   the safety model, not a missing feature.
+* Google News RSS publisher discovery is currently robots-blocked (see §2) —
+  the collector self-disables honestly; publishers can be added as seeds
+  (`seeds/websites.json`) or via manual import.
 * Audience/engagement for podcasts is usually unknown → those score
   components are 0 with an explicit reason. Podcasts are scored on content,
-  activity and contactability.
+  activity and contactability, which caps a podcast-only prospect around
+  ~70 (REVIEW band) even with a verified public email. For podcast-heavy
+  runs, `export --min-score 60` is the more useful cut; the spec's
+  high-priority file keeps its 75+ bar.
 * `itunes:owner` emails are public-by-design but not always *deliberately*
   published for contact; they are imported with category
   `PUBLIC_RSS_OWNER_EMAIL` so a human sees the provenance before outreach.

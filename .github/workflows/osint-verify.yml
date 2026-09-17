@@ -65,6 +65,7 @@ jobs:
           OSINT_STATE_DIR: /tmp/osint-live-state
           OSINT_EXPORTS_DIR: /tmp/osint-live-exports
         run: |
+          set -o pipefail
           python3 -m marketing.osint verify --live \
             --max-queries "${{ github.event.inputs.max_queries || '2' }}" \
             | tee osint-live-report.txt

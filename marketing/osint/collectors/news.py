@@ -1,11 +1,19 @@
-"""News collector — Google News RSS (public feed, same source as the repo's
-existing trend system in marketing/social_watch.py).
+"""News collector — Google News RSS publisher discovery, robots-gated.
 
 Purpose: discover *who publishes* about our four teams. Each article's
-publisher becomes a BLOG_WEBSITE / media prospect; the article itself is
-stored as evidence. Major national publishers are skipped (outreach to ESPN
-is not a prospect; an independent Browns blog is). The publisher's public
-website is then enriched by the shared website step for contact data.
+publisher becomes a BLOG_WEBSITE prospect; the article itself is stored as
+evidence, and the publisher's public website is enriched by the shared
+website step for contact data.
+
+ACCESS REALITY (verified live 2026-09-17): news.google.com's robots.txt
+disallows ``/rss/search`` for ``User-agent: *``. This collector therefore
+probes robots.txt at the start of every run and reports DISABLED — with the
+reason — instead of fetching anyway. No bypass is ever attempted. If Google
+ever opens the path, the collector re-enables itself automatically.
+
+Trend-aware discovery does not depend on this collector: the repository's
+existing trend system (data/trends.json, fed by marketing/social_watch.py)
+already supplies current team subjects, and this engine reads that file.
 """
 from __future__ import annotations
 
@@ -42,6 +50,16 @@ class NewsCollector(BaseCollector):
     live = True
 
     def discover(self, ctx: DiscoveryContext) -> tuple[list[dict], CollectorStatus]:
+        # Honour robots.txt dynamically: probe once; a disallow disables this
+        # collector for the run with an honest status line (never a bypass).
+        probe = ctx.fetcher.fetch(FEED + "?" + urllib.parse.urlencode({"q": "test"}), robots=True)
+        if not probe.robots_ok:
+            return [], CollectorStatus(
+                name=self.name, state="DISABLED",
+                detail="news.google.com robots.txt disallows /rss/search — "
+                       "no bypass attempted; trend signals still arrive via "
+                       "data/trends.json; publisher discovery via manual import",
+            )
         status = CollectorStatus(name=self.name, state="OK")
         records: list[dict] = []
         seen_domains: set[str] = set()
