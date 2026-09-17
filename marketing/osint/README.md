@@ -11,6 +11,9 @@ never touches the public storefront, and never commits prospect data to this
     python3 -m marketing.osint export
     python3 -m marketing.osint stats
     python3 -m marketing.osint verify [--live]
+    python3 -m marketing.osint ui          # private local dashboard (token-gated)
+    python3 -m marketing.osint build-page  # committed aggregate page data (needs OSINT_PAGE_PASSWORD)
+    python3 -m marketing.osint audit       # safety audit: expect 0 findings
 
 ---
 
@@ -247,3 +250,66 @@ marketing/osint/
   quality depends on the keyword files (`keywords/*.json` — tune freely).
 * The 2.5 s/host politeness delay means a full four-team run with website
   enrichment takes minutes. That is intentional.
+
+## 15. Private local dashboard (`ui`)
+
+```bash
+python3 -m marketing.osint ui                 # http://127.0.0.1:8520/?token=<random>
+python3 -m marketing.osint ui --port 8530 --open
+```
+
+The only component that shows full prospect rows (names, emails, notes)
+outside the CLI — and only on this machine, only with the per-launch token
+printed at startup (`--token` / `OSINT_UI_TOKEN` override it). Overview,
+filterable prospect list, per-prospect detail with score breakdown, and
+outreach writes (status / note) that stay inside `OSINT_STATE_DIR`. Nothing
+in the dashboard writes to `site/`, `data/` or the committed page JSON.
+
+## 16. Public aggregate page (`build-page` + `src/prospects_page.py`)
+
+The deployed dashboard at `/ops/prospects/` (robots-disallowed, noindex,
+unlinked from public nav and sitemap, password gate) shows COUNTS ONLY —
+no names, emails, URLs or any other prospect-identifying value. Regenerate
+it after each collection run:
+
+```bash
+python3 -m marketing.osint refresh
+OSINT_PAGE_PASSWORD=... python3 -m marketing.osint build-page
+python3 src/prospects_page.py
+python3 -m marketing.osint audit   # expect: AUDIT: 0 finding(s)
+```
+
+How the split is enforced (in code, not just policy):
+
+* `build-page` reads the private DB and writes ONLY the committed
+  `marketing/osint/page/prospects.json`: integer counts over fixed
+  vocabularies (anything else folds into `"other"`), timestamps, team
+  labels, and the salted SHA-256 of the password. The password itself is
+  never written anywhere — it only arrives via `OSINT_PAGE_PASSWORD`.
+* `src/prospects_page.py` renders `ops/prospects/index.html` (source) and
+  the byte-identical `site/ops/prospects/index.html` (published) from that
+  JSON, and `src/build.py` re-renders it on every full rebuild — so this
+  package still never writes to `site/` itself.
+* The gate is client-side SHA-256 over `gl-osint-page-v1:<password>`. It
+  deters casual browsing; it is not encryption, and the page says so. Real
+  secrecy comes from the content being aggregate-only.
+* `sync_marketing` / `sync_ops` exclude `marketing/osint/{state,exports,
+  page}/`, `*.db` and `suppression.csv` from the deployed mirror, so a
+  local rebuild after a collection run cannot publish the private
+  database; `.gitignore` + `audit` + the test suite back that up.
+
+## 17. Safety audit (`audit`)
+
+```bash
+python3 -m marketing.osint audit
+```
+
+Read-only, offline, exit 0 + `AUDIT: 0 finding(s)` when clean. Checks the
+page JSON is valid and aggregate-only; the rendered dashboards contain no
+email-like strings or URLs, carry `noindex`, and embed no 64-hex blob
+other than the page-password hash; no private-state filenames exist under
+`site/` / `ops/` / `marketing/` outside the two gitignored private homes
+(and none are tracked by git); `.gitignore` still carries the OSINT
+guards; and the CSV exporter still refuses `site/` and `ops/`. Findings
+never echo prospect content — counts and paths only. Also runs in
+`osint-verify.yml` on every change to this package.

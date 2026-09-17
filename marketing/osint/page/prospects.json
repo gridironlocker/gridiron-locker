@@ -1,0 +1,55 @@
+{
+  "by_priority": {
+    "HIGH_PRIORITY": 0,
+    "LOW_PRIORITY": 0,
+    "QUALIFIED": 0,
+    "REVIEW": 0,
+    "other": 0
+  },
+  "by_status": {
+    "BOUNCED": 0,
+    "CONTACTED": 0,
+    "CUSTOMER": 0,
+    "INTERESTED": 0,
+    "NEW": 0,
+    "NOT_INTERESTED": 0,
+    "PARTNER": 0,
+    "QUALIFIED": 0,
+    "REPLIED": 0,
+    "REVIEW": 0,
+    "SUPPRESS": 0,
+    "other": 0
+  },
+  "by_team": {
+    "browns": 0,
+    "cowboys": 0,
+    "michigan": 0,
+    "other": 0,
+    "packers": 0
+  },
+  "by_type": {
+    "BLOG_WEBSITE": 0,
+    "FAN_COMMUNITY": 0,
+    "FAN_CREATOR": 0,
+    "OTHER": 0,
+    "PODCAST_MEDIA": 0,
+    "SPORTS_BUSINESS": 0,
+    "other": 0
+  },
+  "generated_at": "2026-09-17T20:03:11+00:00",
+  "last_run": null,
+  "password_sha256": "f5ad26bdc6e9b09acaa4d7b20b319a58a97c582543fd744382a0477f22b677db",
+  "team_labels": {
+    "browns": "Cleveland Browns",
+    "cowboys": "Dallas Cowboys",
+    "michigan": "Michigan Wolverines",
+    "packers": "Green Bay Packers"
+  },
+  "totals": {
+    "prospects": 0,
+    "suppressed_identities": 0,
+    "verified_email": 0,
+    "with_public_email": 0
+  },
+  "version": 1
+}
