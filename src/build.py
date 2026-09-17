@@ -472,13 +472,20 @@ def clean_headline(t):
     Google News occasionally appends a truncated snippet to a title
     (e.g. "...to QB Taylen Green? The surprise of camp re-signed to the
     practic..."). Keep the first sentence so the page never shows a mid-word
-    cut; fall back to a word-boundary cut for over-long titles.
+    cut; fall back to a word-boundary cut for over-long titles. Common title
+    abbreviations such as ``vs.`` and ``No.`` are not sentence endings.
     """
     t = (t or "").strip()
     if not t:
         return t
+    abbreviations = re.compile(
+        r"(?:\bvs|\bv|\bno|\bmr|\bmrs|\bms|\bdr|\bprof|\bst|\bjr|\bsr|\bu\.s|\be\.g|\bi\.e)\.$",
+        re.IGNORECASE,
+    )
     for m in re.finditer(r"[.!?]\s", t):
         head = t[:m.start() + 1].strip()
+        if abbreviations.search(head):
+            continue
         if len(head) >= 24:
             return head
         break
@@ -676,11 +683,13 @@ def mayzing_item(m, ckey):
     if "front" not in img:
         img["front"] = next(iter(img.values()))
     styles = [s for s in [m.get("garment")] if s]
-    # The Mayzing file is a hand-verified source of truth, so its size run is
-    # passed through as-is (Gildan 5000 genuinely sells S-5XL) - the SIZES
-    # clamp below is a guard for crawled Viralstyle campaigns only.
-    sizes_avail = [s for s in (m.get("sizes") or SIZES)] or list(SIZES)
     name = f["name"]
+    garment = _c.garment_of(f, name, styles)
+    # The Mayzing file is a hand-verified source of truth, so its size run is
+    # passed through as-is (Gildan 5000 genuinely sells S-5XL). Non-apparel
+    # products do not have apparel sizes; keep their option text garment-aware.
+    raw_sizes = [s for s in (m.get("sizes") or SIZES)] or list(SIZES)
+    sizes_avail = [] if garment in ("Mug", "Phone Case", "Beanie") else raw_sizes
     colours = max(1, sum(1 for k in img if k.startswith("c")))
     price = float(m["price_usd"])
     gal = [img["front"]] + ([img["back"]] if "back" in img else [])
@@ -689,7 +698,7 @@ def mayzing_item(m, ckey):
     trend = auto_trend(ckey, m["slug"], blob)
     return dict(trend=trend,
         slug=m["slug"], name=name, art=f["art"], theme=f.get("theme", "classic"),
-        garment=_c.garment_of(f, name, styles), price=price, colours=colours,
+        garment=garment, price=price, colours=colours,
         styles=styles, sizes_avail=sizes_avail, url=f"/shop/{m['slug']}/",
         gallery=gal, front=img["front"],
         back=img.get("back", img["front"]),
@@ -752,12 +761,14 @@ def build_model():
                 # front never downloaded but another mockup exists - feature it
                 img["front"] = next(iter(img.values()))
             styles = [s for s in p.get("styles", []) if s]
-            # Sizes actually offered by the campaign (captured by the scraper /
-            # replay); fall back to the store-wide S-3XL range. A campaign that
-            # stops at 2XL must not offer 3XL on the product page.
-            sizes_avail = [s for s in (p.get("sizes") or SIZES) if s in SIZES] or list(SIZES)
             name = f["name"]
             garment = _c.garment_of(f, name, styles)
+            # Sizes actually offered by the campaign (captured by the scraper /
+            # replay); fall back to the store-wide S-3XL range. A campaign that
+            # stops at 2XL must not offer 3XL on the product page. Mugs, phone
+            # cases and beanies have no apparel size run.
+            raw_sizes = [s for s in (p.get("sizes") or SIZES) if s in SIZES] or list(SIZES)
+            sizes_avail = [] if garment in ("Mug", "Phone Case", "Beanie") else raw_sizes
             colours = max(1, sum(1 for k in img if k.startswith("c")))
             price = float(p["price_usd"])
             url = f"/shop/{slug}/"
@@ -1094,11 +1105,11 @@ TEAM_TICKER_TERMS = {
     "cleveland-browns": [("Shedeur Sanders fan shirts", 1), ("Dawg Pound apparel", 0),
                          ("Here We Go Brownies", 0), ("Cleveland skyline tees", 0)],
     "green-bay-packers": [("Go Pack Go tees", 0), ("Jordan Love 10 shirts", 1),
-                          ("Cheesehead Nation", 0), ("Lambeau tribute crewnecks", 0)],
+                          ("Cheesehead Nation", 0), ("Lambeau game-day gear", 0)],
     "dallas-cowboys": [("Dallas vintage tees", 0), ("Texas pride shirts", 0),
                        ("Doomsday Defense tees", 1), ("Star-city lettering", 0)],
     "michigan": [("Michigan vs Everybody", 0), ("Bryce Underwood era", 1),
-                 ("Go Blue crewnecks", 0), ("Maize and navy tees", 0)],
+                 ("Go Blue tees", 0), ("Maize and navy tees", 0)],
 }
 STORE_TICKER_TERMS = [
     (f"Week 1 game day fits", 1), (f"Sizes {SIZE_RANGE}", 0),
@@ -1263,9 +1274,9 @@ def season_section():
  <div class="wkhead reveal">
   <span class="eyebrow"><span class="dot"></span> 2026 season</span>
   <h2>{title}</h2>
-  <p>Current football culture, fan energy and designs for game day. Here is how the openers
-  look for every team we cover. Delivery timing is an estimate, and arrival before a specific
-  game is not guaranteed.</p>
+  <p>Current football culture, fan energy and designs for game day. Here is the Week 1 slate and
+  current status for every team we cover. Delivery timing is an estimate, and arrival before a
+  specific game is not guaranteed.</p>
  </div>
 </div>
 <div class="wrap">
@@ -1768,8 +1779,8 @@ def guide_grid():
         '<a class="guide-card reveal" href="/size-guide/">'
         '<span class="gc-kick">Fit</span>'
         '<b>How To Pick The Right Fan Fit</b>'
-        '<span class="gc-sub">Measurements for every cut we print, ' + SIZE_RANGE_TO + ', unisex and '
-        "women's.</span><span class=\"gc-go\">Size guide &rarr;</span></a>",
+        '<span class="gc-sub">Catalogue-wide size range: ' + SIZE_RANGE_TO + '. Exact cuts and sizes are '
+        'listed on each product page.</span><span class="gc-go">Size guide &rarr;</span></a>',
         '<a class="guide-card reveal" href="/shipping/">'
         '<span class="gc-kick">Delivery</span>'
         '<b>Shipping &amp; Returns</b>'
@@ -2166,6 +2177,9 @@ def page_collection(k):
     for it in items:
         counts[it["garment"]] = counts.get(it["garment"], 0) + 1
     types = sorted(counts)
+    has_womens = any("women" in style.lower()
+                     for it in items for style in it.get("styles", []))
+    womens_note = " Some campaigns also offer women's cuts." if has_womens else ""
     # Size run actually offered by the collection (union of each item's run) -
     # never assume S-3XL: the Mayzing Gildan blanks genuinely sell S-5XL.
     _runs = [it["sizes_avail"] for it in items if it.get("sizes_avail")]
@@ -2205,12 +2219,11 @@ def page_collection(k):
                        "No. These are independent fan-made graphics. They are not affiliated with, "
                        "endorsed by or licensed by any league, club, university or player."),
                       ("What sizes do you carry?",
-                       f"Unisex sizes {size_lo} through {size_hi} on apparel, plus women's cuts on "
-                       "many designs. "
-                       "Full measurements are listed on every product page and in the size guide."),
+                       f"Apparel sizes run {size_lo} through {size_hi} across this collection."
+                       f"{womens_note} Full measurements are listed on every product page and in the size guide."),
                   ] + list(c.get("faq_extra", []))]}]
     desc = (f"{c['name']} - {len(items)} fan-made designs from ${prices[0]:.2f}. "
-            f"{', '.join(types[:3])}, sizes {size_lo}-{size_hi}. Printed on demand, ships worldwide.")
+            f"{', '.join(types)}, sizes {size_lo}-{size_hi}. Printed on demand, ships worldwide.")
     se = SEASON[k]
     played = se["kickoff"][:10] < TODAY
     lore = "".join(f"<li>{esc(x)}</li>" for x in c["lore"])
@@ -2318,8 +2331,9 @@ def page_collection(k):
  <a class="link" href="/fan-trend-index/">Fan Trend Index</a>.</p>
  <h2>About the {esc(c['name'])} Collection</h2>
  <p>{esc(c['intro'].format(**c))} Prices start at <strong>${prices[0]:.2f}</strong> and the range
- covers {len(types)} product type{'s' if len(types) != 1 else ''}: {esc(', '.join(types))}. Everything is unisex unless the design
- name says otherwise, and every apparel item runs from {size_lo} to {size_hi}.</p>
+ covers {len(types)} product type{'s' if len(types) != 1 else ''}: {esc(', '.join(types))}. Garment cuts
+ and size ranges vary by campaign; each product page lists its exact offer across the catalogue's
+ {SIZE_RANGE_TO} overall range.</p>
  <ul>{lore}</ul>
  <h2>Popular searches in this collection</h2>
  <p class="muted">{kwlinks}</p>
@@ -2375,16 +2389,16 @@ def page_creator(ckey="joe"):
     path = f"/{cre['page_slug']}/"
     prices = sorted(x["price"] for x in items)
     minp, maxp = prices[0], prices[-1]
-    cre_page_desc = (f"Joe's Michigan Locker: Michigan football gear hand-picked by Joe. "
-                     f"Save 10% with code JOE10 on game-day tees, crewnecks and vintage "
-                     f"designs, printed on demand.")
+    cre_page_desc = (f"Joe's Michigan Locker: Michigan football tees hand-picked by Joe. "
+                     f"Save 10% with code JOE10 on game-day and vintage-inspired designs, "
+                     f"printed on demand.")
     types = sorted({x["garment"] for x in items})
     feat_slugs = [s for s in cre.get("featured", []) if s in {x["slug"] for x in items}]
     by_slug = {x["slug"]: x for x in items}
     feat = [by_slug[s] for s in feat_slugs] or items[:4]
     kw = ["joe's michigan locker", "michigan football shirt", "go blue t-shirt",
           "michigan vs everybody shirt", "ann arbor football gear", "qb19 shirt",
-          "michigan sweatshirt", "maize and navy tee", "michigan game day shirt",
+          "michigan slogan tee", "maize and navy tee", "michigan game day shirt",
           "wolverines fan gear"]
 
     def jlink(it):
@@ -2429,7 +2443,7 @@ def page_creator(ckey="joe"):
         ("How does ordering work?",
          "Tap any design to see the full story, garment styles, colours and "
          "sizing. Then Shop Now opens the checkout page for that exact design, "
-         "where you choose garment style, colour and size. Items are printed on "
+         "where the available garment option, colour and size are confirmed. Items are printed on "
          "demand and shipped worldwide with tracking."),
     ]
 
@@ -2511,7 +2525,7 @@ def page_creator(ckey="joe"):
    <span class="jeyebrow"><span class="jdiamond"></span> The Locker</span>
    <h2>Joe's Michigan Collection</h2>
    <p>Every design in this locker was picked by Joe from the Gridiron Locker Michigan
-   collection - game-day tees, crewnecks and vintage-inspired pieces with original artwork.
+   collection - game-day tees and vintage-inspired pieces with original artwork.
    No official logos, no licensed assets: just Michigan football culture.</p>
   </div>
   <div class="jtrustwrap">{trust()}</div>
@@ -2613,11 +2627,11 @@ def page_product(it):
     story_html = _l.design_story(slug, f, c, it["art"], theme, it["garment"])
     why_html = _l.why_it_stands_out(slug, f, c, it["art"], theme, it["garment"])
     who_html = _l.who_its_for(slug, c, theme, it["garment"], price,
-                              name=it["name"], art=it["art"])
+                              name=it["name"], art=it["art"], styles=styles)
     wear_html = _l.gameday_wear(slug, c, it["garment"], it["art"])
     styles_html = _l.styles_copy(slug, styles, it["garment"], col=c)
-    colour_html = _l.colour_copy(colours, col=c, name=it.get("colour"))
-    size_html = _l.size_copy(slug, sizes, it["garment"], col=c)
+    colour_html = _l.colour_copy(colours, col=c, name=it.get("colour"), garment=it["garment"])
+    size_html = _l.size_copy(slug, sizes, it["garment"], col=c, styles=styles)
     ship_html = _l.shipping_copy(VIRALSTYLE_DELIVERY_TIME,
                                  VIRALSTYLE_SHIP["shippingRate"]["value"], col=c)
     bullets = _l.details_bullets(it["garment"], styles, sizes, colours, price,
@@ -2691,7 +2705,7 @@ def page_product(it):
         # A mug or phone case has no garment size. Emitting the apparel size
         # run here made the structured data contradict the page's own visible
         # copy ("This is not an apparel item, so there is no size to choose").
-        **({} if it["garment"] in _l.NON_APPAREL else {"size": sizes}),
+        **({} if it["garment"] in (*_l.NON_APPAREL, "Beanie") else {"size": sizes}),
         # PeopleAudience (not the generic Audience) is what Google's
         # merchant listing spec reads for apparel gender targeting.
         "audience": {"@type": "PeopleAudience", "audienceType": f"{c['team']} fans",
@@ -2734,22 +2748,53 @@ def page_product(it):
     # Player-moment headlines stay off the conversion fold; the PDP is a
     # landing page, not a news hub.
 
-    band_bits = [f"From ${price}"]
-    if len(styles) > 1:
-        band_bits.append(f"{len(styles)} garment styles")
-    if colours > 1:
-        band_bits.append(f"{colours} colourways")
-    if it["garment"] not in ("Mug", "Phone Case", "Beanie"):
-        band_bits.append(f"sizes {sizes[0]}-{sizes[-1]}")
-    band_line = (", ".join(band_bits)
-                 + f". Style, colour and size are chosen on the {it['partner']} product page, "
-                   "where the order is completed.")
-
     style_badge = (f"{len(styles)} garment styles" if len(styles) > 1
                    else (esc(styles[0]) if styles else esc(it["garment"])))
     colour_badge = (f"{colours} colourways" if colours > 1 else f"Colours on {it['partner']}")
     size_badge = (f"Sizes {sizes[0]}-{sizes[-1]}"
                   if it["garment"] not in ("Mug", "Phone Case", "Beanie") else "One size")
+    fixed_campaign = (it["partner"] == "Mayzing" and len(styles) == 1 and colours == 1)
+    price_label = (f"flat campaign price on {it['partner']}"
+                   if fixed_campaign else
+                   (f"campaign price on {it['partner']}" if not styles
+                    else f"starting price &middot; set by style on {it['partner']}"))
+    if fixed_campaign:
+        handoff_note = (f"Checkout happens on {it['partner']} &mdash; confirm your size there "
+                        "before completing your purchase.")
+        mid_note = f"Confirm your size on {it['partner']} before completing your purchase."
+    elif it["garment"] == "Beanie":
+        handoff_note = (f"Checkout happens on {it['partner']} &mdash; confirm the available "
+                        "colour and finish there before completing your purchase.")
+        mid_note = (f"Confirm the available colour and finish on {it['partner']} before "
+                    "completing your purchase.")
+    elif it["garment"] == "Mug":
+        handoff_note = (f"Checkout happens on {it['partner']} &mdash; confirm the available mug "
+                        "option there before completing your purchase.")
+        mid_note = f"Confirm the available mug option on {it['partner']} before completing your purchase."
+    elif it["garment"] == "Phone Case":
+        handoff_note = (f"Checkout happens on {it['partner']} &mdash; choose your device model "
+                        "there before completing your purchase.")
+        mid_note = f"Choose your device model on {it['partner']} before completing your purchase."
+    else:
+        handoff_note = (f"Checkout happens on {it['partner']} &mdash; pick your garment style, "
+                        "colour and size there.")
+        mid_note = (f"Choose your garment style, colour and size on {it['partner']} before "
+                    "completing your purchase.")
+    band_bits = [f"Price ${price}" if fixed_campaign else f"From ${price}"]
+    if fixed_campaign:
+        band_bits.append("one garment style and one colourway")
+    else:
+        if len(styles) > 1:
+            band_bits.append(f"{len(styles)} garment styles")
+        if colours > 1:
+            band_bits.append(f"{colours} colourways")
+    if it["garment"] not in ("Mug", "Phone Case", "Beanie"):
+        band_bits.append(f"sizes {sizes[0]}-{sizes[-1]}")
+    band_line = (", ".join(band_bits)
+                 + (f". Confirm your size on {it['partner']} before completing the order."
+                    if fixed_campaign else
+                    f". {('Confirm the available colour and finish' if it['garment'] == 'Beanie' else 'Confirm the available mug option' if it['garment'] == 'Mug' else 'Choose your device model' if it['garment'] == 'Phone Case' else 'Style, colour and size are chosen')} on the {it['partner']} product page, "
+                    "where the order is completed."))
 
     body = f"""<main id="main" class="pdp-page" data-slug="{slug}" data-collection="{it['col']}" data-price="{price}"><div class="light">
 {cb}
@@ -2765,11 +2810,10 @@ def page_product(it):
   <p class="value">{esc(value_line)}</p>
   <p class="herodeck">{esc(hero_deck)}</p>
   <div class="pricerow"><span class="pricebig">${price}</span>
-   <span class="pricefrom">starting price &middot; set by style on {it['partner']}</span></div>
+   <span class="pricefrom">{price_label}</span></div>
   {trendhtml}
   {shop_now_cta(it, "hero")}
-  <p class="handoff-note">Checkout happens on {it['partner']} &mdash; pick your garment style,
-   colour and size there.</p>
+  <p class="handoff-note">{handoff_note}</p>
   <ul class="atglance">
    <li><b>Design</b>{esc(_l.title_case_art(it['art']))}</li>
    <li><b>Apparel</b>{style_badge}</li>
@@ -2795,7 +2839,7 @@ def page_product(it):
  {stylehtml}
  <div class="midcta">
   {shop_now_cta(it, "apparel")}
-  <p class="ctanote">Choose your garment style, colour and size on {it['partner']} before completing your purchase.</p>
+  <p class="ctanote">{mid_note}</p>
  </div>
 </div></section>
 
@@ -2909,10 +2953,10 @@ def page_static():
     simple_page("size-guide", "Size Guide & Measurements", 
         f"Size charts for fan-made tees, hoodies, crewnecks and long sleeves: chest, length and sleeve measurements for sizes {SIZE_RANGE_TO}, plus how to measure at home.",
         "Size Guide", f"""
-<p>Every apparel item on this site runs <strong>{SIZE_RANGE_TO}</strong> in a unisex cut unless the
-design name says "women's". Not every design is cut in the full range - the sizes a design offers
-are listed on its own product page. Measurements below are the garment laid flat, in inches. If you
-are between sizes, or you want a relaxed drape, order one size up.</p>
+<p>Apparel size ranges vary by campaign. The chart below covers the full <strong>{SIZE_RANGE_TO}</strong>
+range used in the catalogue, but each product page lists the sizes that design actually offers.
+Measurements below are the garment laid flat, in inches. If you are between sizes, or you want a
+relaxed drape, order one size up.</p>
 <h2>Unisex t-shirt</h2>
 <table><tr><th>Size</th><th>Neck</th><th>Chest width</th><th>Body length</th><th>Sleeve length</th></tr>
 {tee_rows}</table>
@@ -2977,19 +3021,20 @@ of avoidable exchanges. If you are between sizes, go up.</p>
         ("Where do I actually pay?",
          "With our fulfilment partner. Gridiron Locker is the storefront and the design library; it never takes "
          "payment. Every Shop Now button opens that design's product page on the fulfilment partner, "
-         "where you pick garment style, colour and size and complete checkout."),
+         "where the campaign's available garment options, colour and size are confirmed before checkout."),
         ("What payment methods are accepted?",
          "Major credit and debit cards and PayPal, processed by the fulfilment partner on their checkout."),
         ("What sizes are available?",
-         f"{SIZE_RANGE_TO} on apparel, in unisex and women's cuts depending on the style. Beanies are one "
-         "size, mugs are 11 oz, phone cases are chosen by device model."),
+         f"Apparel size ranges vary by design across the catalogue ({SIZE_RANGE_TO} overall); each product "
+         "page lists its exact sizes. Beanies are one size, mugs are 11 oz, and phone cases are chosen "
+         "by device model."),
         ("How long until it arrives?",
          "A few business days of production, then standard tracked shipping. Delivery is an estimate; "
          "arrival before a specific game is not guaranteed."),
         ("Can I get a design on a different garment?",
-         "Many designs are offered on tees, women's cuts, tanks, V-necks, hoodies, crewnecks and long "
+         "Some campaigns are offered on tees, women's cuts, tanks, V-necks, hoodies, crewnecks and long "
          "sleeves. The verified style list for each design is on its product page here, and the "
-         "selection itself happens on the fulfilment partner's product page."),
+         "available selection is confirmed on the fulfilment partner's product page."),
         ("Do you ship internationally?",
          "Yes, worldwide shipping is available with tracking."),
         ("Can I request a custom design?",
@@ -3016,8 +3061,8 @@ for football fan bases and print them on demand, one order at a time.</p>
 {", ".join(f'<a href="/{COLLECTIONS[k]["slug"]}/">{COLLECTIONS[k]["name"]}</a>' for k in ORDER)}.</p>
 <h2>What we make</h2>
 <p>Graphic tees, women's cuts, tanks, V-necks, hoodies, crewneck sweatshirts, all-over printed long
-sleeves, knit beanies, ceramic mugs and phone cases. Apparel is unisex sized, up to {SIZE_RANGE_TO} unless
-stated.</p>
+sleeves, knit beanies, ceramic mugs and phone cases. Garment cuts and size ranges vary by campaign;
+each product page lists the exact offer, across the catalogue's {SIZE_RANGE_TO} size range.</p>
 <h2>How we design</h2>
 <p>Every graphic starts with something fans actually say. Dawg Pound. Go Pack Go. Michigan vs
 Everybody. Doomsday Defense. We build the typography and illustration around the phrase, not the
@@ -3243,9 +3288,8 @@ border-top:3px solid var(--ca)">
          "No. The house rule is identity slogans, not player faces: chants, cities, eras and jokes "
          "in type. That is also why the graphics stay wearable long after a roster changes."),
         ("What size should I buy for a game day layer?",
-         f"Everything is unisex, up to {SIZE_RANGE_TO}. Measure a shirt you own flat across the chest and match the "
-         "number on the size guide - 18 inches for S through 28 inches for 3XL. Between sizes, or "
-         "layering over a hoodie, go up one."),
+         f"Apparel size ranges vary by design ({SIZE_RANGE_TO} overall). Measure a shirt you own flat across the "
+         "chest and match the number on the size guide. Between sizes, or layering over a hoodie, go up one."),
         ("Can I get a Week 1 slogan on a hoodie, crewneck, beanie or mug?",
          "Yes. Most slogans run across tees, hoodies, crewnecks, long sleeves, beanies and mugs - "
          "each design's product page lists the styles its campaign actually offers, and you pick "
@@ -3273,11 +3317,11 @@ border-top:3px solid var(--ca)">
 <h1>{title}</h1>
 <p class="muted">Updated {TODAY} &middot; {sum(len(v) for v in WEEK1_SLATE.values())} Week 1 graphics &middot;
 {len(ALL)} designs in the locker</p>
-<p>Week 1 of the 2026 season: <strong>Michigan's Sept 5 opener against Western Michigan is final</strong>
-- the Wolverines won it on a last-second Hail Mary. The NFL Sunday slate kicks off on
-<strong>Sept 13</strong> with Cleveland at Jacksonville, Green Bay at Minnesota and Dallas in prime
-time against the Giants. Everything below is printed after you order it. Delivery timing is an
-estimate, and arrival before a specific game is not guaranteed.</p>
+<p>Week 1 of the 2026 season is complete: <strong>Michigan beat Western Michigan on Sept 5 with a
+last-second Hail Mary</strong>, and the NFL Sunday slate followed on <strong>Sept 13</strong> with
+Cleveland at Jacksonville, Green Bay at Minnesota and Dallas in prime time against the Giants.
+Everything below is printed after you order it. Delivery is an estimate, and arrival before a specific
+game is not guaranteed.</p>
 <h2>Week 1 at a glance</h2>
 <table>
 <tr><th>Team</th><th>Kickoff</th><th>Week 1</th><th>Slogan direction</th></tr>
@@ -3296,9 +3340,7 @@ exported at 4500 by 5400 pixels, 300 dpi, transparent background, and only then 
 product page.</p>
 <h2>Buying for kickoff</h2>
 <p>Pick the garment from the weather first and the graphic second. Early September is still shirt
-weather in most places; anything after Thanksgiving is hoodie and crewneck territory. Sizes run
-{SIZE_RANGE_TO} in a unisex cut - see the <a href="/size-guide/">size guide</a> before you order, and
-remember that a beanie or a mug is the one gift that cannot be the wrong size.</p>
+weather in most places; anything after Thanksgiving is hoodie and crewneck territory. Size ranges vary by campaign across the catalogue ({SIZE_RANGE_TO} overall) - see the <a href="/size-guide/">size guide</a> before you order, and remember that a beanie or a mug is the one gift that cannot be the wrong size.</p>
 <p><a class="btn" href="/collections/">Shop every collection &rarr;</a></p>
 <h2>Week 1 FAQ</h2>
 {faq_html}
@@ -3322,8 +3364,8 @@ def page_guides():
                   '<h3><a href="/guides/2026-week-1-shirts/">2026 Week 1 Fan Shirts: '
                   'Kickoff Fits &amp; Slogan Tees</a></h3>'
                   '<p class="muted" style="margin:0">Every Week 1 kickoff date, the slogan direction '
-                  'for each team and the graphics to order now &mdash; Michigan opens Sept 5, the NFL '
-                  'Sunday slate is Sept 13.</p></div>')
+                  'for each team and the graphics to order now &mdash; Michigan opened Sept 5, beat '
+                  'No. 11 Oklahoma 17-10 on Sept 12, and the NFL Sunday slate was Sept 13.</p></div>')
     cards = week1_card
     for k in ORDER:
         c = COLLECTIONS[k]
@@ -3377,9 +3419,9 @@ will wear it into a stadium in December, buy the crewneck or hoodie. If it is a 
 a watch party indoors, the ring-spun cotton tee is the better call. Mugs and beanies are the safest
 gifts because sizing cannot go wrong.</p>
 <h2>Then get the size right</h2>
-<p>Apparel is unisex, up to {SIZE_RANGE_TO}. Chest width goes {CHEST_RUN} inches across the sizes.
-Measure a shirt you already own flat across the chest and match the number - see the full
-<a href="/size-guide/">size guide</a>. Between sizes? Go up, especially on fleece.</p>
+<p>Apparel size ranges vary by design across the catalogue ({SIZE_RANGE_TO} overall). Each product page
+lists its exact sizes. Measure a shirt you already own flat across the chest and match the number - see
+the full <a href="/size-guide/">size guide</a>. Between sizes? Go up, especially on fleece.</p>
 {secs}
 <h2>Price range</h2>
 <p>This collection runs from <strong>${prices[0]:.2f}</strong> to <strong>${prices[-1]:.2f}</strong>.
@@ -3439,11 +3481,11 @@ def page_season():
  <h1>The 2026 Season <span class="accentword">Fan Shirt Hub</span></h1>
  <p class="muted" style="font-size:.85rem;margin-top:8px">By the {BRAND} Fan Desk &middot;
  updated {DATA_DATE}</p>
- <p class="muted" style="max-width:72ch">Updated {DATA_DATE}. Michigan's opener is already in the books -
- the Wolverines beat Western Michigan on a last-second Hail Mary on <strong>September 5</strong> and
- host No. 11 Oklahoma next. The NFL Week 1 Sunday slate is <strong>September 13</strong>: Cleveland at
- Jacksonville, Green Bay at Minnesota and Dallas in prime time against the Giants. Here is what
- changed on each roster this year, and which designs fans are buying because of it.
+ <p class="muted" style="max-width:72ch">Updated {DATA_DATE}. Michigan opened with a last-second Hail Mary win over Western
+ Michigan on <strong>September 5</strong>, then beat No. 11 Oklahoma 17-10 on September 12.
+ The NFL Week 1 Sunday slate was <strong>September 13</strong>: Cleveland at Jacksonville, Green Bay
+ at Minnesota and Dallas in prime time against the Giants. Here is what changed on each roster this
+ year, and which designs fans are buying because of it.
  See the <a class="link" href="/fan-trend-index/">Fan Trend Index</a> for the 0–100 score behind
  every Trending tag.</p>
  {fti_block(None, 8, heading="Fan Trend Index · all four fanbases")}

@@ -427,39 +427,59 @@ def meta_description(slug, name, col, garment, price, styles, colours, sizes, ar
     P = partner_of(col.get("key"))
     team = col["team"]
     city = col["city"].split(",")[0]
-    srange = f"{sizes[0]}-{sizes[-1]}" if len(sizes) > 1 else sizes[0]
+    srange = f"{sizes[0]}-{sizes[-1]}" if len(sizes) > 1 else (sizes[0] if sizes else "")
+    if garment == "Beanie":
+        size_phrase = "one size"
+    elif garment == "Mug":
+        size_phrase = "11 oz"
+    elif garment == "Phone Case":
+        size_phrase = "device-specific models"
+    else:
+        size_phrase = f"sizes {srange}"
     stylecount = len(styles)
+    fixed_campaign = P == "Mayzing" and stylecount == 1 and colours == 1
+    price_phrase = f"priced at ${price}" if fixed_campaign else f"from ${price}"
+    if fixed_campaign:
+        option_phrase = "Confirm your size on Mayzing"
+    elif garment == "Beanie":
+        option_phrase = f"Confirm colour and finish on {P}"
+    elif garment == "Mug":
+        option_phrase = f"Confirm the mug option on {P}"
+    elif garment == "Phone Case":
+        option_phrase = f"Choose your device model on {P}"
+    else:
+        option_phrase = f"Style, colour and size are chosen on {P}"
     art_bit = title_case_art(art or name)
     if len(art_bit) > 42:
         art_bit = art_bit[:40].rsplit(" ", 1)[0]
     variants = [
         (f"{name} - fan-made {g} for {team} fans, built around {art_bit}. "
-         f"Printed on demand from ${price}"
-         f"{f', on {stylecount} garment styles' if stylecount > 1 else ''}, sizes {srange}. "
+         f"Printed on demand, {price_phrase}"
+         f"{f', on {stylecount} garment styles' if stylecount > 1 else ''}, {size_phrase}. "
          f"Shop the design on {P}."),
         (f"Fan-made {g} for {city} football supporters: {name}. Artwork: {art_bit}. "
-         f"From ${price}, sizes {srange}"
+         f"{price_phrase.capitalize()}, {size_phrase}"
          f"{f', {colours} garment colourways in the campaign mockups' if colours > 1 else ''}. "
          f"Story on Gridiron Locker; checkout on {P}."),
         (f"{name} from Gridiron Locker - unofficial, fan-made {team} football {g} "
-         f"featuring {art_bit}. From ${price}, sizes {srange}, printed after you order. "
-         f"Style, colour and size are chosen on {P}."),
-        (f"The {name}: independent {team} fan apparel printed on demand. {g.capitalize()} from "
-         f"${price} in sizes {srange}, artwork {art_bit}. Design story here, checkout on {P}."),
+         f"featuring {art_bit}. {price_phrase.capitalize()}, {size_phrase}, printed after you order. "
+         f"{option_phrase}."),
+        (f"The {name}: independent {team} fan apparel printed on demand. {g.capitalize()} "
+         f"{price_phrase}, {size_phrase}, artwork {art_bit}. Design story here, checkout on {P}."),
     ]
     out = sentence(pick(variants, slug, "meta"))
     if len(out) > 158:
         fallbacks = [
-            f"{name} - fan-made {g} for {team} fans, from ${price}, sizes {srange}. "
-            f"Printed on demand; style, colour and size are chosen on {P}.",
-            f"{name}: independent {city} football apparel from ${price}, sizes {srange}. "
+            f"{name} - fan-made {g} for {team} fans, {price_phrase}, {size_phrase}. "
+            f"Printed on demand; {option_phrase.lower()}.",
+            f"{name}: independent {city} football apparel {price_phrase}, {size_phrase}. "
             f"Printed to order, shipped worldwide. Shop the design on {P}.",
-            f"Fan-made {team} {g}: {name}. From ${price} in sizes {srange}, printed on demand "
+            f"Fan-made {team} {g}: {name}. {price_phrase.capitalize()} in {size_phrase}, printed on demand "
             f"and shipped worldwide. Design story on Gridiron Locker.",
         ]
         out = sentence(pick(fallbacks, slug, "metafb"))
     if len(out) > 158:
-        out = sentence(f"{name} - independent fan-made {g}, from ${price}, sizes {srange}. "
+        out = sentence(f"{name} - independent fan-made {g}, {price_phrase}, {size_phrase}. "
                        f"Printed on demand and shipped worldwide.")
     if len(out) > 158:
         out = out[:155].rsplit(" ", 1)[0].rstrip(" ,.-") + "..."
@@ -910,7 +930,7 @@ def why_it_stands_out(slug, facts, col, art, theme, garment):
                     f"printed as {p['art_title']} rather than a licensed replica. It is about the "
                     f"way supporters remember a player, not a claim about who is taking snaps now.")
         elif person.get("role"):
-            lead = (f"{p['name']} stands out as a {person['name']} fan shirt - {person['role']} - "
+            lead = (f"{p['name']} stands out as a {person['name']} fan {g} - {person['role']} - "
                     f"built around {p['phrase']} instead of a knock-off jersey. The relevance is "
                     f"the name supporters are already searching; the graphic is how they wear it.")
         else:
@@ -955,14 +975,14 @@ def why_it_stands_out(slug, facts, col, art, theme, garment):
         f"You will not find this exact graphic in a league shop, and that is the point of an "
         f"unofficial {g}.",
         f"The search is for a {team} fan {g}; the reason to pick this one is {p['phrase']}.",
-        f"Plenty of shirts mention {city}. Fewer of them are actually about {p['phrase']}.",
+        f"Plenty of fan pieces mention {city}. Fewer of them are actually about {p['phrase']}.",
         f"If you wanted a replica, you would already have one. This is the other kind of {g}.",
     ], slug, "whyx")
     return paras(lead, extra)
 
 
 # ---------------------------------------------------------------- who / game day
-def who_its_for(slug, col, theme, garment, price, name="", art=""):
+def who_its_for(slug, col, theme, garment, price, name="", art="", styles=None):
     aud = _c.audience(theme, col)
     a = pick_n(aud, slug, "aud", min(3, len(aud)))
     city = col["city"].split(",")[0]
@@ -991,14 +1011,14 @@ def who_its_for(slug, col, theme, garment, price, name="", art=""):
             f"is not tied to a single week of the season, and pricing starts at ${price}.",
         ], slug, "who2")
     else:
+        fit = fit_note(styles)
         gift = pick([
-            f"As a gift it is straightforward: unisex sizing, a design that does not depend on "
-            f"knowing a roster, and a price that starts at ${price}. If you are buying for someone "
-            f"else, their usual t-shirt size is the safest choice.",
+            f"As a gift it is straightforward: {fit.lower()} A design that does not depend on "
+            f"knowing a roster and a price that starts at ${price}.",
             f"It also works as a present. There is nothing in the design that expires with a "
-            f"transfer, sizing is unisex, and it starts at ${price}.",
-            f"Buying it for someone else is low risk - the {g} is unisex, the artwork is not "
-            f"tied to a single week of the season, and pricing starts at ${price}.",
+            f"transfer; {fit.lower()} It starts at ${price}.",
+            f"Buying it for someone else is low risk - {fit.lower()} The artwork is not tied to "
+            f"a single week of the season, and pricing starts at ${price}.",
         ], slug, "who2")
     return f"<p>{sentence(lead)}</p><p>{sentence(gift)}</p>"
 
@@ -1048,28 +1068,57 @@ def apparel_heading(garment):
     return "Available Products" if garment in NON_APPAREL else "Available Apparel"
 
 
-def colour_copy(colours, col=None, name=None):
+def colour_copy(colours, col=None, name=None, garment=None):
     P = partner_of((col or {}).get("key"))
     """AVAILABLE COLOURS - never invent names, never fake a picker."""
     if colours > 1:
+        if garment == "Beanie":
+            choice = "colour and finish"
+        elif garment == "Mug":
+            choice = "mug option"
+        elif garment == "Phone Case":
+            choice = "device model"
+        else:
+            choice = "garment style, colour and size"
         return (f"<p>This design is available in multiple garment colourways. The mockups below "
                 f"are taken from the live campaign - <strong>{colours} colour variations</strong> "
                 f"were published for this design. They are previews, not selectors: choose your "
-                f"colour, garment style and size on the {P} product page.</p>"
+                f"{choice} on the {P} product page.</p>"
                 f"<p>Colour previews are shown to help you choose your look. Final colour "
                 f"selection is made on {P}.</p>")
     if name:
         # A Mayzing product is published in exactly one colourway and
         # data/mayzing_products.json carries its verified name off the
         # storefront - state it instead of the crawled-campaign hedge below.
+        if garment == "Beanie":
+            handoff = "confirm the available colour and finish"
+        elif garment == "Mug":
+            handoff = "confirm the available mug option"
+        elif garment == "Phone Case":
+            handoff = "choose your device model"
+        else:
+            handoff = "confirm your size"
         return (f"<p>This product is sold in <strong>one colourway: {name}</strong>. The mockup "
                 f"above shows it exactly as {P} prints it, and the {P} product page is where you "
-                f"confirm your size before checkout.</p>")
+                f"{handoff} before checkout.</p>")
     return (f"<p>Multiple colour options may be available for this design. Garment colours are set "
             f"per campaign, so the current list is shown on the {P} product page.</p>")
 
 
-def size_copy(slug, sizes, garment, col=None):
+def fit_note(styles):
+    """Describe the cut actually listed by a campaign, without guessing."""
+    text = " ".join(styles or []).lower()
+    women = "women" in text or "ladies" in text
+    men = re.search(r"\bmen'?s\b", text) is not None
+    unisex = "unisex" in text
+    if women and not men and not unisex:
+        return "This campaign lists a women's cut."
+    if men and not women and not unisex:
+        return "This campaign lists a men's cut."
+    return "Sizing is unisex for the listed apparel styles."
+
+
+def size_copy(slug, sizes, garment, col=None, styles=None):
     P = partner_of((col or {}).get("key"))
     if garment in ("Mug", "Phone Case"):
         return (f"<p>This is not an apparel item, so there is no size to choose. Any model or "
@@ -1078,7 +1127,7 @@ def size_copy(slug, sizes, garment, col=None):
         return ("<p>One size fits most adults - a stretch knit body with a folded cuff.</p>")
     rng = f"{sizes[0]} to {sizes[-1]}"
     return (f"<p>This campaign is offered in <strong>{len(sizes)} sizes: {rng}</strong> "
-            f"({', '.join(sizes)}). Sizing is unisex unless the design name says otherwise. "
+            f"({', '.join(sizes)}). {fit_note(styles)} "
             f"The measurement chart below is a guide - the size you select is confirmed on the "
             f"{P} product page.</p>")
 
@@ -1107,7 +1156,12 @@ def details_bullets(garment, styles, sizes, colours, price, features="", col=Non
         out.append(f"Sizes {sizes[0]}-{sizes[-1]} ({len(sizes)} sizes)")
     if colours > 1:
         out.append(f"{colours} garment colourways published in the campaign mockups")
-    out.append(f"Pricing starts at ${price}; each garment style is priced individually on {P}")
+    if P == "Mayzing" and len(styles) == 1 and colours == 1:
+        out.append(f"One garment style and one colourway at ${price} on Mayzing")
+    elif styles:
+        out.append(f"Pricing starts at ${price}; each garment style is priced individually on {P}")
+    else:
+        out.append(f"Campaign pricing starts at ${price}; the final option price is shown on {P}")
     out.append("Worldwide shipping with tracking issued at dispatch")
     verified = parse_features(features)
     if verified:
@@ -1194,13 +1248,30 @@ def faqs(slug, facts, col, garment, price, colours, styles, sizes, colour=None):
     else:
         out.append(("What sizes are available?",
                     f"Sizes {sizes[0]} to {sizes[-1]} ({', '.join(sizes)}) for this campaign. "
-                    f"Sizing is unisex; the measurement chart on this page shows chest width and "
+                    f"{fit_note(styles)} The measurement chart on this page shows chest width and "
                     f"body length in inches. You pick your size on the {P} product page."))
 
-    out.append(("Where do I choose my shirt colour, style and size?",
-                f"On {P}. Gridiron Locker is where you see the design and the details; "
-                f"garment style, colour and size are selected on the {P} product page for "
-                "this campaign, immediately before checkout."))
+    if garment == "Beanie":
+        handoff_q = "Where do I choose my beanie colour and finish?"
+        handoff_a = (f"On {P}. Gridiron Locker is where you see the design and the details; "
+                     f"the available colour and finish are confirmed on the {P} product page "
+                     "immediately before checkout.")
+    elif garment == "Mug":
+        handoff_q = "Where do I choose my mug option?"
+        handoff_a = (f"On {P}. Gridiron Locker is where you see the design and the details; "
+                     f"the available mug option is confirmed on the {P} product page "
+                     "immediately before checkout.")
+    elif garment == "Phone Case":
+        handoff_q = "Where do I choose my phone-case model?"
+        handoff_a = (f"On {P}. Gridiron Locker is where you see the design and the details; "
+                     f"your device model is selected on the {P} product page immediately "
+                     "before checkout.")
+    else:
+        handoff_q = "Where do I choose my shirt colour, style and size?"
+        handoff_a = (f"On {P}. Gridiron Locker is where you see the design and the details; "
+                     f"garment style, colour and size are selected on the {P} product page for "
+                     "this campaign, immediately before checkout.")
+    out.append((handoff_q, handoff_a))
 
     out.append(("Where is checkout completed?",
                 f"Orders are placed and paid for on {P}, the print-on-demand partner that "
@@ -1230,9 +1301,8 @@ def faqs(slug, facts, col, garment, price, colours, styles, sizes, colour=None):
                     f"shown on {P} before you pay."))
     else:
         out.append(("How much does it cost?",
-                    f"Pricing for this design starts at ${price}. Different garment styles carry "
-                    f"different prices, and the price you pay is the one shown on {P} for the "
-                    f"style, colour and size you select."))
+                    f"Pricing for this design starts at ${price}. The final total for the "
+                    f"campaign option you choose is the amount shown on {P} before you pay."))
 
     out += [(q, a) for q, a in col.get("faq_extra", [])]
     return out[:9]

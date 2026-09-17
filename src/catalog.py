@@ -203,27 +203,28 @@ CATALOG = {
 "limited-edition-m-fans": dict(name="Michigan Vs Everybody Navy Sweatshirt", art="MICHIGAN -VS- EVERYBODY with M logo", kw=["michigan vs everybody sweatshirt","go blue navy crewneck","michigan football shirt"], theme="classic"),
 # ---------------- CLEVELAND / MAYZING REBUILD ----------------
 # The 2026-09-12 Mayzing rebuild: names are the Mayzing product titles used
-# verbatim (several read like drafts - 'Be Awar of Dawg', 'Browns Cle',
-# 'DWAG', 'Let's Go Cle Copy', 'Ohio Cle'). Renaming should happen in Mayzing
-# admin so the storefront and this site agree; these entries then follow.
-"be-awar-of-dawg": dict(name="Be Awar of Dawg", art="BE AWAR OF DAWG", kw=["beware of dawg shirt","cleveland dawg shirt","browns bulldog tee","dawg pound shirt","funny browns shirt","cleveland football gift"], theme="funny", type="T-Shirt"),
+# The 2026-09-12 Mayzing rebuild: checkout facts come from the Mayzing
+# records. A few imported titles had obvious spelling or internal-label errors;
+# the customer-facing facts below correct those words while the supplier
+# checkout URL, garment, colour and sizes remain source-backed.
+"be-awar-of-dawg": dict(name="Beware Of Dawg", art="BE AWAR OF DAWG", kw=["beware of dawg shirt","cleveland dawg shirt","browns bulldog tee","dawg pound shirt","funny browns shirt","cleveland football gift"], theme="funny", type="T-Shirt"),
 "cleveland-1946": dict(name="Cleveland 1946", art="CLEVELAND 1946", kw=["cleveland 1946 shirt","browns est 1946 tee","vintage cleveland shirt","cleveland football shirt","dawg pound apparel"], theme="retro", type="T-Shirt"),
 "cle-browns-dawg": dict(name="Cle Browns Dawg", art="CLE BROWNS DAWG", kw=["cle browns dawg shirt","cleveland browns dawg tee","dawg pound shirt","cleveland football t shirt"], theme="classic", type="T-Shirt"),
 "no-fly-zone": dict(name="No Fly Zone", art="NO FLY ZONE", kw=["no fly zone shirt","browns defense shirt","cleveland football tee","dawg pound shirt","browns secondary tee"], theme="classic", type="T-Shirt"),
 "cleveland": dict(name="Cleveland", art="CLEVELAND", kw=["cleveland shirt","cleveland ohio tee","cleveland football shirt","plain cleveland t shirt","cleveland gift"], theme="city", type="T-Shirt"),
 "dawg-life": dict(name="Dawg Life", art="DAWG LIFE", kw=["dawg life shirt","dawg pound tee","cleveland browns shirt","cleveland football apparel"], theme="classic", type="T-Shirt"),
 "make-them-know-your-name": dict(name="Make Them Know Your Name", art="MAKE THEM KNOW YOUR NAME", kw=["make them know your name shirt","denzel washington browns shirt","cleveland browns tee","dawg pound quote shirt"], theme="player", type="T-Shirt"),
-"browns-cle": dict(name="Browns Cle", art="BROWNS CLE", kw=["browns cle shirt","cleveland browns tee","browns football shirt","cleveland apparel"], theme="classic", type="T-Shirt"),
-"dwag": dict(name="DWAG", art="DWAG", kw=["dwag shirt","cleveland dawg shirt","funny browns tee","dawg pound shirt"], theme="funny", type="T-Shirt"),
-"lets-go-cle-copy": dict(name="Let's Go Cle Copy", art="LET'S GO CLE", kw=["lets go cle shirt","cleveland chant tee","browns slogan shirt","cleveland football t shirt"], theme="city", type="T-Shirt"),
+"browns-cle": dict(name="Browns CLE", art="BROWNS CLE", kw=["browns cle shirt","cleveland browns tee","browns football shirt","cleveland apparel"], theme="classic", type="T-Shirt"),
+"dwag": dict(name="DAWG", art="DWAG", kw=["dawg shirt","cleveland dawg shirt","funny browns tee","dawg pound shirt"], theme="funny", type="T-Shirt"),
+"lets-go-cle-copy": dict(name="Let's Go CLE", art="LET'S GO CLE", kw=["lets go cle shirt","cleveland chant tee","browns slogan shirt","cleveland football t shirt"], theme="city", type="T-Shirt"),
 "go-browns": dict(name="Go Browns", art="GO BROWNS", kw=["go browns shirt","browns slogan tee","cleveland browns t shirt","cleveland football gift"], theme="classic", type="T-Shirt"),
 "playoffs": dict(name="Playoffs", art="PLAYOFFS", kw=["browns playoffs shirt","cleveland playoff tee","dawg pound playoff shirt"], theme="playoff", type="T-Shirt"),
-"ohio-cle": dict(name="Ohio Cle", art="OHIO CLE", kw=["ohio cle shirt","ohio cleveland tee","cleveland ohio shirt","ohio football tee"], theme="city", type="T-Shirt"),
+"ohio-cle": dict(name="Ohio CLE", art="OHIO CLE", kw=["ohio cle shirt","ohio cleveland tee","cleveland ohio shirt","ohio football tee"], theme="city", type="T-Shirt"),
 # ---------------- MICHIGAN / MAYZING REBUILD ----------------
 # 2026-09-12 migration: the Michigan collection moved from Viralstyle to
-# Mayzing. Names are the Mayzing product titles used verbatim so the
-# storefront and this site agree; the checkout URL on each product page is
-# the real gridironlocker.shop product link. Artwork is the Mayzing mockup.
+# Mayzing. Checkout URLs and verified product facts remain in the Mayzing
+# records; customer-facing titles below normalize punctuation/capitalization
+# where needed. Artwork descriptions describe the published mockups.
 # Added 2026-09-12 (later), from the two Michigan designs the store published
 # that evening - captured from their live product pages, name and artwork line
 # taken from the product title the supplier prints under, never invented.
@@ -234,13 +235,13 @@ CATALOG = {
 # /shop/respond-nothing-given-everything-earned/ (both are Navy, so the
 # duplicate-name colour qualifier cannot separate them). Keywords are angled at
 # the tee itself so the two pages do not chase the identical query set.
-"respond-nothing-given-everything-earned-tee": dict(name="Respond Nothing Given Everything Earned.", art="RESPOND NOTHING GIVEN EVERYTHING EARNED", kw=["respond nothing given everything earned tee","nothing given everything earned t-shirt","michigan slogan tee","respond michigan shirt","earned not given football shirt","go blue mindset tee"], theme="classic", type="T-Shirt"),
+"respond-nothing-given-everything-earned-tee": dict(name="Respond Nothing Given Everything Earned Tee", art="RESPOND NOTHING GIVEN EVERYTHING EARNED", kw=["respond nothing given everything earned tee","nothing given everything earned t-shirt","michigan slogan tee","respond michigan shirt","earned not given football shirt","go blue mindset tee"], theme="classic", type="T-Shirt"),
 "bryce-19": dict(name="Bryce 19", art="BRYCE 19", kw=["bryce 19 shirt","bryce underwood michigan shirt","michigan quarterback shirt","qb19 michigan tee","michigan 19 tee","go blue football shirt"], theme="player", type="T-Shirt"),
-"respond-nothing-given-everything-earned": dict(name="Respond Nothing Given Everything Earned", art="RESPOND NOTHING GIVEN EVERYTHING EARNED", kw=["nothing given everything earned shirt","respond michigan shirt","michigan motivational tee","football quote shirt","gridiron mindset tee","go blue fan gear"], theme="classic", type="T-Shirt"),
+"respond-nothing-given-everything-earned": dict(name="Respond Nothing Given Everything Earned Shirt", art="RESPOND NOTHING GIVEN EVERYTHING EARNED", kw=["nothing given everything earned shirt","respond michigan shirt","michigan motivational tee","football quote shirt","gridiron mindset tee","go blue fan gear"], theme="classic", type="T-Shirt"),
 "second-act": dict(name="Second Act", art="SECOND ACT", kw=["second act michigan shirt","michigan football tee","go blue second act tee","ann arbor football shirt","michigan wolverines fan gear","michigan football gift"], theme="classic", type="T-Shirt"),
-"limited-edition-h-a-i-l-mary": dict(name="Limited Edition H A I L Mary", art="LIMITED EDITION H A I L MARY", kw=["hail mary michigan shirt","limited edition hail mary tee","michigan hail mary shirt","go blue hail tee","michigan wolverines fan gear","ann arbor football shirt"], theme="classic", type="T-Shirt"),
+"limited-edition-h-a-i-l-mary": dict(name="Limited Edition Hail Mary", art="LIMITED EDITION H A I L MARY", kw=["hail mary michigan shirt","limited edition hail mary tee","michigan hail mary shirt","go blue hail tee","michigan wolverines fan gear","ann arbor football shirt"], theme="classic", type="T-Shirt"),
 "one-second": dict(name="One Second", art="ONE SECOND", kw=["one second michigan shirt","michigan one second tee","go blue shirt","michigan wolverines fan gear","ann arbor football shirt"], theme="classic", type="T-Shirt"),
-"m-vs-everybody": dict(name="M vs everybody", art="M -VS- EVERYBODY", kw=["m vs everybody shirt","michigan vs everybody tee","go blue vs everybody shirt","michigan wolverines fan gear","ann arbor football shirt"], theme="classic", type="T-Shirt"),
+"m-vs-everybody": dict(name="M vs Everybody", art="M -VS- EVERYBODY", kw=["m vs everybody shirt","michigan vs everybody tee","go blue vs everybody shirt","michigan wolverines fan gear","ann arbor football shirt"], theme="classic", type="T-Shirt"),
 "second-act-qb19-vintage-football": dict(name="Second Act QB19 Vintage Football", art="SECOND ACT QB19 VINTAGE FOOTBALL", kw=["second act qb19 vintage football shirt","michigan qb19 vintage tee","bryce underwood michigan shirt","go blue qb19 tee","ann arbor football shirt","michigan wolverines fan gear"], theme="retro", type="T-Shirt"),
 "limited-edition-go-blue": dict(name="Limited Edition Go Blue", art="LIMITED EDITION GO BLUE", kw=["limited edition go blue shirt","go blue michigan tee","michigan wolverines shirt","ann arbor football shirt","michigan football gift"], theme="classic", type="T-Shirt"),
 "michigan-v-everybody": dict(name="Michigan v Everybody", art="MICHIGAN -VS- EVERYBODY", kw=["michigan vs everybody shirt","michigan v everybody tee","go blue vs everybody shirt","michigan wolverines fan gear","ann arbor football shirt"], theme="classic", type="T-Shirt"),
@@ -252,5 +253,14 @@ CATALOG = {
 "maize-out": dict(name="Maize Out", art="MAIZE OUT", kw=["maize out michigan shirt","maize out tee","michigan maize shirt","go blue maize out shirt","michigan wolverines fan gear","ann arbor football shirt"], theme="classic", type="T-Shirt"),
 "michigan": dict(name="Michigan", art="MICHIGAN", kw=["michigan shirt","michigan tee","plain michigan wolverines shirt","go blue shirt","ann arbor football shirt","michigan football gift"], theme="classic", type="T-Shirt"),
 "legacy": dict(name="Legacy", art="LEGACY", kw=["legacy michigan shirt","michigan legacy tee","go blue legacy shirt","michigan wolverines fan gear","ann arbor football shirt","michigan football gift"], theme="classic", type="T-Shirt"),
+# Green Bay artwork review: the supplier titles are opaque campaign IDs, so
+# these names describe only what the published mockups show. Fulfilment facts
+# remain in data/products_live.json and are not inferred from the names.
+"limited-edition-grb41": dict(name="Jordan Love 10 Packers Shirt", art="JORDAN LOVE 10 with Jordan Love action photo", kw=["jordan love 10 shirt","packers jordan love tee","green bay quarterback shirt","jordan love football shirt","packers fan gear"], theme="player", type="T-Shirt"),
+"limited-edition-grb34-1": dict(name="Jordan Freaking Love Packers Beanie", art="JORDAN FREAKING LOVE on a Packers knit beanie", kw=["jordan love beanie","packers beanie","green bay winter hat","jordan freaking love hat","packers fan gift"], theme="player", type="Beanie"),
+"limited-edition-grb28": dict(name="Packers Game Day Cheesehead Shirt", art="GAME DAY with a cheesehead character", kw=["packers game day shirt","green bay game day tee","cheesehead shirt","packers fan gear","green bay football gift"], theme="classic", type="T-Shirt"),
+"limited-edition-grb23": dict(name="Packers Victory Monday Green Shirt", art="VICTORY MONDAY in white lettering on green", kw=["packers victory monday shirt","green bay victory monday tee","packers green shirt","green bay football shirt","packers fan gear"], theme="classic", type="T-Shirt"),
+"limited-edition-grb22": dict(name="Packers Victory Monday White Shirt", art="VICTORY MONDAY in green lettering on white", kw=["packers victory monday shirt","green bay victory monday tee","packers white shirt","green bay football shirt","packers fan gear"], theme="classic", type="T-Shirt"),
+"limited-edition-grb21": dict(name="Packers Sunday Funday Shirt", art="SUNDAY FUNDAY in Packers green lettering", kw=["packers sunday funday shirt","green bay sunday shirt","packers game day tee","green bay football gift","packers fan gear"], theme="classic", type="T-Shirt"),
 }
 
