@@ -13,21 +13,3 @@ site-offline/
 marketing/publish-results.json
 site/marketing/publish-results.json
 
-# PRIVATE OSINT prospect engine state — NEVER commit prospect data.
-# The refresh workflow commits with `git add -A`, so this guard is load-bearing.
-# Collected contact data is sensitive marketing data (see marketing/osint/README.md).
-marketing/osint/state/
-marketing/osint/exports/
-*.prospects.db
-# Defence in depth: even if private state were ever copied into the site
-# mirror by hand (sync_marketing/sync_ops already exclude it), `git add -A`
-# must still refuse it. No tracked file matches these patterns (audit.py
-# verifies), so the rules only ever bite on leaks.
-*.db
-suppression.csv
-gridiron_prospects_*.csv
-high_priority_contacts_*.csv
-site/marketing/osint/state/
-site/marketing/osint/exports/
-
-
