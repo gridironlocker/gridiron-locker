@@ -24,7 +24,7 @@
 <link rel="icon" href="./img/favicon.svg" type="image/svg+xml">
 <link rel="preconnect" href="https://fonts.googleapis.com">
 <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
-<link rel="stylesheet" href="./assets/style.css?v=2bc76104">
+<link rel="stylesheet" href="./assets/style.css?v=0d8bb836">
 <script>document.documentElement.className+=" js"</script>
 
 <script type="application/ld+json">{"@context":"https://schema.org","@type":"Organization","name":"Gridiron Locker","url":"https://gridironlocker.store","logo":"https://gridironlocker.store/img/favicon.svg","description":"Independent fan-made football apparel store with 84 original designs.","sameAs":["https://x.com/gridironlocker","https://x.com/gridironlocker1","https://www.instagram.com/gridironlocker1","https://www.threads.net/@gridironlocker1","https://www.facebook.com/GridironLocker/","https://www.pinterest.com/gridironlockergear/","https://www.youtube.com/@Gridironlocker"]}</script><script type="application/ld+json">{"@context":"https://schema.org","@type":"WebSite","name":"Gridiron Locker","url":"https://gridironlocker.store","potentialAction":{"@type":"SearchAction","target":"https://gridironlocker.store/search/?q={search_term_string}","query-input":"required name=search_term_string"}}</script><script type="application/ld+json">{"@context":"https://schema.org","@type":"ItemList","itemListElement":[{"@type":"ListItem","position":1,"url":"https://gridironlocker.store/cleveland-browns-shirts/","name":"Cleveland Browns Fan Shirts"},{"@type":"ListItem","position":2,"url":"https://gridironlocker.store/green-bay-packers-shirts/","name":"Green Bay Packers Fan Shirts"},{"@type":"ListItem","position":3,"url":"https://gridironlocker.store/dallas-cowboys-shirts/","name":"Dallas Vintage Sports Tees"},{"@type":"ListItem","position":4,"url":"https://gridironlocker.store/michigan-wolverines-shirts/","name":"Michigan Go Blue Apparel"}]}</script>
@@ -71,16 +71,16 @@
   width="2048" height="768" fetchpriority="high" decoding="async"></div>
  <div class="wrap cb-in">
   <div class="hero-copy">
-   <span class="hero-kicker">Football. Fans. Culture.</span>
-   <h1 class="hero-title">Gear Up.</h1>
+   <span class="hero-kicker">Fan-Made Football</span>
+   <h1 class="hero-title">Your Team. Your Colors.<br>Your Game Day.</h1>
    <span class="hero-rule" aria-hidden="true"></span>
-   <p class="hero-sub">Original fan-made apparel for the teams we love.<br>
-   Four cities. Four fanbases. One locker.</p>
+   <p class="hero-sub">Original fan-made football gear for Browns, Packers, Michigan
+   &amp; Cowboys fans. Have an idea? <a class="hero-custom" href="./#custom-design">We design it.</a></p>
    <div class="btnrow hero-cta">
-    <a class="btn lg" href="./collections/">Shop By Team <span aria-hidden="true">&rarr;</span></a>
-    <a class="btn ghost lg" href="./drops/">Trending Now <span aria-hidden="true">&rarr;</span></a>
+    <a class="btn lg" href="./#shop-the-locker">Shop The Locker <span aria-hidden="true">&rarr;</span></a>
+    <a class="btn ghost lg custom-link" data-placement="hero" href="./#custom-design">Custom Design <span aria-hidden="true">&rarr;</span></a>
    </div>
-   <div class="hero-facts"><span>84 fan designs</span><span>Sizes S&ndash;5XL</span><span>Worldwide shipping</span></div>
+   <div class="hero-facts"><span>84 fan designs</span><span>Sizes S&ndash;5XL</span><span>Worldwide shipping</span><span>Custom designs</span></div>
   </div>
  </div>
 </section>
@@ -124,7 +124,59 @@
  <div class="secfoot"><a class="btn" href="./search/">View All Designs &rarr;</a>
   <a class="link" href="./collections/">Shop by team &rarr;</a></div>
 </div></section>
-<div class="trust">
+<section class="customsec" id="custom-design"><div class="wrap">
+ <div class="customrow reveal">
+  <div class="customimg">
+   <img src="./img/custom-tee1.jpg" alt="Custom t-shirt design - make your own fan apparel"
+    loading="lazy" decoding="async" width="1024" height="1536">
+  </div>
+  <div class="customform">
+   <span class="eyebrow"><span class="dot"></span> Custom football designs</span>
+   <h2>Your idea.<br>Your colors.<br><span class="accentword">Your game day.</span></h2>
+   <p class="cf-dream"><strong>You dream it. We design it.</strong></p>
+   <ol class="cf-flow" aria-label="How a custom design works">
+    <li><b>01</b><span>Your idea</span></li>
+    <li><b>02</b><span>Our design</span></li>
+    <li><b>03</b><span>Your shirt</span></li>
+   </ol>
+   <p class="cf-lead">Have an idea for a football shirt? Tell us the team, the colors and the
+   phrase or concept - we turn it into an original custom football graphic you can buy
+   one at a time.</p>
+   <form id="customForm"
+         method="POST" data-formsubmit="1" aria-label="Custom design request form" novalidate>
+    <div class="cf-head">Tell us about your idea</div>
+    <p class="cf-sub">A free inquiry, not an order - send the details and we&rsquo;ll reply
+    with a proof and a price.</p>
+    <input type="hidden" name="_subject" value="New Custom Design Request from your website">
+    <input type="hidden" name="_template" value="table">
+    <input type="hidden" name="_captcha" value="false">
+    <input type="text" name="_honey" style="display:none" tabindex="-1" autocomplete="off">
+    <div class="row">
+     <label>Your name<input type="text" name="name" required placeholder="John Doe" autocomplete="name"></label>
+     <label>Your email<input type="email" name="email" required placeholder="you@example.com" autocomplete="email"></label>
+    </div>
+    <label class="cf-idea"><span>Your idea <span class="req">*</span></span><textarea name="idea" rows="2" required
+     placeholder="e.g. 'DAWG POUND FOREVER' in orange and brown - or a nickname, a family motto, a group slogan"></textarea></label>
+    <div class="row">
+     <label>Team / theme<select name="team" required>
+      <option value="">Choose</option><option>Cleveland</option><option>Green Bay</option>
+      <option>Dallas</option><option>Michigan</option><option>Other / custom</option></select></label>
+     <label>Product type<select name="garment">
+      <option value="">Choose</option><option>T-Shirt</option><option>Hoodie</option>
+      <option>Sweatshirt</option><option>Long Sleeve</option><option>Mug</option><option>Beanie</option>
+      <option>Other</option></select></label>
+    </div>
+    <label>Preferred colors (optional)<input type="text" name="colors"
+     placeholder="e.g. orange and brown, maize and blue" autocomplete="off"></label>
+    <label>Anything else?<textarea name="details" rows="2"
+     placeholder="Sizes, quantity, or the story behind the design (optional)"></textarea></label>
+    <button class="btn block lg" type="submit">Start Your Custom Design &rarr;</button>
+    <p class="formmsg" id="formmsg" aria-live="polite">We'll reply by email, usually within 1&ndash;2 days.</p>
+   </form>
+  </div>
+ </div>
+</div></section>
+<p class="trust-label">Why Gridiron Locker</p><div class="trust">
  <div><b>Fan-Made Designs</b>Original artwork</div>
  <div><b>Made To Order</b>Printed after you order</div>
  <div><b>Worldwide Shipping</b>Tracked to your door</div>
@@ -169,7 +221,7 @@
  <div class="sechead reveal">
   <div><span class="eyebrow"><span class="dot"></span> 18 designs</span>
    <h2><span class="accentword">Michigan</span> Collection</h2>
-   <p>Vintage-inspired football gear built for Saturdays in Ann Arbor - worn-in athletic prints, block lettering, classic maize and navy, timeless gridiron </p></div>
+   <p>Saturdays in Ann Arbor start here.</p></div>
   <a class="link" href="./michigan-wolverines-shirts/">Explore Michigan &rarr;</a>
  </div>
  <div class="pgrid four"><a class="pcard reveal" href="./shop/maize-out/" style="--ca:#00274C;--ca-ink:#00274C;--ca-tint:#F2F5F9;--ca-2:#E8B800;--btn:#49a59c;--btn-h:#3a847d;--accent:#00274C" data-slug="maize-out"><span class="pc-ph"><img src="https://buyer-experience-gateway.mayzing.com/stores/z2OF/mockups/id:miz0a9q97v20,sig:nMwom5ZKzDPLYedQwGpqW9vTQ8X7RQlEpfUt_6SmP-g,c:GILDAN-NAVY,s:41a8f2db-c26c-4aa6-8f4c-7729cd25b4ee,d:6aa56e40bb665089a162bdd2,dv:2,cpd:pdz0a9q97v0,w:1000/image.png" alt="Maize Out - MAIZE OUT" width="530" height="630" loading="lazy" decoding="async"></span><span class="pc-body"><span class="pc-meta">Michigan &middot; T-Shirt</span><h3 class="pc-name">Maize Out</h3><span class="pc-foot"><span class="pc-price">$21.00</span><span class="pc-go">View design <i aria-hidden="true">&rarr;</i></span></span></span></a><a class="pcard reveal" href="./shop/michigan/" style="--ca:#00274C;--ca-ink:#00274C;--ca-tint:#F2F5F9;--ca-2:#E8B800;--btn:#49a59c;--btn-h:#3a847d;--accent:#00274C" data-slug="michigan"><span class="pc-ph"><img src="https://buyer-experience-gateway.mayzing.com/stores/z2OF/mockups/id:miz0a9q97v20,sig:YzrSDf_9EumbHUwKFZqdJ3CNOYLQp4iuXbZ2_fXKGEg,c:GILDAN-NAVY,s:41a8f2db-c26c-4aa6-8f4c-7729cd25b4ee,d:6aa56daabb665089a162bd6a,dv:2,cpd:pdz0a9q97v0,w:1000/image.png" alt="Michigan - MICHIGAN" width="530" height="630" loading="lazy" decoding="async"></span><span class="pc-body"><span class="pc-meta">Michigan &middot; T-Shirt</span><h3 class="pc-name">Michigan</h3><span class="pc-foot"><span class="pc-price">$21.00</span><span class="pc-go">View design <i aria-hidden="true">&rarr;</i></span></span></span></a><a class="pcard reveal" href="./shop/legacy/" style="--ca:#00274C;--ca-ink:#00274C;--ca-tint:#F2F5F9;--ca-2:#E8B800;--btn:#49a59c;--btn-h:#3a847d;--accent:#00274C" data-slug="legacy"><span class="pc-ph"><img src="https://buyer-experience-gateway.mayzing.com/stores/z2OF/mockups/id:miz0a9q97v20,sig:6PSAfpq60Ck-8P56o8l23lBGD6Gczd95-Bz23tXbSQk,c:GILDAN-NAVY,s:41a8f2db-c26c-4aa6-8f4c-7729cd25b4ee,d:6aa56bcecfa89a7266d6bb9f,dv:2,cpd:pdz0a9q97v0,w:1000/image.png" alt="Legacy - LEGACY" width="530" height="630" loading="lazy" decoding="async"></span><span class="pc-body"><span class="pc-meta">Michigan &middot; T-Shirt</span><h3 class="pc-name">Legacy</h3><span class="pc-foot"><span class="pc-price">$21.00</span><span class="pc-go">View design <i aria-hidden="true">&rarr;</i></span></span></span></a><a class="pcard reveal" href="./shop/second-act/" style="--ca:#00274C;--ca-ink:#00274C;--ca-tint:#F2F5F9;--ca-2:#E8B800;--btn:#49a59c;--btn-h:#3a847d;--accent:#00274C" data-slug="second-act"><span class="pc-ph"><img src="https://buyer-experience-gateway.mayzing.com/stores/z2OF/mockups/id:miz0a9q97v20,sig:VO9k1IaaXmqh9xRs5iIuWHA4PIITRsdgE3uD_7ccbK0,c:GILDAN-NAVY,s:41a8f2db-c26c-4aa6-8f4c-7729cd25b4ee,d:6aa55e1dbae7dd95660e740c,dv:2,cpd:pdz0a9q97v0,w:1000/image.png" alt="Second Act - SECOND ACT" width="530" height="630" loading="lazy" decoding="async"></span><span class="pc-body"><span class="pc-meta">Michigan &middot; T-Shirt</span><h3 class="pc-name">Second Act</h3><span class="pc-foot"><span class="pc-price">$21.00</span><span class="pc-go">View design <i aria-hidden="true">&rarr;</i></span></span></span></a></div>
@@ -177,7 +229,7 @@
  <div class="sechead reveal">
   <div><span class="eyebrow"><span class="dot"></span> 19 designs</span>
    <h2><span class="accentword">Cleveland</span> Collection</h2>
-   <p>Orange and brown Dawg Pound apparel - bulldog graphics, Cleveland skylines, playoff slogans and quarterback tributes, printed on tees, hoodies, crewne</p></div>
+   <p>Built for the Dawg Pound.</p></div>
   <a class="link" href="./cleveland-browns-shirts/">Explore Cleveland &rarr;</a>
  </div>
  <div class="pgrid four"><a class="pcard reveal" href="./shop/dawg-life/" style="--ca:#C8410B;--ca-ink:#9C3208;--ca-tint:#FDF3EE;--ca-2:#3B2415;--btn:#49a59c;--btn-h:#3a847d;--accent:#C8410B" data-slug="dawg-life"><span class="pc-ph"><img src="https://buyer-experience-gateway.mayzing.com/stores/z2OF/mockups/id:mi2vh7vm7224,sig:TkNn-lgsxP5LtPzXYYXqqsA6ql-3FnknhjcspuGXsmE,c:GILDAN-DARK_CHOCOLATE,s:d3cfca9f-6be4-4751-94da-27ce3751a0ac,d:6aa3ae58182ba82756347bfa,dv:2,cpd:pd2vh7vm720,w:1000/image.png" alt="Dawg Life - DAWG LIFE" width="530" height="630" loading="lazy" decoding="async"></span><span class="pc-body"><span class="pc-meta">Cleveland &middot; T-Shirt</span><h3 class="pc-name">Dawg Life</h3><span class="pc-foot"><span class="pc-price">$21.00</span><span class="pc-go">View design <i aria-hidden="true">&rarr;</i></span></span></span></a><a class="pcard reveal" href="./shop/make-them-know-your-name/" style="--ca:#C8410B;--ca-ink:#9C3208;--ca-tint:#FDF3EE;--ca-2:#3B2415;--btn:#49a59c;--btn-h:#3a847d;--accent:#C8410B" data-slug="make-them-know-your-name"><span class="pc-ph"><img src="https://buyer-experience-gateway.mayzing.com/stores/z2OF/mockups/id:mi2vh7vm7224,sig:1h_D74ybWVyUfV4SAWP6RvQrSpwtTUWSaNovvJtvQic,c:GILDAN-DARK_CHOCOLATE,s:d3cfca9f-6be4-4751-94da-27ce3751a0ac,d:6aa33fa01a79d4c9bf423c6b,dv:2,cpd:pd2vh7vm720,w:1000/image.png" alt="Make Them Know Your Name - MAKE THEM KNOW YOUR NAME" width="530" height="630" loading="lazy" decoding="async"></span><span class="pc-body"><span class="pc-meta">Cleveland &middot; T-Shirt</span><h3 class="pc-name">Make Them Know Your Name</h3><span class="pc-foot"><span class="pc-price">$21.00</span><span class="pc-go">View design <i aria-hidden="true">&rarr;</i></span></span></span></a><a class="pcard reveal" href="./shop/browns-cle/" style="--ca:#C8410B;--ca-ink:#9C3208;--ca-tint:#FDF3EE;--ca-2:#3B2415;--btn:#49a59c;--btn-h:#3a847d;--accent:#C8410B" data-slug="browns-cle"><span class="pc-ph"><img src="https://buyer-experience-gateway.mayzing.com/stores/z2OF/mockups/id:mi2vh7vm7224,sig:k43VCW-dsi-VIgiRIt5tIl0H0OfWKJPFcWl_wGkbqK4,c:GILDAN-DARK_CHOCOLATE,s:d3cfca9f-6be4-4751-94da-27ce3751a0ac,d:6aa33ae1dfc5c89f7fb27b60,dv:2,cpd:pd2vh7vm720,w:1000/image.png" alt="Browns Cle - BROWNS CLE" width="530" height="630" loading="lazy" decoding="async"></span><span class="pc-body"><span class="pc-meta">Cleveland &middot; T-Shirt</span><h3 class="pc-name">Browns Cle</h3><span class="pc-foot"><span class="pc-price">$21.00</span><span class="pc-go">View design <i aria-hidden="true">&rarr;</i></span></span></span></a><a class="pcard reveal" href="./shop/dwag/" style="--ca:#C8410B;--ca-ink:#9C3208;--ca-tint:#FDF3EE;--ca-2:#3B2415;--btn:#49a59c;--btn-h:#3a847d;--accent:#C8410B" data-slug="dwag"><span class="pc-ph"><img src="https://buyer-experience-gateway.mayzing.com/stores/z2OF/mockups/id:mi2vh7vm720,sig:htXV8yMDKBHhRnu9EdO91Mf5RGPufTAwuv7ZDoJkGYI,c:GILDAN-OLD_GOLD,s:d3cfca9f-6be4-4751-94da-27ce3751a0ac,d:6aa337df528704e151441208,dv:2,cpd:pd2vh7vm720,w:1000/image.png" alt="DWAG - DWAG" width="530" height="630" loading="lazy" decoding="async"></span><span class="pc-body"><span class="pc-meta">Cleveland &middot; T-Shirt</span><h3 class="pc-name">DWAG</h3><span class="pc-foot"><span class="pc-price">$21.00</span><span class="pc-go">View design <i aria-hidden="true">&rarr;</i></span></span></span></a></div>
@@ -185,7 +237,7 @@
  <div class="sechead reveal">
   <div><span class="eyebrow"><span class="dot"></span> 37 designs</span>
    <h2><span class="accentword">Green Bay</span> Collection</h2>
-   <p>Green and gold for the frozen tundra faithful - cheesehead humour, Lambeau tributes, EST 1919 crests and Go Pack Go scripts on tees, hoodies and crewn</p></div>
+   <p>Sunday starts in Green Bay.</p></div>
   <a class="link" href="./green-bay-packers-shirts/">Explore Green Bay &rarr;</a>
  </div>
  <div class="pgrid four"><a class="pcard reveal" href="./shop/limited-edition-grb36/" style="--ca:#1A6B47;--ca-ink:#155739;--ca-tint:#EFF6F2;--ca-2:#D8A21A;--btn:#49a59c;--btn-h:#3a847d;--accent:#1A6B47" data-slug="limited-edition-grb36"><span class="pc-ph"><img src="./img/p/limited-edition-grb36-front.webp" alt="Jordan Love 10 Flag Number Shirt - Player with a stars and stripes number 10" width="530" height="630" loading="lazy" decoding="async"></span><span class="pc-body"><span class="pc-meta">Green Bay &middot; T-Shirt</span><h3 class="pc-name">Jordan Love 10 Flag Number Shirt</h3><span class="pc-foot"><span class="pc-price">$24.99</span><span class="pc-go">View design <i aria-hidden="true">&rarr;</i></span></span></span></a><a class="pcard reveal" href="./shop/limited-edition-grb35/" style="--ca:#1A6B47;--ca-ink:#155739;--ca-tint:#EFF6F2;--ca-2:#D8A21A;--btn:#49a59c;--btn-h:#3a847d;--accent:#1A6B47" data-slug="limited-edition-grb35"><span class="pc-ph"><img src="./img/p/limited-edition-grb35-front.webp" alt="Cheese Heart Green Bay Mug - Cheese wedge heart on a black mug" width="530" height="630" loading="lazy" decoding="async"></span><span class="pc-body"><span class="pc-meta">Green Bay &middot; Mug</span><h3 class="pc-name">Cheese Heart Green Bay Mug</h3><span class="pc-foot"><span class="pc-price">$19.99</span><span class="pc-go">View design <i aria-hidden="true">&rarr;</i></span></span></span></a><a class="pcard reveal" href="./shop/limited-edition-grb34-1/" style="--ca:#1A6B47;--ca-ink:#155739;--ca-tint:#EFF6F2;--ca-2:#D8A21A;--btn:#49a59c;--btn-h:#3a847d;--accent:#1A6B47" data-slug="limited-edition-grb34-1"><span class="pc-ph"><img src="./img/p/limited-edition-grb34-1-front.webp" alt="Limited Edition GRB34 - LIMITED EDITION GRB34" width="530" height="630" loading="lazy" decoding="async"></span><span class="pc-body"><span class="pc-meta">Green Bay &middot; T-Shirt</span><h3 class="pc-name">Limited Edition GRB34</h3><span class="pc-foot"><span class="pc-price">$24.99</span><span class="pc-go">View design <i aria-hidden="true">&rarr;</i></span></span></span></a><a class="pcard reveal" href="./shop/limited-edition-grb33/" style="--ca:#1A6B47;--ca-ink:#155739;--ca-tint:#EFF6F2;--ca-2:#D8A21A;--btn:#49a59c;--btn-h:#3a847d;--accent:#1A6B47" data-slug="limited-edition-grb33"><span class="pc-ph"><img src="./img/p/limited-edition-grb33-front.webp" alt="All You Need Is Love 10 Helmet Shirt - ALL YOU NEED IS 10VE with helmet and waves" width="530" height="630" loading="lazy" decoding="async"></span><span class="pc-body"><span class="pc-meta">Green Bay &middot; T-Shirt</span><h3 class="pc-name">All You Need Is Love 10 Helmet Shirt</h3><span class="pc-foot"><span class="pc-price">$24.99</span><span class="pc-go">View design <i aria-hidden="true">&rarr;</i></span></span></span></a></div>
@@ -193,7 +245,7 @@
  <div class="sechead reveal">
   <div><span class="eyebrow"><span class="dot"></span> 10 designs</span>
    <h2><span class="accentword">Dallas</span> Collection</h2>
-   <p>Celebrate your pride for the city with classic vintage-style designs - worn-in athletic prints, star-city lettering and Texas pride, for game days and</p></div>
+   <p>Wear your Dallas pride your way.</p></div>
   <a class="link" href="./dallas-cowboys-shirts/">Explore Dallas &rarr;</a>
  </div>
  <div class="pgrid four"><a class="pcard reveal" href="./shop/dallas-football-vintage-style-tee/" style="--ca:#2C4A72;--ca-ink:#26405F;--ca-tint:#F2F5F9;--ca-2:#97A6B8;--btn:#49a59c;--btn-h:#3a847d;--accent:#2C4A72" data-slug="dallas-football-vintage-style-tee"><span class="pc-ph"><img src="./img/p/dallas-football-vintage-style-tee-front.webp" alt="Dallas Football Star Lightning Vintage Shirt - DALLAS FOOTBALL with star, lightning bolts and football" width="530" height="630" loading="lazy" decoding="async"></span><span class="pc-body"><span class="pc-meta">Dallas &middot; T-Shirt</span><h3 class="pc-name">Dallas Football Star Lightning Vintage Shirt</h3><span class="pc-foot"><span class="pc-price">$21.99</span><span class="pc-go">View design <i aria-hidden="true">&rarr;</i></span></span></span></a><a class="pcard reveal" href="./shop/dallas-football-vintage-athletic-style-f/" style="--ca:#2C4A72;--ca-ink:#26405F;--ca-tint:#F2F5F9;--ca-2:#97A6B8;--btn:#49a59c;--btn-h:#3a847d;--accent:#2C4A72" data-slug="dallas-football-vintage-athletic-style-f"><span class="pc-ph"><img src="./img/p/dallas-football-vintage-athletic-style-f-front.webp" alt="Dallas Football 1960 Helmet Vintage Shirt - DALLAS FOOTBALL 1960 DALLAS, TEXAS with retro helmet" width="530" height="630" loading="lazy" decoding="async"></span><span class="pc-body"><span class="pc-meta">Dallas &middot; T-Shirt</span><h3 class="pc-name">Dallas Football 1960 Helmet Vintage Shirt</h3><span class="pc-foot"><span class="pc-price">$21.99</span><span class="pc-go">View design <i aria-hidden="true">&rarr;</i></span></span></span></a><a class="pcard reveal" href="./shop/vintage-country/" style="--ca:#2C4A72;--ca-ink:#26405F;--ca-tint:#F2F5F9;--ca-2:#97A6B8;--btn:#49a59c;--btn-h:#3a847d;--accent:#2C4A72" data-slug="vintage-country"><span class="pc-ph"><img src="./img/p/vintage-country-front.webp" alt="Y&#x27;all Can Kiss My Dallas Longhorn Shirt - Y&#x27;ALL CAN KISS MY DALLAS with longhorn skull" width="530" height="630" loading="lazy" decoding="async"></span><span class="pc-body"><span class="pc-meta">Dallas &middot; T-Shirt</span><h3 class="pc-name">Y&#x27;all Can Kiss My Dallas Longhorn Shirt</h3><span class="pc-foot"><span class="pc-price">$21.99</span><span class="pc-go">View design <i aria-hidden="true">&rarr;</i></span></span></span></a><a class="pcard reveal" href="./shop/dallas-flag-tee/" style="--ca:#2C4A72;--ca-ink:#26405F;--ca-tint:#F2F5F9;--ca-2:#97A6B8;--btn:#49a59c;--btn-h:#3a847d;--accent:#2C4A72" data-slug="dallas-flag-tee"><span class="pc-ph"><img src="./img/p/dallas-flag-tee-front.webp" alt="Dallas American Flag Vertical Shirt - DALLAS on a distressed vertical American flag" width="530" height="630" loading="lazy" decoding="async"></span><span class="pc-body"><span class="pc-meta">Dallas &middot; T-Shirt</span><h3 class="pc-name">Dallas American Flag Vertical Shirt</h3><span class="pc-foot"><span class="pc-price">$21.99</span><span class="pc-go">View design <i aria-hidden="true">&rarr;</i></span></span></span></a></div>
@@ -206,59 +258,6 @@
   <p>Sizing, shipping and game-day answers in one place - no guesswork before checkout.</p></div>
   <a class="link" href="./guides/">All guides &rarr;</a></div>
  <div class="guide-grid"><a class="guide-card reveal" href="./guides/2026-week-1-shirts/"><span class="gc-kick">Game day</span><b>What To Wear On Game Day</b><span class="gc-sub">The 2026 Week 1 fan-shirt guide: what fans are wearing for the openers, team by team.</span><span class="gc-go">Read the guide &rarr;</span></a><a class="guide-card reveal" href="./guides/"><span class="gc-kick">Team shirts</span><b>Team Shirt Guide</b><span class="gc-sub">Cleveland, Green Bay, Dallas and Michigan - what makes a good shirt for each fanbase.</span><span class="gc-go">All buying guides &rarr;</span></a><a class="guide-card reveal" href="./size-guide/"><span class="gc-kick">Fit</span><b>How To Pick The Right Fan Fit</b><span class="gc-sub">Measurements for every cut we print, S to 5XL, unisex and women's.</span><span class="gc-go">Size guide &rarr;</span></a><a class="guide-card reveal" href="./shipping/"><span class="gc-kick">Delivery</span><b>Shipping &amp; Returns</b><span class="gc-sub">Printed on demand. No warehouse stock. Delivery times vary by product and fulfillment partner, and are shown at checkout.</span><span class="gc-go">Read the details &rarr;</span></a></div>
-</div></section>
-<section class="customsec" id="custom-design"><div class="wrap">
- <div class="customrow reveal">
-  <div class="customimg">
-   <img src="./img/custom-tee1.jpg" alt="Custom t-shirt design - make your own fan apparel"
-    loading="lazy" decoding="async" width="1024" height="1536">
-  </div>
-  <div class="customform">
-   <span class="eyebrow"><span class="dot"></span> Custom football designs</span>
-   <h2>Your idea.<br>Your colors.<br><span class="accentword">Your game day.</span></h2>
-   <p class="cf-dream"><strong>You dream it. We design it.</strong></p>
-   <p class="cf-lead">Have an idea for a shirt? A nickname, a catchphrase, a family motto, a
-   group slogan - tell us the team, the colors, the phrase and the idea, and we turn it
-   into original fan apparel you can buy one at a time.</p>
-   <ul class="cf-points">
-    <li><b>Team</b>Your side</li>
-    <li><b>Colors</b>Your palette</li>
-    <li><b>Phrase</b>Your wording</li>
-    <li><b>Idea</b>Your story</li>
-   </ul>
-   <form id="customForm"
-         method="POST" data-formsubmit="1" aria-label="Custom design request form" novalidate>
-    <div class="cf-head">Tell us about your idea</div>
-    <p class="cf-sub">A free inquiry, not an order - send the details and we&rsquo;ll reply
-    with a proof and a price.</p>
-    <input type="hidden" name="_subject" value="New Custom Design Request from your website">
-    <input type="hidden" name="_template" value="table">
-    <input type="hidden" name="_captcha" value="false">
-    <input type="text" name="_honey" style="display:none" tabindex="-1" autocomplete="off">
-    <div class="row">
-     <label>Your name<input type="text" name="name" required placeholder="John Doe" autocomplete="name"></label>
-     <label>Your email<input type="email" name="email" required placeholder="you@example.com" autocomplete="email"></label>
-    </div>
-    <div class="row">
-     <label>Team / theme<select name="team" required>
-      <option value="">Choose</option><option>Cleveland</option><option>Green Bay</option>
-      <option>Dallas</option><option>Michigan</option><option>Other / custom</option></select></label>
-     <label>Garment<select name="garment">
-      <option value="">Choose</option><option>T-Shirt</option><option>Hoodie</option>
-      <option>Sweatshirt</option><option>Long Sleeve</option><option>Mug</option><option>Beanie</option>
-      <option>Other</option></select></label>
-    </div>
-    <label>Your idea<input type="text" name="idea" required
-     placeholder="e.g. 'GO BROWNS', a nickname, a catchphrase"></label>
-    <label>Preferred colors (optional)<input type="text" name="colors"
-     placeholder="e.g. orange and brown, maize and blue" autocomplete="off"></label>
-    <label>Anything else?<textarea name="details" rows="3"
-     placeholder="Sizes, quantity, or the story behind the design (optional)"></textarea></label>
-    <button class="btn block lg" type="submit">Request Custom Apparel &rarr;</button>
-    <p class="formmsg" id="formmsg" aria-live="polite">We'll reply by email, usually within 1&ndash;2 days.</p>
-   </form>
-  </div>
- </div>
 </div></section>
 <section class="ftisec"><div class="wrap"><div class="sechead reveal"><div><span class="eyebrow"><span class="dot"></span> Live · updated 2026-09-17</span><h2>Fan <span class="accentword">Trend Index</span></h2><p>Who the headlines are actually about, scored 0-100 against the hottest name in our four fanbases.</p></div><a class="link" href="./fan-trend-index/">Full index &rarr;</a></div><div class="fti-chips"><a class="fti-chip" style="--ca:#C8410B;--ca-ink:#9C3208;--ca-tint:#FDF3EE;--ca-2:#3B2415;--btn:#49a59c;--btn-h:#3a847d;--accent:#C8410B" href="./fan-trend-index/"><b>#1 · 100</b><span>Deshaun Watson</span><em>Cleveland</em></a><a class="fti-chip" style="--ca:#00274C;--ca-ink:#00274C;--ca-tint:#F2F5F9;--ca-2:#E8B800;--btn:#49a59c;--btn-h:#3a847d;--accent:#00274C" href="./fan-trend-index/"><b>#2 · 32</b><span>Bryce Underwood</span><em>Michigan</em></a><a class="fti-chip" style="--ca:#C8410B;--ca-ink:#9C3208;--ca-tint:#FDF3EE;--ca-2:#3B2415;--btn:#49a59c;--btn-h:#3a847d;--accent:#C8410B" href="./fan-trend-index/"><b>#3 · 25</b><span>Todd Monken</span><em>Cleveland</em></a><a class="fti-chip" style="--ca:#C8410B;--ca-ink:#9C3208;--ca-tint:#FDF3EE;--ca-2:#3B2415;--btn:#49a59c;--btn-h:#3a847d;--accent:#C8410B" href="./fan-trend-index/"><b>#4 · 22</b><span>Shedeur Sanders</span><em>Cleveland</em></a></div></div></section>
 <div class="newsticker"><div class="track" style="--dur:158.2s"><a href="https://news.google.com/rss/articles/CBMijwFBVV95cUxOTnplY2hXdFZJLWwtbnNicWJvTE4tdTZsZFVpSWozZ3pRLS1fajBoZmR1X0VTeFhUdGJhUXIxcThYeUJrUGlyYVFXeDVjY1VBQmZ2WHZMc3R2WjJFVDItOFdsazZ0Z0lrb1VYSWswRE9iSUxSNldTei1Gek1PTHQ4cENtLTJzZUFKTTQtWnJlWQ?oc=5" target="_blank" rel="nofollow noopener"><i class="hot">[Cleveland] Jaguars 34, Browns 10 | Final Score, Stats &amp; Game Recap</i></a><a href="https://news.google.com/rss/articles/CBMinAFBVV95cUxNZ1BiZ0k0T294bHR4SGJLUUYxcC1aa21YcGNJVlJ0bEtNZk5oWE5BWVR1WHFrbmZzQWhwb2lTR1NyekpQWTFxQjR1Q0lFUVlqbjhqUnlVc1VDRXBMX29wazFCRG5MRXhCYmxtdDlyVmxOOWJ2SWtjc0E1MXpfSWFwaGlVUzVyWGFCRFdaem9kcmNkOHJSV2RWZnpzYk0?oc=5" target="_blank" rel="nofollow noopener"><i class="hot">[Cleveland] Todd Monken: Browns&#x27; big loss not just about Deshaun Watson</i></a><a href="https://news.google.com/rss/articles/CBMiwwFBVV95cUxOM0gwVkhsdUFNME01ZTNwSDVRTV9XMGZ2Zk5VZ0VZeWpNb1lqTzlHWTNnLXJ0UFRtcXQtZXBXdkRJcm53WmFOejZNcDdHbkNSUWR1TzVXbmlLbDR0SElaOWh6aHhCMWo3dUIwMmhqdmRQaEUxSlRST0VMaUlhTnBaYXFfa3cxTGdqdXNJMUxRV1owdEZWcDVLTnhOTnVjUE45Yk93bnZKR2F3LXQ4d2sweVJuX2Q1Y08tV0owOGw1TUhheVk?oc=5" target="_blank" rel="nofollow noopener"><i class="hot">[Cleveland] Browns are a disaster in the first half vs.</i></a><a href="https://news.google.com/rss/articles/CBMiqwFBVV95cUxORWd3SC1TRDJETUhpVmxaWE4wczNTSVViWm5KMG83dHNEZjdaVGo4RHdrbTVyNHB2VTVYdkJRTnFRamxzbUhpV29nLWNmdFRhUU0teEJWRHFTSFNzZ2c3WUNWQVljX2o5VUh3blZ2Wm1nZ0dvbHBtdXdxV1VxSXJlTlBubG1LWTRSTTRMdFFMaS0zbUxxWUlEdm5VNWxHd1AzRkRhY1VCbGVUSGM?oc=5" target="_blank" rel="nofollow noopener"><i class="hot">[Green Bay] Game recap: 5 takeaways from Packers’ season-opening loss to Vikings</i></a><a href="https://news.google.com/rss/articles/CBMifEFVX3lxTE5OdXhrb3M5d3lUdUc2cGlQQ3oxN000STBwajNiOHpydHAzbmxQemc2NFVlNUFNU04zV2t0XzN6eGJUMEx5NmZmX3BfUjY0OG4zUEJUN2Y0cm9DSDJ6NDdYbjUxVTI2TTFnZWJkRUtHb2RSZ3VQampiN3BkWmQ?oc=5" target="_blank" rel="nofollow noopener"><i class="hot">[Green Bay] Me, my mom and our Green Bay Packers</i></a><a href="https://news.google.com/rss/articles/CBMigwFBVV95cUxOdVhibXlxb1oxQlpaNFFyQlRUeW1EQnJGaFQ2TDJoTGhFOXU1NjBvNXZWdGg2NUNON2hVMVhKTlhSQ2pJYk9uUW8xclc2bTB6b0Q3M2tNSnh1THI1OWFUMmVlTWsxZC1mSndoT1cwWjRNdU5rbWdqdmpiSUphQkFvTUt1cw?oc=5" target="_blank" rel="nofollow noopener"><i class="hot">[Green Bay] Green Bay Packers Star Micah Parsons Shares Reaction to Vikings Loss</i></a><a href="https://news.google.com/rss/articles/CBMiowFBVV95cUxNLVp4TXlhQXRweEs1WmF2bUZHSE9kZG1raTlNQVNCenotRWVNYjBBdGRVVk5sVUZpU2Rwc3RFemhVM1JSX1ZnRVFUbGJGX2RHVUxKQ1pmaWJMbWJTbnlzWkh6ZC1vWlBQNURnTVdwUG9XUVR5NmZSQ0o1RmZNTEQxQUVZTlBrZVVXQ3hQYXFrY3JabEZaYzl4eFdqeHFSUG1UQVZF?oc=5" target="_blank" rel="nofollow noopener"><i class="hot">[Dallas] Brian Schottenheimer on Cowboys&#x27; season-opening loss: &#x27;We got humbled&#x27;</i></a><a href="https://news.google.com/rss/articles/CBMimAFBVV95cUxPM0RzLXhFR0NGSkN0R1Q4cnNfYThXdEZUa2tlcXJaVTlaZzdXbFo3MHFKRTlwUm1PLTNmeTRJM2UzMjlveXY2UEhjb3h0ZUFncFA5aHoyQWw0UGh2NmVKQmlYX0MwODZHXzJWMUw4OW9EWk1RMzNwLTJ3MXg0MGxxTmNCaG1mWHhJY2JoMUQzZHFmSFhTVnVSTQ?oc=5" target="_blank" rel="nofollow noopener"><i class="hot">[Dallas] Ryan Flournoy, Cowboys agree to terms on contract extension</i></a><a href="https://news.google.com/rss/articles/CBMisgFBVV95cUxPeEhRNi11Y2RMUlByYXNod19NUTlnUlFSemNJeFBjUE54b2FvZ09wMXlsTmJFNC0tUTkzckdhUGpOYjA1Z3JXNi1ZcmlOWHZfWGhQYTlMZmJzZUU3ZklocUtsc1haTmJ4Vml6d1Bwa1BodEd5ZVRuT1RZTzFZZXlKZ0xpcUxwZFBQdXo2THZmRl9YajRlbHlQT0NVV1VoYzVJQ2Y3RGpRSGZzbjZqamVCN2ln?oc=5" target="_blank" rel="nofollow noopener"><i class="hot">[Dallas] Quinnen Williams, Caleb Downs circle what went wrong in Cowboys loss to Giants</i></a><a href="https://news.google.com/rss/articles/CBMisAFBVV95cUxPMnFPaWVkVHhqRmxkOXVIUENNZE1UOXMyeTdULS1XUVBWdDFKMUV1NWp4UTJjQmVNT1VjblduZkd3S2hvT0ZrTnR2aUFuM0d3aTR4YV9ENURFejlTYUZkWUctTHlmX3Fqd3RPcjhkMzZuM0tLVFJBYmJPRXR6LTF3cjdSQUF2VU1YV2tOUDZ5T2lBODRFX1UtNVlJdWlldTkyRzN4dWZTMXVuZzczdURCMdIBsAFBVV95cUxNOFQyVUJMVm9pLUFtRHVPdE4tVnMtOUlxajVSTVNaU1ZUdlhEd3ctUWltekliLWNWZXFkOEpBWW5aNmduTE5MYWZpaldLZ1VQVVA1ZjNkNlB0WjFtWWFsdV9EOVo4aHpReFZvb0lWVE05Z2FxcW9MR2U4QkR6MkNvMG04TTc1cjMwTnFIQ1E0Xzh6bDJ5bzNSSEI1bmlWWFZOQjdRSENvRzRNbFRLQkVDQg?oc=5" target="_blank" rel="nofollow noopener"><i class="hot">[Michigan] College Football Rankings: Where Michigan Landed After Its Week 1 Hail Mary Win</i></a><a href="https://news.google.com/rss/articles/CBMihgFBVV95cUxOcVFwSTAyV1JCMTBFM2NwWEJpSnVkdjlaU1FkaU5MdnM3S1JoSFJ5d3hfUVpMWE1kRFBXNDFWc0tlcUtWV1hkb29KSE5MbXFwd19nYjJ6dDZZc2NnOUZ5eFFnNEhrTThOR1pQQmNKSjFBWVpKdE9JcHlJOGZQcjVuTmdDU3lFQQ?oc=5" target="_blank" rel="nofollow noopener"><i class="hot">[Michigan] Postgame Notes: Michigan 17, #11 Oklahoma 10</i></a><a href="https://news.google.com/rss/articles/CBMiiAFBVV95cUxPWDhXLTBFb2hGU01zQk9fajZ6Q1VPQ1JBbGtNbUZzOWVBb3FxbkY0czIzbDZkWVZyclNDMXNBLTNOa3pLNHdhLUxsNlVqRnJhY2FOdjhuY2FvV211SVl4YklGVEc5bEdtMnJwdlIybTFxZVhFYk4yT0FaWE9xSEE1Z1lSZ01uaGNN?oc=5" target="_blank" rel="nofollow noopener"><i class="hot">[Michigan] OU Drops Road Opener at Michigan - University of Oklahoma</i></a><span class="tk-clone" aria-hidden="true"><i class="hot">[Cleveland] Jaguars 34, Browns 10 | Final Score, Stats &amp; Game Recap</i><i class="hot">[Cleveland] Todd Monken: Browns&#x27; big loss not just about Deshaun Watson</i><i class="hot">[Cleveland] Browns are a disaster in the first half vs.</i><i class="hot">[Green Bay] Game recap: 5 takeaways from Packers’ season-opening loss to Vikings</i><i class="hot">[Green Bay] Me, my mom and our Green Bay Packers</i><i class="hot">[Green Bay] Green Bay Packers Star Micah Parsons Shares Reaction to Vikings Loss</i><i class="hot">[Dallas] Brian Schottenheimer on Cowboys&#x27; season-opening loss: &#x27;We got humbled&#x27;</i><i class="hot">[Dallas] Ryan Flournoy, Cowboys agree to terms on contract extension</i><i class="hot">[Dallas] Quinnen Williams, Caleb Downs circle what went wrong in Cowboys loss to Giants</i><i class="hot">[Michigan] College Football Rankings: Where Michigan Landed After Its Week 1 Hail Mary Win</i><i class="hot">[Michigan] Postgame Notes: Michigan 17, #11 Oklahoma 10</i><i class="hot">[Michigan] OU Drops Road Opener at Michigan - University of Oklahoma</i></span></div></div>
@@ -280,6 +279,20 @@
    <button class="btn" type="submit">Join &rarr;</button></span>
    <p class="formmsg" id="newsMsg" aria-live="polite">We only email about the locker. Unsubscribe anytime.</p>
   </form>
+ </div>
+</div></section>
+<section class="finalcta" id="final-cta"><div class="wrap">
+ <div class="fc-in reveal">
+  <div class="fc-copy">
+   <span class="eyebrow"><span class="dot"></span> Game day is coming</span>
+   <h2>Shop The <span class="accentword">Locker</span></h2>
+   <p>84 original designs across four teams - or a custom design with
+   your own idea on it.</p>
+  </div>
+  <div class="fc-act">
+   <a class="btn lg" href="./search/">All 84 Designs <span aria-hidden="true">&rarr;</span></a>
+   <a class="btn ghost lg custom-link" data-placement="final_cta" href="./#custom-design">Custom Design <span aria-hidden="true">&rarr;</span></a>
+  </div>
  </div>
 </div></section>
 </main>

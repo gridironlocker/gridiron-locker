@@ -214,6 +214,13 @@ body.has-mobshop{padding-bottom:56px}
 .cbanner .cb-in{padding:18px 16px 22px;max-width:var(--max);margin:0 auto}
 .cbanner h1,.cbanner .hero-title{font-size:clamp(1.35rem,5.4vw,2.2rem);margin-bottom:8px;
   color:var(--ink);font-weight:800;letter-spacing:-.02em;line-height:1.16}
+/* Collection hero positioning line: the fan-identity sentence (e.g. "Built
+   for the Dawg Pound.") in display type, one team line per collection. It
+   sits under the eyebrow and above the SEO H1 - display font vs body-bold
+   H1 keeps the two from reading as one doubled headline. */
+.cbanner .posline{font-family:var(--display);font-weight:400;font-synthesis-weight:none;
+  text-transform:uppercase;letter-spacing:.04em;color:var(--ca-ink);
+  font-size:clamp(1.25rem,3.2vw,1.7rem);line-height:1.05;margin:2px 0 8px}
 .cbanner p.lede{font-size:.92rem;color:var(--muted);margin:0 0 12px;max-width:64ch;line-height:1.6}
 .cbanner .vs{font-size:.72rem;color:#8b919a;margin:0 0 14px}
 .cbanner .vs b{color:var(--ca-ink);font-weight:700}
@@ -244,6 +251,10 @@ body.has-mobshop{padding-bottom:56px}
 }
 
 /* ============ TRUST STRIP ============ */
+/* Homepage "Why Gridiron Locker" label above the strip (homepage only -
+   collection pages keep the compact strip under the filter bar). */
+.trust-label{text-align:center;font-size:.68rem;font-weight:800;letter-spacing:.16em;
+  text-transform:uppercase;color:var(--muted);margin:26px 0 10px}
 .trust{display:grid;grid-template-columns:repeat(4,1fr);border-bottom:1px solid var(--line);
   background:#fff}
 .trust div{padding:14px 10px;text-align:center;font-size:.7rem;color:var(--muted);
@@ -491,9 +502,15 @@ section{padding:clamp(30px,4.5vw,52px) 0}
 .thumb.on{border:2px solid var(--ca)}
 .thumb img{width:100%;height:100%;object-fit:contain;padding:4%}
 
-.buybox h1{margin-bottom:8px;font-size:clamp(1.35rem,3.8vw,1.95rem)}
+.buybox h1{margin-bottom:6px;font-size:clamp(1.35rem,3.8vw,1.95rem)}
 .buybox p.desc{font-size:.94rem;line-height:1.6;color:var(--ink2);margin-top:6px}
-.herodeck{font-size:1.02rem;line-height:1.65;color:var(--ink2);margin:0 0 16px;max-width:46ch}
+/* The fan value line: one short sentence - WHY a fan would wear this -
+   under the H1, above the description. Team-coloured (the PDP scopes the
+   collection's tokens at :root) so each team's page reads in its own ink.
+   It is display-adjacent weight, not a heading: one line on phones. */
+.value{font-size:1.04rem;font-weight:700;color:var(--ca-ink);letter-spacing:-.01em;
+  line-height:1.45;margin:0 0 12px;max-width:46ch}
+.herodeck{font-size:1rem;line-height:1.6;color:var(--ink2);margin:0 0 16px;max-width:48ch}
 .pricerow{display:flex;align-items:baseline;gap:10px;flex-wrap:wrap;margin-bottom:14px}
 .pricebig{font-family:var(--font);font-size:1.85rem;font-weight:800;color:var(--ink)}
 .pricefrom{font-size:.76rem;color:var(--muted);letter-spacing:.02em}
@@ -731,13 +748,23 @@ footer .logo{color:var(--ink)}
 /* the proposition, stated once: you dream it, we design it. */
 .cf-dream{margin:0 0 10px;font-size:1.02rem;color:var(--ink)}
 .cf-dream strong{font-weight:800}
-/* the four things to send: team, colors, phrase, idea. Compact chips that
-   wrap on narrow phones instead of squeezing. */
-.cf-points{list-style:none;margin:0 0 18px;padding:0;display:flex;flex-wrap:wrap;gap:8px}
-.cf-points li{border:1px solid var(--line);border-radius:9px;background:#fff;
-  padding:8px 12px;font-size:.8rem;color:var(--ink2)}
-.cf-points b{display:block;font-size:.62rem;font-weight:800;letter-spacing:.1em;
-  text-transform:uppercase;color:var(--muted);margin-bottom:1px}
+/* the three-step flow: YOUR IDEA -> OUR DESIGN -> YOUR SHIRT. One glance
+   and the service is understood - no multi-step application implied. The
+   numbers are the display face; the steps are plain bold words. */
+.cf-flow{list-style:none;display:flex;gap:8px;margin:0 0 16px;padding:0}
+.cf-flow li{flex:1;display:flex;align-items:center;gap:9px;border:1px solid var(--line2);
+  border-radius:9px;background:var(--bg2);padding:9px 11px;font-size:.78rem;
+  font-weight:700;color:var(--ink)}
+.cf-flow b{font-family:var(--display);font-weight:400;font-size:1.1rem;
+  letter-spacing:.04em;color:var(--ca-ink);flex:none}
+@media(max-width:400px){.cf-flow li{padding:8px 10px;gap:7px;font-size:.74rem}}
+/* the idea field is the point of the form - it gets the team-ink label and
+   a roomier textarea, not a single line competing with the selects. */
+.cf-idea{border:1px solid var(--ca);border-radius:9px;padding:11px 12px;background:#fff}
+.cf-idea>span:first-child{color:var(--ca-ink)}
+.cf-idea .req{color:var(--ca-ink)}
+.cf-idea textarea{border:none;padding:0;width:100%}
+.cf-idea textarea:focus{outline:none}
 .customform .cf-head{font-family:var(--font);font-size:1.05rem;font-weight:800;letter-spacing:-.01em;
   color:var(--ink);margin:0 0 2px;text-transform:none;padding-top:14px;border-top:1px solid var(--line)}
 .customform .cf-sub{margin:0 0 4px;font-size:.9rem;color:var(--muted);line-height:1.5}
@@ -758,7 +785,35 @@ footer .logo{color:var(--ink)}
 @media(max-width:820px){.customrow{grid-template-columns:1fr;gap:20px;align-items:start}
   .customimg{max-height:420px}.customimg img{max-height:420px}
   .customform{height:auto}}
-@media(max-width:640px){.customform .row{grid-template-columns:1fr}.customform{padding:20px 16px}}
+/* phones: the mockup earns a glance, not half the form's scroll - the form
+   (and the idea field) is what the visitor came for */
+@media(max-width:640px){.customform .row{grid-template-columns:1fr}.customform{padding:20px 16px}
+  .customimg{max-height:260px}.customimg img{max-height:260px}}
+
+/* ============ FINAL SHOP CTA ============ */
+/* Dark bookend to the hero poster: the page ends on a purchase action, not
+   the newsletter. Neutral brand surface (no team tokens - it covers all
+   four), the poster's yellow carries the accent and the primary button. */
+.finalcta{background:#0a0b0d;color:#e8eaed;padding:clamp(34px,5vw,56px) 0}
+.finalcta .fc-in{display:flex;align-items:center;justify-content:space-between;gap:22px;flex-wrap:wrap}
+.finalcta .fc-copy{max-width:540px}
+.finalcta h2{font-family:var(--display);font-weight:400;font-synthesis-weight:none;
+  text-transform:uppercase;letter-spacing:.01em;font-size:clamp(1.7rem,4vw,2.6rem);
+  line-height:1.02;color:#fff;margin:0 0 8px}
+.finalcta p{color:#a8aeb6;font-size:.95rem;margin:0;max-width:48ch}
+.finalcta .accentword{color:#F2B01E}
+.finalcta .eyebrow{background:rgba(255,255,255,.07);border-color:rgba(255,255,255,.18);
+  color:#c9cdd3}
+.finalcta .dot{background:#F2B01E}
+.finalcta .fc-act{display:flex;gap:12px;flex-wrap:wrap}
+.finalcta .btn{background:#F2B01E;border-color:#F2B01E;color:#0a0b0d;font-weight:800}
+.finalcta .btn:hover{background:#d99c12;border-color:#d99c12;color:#0a0b0d}
+.finalcta .btn.ghost{background:transparent;color:#fff;border-color:rgba(255,255,255,.4)}
+.finalcta .btn.ghost:hover{background:rgba(255,255,255,.08);border-color:#fff;color:#fff}
+@media(max-width:700px){
+  .finalcta .fc-act{width:100%}
+  .finalcta .fc-act .btn{flex:1 1 0;min-width:0}
+}
 
 /* ============ CUSTOM SHIRT POPUP ============ */
 .cs-pop{position:fixed;right:16px;bottom:84px;z-index:120;width:300px;background:#fff;
@@ -951,9 +1006,17 @@ footer .logo{color:var(--ink)}
 /* hairlines either side so the line reads as a label, not a lost sentence */
 .cbanner.home .hero-kicker:before,.cbanner.home .hero-kicker:after{content:'';flex:none;
   width:22px;height:2px;background:var(--line2)}
+/* Three clauses on one axis: two lines on desktop, three on a phone.
+   Tight leading keeps the block short so the team deck is one flick away. */
 .cbanner.home .hero-title{font-family:var(--display);font-weight:400;font-synthesis-weight:none;
-  font-size:clamp(2.5rem,7vw,4.2rem);line-height:.94;letter-spacing:.02em;text-transform:uppercase;
+  font-size:clamp(2.4rem,6.6vw,4rem);line-height:.98;letter-spacing:.02em;text-transform:uppercase;
   color:var(--ink);margin:0}
+/* The custom pointer inside the sub-copy: same voice as the sentence, just
+   underlined. It is NOT the custom CTA (the button is) and carries no
+   custom-link class, so the hero custom click is counted exactly once. */
+.cbanner.home .hero-custom{color:var(--ink);font-weight:700;text-decoration:underline;
+  text-underline-offset:3px;text-decoration-thickness:2px}
+.cbanner.home .hero-custom:hover{text-decoration-thickness:3px}
 /* the poster's yellow slash, quoted once, as a rule under the headline */
 .cbanner.home .hero-rule{display:block;width:clamp(64px,9vw,104px);height:6px;margin:16px auto 0;
   background:#F2B01E;border-radius:3px;transform:skewX(-16deg)}

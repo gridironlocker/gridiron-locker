@@ -466,7 +466,85 @@ def meta_description(slug, name, col, garment, price, styles, colours, sizes, ar
     return out
 
 
-# ---------------------------------------------------------------- short description (50-90 words)
+# ---------------------------------------------------------------- value line
+# One short fan-focused line under the H1: WHY a fan would wear this, in one
+# glance. Not a description (that is the herodeck below), not a claim (no
+# stats, no "best"), and never a re-print of the artwork line - for long
+# slogans the H1 already carries the words, and the value line carries the
+# moment. Two independent banks are hashed per slug, so combinations stay
+# specific across the catalogue without a sales feed to rank by.
+VALUE_MOMENT = {
+    "player": [
+        "{person}, the way {short} fans actually say it.",
+        "Name-and-number energy - a fan mark, not a replica jersey.",
+        "The tribute a {short} fan would print if the shop never would.",
+        "For the fans who talk about {person} at every table.",
+    ],
+    "funny": [
+        "The joke lands from across a tailgate lot.",
+        "Short joke, big type - funny the way fan shirts should be.",
+        "The shirt that gets the laugh before anyone can read it.",
+    ],
+    "vintage": [
+        "Worn-in look, straight off the press.",
+        "Throwback styling for people who remember the old way.",
+        "The back-of-the-closet feel, without the cracked print.",
+    ],
+    "rivalry": [
+        "A side, taken in public. {short} fans know exactly what it says.",
+        "Worn on the days the grudge matters most.",
+        "The take, printed loud enough to skip the argument.",
+    ],
+    "gameday": [
+        "Built for {city} game day - loud enough to read from the lot.",
+        "Sunday gear for {short} fans who show up in the cold too.",
+        "The shirt you reach for when it's {short} football.",
+    ],
+    "gift": [
+        "Easy to give - no roster to keep up with.",
+        "A present a {short} fan can wear on Sunday and on Tuesday.",
+        "Safe to buy for a fan you only shop for twice a year.",
+    ],
+    "city": [
+        "{city} first, scoreboard second.",
+        "Hometown gear that still works at the airport.",
+        "The city is the graphic - players come and go.",
+    ],
+    "new-season": [
+        "The 2026 mood, printed before anyone earns a parade.",
+        "New-season energy for the {short} faithful.",
+        "First weeks of the year, captured in one line.",
+    ],
+    "statement": [
+        "The whole garment is the graphic.",
+        "Loud on purpose - made to be seen across a crowded bar.",
+        "Not a chest logo. The statement is the shirt.",
+    ],
+    "culture": [
+        "The line {short} fans already say out loud.",
+        "Fan-made {short} culture, not a team-shop reprint.",
+        "The one idea, printed big enough to stand on.",
+    ],
+}
+
+
+def value_line(slug, name, art, col, garment, theme="classic"):
+    """Short fan-focused value line (<= ~12 words) under the PDP H1."""
+    p = profile(slug, name, art, col, garment, theme)
+    # A player-angle design without a recognised person has no name to hang
+    # the line on - a generic fan line reads better than an invented one.
+    if p["angle"] == "player" and not p["person"]:
+        bank = VALUE_MOMENT["culture"]
+    else:
+        bank = VALUE_MOMENT.get(p["angle"], VALUE_MOMENT["culture"])
+    line = pick(bank, slug, "value")
+    person = (p["person"] or {}).get("name", "")
+    return sentence(line.format(
+        person=person,
+        short=p["short"], city=p["city"]))
+
+
+# ---------------------------------------------------------------- short description (30-70 words)
 def _fit_plain(chunks, lo, hi):
     acc = []
     for ch in chunks:
@@ -529,9 +607,13 @@ def _motif_line(p):
 
 
 def short_description(slug, name, art, col, garment, theme="classic"):
-    """50-90 word unique short description under the H1. Never a pride cliché."""
+    """30-70 word unique short description under the H1. Never a pride cliché.
+
+    The partner hand-off is NOT in the deck: the value line above it sells
+    the moment, and the hand-off note, badges, FAQ and schema all state
+    where style/colour/size are chosen. A deck that spends half its words
+    on logistics teaches the visitor to read the deck as fine print."""
     p = profile(slug, name, art, col, garment, theme)
-    P = partner_of(col.get("key"))
     g, team, city = p["g"], p["team"], p["city"]
     art_t, phrase = p["art_title"], p["phrase"]
     v = p["voice"]
@@ -569,34 +651,32 @@ def short_description(slug, name, art, col, garment, theme="classic"):
         f"The {g} is meant to be {p['v']} on Sundays and on the six ordinary days around them.",
         f"It reads as {an(THEME_LABEL.get(p['theme'], 'fan'))} {THEME_LABEL.get(p['theme'], 'fan')} design, not a reprint of a shop wall.",
     ]
-    closes = [
-        f"Browse the story, the verified garment styles and the colourway mockups here, then continue to {P} to choose style, colour and size.",
-        f"Gridiron Locker is where you decide if the design is yours; garment style, colour and size are confirmed on {P}.",
-        f"If the graphic is the reason you stopped scrolling, the rest of the page is the proof - then SHOP NOW hands you to {P}.",
-        f"Printed after you order, shipped with tracking, and never pretending this site is the checkout.",
-    ]
+    # The collection's "sunday" voice line is garment-specific flavour -
+    # Michigan's says "crewneck weather", so a t-shirt must not inherit it.
+    # It is folded in only on the layers it describes.
+    layer_only = garment in ("Hoodie", "Sweatshirt", "Long Sleeve Shirt")
     extras = [
         person,
         motif,
         f"The printed line stays {phrase} - that is the brief, not a moodboard.",
-        f"{voice['sunday']}",
+        voice["sunday"] if layer_only else "",
         f"It is made for {city} football culture rather than a generic league aisle.",
     ]
 
-    chunks = [openings[v], pick(middles, slug, "sdm"), pick(closes, slug, "sdc")]
-    # fold in extras until we are inside 50-90
+    chunks = [openings[v], pick(middles, slug, "sdm")]
+    # fold in extras until we are inside 30-70
     for extra in extras:
         if extra and extra not in chunks:
             chunks.append(extra)
-    text = _fit_plain(chunks, 50, 90)
+    text = _fit_plain(chunks, 30, 70)
     w = word_count(text)
-    if w < 50:
+    if w < 30:
         pad = (f" The {g} is printed to order for {team} fans, with the artwork held at "
                f"{art_t} so the piece stays specific.")
         text = sentence(text + pad)
-    if word_count(text) > 90:
+    if word_count(text) > 70:
         words = re.findall(r"\S+", text)
-        text = " ".join(words[:90]).rstrip(".,;:") + "."
+        text = " ".join(words[:70]).rstrip(".,;:") + "."
     return sentence(text)
 
 

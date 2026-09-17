@@ -74,6 +74,10 @@ COLLECTIONS = {
         chant="Here We Go Brownies",
         # Short cultural phrase used as the headline of the homepage team card.
         phrase="Dawg Pound",
+        # One-line fan positioning for the collection hero: who this is for,
+        # in the fanbase's own register. Factual, non-infringing, no
+        # affiliation implied - the trademark line below it does the rest.
+        position="Built for the Dawg Pound.",
         keywords=[
             "cleveland browns shirts", "dawg pound shirt", "browns fan gear",
             "cleveland football t-shirt", "browns hoodie", "cleveland ohio apparel",
@@ -122,6 +126,7 @@ COLLECTIONS = {
         store="https://viralstyle.com/store/kebystore/dallas-vintage-sports/1",
         chant="How 'Bout Them Cowboys",
         phrase="Star Power",
+        position="Wear your Dallas pride your way.",
         keywords=[
             "dallas cowboys shirt", "vintage dallas football tee", "texas pride shirt",
             "doomsday defense shirt", "dallas football t-shirt", "this girl loves cowboys",
@@ -166,6 +171,7 @@ COLLECTIONS = {
         store="https://viralstyle.com/store/kebystore/Packss/1",
         chant="Go Pack Go",
         phrase="Go Pack Go",
+        position="Sunday starts in Green Bay.",
         keywords=[
             "green bay packers shirt", "go pack go t-shirt", "cheesehead shirt",
             "jordan love shirt", "packers hoodie", "wisconsin football tee",
@@ -210,6 +216,7 @@ COLLECTIONS = {
         store="https://gridironlocker.shop/p/michigan",
         chant="Go Blue",
         phrase="Go Blue",
+        position="Saturdays in Ann Arbor start here.",
         keywords=[
             "michigan football shirt", "go blue t-shirt", "michigan vs everybody shirt",
             "jj mccarthy shirt", "michigan sweatshirt", "ann arbor apparel",
