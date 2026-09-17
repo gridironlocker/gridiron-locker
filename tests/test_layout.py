@@ -435,6 +435,23 @@ class TeamCollectionPages(unittest.TestCase):
         mob = media_rules(self.css, 560)
         self.assertIn(".grid{grid-template-columns:repeat(2,1fr)", mob)
 
+    def test_hero_carries_the_team_positioning_line(self):
+        """Each collection hero leads with its own fan-positioning line
+        ("Built for the Dawg Pound.", "Saturdays in Ann Arbor start here." ...)
+        so the four team pages stop feeling like four copies of one
+        template. The line is a short, factual, non-infringing positioning
+        sentence from collections_data, never a claim of affiliation."""
+        for k, html in self.pages.items():
+            c = COLLECTIONS[k]
+            pos = c["position"]
+            self.assertIn(pos, html, k)
+            # it lives in the hero copy block, above the H1
+            hero = between(html, '<section class="cbanner compact"', "</section>")
+            self.assertIn(f'<p class="posline">{pos}</p>', hero, k)
+            self.assertLess(hero.index("posline"), hero.index("<h1>"), k)
+            # and it stays short: one line of positioning, not a paragraph
+            self.assertLessEqual(len(pos), 60, k)
+
     def test_hero_images_and_seo_preserved(self):
         for k, html in self.pages.items():
             c = COLLECTIONS[k]
@@ -603,6 +620,24 @@ class ProductPages(unittest.TestCase):
                 self.assertIn(section, html, f"{slug}: {section}")
             # non-apparel items say "Available Products" instead
             self.assertTrue("Available Apparel" in html or "Available Products" in html, slug)
+
+    def test_value_line_under_h1(self):
+        """Every product page sells the moment, not just the graphic: a short
+        fan-focused value line sits between the H1 and the description. It is
+        one glance-sized line (not a paragraph, not a second heading) and it
+        varies across the catalogue like the story does."""
+        lines = {}
+        for slug, html in self.pages.items():
+            m = re.search(r"<h1>.*?</h1>\s*<p class=\"value\">(.*?)</p>\s*<p class=\"herodeck\">",
+                          html, re.S)
+            self.assertIsNotNone(m, slug)
+            line = m.group(1).strip()
+            self.assertGreater(len(line), 8, slug)
+            self.assertLessEqual(len(line), 140, slug)
+            self.assertNotIn("<", line, slug)                 # no markup in the line
+            lines.setdefault(re.sub(r"\s+", " ", line), []).append(slug)
+        cap = max(4, len(self.pages) // 8)
+        self.assertLess(max(len(v) for v in lines.values()), cap)
 
     def test_h1_is_the_product_name(self):
         live = load_json("data/products_live.json")
@@ -955,15 +990,23 @@ class Homepage(unittest.TestCase):
         self.assertIn('fetchpriority="high"', band)
         self.assertNotIn('loading="lazy"', band)
         self.assertIn('alt="', band)
-        self.assertIn("Football. Fans. Culture.", hero)
         self.assertIn('<h1 class="hero-title">', hero)
         self.assertEqual(self.html.count("<h1"), 1)          # exactly one H1
-        self.assertIn("Original fan-made apparel for the teams we love.", hero)
-        self.assertIn("Four cities. Four fanbases. One locker.", hero)
-        self.assertIn("Shop By Team", hero)
-        self.assertIn("Trending Now", hero)
-        self.assertIn("./collections/", hero)
-        self.assertIn("./drops/", hero)
+        # The 5-second test: the crawlable copy answers WHAT (fan-made
+        # football gear), WHO (all four teams, named - the poster shows
+        # them, the copy says them), WHY (original artwork + custom) and
+        # WHERE (CTAs go to products and to the custom form). The hero is a
+        # value proposition, not two links to editorial pages.
+        self.assertIn("Fan-Made Football", hero)
+        self.assertIn("Your Team. Your Colors.", hero)
+        self.assertIn("Your Game Day.", hero)
+        self.assertIn("Original fan-made football gear for Browns, Packers, Michigan", hero)
+        self.assertIn("Cowboys fans", hero)
+        self.assertIn("We design it.", hero)
+        self.assertIn("Shop The Locker", hero)
+        self.assertIn("Custom Design", hero)
+        self.assertIn("./#shop-the-locker", hero)
+        self.assertIn("./#custom-design", hero)
         self.assertRegex(hero, r"\d+ fan designs")
         # Size range is derived from the catalogue, not typed: the Mayzing
         # Gildan blanks sell S-5XL, so a hard-coded S-3XL understated it.
@@ -1090,12 +1133,14 @@ class Homepage(unittest.TestCase):
             '<section class="teamdeck-sec"',     # which team?
             '<section class="lockersec"',        # Shop The Locker (products)
             '<section class="trendsec"',         # Trending Now (products)
+            '<section class="customsec"',        # custom design (differentiator)
+            'class="trust-label"',               # why Gridiron Locker
             '<section class="wksec"',            # 2026 season (editorial)
             '<section class="teamsec"',          # deeper team browsing
             '<section class="guidesec"',         # buying guides
-            '<section class="customsec"',        # custom design
             '<section class="ftisec"',           # fan trend index
             '<section class="brandsec"',         # newsletter
+            '<section class="finalcta"',         # final shop CTA
             "<footer>",
         ]
         pos = 0
@@ -1217,6 +1262,14 @@ class Homepage(unittest.TestCase):
         for s in secs:
             self.assertEqual(len(re.findall(r'<a class="pcard', s)), 4)
             self.assertIn("Explore", s)
+        # The per-team blurb is the team's positioning line - a complete
+        # sentence. The old banner[:150] slice cut two of the four teams
+        # mid-word ("...printed on tees, hoodi"), which this guards against.
+        allsec = "".join(secs)
+        for k in ORDER:
+            self.assertIn(COLLECTIONS[k]["position"], allsec, k)
+        for bad in ("hoodi\n", "crewn\n"):
+            self.assertNotIn(bad, allsec)
 
     # ---------------------------------------------------------------- guides
     def test_guides_sit_below_the_products_and_link_real_pages(self):
@@ -1232,12 +1285,20 @@ class Homepage(unittest.TestCase):
     def test_custom_design_form_is_preserved(self):
         sec = between(self.html, '<section class="customsec" id="custom-design">', "</section>")
         self.assertIn("Your idea.", sec)
-        self.assertIn("Request Custom Apparel", sec)
+        self.assertIn("Start Your Custom Design", sec)
         self.assertIn('id="customForm"', sec)
         self.assertIn('data-formsubmit="1"', sec)
         for field in ('name="name"', 'name="email"', 'name="team"', 'name="garment"',
                       'name="idea"', 'name="details"', 'name="_subject"', 'name="_honey"'):
             self.assertIn(field, sec, field)
+        # "Your idea" is the point of the form: it is a textarea (the most
+        # important field), and the three-step flow makes the service
+        # understandable in one glance - no multi-step application implied.
+        self.assertIn('textarea name="idea"', sec)
+        for step in ("<b>01</b><span>Your idea</span>",
+                     "<b>02</b><span>Our design</span>",
+                     "<b>03</b><span>Your shirt</span>"):
+            self.assertIn(step, sec, step)
         self.assertIn('id="formmsg"', sec)
         # the homepage does not also fire the floating custom-design popup
         self.assertNotIn('id="csPop"', self.html)
@@ -1929,13 +1990,24 @@ class ConversionUpgrades(unittest.TestCase):
                       '<section class="customsec" id="custom-design">',
                       "</section>")
         self.assertIn("You dream it. We design it.", sec)
-        for point in ("<b>Team</b>", "<b>Colors</b>", "<b>Phrase</b>",
-                      "<b>Idea</b>"):
-            self.assertIn(point, sec, point)
-        # the new optional field + the inquiry framing
+        # pass 2: the proposition is now the 3-step flow (idea -> design ->
+        # shirt) instead of four chips; the lead still tells the visitor
+        # exactly what to send (team, colors, phrase or concept)
+        for step in ("<b>01</b><span>Your idea</span>",
+                     "<b>02</b><span>Our design</span>",
+                     "<b>03</b><span>Your shirt</span>"):
+            self.assertIn(step, sec, step)
+        self.assertIn("the team, the colors and the", sec)
+        self.assertIn("phrase or concept", sec)
+        # the idea field is the star of the form: a textarea, required,
+        # sitting above the team/garment logistics
+        idea = sec.index('name="idea"')
+        team = sec.index('name="team"')
+        self.assertLess(idea, team, "idea must come before the logistics")
+        self.assertIn("required", sec[idea - 200:idea + 200])
+        # the inquiry framing + every pinned field still on the form
         self.assertIn('name="colors"', sec)
         self.assertIn("A free inquiry, not an order", sec)
-        # every pinned field still on the form
         for field in ('name="name"', 'name="email"', 'name="team"',
                       'name="garment"', 'name="idea"', 'name="details"'):
             self.assertIn(field, sec, field)
@@ -1972,7 +2044,11 @@ class ConversionUpgrades(unittest.TestCase):
 
     def test_new_styles_shipped(self):
         for sel in (".handoff-note{", ".customband{", ".customband-in{",
-                    ".cf-dream{", ".cf-points{"):
+                    ".cf-dream{",
+                    # conversion pass 2: value line, 3-step flow, positioning
+                    # line, why-strip label and the dark final shop CTA
+                    ".value{", ".cf-flow{", ".cbanner .posline{",
+                    ".trust-label{", ".finalcta{"):
             self.assertIn(sel, self.css, sel)
         # phones swipe thumbnails instead of stacking them over the buybox
         mob = media_rules(self.css, 920)

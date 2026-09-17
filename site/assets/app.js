@@ -150,9 +150,13 @@ document.querySelectorAll('a.custom-link').forEach(function(a){
   var msg=document.getElementById('formmsg');
   var btn=form.querySelector('button[type=submit]');
   form.addEventListener('submit',function(e){
-    var name=form.querySelector('input[name=name]').value.trim(),
-        email=form.querySelector('input[name=email]').value.trim(),
-        idea=form.querySelector('input[name=idea]').value.trim();
+    // form.elements.<name> is tag-agnostic: the idea field is a textarea on
+    // this version of the form and a plain input on older builds, and the
+    // mailto fallback must never throw.
+    var name=(form.elements.name||{}).value,
+        email=(form.elements.email||{}).value,
+        idea=(form.elements.idea||{}).value;
+    name=name?name.trim():''; email=email?email.trim():''; idea=idea?idea.trim():'';
     if(!name||!email||!idea){msg.style.color='#c0392b';msg.textContent='Please fill in your name, email and the idea.';e.preventDefault();return;}
     e.preventDefault();
     if(btn)btn.disabled=true;

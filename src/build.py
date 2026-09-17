@@ -1326,18 +1326,21 @@ def team_section(k, limit=4, exclude=()):
     if len(picks) < limit:
         picks += [x for x in MODEL[k] if x["slug"] not in have][:limit - len(picks)]
     tcards = "".join(product_card(i) for i in picks)
+    # The blurb is the team's one-line positioning (collections_data
+    # `position`), not a slice of the long banner - the old banner[:150]
+    # cut sentences mid-word on two of the four teams.
     return f"""<section class="teamsec" style="{theme_vars(k)}"><div class="wrap">
  <div class="sechead reveal">
   <div><span class="eyebrow"><span class="dot"></span> {len(MODEL[k])} designs</span>
    <h2><span class="accentword">{esc(c['short'])}</span> Collection</h2>
-   <p>{esc(c['banner'][:150])}</p></div>
+   <p>{esc(c['position'])}</p></div>
   <a class="link" href="/{c['slug']}/">Explore {esc(c['short'])} &rarr;</a>
  </div>
  <div class="pgrid four">{tcards}</div>
 </div></section>"""
 
 
-def trust():
+def trust(heading=False):
     """Purchase-confidence strip: four factual cells, no invented claims.
 
     This renders on the homepage and above every collection grid, so every
@@ -1348,8 +1351,12 @@ def trust():
     prose, product pages); here the strip answers "why trust this store" in
     the brand's own supported language: fan-made, made to order, worldwide
     shipping, secure checkout.
-    """
-    return """<div class="trust">
+
+    `heading` adds the "Why Gridiron Locker" label - homepage only, where
+    the strip stands alone between the custom section and the season band.
+    On collection pages it stays the compact strip under the filter bar."""
+    label = '<p class="trust-label">Why Gridiron Locker</p>' if heading else ""
+    return f"""{label}<div class="trust">
  <div><b>Fan-Made Designs</b>Original artwork</div>
  <div><b>Made To Order</b>Printed after you order</div>
  <div><b>Worldwide Shipping</b>Tracked to your door</div>
@@ -1710,21 +1717,28 @@ def home_banner():
     """
     n = len(ALL)
     facts = "".join(f"<span>{f}</span>"
-                    for f in (f"{n} fan designs", f"Sizes {SIZE_RANGE_EN}", "Worldwide shipping"))
+                    for f in (f"{n} fan designs", f"Sizes {SIZE_RANGE_EN}", "Worldwide shipping",
+                              "Custom designs"))
+    # The copy block is the 5-second answer: WHAT (fan-made football gear),
+    # WHO (the four teams, named - the poster shows them, the crawlable copy
+    # says them), WHY (original artwork + a custom design with the visitor's
+    # own words) and WHERE (the two CTAs: straight to products, straight to
+    # the custom form). The poster above keeps the painted brand story; this
+    # block never restates it and never adds a second headline voice.
     return f"""<section class="cbanner home" id="hero" style="padding:0">
  <div class="band"><img src="{HOME_HERO}"
   alt="{esc(BRAND)} fan gear for Cleveland, Green Bay, Dallas and Michigan fans - fan-made tees, hoodies and crewnecks"
   width="2048" height="768" fetchpriority="high" decoding="async"></div>
  <div class="wrap cb-in">
   <div class="hero-copy">
-   <span class="hero-kicker">Football. Fans. Culture.</span>
-   <h1 class="hero-title">Gear Up.</h1>
+   <span class="hero-kicker">Fan-Made Football</span>
+   <h1 class="hero-title">Your Team. Your Colors.<br>Your Game Day.</h1>
    <span class="hero-rule" aria-hidden="true"></span>
-   <p class="hero-sub">Original fan-made apparel for the teams we love.<br>
-   Four cities. Four fanbases. One locker.</p>
+   <p class="hero-sub">Original fan-made football gear for Browns, Packers, Michigan
+   &amp; Cowboys fans. Have an idea? <a class="hero-custom" href="/#custom-design">We design it.</a></p>
    <div class="btnrow hero-cta">
-    <a class="btn lg" href="/collections/">Shop By Team <span aria-hidden="true">&rarr;</span></a>
-    <a class="btn ghost lg" href="/drops/">Trending Now <span aria-hidden="true">&rarr;</span></a>
+    <a class="btn lg" href="/#shop-the-locker">Shop The Locker <span aria-hidden="true">&rarr;</span></a>
+    <a class="btn ghost lg custom-link" data-placement="hero" href="/#custom-design">Custom Design <span aria-hidden="true">&rarr;</span></a>
    </div>
    <div class="hero-facts">{facts}</div>
   </div>
@@ -1774,11 +1788,20 @@ def guide_grid():
 
 
 def custom_design():
-    """Compact custom-design section. The form keeps its field names,
-    FormSubmit hidden inputs and #customForm / #formmsg hooks (plus one
-    optional "colors" input the mailto fallback also reads) - it is only
-    re-framed so it reads as one confident offer: you dream it, we design
-    it, with the four things to send listed up front."""
+    """The custom-design section - the store's differentiator, not an
+    afterthought.
+
+    Structure: the offer in four words (you dream it, we design it), a
+    three-step flow that makes the service understandable in one glance
+    (YOUR IDEA -> OUR DESIGN -> YOUR SHIRT), then the form.
+
+    The form keeps its field names, FormSubmit hidden inputs and
+    #customForm / #formmsg hooks (plus the optional "colors" input the
+    mailto fallback reads) - but the field order now follows the visitor's
+    thinking: who you are, then THE IDEA (the whole point - first, biggest,
+    required), then the logistics (team, garment, colors, anything else).
+    "Start Your Custom Design" is an inquiry, never an order: the sub-line
+    says so out loud."""
     return f"""<section class="customsec" id="custom-design"><div class="wrap">
  <div class="customrow reveal">
   <div class="customimg">
@@ -1789,15 +1812,14 @@ def custom_design():
    <span class="eyebrow"><span class="dot"></span> Custom football designs</span>
    <h2>Your idea.<br>Your colors.<br><span class="accentword">Your game day.</span></h2>
    <p class="cf-dream"><strong>You dream it. We design it.</strong></p>
-   <p class="cf-lead">Have an idea for a shirt? A nickname, a catchphrase, a family motto, a
-   group slogan &mdash; tell us the team, the colors, the phrase and the idea, and we turn it
-   into original fan apparel you can buy one at a time.</p>
-   <ul class="cf-points">
-    <li><b>Team</b>Your side</li>
-    <li><b>Colors</b>Your palette</li>
-    <li><b>Phrase</b>Your wording</li>
-    <li><b>Idea</b>Your story</li>
-   </ul>
+   <ol class="cf-flow" aria-label="How a custom design works">
+    <li><b>01</b><span>Your idea</span></li>
+    <li><b>02</b><span>Our design</span></li>
+    <li><b>03</b><span>Your shirt</span></li>
+   </ol>
+   <p class="cf-lead">Have an idea for a football shirt? Tell us the team, the colors and the
+   phrase or concept &mdash; we turn it into an original custom football graphic you can buy
+   one at a time.</p>
    <form id="customForm"
          method="POST" data-formsubmit="1" aria-label="Custom design request form" novalidate>
     <div class="cf-head">Tell us about your idea</div>
@@ -1811,24 +1833,48 @@ def custom_design():
      <label>Your name<input type="text" name="name" required placeholder="John Doe" autocomplete="name"></label>
      <label>Your email<input type="email" name="email" required placeholder="you@example.com" autocomplete="email"></label>
     </div>
+    <label class="cf-idea"><span>Your idea <span class="req">*</span></span><textarea name="idea" rows="2" required
+     placeholder="e.g. 'DAWG POUND FOREVER' in orange and brown - or a nickname, a family motto, a group slogan"></textarea></label>
     <div class="row">
      <label>Team / theme<select name="team" required>
       <option value="">Choose</option><option>Cleveland</option><option>Green Bay</option>
       <option>Dallas</option><option>Michigan</option><option>Other / custom</option></select></label>
-     <label>Garment<select name="garment">
+     <label>Product type<select name="garment">
       <option value="">Choose</option><option>T-Shirt</option><option>Hoodie</option>
       <option>Sweatshirt</option><option>Long Sleeve</option><option>Mug</option><option>Beanie</option>
       <option>Other</option></select></label>
     </div>
-    <label>Your idea<input type="text" name="idea" required
-     placeholder="e.g. 'GO BROWNS', a nickname, a catchphrase"></label>
     <label>Preferred colors (optional)<input type="text" name="colors"
      placeholder="e.g. orange and brown, maize and blue" autocomplete="off"></label>
-    <label>Anything else?<textarea name="details" rows="3"
+    <label>Anything else?<textarea name="details" rows="2"
      placeholder="Sizes, quantity, or the story behind the design (optional)"></textarea></label>
-    <button class="btn block lg" type="submit">Request Custom Apparel &rarr;</button>
+    <button class="btn block lg" type="submit">Start Your Custom Design &rarr;</button>
     <p class="formmsg" id="formmsg" aria-live="polite">We'll reply by email, usually within 1&ndash;2 days.</p>
    </form>
+  </div>
+ </div>
+</div></section>"""
+
+
+def final_cta():
+    """Last look at the shop before the footer - a slim dark band that
+    bookends the hero poster.
+
+    Mobile visitors lose the shop bar over the footer, so the bottom of the
+    page ends on a purchase action instead of a newsletter. Both buttons go
+    to real destinations: the full catalogue (/search/) and the custom form
+    (the secondary funnel, tracked like every other custom CTA)."""
+    return f"""<section class="finalcta" id="final-cta"><div class="wrap">
+ <div class="fc-in reveal">
+  <div class="fc-copy">
+   <span class="eyebrow"><span class="dot"></span> Game day is coming</span>
+   <h2>Shop The <span class="accentword">Locker</span></h2>
+   <p>{len(ALL)} original designs across four teams - or a custom design with
+   your own idea on it.</p>
+  </div>
+  <div class="fc-act">
+   <a class="btn lg" href="/search/">All {len(ALL)} Designs <span aria-hidden="true">&rarr;</span></a>
+   <a class="btn ghost lg custom-link" data-placement="final_cta" href="/#custom-design">Custom Design <span aria-hidden="true">&rarr;</span></a>
   </div>
  </div>
 </div></section>"""
@@ -1922,14 +1968,15 @@ def page_home():
     Section order is the funnel, and it is deliberate:
 
         HERO -> SHOP BY TEAM -> SHOP THE LOCKER -> TRENDING NOW ->
-        2026 SEASON -> TEAM COLLECTIONS -> GUIDES -> CUSTOM -> TREND INDEX ->
-        NEWSLETTER -> FOOTER
+        CUSTOM DESIGN -> WHY (trust) -> 2026 SEASON -> TEAM COLLECTIONS ->
+        GUIDES -> TREND INDEX -> NEWSLETTER -> FINAL SHOP CTA -> FOOTER
 
-    Brand, then team, then product - a visitor meets real merchandise inside
-    the second viewport instead of scrolling through four editorial bands to
-    find out what is for sale. Everything below "2026 Season" is the
-    editorial/authority half of the page and is ordered by how many visitors
-    it serves.
+    Brand, team, product - a visitor meets real merchandise inside the
+    second viewport. Custom Design sits directly behind the product
+    surfaces because it is the store's differentiator and the secondary
+    funnel (TRAFFIC -> CUSTOM -> INQUIRY), not an afterthought: the four
+    editorial bands (season, team deep-dives, guides, trend index) follow,
+    and the page ends on a purchase action, not the newsletter.
     """
     path = "/"
     # Each product surface skips what the surface above it already showed, so
@@ -1967,16 +2014,17 @@ def page_home():
 {shop_by_team()}
 {shop_the_locker(picks=locker)}
 {trending}
-{trust()}
+{custom_design()}
+{trust(heading=True)}
 {season_section()}
 <div class="light">
 {team_sections}
 </div>
 {guide_grid()}
-{custom_design()}
 {fti_strip()}
 {newsticker()}
 {brand_newsletter()}
+{final_cta()}
 </main>"""
     URLS.append((DOMAIN + "/", "1.0", "daily"))
     write("index.html", head(f"{BRAND} | {CFG['tagline']}", desc, path, "/img/hero-home.jpg?v=5", schema,
@@ -2211,6 +2259,7 @@ def page_collection(k):
  <div class="band"><img src="{c['hero']}" alt="{esc(c['name'])} banner" width="2048" height="768" fetchpriority="high"></div>
  <div class="cb-in">
   <span class="eyebrow"><span class="dot"></span> {len(items)} designs &middot; from ${prices[0]:.2f}</span>
+  <p class="posline">{esc(c['position'])}</p>
   <h1>{esc(c['h1'])}</h1>
   <p class="lede">{esc(c['banner'])}</p>
  </div>
@@ -2560,6 +2609,7 @@ def page_product(it):
     metad = _l.meta_description(slug, seo_name, c, it["garment"], price, styles,
                                 colours, sizes, art=it["art"])
     hero_deck = _l.short_description(slug, it["name"], it["art"], c, it["garment"], theme)
+    value_line = _l.value_line(slug, it["name"], it["art"], c, it["garment"], theme)
     story_html = _l.design_story(slug, f, c, it["art"], theme, it["garment"])
     why_html = _l.why_it_stands_out(slug, f, c, it["art"], theme, it["garment"])
     who_html = _l.who_its_for(slug, c, theme, it["garment"], price,
@@ -2712,6 +2762,7 @@ def page_product(it):
  <div class="buybox">
   <span class="eyebrow">{esc(c['name'])}</span>
   <h1>{esc(it['name'])}</h1>
+  <p class="value">{esc(value_line)}</p>
   <p class="herodeck">{esc(hero_deck)}</p>
   <div class="pricerow"><span class="pricebig">${price}</span>
    <span class="pricefrom">starting price &middot; set by style on {it['partner']}</span></div>
@@ -4091,9 +4142,13 @@ document.querySelectorAll('a.custom-link').forEach(function(a){
   var msg=document.getElementById('formmsg');
   var btn=form.querySelector('button[type=submit]');
   form.addEventListener('submit',function(e){
-    var name=form.querySelector('input[name=name]').value.trim(),
-        email=form.querySelector('input[name=email]').value.trim(),
-        idea=form.querySelector('input[name=idea]').value.trim();
+    // form.elements.<name> is tag-agnostic: the idea field is a textarea on
+    // this version of the form and a plain input on older builds, and the
+    // mailto fallback must never throw.
+    var name=(form.elements.name||{}).value,
+        email=(form.elements.email||{}).value,
+        idea=(form.elements.idea||{}).value;
+    name=name?name.trim():''; email=email?email.trim():''; idea=idea?idea.trim():'';
     if(!name||!email||!idea){msg.style.color='#c0392b';msg.textContent='Please fill in your name, email and the idea.';e.preventDefault();return;}
     e.preventDefault();
     if(btn)btn.disabled=true;
