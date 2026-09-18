@@ -5198,6 +5198,11 @@ def main():
     page_season()
     page_fti()
     page_drops()
+    # /live/ is a hand-written page checked in under site/ (the storefront
+    # never generates it, so the daily rebuild must not drop it from the
+    # sitemap either). It has no source-data date of its own: sitemap_lastmod
+    # answers the documented stable fallback for it.
+    URLS.append((DOMAIN + "/live/", "0.9", "daily"))
     page_static()
     page_404()
     nr = page_redirects()
