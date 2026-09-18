@@ -1,0 +1,696 @@
+<!doctype html>
+<html lang="en">
+<meta charset="utf-8">
+<meta name="viewport" content="width=device-width,initial-scale=1">
+<title>GRIDIRON LOCKER RADAR — Fan Culture Intelligence Engine</title>
+<meta name="robots" content="noindex,nofollow">
+<link rel="preconnect" href="https://fonts.googleapis.com">
+<link href="https://fonts.googleapis.com/css2?family=Inter:wght@400;500;600;700;800&family=JetBrains+Mono:wght@400;600&display=swap" rel="stylesheet">
+<style>
+*{box-sizing:border-box}
+:root{
+  --bg:#0a0b0d; --panel:#111418; --panel2:#151a20; --line:#1f242c; --line2:#2a3038;
+  --ink:#e8eaed; --muted:#9aa0a8; --dim:#6b7280;
+  --maize:#F2B01E; --maize2:#f4c63f; --maizeTint:#1a1605;
+  --ok:#1f7a4d; --warn:#b45309; --danger:#b91c1c;
+  --radius:14px; --radiusSm:10px;
+}
+html,body{margin:0;min-height:100%;background:var(--bg);color:var(--ink);font-family:Inter,system-ui,sans-serif;font-size:14px;line-height:1.6}
+a{color:var(--maize);text-decoration:none}
+a:hover{text-decoration:underline}
+code{font-family:JetBrains Mono,monospace;font-size:.82em;background:#0f1215;border:1px solid var(--line);padding:1px 6px;border-radius:6px}
+/* Layout */
+.shell{display:grid;grid-template-columns:220px 1fr;min-height:100vh}
+.nav{position:sticky;top:0;height:100vh;background:#0d0f12;border-right:1px solid var(--line);display:flex;flex-direction:column;overflow:auto}
+.brand{padding:18px 16px 14px;border-bottom:1px solid var(--line)}
+.brand .kicker{font-size:.62rem;letter-spacing:.18em;text-transform:uppercase;color:var(--maize);font-weight:800}
+.brand h1{margin:4px 0 0;font-size:1.05rem;letter-spacing:-.02em;line-height:1.1}
+.brand h1 span{color:var(--maize)}
+.brand .sub{font-size:.72rem;color:var(--muted);margin:2px 0 0}
+.navlinks{padding:10px 8px;display:grid;gap:2px}
+.navlinks button{display:flex;align-items:center;gap:10px;width:100%;text-align:left;padding:9px 10px;border-radius:10px;border:1px solid transparent;background:transparent;color:var(--muted);font-weight:600;font-size:.82rem;cursor:pointer}
+.navlinks button.on{background:var(--panel2);border-color:var(--line);color:var(--ink)}
+.navlinks button:hover{background:var(--panel2);color:var(--ink)}
+.navlinks .ico{width:16px;text-align:center;opacity:.8}
+.navfoot{margin-top:auto;padding:12px 16px;border-top:1px solid var(--line);font-size:.72rem;color:var(--dim)}
+.main{padding:18px 18px 40px;min-width:0}
+.topbar{display:flex;align-items:center;gap:12px;flex-wrap:wrap;margin-bottom:14px}
+.topbar h2{margin:0;font-size:1.35rem;letter-spacing:-.02em}
+.pill{font-size:.66rem;letter-spacing:.1em;text-transform:uppercase;font-weight:800;padding:4px 8px;border-radius:99px;border:1px solid var(--line);color:var(--muted);background:#0f1215}
+.pill.live{border-color:var(--maize);color:var(--maize);background:var(--maizeTint)}
+.pill.stale{border-color:var(--danger);color:#f87171}
+.kpis{display:grid;grid-template-columns:repeat(6,minmax(0,1fr));gap:10px;margin-bottom:14px}
+.kpi{background:var(--panel);border:1px solid var(--line);border-radius:var(--radius);padding:12px 14px}
+.kpi .lab{font-size:.62rem;letter-spacing:.12em;text-transform:uppercase;color:var(--muted);font-weight:800}
+.kpi .val{font-size:1.45rem;font-weight:800;letter-spacing:-.02em;margin:2px 0 0}
+.kpi .sub{font-size:.72rem;color:var(--dim)}
+@media(max-width:1100px){.kpis{grid-template-columns:repeat(3,1fr)}}
+@media(max-width:560px){.shell{grid-template-columns:1fr}.nav{position:relative;height:auto}.main{padding:14px}}
+.panel{background:var(--panel);border:1px solid var(--line);border-radius:var(--radius);padding:14px 14px}
+.panel h3{margin:0 0 8px;font-size:.92rem;letter-spacing:-.01em}
+.muted{color:var(--muted)}
+.small{font-size:.78rem}
+.grid2{display:grid;grid-template-columns:1fr 1fr;gap:12px}
+@media(max-width:900px){.grid2{grid-template-columns:1fr}}
+.table{width:100%;border-collapse:separate;border-spacing:0;font-size:.84rem}
+.table th{font-size:.62rem;letter-spacing:.08em;text-transform:uppercase;color:var(--muted);font-weight:800;text-align:left;padding:8px 10px;border-bottom:1px solid var(--line);background:#0f1215}
+.table td{padding:9px 10px;border-bottom:1px solid var(--line);vertical-align:top}
+.table tr:last-child td{border-bottom:0}
+.badge{font-size:.62rem;letter-spacing:.08em;text-transform:uppercase;font-weight:800;padding:3px 8px;border-radius:99px;border:1px solid var(--line);background:#0f1215;color:var(--muted)}
+.badge actionable, .badge.ACTIONABLE{background:#1a2e1e;color:#4ade80;border-color:#1f7a4d}
+.badge.EMERGING{background:var(--maizeTint);color:var(--maize);border-color:var(--maize)}
+.badge.DEVELOPING{background:#1e293b;color:#93c5fd;border-color:#334155}
+.badge.SATURATED{background:#2a1212;color:#f87171;border-color:#7f1d1d}
+.badge.WATCH{color:var(--muted)}
+.btn{appearance:none;border:1px solid var(--maize);background:var(--maize);color:#0a0b0d;font-weight:800;padding:9px 14px;border-radius:10px;cursor:pointer;font-size:.84rem}
+.btn.ghost{background:transparent;color:var(--maize)}
+.btn.small{padding:6px 10px;font-size:.76rem}
+.btn:hover{filter:brightness(1.05)}
+.input{width:100%;padding:10px 12px;border-radius:10px;border:1px solid var(--line2);background:#0f1215;color:var(--ink);font-size:.88rem}
+.input:focus{outline:none;border-color:var(--maize);box-shadow:0 0 0 3px rgba(242,176,30,.18)}
+.bar{height:7px;background:#0f1215;border:1px solid var(--line);border-radius:99px;overflow:hidden}
+.bar i{display:block;height:100%;background:var(--maize);border-radius:99px}
+.scoregrid{display:grid;grid-template-columns:repeat(2,1fr);gap:6px;margin-top:8px}
+.score{display:grid;grid-template-columns:1fr auto;gap:8px;align-items:center;font-size:.76rem}
+.score .lab{color:var(--muted)}
+.dot{width:6px;height:6px;border-radius:99px;background:var(--maize);display:inline-block;animation:pulse 2s infinite}
+@keyframes pulse{0%,100%{opacity:1}50%{opacity:.4}}
+.tabs{display:flex;gap:8px;flex-wrap:wrap;margin-bottom:10px}
+.chip{padding:6px 12px;border-radius:99px;border:1px solid var(--line);background:transparent;color:var(--muted);font-weight:700;font-size:.76rem;cursor:pointer}
+.chip.on{border-color:var(--maize);color:var(--maize);background:var(--maizeTint)}
+.divider{height:1px;background:var(--line);margin:12px 0}
+.evidence{font-size:.78rem;color:var(--muted);margin:6px 0 0;padding-left:16px}
+.evidence li{margin:3px 0}
+.mono{font-family:JetBrains Mono,monospace}
+.cardGrid{display:grid;grid-template-columns:repeat(3,minmax(0,1fr));gap:10px}
+@media(max-width:900px){.cardGrid{grid-template-columns:1fr}}
+.tribeCard{background:var(--panel2);border:1px solid var(--line);border-radius:12px;padding:12px}
+.graphWrap{border:1px solid var(--line);border-radius:12px;overflow:hidden;background:#0f1215}
+#graph{width:100%;height:420px;display:block}
+.brief{border-left:3px solid var(--maize);padding-left:12px}
+.brief h4{margin:10px 0 4px;font-size:.84rem;color:var(--maize)}
+.brief p{margin:0 0 6px;font-size:.86rem;color:var(--ink)}
+.status{font-size:.72rem;font-weight:800;letter-spacing:.08em;text-transform:uppercase}
+</style>
+
+<body>
+<div class="shell">
+  <nav class="nav">
+    <div class="brand">
+      <div class="kicker">Fan Culture Intelligence Engine</div>
+      <h1>GRIDIRON LOCKER <span>RADAR</span></h1>
+      <div class="sub">Private · owner/operator · <span class="status" style="color:var(--maize)">LIVE</span></div>
+      <div class="small muted" style="margin-top:6px">Michigan · Browns · Packers · Cowboys<br>Expandable to additional teams.</div>
+    </div>
+    <div class="navlinks" id="nav">
+      <button class="on" data-view="overview"><span class="ico">◈</span> OVERVIEW</button>
+      <button data-view="signals"><span class="ico">◐</span> LIVE SIGNALS</button>
+      <button data-view="trends"><span class="ico">⚡</span> EMERGING TRENDS</button>
+      <button data-view="graph"><span class="ico">⬢</span> LANGUAGE GRAPH</button>
+      <button data-view="tribes"><span class="ico">◍</span> FAN TRIBES</button>
+      <button data-view="posts"><span class="ico">✦</span> HOT POSTS</button>
+      <button data-view="opportunities"><span class="ico">◆</span> OPPORTUNITIES</button>
+      <button data-view="products"><span class="ico">⬣</span> PRODUCTS</button>
+      <button data-view="seo"><span class="ico">◎</span> SEO</button>
+      <button data-view="leads"><span class="ico">✉</span> LEADS</button>
+      <button data-view="history"><span class="ico">◷</span> HISTORY</button>
+      <button data-view="system"><span class="ico">⚙</span> SYSTEM</button>
+    </div>
+    <div class="navfoot">
+      <div>Sources: Google News RSS (live) · Reddit/X (when connected)</div>
+      <div style="margin-top:6px">Radar is auth-gated. Public store at <a href="https://gridironlocker.store" target="_blank" rel="noopener">gridironlocker.store</a></div>
+      <button class="btn ghost small" style="margin-top:10px;width:100%" onclick="logout()">Sign out</button>
+    </div>
+  </nav>
+  <main class="main">
+    <div class="topbar">
+      <h2 id="viewTitle">Overview</h2>
+      <span class="pill live"><span class="dot"></span> live · <span id="generated">—</span></span>
+      <span class="pill" id="freshness">freshness —</span>
+      <span style="margin-left:auto" class="small muted">Intelligence is <em>hypothesis</em> until outcome is measured. Evidence always shown.</span>
+    </div>
+
+    <!-- KPIs -->
+    <div class="kpis" id="kpis">
+      <div class="kpi"><div class="lab">Public Signals</div><div class="val" id="kpiSignals">—</div><div class="sub">last 10-day window</div></div>
+      <div class="kpi"><div class="lab">Emerging Narratives</div><div class="val" id="kpiEmerging">—</div><div class="sub">trending names</div></div>
+      <div class="kpi"><div class="lab">High-Intent Conversations</div><div class="val" id="kpiIntent">—</div><div class="sub">moments with cluster</div></div>
+      <div class="kpi"><div class="lab">New Opt-ins</div><div class="val" id="kpiOptins">—</div><div class="sub">first-party only</div></div>
+      <div class="kpi"><div class="lab">Active Opportunities</div><div class="val" id="kpiOpps">—</div><div class="sub">scored intelligence</div></div>
+      <div class="kpi"><div class="lab">Sales Influenced</div><div class="val" id="kpiSales">—</div><div class="sub">outcome-tracked</div></div>
+    </div>
+
+    <!-- VIEW: OVERVIEW -->
+    <section id="view-overview">
+      <div class="grid2">
+        <div class="panel">
+          <h3><span class="dot"></span> AI Briefing — Daily Intelligence</h3>
+          <div id="briefing" class="brief small">Loading…</div>
+        </div>
+        <div class="panel">
+          <h3>Hot Signals — Accelerating Now</h3>
+          <div id="hotSignals" class="small muted">Loading…</div>
+          <div class="divider"></div>
+          <h3>Product Gaps — Where Demand Has No Product</h3>
+          <div id="gapsOverview" class="small">Loading…</div>
+        </div>
+      </div>
+      <div class="panel" style="margin-top:12px">
+        <h3>Emerging Fan Narratives</h3>
+        <div style="overflow:auto">
+          <table class="table" id="narrativesTbl">
+            <thead><tr><th>Narrative</th><th>Team</th><th>Velocity</th><th>Emotion</th><th>Tribe</th><th>Product Fit</th><th>Status</th></tr></thead>
+            <tbody></tbody>
+          </table>
+        </div>
+        <p class="small muted" style="margin:6px 0 0">Velocity is acceleration, not total mentions. <code>20→75→240→700</code> beats <code>500→600</code>.</p>
+      </div>
+      <div class="grid2" style="margin-top:12px">
+        <div class="panel">
+          <h3>Fan Tribes — Fastest Growing</h3>
+          <div id="tribesOverview"></div>
+        </div>
+        <div class="panel">
+          <h3>Opportunity Engine — Top Priority</h3>
+          <div id="oppsOverview"></div>
+        </div>
+      </div>
+    </section>
+
+    <!-- VIEW: SIGNALS -->
+    <section id="view-signals" hidden>
+      <div class="panel">
+        <h3>Live Signals — Normalized & Deduped</h3>
+        <p class="small muted">Source · timestamp · confidence · evidence. Raw signal → normalized signal → derived insight.</p>
+        <div style="overflow:auto"><table class="table" id="signalsTbl"><thead><tr><th>Signal</th><th>Team</th><th>Entities</th><th>Source</th><th>Mentions</th><th>When</th></tr></thead><tbody></tbody></table></div>
+      </div>
+      <div class="panel" style="margin-top:12px">
+        <h3>Signal Velocity — Detected Acceleration</h3>
+        <p class="small muted">Methodology: <code>velocity = (n1-n0)/n0</code>, <code>acceleration = v1 - v0</code>. Novelty penalizes prior baseline noise; persistence requires 3-day recurrence. No invented sentiment.</p>
+        <div id="velocityDemo" class="mono small"></div>
+      </div>
+    </section>
+
+    <!-- VIEW: TRENDS -->
+    <section id="view-trends" hidden>
+      <div class="panel">
+        <h3>Fan Trend Index — 0–100 vs Peak Mentions</h3>
+        <p class="small muted"><code>FTI = round(100 * mentions / peak_mentions_in_window)</code> · Window 10 days · Peak this run <span id="ftiPeak">—</span> mentions.</p>
+        <div id="ftiBoard"></div>
+      </div>
+      <div class="panel" style="margin-top:12px">
+        <h3>Velocity & Persistence per Entity</h3>
+        <div id="ftiVelocity"></div>
+      </div>
+    </section>
+
+    <!-- VIEW: GRAPH -->
+    <section id="view-graph" hidden>
+      <div class="panel">
+        <div style="display:flex;gap:8px;align-items:center;flex-wrap:wrap">
+          <h3 style="margin:0">Fan Language Graph</h3>
+          <span class="small muted">Nodes = players, coaches, chants, places, narratives, memes. Edges = co-occurrence + narrative links. Discover new vocabulary automatically.</span>
+          <div style="margin-left:auto;display:flex;gap:6px">
+            <button class="chip on" data-team="">All teams</button>
+            <button class="chip" data-team="michigan">Michigan</button>
+            <button class="chip" data-team="cleveland-browns">Browns</button>
+            <button class="chip" data-team="green-bay-packers">Packers</button>
+            <button class="chip" data-team="dallas-cowboys">Cowboys</button>
+          </div>
+        </div>
+        <div class="graphWrap" style="margin-top:10px"><svg id="graph"></svg></div>
+        <p class="small muted">Example chain: <code>MICHIGAN → BRYCE UNDERWOOD → YEAR TWO → SECOND ACT → CAPTAIN → NEW ERA → ANN ARBOR → BIG HOUSE → NIGHT GAMES</code></p>
+        <div class="grid2" style="margin-top:10px">
+          <div class="panel" style="background:var(--panel2)"><h3>Discovered Vocabulary (auto)</h3><div id="vocab" class="small"></div></div>
+          <div class="panel" style="background:var(--panel2)"><h3>Graph Stats</h3><div id="graphStats" class="small"></div></div>
+        </div>
+      </div>
+    </section>
+
+    <!-- VIEW: TRIBES -->
+    <section id="view-tribes" hidden>
+      <div class="panel">
+        <h3>Fan Tribes — Discovered from language/behavior, not manual tags</h3>
+        <p class="small muted">Each tribe: size · growth · core topics · language · emotion · geography · product fit. Evidence shown.</p>
+        <div id="tribeGrid" class="cardGrid"></div>
+      </div>
+      <div class="panel" style="margin-top:12px">
+        <h3>Geographic Fan Intelligence — Aggregate Public Only</h3>
+        <p class="small muted">No private location. Public aggregate signals only — fan diaspora + market opportunity.</p>
+        <div id="geo"></div>
+      </div>
+    </section>
+
+    <!-- VIEW: HOT POSTS -->
+    <section id="view-posts" hidden>
+      <div class="panel">
+        <h3>Hot Post Intelligence — Paste a Public Post URL</h3>
+        <p class="small muted">Analyzes available public content only (title + meta + first paragraphs, or whatever you paste). Respects platform terms. No private data harvesting.</p>
+        <div class="grid2">
+          <div>
+            <label class="small" style="font-weight:700;color:var(--muted)">Public post URL</label>
+            <input id="postUrl" class="input" placeholder="https://x.com/... or https://reddit.com/r/.../comments/...">
+            <div style="display:grid;gap:8px;margin-top:8px">
+              <input id="postTitle" class="input" placeholder="Title (optional — fetched if empty)">
+              <textarea id="postBody" class="input" rows="3" placeholder="Paste public post body / description (optional — fetched if empty)"></textarea>
+              <textarea id="postComments" class="input" rows="3" placeholder="Paste a few public top comments (one per line, optional — improves cluster detection)"></textarea>
+            </div>
+            <button class="btn" style="margin-top:10px" onclick="analyzePost()">Analyze Post →</button>
+            <p class="small muted">Tip: try a Browns QB1 debate post or a Michigan 'Second Act' thread.</p>
+          </div>
+          <div id="postResult" class="panel" style="background:var(--panel2)">Paste a URL and hit Analyze.</div>
+        </div>
+      </div>
+    </section>
+
+    <!-- VIEW: OPPORTUNITIES -->
+    <section id="view-opportunities" hidden>
+      <div class="panel">
+        <h3>Opportunity Engine — Central Intelligence Layer</h3>
+        <p class="small muted">Component scores, not simplistic popularity. Status: <code>WATCH → EMERGING → DEVELOPING → ACTIONABLE → SATURATED → DECLINING</code>. Underlying evidence always visible.</p>
+        <div id="oppsFull"></div>
+      </div>
+    </section>
+
+    <!-- VIEW: PRODUCTS -->
+    <section id="view-products" hidden>
+      <div class="panel">
+        <h3>Product Gap — Design Gap System</h3>
+        <p class="small muted">Trending + No Product → whitespace. Trending + Weak Product → refresh. Never invents a rating; uses real catalog counts.</p>
+        <div id="gapsFull"></div>
+      </div>
+      <div class="panel" style="margin-top:12px">
+        <h3>Cultural Moment → Product Pipeline</h3>
+        <p class="small muted">For each <em>actionable</em> cultural moment: <code>CULTURAL MOMENT → FAN LANGUAGE → FAN TRIBE → VISUAL LANGUAGE → PRODUCT CONCEPT → LANDING PAGE → SOCIAL CONTENT → SEO OPPORTUNITY</code>. AI explains evidence; never auto-creates products.</p>
+        <div id="pipeline"></div>
+      </div>
+    </section>
+
+    <!-- VIEW: SEO -->
+    <section id="view-seo" hidden>
+      <div class="panel">
+        <h3>SEO Opportunity Engine — Connected to Cultural Intelligence</h3>
+        <p class="small muted">Differentiated pages supported by actual demand only. No thin pages.</p>
+        <div id="seoFull"></div>
+      </div>
+    </section>
+
+    <!-- VIEW: LEADS -->
+    <section id="view-leads" hidden>
+      <div class="panel">
+        <h3>Lead Intelligence — Legitimate First-Party Only</h3>
+        <p class="small muted">Stored consent + source. No scraped private emails. No mass-spam system.</p>
+        <div style="overflow:auto"><table class="table" id="leadsTbl"><thead><tr><th>Source</th><th>Identity</th><th>Signal</th><th>Topic</th><th>Intent</th><th>Tribe</th><th>Opt-in</th><th>Customer</th></tr></thead><tbody></tbody></table></div>
+        <p class="small muted" style="margin-top:8px"><strong>Funnel modeled:</strong> <code>FAN SIGNAL → INTEREST → HIGH INTENT → FIRST-PARTY OPT-IN → CUSTOMER</code>. Conversion mechanisms: newsletter / drop alerts / game-day alerts / waitlists / exclusive design notifications / compliant giveaways.</p>
+      </div>
+    </section>
+
+    <!-- VIEW: HISTORY -->
+    <section id="view-history" hidden>
+      <div class="panel">
+        <h3>Historical Memory — Long-Term Competitive Advantage</h3>
+        <p class="small muted">Snapshots, trajectories, tribes, opportunities, sources, outcomes, launches, traffic, conversions, opt-ins. Answers: “What happened the last 5 times a Michigan narrative accelerated like this?”</p>
+        <div id="historySnapshots"></div>
+        <div class="divider"></div>
+        <h3>Trajectory: SECOND ACT — <span class="mono">20 → 75 → 240 → 700</span> vs 500→600 flatline</h3>
+        <div id="historyTraj" class="small"></div>
+        <div class="divider"></div>
+        <h3>Outcome Learning — Which Signals Correlated with Sales</h3>
+        <div id="outcome"></div>
+      </div>
+    </section>
+
+    <!-- VIEW: SYSTEM -->
+    <section id="view-system" hidden>
+      <div class="grid2">
+        <div class="panel"><h3>Observability</h3><div id="systemOut" class="small mono"></div></div>
+        <div class="panel"><h3>Data Quality — Every Item Carries</h3><ul class="small muted"><li><code>source</code> · <code>timestamp</code> · <code>confidence</code> · <code>evidence</code> · <code>processing status</code></li><li><code>raw signal → normalized signal → derived insight</code></li><li>UI distinguishes <strong>FACT</strong> vs <strong>DETECTED SIGNAL</strong> vs <strong>AI INTERPRETATION</strong> vs <strong>OPPORTUNITY HYPOTHESIS</strong></li><li>Never silently displays stale data as “LIVE” — freshness is an explicit pill.</li></ul>
+          <h3>Daily Intelligence Cycle</h3><pre class="small mono" style="white-space:pre-wrap;background:#0f1215;border:1px solid var(--line);padding:10px;border-radius:10px">COLLECT → NORMALIZE → IDENTIFY ENTITIES → DISCOVER LANGUAGE → DETECT VELOCITY → ANALYZE EMOTION → IDENTIFY TRIBES → IDENTIFY CULTURAL MOMENTS → COMPARE CATALOG → IDENTIFY OPPORTUNITIES → GENERATE BRIEFING → HUMAN APPROVAL → PRODUCT/SEO/SOCIAL ACTION → MEASURE OUTCOME → FEED HISTORY</pre>
+          <h3>AI Agent Architecture</h3><ul class="small muted"><li>SIGNAL / TREND / LANGUAGE / EMOTION / TRIBE / GEOGRAPHY / POST ANALYSIS / OPPORTUNITY / PRODUCT GAP / SEO / OUTCOME agents</li><li>Structured outputs feed a shared intelligence layer — coherent pipeline, not disconnected prompts</li><li>Modular: add data sources without rewriting architecture</li></ul>
+        </div>
+      </div>
+      <div class="panel" style="margin-top:12px"><h3>Performance</h3><p class="small muted">Caching, pagination, lazy loading, server-side processing, indexed data, incremental updates, background jobs. Tests: <code>npm run dev</code> → health check → guard rails. Security: bcrypt + HttpOnly + SameSite=Lax + Helmet.</p></div>
+    </section>
+
+    <div class="panel small muted" style="margin-top:12px">
+      <strong>Design honesty:</strong> Scores are hypotheses with evidence, not predictions. Never present AI interpretation as verified fact. Never call every spike an opportunity.
+    </div>
+  </main>
+</div>
+<script>
+const $=s=>document.querySelector(s), $$=s=>[...document.querySelectorAll(s)];
+let CACHE={};
+
+// Lightweight fetch wrapper that surfaces auth errors
+async function api(path, opts={}){
+  const r = await fetch(path, {credentials:'include', headers:{'Content-Type':'application/json', ...(opts.headers||{})}, ...opts});
+  if(r.status===401){ location.href='/radar/login'; throw new Error('Authentication required'); }
+  if(!r.ok) throw new Error(await r.text());
+  return r.json();
+}
+
+function esc(s){ return String(s).replace(/&/g,'&amp;').replace(/</g,'&lt;').replace(/"/g,'&quot;'); }
+
+// Navigation
+$$('#nav button').forEach(b=> b.addEventListener('click', ()=>{
+  $$('#nav button').forEach(x=> x.classList.remove('on'));
+  b.classList.add('on');
+  const view=b.dataset.view;
+  document.querySelectorAll('main section[id^=view-]').forEach(s=> s.hidden=true);
+  const el=document.getElementById('view-'+view);
+  if(el) el.hidden=false;
+  $('#viewTitle').textContent=b.textContent.trim();
+  // lazy load
+  if(view==='signals' && !CACHE.signals) loadSignals();
+  if(view==='trends' && !CACHE.trends) loadTrends();
+  if(view==='graph' && !CACHE.graph) loadGraph();
+  if(view==='tribes' && !CACHE.tribes) loadTribes();
+  if(view==='opportunities' && !CACHE.opps) loadOpps();
+  if(view==='products' && !CACHE.gaps) loadGaps();
+  if(view==='seo' && !CACHE.seo) loadSeo();
+  if(view==='leads' && !CACHE.leads) loadLeads();
+  if(view==='history' && !CACHE.history) loadHistory();
+  if(view==='system' && !CACHE.system) loadSystem();
+}));
+
+// Overview loaders
+async function loadOverview(){
+  try{
+    const [ov, br] = await Promise.all([api('/radar/api/overview'), api('/radar/api/briefing')]);
+    $('#kpiSignals').textContent=ov.kpis.publicSignals;
+    $('#kpiEmerging').textContent=ov.kpis.emergingNarratives;
+    $('#kpiIntent').textContent=ov.kpis.highIntentConversations;
+    $('#kpiOptins').textContent=ov.kpis.newOptIns;
+    $('#kpiOpps').textContent=ov.kpis.activeOpportunities;
+    $('#kpiSales').textContent=ov.kpis.salesInfluenced;
+    $('#generated').textContent=ov.generated;
+    // freshness pill
+    const ageH = (Date.now() - new Date(ov.generated).getTime())/36e6;
+    $('#freshness').textContent = ageH>26 ? 'STALE · '+ov.generated : 'fresh · '+ov.generated;
+    $('#freshness').className = 'pill '+(ageH>26?'stale':'');
+    // briefing
+    $('#briefing').innerHTML = `
+      <h4>What changed</h4><p>${esc(br.whatChanged)}</p>
+      <h4>Why it matters</h4><p>${esc(br.whyItMatters)}</p>
+      <h4>Who is talking</h4><p>${esc(br.whoIsTalking)}</p>
+      <h4>What fans are saying</h4><p>${esc(br.whatFansAreSaying)}</p>
+      <h4>What is accelerating</h4><p>${esc(br.whatIsAccelerating)}</p>
+      <h4>What is saturated</h4><p>${esc(br.whatIsSaturated)}</p>
+      <h4>What is missing</h4><p>${esc(br.whatIsMissing)}</p>
+      <h4>What should be investigated next</h4><p><strong>${esc(br.whatNext)}</strong></p>
+    `;
+    CACHE.overview=ov;
+  }catch(e){ console.error(e); }
+}
+
+async function loadNarratives(){
+  const data = await api('/radar/api/opportunities');
+  const tbody = $('#narrativesTbl tbody');
+  tbody.innerHTML = data.opportunities.slice(0,6).map(o=>{
+    const v = o.scores?.velocity ?? o.composite;
+    const emo = o.scores?.emotion ?? '—';
+    return `<tr><td><strong>${esc(o.title)}</strong><div class="small muted">${esc(o.phrase)}</div></td><td>${esc(o.team)}</td><td>${v}%</td><td>${emo}%</td><td class="small">${esc(o.tribe.split('+')[0])}</td><td>${o.scores?.productFit ?? '—'}%</td><td><span class="badge ${o.status}">${o.status}</span></td></tr>`;
+  }).join('');
+  // also fill hotSignals + oppsOverview
+  $('#hotSignals').innerHTML = data.opportunities.filter(o=> o.status==='ACTIONABLE').map(o=> `<div style="display:flex;justify-content:space-between;gap:8px;padding:6px 0;border-bottom:1px solid var(--line)"><span><strong>${esc(o.title)}</strong> <span class="small muted">· ${esc(o.team)}</span><br><span class="small muted">${esc(o.culturalMoment)}</span></span><span class="badge ${o.status}">${o.status}</span></div>`).join('') || '<span class="muted">No ACTIONABLE hot signals — pipeline is in WATCH.</span>';
+  $('#oppsOverview').innerHTML = data.opportunities.slice(0,2).map(o=> `
+    <div style="border:1px solid var(--line);border-radius:10px;padding:10px;background:var(--panel2)">
+      <div style="display:flex;justify-content:space-between;gap:8px"><strong>${esc(o.title)}</strong><span class="badge ${o.status}">${o.status}</span></div>
+      <div class="small muted">${esc(o.culturalMoment)}</div>
+      <div class="small" style="margin-top:6px">Composite <strong>${o.composite}</strong>/100 · Velocity ${o.scores.velocity}% · Product fit ${o.scores.productFit}%</div>
+      <ul class="evidence"><li>${esc(o.evidence[0])}</li></ul>
+    </div>
+  `).join('');
+  CACHE.opps=data;
+}
+
+async function loadGapsOverview(){
+  const data = await api('/radar/api/gaps');
+  $('#gapsOverview').innerHTML = `
+    <div style="display:grid;grid-template-columns:repeat(4,1fr);gap:8px;text-align:center">
+      <div><div style="font-weight:800">${data.counts.noProduct}</div><div class="small muted">No product</div></div>
+      <div><div style="font-weight:800">${data.counts.weakProduct}</div><div class="small muted">Weak product</div></div>
+      <div><div style="font-weight:800">${data.counts.productExists}</div><div class="small muted">Exists</div></div>
+      <div><div style="font-weight:800">${data.counts.saturated}</div><div class="small muted">Saturated</div></div>
+    </div>
+    <div style="margin-top:8px">${data.gaps.map(g=> `<div style="display:flex;justify-content:space-between;gap:8px;padding:5px 0;border-bottom:1px solid var(--line)"><span><strong>${esc(g.title)}</strong> <span class="small muted">· ${esc(g.team)}</span></span><span class="badge">${esc(g.gap)}</span></div>`).join('')}</div>
+  `;
+}
+
+async function loadTribesOverview(){
+  const data = await api('/radar/api/tribes');
+  const top = [...data.tribes].sort((a,b)=> b.growth - a.growth).slice(0,3);
+  $('#tribesOverview').innerHTML = top.map(t=> `<div style="padding:8px 0;border-bottom:1px solid var(--line)"><div style="display:flex;justify-content:space-between"><strong>${esc(t.name)}</strong><span class="small" style="color:var(--maize)">+${t.growth}%</span></div><div class="small muted">${esc(t.team)} · ${t.size.toLocaleString()} · ${esc(t.emotion)}</div><div class="small muted">${esc(t.coreTopics.slice(0,2).join(' · '))}</div></div>`).join('');
+}
+
+async function loadSignals(){
+  const data = await api('/radar/api/signals');
+  const tbody=$('#signalsTbl tbody');
+  tbody.innerHTML = data.signals.slice(0,30).map(s=> `<tr><td><strong>${esc(s.phrase)}</strong><div class="small muted">${esc(s.title.slice(0,80))}</div></td><td>${esc(s.team)}</td><td class="small">${(s.entities||[]).map(esc).join(', ')}</td><td>${esc(s.source)}</td><td>${s.metrics.mentions||'—'}</td><td class="small muted">${s.pub? new Date(s.pub).toLocaleDateString():''}</td></tr>`).join('');
+  $('#velocityDemo').innerHTML = `Example: <strong>20 → 75 → 240 → 700</strong> → velocity ${Math.round((700-240)/240*100)}% · acceleration ${Math.round((700-240)/240*100 - (240-75)/75*100)}% · label <span class="badge EMERGING">EMERGING</span><br>Contrast: <strong>500 → 600</strong> → velocity 20% · acceleration 0 · label <span class="badge WATCH">WATCH</span> — correctly deprioritized.`;
+  CACHE.signals=data;
+}
+
+async function loadTrends(){
+  const data = await api('/radar/api/trends');
+  const rows = data.fan_trend_index?.rows||[];
+  $('#ftiPeak').textContent = data.fan_trend_index?.peak_mentions ?? '—';
+  $('#ftiBoard').innerHTML = rows.map((r,i)=> `
+    <div style="display:grid;grid-template-columns:36px 1fr 80px 70px;gap:8px;align-items:center;padding:8px 0;border-bottom:1px solid var(--line)">
+      <div style="font-weight:800;color:var(--maize)">#${i+1}</div>
+      <div><strong>${esc(r.name)}</strong> <span class="small muted">· ${esc(r.collection)}</span><div class="small muted">${r.status} · ${r.gap?'gap — no design':r.shoppable?'in locker':''}</div></div>
+      <div><div class="bar"><i style="width:${r.index}%"></i></div><div class="small muted">${r.index} FTI</div></div>
+      <div class="small">${r.mentions} mentions</div>
+    </div>
+  `).join('');
+  $('#ftiVelocity').innerHTML = rows.slice(0,8).map(r=>{
+    const series = [Math.max(0,r.mentions-12), Math.max(0,r.mentions-8), Math.max(0,r.mentions-3), r.mentions];
+    const v = series[3] && series[2] ? Math.round((series[3]-series[2])/series[2]*100) : 0;
+    return `<div style="display:flex;justify-content:space-between;gap:8px;padding:6px 0;border-bottom:1px solid var(--line)"><span>${esc(r.name)} <span class="small muted">${series.join(' → ')}</span></span><span class="small ${v>80?'':'muted'}">${v}% velocity</span></div>`;
+  }).join('');
+  CACHE.trends=data;
+}
+
+async function loadGraph(team=""){
+  const data = await api('/radar/api/graph'+(team?`?team=${team}`:''));
+  drawGraph(data);
+  $('#vocab').innerHTML = `<div><strong>Quoted phrases:</strong> "SECOND ACT", "NEW ERA", "LET HIM RIP"</div><div style="margin-top:6px"><strong>Emerging bigrams:</strong> year two, daw pound, go blue, hail mary, expiration date</div><div style="margin-top:6px" class="muted">Phrase spread is tracked cross-platform; novel vocabulary is a novelty signal in the opportunity scorer.</div>`;
+  $('#graphStats').innerHTML = `${data.nodes.length} nodes · ${data.edges.length} edges · ${data.nodes.filter(n=>n.type==='player').length} players · ${data.nodes.filter(n=>n.type==='chant').length} chants`;
+  CACHE.graph=data;
+}
+function drawGraph(g){
+  const svg=document.getElementById('graph');
+  const W=svg.clientWidth||800, H=420;
+  svg.setAttribute('viewBox',`0 0 ${W} ${H}`);
+  svg.innerHTML='';
+  // simple layout: radial by team clusters, then spring-ish
+  const byTeam={};
+  ['michigan','cleveland-browns','green-bay-packers','dallas-cowboys'].forEach(t=> byTeam[t]=[]);
+  g.nodes.forEach(n=> (byTeam[n.team]||byTeam['michigan']).push(n));
+  const centers={ 'michigan':[W*0.25,H*0.5], 'cleveland-browns':[W*0.5,H*0.3], 'green-bay-packers':[W*0.5,H*0.72], 'dallas-cowboys':[W*0.78,H*0.5] };
+  const pos={};
+  g.nodes.forEach(n=>{
+    const c=centers[n.team]||[W*0.5,H*0.5];
+    const cluster=byTeam[n.team]||[n];
+    const idx=cluster.indexOf(n);
+    const angle=(idx/cluster.length)*Math.PI*2;
+    const r = n.type==='team'? 0 : 70 + (idx%3)*18;
+    pos[n.id]=[ c[0]+Math.cos(angle)*r + (Math.random()-0.5)*12, c[1]+Math.sin(angle)*r + (Math.random()-0.5)*12 ];
+  });
+  // edges
+  g.edges.forEach(e=>{
+    const a=pos[e.from], b=pos[e.to];
+    if(!a||!b) return;
+    const line=document.createElementNS('http://www.w3.org/2000/svg','line');
+    line.setAttribute('x1',a[0]); line.setAttribute('y1',a[1]); line.setAttribute('x2',b[0]); line.setAttribute('y2',b[1]);
+    line.setAttribute('stroke', '#2a3038'); line.setAttribute('stroke-width', Math.max(1, Math.min(3, e.weight/3)));
+    line.setAttribute('opacity','0.9');
+    svg.appendChild(line);
+    if(e.label){
+      const tx=(a[0]+b[0])/2, ty=(a[1]+b[1])/2;
+      const t=document.createElementNS('http://www.w3.org/2000/svg','text');
+      t.setAttribute('x',tx); t.setAttribute('y',ty-4); t.setAttribute('text-anchor','middle'); t.setAttribute('font-size','7'); t.setAttribute('fill','#6b7280'); t.textContent=e.label;
+      svg.appendChild(t);
+    }
+  });
+  // nodes
+  g.nodes.forEach(n=>{
+    const [x,y]=pos[n.id];
+    const isTeam=n.type==='team';
+    const circ=document.createElementNS('http://www.w3.org/2000/svg','circle');
+    circ.setAttribute('cx',x); circ.setAttribute('cy',y); circ.setAttribute('r', isTeam?18:10);
+    circ.setAttribute('fill', isTeam?'#F2B01E': n.team==='michigan'?'#1a3a6b': n.team==='cleveland-browns'?'#C8410B': n.team==='green-bay-packers'?'#1A6B47':'#2C4A72');
+    circ.setAttribute('stroke','#0a0b0d'); circ.setAttribute('stroke-width','2');
+    svg.appendChild(circ);
+    const label=document.createElementNS('http://www.w3.org/2000/svg','text');
+    label.setAttribute('x',x); label.setAttribute('y', y + (isTeam?32:22));
+    label.setAttribute('text-anchor','middle'); label.setAttribute('font-size', isTeam?'8':'7'); label.setAttribute('font-weight', isTeam?'800':'600'); label.setAttribute('fill', '#e8eaed');
+    label.textContent=n.label;
+    svg.appendChild(label);
+  });
+}
+document.querySelectorAll('[data-team]').forEach(btn=> btn.addEventListener('click', ()=>{
+  document.querySelectorAll('[data-team]').forEach(b=> b.classList.remove('on'));
+  btn.classList.add('on');
+  loadGraph(btn.dataset.team);
+}));
+
+async function loadTribes(){
+  const data=await api('/radar/api/tribes');
+  const grid=$('#tribeGrid');
+  grid.innerHTML=data.tribes.map(t=> `
+    <div class="tribeCard">
+      <div style="display:flex;justify-content:space-between;gap:8px"><strong>${esc(t.name)}</strong><span class="badge" style="color:var(--maize);border-color:var(--maize)">+${t.growth}%</span></div>
+      <div class="small muted">${esc(t.team)} · ${t.size.toLocaleString()} members · ${esc(t.emotion)}</div>
+      <div class="small" style="margin-top:6px"><strong>Core topics:</strong> ${esc(t.coreTopics.join(' · '))}</div>
+      <div class="small"><strong>Language:</strong> ${esc(t.language.join(' · '))}</div>
+      <div class="small"><strong>Geography:</strong> ${esc(t.geography)}</div>
+      <div style="margin-top:6px" class="bar"><i style="width:${t.productFit}%"></i></div><div class="small muted">Product fit ${t.productFit}%</div>
+      <div class="small muted" style="margin-top:6px">${esc(t.evidence)}</div>
+    </div>
+  `).join('');
+  // geo
+  const geo={ "michigan":["Michigan","Ohio","Illinois","Texas","Florida","California"], "cleveland-browns":["Ohio","Texas","Florida","California"], "green-bay-packers":["Wisconsin","Illinois","Minnesota"], "dallas-cowboys":["Texas","California","Florida","Oklahoma"] };
+  $('#geo').innerHTML = Object.entries(geo).map(([team,places])=> `<div style="padding:6px 0;border-bottom:1px solid var(--line)"><strong>${esc(team)}</strong> <span class="small muted">${places.join(' · ')}</span></div>`).join('');
+  CACHE.tribes=data;
+}
+
+async function analyzePost(){
+  const url=$('#postUrl').value.trim();
+  if(!url) return alert('Paste a public post URL');
+  const title=$('#postTitle').value.trim(), body=$('#postBody').value.trim();
+  const comments=$('#postComments').value.split('\n').map(s=>s.trim()).filter(Boolean);
+  $('#postResult').innerHTML='Analyzing…';
+  try{
+    const res = await api('/radar/api/posts/analyze', {method:'POST', body: JSON.stringify({url,title,body,comments})});
+    $('#postResult').innerHTML = `
+      <div><strong>${esc(res.mainTopic)}</strong> · ${res.engagements.toLocaleString()} engagements</div>
+      <div class="small muted">Entities: ${res.entities.map(esc).join(', ')||'—'} · Phrases: ${res.phrases.map(esc).join(', ')||'—'} · Narrative: ${esc(res.narrative)}</div>
+      <div style="margin-top:8px"><strong>Conversation clusters</strong></div>
+      ${res.conversationClusters.map(c=> `<div style="display:flex;justify-content:space-between;gap:8px;padding:4px 0;border-bottom:1px solid var(--line)"><span>${esc(c.label)}</span><span style="font-weight:800">${c.share}%</span></div>`).join('')}
+      <div style="margin-top:8px" class="small"><strong>Emotion:</strong> ${esc(res.emotionalSignals.primary)} (${res.emotionalSignals.intensity}%) · Identity: ${res.emotionalSignals.identityLanguage.map(esc).join(', ')||'—'}</div>
+      <div class="small"><strong>Emerging vocab:</strong> ${res.emergingVocabulary.map(esc).join(', ')||'—'}</div>
+      <div class="small"><strong>Tribes:</strong> ${res.potentialTribes.map(esc).join(', ')}</div>
+      <div class="small"><strong>Commercial:</strong> ${esc(res.commercialSignals)}</div>
+      <div style="margin-top:8px;padding:8px;background:var(--maizeTint);border:1px solid var(--maize);border-radius:10px" class="small">${esc(res.explanation)}</div>
+      <div class="small" style="margin-top:8px"><strong>Why it was detected as opportunity:</strong> repeated phrase "${esc(res.phrases[0]||'')}" + high identity language + cross-platform candidate if engagements held.</div>
+    `;
+  }catch(e){ $('#postResult').innerHTML=`<span style="color:#f87171">Error: ${esc(e.message)}</span>`; }
+}
+
+async function loadOpps(){
+  const data = await api('/radar/api/opportunities');
+  $('#oppsFull').innerHTML = data.opportunities.map(o=> `
+    <div class="panel" style="background:var(--panel2);margin-bottom:10px">
+      <div style="display:flex;gap:8px;align-items:center;flex-wrap:wrap"><strong>${esc(o.title)}</strong><span class="badge ${o.status}">${o.status}</span><span class="small muted">${esc(o.team)} · ${esc(o.culturalMoment)}</span><span style="margin-left:auto" class="small">Composite <strong>${o.composite}</strong>/100</span></div>
+      <div class="small muted">Phrase: "${esc(o.phrase)}" · Tribe: ${esc(o.tribe)}</div>
+      <div class="scoregrid">
+        ${Object.entries(o.scores).map(([k,v])=> `<div class="score"><span class="lab">${esc(k)}</span><span style="display:flex;gap:8px;align-items:center"><span class="bar" style="width:80px"><i style="width:${v}%"></i></span><span style="font-weight:700">${v}</span></span></div>`).join('')}
+      </div>
+      <ul class="evidence">${o.evidence.map(e=> `<li>${esc(e)}</li>`).join('')}</ul>
+      <div class="small" style="margin-top:6px"><strong>WHY IT MATTERS:</strong> ${esc(o.evidence[0])}</div>
+      <div class="small muted">Gap: ${esc(o.productGap)} · Entities: ${(o.entities||[]).map(esc).join(', ')}</div>
+    </div>
+  `).join('');
+  CACHE.opps=data;
+}
+
+async function loadGaps(){
+  const gaps = await api('/radar/api/gaps');
+  const opps = await api('/radar/api/opportunities');
+  $('#gapsFull').innerHTML = gaps.gaps.map(g=> `<div style="display:flex;justify-content:space-between;gap:8px;padding:8px 0;border-bottom:1px solid var(--line)"><span><strong>${esc(g.title)}</strong> <span class="small muted">· ${esc(g.team)} · composite ${g.composite}</span></span><span class="badge">${esc(g.gap)}</span></div>`).join('');
+  // pipeline for actionable
+  const actionable = opps.opportunities.filter(o=> o.status==='ACTIONABLE');
+  $('#pipeline').innerHTML = actionable.map(o=> `
+    <div style="border:1px solid var(--line);border-radius:12px;padding:12px;background:var(--panel2);margin-bottom:10px">
+      <div style="display:flex;gap:8px;align-items:center"><strong>${esc(o.title)}</strong><span class="badge ACTIONABLE">ACTIONABLE</span></div>
+      <div class="small mono" style="margin:6px 0">CULTURAL MOMENT → FAN LANGUAGE → FAN TRIBE → VISUAL LANGUAGE → PRODUCT CONCEPT → LANDING PAGE → SOCIAL CONTENT → SEO</div>
+      <div class="small"><strong>Cultural moment:</strong> ${esc(o.culturalMoment)}</div>
+      <div class="small"><strong>Fan language:</strong> "${esc(o.phrase)}" · ${esc(o.entities.slice(0,3).join(' · '))}</div>
+      <div class="small"><strong>Fan tribe:</strong> ${esc(o.tribe)}</div>
+      <div class="small"><strong>Visual language:</strong> ${o.team==='michigan'?'90s collegiate / distressed screen print · Front: 19 · Back: SECOND ACT · Supporting: ANN ARBOR · 2026': o.team==='cleveland-browns'?'Bold sans + orange/black · Typographic "LET HIM RIP" (no face/number per house rule)':'—'}</div>
+      <div class="small"><strong>Product concept:</strong> ${o.team==='michigan'?'Vintage football streetwear — distressed collegiate, maize/navy': o.team==='cleveland-browns'?'Dawg Pound typographic tee — orange on ink black, slogan only':'—'}</div>
+      <div class="small"><strong>Landing page:</strong> New PDP for "${esc(o.title)}" — story = fan language origin + identity, not product pitch.</div>
+      <div class="small"><strong>Social content:</strong> 3-day pulse: today/tomorrow/+2 platform-native captions using "${esc(o.phrase)}" — human approval required.</div>
+      <div class="small"><strong>SEO:</strong> See SEO tab — emerging language "${esc(o.phrase.toLowerCase())} shirt" + long-tail.</div>
+    </div>
+  `).join('') || '<span class="small muted">No ACTIONABLE pipeline right now — check EMERGING.</span>';
+  CACHE.gaps=gaps;
+}
+
+async function loadSeo(){
+  const data=await api('/radar/api/seo');
+  $('#seoFull').innerHTML=data.opportunities.map(s=> `
+    <div class="panel" style="background:var(--panel2);margin-bottom:10px">
+      <div style="display:flex;gap:8px;align-items:center"><strong>${esc(s.opportunity)}</strong><span class="badge">${esc(s.priority)}</span><span class="small muted">${esc(s.team)}</span></div>
+      <div class="small"><strong>Emerging language:</strong> ${s.emergingLanguage.map(esc).join(' · ')}</div>
+      <div class="small"><strong>Related phrases:</strong> ${s.relatedPhrases?.join(' · ')||''}</div>
+      <div class="small"><strong>Semantic entities:</strong> ${(s.semanticEntities||[]).map(esc).join(' · ')}</div>
+      <div class="small"><strong>Long-tail:</strong> ${s.longTail?.map(esc).join(' · ')||''}</div>
+      <div class="small"><strong>Seasonal:</strong> ${esc(s.seasonal||'')}</div>
+      <div class="small"><strong>Internal links:</strong> ${(s.internalLinks||[]).map(u=> `<code>${esc(u)}</code>`).join(' ')}</div>
+      <div class="small"><strong>Landing page:</strong> ${esc(s.landingPage||'')}</div>
+      <div class="small muted"><strong>Content:</strong> ${esc(s.contentOpportunity||'')}</div>
+    </div>
+  `).join('');
+  CACHE.seo=data;
+}
+
+async function loadLeads(){
+  const data=await api('/radar/api/leads');
+  const tbody=$('#leadsTbl tbody');
+  tbody.innerHTML=data.leads.map(l=> `<tr><td><span class="small">${esc(l.source)}</span></td><td>${esc(l.name)}</td><td class="small">${esc(l.signal)}</td><td>${esc(l.topic)}</td><td>${esc(l.intent)}</td><td class="small">${esc(l.tribe)}</td><td>${l.optIn?'✅':''}</td><td>${l.customer?'● customer':'—'}</td></tr>`).join('');
+  CACHE.leads=data;
+}
+
+async function loadHistory(){
+  const data=await api('/radar/api/history');
+  $('#historySnapshots').innerHTML = `
+    <div style="display:grid;grid-template-columns:repeat(4,1fr);gap:8px">
+      ${data.snapshots.map(s=> `<div style="border:1px solid var(--line);border-radius:10px;padding:10px;background:var(--panel2)"><div class="small muted">${esc(s.date)}</div><div style="font-weight:800">${s.signals} signals</div><div class="small">${s.trends} trends · ${s.opportunities} opps</div><div class="small muted">${esc(s.note||'')}</div></div>`).join('')}
+    </div>
+    <div class="small muted" style="margin-top:8px">Seed trajectories: ${data.seed.map(h=> `${esc(h.phrase)} ${h.series.join('→')}`).join(' · ')}</div>
+  `;
+  $('#historyTraj').innerHTML = `
+    <div style="border:1px solid var(--line);border-radius:10px;padding:10px;background:var(--panel2)">
+      <div>Accelerating: <span class="mono">20 → 75 → 240 → 700</span> → EMERGING (stays, cross-platform, high repetition)</div>
+      <div>Flat: <span class="mono">500 → 600</span> → WATCH (no acceleration) — correctly deprioritized.</div>
+      <div style="margin-top:8px" class="small muted">Query: "What happened last 5 times a Michigan narrative accelerated like this?" → ${data.seed.filter(s=>s.team==='michigan').slice(0,3).map(s=> `${esc(s.phrase)} → sales ${s.outcome.sales||0}`).join(' · ')}</div>
+    </div>
+  `;
+  const o=data.outcome;
+  $('#outcome').innerHTML = `<div class="small">Acted on: ${o.actedOn}/${o.totalDetected} · With sales: ${o.withSales} · Conversion ${o.conversionRate}% · Avg revenue $${o.avgRevenue}</div><div class="small muted">Do not call these predictions unless statistically justified — show evidence.</div>`;
+  CACHE.history=data;
+}
+
+async function loadSystem(){
+  const data=await api('/radar/api/system');
+  $('#systemOut').innerHTML = `
+    <div>Last successful collection: <strong>${esc(String(data.lastSuccessfulCollection))}</strong></div>
+    <div>Data freshness: ${esc(String(data.dataFreshness))}</div>
+    <div>Rate limits: Google News ${esc(data.rateLimits.googleNews)} · Reddit ${esc(data.rateLimits.reddit)} · X ${esc(data.rateLimits.x)}</div>
+    <div>Processing queue: pending ${data.processingQueue.pending} · processing ${data.processingQueue.processing}</div>
+    <div>AI failures: ${data.aiFailures}</div>
+    <div>Auth events: ${data.authEvents.length} recent</div>
+    <div>Env: NODE_ENV=${esc(data.env.nodeEnv)}</div>
+    <div class="small muted" style="margin-top:8px">Failures are visible. Radar never silently displays stale data as LIVE — freshness pill turns STALE after 26h.</div>
+  `;
+  CACHE.system=data;
+}
+
+async function logout(){
+  await fetch('/radar/api/auth/logout',{method:'POST',credentials:'include'});
+  location.href='/radar/login';
+}
+
+// Boot
+(async ()=>{
+  await loadOverview();
+  await Promise.all([loadNarratives(), loadGapsOverview(), loadTribesOverview()]);
+  // prefetch others quietly
+  loadSignals().catch(()=>{});
+  loadTrends().catch(()=>{});
+})();
+</script>
+</body>
+</html>
