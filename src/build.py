@@ -4,6 +4,8 @@ import json, os, re, shutil, html, sys, datetime, hashlib
 sys.path.insert(0, os.path.dirname(__file__))
 from collections import OrderedDict
 from collections_data import COLLECTIONS, ORDER, SEASON, NEXT_GAME, partner_of
+from collections_data import season_recap_long, season_recap_short, season_slate_sentence
+from collections_data import week1_dates_line
 import seocopy as _c
 import landing as _l
 from catalog import CATALOG
@@ -30,6 +32,12 @@ def read_json(*parts):
 
 
 CFG = read_json("src", "config.json")
+import base64 as _base64
+# The storefront's real contact address. It is base64-carried in config.json so
+# the value is not greppable as plaintext, but /contact/ and /privacy/ publish
+# it in full: a storefront that says "we answer every email" without giving an
+# address leaves customers (and GDPR requests) with no route but a JS form.
+CONTACT_EMAIL = _base64.b64decode(CFG["email_b64"]).decode()
 DOMAIN = CFG["domain"].rstrip("/")
 
 # Sitemap dates are content metadata, not build timestamps.  The old generator
@@ -516,15 +524,37 @@ def products_for_entity(ckey, entity, limit=3):
     return out
 
 
+def _retired_people():
+    """Names data/people.json has flagged throwback (traded, released, replaced).
+
+    Its rule is that they must not be promoted or mentioned; a scored row on a
+    public leaderboard is a mention. They score 0 in the window anyway, so
+    filtering loses no signal - the retirement itself is still explained in each
+    collection's legacy_note prose."""
+    try:
+        d = read_json("data", "people.json")
+    except Exception:
+        return set()
+    return {p["name"].lower() for p in d.get("people", [])
+            if p.get("status") != "current"}
+
+
 def fti_rows(ckey=None):
     rows = (TRENDS.get("fan_trend_index") or {}).get("rows") or []
+    retired = _retired_people()
+    rows = [r for r in rows if (r.get("name") or "").lower() not in retired]
     if ckey:
         rows = [r for r in rows if r.get("collection") == ckey]
     return rows
 
 
-def fti_block(ckey=None, limit=8, heading=None):
-    """Compact Fan Trend Index leaderboard used on collection / season pages."""
+def fti_block(ckey=None, limit=8, heading=None, level=3):
+    """Compact Fan Trend Index leaderboard used on collection / season pages.
+
+    ``level`` exists because heading order is an accessibility contract (WCAG
+    1.3.1): on /2026-season/ and /fan-trend-index/ this block is the FIRST
+    heading after the h1, so it must be an h2 - the old hard-coded h3 produced
+    an h1->h3 jump on both pages."""
     rows = fti_rows(ckey)[:limit]
     if not rows:
         return ""
@@ -545,7 +575,7 @@ def fti_block(ckey=None, limit=8, heading=None):
     title = heading or ("Fan Trend Index" if not ckey else
                         f'{esc(COLLECTIONS[ckey]["short"])} Fan Trend Index')
     return (f'<div class="ftibox"><div class="ftibox-head">'
-            f'<h3>{title}</h3>'
+            f'<h{level}>{title}</h{level}>'
             f'<a class="link" href="/fan-trend-index/">Full index &rarr;</a></div>'
             f'<p class="muted" style="font-size:.76rem;margin:0 0 12px">0-100 vs the hottest '
             f'name in the last {(TRENDS.get("fan_trend_index") or {}).get("window_days", 10)}-day '
@@ -980,13 +1010,26 @@ def head(title, desc, path, image=None, schema=None, keywords=None, col=None,
 <script>document.documentElement.className+=" js"</script>
 {acc}
 {sc}
-<!-- Google tag (gtag.js) -->
-<script async src="https://www.googletagmanager.com/gtag/js?id=G-5RHGJSLZNG"></script>
+<!-- Google tag (gtag.js) - consent-gated. The tag is NOT loaded until the
+     visitor opts in via the banner in app.js; the gl_analytics cookie records
+     the choice. /privacy/ describes this exactly. -->
 <script>
   window.dataLayer = window.dataLayer || [];
   function gtag(){{dataLayer.push(arguments);}}
-  gtag('js', new Date());
-  gtag('config', 'G-5RHGJSLZNG');
+  window.glLoadAnalytics = function(){{
+    if (window.__glLoaded) return;
+    window.__glLoaded = true;
+    var s = document.createElement('script');
+    s.async = true;
+    s.src = 'https://www.googletagmanager.com/gtag/js?id=G-5RHGJSLZNG';
+    document.head.appendChild(s);
+    gtag('js', new Date());
+    gtag('config', 'G-5RHGJSLZNG');
+  }};
+  (function(){{
+    var m = document.cookie.match(/(?:^|; )gl_analytics=1(?:;|$)/);
+    if (m) window.glLoadAnalytics();
+  }})();
 </script>
 </head>
 <body data-root="{root_prefix}"{body_attrs}>
@@ -1287,15 +1330,19 @@ def season_section():
 
 
 def team_portrait(k, size=96, cls="tportrait"):
-    """Circular team thumbnail showing the team's logo mark.
+    """Circular team thumbnail showing the collection's own crest.
 
-    The portrait is the official-style logo (helmet / G / star / block M)
-    masked to a circle with a subtle ring in the team's primary colour
-    (drawn with the --ca token, so accents stay data-driven). The image is
-    rendered with object-fit:contain so the mark is never cropped.
+    The crest is an ORIGINAL type-only lockup generated by lockup_svg() -
+    city name, geographic abbreviation and founding year in the collection's
+    palette. Until 2026-09-18 this slot held downloaded reproductions of the
+    official team marks, which DESIGN-BLUEPRINT.md §2 forbids outright. The
+    image is rendered with object-fit:contain so the badge is never cropped,
+    and carries a real alt (the old icons were alt="").
     """
     c = COLLECTIONS[k]
-    return (f'<span class="{cls}"><img src="{c["logo"]}" alt="" loading="lazy" '
+    return (f'<span class="{cls}"><img src="{c["logo"]}" '
+            f'alt="{esc(c["short"])} collection crest - original fan-made badge, '
+            f'{esc(c.get("abbr", ""))} est {esc(c.get("est", ""))}" loading="lazy" '
             f'decoding="async" width="{size}" height="{size}"></span>')
 
 
@@ -1459,7 +1506,7 @@ def crumbs(pairs, current=None):
 
 
 def card(it, eager=False):
-    lazy = "" if eager else ' loading="lazy" decoding="async"'
+    lazy = hint(eager)
     tag = {"player": "Player", "funny": "Funny", "retro": "Vintage", "playoff": "Playoff",
            "halloween": "All-Over", "family": "Gift", "city": "City", "classic": "Classic"}.get(it["theme"], "")
     cls = "tagpill"
@@ -1475,7 +1522,7 @@ def card(it, eager=False):
     return f"""<article class="card reveal" data-slug="{it['slug']}" data-type="{esc(it['garment'])}" data-team="{it['col']}" data-theme="{it['theme']}" style="{tv}">
  <a href="{it['url']}" aria-label="{esc(it['name'])}">
   <div class="ph"><span class="{cls}">{tag}</span><span class="glow"></span><span class="sweep"></span>
-   <img src="{it['front']}" alt="{esc(it['name'])} - {esc(it['art'][:70])}" width="530" height="630"{lazy}>
+   <img src="{it['front']}" alt="{card_alt(it)}" width="530" height="630"{lazy}>
    <img class="alt" src="{it['back']}" alt="{esc(it['name'])} back view" width="530" height="630" loading="lazy" decoding="async">
   </div>
   <div class="body">
@@ -1486,6 +1533,26 @@ def card(it, eager=False):
  </a>
  <button class="qv" type="button" aria-label="Quick view {esc(it['name'])}">Quick view</button>
  <button class="fav" type="button" aria-label="Favourite {esc(it['name'])}" aria-pressed="false" data-slug="{it['slug']}"><svg width="16" height="16" viewBox="0 0 24 24" aria-hidden="true"><path d="M12 20.4 4.8 13.2a4.6 4.6 0 1 1 6.5-6.5l.7.7.7-.7a4.6 4.6 0 1 1 6.5 6.5Z"/></svg></button></article>"""
+
+
+def card_alt(it):
+    """Alt text for a catalogue card: the curated product name, plus the artwork
+    line only when that line is not a crawl-typo of the name (see
+    landing.typo_variant). The old form printed "Beware Of Dawg - BE AWAR OF
+    DAWG" on the homepage, /collections/, /search/ and the team pages."""
+    if _l.typo_variant(it["name"], it.get("art") or ""):
+        return esc(it["name"])
+    return f'{esc(it["name"])} - {esc((it.get("art") or "")[:70])}'
+
+
+def hint(eager):
+    """Load hint for a catalogue card image.
+
+    Above-the-fold cards must not be lazy, but an <img> with no hint at all is
+    what the 2026-09-18 audit counted as "neither lazy nor priority-hinted"
+    (L9), so the eager ones now get an explicit fetchpriority."""
+    return (' fetchpriority="high" decoding="async"' if eager
+            else ' loading="lazy" decoding="async"')
 
 
 def product_card(it, eager=False):
@@ -1503,13 +1570,13 @@ def product_card(it, eager=False):
     the intrinsic width/height attributes stay on the tag so the grid never
     shifts while the artwork loads.
     """
-    lazy = "" if eager else ' loading="lazy" decoding="async"'
+    lazy = hint(eager)
     hot = '<span class="pc-hot">Trending</span>' if it.get("trend") == "hot" else ""
     c = COLLECTIONS[it["col"]]
     return (f'<a class="pcard reveal" href="{it["url"]}" style="{theme_vars(it["col"])}" '
             f'data-slug="{it["slug"]}">'
             f'<span class="pc-ph">{hot}'
-            f'<img src="{it["front"]}" alt="{esc(it["name"])} - {esc(it["art"][:70])}" '
+            f'<img src="{it["front"]}" alt="{card_alt(it)}" '
             f'width="530" height="630"{lazy}></span>'
             f'<span class="pc-body">'
             f'<span class="pc-meta">{esc(c["short"])} &middot; {esc(it["garment"])}</span>'
@@ -1832,7 +1899,8 @@ def custom_design():
    phrase or concept &mdash; we turn it into an original custom football graphic you can buy
    one at a time.</p>
    <form id="customForm"
-         method="POST" data-formsubmit="1" aria-label="Custom design request form" novalidate>
+         method="POST" action="https://formsubmit.co/{CONTACT_EMAIL}"
+         data-formsubmit="1" aria-label="Custom design request form">
     <div class="cf-head">Tell us about your idea</div>
     <p class="cf-sub">A free inquiry, not an order &mdash; send the details and we&rsquo;ll reply
     with a proof and a price.</p>
@@ -1903,7 +1971,8 @@ def brand_newsletter():
    <p>Football culture, new designs and game-day inspiration. One email a week, no spam.</p>
    <div class="brand-tags"><span>Cleveland</span><span>Green Bay</span><span>Dallas</span><span>Michigan</span></div>
   </div>
-  <form class="newsform reveal" id="newsForm" method="POST" aria-label="Newsletter signup" novalidate>
+  <form class="newsform reveal" id="newsForm" method="POST"
+        action="https://formsubmit.co/{CONTACT_EMAIL}" aria-label="Newsletter signup">
    <input type="hidden" name="_subject" value="Newsletter signup">
    <input type="hidden" name="_template" value="table">
    <input type="hidden" name="_captcha" value="false">
@@ -2406,13 +2475,13 @@ def page_creator(ckey="joe"):
         return f"/shop/{it['slug']}/?creator={track}"
 
     def jcard(it, cls, eager=False):
-        lazy = "" if eager else ' loading="lazy" decoding="async"'
+        lazy = hint(eager)
         tag = {"player": "Player Story", "retro": "Vintage", "funny": "Culture"}.get(it["theme"], "Game Day")
         return (f'<a class="{cls}" href="{jlink(it)}" '
                 f'data-slug="{it["slug"]}" data-price="{it["price"]:.2f}" '
                 f'data-creator="{track}" data-collection="{ckey_col}">'
                 f'<span class="jph"><img src="{it["front"]}" '
-                f'alt="{esc(it["name"])} - {esc(it["art"][:70])}" '
+                f'alt="{card_alt(it)}" '
                 f'width="530" height="630"{lazy}></span>'
                 f'<span class="jb">'
                 f'<h3 class="jname">{esc(it["name"])}</h3>'
@@ -2609,6 +2678,14 @@ def page_product(it):
     colours = it["colours"]
     theme = it["theme"] if it["theme"] in _l.THEME_CONCEPT else "classic"
 
+    # De-duplicate the gallery. Single-image Mayzing campaigns arrived with the
+    # one mockup repeated as "view 1", "view 2", so the product page showed the
+    # shopper the same picture three times and called them views. Preserve
+    # order, drop repeats; and when only one distinct image survives, do not
+    # render a thumb strip at all - a switcher for one image is padding.
+    it = dict(it)
+    it["gallery"] = list(dict.fromkeys(it.get("gallery") or []))
+
     # When two distinct products share the same H1 (e.g. "Cle Browns" in
     # Natural vs Sand), H1s stay verbatim but SERP title/meta must be unique.
     # Qualify with colour: "Cle Browns - Natural" / "Cle Browns - Sand".
@@ -2647,7 +2724,7 @@ def page_product(it):
         f' aria-label="View image {n+1} of {esc(it["name"])}">'
         f'<img src="{g}" alt="{esc(_l.image_alt(it["name"], it["art"], it["garment"], c["team"], n+1))}" '
         f'loading="lazy" width="120" height="140"></button>'
-        for n, g in enumerate(it["gallery"][:10]))
+        for n, g in enumerate(it["gallery"][:10])) if len(it["gallery"]) > 1 else ""
 
     # ---- verified option displays ----------------------------------------
     stylelist = "".join(f'<li>{esc(s)}</li>' for s in styles)
@@ -3104,25 +3181,56 @@ operates its own intellectual property policy and takedown procedure.</p>""", "0
         "Privacy Policy", f"""
 <p>Last updated {TODAY}.</p>
 <h2>What we collect</h2>
-<p>This site is a storefront catalogue. It does not take payments and does not collect names,
-addresses or card details. If you email us, we hold your message and address only to reply.</p>
+<p>This site is a storefront catalogue. It does not take payments and never sees your card details,
+billing address or payment. Two forms do collect what you type into them: the custom design request
+form and the newsletter signup. Both are delivered to our inbox by FormSubmit and keep only what you
+wrote - typically your name, your email address and your message - held solely to reply to you. If you
+email us directly, we hold your message and address only to reply.</p>
 <h2>Analytics</h2>
-<p>We may use privacy-respecting analytics to count page views and understand which designs are
-popular. This uses aggregate data only.</p>
+<p>We use <strong>Google Analytics 4</strong> (measurement ID G-5RHGJSLZNG) to count page views and see
+which designs are popular. It is <strong>opt-in</strong>: the analytics script is not loaded at all until
+you click &ldquo;Allow analytics&rdquo; in the consent banner. If you decline, or never answer the banner,
+no analytics script runs on your visit. When you do allow it, Google Analytics sets first-party cookies
+on this domain and receives event-level data - page views, and events such as a custom design request
+being sent or a buy button being clicked. We do not enable Google's advertising or remarketing features
+and we do not sell or share your data. Google's own processing of that data is governed by
+<a href="https://policies.google.com/privacy">Google's privacy policy</a>.</p>
 <h2>Third-party checkout</h2>
 <p>Buy buttons open a third-party print-on-demand platform. Anything you enter there - name, address,
 payment details - is governed by that platform's own privacy policy, not this one.</p>
+<h2>Fonts and product images</h2>
+<p>Two services load automatically when you open a page, before any consent choice, because the page
+cannot render without them:</p>
+<ul>
+<li><strong>Google Fonts</strong> (fonts.googleapis.com, fonts.gstatic.com) serves the site's typefaces.
+Your browser sends Google the usual request headers, including your IP address, when it fetches them.
+See <a href="https://policies.google.com/privacy">Google's privacy policy</a>.</li>
+<li><strong>Mayzing's image CDN</strong> (buyer-experience-gateway.mayzing.com) serves the product
+mockup photographs. Loading a design image sends Mayzing the same request headers, including your IP
+address.</li>
+</ul>
+<p>Links to our social profiles (X, Instagram, Facebook, Threads, Pinterest, YouTube and Google News)
+are plain outbound links: nothing is sent to those services until you click one and leave this site.</p>
 <h2>Cookies</h2>
-<p>No advertising cookies are set by this site. Any cookies set after you click through belong to the
+<p>Cookies this site sets itself: <code>gl_analytics</code> records your allow/decline choice for 180
+days; <code>_ga</code> and <code>_ga_*</code> are set by Google Analytics <em>only if you allowed it</em>.
+Two browser-only stores never leave your device: a localStorage list of designs you favourite, and a
+sessionStorage flag so the custom-design prompt shows once per session. No advertising cookies are written
+by this site. This site sets no advertising or cross-site tracking cookies of its own, and we do not
+enable Google's advertising features. Any further cookies set after you click through belong to the
 checkout platform.</p>
 <h2>Your rights</h2>
-<p>Ask via the <a href="/contact/">contact form</a> what we hold about you or to have
-it deleted.</p>""", "0.3")
+<p>Email <a href="mailto:{CONTACT_EMAIL}">{CONTACT_EMAIL}</a> or use the
+<a href="/contact/">contact form</a> to ask what we hold about you, to have it corrected, or to have it
+deleted. We answer every message.</p>""", "0.3")
 
     simple_page("contact", "Contact Us",
         "Get in touch about an order, a sizing question, a custom fan design request or a trademark "
         "concern.", "Contact Us", f"""
 <p>We are a small team and we answer every email.</p>
+<div class="panel"><h2>Email us directly</h2>
+<p><a href="mailto:{CONTACT_EMAIL}" style="color:var(--accent)">{CONTACT_EMAIL}</a> &middot;
+we reply within 1&ndash;2 days. Include your order number if your question is about a delivery.</p></div>
 <div class="panel"><h2>Contact form</h2><p>Use the <a class="custom-link" data-placement="contact_page" href="/#custom-design" style="color:var(--accent)">custom design form on the home page</a> - every message lands straight with us.</p>
 <p class="muted">Include your order number if your question is about a delivery.</p></div>
 <h2>What to contact us about</h2>
@@ -3305,8 +3413,8 @@ border-top:3px solid var(--ca)">
                                  for q, a in faqs]}
 
     title = "2026 Week 1 Fan Shirts: Kickoff Fits &amp; Slogan Tees"
-    desc = ("Week 1 2026 kickoff fits for Michigan, Cleveland, Green Bay and Dallas: kickoff dates, "
-            "the slogan tees and crewnecks to order now, sizing and print-on-demand lead times.")
+    desc = ("Week 1 2026 kickoff fits for Michigan, Cleveland, Green Bay and Dallas: dates, the "
+            "slogan tees to order now, sizing and print-on-demand lead times.")
     art = {"@context": "https://schema.org", "@type": "Article",
            "headline": "2026 Week 1 Fan Shirts: Kickoff Fits &amp; Slogan Tees",
            "description": desc, "datePublished": TODAY, "dateModified": DATA_DATE,
@@ -3317,9 +3425,8 @@ border-top:3px solid var(--ca)">
 <h1>{title}</h1>
 <p class="muted">Updated {TODAY} &middot; {sum(len(v) for v in WEEK1_SLATE.values())} Week 1 graphics &middot;
 {len(ALL)} designs in the locker</p>
-<p>Week 1 of the 2026 season is complete: <strong>Michigan beat Western Michigan on Sept 5 with a
-last-second Hail Mary</strong>, and the NFL Sunday slate followed on <strong>Sept 13</strong> with
-Cleveland at Jacksonville, Green Bay at Minnesota and Dallas in prime time against the Giants.
+<p>Week 1 of the 2026 season is complete: <strong>{esc(SEASON['michigan']['result'])}</strong>
+{esc(season_slate_sentence())}
 Everything below is printed after you order it. Delivery is an estimate, and arrival before a specific
 game is not guaranteed.</p>
 <h2>Week 1 at a glance</h2>
@@ -3364,8 +3471,7 @@ def page_guides():
                   '<h3><a href="/guides/2026-week-1-shirts/">2026 Week 1 Fan Shirts: '
                   'Kickoff Fits &amp; Slogan Tees</a></h3>'
                   '<p class="muted" style="margin:0">Every Week 1 kickoff date, the slogan direction '
-                  'for each team and the graphics to order now &mdash; Michigan opened Sept 5, beat '
-                  'No. 11 Oklahoma 17-10 on Sept 12, and the NFL Sunday slate was Sept 13.</p></div>')
+                  f'for each team and the graphics to order now &mdash; {esc(season_recap_short())}</p></div>')
     cards = week1_card
     for k in ORDER:
         c = COLLECTIONS[k]
@@ -3481,14 +3587,12 @@ def page_season():
  <h1>The 2026 Season <span class="accentword">Fan Shirt Hub</span></h1>
  <p class="muted" style="font-size:.85rem;margin-top:8px">By the {BRAND} Fan Desk &middot;
  updated {DATA_DATE}</p>
- <p class="muted" style="max-width:72ch">Updated {DATA_DATE}. Michigan opened with a last-second Hail Mary win over Western
- Michigan on <strong>September 5</strong>, then beat No. 11 Oklahoma 17-10 on September 12.
- The NFL Week 1 Sunday slate was <strong>September 13</strong>: Cleveland at Jacksonville, Green Bay
- at Minnesota and Dallas in prime time against the Giants. Here is what changed on each roster this
+ <p class="muted" style="max-width:72ch">Updated {DATA_DATE}. {esc(season_recap_long())}
+ Here is what changed on each roster this
  year, and which designs fans are buying because of it.
  See the <a class="link" href="/fan-trend-index/">Fan Trend Index</a> for the 0–100 score behind
  every Trending tag.</p>
- {fti_block(None, 8, heading="Fan Trend Index · all four fanbases")}
+ {fti_block(None, 8, heading="Fan Trend Index · all four fanbases", level=2)}
  <div style="margin-top:26px">{blocks}</div>
  <div class="prose" style="margin-top:34px">
   <h2>Why roster changes matter when you buy a fan shirt</h2>
@@ -3517,7 +3621,9 @@ def page_fti():
     path = "/fan-trend-index/"
     cb, cbs = crumbs([("Home", "/"), ("Fan Trend Index", None)], path)
     fti = TRENDS.get("fan_trend_index") or {}
-    rows = fti.get("rows") or []
+    # fti_rows() applies the people.json retirement filter; reading TRENDS
+    # directly here would re-publish retired names on the public page.
+    rows = fti_rows(None)
     peak = fti.get("peak_mentions") or 0
     window = fti.get("window_days", 10)
     board = ""
@@ -3599,7 +3705,8 @@ def page_fti():
   <div class="stat"><b>{len(TRENDS.get("moments") or [])}</b><span>Player moments</span></div>
   <div class="stat"><b>{len(gaps)}</b><span>No design yet</span></div>
  </div>
- <div class="fti-grid" style="margin-top:28px">{board}</div>
+ <h2 style="margin-top:28px">This window&rsquo;s leaderboard</h2>
+ <div class="fti-grid" style="margin-top:10px">{board}</div>
  {gap_html}
  <div style="margin-top:28px">{moments_html}</div>
  <div class="prose" style="margin-top:34px">
@@ -3649,7 +3756,31 @@ def page_drops():
     # schema URLs must never point at delisted pages that 404.
     try:
         drops_data = read_json("data", "live_drops.json")
-        drops_list = [d for d in drops_data.get("drops", []) if d.get("slug") in lookup][:12]
+        queued = drops_data.get("drops", [])
+        drops_list = [d for d in queued if d.get("slug") in lookup][:12]
+        # Make the silent loss LOUD. drops_page.py guards against dead links by
+        # discarding drops with no published page, which is right for customers
+        # but meant a third of the queue could vanish with no trace anywhere
+        # (2026-09-18: 24 queued, 16 rendered). Now the build prints it and
+        # records it where qa_deep.py and the refresh gate can see it.
+        dropped = [d.get("slug") for d in queued if d.get("slug") not in lookup]
+        if dropped:
+            print(f"WARNING /drops/: {len(dropped)} of {len(queued)} queued drops have "
+                  f"no published page and were discarded: {dropped}")
+        eligible = [d.get("slug") for d in queued if d.get("slug") in lookup]
+        with open(os.path.join(ROOT, "data", "drops-dropped.json"), "w",
+                  encoding="utf-8") as fh:
+            json.dump({
+                "generated": DATA_DATE,
+                "queued": len(queued),
+                # eligible = has a published product page; shown = the first 12
+                # of those the page renders; dropped = queued with no page.
+                # queued == eligible + dropped always holds.
+                "eligible": len(eligible),
+                "shown": len(drops_list),
+                "dropped": dropped,
+            }, fh, indent=1)
+            fh.write("\n")
     except Exception:
         drops_list = []
 
@@ -3758,29 +3889,34 @@ def page_redirects():
         target, tname = redirect_target(slug, ckey)
         turl = abs_url(target)
         name = esc(FACTS[slug]["name"]) if slug in FACTS else esc(slug)
+        disp = _stub_display_name(name)
+        generic = f"{esc(COLLECTIONS[ckey]['short'])} design moved | {esc(BRAND)}"
         # Keep the tab title inside a SERP-safe length even for the longest
-        # design names; the page body carries the full explanation.
-        stub_title = f"{name} - Moved | {esc(BRAND)}"
+        # design names; the page body carries the full explanation. A crawled
+        # name that is not clean prose is not echoed at all.
+        stub_title = f"{disp} - Moved | {esc(BRAND)}" if disp else generic
         if len(html.unescape(stub_title)) > 60:
-            stub_title = f"{esc(COLLECTIONS[ckey]['short'])} design moved | {esc(BRAND)}"
+            stub_title = generic
+        meta_who = f"{disp} is" if disp else "This design is"
+        body_who = f"<strong>{disp}</strong> is" if disp else "This design is"
         path = f"/shop/{slug}/"
         doc = f"""<!DOCTYPE html>
 <html lang="en"><head>
 <meta charset="utf-8">
 <meta name="viewport" content="width=device-width, initial-scale=1">
 <title>{stub_title}</title>
-<meta name="description" content="{name} is no longer listed on its own page. Browse the current {esc(COLLECTIONS[ckey]['name'])} at {esc(BRAND)}.">
+<meta name="description" content="{meta_who} no longer listed on its own page. Browse the current {esc(COLLECTIONS[ckey]['name'])} at {esc(BRAND)}.">
 <meta name="robots" content="noindex,follow">
 <link rel="canonical" href="{turl}">
 <meta http-equiv="refresh" content="0;url={turl}">
 <meta property="og:type" content="website">
-<meta property="og:title" content="{name} - now in the {esc(COLLECTIONS[ckey]['short'])} collection">
-<meta property="og:description" content="{name} is no longer listed on its own page. Browse the current {esc(COLLECTIONS[ckey]['name'])}.">
+<meta property="og:title" content="{stub_title}">
+<meta property="og:description" content="{meta_who} no longer listed on its own page. Browse the current {esc(COLLECTIONS[ckey]['name'])}.">
 <meta property="og:image" content="{abs_url(COLLECTIONS[ckey]['hero'])}">
 <meta property="og:url" content="{turl}">
 <meta property="og:site_name" content="{esc(BRAND)}">
 <meta name="twitter:card" content="summary_large_image">
-<meta name="twitter:title" content="{name} - now in the {esc(COLLECTIONS[ckey]['short'])} collection">
+<meta name="twitter:title" content="{stub_title}">
 <meta name="twitter:image" content="{abs_url(COLLECTIONS[ckey]['hero'])}">
 <link rel="icon" href="/img/favicon.svg" type="image/svg+xml">
 <link rel="stylesheet" href="/assets/style.css?v={STYLE_VERSION}">
@@ -3788,7 +3924,7 @@ def page_redirects():
 </head><body>
 <main data-gl-redirect="{target}"><section><div class="wrap center" style="padding:70px 0">
 <h1>This design moved</h1>
-<p class="muted" style="max-width:60ch;margin:0 auto 22px"><strong>{name}</strong> is no longer
+<p class="muted" style="max-width:60ch;margin:0 auto 22px">{body_who} no longer
 sold on its own page. Taking you to the {esc(COLLECTIONS[ckey]['name'])} &mdash; the current
 {esc(COLLECTIONS[ckey]['short'])} designs.</p>
 <div class="btnrow" style="justify-content:center">
@@ -3808,6 +3944,23 @@ sold on its own page. Taking you to the {esc(COLLECTIONS[ckey]['name'])} &mdash;
                         "# canonical stubs built at the same paths instead.\n"
           + "\n".join(lines) + "\n")
     return len(lines)
+
+
+def _stub_display_name(name):
+    """A retired design's name, or "" when the crawled name is not clean prose.
+
+    Redirect stubs echo the old product name in the title, the meta description
+    and the visible sentence. Those names come from partner campaign crawls, so
+    some are mangled English ("It S Not A Team Logo Browns It S A Family Crest
+    EST 1946 Shirt"). Echoing one reads as broken English on a page we still
+    serve, so fall back to "This design" instead (2026-09-18 audit)."""
+    n = html.unescape(name)
+    if (len(n) > 48
+            or re.search(r"\b\w S \w", n)
+            or re.search(r"\bEST \d{4}\b", n)
+            or re.search(r"\b(Its|Dont|Wont|Cant|Thats|Lets|Isnt|Wasnt)\b", n)):
+        return ""
+    return name
 
 
 def sitemap_lastmod(url):
@@ -3858,6 +4011,40 @@ def sitemap_lastmod(url):
     return SITEMAP_DATE_FALLBACK
 
 
+def lockup_svg(c):
+    """An ORIGINAL type-only crest for a collection, drawn from scratch.
+
+    Replaces the downloaded official team marks (browns-logo1.webp etc.) that
+    /collections/ used as icons until 2026-09-18. DESIGN-BLUEPRINT.md §2 lists
+    "team logos, wordmarks, helmet marks" under *Never print this* and points at
+    "original geometry + colour" instead - which is exactly this: an eight-sided
+    badge of our own geometry, the city name, a short geographic abbreviation
+    and the founding year (all unprotectable facts), set in the collection's own
+    palette. No helmet, no oval, no star, no block letterform copied from any
+    club.
+    """
+    a, a2 = c["accent"], c["accent2"]
+    tint, ink = c.get("accent_tint", "#ffffff"), c.get("accent_ink", a)
+    abbr = c.get("abbr", c["short"][:4].upper())
+    city = c["city"].split(",")[0].upper()
+    est = c.get("est", "")
+    big = 92 if len(abbr) <= 3 else 74
+    return f"""<svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 256 256" role="img">
+<defs><clipPath id="oct"><path d="M74 8h108l66 66v108l-66 66H74L8 182V74z"/></clipPath></defs>
+<path d="M74 8h108l66 66v108l-66 66H74L8 182V74z" fill="{a2}"/>
+<g clip-path="url(#oct)">
+<rect x="0" y="150" width="256" height="34" fill="{a}" opacity="0.9"/>
+<rect x="0" y="188" width="256" height="6" fill="{tint}" opacity="0.55"/>
+<circle cx="128" cy="66" r="30" fill="none" stroke="{a}" stroke-width="6"/>
+<path d="M128 44v44M106 66h44" stroke="{tint}" stroke-width="6" stroke-linecap="round"/>
+</g>
+<path d="M74 8h108l66 66v108l-66 66H74L8 182V74z" fill="none" stroke="{a}" stroke-width="8"/>
+<text x="128" y="132" text-anchor="middle" font-family="Arial, Helvetica, sans-serif" font-size="{big}" font-weight="800" letter-spacing="2" fill="{tint}">{abbr}</text>
+<text x="128" y="176" text-anchor="middle" font-family="Arial, Helvetica, sans-serif" font-size="21" font-weight="700" letter-spacing="4" fill="#111418">{city}</text>
+<text x="128" y="222" text-anchor="middle" font-family="Arial, Helvetica, sans-serif" font-size="15" font-weight="600" letter-spacing="3" fill="{tint}" opacity="0.85">FAN MADE &#183; EST {est}</text>
+</svg>"""
+
+
 def assets():
     # The stylesheet is a SOURCE file (src/style.css) copied out on every
     # build. It used to live in site/assets/ and be hand-edited, which meant
@@ -3885,6 +4072,17 @@ def assets():
     # Google Search Console HTML verification must be emitted by every build.
     # Keep this alongside the generated assets so a rebuild cannot remove it.
     write("googleae06215486ed6c17.html", "google-site-verification: googleae06215486ed6c17.html")
+    # Search-engine verification files belong at the web root ONLY. An older
+    # build stranded a copy inside /2026-season/, where it was publicly served
+    # with no title, no meta and no sitemap entry. Prune any stray copy so it
+    # cannot come back: the root files above are the sanctioned ones.
+    _VERIFY = ("googleae06215486ed6c17.html", "google7e05d1ab221dce85.html",
+               "a7f3c19b84e2456d90b7c15e3f8a2d64.txt", "BingSiteAuth.xml")
+    for dp, _dn, fn in os.walk(SITE):
+        for f in fn:
+            if f in _VERIFY and os.path.dirname(os.path.join(dp, f)) != SITE:
+                os.remove(os.path.join(dp, f))
+                print(f"pruned stray verification file: {os.path.relpath(os.path.join(dp, f), SITE)}")
     write("robots.txt", f"""# {BRAND} - independent fan apparel storefront
 # Everything here is meant to be crawled and indexed.
 
@@ -3910,8 +4108,9 @@ Allow: /
 User-agent: ClaudeBot
 Allow: /
 
-# Be gentle, not aggressive
-Crawl-delay: 1
+# No Crawl-delay: Google ignores it entirely, and the directive only applied to
+# the user-agent group directly above it - so it throttled one AI crawler while
+# looking like a sitewide setting. This site wants to be crawled.
 
 Sitemap: {DOMAIN}/sitemap.xml
 Sitemap: {DOMAIN}/sitemap-images.xml
@@ -3953,22 +4152,54 @@ Sitemap: {DOMAIN}/sitemap-images.xml
 <rect width="64" height="64" rx="14" fill="#111418"/>
 <ellipse cx="32" cy="32" rx="20" ry="12" fill="#ffffff"/>
 <path d="M20 32h24M32 26v12" stroke="#111418" stroke-width="3" stroke-linecap="round"/></svg>""")
-    # RSS/Atom feed - a discovery channel search engines and readers poll
+    # Original type-only collection crests (see lockup_svg). Generated, not
+    # downloaded: the previous icons were reproductions of registered team marks.
+    for k in ORDER:
+        stem = COLLECTIONS[k]["logo"].split("/")[-1]
+        write(f"img/lockups/{stem}", lockup_svg(COLLECTIONS[k]))
+    # RSS 2.0 feed - a discovery channel search engines and readers poll.
+    # Correctness notes (fixed 2026-09-18): dates must be RFC 822, every item
+    # needs a pubDate or readers cannot order it, and guids must be STABLE -
+    # the old "#<today>" suffix made all five items look brand new every day,
+    # which is the pattern aggregators drop feeds for. Items now also carry
+    # the newest live designs, since a feed titled "new and trending fan
+    # designs" that never lists a design is not doing its job. Descriptions
+    # name live designs only: the old text advertised search phrases for
+    # retired products with no page.
+    import email.utils as _emailutils
+
+    def _rfc822(iso_date):
+        """RSS 2.0 dates are RFC 822, not ISO: 'Fri, 18 Sep 2026 00:00:00 GMT'."""
+        return _emailutils.format_datetime(
+            datetime.datetime.strptime(iso_date, "%Y-%m-%d").replace(
+                tzinfo=datetime.timezone.utc), usegmt=True)
+
     fitems = ""
     for k in ORDER:
         c = COLLECTIONS[k]
         se = SEASON[k]
         link = f"{DOMAIN}/{c['slug']}/"
+        live_names = [i["name"] for i in ALL if i["col"] == k][:3]
         desc = (f"{len(MODEL[k])} fan designs for {c['name']}. {se['headline']} "
-                f"Trending: {', '.join(se['hot'][:3])}.")
+                f"Newest in the locker: {', '.join(live_names)}.")
         fitems += (f"<item><title>{esc(c['name'])} - updated {DATA_DATE}</title>"
-                   f"<link>{link}</link><guid isPermaLink='false'>{link}#{DATA_DATE}</guid>"
+                   f"<link>{link}</link><guid isPermaLink='false'>{link}</guid>"
+                   f"<pubDate>{_rfc822(DATA_DATE)}</pubDate>"
                    f"<description>{esc(desc)}</description></item>")
     for cre in CREATORS.values():
         u = DOMAIN + f"/{cre['page_slug']}/"
         fitems += (f"<item><title>{esc(cre['page_name'])} - updated {DATA_DATE}</title>"
-                   f"<link>{u}</link><guid isPermaLink='false'>{u}#{DATA_DATE}</guid>"
+                   f"<link>{u}</link><guid isPermaLink='false'>{u}</guid>"
+                   f"<pubDate>{_rfc822(DATA_DATE)}</pubDate>"
                    f"<description>{esc(creator_page_meta(cre))}</description></item>")
+    for i in sorted(ALL, key=lambda x: x.get("lastmod") or "1970-01-01", reverse=True)[:12]:
+        u = DOMAIN + i["url"]
+        fitems += (f"<item><title>{esc(i['name'])} - {esc(COLLECTIONS[i['col']]['short'])} "
+                   f"fan design</title><link>{u}</link>"
+                   f"<guid isPermaLink='false'>{u}</guid>"
+                   f"<pubDate>{_rfc822(i.get('lastmod') or DATA_DATE)}</pubDate>"
+                   f"<description>{esc(i['art'])} Priced at ${i['price']:.2f} on "
+                   f"{esc(i['partner'])}, printed on demand.</description></item>")
     for it in [x for x in ALL if x.get("trend") == "hot"][:12]:
         u = DOMAIN + it["url"]
         fitems += (f"<item><title>{esc(it['name'])}</title><link>{u}</link>"
@@ -3980,7 +4211,7 @@ Sitemap: {DOMAIN}/sitemap-images.xml
           f'<link>{DOMAIN}/</link>'
           '<atom:link rel="hub" href="https://pubsubhubbub.appspot.com"/>'
           f'<description>{esc(CFG["tagline"])}</description>'
-          f'<lastBuildDate>{DATA_DATE}</lastBuildDate><language>en-us</language>'
+          f'<lastBuildDate>{_rfc822(DATA_DATE)}</lastBuildDate><language>en-us</language>'
           + fitems + '</channel></rss>')
 
     # llms.txt - token-efficient brand index for AI answer engines (ChatGPT,
@@ -4015,7 +4246,7 @@ Sitemap: {DOMAIN}/sitemap-images.xml
 - [2026 Season Hub]({DOMAIN}/2026-season/) - Week 1 dates, roster changes, trending designs
 - [Fan Trend Index]({DOMAIN}/fan-trend-index/) - 0-100 score of who the headlines are about, plus live player moments
 - [Buying guides]({DOMAIN}/guides/) - how to pick the right fan shirt per team
-- [2026 Week 1 fan shirts]({DOMAIN}/guides/2026-week-1-shirts/) - Week 1 kickoff dates (Michigan Sept 5, NFL Sunday Sept 13) and the slogan tees to order
+- [2026 Week 1 fan shirts]({DOMAIN}/guides/2026-week-1-shirts/) - Week 1 kickoff dates ({week1_dates_line()}) and the slogan tees to order
 {creator_lines}
 - [Custom apparel]({DOMAIN}/contact/) - custom name, colourway and crew orders
 
@@ -4033,6 +4264,44 @@ Sitemap: {DOMAIN}/sitemap-images.xml
         "background_color": "#0a0b0d", "theme_color": "#0a0b0d",
         "icons": [{"src": "/img/favicon.svg", "sizes": "any", "type": "image/svg+xml"}]}, indent=1))
     write("assets/app.js", """
+// ---------- analytics consent ----------
+// Google Analytics is opt-in. The tag itself is only injected by
+// window.glLoadAnalytics() (see head()), and only after this banner records a
+// choice in the gl_analytics cookie. /privacy/ states this in plain words.
+(function(){
+  function choice(){
+    var m=document.cookie.match(/(?:^|; )gl_analytics=([01])(?:;|$)/);
+    return m?m[1]:null;
+  }
+  function set(v){
+    document.cookie='gl_analytics='+v+';path=/;max-age=15552000;SameSite=Lax';
+  }
+  if(choice()!==null) return;
+  var b=document.createElement('div');
+  b.setAttribute('role','region');
+  b.setAttribute('aria-label','Analytics consent');
+  b.style.cssText='position:fixed;left:12px;right:12px;bottom:12px;z-index:99;'+
+    'max-width:560px;margin:0 auto;background:#111418;color:#f4f1ea;'+
+    'border:1px solid #2c3138;border-radius:10px;padding:12px 14px;'+
+    'font:14px/1.5 system-ui,sans-serif;box-shadow:0 8px 30px rgba(0,0,0,.4)';
+  b.innerHTML='<p style="margin:0 0 10px">We use Google Analytics to count page '+
+    'views and see which designs are popular. No advertising cookies, and we '+
+    'never sell data. <a href="/privacy/" style="color:#ffb35c">Privacy policy</a>.</p>'+
+    '<button type="button" data-gl="1" style="margin-right:8px;padding:8px 14px;'+
+    'border:0;border-radius:8px;background:#ffb35c;color:#111418;font-weight:700;'+
+    'cursor:pointer">Allow analytics</button>'+
+    '<button type="button" data-gl="0" style="padding:8px 14px;border:1px solid #454b54;'+
+    'border-radius:8px;background:transparent;color:#f4f1ea;cursor:pointer">No thanks</button>';
+  document.addEventListener('DOMContentLoaded',function(){document.body.appendChild(b);});
+  b.addEventListener('click',function(e){
+    var v=e.target.getAttribute&&e.target.getAttribute('data-gl');
+    if(v===null||v===undefined) return;
+    set(v);
+    if(b.parentNode) b.parentNode.removeChild(b);
+    if(v==='1'&&window.glLoadAnalytics) window.glLoadAnalytics();
+  });
+})();
+
 // ---------- gallery ----------
 var CUSTOM_EMAIL="__EMAIL__";
 function setStage(b){
@@ -4176,11 +4445,18 @@ document.querySelectorAll('a.custom-link').forEach(function(a){
 })();
 
 // ---------- custom design form (FormSubmit, no backend needed) ----------
-// The destination address is assembled at runtime from a base64 token so the
-// owner's email never appears in the page source (anti-harvesting).
+// The <form> carries a real action= in the HTML, so with JavaScript disabled
+// the browser posts straight to FormSubmit and the request still arrives.
+// With JavaScript ON we upgrade to FormSubmit's AJAX endpoint, which returns a
+// readable JSON response. The old code posted in opaque (no-cors) mode, which
+// the response opaque, so .then() fired on HTTP 404/500 too and the visitor was
+// told "your idea is on its way" when nothing had been delivered. Now a non-2xx
+// status falls through to the mailto fallback instead of a false success, and
+// the old empty setTimeout() guard (which could never fire the fallback) is
+// gone.
 (function(){
   var form=document.getElementById('customForm'); if(!form)return;
-  form.action='https://formsubmit.co/'+atob(CUSTOM_EMAIL);
+  var AJAX='https://formsubmit.co/ajax/'+atob(CUSTOM_EMAIL);
   var msg=document.getElementById('formmsg');
   var btn=form.querySelector('button[type=submit]');
   form.addEventListener('submit',function(e){
@@ -4195,28 +4471,36 @@ document.querySelectorAll('a.custom-link').forEach(function(a){
     e.preventDefault();
     if(btn)btn.disabled=true;
     if(msg){msg.style.color='';msg.textContent='Sending your idea...';}
-    var data=new FormData(form);
-    var ok=false;
-    try{
-      fetch(form.action,{method:'POST',body:data,mode:'no-cors'}).then(function(){
-        ok=true;
-        try{gtag('event','custom_design_submit',{
-          team:form.querySelector('select[name=team]').value||'',
-          garment:form.querySelector('select[name=garment]').value||''
-        });}catch(e){}
-        if(msg)msg.textContent='Thank you '+name+'! Your idea is on its way. We will reply to '+email+' within 1-2 days.';
-        form.reset(); if(btn)btn.disabled=false;
-      }).catch(function(){fallback()});
-      setTimeout(function(){if(!ok){}},1500);
-    }catch(err){fallback()}
+    var payload={};
+    new FormData(form).forEach(function(v,k){payload[k]=v;});
+    function done(){
+      try{gtag('event','custom_design_submit',{
+        team:form.querySelector('select[name=team]').value||'',
+        garment:form.querySelector('select[name=garment]').value||''
+      });}catch(err){}
+      if(msg){msg.style.color='';msg.textContent='Thank you '+name+'! Your idea is on its way. We will reply to '+email+' within 1-2 days.';}
+      form.reset(); if(btn)btn.disabled=false;
+    }
     function fallback(){
       // read() tolerates a field that is not on this version of the form -
       // the mailto fallback must never throw, it is the last resort.
       function read(sel){var el=form.querySelector(sel);return el?el.value:'';}
       var body='Name: '+name+'\\nEmail: '+email+'\\nTeam/theme: '+read('select[name=team]')+'\\nGarment: '+read('select[name=garment]')+'\\nIdea: '+idea+'\\nPreferred colors: '+read('input[name=colors]')+'\\nDetails: '+read('textarea[name=details]');
       window.location.href='mailto:'+atob(CUSTOM_EMAIL)+'?subject='+encodeURIComponent('Custom Design Request from '+name)+'&body='+encodeURIComponent(body);
-      if(msg)msg.textContent='Opening your email app with your request - hit send and we will get back to you within 1-2 days.';
+      if(btn)btn.disabled=false;
+      if(msg){msg.style.color='#c0392b';msg.textContent='We could not reach the form service. We opened your email app with the request instead - hit send and we will get back to you within 1-2 days. Or email us directly; the address is on the contact page.';}
     }
+    try{
+      fetch(AJAX,{method:'POST',
+        headers:{'Content-Type':'application/json','Accept':'application/json'},
+        body:JSON.stringify(payload)})
+        .then(function(r){
+          // readable response: a 4xx/5xx is a FAILURE, not a success
+          if(!r.ok) throw new Error('formsubmit HTTP '+r.status);
+          done();
+        })
+        .catch(function(){ fallback(); });
+    }catch(err){ fallback(); }
   });
 })();
 
@@ -4345,9 +4629,12 @@ document.querySelectorAll('a.custom-link').forEach(function(a){
 })();
 
 // ---------- newsletter signup (FormSubmit, no backend needed) ----------
+// Same fix as the custom design form: real action= in the HTML for the no-JS
+// path, AJAX endpoint with a readable status when JS is on, so a rejected
+// signup can no longer be reported as "welcome to the locker".
 (function(){
   var form=document.getElementById('newsForm'); if(!form)return;
-  form.action='https://formsubmit.co/'+atob(CUSTOM_EMAIL);
+  var AJAX='https://formsubmit.co/ajax/'+atob(CUSTOM_EMAIL);
   var msg=document.getElementById('newsMsg'), btn=form.querySelector('button');
   form.addEventListener('submit',function(e){
     e.preventDefault();
@@ -4358,14 +4645,18 @@ document.querySelectorAll('a.custom-link').forEach(function(a){
     }
     if(btn)btn.disabled=true;
     if(msg){msg.style.color='';msg.textContent='Joining the locker...';}
-    fetch(form.action,{method:'POST',body:new FormData(form),mode:'no-cors'}).then(function(){
-      try{gtag('event','newsletter_signup',{page:location.pathname});}catch(e){}
-      if(msg)msg.textContent='Welcome to the locker. Check your inbox to confirm.';
-      form.reset(); if(btn)btn.disabled=false;
-    }).catch(function(){
-      if(msg)msg.textContent='Almost there - email us directly to join.';
-      if(btn)btn.disabled=false;
-    });
+    fetch(AJAX,{method:'POST',
+      headers:{'Content-Type':'application/json','Accept':'application/json'},
+      body:JSON.stringify({email:email,_subject:'New newsletter signup from gridironlocker.store'})})
+      .then(function(r){
+        if(!r.ok) throw new Error('formsubmit HTTP '+r.status);
+        try{gtag('event','newsletter_signup',{page:location.pathname});}catch(e){}
+        if(msg){msg.style.color='';msg.textContent='Welcome to the locker. Check your inbox to confirm.';}
+        form.reset(); if(btn)btn.disabled=false;
+      }).catch(function(){
+        if(msg){msg.style.color='#c0392b';msg.textContent='We could not reach the signup service. Email us directly and we will add you by hand.';}
+        if(btn)btn.disabled=false;
+      });
   });
 })();
 
@@ -4799,23 +5090,51 @@ def relativise():
     return n
 
 
-def sync_marketing():
-    """Copy the marketing planner into the built site so GitHub Pages publishes
-    /marketing/dashboard.html and /marketing/plan.json.
+# Files that may be published under /marketing/ and /ops/. The dashboards are a
+# deliberate product (they are noindex + robots-disallowed), but GitHub Pages
+# serves EVERYTHING in the uploaded directory, so copying the whole tree also
+# published .py source, run_daily.sh, the revenue and competitor playbooks,
+# social-accounts.md with follower counts, and pinterest_feed.csv. robots.txt
+# Disallow is not access control; an allowlist is. Dashboards keep the data
+# files they fetch at runtime (.json) and their own assets.
+PUBLISH_EXT = (".html", ".css", ".js", ".json", ".svg", ".png", ".jpg",
+               ".jpeg", ".webp", ".ico")
 
-    We copy real files (not a symlink) so the checked-in site/marketing folder is
-    always a real directory that the Pages artifact can upload directly, and so a
-    rebuild can never swap it for a symlink. The files under site/marketing track
-    the marketing/ sources and are committed (deploy.yml uploads ./site as-is)."""
+
+def _copy_publishable(src_dir, dst_dir):
+    if os.path.islink(dst_dir) or os.path.isfile(dst_dir):
+        os.unlink(dst_dir)
+    elif os.path.isdir(dst_dir):
+        shutil.rmtree(dst_dir)
+    n = 0
+    for dp, _dn, fn in os.walk(src_dir):
+        for f in fn:
+            if not f.endswith(PUBLISH_EXT):
+                continue
+            rel = os.path.relpath(os.path.join(dp, f), src_dir)
+            out = os.path.join(dst_dir, rel)
+            os.makedirs(os.path.dirname(out), exist_ok=True)
+            shutil.copyfile(os.path.join(dp, f), out)
+            n += 1
+    return n
+
+
+def sync_marketing():
+    """Publish the marketing dashboards - and ONLY the dashboards.
+
+    We copy real files (not a symlink) so the checked-in site/marketing folder
+    is always a real directory that the Pages artifact can upload directly, and
+    so a rebuild can never swap it for a symlink. Source (.py/.sh), prose
+    playbooks (.md) and bulk-upload data (.csv) stay out of the public tree:
+    see PUBLISH_EXT."""
     m_dir = os.path.join(ROOT, "marketing")
     s_m_dir = os.path.join(SITE, "marketing")
     if not os.path.exists(m_dir):
         return
-    if os.path.islink(s_m_dir) or os.path.isfile(s_m_dir):
-        os.unlink(s_m_dir)
-    elif os.path.isdir(s_m_dir):
-        shutil.rmtree(s_m_dir)
-    shutil.copytree(m_dir, s_m_dir)
+    n = _copy_publishable(m_dir, s_m_dir)
+    print(f"sync_marketing: published {n} dashboard files of "
+          f"{sum(len(f) for _, _, f in os.walk(m_dir))} in marketing/ "
+          f"(source/playbooks/csv withheld)")
 
 
 def sync_ops():
@@ -4858,11 +5177,10 @@ def sync_ops():
     s_o_dir = os.path.join(SITE, "ops")
     if not os.path.exists(o_dir):
         return
-    if os.path.islink(s_o_dir) or os.path.isfile(s_o_dir):
-        os.unlink(s_o_dir)
-    elif os.path.isdir(s_o_dir):
-        shutil.rmtree(s_o_dir)
-    shutil.copytree(o_dir, s_o_dir)
+    # Same allowlist as sync_marketing: dashboards and their data, never the
+    # .py generators or health_check source.
+    n = _copy_publishable(o_dir, s_o_dir)
+    print(f"sync_ops: published {n} dashboard files (source withheld)")
 
 
 def main():

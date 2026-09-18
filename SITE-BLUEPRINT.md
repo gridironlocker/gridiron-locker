@@ -222,8 +222,9 @@ Vanilla JS, single file. Features:
 - **`sitemap.xml`** — 153 URLs with lastmod/priority/changefreq.
 - **`sitemap-images.xml`** — image sitemap (product imagery = ranking asset).
 - **`robots.txt`** — allows everything including AI engines
-  (`GPTBot`, `PerplexityBot`, `ClaudeBot`), `Crawl-delay: 1`,
-  disallows only `/marketing/plan.json`.
+  (`GPTBot`, `PerplexityBot`, `ClaudeBot`); disallows the internal rooms
+  (`/marketing/`, `/ops/`). No `Crawl-delay`: Google ignores it and it only
+  bound to the preceding user-agent group.
 - **`feed.xml`** — RSS with collection + product items (fresh-content signal).
 - **Internal linking:** home → collections → products → related → guides → back.
 - **Trademark-safe framing:** "fan-made / independent / not affiliated"

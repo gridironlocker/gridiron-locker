@@ -22,6 +22,7 @@ import base64
 import collections
 import glob
 import html as htmllib
+from html.parser import HTMLParser
 import json
 import os
 import re
@@ -73,7 +74,10 @@ STUBS = set(build.retired_slugs())
 # ============================================================ C1 internal files
 # robots.txt Disallow + noindex are NOT access control. GitHub Pages serves
 # everything under site/, so anything copied here is publicly downloadable.
-INTERNAL_BAD = (".py", ".sh", ".md", ".csv", ".json", ".txt")
+# .json stays: the /ops/ and /marketing/ dashboards fetch their data files
+# client-side, so those are product, not leakage. Everything below is source
+# code, shell, prose playbooks or bulk-upload data and must never be public.
+INTERNAL_BAD = (".py", ".sh", ".md", ".csv", ".txt")
 leaked = []
 for d in ("marketing", "ops"):
     for p in sorted(glob.glob(os.path.join(SITE, d, "**", "*"), recursive=True)):
@@ -85,10 +89,23 @@ if leaked:
         f"(robots.txt Disallow is not auth):")
     for u in leaked:
         FIND["internal-exposure"].append("    " + u)
-# HTML dashboards are a deliberate product decision; the source files are not.
-add("CRITICAL", "internal-exposure-src",
-    "sync_marketing()/sync_ops() use shutil.copytree of the whole tree - allowlist "
-    "the two dashboard HTML files instead (src/build.py:4802, :4821)")
+# HTML dashboards are a deliberate product decision; their source trees are not.
+# Verify the sync functions instead of asserting the defect forever: since the
+# 2026-09-18 fix both walk the tree and copy an allowlist of publishable
+# extensions via _copy_publishable(), so .py/.sh/.md/.csv never reach site/.
+_bsrc = txt(os.path.join(ROOT, "src", "build.py"))
+for _fn in ("sync_marketing", "sync_ops"):
+    _m = re.search(r"def %s\(.*?\):(.*?)(?=\ndef |\Z)" % _fn, _bsrc, re.S)
+    if not _m:
+        continue
+    if "shutil.copytree" in _m.group(1):
+        add("CRITICAL", "internal-exposure-src",
+            f"{_fn}() copies its whole tree with shutil.copytree - only publishable "
+            f"extensions may reach site/ (see PUBLISH_EXT / _copy_publishable)")
+    elif "_copy_publishable" not in _m.group(1):
+        add("HIGH", "internal-exposure-src",
+            f"{_fn}() does not use _copy_publishable(), so what it publishes is not "
+            f"the allowlist")
 
 # ================================================== C2 forbidden design terms
 # DESIGN-BLUEPRINT.md §2: never a player's face/photo, surname on the chest,
@@ -195,12 +212,17 @@ for rel, t in PUBLIC.items():
                 add("HIGH", "forms", f"{rel}: form is novalidate - all validation is JS-only")
 jsf = os.path.join(SITE, "assets", "app.js")
 js = txt(jsf) if os.path.exists(jsf) else ""
+NOCORS = re.compile("mode:\\s*['\"]no-cors['\"]")
 if js:
-    if "no-cors" in js:
+    if NOCORS.search(js):
         add("CRITICAL", "forms",
-            f"assets/app.js: {js.count('no-cors')} fetch(es) use mode:'no-cors' - the "
-            f"response is opaque, so HTTP 4xx/5xx cannot be detected and the success "
-            f"message is shown even when the submission was rejected")
+            f"assets/app.js: {len(NOCORS.findall(js))} fetch(es) use mode:'no-cors' - "
+            f"the response is opaque, so HTTP 4xx/5xx cannot be detected and the "
+            f"success message is shown even when the submission was rejected")
+    if "formsubmit.co/ajax/" not in js:
+        add("HIGH", "forms",
+            "assets/app.js does not use FormSubmit's readable AJAX endpoint, so "
+            "submission failures cannot be detected")
     for m in re.finditer(r"setTimeout\(function\(\)\{if\(!\w+\)\{\}\},\d+\)", js):
         add("CRITICAL", "forms",
             f"assets/app.js: dead timeout guard {m.group(0)} - empty body, so the "
@@ -238,8 +260,21 @@ try:
 except Exception as e:
     print(f"  (season check skipped: {e})")
 bsrc = txt(os.path.join(ROOT, "src", "build.py"))
-hard = [bsrc[:m.start()].count("\n") + 1
-        for m in re.finditer(r"(?:Sept|September)\s+\d+", bsrc)]
+# Only CODE counts. A date in a comment or docstring explaining why the value is
+# derived from SEASON is not a hard-coded date: the original audit reported 7
+# "hard-coded dates" in build.py that were 6 comments plus one real string.
+hard = []
+in_doc = False
+for _n, _line in enumerate(bsrc.splitlines(), 1):
+    if _line.count('"""') % 2:
+        in_doc = not in_doc
+        continue
+    if in_doc:
+        continue
+    # a one-line docstring is prose too: drop any balanced triple-quote span
+    code = re.sub(r'"""[^"]*"""', "", _line).split("#", 1)[0]
+    if re.search(r"(?:Sept|September)\s+\d+", code):
+        hard.append(_n)
 if hard:
     add("HIGH", "season",
         f"{len(hard)} hard-coded season dates in src/build.py (lines {hard[:10]}...) "
@@ -322,9 +357,10 @@ if os.path.exists(ld):
     dp = PAGES.get("drops/index.html", "")
     cards = len(re.findall(r'class="[^"]*drop[^"]*card|class="[^"]*card[^"]*drop', dp))
     if missing:
-        add("HIGH", "drops",
-            f"/drops/ is fed {len(slugs)} designs but {len(missing)} have no published "
-            f"page and are discarded silently: {missing[:8]}")
+        add("MEDIUM", "drops",
+            f"/drops/ is fed {len(slugs)} designs but {len(missing)} have no published page, so "
+            f"they are discarded at build time - now printed as a WARNING and recorded in "
+            f"data/drops-dropped.json rather than lost silently: {missing[:8]}")
 
 # ============================================== M1 brand-safety blocklist
 ADULT = ["milf", "fuck", "shit", "bitch", "dick", "boob", "porn", "sexy"]
@@ -354,8 +390,22 @@ for s, i in LIVE.items():
     k = normname(i["name"])
     if k:
         by_norm[k].append((s, i["name"]))
+def _title_of(slug):
+    m = re.search(r"<title>([^<]*)</title>", PUBLIC.get(f"shop/{slug}/index.html", ""))
+    return htmllib.unescape(m.group(1)).strip().lower() if m else ""
+
+
 for t, ss in sorted(by_title.items()):
     if len(ss) > 1:
+        # One design sold as several Mayzing colourways is structural: the SKUs
+        # are separate products with separate checkout URLs. build.py keeps the
+        # H1 verbatim and qualifies the SERP title/meta with the colourway
+        # ("Cle Browns - Sand" vs "- Natural"). Verify that mitigation rather
+        # than re-reporting the shared design name forever.
+        cols = [(LIVE[x].get("colour") or "").strip().lower() for x in ss]
+        titles = [_title_of(x) for x in ss]
+        if all(cols) and len(set(cols)) == len(ss) and len(set(titles)) == len(ss):
+            continue
         add("MEDIUM", "duplicates",
             f"IDENTICAL product name {t!r} on {len(ss)} indexable URLs: "
             + ", ".join(f"/shop/{x}/" for x in ss)
@@ -390,7 +440,8 @@ for bad, good in (("awar", "aware"), ("dwag", "dawg")):
 # ================================================ M4 boilerplate copy
 BOILER = ["that is the brief, not a moodboard", "the printed line stays",
           "with a drink in the other hand", "stays on that side of the argument",
-          "do more work than a paragraph ever will", "names a feeling"]
+          "do more work than a paragraph ever will", "names a feeling",
+          "it layers under a hoodie or a jacket", "cleveland fans measure the year in sundays"]
 counts = collections.Counter()
 for rel, t in PUBLIC.items():
     if not rel.startswith("shop/"):
@@ -408,6 +459,75 @@ if any("moodboard" in b or "brief" in b for b in counts):
     add("MEDIUM", "copy",
         "internal design-agency jargon ('brief', 'moodboard') appears in "
         "customer-facing product copy")
+
+# Generic form of the same idea: ANY sentence of 8+ words that repeats across
+# the marketing prose of more than 10 live product pages. Scoped to the #story,
+# #why and #who regions so deliberately sitewide furniture (disclaimers,
+# shipping, FAQ, nav, footer) neither trips it nor hides a repeated line.
+class _Prose(HTMLParser):
+    WANT = {"story", "why", "who"}
+    VOID = {"img", "br", "input", "meta", "link", "hr", "source", "area",
+            "base", "col", "embed", "param", "track", "wbr"}
+
+    def __init__(self):
+        super().__init__(convert_charrefs=True)
+        self.depth = 0
+        self.chunks = []
+
+    def handle_starttag(self, tag, attrs):
+        if self.depth:
+            if tag not in self.VOID:
+                self.depth += 1
+        elif dict(attrs).get("id") in self.WANT:
+            self.depth = 1
+
+    def handle_endtag(self, tag):
+        if self.depth and tag not in self.VOID:
+            self.depth -= 1
+
+    def handle_data(self, data):
+        if self.depth:
+            self.chunks.append(data)
+
+
+# Legally required notices are deliberately word-for-word identical everywhere;
+# they are not thin content and must not be "varied" per product.
+POLICY_OK = (
+    "these designs are not officially licensed",
+    "it is not affiliated with, endorsed by",
+    "team and city names are used only to describe",
+    "all trademarks are the property of their respective owners",
+    "gridiron locker is not affiliated with",
+)
+prose = collections.Counter()
+for rel, t in PUBLIC.items():
+    if not rel.startswith("shop/"):
+        continue
+    slug = rel.split("/")[1]
+    if slug not in LIVE:
+        continue                      # redirect stub, no marketing prose
+    par = _Prose()
+    try:
+        par.feed(t)
+    except Exception:
+        continue
+    text = htmllib.unescape(re.sub(r"\s+", " ", " ".join(par.chunks)))
+    seen = set()
+    for sen in re.split(r"(?<=[.!?]) ", text):
+        sen = sen.strip()
+        low = sen.lower()
+        if any(low.startswith(k) or k in low for k in POLICY_OK):
+            continue
+        if len(sen.split()) >= 8 and sen not in seen:
+            seen.add(sen)
+            prose[sen] += 1
+rep = [(n, sen) for sen, n in prose.most_common(8) if n > 10]
+if rep:
+    add("MEDIUM", "copy",
+        f"{len(rep)} marketing sentences repeat across >10 live product pages "
+        f"(thin/duplicate content); worst offenders:")
+    for n, sen in rep:
+        FIND["copy"].append(f"    {n} pages: {sen[:150]!r}")
 
 # ================================================ M5 feed validity
 feed = os.path.join(SITE, "feed.xml")
@@ -428,6 +548,49 @@ if os.path.exists(feed):
             "every <guid> embeds today's date, so all items look permanently new to "
             "every consumer - aggregators drop feeds that do this")
 
+# ================================================ consent / disclosure / trust
+jsf = os.path.join(SITE, "assets", "app.js")
+js = txt(jsf) if os.path.exists(jsf) else ""
+home = PUBLIC.get("/index.html", "")
+if "googletagmanager" in home or "googletagmanager" in js:
+    if "gl_analytics" not in js:
+        add("HIGH", "consent",
+            "gtag.js is present but assets/app.js has no consent gate (gl_analytics) - "
+            "analytics would run before the visitor accepts, which is not what /privacy/ says")
+    if re.search(r'<script[^>]+src="https://www\.googletagmanager\.com/gtag/js', home):
+        add("HIGH", "consent",
+            "gtag.js is loaded by a static <script> tag, so analytics fires before the "
+            "visitor accepts - it must only be injected by window.glLoadAnalytics()")
+    if "gl_analytics=1" not in home:
+        add("MEDIUM", "consent",
+            "the head stub does not re-check the gl_analytics cookie on later page views")
+priv = PUBLIC.get("/privacy/index.html", "")
+for tool in ("Google Analytics 4", "FormSubmit", "Google Fonts", "Mayzing"):
+    if tool not in priv:
+        add("MEDIUM", "consent", f"/privacy/ does not name {tool}, which this site uses")
+if "opt-in" not in priv:
+    add("MEDIUM", "consent", "/privacy/ does not describe the consent model (opt-in)")
+
+# collection crests: original art only, never an official mark
+col = PUBLIC.get("/collections/index.html", "")
+for mark in re.findall(r'(?:src|href)="([^"]*(?:logo1|logo2)[^"]*)"', col):
+    add("HIGH", "ip", f"/collections/ still uses official-mark artwork: {mark}")
+if "/img/lockups/" not in col:
+    add("MEDIUM", "ip", "/collections/ has no generated lockup crests")
+for m in re.finditer(r'<img src="(/img/lockups/[^"]+)"', col):
+    if not os.path.exists(os.path.join(SITE, m.group(1).lstrip("/"))):
+        add("HIGH", "ip", f"/collections/ crest {m.group(1)} does not exist")
+
+# drops: a drop that never shipped must be visible, not silently discarded
+try:
+    dd = json.load(open(os.path.join(ROOT, "data", "drops-dropped.json")))
+    if dd.get("queued", 0) != dd.get("eligible", 0) + len(dd.get("dropped", [])):
+        add("MEDIUM", "drops",
+            f"data/drops-dropped.json does not add up: queued={dd.get('queued')} "
+            f"eligible={dd.get('eligible')} dropped={len(dd.get('dropped', []))}")
+except Exception:
+    add("MEDIUM", "drops", "no data/drops-dropped.json - unshipped drops are invisible again")
+
 # ================================================ M6 orphan files
 written = set()
 orphans = []
@@ -439,7 +602,7 @@ for dp, dn, fn in os.walk(SITE):
 for o in orphans:
     add("MEDIUM", "orphans",
         f"{o} - verification file stranded inside a content directory; build.py writes "
-        f"only the root copy and prunes orphans from site/img/ alone, so it persists "
+        f"only the root copy and prunes strays elsewhere, so this one survived "
         f"forever (no title, no meta, not in the sitemap)")
 
 # ================================================ M7 policy contradictions
@@ -450,7 +613,15 @@ if "never appear on art, on a public page" in bv:
     # 0-100 values and mention counts. Prose that explains a player was retired
     # (the legacy_note) is legitimate and deliberately not flagged.
     fti = visible(PUBLIC.get("fan-trend-index/index.html", ""))
-    scored = sorted({w for w in (SURNAMES | FIRSTS)
+    try:
+        _ppl = json.load(open(os.path.join(ROOT, "data", "people.json"), encoding="utf-8"))
+        _noncur = {w for pp in _ppl.get("people", []) if pp.get("status") != "current"
+                   for w in re.split(r"[^A-Za-z]+", pp["name"]) if len(w) > 3}
+    except Exception:
+        _noncur = set(SURNAMES | FIRSTS)
+    # a surname that belongs to a CURRENT player (Jordan Love) is allowed to be
+    # scored; the rule in ops/board and people.json is about retired names.
+    scored = sorted({w for w in (SURNAMES | FIRSTS) & _noncur
                      if len(w) > 3 and re.search(r"\b%s\b\s+\d{1,3}\b" % re.escape(w), fti)})
     if scored:
         add("LOW", "policy",

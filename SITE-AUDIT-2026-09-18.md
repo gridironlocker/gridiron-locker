@@ -736,3 +736,119 @@ convention and are annotated with what visual inspection confirmed (a linter can
 *see* a logo — a periodic human pass over `site/img/` is still required), and the
 near-duplicate / boilerplate checks are heuristics whose thresholds are meant to be
 tuned, not trusted blindly.
+
+---
+
+## 9. Fixes applied (2026-09-18, same day)
+
+Everything below was fixed in `src/` (and `data/`) and the whole site rebuilt —
+`site/` is generated output and was never hand-edited. Each fix is pinned by a
+test in `tests/test_layout.py` (class `AuditFixes20260918`) and/or a check in
+`qa_deep.py`, so it cannot silently regress on the next rebuild.
+
+### 9.1 Fixed
+
+| Finding | What changed |
+|---|---|
+| **C1** internal files publicly served | `sync_marketing()` / `sync_ops()` no longer `copytree` the source trees. A new `PUBLISH_EXT` allowlist (`.html .css .js .json .svg .png .jpg .jpeg .webp .ico`) plus `_copy_publishable()` publish 20 of 35 `marketing/` files and 8 `ops/` files; `.py .sh .md .csv .txt` stay in the repo. `site/` now contains **zero** `.py/.sh/.md/.csv/.txt` files — `pinterest_feed.csv`, `REVENUE_PLAYBOOK.md`, `social-accounts.md` and the sync scripts are no longer served (**this also closes H3's exposure half**). The build prints what it published vs withheld. |
+| **C2 / L2** official team marks | `site/img/{browns,dallas,green-bay,michigan}-logo1.webp` (rasterised official marks) are **removed from the repo**. `lockup_svg()` in `build.py` now generates original fan-made badges — octagon, city name, abbreviation, `EST` year from `collections_data`, collection palette, "FAN MADE · EST" line — written to `/img/lockups/*.svg` on every build, with descriptive alt text. |
+| **C3** privacy policy misdescribed tracking | `/privacy/` rewritten to match what the code does: names **Google Analytics 4** with the measurement ID, states the **opt-in** model, lists the `gl_analytics` cookie, adds a *Fonts and product images* section disclosing **Google Fonts** and the **Mayzing image CDN** (both load pre-consent and see the visitor's IP), says social links are plain outbound links, and states the cookie position precisely instead of the over-broad "no advertising cookies are set by this site". Rights requests now go to a real `mailto:`. |
+| **C4** lead capture could silently lose inquiries | Analytics is consent-gated (`window.glLoadAnalytics()` injects `gtag.js` only after the banner records `gl_analytics=1`; nothing loads on decline). The custom-design form posts to a real FormSubmit action, `novalidate` is gone, and `app.js` uses FormSubmit's **AJAX** endpoint so a rejected submission reports failure instead of a fake success. The dead `setTimeout(function(){if(!x){}},…)` guard and the opaque `no-cors` post are removed (**also closes M9**). The contact address is published in plain text on `/contact/` and `/privacy/`. |
+| **H1** homepage Michigan card reported two games | All season prose is now **derived** from `collections_data.SEASON`: `season_slate_sentence()`, `season_recap_long()`, `season_recap_short()`, `week1_dates_line()`. The four hand-written sites (homepage cards, `/2026-season/`, `/guides/`, `/guides/2026-week-1-shirts/`) plus the feed's key-pages line were replaced. One card can no longer carry two dates: a test asserts every card string equals a `SEASON["opener"]` and that its `Sept N` matches that team's `kickoff`. |
+| **H5** `/drops/` silently discarded 8 of 24 designs | The build now prints `WARNING /drops/: 8 of 24 queued drops have no published page…` and writes `data/drops-dropped.json` (`generated / queued / eligible / shown / dropped`), which `qa_deep.py` checks for arithmetic consistency. |
+| **M4** boilerplate copy + agency jargon | `LAYER_NOTE` for t-shirts is now 5 leads × 5 tails composed into **25 distinct single sentences** (was one sentence on 81 pages); `COL_VOICE["sunday"]` and `["mark"]` are variant lists picked per slug; the short-description tail is drawn from a 14-line pool; and the story/why/who/gift/gameday lines now carry a per-design token (`name`, `phrase`, `art_title`) instead of a fixed clause. "That is the brief, not a moodboard" and "The brief for …" are gone from customer copy. **Result: no marketing sentence repeats on more than 10 of the 84 product pages**, verified by a new region-scoped generic check (§9.3). |
+| **M5** malformed RSS | `feed.xml` items carry RFC-822 `<pubDate>` and `<lastBuildDate>` (`_rfc822()`), stable non-dated `<guid>`s, and only live designs. A test parses every date with `email.utils.parsedate_to_datetime` and asserts each advertised `/products/<slug>/` exists. |
+| **M6 / L7** orphan verification file | `assets()` walks `site/` and deletes any verification file (`googleae*.html`, `google7e05*.html`, `a7f3c19b*.txt`, `BingSiteAuth.xml`) found outside the site root; `site/2026-season/googleae06215486ed6c17.html` is removed. A test asserts those filenames only ever exist at the root. |
+| **M7** `/ops/board/` rule the public site broke | `_retired_people()` reads `data/people.json` and `fti_rows()` filters out everyone whose `status` is not `current`, so the public Fan Trend Index no longer scores retired names. |
+| **L1** heading-order skips | `fti_block()` takes a `level` argument (season hub now emits `<h2>`), and `/fan-trend-index/` gained `<h2>This window's leaderboard</h2>`. A test walks all 196 public pages and fails on any `h{n} → h{n+2}` jump. |
+| **L3** over-long meta descriptions | `/guides/2026-week-1-shirts/` shortened (169 → 149) and the stub page now sits at 115. |
+| **L4** truncated slug echoed as prose | `_stub_display_name()` suppresses crawl-mangled retired names ("It S Not A Team Logo Browns It S A Family Crest EST 1946 Shirt") in the stub `<title>`, meta/OG/Twitter description and visible sentence, falling back to "This design" / "<collection> design moved". Clean names are still echoed. |
+| **L5** duplicated gallery images | `page_product()` de-duplicates `gallery` via `dict.fromkeys`, and the thumbnail strip is only rendered when there is more than one unique view — so single-image products no longer show "view 1" that *is* the hero. |
+| **L8** `Crawl-delay: 1` | Removed from the generated `robots.txt` (it bound only to the preceding `ClaudeBot` group while looking sitewide, and Google ignores it). `README.md` and `SITE-BLUEPRINT.md` updated to match. |
+| **L9** 30 images neither lazy nor hinted | New `hint(eager)` helper: eager cards get `fetchpriority="high" decoding="async"` instead of nothing, and the two card renderers that bypassed it (`card()`, the `/michigan/joe/` creator card) now use it. `qa_audit.py` reports **0** un-hinted `<img>`. |
+| **F8** alt text printing crawl typos | `landing.typo_variant()` (equal / anagram / Levenshtein ≤ 2 after stripping non-alphanumerics) suppresses the artwork line when it is a mangled copy of the curated name; `card_alt()` is now used by **all three** card renderers, so `Beware Of Dawg - BE AWAR OF DAWG` is gone from `/cleveland-browns-shirts/`, `/collections/`, `/search/`, the creator page and the homepage. |
+| **M2** *(correction)* | Duplicate **titles** were already mitigated before this audit by `_DUP_NAMES`, which qualifies SERP title/meta with the colourway (`Cle Browns - Sand` vs `- Natural`) while H1s stay verbatim. `qa_deep.py` now *verifies that mitigation* (unique colourway + unique `<title>` per pair) instead of re-reporting the shared design name. Only near-duplicate **designs** remain, which is a curation decision (§9.2). |
+
+### 9.2 Deferred — needs an owner decision, or assets this environment cannot produce
+
+These are deliberately **not** silently executed: each either costs revenue, needs
+partner access, or needs tooling the sandbox does not have (no network egress, no
+Pillow, no way to recomposite photography).
+
+| Finding | Why it is still open | What closes it |
+|---|---|---|
+| **C2** 14 live player products (`Jordan Love 10 …`, `Bryce 19`, `Denzel Rock Out`, …) breach `DESIGN-BLUEPRINT` §2 | Delisting them removes ~17% of the catalogue and its revenue; that is the owner's call, not a linter's. | Owner decision: delist, or amend §2 and re-run `qa_deep.py`. `qa_deep.py` still fails (exit 1) until then — intentionally. |
+| **C2** 5 hero banners show garments printed with official marks | Recompositing needs new artwork/photography. | New hero art without club marks, then re-run the gate. |
+| **H2** `JOE10` advertised as redeemable "at checkout" | Checkout happens on Mayzing/Viralstyle; the code cannot be verified from here. | Confirm the code exists in the partner cart, or drop the claim from `/michigan/joe/`. |
+| **H4** heroes ~370–430 KB, no `srcset`/`<picture>`, 84 KB unminified CSS, third-party fonts | Needs image tooling (Pillow/cwebp) and font files — unavailable offline. | Optimise + responsive variants + self-hosted fonts with `font-display:swap`. |
+| **M8** 44 mockups hot-linked to Mayzing with signed URLs | `dl.py` needs network egress to download and re-host. | Run `dl.py` (add its `__main__` guard), commit the files, repoint the URLs. |
+| **M1** `/shop/milf/` is live and indexed, with copy that does not understand the name | Brand-safety vs revenue is an owner decision. | Delist/noindex, or keep and accept domain-level adult filtering. |
+| **M2** 5 near-duplicate design pairs | Curation: which of each pair is the canonical design. | Merge or differentiate the pairs. |
+| **M3** misspelled / truncated slugs (`be-awar-of-dawg`, `dwag`, `…-sty`, `…-t-sh`, `h-a-i-l-mary`) | The spelling comes from the partner campaign and may be **printed on the garment**; renaming URLs also needs 301 stubs. | Check the artwork, then rename with `site/_redirects` stubs (the machinery exists). |
+| **M9(forms)** `_captcha=false`; personal Gmail as the business address | Spam filtering vs conversion, and whether to buy a domain mailbox, are owner calls. | Enable captcha / move to a domain address; the base64 in `app.js` is a fallback, not obfuscation, and the address is now published plainly on purpose. |
+| **L6** 85 stubs share titles/H1s | `noindex,follow`, no SERP impact; acceptable by design. | Nothing required. |
+| **L10** personal Gmail as contact | Same decision as above. | Domain mailbox. |
+
+### 9.3 Gate changes
+
+`qa_deep.py` was updated so it verifies fixes rather than asserting old defects:
+
+- `internal-exposure-src` is no longer an unconditional CRITICAL — it reads
+  `sync_marketing()` / `sync_ops()` and fails only if `shutil.copytree` returns or
+  `_copy_publishable()` disappears.
+- `INTERNAL_BAD` dropped `.json` (the dashboards legitimately fetch their JSON) and
+  kept `.py .sh .md .csv .txt`.
+- The consent checks now test what the code does: no static `gtag.js` `<script>`,
+  `gl_analytics` re-checked on later page views, and `/privacy/` must name every
+  service that actually runs (GA4, FormSubmit, Google Fonts, Mayzing).
+- New: generated-lockup presence + no `logo[12].webp` anywhere; `drops-dropped.json`
+  arithmetic; a **region-scoped generic duplicate-sentence check** (any 8+-word
+  sentence repeated across >10 live product pages inside `#story`/`#why`/`#who`,
+  with legally required notices allowlisted because they *must* be identical).
+- The hard-coded-season-date scan ignores comments and docstrings (the original run
+  reported 7 "hard-coded dates" that were 6 comments plus one real string), the
+  `no-cors` check matches actual `mode:'no-cors'` usage rather than prose about it,
+  the drops finding is MEDIUM and describes the build-time warning accurately, and
+  the `/ops/board/` policy check only scores **non-current** people (`Jordan Love`
+  is current, so his scored row is correct).
+
+`tests/test_layout.py`: 220 → **236 tests**. Fifteen new ones in
+`AuditFixes20260918` (season prose vs `SEASON`, recap grammar, consent gating,
+form endpoints, feed validity, stray verification files, generated lockups,
+crawl-typo alts, image load hints, heading order, FTI retirement filter,
+unpublished source files, drops accounting, gallery duplicates) and a
+`test_no_official_mark_files_anywhere`. Three existing tests pinned the *old*
+behaviour and were rewritten to pin the new one, keeping their original intent:
+`test_collection_logos_are_light` (now checks the generated SVG lockups are small
+**and** that the official-mark webps do not come back),
+`test_full_index_page_retained` (leaderboard still not truncated, but must exclude
+non-current people), and `test_hero_and_logo_urls_unchanged` (heroes still locked;
+the logo lock now points at the generated lockups).
+
+### 9.4 Gate results after the fixes
+
+```
+python3 -m unittest discover -s tests   # Ran 236 tests … OK (skipped=17)
+python3 src/build.py                    # built 84 products, 4 collections, 108 urls
+                                        # + WARNING /drops/: 8 of 24 queued drops …
+python3 qa_audit.py                     # TOTAL: 0 · un-hinted <img> pages: 0
+python3 qa_http.py http://127.0.0.1:8123  # PASS · 108 URLs, 0 dead links,
+                                        # 0 broken local images, 85 stubs OK
+python3 qa_deep.py                      # CRITICAL=1 HIGH=2 MEDIUM=6 LOW=0 (exit 1)
+```
+
+Before the fixes `qa_deep.py` reported **CRITICAL=5 HIGH=5 MEDIUM=7 LOW=3**. What
+remains is exactly §9.2: the design-law CRITICAL (owner decision), two HIGH
+(partner-verified promo code, image/font performance) and six MEDIUM (form policy,
+drops accounting now informational, brand safety, near-duplicate curation,
+partner-data slugs, hot-linked imagery). `qa_deep.py` is *intended* to keep exiting
+1 until the design-law decision is taken — it is the only CRITICAL left, and it is a
+business call, not an oversight.
+
+Build output is deterministic: a second `python3 src/build.py` leaves `site/`
+byte-identical (`index.html`, `feed.xml`, `sitemap.xml` verified by checksum).
+
+*Note: `ops/board/index.html`, `ops/hq/index.html` and `ops/scout/index.html` were
+already modified in the working tree by the ops/marketing tooling before this work
+and were left untouched and uncommitted here — this pass only changed how those
+trees are **published**, not how they are generated.*

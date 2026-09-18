@@ -28,13 +28,26 @@
 <script>document.documentElement.className+=" js"</script>
 
 <script type="application/ld+json">{"@context":"https://schema.org","@type":"BreadcrumbList","itemListElement":[{"@type":"ListItem","position":1,"name":"Home","item":"https://gridironlocker.store/"},{"@type":"ListItem","position":2,"name":"Contact Us","item":"https://gridironlocker.store/contact/"}]}</script><script type="application/ld+json">{"@context":"https://schema.org","@type":"Organization","name":"Gridiron Locker","url":"https://gridironlocker.store","logo":"https://gridironlocker.store/img/favicon.svg","sameAs":["https://x.com/gridironlocker","https://x.com/gridironlocker1","https://www.instagram.com/gridironlocker1","https://www.threads.net/@gridironlocker1","https://www.facebook.com/GridironLocker/","https://www.pinterest.com/gridironlockergear/","https://www.youtube.com/@Gridironlocker"]}</script><script type="application/ld+json">{"@context":"https://schema.org","@type":"WebSite","name":"Gridiron Locker","url":"https://gridironlocker.store","potentialAction":{"@type":"SearchAction","target":"https://gridironlocker.store/search/?q={search_term_string}","query-input":"required name=search_term_string"}}</script>
-<!-- Google tag (gtag.js) -->
-<script async src="https://www.googletagmanager.com/gtag/js?id=G-5RHGJSLZNG"></script>
+<!-- Google tag (gtag.js) - consent-gated. The tag is NOT loaded until the
+     visitor opts in via the banner in app.js; the gl_analytics cookie records
+     the choice. /privacy/ describes this exactly. -->
 <script>
   window.dataLayer = window.dataLayer || [];
   function gtag(){dataLayer.push(arguments);}
-  gtag('js', new Date());
-  gtag('config', 'G-5RHGJSLZNG');
+  window.glLoadAnalytics = function(){
+    if (window.__glLoaded) return;
+    window.__glLoaded = true;
+    var s = document.createElement('script');
+    s.async = true;
+    s.src = 'https://www.googletagmanager.com/gtag/js?id=G-5RHGJSLZNG';
+    document.head.appendChild(s);
+    gtag('js', new Date());
+    gtag('config', 'G-5RHGJSLZNG');
+  };
+  (function(){
+    var m = document.cookie.match(/(?:^|; )gl_analytics=1(?:;|$)/);
+    if (m) window.glLoadAnalytics();
+  })();
 </script>
 </head>
 <body data-root="../">
@@ -67,6 +80,9 @@
 </header><div class="wrap"><nav class="crumbs" aria-label="Breadcrumb"><a href="../">Home</a><span>/</span><span style='opacity:1;margin:0'>Contact Us</span></nav></div><main id="main"><section style="padding-top:6px"><div class="wrap prose">
  <h1>Contact Us</h1>
 <p>We are a small team and we answer every email.</p>
+<div class="panel"><h2>Email us directly</h2>
+<p><a href="mailto:itsnoury65@gmail.com" style="color:var(--accent)">itsnoury65@gmail.com</a> &middot;
+we reply within 1&ndash;2 days. Include your order number if your question is about a delivery.</p></div>
 <div class="panel"><h2>Contact form</h2><p>Use the <a class="custom-link" data-placement="contact_page" href="../#custom-design" style="color:var(--accent)">custom design form on the home page</a> - every message lands straight with us.</p>
 <p class="muted">Include your order number if your question is about a delivery.</p></div>
 <h2>What to contact us about</h2>

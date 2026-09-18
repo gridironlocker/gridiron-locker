@@ -28,13 +28,26 @@
 <script>document.documentElement.className+=" js"</script>
 
 <script type="application/ld+json">{"@context":"https://schema.org","@type":"BreadcrumbList","itemListElement":[{"@type":"ListItem","position":1,"name":"Home","item":"https://gridironlocker.store/"},{"@type":"ListItem","position":2,"name":"Privacy Policy","item":"https://gridironlocker.store/privacy/"}]}</script><script type="application/ld+json">{"@context":"https://schema.org","@type":"Organization","name":"Gridiron Locker","url":"https://gridironlocker.store","logo":"https://gridironlocker.store/img/favicon.svg","sameAs":["https://x.com/gridironlocker","https://x.com/gridironlocker1","https://www.instagram.com/gridironlocker1","https://www.threads.net/@gridironlocker1","https://www.facebook.com/GridironLocker/","https://www.pinterest.com/gridironlockergear/","https://www.youtube.com/@Gridironlocker"]}</script><script type="application/ld+json">{"@context":"https://schema.org","@type":"WebSite","name":"Gridiron Locker","url":"https://gridironlocker.store","potentialAction":{"@type":"SearchAction","target":"https://gridironlocker.store/search/?q={search_term_string}","query-input":"required name=search_term_string"}}</script>
-<!-- Google tag (gtag.js) -->
-<script async src="https://www.googletagmanager.com/gtag/js?id=G-5RHGJSLZNG"></script>
+<!-- Google tag (gtag.js) - consent-gated. The tag is NOT loaded until the
+     visitor opts in via the banner in app.js; the gl_analytics cookie records
+     the choice. /privacy/ describes this exactly. -->
 <script>
   window.dataLayer = window.dataLayer || [];
   function gtag(){dataLayer.push(arguments);}
-  gtag('js', new Date());
-  gtag('config', 'G-5RHGJSLZNG');
+  window.glLoadAnalytics = function(){
+    if (window.__glLoaded) return;
+    window.__glLoaded = true;
+    var s = document.createElement('script');
+    s.async = true;
+    s.src = 'https://www.googletagmanager.com/gtag/js?id=G-5RHGJSLZNG';
+    document.head.appendChild(s);
+    gtag('js', new Date());
+    gtag('config', 'G-5RHGJSLZNG');
+  };
+  (function(){
+    var m = document.cookie.match(/(?:^|; )gl_analytics=1(?:;|$)/);
+    if (m) window.glLoadAnalytics();
+  })();
 </script>
 </head>
 <body data-root="../">
@@ -68,20 +81,48 @@
  <h1>Privacy Policy</h1>
 <p>Last updated 2026-09-18.</p>
 <h2>What we collect</h2>
-<p>This site is a storefront catalogue. It does not take payments and does not collect names,
-addresses or card details. If you email us, we hold your message and address only to reply.</p>
+<p>This site is a storefront catalogue. It does not take payments and never sees your card details,
+billing address or payment. Two forms do collect what you type into them: the custom design request
+form and the newsletter signup. Both are delivered to our inbox by FormSubmit and keep only what you
+wrote - typically your name, your email address and your message - held solely to reply to you. If you
+email us directly, we hold your message and address only to reply.</p>
 <h2>Analytics</h2>
-<p>We may use privacy-respecting analytics to count page views and understand which designs are
-popular. This uses aggregate data only.</p>
+<p>We use <strong>Google Analytics 4</strong> (measurement ID G-5RHGJSLZNG) to count page views and see
+which designs are popular. It is <strong>opt-in</strong>: the analytics script is not loaded at all until
+you click &ldquo;Allow analytics&rdquo; in the consent banner. If you decline, or never answer the banner,
+no analytics script runs on your visit. When you do allow it, Google Analytics sets first-party cookies
+on this domain and receives event-level data - page views, and events such as a custom design request
+being sent or a buy button being clicked. We do not enable Google's advertising or remarketing features
+and we do not sell or share your data. Google's own processing of that data is governed by
+<a href="https://policies.google.com/privacy">Google's privacy policy</a>.</p>
 <h2>Third-party checkout</h2>
 <p>Buy buttons open a third-party print-on-demand platform. Anything you enter there - name, address,
 payment details - is governed by that platform's own privacy policy, not this one.</p>
+<h2>Fonts and product images</h2>
+<p>Two services load automatically when you open a page, before any consent choice, because the page
+cannot render without them:</p>
+<ul>
+<li><strong>Google Fonts</strong> (fonts.googleapis.com, fonts.gstatic.com) serves the site's typefaces.
+Your browser sends Google the usual request headers, including your IP address, when it fetches them.
+See <a href="https://policies.google.com/privacy">Google's privacy policy</a>.</li>
+<li><strong>Mayzing's image CDN</strong> (buyer-experience-gateway.mayzing.com) serves the product
+mockup photographs. Loading a design image sends Mayzing the same request headers, including your IP
+address.</li>
+</ul>
+<p>Links to our social profiles (X, Instagram, Facebook, Threads, Pinterest, YouTube and Google News)
+are plain outbound links: nothing is sent to those services until you click one and leave this site.</p>
 <h2>Cookies</h2>
-<p>No advertising cookies are set by this site. Any cookies set after you click through belong to the
+<p>Cookies this site sets itself: <code>gl_analytics</code> records your allow/decline choice for 180
+days; <code>_ga</code> and <code>_ga_*</code> are set by Google Analytics <em>only if you allowed it</em>.
+Two browser-only stores never leave your device: a localStorage list of designs you favourite, and a
+sessionStorage flag so the custom-design prompt shows once per session. No advertising cookies are written
+by this site. This site sets no advertising or cross-site tracking cookies of its own, and we do not
+enable Google's advertising features. Any further cookies set after you click through belong to the
 checkout platform.</p>
 <h2>Your rights</h2>
-<p>Ask via the <a href="../contact/">contact form</a> what we hold about you or to have
-it deleted.</p></div></section></main>
+<p>Email <a href="mailto:itsnoury65@gmail.com">itsnoury65@gmail.com</a> or use the
+<a href="../contact/">contact form</a> to ask what we hold about you, to have it corrected, or to have it
+deleted. We answer every message.</p></div></section></main>
 <footer>
  <div class="wrap">
   <div class="fgrid">
