@@ -23,8 +23,9 @@ Allow: /
 User-agent: ClaudeBot
 Allow: /
 
-# Be gentle, not aggressive
-Crawl-delay: 1
+# No Crawl-delay: Google ignores it entirely, and the directive only applied to
+# the user-agent group directly above it - so it throttled one AI crawler while
+# looking like a sitewide setting. This site wants to be crawled.
 
 Sitemap: https://gridironlocker.store/sitemap.xml
 Sitemap: https://gridironlocker.store/sitemap-images.xml

@@ -82,8 +82,13 @@ Consequences:
   `tests/test_layout.py` both read the committed `site/` and need no rebuild.
 - If you must rebuild, expect a date-only diff and say so in the commit message.
 - Never commit a partial rebuild. `site/` is all-or-nothing.
-- `build.py`'s `main()` also *deletes* orphan artwork from `site/img/`. Rebuild
-  without network access and you can delete images you cannot re-download.
+- `build.py`'s `main()` does **not** delete orphan artwork from `site/img/` (this
+  bullet used to claim it did; verified against the source on 2026-09-18). The only
+  pruning a rebuild does is `assets()` removing stray search-console verification
+  files (`googleae*.html`, `google7e05*.html`, `a7f3c19b*.txt`, `BingSiteAuth.xml`)
+  that are not at the `site/` root. Anything else left in `site/img/` stays until it
+  is removed with `git rm` — which is the safe direction, since artwork cannot be
+  re-downloaded without network egress.
 
 ### 3.2 The catalogue has exactly one source of truth — and it is not any one file
 

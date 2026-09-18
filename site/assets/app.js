@@ -1,4 +1,42 @@
 
+// ---------- analytics consent ----------
+// Google Analytics is opt-in. The tag itself is only injected by
+// window.glLoadAnalytics() (see head()), and only after this banner records a
+// choice in the gl_analytics cookie. /privacy/ states this in plain words.
+(function(){
+  function choice(){
+    var m=document.cookie.match(/(?:^|; )gl_analytics=([01])(?:;|$)/);
+    return m?m[1]:null;
+  }
+  function set(v){
+    document.cookie='gl_analytics='+v+';path=/;max-age=15552000;SameSite=Lax';
+  }
+  if(choice()!==null) return;
+  var b=document.createElement('div');
+  b.setAttribute('role','region');
+  b.setAttribute('aria-label','Analytics consent');
+  b.style.cssText='position:fixed;left:12px;right:12px;bottom:12px;z-index:99;'+
+    'max-width:560px;margin:0 auto;background:#111418;color:#f4f1ea;'+
+    'border:1px solid #2c3138;border-radius:10px;padding:12px 14px;'+
+    'font:14px/1.5 system-ui,sans-serif;box-shadow:0 8px 30px rgba(0,0,0,.4)';
+  b.innerHTML='<p style="margin:0 0 10px">We use Google Analytics to count page '+
+    'views and see which designs are popular. No advertising cookies, and we '+
+    'never sell data. <a href="/privacy/" style="color:#ffb35c">Privacy policy</a>.</p>'+
+    '<button type="button" data-gl="1" style="margin-right:8px;padding:8px 14px;'+
+    'border:0;border-radius:8px;background:#ffb35c;color:#111418;font-weight:700;'+
+    'cursor:pointer">Allow analytics</button>'+
+    '<button type="button" data-gl="0" style="padding:8px 14px;border:1px solid #454b54;'+
+    'border-radius:8px;background:transparent;color:#f4f1ea;cursor:pointer">No thanks</button>';
+  document.addEventListener('DOMContentLoaded',function(){document.body.appendChild(b);});
+  b.addEventListener('click',function(e){
+    var v=e.target.getAttribute&&e.target.getAttribute('data-gl');
+    if(v===null||v===undefined) return;
+    set(v);
+    if(b.parentNode) b.parentNode.removeChild(b);
+    if(v==='1'&&window.glLoadAnalytics) window.glLoadAnalytics();
+  });
+})();
+
 // ---------- gallery ----------
 var CUSTOM_EMAIL="aXRzbm91cnk2NUBnbWFpbC5jb20=";
 function setStage(b){
@@ -142,11 +180,18 @@ document.querySelectorAll('a.custom-link').forEach(function(a){
 })();
 
 // ---------- custom design form (FormSubmit, no backend needed) ----------
-// The destination address is assembled at runtime from a base64 token so the
-// owner's email never appears in the page source (anti-harvesting).
+// The <form> carries a real action= in the HTML, so with JavaScript disabled
+// the browser posts straight to FormSubmit and the request still arrives.
+// With JavaScript ON we upgrade to FormSubmit's AJAX endpoint, which returns a
+// readable JSON response. The old code posted in opaque (no-cors) mode, which
+// the response opaque, so .then() fired on HTTP 404/500 too and the visitor was
+// told "your idea is on its way" when nothing had been delivered. Now a non-2xx
+// status falls through to the mailto fallback instead of a false success, and
+// the old empty setTimeout() guard (which could never fire the fallback) is
+// gone.
 (function(){
   var form=document.getElementById('customForm'); if(!form)return;
-  form.action='https://formsubmit.co/'+atob(CUSTOM_EMAIL);
+  var AJAX='https://formsubmit.co/ajax/'+atob(CUSTOM_EMAIL);
   var msg=document.getElementById('formmsg');
   var btn=form.querySelector('button[type=submit]');
   form.addEventListener('submit',function(e){
@@ -161,28 +206,36 @@ document.querySelectorAll('a.custom-link').forEach(function(a){
     e.preventDefault();
     if(btn)btn.disabled=true;
     if(msg){msg.style.color='';msg.textContent='Sending your idea...';}
-    var data=new FormData(form);
-    var ok=false;
-    try{
-      fetch(form.action,{method:'POST',body:data,mode:'no-cors'}).then(function(){
-        ok=true;
-        try{gtag('event','custom_design_submit',{
-          team:form.querySelector('select[name=team]').value||'',
-          garment:form.querySelector('select[name=garment]').value||''
-        });}catch(e){}
-        if(msg)msg.textContent='Thank you '+name+'! Your idea is on its way. We will reply to '+email+' within 1-2 days.';
-        form.reset(); if(btn)btn.disabled=false;
-      }).catch(function(){fallback()});
-      setTimeout(function(){if(!ok){}},1500);
-    }catch(err){fallback()}
+    var payload={};
+    new FormData(form).forEach(function(v,k){payload[k]=v;});
+    function done(){
+      try{gtag('event','custom_design_submit',{
+        team:form.querySelector('select[name=team]').value||'',
+        garment:form.querySelector('select[name=garment]').value||''
+      });}catch(err){}
+      if(msg){msg.style.color='';msg.textContent='Thank you '+name+'! Your idea is on its way. We will reply to '+email+' within 1-2 days.';}
+      form.reset(); if(btn)btn.disabled=false;
+    }
     function fallback(){
       // read() tolerates a field that is not on this version of the form -
       // the mailto fallback must never throw, it is the last resort.
       function read(sel){var el=form.querySelector(sel);return el?el.value:'';}
       var body='Name: '+name+'\nEmail: '+email+'\nTeam/theme: '+read('select[name=team]')+'\nGarment: '+read('select[name=garment]')+'\nIdea: '+idea+'\nPreferred colors: '+read('input[name=colors]')+'\nDetails: '+read('textarea[name=details]');
       window.location.href='mailto:'+atob(CUSTOM_EMAIL)+'?subject='+encodeURIComponent('Custom Design Request from '+name)+'&body='+encodeURIComponent(body);
-      if(msg)msg.textContent='Opening your email app with your request - hit send and we will get back to you within 1-2 days.';
+      if(btn)btn.disabled=false;
+      if(msg){msg.style.color='#c0392b';msg.textContent='We could not reach the form service. We opened your email app with the request instead - hit send and we will get back to you within 1-2 days. Or email us directly; the address is on the contact page.';}
     }
+    try{
+      fetch(AJAX,{method:'POST',
+        headers:{'Content-Type':'application/json','Accept':'application/json'},
+        body:JSON.stringify(payload)})
+        .then(function(r){
+          // readable response: a 4xx/5xx is a FAILURE, not a success
+          if(!r.ok) throw new Error('formsubmit HTTP '+r.status);
+          done();
+        })
+        .catch(function(){ fallback(); });
+    }catch(err){ fallback(); }
   });
 })();
 
@@ -311,9 +364,12 @@ document.querySelectorAll('a.custom-link').forEach(function(a){
 })();
 
 // ---------- newsletter signup (FormSubmit, no backend needed) ----------
+// Same fix as the custom design form: real action= in the HTML for the no-JS
+// path, AJAX endpoint with a readable status when JS is on, so a rejected
+// signup can no longer be reported as "welcome to the locker".
 (function(){
   var form=document.getElementById('newsForm'); if(!form)return;
-  form.action='https://formsubmit.co/'+atob(CUSTOM_EMAIL);
+  var AJAX='https://formsubmit.co/ajax/'+atob(CUSTOM_EMAIL);
   var msg=document.getElementById('newsMsg'), btn=form.querySelector('button');
   form.addEventListener('submit',function(e){
     e.preventDefault();
@@ -324,14 +380,18 @@ document.querySelectorAll('a.custom-link').forEach(function(a){
     }
     if(btn)btn.disabled=true;
     if(msg){msg.style.color='';msg.textContent='Joining the locker...';}
-    fetch(form.action,{method:'POST',body:new FormData(form),mode:'no-cors'}).then(function(){
-      try{gtag('event','newsletter_signup',{page:location.pathname});}catch(e){}
-      if(msg)msg.textContent='Welcome to the locker. Check your inbox to confirm.';
-      form.reset(); if(btn)btn.disabled=false;
-    }).catch(function(){
-      if(msg)msg.textContent='Almost there - email us directly to join.';
-      if(btn)btn.disabled=false;
-    });
+    fetch(AJAX,{method:'POST',
+      headers:{'Content-Type':'application/json','Accept':'application/json'},
+      body:JSON.stringify({email:email,_subject:'New newsletter signup from gridironlocker.store'})})
+      .then(function(r){
+        if(!r.ok) throw new Error('formsubmit HTTP '+r.status);
+        try{gtag('event','newsletter_signup',{page:location.pathname});}catch(e){}
+        if(msg){msg.style.color='';msg.textContent='Welcome to the locker. Check your inbox to confirm.';}
+        form.reset(); if(btn)btn.disabled=false;
+      }).catch(function(){
+        if(msg){msg.style.color='#c0392b';msg.textContent='We could not reach the signup service. Email us directly and we will add you by hand.';}
+        if(btn)btn.disabled=false;
+      });
   });
 })();
 

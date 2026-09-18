@@ -170,43 +170,135 @@ WEAR_CONTEXT = [
     "a family living room that turns into a stadium for three hours",
 ]
 
+# One line per garment about when it actually gets worn. Each entry holds
+# several variants and gameday_wear() picks one per slug: a single fixed
+# sentence repeated on all 81 t-shirt pages is a duplicate-content signal
+# (2026-09-18 audit, F16), and it reads like a template to a human too.
 LAYER_NOTE = {
-    "T-Shirt": "It layers under a hoodie or a jacket once the temperature drops, which is most of "
-               "the second half of the season.",
-    "Hoodie": "It is the outer layer for cold kickoffs and the only layer for indoor watch parties.",
-    "Sweatshirt": "A crewneck sits between a tee and a jacket, which makes it the most-worn piece "
-                  "in most fans' rotations.",
-    "Long Sleeve Shirt": "Long sleeves cover the shoulder season - the weeks when a tee is not "
-                         "enough and a hoodie is too much.",
-    "Beanie": "It works from the first cold road game to the last week of the season.",
-    "Mug": "It lives on a desk all week and comes out again on Sunday morning.",
-    "Phone Case": "It is the fan detail that goes everywhere the rest of your gear does not.",
+    # T-shirts are 81 of the 84 live designs, so this entry is composed from
+    # leads x tails (16 distinct sentences) instead of a fixed line - one
+    # sentence repeated on every tee page was the single biggest
+    # duplicate-content signal on the site (2026-09-18 audit, F16).
+    "T-Shirt": None,   # filled in below, after _TEE_LEADS/_TEE_TAILS exist
+    "Hoodie": [
+        "It is the outer layer for cold kickoffs and the only layer for indoor watch parties.",
+        "Cold-weather piece first: hood up in the stands, sleeves pushed back in the living room.",
+        "The one you reach for on a December game day and keep wearing through the offseason.",
+    ],
+    "Sweatshirt": [
+        "A crewneck sits between a tee and a jacket, which makes it the most-worn piece "
+        "in most fans' rotations.",
+        "No hood, no bulk - the crewneck is the layer that works indoors and out.",
+        "It covers the weeks when a tee is too little and a coat is too much.",
+    ],
+    "Long Sleeve Shirt": [
+        "Long sleeves cover the shoulder season - the weeks when a tee is not "
+        "enough and a hoodie is too much.",
+        "Built for those in-between autumn weeks: sleeves for the shade, no fleece for the walk back.",
+        "The shoulder-season piece - warm at kickoff, still wearable by the fourth quarter.",
+    ],
+    "Beanie": [
+        "It works from the first cold road game to the last week of the season.",
+        "Late-season gear: the weeks when the wind off the lot matters more than the score.",
+        "A cold-weather small - the thing you pull on before you leave the car.",
+    ],
+    "Mug": [
+        "It lives on a desk all week and comes out again on Sunday morning.",
+        "Desk all week, kitchen counter on a game-day morning.",
+        "The pre-kickoff object: coffee in it, football on the screen.",
+    ],
+    "Phone Case": [
+        "It is the fan detail that goes everywhere the rest of your gear does not.",
+        "The one piece of fandom that travels with you all week, not just on game day.",
+        "Small, daily and visible - the mark you carry past the stadium gates.",
+    ],
 }
+
+
+# Each combo is a SINGLE sentence: splitting lead and tail into two sentences
+# just moved the duplication from one line to two.
+_TEE_LEADS = [
+    "It goes under a hoodie or a jacket the moment the temperature drops,",
+    "Worn alone in September, it goes under something heavier by November,",
+    "It is the base layer of a football year - on its own while it is warm, "
+    "under everything after,",
+    "Short sleeves early in the year, a layer over it later,",
+    "It is the piece that adapts: alone in the warm weeks, layered in the cold ones,",
+]
+_TEE_TAILS = [
+    "which covers most of the second half of the season.",
+    "which in these cities means most of the season.",
+    "so it stays in rotation until the last cold game.",
+    "and it never goes back in the drawer until spring.",
+    "which is why it outlasts the novelty pieces in a fan's wardrobe.",
+]
+LAYER_NOTE["T-Shirt"] = [f"{a} {b}" for a in _TEE_LEADS for b in _TEE_TAILS]
+
+
+
+def layer_note(garment, slug):
+    """Deterministic per-product pick from LAYER_NOTE[garment]."""
+    opts = LAYER_NOTE.get(garment) or LAYER_NOTE["T-Shirt"]
+    if isinstance(opts, str):
+        return opts
+    return pick(list(opts), slug, "layer-" + garment)
 
 COL_VOICE = {
     "cleveland-browns": {
         "weather": "Cleveland football weather is Lake Erie weather - grey, loud, and not interested in fair-weather kits.",
         "place": "The Dawg Pound has always been cheaper seats and a bigger mouth, which is the culture this collection draws from.",
-        "mark": "Orange and brown is an awkward combination until it is yours, and then it is the whole personality.",
-        "sunday": "Cleveland fans measure the year in Sundays, not months.",
+        "mark": [
+            "Orange and brown is an awkward combination until it is yours, and then it is the whole personality.",
+            "Brown and orange is not a polite colourway, which is rather the point of wearing it.",
+            "The colourway does the arguing; the artwork only has to stand up next to it.",
+        ],
+        "sunday": [
+            "Cleveland fans measure the year in Sundays, not months.",
+            "Around here the week is just the run-up to Sunday.",
+            "Sundays are the fixed point; everything else moves around them.",
+        ],
     },
     "green-bay-packers": {
         "weather": "Green Bay football is cold air, louder cheese, and a public team that still feels like it belongs to the town.",
         "place": "Lambeau weather is the filter: if a graphic cannot be read with a hoodie up, it is not finished.",
-        "mark": "Green and gold is a winter colourway. It looks right with snow on the sideline.",
-        "sunday": "Sunday in Cheesehead Nation is less a hobby than a municipal calendar.",
+        "mark": [
+            "Green and gold is a winter colourway, and it looks right with snow on the sideline.",
+            "Green and gold only really makes sense in cold weather, which is most of a Packers year.",
+            "The palette is a December palette: deep green, flat gold, no bright finishes.",
+        ],
+        "sunday": [
+            "Sunday in Cheesehead Nation is less a hobby than a municipal calendar.",
+            "In Green Bay the Sunday schedule comes first and the week is fitted around it.",
+            "A Packers Sunday is a town-wide appointment, not a viewing preference.",
+        ],
     },
     "dallas-cowboys": {
         "weather": "Dallas football style sits halfway between a stadium concourse and a Texas highway - stars, silver, and a little country.",
         "place": "The city mark matters here as much as the scoreboard. Texas pride travels.",
-        "mark": "Silver and navy reads as vintage the second you wash it twice.",
-        "sunday": "Sunday night in Dallas is a bigger stage, and the graphics are drawn to match.",
+        "mark": [
+            "Silver and navy reads as vintage the second you wash it twice.",
+            "Silver, navy and a little white is a colourway that ages into a throwback on its own.",
+            "The palette is stadium-concourse silver and navy - sharp new, better worn in.",
+        ],
+        "sunday": [
+            "Sunday night in Dallas is a bigger stage, and the graphics are drawn to match.",
+            "Dallas treats a Sunday game as an occasion, so the artwork is drawn to be seen.",
+            "A Cowboys Sunday has an audience well past the stands - the art has to hold up.",
+        ],
     },
     "michigan": {
         "weather": "Ann Arbor Saturdays are maize, navy, and a crowd that treats a grudge as climate.",
         "place": "Michigan vs Everybody is less a slogan than a weather report in this town.",
-        "mark": "Block lettering and a winged helmet silhouette do more work than a paragraph ever will.",
-        "sunday": "A Big Ten November is crewneck weather, and the graphic has to survive it.",
+        "mark": [
+            "Block lettering and a winged-helmet silhouette carry more weight here than any paragraph could.",
+            "Maize and navy with block lettering is a look that needs no explanation in this town.",
+            "The visual language is big letters and flat colour - the oldest trick in college football, still the loudest.",
+        ],
+        "sunday": [
+            "A Big Ten November is crewneck weather, and the graphic has to survive it.",
+            "Michigan football arrives in the cold half of the year, so nothing here is delicate.",
+            "Ann Arbor Saturdays in November are cold enough that a graphic has to read through a scarf.",
+        ],
     },
 }
 
@@ -360,6 +452,16 @@ def _col_voice(col):
     if "dallas" in team or short == "dallas":
         return COL_VOICE["dallas-cowboys"]
     return COL_VOICE["michigan"]
+
+
+def _voice_line(voice, key, slug):
+    """A COL_VOICE entry is either one string or a list of variants. Picking a
+    variant per slug keeps the collection's voice without printing the same
+    sentence on every page of that collection."""
+    v = voice.get(key, "")
+    if isinstance(v, (list, tuple)):
+        return pick(list(v), slug, "voice-" + key)
+    return v
 
 
 # ---------------------------------------------------------------- titles / meta
@@ -657,31 +759,58 @@ def short_description(slug, name, art, col, garment, theme="classic"):
             f"{phrase} sits on this {g} as a single readable mark for {team} fans who already say it out loud.",
             f"The graphic is {art_t} - one idea, printed large, drawn for {city} football rather than a replica aisle.",
             f"This {g} belongs at a watch party more than it belongs in a team shop. The artwork, {art_t}, is the whole argument.",
-            f"A replica jersey names a roster. This {g} names a feeling: {phrase}.",
+            f"A replica jersey lists a roster. This {g} carries a feeling instead: {phrase}.",
             f"From {city}, this independent {g} puts {art_t} on the chest for {p['nick'] or team} people.",
             f"{name} is built around one idea printed large: {art_t}.",
             f"Nothing on this {g} is trying to look official. {art_t} is a fan mark, and that is the job.",
             f"{art_t} is the shirt. Everything else - spacing, weight, contrast - exists to keep that line alive in bad light.",
         ]
 
+    # Widened and de-templated: every one of these used to be a single fixed
+    # sentence, so the same line landed on dozens of product pages (audit F16).
+    mark = _voice_line(voice, "mark", slug)
+    theme_label = THEME_LABEL.get(p["theme"], "fan")
     middles = [
         f"It is fan-made {team} apparel, printed on demand on a {g}, for people who want the culture without the licensed costume.",
         f"Independent artwork means the line can be the thing supporters actually shout, not the thing a brand is allowed to print.",
-        f"{voice['mark']} This piece stays on that side of the argument.",
+        f"{mark} This design sits on that side of the fence.",
+        f"{mark} That is the whole idea behind it.",
         f"The {g} is meant to be {p['v']} on Sundays and on the six ordinary days around them.",
-        f"It reads as {an(THEME_LABEL.get(p['theme'], 'fan'))} {THEME_LABEL.get(p['theme'], 'fan')} design, not a reprint of a shop wall.",
+        f"It reads as {an(theme_label)} {theme_label} design, not a reprint of a shop wall.",
+        f"Nothing here is licensed, which is exactly why {phrase} is allowed to be this blunt.",
+        f"Drawn by fans for {city} fans, printed one at a time rather than in a warehouse run.",
+        f"Because it is made after you order, the artwork never ends up in a clearance bin.",
     ]
     # The collection's "sunday" voice line is garment-specific flavour -
     # Michigan's says "crewneck weather", so a t-shirt must not inherit it.
     # It is folded in only on the layers it describes.
     layer_only = garment in ("Hoodie", "Sweatshirt", "Long Sleeve Shirt")
-    extras = [
-        person,
-        motif,
-        f"The printed line stays {phrase} - that is the brief, not a moodboard.",
-        voice["sunday"] if layer_only else "",
+    # The tail used to be the same three sentences on every page ("that is the
+    # brief, not a moodboard" appeared on 54 of them, in agency jargon no
+    # customer uses). Now one line is drawn per slug from a wide pool, and each
+    # variant is built from this product's own phrase, artwork or city.
+    tails = [
+        f"The printed line stays {phrase}, so the piece says one thing clearly.",
+        f"{art_t} is the only graphic on it - nothing competes for the read.",
         f"It is made for {city} football culture rather than a generic league aisle.",
+        f"Read it from across a room and you still get {phrase}.",
+        f"Fan-drawn rather than licensed: {art_t} is ours, and it stays that way.",
+        f"Printed after you order it, so {phrase} is never out of stock.",
+        f"One mark, one colour story: {art_t} and the space kept around it.",
+        f"{p['nick'] or team} people already say {phrase}; this just prints it.",
+        f"Made to order in the colours {city} football actually wears.",
+        f"The artwork holds up at the size it is printed, not just in a thumbnail.",
+        f"No seasonal roster to date it - {art_t} outlasts a depth chart.",
+        f"{phrase} is printed at the size the room can read it.",
     ]
+    if garment not in NON_APPAREL:
+        tails += [
+            f"The {g} is cut for a crowd, not for a photo shoot.",
+            f"Wear it to the game, to the bar, or to the six days in between.",
+        ]
+    extras = [person, motif, pick(tails, slug, "tail")]
+    if layer_only:
+        extras.append(_voice_line(voice, "sunday", slug))
 
     chunks = [openings[v], pick(middles, slug, "sdm")]
     # fold in extras until we are inside 30-70
@@ -705,8 +834,40 @@ def hero_line(slug, name, art, col, garment):
     return short_description(slug, name, art, col, garment)
 
 
+def _lev(a, b):
+    """Small Levenshtein: alt strings are short, and this keeps a crawl typo
+    out of screen-reader text (see typo_variant)."""
+    if a == b:
+        return 0
+    prev = list(range(len(b) + 1))
+    for i, ca in enumerate(a, 1):
+        cur = [i]
+        for j, cb in enumerate(b, 1):
+            cur.append(min(prev[j] + 1, cur[j - 1] + 1, prev[j - 1] + (ca != cb)))
+        prev = cur
+    return prev[-1]
+
+
+def typo_variant(name, art):
+    """True when `art` is the same phrase as `name` mangled by the crawl.
+
+    The Mayzing/Viralstyle crawls delivered a few artwork strings that are the
+    product name with a transposition or a dropped letter ("DAWG" -> "DWAG",
+    "Beware Of Dawg" -> "BE AWAR OF DAWG"). Whether the typo is also printed on
+    the garment is unknowable from the crawl, but alt text is a description for
+    assistive tech and image search, not a transcription: it should carry the
+    curated name. Card alts that printed both strings read as a visible typo on
+    the homepage, /collections/, /search/ and the team pages.
+    """
+    n = re.sub(r"[^a-z0-9]", "", (name or "").lower())
+    x = re.sub(r"[^a-z0-9]", "", (art or "").lower())
+    if not n or not x:
+        return False
+    return x == n or sorted(x) == sorted(n) or _lev(n, x) <= 2
+
+
 def image_alt(name, art, garment, team, n=None):
-    art_bit = title_case_art(art)
+    art_bit = title_case_art(name if typo_variant(name, art) else art)
     if len(art_bit) > 64:
         art_bit = art_bit[:62].rsplit(" ", 1)[0]
     base = f"Fan-made {team} {garment.lower()} with {art_bit} graphic"
@@ -754,20 +915,35 @@ def about_design(slug, facts, col, garment, art, theme):
 def _story_origin(p, slug):
     g, phrase, art = p["g"], p["phrase"], p["art"]
     name = p["name"]
+    # The "readable where" clause used to be one fixed sentence ("...with a
+    # drink in the other hand") printed on 20 pages; it is now drawn from a
+    # pool per slug so the story does not rhyme across the catalogue.
+    readable = pick([
+        "at a walk, in bad light, with a drink in the other hand",
+        "from ten feet away in a room that is already loud",
+        "while the crowd is still finding its seat",
+        "across a bar, at speed, in a jacket",
+        "on a concourse with three seconds of attention",
+    ], slug, "read")
     if p["slogan"]:
         opts = [
             f"{name} starts with a line {p['team']} fans already know how to shout: "
             f"<em>{phrase}</em>. The {g} is not a poster with sleeves. It is that phrase, set "
             f"heavy enough to survive a parking-lot glance, with everything else in the layout "
             f"told to get out of the way.",
-            f"The brief for {name} was the phrase itself. <em>{phrase}</em> is short enough to "
+            f"The starting point for {name} was the phrase itself. <em>{phrase}</em> is short enough to "
             f"print large on {an(g)} {g}, which is why it works as apparel instead of a caption "
             f"under a photograph.",
             f"Every piece in this locker begins with something a {p['team']} supporter would "
             f"actually say. Here the line is <em>{phrase}</em>, and the drawing exists to keep "
-            f"it readable at a walk, in bad light, with a drink in the other hand.",
+            f"it readable {readable}.",
             f"<em>{phrase}</em> is the entire origin story of {name}. Nobody asked for a second "
             f"idea. The {g} is the first idea, held still long enough to print.",
+            f"There is no second concept on {name}. <em>{phrase}</em> was written first and the "
+            f"layout was built to carry it {readable.split(',')[0]} - heavy type, generous space, "
+            f"nothing else asking to be read.",
+            f"{name} began as a phrase rather than an illustration: <em>{phrase}</em>. Once it "
+            f"was set large enough to read {readable}, the {g} needed nothing added to it.",
         ]
     else:
         opts = [
@@ -789,19 +965,25 @@ def _story_craft(p, slug):
     g = p["g"]
     motif = _motif_line(p)
     person = _person_line(p)
+    # Every sentence names this design (its title, phrase or artwork). Pools of
+    # four fixed sentences put the same line on 20+ of the 84 product pages,
+    # which reads as template filler to a human and as thin content to a
+    # crawler (2026-09-18 audit, F16).
     opts = [
-        f"Fan merchandise has a practical constraint poster art does not: it is seen in passing, "
-        f"often in bad light, usually for about two seconds. The artwork is drawn for those two "
-        f"seconds - heavy shapes, generous spacing, no thin strokes that disappear on a dark "
-        f"{g}.",
-        f"A design like this has to work at arm's length and across a room. That rules out fine "
-        f"line work and busy backgrounds, so the composition stays blunt on purpose: one message, "
-        f"strong contrast, and enough space around it that the fabric colour does the rest.",
-        f"The print process shapes the drawing too. Everything is printed to order rather than "
-        f"screen-printed in bulk, so the artwork is prepared to hold its edges on the actual "
-        f"{g} and to keep its contrast across light and dark options.",
-        f"On a {g} the type has to survive motion. That is why {p['art_title']} is treated as a "
-        f"mark, not a paragraph - weight, spacing and contrast, in that order.",
+        f"{p['name']} faces a constraint poster art never does: it is seen in passing, in bad "
+        f"light, for about two seconds. {p['art_title']} is drawn for those two seconds - heavy "
+        f"shapes, generous spacing, no thin strokes that vanish on a dark {g}.",
+        f"A mark like {p['art_title']} has to work at arm's length and across a room, which "
+        f"rules out fine line work and busy backgrounds. The composition stays blunt on "
+        f"purpose: {p['phrase']}, strong contrast, and enough space around it that the fabric "
+        f"colour does the rest.",
+        f"The print process shapes {p['art_title']} as much as the idea does. Everything is "
+        f"printed to order rather than screen-printed in bulk, so {p['name']} is prepared to "
+        f"hold its edges on the actual {g} and to keep contrast across the light and dark "
+        f"options.",
+        f"On a {g}, the type behind {p['phrase']} has to survive motion - which is why "
+        f"{p['art_title']} is treated as a mark rather than a paragraph: weight, spacing and "
+        f"contrast, in that order.",
     ]
     body = pick(opts, slug, "st2")
     extra = person or motif
@@ -819,14 +1001,23 @@ def _story_football(p, col, slug):
         f"generic league aisle.",
         f"{voice['weather']} {p['art_title']} is drawn for that climate, which is why it does not "
         f"need a licensed logo to feel local.",
-        f"{voice['sunday']} A piece carrying <em>{p['phrase']}</em> is meant to sit in that weekly "
+        f"{_voice_line(voice, 'sunday', slug)} A piece carrying <em>{p['phrase']}</em> is meant to sit in that weekly "
         f"habit, not in a one-weekend costume.",
-        f"{lore} {voice['mark']} That is the football connection for this design - culture first, "
-        f"scoreboard second.",
+        f"{lore} {_voice_line(voice, 'mark', slug)} The football connection here is "
+        f"{p['art_title']}: culture first, scoreboard second.",
     ]
     text = pick(opts, slug, "st3")
     if chant and chant.lower() not in text.lower():
-        text += f' The crowd already has a chant for it: "{chant}".'
+        text += pick([
+            f' The crowd already has a chant for it: "{chant}", which is why '
+            f'{p["phrase"]} needs no introduction in this collection.',
+            f' It is also a chant town - "{chant}" - so a line as short as '
+            f'{p["phrase"]} lands without any setup.',
+            f' And there is a chant for it: "{chant}", the nearest thing this '
+            f'fanbase has to a house style, which {p["art_title"]} sits inside comfortably.',
+            f' The stands already supply the soundtrack ("{chant}"); '
+            f'{p["art_title"]} only has to hold its own against that noise.',
+        ], slug, "chant")
     return text
 
 
@@ -849,7 +1040,7 @@ def _story_difference(p, slug):
                     f"{p['art_title']} is built for that noise, not for a lookbook."),
         "gift": (f"Gift designs fail when they require a roster update. This one is a feeling "
                  f"someone already has about {team} football, printed cleanly enough to give "
-                 f"without a briefing."),
+                 f"with no explanation needed."),
         "city": (f"City designs outlast depth charts. {p['city']} stays put. That is why "
                  f"{p['art_title']} is a safer long-term mark than a single season's hero."),
         "new-season": (f"A new-season graphic is a temperature check, not a prediction. "
@@ -864,8 +1055,14 @@ def _story_difference(p, slug):
     opts = [
         angle_line,
         f"Because it is fan-made rather than licensed, {p['name']} can carry {p['phrase']} "
-        f"without borrowing a mark it has no right to. You are buying the sentiment, not a "
-        f"replica.",
+        f"without borrowing a mark it has no right to. "
+        + pick([
+            f"You are buying the sentiment behind {p['phrase']}, not a replica.",
+            f"What is on offer is the feeling {p['art_title']} carries, not a club badge.",
+            f"Nobody is selling you a copy of {team} kit here - just the line "
+            f"{p['phrase']} the way fans already say it.",
+            f"So the thing you take home is {p['phrase']}, not a licence number.",
+        ], slug, "std-buy"),
         f"The difference from a team-shop reprint is simple: this {g} is one idea, {p['art_title']}, "
         f"drawn for {team} supporters instead of a catalogue of approved icons.",
     ]
@@ -878,14 +1075,21 @@ def _story_close(p, slug, col=None):
     opts = [
         f"What you end up with is {an(g)} {g} that says something specific about being a "
         f"{p['team']} fan, rather than something generic about liking football. If that is the "
-        f"read you wanted, the rest is logistics: verified styles on this page, then {P} "
-        f"for the size and colour you actually wear.",
-        f"It is a small idea executed cleanly, which is generally what makes fan apparel get "
-        f"{p['v']} more than once a season. {p['name']} is that kind of piece.",
-        f"The result belongs to {p['city']} without needing a licence to prove it. Wear it, or "
+        f"If {p['phrase']} is the read you wanted, the rest is logistics: verified styles on "
+        f"this page, then {P} for the size and colour you actually wear.",
+        f"{p['name']} is a small idea executed cleanly, which is generally what makes fan "
+        f"apparel get {p['v']} more than once a season. Nothing about {p['art_title']} needs "
+        f"a second look to land.",
+        f"{p['name']} belongs to {p['city']} without needing a licence to prove it. Wear it, or "
         f"give it, or leave it on a shelf until Sunday - the graphic will still be {p['phrase']}.",
-        f"If you already talk like this on Sundays, the {g} is just the public version. "
-        f"{p['art_title']} does not need a caption once it is on your chest.",
+        f"If you already talk like this on Sundays, the {g} is just the public version of "
+        f"{p['phrase']}. "
+        + pick([
+            f"{p['art_title']} does not need a caption once it is on your chest.",
+            f"{p['art_title']} carries it without an explanation attached.",
+            f"The artwork says {p['phrase']} and leaves it at that.",
+            f"Once it is printed at that size, {p['art_title']} explains itself.",
+        ], slug, "stc-cap"),
     ]
     return pick(opts, slug, "st5")
 
@@ -938,7 +1142,7 @@ def why_it_stands_out(slug, facts, col, art, theme, garment):
                     f"{p['art_title']}, a fan mark rather than official kit.")
     elif angle == "funny":
         lead = (f"What makes {p['name']} different is the joke. {p['phrase']} is a punchline "
-                f"{team} fans will get without a briefing, printed at the size a tailgate needs. "
+                f"{team} fans will get with no explanation needed, printed at the size a tailgate needs. "
                 f"Funny football shirts only work when they do not explain themselves.")
     elif angle == "vintage":
         lead = (f"{p['name']} stands out as vintage {city} football styling: worn-in athletics "
@@ -969,14 +1173,15 @@ def why_it_stands_out(slug, facts, col, art, theme, garment):
     else:
         lead = (f"{p['name']} stands out because the artwork stays specific: {p['art_title']}, "
                 f"drawn for {team} supporters instead of a generic football aisle. Independent "
-                f"fan art can say the line the crowd already uses.")
+                f"fan art can say {p['phrase']} exactly the way the crowd says it.")
 
     extra = pick([
-        f"You will not find this exact graphic in a league shop, and that is the point of an "
+        f"You will not find {p['art_title']} in a league shop, and that is the point of an "
         f"unofficial {g}.",
         f"The search is for a {team} fan {g}; the reason to pick this one is {p['phrase']}.",
         f"Plenty of fan pieces mention {city}. Fewer of them are actually about {p['phrase']}.",
-        f"If you wanted a replica, you would already have one. This is the other kind of {g}.",
+        f"If you wanted a replica you would already own one - this is the other kind of "
+        f"{g}, the one built around {p['phrase']}.",
     ], slug, "whyx")
     return paras(lead, extra)
 
@@ -1003,41 +1208,46 @@ def who_its_for(slug, col, theme, garment, price, name="", art="", styles=None):
     ], slug, "who1")
     if garment in NON_APPAREL or garment == "Beanie":
         gift = pick([
-            f"As a gift it is straightforward: no size to get wrong, a design that does not "
-            f"depend on knowing a roster, and a price that starts at ${price}.",
-            f"It also works as a present. There is nothing in the design that expires with a "
+            f"As a gift, {name or 'this piece'} is straightforward: no size to get wrong, a "
+            f"design that does not depend on knowing a roster, and a price that starts at "
+            f"${price}.",
+            f"{name or 'It'} also works as a present - nothing in the design expires with a "
             f"transfer, and it starts at ${price}.",
-            f"Buying it for someone else is low risk - there is no sizing decision, the artwork "
-            f"is not tied to a single week of the season, and pricing starts at ${price}.",
+            f"Buying {name or 'one'} for someone else is low risk: there is no sizing decision, "
+            f"the artwork is not tied to a single week of the season, and pricing starts at "
+            f"${price}.",
         ], slug, "who2")
     else:
         fit = fit_note(styles)
         gift = pick([
-            f"As a gift it is straightforward: {fit.lower()} A design that does not depend on "
-            f"knowing a roster and a price that starts at ${price}.",
-            f"It also works as a present. There is nothing in the design that expires with a "
-            f"transfer; {fit.lower()} It starts at ${price}.",
-            f"Buying it for someone else is low risk - {fit.lower()} The artwork is not tied to "
-            f"a single week of the season, and pricing starts at ${price}.",
+            f"As a gift, {name or 'this piece'} is straightforward: {fit.lower()} Nothing in "
+            f"{name or 'the design'} depends on knowing a roster, and pricing starts at "
+            f"${price}.",
+            f"{name or 'It'} also works as a present: nothing in the design expires with a "
+            f"transfer, {fit.lower()} and it starts at ${price}.",
+            f"Buying {name or 'one'} for someone else is low risk - {fit.lower()} "
+            f"{name or 'The artwork'} is not tied to a single week of the season, and pricing "
+            f"starts at ${price}.",
         ], slug, "who2")
     return f"<p>{sentence(lead)}</p><p>{sentence(gift)}</p>"
 
 
 def gameday_wear(slug, col, garment, art):
     ctx = pick_n(WEAR_CONTEXT, slug, "ctx", 3)
-    layer = LAYER_NOTE.get(garment, LAYER_NOTE["T-Shirt"])
+    layer = layer_note(garment, slug)
     g = garment.lower()
     v = wear_verb(garment)
     art_t = title_case_art(art)
     closers = [
-        f"Because {art_t} is a fan statement rather than a licensed team mark, it does not "
-        f"look out of place away from the stadium either - which is the difference between a piece "
+        f"Because {art_t} is a fan statement rather than a licensed team mark, it does not look "
+        f"out of place away from the stadium either - the difference between a piece "
         f"{v} seventeen Sundays a year and one {v} most weeks.",
-        f"It also survives the rest of the week. A fan-made graphic reads as a graphic first, so "
-        f"{art_t} works on a commute or a Saturday errand in a way a replica jersey does not.",
-        f"The {g} is made for normal use rather than a stadium costume, which is why most of the "
-        f"fans who buy one end up using it well outside {col['city'].split(',')[0]} and well "
-        f"outside football season.",
+        f"It also survives the rest of the week, because a fan-made graphic like {art_t} reads "
+        f"as a graphic first - it works on a commute or a Saturday errand in a way a replica "
+        f"jersey does not.",
+        f"This {g} is made for normal use rather than a stadium costume, which is why most of "
+        f"the fans who buy {art_t} end up wearing it well outside "
+        f"{col['city'].split(',')[0]} and well outside football season.",
     ]
     return (f"<p>Where this {g} actually gets {v}: {ctx[0]}, {ctx[1]}, and {ctx[2]}. "
             f"{layer} The graphic stays {art_t} in all of those rooms.</p>"
