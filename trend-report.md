@@ -1,8 +1,8 @@
 # Hunt Report - 2026-09-18
 
-Generated: 2026-09-18 21:55 UTC by src/hunter_intelligence.py
+Generated: 2026-09-18 22:02 UTC by src/hunter_intelligence.py
 
-Ladder: SIGNAL 1 · TREND 0 · OPPORTUNITY 2 · ACTION 0 · HEADLINE 6
+Ladder: SIGNAL 1 · TREND 0 · OPPORTUNITY 2 · ACTION 0 · HEADLINE 7
 
 Fan connectors: no fan posts observed - reddit error (HTTP Error 403: Blocked); x not_configured (Set X_BEARER_TOKEN to use the official X recent-search API.); facebook not_configured (Set META_PAGE_ID and META_PAGE_ACCESS_TOKEN for the official Meta Page feed API.)
 
@@ -47,7 +47,7 @@ Fan connectors: no fan posts observed - reddit error (HTTP Error 403: Blocked); 
 - Game state: next game in ~2 day(s)
 - Commercial: campaign - Make Them Know Your Name $21.00 (sellable) - THEY FORGOT WHO I AM — QB1 belief
 - Why fans care: The whole fanbase is arguing one question: who starts. That is a belief argument, and belief is what a QB tee sells.
-- Tracked names: deshaun watson (42 window mentions, FTI 100); shedeur sanders (11 window mentions, FTI 26); todd monken (5 window mentions, FTI 12)
+- Tracked names: deshaun watson (41 window mentions, FTI 100); shedeur sanders (11 window mentions, FTI 27); todd monken (5 window mentions, FTI 12)
 - Action: X (@gridironlocker1 first) - conversation post now (now)
 - Action: Threads - alternate angle (+20 min)
 - Action: Instagram - product creative after engagement confirms the angle (after the X post confirms the angle)
@@ -58,27 +58,27 @@ Fan connectors: no fan posts observed - reddit error (HTTP Error 403: Blocked); 
   - Browns Hit With Troubling Deshaun Watson Locker Room Report - heavy.com - google_news (1 d ago) https://news.google.com/rss/articles/CBMilAFBVV95cUxQZXVpeDI0bFVCcU1RQ0F4T04zMVFwVVdadHVHQ0JQaVM0Zm1TR015ZVRQS0NvSm1XbE5PYnRLX0dOSTUyRmRBajFMaE9QUG5nVENnS1ZVWXJxaW5oLTNaSi1ueG9wd3JvNUxMZHBvbzNVLU1TbDVKTzQ2bWcyUTU5ZUJTdmYwZjhvQnFlWXJIMzVZLVBj?oc=5
 
 ### 3. Doomsday memory: defence and the pass rush - Dallas Cowboys
-- Level: SIGNAL · Confidence: 59% · ⚪ WATCH (fans are reacting but nothing on the shelf answers it yet)
-- Fan signal: "Cowboys OC Questions Steelers' Coaching Staff in Troubling Broderick Jones Update" - Sports Illustrated (10 h ago)
-- Evidence: 4 reaction items (4.0 weighted) · 4 outlets · 0 utility listings excluded · 0 fan posts
+- Level: SIGNAL · Confidence: 55% · ⚪ WATCH (fans are reacting but nothing on the shelf answers it yet)
+- Fan signal: "Here We Goooo: How the Cowboys defense can bounce back against Washington" - Dallas Cowboys (3 h ago)
+- Evidence: 3 reaction items (3.0 weighted) · 3 outlets · 0 utility listings excluded · 0 fan posts
 - Phrase velocity: new - 1 item in last 240 min, none in the window before
-- Sentiment: hopeful - 'hopeful' on 1/3 lexicon hits across 4 item(s)
+- Sentiment: proud - 'proud' on 1/1 lexicon hits across 3 item(s)
 - Game state: result coverage in the last 30 h (1 item(s))
 - Commercial: exact - Doomsday Defense Dallas Football Shirt $21.99 (sellable) - DOOMSDAY DEFENSE
 - Why fans care: Dallas defence talk always drifts to the Doomsday era - the one defensive identity we own a design for.
 - Tracked names: von miller (0 window mentions, FTI 0)
   - Here We Goooo: How the Cowboys defense can bounce back against Washington - Dallas Cowboys - google_news (3 h ago) https://news.google.com/rss/articles/CBMiqwFBVV95cUxPdkVSVWE5VnBhbEhnYXJsQXJQRlhmeDJ1QkpWQTNXalkwM1o3Tm84VGhKVkZPZk1YNGw3b1R5V195ZEppU1dIQ3YtT2xRR0Uyd0ZWT1NNVjVSUkRfMkJDSFkteWZ6VUUwZVAtVW9BVkVXbWREZTBjbndjWWMzLWpiU1FhdFAxVTRaM0NzcWhZYS1SN1doVzlGMER4ZGFBdENuSnVqS0xKOEN0SWM?oc=5
-  - Cowboys OC Questions Steelers' Coaching Staff in Troubling Broderick Jones Update - Sports Illustrated - google_news (10 h ago) https://news.google.com/rss/articles/CBMiywFBVV95cUxNaGliSjFuZ0Q5SFNBZl93YThmeXZfZXpKcXg5bjIxLXhmSkw3UUxkc1BMQ0p5cWx5VmUxOFJReTBZbUs2RDFuOFNoNTZ4RlBPZFhBX2ZYOFlyYVY0dXhUWTRReE1QcUJ6czlhZjJobktGbU9mamFQbkg5SGZidWdjV2ZPczRyc0NZVDA4cGF2Uk1PaUZSLXh6MnNDVXZWbDdVQm9rOHhpSTlmMlk3bkI3ZG1uRnJxR0c0Yk5BMk54Qk1RVGlJQmpUelBQWQ?oc=5
   - The Cowboys defense needs to lean into Caleb Downs - Blogging The Boys - google_news (21 h ago) https://news.google.com/rss/articles/CBMiqgFBVV95cUxPeTdXU1h3RlNCdXllcWFkZFc2OHBMTjJwZ2FMZlEwNmdjN2dZMTJzSDJXUV80eE5ib1hCUFhjM1d4b1Y4a2k5aWpVSHljWUxvUWJpTGRZT3Y0enE5cDFwa194REJJQzFFNkozR2RlU21KMEN5UlJvRXJfLVY3bWxESkVySHV3bHNiN2xFa3ptX2E1RWJ0aXRUMVAwcGxWQ3I1UW5BU0ZqTzFZUQ?oc=5
   - Dallas Cowboys’ Von Miller to give free eye exams, glasses to San Antonio children - KSAT - google_news (22 h ago) https://news.google.com/rss/articles/CBMiuAFBVV95cUxNdzhTQ21nQ1N3Mm9ybWNLMHB4RW11WDhHWXRWRzdfSFA3NmlwcEctYm5XcHYzckM0Ui1veHlOUHpSU1JJeEJzeUlaemFzSE56cWhZZnBMaUt6VUJJVlgyMmJ3bWpoNWx6dWR4MjJjNjJxcWpzcVZ2MlRYemQzSjBjY1V6NGFUN0drSDhWbUw3WW1QdHVDUW9XUDZJUF82Q2RjTFdSenVaald0a1kyWS1VUmJ4NnlaZ3ZE?oc=5
 
-## Filtered as HEADLINE (6)
+## Filtered as HEADLINE (7)
 
-- BROWNS - No Fly Zone: the secondary wins the argument: 1 reaction item(s), 1 outlet(s), confidence 37% - not a reaction
-- BROWNS - Coaching: Monken's first season: 1 reaction item(s), 1 outlet(s), confidence 24% - not a reaction
-- PACKERS - Jordan Love era: 10 is the number: 2 reaction item(s), 2 outlet(s), confidence 54% - not a reaction
-- MICHIGAN - Go Blue: The Big House identity: 2 reaction item(s), 2 outlet(s), confidence 57% - not a reaction
+- BROWNS - Coaching: Monken's first season: 2 reaction item(s), 2 outlet(s), confidence 35% - not a reaction
+- PACKERS - Jordan Love era: 10 is the number: 1 reaction item(s), 1 outlet(s), confidence 42% - not a reaction
+- PACKERS - Josh Jacobs and the run game: 1 reaction item(s), 1 outlet(s), confidence 37% - not a reaction
+- MICHIGAN - Go Blue: The Big House identity: 2 reaction item(s), 2 outlet(s), confidence 54% - not a reaction
 - MICHIGAN - Late-game heroics: the Hail Mary folklore: 1 reaction item(s), 1 outlet(s), confidence 41% - not a reaction
+- MICHIGAN - Underwood era: QB19 in Ann Arbor: 1 reaction item(s), 1 outlet(s), confidence 37% - not a reaction
 - MICHIGAN - Respond: nothing given, everything earned: 1 reaction item(s), 1 outlet(s), confidence 33% - not a reaction
 
 ## Article ideas (OPPORTUNITY+ only)
