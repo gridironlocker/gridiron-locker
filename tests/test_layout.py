@@ -1312,11 +1312,21 @@ class Homepage(unittest.TestCase):
         self.assertIn("repeat(4,minmax(0,1fr))", css_block(self.css, ".fti-chips"))
 
     def test_full_index_page_retained(self):
+        """The leaderboard is never truncated - but it only lists people the
+        catalogue is allowed to promote (data/people.json status == current)."""
+        import build
         fti = page("fan-trend-index/index.html")
-        data = load_json("data/trends.json")
-        rows = (data.get("fan_trend_index") or {}).get("rows") or []
+        rows = build.fti_rows(None)
         self.assertEqual(fti.count('class="fti-card reveal"'), len(rows))
         self.assertGreater(len(rows), 4)
+        people = load_json("data/people.json")
+        retired = [p["name"] for p in people.get("people", [])
+                   if p.get("status") != "current"]
+        self.assertTrue(retired, "expected people.json to carry non-current names")
+        for name in retired:
+            self.assertNotRegex(
+                fti, r"\b%s\b\s+\d{1,3}\b" % re.escape(name),
+                f"retired/non-current {name!r} still has a scored FTI row")
 
     def test_newsletter_is_last_and_still_works(self):
         sec = between(self.html, '<section class="brandsec" id="newsletter">', "</section>")
@@ -1579,11 +1589,14 @@ class CanonicalUrls(unittest.TestCase):
 
 
 # Locked-in hero / logo URLs from current main - must never drift.
+# Heroes are still the Mayzing-sourced JPEGs. The second element used to pin
+# `/img/<team>-logo1.webp` - rasterised official team marks - which the site no
+# longer publishes; it is now the generated fan-made lockup for that collection.
 HERO_LOGO_LOCK = {
-    "cleveland-browns": ("/img/hero-cleveland.jpg?v=4", "/img/browns-logo1.webp?v=1"),
-    "dallas-cowboys": ("/img/hero-dallas.jpg?v=4", "/img/dallas-logo1.webp?v=1"),
-    "green-bay-packers": ("/img/hero-greenbay.jpg?v=4", "/img/green-bay-logo1.webp?v=1"),
-    "michigan": ("/img/hero-michigan.jpg?v=4", "/img/michigan-logo1.webp?v=1"),
+    "cleveland-browns": ("/img/hero-cleveland.jpg?v=4", "/img/lockups/browns.svg"),
+    "dallas-cowboys": ("/img/hero-dallas.jpg?v=4", "/img/lockups/dallas.svg"),
+    "green-bay-packers": ("/img/hero-greenbay.jpg?v=4", "/img/lockups/green-bay.svg"),
+    "michigan": ("/img/hero-michigan.jpg?v=4", "/img/lockups/michigan.svg"),
 }
 
 
@@ -1694,9 +1707,20 @@ class MayzingBrownsRebuild(unittest.TestCase):
         for k, (hero, logo) in HERO_LOGO_LOCK.items():
             self.assertEqual(COLLECTIONS[k]["hero"], hero, k)
             self.assertEqual(COLLECTIONS[k]["logo"], logo, k)
+            self.assertTrue(os.path.exists(os.path.join(SITE, logo.lstrip("/"))), logo)
         for k in ORDER:
             html = page(f"{COLLECTIONS[k]['slug']}/index.html")
             self.assertIn(COLLECTIONS[k]["hero"].split("?")[0], html, k)
+
+    def test_no_official_mark_files_anywhere(self):
+        """No page may reference a rasterised official team mark."""
+        for dirpath, _dirs, files in os.walk(SITE):
+            for f in files:
+                if re.search(r"logo[12]\.webp$", f):
+                    self.fail(f"official-mark asset back in site/: {f}")
+        for rel in ("collections/index.html", "index.html"):
+            html = page(rel)
+            self.assertNotRegex(html, r"logo[12]\.webp", rel)
 
 
 
@@ -2055,11 +2079,236 @@ class ConversionUpgrades(unittest.TestCase):
         self.assertIn(".thumbs{display:flex;overflow-x:auto", mob)
 
     def test_collection_logos_are_light(self):
-        # 96px portraits; the Michigan file was 890KB at 1018px.
+        # The collection crests are generated SVG lockups (original fan-made
+        # badges) instead of the official team marks that used to ship as
+        # 96px webp portraits - the Michigan one was 890KB at 1018px.
+        for f in ("michigan.svg", "dallas.svg", "browns.svg", "green-bay.svg"):
+            path = os.path.join(IMG, "lockups", f)
+            self.assertTrue(os.path.exists(path), path)
+            self.assertLess(os.path.getsize(path), 8 * 1024, f)
+            with open(path, encoding="utf-8") as fh:
+                svg = fh.read()
+            self.assertIn("FAN MADE", svg, f)
+        # and the official-mark files must not come back
         for f in ("michigan-logo1.webp", "dallas-logo1.webp",
                   "browns-logo1.webp", "green-bay-logo1.webp"):
-            self.assertLess(os.path.getsize(os.path.join(IMG, f)),
-                            120 * 1024, f)
+            self.assertFalse(os.path.exists(os.path.join(IMG, f)), f)
+
+
+class AuditFixes20260918(unittest.TestCase):
+    """Regression coverage for the 2026-09-18 site audit
+    (SITE-AUDIT-2026-09-18.md). Each test pins one fixed defect so it cannot
+    silently come back on the next rebuild."""
+
+    # ---------------------------------------------------- F1 season prose
+    def test_season_prose_matches_the_data(self):
+        """Every week/result line on the homepage must come from SEASON -
+        no hand-written date or opponent may disagree with the data."""
+        import collections_data as cd
+        home = page("index.html")
+        cards = [unescape(c).replace("&middot;", "\u00b7")
+                 for c in re.findall(r'wk-game">([^<]+)</span>', home)]
+        self.assertTrue(cards, "homepage has no week/result cards")
+        openers = {unescape(v["opener"]).replace("&middot;", "\u00b7")
+                   for v in cd.SEASON.values() if v.get("opener")}
+        for c in cards:
+            self.assertIn(c, openers, f"card {c!r} is not a SEASON opener string")
+            for d in re.findall(r"Sept (\d+)", c):
+                team = next(k for k, v in cd.SEASON.items()
+                            if unescape(v.get("opener", "")).replace("&middot;", "\u00b7") == c)
+                kick = cd.SEASON[team]["kickoff"]
+                self.assertEqual(int(d), int(kick[8:10]),
+                                 f"{team}: card says Sept {d}, kickoff is {kick}")
+        # exactly one Michigan line, and it is the Oklahoma game (not an NFL one)
+        mich = [c for c in cards if "Oklahoma" in c]
+        self.assertEqual(len(mich), 1, mich)
+        self.assertEqual(len(cards), len(cd.SEASON), cards)
+
+    def test_recap_sentences_are_grammatical(self):
+        for rel in ("index.html", "guides/index.html",
+                    "guides/2026-week-1-shirts/index.html"):
+            txt = unescape(re.sub(r"<[^>]+>", " ", page(rel)))
+            self.assertNotRegex(txt, r"\bno\. \d+ [a-z]", rel)
+            self.assertNotRegex(txt, r"\bSept \d+, \d{4}\b.*\bWeek 1\b.*\bSept 13\b.*\bSept 12\b",
+                                rel)
+
+    # ------------------------------------------------------ F2/F3 privacy
+    def test_analytics_is_consent_gated(self):
+        js = page("assets/app.js")
+        home = page("index.html")
+        self.assertIn("googletagmanager", home + js)
+        self.assertIn("gl_analytics", js)
+        self.assertIn("Allow analytics", js)
+        # the tag itself may only be injected after consent - never by a
+        # static <script src> in the head
+        self.assertNotRegex(
+            home, r'<script[^>]+src="https://www\.googletagmanager\.com/gtag/js')
+        self.assertIn("window.glLoadAnalytics", home)
+        self.assertIn("gl_analytics=1", home)
+        priv = page("privacy/index.html")
+        for tool in ("Google Analytics 4", "FormSubmit", "Google Fonts", "Mayzing"):
+            self.assertIn(tool, priv, tool)
+        self.assertIn("opt-in", priv)
+        self.assertIn("gl_analytics", priv)
+        self.assertIn("mailto:", page("contact/index.html"))
+
+    # ------------------------------------------------------------ F4 forms
+    def test_forms_post_to_a_real_endpoint(self):
+        home = page("index.html")
+        js = page("assets/app.js")
+        self.assertIn('action="https://formsubmit.co/', home)
+        self.assertNotIn("novalidate", home)
+        self.assertIn("formsubmit.co/ajax/", js)
+        self.assertNotRegex(js, r"mode:\s*['\"]no-cors['\"]")
+        self.assertNotRegex(js, r"setTimeout\(function\(\)\{if\(!\w+\)\{\}\}")
+
+    # ------------------------------------------------------------ F5 feeds
+    def test_feed_is_valid_rss(self):
+        from email.utils import parsedate_to_datetime
+        x = page("feed.xml")
+        items = re.findall(r"<item>(.*?)</item>", x, re.S)
+        self.assertTrue(items)
+        for it in items:
+            self.assertIn("<pubDate>", it)
+            self.assertIn("<guid", it)
+            d = re.search(r"<pubDate>([^<]+)</pubDate>", it).group(1)
+            parsedate_to_datetime(d)          # raises if not RFC-822
+            self.assertNotRegex(re.search(r"<guid[^>]*>([^<]+)</guid>", it).group(1),
+                                r"#\d{4}-\d{2}-\d{2}$")
+        lbd = re.search(r"<lastBuildDate>([^<]+)</lastBuildDate>", x).group(1)
+        parsedate_to_datetime(lbd)
+        for slug in re.findall(r"<link>[^<]*/products/([^/<]+)</link>", x):
+            self.assertTrue(os.path.isdir(os.path.join(SITE, "products", slug)), slug)
+
+    # ------------------------------------------------- F6/F7 assets and IP
+    def test_no_stray_verification_files(self):
+        for dirpath, _dirs, files in os.walk(SITE):
+            for f in files:
+                if re.match(r"^(google|bing|a7f3c19b)[a-z0-9]*\.(html|txt|xml)$", f):
+                    self.assertEqual(os.path.relpath(dirpath, SITE), ".",
+                                     f"stray verification file in {dirpath}: {f}")
+
+    def test_collections_use_generated_lockups(self):
+        col = page("collections/index.html")
+        self.assertEqual(col.count("/img/lockups/"), 4)
+        for m in re.finditer(r'<img src="/img/lockups/([^"]+)" alt="([^"]+)"', col):
+            self.assertTrue(os.path.exists(os.path.join(IMG, "lockups", m.group(1))))
+            self.assertIn("original fan-made badge", m.group(2))
+            self.assertRegex(m.group(2), r"est \d{4}")
+
+    # ------------------------------------------------------------- F8 alts
+    def test_no_alt_repeats_a_crawl_typo_of_the_name(self):
+        """Where the partner's artwork line is a crawl-mangled version of the
+        curated name ("Beware Of Dawg" / "BE AWAR OF DAWG"), no page may print
+        the pair - on the homepage, the team pages, /collections/ or /search/."""
+        import build
+        offenders = []
+        for it in build.ALL:
+            art = it.get("art") or ""
+            if not build._l.typo_variant(it["name"], art):
+                continue
+            pair = f'alt="{it["name"]} - {art[:70]}"'
+            for dirpath, _dirs, files in os.walk(SITE):
+                for f in files:
+                    if f.endswith(".html") and pair in page(
+                            os.path.relpath(os.path.join(dirpath, f), SITE)):
+                        offenders.append((it["slug"], os.path.relpath(dirpath, SITE)))
+        self.assertEqual(offenders, [], offenders[:5])
+
+    def test_eager_card_images_are_hinted(self):
+        """Every <img> is either lazy or priority-hinted (audit L9)."""
+        unhinted = []
+        for dirpath, _dirs, files in os.walk(SITE):
+            for f in files:
+                if not f.endswith(".html"):
+                    continue
+                rel = os.path.relpath(os.path.join(dirpath, f), SITE)
+                for tag in re.findall(r"<img\b[^>]*>", page(rel), re.I):
+                    if "loading=" not in tag and "fetchpriority" not in tag:
+                        unhinted.append((rel, tag[:70]))
+        self.assertEqual(unhinted, [], unhinted[:6])
+
+    def test_alt_text_uses_the_curated_name(self):
+        """Crawl-mangled design names (missing apostrophes, anagram-ish
+        truncations) must never reach an alt attribute."""
+        bad = []
+        for dirpath, _dirs, files in os.walk(SITE):
+            for f in files:
+                if not f.endswith(".html"):
+                    continue
+                rel = os.path.relpath(os.path.join(dirpath, f), SITE)
+                for alt in re.findall(r'alt="([^"]{3,120})"', page(rel)):
+                    a = unescape(alt)
+                    if re.search(r"\b\w S \w", a) or re.search(r"\bIts \w", a):
+                        bad.append((rel, a))
+        self.assertEqual(bad, [], bad[:5])
+
+    # --------------------------------------------------------- F10 headings
+    def test_no_heading_level_skips(self):
+        skips = []
+        for dirpath, _dirs, files in os.walk(SITE):
+            for f in files:
+                if not f.endswith(".html"):
+                    continue
+                rel = os.path.relpath(os.path.join(dirpath, f), SITE)
+                if "/ops/" in "/" + rel or rel.startswith("marketing/"):
+                    continue
+                levels = [int(m) for m in re.findall(r"<h([1-6])[ >]", page(rel))]
+                for a, b in zip(levels, levels[1:]):
+                    if b - a > 1:
+                        skips.append((rel, f"h{a}->h{b}"))
+                        break
+        self.assertEqual(skips, [], skips[:8])
+
+    # ------------------------------------------------------------- F11 FTI
+    def test_fti_only_promotes_current_people(self):
+        import build
+        rows = build.fti_rows(None)
+        people = load_json("data/people.json")
+        retired = {p["name"] for p in people.get("people", [])
+                   if p.get("status") != "current"}
+        self.assertTrue(retired)
+        for r in rows:
+            self.assertNotIn(r.get("name"), retired, r.get("name"))
+
+    # --------------------------------------------- F13 published internals
+    def test_no_source_files_are_published(self):
+        leaked = []
+        for sub in ("marketing", "ops"):
+            base = os.path.join(SITE, sub)
+            if not os.path.isdir(base):
+                continue
+            for dirpath, _dirs, files in os.walk(base):
+                for f in files:
+                    if f.lower().endswith((".py", ".sh", ".md", ".csv", ".txt")):
+                        leaked.append(os.path.relpath(os.path.join(dirpath, f), SITE))
+        self.assertEqual(leaked, [], leaked)
+        # the dashboards still get the JSON they fetch
+        self.assertTrue(os.path.exists(os.path.join(SITE, "ops", "scout", "scout.json")))
+
+    # ----------------------------------------------------------- F14 drops
+    def test_unshipped_drops_are_recorded(self):
+        dd = load_json("data/drops-dropped.json")
+        for key in ("generated", "queued", "eligible", "shown", "dropped"):
+            self.assertIn(key, dd)
+        self.assertEqual(dd["queued"], dd["eligible"] + len(dd["dropped"]), dd)
+        self.assertEqual(dd["shown"], min(dd["eligible"], 12), dd)
+
+    # --------------------------------------------------------- F15 gallery
+    def test_product_galleries_have_no_duplicates(self):
+        dupes, pads = [], []
+        for dirpath, _dirs, files in os.walk(os.path.join(SITE, "products")):
+            if "index.html" not in files:
+                continue
+            rel = os.path.relpath(os.path.join(dirpath, "index.html"), SITE)
+            html = page(rel)
+            thumbs = re.findall(r'class="thumb"[^>]*>\s*<img src="([^"]+)"', html)
+            if len(thumbs) != len(set(thumbs)):
+                dupes.append(rel)
+            if len(set(thumbs)) <= 1 and thumbs:
+                pads.append(rel)
+        self.assertEqual(dupes, [], dupes[:5])
+        self.assertEqual(pads, [], pads[:5])
 
 
 if __name__ == "__main__":

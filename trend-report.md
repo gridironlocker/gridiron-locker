@@ -1,6 +1,6 @@
 # Hunt Report - 2026-09-18
 
-Generated: 2026-09-18 21:39 UTC by src/hunter_intelligence.py
+Generated: 2026-09-18 21:55 UTC by src/hunter_intelligence.py
 
 Ladder: SIGNAL 1 · TREND 0 · OPPORTUNITY 2 · ACTION 0 · HEADLINE 6
 
@@ -21,7 +21,7 @@ Fan connectors: no fan posts observed - reddit error (HTTP Error 403: Blocked); 
 
 ### 1. Sunday night at the Giants: prime-time opener - Dallas Cowboys
 - Level: OPPORTUNITY · Confidence: 74% · 🟢 READY (matched design, posting window open, evidence under 12 h)
-- Fan signal: "Dallas Cowboys seek bounce-back performance in 2026 home opener vs. Washington Commanders" - FOX 4 News Dallas-Fort Worth (1 h ago)
+- Fan signal: "Dallas Cowboys seek bounce-back performance in 2026 home opener vs. Washington Commanders" - FOX 4 News Dallas-Fort Worth (2 h ago)
 - Evidence: 6 reaction items (9.0 weighted) · 3 outlets · 0 utility listings excluded · 0 fan posts
 - Phrase velocity: new - 2 items in last 240 min, none in the window before
 - Sentiment: skeptical - 'skeptical' on 1/3 lexicon hits across 6 item(s)
@@ -33,14 +33,14 @@ Fan connectors: no fan posts observed - reddit error (HTTP Error 403: Blocked); 
 - Action: Threads - alternate angle (+20 min)
 - Action: Instagram - product creative after engagement confirms the angle (after the X post confirms the angle)
 - Action: Pinterest - keyword pin of the matched design (+2 h)
-  - Dallas Cowboys seek bounce-back performance in 2026 home opener vs. Washington Commanders - FOX 4 News Dallas-Fort Worth - google_news (1 h ago) https://news.google.com/rss/articles/CBMihgFBVV95cUxPa2xka0ZNcHBnR0hXdFl6TG50UE0xYW9IR0xMSmE1QThQbG1kNEo0Qng4NzhGVnlQUmVROGZkUTFtNURLZ3BtNHBtR1lkTkJLeV9JWENRTHYwTnBnRmtxSXEzQjNTSU1lU0lybHltRFNuUWRESTVsS2ZQR0ExTnNaTlZrYkNKUQ?oc=5
+  - Dallas Cowboys seek bounce-back performance in 2026 home opener vs. Washington Commanders - FOX 4 News Dallas-Fort Worth - google_news (2 h ago) https://news.google.com/rss/articles/CBMihgFBVV95cUxPa2xka0ZNcHBnR0hXdFl6TG50UE0xYW9IR0xMSmE1QThQbG1kNEo0Qng4NzhGVnlQUmVROGZkUTFtNURLZ3BtNHBtR1lkTkJLeV9JWENRTHYwTnBnRmtxSXEzQjNTSU1lU0lybHltRFNuUWRESTVsS2ZQR0ExTnNaTlZrYkNKUQ?oc=5
   - George Pickens addresses Week 1 drops, Cowboys' team mindset for bouncing back - Dallas Cowboys (2 d ago) https://news.google.com/rss/articles/CBMisAFBVV95cUxPQzk0Q1JhbEx6SktybTBGWFRSSmZyZ18xNmVwNHBBVFRLZkFqOGJuekQ1Q29FOUtxUzZIVTV2T016dUJGbTd1QjBaM3Q4QjdoblVyNjBfVDhpOFNPUENVWi1EMHVKTGthd3ZqSHVZS1YtNkJaRjg5N0tZYXpmd2UycXh0WEZtS2tSWEJMaGhGT1Eza0tCbkJDQ3VNNVNYbGtoSXQ0RGQ0VHZZNDN1b1Z3bg?oc=5
   - Game Recap: Cowboys lose opener, 28-20 - Dallas Cowboys (5 d ago) https://news.google.com/rss/articles/CBMie0FVX3lxTE9adzFZTzZ5SFdQa183WG9uYXBwTW1xUG5UUHBaTjI0Rml2VkpORDJ4NlQ2M1ZxVnd0YWhaekpKRi1ZblJaRnQ5R3FMaWVRM182SXdhOUVJUjV4bzVMamVlSjNIR3FGbWVPZ1hoVHNqVmNCdDVDMDNVZ0NuZw?oc=5
-  - CeeDee Lamb 'can't wait' for chance to bounce back in home opener vs. Commanders - Dallas Cowboys - google_news (2 h ago) https://news.google.com/rss/articles/CBMisgFBVV95cUxNa2VCWjR6VXE2MlhhRTBlX2J0S0hwRElmQWdlVGRnVTd2cEZESGdKUkxXX1FabWRWLV8ycl9GOHZGOUxIX0tacUNpcXMyUkJlbHlTTUhpQkQ3YUx1Rl9EN3R0QmxPVEM2WDVQM1AzNjhHVTZRTXFBdHVCQlJTd3FPWHdzRlZkVEhoYzZfUmpBNVd2clZoYmxBTUUxWVZLMFNHaHdKUGZmQTVCN1VqM2luQlp3?oc=5
+  - CeeDee Lamb 'can't wait' for chance to bounce back in home opener vs. Commanders - Dallas Cowboys - google_news (3 h ago) https://news.google.com/rss/articles/CBMisgFBVV95cUxNa2VCWjR6VXE2MlhhRTBlX2J0S0hwRElmQWdlVGRnVTd2cEZESGdKUkxXX1FabWRWLV8ycl9GOHZGOUxIX0tacUNpcXMyUkJlbHlTTUhpQkQ3YUx1Rl9EN3R0QmxPVEM2WDVQM1AzNjhHVTZRTXFBdHVCQlJTd3FPWHdzRlZkVEhoYzZfUmpBNVd2clZoYmxBTUUxWVZLMFNHaHdKUGZmQTVCN1VqM2luQlp3?oc=5
 
 ### 2. QB room: who is QB1 in Cleveland - Cleveland Browns
 - Level: OPPORTUNITY · Confidence: 71% · 🟢 READY (matched design, posting window open, evidence under 12 h)
-- Fan signal: "'Stupid' - Stephen A. Smith hammers Deshaun Watson's 'awful' actions on Cleveland Browns" - hitc.com (11 h ago)
+- Fan signal: "'Stupid' - Stephen A. Smith hammers Deshaun Watson's 'awful' actions on Cleveland Browns" - hitc.com (12 h ago)
 - Evidence: 7 reaction items (7.0 weighted) · 7 outlets · 0 utility listings excluded · 0 fan posts
 - Phrase velocity: ↑ 200% / 1440 min (3 vs 1)
 - Sentiment: anxious - 'anxious' on 5/7 lexicon hits across 7 item(s)
@@ -53,7 +53,7 @@ Fan connectors: no fan posts observed - reddit error (HTTP Error 403: Blocked); 
 - Action: Instagram - product creative after engagement confirms the angle (after the X post confirms the angle)
 - Action: Pinterest - keyword pin of the matched design (+2 h)
   - Shedeur Sanders, Jimmy Horn Jr. reunion with Browns update on Friday - Dawgs By Nature - google_news (7 h ago) https://news.google.com/rss/articles/CBMiwgFBVV95cUxNYXczS1NoSmlhTVl4elZMdk9LR3NEQk9iUWxWdHgtem1uVUNJSEl5MVV0ck81emtjUXZMYnlqVzFEcDBISkNCVHVLNjJWM2VEWkJtdUZrYmJwUDZyako3Q3pHQkNCSHc3Yk1vYUN1RnVxYzgyT3BkWDcwU1N1SjF2LUZUQTM1VmpfSEZHQlZGTXJ4SzAzZTQ3V1U2V0U1d25paThxYXB3ZVJOSlB4bUdPYU9PREhnUVFHaDNOaHBpRDI2QQ?oc=5
-  - 'Stupid' - Stephen A. Smith hammers Deshaun Watson's 'awful' actions on Cleveland Browns - hitc.com - google_news (11 h ago) https://news.google.com/rss/articles/CBMipAFBVV95cUxQRGpUZXV1dXBqVEtyUGt4UFR5T0NKQUpPYnRtWDVwWS1PamJSdzJVR2NXcGY1ZWVJaC1ZVm1YSTQzdDg1UHJKdmZQWGU0REVuTlVlQ0taMzhaNGVSNU82WWVmMW13UnA2WWRJWThNdlJXb0VvWnd4clc0dEhFMERKcXVHLWRrVjhyOEdXN0FlYzdpWDl5d3JOcVlpRXNqc19xLS1QaA?oc=5
+  - 'Stupid' - Stephen A. Smith hammers Deshaun Watson's 'awful' actions on Cleveland Browns - hitc.com - google_news (12 h ago) https://news.google.com/rss/articles/CBMipAFBVV95cUxQRGpUZXV1dXBqVEtyUGt4UFR5T0NKQUpPYnRtWDVwWS1PamJSdzJVR2NXcGY1ZWVJaC1ZVm1YSTQzdDg1UHJKdmZQWGU0REVuTlVlQ0taMzhaNGVSNU82WWVmMW13UnA2WWRJWThNdlJXb0VvWnd4clc0dEhFMERKcXVHLWRrVjhyOEdXN0FlYzdpWDl5d3JOcVlpRXNqc19xLS1QaA?oc=5
   - Tyson Campbell misses practice with an ankle injury; Shedeur Sanders reunited with a go-to receiver - Cleveland.com - google_news (22 h ago) https://news.google.com/rss/articles/CBMi3AFBVV95cUxNU0lJQVcwQTRZb2VDTGtjbkpLd1F2QjJPN01Hb0RoRXhtWHpmbGMwUWFrRnFYam1RenktRVpKcVZsR1YwbFFwUFZTT3dodXU0OGVOLXRhMGNSYk13ZEl6M19mejd2M042ZEQwOUVCYTkyQllnNXBHTTN2T1lXZF9UM0tnMWxIS0xpTUtSOTEwcXV6NjNiUF9pRGFZVVVfMmxXbllTVUtpTmIwcTNzbThWMXhIV3p3NXF2aVBxTDJSTlFUYXJsRUFtSjNQNEFkd1h3d1d1MlkwM2pGRXJP?oc=5
   - Browns Hit With Troubling Deshaun Watson Locker Room Report - heavy.com - google_news (1 d ago) https://news.google.com/rss/articles/CBMilAFBVV95cUxQZXVpeDI0bFVCcU1RQ0F4T04zMVFwVVdadHVHQ0JQaVM0Zm1TR015ZVRQS0NvSm1XbE5PYnRLX0dOSTUyRmRBajFMaE9QUG5nVENnS1ZVWXJxaW5oLTNaSi1ueG9wd3JvNUxMZHBvbzNVLU1TbDVKTzQ2bWcyUTU5ZUJTdmYwZjhvQnFlWXJIMzVZLVBj?oc=5
 
@@ -67,7 +67,7 @@ Fan connectors: no fan posts observed - reddit error (HTTP Error 403: Blocked); 
 - Commercial: exact - Doomsday Defense Dallas Football Shirt $21.99 (sellable) - DOOMSDAY DEFENSE
 - Why fans care: Dallas defence talk always drifts to the Doomsday era - the one defensive identity we own a design for.
 - Tracked names: von miller (0 window mentions, FTI 0)
-  - Here We Goooo: How the Cowboys defense can bounce back against Washington - Dallas Cowboys - google_news (2 h ago) https://news.google.com/rss/articles/CBMiqwFBVV95cUxPdkVSVWE5VnBhbEhnYXJsQXJQRlhmeDJ1QkpWQTNXalkwM1o3Tm84VGhKVkZPZk1YNGw3b1R5V195ZEppU1dIQ3YtT2xRR0Uyd0ZWT1NNVjVSUkRfMkJDSFkteWZ6VUUwZVAtVW9BVkVXbWREZTBjbndjWWMzLWpiU1FhdFAxVTRaM0NzcWhZYS1SN1doVzlGMER4ZGFBdENuSnVqS0xKOEN0SWM?oc=5
+  - Here We Goooo: How the Cowboys defense can bounce back against Washington - Dallas Cowboys - google_news (3 h ago) https://news.google.com/rss/articles/CBMiqwFBVV95cUxPdkVSVWE5VnBhbEhnYXJsQXJQRlhmeDJ1QkpWQTNXalkwM1o3Tm84VGhKVkZPZk1YNGw3b1R5V195ZEppU1dIQ3YtT2xRR0Uyd0ZWT1NNVjVSUkRfMkJDSFkteWZ6VUUwZVAtVW9BVkVXbWREZTBjbndjWWMzLWpiU1FhdFAxVTRaM0NzcWhZYS1SN1doVzlGMER4ZGFBdENuSnVqS0xKOEN0SWM?oc=5
   - Cowboys OC Questions Steelers' Coaching Staff in Troubling Broderick Jones Update - Sports Illustrated - google_news (10 h ago) https://news.google.com/rss/articles/CBMiywFBVV95cUxNaGliSjFuZ0Q5SFNBZl93YThmeXZfZXpKcXg5bjIxLXhmSkw3UUxkc1BMQ0p5cWx5VmUxOFJReTBZbUs2RDFuOFNoNTZ4RlBPZFhBX2ZYOFlyYVY0dXhUWTRReE1QcUJ6czlhZjJobktGbU9mamFQbkg5SGZidWdjV2ZPczRyc0NZVDA4cGF2Uk1PaUZSLXh6MnNDVXZWbDdVQm9rOHhpSTlmMlk3bkI3ZG1uRnJxR0c0Yk5BMk54Qk1RVGlJQmpUelBQWQ?oc=5
   - The Cowboys defense needs to lean into Caleb Downs - Blogging The Boys - google_news (21 h ago) https://news.google.com/rss/articles/CBMiqgFBVV95cUxPeTdXU1h3RlNCdXllcWFkZFc2OHBMTjJwZ2FMZlEwNmdjN2dZMTJzSDJXUV80eE5ib1hCUFhjM1d4b1Y4a2k5aWpVSHljWUxvUWJpTGRZT3Y0enE5cDFwa194REJJQzFFNkozR2RlU21KMEN5UlJvRXJfLVY3bWxESkVySHV3bHNiN2xFa3ptX2E1RWJ0aXRUMVAwcGxWQ3I1UW5BU0ZqTzFZUQ?oc=5
   - Dallas Cowboys’ Von Miller to give free eye exams, glasses to San Antonio children - KSAT - google_news (22 h ago) https://news.google.com/rss/articles/CBMiuAFBVV95cUxNdzhTQ21nQ1N3Mm9ybWNLMHB4RW11WDhHWXRWRzdfSFA3NmlwcEctYm5XcHYzckM0Ui1veHlOUHpSU1JJeEJzeUlaemFzSE56cWhZZnBMaUt6VUJJVlgyMmJ3bWpoNWx6dWR4MjJjNjJxcWpzcVZ2MlRYemQzSjBjY1V6NGFUN0drSDhWbUw3WW1QdHVDUW9XUDZJUF82Q2RjTFdSenVaald0a1kyWS1VUmJ4NnlaZ3ZE?oc=5

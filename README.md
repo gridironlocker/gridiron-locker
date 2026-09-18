@@ -249,7 +249,9 @@ Product pages show a live "order by [date] to wear it for Week 1" line.
   writes `site-offline/` with the explicit `index.html` filenames that protocol needs.
 - `.nojekyll` added so GitHub serves every file as-is.
 - **robots.txt rewritten**: welcomes Google, Bing, Google Images and AI answer engines
-  (GPTBot, PerplexityBot, ClaudeBot), with a polite `Crawl-delay: 1`.
+  (GPTBot, PerplexityBot, ClaudeBot). No `Crawl-delay` — Google ignores it, and the
+  directive only ever applied to the last user-agent group, so it throttled one AI
+  crawler while looking sitewide. `/marketing/` and `/ops/` stay disallowed.
 - Sitemap regenerates with your live URL automatically.
 
 ### Publish it
