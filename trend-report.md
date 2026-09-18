@@ -1,8 +1,8 @@
 # Hunt Report - 2026-09-18
 
-Generated: 2026-09-18 22:02 UTC by src/hunter_intelligence.py
+Generated: 2026-09-18 22:30 UTC by src/hunter_intelligence.py
 
-Ladder: SIGNAL 1 · TREND 0 · OPPORTUNITY 2 · ACTION 0 · HEADLINE 7
+Ladder: SIGNAL 2 · TREND 0 · OPPORTUNITY 2 · ACTION 0 · HEADLINE 6
 
 Fan connectors: no fan posts observed - reddit error (HTTP Error 403: Blocked); x not_configured (Set X_BEARER_TOKEN to use the official X recent-search API.); facebook not_configured (Set META_PAGE_ID and META_PAGE_ACCESS_TOKEN for the official Meta Page feed API.)
 
@@ -39,11 +39,11 @@ Fan connectors: no fan posts observed - reddit error (HTTP Error 403: Blocked); 
   - CeeDee Lamb 'can't wait' for chance to bounce back in home opener vs. Commanders - Dallas Cowboys - google_news (3 h ago) https://news.google.com/rss/articles/CBMisgFBVV95cUxNa2VCWjR6VXE2MlhhRTBlX2J0S0hwRElmQWdlVGRnVTd2cEZESGdKUkxXX1FabWRWLV8ycl9GOHZGOUxIX0tacUNpcXMyUkJlbHlTTUhpQkQ3YUx1Rl9EN3R0QmxPVEM2WDVQM1AzNjhHVTZRTXFBdHVCQlJTd3FPWHdzRlZkVEhoYzZfUmpBNVd2clZoYmxBTUUxWVZLMFNHaHdKUGZmQTVCN1VqM2luQlp3?oc=5
 
 ### 2. QB room: who is QB1 in Cleveland - Cleveland Browns
-- Level: OPPORTUNITY · Confidence: 71% · 🟢 READY (matched design, posting window open, evidence under 12 h)
-- Fan signal: "'Stupid' - Stephen A. Smith hammers Deshaun Watson's 'awful' actions on Cleveland Browns" - hitc.com (12 h ago)
+- Level: OPPORTUNITY · Confidence: 73% · 🟢 READY (matched design, posting window open, evidence under 12 h)
+- Fan signal: "The Browns' locker room is against Deshaun Watson: “They're sick of this charade; it shows a lack of leadership”" - MARCA (5 h ago)
 - Evidence: 7 reaction items (7.0 weighted) · 7 outlets · 0 utility listings excluded · 0 fan posts
-- Phrase velocity: ↑ 200% / 1440 min (3 vs 1)
-- Sentiment: anxious - 'anxious' on 5/7 lexicon hits across 7 item(s)
+- Phrase velocity: ↑ 50% / 1440 min (3 vs 2)
+- Sentiment: anxious - 'anxious' on 5/8 lexicon hits across 7 item(s)
 - Game state: next game in ~2 day(s)
 - Commercial: campaign - Make Them Know Your Name $21.00 (sellable) - THEY FORGOT WHO I AM — QB1 belief
 - Why fans care: The whole fanbase is arguing one question: who starts. That is a belief argument, and belief is what a QB tee sells.
@@ -52,30 +52,43 @@ Fan connectors: no fan posts observed - reddit error (HTTP Error 403: Blocked); 
 - Action: Threads - alternate angle (+20 min)
 - Action: Instagram - product creative after engagement confirms the angle (after the X post confirms the angle)
 - Action: Pinterest - keyword pin of the matched design (+2 h)
-  - Shedeur Sanders, Jimmy Horn Jr. reunion with Browns update on Friday - Dawgs By Nature - google_news (7 h ago) https://news.google.com/rss/articles/CBMiwgFBVV95cUxNYXczS1NoSmlhTVl4elZMdk9LR3NEQk9iUWxWdHgtem1uVUNJSEl5MVV0ck81emtjUXZMYnlqVzFEcDBISkNCVHVLNjJWM2VEWkJtdUZrYmJwUDZyako3Q3pHQkNCSHc3Yk1vYUN1RnVxYzgyT3BkWDcwU1N1SjF2LUZUQTM1VmpfSEZHQlZGTXJ4SzAzZTQ3V1U2V0U1d25paThxYXB3ZVJOSlB4bUdPYU9PREhnUVFHaDNOaHBpRDI2QQ?oc=5
+  - The Browns' locker room is against Deshaun Watson: “They're sick of this charade; it shows a lack of leadership” - MARCA - google_news (5 h ago) https://news.google.com/rss/articles/CBMi-wFBVV95cUxQcTdrNUJySl9QWk1JcGhPak1KejhrdHd4V29kRmVTaUFvTEhXYWVXRUJDTlpyekhoTW5nSDdsTWlfRjNuRzJYUGlNdHZLN1I4dTd0ZFdlZWtwYm1VNjhxQllCZjhRSnJyME1JdVB4U0YyREE4QlNGcDBSbnpnQlFkS2FtdW4zNmhwLXFWTnVCejF4SUtMY2dnV0JocGhTNWlBR05ydU5fUUJSb0JWR053ZHdyaHBQZnctT214dHQzb29LWjcwVkI0TnFOamRsbVQxMDJEYzhrNERhaUV2VUp5ZnNnTW41NEdRQ0xqNHpSUlkzM0VIUU9QblNXWdIB-wFBVV95cUxQVlRxWFNGVlpWRlM5elc2NTdqRjV2UlVOclBZSHFuQ1VzX0NmSll5b0tRSGV0UFdtUFRHYkdLWVN2SWQxd2kzVnNoUHpJclFlZGp4MjRVdENDTHhhU0RkeXJwQXlqTGZTSm9hOXI3QlNVTDdGcFFtWVBLRVRkWG16RVpCeGpoLVFnelc4Z2diN3VPWWl3WnljVXJpWDBqam9BekhDSXVSUlRHUEpYbEFDMzE0YjctMFZiUkN6ZTh0RlpBZ2U2VlZHV0MwTHhvTDludDRTSy1MRzVaUkRKOHE1blhIWTlkY1pHcGIwcDQ1XzB4eUNsenRJbnBLdw?oc=5
+  - Shedeur Sanders, Jimmy Horn Jr. reunion with Browns update on Friday - Dawgs By Nature - google_news (8 h ago) https://news.google.com/rss/articles/CBMiwgFBVV95cUxNYXczS1NoSmlhTVl4elZMdk9LR3NEQk9iUWxWdHgtem1uVUNJSEl5MVV0ck81emtjUXZMYnlqVzFEcDBISkNCVHVLNjJWM2VEWkJtdUZrYmJwUDZyako3Q3pHQkNCSHc3Yk1vYUN1RnVxYzgyT3BkWDcwU1N1SjF2LUZUQTM1VmpfSEZHQlZGTXJ4SzAzZTQ3V1U2V0U1d25paThxYXB3ZVJOSlB4bUdPYU9PREhnUVFHaDNOaHBpRDI2QQ?oc=5
   - 'Stupid' - Stephen A. Smith hammers Deshaun Watson's 'awful' actions on Cleveland Browns - hitc.com - google_news (12 h ago) https://news.google.com/rss/articles/CBMipAFBVV95cUxQRGpUZXV1dXBqVEtyUGt4UFR5T0NKQUpPYnRtWDVwWS1PamJSdzJVR2NXcGY1ZWVJaC1ZVm1YSTQzdDg1UHJKdmZQWGU0REVuTlVlQ0taMzhaNGVSNU82WWVmMW13UnA2WWRJWThNdlJXb0VvWnd4clc0dEhFMERKcXVHLWRrVjhyOEdXN0FlYzdpWDl5d3JOcVlpRXNqc19xLS1QaA?oc=5
-  - Tyson Campbell misses practice with an ankle injury; Shedeur Sanders reunited with a go-to receiver - Cleveland.com - google_news (22 h ago) https://news.google.com/rss/articles/CBMi3AFBVV95cUxNU0lJQVcwQTRZb2VDTGtjbkpLd1F2QjJPN01Hb0RoRXhtWHpmbGMwUWFrRnFYam1RenktRVpKcVZsR1YwbFFwUFZTT3dodXU0OGVOLXRhMGNSYk13ZEl6M19mejd2M042ZEQwOUVCYTkyQllnNXBHTTN2T1lXZF9UM0tnMWxIS0xpTUtSOTEwcXV6NjNiUF9pRGFZVVVfMmxXbllTVUtpTmIwcTNzbThWMXhIV3p3NXF2aVBxTDJSTlFUYXJsRUFtSjNQNEFkd1h3d1d1MlkwM2pGRXJP?oc=5
   - Browns Hit With Troubling Deshaun Watson Locker Room Report - heavy.com - google_news (1 d ago) https://news.google.com/rss/articles/CBMilAFBVV95cUxQZXVpeDI0bFVCcU1RQ0F4T04zMVFwVVdadHVHQ0JQaVM0Zm1TR015ZVRQS0NvSm1XbE5PYnRLX0dOSTUyRmRBajFMaE9QUG5nVENnS1ZVWXJxaW5oLTNaSi1ueG9wd3JvNUxMZHBvbzNVLU1TbDVKTzQ2bWcyUTU5ZUJTdmYwZjhvQnFlWXJIMzVZLVBj?oc=5
 
-### 3. Doomsday memory: defence and the pass rush - Dallas Cowboys
+### 3. Coaching: Monken's first season - Cleveland Browns
+- Level: SIGNAL · Confidence: 56% · ⚪ WATCH (fans are reacting but nothing on the shelf answers it yet)
+- Fan signal: "Todd Monken: Browns' big loss not just about Deshaun Watson" - ESPN (5 d ago)
+- Evidence: 3 reaction items (3.0 weighted) · 2 outlets · 0 utility listings excluded · 0 fan posts
+- Phrase velocity: new - 1 item in last 60 min, none in the window before
+- Sentiment: anxious - 'anxious' on 2/3 lexicon hits across 3 item(s)
+- Game state: next game in ~2 day(s)
+- Commercial: campaign - Beware Of Dawg $21.00 (sellable) - COACH LOYALTY
+- Why fans care: New-coach hope and captain announcements are low-volume but very shareable inside the fanbase.
+- Tracked names: deshaun watson (41 window mentions, FTI 100); todd monken (5 window mentions, FTI 12)
+  - Browns Linked to Legendary Coach in Hopes of Arch Manning Pairing: Report - Yahoo Sports - google_news (24 min ago) https://news.google.com/rss/articles/CBMijAFBVV95cUxNVm1zOWFrVUZobEZfZU9hNTZ3dUZDZFZtSHZUUGZPSHR1Q2hPZnpBUzJyaWpiQ3ljODZMZS1DV3l1MTJJTjBhdHlseTRNRlk1YTdvTFBjRHJiQVp3SENsd3BNaDVaS3NuM1FxYkFxaktEZGk4NWJmakxTMVlwTXlXQVFpMWJQUm9VVDFiUA?oc=5
+  - Todd Monken: Browns' big loss not just about Deshaun Watson - ESPN (5 d ago) https://news.google.com/rss/articles/CBMinAFBVV95cUxNZ1BiZ0k0T294bHR4SGJLUUYxcC1aa21YcGNJVlJ0bEtNZk5oWE5BWVR1WHFrbmZzQWhwb2lTR1NyekpQWTFxQjR1Q0lFUVlqbjhqUnlVc1VDRXBMX29wazFCRG5MRXhCYmxtdDlyVmxOOWJ2SWtjc0E1MXpfSWFwaGlVUzVyWGFCRFdaem9kcmNkOHJSV2RWZnpzYk0?oc=5
+  - ‘I would have cut him’ – Former NFL coach blasts Cleveland Browns for giving Deshaun Watson the starting spot - Yahoo Sports (5 d ago) https://news.google.com/rss/articles/CBMifkFVX3lxTE95R1hhWUtQcWZXMDd3N2twWTI2a1dxODZNeVI0cHBPNU4zbGZoTldnUGtibHFualJrVVVJblo1VC1OSFR6ajZ0b2pyQ3ZhaDFFR2s2bnc5QnhBbzNBd2ZiNk1tdlBqRXBFMlJTOU5WcHhXUXA5MVJNamFUdndYZw?oc=5
+
+### 4. Doomsday memory: defence and the pass rush - Dallas Cowboys
 - Level: SIGNAL · Confidence: 55% · ⚪ WATCH (fans are reacting but nothing on the shelf answers it yet)
-- Fan signal: "Here We Goooo: How the Cowboys defense can bounce back against Washington" - Dallas Cowboys (3 h ago)
+- Fan signal: "Cowboys OC Questions Steelers' Coaching Staff in Troubling Broderick Jones Update" - Sports Illustrated (10 h ago)
 - Evidence: 3 reaction items (3.0 weighted) · 3 outlets · 0 utility listings excluded · 0 fan posts
 - Phrase velocity: new - 1 item in last 240 min, none in the window before
-- Sentiment: proud - 'proud' on 1/1 lexicon hits across 3 item(s)
+- Sentiment: hopeful - 'hopeful' on 1/3 lexicon hits across 3 item(s)
 - Game state: result coverage in the last 30 h (1 item(s))
 - Commercial: exact - Doomsday Defense Dallas Football Shirt $21.99 (sellable) - DOOMSDAY DEFENSE
 - Why fans care: Dallas defence talk always drifts to the Doomsday era - the one defensive identity we own a design for.
 - Tracked names: von miller (0 window mentions, FTI 0)
   - Here We Goooo: How the Cowboys defense can bounce back against Washington - Dallas Cowboys - google_news (3 h ago) https://news.google.com/rss/articles/CBMiqwFBVV95cUxPdkVSVWE5VnBhbEhnYXJsQXJQRlhmeDJ1QkpWQTNXalkwM1o3Tm84VGhKVkZPZk1YNGw3b1R5V195ZEppU1dIQ3YtT2xRR0Uyd0ZWT1NNVjVSUkRfMkJDSFkteWZ6VUUwZVAtVW9BVkVXbWREZTBjbndjWWMzLWpiU1FhdFAxVTRaM0NzcWhZYS1SN1doVzlGMER4ZGFBdENuSnVqS0xKOEN0SWM?oc=5
-  - The Cowboys defense needs to lean into Caleb Downs - Blogging The Boys - google_news (21 h ago) https://news.google.com/rss/articles/CBMiqgFBVV95cUxPeTdXU1h3RlNCdXllcWFkZFc2OHBMTjJwZ2FMZlEwNmdjN2dZMTJzSDJXUV80eE5ib1hCUFhjM1d4b1Y4a2k5aWpVSHljWUxvUWJpTGRZT3Y0enE5cDFwa194REJJQzFFNkozR2RlU21KMEN5UlJvRXJfLVY3bWxESkVySHV3bHNiN2xFa3ptX2E1RWJ0aXRUMVAwcGxWQ3I1UW5BU0ZqTzFZUQ?oc=5
-  - Dallas Cowboys’ Von Miller to give free eye exams, glasses to San Antonio children - KSAT - google_news (22 h ago) https://news.google.com/rss/articles/CBMiuAFBVV95cUxNdzhTQ21nQ1N3Mm9ybWNLMHB4RW11WDhHWXRWRzdfSFA3NmlwcEctYm5XcHYzckM0Ui1veHlOUHpSU1JJeEJzeUlaemFzSE56cWhZZnBMaUt6VUJJVlgyMmJ3bWpoNWx6dWR4MjJjNjJxcWpzcVZ2MlRYemQzSjBjY1V6NGFUN0drSDhWbUw3WW1QdHVDUW9XUDZJUF82Q2RjTFdSenVaald0a1kyWS1VUmJ4NnlaZ3ZE?oc=5
+  - Cowboys OC Questions Steelers' Coaching Staff in Troubling Broderick Jones Update - Sports Illustrated - google_news (10 h ago) https://news.google.com/rss/articles/CBMiywFBVV95cUxNaGliSjFuZ0Q5SFNBZl93YThmeXZfZXpKcXg5bjIxLXhmSkw3UUxkc1BMQ0p5cWx5VmUxOFJReTBZbUs2RDFuOFNoNTZ4RlBPZFhBX2ZYOFlyYVY0dXhUWTRReE1QcUJ6czlhZjJobktGbU9mamFQbkg5SGZidWdjV2ZPczRyc0NZVDA4cGF2Uk1PaUZSLXh6MnNDVXZWbDdVQm9rOHhpSTlmMlk3bkI3ZG1uRnJxR0c0Yk5BMk54Qk1RVGlJQmpUelBQWQ?oc=5
+  - Dallas Cowboys’ Von Miller to give free eye exams, glasses to San Antonio children - KSAT - google_news (23 h ago) https://news.google.com/rss/articles/CBMiuAFBVV95cUxNdzhTQ21nQ1N3Mm9ybWNLMHB4RW11WDhHWXRWRzdfSFA3NmlwcEctYm5XcHYzckM0Ui1veHlOUHpSU1JJeEJzeUlaemFzSE56cWhZZnBMaUt6VUJJVlgyMmJ3bWpoNWx6dWR4MjJjNjJxcWpzcVZ2MlRYemQzSjBjY1V6NGFUN0drSDhWbUw3WW1QdHVDUW9XUDZJUF82Q2RjTFdSenVaald0a1kyWS1VUmJ4NnlaZ3ZE?oc=5
 
-## Filtered as HEADLINE (7)
+## Filtered as HEADLINE (6)
 
-- BROWNS - Coaching: Monken's first season: 2 reaction item(s), 2 outlet(s), confidence 35% - not a reaction
-- PACKERS - Jordan Love era: 10 is the number: 1 reaction item(s), 1 outlet(s), confidence 42% - not a reaction
-- PACKERS - Josh Jacobs and the run game: 1 reaction item(s), 1 outlet(s), confidence 37% - not a reaction
+- PACKERS - Josh Jacobs and the run game: 1 reaction item(s), 1 outlet(s), confidence 46% - not a reaction
+- PACKERS - Jordan Love era: 10 is the number: 1 reaction item(s), 1 outlet(s), confidence 32% - not a reaction
 - MICHIGAN - Go Blue: The Big House identity: 2 reaction item(s), 2 outlet(s), confidence 54% - not a reaction
 - MICHIGAN - Late-game heroics: the Hail Mary folklore: 1 reaction item(s), 1 outlet(s), confidence 41% - not a reaction
 - MICHIGAN - Underwood era: QB19 in Ann Arbor: 1 reaction item(s), 1 outlet(s), confidence 37% - not a reaction
@@ -103,7 +116,7 @@ Fan connectors: no fan posts observed - reddit error (HTTP Error 403: Blocked); 
 
 - **[Medium] Cleveland Browns: what the Dawg Pound are actually saying about qb room: who is qb1 in cleveland**
   - Where: NFL fan culture (Dawg Pound / Cleveland sports)
-  - Angle: Fan-demand piece built on the live signal ('Stupid' - Stephen A. Smith hammers Deshaun Watson's 'awful' actions on Cleveland Browns), not on a headline recap.
+  - Angle: Fan-demand piece built on the live signal (The Browns' locker room is against Deshaun Watson: “They're sick of this charade; it shows a lack of leadership”), not on a headline recap.
   - Link: https://gridironlocker.shop/make-them-know-your-name?collectionId=P19bpeU2x_Ng&color=GILDAN-DARK_CHOCOLATE&productId=6aa33fa01cdc8689e252dab3
   - Image: Make Them Know Your Name mockup next to the moment that started it.
 
