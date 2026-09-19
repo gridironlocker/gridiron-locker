@@ -968,3 +968,72 @@ count in `qa_http.py`: the same gate against the pre-fix tree reported
 `local images referenced: 16 · remote partner images: 410 (all "unreachable from
 sandbox")` and still printed PASS. It is now **382 local / 44 remote**, which is
 the clearest single signal that the artwork is back on this origin.
+
+### 9.7 Follow-up (2026-09-19) — /collections/ read as ONE link to Michigan
+
+The owner pasted the markdown a reader tool produced for `/collections/` and asked
+why the whole page is a single link to the Michigan collection:
+
+```
+[**Cleveland Browns Fan Shirts** 19 designsShop Cleveland ->](../cleveland-browns-shirts/)[**Green Bay Packers Fan Shirts** 37 designsShop Green Bay ->](…)[**Dallas…](…)[**Michigan Go Blue Apparel** 18 designsShop Michigan ->](../michigan-wolverines-shirts/)
+```
+
+**Root cause.** The markup was valid — no unclosed or nested `<a>` anywhere. The
+defect was source text: each collection card is one `<a>` whose entire content is
+the link, the four cards were joined with `"".join()` so they sat back to back
+(`</a><a class="teamcircle"`), and every element inside a card was jammed against
+its neighbour (`19 designsShop Cleveland`). `html2text` on the built row therefore
+emitted four markdown links with no whitespace between them, and re-parsing that
+run with the greedy `[text](url)` regex a lot of reader/LLM tooling uses collapses
+it into **one** link whose text is all four cards and whose href is the **last**
+one — `re.match(r'\[(.*)\]\((.*)\)', before)` groups `../michigan-wolverines-shirts/`,
+which is exactly how the owner saw /collections/ as a single link to Michigan.
+
+The fix is `src/build.py` only — `site/` is never hand-edited:
+
+| What changed | |
+|---|---|
+| `src/build.py` | `team_circle_card()` and `team_card()` emit one element per line; both joins are now `"\n".join(...)` (in `page_collections_index()` and `shop_by_team()`) with a comment on why. |
+| `site/collections/index.html`, `site/index.html` | rebuilt — the only two pages that change, **+39 bytes each**, and stripping all whitespace from the HEAD and new versions yields **equal strings** (`re.sub(r'\s+','',old) == re.sub(r'\s+','',new)`): nothing but whitespace moved. Two consecutive builds stay byte-identical (§9.4/§9.5 determinism). |
+| `tests/test_layout.py` | new `CardTextSeparation20260919` (3 tests): four readable cards in ORDER per row, no `</a><a` run, one `</a>\s+<a` boundary per gap, hrefs match `ORDER`, card text matches `<name> <n> designs Shop <short>`; plus a source guard that `build.py` never joins either row with `""`. |
+
+AFTER, the same converter on the same block reads four whitespace-separated links
+(the images are elided here for readability, as in the owner's paste):
+
+```
+[ **Cleveland Browns Fan Shirts** 19 designs Shop Cleveland -> ](../cleveland-browns-shirts/) [ **Green Bay Packers Fan Shirts** 37 designs Shop Green Bay -> ](../green-bay-packers-shirts/) [ **Dallas Vintage Sports Tees** 10 designs Shop Dallas -> ](../dallas-cowboys-shirts/) [ **Michigan Go Blue Apparel** 18 designs Shop Michigan -> ](../michigan-wolverines-shirts/)
+```
+
+The harshest extractor — delete every tag, add no spaces of your own — now reads
+`…Fan Shirts 19 designs Shop Cleveland → Green Bay Packers Fan Shirts 37 designs…`
+where before the same pass produced `…Fan Shirts19 designsShop Cleveland →Green Bay…`.
+
+**Why the whitespace is free.** `.teamcircles` and `.teamdeck-grid` are CSS grid
+containers and `.teamcircle`, `.teamcard` and `.tc-body` are flex: a whitespace-only
+run of child text generates no grid/flex item at all, so the newlines between cards
+and between a card's inline-level children cannot render. `.tc-name` and
+`.tc-phrase` are block-level siblings inside their parents, same rule. The one
+deliberate exception is inside `.tc-ph` on the homepage deck: its `<img>` is
+inline-level, so a newline there *would* render — the shade/overlay spans stay
+jammed against it on purpose.
+
+**Not changed.** The product-card grids (`<article class="card">` rows) keep their
+tight joins. Each card is a block-level article wrapping its own `<a>`, so
+extractors never merge two products into one link; the only cross-card bleed is the
+literal "Quick view" label touching the next card's text, which is a cosmetic
+wrinkle in stripped text, not a link-merge. Separating those joins would touch
+every page on the site for a cosmetic gain, so it is left as an owner call.
+
+Gates after the fix:
+
+```
+python3 -m unittest discover -s tests -p "test_*.py"   Ran 244 tests … OK (skipped=17)   (241 + 3 new)
+python3 qa_audit.py                                    TOTAL: 0
+python3 qa_http.py http://127.0.0.1:8123               PASS · 0 dead links, 382 local images, 0 broken
+python3 qa_deep.py                                     CRITICAL=1 HIGH=2 MEDIUM=6 (exit 1, unchanged)
+```
+
+The `qa_deep.py` CRITICAL is still §9.2's deferred design-law decision — not
+touched here. Verified red before trusting the tests: with `site/collections/index.html`
+and `site/index.html` reverted to HEAD the class fails 2/3; after a rebuild it is OK;
+and flipping either join back to `""` fails the source guard.

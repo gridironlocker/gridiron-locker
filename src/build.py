@@ -1360,13 +1360,21 @@ def team_nav_card(k, cls="teamnav reveal"):
 
 def team_circle_card(k):
     """/collections/ entry: circular portrait with a team-colour outline, the
-    collection name, the live design count and an arrow."""
+    collection name, the live design count and an arrow.
+
+    One element per line. Cards are joined with "\n" (never "") and the
+    elements inside are newline-separated too: markdown extractors re-parse
+    `</a><a ...>` back-to-back as a single link, so every card needs
+    whitespace both inside and around it (whitespace-only flex/grid children
+    render nothing, so this is free)."""
     c = COLLECTIONS[k]
-    return (f'<a class="teamcircle reveal" style="{theme_vars(k)}" href="/{c["slug"]}/">'
-            f'{team_portrait(k, 160)}'
-            f'<b class="tc-name">{esc(c["name"])}</b>'
-            f'<span class="tc-count">{len(MODEL[k])} designs</span>'
-            f'<span class="tc-go">Shop {esc(c["short"])} <span aria-hidden="true">&rarr;</span></span></a>')
+    return (f'<a class="teamcircle reveal" style="{theme_vars(k)}" href="/{c["slug"]}/">\n'
+            f' {team_portrait(k, 160)}\n'
+            f' <b class="tc-name">{esc(c["name"])}</b>\n'
+            f' <span class="tc-count">{len(MODEL[k])} designs</span>\n'
+            f' <span class="tc-go">Shop {esc(c["short"])} '
+            f'<span aria-hidden="true">&rarr;</span></span>\n'
+            f'</a>')
 
 
 def team_section(k, limit=4, exclude=()):
@@ -1689,24 +1697,34 @@ def team_card(k):
     banner, see src/crop_art.py), the team name in display type, the fan
     phrase, the live design count and an arrow CTA. The four cards share one
     composition, one type treatment and one lighting philosophy - only the
-    colour tokens and the artwork change."""
+    colour tokens and the artwork change.
+
+    One element per line, joined with "\n" - same rationale as
+    team_circle_card(): back-to-back `</a><a ...>` collapses into one link
+    under greedy markdown re-parsing. The one deliberate exception is
+    .tc-ph: its <img> is inline-level, so a newline there would actually
+    render, which is why the shade/overlay spans stay jammed."""
     c = COLLECTIONS[k]
     art = TEAM_CARD_ART[k]
-    return (f'<a class="teamcard reveal" style="{theme_vars(k)}" href="/{c["slug"]}/">'
+    return (f'<a class="teamcard reveal" style="{theme_vars(k)}" href="/{c["slug"]}/">\n'
             f'<span class="tc-ph"><img src="{art}" alt="{esc(c["short"])} fan gear - hoodie, '
             f'beanie and helmet in team colours" loading="lazy" decoding="async" '
             f'width="640" height="640">'
             f'<span class="tc-shade" aria-hidden="true"></span>'
-            f'<span class="tc-over"><b class="tc-name">{esc(c["short"])}</b>'
-            f'<span class="tc-phrase">{esc(c["phrase"])}</span></span></span>'
-            f'<span class="tc-body"><span class="tc-count">{len(MODEL[k])} designs</span>'
-            f'<span class="tc-go">Shop {esc(c["short"])} <i aria-hidden="true">&rarr;</i></span>'
-            f'</span></a>')
+            f'<span class="tc-over"><b class="tc-name">{esc(c["short"])}</b>\n'
+            f'<span class="tc-phrase">{esc(c["phrase"])}</span></span></span>\n'
+            f'<span class="tc-body">\n'
+            f' <span class="tc-count">{len(MODEL[k])} designs</span>\n'
+            f' <span class="tc-go">Shop {esc(c["short"])} <i aria-hidden="true">&rarr;</i></span>\n'
+            f'</span>\n'
+            f'</a>')
 
 
 def shop_by_team():
     """Section 1 of the funnel after the hero: which team are you?"""
-    cards = "".join(team_card(k) for k in ORDER)
+    # "\n", not "": back-to-back </a><a collapses four links into one under
+    # markdown re-parsing (see team_circle_card).
+    cards = "\n".join(team_card(k) for k in ORDER)
     return f"""<section class="teamdeck-sec" id="shop-by-team"><div class="wrap">
  <div class="sechead reveal"><div>
   <span class="eyebrow"><span class="dot"></span> Four teams &middot; four fanbases</span>
@@ -2120,7 +2138,9 @@ def page_collections_index():
     # hub, not a duplicate of the homepage. The four per-team product grids
     # used to live here and forced visitors to scroll ~16 teaser cards before
     # choosing a side; they are replaced by one store-wide trending row.
-    cards = "".join(team_circle_card(k) for k in ORDER)
+    # "\n", not "": back-to-back </a><a collapses four links into one under
+    # markdown re-parsing (see team_circle_card).
+    cards = "\n".join(team_circle_card(k) for k in ORDER)
     hot = [x for x in ALL if x.get("trend") == "hot"]
     have = {x["slug"] for x in hot}
     trending = (hot + [x for x in ALL if x["slug"] not in have])[:8]
