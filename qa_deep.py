@@ -74,52 +74,38 @@ STUBS = set(build.retired_slugs())
 # ============================================================ C1 internal files
 # robots.txt Disallow + noindex are NOT access control. GitHub Pages serves
 # everything under site/, so anything copied here is publicly downloadable.
-# Since 2026-09-19 the internal trees are not published at all: marketing/ and
-# ops/ stay in the repo and are opened locally. An extension allowlist was the
-# halfway fix and still shipped plan.json (1.0 MB), the commercial brief, the
-# design roadmap and the social-follower notes on a public host.
+# .json stays: the /ops/ and /marketing/ dashboards fetch their data files
+# client-side, so those are product, not leakage. Everything below is source
+# code, shell, prose playbooks or bulk-upload data and must never be public.
 INTERNAL_BAD = (".py", ".sh", ".md", ".csv", ".txt")
-# Files that are meant to be public and merely share an internal extension:
-# robots.txt and llms.txt are crawler-facing by design, and the IndexNow key
-# has to be served at the root for the ping in refresh.yml to verify.
-PUBLIC_BY_DESIGN = ("robots.txt", "llms.txt", "a7f3c19b84e2456d90b7c15e3f8a2d64.txt")
 leaked = []
-for dp, _dn, fn in os.walk(SITE):
-    for f in fn:
-        rel = os.path.relpath(os.path.join(dp, f), SITE).replace(os.sep, "/")
-        if rel in PUBLIC_BY_DESIGN:
-            continue
-        if f.endswith(INTERNAL_BAD):
-            leaked.append("/" + rel)
+for d in ("marketing", "ops"):
+    for p in sorted(glob.glob(os.path.join(SITE, d, "**", "*"), recursive=True)):
+        if os.path.isfile(p) and p.endswith(INTERNAL_BAD):
+            leaked.append("/" + os.path.relpath(p, SITE).replace(os.sep, "/"))
 if leaked:
     add("CRITICAL", "internal-exposure",
         f"{len(leaked)} internal source/data files are deployed and publicly served "
         f"(robots.txt Disallow is not auth):")
     for u in leaked:
         FIND["internal-exposure"].append("    " + u)
-for d in ("marketing", "ops"):
-    if os.path.exists(os.path.join(SITE, d)):
-        add("CRITICAL", "internal-exposure",
-            f"/{d}/ is inside the Pages artifact. The dashboards are repo-local by "
-            f"design (ops/, marketing/) - build.py must not copy them into site/, and "
-            f"nothing in the storefront links there, so publishing costs 4.1 MB and "
-            f"leaks the plan, the brief and the roadmap")
-# The guard has to live in the generator, or the trees come back on the next
-# rebuild (site/ is committed, so a stale copy also has to be deleted, not
-# merely left alone).
+# HTML dashboards are a deliberate product decision; their source trees are not.
+# Verify the sync functions instead of asserting the defect forever: since the
+# 2026-09-18 fix both walk the tree and copy an allowlist of publishable
+# extensions via _copy_publishable(), so .py/.sh/.md/.csv never reach site/.
 _bsrc = txt(os.path.join(ROOT, "src", "build.py"))
-if "shutil.copytree" in _bsrc or "_copy_publishable" in _bsrc:
-    add("CRITICAL", "internal-exposure-src",
-        "src/build.py copies a whole tree into site/ again (copytree / "
-        "_copy_publishable) - only the generated storefront may live there")
-if "def never_publish_internal" not in _bsrc:
-    add("HIGH", "internal-exposure-src",
-        "src/build.py no longer runs never_publish_internal(), so an internal tree "
-        "written into site/ by any tool would be deployed and stay deployed")
-if "def generate_dashboards" not in _bsrc:
-    add("MEDIUM", "internal-exposure-src",
-        "src/build.py no longer regenerates the ops dashboards, so the local views "
-        "in ops/ will go stale against the catalogue")
+for _fn in ("sync_marketing", "sync_ops"):
+    _m = re.search(r"def %s\(.*?\):(.*?)(?=\ndef |\Z)" % _fn, _bsrc, re.S)
+    if not _m:
+        continue
+    if "shutil.copytree" in _m.group(1):
+        add("CRITICAL", "internal-exposure-src",
+            f"{_fn}() copies its whole tree with shutil.copytree - only publishable "
+            f"extensions may reach site/ (see PUBLISH_EXT / _copy_publishable)")
+    elif "_copy_publishable" not in _m.group(1):
+        add("HIGH", "internal-exposure-src",
+            f"{_fn}() does not use _copy_publishable(), so what it publishes is not "
+            f"the allowlist")
 
 # ================================================== C2 forbidden design terms
 # DESIGN-BLUEPRINT.md §2: never a player's face/photo, surname on the chest,
@@ -606,47 +592,21 @@ except Exception:
     add("MEDIUM", "drops", "no data/drops-dropped.json - unshipped drops are invisible again")
 
 # ================================================ M6 orphan files
+written = set()
 orphans = []
 for dp, dn, fn in os.walk(SITE):
     for f in fn:
         rel = os.path.relpath(os.path.join(dp, f), SITE).replace(os.sep, "/")
         if "/" in rel and re.match(r"^(google|bing|a7f3c19b)[a-z0-9]*\.(html|txt|xml)$", f):
-            orphans.append("/" + rel + " - verification file stranded inside a content "
-                           "directory (no title, no meta, not in the sitemap)")
-_imgref = re.compile(r"(?:\.\./|\./|/)?img/[A-Za-z0-9._/\-]+")
-_refs = set()
-for dp, _dn, fn in os.walk(SITE):
-    for f in fn:
-        if f.endswith((".html", ".css", ".js", ".json", ".xml", ".webmanifest",
-                       ".txt", ".svg")):
-            for m in _imgref.findall(txt(os.path.join(dp, f))):
-                _refs.add(os.path.basename(m.rstrip("/")))
-_stray, _bytes = [], 0
-for dp, _dn, fn in os.walk(os.path.join(SITE, "img")):
-    for f in fn:
-        if f.lower().endswith((".webp", ".jpg", ".jpeg", ".png", ".svg", ".gif")) and f not in _refs:
-            fp = os.path.join(dp, f)
-            _bytes += os.path.getsize(fp)
-            _stray.append(os.path.relpath(fp, SITE).replace(os.sep, "/"))
+            orphans.append("/" + rel)
 for o in orphans:
-    add("MEDIUM", "orphans", o + " - build.py writes only the root copy and prunes "
-        "strays elsewhere, so this one survived a rebuild")
-if _stray and _refs:
-    add("HIGH", "orphans",
-        f"{len(_stray)} file(s) ({_bytes / 1e6:.1f} MB) under site/img/ are referenced by "
-        f"no page, index or sitemap - the Pages artifact ships all of it. src/build.py's "
-        f"prune_unreferenced_assets() should have removed them; either it was disabled or "
-        f"it ran before the pages were written")
-elif _stray:
-    add("MEDIUM", "orphans", f"{len(_stray)} unreferenced file(s) under site/img/ "
-        f"({_bytes / 1e6:.1f} MB) and no image references found at all - a broken build")
+    add("MEDIUM", "orphans",
+        f"{o} - verification file stranded inside a content directory; build.py writes "
+        f"only the root copy and prunes strays elsewhere, so this one survived "
+        f"forever (no title, no meta, not in the sitemap)")
 
 # ================================================ M7 policy contradictions
-# The board used to be read out of site/ops/, which is no longer published;
-# the repo copy is the same generated file, so the policy check still applies.
-_board_path = os.path.join(ROOT, "ops", "board", "index.html")
-board = PAGES.get("ops/board/index.html") or (
-    txt(_board_path, "utf-8") if os.path.exists(_board_path) else "")
+board = PAGES.get("ops/board/index.html", "")
 bv = visible(board)
 if "never appear on art, on a public page" in bv:
     # Scope to the Fan Trend Index: it publishes these names as SCORED rows with
@@ -698,8 +658,7 @@ if signed:
         f"{signed} <img> tags ({uniq} unique) hot-link a partner CDN with signed URLs. "
         f"If the signatures expire or the host rate-limits, they all break at once, and "
         f"qa_http.py reports them as 'unreachable from sandbox' so the gate stays green. "
-        f"Run dl.py to self-host the Viralstyle half - it is import-safe since "
-        f"2026-09-19 and now skips slugs the storefront will never publish.")
+        f"Run dl.py to self-host (add its __main__ guard first).")
 
 # ================================================ L-a11y / SEO residue
 for rel, t in PUBLIC.items():

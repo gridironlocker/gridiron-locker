@@ -59,7 +59,7 @@ templated but varied so no two pages read alike.
 | Trust/info | `/about/`, `/contact/`, `/faq/`, `/shipping/`, `/size-guide/`, `/privacy/`, `/trademark-notice/` | 7 |
 | Creator collaborations | `/michigan/joe/` (Joe's Michigan Locker) | 1 |
 | 404 | `/404.html` | 1 |
-| ~~Marketing planner~~ | `/marketing/dashboard.html` — **not deployed since 2026-09-19** | 0 (repo-local: `marketing/`, `ops/`) |
+| Marketing | `/marketing/dashboard.html` | 1 (planner UI) |
 
 ### Collection sizes
 Cleveland Browns **78** · Green Bay Packers **34** · Michigan **12** · Dallas **10**
@@ -222,11 +222,9 @@ Vanilla JS, single file. Features:
 - **`sitemap.xml`** — 153 URLs with lastmod/priority/changefreq.
 - **`sitemap-images.xml`** — image sitemap (product imagery = ranking asset).
 - **`robots.txt`** — allows everything including AI engines
-  (`GPTBot`, `PerplexityBot`, `ClaudeBot`), with **no `Disallow` lines**: the
-  internal rooms (`marketing/`, `ops/`) are never copied into `site/`, so there
-  is nothing to hide and a public `Disallow` only advertises a path. No
-  `Crawl-delay`: Google ignores it and it only bound to the preceding
-  user-agent group.
+  (`GPTBot`, `PerplexityBot`, `ClaudeBot`); disallows the internal rooms
+  (`/marketing/`, `/ops/`). No `Crawl-delay`: Google ignores it and it only
+  bound to the preceding user-agent group.
 - **`feed.xml`** — RSS with collection + product items (fresh-content signal).
 - **Internal linking:** home → collections → products → related → guides → back.
 - **Trademark-safe framing:** "fan-made / independent / not affiliated"

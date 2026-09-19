@@ -1,0 +1,1224 @@
+<!doctype html>
+<html lang="en">
+<head>
+<meta charset="utf-8">
+<meta name="viewport" content="width=device-width,initial-scale=1">
+<meta name="robots" content="noindex,nofollow,noarchive">
+<meta name="theme-color" content="#070e1a">
+<title>Scout - Ops Dashboard | Gridiron Locker</title>
+<style>
+:root{color-scheme:dark;--ink:#eef5ff;--muted:#93a6c2;--mut2:#c0cfe4;--canvas:#070e1a;
+--canvas2:#0b1526;--panel:#0f1e36;--panel2:#142842;--line:rgba(178,203,238,.13);
+--line2:rgba(178,203,238,.25);--blue:#7cc8ff;--blue2:#3d9df5;--green:#72e0ba;
+--orange:#ffb15a;--pink:#ec9cff;--red:#ff7d7d;
+font-family:Inter,ui-sans-serif,system-ui,-apple-system,BlinkMacSystemFont,"Segoe UI",sans-serif}
+*{box-sizing:border-box}html{scroll-behavior:smooth}
+body{margin:0;min-width:320px;color:var(--ink);line-height:1.55;
+background:radial-gradient(circle at 8% -8%,rgba(61,157,245,.20),transparent 38rem),
+radial-gradient(circle at 96% 4%,rgba(114,224,186,.10),transparent 34rem),var(--canvas)}
+button,input,select{font:inherit}button{cursor:pointer}a{color:var(--blue);text-decoration:none}
+a:hover{color:#c2e7ff}
+.topbar{position:sticky;top:0;z-index:20;border-bottom:1px solid var(--line);
+background:rgba(7,14,26,.88);backdrop-filter:blur(18px)}
+.topbar-inner,.wrap{width:min(1400px,calc(100% - 48px));margin:0 auto}
+.topbar-inner{min-height:70px;display:flex;gap:18px;align-items:center;justify-content:space-between}
+.brand{display:flex;align-items:center;gap:12px;font-weight:800;letter-spacing:-.02em}
+.mark{display:grid;place-items:center;width:36px;height:36px;border-radius:11px;
+color:#05121f;background:linear-gradient(135deg,var(--blue),var(--green));font-weight:850}
+.brand small{display:block;font-weight:600;color:var(--muted);letter-spacing:.14em;
+text-transform:uppercase;font-size:.62rem}
+.pill{display:inline-flex;align-items:center;gap:7px;padding:7px 13px;border:1px solid var(--line2);
+border-radius:999px;color:var(--mut2);background:rgba(255,255,255,.03);font-size:.8rem;white-space:nowrap}
+.dot{width:8px;height:8px;border-radius:50%;background:var(--green);box-shadow:0 0 10px var(--green)}
+section{padding:46px 0 10px}
+h1{margin:0 0 10px;font-size:clamp(1.6rem,3.4vw,2.5rem);letter-spacing:-.03em;line-height:1.15}
+h2{margin:0 0 6px;font-size:1.25rem;letter-spacing:-.02em}
+h3{font-size:.95rem;margin:0 0 10px;letter-spacing:-.01em}
+.lead{color:var(--muted);max-width:76ch;margin:0 0 22px}
+.muted{color:var(--muted)} .small{font-size:.8rem} .mono{font-family:ui-monospace,SFMono-Regular,Menlo,monospace}
+.kpis{display:grid;grid-template-columns:repeat(auto-fit,minmax(150px,1fr));gap:12px}
+.kpi{border:1px solid var(--line);border-radius:16px;padding:16px 18px;background:linear-gradient(180deg,var(--panel),var(--canvas2))}
+.kpi b{display:block;font-size:1.7rem;line-height:1.1;letter-spacing:-.03em}
+.kpi span{color:var(--muted);font-size:.78rem}
+.grid2{display:grid;grid-template-columns:1.35fr 1fr;gap:22px}
+@media(max-width:980px){.grid2{grid-template-columns:1fr}}
+.card{border:1px solid var(--line);border-radius:18px;background:var(--panel);padding:20px 22px;
+box-shadow:0 14px 44px rgba(0,0,0,.22)}
+.card + .card{margin-top:22px}
+table{width:100%;border-collapse:collapse;font-size:.86rem}
+th{color:var(--muted);font-weight:650;text-align:left;padding:9px 10px;border-bottom:1px solid var(--line2);
+font-size:.72rem;letter-spacing:.08em;text-transform:uppercase;white-space:nowrap}
+td{padding:9px 10px;border-bottom:1px solid var(--line);vertical-align:middle}
+tr:hover td{background:rgba(124,200,255,.045)}
+.num{text-align:right;font-variant-numeric:tabular-nums}
+.bar{display:flex;align-items:center;gap:8px;min-width:130px}
+.bar i{display:block;height:7px;border-radius:99px;background:linear-gradient(90deg,var(--blue2),var(--blue))}
+.badge{display:inline-block;padding:3px 10px;border-radius:999px;font-size:.7rem;font-weight:700;
+letter-spacing:.03em;text-transform:uppercase;border:1px solid transparent}
+.trending{color:#062b1c;background:var(--green)}.steady{color:#04121f;background:var(--blue)}
+.quiet{color:#0a1423;background:var(--pink)}.gap{color:#26180a;background:var(--orange)}
+.dead{color:#2b0f0f;background:var(--red)}
+.colcards{display:grid;grid-template-columns:repeat(auto-fit,minmax(270px,1fr));gap:16px}
+.colcard{border:1px solid var(--line);border-radius:18px;background:var(--panel);padding:18px 20px}
+.colcard h3{font-size:1.02rem}
+.chips{display:flex;flex-wrap:wrap;gap:6px;margin-top:8px}
+.chip{padding:3px 9px;border-radius:999px;border:1px solid var(--line2);color:var(--mut2);font-size:.7rem;background:rgba(255,255,255,.02)}
+.calls{display:grid;grid-template-columns:repeat(auto-fit,minmax(230px,1fr));gap:12px}
+.call{border:1px solid rgba(255,177,90,.4);border-radius:14px;padding:13px 15px;background:rgba(255,177,90,.06)}
+.call b{color:var(--orange)}
+.moments{display:flex;flex-direction:column;gap:12px}
+.moment{display:flex;gap:12px;align-items:flex-start;padding:11px 13px;border:1px solid var(--line);border-radius:13px;background:rgba(255,255,255,.018)}
+.moment .meta{color:var(--muted);font-size:.76rem;margin-top:3px}
+.tools{display:flex;gap:10px;flex-wrap:wrap;margin:14px 0}
+input,select{background:var(--canvas2);border:1px solid var(--line2);color:var(--ink);
+border-radius:11px;padding:9px 12px;outline:none}
+input:focus,select:focus{border-color:var(--blue2)}
+input[type=search]{flex:1;min-width:200px}
+details{margin-top:14px;border:1px solid var(--line);border-radius:12px;padding:10px 14px;background:rgba(255,255,255,.015)}
+summary{cursor:pointer;color:var(--mut2);font-size:.82rem}
+pre{overflow:auto;max-height:420px;font-size:.72rem;color:var(--mut2)}
+footer{padding:40px 0 56px;color:var(--muted);font-size:.8rem;border-top:1px solid var(--line);margin-top:40px}
+footer .wrap{display:flex;justify-content:space-between;flex-wrap:wrap;gap:12px}
+.kbd{font-family:ui-monospace,monospace;background:rgba(255,255,255,.06);padding:1px 6px;border-radius:6px;font-size:.78em}
+.stash{display:flex;gap:14px;flex-wrap:wrap;margin-top:10px}
+.stash a{color:var(--mut2)}
+</style>
+</head>
+<body>
+<div class="topbar"><div class="topbar-inner">
+ <div class="brand"><span class="mark">S</span><span>Scout<small>Gridiron Locker - Internal Ops</small></span></div>
+ <span class="pill"><span class="dot"></span>Data refresh Sep 18, 2026 &middot; 10-day window</span>
+</div></div>
+<main class="wrap">
+<section>
+ <h1>Operations <span style="color:var(--green)">Scout</span></h1>
+ <p class="lead">Internal view over the storefront pipeline: catalogue health, live Fan Trend
+ Index, design gaps and headline intelligence. Regenerated on every build
+ (<span class="kbd">src/scout.py</span> &rarr; <span class="kbd">src/build.py</span>); the nightly
+ GitHub Actions refresh keeps this fresh. Not indexed - internal use only.</p>
+ <div class="kpis">
+  <div class="kpi"><b>84</b><span>Live designs</span></div>
+  <div class="kpi"><b>4</b><span>Collections</span></div>
+  <div class="kpi"><b>425</b><span>Hosted product images</span></div>
+  <div class="kpi"><b>$22.96</b><span>Average price</span></div>
+  <div class="kpi"><b>0 / 1</b><span>Trending / throwback</span></div>
+  <div class="kpi"><b>7</b><span>Design gaps</span></div>
+  <div class="kpi"><b>4</b><span>Player moments</span></div>
+  <div class="kpi"><b>41</b><span>Peak mentions (window)</span></div>
+  <div class="kpi"><b>66</b><span>Dead campaigns</span></div>
+ </div>
+</section>
+
+<section>
+ <h2>Fan Trend Index</h2>
+ <p class="muted small">0&ndash;100 share-of-voice vs the hottest name in the window.
+ Formula: <code>round(100 * entity_mentions / peak_mentions_in_window)</code></p>
+ <div class="card">
+ <table>
+ <thead><tr><th>#</th><th>Name</th><th>Collection</th><th class="num">Mentions</th><th>FTI</th><th>Status</th><th>Design</th></tr></thead>
+ <tbody>
+ <tr><td>1</td><td><b>Deshaun Watson</b></td><td>Cleveland</td><td class="num">41</td><td><div class="bar"><i style="width:100%"></i><b>100</b></div></td><td><span class="badge trending">Trending</span></td><td><span class="badge gap">GAP - no design</span></td></tr><tr><td>2</td><td><b>Bryce Underwood</b></td><td>Michigan</td><td class="num">16</td><td><div class="bar"><i style="width:39%"></i><b>39</b></div></td><td><span class="badge trending">Trending</span></td><td><span class="badge steady">In locker</span></td></tr><tr><td>3</td><td><b>Shedeur Sanders</b></td><td>Cleveland</td><td class="num">11</td><td><div class="bar"><i style="width:27%"></i><b>27</b></div></td><td><span class="badge trending">Trending</span></td><td><span class="badge steady">In locker</span></td></tr><tr><td>4</td><td><b>Dak Prescott</b></td><td>Dallas</td><td class="num">8</td><td><div class="bar"><i style="width:20%"></i><b>20</b></div></td><td><span class="badge trending">Trending</span></td><td><span class="badge gap">GAP - no design</span></td></tr><tr><td>5</td><td><b>Kyle Whittingham</b></td><td>Michigan</td><td class="num">6</td><td><div class="bar"><i style="width:15%"></i><b>15</b></div></td><td><span class="badge trending">Trending</span></td><td><span class="badge gap">GAP - no design</span></td></tr><tr><td>6</td><td><b>Todd Monken</b></td><td>Cleveland</td><td class="num">6</td><td><div class="bar"><i style="width:15%"></i><b>15</b></div></td><td><span class="badge trending">Trending</span></td><td><span class="badge gap">GAP - no design</span></td></tr><tr><td>7</td><td><b>Josh Jacobs</b></td><td>Green Bay</td><td class="num">5</td><td><div class="bar"><i style="width:12%"></i><b>12</b></div></td><td><span class="badge trending">Trending</span></td><td><span class="badge gap">GAP - no design</span></td></tr><tr><td>8</td><td><b>Matt LaFleur</b></td><td>Green Bay</td><td class="num">5</td><td><div class="bar"><i style="width:12%"></i><b>12</b></div></td><td><span class="badge trending">Trending</span></td><td><span class="badge gap">GAP - no design</span></td></tr><tr><td>9</td><td><b>CeeDee Lamb</b></td><td>Dallas</td><td class="num">4</td><td><div class="bar"><i style="width:10%"></i><b>10</b></div></td><td><span class="badge trending">Trending</span></td><td><span class="badge gap">GAP - no design</span></td></tr><tr><td>10</td><td><b>Micah Parsons</b></td><td>Green Bay</td><td class="num">2</td><td><div class="bar"><i style="width:5%"></i><b>5</b></div></td><td><span class="badge steady">Steady</span></td><td><span class="badge steady">In locker</span></td></tr><tr><td>11</td><td><b>Jordan Love</b></td><td>Green Bay</td><td class="num">1</td><td><div class="bar"><i style="width:2%"></i><b>2</b></div></td><td><span class="badge steady">Steady</span></td><td><a class="badge steady" style="text-decoration:none" href="../../shop/limited-edition-grb41/">In locker - $24.99</a></td></tr><tr><td>12</td><td><b>Jordan Marshall</b></td><td>Michigan</td><td class="num">1</td><td><div class="bar"><i style="width:2%"></i><b>2</b></div></td><td><span class="badge steady">Steady</span></td><td><span class="badge steady">In locker</span></td></tr><tr><td>13</td><td><b>Denzel Ward</b></td><td>Cleveland</td><td class="num">0</td><td><div class="bar"><i style="width:0%"></i><b>0</b></div></td><td><span class="badge quiet">Quiet</span></td><td><a class="badge steady" style="text-decoration:none" href="../../shop/denzel-rock-out/">In locker - $21.00</a></td></tr><tr><td>14</td><td><b>J.J. McCarthy</b></td><td>Michigan</td><td class="num">0</td><td><div class="bar"><i style="width:0%"></i><b>0</b></div></td><td><span class="badge quiet">Quiet</span></td><td><span class="badge steady">In locker</span></td></tr><tr><td>15</td><td><b>Joe Flacco</b></td><td>Cleveland</td><td class="num">0</td><td><div class="bar"><i style="width:0%"></i><b>0</b></div></td><td><span class="badge quiet">Quiet</span></td><td><span class="badge steady">In locker</span></td></tr><tr><td>16</td><td><b>Kevin Stefanski</b></td><td>Cleveland</td><td class="num">0</td><td><div class="bar"><i style="width:0%"></i><b>0</b></div></td><td><span class="badge quiet">Quiet</span></td><td><span class="badge steady">In locker</span></td></tr><tr><td>17</td><td><b>Myles Garrett</b></td><td>Cleveland</td><td class="num">0</td><td><div class="bar"><i style="width:0%"></i><b>0</b></div></td><td><span class="badge quiet">Quiet</span></td><td><span class="badge steady">In locker</span></td></tr><tr><td>18</td><td><b>Robert Tonyan</b></td><td>Green Bay</td><td class="num">0</td><td><div class="bar"><i style="width:0%"></i><b>0</b></div></td><td><span class="badge quiet">Quiet</span></td><td><span class="badge steady">In locker</span></td></tr>
+ </tbody>
+ </table>
+ </div>
+</section>
+
+<section>
+ <h2>Collections</h2>
+ <div class="colcards">
+ <div class="colcard">
+ <h3>Cleveland Browns Fan Shirts</h3>
+ <p class="muted small">19 designs &middot; avg $21.00 &middot;
+ 0 trending &middot; 1 throwback &middot; 100 headlines</p>
+ <p class="small" style="margin:8px 0 0"><b>Top terms</b></p>
+ <div class="chips"><span class="chip">browns</span><span class="chip">cleveland</span><span class="chip">watson</span><span class="chip">deshaun</span><span class="chip">todd</span><span class="chip">monken</span><span class="chip">jimmy</span><span class="chip">sanders</span></div>
+ <p class="small" style="margin:10px 0 0"><b>Gaps</b></p>
+ <div class="chips"><span class="chip" style="border-color:rgba(255,177,90,.5);color:var(--orange)">Deshaun Watson</span><span class="chip" style="border-color:rgba(255,177,90,.5);color:var(--orange)">Todd Monken</span></div>
+ <p class="small" style="margin:12px 0 0"><a href="../../cleveland-browns-shirts/">Collection page &rarr;</a>
+ &nbsp;<a href="https://gridironlocker.shop/p/browns" rel="noopener">Store &rarr;</a></p>
+</div><div class="colcard">
+ <h3>Dallas Vintage Sports Tees</h3>
+ <p class="muted small">10 designs &middot; avg $21.99 &middot;
+ 0 trending &middot; 0 throwback &middot; 100 headlines</p>
+ <p class="small" style="margin:8px 0 0"><b>Top terms</b></p>
+ <div class="chips"><span class="chip">cowboys</span><span class="chip">dallas</span><span class="chip">watch</span><span class="chip">opener</span><span class="chip">injury</span><span class="chip">sunday</span><span class="chip">loss</span><span class="chip">predictions</span></div>
+ <p class="small" style="margin:10px 0 0"><b>Gaps</b></p>
+ <div class="chips"><span class="chip" style="border-color:rgba(255,177,90,.5);color:var(--orange)">Dak Prescott</span><span class="chip" style="border-color:rgba(255,177,90,.5);color:var(--orange)">CeeDee Lamb</span></div>
+ <p class="small" style="margin:12px 0 0"><a href="../../dallas-cowboys-shirts/">Collection page &rarr;</a>
+ &nbsp;<a href="https://viralstyle.com/store/kebystore/dallas-vintage-sports/1" rel="noopener">Store &rarr;</a></p>
+</div><div class="colcard">
+ <h3>Green Bay Packers Fan Shirts</h3>
+ <p class="muted small">37 designs &middot; avg $25.18 &middot;
+ 0 trending &middot; 0 throwback &middot; 100 headlines</p>
+ <p class="small" style="margin:8px 0 0"><b>Top terms</b></p>
+ <div class="chips"><span class="chip">packers</span><span class="chip">green</span><span class="chip">offensive</span><span class="chip">line</span><span class="chip">roster</span><span class="chip">loss</span><span class="chip">jacobs</span><span class="chip">update</span></div>
+ <p class="small" style="margin:10px 0 0"><b>Gaps</b></p>
+ <div class="chips"><span class="chip" style="border-color:rgba(255,177,90,.5);color:var(--orange)">Josh Jacobs</span><span class="chip" style="border-color:rgba(255,177,90,.5);color:var(--orange)">Matt LaFleur</span></div>
+ <p class="small" style="margin:12px 0 0"><a href="../../green-bay-packers-shirts/">Collection page &rarr;</a>
+ &nbsp;<a href="https://viralstyle.com/store/kebystore/Packss/1" rel="noopener">Store &rarr;</a></p>
+</div><div class="colcard">
+ <h3>Michigan Go Blue Apparel</h3>
+ <p class="muted small">18 designs &middot; avg $21.00 &middot;
+ 0 trending &middot; 0 throwback &middot; 100 headlines</p>
+ <p class="small" style="margin:8px 0 0"><b>Top terms</b></p>
+ <div class="chips"><span class="chip">michigan</span><span class="chip">football</span><span class="chip">utep</span><span class="chip">underwood</span><span class="chip">wolverines</span><span class="chip">watch</span><span class="chip">channel</span><span class="chip">western</span></div>
+ <p class="small" style="margin:10px 0 0"><b>Gaps</b></p>
+ <div class="chips"><span class="chip" style="border-color:rgba(255,177,90,.5);color:var(--orange)">Kyle Whittingham</span></div>
+ <p class="small" style="margin:12px 0 0"><a href="../../michigan-wolverines-shirts/">Collection page &rarr;</a>
+ &nbsp;<a href="https://gridironlocker.shop/p/michigan" rel="noopener">Store &rarr;</a></p>
+</div>
+ </div>
+</section>
+
+<section>
+ <h2>Latest headlines by collection</h2>
+ <div class="colcards">
+ <div class="colcard">
+ <h3>Cleveland Browns Fan Shirts headlines</h3>
+ <ul class="moments" style="list-style:none;padding:0;margin:0;gap:9px">
+ <li><a href="https://news.google.com/rss/articles/CBMijwFBVV95cUxNeUIzdnc1SXBvdS1VWEp1MDJOMnpUZkdLNWMtOVF6MWF4UHd4a2lrSmZWdF9VbHZ2QlI1OEQtalNheWgwZG5jejJpUG9CdUtYOEZWZ2pxdEhRbl9kZVU2VXh4QzhWelozTFNEMWJfUHdQZmxUdXhEVEJIVzMxYUhmSVdKMWt4UzhyZDFvQmJyaw?oc=5" rel="noopener">Browns vs. Jaguars: How to Watch, Listen &amp; Live Stream</a><br><span class="muted small">Cleveland Browns</span></li><li><a href="https://news.google.com/rss/articles/CBMinAFBVV95cUxNZ1BiZ0k0T294bHR4SGJLUUYxcC1aa21YcGNJVlJ0bEtNZk5oWE5BWVR1WHFrbmZzQWhwb2lTR1NyekpQWTFxQjR1Q0lFUVlqbjhqUnlVc1VDRXBMX29wazFCRG5MRXhCYmxtdDlyVmxOOWJ2SWtjc0E1MXpfSWFwaGlVUzVyWGFCRFdaem9kcmNkOHJSV2RWZnpzYk0?oc=5" rel="noopener">Todd Monken: Browns&#39; big loss not just about Deshaun Watson</a><br><span class="muted small">ESPN</span></li><li><a href="https://news.google.com/rss/articles/CBMiwwFBVV95cUxOM0gwVkhsdUFNME01ZTNwSDVRTV9XMGZ2Zk5VZ0VZeWpNb1lqTzlHWTNnLXJ0UFRtcXQtZXBXdkRJcm53WmFOejZNcDdHbkNSUWR1TzVXbmlLbDR0SElaOWh6aHhCMWo3dUIwMmhqdmRQaEUxSlRST0VMaUlhTnBaYXFfa3cxTGdqdXNJMUxRV1owdEZWcDVLTnhOTnVjUE45Yk93bnZKR2F3LXQ4d2sweVJuX2Q1Y08tV0owOGw1TUhheVk?oc=5" rel="noopener">Browns are a disaster in the first half vs. Jaguars. That’s being kind – Terry Pluto’s Scribbles</a><br><span class="muted small">Cleveland.com</span></li><li><a href="https://news.google.com/rss/articles/CBMif0FVX3lxTFBVQzZfekRfdGVmc0IxSXdneUtoS3NibG5PYXJvN04tVmdQbHJjTTJtaEY1Nm8xUHJldGh3TEdxMndpUlZISEFqS0xad2NUUVV4NVpMSkpvUUg1YnlNWDhxeElGb3B0Mkx3bWIxTnd3N1BkUEpIM3MtQWotSTh4R0U?oc=5" rel="noopener">2026 Game Preview: Browns-Buccaneers, Week 2</a><br><span class="muted small">Tampa Bay Buccaneers</span></li><li><a href="https://news.google.com/rss/articles/CBMiekFVX3lxTE82d1JoT2IzM0lmSkljT0d1RTBTazhGdExJQ051dllwQTlPRkpDeENETG1la01WT3NFMExEYWJVWFplUndFUEZQNEFsQzFRc3l0UHpWZUttc1ljU0k1SEM1WW42bTQwcmdMRXhXejNYU1V2ak9xUlkyemJB0gF_QVVfeXFMUFVHZ210NzViclB1X2Vrc3h3eVU2c2pDcWVvd3MyZm1yNHNKcy1uVFlnR0M5cXJ0Ym1fa3pXbF9ZTFBDdUFUYUJrRkRObk96TXV2MEx2Rnh2bjlQUVFSekZLWVg4blRyVW9EZ0wycFZOYS1lMGJuQnFNVlpHSnZ5SQ?oc=5" rel="noopener">Cleveland Browns 2026 season record and results</a><br><span class="muted small">FOX 8 News</span></li>
+ </ul>
+</div><div class="colcard">
+ <h3>Dallas Vintage Sports Tees headlines</h3>
+ <ul class="moments" style="list-style:none;padding:0;margin:0;gap:9px">
+ <li><a href="https://news.google.com/rss/articles/CBMingFBVV95cUxQVnNaWk96eTRMazA3SndqNzAtVXA2cFVqNGw0RE1lRTNIZlRiV0UwSk1HcTh0SXdrWjU1cmdxX0J3OVJDWjBFcGlXZXdQTTBWUmNVdEV1bGwyR2QyU2c1YUYyMlhIUDAyTm5oN25NTlg5SjhIb1dJdHdVNWVWRzJuY2N1bU80dGRySUVabWkyek9yZDB6SG9RTWlIWllGQQ?oc=5" rel="noopener">Cowboys defensive leaders fueled by sense of urgency in Week 2</a><br><span class="muted small">Dallas Cowboys</span></li><li><a href="https://news.google.com/rss/articles/CBMifkFVX3lxTE1VdEdsMU5LblNOMm5JZVJrV3NfUlFNMzJsMzNrbU5XdnFNRnFpb05fcFNmb09XOVNmSEVvN3N3bU1kMWZJRVBFRUh6WFgyT3lnY04zaEFVN0Q2VF9OaE9ydUVVUHp1eEJ1N0VBZk1OYmNkZjNZMTBsOVBPdUJ5dw?oc=5" rel="noopener">Dallas Cowboys drop to No. 17 in Week 2 | &#39;Power Rankings&#39;</a><br><span class="muted small">NFL.com</span></li><li><a href="https://news.google.com/rss/articles/CBMirwFBVV95cUxQaGRCWm5MZzktXzFFd2M0UFQxOXA0VzJBV1pfNUd1WTZ0T0wxUzFSbnBJMVVZMXF0OFdlaGJDcVk2NjVjYWZlN0dEYzRKVzNLVVlZOFotSmJlWWhmMUlDMW95ZGI1T21HVWx6ck9TNFpLVHJuRHJrSUp0a09OYnNXQ1hLVmdRUlh4eWNrNEg4Yk5UWkZqOFBFdWU1TnZKYjFvM2psT0NWSjV3X240V000?oc=5" rel="noopener">Injury Report: Statuses for Giants vs. Cowboys on Sunday Night Football</a><br><span class="muted small">Giants.com</span></li><li><a href="https://news.google.com/rss/articles/CBMiowFBVV95cUxNLVp4TXlhQXRweEs1WmF2bUZHSE9kZG1raTlNQVNCenotRWVNYjBBdGRVVk5sVUZpU2Rwc3RFemhVM1JSX1ZnRVFUbGJGX2RHVUxKQ1pmaWJMbWJTbnlzWkh6ZC1vWlBQNURnTVdwUG9XUVR5NmZSQ0o1RmZNTEQxQUVZTlBrZVVXQ3hQYXFrY3JabEZaYzl4eFdqeHFSUG1UQVZF?oc=5" rel="noopener">Brian Schottenheimer on Cowboys&#39; season-opening loss: &#39;We got humbled&#39;</a><br><span class="muted small">Dallas Cowboys</span></li><li><a href="https://news.google.com/rss/articles/CBMimAFBVV95cUxPM0RzLXhFR0NGSkN0R1Q4cnNfYThXdEZUa2tlcXJaVTlaZzdXbFo3MHFKRTlwUm1PLTNmeTRJM2UzMjlveXY2UEhjb3h0ZUFncFA5aHoyQWw0UGh2NmVKQmlYX0MwODZHXzJWMUw4OW9EWk1RMzNwLTJ3MXg0MGxxTmNCaG1mWHhJY2JoMUQzZHFmSFhTVnVSTQ?oc=5" rel="noopener">Ryan Flournoy, Cowboys agree to terms on contract extension</a><br><span class="muted small">Dallas Cowboys</span></li>
+ </ul>
+</div><div class="colcard">
+ <h3>Green Bay Packers Fan Shirts headlines</h3>
+ <ul class="moments" style="list-style:none;padding:0;margin:0;gap:9px">
+ <li><a href="https://news.google.com/rss/articles/CBMiqwFBVV95cUxORWd3SC1TRDJETUhpVmxaWE4wczNTSVViWm5KMG83dHNEZjdaVGo4RHdrbTVyNHB2VTVYdkJRTnFRamxzbUhpV29nLWNmdFRhUU0teEJWRHFTSFNzZ2c3WUNWQVljX2o5VUh3blZ2Wm1nZ0dvbHBtdXdxV1VxSXJlTlBubG1LWTRSTTRMdFFMaS0zbUxxWUlEdm5VNWxHd1AzRkRhY1VCbGVUSGM?oc=5" rel="noopener">Game recap: 5 takeaways from Packers’ season-opening loss to Vikings</a><br><span class="muted small">Green Bay Packers</span></li><li><a href="https://news.google.com/rss/articles/CBMifEFVX3lxTE5OdXhrb3M5d3lUdUc2cGlQQ3oxN000STBwajNiOHpydHAzbmxQemc2NFVlNUFNU04zV2t0XzN6eGJUMEx5NmZmX3BfUjY0OG4zUEJUN2Y0cm9DSDJ6NDdYbjUxVTI2TTFnZWJkRUtHb2RSZ3VQampiN3BkWmQ?oc=5" rel="noopener">Me, my mom and our Green Bay Packers</a><br><span class="muted small">Milwaukee Neighborhood News Service</span></li><li><a href="https://news.google.com/rss/articles/CBMihwFBVV95cUxOcFZDOGJYVlNQdTRjM19YaFpfaS15Q3g0em5JVHJRVnVBVUtJVzlDdUNNRWJsQ0lQY29mYktMNTRpNDA3LTd6U0loSFlhbVByY0RzRE04MDZta3hpMFhCWndwcmU4T3p2OC1CbGlqNWV6NVhiVDRnU050UEVPN3p0dmc4X1BYYzA?oc=5" rel="noopener">Green Bay Packers receive major offensive line injury update before Week 2</a><br><span class="muted small">Yahoo Sports</span></li><li><a href="https://news.google.com/rss/articles/CBMi0wFBVV95cUxNbDhKRDE2WERQSlJfMGRJZ0hFR3pZTlg3V0VrNF9rdzR5c0RhTEdVYjdPeU1FUWVBV0tmQ0VmLXFRUmdCdXdGamNjc2xiWjM0Qm5CcllyejhzbUM3WU5zNWYtdXZuUzFDcHUtaUlLSGxsUGxzbWtpTURMOHhFV1hLemtxSVpzY0FTald2S1BRT3dWaGRkczhaTjU5TFNPQXJxM0ZoOWo5ZExVaEoyQjNMeU9ELWVmeXdkejU2Uk1lYXc4RHFiRTJ4Ql9YRm9vVG93alA4?oc=5" rel="noopener">Green Bay Packers News: Matt LaFleur has a lot of problems to navigate</a><br><span class="muted small">Acme Packing Company</span></li><li><a href="https://news.google.com/rss/articles/CBMizAFBVV95cUxQSXdUYXh0a29wV0NkYTJXb201b0ZUZG9UUUtIWWJydG9IZVZkTENkWVlGWGw3NTFPREpYcUpzQ1gxZDRPOXgtWXZmSkh4OEhnem9yWFFDd19tb2RKaHRfdE9LN2tHcTBvbDNRQVBtVk9VOGFLY3hSTFBiMjdiYzN0dDZ6aThNeWZsa1M1VnBnVHdhUFFRUTVFSG1kdU1fRFFRTFgtRnlVbnVoVnVQQ0JCbnVTM0diQnVyRVd3UW5vNDFvUTFGMlp5RVVUUjA?oc=5" rel="noopener">Green Bay Packers, iHeartMedia Milwaukee sign multi-year deal extending radio broadcast partnership</a><br><span class="muted small">Green Bay Packers</span></li>
+ </ul>
+</div><div class="colcard">
+ <h3>Michigan Go Blue Apparel headlines</h3>
+ <ul class="moments" style="list-style:none;padding:0;margin:0;gap:9px">
+ <li><a href="https://news.google.com/rss/articles/CBMihgFBVV95cUxOcVFwSTAyV1JCMTBFM2NwWEJpSnVkdjlaU1FkaU5MdnM3S1JoSFJ5d3hfUVpMWE1kRFBXNDFWc0tlcUtWV1hkb29KSE5MbXFwd19nYjJ6dDZZc2NnOUZ5eFFnNEhrTThOR1pQQmNKSjFBWVpKdE9JcHlJOGZQcjVuTmdDU3lFQQ?oc=5" rel="noopener">Postgame Notes: Michigan 17, #11 Oklahoma 10</a><br><span class="muted small">University of Michigan Athletics</span></li><li><a href="https://news.google.com/rss/articles/CBMivgFBVV95cUxPd2lTd2M3WWNEdlQySEI1c0J6b244VjJMSnp6ZW9sWEpfYmZ3blVhejJkSDJPQ0diNW9fLVJFNWlUaHo5VXhfR0FuT3dEbF9HZ096THVwc1Z1VUtWdG5vRWJVeWtpdl9OYV9NSTlZSktWR1RHYldyQmR3NFNIZlBZSjlSTE5uMGZrNHJNdFFBNVNzRVdtdVdiS0c5eWRTQzg1WTF2am1yeHJNMGlwbTYwck9nMl9jTFFZZ0FnYUVn?oc=5" rel="noopener">How to Watch: Michigan Football vs UTEP, other top games of Week 3</a><br><span class="muted small">Maize n Brew</span></li><li><a href="https://news.google.com/rss/articles/CBMi1AFBVV95cUxOTUV2anA1OEs2TTg0Nm9zNzJJdXAzc0FMbXZXV1E4RUxEVk14bVFTRjRxLW1LMm11U3BQMWt3OGVFbXlUSmNJVjZZcEx3bUFXVnNnNWh0aDEtWWNtSkZ4NmhkMmthSnQtaHhiQUZHc0RRR2FTR28wSWtrbFhnQzRIZHBQNUx2QWZvejV1anZ0YWZIS3l2SE1Qc3NlalZERl9nUjBxWEZ1dkFNV2o4YXJBSEdPN3NDTFVpT1dId2IxRFNyNEJCZ2Z1bFlmLTVJWVdlbmJSaA?oc=5" rel="noopener">How to Watch Sooners vs. Wolverines: TV Channel, Live Stream, Time</a><br><span class="muted small">FOX Sports</span></li><li><a href="https://news.google.com/rss/articles/CBMiiAFBVV95cUxPWDhXLTBFb2hGU01zQk9fajZ6Q1VPQ1JBbGtNbUZzOWVBb3FxbkY0czIzbDZkWVZyclNDMXNBLTNOa3pLNHdhLUxsNlVqRnJhY2FOdjhuY2FvV211SVl4YklGVEc5bEdtMnJwdlIybTFxZVhFYk4yT0FaWE9xSEE1Z1lSZ01uaGNN?oc=5" rel="noopener">OU Drops Road Opener at Michigan - University of Oklahoma</a><br><span class="muted small">soonersports.com</span></li><li><a href="https://news.google.com/rss/articles/CBMiuAFBVV95cUxOZFBfZUJUeEVkM2tHZjg1SDlaMk02eEtBVmROVURuaXdxeEtodWY5Q1luWDdHemwzMGwzYU1uU1pWbGVRQk9saDVMa0JseXp1NW5SNXVGWDBXREdwUGNxM2RBdm90YlBBckV3cEFPVDJFMWhrS055d0RXYktGTkZBVGM3eDFoMWY5a2RUODBJX3BoNEtNN2ZKYVdjbmcxZ2piWjRIVHVXaERESWFKUFFhTXVrZzhNWWh1?oc=5" rel="noopener">Michigan Football Bowl Projections Following Statement Win Over Oklahoma</a><br><span class="muted small">Sports Illustrated</span></li>
+ </ul>
+</div>
+ </div>
+</section>
+
+<section>
+ <h2>Catalogue watch</h2>
+ <div class="card">
+  <div class="tools">
+   <input id="q" type="search" placeholder="Search design, art, theme...">
+   <select id="fcol"></select>
+   <select id="ftrend">
+    <option value="">All statuses</option>
+    <option value="hot">Trending</option>
+    <option value="throwback">Throwback</option>
+    <option value="steady">Steady</option>
+   </select>
+   <span class="muted small" id="count"></span>
+  </div>
+  <table>
+  <thead><tr><th>Design</th><th>Collection</th><th>Garment</th><th>Theme</th><th class="num">Price</th><th>Status</th><th>Link</th></tr></thead>
+  <tbody id="rows">
+  <tr data-col="Cleveland" data-trend="steady" data-text="limited edition no fly zone no fly zone classic"><td><b>Limited Edition No Fly Zone</b><br><span class="muted small">NO FLY ZONE</span></td><td>Cleveland</td><td>T-Shirt</td><td class="muted">classic</td><td class="num">$21.00</td><td><span class="badge steady">Steady</span></td><td><a href="https://gridironlocker.shop/limited-edition-no-fly-zone?collectionId=P19bpeU2x_Ng&amp;color=GILDAN-DARK_CHOCOLATE&amp;productId=6aa5530bf41af57368c6feb3" rel="noopener">Shop &rarr;</a></td></tr><tr data-col="Cleveland" data-trend="steady" data-text="the wall the wall player"><td><b>The Wall</b><br><span class="muted small">THE WALL</span></td><td>Cleveland</td><td>T-Shirt</td><td class="muted">player</td><td class="num">$21.00</td><td><span class="badge steady">Steady</span></td><td><a href="https://gridironlocker.shop/the-wall?collectionId=P19bpeU2x_Ng&amp;color=GILDAN-DARK_CHOCOLATE&amp;productId=6aa551a00aa8cbf430ccb038" rel="noopener">Shop &rarr;</a></td></tr><tr data-col="Cleveland" data-trend="throwback" data-text="denzel rock out denzel rock out player"><td><b>Denzel Rock Out</b><br><span class="muted small">DENZEL ROCK OUT</span></td><td>Cleveland</td><td>T-Shirt</td><td class="muted">player</td><td class="num">$21.00</td><td><span class="badge quiet">Throwback</span></td><td><a href="https://gridironlocker.shop/denzel-rock-out?collectionId=P19bpeU2x_Ng&amp;color=GILDAN-DARK_CHOCOLATE&amp;productId=6aa55017f475ab73b09f6a72" rel="noopener">Shop &rarr;</a></td></tr><tr data-col="Cleveland" data-trend="steady" data-text="cle browns orange cle browns orange classic"><td><b>Cle Browns Orange</b><br><span class="muted small">CLE BROWNS ORANGE</span></td><td>Cleveland</td><td>T-Shirt</td><td class="muted">classic</td><td class="num">$21.00</td><td><span class="badge steady">Steady</span></td><td><a href="https://gridironlocker.shop/cle-browns-orange?collectionId=P19bpeU2x_Ng&amp;color=GILDAN-NATURAL&amp;productId=6aa54eba0dd668eb256323a8" rel="noopener">Shop &rarr;</a></td></tr><tr data-col="Cleveland" data-trend="steady" data-text="cle browns cle browns classic"><td><b>Cle Browns</b><br><span class="muted small">CLE BROWNS</span></td><td>Cleveland</td><td>T-Shirt</td><td class="muted">classic</td><td class="num">$21.00</td><td><span class="badge steady">Steady</span></td><td><a href="https://gridironlocker.shop/cle-browns-light?collectionId=P19bpeU2x_Ng&amp;color=GILDAN-NATURAL&amp;productId=6aa54cf2f475ab73b098049f" rel="noopener">Shop &rarr;</a></td></tr><tr data-col="Cleveland" data-trend="steady" data-text="cle browns cle browns classic"><td><b>Cle Browns</b><br><span class="muted small">CLE BROWNS</span></td><td>Cleveland</td><td>T-Shirt</td><td class="muted">classic</td><td class="num">$21.00</td><td><span class="badge steady">Steady</span></td><td><a href="https://gridironlocker.shop/cle-browns?collectionId=P19bpeU2x_Ng&amp;color=GILDAN-SAND&amp;productId=6aa54afdc846cb394c4e6967" rel="noopener">Shop &rarr;</a></td></tr><tr data-col="Cleveland" data-trend="steady" data-text="beware of dawg be awar of dawg funny"><td><b>Beware Of Dawg</b><br><span class="muted small">BE AWAR OF DAWG</span></td><td>Cleveland</td><td>T-Shirt</td><td class="muted">funny</td><td class="num">$21.00</td><td><span class="badge steady">Steady</span></td><td><a href="https://gridironlocker.shop/be-awar-of-dawg?collectionId=P19bpeU2x_Ng&amp;color=GILDAN-DARK_CHOCOLATE&amp;productId=6aa548c6f475ab73b096ff20" rel="noopener">Shop &rarr;</a></td></tr><tr data-col="Cleveland" data-trend="steady" data-text="cleveland 1946 cleveland 1946 retro"><td><b>Cleveland 1946</b><br><span class="muted small">CLEVELAND 1946</span></td><td>Cleveland</td><td>T-Shirt</td><td class="muted">retro</td><td class="num">$21.00</td><td><span class="badge steady">Steady</span></td><td><a href="https://gridironlocker.shop/cleveland-1946?collectionId=P19bpeU2x_Ng&amp;color=GILDAN-ASH_GREY&amp;productId=6aa54591ec52fa428dbc1a0b" rel="noopener">Shop &rarr;</a></td></tr><tr data-col="Cleveland" data-trend="steady" data-text="cle browns dawg cle browns dawg classic"><td><b>Cle Browns Dawg</b><br><span class="muted small">CLE BROWNS DAWG</span></td><td>Cleveland</td><td>T-Shirt</td><td class="muted">classic</td><td class="num">$21.00</td><td><span class="badge steady">Steady</span></td><td><a href="https://gridironlocker.shop/cle-browns-dawg?collectionId=P19bpeU2x_Ng&amp;color=GILDAN-DARK_CHOCOLATE&amp;productId=6aa54337f07fcd0322081164" rel="noopener">Shop &rarr;</a></td></tr><tr data-col="Cleveland" data-trend="steady" data-text="no fly zone no fly zone classic"><td><b>No Fly Zone</b><br><span class="muted small">NO FLY ZONE</span></td><td>Cleveland</td><td>T-Shirt</td><td class="muted">classic</td><td class="num">$21.00</td><td><span class="badge steady">Steady</span></td><td><a href="https://gridironlocker.shop/no-fly-zone?collectionId=P19bpeU2x_Ng&amp;color=GILDAN-DARK_CHOCOLATE&amp;productId=6aa3b80e2e9926a202f04f64" rel="noopener">Shop &rarr;</a></td></tr><tr data-col="Cleveland" data-trend="steady" data-text="cleveland cleveland city"><td><b>Cleveland</b><br><span class="muted small">CLEVELAND</span></td><td>Cleveland</td><td>T-Shirt</td><td class="muted">city</td><td class="num">$21.00</td><td><span class="badge steady">Steady</span></td><td><a href="https://gridironlocker.shop/cleveland?collectionId=P19bpeU2x_Ng&amp;color=GILDAN-SAND&amp;productId=6aa3b22569a11b176709b278" rel="noopener">Shop &rarr;</a></td></tr><tr data-col="Cleveland" data-trend="steady" data-text="dawg life dawg life classic"><td><b>Dawg Life</b><br><span class="muted small">DAWG LIFE</span></td><td>Cleveland</td><td>T-Shirt</td><td class="muted">classic</td><td class="num">$21.00</td><td><span class="badge steady">Steady</span></td><td><a href="https://gridironlocker.shop/dawg-life?collectionId=P19bpeU2x_Ng&amp;color=GILDAN-DARK_CHOCOLATE&amp;productId=6aa3ae586e5cb9fd50dc4834" rel="noopener">Shop &rarr;</a></td></tr><tr data-col="Cleveland" data-trend="steady" data-text="make them know your name make them know your name player"><td><b>Make Them Know Your Name</b><br><span class="muted small">MAKE THEM KNOW YOUR NAME</span></td><td>Cleveland</td><td>T-Shirt</td><td class="muted">player</td><td class="num">$21.00</td><td><span class="badge steady">Steady</span></td><td><a href="https://gridironlocker.shop/make-them-know-your-name?collectionId=P19bpeU2x_Ng&amp;color=GILDAN-DARK_CHOCOLATE&amp;productId=6aa33fa01cdc8689e252dab3" rel="noopener">Shop &rarr;</a></td></tr><tr data-col="Cleveland" data-trend="steady" data-text="browns cle browns cle classic"><td><b>Browns CLE</b><br><span class="muted small">BROWNS CLE</span></td><td>Cleveland</td><td>T-Shirt</td><td class="muted">classic</td><td class="num">$21.00</td><td><span class="badge steady">Steady</span></td><td><a href="https://gridironlocker.shop/Browns-Cle?collectionId=P19bpeU2x_Ng&amp;color=GILDAN-DARK_CHOCOLATE&amp;productId=6aa33ae12ee22daf5e7d3cc0" rel="noopener">Shop &rarr;</a></td></tr><tr data-col="Cleveland" data-trend="steady" data-text="dawg dwag funny"><td><b>DAWG</b><br><span class="muted small">DWAG</span></td><td>Cleveland</td><td>T-Shirt</td><td class="muted">funny</td><td class="num">$21.00</td><td><span class="badge steady">Steady</span></td><td><a href="https://gridironlocker.shop/DWAG?collectionId=P19bpeU2x_Ng&amp;color=GILDAN-OLD_GOLD&amp;productId=6aa337dfdb76056cb9b29f0c" rel="noopener">Shop &rarr;</a></td></tr><tr data-col="Cleveland" data-trend="steady" data-text="let&#39;s go cle let&#39;s go cle city"><td><b>Let&#39;s Go CLE</b><br><span class="muted small">LET&#39;S GO CLE</span></td><td>Cleveland</td><td>T-Shirt</td><td class="muted">city</td><td class="num">$21.00</td><td><span class="badge steady">Steady</span></td><td><a href="https://gridironlocker.shop/lets-go-cle-copy?collectionId=P19bpeU2x_Ng&amp;color=GILDAN-DARK_CHOCOLATE&amp;productId=6aa3366e5520ba111a558fb1" rel="noopener">Shop &rarr;</a></td></tr><tr data-col="Cleveland" data-trend="steady" data-text="go browns go browns classic"><td><b>Go Browns</b><br><span class="muted small">GO BROWNS</span></td><td>Cleveland</td><td>T-Shirt</td><td class="muted">classic</td><td class="num">$21.00</td><td><span class="badge steady">Steady</span></td><td><a href="https://gridironlocker.shop/go-browns?collectionId=P19bpeU2x_Ng&amp;color=GILDAN-DARK_CHOCOLATE&amp;productId=6aa331965520ba111a54a781" rel="noopener">Shop &rarr;</a></td></tr><tr data-col="Cleveland" data-trend="steady" data-text="playoffs playoffs playoff"><td><b>Playoffs</b><br><span class="muted small">PLAYOFFS</span></td><td>Cleveland</td><td>T-Shirt</td><td class="muted">playoff</td><td class="num">$21.00</td><td><span class="badge steady">Steady</span></td><td><a href="https://gridironlocker.shop/playoffs?collectionId=P19bpeU2x_Ng&amp;color=GILDAN-DARK_CHOCOLATE&amp;productId=6aa330865520ba111a548f86" rel="noopener">Shop &rarr;</a></td></tr><tr data-col="Cleveland" data-trend="steady" data-text="ohio cle ohio cle city"><td><b>Ohio CLE</b><br><span class="muted small">OHIO CLE</span></td><td>Cleveland</td><td>T-Shirt</td><td class="muted">city</td><td class="num">$21.00</td><td><span class="badge steady">Steady</span></td><td><a href="https://gridironlocker.shop/ohio-cle?collectionId=P19bpeU2x_Ng&amp;color=GILDAN-DARK_CHOCOLATE&amp;productId=6aa3306bd0d1f69a5d797993" rel="noopener">Shop &rarr;</a></td></tr><tr data-col="Green Bay" data-trend="steady" data-text="jordan love 10 packers shirt jordan love 10 with jordan love action photo player"><td><b>Jordan Love 10 Packers Shirt</b><br><span class="muted small">JORDAN LOVE 10 with Jordan Love action photo</span></td><td>Green Bay</td><td>T-Shirt</td><td class="muted">player</td><td class="num">$24.99</td><td><span class="badge steady">Steady</span></td><td><a href="https://viralstyle.com/kebystore/limited-edition-grb41" rel="noopener">Shop &rarr;</a></td></tr><tr data-col="Green Bay" data-trend="steady" data-text="this girl loves the pack shirt this girl loves the pack with crown and hands family"><td><b>This Girl Loves The Pack Shirt</b><br><span class="muted small">THIS GIRL LOVES THE PACK with crown and hands</span></td><td>Green Bay</td><td>T-Shirt</td><td class="muted">family</td><td class="num">$24.99</td><td><span class="badge steady">Steady</span></td><td><a href="https://viralstyle.com/kebystore/limited-edition-grb37" rel="noopener">Shop &rarr;</a></td></tr><tr data-col="Green Bay" data-trend="steady" data-text="jordan love 10 flag number shirt player with a stars and stripes number 10 player"><td><b>Jordan Love 10 Flag Number Shirt</b><br><span class="muted small">Player with a stars and stripes number 10</span></td><td>Green Bay</td><td>T-Shirt</td><td class="muted">player</td><td class="num">$24.99</td><td><span class="badge steady">Steady</span></td><td><a href="https://viralstyle.com/kebystore/limited-edition-grb36" rel="noopener">Shop &rarr;</a></td></tr><tr data-col="Green Bay" data-trend="steady" data-text="cheese heart green bay mug cheese wedge heart on a black mug funny"><td><b>Cheese Heart Green Bay Mug</b><br><span class="muted small">Cheese wedge heart on a black mug</span></td><td>Green Bay</td><td>Mug</td><td class="muted">funny</td><td class="num">$19.99</td><td><span class="badge steady">Steady</span></td><td><a href="https://viralstyle.com/kebystore/limited-edition-grb35" rel="noopener">Shop &rarr;</a></td></tr><tr data-col="Green Bay" data-trend="steady" data-text="jordan freaking love packers beanie jordan freaking love on a packers knit beanie player"><td><b>Jordan Freaking Love Packers Beanie</b><br><span class="muted small">JORDAN FREAKING LOVE on a Packers knit beanie</span></td><td>Green Bay</td><td>Beanie</td><td class="muted">player</td><td class="num">$24.99</td><td><span class="badge steady">Steady</span></td><td><a href="https://viralstyle.com/kebystore/limited-edition-grb34-1" rel="noopener">Shop &rarr;</a></td></tr><tr data-col="Green Bay" data-trend="steady" data-text="all you need is love 10 helmet shirt all you need is 10ve with helmet and waves retro"><td><b>All You Need Is Love 10 Helmet Shirt</b><br><span class="muted small">ALL YOU NEED IS 10VE with helmet and waves</span></td><td>Green Bay</td><td>T-Shirt</td><td class="muted">retro</td><td class="num">$24.99</td><td><span class="badge steady">Steady</span></td><td><a href="https://viralstyle.com/kebystore/limited-edition-grb33" rel="noopener">Shop &rarr;</a></td></tr><tr data-col="Green Bay" data-trend="steady" data-text="cheese heart green bay shirt cheese wedge shaped like a heart funny"><td><b>Cheese Heart Green Bay Shirt</b><br><span class="muted small">Cheese wedge shaped like a heart</span></td><td>Green Bay</td><td>T-Shirt</td><td class="muted">funny</td><td class="num">$24.99</td><td><span class="badge steady">Steady</span></td><td><a href="https://viralstyle.com/kebystore/limited-edition-grb32" rel="noopener">Shop &rarr;</a></td></tr><tr data-col="Green Bay" data-trend="steady" data-text="jordan love 10 green bay hoodie 10 love with player and gold 10 player"><td><b>Jordan Love 10 Green Bay Hoodie</b><br><span class="muted small">10 LOVE with player and gold 10</span></td><td>Green Bay</td><td>Hoodie</td><td class="muted">player</td><td class="num">$36.99</td><td><span class="badge steady">Steady</span></td><td><a href="https://viralstyle.com/kebystore/limited-edition-grb31" rel="noopener">Shop &rarr;</a></td></tr><tr data-col="Green Bay" data-trend="steady" data-text="jordan freaking love shirt jordan freaking love player"><td><b>Jordan Freaking Love Shirt</b><br><span class="muted small">JORDAN FREAKING LOVE</span></td><td>Green Bay</td><td>T-Shirt</td><td class="muted">player</td><td class="num">$24.99</td><td><span class="badge steady">Steady</span></td><td><a href="https://viralstyle.com/kebystore/limited-edition-grb30" rel="noopener">Shop &rarr;</a></td></tr><tr data-col="Green Bay" data-trend="steady" data-text="pack is back green bay shirt pack is back with gold stripes classic"><td><b>Pack Is Back Green Bay Shirt</b><br><span class="muted small">PACK IS BACK with gold stripes</span></td><td>Green Bay</td><td>T-Shirt</td><td class="muted">classic</td><td class="num">$24.99</td><td><span class="badge steady">Steady</span></td><td><a href="https://viralstyle.com/kebystore/limited-edition-grb29" rel="noopener">Shop &rarr;</a></td></tr><tr data-col="Green Bay" data-trend="steady" data-text="packers game day cheesehead shirt game day with a cheesehead character classic"><td><b>Packers Game Day Cheesehead Shirt</b><br><span class="muted small">GAME DAY with a cheesehead character</span></td><td>Green Bay</td><td>T-Shirt</td><td class="muted">classic</td><td class="num">$24.99</td><td><span class="badge steady">Steady</span></td><td><a href="https://viralstyle.com/kebystore/limited-edition-grb28" rel="noopener">Shop &rarr;</a></td></tr><tr data-col="Green Bay" data-trend="steady" data-text="packers distressed american flag shirt packers on a distressed american flag city"><td><b>Packers Distressed American Flag Shirt</b><br><span class="muted small">PACKERS on a distressed American flag</span></td><td>Green Bay</td><td>T-Shirt</td><td class="muted">city</td><td class="num">$24.99</td><td><span class="badge steady">Steady</span></td><td><a href="https://viralstyle.com/kebystore/limited-edition-grb27" rel="noopener">Shop &rarr;</a></td></tr><tr data-col="Green Bay" data-trend="steady" data-text="green bay packers football stars shirt green bay packers with football and stars classic"><td><b>Green Bay Packers Football Stars Shirt</b><br><span class="muted small">GREEN BAY PACKERS with football and stars</span></td><td>Green Bay</td><td>T-Shirt</td><td class="muted">classic</td><td class="num">$24.99</td><td><span class="badge steady">Steady</span></td><td><a href="https://viralstyle.com/kebystore/limited-edition-grb26" rel="noopener">Shop &rarr;</a></td></tr><tr data-col="Green Bay" data-trend="steady" data-text="sunday funday wisconsin outline shirt sunday funday inside the wisconsin state outline city"><td><b>Sunday Funday Wisconsin Outline Shirt</b><br><span class="muted small">SUNDAY FUNDAY inside the Wisconsin state outline</span></td><td>Green Bay</td><td>T-Shirt</td><td class="muted">city</td><td class="num">$24.99</td><td><span class="badge steady">Steady</span></td><td><a href="https://viralstyle.com/kebystore/limited-edition-grb25" rel="noopener">Shop &rarr;</a></td></tr><tr data-col="Green Bay" data-trend="steady" data-text="love 10 jersey back shirt love 10 jersey back with player player"><td><b>Love 10 Jersey Back Shirt</b><br><span class="muted small">LOVE 10 jersey back with player</span></td><td>Green Bay</td><td>T-Shirt</td><td class="muted">player</td><td class="num">$24.99</td><td><span class="badge steady">Steady</span></td><td><a href="https://viralstyle.com/kebystore/limited-edition-grb24" rel="noopener">Shop &rarr;</a></td></tr><tr data-col="Green Bay" data-trend="steady" data-text="packers victory monday green shirt victory monday in white lettering on green classic"><td><b>Packers Victory Monday Green Shirt</b><br><span class="muted small">VICTORY MONDAY in white lettering on green</span></td><td>Green Bay</td><td>T-Shirt</td><td class="muted">classic</td><td class="num">$24.99</td><td><span class="badge steady">Steady</span></td><td><a href="https://viralstyle.com/kebystore/limited-edition-grb23" rel="noopener">Shop &rarr;</a></td></tr><tr data-col="Green Bay" data-trend="steady" data-text="packers victory monday white shirt victory monday in green lettering on white classic"><td><b>Packers Victory Monday White Shirt</b><br><span class="muted small">VICTORY MONDAY in green lettering on white</span></td><td>Green Bay</td><td>T-Shirt</td><td class="muted">classic</td><td class="num">$24.99</td><td><span class="badge steady">Steady</span></td><td><a href="https://viralstyle.com/kebystore/limited-edition-grb22" rel="noopener">Shop &rarr;</a></td></tr><tr data-col="Green Bay" data-trend="steady" data-text="packers sunday funday shirt sunday funday in packers green lettering classic"><td><b>Packers Sunday Funday Shirt</b><br><span class="muted small">SUNDAY FUNDAY in Packers green lettering</span></td><td>Green Bay</td><td>T-Shirt</td><td class="muted">classic</td><td class="num">$24.99</td><td><span class="badge steady">Steady</span></td><td><a href="https://viralstyle.com/kebystore/limited-edition-grb21" rel="noopener">Shop &rarr;</a></td></tr><tr data-col="Green Bay" data-trend="steady" data-text="sunday funday green bay bars shirt sunday funday with gold bars classic"><td><b>Sunday Funday Green Bay Bars Shirt</b><br><span class="muted small">SUNDAY FUNDAY with gold bars</span></td><td>Green Bay</td><td>T-Shirt</td><td class="muted">classic</td><td class="num">$24.99</td><td><span class="badge steady">Steady</span></td><td><a href="https://viralstyle.com/kebystore/limited-edition-grb20" rel="noopener">Shop &rarr;</a></td></tr><tr data-col="Green Bay" data-trend="steady" data-text="the future is green packers shirt the future is green classic"><td><b>The Future Is Green Packers Shirt</b><br><span class="muted small">THE FUTURE IS GREEN</span></td><td>Green Bay</td><td>T-Shirt</td><td class="muted">classic</td><td class="num">$24.99</td><td><span class="badge steady">Steady</span></td><td><a href="https://viralstyle.com/kebystore/limited-edition-grb18" rel="noopener">Shop &rarr;</a></td></tr><tr data-col="Green Bay" data-trend="steady" data-text="green bay wisconsin minimal shirt green bay, wisconsin with gold bar and football city"><td><b>Green Bay Wisconsin Minimal Shirt</b><br><span class="muted small">Green Bay, Wisconsin with gold bar and football</span></td><td>Green Bay</td><td>T-Shirt</td><td class="muted">city</td><td class="num">$24.99</td><td><span class="badge steady">Steady</span></td><td><a href="https://viralstyle.com/kebystore/limited-edition-grb17" rel="noopener">Shop &rarr;</a></td></tr><tr data-col="Green Bay" data-trend="steady" data-text="green bay wi football team est 1919 shirt green bay wi football team est. 1919 crest retro"><td><b>Green Bay WI Football Team Est 1919 Shirt</b><br><span class="muted small">GREEN BAY WI FOOTBALL TEAM EST. 1919 crest</span></td><td>Green Bay</td><td>T-Shirt</td><td class="muted">retro</td><td class="num">$24.99</td><td><span class="badge steady">Steady</span></td><td><a href="https://viralstyle.com/kebystore/limited-edition-grb16" rel="noopener">Shop &rarr;</a></td></tr><tr data-col="Green Bay" data-trend="steady" data-text="property of green bay packers 1919 shirt property of 1919 green bay packers retro"><td><b>Property Of Green Bay Packers 1919 Shirt</b><br><span class="muted small">PROPERTY OF 1919 GREEN BAY PACKERS</span></td><td>Green Bay</td><td>T-Shirt</td><td class="muted">retro</td><td class="num">$24.99</td><td><span class="badge steady">Steady</span></td><td><a href="https://viralstyle.com/kebystore/limited-edition-grb15" rel="noopener">Shop &rarr;</a></td></tr><tr data-col="Green Bay" data-trend="steady" data-text="packers groovy wavy white shirt packers packers packers groovy wavy letters retro"><td><b>Packers Groovy Wavy White Shirt</b><br><span class="muted small">PACKERS PACKERS PACKERS groovy wavy letters</span></td><td>Green Bay</td><td>T-Shirt</td><td class="muted">retro</td><td class="num">$24.99</td><td><span class="badge steady">Steady</span></td><td><a href="https://viralstyle.com/kebystore/limited-edition-grb14" rel="noopener">Shop &rarr;</a></td></tr><tr data-col="Green Bay" data-trend="steady" data-text="packers retro stacked repeat shirt packers packers packers retro stacked retro"><td><b>Packers Retro Stacked Repeat Shirt</b><br><span class="muted small">PACKERS PACKERS PACKERS retro stacked</span></td><td>Green Bay</td><td>T-Shirt</td><td class="muted">retro</td><td class="num">$24.99</td><td><span class="badge steady">Steady</span></td><td><a href="https://viralstyle.com/kebystore/limited-edition-grb13" rel="noopener">Shop &rarr;</a></td></tr><tr data-col="Green Bay" data-trend="steady" data-text="what would jordan do retro shirt what would jordan do? retro color letters retro"><td><b>What Would Jordan Do Retro Shirt</b><br><span class="muted small">WHAT WOULD JORDAN DO? retro color letters</span></td><td>Green Bay</td><td>T-Shirt</td><td class="muted">retro</td><td class="num">$24.99</td><td><span class="badge steady">Steady</span></td><td><a href="https://viralstyle.com/kebystore/limited-edition-grb12" rel="noopener">Shop &rarr;</a></td></tr><tr data-col="Green Bay" data-trend="steady" data-text="jordan love is all you need shirt jordan love is all you need with player player"><td><b>Jordan Love Is All You Need Shirt</b><br><span class="muted small">JORDAN LOVE IS ALL YOU NEED with player</span></td><td>Green Bay</td><td>T-Shirt</td><td class="muted">player</td><td class="num">$24.99</td><td><span class="badge steady">Steady</span></td><td><a href="https://viralstyle.com/kebystore/limited-edition-grb11" rel="noopener">Shop &rarr;</a></td></tr><tr data-col="Green Bay" data-trend="steady" data-text="green bay touchdown shirt greenbay touchdown classic"><td><b>Green Bay Touchdown Shirt</b><br><span class="muted small">GREENBAY TOUCHDOWN</span></td><td>Green Bay</td><td>T-Shirt</td><td class="muted">classic</td><td class="num">$24.99</td><td><span class="badge steady">Steady</span></td><td><a href="https://viralstyle.com/kebystore/limited-edition-grb10" rel="noopener">Shop &rarr;</a></td></tr><tr data-col="Green Bay" data-trend="steady" data-text="wisconsin home state shirt home inside the wisconsin state outline city"><td><b>Wisconsin Home State Shirt</b><br><span class="muted small">HOME inside the Wisconsin state outline</span></td><td>Green Bay</td><td>T-Shirt</td><td class="muted">city</td><td class="num">$24.99</td><td><span class="badge steady">Steady</span></td><td><a href="https://viralstyle.com/kebystore/limited-edition-grb9" rel="noopener">Shop &rarr;</a></td></tr><tr data-col="Green Bay" data-trend="steady" data-text="green bay football cheesehead nation shirt green bay football - sundays are better in cheesehead nation since 1919 with cheese mascot retro"><td><b>Green Bay Football Cheesehead Nation Shirt</b><br><span class="muted small">GREEN BAY FOOTBALL - SUNDAYS ARE BETTER IN CHEESEHEAD NATION SINCE 1919 with cheese mascot</span></td><td>Green Bay</td><td>T-Shirt</td><td class="muted">retro</td><td class="num">$24.99</td><td><span class="badge steady">Steady</span></td><td><a href="https://viralstyle.com/kebystore/limited-edition-grb8" rel="noopener">Shop &rarr;</a></td></tr><tr data-col="Green Bay" data-trend="steady" data-text="green bay football cheese and beer shirt green bay football with cheese mascot holding a beer funny"><td><b>Green Bay Football Cheese And Beer Shirt</b><br><span class="muted small">GREEN BAY FOOTBALL with cheese mascot holding a beer</span></td><td>Green Bay</td><td>T-Shirt</td><td class="muted">funny</td><td class="num">$24.99</td><td><span class="badge steady">Steady</span></td><td><a href="https://viralstyle.com/kebystore/limited-edition-grb7" rel="noopener">Shop &rarr;</a></td></tr><tr data-col="Green Bay" data-trend="steady" data-text="sunday funday green bay script shirt sunday funday retro script retro"><td><b>Sunday Funday Green Bay Script Shirt</b><br><span class="muted small">SUNDAY FUNDAY retro script</span></td><td>Green Bay</td><td>T-Shirt</td><td class="muted">retro</td><td class="num">$24.99</td><td><span class="badge steady">Steady</span></td><td><a href="https://viralstyle.com/kebystore/limited-edition-grb6" rel="noopener">Shop &rarr;</a></td></tr><tr data-col="Green Bay" data-trend="steady" data-text="go pack go stencil shirt go pack go stencil letters classic"><td><b>Go Pack Go Stencil Shirt</b><br><span class="muted small">GO PACK GO stencil letters</span></td><td>Green Bay</td><td>T-Shirt</td><td class="muted">classic</td><td class="num">$24.99</td><td><span class="badge steady">Steady</span></td><td><a href="https://viralstyle.com/kebystore/limited-edition-grb5" rel="noopener">Shop &rarr;</a></td></tr><tr data-col="Green Bay" data-trend="steady" data-text="let the 10ve begin green bay shirt let the 10ve begin player"><td><b>Let The 10VE Begin Green Bay Shirt</b><br><span class="muted small">LET THE 10VE BEGIN</span></td><td>Green Bay</td><td>T-Shirt</td><td class="muted">player</td><td class="num">$24.99</td><td><span class="badge steady">Steady</span></td><td><a href="https://viralstyle.com/kebystore/limited-edition-grb4" rel="noopener">Shop &rarr;</a></td></tr><tr data-col="Green Bay" data-trend="steady" data-text="our coach is hotter than your coach shirt our coach is hotter than your coach funny"><td><b>Our Coach Is Hotter Than Your Coach Shirt</b><br><span class="muted small">OUR COACH IS HOTTER THAN YOUR COACH</span></td><td>Green Bay</td><td>T-Shirt</td><td class="muted">funny</td><td class="num">$24.99</td><td><span class="badge steady">Steady</span></td><td><a href="https://viralstyle.com/kebystore/limited-edition-grb3" rel="noopener">Shop &rarr;</a></td></tr><tr data-col="Green Bay" data-trend="steady" data-text="the packers make me drink shirt the packers make me drink funny"><td><b>The Packers Make Me Drink Shirt</b><br><span class="muted small">THE PACKERS MAKE ME DRINK</span></td><td>Green Bay</td><td>T-Shirt</td><td class="muted">funny</td><td class="num">$24.99</td><td><span class="badge steady">Steady</span></td><td><a href="https://viralstyle.com/kebystore/limited-edition-grb2" rel="noopener">Shop &rarr;</a></td></tr><tr data-col="Green Bay" data-trend="steady" data-text="green bay vs everyone shirt green bay vs everyone with football classic"><td><b>Green Bay Vs Everyone Shirt</b><br><span class="muted small">GREEN BAY VS EVERYONE with football</span></td><td>Green Bay</td><td>T-Shirt</td><td class="muted">classic</td><td class="num">$24.99</td><td><span class="badge steady">Steady</span></td><td><a href="https://viralstyle.com/kebystore/limited-edition-grb1-1" rel="noopener">Shop &rarr;</a></td></tr><tr data-col="Dallas" data-trend="steady" data-text="doomsday defense dallas football shirt doomsday defense with skull in a retro helmet and stars retro"><td><b>Doomsday Defense Dallas Football Shirt</b><br><span class="muted small">DOOMSDAY DEFENSE with skull in a retro helmet and stars</span></td><td>Dallas</td><td>T-Shirt</td><td class="muted">retro</td><td class="num">$21.99</td><td><span class="badge steady">Steady</span></td><td><a href="https://viralstyle.com/kebystore/doomsday-defense-tee" rel="noopener">Shop &rarr;</a></td></tr><tr data-col="Dallas" data-trend="steady" data-text="this girl loves cowboys women&#39;s shirt this girl loves cowboys with football and stars family"><td><b>This Girl Loves Cowboys Women&#39;s Shirt</b><br><span class="muted small">THIS GIRL LOVES COWBOYS with football and stars</span></td><td>Dallas</td><td>T-Shirt</td><td class="muted">family</td><td class="num">$21.99</td><td><span class="badge steady">Steady</span></td><td><a href="https://viralstyle.com/kebystore/girly-vintage-texas-pride" rel="noopener">Shop &rarr;</a></td></tr><tr data-col="Dallas" data-trend="steady" data-text="dallas football star lightning vintage shirt dallas football with star, lightning bolts and football retro"><td><b>Dallas Football Star Lightning Vintage Shirt</b><br><span class="muted small">DALLAS FOOTBALL with star, lightning bolts and football</span></td><td>Dallas</td><td>T-Shirt</td><td class="muted">retro</td><td class="num">$21.99</td><td><span class="badge steady">Steady</span></td><td><a href="https://viralstyle.com/kebystore/dallas-football-vintage-style-tee" rel="noopener">Shop &rarr;</a></td></tr><tr data-col="Dallas" data-trend="steady" data-text="dallas football 1960 helmet vintage shirt dallas football 1960 dallas, texas with retro helmet retro"><td><b>Dallas Football 1960 Helmet Vintage Shirt</b><br><span class="muted small">DALLAS FOOTBALL 1960 DALLAS, TEXAS with retro helmet</span></td><td>Dallas</td><td>T-Shirt</td><td class="muted">retro</td><td class="num">$21.99</td><td><span class="badge steady">Steady</span></td><td><a href="https://viralstyle.com/kebystore/dallas-football-vintage-athletic-style-f" rel="noopener">Shop &rarr;</a></td></tr><tr data-col="Dallas" data-trend="steady" data-text="y&#39;all can kiss my dallas longhorn shirt y&#39;all can kiss my dallas with longhorn skull funny"><td><b>Y&#39;all Can Kiss My Dallas Longhorn Shirt</b><br><span class="muted small">Y&#39;ALL CAN KISS MY DALLAS with longhorn skull</span></td><td>Dallas</td><td>T-Shirt</td><td class="muted">funny</td><td class="num">$21.99</td><td><span class="badge steady">Steady</span></td><td><a href="https://viralstyle.com/kebystore/vintage-country" rel="noopener">Shop &rarr;</a></td></tr><tr data-col="Dallas" data-trend="steady" data-text="dallas american flag vertical shirt dallas on a distressed vertical american flag city"><td><b>Dallas American Flag Vertical Shirt</b><br><span class="muted small">DALLAS on a distressed vertical American flag</span></td><td>Dallas</td><td>T-Shirt</td><td class="muted">city</td><td class="num">$21.99</td><td><span class="badge steady">Steady</span></td><td><a href="https://viralstyle.com/kebystore/dallas-flag-tee" rel="noopener">Shop &rarr;</a></td></tr><tr data-col="Dallas" data-trend="steady" data-text="dallas 1960 football helmet white shirt dallas 1960 football with retro helmet retro"><td><b>Dallas 1960 Football Helmet White Shirt</b><br><span class="muted small">DALLAS 1960 FOOTBALL with retro helmet</span></td><td>Dallas</td><td>T-Shirt</td><td class="muted">retro</td><td class="num">$21.99</td><td><span class="badge steady">Steady</span></td><td><a href="https://viralstyle.com/kebystore/dallas-texas-vintage-athletic-style-t-sh" rel="noopener">Shop &rarr;</a></td></tr><tr data-col="Dallas" data-trend="steady" data-text="dallas texas state flag pride shirt dallas texas with state outline and texas flag city"><td><b>Dallas Texas State Flag Pride Shirt</b><br><span class="muted small">DALLAS TEXAS with state outline and Texas flag</span></td><td>Dallas</td><td>T-Shirt</td><td class="muted">city</td><td class="num">$21.99</td><td><span class="badge steady">Steady</span></td><td><a href="https://viralstyle.com/kebystore/vintage-texas-pride" rel="noopener">Shop &rarr;</a></td></tr><tr data-col="Dallas" data-trend="steady" data-text="dallas texas est 1841 navy shirt dallas est. 1841 texas collegiate lettering retro"><td><b>Dallas Texas Est 1841 Navy Shirt</b><br><span class="muted small">DALLAS EST. 1841 TEXAS collegiate lettering</span></td><td>Dallas</td><td>T-Shirt</td><td class="muted">retro</td><td class="num">$21.99</td><td><span class="badge steady">Steady</span></td><td><a href="https://viralstyle.com/kebystore/dallas-texas-vintage-athletic-sports" rel="noopener">Shop &rarr;</a></td></tr><tr data-col="Dallas" data-trend="steady" data-text="dallas texas est 1841 grey shirt dallas est. 1841 texas collegiate lettering retro"><td><b>Dallas Texas Est 1841 Grey Shirt</b><br><span class="muted small">DALLAS EST. 1841 TEXAS collegiate lettering</span></td><td>Dallas</td><td>T-Shirt</td><td class="muted">retro</td><td class="num">$21.99</td><td><span class="badge steady">Steady</span></td><td><a href="https://viralstyle.com/kebystore/dallas-texas-vintage-athletic-sports-sty" rel="noopener">Shop &rarr;</a></td></tr><tr data-col="Michigan" data-trend="steady" data-text="respond nothing given everything earned tee respond nothing given everything earned classic"><td><b>Respond Nothing Given Everything Earned Tee</b><br><span class="muted small">RESPOND NOTHING GIVEN EVERYTHING EARNED</span></td><td>Michigan</td><td>T-Shirt</td><td class="muted">classic</td><td class="num">$21.00</td><td><span class="badge steady">Steady</span></td><td><a href="https://gridironlocker.shop/respond-nothing-given-everything-earned-tee?collectionId=YYMlCmwgKG__&amp;color=GILDAN-NAVY&amp;productId=6aa5a037d36087dc4a8b023a" rel="noopener">Shop &rarr;</a></td></tr><tr data-col="Michigan" data-trend="steady" data-text="bryce 19 bryce 19 player"><td><b>Bryce 19</b><br><span class="muted small">BRYCE 19</span></td><td>Michigan</td><td>T-Shirt</td><td class="muted">player</td><td class="num">$21.00</td><td><span class="badge steady">Steady</span></td><td><a href="https://gridironlocker.shop/bryce-19?collectionId=YYMlCmwgKG__&amp;color=GILDAN-BLACK&amp;productId=6aa597fd3919e1b7067eeddf" rel="noopener">Shop &rarr;</a></td></tr><tr data-col="Michigan" data-trend="steady" data-text="respond nothing given everything earned shirt respond nothing given everything earned classic"><td><b>Respond Nothing Given Everything Earned Shirt</b><br><span class="muted small">RESPOND NOTHING GIVEN EVERYTHING EARNED</span></td><td>Michigan</td><td>T-Shirt</td><td class="muted">classic</td><td class="num">$21.00</td><td><span class="badge steady">Steady</span></td><td><a href="https://gridironlocker.shop/respond-nothing-given-everything-earned?collectionId=YYMlCmwgKG__&amp;color=GILDAN-NAVY&amp;productId=6aa595875d8a068c28832777" rel="noopener">Shop &rarr;</a></td></tr><tr data-col="Michigan" data-trend="steady" data-text="maize out maize out classic"><td><b>Maize Out</b><br><span class="muted small">MAIZE OUT</span></td><td>Michigan</td><td>T-Shirt</td><td class="muted">classic</td><td class="num">$21.00</td><td><span class="badge steady">Steady</span></td><td><a href="https://gridironlocker.shop/maize-out?collectionId=YYMlCmwgKG__&amp;color=GILDAN-NAVY&amp;productId=6aa56e416dc678f014370608" rel="noopener">Shop &rarr;</a></td></tr><tr data-col="Michigan" data-trend="steady" data-text="michigan michigan classic"><td><b>Michigan</b><br><span class="muted small">MICHIGAN</span></td><td>Michigan</td><td>T-Shirt</td><td class="muted">classic</td><td class="num">$21.00</td><td><span class="badge steady">Steady</span></td><td><a href="https://gridironlocker.shop/michigan?collectionId=YYMlCmwgKG__&amp;color=GILDAN-NAVY&amp;productId=6aa56daaad2201c1e08af3f8" rel="noopener">Shop &rarr;</a></td></tr><tr data-col="Michigan" data-trend="steady" data-text="legacy legacy classic"><td><b>Legacy</b><br><span class="muted small">LEGACY</span></td><td>Michigan</td><td>T-Shirt</td><td class="muted">classic</td><td class="num">$21.00</td><td><span class="badge steady">Steady</span></td><td><a href="https://gridironlocker.shop/legacy?collectionId=YYMlCmwgKG__&amp;color=GILDAN-NAVY&amp;productId=6aa56bce466e7000eaf44fac" rel="noopener">Shop &rarr;</a></td></tr><tr data-col="Michigan" data-trend="steady" data-text="second act second act classic"><td><b>Second Act</b><br><span class="muted small">SECOND ACT</span></td><td>Michigan</td><td>T-Shirt</td><td class="muted">classic</td><td class="num">$21.00</td><td><span class="badge steady">Steady</span></td><td><a href="https://gridironlocker.shop/second-act?collectionId=YYMlCmwgKG__&amp;color=GILDAN-NAVY&amp;productId=6aa55e1e32b128dbbe980778" rel="noopener">Shop &rarr;</a></td></tr><tr data-col="Michigan" data-trend="steady" data-text="limited edition hail mary limited edition h a i l mary classic"><td><b>Limited Edition Hail Mary</b><br><span class="muted small">LIMITED EDITION H A I L MARY</span></td><td>Michigan</td><td>T-Shirt</td><td class="muted">classic</td><td class="num">$21.00</td><td><span class="badge steady">Steady</span></td><td><a href="https://gridironlocker.shop/limited-edition-h-a-i-l-mary?collectionId=YYMlCmwgKG__&amp;color=GILDAN-NAVY&amp;productId=6aa1f0b9534eadb8cbb5a139" rel="noopener">Shop &rarr;</a></td></tr><tr data-col="Michigan" data-trend="steady" data-text="one second one second classic"><td><b>One Second</b><br><span class="muted small">ONE SECOND</span></td><td>Michigan</td><td>T-Shirt</td><td class="muted">classic</td><td class="num">$21.00</td><td><span class="badge steady">Steady</span></td><td><a href="https://gridironlocker.shop/one-second?collectionId=YYMlCmwgKG__&amp;color=GILDAN-HEATHER_SPORT_GREY&amp;productId=6aa1ee07ad108e6fc6bd7ce6" rel="noopener">Shop &rarr;</a></td></tr><tr data-col="Michigan" data-trend="steady" data-text="m vs everybody m -vs- everybody classic"><td><b>M vs Everybody</b><br><span class="muted small">M -VS- EVERYBODY</span></td><td>Michigan</td><td>T-Shirt</td><td class="muted">classic</td><td class="num">$21.00</td><td><span class="badge steady">Steady</span></td><td><a href="https://gridironlocker.shop/m-vs-everybody?collectionId=YYMlCmwgKG__&amp;color=GILDAN-NAVY&amp;productId=6aa1e7c8047e2b3b0d59e904" rel="noopener">Shop &rarr;</a></td></tr><tr data-col="Michigan" data-trend="steady" data-text="second act qb19 vintage football second act qb19 vintage football retro"><td><b>Second Act QB19 Vintage Football</b><br><span class="muted small">SECOND ACT QB19 VINTAGE FOOTBALL</span></td><td>Michigan</td><td>T-Shirt</td><td class="muted">retro</td><td class="num">$21.00</td><td><span class="badge steady">Steady</span></td><td><a href="https://gridironlocker.shop/second-act-qb19-vintage-football?collectionId=YYMlCmwgKG__&amp;color=GILDAN-HEATHER_SPORT_GREY&amp;productId=6aa1db87f1c6bb96a2648225" rel="noopener">Shop &rarr;</a></td></tr><tr data-col="Michigan" data-trend="steady" data-text="limited edition go blue limited edition go blue classic"><td><b>Limited Edition Go Blue</b><br><span class="muted small">LIMITED EDITION GO BLUE</span></td><td>Michigan</td><td>T-Shirt</td><td class="muted">classic</td><td class="num">$21.00</td><td><span class="badge steady">Steady</span></td><td><a href="https://gridironlocker.shop/limited-edition-go-blue?collectionId=YYMlCmwgKG__&amp;color=GILDAN-HEATHER_SPORT_GREY&amp;productId=6aa1d621454c0ee365c9edc5" rel="noopener">Shop &rarr;</a></td></tr><tr data-col="Michigan" data-trend="steady" data-text="michigan v everybody michigan -vs- everybody classic"><td><b>Michigan v Everybody</b><br><span class="muted small">MICHIGAN -VS- EVERYBODY</span></td><td>Michigan</td><td>T-Shirt</td><td class="muted">classic</td><td class="num">$21.00</td><td><span class="badge steady">Steady</span></td><td><a href="https://gridironlocker.shop/michigan-v-everybody?collectionId=YYMlCmwgKG__&amp;color=GILDAN-HEATHER_SPORT_GREY&amp;productId=6aa1d2d97e9d71e4274ce029" rel="noopener">Shop &rarr;</a></td></tr><tr data-col="Michigan" data-trend="steady" data-text="milf milf funny"><td><b>MILF</b><br><span class="muted small">MILF</span></td><td>Michigan</td><td>T-Shirt</td><td class="muted">funny</td><td class="num">$21.00</td><td><span class="badge steady">Steady</span></td><td><a href="https://gridironlocker.shop/milf?collectionId=YYMlCmwgKG__&amp;color=GILDAN-NAVY&amp;productId=6aa1c4502b4261ca56ecce11" rel="noopener">Shop &rarr;</a></td></tr><tr data-col="Michigan" data-trend="steady" data-text="bet m bet m funny"><td><b>BET M</b><br><span class="muted small">BET M</span></td><td>Michigan</td><td>T-Shirt</td><td class="muted">funny</td><td class="num">$21.00</td><td><span class="badge steady">Steady</span></td><td><a href="https://gridironlocker.shop/bet-m?collectionId=YYMlCmwgKG__&amp;color=GILDAN-NAVY&amp;productId=6aa1b73fec16917b7f63d118" rel="noopener">Shop &rarr;</a></td></tr><tr data-col="Michigan" data-trend="steady" data-text="michigan bet vintage michigan bet vintage retro"><td><b>Michigan Bet Vintage</b><br><span class="muted small">MICHIGAN BET VINTAGE</span></td><td>Michigan</td><td>T-Shirt</td><td class="muted">retro</td><td class="num">$21.00</td><td><span class="badge steady">Steady</span></td><td><a href="https://gridironlocker.shop/michigan-bet-vintage?collectionId=YYMlCmwgKG__&amp;color=GILDAN-NAVY&amp;productId=6aa1b73ff7b554e33d7d9453" rel="noopener">Shop &rarr;</a></td></tr><tr data-col="Michigan" data-trend="steady" data-text="michigan revenge tour michigan revenge tour classic"><td><b>Michigan Revenge Tour</b><br><span class="muted small">MICHIGAN REVENGE TOUR</span></td><td>Michigan</td><td>T-Shirt</td><td class="muted">classic</td><td class="num">$21.00</td><td><span class="badge steady">Steady</span></td><td><a href="https://gridironlocker.shop/michigan-revenge-tour?collectionId=YYMlCmwgKG__&amp;color=GILDAN-NAVY&amp;productId=6aa1b3141e2a91b12ce7bb6a" rel="noopener">Shop &rarr;</a></td></tr><tr data-col="Michigan" data-trend="steady" data-text="michigan bet michigan bet classic"><td><b>Michigan BET</b><br><span class="muted small">MICHIGAN BET</span></td><td>Michigan</td><td>T-Shirt</td><td class="muted">classic</td><td class="num">$21.00</td><td><span class="badge steady">Steady</span></td><td><a href="https://gridironlocker.shop/michigan-bet?collectionId=YYMlCmwgKG__&amp;color=GILDAN-NAVY&amp;productId=6aa1b1f759ee834ea2120a3f" rel="noopener">Shop &rarr;</a></td></tr>
+  </tbody>
+  </table>
+ </div>
+ <div class="card" style="margin-top:22px;border-color:rgba(255,125,125,.35)">
+ <h3><span class="badge dead">Dead campaigns</span> removed from the build</h3>
+ <p class="muted small">These slugs exist in data/products.json but no longer return live product
+ data on Viralstyle, so they are excluded from the storefront. Relaunch and re-crawl to restore.</p>
+ <table><thead><tr><th>Slug</th><th>Title</th><th>Link</th></tr></thead><tbody>
+ <tr><td class="mono small">all-we-want-all-we-got</td><td>All We Want All We Got</td><td><a href="https://viralstyle.com/kebystore/all-we-want-all-we-got" rel="noopener">Viralstyle &rarr;</a></td></tr><tr><td class="mono small">all-we-want-all-we-got-25</td><td>All We Want All We Got 25</td><td><a href="https://viralstyle.com/kebystore/all-we-want-all-we-got-25" rel="noopener">Viralstyle &rarr;</a></td></tr><tr><td class="mono small">b-r-o-w-n-s-sugar-skull-halloween-long</td><td>b r o w n s Sugar Skull Halloween long</td><td><a href="https://viralstyle.com/kebystore/b-r-o-w-n-s-sugar-skull-halloween-long" rel="noopener">Viralstyle &rarr;</a></td></tr><tr><td class="mono small">bend-football-fans</td><td>Bend Football Fans</td><td><a href="https://viralstyle.com/kebystore/bend-football-fans" rel="noopener">Viralstyle &rarr;</a></td></tr><tr><td class="mono small">beware-of-dawg</td><td>Beware of Dawg</td><td><a href="https://viralstyle.com/kebystore/beware-of-dawg" rel="noopener">Viralstyle &rarr;</a></td></tr><tr><td class="mono small">br-sugar-skull-halloween</td><td>b r o w n s Sugar Skull Halloween</td><td><a href="https://viralstyle.com/kebystore/br-sugar-skull-halloween" rel="noopener">Viralstyle &rarr;</a></td></tr><tr><td class="mono small">cleveland-its-not-that-bad-have-a-beer</td><td>Cleveland, Its Not That Bad. Have a Beer!</td><td><a href="https://viralstyle.com/kebystore/cleveland-its-not-that-bad-have-a-beer" rel="noopener">Viralstyle &rarr;</a></td></tr><tr><td class="mono small">cleveland-retro-vintage-classic-ohio-fan</td><td>Cleveland retro vintage classic Ohio fans shirt</td><td><a href="https://viralstyle.com/kebystore/cleveland-retro-vintage-classic-ohio-fan" rel="noopener">Viralstyle &rarr;</a></td></tr><tr><td class="mono small">cleveland-retro-vintage-classic-ohio-gif</td><td>Vintage Cleveland</td><td><a href="https://viralstyle.com/kebystore/cleveland-retro-vintage-classic-ohio-gif" rel="noopener">Viralstyle &rarr;</a></td></tr><tr><td class="mono small">cleveland-retro-vintage-classic-ohio-shi</td><td>Cleveland retro vintage classic Ohio shirt</td><td><a href="https://viralstyle.com/kebystore/cleveland-retro-vintage-classic-ohio-shi" rel="noopener">Viralstyle &rarr;</a></td></tr><tr><td class="mono small">cleveland-retro-vintage-classic-ohio-shi-1</td><td>Cleveland retro vintage classic Ohio Gameday shirt</td><td><a href="https://viralstyle.com/kebystore/cleveland-retro-vintage-classic-ohio-shi-1" rel="noopener">Viralstyle &rarr;</a></td></tr><tr><td class="mono small">d-a-w-g-b-i-t-c-limited-edition</td><td>D a w g B i t c Limited Edition</td><td><a href="https://viralstyle.com/kebystore/d-a-w-g-b-i-t-c-limited-edition" rel="noopener">Viralstyle &rarr;</a></td></tr><tr><td class="mono small">d-a-w-g-s-limited-edition</td><td>Sundays Are For The Dawgs</td><td><a href="https://viralstyle.com/kebystore/d-a-w-g-s-limited-edition" rel="noopener">Viralstyle &rarr;</a></td></tr><tr><td class="mono small">dawg-pound</td><td>Dawg Pound</td><td><a href="https://viralstyle.com/kebystore/dawg-pound" rel="noopener">Viralstyle &rarr;</a></td></tr><tr><td class="mono small">denzel</td><td>Denzel</td><td><a href="https://viralstyle.com/kebystore/denzel" rel="noopener">Viralstyle &rarr;</a></td></tr><tr><td class="mono small">dibs-on-the-coach-football-funny-football-1</td><td>Dibs On The Coach Football Funny Football Coach Gifts</td><td><a href="https://viralstyle.com/kebystore/dibs-on-the-coach-football-funny-football-1" rel="noopener">Viralstyle &rarr;</a></td></tr><tr><td class="mono small">i-love-b-r-o-w-n-s-limited-edition</td><td>I love B R O W N S Limited Edition</td><td><a href="https://viralstyle.com/kebystore/i-love-b-r-o-w-n-s-limited-edition" rel="noopener">Viralstyle &rarr;</a></td></tr><tr><td class="mono small">it-s-not-a-team-logo-browns-it-s-a-famil</td><td>It s not a team logo Browns it s a family crest est 1946 shirt</td><td><a href="https://viralstyle.com/kebystore/it-s-not-a-team-logo-browns-it-s-a-famil" rel="noopener">Viralstyle &rarr;</a></td></tr><tr><td class="mono small">let-it-rip</td><td>Let it Rip</td><td><a href="https://viralstyle.com/kebystore/let-it-rip" rel="noopener">Viralstyle &rarr;</a></td></tr><tr><td class="mono small">lets-go-cleveland</td><td>Let&#39;s Go Cleveland</td><td><a href="https://viralstyle.com/kebystore/lets-go-cleveland" rel="noopener">Viralstyle &rarr;</a></td></tr><tr><td class="mono small">limited-edition-2024n2</td><td>Limited Edition 2024N2</td><td><a href="https://viralstyle.com/kebystore/limited-edition-2024n2" rel="noopener">Viralstyle &rarr;</a></td></tr><tr><td class="mono small">limited-edition-241</td><td>Cleveland</td><td><a href="https://viralstyle.com/kebystore/limited-edition-241" rel="noopener">Viralstyle &rarr;</a></td></tr><tr><td class="mono small">limited-edition-66</td><td>Limited Edition 66</td><td><a href="https://viralstyle.com/kebystore/limited-edition-66" rel="noopener">Viralstyle &rarr;</a></td></tr><tr><td class="mono small">limited-edition-b-e-k-i-n-d</td><td>Limited Edition B E K I N D</td><td><a href="https://viralstyle.com/kebystore/limited-edition-b-e-k-i-n-d" rel="noopener">Viralstyle &rarr;</a></td></tr><tr><td class="mono small">limited-edition-b-r-o-w-n-s</td><td>Limited Edition B R O W N S</td><td><a href="https://viralstyle.com/kebystore/limited-edition-b-r-o-w-n-s" rel="noopener">Viralstyle &rarr;</a></td></tr><tr><td class="mono small">limited-edition-b-r-o-w-n-s-cleveland-ca</td><td>Limited Edition B R O W N S Cleveland Case</td><td><a href="https://viralstyle.com/kebystore/limited-edition-b-r-o-w-n-s-cleveland-ca" rel="noopener">Viralstyle &rarr;</a></td></tr><tr><td class="mono small">limited-edition-b-r-o-w-n-s-h-e-l-m-e-t</td><td>Limited Edition B R O W N S H E L M E T</td><td><a href="https://viralstyle.com/kebystore/limited-edition-b-r-o-w-n-s-h-e-l-m-e-t" rel="noopener">Viralstyle &rarr;</a></td></tr><tr><td class="mono small">limited-edition-b-r-o-w-n-s1</td><td>Limited Edition B R O W N S</td><td><a href="https://viralstyle.com/kebystore/limited-edition-b-r-o-w-n-s1" rel="noopener">Viralstyle &rarr;</a></td></tr><tr><td class="mono small">limited-edition-br-summer-2024</td><td>Limited Edition BR Summer 2024</td><td><a href="https://viralstyle.com/kebystore/limited-edition-br-summer-2024" rel="noopener">Viralstyle &rarr;</a></td></tr><tr><td class="mono small">limited-edition-c-l-e-aint-for-sissies</td><td>Limited Edition C L E Aint For Sissies</td><td><a href="https://viralstyle.com/kebystore/limited-edition-c-l-e-aint-for-sissies" rel="noopener">Viralstyle &rarr;</a></td></tr><tr><td class="mono small">limited-edition-c1</td><td>Cleveland CLE for Fans</td><td><a href="https://viralstyle.com/kebystore/limited-edition-c1" rel="noopener">Viralstyle &rarr;</a></td></tr><tr><td class="mono small">limited-edition-c2</td><td>Cleveland CLE</td><td><a href="https://viralstyle.com/kebystore/limited-edition-c2" rel="noopener">Viralstyle &rarr;</a></td></tr><tr><td class="mono small">limited-edition-cle-mug</td><td>Cleveland Victory Monday Mug</td><td><a href="https://viralstyle.com/kebystore/limited-edition-cle-mug" rel="noopener">Viralstyle &rarr;</a></td></tr><tr><td class="mono small">limited-edition-cleveland</td><td>Limited Edition Cleveland</td><td><a href="https://viralstyle.com/kebystore/limited-edition-cleveland" rel="noopener">Viralstyle &rarr;</a></td></tr><tr><td class="mono small">limited-edition-cleveland-fans</td><td>Limited Edition Cleveland Fans</td><td><a href="https://viralstyle.com/kebystore/limited-edition-cleveland-fans" rel="noopener">Viralstyle &rarr;</a></td></tr><tr><td class="mono small">limited-edition-cleveland-lovers</td><td>Limited Edition Cleveland Lovers</td><td><a href="https://viralstyle.com/kebystore/limited-edition-cleveland-lovers" rel="noopener">Viralstyle &rarr;</a></td></tr><tr><td class="mono small">limited-edition-d-w-a-g</td><td>Limited Edition D W A G</td><td><a href="https://viralstyle.com/kebystore/limited-edition-d-w-a-g" rel="noopener">Viralstyle &rarr;</a></td></tr><tr><td class="mono small">limited-edition-d-w-a-g-s</td><td>Limited Edition D W A G S</td><td><a href="https://viralstyle.com/kebystore/limited-edition-d-w-a-g-s" rel="noopener">Viralstyle &rarr;</a></td></tr><tr><td class="mono small">limited-edition-go-b-r-o-w-n-s</td><td>Limited Edition Go B R O W N S</td><td><a href="https://viralstyle.com/kebystore/limited-edition-go-b-r-o-w-n-s" rel="noopener">Viralstyle &rarr;</a></td></tr><tr><td class="mono small">limited-edition-lfg</td><td>Limited Edition LFG</td><td><a href="https://viralstyle.com/kebystore/limited-edition-lfg" rel="noopener">Viralstyle &rarr;</a></td></tr><tr><td class="mono small">limited-edition-no-fly-zone-denzel</td><td>Limited Edition No Fly Zone - Denzel</td><td><a href="https://viralstyle.com/kebystore/limited-edition-no-fly-zone-denzel" rel="noopener">Viralstyle &rarr;</a></td></tr><tr><td class="mono small">limited-edition-our-coach</td><td>Limited Edition Our Coach</td><td><a href="https://viralstyle.com/kebystore/limited-edition-our-coach" rel="noopener">Viralstyle &rarr;</a></td></tr><tr><td class="mono small">limited-edition-rise-and-shine</td><td>Rise and Shine it&#39;s Game Day</td><td><a href="https://viralstyle.com/kebystore/limited-edition-rise-and-shine" rel="noopener">Viralstyle &rarr;</a></td></tr><tr><td class="mono small">limited-edition-rock-out-denzel</td><td>Limited Edition Rock Out - Denzel</td><td><a href="https://viralstyle.com/kebystore/limited-edition-rock-out-denzel" rel="noopener">Viralstyle &rarr;</a></td></tr><tr><td class="mono small">limited-edition-s-u-n-d-a-y-s</td><td>Limited Edition S U N D A Y S</td><td><a href="https://viralstyle.com/kebystore/limited-edition-s-u-n-d-a-y-s" rel="noopener">Viralstyle &rarr;</a></td></tr><tr><td class="mono small">limited-edition-the-wall-graham</td><td>Limited Edition The Wall - Graham</td><td><a href="https://viralstyle.com/kebystore/limited-edition-the-wall-graham" rel="noopener">Viralstyle &rarr;</a></td></tr><tr><td class="mono small">limited-edition-victory-morning</td><td>Limited Edition Victory Monday</td><td><a href="https://viralstyle.com/kebystore/limited-edition-victory-morning" rel="noopener">Viralstyle &rarr;</a></td></tr><tr><td class="mono small">line-man-dad-football-t-shirt</td><td>Line Man Dad Football T-Shirt</td><td><a href="https://viralstyle.com/kebystore/line-man-dad-football-t-shirt" rel="noopener">Viralstyle &rarr;</a></td></tr><tr><td class="mono small">make-them-know-your-name-denzel-1</td><td>Make Them Know Your Name Denzel</td><td><a href="https://viralstyle.com/kebystore/make-them-know-your-name-denzel-1" rel="noopener">Viralstyle &rarr;</a></td></tr><tr><td class="mono small">my-heart-is-on-that-field</td><td>My Heart Is On That Field</td><td><a href="https://viralstyle.com/kebystore/my-heart-is-on-that-field" rel="noopener">Viralstyle &rarr;</a></td></tr><tr><td class="mono small">my-life-is-for-football-t-shirt</td><td>My Life is  For Football T-Shirt</td><td><a href="https://viralstyle.com/kebystore/my-life-is-for-football-t-shirt" rel="noopener">Viralstyle &rarr;</a></td></tr><tr><td class="mono small">ohio-cleveland-fans</td><td>Ohio Cleveland Fans</td><td><a href="https://viralstyle.com/kebystore/ohio-cleveland-fans" rel="noopener">Viralstyle &rarr;</a></td></tr><tr><td class="mono small">play-off-pound-shirt</td><td>Play Off Pound Shirt</td><td><a href="https://viralstyle.com/kebystore/play-off-pound-shirt" rel="noopener">Viralstyle &rarr;</a></td></tr><tr><td class="mono small">playoffs-never-giveup</td><td>Playoffs Never Giveup</td><td><a href="https://viralstyle.com/kebystore/playoffs-never-giveup" rel="noopener">Viralstyle &rarr;</a></td></tr><tr><td class="mono small">run-the-ball</td><td>Run the Ball</td><td><a href="https://viralstyle.com/kebystore/run-the-ball" rel="noopener">Viralstyle &rarr;</a></td></tr><tr><td class="mono small">run-the-ball-kev</td><td>Run the Ball Kev</td><td><a href="https://viralstyle.com/kebystore/run-the-ball-kev" rel="noopener">Viralstyle &rarr;</a></td></tr><tr><td class="mono small">sanders-12-special-edition</td><td>Sander&#39;s 12 Special Edition</td><td><a href="https://viralstyle.com/kebystore/sanders-12-special-edition" rel="noopener">Viralstyle &rarr;</a></td></tr><tr><td class="mono small">sanders-13-special-edition</td><td>Sander&#39;s 13 Special Edition</td><td><a href="https://viralstyle.com/kebystore/sanders-13-special-edition" rel="noopener">Viralstyle &rarr;</a></td></tr><tr><td class="mono small">sanders-special-edition</td><td>Sander&#39;s Special Edition</td><td><a href="https://viralstyle.com/kebystore/sanders-special-edition" rel="noopener">Viralstyle &rarr;</a></td></tr><tr><td class="mono small">sanders-the-next-level</td><td></td><td><a href="" rel="noopener">Viralstyle &rarr;</a></td></tr><tr><td class="mono small">she-love-coach-kevin</td><td>She Loves Coach Kevin</td><td><a href="https://viralstyle.com/kebystore/she-love-coach-kevin" rel="noopener">Viralstyle &rarr;</a></td></tr><tr><td class="mono small">this-girl-loves-browns-coach</td><td>This Girl Loves Browns Coach</td><td><a href="https://viralstyle.com/kebystore/this-girl-loves-browns-coach" rel="noopener">Viralstyle &rarr;</a></td></tr><tr><td class="mono small">whispered-go-browns</td><td>Whispered Go Browns</td><td><a href="https://viralstyle.com/kebystore/whispered-go-browns" rel="noopener">Viralstyle &rarr;</a></td></tr><tr><td class="mono small">winter-hat-beanie-browns</td><td>Winter Hat Beanie Browns</td><td><a href="https://viralstyle.com/kebystore/winter-hat-beanie-browns" rel="noopener">Viralstyle &rarr;</a></td></tr><tr><td class="mono small">winter-hat-beanie-cleveland</td><td>Winter Hat Beanie Cleveland</td><td><a href="https://viralstyle.com/kebystore/winter-hat-beanie-cleveland" rel="noopener">Viralstyle &rarr;</a></td></tr><tr><td class="mono small">winter-hat-beanie-go-browns</td><td>Winter Hat Beanie Go Browns</td><td><a href="https://viralstyle.com/kebystore/winter-hat-beanie-go-browns" rel="noopener">Viralstyle &rarr;</a></td></tr>
+ </tbody></table></div>
+ <div class="card" style="margin-top:22px">
+  <h3>Design gaps - build these next</h3>
+  <p class="muted small">Names scoring on the news feeds with no matching design in the locker.
+  Highest FTI = highest priority.</p>
+  <div class="calls">
+  <div class="call"><b>Deshaun Watson</b><br><span class="muted small">cleveland-browns &middot; 41 mentions &middot; FTI 100</span></div><div class="call"><b>Dak Prescott</b><br><span class="muted small">dallas-cowboys &middot; 8 mentions &middot; FTI 20</span></div><div class="call"><b>Kyle Whittingham</b><br><span class="muted small">michigan &middot; 6 mentions &middot; FTI 15</span></div><div class="call"><b>Todd Monken</b><br><span class="muted small">cleveland-browns &middot; 6 mentions &middot; FTI 15</span></div><div class="call"><b>Josh Jacobs</b><br><span class="muted small">green-bay-packers &middot; 5 mentions &middot; FTI 12</span></div><div class="call"><b>Matt LaFleur</b><br><span class="muted small">green-bay-packers &middot; 5 mentions &middot; FTI 12</span></div><div class="call"><b>CeeDee Lamb</b><br><span class="muted small">dallas-cowboys &middot; 4 mentions &middot; FTI 10</span></div>
+  </div>
+ </div>
+</section>
+
+<section>
+ <h2>Latest player moments</h2>
+ <div class="card">
+  <div class="moments">
+  <div class="moment"><div style="min-width:0"><a href="https://news.google.com/rss/articles/CBMinAFBVV95cUxNZ1BiZ0k0T294bHR4SGJLUUYxcC1aa21YcGNJVlJ0bEtNZk5oWE5BWVR1WHFrbmZzQWhwb2lTR1NyekpQWTFxQjR1Q0lFUVlqbjhqUnlVc1VDRXBMX29wazFCRG5MRXhCYmxtdDlyVmxOOWJ2SWtjc0E1MXpfSWFwaGlVUzVyWGFCRFdaem9kcmNkOHJSV2RWZnpzYk0?oc=5" rel="noopener">Todd Monken: Browns&#39; big loss not just about Deshaun Watson</a><div class="meta">ESPN &middot; Sep 13 &middot; <span class="mono">cleveland-browns</span></div></div><div class="chips" style="margin:0 0 0 auto;flex:none;max-width:42%"><span class="chip">Deshaun Watson</span><span class="chip">Todd Monken</span></div></div><div class="moment"><div style="min-width:0"><a href="https://news.google.com/rss/articles/CBMifkFVX3lxTE95R1hhWUtQcWZXMDd3N2twWTI2a1dxODZNeVI0cHBPNU4zbGZoTldnUGtibHFualJrVVVJblo1VC1OSFR6ajZ0b2pyQ3ZhaDFFR2s2bnc5QnhBbzNBd2ZiNk1tdlBqRXBFMlJTOU5WcHhXUXA5MVJNamFUdndYZw?oc=5" rel="noopener">‘I would have cut him’ – Former NFL coach blasts Cleveland Browns for giving Deshaun Watson the starting spot</a><div class="meta">Yahoo Sports &middot; Sep 13 &middot; <span class="mono">cleveland-browns</span></div></div><div class="chips" style="margin:0 0 0 auto;flex:none;max-width:42%"><span class="chip">Deshaun Watson</span></div></div><div class="moment"><div style="min-width:0"><a href="https://news.google.com/rss/articles/CBMi0wFBVV95cUxNbDhKRDE2WERQSlJfMGRJZ0hFR3pZTlg3V0VrNF9rdzR5c0RhTEdVYjdPeU1FUWVBV0tmQ0VmLXFRUmdCdXdGamNjc2xiWjM0Qm5CcllyejhzbUM3WU5zNWYtdXZuUzFDcHUtaUlLSGxsUGxzbWtpTURMOHhFV1hLemtxSVpzY0FTald2S1BRT3dWaGRkczhaTjU5TFNPQXJxM0ZoOWo5ZExVaEoyQjNMeU9ELWVmeXdkejU2Uk1lYXc4RHFiRTJ4Ql9YRm9vVG93alA4?oc=5" rel="noopener">Green Bay Packers News: Matt LaFleur has a lot of problems to navigate</a><div class="meta">Acme Packing Company &middot; Sep 15 &middot; <span class="mono">green-bay-packers</span></div></div><div class="chips" style="margin:0 0 0 auto;flex:none;max-width:42%"><span class="chip">Matt Lafleur</span></div></div><div class="moment"><div style="min-width:0"><a href="https://news.google.com/rss/articles/CBMihgFBVV95cUxPODBpdHU0ZWdMQ0trRVNTbnNWWTluc0YwZUFydFZ2QnNlYUQzemdDWjh5VFpyajR5SmxMSHBYZkdqNkQ1WlZVd2xOZ21JMjJrR3NhaHItRVRMYXR3MDljcm8zX2VjSXc4d2tVUW9QWGdEc084eng2MUM5UDJNaG81dnV4bGhwZw?oc=5" rel="noopener">Green Bay Packers: Matt LaFleur hints at possible change in starting lineup ahead of Week 2</a><div class="meta">Yahoo Sports &middot; Sep 14 &middot; <span class="mono">green-bay-packers</span></div></div><div class="chips" style="margin:0 0 0 auto;flex:none;max-width:42%"><span class="chip">Matt Lafleur</span></div></div>
+  </div>
+  <p class="muted small" style="margin:14px 0 0">4 moments captured in this window.
+  <a href="../../fan-trend-index/">Public Fan Trend Index &rarr;</a></p>
+ </div>
+</section>
+
+<section>
+ <h2>Pipeline &amp; provenance</h2>
+ <div class="grid2">
+  <div class="card">
+   <h3>Where this data comes from</h3>
+   <table>
+    <tbody>
+     <tr><td>Trend pipeline</td><td class="mono small">src/trends.py</td><td>news crawler + FTI scoring</td></tr>
+     <tr><td>Catalogue source</td><td class="mono small">data/products_live.json</td><td>crawled from Viralstyle</td></tr>
+     <tr><td>Storefront build</td><td class="mono small">src/build.py</td><td>writes site/ incl. ops/scout</td></tr>
+     <tr><td>Publishing</td><td class="mono small">.github/workflows/deploy.yml</td><td>GitHub Pages &rarr; /ops/scout/</td></tr>
+     <tr><td>Daily refresh</td><td class="mono small">.github/workflows/refresh.yml</td><td>06:15 &amp; 15:15 UTC</td></tr>
+    </tbody>
+   </table>
+   <div class="stash">
+    <a href="scout.json">Raw snapshot (scout.json)</a>
+    <a href="./" >This dashboard</a>
+    <a href="../">/ops/ index</a>
+   </div>
+  </div>
+  <div class="card">
+   <h3>Quick links</h3>
+   <div class="stash" style="flex-direction:column;gap:8px">
+    <a href="../../fan-trend-index/">Public Fan Trend Index</a>
+    <a href="../../2026-season/">2026 season hub</a>
+    <a href="../../">Storefront home</a>
+   </div>
+   <p class="muted small" style="margin-top:16px">Scout is generated by
+   <span class="kbd">src/scout.py</span> from the same JSON the storefront uses, so numbers here
+   always match the live build. Headline-linked stories belong to their publishers.</p>
+  </div>
+ </div>
+</section>
+
+<details><summary>Inspect raw data (JSON)</summary><pre>{
+ &quot;generated&quot;: &quot;2026-09-18&quot;,
+ &quot;window_days&quot;: 10,
+ &quot;fti_formula&quot;: &quot;round(100 * entity_mentions / peak_mentions_in_window)&quot;,
+ &quot;peak_mentions&quot;: 41,
+ &quot;stats&quot;: {
+  &quot;products&quot;: 84,
+  &quot;collections&quot;: 4,
+  &quot;images&quot;: 425,
+  &quot;avg_price&quot;: 22.96,
+  &quot;hot&quot;: 0,
+  &quot;throwback&quot;: 1,
+  &quot;steady&quot;: 83,
+  &quot;gaps&quot;: 7,
+  &quot;moments&quot;: 4,
+  &quot;tracked_names&quot;: 18,
+  &quot;dead_campaigns&quot;: 66
+ },
+ &quot;fti_rows&quot;: [
+  {
+   &quot;name&quot;: &quot;deshaun watson&quot;,
+   &quot;mentions&quot;: 41,
+   &quot;index&quot;: 100,
+   &quot;status&quot;: &quot;trending&quot;,
+   &quot;gap&quot;: true,
+   &quot;shoppable&quot;: false,
+   &quot;collection&quot;: &quot;cleveland-browns&quot;
+  },
+  {
+   &quot;name&quot;: &quot;bryce underwood&quot;,
+   &quot;mentions&quot;: 16,
+   &quot;index&quot;: 39,
+   &quot;status&quot;: &quot;trending&quot;,
+   &quot;gap&quot;: false,
+   &quot;shoppable&quot;: true,
+   &quot;collection&quot;: &quot;michigan&quot;
+  },
+  {
+   &quot;name&quot;: &quot;shedeur sanders&quot;,
+   &quot;mentions&quot;: 11,
+   &quot;index&quot;: 27,
+   &quot;status&quot;: &quot;trending&quot;,
+   &quot;gap&quot;: false,
+   &quot;shoppable&quot;: true,
+   &quot;collection&quot;: &quot;cleveland-browns&quot;
+  },
+  {
+   &quot;name&quot;: &quot;dak prescott&quot;,
+   &quot;mentions&quot;: 8,
+   &quot;index&quot;: 20,
+   &quot;status&quot;: &quot;trending&quot;,
+   &quot;gap&quot;: true,
+   &quot;shoppable&quot;: false,
+   &quot;collection&quot;: &quot;dallas-cowboys&quot;
+  },
+  {
+   &quot;name&quot;: &quot;kyle whittingham&quot;,
+   &quot;mentions&quot;: 6,
+   &quot;index&quot;: 15,
+   &quot;status&quot;: &quot;trending&quot;,
+   &quot;gap&quot;: true,
+   &quot;shoppable&quot;: false,
+   &quot;collection&quot;: &quot;michigan&quot;
+  },
+  {
+   &quot;name&quot;: &quot;todd monken&quot;,
+   &quot;mentions&quot;: 6,
+   &quot;index&quot;: 15,
+   &quot;status&quot;: &quot;trending&quot;,
+   &quot;gap&quot;: true,
+   &quot;shoppable&quot;: false,
+   &quot;collection&quot;: &quot;cleveland-browns&quot;
+  },
+  {
+   &quot;name&quot;: &quot;josh jacobs&quot;,
+   &quot;mentions&quot;: 5,
+   &quot;index&quot;: 12,
+   &quot;status&quot;: &quot;trending&quot;,
+   &quot;gap&quot;: true,
+   &quot;shoppable&quot;: false,
+   &quot;collection&quot;: &quot;green-bay-packers&quot;
+  },
+  {
+   &quot;name&quot;: &quot;matt lafleur&quot;,
+   &quot;mentions&quot;: 5,
+   &quot;index&quot;: 12,
+   &quot;status&quot;: &quot;trending&quot;,
+   &quot;gap&quot;: true,
+   &quot;shoppable&quot;: false,
+   &quot;collection&quot;: &quot;green-bay-packers&quot;
+  },
+  {
+   &quot;name&quot;: &quot;ceedee lamb&quot;,
+   &quot;mentions&quot;: 4,
+   &quot;index&quot;: 10,
+   &quot;status&quot;: &quot;trending&quot;,
+   &quot;gap&quot;: true,
+   &quot;shoppable&quot;: false,
+   &quot;collection&quot;: &quot;dallas-cowboys&quot;
+  },
+  {
+   &quot;name&quot;: &quot;micah parsons&quot;,
+   &quot;mentions&quot;: 2,
+   &quot;index&quot;: 5,
+   &quot;status&quot;: &quot;steady&quot;,
+   &quot;gap&quot;: false,
+   &quot;shoppable&quot;: true,
+   &quot;collection&quot;: &quot;green-bay-packers&quot;
+  },
+  {
+   &quot;name&quot;: &quot;jordan love&quot;,
+   &quot;mentions&quot;: 1,
+   &quot;index&quot;: 2,
+   &quot;status&quot;: &quot;steady&quot;,
+   &quot;gap&quot;: false,
+   &quot;shoppable&quot;: true,
+   &quot;collection&quot;: &quot;green-bay-packers&quot;
+  },
+  {
+   &quot;name&quot;: &quot;jordan marshall&quot;,
+   &quot;mentions&quot;: 1,
+   &quot;index&quot;: 2,
+   &quot;status&quot;: &quot;steady&quot;,
+   &quot;gap&quot;: false,
+   &quot;shoppable&quot;: false,
+   &quot;collection&quot;: &quot;michigan&quot;
+  },
+  {
+   &quot;name&quot;: &quot;denzel ward&quot;,
+   &quot;mentions&quot;: 0,
+   &quot;index&quot;: 0,
+   &quot;status&quot;: &quot;quiet&quot;,
+   &quot;gap&quot;: false,
+   &quot;shoppable&quot;: true,
+   &quot;collection&quot;: &quot;cleveland-browns&quot;
+  },
+  {
+   &quot;name&quot;: &quot;jj mccarthy&quot;,
+   &quot;mentions&quot;: 0,
+   &quot;index&quot;: 0,
+   &quot;status&quot;: &quot;quiet&quot;,
+   &quot;gap&quot;: false,
+   &quot;shoppable&quot;: true,
+   &quot;collection&quot;: &quot;michigan&quot;
+  },
+  {
+   &quot;name&quot;: &quot;joe flacco&quot;,
+   &quot;mentions&quot;: 0,
+   &quot;index&quot;: 0,
+   &quot;status&quot;: &quot;quiet&quot;,
+   &quot;gap&quot;: false,
+   &quot;shoppable&quot;: true,
+   &quot;collection&quot;: &quot;cleveland-browns&quot;
+  },
+  {
+   &quot;name&quot;: &quot;kevin stefanski&quot;,
+   &quot;mentions&quot;: 0,
+   &quot;index&quot;: 0,
+   &quot;status&quot;: &quot;quiet&quot;,
+   &quot;gap&quot;: false,
+   &quot;shoppable&quot;: true,
+   &quot;collection&quot;: &quot;cleveland-browns&quot;
+  },
+  {
+   &quot;name&quot;: &quot;myles garrett&quot;,
+   &quot;mentions&quot;: 0,
+   &quot;index&quot;: 0,
+   &quot;status&quot;: &quot;quiet&quot;,
+   &quot;gap&quot;: false,
+   &quot;shoppable&quot;: true,
+   &quot;collection&quot;: &quot;cleveland-browns&quot;
+  },
+  {
+   &quot;name&quot;: &quot;robert tonyan&quot;,
+   &quot;mentions&quot;: 0,
+   &quot;index&quot;: 0,
+   &quot;status&quot;: &quot;quiet&quot;,
+   &quot;gap&quot;: false,
+   &quot;shoppable&quot;: true,
+   &quot;collection&quot;: &quot;green-bay-packers&quot;
+  }
+ ],
+ &quot;gaps&quot;: [
+  {
+   &quot;name&quot;: &quot;deshaun watson&quot;,
+   &quot;mentions&quot;: 41,
+   &quot;index&quot;: 100,
+   &quot;status&quot;: &quot;trending&quot;,
+   &quot;gap&quot;: true,
+   &quot;shoppable&quot;: false,
+   &quot;collection&quot;: &quot;cleveland-browns&quot;
+  },
+  {
+   &quot;name&quot;: &quot;dak prescott&quot;,
+   &quot;mentions&quot;: 8,
+   &quot;index&quot;: 20,
+   &quot;status&quot;: &quot;trending&quot;,
+   &quot;gap&quot;: true,
+   &quot;shoppable&quot;: false,
+   &quot;collection&quot;: &quot;dallas-cowboys&quot;
+  },
+  {
+   &quot;name&quot;: &quot;kyle whittingham&quot;,
+   &quot;mentions&quot;: 6,
+   &quot;index&quot;: 15,
+   &quot;status&quot;: &quot;trending&quot;,
+   &quot;gap&quot;: true,
+   &quot;shoppable&quot;: false,
+   &quot;collection&quot;: &quot;michigan&quot;
+  },
+  {
+   &quot;name&quot;: &quot;todd monken&quot;,
+   &quot;mentions&quot;: 6,
+   &quot;index&quot;: 15,
+   &quot;status&quot;: &quot;trending&quot;,
+   &quot;gap&quot;: true,
+   &quot;shoppable&quot;: false,
+   &quot;collection&quot;: &quot;cleveland-browns&quot;
+  },
+  {
+   &quot;name&quot;: &quot;josh jacobs&quot;,
+   &quot;mentions&quot;: 5,
+   &quot;index&quot;: 12,
+   &quot;status&quot;: &quot;trending&quot;,
+   &quot;gap&quot;: true,
+   &quot;shoppable&quot;: false,
+   &quot;collection&quot;: &quot;green-bay-packers&quot;
+  },
+  {
+   &quot;name&quot;: &quot;matt lafleur&quot;,
+   &quot;mentions&quot;: 5,
+   &quot;index&quot;: 12,
+   &quot;status&quot;: &quot;trending&quot;,
+   &quot;gap&quot;: true,
+   &quot;shoppable&quot;: false,
+   &quot;collection&quot;: &quot;green-bay-packers&quot;
+  },
+  {
+   &quot;name&quot;: &quot;ceedee lamb&quot;,
+   &quot;mentions&quot;: 4,
+   &quot;index&quot;: 10,
+   &quot;status&quot;: &quot;trending&quot;,
+   &quot;gap&quot;: true,
+   &quot;shoppable&quot;: false,
+   &quot;collection&quot;: &quot;dallas-cowboys&quot;
+  }
+ ],
+ &quot;collections&quot;: [
+  {
+   &quot;key&quot;: &quot;cleveland-browns&quot;,
+   &quot;short&quot;: &quot;Cleveland&quot;,
+   &quot;name&quot;: &quot;Cleveland Browns Fan Shirts&quot;,
+   &quot;slug&quot;: &quot;cleveland-browns-shirts&quot;,
+   &quot;store&quot;: &quot;https://gridironlocker.shop/p/browns&quot;,
+   &quot;products&quot;: 19,
+   &quot;avg_price&quot;: 21.0,
+   &quot;hot&quot;: 0,
+   &quot;throwback&quot;: 1,
+   &quot;gaps&quot;: [
+    {
+     &quot;name&quot;: &quot;deshaun watson&quot;,
+     &quot;mentions&quot;: 41,
+     &quot;index&quot;: 100,
+     &quot;status&quot;: &quot;trending&quot;,
+     &quot;gap&quot;: true,
+     &quot;shoppable&quot;: false,
+     &quot;collection&quot;: &quot;cleveland-browns&quot;
+    },
+    {
+     &quot;name&quot;: &quot;todd monken&quot;,
+     &quot;mentions&quot;: 6,
+     &quot;index&quot;: 15,
+     &quot;status&quot;: &quot;trending&quot;,
+     &quot;gap&quot;: true,
+     &quot;shoppable&quot;: false,
+     &quot;collection&quot;: &quot;cleveland-browns&quot;
+    }
+   ],
+   &quot;top_terms&quot;: [
+    &quot;browns&quot;,
+    &quot;cleveland&quot;,
+    &quot;watson&quot;,
+    &quot;deshaun&quot;,
+    &quot;todd&quot;,
+    &quot;monken&quot;,
+    &quot;jimmy&quot;,
+    &quot;sanders&quot;
+   ],
+   &quot;headline_count&quot;: 100,
+   &quot;headlines&quot;: [
+    {
+     &quot;title&quot;: &quot;Browns vs. Jaguars: How to Watch, Listen &amp; Live Stream&quot;,
+     &quot;url&quot;: &quot;https://news.google.com/rss/articles/CBMijwFBVV95cUxNeUIzdnc1SXBvdS1VWEp1MDJOMnpUZkdLNWMtOVF6MWF4UHd4a2lrSmZWdF9VbHZ2QlI1OEQtalNheWgwZG5jejJpUG9CdUtYOEZWZ2pxdEhRbl9kZVU2VXh4QzhWelozTFNEMWJfUHdQZmxUdXhEVEJIVzMxYUhmSVdKMWt4UzhyZDFvQmJyaw?oc=5&quot;,
+     &quot;source&quot;: &quot;Cleveland Browns&quot;,
+     &quot;pub&quot;: &quot;Wed, 09 Sep 2026 07:00:00 GMT&quot;
+    },
+    {
+     &quot;title&quot;: &quot;Todd Monken: Browns&#39; big loss not just about Deshaun Watson&quot;,
+     &quot;url&quot;: &quot;https://news.google.com/rss/articles/CBMinAFBVV95cUxNZ1BiZ0k0T294bHR4SGJLUUYxcC1aa21YcGNJVlJ0bEtNZk5oWE5BWVR1WHFrbmZzQWhwb2lTR1NyekpQWTFxQjR1Q0lFUVlqbjhqUnlVc1VDRXBMX29wazFCRG5MRXhCYmxtdDlyVmxOOWJ2SWtjc0E1MXpfSWFwaGlVUzVyWGFCRFdaem9kcmNkOHJSV2RWZnpzYk0?oc=5&quot;,
+     &quot;source&quot;: &quot;ESPN&quot;,
+     &quot;pub&quot;: &quot;Sun, 13 Sep 2026 22:10:00 GMT&quot;
+    },
+    {
+     &quot;title&quot;: &quot;Browns are a disaster in the first half vs. Jaguars. That\u2019s being kind \u2013 Terry Pluto\u2019s Scribbles&quot;,
+     &quot;url&quot;: &quot;https://news.google.com/rss/articles/CBMiwwFBVV95cUxOM0gwVkhsdUFNME01ZTNwSDVRTV9XMGZ2Zk5VZ0VZeWpNb1lqTzlHWTNnLXJ0UFRtcXQtZXBXdkRJcm53WmFOejZNcDdHbkNSUWR1TzVXbmlLbDR0SElaOWh6aHhCMWo3dUIwMmhqdmRQaEUxSlRST0VMaUlhTnBaYXFfa3cxTGdqdXNJMUxRV1owdEZWcDVLTnhOTnVjUE45Yk93bnZKR2F3LXQ4d2sweVJuX2Q1Y08tV0owOGw1TUhheVk?oc=5&quot;,
+     &quot;source&quot;: &quot;Cleveland.com&quot;,
+     &quot;pub&quot;: &quot;Sun, 13 Sep 2026 18:32:00 GMT&quot;
+    },
+    {
+     &quot;title&quot;: &quot;2026 Game Preview: Browns-Buccaneers, Week 2&quot;,
+     &quot;url&quot;: &quot;https://news.google.com/rss/articles/CBMif0FVX3lxTFBVQzZfekRfdGVmc0IxSXdneUtoS3NibG5PYXJvN04tVmdQbHJjTTJtaEY1Nm8xUHJldGh3TEdxMndpUlZISEFqS0xad2NUUVV4NVpMSkpvUUg1YnlNWDhxeElGb3B0Mkx3bWIxTnd3N1BkUEpIM3MtQWotSTh4R0U?oc=5&quot;,
+     &quot;source&quot;: &quot;Tampa Bay Buccaneers&quot;,
+     &quot;pub&quot;: &quot;Thu, 17 Sep 2026 13:29:57 GMT&quot;
+    },
+    {
+     &quot;title&quot;: &quot;Cleveland Browns 2026 season record and results&quot;,
+     &quot;url&quot;: &quot;https://news.google.com/rss/articles/CBMiekFVX3lxTE82d1JoT2IzM0lmSkljT0d1RTBTazhGdExJQ051dllwQTlPRkpDeENETG1la01WT3NFMExEYWJVWFplUndFUEZQNEFsQzFRc3l0UHpWZUttc1ljU0k1SEM1WW42bTQwcmdMRXhXejNYU1V2ak9xUlkyemJB0gF_QVVfeXFMUFVHZ210NzViclB1X2Vrc3h3eVU2c2pDcWVvd3MyZm1yNHNKcy1uVFlnR0M5cXJ0Ym1fa3pXbF9ZTFBDdUFUYUJrRkRObk96TXV2MEx2Rnh2bjlQUVFSekZLWVg4blRyVW9EZ0wycFZOYS1lMGJuQnFNVlpHSnZ5SQ?oc=5&quot;,
+     &quot;source&quot;: &quot;FOX 8 News&quot;,
+     &quot;pub&quot;: &quot;Mon, 14 Sep 2026 19:04:50 GMT&quot;
+    }
+   ],
+   &quot;fti_count&quot;: 7
+  },
+  {
+   &quot;key&quot;: &quot;dallas-cowboys&quot;,
+   &quot;short&quot;: &quot;Dallas&quot;,
+   &quot;name&quot;: &quot;Dallas Vintage Sports Tees&quot;,
+   &quot;slug&quot;: &quot;dallas-cowboys-shirts&quot;,
+   &quot;store&quot;: &quot;https://viralstyle.com/store/kebystore/dallas-vintage-sports/1&quot;,
+   &quot;products&quot;: 10,
+   &quot;avg_price&quot;: 21.99,
+   &quot;hot&quot;: 0,
+   &quot;throwback&quot;: 0,
+   &quot;gaps&quot;: [
+    {
+     &quot;name&quot;: &quot;dak prescott&quot;,
+     &quot;mentions&quot;: 8,
+     &quot;index&quot;: 20,
+     &quot;status&quot;: &quot;trending&quot;,
+     &quot;gap&quot;: true,
+     &quot;shoppable&quot;: false,
+     &quot;collection&quot;: &quot;dallas-cowboys&quot;
+    },
+    {
+     &quot;name&quot;: &quot;ceedee lamb&quot;,
+     &quot;mentions&quot;: 4,
+     &quot;index&quot;: 10,
+     &quot;status&quot;: &quot;trending&quot;,
+     &quot;gap&quot;: true,
+     &quot;shoppable&quot;: false,
+     &quot;collection&quot;: &quot;dallas-cowboys&quot;
+    }
+   ],
+   &quot;top_terms&quot;: [
+    &quot;cowboys&quot;,
+    &quot;dallas&quot;,
+    &quot;watch&quot;,
+    &quot;opener&quot;,
+    &quot;injury&quot;,
+    &quot;sunday&quot;,
+    &quot;loss&quot;,
+    &quot;predictions&quot;
+   ],
+   &quot;headline_count&quot;: 100,
+   &quot;headlines&quot;: [
+    {
+     &quot;title&quot;: &quot;Cowboys defensive leaders fueled by sense of urgency in Week 2&quot;,
+     &quot;url&quot;: &quot;https://news.google.com/rss/articles/CBMingFBVV95cUxQVnNaWk96eTRMazA3SndqNzAtVXA2cFVqNGw0RE1lRTNIZlRiV0UwSk1HcTh0SXdrWjU1cmdxX0J3OVJDWjBFcGlXZXdQTTBWUmNVdEV1bGwyR2QyU2c1YUYyMlhIUDAyTm5oN25NTlg5SjhIb1dJdHdVNWVWRzJuY2N1bU80dGRySUVabWkyek9yZDB6SG9RTWlIWllGQQ?oc=5&quot;,
+     &quot;source&quot;: &quot;Dallas Cowboys&quot;,
+     &quot;pub&quot;: &quot;Tue, 15 Sep 2026 23:39:24 GMT&quot;
+    },
+    {
+     &quot;title&quot;: &quot;Dallas Cowboys drop to No. 17 in Week 2 | &#39;Power Rankings&#39;&quot;,
+     &quot;url&quot;: &quot;https://news.google.com/rss/articles/CBMifkFVX3lxTE1VdEdsMU5LblNOMm5JZVJrV3NfUlFNMzJsMzNrbU5XdnFNRnFpb05fcFNmb09XOVNmSEVvN3N3bU1kMWZJRVBFRUh6WFgyT3lnY04zaEFVN0Q2VF9OaE9ydUVVUHp1eEJ1N0VBZk1OYmNkZjNZMTBsOVBPdUJ5dw?oc=5&quot;,
+     &quot;source&quot;: &quot;NFL.com&quot;,
+     &quot;pub&quot;: &quot;Wed, 16 Sep 2026 00:36:02 GMT&quot;
+    },
+    {
+     &quot;title&quot;: &quot;Injury Report: Statuses for Giants vs. Cowboys on Sunday Night Football&quot;,
+     &quot;url&quot;: &quot;https://news.google.com/rss/articles/CBMirwFBVV95cUxQaGRCWm5MZzktXzFFd2M0UFQxOXA0VzJBV1pfNUd1WTZ0T0wxUzFSbnBJMVVZMXF0OFdlaGJDcVk2NjVjYWZlN0dEYzRKVzNLVVlZOFotSmJlWWhmMUlDMW95ZGI1T21HVWx6ck9TNFpLVHJuRHJrSUp0a09OYnNXQ1hLVmdRUlh4eWNrNEg4Yk5UWkZqOFBFdWU1TnZKYjFvM2psT0NWSjV3X240V000?oc=5&quot;,
+     &quot;source&quot;: &quot;Giants.com&quot;,
+     &quot;pub&quot;: &quot;Sun, 13 Sep 2026 07:00:00 GMT&quot;
+    },
+    {
+     &quot;title&quot;: &quot;Brian Schottenheimer on Cowboys&#39; season-opening loss: &#39;We got humbled&#39;&quot;,
+     &quot;url&quot;: &quot;https://news.google.com/rss/articles/CBMiowFBVV95cUxNLVp4TXlhQXRweEs1WmF2bUZHSE9kZG1raTlNQVNCenotRWVNYjBBdGRVVk5sVUZpU2Rwc3RFemhVM1JSX1ZnRVFUbGJGX2RHVUxKQ1pmaWJMbWJTbnlzWkh6ZC1vWlBQNURnTVdwUG9XUVR5NmZSQ0o1RmZNTEQxQUVZTlBrZVVXQ3hQYXFrY3JabEZaYzl4eFdqeHFSUG1UQVZF?oc=5&quot;,
+     &quot;source&quot;: &quot;Dallas Cowboys&quot;,
+     &quot;pub&quot;: &quot;Mon, 14 Sep 2026 05:06:07 GMT&quot;
+    },
+    {
+     &quot;title&quot;: &quot;Ryan Flournoy, Cowboys agree to terms on contract extension&quot;,
+     &quot;url&quot;: &quot;https://news.google.com/rss/articles/CBMimAFBVV95cUxPM0RzLXhFR0NGSkN0R1Q4cnNfYThXdEZUa2tlcXJaVTlaZzdXbFo3MHFKRTlwUm1PLTNmeTRJM2UzMjlveXY2UEhjb3h0ZUFncFA5aHoyQWw0UGh2NmVKQmlYX0MwODZHXzJWMUw4OW9EWk1RMzNwLTJ3MXg0MGxxTmNCaG1mWHhJY2JoMUQzZHFmSFhTVnVSTQ?oc=5&quot;,
+     &quot;source&quot;: &quot;Dallas Cowboys&quot;,
+     &quot;pub&quot;: &quot;Fri, 11 Sep 2026 12:50:23 GMT&quot;
+    }
+   ],
+   &quot;fti_count&quot;: 2
+  },
+  {
+   &quot;key&quot;: &quot;green-bay-packers&quot;,
+   &quot;short&quot;: &quot;Green Bay&quot;,
+   &quot;name&quot;: &quot;Green Bay Packers Fan Shirts&quot;,
+   &quot;slug&quot;: &quot;green-bay-packers-shirts&quot;,
+   &quot;store&quot;: &quot;https://viralstyle.com/store/kebystore/Packss/1&quot;,
+   &quot;products&quot;: 37,
+   &quot;avg_price&quot;: 25.18,
+   &quot;hot&quot;: 0,
+   &quot;throwback&quot;: 0,
+   &quot;gaps&quot;: [
+    {
+     &quot;name&quot;: &quot;josh jacobs&quot;,
+     &quot;mentions&quot;: 5,
+     &quot;index&quot;: 12,
+     &quot;status&quot;: &quot;trending&quot;,
+     &quot;gap&quot;: true,
+     &quot;shoppable&quot;: false,
+     &quot;collection&quot;: &quot;green-bay-packers&quot;
+    },
+    {
+     &quot;name&quot;: &quot;matt lafleur&quot;,
+     &quot;mentions&quot;: 5,
+     &quot;index&quot;: 12,
+     &quot;status&quot;: &quot;trending&quot;,
+     &quot;gap&quot;: true,
+     &quot;shoppable&quot;: false,
+     &quot;collection&quot;: &quot;green-bay-packers&quot;
+    }
+   ],
+   &quot;top_terms&quot;: [
+    &quot;packers&quot;,
+    &quot;green&quot;,
+    &quot;offensive&quot;,
+    &quot;line&quot;,
+    &quot;roster&quot;,
+    &quot;loss&quot;,
+    &quot;jacobs&quot;,
+    &quot;update&quot;
+   ],
+   &quot;headline_count&quot;: 100,
+   &quot;headlines&quot;: [
+    {
+     &quot;title&quot;: &quot;Game recap: 5 takeaways from Packers\u2019 season-opening loss to Vikings&quot;,
+     &quot;url&quot;: &quot;https://news.google.com/rss/articles/CBMiqwFBVV95cUxORWd3SC1TRDJETUhpVmxaWE4wczNTSVViWm5KMG83dHNEZjdaVGo4RHdrbTVyNHB2VTVYdkJRTnFRamxzbUhpV29nLWNmdFRhUU0teEJWRHFTSFNzZ2c3WUNWQVljX2o5VUh3blZ2Wm1nZ0dvbHBtdXdxV1VxSXJlTlBubG1LWTRSTTRMdFFMaS0zbUxxWUlEdm5VNWxHd1AzRkRhY1VCbGVUSGM?oc=5&quot;,
+     &quot;source&quot;: &quot;Green Bay Packers&quot;,
+     &quot;pub&quot;: &quot;Mon, 14 Sep 2026 01:10:38 GMT&quot;
+    },
+    {
+     &quot;title&quot;: &quot;Me, my mom and our Green Bay Packers&quot;,
+     &quot;url&quot;: &quot;https://news.google.com/rss/articles/CBMifEFVX3lxTE5OdXhrb3M5d3lUdUc2cGlQQ3oxN000STBwajNiOHpydHAzbmxQemc2NFVlNUFNU04zV2t0XzN6eGJUMEx5NmZmX3BfUjY0OG4zUEJUN2Y0cm9DSDJ6NDdYbjUxVTI2TTFnZWJkRUtHb2RSZ3VQampiN3BkWmQ?oc=5&quot;,
+     &quot;source&quot;: &quot;Milwaukee Neighborhood News Service&quot;,
+     &quot;pub&quot;: &quot;Thu, 10 Sep 2026 21:30:00 GMT&quot;
+    },
+    {
+     &quot;title&quot;: &quot;Green Bay Packers receive major offensive line injury update before Week 2&quot;,
+     &quot;url&quot;: &quot;https://news.google.com/rss/articles/CBMihwFBVV95cUxOcFZDOGJYVlNQdTRjM19YaFpfaS15Q3g0em5JVHJRVnVBVUtJVzlDdUNNRWJsQ0lQY29mYktMNTRpNDA3LTd6U0loSFlhbVByY0RzRE04MDZta3hpMFhCWndwcmU4T3p2OC1CbGlqNWV6NVhiVDRnU050UEVPN3p0dmc4X1BYYzA?oc=5&quot;,
+     &quot;source&quot;: &quot;Yahoo Sports&quot;,
+     &quot;pub&quot;: &quot;Thu, 17 Sep 2026 14:49:37 GMT&quot;
+    },
+    {
+     &quot;title&quot;: &quot;Green Bay Packers News: Matt LaFleur has a lot of problems to navigate&quot;,
+     &quot;url&quot;: &quot;https://news.google.com/rss/articles/CBMi0wFBVV95cUxNbDhKRDE2WERQSlJfMGRJZ0hFR3pZTlg3V0VrNF9rdzR5c0RhTEdVYjdPeU1FUWVBV0tmQ0VmLXFRUmdCdXdGamNjc2xiWjM0Qm5CcllyejhzbUM3WU5zNWYtdXZuUzFDcHUtaUlLSGxsUGxzbWtpTURMOHhFV1hLemtxSVpzY0FTald2S1BRT3dWaGRkczhaTjU5TFNPQXJxM0ZoOWo5ZExVaEoyQjNMeU9ELWVmeXdkejU2Uk1lYXc4RHFiRTJ4Ql9YRm9vVG93alA4?oc=5&quot;,
+     &quot;source&quot;: &quot;Acme Packing Company&quot;,
+     &quot;pub&quot;: &quot;Tue, 15 Sep 2026 14:01:41 GMT&quot;
+    },
+    {
+     &quot;title&quot;: &quot;Green Bay Packers, iHeartMedia Milwaukee sign multi-year deal extending radio broadcast partnership&quot;,
+     &quot;url&quot;: &quot;https://news.google.com/rss/articles/CBMizAFBVV95cUxQSXdUYXh0a29wV0NkYTJXb201b0ZUZG9UUUtIWWJydG9IZVZkTENkWVlGWGw3NTFPREpYcUpzQ1gxZDRPOXgtWXZmSkh4OEhnem9yWFFDd19tb2RKaHRfdE9LN2tHcTBvbDNRQVBtVk9VOGFLY3hSTFBiMjdiYzN0dDZ6aThNeWZsa1M1VnBnVHdhUFFRUTVFSG1kdU1fRFFRTFgtRnlVbnVoVnVQQ0JCbnVTM0diQnVyRVd3UW5vNDFvUTFGMlp5RVVUUjA?oc=5&quot;,
+     &quot;source&quot;: &quot;Green Bay Packers&quot;,
+     &quot;pub&quot;: &quot;Thu, 10 Sep 2026 07:00:00 GMT&quot;
+    }
+   ],
+   &quot;fti_count&quot;: 5
+  },
+  {
+   &quot;key&quot;: &quot;michigan&quot;,
+   &quot;short&quot;: &quot;Michigan&quot;,
+   &quot;name&quot;: &quot;Michigan Go Blue Apparel&quot;,
+   &quot;slug&quot;: &quot;michigan-wolverines-shirts&quot;,
+   &quot;store&quot;: &quot;https://gridironlocker.shop/p/michigan&quot;,
+   &quot;products&quot;: 18,
+   &quot;avg_price&quot;: 21.0,
+   &quot;hot&quot;: 0,
+   &quot;throwback&quot;: 0,
+   &quot;gaps&quot;: [
+    {
+     &quot;name&quot;: &quot;kyle whittingham&quot;,
+     &quot;mentions&quot;: 6,
+     &quot;index&quot;: 15,
+     &quot;status&quot;: &quot;trending&quot;,
+     &quot;gap&quot;: true,
+     &quot;shoppable&quot;: false,
+     &quot;collection&quot;: &quot;michigan&quot;
+    }
+   ],
+   &quot;top_terms&quot;: [
+    &quot;michigan&quot;,
+    &quot;football&quot;,
+    &quot;utep&quot;,
+    &quot;underwood&quot;,
+    &quot;wolverines&quot;,
+    &quot;watch&quot;,
+    &quot;channel&quot;,
+    &quot;western&quot;
+   ],
+   &quot;headline_count&quot;: 100,
+   &quot;headlines&quot;: [
+    {
+     &quot;title&quot;: &quot;Postgame Notes: Michigan 17, #11 Oklahoma 10&quot;,
+     &quot;url&quot;: &quot;https://news.google.com/rss/articles/CBMihgFBVV95cUxOcVFwSTAyV1JCMTBFM2NwWEJpSnVkdjlaU1FkaU5MdnM3S1JoSFJ5d3hfUVpMWE1kRFBXNDFWc0tlcUtWV1hkb29KSE5MbXFwd19nYjJ6dDZZc2NnOUZ5eFFnNEhrTThOR1pQQmNKSjFBWVpKdE9JcHlJOGZQcjVuTmdDU3lFQQ?oc=5&quot;,
+     &quot;source&quot;: &quot;University of Michigan Athletics&quot;,
+     &quot;pub&quot;: &quot;Sat, 12 Sep 2026 20:28:58 GMT&quot;
+    },
+    {
+     &quot;title&quot;: &quot;How to Watch: Michigan Football vs UTEP, other top games of Week 3&quot;,
+     &quot;url&quot;: &quot;https://news.google.com/rss/articles/CBMivgFBVV95cUxPd2lTd2M3WWNEdlQySEI1c0J6b244VjJMSnp6ZW9sWEpfYmZ3blVhejJkSDJPQ0diNW9fLVJFNWlUaHo5VXhfR0FuT3dEbF9HZ096THVwc1Z1VUtWdG5vRWJVeWtpdl9OYV9NSTlZSktWR1RHYldyQmR3NFNIZlBZSjlSTE5uMGZrNHJNdFFBNVNzRVdtdVdiS0c5eWRTQzg1WTF2am1yeHJNMGlwbTYwck9nMl9jTFFZZ0FnYUVn?oc=5&quot;,
+     &quot;source&quot;: &quot;Maize n Brew&quot;,
+     &quot;pub&quot;: &quot;Thu, 17 Sep 2026 20:00:00 GMT&quot;
+    },
+    {
+     &quot;title&quot;: &quot;How to Watch Sooners vs. Wolverines: TV Channel, Live Stream, Time&quot;,
+     &quot;url&quot;: &quot;https://news.google.com/rss/articles/CBMi1AFBVV95cUxOTUV2anA1OEs2TTg0Nm9zNzJJdXAzc0FMbXZXV1E4RUxEVk14bVFTRjRxLW1LMm11U3BQMWt3OGVFbXlUSmNJVjZZcEx3bUFXVnNnNWh0aDEtWWNtSkZ4NmhkMmthSnQtaHhiQUZHc0RRR2FTR28wSWtrbFhnQzRIZHBQNUx2QWZvejV1anZ0YWZIS3l2SE1Qc3NlalZERl9nUjBxWEZ1dkFNV2o4YXJBSEdPN3NDTFVpT1dId2IxRFNyNEJCZ2Z1bFlmLTVJWVdlbmJSaA?oc=5&quot;,
+     &quot;source&quot;: &quot;FOX Sports&quot;,
+     &quot;pub&quot;: &quot;Sat, 12 Sep 2026 09:33:30 GMT&quot;
+    },
+    {
+     &quot;title&quot;: &quot;OU Drops Road Opener at Michigan - University of Oklahoma&quot;,
+     &quot;url&quot;: &quot;https://news.google.com/rss/articles/CBMiiAFBVV95cUxPWDhXLTBFb2hGU01zQk9fajZ6Q1VPQ1JBbGtNbUZzOWVBb3FxbkY0czIzbDZkWVZyclNDMXNBLTNOa3pLNHdhLUxsNlVqRnJhY2FOdjhuY2FvV211SVl4YklGVEc5bEdtMnJwdlIybTFxZVhFYk4yT0FaWE9xSEE1Z1lSZ01uaGNN?oc=5&quot;,
+     &quot;source&quot;: &quot;soonersports.com&quot;,
+     &quot;pub&quot;: &quot;Sat, 12 Sep 2026 21:54:31 GMT&quot;
+    },
+    {
+     &quot;title&quot;: &quot;Michigan Football Bowl Projections Following Statement Win Over Oklahoma&quot;,
+     &quot;url&quot;: &quot;https://news.google.com/rss/articles/CBMiuAFBVV95cUxOZFBfZUJUeEVkM2tHZjg1SDlaMk02eEtBVmROVURuaXdxeEtodWY5Q1luWDdHemwzMGwzYU1uU1pWbGVRQk9saDVMa0JseXp1NW5SNXVGWDBXREdwUGNxM2RBdm90YlBBckV3cEFPVDJFMWhrS055d0RXYktGTkZBVGM3eDFoMWY5a2RUODBJX3BoNEtNN2ZKYVdjbmcxZ2piWjRIVHVXaERESWFKUFFhTXVrZzhNWWh1?oc=5&quot;,
+     &quot;source&quot;: &quot;Sports Illustrated&quot;,
+     &quot;pub&quot;: &quot;Mon, 14 Sep 2026 23:00:00 GMT&quot;
+    }
+   ],
+   &quot;fti_count&quot;: 4
+  }
+ ],
+ &quot;dead_campaigns&quot;: [
+  {
+   &quot;slug&quot;: &quot;all-we-want-all-we-got&quot;,
+   &quot;title&quot;: &quot;All We Want All We Got&quot;,
+   &quot;url&quot;: &quot;https://viralstyle.com/kebystore/all-we-want-all-we-got&quot;
+  },
+  {
+   &quot;slug&quot;: &quot;all-we-want-all-we-got-25&quot;,
+   &quot;title&quot;: &quot;All We Want All We Got 25&quot;,
+   &quot;url&quot;: &quot;https://viralstyle.com/kebystore/all-we-want-all-we-got-25&quot;
+  },
+  {
+   &quot;slug&quot;: &quot;b-r-o-w-n-s-sugar-skull-halloween-long&quot;,
+   &quot;title&quot;: &quot;b r o w n s Sugar Skull Halloween long&quot;,
+   &quot;url&quot;: &quot;https://viralstyle.com/kebystore/b-r-o-w-n-s-sugar-skull-halloween-long&quot;
+  },
+  {
+   &quot;slug&quot;: &quot;bend-football-fans&quot;,
+   &quot;title&quot;: &quot;Bend Football Fans&quot;,
+   &quot;url&quot;: &quot;https://viralstyle.com/kebystore/bend-football-fans&quot;
+  },
+  {
+   &quot;slug&quot;: &quot;beware-of-dawg&quot;,
+   &quot;title&quot;: &quot;Beware of Dawg&quot;,
+   &quot;url&quot;: &quot;https://viralstyle.com/kebystore/beware-of-dawg&quot;
+  },
+  {
+   &quot;slug&quot;: &quot;br-sugar-skull-halloween&quot;,
+   &quot;title&quot;: &quot;b r o w n s Sugar Skull Halloween&quot;,
+   &quot;url&quot;: &quot;https://viralstyle.com/kebystore/br-sugar-skull-halloween&quot;
+  },
+  {
+   &quot;slug&quot;: &quot;cleveland-its-not-that-bad-have-a-beer&quot;,
+   &quot;title&quot;: &quot;Cleveland, Its Not That Bad. Have a Beer!&quot;,
+   &quot;url&quot;: &quot;https://viralstyle.com/kebystore/cleveland-its-not-that-bad-have-a-beer&quot;
+  },
+  {
+   &quot;slug&quot;: &quot;cleveland-retro-vintage-classic-ohio-fan&quot;,
+   &quot;title&quot;: &quot;Cleveland retro vintage classic Ohio fans shirt&quot;,
+   &quot;url&quot;: &quot;https://viralstyle.com/kebystore/cleveland-retro-vintage-classic-ohio-fan&quot;
+  },
+  {
+   &quot;slug&quot;: &quot;cleveland-retro-vintage-classic-ohio-gif&quot;,
+   &quot;title&quot;: &quot;Vintage Cleveland&quot;,
+   &quot;url&quot;: &quot;https://viralstyle.com/kebystore/cleveland-retro-vintage-classic-ohio-gif&quot;
+  },
+  {
+   &quot;slug&quot;: &quot;cleveland-retro-vintage-classic-ohio-shi&quot;,
+   &quot;title&quot;: &quot;Cleveland retro vintage classic Ohio shirt&quot;,
+   &quot;url&quot;: &quot;https://viralstyle.com/kebystore/cleveland-retro-vintage-classic-ohio-shi&quot;
+  },
+  {
+   &quot;slug&quot;: &quot;cleveland-retro-vintage-classic-ohio-shi-1&quot;,
+   &quot;title&quot;: &quot;Cleveland retro vintage classic Ohio Gameday shirt&quot;,
+   &quot;url&quot;: &quot;https://viralstyle.com/kebystore/cleveland-retro-vintage-classic-ohio-shi-1&quot;
+  },
+  {
+   &quot;slug&quot;: &quot;d-a-w-g-b-i-t-c-limited-edition&quot;,
+   &quot;title&quot;: &quot;D a w g B i t c Limited Edition&quot;,
+   &quot;url&quot;: &quot;https://viralstyle.com/kebystore/d-a-w-g-b-i-t-c-limited-edition&quot;
+  },
+  {
+   &quot;slug&quot;: &quot;d-a-w-g-s-limited-edition&quot;,
+   &quot;title&quot;: &quot;Sundays Are For The Dawgs&quot;,
+   &quot;url&quot;: &quot;https://viralstyle.com/kebystore/d-a-w-g-s-limited-edition&quot;
+  },
+  {
+   &quot;slug&quot;: &quot;dawg-pound&quot;,
+   &quot;title&quot;: &quot;Dawg Pound&quot;,
+   &quot;url&quot;: &quot;https://viralstyle.com/kebystore/dawg-pound&quot;
+  },
+  {
+   &quot;slug&quot;: &quot;denzel&quot;,
+   &quot;title&quot;: &quot;Denzel&quot;,
+   &quot;url&quot;: &quot;https://viralstyle.com/kebystore/denzel&quot;
+  },
+  {
+   &quot;slug&quot;: &quot;dibs-on-the-coach-football-funny-football-1&quot;,
+   &quot;title&quot;: &quot;Dibs On The Coach Football Funny Football Coach Gifts&quot;,
+   &quot;url&quot;: &quot;https://viralstyle.com/kebystore/dibs-on-the-coach-football-funny-football-1&quot;
+  },
+  {
+   &quot;slug&quot;: &quot;i-love-b-r-o-w-n-s-limited-edition&quot;,
+   &quot;title&quot;: &quot;I love B R O W N S Limited Edition&quot;,
+   &quot;url&quot;: &quot;https://viralstyle.com/kebystore/i-love-b-r-o-w-n-s-limited-edition&quot;
+  },
+  {
+   &quot;slug&quot;: &quot;it-s-not-a-team-logo-browns-it-s-a-famil&quot;,
+   &quot;title&quot;: &quot;It s not a team logo Browns it s a family crest est 1946 shirt&quot;,
+   &quot;url&quot;: &quot;https://viralstyle.com/kebystore/it-s-not-a-team-logo-browns-it-s-a-famil&quot;
+  },
+  {
+   &quot;slug&quot;: &quot;let-it-rip&quot;,
+   &quot;title&quot;: &quot;Let it Rip&quot;,
+   &quot;url&quot;: &quot;https://viralstyle.com/kebystore/let-it-rip&quot;
+  },
+  {
+   &quot;slug&quot;: &quot;lets-go-cleveland&quot;,
+   &quot;title&quot;: &quot;Let&#39;s Go Cleveland&quot;,
+   &quot;url&quot;: &quot;https://viralstyle.com/kebystore/lets-go-cleveland&quot;
+  },
+  {
+   &quot;slug&quot;: &quot;limited-edition-2024n2&quot;,
+   &quot;title&quot;: &quot;Limited Edition 2024N2&quot;,
+   &quot;url&quot;: &quot;https://viralstyle.com/kebystore/limited-edition-2024n2&quot;
+  },
+  {
+   &quot;slug&quot;: &quot;limited-edition-241&quot;,
+   &quot;title&quot;: &quot;Cleveland&quot;,
+   &quot;url&quot;: &quot;https://viralstyle.com/kebystore/limited-edition-241&quot;
+  },
+  {
+   &quot;slug&quot;: &quot;limited-edition-66&quot;,
+   &quot;title&quot;: &quot;Limited Edition 66&quot;,
+   &quot;url&quot;: &quot;https://viralstyle.com/kebystore/limited-edition-66&quot;
+  },
+  {
+   &quot;slug&quot;: &quot;limited-edition-b-e-k-i-n-d&quot;,
+   &quot;title&quot;: &quot;Limited Edition B E K I N D&quot;,
+   &quot;url&quot;: &quot;https://viralstyle.com/kebystore/limited-edition-b-e-k-i-n-d&quot;
+  },
+  {
+   &quot;slug&quot;: &quot;limited-edition-b-r-o-w-n-s&quot;,
+   &quot;title&quot;: &quot;Limited Edition B R O W N S&quot;,
+   &quot;url&quot;: &quot;https://viralstyle.com/kebystore/limited-edition-b-r-o-w-n-s&quot;
+  },
+  {
+   &quot;slug&quot;: &quot;limited-edition-b-r-o-w-n-s-cleveland-ca&quot;,
+   &quot;title&quot;: &quot;Limited Edition B R O W N S Cleveland Case&quot;,
+   &quot;url&quot;: &quot;https://viralstyle.com/kebystore/limited-edition-b-r-o-w-n-s-cleveland-ca&quot;
+  },
+  {
+   &quot;slug&quot;: &quot;limited-edition-b-r-o-w-n-s-h-e-l-m-e-t&quot;,
+   &quot;title&quot;: &quot;Limited Edition B R O W N S H E L M E T&quot;,
+   &quot;url&quot;: &quot;https://viralstyle.com/kebystore/limited-edition-b-r-o-w-n-s-h-e-l-m-e-t&quot;
+  },
+  {
+   &quot;slug&quot;: &quot;limited-edition-b-r-o-w-n-s1&quot;,
+   &quot;title&quot;: &quot;Limited Edition B R O W N S&quot;,
+   &quot;url&quot;: &quot;https://viralstyle.com/kebystore/limited-edition-b-r-o-w-n-s1&quot;
+  },
+  {
+   &quot;slug&quot;: &quot;limited-edition-br-summer-2024&quot;,
+   &quot;title&quot;: &quot;Limited Edition BR Summer 2024&quot;,
+   &quot;url&quot;: &quot;https://viralstyle.com/kebystore/limited-edition-br-summer-2024&quot;
+  },
+  {
+   &quot;slug&quot;: &quot;limited-edition-c-l-e-aint-for-sissies&quot;,
+   &quot;title&quot;: &quot;Limited Edition C L E Aint For Sissies&quot;,
+   &quot;url&quot;: &quot;https://viralstyle.com/kebystore/limited-edition-c-l-e-aint-for-sissies&quot;
+  },
+  {
+   &quot;slug&quot;: &quot;limited-edition-c1&quot;,
+   &quot;title&quot;: &quot;Cleveland CLE for Fans&quot;,
+   &quot;url&quot;: &quot;https://viralstyle.com/kebystore/limited-edition-c1&quot;
+  },
+  {
+   &quot;slug&quot;: &quot;limited-edition-c2&quot;,
+   &quot;title&quot;: &quot;Cleveland CLE&quot;,
+   &quot;url&quot;: &quot;https://viralstyle.com/kebystore/limited-edition-c2&quot;
+  },
+  {
+   &quot;slug&quot;: &quot;limited-edition-cle-mug&quot;,
+   &quot;title&quot;: &quot;Cleveland Victory Monday Mug&quot;,
+   &quot;url&quot;: &quot;https://viralstyle.com/kebystore/limited-edition-cle-mug&quot;
+  },
+  {
+   &quot;slug&quot;: &quot;limited-edition-cleveland&quot;,
+   &quot;title&quot;: &quot;Limited Edition Cleveland&quot;,
+   &quot;url&quot;: &quot;https://viralstyle.com/kebystore/limited-edition-cleveland&quot;
+  },
+  {
+   &quot;slug&quot;: &quot;limited-edition-cleveland-fans&quot;,
+   &quot;title&quot;: &quot;Limited Edition Cleveland Fans&quot;,
+   &quot;url&quot;: &quot;https://viralstyle.com/kebystore/limited-edition-cleveland-fans&quot;
+  },
+  {
+   &quot;slug&quot;: &quot;limited-edition-cleveland-lovers&quot;,
+   &quot;title&quot;: &quot;Limited Edition Cleveland Lovers&quot;,
+   &quot;url&quot;: &quot;https://viralstyle.com/kebystore/limited-edition-cleveland-lovers&quot;
+  },
+  {
+   &quot;slug&quot;: &quot;limited-edition-d-w-a-g&quot;,
+   &quot;title&quot;: &quot;Limited Edition D W A G&quot;,
+   &quot;url&quot;: &quot;https://viralstyle.com/kebystore/limited-edition-d-w-a-g&quot;
+  },
+  {
+   &quot;slug&quot;: &quot;limited-edition-d-w-a-g-s&quot;,
+   &quot;title&quot;: &quot;Limited Edition D W A G S&quot;,
+   &quot;url&quot;: &quot;https://viralstyle.com/kebystore/limited-edition-d-w-a-g-s&quot;
+  },
+  {
+   &quot;slug&quot;: &quot;limited-edition-go-b-r-o-w-n-s&quot;,
+   &quot;title&quot;: &quot;Limited Edition Go B R O W N S&quot;,
+   &quot;url&quot;: &quot;https://viralstyle.com/kebystore/limited-edition-go-b-r-o-w-n-s&quot;
+  },
+  {
+   &quot;slug&quot;: &quot;limited-edition-lfg&quot;,
+   &quot;title&quot;: &quot;Limited Edition LFG&quot;,
+   &quot;url&quot;: &quot;https://viralstyle.com/kebystore/limited-edition-lfg&quot;
+  },
+  {
+   &quot;slug&quot;: &quot;limited-edition-no-fly-zone-denzel&quot;,
+   &quot;title&quot;: &quot;Limited Edition No Fly Zone - Denzel&quot;,
+   &quot;url&quot;: &quot;https://viralstyle.com/kebystore/limited-edition-no-fly-zone-denzel&quot;
+  },
+  {
+   &quot;slug&quot;: &quot;limited-edition-our-coach&quot;,
+   &quot;title&quot;: &quot;Limited Edition Our Coach&quot;,
+   &quot;url&quot;: &quot;https://viralstyle.com/kebystore/limited-edition-our-coach&quot;
+  },
+  {
+   &quot;slug&quot;: &quot;limited-edition-rise-and-shine&quot;,
+   &quot;title&quot;: &quot;Rise and Shine it&#39;s Game Day&quot;,
+   &quot;url&quot;: &quot;https://viralstyle.com/kebystore/limited-edition-rise-and-shine&quot;
+  },
+  {
+   &quot;slug&quot;: &quot;limited-edition-rock-out-denzel&quot;,
+   &quot;title&quot;: &quot;Limited Edition Rock Out - Denzel&quot;,
+   &quot;url&quot;: &quot;https://viralstyle.com/kebystore/limited-edition-rock-out-denzel&quot;
+  },
+  {
+   &quot;slug&quot;: &quot;limited-edition-s-u-n-d-a-y-s&quot;,
+   &quot;title&quot;: &quot;Limited Edition S U N D A Y S&quot;,
+   &quot;url&quot;: &quot;https://viralstyle.com/kebystore/limited-edition-s-u-n-d-a-y-s&quot;
+  },
+  {
+   &quot;slug&quot;: &quot;limited-edition-the-wall-graham&quot;,
+   &quot;title&quot;: &quot;Limited Edition The Wall - Graham&quot;,
+   &quot;url&quot;: &quot;https://viralstyle.com/kebystore/limited-edition-the-wall-graham&quot;
+  },
+  {
+   &quot;slug&quot;: &quot;limited-edition-victory-morning&quot;,
+   &quot;title&quot;: &quot;Limited Edition Victory Monday&quot;,
+   &quot;url&quot;: &quot;https://viralstyle.com/kebystore/limited-edition-victory-morning&quot;
+  },
+  {
+   &quot;slug&quot;: &quot;line-man-dad-football-t-shirt&quot;,
+   &quot;title&quot;: &quot;Line Man Dad Football T-Shirt&quot;,
+   &quot;url&quot;: &quot;https://viralstyle.com/kebystore/line-man-dad-football-t-shirt&quot;
+  },
+  {
+   &quot;slug&quot;: &quot;make-them-know-your-name-denzel-1&quot;,
+   &quot;title&quot;: &quot;Make Them Know Your Name Denzel&quot;,
+   &quot;url&quot;: &quot;https://viralstyle.com/kebystore/make-them-know-your-name-denzel-1&quot;
+  },
+  {
+   &quot;slug&quot;: &quot;my-heart-is-on-that-field&quot;,
+   &quot;title&quot;: &quot;My Heart Is On That Field&quot;,
+   &quot;url&quot;: &quot;https://viralstyle.com/kebystore/my-heart-is-on-that-field&quot;
+  },
+  {
+   &quot;slug&quot;: &quot;my-life-is-for-football-t-shirt&quot;,
+   &quot;title&quot;: &quot;My Life is  For Football T-Shirt&quot;,
+   &quot;url&quot;: &quot;https://viralstyle.com/kebystore/my-life-is-for-football-t-shirt&quot;
+  },
+  {
+   &quot;slug&quot;: &quot;ohio-cleveland-fans&quot;,
+   &quot;title&quot;: &quot;Ohio Cleveland Fans&quot;,
+   &quot;url&quot;: &quot;https://viralstyle.com/kebystore/ohio-cleveland-fans&quot;
+  },
+  {
+   &quot;slug&quot;: &quot;play-off-pound-shirt&quot;,
+   &quot;title&quot;: &quot;Play Off Pound Shirt&quot;,
+   &quot;url&quot;: &quot;https://viralstyle.com/kebystore/play-off-pound-shirt&quot;
+  },
+  {
+   &quot;slug&quot;: &quot;playoffs-never-giveup&quot;,
+   &quot;title&quot;: &quot;Playoffs Never Giveup&quot;,
+   &quot;url&quot;: &quot;https://viralstyle.com/kebystore/playoffs-never-giveup&quot;
+  },
+  {
+   &quot;slug&quot;: &quot;run-the-ball&quot;,
+   &quot;title&quot;: &quot;Run the Ball&quot;,
+   &quot;url&quot;: &quot;https://viralstyle.com/kebystore/run-the-ball&quot;
+  },
+  {
+   &quot;slug&quot;: &quot;run-the-ball-kev&quot;,
+   &quot;title&quot;: &quot;Run the Ball Kev&quot;,
+   &quot;url&quot;: &quot;https://viralstyle.com/kebystore/run-the-ball-kev&quot;
+  },
+  {
+   &quot;slug&quot;: &quot;sanders-12-special-edition&quot;,
+   &quot;title&quot;: &quot;Sander&#39;s 12 Special Edition&quot;,
+   &quot;url&quot;: &quot;https://viralstyle.com/kebystore/sanders-12-special-edition&quot;
+  },
+  {
+   &quot;slug&quot;: &quot;sanders-13-special-edition&quot;,
+   &quot;title&quot;: &quot;Sander&#39;s 13 Special Edition&quot;,
+   &quot;url&quot;: &quot;https://viralstyle.com/kebystore/sanders-13-special-edition&quot;
+  },
+  {
+   &quot;slug&quot;: &quot;sanders-special-edition&quot;,
+   &quot;title&quot;: &quot;Sander&#39;s Special Edition&quot;,
+   &quot;url&quot;: &quot;https://viralstyle.com/kebystore/sanders-special-edition&quot;
+  },
+  {
+   &quot;slug&quot;: &quot;sanders-the-next-level&quot;,
+   &quot;title&quot;: &quot;&quot;,
+   &quot;url&quot;: &quot;&quot;
+  },
+  {
+   &quot;slug&quot;: &quot;she-love-coach-kevin&quot;,
+   &quot;title&quot;: &quot;She Loves Coach Kevin&quot;,
+   &quot;url&quot;: &quot;https://viralstyle.com/kebystore/she-love-coach-kevin&quot;
+  },
+  {
+   &quot;slug&quot;: &quot;this-girl-loves-browns-coach&quot;,
+   &quot;title&quot;: &quot;This Girl Loves Browns Coach&quot;,
+   &quot;url&quot;: &quot;https://viralstyle.com/kebystore/this-girl-loves-browns-coach&quot;
+  },
+  {
+   &quot;slug&quot;: &quot;whispered-go-browns&quot;,
+   &quot;title&quot;: &quot;Whispered Go Browns&quot;,
+   &quot;url&quot;: &quot;https://viralstyle.com/kebystore/whispered-go-browns&quot;
+  },
+  {
+   &quot;slug&quot;: &quot;winter-hat-beanie-browns&quot;,
+   &quot;title&quot;: &quot;Winter Hat Beanie Browns&quot;,
+   &quot;url&quot;: &quot;https://viralstyle.com/kebystore/winter-hat-beanie-browns&quot;
+  },
+  {
+   &quot;slug&quot;: &quot;winter-hat-beanie-cleveland&quot;,
+   &quot;title&quot;: &quot;Winter Hat Beanie Cleveland&quot;,
+   &quot;url&quot;: &quot;https://viralstyle.com/kebystore/winter-hat-beanie-cleveland&quot;
+  },
+  {
+   &quot;slug&quot;: &quot;winter-hat-beanie-go-browns&quot;,
+   &quot;title&quot;: &quot;Winter Hat Beanie Go Browns&quot;,
+   &quot;url&quot;: &quot;https://viralstyle.com/kebystore/winter-hat-beanie-go-browns&quot;
+  }
+ ],
+ &quot;moments&quot;: [
+  {
+   &quot;title&quot;: &quot;Todd Monken: Browns&#39; big loss not just about Deshaun Watson&quot;,
+   &quot;url&quot;: &quot;https://news.google.com/rss/articles/CBMinAFBVV95cUxNZ1BiZ0k0T294bHR4SGJLUUYxcC1aa21YcGNJVlJ0bEtNZk5oWE5BWVR1WHFrbmZzQWhwb2lTR1NyekpQWTFxQjR1Q0lFUVlqbjhqUnlVc1VDRXBMX29wazFCRG5MRXhCYmxtdDlyVmxOOWJ2SWtjc0E1MXpfSWFwaGlVUzVyWGFCRFdaem9kcmNkOHJSV2RWZnpzYk0?oc=5&quot;,
+   &quot;source&quot;: &quot;ESPN&quot;,
+   &quot;pub&quot;: &quot;Sun, 13 Sep 2026 22:10:00 GMT&quot;,
+   &quot;collection&quot;: &quot;cleveland-browns&quot;,
+   &quot;entities&quot;: [
+    &quot;deshaun watson&quot;,
+    &quot;todd monken&quot;
+   ]
+  },
+  {
+   &quot;title&quot;: &quot;\u2018I would have cut him\u2019 \u2013 Former NFL coach blasts Cleveland Browns for giving Deshaun Watson the starting spot&quot;,
+   &quot;url&quot;: &quot;https://news.google.com/rss/articles/CBMifkFVX3lxTE95R1hhWUtQcWZXMDd3N2twWTI2a1dxODZNeVI0cHBPNU4zbGZoTldnUGtibHFualJrVVVJblo1VC1OSFR6ajZ0b2pyQ3ZhaDFFR2s2bnc5QnhBbzNBd2ZiNk1tdlBqRXBFMlJTOU5WcHhXUXA5MVJNamFUdndYZw?oc=5&quot;,
+   &quot;source&quot;: &quot;Yahoo Sports&quot;,
+   &quot;pub&quot;: &quot;Sun, 13 Sep 2026 18:05:03 GMT&quot;,
+   &quot;collection&quot;: &quot;cleveland-browns&quot;,
+   &quot;entities&quot;: [
+    &quot;deshaun watson&quot;
+   ]
+  },
+  {
+   &quot;title&quot;: &quot;Green Bay Packers News: Matt LaFleur has a lot of problems to navigate&quot;,
+   &quot;url&quot;: &quot;https://news.google.com/rss/articles/CBMi0wFBVV95cUxNbDhKRDE2WERQSlJfMGRJZ0hFR3pZTlg3V0VrNF9rdzR5c0RhTEdVYjdPeU1FUWVBV0tmQ0VmLXFRUmdCdXdGamNjc2xiWjM0Qm5CcllyejhzbUM3WU5zNWYtdXZuUzFDcHUtaUlLSGxsUGxzbWtpTURMOHhFV1hLemtxSVpzY0FTald2S1BRT3dWaGRkczhaTjU5TFNPQXJxM0ZoOWo5ZExVaEoyQjNMeU9ELWVmeXdkejU2Uk1lYXc4RHFiRTJ4Ql9YRm9vVG93alA4?oc=5&quot;,
+   &quot;source&quot;: &quot;Acme Packing Company&quot;,
+   &quot;pub&quot;: &quot;Tue, 15 Sep 2026 14:01:41 GMT&quot;,
+   &quot;collection&quot;: &quot;green-bay-packers&quot;,
+   &quot;entities&quot;: [
+    &quot;matt lafleur&quot;
+   ]
+  },
+  {
+   &quot;title&quot;: &quot;Green Bay Packers: Matt LaFleur hints at possible change in starting lineup ahead of Week 2&quot;,
+   &quot;url&quot;: &quot;https://news.google.com/rss/articles/CBMihgFBVV95cUxPODBpdHU0ZWdMQ0trRVNTbnNWWTluc0YwZUFydFZ2QnNlYUQzemdDWjh5VFpyajR5SmxMSHBYZkdqNkQ1WlZVd2xOZ21JMjJrR3NhaHItRVRMYXR3MDljcm8zX2VjSXc4d2tVUW9QWGdEc084eng2MUM5UDJNaG81dnV4bGhwZw?oc=5&quot;,
+   &quot;source&quot;: &quot;Yahoo Sports&quot;,
+   &quot;pub&quot;: &quot;Mon, 14 Sep 2026 23:57:11 GMT&quot;,
+   &quot;collection&quot;: &quot;green-bay-packers&quot;,
+   &quot;entities&quot;: [
+    &quot;matt lafleur&quot;
+   ]
+  }
+ ]
+}</pre></details>
+
+<footer><div class="wrap">
+ <span>Scout &middot; internal ops dashboard &middot; noindex</span>
+ <span>Generated 2026-09-18 22:58 UTC by src/scout.py</span>
+</div></footer>
+</main>
+<script>
+(function(){
+ var rows=[].slice.call(document.querySelectorAll('#rows tr'));
+ var q=document.getElementById('q'),fc=document.getElementById('fcol'),
+     ft=document.getElementById('ftrend'),cnt=document.getElementById('count');
+ var cols={};rows.forEach(function(r){var c=r.dataset.col;cols[c]=(cols[c]||0)+1;});
+ Object.keys(cols).sort().forEach(function(c){
+   var o=document.createElement('option');o.value=c;o.textContent=c;fc.appendChild(o);});
+ function apply(){
+   var t=(q.value||'').toLowerCase(),c=fc.value,tr=ft.value,n=0;
+   rows.forEach(function(r){
+     var ok=(!t||r.dataset.text.indexOf(t)>-1)&&(!c||r.dataset.col===c)&&(!tr||r.dataset.trend===tr);
+     r.style.display=ok?'':'none';if(ok)n++;});
+   cnt.textContent=n+' of '+rows.length+' designs';}
+ q.addEventListener('input',apply);fc.addEventListener('change',apply);
+ ft.addEventListener('change',apply);apply();
+})();
+</script>
+</body>
+</html>

@@ -82,20 +82,13 @@ Consequences:
   `tests/test_layout.py` both read the committed `site/` and need no rebuild.
 - If you must rebuild, expect a date-only diff and say so in the commit message.
 - Never commit a partial rebuild. `site/` is all-or-nothing.
-- `build.py`'s `main()` prunes what it does not use, and that is now three
-  passes, not zero: `assets()` deletes stray search-console verification files
-  (`googleae*.html`, `google7e05*.html`, `a7f3c19b*.txt`, `BingSiteAuth.xml`)
-  found outside the `site/` root; `never_publish_internal()` deletes any
-  `marketing/` or `ops/` tree inside `site/`; `prune_unreferenced_assets()`
-  (last, after `relativise()`) deletes anything under `site/img/` that no page,
-  stylesheet, script, search index or sitemap names. The image pass removed
-  1,337 files / 56.6 MB on 2026-09-19: artwork for the 112 retired/hold slugs
-  whose stub pages are text-only, plus legacy garment-variant renders
-  (hoodie/crewneck/v-neck/tank-top) the storefront has no configurator to show.
-  It refuses to run when the reference set is below `len(ALL) + 8`, so a
-  half-finished build cannot wipe the tree, and anything a live page needs again
-  is re-fetched by `dl.py` in the same refresh run. Practical consequence:
-  **do not hand-place files in `site/`** — the next rebuild removes them.
+- `build.py`'s `main()` does **not** delete orphan artwork from `site/img/` (this
+  bullet used to claim it did; verified against the source on 2026-09-18). The only
+  pruning a rebuild does is `assets()` removing stray search-console verification
+  files (`googleae*.html`, `google7e05*.html`, `a7f3c19b*.txt`, `BingSiteAuth.xml`)
+  that are not at the `site/` root. Anything else left in `site/img/` stays until it
+  is removed with `git rm` — which is the safe direction, since artwork cannot be
+  re-downloaded without network egress.
 
 ### 3.2 The catalogue has exactly one source of truth — and it is not any one file
 
@@ -174,17 +167,10 @@ without network, **the storefront must still build and deploy.** That is why
 `refresh.yml` marks the marketing steps `continue-on-error`.
 
 The reverse also holds: `ops/scout/`, `ops/board/`, `ops/marketing/` and
-`ops/hq/` are **generated** by `src/scout.py` / `src/build.py` during the build
-(`generate_dashboards()`, every call individually guarded). Do not hand-edit
-their `index.html`; change the generator and let the build re-emit it. **They
-are never copied into `site/`** — `INTERNAL_TREES` is the list and
-`never_publish_internal()` enforces it on every build, so the storefront deploys
-even if a dashboard generator dies. They contain internal economics, and GitHub
-Pages serves every file in the uploaded directory: `noindex` plus a robots.txt
-`Disallow` is a request, not access control, and the `Disallow` also advertises
-where to look (SITE-AUDIT-2026-09-18.md C1). Open them from the repo —
-`python3 -m http.server` at the root, then `/ops/scout/` or
-`/marketing/dashboard.html`.
+`ops/hq/` are **generated** by `src/scout.py` / `src/build.py` during the build.
+Do not hand-edit their `index.html`. If a dashboard needs to change, change the
+generator and let the build re-emit it. They are `noindex` and
+robots-disallowed; keep them that way — they contain internal economics.
 
 ### 3.5 `refresh.yml` is two pipelines wearing one coat
 
@@ -305,37 +291,17 @@ guard, so importing them runs them:
 
 | Script | What importing it does |
 |---|---|
+| `dl.py` | Crawls Viralstyle, writes images into `site/img/` |
 | `scrape_list.py` | Crawls the 4 collections, writes `data/` |
 | `scrape_products.py` | Crawls every product, writes `data/` |
 | `sheet.py` | Builds contact sheets **and overwrites `data/order.json`** |
 
-`src/make_offline.py`, `src/set_site.py` and `dl.py` (2026-09-19, PR #120), and
-`qa_http.py` (2026-09-19, `SITE-AUDIT-2026-09-18.md` §9.8) were fixed and are
-now import-safe. If you touch one of the three above for another reason, add the
-guard while you are in there — but read the first bullet below before you do,
-because it is not the two-line change it looks like.
+`src/make_offline.py` and `src/set_site.py` were fixed and are now import-safe.
+If you touch any of the four above for another reason, add the guard while you
+are in there — it is a two-line change.
 
 **Other things that have already caused damage:**
 
-- **Re-indenting an import-unsafe script into `main()` is a rewrite of every
-  line in it, so a one-character typo becomes invisible.** That is what happened
-  when `dl.py` gained its `__main__` guard on 2026-09-19: in the re-indent,
-  `webp.replace('site/', '/')` lost the slash from its needle, and
-  `replace('site', '/')` turned `site/img/p/x.webp` into `//img/p/x.webp` — a
-  *protocol-relative* URL, which the browser reads as "host = img" and fetches
-  from `https://img/...`. The next CI refresh wrote **438** of those values into
-  `data/products_live.json`, the build rendered them, and every Viralstyle
-  product image 404'd on **54 of 196 pages** while `qa_audit.py`, `qa_http.py`
-  and all 240 tests reported green (`SITE-AUDIT-2026-09-18.md` §9.6). When you
-  add a guard to one of these scripts, **diff the re-indented body against the
-  original statement by statement** — `git show HEAD:dl.py > /tmp/old.py`, or
-  `git diff --word-diff=porcelain` — rather than reading a diff in which every
-  line has already changed. Then put the script's output through `qa_audit.py`
-  before you trust it. `qa_http.py` got its guard on the same date, in the same
-  way: the body was moved under `main()` *by machine*, not retyped, then diffed
-  statement by statement against `HEAD` (the only differences were the intended
-  ones), and its output was compared against the pre-change run — identical on
-  the clean tree, which is the evidence §9.8 publishes.
 - `marketing/social_watch.py` **overwrites `marketing/social-signals.json` with
   error stubs when it has no network.** Run it in a sandbox, never in place,
   unless you intend to replace curated evidence.

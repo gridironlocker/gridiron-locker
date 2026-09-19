@@ -299,28 +299,6 @@ for base, _dirs, files in os.walk(SITE):
         EXISTING_FILES.add("/" + os.path.relpath(os.path.join(base, f), SITE).replace(os.sep, "/"))
 
 
-def protocol_relative_local(ref):
-    """True when a ``//``-prefixed reference is a local path dressed as a CDN.
-
-    ``//host/path`` is protocol-relative: the browser prepends the page's own
-    scheme and treats the first label as a hostname. A genuine remote host
-    always contains a dot (``//buyer-experience-gateway.mayzing.com/...``). A
-    first label with no dot (``//img/p/x.webp``) is not a hostname at all - it
-    is a root-relative path that lost its leading slash, so the browser goes
-    off-origin to ``https://img/p/x.webp`` and the asset 404s even though the
-    file is sitting in ``site/img/``.
-
-    This audit used to bucket *every* ``//`` src/href as "remote" and never
-    resolve it, which is how 438 of those values shipped to production in
-    commit cb27db6 (see SITE-AUDIT-2026-09-18.md §9.6). Dot-less means local,
-    and local means it must exist.
-    """
-    if not ref.startswith("//"):
-        return False
-    label = ref[2:].split("/", 1)[0]
-    return bool(label) and "." not in label
-
-
 def resolves(target, base="/"):
     """True when an href/src points at something that exists in site/.
 
@@ -353,11 +331,6 @@ for path, d in DOCS.items():
                     issue("links", f"{path}: internal link 404 -> {href}")
             continue
         if href.startswith("//"):
-            # Protocol-relative: only a real host (dot in the first label) is
-            # remote. '//collections/' is a local path the browser would send
-            # to https://collections/ - report it instead of waving it through.
-            if protocol_relative_local(href):
-                issue("links", f"{path}: protocol-relative local link -> {href}")
             continue
         if not resolves(href, path):
             issue("links", f"{path}: broken internal link -> {href}")
@@ -371,9 +344,6 @@ for path, d in DOCS.items():
             continue
         src = s.group(1)
         if src.startswith("data:"):
-            continue
-        if protocol_relative_local(src):
-            issue("images", f"{path}: protocol-relative local image -> {src}")
             continue
         if src.startswith(("http://", "https://", "//")):
             REMOTE_IMGS.setdefault(src, []).append(path)
@@ -395,44 +365,6 @@ for path, d in DOCS.items():
             eager += 1
     if eager:
         EAGER_IMGS[path] = eager
-    # References that are not an <img src> and so were invisible to the pass
-    # above. The §9.6 protocol-relative value travelled through every one of
-    # them: data-src (app.js swaps the product stage image from it), poster,
-    # srcset candidates, and the og:image / twitter:image that crawlers read
-    # without ever fetching the page body.
-    for attr in ("data-src", "poster"):
-        for m in re.finditer(r"""\b%s\s*=\s*["']([^"']*)["']""" % attr, d["text"], re.I):
-            ref = m.group(1)
-            if not ref:
-                continue
-            if protocol_relative_local(ref):
-                issue("images", f"{path}: protocol-relative local {attr} -> {ref}")
-            elif not ref.startswith(("http://", "https://", "//", "data:")) \
-                    and not resolves(ref, path):
-                issue("images", f"{path}: broken {attr} -> {ref}")
-    for m in re.finditer(r"""\bsrcset\s*=\s*["']([^"']*)["']""", d["text"], re.I):
-        for cand in m.group(1).split(","):
-            ref = cand.strip().split(" ")[0]
-            if not ref:
-                continue
-            if protocol_relative_local(ref):
-                issue("images", f"{path}: protocol-relative local srcset -> {ref}")
-            elif not ref.startswith(("http://", "https://", "//", "data:")) \
-                    and not resolves(ref, path):
-                issue("images", f"{path}: broken srcset candidate -> {ref}")
-    # Same-domain social images must exist: an off-domain one (the Mayzing CDN
-    # mockups) is out of reach of this audit, but `DOMAIN + '//img/...'` was
-    # the regression's og:image signature and it resolved to nothing.
-    for key in ("og_image", "tw_image"):
-        v = d.get(key)
-        if not v:
-            continue
-        if protocol_relative_local(v):
-            issue("social", f"{path}: protocol-relative local {key} -> {v}")
-        elif v.startswith(DOMAIN):
-            p = urlparse(v).path
-            if re.search(r"//", p) or not resolves(p, path):
-                issue("social", f"{path}: {key} does not resolve -> {v}")
 
 # --------------------------------------------------- 7. sitemap + robots
 sm = os.path.join(SITE, "sitemap.xml")

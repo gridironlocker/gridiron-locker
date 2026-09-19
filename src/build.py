@@ -1360,21 +1360,13 @@ def team_nav_card(k, cls="teamnav reveal"):
 
 def team_circle_card(k):
     """/collections/ entry: circular portrait with a team-colour outline, the
-    collection name, the live design count and an arrow.
-
-    One element per line. Cards are joined with "\n" (never "") and the
-    elements inside are newline-separated too: markdown extractors re-parse
-    `</a><a ...>` back-to-back as a single link, so every card needs
-    whitespace both inside and around it (whitespace-only flex/grid children
-    render nothing, so this is free)."""
+    collection name, the live design count and an arrow."""
     c = COLLECTIONS[k]
-    return (f'<a class="teamcircle reveal" style="{theme_vars(k)}" href="/{c["slug"]}/">\n'
-            f' {team_portrait(k, 160)}\n'
-            f' <b class="tc-name">{esc(c["name"])}</b>\n'
-            f' <span class="tc-count">{len(MODEL[k])} designs</span>\n'
-            f' <span class="tc-go">Shop {esc(c["short"])} '
-            f'<span aria-hidden="true">&rarr;</span></span>\n'
-            f'</a>')
+    return (f'<a class="teamcircle reveal" style="{theme_vars(k)}" href="/{c["slug"]}/">'
+            f'{team_portrait(k, 160)}'
+            f'<b class="tc-name">{esc(c["name"])}</b>'
+            f'<span class="tc-count">{len(MODEL[k])} designs</span>'
+            f'<span class="tc-go">Shop {esc(c["short"])} <span aria-hidden="true">&rarr;</span></span></a>')
 
 
 def team_section(k, limit=4, exclude=()):
@@ -1697,34 +1689,24 @@ def team_card(k):
     banner, see src/crop_art.py), the team name in display type, the fan
     phrase, the live design count and an arrow CTA. The four cards share one
     composition, one type treatment and one lighting philosophy - only the
-    colour tokens and the artwork change.
-
-    One element per line, joined with "\n" - same rationale as
-    team_circle_card(): back-to-back `</a><a ...>` collapses into one link
-    under greedy markdown re-parsing. The one deliberate exception is
-    .tc-ph: its <img> is inline-level, so a newline there would actually
-    render, which is why the shade/overlay spans stay jammed."""
+    colour tokens and the artwork change."""
     c = COLLECTIONS[k]
     art = TEAM_CARD_ART[k]
-    return (f'<a class="teamcard reveal" style="{theme_vars(k)}" href="/{c["slug"]}/">\n'
+    return (f'<a class="teamcard reveal" style="{theme_vars(k)}" href="/{c["slug"]}/">'
             f'<span class="tc-ph"><img src="{art}" alt="{esc(c["short"])} fan gear - hoodie, '
             f'beanie and helmet in team colours" loading="lazy" decoding="async" '
             f'width="640" height="640">'
             f'<span class="tc-shade" aria-hidden="true"></span>'
-            f'<span class="tc-over"><b class="tc-name">{esc(c["short"])}</b>\n'
-            f'<span class="tc-phrase">{esc(c["phrase"])}</span></span></span>\n'
-            f'<span class="tc-body">\n'
-            f' <span class="tc-count">{len(MODEL[k])} designs</span>\n'
-            f' <span class="tc-go">Shop {esc(c["short"])} <i aria-hidden="true">&rarr;</i></span>\n'
-            f'</span>\n'
-            f'</a>')
+            f'<span class="tc-over"><b class="tc-name">{esc(c["short"])}</b>'
+            f'<span class="tc-phrase">{esc(c["phrase"])}</span></span></span>'
+            f'<span class="tc-body"><span class="tc-count">{len(MODEL[k])} designs</span>'
+            f'<span class="tc-go">Shop {esc(c["short"])} <i aria-hidden="true">&rarr;</i></span>'
+            f'</span></a>')
 
 
 def shop_by_team():
     """Section 1 of the funnel after the hero: which team are you?"""
-    # "\n", not "": back-to-back </a><a collapses four links into one under
-    # markdown re-parsing (see team_circle_card).
-    cards = "\n".join(team_card(k) for k in ORDER)
+    cards = "".join(team_card(k) for k in ORDER)
     return f"""<section class="teamdeck-sec" id="shop-by-team"><div class="wrap">
  <div class="sechead reveal"><div>
   <span class="eyebrow"><span class="dot"></span> Four teams &middot; four fanbases</span>
@@ -2138,9 +2120,7 @@ def page_collections_index():
     # hub, not a duplicate of the homepage. The four per-team product grids
     # used to live here and forced visitors to scroll ~16 teaser cards before
     # choosing a side; they are replaced by one store-wide trending row.
-    # "\n", not "": back-to-back </a><a collapses four links into one under
-    # markdown re-parsing (see team_circle_card).
-    cards = "\n".join(team_circle_card(k) for k in ORDER)
+    cards = "".join(team_circle_card(k) for k in ORDER)
     hot = [x for x in ALL if x.get("trend") == "hot"]
     have = {x["slug"] for x in hot}
     trending = (hot + [x for x in ALL if x["slug"] not in have])[:8]
@@ -3863,11 +3843,7 @@ def retired_slugs():
     out = OrderedDict()
     for slug, meta in DELISTED.items():
         out[slug] = meta.get("collection") or "cleveland-browns"
-    # sorted(): FUL_HOLD is a set, and iterating it straight from the JSON made
-    # the emission order of the stub pages and site/_redirects change between
-    # processes (string hash randomisation). A rebuild must be byte-identical -
-    # refresh.yml commits with `git add -A`, so an unordered file is daily churn.
-    for slug in sorted(FUL_HOLD):
+    for slug in FUL_HOLD:
         out.setdefault(slug, _FUL.get("collection") or "cleveland-browns")
     live = {it["slug"] for it in ALL}
     return OrderedDict((s, c) for s, c in out.items()
@@ -4111,12 +4087,10 @@ def assets():
 # Everything here is meant to be crawled and indexed.
 
 User-agent: *
-# No Disallow lines at all, on purpose. The internal planning + control-room
-# trees (marketing/, ops/) used to be copied in here and then disallowed; a
-# Disallow in a public robots.txt is a signpost for anyone guessing paths, and
-# it is not access control. Since 2026-09-19 they are never published at all
-# (see never_publish_internal()), so there is nothing to hide and nothing to
-# advertise.
+# marketing/ and ops/ are the owner's internal planning + control rooms -
+# they are noindex, never in the sitemap and never linked from public nav.
+Disallow: /marketing/
+Disallow: /ops/
 Allow: /
 
 # Product imagery is a ranking asset - let image crawlers in
@@ -4953,16 +4927,7 @@ document.querySelectorAll('a.custom-link').forEach(function(a){
     var h=document.querySelector('.navsearch .gsearch')||document.querySelector('.gsearch');
     if(h){e.preventDefault();h.focus();}
   });
-  // The index is only needed once a visitor reaches for the search box, so it
-  // is no longer fetched on the critical path of every page view (it was: 56 KB
-  // on all 205 pages before a single keystroke). Focus and typing call load()
-  // directly; this idle warm-up keeps suggestions instant without competing
-  // with the hero image or the stylesheet for the first paint.
-  if(window.requestIdleCallback){
-    requestIdleCallback(function(){load();}, {timeout: 4000});
-  } else {
-    addEventListener('load', function(){setTimeout(function(){load();}, 200);});
-  }
+  load();
 })();
 
 // ---------- quick view: peek at a design without leaving the grid ----------
@@ -5125,42 +5090,80 @@ def relativise():
     return n
 
 
-# The internal trees - marketing/ (planners, dashboards, commercial data) and
-# ops/ (the owner's control rooms) - are NEVER published. GitHub Pages serves
-# every file in the uploaded directory, so `noindex` on a dashboard and a
-# robots.txt `Disallow` are not protection: they ask crawlers politely, and the
-# Disallow line itself is a signpost for anyone guessing paths (SITE-AUDIT
-# 2026-09-18 C1). An allowlist of "publishable" extensions was the halfway
-# fix and still shipped 1.0 MB of plan.json, 630 KB of commercial-brief.json,
-# the design roadmap and the follower counts. There is no SEO value to give up:
-# both trees are noindex and unlinked, so they now stop at the repo boundary.
-# Open them locally instead:  cd ops && python3 -m http.server 8000
-INTERNAL_TREES = ("marketing", "ops")
+# Files that may be published under /marketing/ and /ops/. The dashboards are a
+# deliberate product (they are noindex + robots-disallowed), but GitHub Pages
+# serves EVERYTHING in the uploaded directory, so copying the whole tree also
+# published .py source, run_daily.sh, the revenue and competitor playbooks,
+# social-accounts.md with follower counts, and pinterest_feed.csv. robots.txt
+# Disallow is not access control; an allowlist is. Dashboards keep the data
+# files they fetch at runtime (.json) and their own assets.
+PUBLISH_EXT = (".html", ".css", ".js", ".json", ".svg", ".png", ".jpg",
+               ".jpeg", ".webp", ".ico")
 
 
-def generate_dashboards():
-    """Regenerate the owner's ops dashboards into ops/ - repo only, never site/.
+def _copy_publishable(src_dir, dst_dir):
+    if os.path.islink(dst_dir) or os.path.isfile(dst_dir):
+        os.unlink(dst_dir)
+    elif os.path.isdir(dst_dir):
+        shutil.rmtree(dst_dir)
+    n = 0
+    for dp, _dn, fn in os.walk(src_dir):
+        for f in fn:
+            if not f.endswith(PUBLISH_EXT):
+                continue
+            rel = os.path.relpath(os.path.join(dp, f), src_dir)
+            out = os.path.join(dst_dir, rel)
+            os.makedirs(os.path.dirname(out), exist_ok=True)
+            shutil.copyfile(os.path.join(dp, f), out)
+            n += 1
+    return n
 
-    They read the same catalogue the storefront builds from, so they are
-    regenerated on every build; a dashboard failure is never fatal, because
-    the storefront must still build and deploy (AGENTS.md 3.4).
+
+def sync_marketing():
+    """Publish the marketing dashboards - and ONLY the dashboards.
+
+    We copy real files (not a symlink) so the checked-in site/marketing folder
+    is always a real directory that the Pages artifact can upload directly, and
+    so a rebuild can never swap it for a symlink. Source (.py/.sh), prose
+    playbooks (.md) and bulk-upload data (.csv) stay out of the public tree:
+    see PUBLISH_EXT."""
+    m_dir = os.path.join(ROOT, "marketing")
+    s_m_dir = os.path.join(SITE, "marketing")
+    if not os.path.exists(m_dir):
+        return
+    n = _copy_publishable(m_dir, s_m_dir)
+    print(f"sync_marketing: published {n} dashboard files of "
+          f"{sum(len(f) for _, _, f in os.walk(m_dir))} in marketing/ "
+          f"(source/playbooks/csv withheld)")
+
+
+def sync_ops():
+    """Regenerate and publish the internal ops dashboard: ops/scout -> site/ops.
+
+    Same pattern as sync_marketing(): scout.py writes ops/scout from the live
+    data files, we copy the whole ops/ folder into the built site so GitHub
+    Pages publishes /ops/scout/. A regeneration failure is non-fatal so the
+    storefront rebuild never breaks because of the dashboard.
     """
     try:
         import scout
         scout.main()
     except Exception as e:
         print("ops/scout generation failed, keeping existing files:", e)
+        return
     try:
         import hq
         hq.main()
     except Exception as e:
         print("ops/hq generation failed, keeping existing files:", e)
-    # The operator board reads len(build.ALL) but was only ever run by hand, so
-    # it used to show a stale design count (129) next to a storefront built from
-    # 81. Regenerating it on every build makes it read the same catalogue as
-    # everything else. Loaded by file path under a unique module name:
-    # ops/board/build.py shares its basename with THIS file, and a plain import
-    # of "build" would return the already-imported site builder instead.
+        return
+    # The operator board reads len(build.ALL) but was only ever run by hand,
+    # so site/ops/board/ published a stale design count (129) next to a
+    # storefront built from 81. Regenerating it on every build makes it read
+    # from the same catalogue as everything else.
+    # Loaded by file path under a unique module name: ops/board/build.py
+    # shares its basename with THIS file, and a plain import of "build" would
+    # return the already-imported site builder instead of the board.
     try:
         import importlib.util
         _bspec = importlib.util.spec_from_file_location(
@@ -5170,101 +5173,14 @@ def generate_dashboards():
         _bmod.main()
     except Exception as e:
         print("ops/board generation failed, keeping existing files:", e)
-
-
-def never_publish_internal():
-    """Delete any internal tree an earlier build left inside site/.
-
-    Removing the copy step is not enough on its own: site/ is committed, so
-    whatever the previous deploy published would keep shipping forever. This
-    also makes the rule unbreakable from the other side - if a tool or a human
-    drops a tree back into site/, the next build takes it out again.
-    """
-    removed = 0
-    for name in INTERNAL_TREES:
-        p = os.path.join(SITE, name)
-        if os.path.islink(p) or os.path.isfile(p):
-            os.unlink(p)
-            removed += 1
-        elif os.path.isdir(p):
-            removed += sum(len(fn) for _dp, _dn, fn in os.walk(p))
-            shutil.rmtree(p)
-    if removed:
-        print(f"never_publish_internal: removed {removed} internal file(s) from site/ "
-              f"- {'/'.join(INTERNAL_TREES)} are repo-local only")
-    return removed
-
-
-# ------------------------------------------------------ unreferenced assets
-# site/img/ was the dump of every mockup the crawler ever fetched, and a
-# rebuild only ever added to it: 1,337 files / 56 MB that no page, card,
-# gallery, search index or sitemap points at. Two kinds, both dead weight in
-# the Pages artifact: artwork for retired/hold-listed slugs (whose stub pages
-# are text-only, so the files can never load) and legacy garment-variant
-# renders (hoodie / crewneck / v-neck / tank-top) that stopped being fetched
-# when dl.py narrowed to front/back/colourways - the storefront has no
-# configurator to show them in, by design (AGENTS.md 3.3).
-PRUNE_DIRS = ("img",)
-PRUNE_EXT = (".webp", ".jpg", ".jpeg", ".png", ".svg", ".gif", ".ico")
-_IMG_REF = re.compile(r"(?:\.\./|\./|/)?img/[A-Za-z0-9._/\-]+")
-
-
-def prune_unreferenced_assets():
-    """Delete files under site/img/ that the built site does not reference.
-
-    The reference set is the build's own output, so the rule is self-correcting
-    rather than a hand-maintained allowlist: anything any page, stylesheet,
-    script, search index or sitemap still names is kept. Guarded by a floor
-    tied to the live catalogue, so a half-finished build can never wipe the
-    image tree - a pruned file is also recoverable from git and re-downloadable
-    by dl.py, which the refresh workflow runs before every build.
-    """
-    refs = set()
-    for dp, _dn, fn in os.walk(SITE):
-        for f in fn:
-            if not f.endswith((".html", ".css", ".js", ".json", ".xml",
-                               ".webmanifest", ".txt", ".svg")):
-                continue
-            try:
-                with open(os.path.join(dp, f), encoding="utf-8",
-                          errors="ignore") as fh:
-                    t = fh.read()
-            except OSError:
-                continue
-            for m in _IMG_REF.findall(t):
-                refs.add(os.path.basename(m.rstrip("/")))
-    floor = len(ALL) + 8   # one image per live design, plus heroes, favicon, lockups
-    if len(refs) < floor:
-        print(f"WARNING prune_unreferenced_assets: only {len(refs)} image references "
-              f"(expected >= {floor}) - build looks incomplete, not pruning")
-        return 0
-    removed = freed = 0
-    for name in PRUNE_DIRS:
-        base = os.path.join(SITE, name)
-        if not os.path.isdir(base):
-            continue
-        for dp, _dn, fn in os.walk(base):
-            for f in fn:
-                if not f.lower().endswith(PRUNE_EXT) or f in refs:
-                    continue
-                p = os.path.join(dp, f)
-                try:
-                    freed += os.path.getsize(p)
-                    os.remove(p)
-                    removed += 1
-                except OSError:
-                    pass
-        for dp, _dn, fn in os.walk(base, topdown=False):
-            if dp == base or os.listdir(dp):
-                continue
-            try:
-                os.rmdir(dp)
-            except OSError:
-                pass
-    if removed:
-        print(f"prune_unreferenced_assets: {removed} file(s) ({freed / 1e6:.1f} MB) "
-              f"referenced by no page, index or sitemap")
-    return removed
+    o_dir = os.path.join(ROOT, "ops")
+    s_o_dir = os.path.join(SITE, "ops")
+    if not os.path.exists(o_dir):
+        return
+    # Same allowlist as sync_marketing: dashboards and their data, never the
+    # .py generators or health_check source.
+    n = _copy_publishable(o_dir, s_o_dir)
+    print(f"sync_ops: published {n} dashboard files (source withheld)")
 
 
 def main():
@@ -5287,14 +5203,9 @@ def main():
     nr = page_redirects()
     assets()
     write(".nojekyll", "")
-    # The ops dashboards are regenerated in the repo and deliberately never
-    # copied into site/: anything inside the Pages artifact is public.
-    generate_dashboards()
-    never_publish_internal()
+    sync_marketing()
+    sync_ops()
     n = relativise()
-    # Runs last: it reads the finished pages, so what survives the prune is
-    # exactly what this deploy actually loads.
-    prune_unreferenced_assets()
     print(f"homepage team order (next kickoff first): {', '.join(HOMEPAGE_ORDER)}")
     print(f"relative-linked {n} pages for GitHub Pages / offline")
     print(f"redirect stubs: {nr} retired product URLs -> closest active page")

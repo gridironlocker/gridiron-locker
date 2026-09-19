@@ -662,16 +662,7 @@ document.querySelectorAll('a.custom-link').forEach(function(a){
     var h=document.querySelector('.navsearch .gsearch')||document.querySelector('.gsearch');
     if(h){e.preventDefault();h.focus();}
   });
-  // The index is only needed once a visitor reaches for the search box, so it
-  // is no longer fetched on the critical path of every page view (it was: 56 KB
-  // on all 205 pages before a single keystroke). Focus and typing call load()
-  // directly; this idle warm-up keeps suggestions instant without competing
-  // with the hero image or the stylesheet for the first paint.
-  if(window.requestIdleCallback){
-    requestIdleCallback(function(){load();}, {timeout: 4000});
-  } else {
-    addEventListener('load', function(){setTimeout(function(){load();}, 200);});
-  }
+  load();
 })();
 
 // ---------- quick view: peek at a design without leaving the grid ----------
