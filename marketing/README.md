@@ -16,7 +16,7 @@ creative at the licensing gate.
 - `commercial_agent.py` reads the plan and writes one generated file: `marketing/commercial-brief.json`.
 - `performance-memory.json` is a human-maintained input, not an automatically invented analytics feed.
 - Neither marketing script imports the website generator or writes anything under `site/`.
-- GitHub Pages publishes the storefront in `site/` **only**. The marketing planner stays in this repo and is opened locally — serving it at `/marketing/dashboard.html` ended 2026-09-19, when the build stopped copying `marketing/` and `ops/` into the Pages artifact (SITE-AUDIT-2026-09-18.md C1: Pages serves every file it is given, so `noindex` + robots `Disallow` was not protection).
+- GitHub Pages publishes the storefront in `site/` and the marketing planner at `/marketing/dashboard.html`.
 - Scene prompts describe only mood, light, texture, composition, and environment. They do not request logos, team marks, player likenesses, or recognizable people.
 
 ## Run it
