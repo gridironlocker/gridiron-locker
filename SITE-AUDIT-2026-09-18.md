@@ -1037,3 +1037,123 @@ The `qa_deep.py` CRITICAL is still §9.2's deferred design-law decision — not
 touched here. Verified red before trusting the tests: with `site/collections/index.html`
 and `site/index.html` reverted to HEAD the class fails 2/3; after a rebuild it is OK;
 and flipping either join back to `""` fails the source guard.
+
+### 9.8 Follow-up (2026-09-19) — qa_http would still print PASS on a #121 repeat
+
+§9.6 closed the regression with a *static* guard and said the rest was an owner
+call:
+
+> **Residual gap (owner call, not fixed here):** `qa_http.py` still resolves a
+> `//`-prefixed reference off-origin and files it under "unreachable from
+> sandbox" rather than failing, so on its own that gate would still print PASS
+> on a repeat. The static audit and the new test now catch that shape before
+> HTTP QA runs, but if you want the live gate to be self-sufficient, teach it
+> the same dot rule.
+
+The owner took the call. §9.7 has since shipped and is verified live on
+`origin/main`, so this is the next unit of work: the live gate must not depend
+on `qa_audit.py` having run first.
+
+**Mechanics.** The sweep (now ~lines 108-165) hands every `<a href>` and
+`<img src>` to `urljoin(BASE + path, ref)` and buckets on the resulting
+**netloc**:
+
+* `//search/` resolves to netloc `search` — neither the local server's netloc
+  nor `gridironlocker.store` — so the target is **dropped from the link check
+  entirely**; no dead-link line, no counter, no report of any kind. Measured on
+  the poisoned homepage below: 128 `<a href>` values, 100 followed, 25 dropped
+  as off-origin, and **6 of those 25 are `//search/`**. The drop is per
+  *reference*, not per target, so `internal link targets discovered` stays 108
+  (`/search/` is also linked from 18 other pages) — the same blindness, at
+  §9.6's scale, is what let 382 local images read as 16.
+* `//img/p/x.webp` lands in `remote_imgs`, the fetch to `http://img/...` dies
+  on DNS, status is `None`, and it is counted under
+  **`unreachable from sandbox: N`** — which the gate prints and does not fail.
+
+So a repeat of the poisoning prints `HTTP QA: PASS` on a tree where every
+Viralstyle mockup leaves the origin.
+
+**Reproduction.** Poison a *served copy*, never `site/`: `qa_http.py` reads the
+sitemap from the repo but fetches pages from `BASE`.
+
+```sh
+cp -r site /tmp/poison-site
+sed -i 's|src="./img/team-cleveland.jpg"|src="//img/team-cleveland.jpg"|' /tmp/poison-site/index.html
+sed -i 's|href="./search/"|href="//search/"|g'                           /tmp/poison-site/index.html
+cd /tmp/poison-site && python3 -m http.server 8124 --bind 0.0.0.0 &
+python3 qa_http.py http://127.0.0.1:8124        # from the repo root
+```
+
+BEFORE (`qa_http.py` at `93664ed`, exit **0**):
+
+```
+internal link targets discovered: 108
+  dead: 0
+local images referenced: 381
+  broken: 0
+remote partner images: 45
+  confirmed broken: 0   unreachable from sandbox: 45
+retired redirect stubs: 85
+  broken: 0
+
+======================================================================
+HTTP QA: PASS
+```
+
+AFTER (this change, exit **1**):
+
+```
+internal link targets discovered: 108
+  dead: 0
+local images referenced: 382
+  broken: 0
+remote partner images: 44
+  confirmed broken: 0   unreachable from sandbox: 44
+retired redirect stubs: 85
+  broken: 0
+
+======================================================================
+HTTP QA: 7 PROBLEM(S)
+  * protocol-relative local image //img/team-cleveland.jpg on /
+  * protocol-relative local link //search/ on /
+  * protocol-relative local link //search/ on /
+  * … (6 in total, one per poisoned href)
+```
+
+The poisoned `src` is back in the **local** bucket (381 → 382, remote 45 → 44)
+because the rule normalises it to `/img/team-cleveland.jpg` before `urljoin`, so
+an existing file still resolves and a missing one also produces the ordinary
+`broken image` line. The poisoned hrefs are now six named failures instead of
+six silent drops.
+
+| What changed | |
+|---|---|
+| `qa_http.py` | new module-level **`protocol_relative_local()`**, the same rule under the same name as `qa_audit.py`'s, so the two gates grep together. Applied **before** `urljoin` in **both** sweeps: the ref is recorded and normalised to root-relative (`"/" + ref[2:]`). One FAIL line per ref names page and ref — `protocol-relative local image //img/p/x.webp on /` — because the shape itself is the defect, exactly as `qa_audit.py` treats it. The sweep is still `<a href>` + `<img src>` only: `data-src` / `poster` / `srcset` remain `qa_audit.py`'s static beat (§9.6) and were not added here. |
+| `qa_http.py` import safety | the whole run moved into `main()` behind `if __name__ == "__main__":`, and `BASE` — previously read from `sys.argv` at import time — is now a local of `main()`, as is `import build`. `python3 -c "import qa_http"` now prints nothing; before, it ran the entire live gate. This is the `dl.py` precedent from §9.5, and the reason both changes are described in `AGENTS.md` §6. |
+| statement diff | the body was moved **by machine** (dedent/indent plus `BASE`→`base`, `FAIL`→`fail` renames), not retyped, then diffed against `git show HEAD:qa_http.py` statement by statement per the §6 landmine. Every statement of the old body survives character-for-character; the only differences are the two intended sweep edits, the report loop, `sys.exit(1)`/implicit-0 → `return 1`/`return 0`, and the guard. |
+| `AGENTS.md` §6 | `qa_http.py` joins `dl.py` in the "were fixed and are now import-safe" list, and the re-indent landmine bullet records how this one was moved and verified. |
+| `tests/test_layout.py` | new `QaHttpDotRule20260919` (3 tests): the rule detects `//img/p/x.webp` and `//search/`, ignores `//cdn.partner.com/x.png` / `/img/…` / `./img/…`, and a source guard pins that `protocol_relative_local` is consulted in **both** sweeps and that each one normalises the ref. Verified red first: against HEAD's `qa_http.py` the class is **2 errors + 1 failure** (importing the unguarded script runs it — `ValueError: unknown url type: 'tests.test_layout…'` — and the function does not exist), then OK after the fix. |
+
+**Clean tree unchanged.** Two consecutive runs against the unpoisoned server are
+byte-identical, and both are byte-identical to the run recorded before the
+change: `108 URLs, 0 dead links, **382** local images, 0 broken, 44 remote,
+85 stubs, PASS`. No gate's clean-tree output — `tests`, `qa_audit.py`,
+`qa_http.py`, `qa_deep.py` — changed. This only converts a silent PASS-on-broken
+into a loud FAIL.
+
+Gates after the fix:
+
+```
+python3 -m unittest discover -s tests -p "test_*.py"   Ran 247 tests … OK (skipped=17)   (244 + 3 new)
+python3 qa_audit.py                                    TOTAL: 0 · remote images 44 (all Mayzing CDN)
+python3 qa_http.py http://127.0.0.1:8123               PASS · 108 URLs, 0 dead links,
+                                                       382 local images, 0 broken, 85 stubs OK
+python3 qa_http.py http://127.0.0.1:8124               FAIL · 7 problems, exit 1 (poisoned copy, expected)
+python3 qa_deep.py                                     CRITICAL=1 HIGH=2 MEDIUM=6 (exit 1, unchanged)
+```
+
+`site/` is untouched by this change — nothing in the fix is a build output, so
+the numbers above are the same artefact §9.7 verified. The `qa_deep.py` CRITICAL
+is still §9.2's deferred design-law decision, not touched here. Nothing from
+PR #120, #121 or #122 was reverted, and §9.7's "not changed" call on the
+`<article class="card">` product grids stands.
