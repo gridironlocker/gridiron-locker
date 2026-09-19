@@ -39,6 +39,17 @@ def read_json(p: Path):
     with p.open(encoding="utf-8") as f:
         return json.load(f)
 
+# Every product link this engine emits (plan.json, live_drops.json, the
+# Pinterest CSV) must land on the storefront's own product page, never on the
+# supplier. product.get("url") was the raw viralstyle.com campaign URL from the
+# crawl, so 60/60 Pinterest rows and every drop bypassed gridironlocker.store
+# (qa_deep H3). The domain comes from src/config.json, same as the build.
+DOMAIN = read_json(SRC_DIR / "config.json")["domain"].rstrip("/")
+
+def storefront_url(slug: str) -> str:
+    """Absolute /shop/<slug>/ URL on the configured storefront domain."""
+    return f"{DOMAIN}/shop/{slug}/"
+
 def build_designs_unique(products, facts, order, trends, people):
     people_lookup = build_people_lookup(people)
     delisted = load_delisted()
@@ -104,7 +115,7 @@ def build_designs_unique(products, facts, order, trends, people):
             "theme": fact.get("theme","classic"),
             "product_type": fact.get("type","Apparel"),
             "price_usd": product.get("price_usd"),
-            "product_url": product.get("url",""),
+            "product_url": storefront_url(slug),
             "image_url": product.get("front",""),
             "keywords": fact.get("kw",[]),
             "score": score["score"],
