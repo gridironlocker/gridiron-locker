@@ -26,7 +26,7 @@ python3 marketing/three_day_pulse.py` to refresh the short-lived brief.
 | HTML files in `site/` | **206** (197 public + 9 internal `ops/` & `marketing/`) |
 | Public pages audited | **194** (`python3 qa_audit.py`) |
 | Redirect stubs (retired slugs) | **85** |
-| Product pages (one per design) | **84** |
+| Product pages (one per design) | **83** |
 | `sitemap.xml` URLs | **108** = 84 products + 24 other indexable pages |
 | Collection pages | 4 (+ All Collections, + Search/browse all) |
 | Creator collaboration pages | **1** (Joe's Michigan Locker, `/michigan/joe/`) |
@@ -197,7 +197,7 @@ New products need one line of copy facts in `src/catalog.py`
 - `product-index.csv` — **a stale, hand-maintained export (111 rows), not a build output.**
   Nothing in the repo writes it: `grep -rn product-index --include='*.py'` matches no
   generator, and it is not produced by `src/build.py` or refreshed by `refresh.yml`. It no
-  longer agrees with the live catalogue (84 designs), so treat `python3 qa_audit.py` or
+  longer agrees with the live catalogue (83 designs), so treat `python3 qa_audit.py` or
   `build.ALL` as the source of truth and use this file only as a rough keyword sheet — or
   wire it into the build if you want it to stay honest.
 - `data/` — scraped source data

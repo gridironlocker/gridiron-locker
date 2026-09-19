@@ -108,8 +108,8 @@ currently violated. See §5.
 | `data/fulfillment.json` | Partner naming **plus a `hold` list of 57 slugs** withheld from Viralstyle pending Mayzing upload. |
 
 **The real catalogue is the merged set that `src/build.py` computes**, after
-applying `delisted` and `fulfillment.hold`. It is currently **84 designs**:
-green-bay-packers 37 · cleveland-browns 19 · michigan 18 · dallas-cowboys 10.
+applying `delisted` and `fulfillment.hold`. It is currently **83 designs**:
+green-bay-packers 37 · cleveland-browns 19 · michigan 17 · dallas-cowboys 10.
 
 **The published contract is `data/catalogue-live.json`.** It is regenerated on
 every build by `src/catalogue_contract.py` (run by `refresh.yml` after the
@@ -159,7 +159,7 @@ polish. It follows controlled autonomy:
   keywords stuffing, player-likeness / team-logo suggestions.
 
 - Retired slugs get a **noindex redirect stub** at the same path, never a 404
-  and never a reused slug. 85 stubs exist today.
+  and never a reused slug. 86 stubs exist today.
 - `tests/test_layout.py` encodes the SEO contract as executable assertions. If
   your change makes it fail, your change is wrong — do not weaken the test to
   make it pass. Ask first.
