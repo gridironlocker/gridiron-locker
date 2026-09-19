@@ -5175,25 +5175,24 @@ def sync_marketing():
 
 
 def sync_ops():
-    """Regenerate and publish the internal ops dashboard: ops/scout -> site/ops.
+    """Regenerate and publish the internal ops dashboards: ops/scout -> site/ops.
 
-    Same pattern as sync_marketing(): scout.py writes ops/scout from the live
-    data files, we copy the whole ops/ folder into the built site so GitHub
-    Pages publishes /ops/scout/. A regeneration failure is non-fatal so the
-    storefront rebuild never breaks because of the dashboard.
+    Same pattern as sync_marketing(): each dashboard generator writes its
+    ops/<name>/index.html from the live data files, then we copy the whole
+    ops/ folder into the built site so GitHub Pages publishes /ops/*/.
+    A regeneration failure for any one dashboard is non-fatal so the
+    storefront rebuild never breaks because of a dashboard.
     """
     try:
         import scout
         scout.main()
     except Exception as e:
         print("ops/scout generation failed, keeping existing files:", e)
-        return
     try:
         import hq
         hq.main()
     except Exception as e:
         print("ops/hq generation failed, keeping existing files:", e)
-        return
     # The operator board reads len(build.ALL) but was only ever run by hand,
     # so site/ops/board/ published a stale design count (129) next to a
     # storefront built from 81. Regenerating it on every build makes it read
@@ -5210,6 +5209,43 @@ def sync_ops():
         _bmod.main()
     except Exception as e:
         print("ops/board generation failed, keeping existing files:", e)
+    # SEO Engine dashboard — private ops view over the controlled-autonomy
+    # SEO loop. Regenerated after the storefront is written so the audit
+    # crawls the just-built site/ (same timing as scout/board which read the
+    # live catalogue). Failures are non-fatal.
+    try:
+        import importlib.util as _ilu_seo
+        # Refresh audit/decisions so the dashboard always reflects this build.
+        # This keeps ops/seo live without needing a separate workflow step;
+        # the files are also what `python3 -m seo_engine run` would produce.
+        try:
+            if ROOT not in sys.path:
+                sys.path.insert(0, ROOT)
+            from seo_engine.audit import run_audit as _seo_audit
+            from seo_engine.decide import decide as _seo_decide
+            from seo_engine.config import (
+                ensure_seo_dirs as _seo_ensure,
+                write_json as _seo_write,
+                AUDIT_PATH as _seo_AP,
+                DECISIONS_PATH as _seo_DP,
+            )
+            _audit = _seo_audit()
+            _slim = dict(_audit)
+            _slim.pop("pages", None)
+            _seo_ensure()
+            _seo_write(_seo_AP, _slim)
+            _dec = _seo_decide(_audit)
+            _seo_write(_seo_DP, _dec)
+        except Exception as _e:
+            print(f"seo_engine audit/decide refresh failed, keeping existing artefacts: {_e}")
+        _seo_spec = _ilu_seo.spec_from_file_location(
+            "gl_seo_dashboard", os.path.join(ROOT, "seo_engine", "dashboard.py")
+        )
+        _seo_mod = _ilu_seo.module_from_spec(_seo_spec)
+        _seo_spec.loader.exec_module(_seo_mod)
+        _seo_mod.main()
+    except Exception as e:
+        print(f"ops/seo generation failed, keeping existing files: {e}")
     o_dir = os.path.join(ROOT, "ops")
     s_o_dir = os.path.join(SITE, "ops")
     if not os.path.exists(o_dir):
