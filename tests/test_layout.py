@@ -34,6 +34,9 @@ Covered:
     headline panels (those live on /2026-season/ and /fan-trend-index/), and
     live ticker terms are team-safe (no raw headline words, no opponents).
   * Artwork hygiene: no PNG masters in site/img (they live in artwork-source/).
+  * No protocol-relative local URLs: nothing in site/ may publish `//img/...`
+    (a path that lost its leading slash resolves off-origin and 404s), in
+    src/href/data-src/poster, in assets/search-index.json or in either sitemap.
   * Preserved: team accents, hero images, product count, checkout links, SEO
     metadata, dynamic catalogue counts, no missing local references.
 """
@@ -2408,6 +2411,86 @@ class DeploySurface20260919(unittest.TestCase):
         self.assertIn("requestIdleCallback(function(){load();", js)
         self.assertIn("addEventListener('focus',function(){load();", js)
         self.assertIn("assets/search-index.json", js)
+
+
+class ProtocolRelativeUrls20260919(unittest.TestCase):
+    """A local path must never be published as a protocol-relative URL.
+
+    ``dl.py`` turns ``site/img/p/<slug>-front.webp`` into the root-relative
+    ``/img/p/<slug>-front.webp`` with ``webp.replace('site/', '/')``. While the
+    needle was missing its trailing slash (commit cb27db6) the crawl wrote 438
+    ``//img/p/*.webp`` values into ``data/products_live.json`` and the build
+    rendered them verbatim onto 54 pages - homepage rails, collection pages,
+    product galleries and /search/. ``//img/...`` is protocol-relative, so the
+    browser read "host = img" and requested ``https://img/p/*.webp``: every
+    Viralstyle mockup 404'd while the file was sitting on disk, and
+    ``og:image`` / ``sitemap-images.xml`` carried the same doubled slash as
+    ``https://gridironlocker.store//img/...``.
+
+    ``qa_audit.py`` let it through because it classed any ``//`` src/href as
+    remote and never resolved it; it now has ``protocol_relative_local()``.
+    This pins the same rule on the built artifact.
+    """
+
+    #: Every attribute whose value the browser resolves as a URL. ``data-src``
+    #: matters because app.js swaps the product stage image from it, so a bad
+    #: value breaks the gallery on click even when the first paint looks fine.
+    URL_ATTRS = ("src", "href", "data-src", "poster")
+
+    def test_no_protocol_relative_local_urls(self):
+        offenders = []
+        for dirpath, _dirs, files in os.walk(SITE):
+            for f in files:
+                if not f.endswith(".html"):
+                    continue
+                full = os.path.join(dirpath, f)
+                rel = os.path.relpath(full, SITE)
+                text = read(full)
+                for attr in self.URL_ATTRS:
+                    for m in re.finditer(
+                            r"""\b%s\s*=\s*["']([^"']*)["']""" % attr, text, re.I):
+                        ref = m.group(1)
+                        if not ref.startswith("//"):
+                            continue
+                        # '//cdn.mayzing.com/x.png' is a real host. '//img/...'
+                        # has no dot in its first label, so it is not a host at
+                        # all - it is a local path that lost its leading slash.
+                        if "." not in ref[2:].split("/", 1)[0]:
+                            offenders.append(f"{rel}: {attr}=\"{ref}\"")
+        self.assertEqual(
+            offenders, [],
+            f"{len(offenders)} protocol-relative local URL(s) - the browser "
+            f"resolves these off-origin and they 404: {offenders[:8]}")
+
+        # The search index is JSON, not markup, so its signature is a quoted
+        # value; app.js injects it straight into an <img src>.
+        index = read(os.path.join(SITE, "assets", "search-index.json"))
+        # assertFalse, not assertNotIn: the index is one 56 KB line, and
+        # assertNotIn would print the whole of it as the failure context.
+        self.assertFalse('"//img/' in index,
+                         "assets/search-index.json carries protocol-relative artwork paths")
+
+        # Both sitemaps publish absolute URLs, where the regression showed up
+        # as '<domain>//img/...'. Google silently drops an image sitemap entry
+        # whose loc does not resolve, so this is worth its own assertion.
+        host = load_json("src/config.json")["domain"].rstrip("/").split("//")[-1]
+        for sm in ("sitemap.xml", "sitemap-images.xml"):
+            text = read(os.path.join(SITE, sm))
+            for needle in (host + "//img", "store//img"):
+                self.assertFalse(needle in text,
+                                 f"{sm} publishes a double-slashed image URL ({needle})")
+
+        # Source guard: the needle keeps its slash, so the next crawl cannot
+        # re-poison data/products_live.json. Matched with a regex rather than a
+        # literal so reformatting the call (spaces after the commas) does not
+        # read as a regression.
+        dl = read(os.path.join(ROOT, "dl.py"))
+        # assertTrue/assertIsNone rather than assertRegex: on failure those dump
+        # the whole matched string, which here is the entire script.
+        self.assertTrue(re.search(r"webp\.replace\(\s*'site/'\s*,\s*'/'\s*\)", dl),
+                        "dl.py must map site/img/... to /img/... with the trailing slash")
+        self.assertIsNone(re.search(r"webp\.replace\(\s*'site'\s*,", dl),
+                          "dl.py is back to the slash-less needle that produced '//img/...'")
 
 
 if __name__ == "__main__":

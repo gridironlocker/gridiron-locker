@@ -305,17 +305,32 @@ guard, so importing them runs them:
 
 | Script | What importing it does |
 |---|---|
-| `dl.py` | Crawls Viralstyle, writes images into `site/img/` |
 | `scrape_list.py` | Crawls the 4 collections, writes `data/` |
 | `scrape_products.py` | Crawls every product, writes `data/` |
 | `sheet.py` | Builds contact sheets **and overwrites `data/order.json`** |
 
-`src/make_offline.py` and `src/set_site.py` were fixed and are now import-safe.
-If you touch any of the four above for another reason, add the guard while you
-are in there — it is a two-line change.
+`src/make_offline.py`, `src/set_site.py` and `dl.py` (2026-09-19, PR #120) were
+fixed and are now import-safe. If you touch one of the three above for another
+reason, add the guard while you are in there — but read the first bullet below
+before you do, because it is not the two-line change it looks like.
 
 **Other things that have already caused damage:**
 
+- **Re-indenting an import-unsafe script into `main()` is a rewrite of every
+  line in it, so a one-character typo becomes invisible.** That is what happened
+  when `dl.py` gained its `__main__` guard on 2026-09-19: in the re-indent,
+  `webp.replace('site/', '/')` lost the slash from its needle, and
+  `replace('site', '/')` turned `site/img/p/x.webp` into `//img/p/x.webp` — a
+  *protocol-relative* URL, which the browser reads as "host = img" and fetches
+  from `https://img/...`. The next CI refresh wrote **438** of those values into
+  `data/products_live.json`, the build rendered them, and every Viralstyle
+  product image 404'd on **54 of 196 pages** while `qa_audit.py`, `qa_http.py`
+  and all 240 tests reported green (`SITE-AUDIT-2026-09-18.md` §9.6). When you
+  add a guard to one of these scripts, **diff the re-indented body against the
+  original statement by statement** — `git show HEAD:dl.py > /tmp/old.py`, or
+  `git diff --word-diff=porcelain` — rather than reading a diff in which every
+  line has already changed. Then put the script's output through `qa_audit.py`
+  before you trust it.
 - `marketing/social_watch.py` **overwrites `marketing/social-signals.json` with
   error stubs when it has no network.** Run it in a sandbox, never in place,
   unless you intend to replace curated evidence.

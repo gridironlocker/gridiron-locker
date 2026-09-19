@@ -79,7 +79,16 @@ def main():
             if not u: continue
             jpg=f'site/img/p/{slug}-{tag}.jpg'
             webp=jpg[:-4]+'.webp'
-            local[tag]=webp.replace('site','/')
+            # The needle MUST be 'site/' (with the trailing slash). A bare
+            # 'site' leaves the separator behind and turns 'site/img/p/x.webp'
+            # into '//img/p/x.webp' - a protocol-relative URL, which the
+            # browser reads as "host = img" and fetches from https://img/...,
+            # so every localised mockup 404s while the file sits right there
+            # on disk. build.py renders this map verbatim, so the bad value
+            # travels into <img src>, the data-src thumbs, og:image /
+            # twitter:image, Product image[], sitemap-images.xml and
+            # assets/search-index.json too. See SITE-AUDIT-2026-09-18.md 9.6.
+            local[tag]=webp.replace('site/','/')
             # c* swatches: prefer the large mockup; fall back to the small one and
             # then to the bare -front variant so a renamed asset still downloads.
             if tag.startswith('c'):
