@@ -309,10 +309,11 @@ guard, so importing them runs them:
 | `scrape_products.py` | Crawls every product, writes `data/` |
 | `sheet.py` | Builds contact sheets **and overwrites `data/order.json`** |
 
-`src/make_offline.py`, `src/set_site.py` and `dl.py` (2026-09-19, PR #120) were
-fixed and are now import-safe. If you touch one of the three above for another
-reason, add the guard while you are in there — but read the first bullet below
-before you do, because it is not the two-line change it looks like.
+`src/make_offline.py`, `src/set_site.py` and `dl.py` (2026-09-19, PR #120), and
+`qa_http.py` (2026-09-19, `SITE-AUDIT-2026-09-18.md` §9.8) were fixed and are
+now import-safe. If you touch one of the three above for another reason, add the
+guard while you are in there — but read the first bullet below before you do,
+because it is not the two-line change it looks like.
 
 **Other things that have already caused damage:**
 
@@ -330,7 +331,11 @@ before you do, because it is not the two-line change it looks like.
   original statement by statement** — `git show HEAD:dl.py > /tmp/old.py`, or
   `git diff --word-diff=porcelain` — rather than reading a diff in which every
   line has already changed. Then put the script's output through `qa_audit.py`
-  before you trust it.
+  before you trust it. `qa_http.py` got its guard on the same date, in the same
+  way: the body was moved under `main()` *by machine*, not retyped, then diffed
+  statement by statement against `HEAD` (the only differences were the intended
+  ones), and its output was compared against the pre-change run — identical on
+  the clean tree, which is the evidence §9.8 publishes.
 - `marketing/social_watch.py` **overwrites `marketing/social-signals.json` with
   error stubs when it has no network.** Run it in a sandbox, never in place,
   unless you intend to replace curated evidence.

@@ -41,6 +41,10 @@ Covered:
     homepage "Shop By Team" deck are built one element per line and joined
     with "\\n" (never ""), so text extractors see four separate links per
     row instead of one merged link to the last card.
+  * qa_http dot rule (2026-09-19, §9.8): the live gate carries qa_audit's
+    `protocol_relative_local()` and consults it in both the <a href> and
+    <img src> sweeps, so a `//img/...`-style repeat of PR #121 fails by name
+    instead of resolving off-origin and slipping through as PASS.
   * Preserved: team accents, hero images, product count, checkout links, SEO
     metadata, dynamic catalogue counts, no missing local references.
 """
@@ -2570,6 +2574,80 @@ class CardTextSeparation20260919(unittest.TestCase):
         for fn in ("team_circle_card", "team_card"):
             self.assertIsNone(re.search(r'""\.join\(%s\(' % fn, build_src),
                               '%s must be joined with "\\n", not ""' % fn)
+
+
+class QaHttpDotRule20260919(unittest.TestCase):
+    """The live HTTP gate must fail a repeat of the PR #121 poisoning by itself.
+
+    §9.6 ("production regression: every Viralstyle image 404'd") closed that
+    regression with a *static* guard - ``qa_audit.py``'s
+    ``protocol_relative_local()`` plus ``ProtocolRelativeUrls20260919`` - and
+    left one residual gap open as an owner call: ``qa_http.py``, the only gate
+    that fetches live pages, still resolved a ``//``-prefixed reference
+    off-origin and so would print ``HTTP QA: PASS`` on a poisoned tree. Its
+    ``urljoin`` sweep bucketed by netloc: ``//search/`` resolved to netloc
+    "search" - neither the local server nor gridironlocker.store - so the
+    target was dropped from the link check with no line in the report, and
+    ``//img/p/x.webp`` landed in the remote bucket, died on DNS and was counted
+    under "unreachable from sandbox", which the gate prints but does not fail.
+    Measured on a poisoned copy of ``site/`` before this fix: 382 -> 381 local
+    images, 44 -> 45 "unreachable", still PASS with exit 0.
+
+    ``qa_http.py`` now carries the same dot rule, under the same name as
+    ``qa_audit.py``'s, fails every protocol-relative local ref by name, and
+    normalises it back to root-relative before the checks. These tests pin the
+    rule and its two call sites. ``qa_http`` is imported *inside* the tests on
+    purpose: before this change importing it read ``sys.argv`` and ran the
+    whole gate, which is the AGENTS.md §6 landmine ``dl.py`` hit in §9.6.
+    """
+
+    def qa_http(self):
+        """Import qa_http from the repo root - module-level code must be inert."""
+        if ROOT not in sys.path:
+            sys.path.insert(0, ROOT)
+        import qa_http as mod
+        return mod
+
+    def test_protocol_relative_local_detects_lost_slash(self):
+        """``//img/p/x.webp`` and ``//search/`` are local paths, not hostnames."""
+        mod = self.qa_http()
+        for ref in ("//img/p/x.webp", "//search/"):
+            self.assertTrue(
+                mod.protocol_relative_local(ref),
+                f"{ref!r} is a local path that lost its leading slash - urljoin "
+                f"would resolve it off-origin and the sweep would stay green")
+
+    def test_protocol_relative_local_ignores_real_hosts(self):
+        """A real CDN host has a dot; a single-slash or relative path is not a ``//`` ref."""
+        mod = self.qa_http()
+        for ref in ("//cdn.partner.com/x.png", "/img/p/x.webp", "./img/p/x.webp"):
+            self.assertFalse(
+                mod.protocol_relative_local(ref),
+                f"{ref!r} is not the lost-slash shape and must not be rewritten")
+
+    def test_qa_http_source_applies_the_rule_to_both_sweeps(self):
+        """The rule is consulted in the <a href> AND the <img src> sweep."""
+        src = read(os.path.join(ROOT, "qa_http.py"))
+        href_at = src.index("re.finditer(r'<a")
+        img_at = src.index('re.finditer(r"<img')
+        end_at = src.index('print(f"internal link targets discovered')
+        for name, sweep in (("href", src[href_at:img_at]),
+                            ("img-src", src[img_at:end_at])):
+            # assertIsNotNone rather than assertRegex: on failure that dumps
+            # the whole matched string, which here is the entire sweep.
+            self.assertIsNotNone(
+                re.search(r"protocol_relative_local\(", sweep),
+                f"qa_http.py's {name} sweep never consults protocol_relative_local()")
+            # Failing the shape is half the job - the ref must also be fed
+            # back into the sweep as root-relative, or a ref to a file that is
+            # really missing produces no dead-link / broken-image line either.
+            self.assertIsNotNone(
+                re.search(r'= "/" \+ \w+\[2:\]', sweep),
+                f"qa_http.py's {name} sweep reports the shape but does not "
+                f"normalise it to root-relative")
+        # The failure has to name the disease, not hide inside a counter.
+        self.assertIsNotNone(re.search(r"protocol-relative local image \{", src))
+        self.assertIsNotNone(re.search(r"protocol-relative local link \{", src))
 
 
 if __name__ == "__main__":
