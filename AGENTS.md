@@ -82,13 +82,20 @@ Consequences:
   `tests/test_layout.py` both read the committed `site/` and need no rebuild.
 - If you must rebuild, expect a date-only diff and say so in the commit message.
 - Never commit a partial rebuild. `site/` is all-or-nothing.
-- `build.py`'s `main()` does **not** delete orphan artwork from `site/img/` (this
-  bullet used to claim it did; verified against the source on 2026-09-18). The only
-  pruning a rebuild does is `assets()` removing stray search-console verification
-  files (`googleae*.html`, `google7e05*.html`, `a7f3c19b*.txt`, `BingSiteAuth.xml`)
-  that are not at the `site/` root. Anything else left in `site/img/` stays until it
-  is removed with `git rm` — which is the safe direction, since artwork cannot be
-  re-downloaded without network egress.
+- `build.py`'s `main()` prunes what it does not use, and that is now three
+  passes, not zero: `assets()` deletes stray search-console verification files
+  (`googleae*.html`, `google7e05*.html`, `a7f3c19b*.txt`, `BingSiteAuth.xml`)
+  found outside the `site/` root; `never_publish_internal()` deletes any
+  `marketing/` or `ops/` tree inside `site/`; `prune_unreferenced_assets()`
+  (last, after `relativise()`) deletes anything under `site/img/` that no page,
+  stylesheet, script, search index or sitemap names. The image pass removed
+  1,337 files / 56.6 MB on 2026-09-19: artwork for the 112 retired/hold slugs
+  whose stub pages are text-only, plus legacy garment-variant renders
+  (hoodie/crewneck/v-neck/tank-top) the storefront has no configurator to show.
+  It refuses to run when the reference set is below `len(ALL) + 8`, so a
+  half-finished build cannot wipe the tree, and anything a live page needs again
+  is re-fetched by `dl.py` in the same refresh run. Practical consequence:
+  **do not hand-place files in `site/`** — the next rebuild removes them.
 
 ### 3.2 The catalogue has exactly one source of truth — and it is not any one file
 
@@ -167,10 +174,17 @@ without network, **the storefront must still build and deploy.** That is why
 `refresh.yml` marks the marketing steps `continue-on-error`.
 
 The reverse also holds: `ops/scout/`, `ops/board/`, `ops/marketing/` and
-`ops/hq/` are **generated** by `src/scout.py` / `src/build.py` during the build.
-Do not hand-edit their `index.html`. If a dashboard needs to change, change the
-generator and let the build re-emit it. They are `noindex` and
-robots-disallowed; keep them that way — they contain internal economics.
+`ops/hq/` are **generated** by `src/scout.py` / `src/build.py` during the build
+(`generate_dashboards()`, every call individually guarded). Do not hand-edit
+their `index.html`; change the generator and let the build re-emit it. **They
+are never copied into `site/`** — `INTERNAL_TREES` is the list and
+`never_publish_internal()` enforces it on every build, so the storefront deploys
+even if a dashboard generator dies. They contain internal economics, and GitHub
+Pages serves every file in the uploaded directory: `noindex` plus a robots.txt
+`Disallow` is a request, not access control, and the `Disallow` also advertises
+where to look (SITE-AUDIT-2026-09-18.md C1). Open them from the repo —
+`python3 -m http.server` at the root, then `/ops/scout/` or
+`/marketing/dashboard.html`.
 
 ### 3.5 `refresh.yml` is two pipelines wearing one coat
 
