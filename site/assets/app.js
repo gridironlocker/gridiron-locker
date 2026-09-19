@@ -3,6 +3,9 @@
 // Google Analytics is opt-in. The tag itself is only injected by
 // window.glLoadAnalytics() (see head()), and only after this banner records a
 // choice in the gl_analytics cookie. /privacy/ states this in plain words.
+// The Pinterest Tag (when a Tag ID is configured) rides the SAME choice:
+// window.glLoadPinterest() exists only on builds that have one, and is only
+// ever called from here or from head() when the cookie already says 1.
 (function(){
   function choice(){
     var m=document.cookie.match(/(?:^|; )gl_analytics=([01])(?:;|$)/);
@@ -19,9 +22,8 @@
     'max-width:560px;margin:0 auto;background:#111418;color:#f4f1ea;'+
     'border:1px solid #2c3138;border-radius:10px;padding:12px 14px;'+
     'font:14px/1.5 system-ui,sans-serif;box-shadow:0 8px 30px rgba(0,0,0,.4)';
-  b.innerHTML='<p style="margin:0 0 10px">We use Google Analytics to count page '+
-    'views and see which designs are popular. No advertising cookies, and we '+
-    'never sell data. <a href="/privacy/" style="color:#ffb35c">Privacy policy</a>.</p>'+
+  b.innerHTML='<p style="margin:0 0 10px">We use Google Analytics to count page views and see which designs are popular. No advertising cookies, and we never sell data. '+
+    '<a href="/privacy/" style="color:#ffb35c">Privacy policy</a>.</p>'+
     '<button type="button" data-gl="1" style="margin-right:8px;padding:8px 14px;'+
     'border:0;border-radius:8px;background:#ffb35c;color:#111418;font-weight:700;'+
     'cursor:pointer">Allow analytics</button>'+
@@ -34,8 +36,16 @@
     set(v);
     if(b.parentNode) b.parentNode.removeChild(b);
     if(v==='1'&&window.glLoadAnalytics) window.glLoadAnalytics();
+    if(v==='1'&&window.glLoadPinterest) window.glLoadPinterest();
   });
 })();
+
+// ---------- Pinterest Tag events ----------
+// pintrk only exists after consent (see head()); every call is wrapped so a
+// declined or unconfigured build is a silent no-op. product_id is the slug -
+// the same value as `id` in /feeds/pinterest.csv - which is what lets
+// Pinterest join tag events to catalogue items (dynamic retargeting, VMP).
+function glPin(ev,data){try{pintrk('track',ev,data);}catch(e){}}
 
 // ---------- gallery ----------
 var CUSTOM_EMAIL="aXRzbm91cnk2NUBnbWFpbC5jb20=";
@@ -138,8 +148,25 @@ document.querySelectorAll('a.shopnow').forEach(function(a){
       collection:d.collection,placement:d.placement,creator:window.GL_CREATOR||'',
       destination:dest
     });}catch(e){}
+    // Pinterest 'checkout': the hand-off to the partner cart is the last
+    // step this domain can observe (the transaction itself completes on
+    // Mayzing/Viralstyle), so it is the checkout signal the Verified
+    // Merchant Program asks for. value/currency/line_items per the spec.
+    glPin('checkout',{
+      value:parseFloat(d.price||'0'),order_quantity:1,currency:'USD',
+      line_items:[{product_id:d.slug,product_name:document.title.split(' | ')[0],
+        product_price:parseFloat(d.price||'0'),product_quantity:1,
+        product_category:d.collection}]
+    });
   });
 });
+
+// ---------- Pinterest category view ----------
+(function(){
+  var k=document.body&&document.body.getAttribute('data-collection-page');
+  if(!k)return;
+  glPin('viewcategory',{line_items:[{product_category:k}]});
+})();
 
 // ---------- custom-design CTA tracking ----------
 // The secondary funnel (nav, footer, PDP band, collection band, contact
@@ -162,6 +189,13 @@ document.querySelectorAll('a.custom-link').forEach(function(a){
     item_id:d.slug,value:parseFloat(d.price||'0'),currency:'USD',
     collection:d.collection
   });}catch(e){}
+  // Pinterest 'pagevisit' with product data: the product-page event the
+  // catalogue joins on (product_id == feed id).
+  glPin('pagevisit',{
+    currency:'USD',
+    line_items:[{product_id:d.slug,product_name:document.title.split(' | ')[0],
+      product_price:parseFloat(d.price||'0'),product_category:d.collection}]
+  });
   document.querySelectorAll('#related .related a[href*="/shop/"]').forEach(function(a){
     a.addEventListener('click',function(){
       try{gtag('event','related_product_click',{

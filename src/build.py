@@ -40,6 +40,22 @@ import base64 as _base64
 CONTACT_EMAIL = _base64.b64decode(CFG["email_b64"]).decode()
 DOMAIN = CFG["domain"].rstrip("/")
 
+# Pinterest Business. Both values are public by nature (they ship in page
+# source) and both are read from config so a change is one edit, not a hunt
+# through the generator.
+#   pinterest_verify  - the domain-claim token, emitted on every page as
+#                       <meta name="p:domain_verify">. Claiming the domain is
+#                       a hard prerequisite for a catalogue and for the
+#                       Verified Merchant Program.
+#   pinterest_tag_id  - the conversion Tag ID. Leave "" until a Tag exists in
+#                       Ads Manager: with no ID, no Pinterest script is
+#                       emitted anywhere. With one, head() emits a loader
+#                       that runs ONLY behind the same opt-in as GA4 (the
+#                       gl_analytics cookie / consent banner in app.js) and
+#                       /privacy/ describes it.
+PINTEREST_VERIFY = (CFG.get("pinterest_verify") or "").strip()
+PINTEREST_TAG = (CFG.get("pinterest_tag_id") or "").strip()
+
 # Sitemap dates are content metadata, not build timestamps.  The old generator
 # stamped every URL with TODAY, which told crawlers that every page changed on
 # every rebuild.  Keep the small, hand-maintained date manifest in data/ so a
@@ -1017,6 +1033,10 @@ def head(title, desc, path, image=None, schema=None, keywords=None, col=None,
     else:
         depth = len([seg for seg in path.split("/") if seg])
         root_prefix = "./" if depth == 0 else "../" * depth
+    # Pinterest domain claim: a static meta tag, sends nothing, on every page
+    # (Pinterest re-verifies against the homepage and product URLs it crawls).
+    pin_verify = (f'<meta name="p:domain_verify" content="{esc(PINTEREST_VERIFY)}">\n'
+                  if PINTEREST_VERIFY else "")
     return f"""<!doctype html>
 <html lang="en">
 <head>
@@ -1027,8 +1047,7 @@ def head(title, desc, path, image=None, schema=None, keywords=None, col=None,
 {kw}
 <link rel="canonical" href="{canon}">
 <meta name="robots" content="{robots}">
-<meta name="p:domain_verify" content="b4b50fd5812ff9c5767ca434904b504b">
-<meta property="og:type" content="{'product' if path.startswith('/shop/') else 'website'}">
+{pin_verify}<meta property="og:type" content="{'product' if path.startswith('/shop/') else 'website'}">
 <meta property="og:site_name" content="{esc(BRAND)}">
 <meta property="og:title" content="{esc(og_title)}">
 <meta property="og:description" content="{esc(og_desc)}">
@@ -1068,8 +1087,47 @@ def head(title, desc, path, image=None, schema=None, keywords=None, col=None,
     if (m) window.glLoadAnalytics();
   }})();
 </script>
-</head>
+{pinterest_tag_snippet()}</head>
 <body data-root="{root_prefix}"{body_attrs}>
+"""
+
+
+def pinterest_tag_snippet():
+    """Consent-gated Pinterest Tag loader, or "" when no Tag ID is configured.
+
+    Same contract as the GA4 block above: nothing Pinterest-related is fetched
+    until window.glLoadPinterest() runs, and that only happens (a) when the
+    gl_analytics=1 cookie is already present on page load or (b) when the
+    banner in app.js records an "Allow" click. The official base code's
+    <noscript> pixel is deliberately omitted - it would fire without consent.
+    Event calls (pagevisit / viewcategory / checkout) live in app.js and are
+    wrapped in try/catch, so with no consent (no pintrk) they are no-ops.
+    """
+    if not PINTEREST_TAG:
+        return ""
+    tag = json.dumps(PINTEREST_TAG)   # a JS string literal, safely quoted
+    return f"""<!-- Pinterest Tag - consent-gated, same opt-in as GA4 (gl_analytics=1).
+     Not loaded until the visitor allows analytics; /privacy/ describes this. -->
+<script>
+  window.glLoadPinterest = function(){{
+    if (window.__glPinLoaded) return;
+    window.__glPinLoaded = true;
+    if (!window.pintrk) {{
+      window.pintrk = function(){{ window.pintrk.queue.push(Array.prototype.slice.call(arguments)); }};
+      window.pintrk.queue = []; window.pintrk.version = "3.0";
+      var s = document.createElement('script');
+      s.async = true;
+      s.src = 'https://s.pinimg.com/ct/core.js';
+      document.head.appendChild(s);
+    }}
+    pintrk('load', {tag});
+    pintrk('page');
+  }};
+  (function(){{
+    var m = document.cookie.match(/(?:^|; )gl_analytics=1(?:;|$)/);
+    if (m) window.glLoadPinterest();
+  }})();
+</script>
 """
 
 
@@ -2455,9 +2513,12 @@ def page_collection(k):
 </div>
 </main>"""
     URLS.append((DOMAIN + path, "0.9", "daily"))
+    # data-collection-page lets app.js fire the Pinterest 'viewcategory' event
+    # (and nothing else) on the four collection pages.
     write(f"{c['slug']}/index.html",
          head(f"{c['name']} | {BRAND}", desc, path, c["hero"], schema,
-               c["keywords"] + se["hot"], col=k)
+               c["keywords"] + se["hot"], col=k,
+               body_attrs=f' data-collection-page="{k}"')
           + header(k) + body + footer())
 
 
@@ -3213,6 +3274,36 @@ removed from this site and the takedown is forwarded to the fulfilment platform.
 <p>Orders are fulfilled and payment is processed by a third-party print-on-demand platform, which
 operates its own intellectual property policy and takedown procedure.</p>""", "0.4")
 
+    # Pinterest disclosure. The domain-claim meta tag is on every page in
+    # every build; the Tag paragraph and its cookie line only exist on builds
+    # that actually configure a Tag ID, so the policy never describes a
+    # script the site does not ship (and never omits one it does).
+    if PINTEREST_TAG:
+        pin_html = f"""
+<h2>Pinterest</h2>
+<p>Every page carries a Pinterest domain-verification meta tag. It is plain markup that proves to
+Pinterest that we own this domain; it loads nothing and sends nothing. Separately, we use the
+<strong>Pinterest Tag</strong> (tag ID {esc(PINTEREST_TAG)}) so that, when someone reaches us from a
+Pinterest pin, Pinterest can attribute that visit and show our designs to people who have looked at
+them. It is <strong>opt-in on exactly the same terms as analytics</strong>: the Pinterest script is not
+loaded until you click &ldquo;Allow analytics&rdquo;, and declining or ignoring the banner keeps it off.
+When allowed, it records page views, product views and clicks on a buy button (the design, its price
+and its team collection). Pinterest's processing of that data is governed by
+<a href="https://policy.pinterest.com/privacy-policy">Pinterest's privacy policy</a>.</p>"""
+        pin_cookie = (" <code>_pin_unauth</code> is set by the Pinterest Tag <em>only if you allowed "
+                      "analytics</em>.")
+        pin_adv = ("Apart from the opt-in Pinterest Tag cookie above, this site sets no advertising or "
+                   "cross-site tracking cookies, and we do not enable Google's advertising features.")
+    else:
+        pin_html = """
+<h2>Pinterest</h2>
+<p>Every page carries a Pinterest domain-verification meta tag. It is plain markup that proves to
+Pinterest that we own this domain; it loads nothing and sends nothing. No Pinterest script runs on
+this site.</p>"""
+        pin_cookie = ""
+        pin_adv = ("No advertising cookies are written by this site. This site sets no advertising or "
+                   "cross-site tracking cookies of its own, and we do not enable Google's advertising "
+                   "features.")
     simple_page("privacy", "Privacy Policy",
         "What data this site collects, what it does not, cookies, analytics and third-party checkout.",
         "Privacy Policy", f"""
@@ -3231,7 +3322,7 @@ no analytics script runs on your visit. When you do allow it, Google Analytics s
 on this domain and receives event-level data - page views, and events such as a custom design request
 being sent or a buy button being clicked. We do not enable Google's advertising or remarketing features
 and we do not sell or share your data. Google's own processing of that data is governed by
-<a href="https://policies.google.com/privacy">Google's privacy policy</a>.</p>
+<a href="https://policies.google.com/privacy">Google's privacy policy</a>.</p>{pin_html}
 <h2>Third-party checkout</h2>
 <p>Buy buttons open a third-party print-on-demand platform. Anything you enter there - name, address,
 payment details - is governed by that platform's own privacy policy, not this one.</p>
@@ -3250,12 +3341,10 @@ address.</li>
 are plain outbound links: nothing is sent to those services until you click one and leave this site.</p>
 <h2>Cookies</h2>
 <p>Cookies this site sets itself: <code>gl_analytics</code> records your allow/decline choice for 180
-days; <code>_ga</code> and <code>_ga_*</code> are set by Google Analytics <em>only if you allowed it</em>.
+days; <code>_ga</code> and <code>_ga_*</code> are set by Google Analytics <em>only if you allowed it</em>.{pin_cookie}
 Two browser-only stores never leave your device: a localStorage list of designs you favourite, and a
-sessionStorage flag so the custom-design prompt shows once per session. No advertising cookies are written
-by this site. This site sets no advertising or cross-site tracking cookies of its own, and we do not
-enable Google's advertising features. Any further cookies set after you click through belong to the
-checkout platform.</p>
+sessionStorage flag so the custom-design prompt shows once per session. {pin_adv} Any further cookies
+set after you click through belong to the checkout platform.</p>
 <h2>Your rights</h2>
 <p>Email <a href="mailto:{CONTACT_EMAIL}">{CONTACT_EMAIL}</a> or use the
 <a href="/contact/">contact form</a> to ask what we hold about you, to have it corrected, or to have it
@@ -4082,7 +4171,122 @@ def lockup_svg(c):
 </svg>"""
 
 
+# ---------------------------------------------------------------- Pinterest
+# Pinterest Catalogs "data source": one CSV Pinterest fetches daily over
+# HTTPS from a direct-download link. Field names, value vocabularies and
+# formats follow the retail catalogue spec (help.pinterest.com, "Get started
+# with retail catalogs") exactly - a wrong header or an unknown availability
+# value fails the WHOLE ingestion, not one row.
+#
+# Why this is written straight into site/ by the build and not published from
+# marketing/: sync_marketing() deliberately withholds every .csv (PUBLISH_EXT),
+# which is what made /marketing/pinterest_feed.csv 404 when Pinterest tried
+# to fetch it. That file was also built from the stale crawl (viralstyle.com
+# links, 60 rows, dead slugs - see qa_deep H3). This feed is derived from the
+# same ALL/MODEL that renders the product pages, so it can never list a design
+# without a live page and it regenerates on every daily rebuild.
+PINTEREST_FEED_PATH = "feeds/pinterest.csv"
+PINTEREST_FEED_COLUMNS = [
+    # required by Pinterest
+    "id", "title", "description", "link", "image_link", "price", "availability",
+    # optional, recommended
+    "additional_image_link", "condition", "brand", "google_product_category",
+    "product_type", "gender", "age_group", "custom_label_0", "custom_label_1",
+]
+# Google Product Taxonomy paths (Pinterest accepts the text path or the id).
+# Keyed by the catalogue's garment vocabulary; anything new falls back to the
+# generic Clothing node rather than to a wrong leaf.
+_PIN_GPC = {
+    "T-Shirt": "Apparel & Accessories > Clothing > Shirts & Tops",
+    "Hoodie": "Apparel & Accessories > Clothing > Shirts & Tops",
+    "Beanie": "Apparel & Accessories > Clothing Accessories > Hats",
+    "Mug": "Home & Garden > Kitchen & Dining > Tableware > Drinkware > Mugs",
+    "Phone Case": "Electronics > Communications > Telephony > Mobile Phone Accessories > Mobile Phone Cases",
+}
+_PIN_GPC_DEFAULT = "Apparel & Accessories > Clothing"
+
+
+def pinterest_image_url(path):
+    """Absolute, Pinterest-safe image URL.
+
+    Pinterest cannot process an image_link that contains a comma ("encode or
+    remove commas" in the spec) - and every Mayzing mockup URL is a
+    comma-separated parameter list (id:..,sig:..,c:..). Percent-encoding the
+    commas keeps the URL pointing at the same object (RFC 3986 path
+    semantics) while giving Pinterest a value it will ingest. Local Viralstyle
+    mockups (/img/p/...) are simply made absolute on the storefront domain.
+    """
+    u = abs_url(path)
+    return u.replace(",", "%2C") if u else u
+
+
+def pinterest_feed_rows(items=None):
+    """One catalogue row per live design, in PINTEREST_FEED_COLUMNS order.
+
+    Pure: reads the model, touches no files. tests/test_pinterest.py calls it
+    directly so the feed contract is checked without a rebuild.
+    """
+    rows = []
+    for it in (items if items is not None else ALL):
+        c = COLLECTIONS[it["col"]]
+        garment = it["garment"]
+        # Same duplicate-name qualification the product page's <title> uses,
+        # so the feed title matches the landing page (Pinterest checks that).
+        name = it["name"]
+        if name in _DUP_NAMES and it.get("colour"):
+            name = f"{name} - {it['colour']}"
+        title = f"{name} - Fan-Made {c['short']} {garment}"
+        desc = _l.meta_description(it["slug"], name, c, garment,
+                                   f"{it['price']:.2f}", it.get("styles") or [],
+                                   it.get("colours") or 0, it.get("sizes_avail") or [],
+                                   art=it.get("art", ""))
+        desc = html.unescape(re.sub(r"<[^>]+>", " ", desc))
+        desc = re.sub(r"\s+", " ", desc).strip()
+        front = pinterest_image_url(it["front"])
+        back = pinterest_image_url(it.get("back") or "")
+        extra = back if back and back != front else ""
+        rows.append({
+            "id": it["slug"],
+            "title": title[:500],
+            "description": desc[:10000],
+            "link": DOMAIN + it["url"],
+            "image_link": front,
+            "price": f"{it['price']:.2f} {CFG.get('currency', 'USD')}",
+            "availability": "in stock",          # printed on demand, never sells out
+            "additional_image_link": extra,
+            "condition": "new",
+            "brand": BRAND,
+            "google_product_category": _PIN_GPC.get(garment, _PIN_GPC_DEFAULT),
+            "product_type": f"Fan Apparel > {c['short']} > {garment}",
+            "gender": "" if garment in ("Mug", "Phone Case") else "unisex",
+            "age_group": "" if garment in ("Mug", "Phone Case") else "adult",
+            "custom_label_0": it["partner"],       # Mayzing / Viralstyle
+            "custom_label_1": it["col"],           # collection key
+        })
+    return rows
+
+
+def pinterest_feed_csv(rows=None):
+    """Render the feed as UTF-8 CSV text (every value quoted, \\n line ends)."""
+    import csv
+    import io
+    buf = io.StringIO()
+    w = csv.DictWriter(buf, fieldnames=PINTEREST_FEED_COLUMNS,
+                       quoting=csv.QUOTE_ALL, lineterminator="\n")
+    w.writeheader()
+    for r in (rows if rows is not None else pinterest_feed_rows()):
+        w.writerow(r)
+    return buf.getvalue()
+
+
 def assets():
+    # Pinterest Catalogs data source - see pinterest_feed_rows(). Written
+    # here, with the other machine-readable outputs (search index, feed.xml,
+    # llms.txt), so it exists after every build and every daily refresh.
+    pin_rows = pinterest_feed_rows()
+    write(PINTEREST_FEED_PATH, pinterest_feed_csv(pin_rows))
+    print(f"pinterest feed: {len(pin_rows)} products -> /{PINTEREST_FEED_PATH}")
+
     # The stylesheet is a SOURCE file (src/style.css) copied out on every
     # build. It used to live in site/assets/ and be hand-edited, which meant
     # the only copy of the design lived in the generated directory the refresh
@@ -4300,11 +4504,25 @@ Sitemap: {DOMAIN}/sitemap-images.xml
         "name": BRAND, "short_name": BRAND, "start_url": "/", "display": "standalone",
         "background_color": "#0a0b0d", "theme_color": "#0a0b0d",
         "icons": [{"src": "/img/favicon.svg", "sizes": "any", "type": "image/svg+xml"}]}, indent=1))
+    # The consent banner must describe what "Allow" actually switches on. With
+    # a Pinterest Tag configured that is two tags, not one, and the Pinterest
+    # Tag sets a first-party attribution cookie - so the "no advertising
+    # cookies" line is only true while no Tag ID is set.
+    consent_copy = (
+        "We use Google Analytics and the Pinterest Tag to count page views, see "
+        "which designs are popular and measure visits that come from Pinterest. "
+        "Both are off until you allow them, and we never sell data."
+        if PINTEREST_TAG else
+        "We use Google Analytics to count page views and see which designs are "
+        "popular. No advertising cookies, and we never sell data.")
     write("assets/app.js", """
 // ---------- analytics consent ----------
 // Google Analytics is opt-in. The tag itself is only injected by
 // window.glLoadAnalytics() (see head()), and only after this banner records a
 // choice in the gl_analytics cookie. /privacy/ states this in plain words.
+// The Pinterest Tag (when a Tag ID is configured) rides the SAME choice:
+// window.glLoadPinterest() exists only on builds that have one, and is only
+// ever called from here or from head() when the cookie already says 1.
 (function(){
   function choice(){
     var m=document.cookie.match(/(?:^|; )gl_analytics=([01])(?:;|$)/);
@@ -4321,9 +4539,8 @@ Sitemap: {DOMAIN}/sitemap-images.xml
     'max-width:560px;margin:0 auto;background:#111418;color:#f4f1ea;'+
     'border:1px solid #2c3138;border-radius:10px;padding:12px 14px;'+
     'font:14px/1.5 system-ui,sans-serif;box-shadow:0 8px 30px rgba(0,0,0,.4)';
-  b.innerHTML='<p style="margin:0 0 10px">We use Google Analytics to count page '+
-    'views and see which designs are popular. No advertising cookies, and we '+
-    'never sell data. <a href="/privacy/" style="color:#ffb35c">Privacy policy</a>.</p>'+
+  b.innerHTML='<p style="margin:0 0 10px">__CONSENT_COPY__ '+
+    '<a href="/privacy/" style="color:#ffb35c">Privacy policy</a>.</p>'+
     '<button type="button" data-gl="1" style="margin-right:8px;padding:8px 14px;'+
     'border:0;border-radius:8px;background:#ffb35c;color:#111418;font-weight:700;'+
     'cursor:pointer">Allow analytics</button>'+
@@ -4336,8 +4553,16 @@ Sitemap: {DOMAIN}/sitemap-images.xml
     set(v);
     if(b.parentNode) b.parentNode.removeChild(b);
     if(v==='1'&&window.glLoadAnalytics) window.glLoadAnalytics();
+    if(v==='1'&&window.glLoadPinterest) window.glLoadPinterest();
   });
 })();
+
+// ---------- Pinterest Tag events ----------
+// pintrk only exists after consent (see head()); every call is wrapped so a
+// declined or unconfigured build is a silent no-op. product_id is the slug -
+// the same value as `id` in /feeds/pinterest.csv - which is what lets
+// Pinterest join tag events to catalogue items (dynamic retargeting, VMP).
+function glPin(ev,data){try{pintrk('track',ev,data);}catch(e){}}
 
 // ---------- gallery ----------
 var CUSTOM_EMAIL="__EMAIL__";
@@ -4440,8 +4665,25 @@ document.querySelectorAll('a.shopnow').forEach(function(a){
       collection:d.collection,placement:d.placement,creator:window.GL_CREATOR||'',
       destination:dest
     });}catch(e){}
+    // Pinterest 'checkout': the hand-off to the partner cart is the last
+    // step this domain can observe (the transaction itself completes on
+    // Mayzing/Viralstyle), so it is the checkout signal the Verified
+    // Merchant Program asks for. value/currency/line_items per the spec.
+    glPin('checkout',{
+      value:parseFloat(d.price||'0'),order_quantity:1,currency:'USD',
+      line_items:[{product_id:d.slug,product_name:document.title.split(' | ')[0],
+        product_price:parseFloat(d.price||'0'),product_quantity:1,
+        product_category:d.collection}]
+    });
   });
 });
+
+// ---------- Pinterest category view ----------
+(function(){
+  var k=document.body&&document.body.getAttribute('data-collection-page');
+  if(!k)return;
+  glPin('viewcategory',{line_items:[{product_category:k}]});
+})();
 
 // ---------- custom-design CTA tracking ----------
 // The secondary funnel (nav, footer, PDP band, collection band, contact
@@ -4464,6 +4706,13 @@ document.querySelectorAll('a.custom-link').forEach(function(a){
     item_id:d.slug,value:parseFloat(d.price||'0'),currency:'USD',
     collection:d.collection
   });}catch(e){}
+  // Pinterest 'pagevisit' with product data: the product-page event the
+  // catalogue joins on (product_id == feed id).
+  glPin('pagevisit',{
+    currency:'USD',
+    line_items:[{product_id:d.slug,product_name:document.title.split(' | ')[0],
+      product_price:parseFloat(d.price||'0'),product_category:d.collection}]
+  });
   document.querySelectorAll('#related .related a[href*="/shop/"]').forEach(function(a){
     a.addEventListener('click',function(){
       try{gtag('event','related_product_click',{
@@ -5026,7 +5275,7 @@ document.querySelectorAll('a.custom-link').forEach(function(a){
     if(e.key==='Escape'&&!modal.hidden)close();
   });
 })();
-""".replace("__EMAIL__", CFG["email_b64"]))
+""".replace("__EMAIL__", CFG["email_b64"]).replace("__CONSENT_COPY__", consent_copy))
 
 
 RELATIVISE = re.compile(r'(\s(?:href|src|data-src)=")(/(?!/)[^"]*)(")')

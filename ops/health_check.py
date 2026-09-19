@@ -87,6 +87,9 @@ FILES = [
     "/robots.txt", "/sitemap.xml", "/sitemap-images.xml", "/feed.xml",
     "/llms.txt", "/site.webmanifest", "/assets/style.css", "/assets/app.js",
     "/img/favicon.svg",
+    # Pinterest fetches this daily as the catalogue data source; a 404 here
+    # is exactly the failure that kept the catalogue out of Pinterest.
+    "/feeds/pinterest.csv",
 ]
 # The five banners plus the four square team cards the homepage deck uses.
 BANNERS = {
