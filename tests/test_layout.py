@@ -37,6 +37,10 @@ Covered:
   * No protocol-relative local URLs: nothing in site/ may publish `//img/...`
     (a path that lost its leading slash resolves off-origin and 404s), in
     src/href/data-src/poster, in assets/search-index.json or in either sitemap.
+  * Card text separation (2026-09-19): the /collections/ circles and the
+    homepage "Shop By Team" deck are built one element per line and joined
+    with "\\n" (never ""), so text extractors see four separate links per
+    row instead of one merged link to the last card.
   * Preserved: team accents, hero images, product count, checkout links, SEO
     metadata, dynamic catalogue counts, no missing local references.
 """
@@ -2491,6 +2495,81 @@ class ProtocolRelativeUrls20260919(unittest.TestCase):
                         "dl.py must map site/img/... to /img/... with the trailing slash")
         self.assertIsNone(re.search(r"webp\.replace\(\s*'site'\s*,", dl),
                           "dl.py is back to the slash-less needle that produced '//img/...'")
+
+
+class CardTextSeparation20260919(unittest.TestCase):
+    """Card rows must read as N separate links, not one merged link.
+
+    Failure mode (2026-09-19, "/collections/ read as ONE link to Michigan"):
+    every collection card is a whole-card <a>, the four cards were joined
+    with "".join() so they sat back to back (`</a><a class=...`), and every
+    element inside a card was jammed against its neighbour. html2text on the
+    built row therefore emitted `[card A](urlA)[card B](urlB)...` with no
+    whitespace between the links, and the greedy `[text](url)` regex a lot
+    of reader/LLM tooling uses collapses that run into ONE link whose text
+    is all four cards and whose href is the LAST one - the owner literally
+    saw /collections/ as a single link to /michigan-wolverines-shirts/.
+    The fix is pure whitespace (one element per line inside a card, "\\n"
+    between cards - free to render, see team_circle_card()/team_card() in
+    src/build.py); these tests pin it in both the built pages and the
+    builder source.
+    """
+
+    def card_row(self, rel, container, cls):
+        """Return (block source of one card row, list of inner card HTML)."""
+        html = page(rel); start = html.index(container)
+        block = html[start:html.index("</div>", start) + 6]
+        return block, re.findall(r'<a class="%s[^"]*"[^>]*>(.*?)</a>' % cls, block, re.S)
+
+    @staticmethod
+    def text_of(fragment):
+        """Inner text of a card fragment: tags gone, whitespace runs to one space."""
+        return re.sub(r"\s+", " ", re.sub(r"<[^>]+>", " ", fragment)).strip()
+
+    def test_collection_cards_are_four_readable_links(self):
+        """/collections/: four whitespace-separated links, in ORDER."""
+        block, cards = self.card_row("collections/index.html",
+                                     '<div class="teamcircles">', "teamcircle")
+        self.assertEqual(len(cards), len(ORDER))
+        # assertFalse, not assertNotIn: on failure it must not dump the whole row.
+        self.assertFalse("</a><a" in block,
+                         "collection cards are joined with no whitespace - text "
+                         "extractors merge them into one link")
+        self.assertEqual(len(re.findall(r"</a>\s+<a", block)), len(ORDER) - 1)
+        hrefs = re.findall(r'<a class="teamcircle[^"]*"[^>]*?href="([^"]+)"', block)
+        self.assertEqual([h.strip("/.") for h in hrefs],
+                         [COLLECTIONS[k]["slug"] for k in ORDER])
+        for k, frag in zip(ORDER, cards):
+            c = COLLECTIONS[k]
+            self.assertRegex(self.text_of(frag),
+                             r"^%s \d+ designs Shop %s "
+                             % (re.escape(c["name"]), re.escape(c["short"])))
+
+    def test_homepage_team_deck_cards_are_four_readable_links(self):
+        """Homepage "Shop By Team" deck: four whitespace-separated links, in ORDER."""
+        block, cards = self.card_row("index.html",
+                                     '<div class="teamdeck-grid">', "teamcard")
+        self.assertEqual(len(cards), len(ORDER))
+        self.assertFalse("</a><a" in block,
+                         "homepage team cards are joined with no whitespace - "
+                         "text extractors merge them into one link")
+        self.assertEqual(len(re.findall(r"</a>\s+<a", block)), len(ORDER) - 1)
+        hrefs = re.findall(r'<a class="teamcard[^"]*"[^>]*?href="([^"]+)"', block)
+        self.assertEqual([h.strip("/.") for h in hrefs],
+                         [COLLECTIONS[k]["slug"] for k in ORDER])
+        for k, frag in zip(ORDER, cards):
+            c = COLLECTIONS[k]
+            self.assertRegex(self.text_of(frag),
+                             r"^%s %s \d+ designs Shop %s "
+                             % (re.escape(c["short"]), re.escape(c["phrase"]),
+                                re.escape(c["short"])))
+
+    def test_build_does_not_join_cards_without_a_separator(self):
+        """The builder may never go back to "".join() for either card row."""
+        build_src = read(os.path.join(SRC, "build.py"))
+        for fn in ("team_circle_card", "team_card"):
+            self.assertIsNone(re.search(r'""\.join\(%s\(' % fn, build_src),
+                              '%s must be joined with "\\n", not ""' % fn)
 
 
 if __name__ == "__main__":
