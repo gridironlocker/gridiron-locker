@@ -78,7 +78,7 @@ class SitemapDates(unittest.TestCase):
         self.assertEqual(after[target], "2026-09-15")
 
     def test_sitemap_has_valid_unique_canonical_directory_urls(self):
-        self.assertEqual(len(self.rows), 108)
+        self.assertEqual(len(self.rows), 107)
         self.assertEqual(len(self.rows), len(set(self.rows)))
         for url, lastmod in self.rows.items():
             self.assertTrue(url.startswith(build.DOMAIN + "/"), url)

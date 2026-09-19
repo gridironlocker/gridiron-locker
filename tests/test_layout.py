@@ -106,8 +106,23 @@ def page(rel):
 # Viralstyle crawl (data/products_live.json) any more. Tests that want "the
 # catalogue" must not read that one file - the master is the crawl plus these
 # two Mayzing files, which is exactly what src/build.py merges in MODEL.
-MAYZING = {p["slug"]: p for p in load_json("data/mayzing_products.json")["products"]}
-MICHIGAN = {p["slug"]: p for p in load_json("data/mayzing_michigan.json")["products"]}
+# data/delisted.json retires a slug from EVERY source: build_model() skips a
+# delisted slug whether it arrives via the Viralstyle crawl or a Mayzing
+# capture (the capture stays truthful to the storefront; the page still has
+# to go), so the live page set is each Mayzing file minus the delisted slugs.
+DELISTED = set(load_json("data/delisted.json").get("slugs", {}))
+MAYZING = {p["slug"]: p for p in load_json("data/mayzing_products.json")["products"]
+           if p["slug"] not in DELISTED}
+MICHIGAN = {p["slug"]: p for p in load_json("data/mayzing_michigan.json")["products"]
+            if p["slug"] not in DELISTED}
+# Retired designs a Mayzing capture still lists (e.g. milf, retired 2026-09-19
+# for brand safety). They must build as noindex redirect stubs, never pages.
+MAYZING_RETIRED = {p["slug"]: "cleveland-browns"
+                   for p in load_json("data/mayzing_products.json")["products"]
+                   if p["slug"] in DELISTED}
+MAYZING_RETIRED.update({p["slug"]: "michigan"
+                        for p in load_json("data/mayzing_michigan.json")["products"]
+                        if p["slug"] in DELISTED})
 # slug -> (record, collection key) for every design on a Mayzing storefront.
 MAYZING_ALL = dict({s: (p, "cleveland-browns") for s, p in MAYZING.items()},
                    **{s: (p, "michigan") for s, p in MICHIGAN.items()})
@@ -1753,14 +1768,47 @@ class MichiganMayzingProducts(unittest.TestCase):
                             slug)
 
     def test_belong_to_michigan_collection(self):
-        """Michigan's page set comes from the Mayzing file, and the build must
-        agree with it - a Viralstyle re-crawl must not resurrect a page."""
+        """Michigan's page set is the Mayzing file minus data/delisted.json, and
+        the build must agree with it - neither a Viralstyle re-crawl nor a fresh
+        Mayzing capture may resurrect a page."""
         import build  # noqa: E402
         built = {it["slug"] for it in build.MODEL["michigan"]}
         self.assertEqual(built, set(self.michigan),
                          "Michigan pages must mirror data/mayzing_michigan.json")
         for slug in self.michigan:
             self.assertIn(slug, built, slug)
+        self.assertFalse(built & DELISTED,
+                         f"delisted designs rebuilt as pages: {sorted(built & DELISTED)}")
+
+    def test_retired_michigan_designs_have_no_pages(self):
+        """A Michigan design retired via data/delisted.json stays in the
+        Mayzing capture (the file mirrors the storefront) but must never get a
+        sellable page back. Its URL still resolves - only as a noindex redirect
+        stub forwarding to the Michigan collection: no Product schema, no
+        checkout hand-off, and no sitemap/search entry. This is the Cleveland
+        guard rail (test_held_and_retired_cleveland_designs_have_no_pages)
+        applied to the second Mayzing collection."""
+        retired = sorted(s for s, col in MAYZING_RETIRED.items() if col == "michigan")
+        if not retired:
+            self.skipTest("no retired design is listed in data/mayzing_michigan.json")
+        shop = os.path.join(SITE, "shop")
+        sitemap = page("sitemap.xml")
+        search = page("assets/search-index.json")
+        for slug in retired:
+            why = f"retired design {slug}"
+            fp = os.path.join(shop, slug, "index.html")
+            self.assertTrue(os.path.isfile(fp), f"{why} must keep a stub, never 404")
+            html = read(fp)
+            self.assertIn("data-gl-redirect", html, f"{why} must be a redirect stub")
+            self.assertIn('name="robots" content="noindex', html, f"{why} stub must be noindex")
+            self.assertRegex(html, r'data-gl-redirect="/michigan-wolverines-shirts/"',
+                             f"{why} must forward to the Michigan collection")
+            self.assertNotIn('"@type":"Product"', html.replace(" ", ""),
+                             f"{why} must not publish Product schema")
+            self.assertNotIn("gridironlocker.shop/", html,
+                             f"{why} must not hand a customer to checkout")
+            self.assertNotIn(f"/shop/{slug}/", sitemap, f"{why} must leave the sitemap")
+            self.assertNotIn(f"/shop/{slug}/", search, f"{why} must leave site search")
 
     def test_product_pages_generated_with_checkout(self):
         for slug, p in self.michigan.items():

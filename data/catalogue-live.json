@@ -3,12 +3,12 @@
   "generator": "src/catalogue_contract.py",
   "source": "src/build.py :: build.ALL - the merged master catalogue",
   "contract": "This is the ONLY authoritative list of sellable designs. Marketing must filter every queue, brief, drop and pin against it. Do not read data/products.json or data/products_live.json as a catalogue: both are stale crawl artefacts. Written by the storefront on every build; marketing reads it and never writes it.",
-  "count": 84,
+  "count": 83,
   "per_collection": {
     "cleveland-browns": 19,
     "dallas-cowboys": 10,
     "green-bay-packers": 37,
-    "michigan": 18
+    "michigan": 17
   },
   "products": [
     {
@@ -948,18 +948,6 @@
       "site_published": true
     },
     {
-      "slug": "milf",
-      "name": "MILF",
-      "collection": "michigan",
-      "partner": "Mayzing",
-      "url": "https://gridironlocker.store/shop/milf/",
-      "buy_url": "https://gridironlocker.shop/milf?collectionId=YYMlCmwgKG__&color=GILDAN-NAVY&productId=6aa1c4502b4261ca56ecce11",
-      "price_usd": 21.0,
-      "garment": "T-Shirt",
-      "theme": "funny",
-      "site_published": true
-    },
-    {
       "slug": "one-second",
       "name": "One Second",
       "collection": "michigan",
@@ -1021,7 +1009,7 @@
     }
   ],
   "excluded": {
-    "delisted": 31,
+    "delisted": 32,
     "fulfillment_hold": 57,
     "stale_crawl_slugs": 113,
     "note": "stale_crawl_slugs is data/products.json - the raw Viralstyle crawl. It is NOT the catalogue and must never be used as one. count = stale_crawl_slugs + mayzing additions - delisted - hold - unpublished; reconcile via build.MODEL, not by arithmetic here."
