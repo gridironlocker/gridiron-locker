@@ -877,3 +877,94 @@ Gates after this pass: `tests` 240 OK (skipped=17), `qa_audit.py` `TOTAL: 0`,
 deferred design-law decision remains. Three new tests in
 `tests/test_layout.py::DeploySurface20260919` pin it, and `qa_deep.py` now fails
 loudly if an internal tree reappears in `site/` or unreferenced artwork returns.
+
+### 9.6 Follow-up (2026-09-19) — production regression: every Viralstyle image 404'd
+
+§9.5 gave `dl.py` the `__main__` guard §6 asked for. Moving the crawl into
+`main()` re-indented every statement in the script, and one character did not
+survive the rewrite:
+
+```python
+local[tag] = webp.replace('site', '/')    # 'site/img/p/x.webp' -> '//img/p/x.webp'
+local[tag] = webp.replace('site/', '/')   # 'site/img/p/x.webp' -> '/img/p/x.webp'
+```
+
+`//img/p/x.webp` is not a root-relative path — it is a **protocol-relative URL**.
+The browser prepends the page's own scheme and reads the first label as a
+hostname, so every artwork request left the origin for `https://img/p/x.webp`
+and 404'd, while the `.webp` was sitting in `site/img/p/` exactly where the
+crawl had put it. Nothing else on the page was wrong, which is why it read as
+"the images are gone" rather than "the page is broken".
+
+**Blast radius.** PR #120 merged at 02:08 UTC; the `refresh.yml` crawl ran at
+02:09 and wrote **438** such values (56 slugs) into `data/products_live.json`,
+and the build in commit `cb27db6` rendered them. 366 of the 438 belong to
+published slugs and reached **54 of 196 pages** as **2,138** `<img src>` values —
+47 Viralstyle product galleries (stage image *and* the `data-src` thumbs app.js
+swaps in), the homepage rails, `/search/`, `/drops/`, `/2026-season/`,
+`/guides/2026-week-1-shirts/` and the two Viralstyle collection pages
+(`/green-bay-packers-shirts/`, `/dallas-cowboys-shirts/`). The Mayzing
+collections (`/cleveland-browns-shirts/`, `/michigan-wolverines-shirts/`) and
+`/collections/` were untouched: their artwork never comes from the crawl. The
+remaining 72 values sit on retired/renamed slugs with no page, so they were
+invisible but would have been inherited the moment a slug came back.
+`build.py` also absolutises the same map, so `og:image`, `twitter:image`, the
+`Product.image[]` JSON-LD and `sitemap-images.xml` all carried
+`https://gridironlocker.store//img/...`, and `assets/search-index.json` carried
+the bare `"//img/...`. Social previews and Google image indexing were broken on
+the same 54 pages.
+
+**The gate gap.** `qa_audit.py` treated *any* src/href starting with `//` as
+remote and never resolved it — it reported "unique remote images: 410" and
+`TOTAL: 0` with 366 of those 410 being local files it had declined to look at.
+`qa_http.py` had the same blind spot through `urljoin`: `//img/p/x.webp`
+resolved to netloc `img`, so it landed in the "remote partner images /
+unreachable from sandbox" bucket instead of "broken local image", and the gate
+printed **`HTTP QA: PASS`** on the broken tree with `local images referenced: 16`
+and `unreachable from sandbox: 410` (measured by re-serving commit `cb27db6`'s
+`site/` on a second port after the fix). `qa_deep.py` counts hot-linked partner
+CDNs by hostname and `//img` is not one, so it was silent too — its hotlink line
+read `759 <img> tags (44 unique)` before and after. The suite had no assertion
+anywhere about the *shape* of a local reference — only about whether a file
+exists.
+
+| What changed | |
+|---|---|
+| `dl.py` | needle restored to `'site/'`, with a comment on why the slash is load-bearing (protocol-relative vs root-relative). |
+| `data/products_live.json` | all **438** `"//img/` values rewritten to `"/img/`; slug set and structure verified unchanged. |
+| `site/` | rebuilt with `python3 src/build.py` — 54 pages plus `assets/search-index.json` and `sitemap-images.xml`. `grep -rc 'src="//' site --include=*.html` is **0 on all 196 pages**; artwork is `./img/...` / `../../img/...` again. Two consecutive builds are byte-identical. |
+| `qa_audit.py` | new **`protocol_relative_local()`**: a `//` reference whose first label contains no dot is a local path, not a CDN → `issue("images")` / `issue("links")`. The same sweep now covers `data-src`, `poster`, `srcset` and on-domain `og:image` / `twitter:image`, none of which the old `<img src>`-only pass could see. Verified by poisoning one `src`, one `data-src`, one `href` and one `og:image`: `images 2 · links 1 · social 1`, `TOTAL: 4`; restored, `TOTAL: 0` and "unique remote images" drops 410 → **44** (the real Mayzing CDN). |
+| `tests/test_layout.py` | `ProtocolRelativeUrls20260919::test_no_protocol_relative_local_urls` pins the artifact: no `src`/`href`/`data-src`/`poster` anywhere in `site/` may start with `//` unless its first label has a dot; no `"//img/` in `assets/search-index.json`; no `store//img` in either sitemap; and `dl.py` keeps the slashed needle. Verified red by poisoning the homepage rail, the search index and `sitemap-images.xml` one at a time. |
+| `AGENTS.md` §6 | new landmine: re-indenting an import-unsafe script into `main()` rewrites every line, so diff the new body against the original statement by statement. The §6 table no longer lists `dl.py` as executing on import. |
+
+**Deliberately not reverted:** §9.5's deploy-surface cleanup (PR #120) stands as
+it was — `ops/` and `marketing/` are still out of `site/`, the 1,337
+unreferenced images are still pruned and `prune_unreferenced_assets()` still
+runs last. It is not what broke the artwork (the prune removes *files*; this
+regression rewrote *references* to files that were present and healthy), and
+reverting it alone would have left the poisoned `data/products_live.json` in
+place, so the next rebuild would have shipped the same 404s behind 56 MB of
+restored orphans.
+
+**Residual gap (owner call, not fixed here):** `qa_http.py` still resolves a
+`//`-prefixed reference off-origin and files it under "unreachable from sandbox"
+rather than failing, so on its own that gate would still print PASS on a repeat.
+The static audit and the new test now catch that shape before HTTP QA runs, but
+if you want the live gate to be self-sufficient, teach it the same dot rule.
+
+Gates after the fix:
+
+```
+python3 -m unittest discover -s tests -p "test_*.py"   Ran 241 tests … OK (skipped=17)
+python3 qa_audit.py                                    TOTAL: 0 · remote images 44 (all Mayzing CDN)
+python3 qa_http.py http://127.0.0.1:8123               PASS · 108 URLs, 0 dead links,
+                                                       382 local images, 0 broken, 85 stubs OK
+python3 qa_deep.py                                     CRITICAL=1 HIGH=2 MEDIUM=6 (exit 1, unchanged)
+```
+
+The `qa_deep.py` CRITICAL is still §9.2's deferred design-law decision — it was
+not touched by this regression and is not "fixed" here. Note the local-image
+count in `qa_http.py`: the same gate against the pre-fix tree reported
+`local images referenced: 16 · remote partner images: 410 (all "unreachable from
+sandbox")` and still printed PASS. It is now **382 local / 44 remote**, which is
+the clearest single signal that the artwork is back on this origin.
