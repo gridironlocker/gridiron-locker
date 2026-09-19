@@ -891,6 +891,29 @@ _DUP_NAMES = {name for name, c in _name_counts.items() if c > 1}
 # fixed ORDER above untouched.
 HOMEPAGE_ORDER = sorted(ORDER, key=lambda k: (NEXT_GAME.get(k) or "9999", ORDER.index(k)))
 
+# ---------------------------------------------------------------- SEO Engine overrides
+# data/seo/overrides.json is written by `python3 -m seo_engine apply --commit`.
+# Keys are URL paths ("/shop/slug/", "/michigan-wolverines-shirts/"). Supported
+# fields: title, meta_description, og_title, og_description. Empty/missing file
+# is a no-op — the generated defaults win. Never hand-edit site/; change the
+# override and rebuild. See seo_engine/README.md.
+try:
+    _SEO_OVERRIDES_DOC = read_json("data", "seo", "overrides.json")
+except Exception:
+    _SEO_OVERRIDES_DOC = {}
+_SEO_OVERRIDES = dict(_SEO_OVERRIDES_DOC.get("pages") or {})
+
+
+def seo_overrides_for(path):
+    """Return the SEO Engine override dict for a URL path, or {}."""
+    if not path:
+        return {}
+    if not path.startswith("/"):
+        path = "/" + path
+    if not path.endswith("/") and not path.endswith(".html"):
+        path = path + "/"
+    return dict(_SEO_OVERRIDES.get(path) or {})
+
 
 # ---------------------------------------------------------------- chrome
 def theme_vars(ckey):
@@ -910,6 +933,16 @@ def theme_vars(ckey):
 def head(title, desc, path, image=None, schema=None, keywords=None, col=None,
          noindex=False, body_attrs=""):
     canon = abs_url(path)
+    # SEO Engine overrides (data/seo/overrides.json) win over generated defaults
+    # for title / description / og_* only. Canonical, robots, schema and H1 are
+    # intentionally not overridable here — those need a PR / human decision.
+    _ovr = seo_overrides_for(path)
+    if _ovr.get("title"):
+        title = _ovr["title"]
+    if _ovr.get("meta_description"):
+        desc = _ovr["meta_description"]
+    og_title = _ovr.get("og_title") or title
+    og_desc = _ovr.get("og_description") or desc
     # The 404 page is served (with a 200 on GitHub Pages) for every mistyped or
     # stale URL under the domain, so an "index,follow" 404 invites Google to
     # index unlimited not-found URLs as duplicates of one another. It is the
@@ -928,6 +961,10 @@ def head(title, desc, path, image=None, schema=None, keywords=None, col=None,
         candidate = title[:-len(f" | {BRAND}")]
         if len(html.unescape(candidate)) <= 60:
             title = candidate
+            # Keep og/twitter in lockstep when we only shortened the SERP title
+            # and the override did not supply a dedicated og_title.
+            if not _ovr.get("og_title"):
+                og_title = title
 
     schemas = list(schema or [])
     has_org = any(isinstance(s, dict) and s.get("@type") == "Organization" for s in schemas)
@@ -993,14 +1030,14 @@ def head(title, desc, path, image=None, schema=None, keywords=None, col=None,
 <meta name="p:domain_verify" content="b4b50fd5812ff9c5767ca434904b504b">
 <meta property="og:type" content="{'product' if path.startswith('/shop/') else 'website'}">
 <meta property="og:site_name" content="{esc(BRAND)}">
-<meta property="og:title" content="{esc(title)}">
-<meta property="og:description" content="{esc(desc)}">
+<meta property="og:title" content="{esc(og_title)}">
+<meta property="og:description" content="{esc(og_desc)}">
 <meta property="og:url" content="{canon}">
 <meta property="og:image" content="{img}">
 <meta name="twitter:card" content="summary_large_image">
 <meta name="twitter:site" content="{esc(CFG['twitter'])}">
-<meta name="twitter:title" content="{esc(title)}">
-<meta name="twitter:description" content="{esc(desc)}">
+<meta name="twitter:title" content="{esc(og_title)}">
+<meta name="twitter:description" content="{esc(og_desc)}">
 <meta name="twitter:image" content="{img}">
 <meta name="theme-color" content="#ffffff">
 <link rel="icon" href="/img/favicon.svg" type="image/svg+xml">

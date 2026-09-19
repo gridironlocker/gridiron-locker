@@ -23,9 +23,11 @@ The split is by *path*, not by topic, because paths are what actually collide:
 | `src/**` | **Arena** | The generator. Runtime is stdlib-only — do not add third-party imports. |
 | `artwork-source/**` | **Arena** | PNG masters. Never deployed. |
 | `marketing/**` | **ChatGPT** | Planners, generators, dashboards, social kit. |
+| `seo_engine/**` | **Arena** | Controlled-autonomy SEO engine. Stdlib only. Never edits `site/` directly. |
+| `data/seo/**` | **shared** | Engine writes `overrides.json` / proposals / memory. Build reads `overrides.json`. GSC export is operator-fed. |
 | `ops/**` | **shared** | `ops/health_check.py` = Arena. `ops/scout`, `ops/board`, `ops/marketing`, `ops/hq` are *generated* — see §3.4. |
 | `data/**` | **shared, read-mostly** | Written by the scrapers and by hand. See §3.2 — this is the most dangerous directory in the repo. |
-| `tests/**` | **split** | `test_layout.py`, `test_health_check.py` = Arena. `test_three_day_pulse.py`, `test_commercial_agent.py` = ChatGPT. `testutil.py` = shared contract. |
+| `tests/**` | **split** | `test_layout.py`, `test_health_check.py`, `test_seo_engine.py` = Arena. `test_three_day_pulse.py`, `test_commercial_agent.py` = ChatGPT. `testutil.py` = shared contract. |
 | `.github/workflows/**` | **shared** | `refresh.yml` contains *both* lanes. See §3.5. |
 | Root `.md` docs | **Arena** | `BLUEPRINT.md` §5/§8 are the marketing sections — coordinate before editing those. |
 
@@ -138,6 +140,23 @@ Rules:
 Every product URL (`/shop/<slug>/`), collection URL, canonical tag, OG/Twitter
 card, JSON-LD block and sitemap entry is load-bearing. Preserve them unless
 there is a strong reason and you have said so explicitly.
+
+**SEO Engine (`seo_engine/`)** is the sanctioned automation path for metadata
+polish. It follows controlled autonomy:
+
+- **AUTO** writes only `data/seo/overrides.json` (title / meta description /
+  og:title / og:description). `src/build.py` consumes those overrides on the
+  next rebuild. The engine never hand-edits `site/`.
+- **PR** writes proposal files under `data/seo/proposals/` for human review
+  (new guides, major copy rewrites). Nothing merges itself.
+- **HUMAN** flags URL changes, deletes, merges and redirect remaps — never
+  auto-applied.
+- Default CLI mode is dry-run. `python3 -m seo_engine apply --commit` is
+  required before any override is written.
+- GSC numbers come from `data/seo/gsc_export.json` only. Never invent clicks,
+  impressions or CTR. Empty export = technical audit only.
+- Still forbidden: fabricated trust signals, thin fan-intent pages, meta-
+  keywords stuffing, player-likeness / team-logo suggestions.
 
 - Retired slugs get a **noindex redirect stub** at the same path, never a 404
   and never a reused slug. 85 stubs exist today.

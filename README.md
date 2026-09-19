@@ -102,6 +102,23 @@ re-run the build to add them:
   (front + back, price, CTA to the full product page) so visitors compare designs without
   leaving the grid - the design story lives on the product page and checkout lives on Viralstyle.
 
+## SEO Engine (controlled autonomy)
+
+`seo_engine/` is a RankEngine-style loop adapted to this Git static storefront:
+
+```bash
+python3 -m seo_engine run              # audit → decide → dry-run apply
+python3 -m seo_engine apply --commit   # write data/seo/overrides.json only
+python3 src/build.py                   # materialise overrides into site/
+python3 -m seo_engine verify --record  # confirm the change landed
+```
+
+- **AUTO** (missing/too-long title & description, weak-CTR title when GSC data exists) → `data/seo/overrides.json` → rebuild. Never hand-edits `site/`.
+- **PR** (new guides, major copy) → `data/seo/proposals/` for human review.
+- **HUMAN** (URL change / delete / merge / redirect) → flag only.
+- Optional GSC export: drop rows into `data/seo/gsc_export.json`. Numbers are never invented.
+- Full policy: `seo_engine/README.md` and `AGENTS.md` §3.3.
+
 ## Why it ranks
 
 - Unique `<title>`, meta description, canonical, OG + Twitter cards on every public page.
@@ -184,7 +201,8 @@ New products need one line of copy facts in `src/catalog.py`
   `build.ALL` as the source of truth and use this file only as a rough keyword sheet — or
   wire it into the build if you want it to stay honest.
 - `data/` — scraped source data
-- `tests/` — 145 guard rails · `qa_audit.py` — read-only SEO/schema audit of `site/`
+- `tests/` — 260+ guard rails · `qa_audit.py` — read-only SEO/schema audit of `site/`
+- `seo_engine/` — controlled-autonomy SEO agent (audit / decide / apply / verify); writes `data/seo/`
 - `requirements-dev.txt` — tooling + test deps (the generator itself is stdlib-only)
 
 ---

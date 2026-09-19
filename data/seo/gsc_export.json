@@ -1,0 +1,7 @@
+{
+  "schema_version": 1,
+  "updated": null,
+  "source": "Paste a Search Console export here (or write one via a future importer). rows[] only — never invent numbers.",
+  "contract": "Each row: page (absolute URL), optional query, clicks, impressions, ctr, position. Used by seo_engine.audit for weak-CTR detection and by seo_engine.content for content-gap proposals.",
+  "rows": []
+}
