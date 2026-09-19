@@ -255,8 +255,8 @@ footer .wrap{display:flex;justify-content:space-between;flex-wrap:wrap;gap:12px}
     <tbody>
      <tr><td>Trend pipeline</td><td class="mono small">src/trends.py</td><td>news crawler + FTI scoring</td></tr>
      <tr><td>Catalogue source</td><td class="mono small">data/products_live.json</td><td>crawled from Viralstyle</td></tr>
-     <tr><td>Storefront build</td><td class="mono small">src/build.py</td><td>writes site/ incl. ops/scout</td></tr>
-     <tr><td>Publishing</td><td class="mono small">.github/workflows/deploy.yml</td><td>GitHub Pages &rarr; /ops/scout/</td></tr>
+     <tr><td>Storefront build</td><td class="mono small">src/build.py</td><td>writes site/; regenerates this dashboard</td></tr>
+     <tr><td>Publishing</td><td class="mono small">this tree only</td><td>local view - ops/ is never copied into site/, so it is not on the public host</td></tr>
      <tr><td>Daily refresh</td><td class="mono small">.github/workflows/refresh.yml</td><td>06:15 &amp; 15:15 UTC</td></tr>
     </tbody>
    </table>
@@ -1199,7 +1199,7 @@ footer .wrap{display:flex;justify-content:space-between;flex-wrap:wrap;gap:12px}
 
 <footer><div class="wrap">
  <span>Scout &middot; internal ops dashboard &middot; noindex</span>
- <span>Generated 2026-09-18 22:58 UTC by src/scout.py</span>
+ <span>Generated 2026-09-19 01:49 UTC by src/scout.py</span>
 </div></footer>
 </main>
 <script>

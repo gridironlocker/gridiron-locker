@@ -2273,18 +2273,19 @@ class AuditFixes20260918(unittest.TestCase):
 
     # --------------------------------------------- F13 published internals
     def test_no_source_files_are_published(self):
+        """Nothing from the repo's working layers may sit inside the artifact.
+
+        Tightened 2026-09-19: an extension allowlist for site/marketing and
+        site/ops still published 1.0 MB of plan.json, the commercial brief and
+        the design roadmap on a public host. Those trees are no longer copied
+        in at all, so the check is now sitewide rather than scoped to them.
+        """
         leaked = []
-        for sub in ("marketing", "ops"):
-            base = os.path.join(SITE, sub)
-            if not os.path.isdir(base):
-                continue
-            for dirpath, _dirs, files in os.walk(base):
-                for f in files:
-                    if f.lower().endswith((".py", ".sh", ".md", ".csv", ".txt")):
-                        leaked.append(os.path.relpath(os.path.join(dirpath, f), SITE))
+        for dirpath, _dirs, files in os.walk(SITE):
+            for f in files:
+                if f.lower().endswith((".py", ".sh", ".md", ".csv")):
+                    leaked.append(os.path.relpath(os.path.join(dirpath, f), SITE))
         self.assertEqual(leaked, [], leaked)
-        # the dashboards still get the JSON they fetch
-        self.assertTrue(os.path.exists(os.path.join(SITE, "ops", "scout", "scout.json")))
 
     # ----------------------------------------------------------- F14 drops
     def test_unshipped_drops_are_recorded(self):
@@ -2309,6 +2310,104 @@ class AuditFixes20260918(unittest.TestCase):
                 pads.append(rel)
         self.assertEqual(dupes, [], dupes[:5])
         self.assertEqual(pads, [], pads[:5])
+
+
+class DeploySurface20260919(unittest.TestCase):
+    """The deploy should contain the storefront and nothing else.
+
+    Three findings from SITE-AUDIT-2026-09-18.md were only half-closed by
+    filtering WHICH files were copied in; on 2026-09-19 the internal trees
+    were dropped from the public host altogether and the image tree got a
+    prune pass. These tests pin the new contract in both directions: nothing
+    internal may appear in site/, and no page may name a file that is not
+    there.
+    """
+
+    IMG_REF = re.compile(r"(?:\.\./|\./|/)?img/[A-Za-z0-9._/\-]+")
+
+    def test_internal_trees_are_not_deployed(self):
+        # GitHub Pages serves every file in the uploaded directory, so an
+        # internal dashboard is only as private as its absence. noindex and a
+        # robots.txt Disallow ask crawlers politely and advertise the path.
+        for sub in ("marketing", "ops"):
+            self.assertFalse(
+                os.path.exists(os.path.join(SITE, sub)),
+                f"site/{sub}/ must never exist - the dashboards are generated "
+                f"in the repo's {sub}/ tree and opened locally")
+        rob = read(os.path.join(SITE, "robots.txt"))
+        disallowed = [d.strip("/") for d in re.findall(r"^Disallow:\s*(\S+)", rob, re.M)]
+        self.assertEqual([d for d in disallowed if d.split("/")[0] in ("ops", "marketing")],
+                         [], "robots.txt must not advertise internal paths")
+        # and the build must keep taking them out, in case a tool writes one back
+        bsrc = read(os.path.join(SRC, "build.py"))
+        self.assertIn("def never_publish_internal", bsrc)
+        self.assertIn("never_publish_internal()",
+                      bsrc[bsrc.index("def main():"):])
+        for fn in ("sync_marketing", "sync_ops"):
+            self.assertNotIn(f"{fn}()", bsrc,
+                             f"build.py still calls {fn}() - internal trees are not published")
+
+    def test_dashboards_still_generate_locally(self):
+        """Removing them from the deploy must not break the dashboards themselves."""
+        bsrc = read(os.path.join(SRC, "build.py"))
+        self.assertIn("def generate_dashboards", bsrc)
+        self.assertIn("generate_dashboards()", bsrc[bsrc.index("def main():"):])
+        for rel in ("ops/scout/index.html", "ops/hq/index.html", "ops/board/index.html"):
+            self.assertTrue(os.path.exists(os.path.join(ROOT, rel)), rel)
+
+    def test_no_unreferenced_files_in_the_image_tree(self):
+        """Every file under site/img/ is loaded by something the deploy ships.
+
+        site/img/ had grown to 1,720 files / 73 MB of which 1,337 (56 MB) were
+        named by no page, card, gallery, search index or sitemap: artwork for
+        retired and hold-listed slugs, whose stub pages are text-only, plus
+        legacy garment-variant renders there is no configurator to show. The
+        build prunes them; this catches the other direction too - a page
+        naming a file that was never downloaded.
+        """
+        refs = set()
+        for dirpath, _dirs, files in os.walk(SITE):
+            for f in files:
+                if not f.endswith((".html", ".css", ".js", ".json", ".xml",
+                                   ".webmanifest", ".txt", ".svg")):
+                    continue
+                for m in self.IMG_REF.findall(read(os.path.join(dirpath, f))):
+                    refs.add(os.path.basename(m.rstrip("/")))
+        # every live design must still have its hero image referenced
+        self.assertGreater(len(refs), 100,
+                           "implausibly few image references - did the build run?")
+        orphans, missing = [], []
+        for dirpath, _dirs, files in os.walk(IMG):
+            for f in files:
+                if f not in refs:
+                    orphans.append(os.path.relpath(os.path.join(dirpath, f), SITE))
+        for rel in ("shop",):
+            base = os.path.join(SITE, rel)
+            for dirpath, _dirs, files in os.walk(base):
+                if "index.html" not in files:
+                    continue
+                html = read(os.path.join(dirpath, "index.html"))
+                for m in re.findall(r'src="((?:\.\./)*/?img/[^"]+)"', html):
+                    p = os.path.normpath(os.path.join(dirpath, m))
+                    if not os.path.exists(p):
+                        missing.append(os.path.relpath(p, SITE))
+        self.assertEqual(orphans, [], orphans[:10])
+        self.assertEqual(missing, [], missing[:10])
+
+    def test_search_index_is_not_on_the_critical_path(self):
+        """The 56 KB catalogue index loads on demand, not on every page view.
+
+        It used to be fetched by a bare load() at the end of the search IIFE,
+        so all 205 pages paid for a file only the search box reads. Focus and
+        typing still fetch it immediately, and an idle callback warms it once
+        the main thread is free - so the JS must contain no unconditioned call.
+        """
+        js = read(os.path.join(SITE, "assets", "app.js"))
+        self.assertNotIn("\n  load();\n", js,
+                         "app.js fetches the search index unconditionally on every page")
+        self.assertIn("requestIdleCallback(function(){load();", js)
+        self.assertIn("addEventListener('focus',function(){load();", js)
+        self.assertIn("assets/search-index.json", js)
 
 
 if __name__ == "__main__":

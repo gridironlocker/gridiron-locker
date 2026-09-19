@@ -2,10 +2,12 @@
 # Everything here is meant to be crawled and indexed.
 
 User-agent: *
-# marketing/ and ops/ are the owner's internal planning + control rooms -
-# they are noindex, never in the sitemap and never linked from public nav.
-Disallow: /marketing/
-Disallow: /ops/
+# No Disallow lines at all, on purpose. The internal planning + control-room
+# trees (marketing/, ops/) used to be copied in here and then disallowed; a
+# Disallow in a public robots.txt is a signpost for anyone guessing paths, and
+# it is not access control. Since 2026-09-19 they are never published at all
+# (see never_publish_internal()), so there is nothing to hide and nothing to
+# advertise.
 Allow: /
 
 # Product imagery is a ranking asset - let image crawlers in

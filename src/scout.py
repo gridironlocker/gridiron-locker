@@ -1,5 +1,10 @@
 #!/usr/bin/env python3
-"""Generate the internal ops dashboard at ops/scout (published at /ops/scout/).
+"""Generate the internal ops dashboard at ops/scout - repo-local, never published.
+
+The dashboard carries live catalogue economics, so it is generated next to the
+data it reads and opened locally. It is deliberately NOT copied into site/:
+GitHub Pages serves every file in the artifact, and noindex/robots Disallow is
+not access control (SITE-AUDIT 2026-09-18 C1).
 
 Scout is a private, noindex operations view over the same data that powers the
 storefront: live trend intelligence (src/trends.py), catalogue health
@@ -397,8 +402,8 @@ def render(build, payload, products, fti_rows, gaps, moments, collections, dead_
     <tbody>
      <tr><td>Trend pipeline</td><td class="mono small">src/trends.py</td><td>news crawler + FTI scoring</td></tr>
      <tr><td>Catalogue source</td><td class="mono small">data/products_live.json</td><td>crawled from Viralstyle</td></tr>
-     <tr><td>Storefront build</td><td class="mono small">src/build.py</td><td>writes site/ incl. ops/scout</td></tr>
-     <tr><td>Publishing</td><td class="mono small">.github/workflows/deploy.yml</td><td>GitHub Pages &rarr; /ops/scout/</td></tr>
+     <tr><td>Storefront build</td><td class="mono small">src/build.py</td><td>writes site/; regenerates this dashboard</td></tr>
+     <tr><td>Publishing</td><td class="mono small">this tree only</td><td>local view - ops/ is never copied into site/, so it is not on the public host</td></tr>
      <tr><td>Daily refresh</td><td class="mono small">.github/workflows/refresh.yml</td><td>06:15 &amp; 15:15 UTC</td></tr>
     </tbody>
    </table>

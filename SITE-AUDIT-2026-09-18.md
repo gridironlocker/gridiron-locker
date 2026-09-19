@@ -852,3 +852,28 @@ byte-identical (`index.html`, `feed.xml`, `sitemap.xml` verified by checksum).
 already modified in the working tree by the ops/marketing tooling before this work
 and were left untouched and uncommitted here — this pass only changed how those
 trees are **published**, not how they are generated.*
+
+### 9.5 Follow-up (2026-09-19) — the deploy surface, closed properly
+
+The next pass took §6 item 1 and §9.2's "generalise the cleanup" advice to their
+conclusion, on the owner's instruction to strip unused pages and unwanted files
+from the site.
+
+| Finding | What changed on 2026-09-19 |
+|---|---|
+| **C1** internal files served publicly | The halfway fix (a `PUBLISH_EXT` allowlist) is **gone**: `build.py` no longer copies `marketing/` or `ops/` into `site/` at all. `never_publish_internal()` deletes any such tree found in `site/`, so an old deploy's copies cannot linger, and `generate_dashboards()` still regenerates the dashboards into the repo for local viewing. 28 files / 4.1 MB left the artifact: `plan.json` (1.0 MB), `commercial-brief.json` (630 KB), `social-signals.json`, `scout.json`, the ops control rooms, `dashboard.html`, `live.html` and 10 social mockups. `robots.txt` now has **no `Disallow` lines** — they were advertising `/ops/` and `/marketing/` while not protecting them. §6 item 1 ("only `dashboard.html` + assets") is superseded. |
+| **M6** orphan files | Generalised from "verification files" to **any** file the build does not reference: `prune_unreferenced_assets()` removed **1,337 files / 56.6 MB** (77% of `site/img/`) — artwork for the 112 retired/hold slugs whose stub pages are text-only, legacy `-hoodie/-crewneck/-v-neck/-tank-top` renders the storefront never shows, and the orphaned official Packers logo webp §9.1 had left behind. `site/` is **83 MB → 23 MB, 1,958 files → 593**. `dl.py` now skips `delisted` + `fulfillment.hold` slugs so the crawl and the prune stop fighting, and gained the `__main__` guard §6 asked for. |
+| **H4** partial | The 56 KB `assets/search-index.json` was fetched unconditionally by every page; `app.js` now loads it on focus/typing with an idle warm-up, so it is off the first paint on all 195 pages. Heroes, `srcset` and font self-hosting remain open (§9.2). |
+| determinism | `_redirects` order varied per process (`FUL_HOLD` is a set), which contradicted §9.4's "byte-identical" claim. `retired_slugs()` now iterates `sorted(FUL_HOLD)`; two consecutive builds produce zero diff. |
+
+Deliberately **not** removed: the 85 noindex redirect stubs at retired `/shop/<slug>/`
+URLs (§H3/L6) — they are the published contract for retired slugs, and `qa_http.py`
+verifies all 85. Kept but flagged for the owner: the duplicate root verification file
+`google7e05d1ab221dce85.html`, which may still be a live Search Console property.
+
+Gates after this pass: `tests` 240 OK (skipped=17), `qa_audit.py` `TOTAL: 0`,
+`qa_http.py` PASS (108 URLs, 0 dead links, 0 broken local images, 85 stubs OK),
+`qa_deep.py` CRITICAL=1 HIGH=2 MEDIUM=6 — unchanged from §9.4, i.e. only the
+deferred design-law decision remains. Three new tests in
+`tests/test_layout.py::DeploySurface20260919` pin it, and `qa_deep.py` now fails
+loudly if an internal tree reappears in `site/` or unreferenced artwork returns.
