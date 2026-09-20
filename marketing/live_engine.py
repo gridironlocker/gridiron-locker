@@ -156,6 +156,27 @@ def build_live_drops(designs, trends, delisted_slugs=None):
     """Top trending products with live headlines — for public /drops/ page"""
     if delisted_slugs is None:
         delisted_slugs = set()
+    # Slugs are corrected at build time (data/slug_aliases.json); translate the
+    # queue so /drops/ links resolve to the PUBLISHED page slugs even when the
+    # plan was built from a stale catalogue.
+    try:
+        _aliases = {k: v for k, v in json.loads(
+            (Path(__file__).resolve().parent.parent / "data" / "slug_aliases.json")
+            .read_text()).items() if not k.startswith("_")}
+    except Exception:
+        _aliases = {}
+    designs = [dict(d, slug=_aliases.get(d["slug"], d["slug"])) for d in designs]
+    # Keep only designs that are actually sellable (the published catalogue):
+    # the plan queue can still reference stale crawl slugs that have no page.
+    try:
+        _cat = json.loads((Path(__file__).resolve().parent.parent
+                           / "data" / "catalogue-live.json").read_text())
+        _items = _cat if isinstance(_cat, list) else _cat.get("products", [])
+        _sellable = {p.get("slug") for p in _items}
+    except Exception:
+        _sellable = None
+    if _sellable:
+        designs = [d for d in designs if d["slug"] in _sellable]
     active_designs = [d for d in designs if d["slug"] not in delisted_slugs]
     # Filter top 24 by score, but prioritize those with headline matches
     trending = sorted(active_designs, key=lambda d: (0 if d["score_breakdown"]["headline_name_bonus"] else 1, -d["score"]))[:24]

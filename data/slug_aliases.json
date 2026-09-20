@@ -1,0 +1,10 @@
+{
+ "_doc": "Slug corrections applied at build time. Key = slug as it exists in crawled/partner data, value = the clean slug the page is published under. The old slug automatically becomes a noindex 301 stub pointing at the renamed page (redirect_target matches the product name). Renames never touch partner data, so a re-crawl cannot undo them.",
+ "lets-go-cle-copy": "lets-go-cle",
+ "limited-edition-h-a-i-l-mary": "limited-edition-hail-mary",
+ "be-awar-of-dawg": "beware-of-dawg",
+ "dwag": "dawg",
+ "dallas-football-vintage-athletic-style-f": "dallas-football-1960-helmet-vintage-shirt",
+ "dallas-texas-vintage-athletic-sports-sty": "dallas-texas-est-1841-grey-shirt",
+ "dallas-texas-vintage-athletic-style-t-sh": "dallas-1960-football-helmet-white-shirt"
+}

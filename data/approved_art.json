@@ -1,0 +1,25 @@
+{
+ "_doc": "Approved hero/branding artwork after the 2026-09-20 IP remediation. qa_deep treats any hero-(home|cleveland|greenbay|dallas|michigan).* file as blocked unless its basename is listed here. To replace a hero: regenerate the art, have it reviewed against DESIGN-BLUEPRINT 2 (no marks, no faces, no numbers, no press photos), then add the basename with the review date and a description of what the art shows.",
+ "approved": {
+  "hero-home": {
+   "checked": "2026-09-20",
+   "art": "typography only: GAME DAY STARTS HERE across four team-colour panels; no marks, no helmets, no numerals"
+  },
+  "hero-cleveland": {
+   "checked": "2026-09-20",
+   "art": "typography only: DAWG POUND / CLEVELAND FOOTBALL; no marks, no helmet, no numerals"
+  },
+  "hero-greenbay": {
+   "checked": "2026-09-20",
+   "art": "typography only: GO PACK GO / GREEN BAY FOOTBALL; no G-oval, no helmet, no numerals"
+  },
+  "hero-dallas": {
+   "checked": "2026-09-20",
+   "art": "typography only: BIG D FOOTBALL / DALLAS TEXAS; no star, no helmet, no numerals"
+  },
+  "hero-michigan": {
+   "checked": "2026-09-20",
+   "art": "typography only: GO BLUE / MICHIGAN FOOTBALL; no block M, no helmet, no numerals"
+  }
+ }
+}

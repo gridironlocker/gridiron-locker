@@ -773,7 +773,6 @@ def short_description(slug, name, art, col, garment, theme="classic"):
     middles = [
         f"It is fan-made {team} apparel, printed on demand on a {g}, for people who want the culture without the licensed costume.",
         f"Independent artwork means the line can be the thing supporters actually shout, not the thing a brand is allowed to print.",
-        f"{mark} This design sits on that side of the fence.",
         f"{mark} That is the whole idea behind it.",
         f"The {g} is meant to be {p['v']} on Sundays and on the six ordinary days around them.",
         f"It reads as {an(theme_label)} {theme_label} design, not a reprint of a shop wall.",
@@ -1074,8 +1073,8 @@ def _story_close(p, slug, col=None):
     g = p["g"]
     opts = [
         f"What you end up with is {an(g)} {g} that says something specific about being a "
-        f"{p['team']} fan, rather than something generic about liking football. If that is the "
-        f"If {p['phrase']} is the read you wanted, the rest is logistics: verified styles on "
+f"{p['team']} fan, rather than something generic about liking football. If "
+f"{p['phrase']} is the read you wanted, the rest is logistics: verified styles on "
         f"this page, then {P} for the size and colour you actually wear.",
         f"{p['name']} is a small idea executed cleanly, which is generally what makes fan "
         f"apparel get {p['v']} more than once a season. Nothing about {p['art_title']} needs "

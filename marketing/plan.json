@@ -3,7 +3,7 @@
     "generated_on": "2026-09-20",
     "generator": "marketing/live_engine.py + copy_vault.py (unique per team)",
     "standalone": true,
-    "design_count": 96,
+    "design_count": 88,
     "platforms": [
       "instagram",
       "tiktok",
@@ -92,10 +92,10 @@
     }
   },
   "summary": {
-    "design_count": 96,
+    "design_count": 88,
     "top_score": 100,
-    "throwback_count": 30,
-    "season_match_count": 19,
+    "throwback_count": 22,
+    "season_match_count": 11,
     "headline_gap_count": 6,
     "headline_count": 400,
     "unique_copy": true,
@@ -2974,1224 +2974,6 @@
       ]
     },
     {
-      "slug": "limited-edition-grb31",
-      "source_index": 90,
-      "collection": "green-bay-packers",
-      "collection_label": "Green Bay Packers",
-      "name": "Jordan Love 10 Green Bay Hoodie",
-      "catalogue_title": "Limited Edition GRB31",
-      "design_text": "10 LOVE with player and gold 10",
-      "theme": "player",
-      "product_type": "Apparel",
-      "price_usd": "36.99",
-      "product_url": "https://gridironlocker.store/shop/limited-edition-grb31/",
-      "image_url": "https://assets.viralstyle.com/campaigns/892386a6-426f-5c24-65b7-4254dadc69ac/54LwZn-3WKEp3R-DvzZZzX-front-large.jpg",
-      "keywords": [
-        "jordan love hoodie",
-        "packers 10 sweatshirt",
-        "green bay qb hoodie"
-      ],
-      "score": 53,
-      "score_breakdown": {
-        "score": 53,
-        "score_raw": 53,
-        "base": 50,
-        "season_search_terms": [
-          "jordan love 2026 shirt"
-        ],
-        "season_search_term_bonus": 22,
-        "headline_name_matches": [
-          {
-            "name": "jordan love",
-            "mentions": 0,
-            "repeated_mentions": 0,
-            "throwback_signal": true
-          }
-        ],
-        "headline_name_repeat_count": 0,
-        "headline_name_bonus": 0,
-        "playoff_or_player_theme": true,
-        "playoff_or_player_bonus": 6,
-        "throwback": true,
-        "throwback_entities": [
-          "jordan love"
-        ],
-        "throwback_penalty": -25
-      },
-      "opportunity": {
-        "score": 46.8,
-        "confidence": 75,
-        "factors": {
-          "audience": 70,
-          "search": 65,
-          "velocity": 10,
-          "gap": 35,
-          "competition": 50,
-          "business": 55,
-          "authority": 55,
-          "longevity": 10,
-          "distribution": 50
-        },
-        "weights": {
-          "audience": 20,
-          "search": 15,
-          "velocity": 15,
-          "gap": 15,
-          "competition": 10,
-          "business": 10,
-          "authority": 5,
-          "longevity": 5,
-          "distribution": 5
-        },
-        "trend_stage": "DECLINING",
-        "opportunity_type": "Commercial",
-        "decision": "REJECT",
-        "decision_reason": "Departed player/coach — keep listed, do not promote",
-        "gates": {
-          "audience": {
-            "passed": true,
-            "note": "Targeted fanbase defined"
-          },
-          "evidence": {
-            "passed": true,
-            "note": "Hot query / entity match"
-          },
-          "differentiation": {
-            "passed": true,
-            "note": "Original design copy present (estimate — no rival comparison yet)"
-          },
-          "discovery": {
-            "passed": true,
-            "note": "Searchable terms present"
-          },
-          "business": {
-            "passed": true,
-            "note": "Commercial product"
-          },
-          "risk": {
-            "passed": false,
-            "note": "IP/throwback risk"
-          },
-          "cannibalization": {
-            "passed": false,
-            "note": "8 sibling term match(es)"
-          }
-        },
-        "compliance": {
-          "terms": [
-            "packers",
-            "green bay",
-            "jordan love"
-          ],
-          "team_terms": [
-            "packers",
-            "green bay"
-          ],
-          "person_terms": [
-            "jordan love"
-          ],
-          "throwback_terms": [],
-          "level": "medium",
-          "social_safe": false,
-          "social_blocked": true
-        },
-        "evidence": {
-          "has_season_terms": true,
-          "has_headline_momentum": false,
-          "has_current_person": true,
-          "competitive_data": "estimate — no live rival data"
-        }
-      },
-      "platforms": {
-        "instagram": {
-          "caption": "Sunday Funday started as a joke. Game recap: 5 takeaways from Packers’ season-opening loss to Vikings made Jordan Love 10 Green Bay Hoodie the tradition. Tap the link in bio to see colourways and sizes.",
-          "hashtags": [
-            "#greenbayqbhoodie",
-            "#packers10sweatshirt",
-            "#jordanlovehoodie",
-            "#gopackgo",
-            "#playertee",
-            "#cheeseheadnation",
-            "#packersfans",
-            "#fanfavorite"
-          ],
-          "prompt": "Frosty lakeside morning near an empty stadium walkway; evergreen shadows, warm green and golden sunrise, breath-cold air, wood-and-metal textures; nostalgic warmth, muted contrast, and a reflective atmosphere; vertical 4:5 framing, cinematic editorial atmosphere, natural light, tactile detail, and generous negative space"
-        },
-        "tiktok": {
-          "caption": "Small town, big Jordan Love 10 Green Bay Hoodie, Game recap: 5 takeaways from Packers’ season-opening loss to Vikings energy. Fit check approved? Link in bio.",
-          "hashtags": [
-            "#gopackgo",
-            "#packers10sweatshirt",
-            "#fanfavorite",
-            "#packersfans",
-            "#greenbayqbhoodie",
-            "#cheeseheadnation",
-            "#jordanlovehoodie",
-            "#playertee"
-          ],
-          "prompt": "Frosty lakeside morning near an empty stadium walkway; evergreen shadows, warm green and golden sunrise, breath-cold air, wood-and-metal textures; nostalgic warmth, muted contrast, and a reflective atmosphere; vertical 9:16 framing with a strong center of calm negative space, cinematic editorial atmosphere, natural light, tactile detail, and generous negative space"
-        },
-        "facebook": {
-          "caption": "If you learned Go Pack Go before you learned your ABCs, Game recap: 5 takeaways from Packers’ season-opening loss to Vikings and Jordan Love 10 Green Bay Hoodie are for you. Tap through to see all colourways and garment styles.",
-          "hashtags": [
-            "#fanfavorite",
-            "#packersfans",
-            "#greenbayqbhoodie",
-            "#gopackgo",
-            "#jordanlovehoodie",
-            "#packers10sweatshirt"
-          ],
-          "prompt": "Frosty lakeside morning near an empty stadium walkway; evergreen shadows, warm green and golden sunrise, breath-cold air, wood-and-metal textures; nostalgic warmth, muted contrast, and a reflective atmosphere; horizontal 16:9 framing, cinematic editorial atmosphere, natural light, tactile detail, and generous negative space"
-        },
-        "x": {
-          "caption": "Jordan Love 10 Green Bay Hoodie with 10 LOVE with player and gold 10. Game recap: 5 takeaways from Packers’ season-opening loss to Vikings. Lambeau ready. https://viralstyle.com/kebystore/limited-edition-grb31",
-          "hashtags": [
-            "#packers10sweatshirt",
-            "#packersfans",
-            "#cheeseheadnation",
-            "#playertee"
-          ],
-          "prompt": "Frosty lakeside morning near an empty stadium walkway; evergreen shadows, warm green and golden sunrise, breath-cold air, wood-and-metal textures; nostalgic warmth, muted contrast, and a reflective atmosphere; horizontal 16:9 framing with a wide horizon, cinematic editorial atmosphere, natural light, tactile detail, and generous negative space"
-        },
-        "pinterest": {
-          "caption": "Jordan Love 10 Green Bay Hoodie - Green and Gold Street Style | Go Pack Go Approved. Save to your game day board — S to 3XL, printed on demand.",
-          "hashtags": [
-            "#playertee",
-            "#jordanlovehoodie",
-            "#gopackgo",
-            "#fanfavorite",
-            "#packers10sweatshirt",
-            "#cheeseheadnation",
-            "#packersfans",
-            "#greenbayqbhoodie"
-          ],
-          "prompt": "Frosty lakeside morning near an empty stadium walkway; evergreen shadows, warm green and golden sunrise, breath-cold air, wood-and-metal textures; nostalgic warmth, muted contrast, and a reflective atmosphere; vertical 2:3 framing with an airy editorial composition, cinematic editorial atmosphere, natural light, tactile detail, and generous negative space"
-        }
-      },
-      "live_headline": "Game recap: 5 takeaways from Packers’ season-opening loss to Vikings",
-      "rank": 16,
-      "reasons": [
-        "2026 search match",
-        "playoff/player theme",
-        "throwback penalty"
-      ]
-    },
-    {
-      "slug": "limited-edition-grb30",
-      "source_index": 91,
-      "collection": "green-bay-packers",
-      "collection_label": "Green Bay Packers",
-      "name": "Jordan Freaking Love Shirt",
-      "catalogue_title": "Limited Edition GRB30",
-      "design_text": "JORDAN FREAKING LOVE",
-      "theme": "player",
-      "product_type": "Apparel",
-      "price_usd": "24.99",
-      "product_url": "https://gridironlocker.store/shop/limited-edition-grb30/",
-      "image_url": "https://assets.viralstyle.com/campaigns/7eb94978-835b-9c04-917d-a68c150b2efd/54LwZ9-kZRQxLG-y0LDDP6-front-large.jpg",
-      "keywords": [
-        "jordan love shirt",
-        "packers qb tee",
-        "green bay love shirt"
-      ],
-      "score": 53,
-      "score_breakdown": {
-        "score": 53,
-        "score_raw": 53,
-        "base": 50,
-        "season_search_terms": [
-          "jordan love 2026 shirt"
-        ],
-        "season_search_term_bonus": 22,
-        "headline_name_matches": [
-          {
-            "name": "jordan love",
-            "mentions": 0,
-            "repeated_mentions": 0,
-            "throwback_signal": true
-          }
-        ],
-        "headline_name_repeat_count": 0,
-        "headline_name_bonus": 0,
-        "playoff_or_player_theme": true,
-        "playoff_or_player_bonus": 6,
-        "throwback": true,
-        "throwback_entities": [
-          "jordan love"
-        ],
-        "throwback_penalty": -25
-      },
-      "opportunity": {
-        "score": 46.8,
-        "confidence": 75,
-        "factors": {
-          "audience": 70,
-          "search": 65,
-          "velocity": 10,
-          "gap": 35,
-          "competition": 50,
-          "business": 55,
-          "authority": 55,
-          "longevity": 10,
-          "distribution": 50
-        },
-        "weights": {
-          "audience": 20,
-          "search": 15,
-          "velocity": 15,
-          "gap": 15,
-          "competition": 10,
-          "business": 10,
-          "authority": 5,
-          "longevity": 5,
-          "distribution": 5
-        },
-        "trend_stage": "DECLINING",
-        "opportunity_type": "Commercial",
-        "decision": "REJECT",
-        "decision_reason": "Departed player/coach — keep listed, do not promote",
-        "gates": {
-          "audience": {
-            "passed": true,
-            "note": "Targeted fanbase defined"
-          },
-          "evidence": {
-            "passed": true,
-            "note": "Hot query / entity match"
-          },
-          "differentiation": {
-            "passed": true,
-            "note": "Original design copy present (estimate — no rival comparison yet)"
-          },
-          "discovery": {
-            "passed": true,
-            "note": "Searchable terms present"
-          },
-          "business": {
-            "passed": true,
-            "note": "Commercial product"
-          },
-          "risk": {
-            "passed": false,
-            "note": "IP/throwback risk"
-          },
-          "cannibalization": {
-            "passed": false,
-            "note": "8 sibling term match(es)"
-          }
-        },
-        "compliance": {
-          "terms": [
-            "packers",
-            "green bay",
-            "jordan love"
-          ],
-          "team_terms": [
-            "packers",
-            "green bay"
-          ],
-          "person_terms": [
-            "jordan love"
-          ],
-          "throwback_terms": [],
-          "level": "medium",
-          "social_safe": false,
-          "social_blocked": true
-        },
-        "evidence": {
-          "has_season_terms": true,
-          "has_headline_momentum": false,
-          "has_current_person": true,
-          "competitive_data": "estimate — no live rival data"
-        }
-      },
-      "platforms": {
-        "instagram": {
-          "caption": "Your grandpa had the same colors. Game recap: 5 takeaways from Packers’ season-opening loss to Vikings proves Jordan Freaking Love Shirt never ages. Tap the link in bio to see colourways and sizes.",
-          "hashtags": [
-            "#packersfans",
-            "#jordanloveshirt",
-            "#greenbayloveshirt",
-            "#playertee",
-            "#gopackgo",
-            "#fanfavorite",
-            "#packersqbtee",
-            "#cheeseheadnation"
-          ],
-          "prompt": "Frosty lakeside morning near an empty stadium walkway; evergreen shadows, warm green and golden sunrise, breath-cold air, wood-and-metal textures; nostalgic warmth, muted contrast, and a reflective atmosphere; vertical 4:5 framing, cinematic editorial atmosphere, natural light, tactile detail, and generous negative space"
-        },
-        "tiktok": {
-          "caption": "Cheesehead mom, Pack dad, Game recap: 5 takeaways from Packers’ season-opening loss to Vikings — Jordan Freaking Love Shirt for the crew. Show us the fit.",
-          "hashtags": [
-            "#gopackgo",
-            "#greenbayloveshirt",
-            "#jordanloveshirt",
-            "#cheeseheadnation",
-            "#playertee",
-            "#packersfans",
-            "#fanfavorite",
-            "#packersqbtee"
-          ],
-          "prompt": "Frosty lakeside morning near an empty stadium walkway; evergreen shadows, warm green and golden sunrise, breath-cold air, wood-and-metal textures; nostalgic warmth, muted contrast, and a reflective atmosphere; vertical 9:16 framing with a strong center of calm negative space, cinematic editorial atmosphere, natural light, tactile detail, and generous negative space"
-        },
-        "facebook": {
-          "caption": "From frozen tundra mornings to Game recap: 5 takeaways from Packers’ season-opening loss to Vikings — Jordan Freaking Love Shirt keeps the tradition warm. Tap through to see all colourways and garment styles.",
-          "hashtags": [
-            "#jordanloveshirt",
-            "#greenbayloveshirt",
-            "#cheeseheadnation",
-            "#gopackgo",
-            "#packersfans",
-            "#packersqbtee"
-          ],
-          "prompt": "Frosty lakeside morning near an empty stadium walkway; evergreen shadows, warm green and golden sunrise, breath-cold air, wood-and-metal textures; nostalgic warmth, muted contrast, and a reflective atmosphere; horizontal 16:9 framing, cinematic editorial atmosphere, natural light, tactile detail, and generous negative space"
-        },
-        "x": {
-          "caption": "Game recap: 5 takeaways from Packers’ season-opening loss to Vikings. Jordan Freaking Love Shirt for Titletown. Fan-made, printed on demand. https://viralstyle.com/kebystore/limited-edition-grb30",
-          "hashtags": [
-            "#fanfavorite",
-            "#packersqbtee",
-            "#playertee",
-            "#cheeseheadnation"
-          ],
-          "prompt": "Frosty lakeside morning near an empty stadium walkway; evergreen shadows, warm green and golden sunrise, breath-cold air, wood-and-metal textures; nostalgic warmth, muted contrast, and a reflective atmosphere; horizontal 16:9 framing with a wide horizon, cinematic editorial atmosphere, natural light, tactile detail, and generous negative space"
-        },
-        "pinterest": {
-          "caption": "Jordan Freaking Love Shirt - Titletown Fan Style | Wisconsin Winter Game Day Idea. Pin this for your football gift list.",
-          "hashtags": [
-            "#jordanloveshirt",
-            "#packersfans",
-            "#playertee",
-            "#gopackgo",
-            "#packersqbtee",
-            "#cheeseheadnation",
-            "#fanfavorite",
-            "#greenbayloveshirt"
-          ],
-          "prompt": "Frosty lakeside morning near an empty stadium walkway; evergreen shadows, warm green and golden sunrise, breath-cold air, wood-and-metal textures; nostalgic warmth, muted contrast, and a reflective atmosphere; vertical 2:3 framing with an airy editorial composition, cinematic editorial atmosphere, natural light, tactile detail, and generous negative space"
-        }
-      },
-      "live_headline": "Game recap: 5 takeaways from Packers’ season-opening loss to Vikings",
-      "rank": 17,
-      "reasons": [
-        "2026 search match",
-        "playoff/player theme",
-        "throwback penalty"
-      ]
-    },
-    {
-      "slug": "limited-edition-grb36",
-      "source_index": 97,
-      "collection": "green-bay-packers",
-      "collection_label": "Green Bay Packers",
-      "name": "Jordan Love 10 Flag Number Shirt",
-      "catalogue_title": "Limited Edition GRB36",
-      "design_text": "Player with a stars and stripes number 10",
-      "theme": "player",
-      "product_type": "Apparel",
-      "price_usd": "24.99",
-      "product_url": "https://gridironlocker.store/shop/limited-edition-grb36/",
-      "image_url": "https://assets.viralstyle.com/campaigns/86d83aaf-2167-1d14-9100-c4adfc4e5b1e/4Z5wnM-0mLZb6G-mbq0oWw-front-large.jpg",
-      "keywords": [
-        "jordan love flag shirt",
-        "packers 10 tee",
-        "green bay patriotic shirt"
-      ],
-      "score": 53,
-      "score_breakdown": {
-        "score": 53,
-        "score_raw": 53,
-        "base": 50,
-        "season_search_terms": [
-          "jordan love 2026 shirt"
-        ],
-        "season_search_term_bonus": 22,
-        "headline_name_matches": [
-          {
-            "name": "jordan love",
-            "mentions": 0,
-            "repeated_mentions": 0,
-            "throwback_signal": true
-          }
-        ],
-        "headline_name_repeat_count": 0,
-        "headline_name_bonus": 0,
-        "playoff_or_player_theme": true,
-        "playoff_or_player_bonus": 6,
-        "throwback": true,
-        "throwback_entities": [
-          "jordan love"
-        ],
-        "throwback_penalty": -25
-      },
-      "opportunity": {
-        "score": 46.8,
-        "confidence": 75,
-        "factors": {
-          "audience": 70,
-          "search": 65,
-          "velocity": 10,
-          "gap": 35,
-          "competition": 50,
-          "business": 55,
-          "authority": 55,
-          "longevity": 10,
-          "distribution": 50
-        },
-        "weights": {
-          "audience": 20,
-          "search": 15,
-          "velocity": 15,
-          "gap": 15,
-          "competition": 10,
-          "business": 10,
-          "authority": 5,
-          "longevity": 5,
-          "distribution": 5
-        },
-        "trend_stage": "DECLINING",
-        "opportunity_type": "Commercial",
-        "decision": "REJECT",
-        "decision_reason": "Departed player/coach — keep listed, do not promote",
-        "gates": {
-          "audience": {
-            "passed": true,
-            "note": "Targeted fanbase defined"
-          },
-          "evidence": {
-            "passed": true,
-            "note": "Hot query / entity match"
-          },
-          "differentiation": {
-            "passed": true,
-            "note": "Original design copy present (estimate — no rival comparison yet)"
-          },
-          "discovery": {
-            "passed": true,
-            "note": "Searchable terms present"
-          },
-          "business": {
-            "passed": true,
-            "note": "Commercial product"
-          },
-          "risk": {
-            "passed": false,
-            "note": "IP/throwback risk"
-          },
-          "cannibalization": {
-            "passed": false,
-            "note": "8 sibling term match(es)"
-          }
-        },
-        "compliance": {
-          "terms": [
-            "packers",
-            "green bay",
-            "jordan love"
-          ],
-          "team_terms": [
-            "packers",
-            "green bay"
-          ],
-          "person_terms": [
-            "jordan love"
-          ],
-          "throwback_terms": [],
-          "level": "medium",
-          "social_safe": false,
-          "social_blocked": true
-        },
-        "evidence": {
-          "has_season_terms": true,
-          "has_headline_momentum": false,
-          "has_current_person": true,
-          "competitive_data": "estimate — no live rival data"
-        }
-      },
-      "platforms": {
-        "instagram": {
-          "caption": "Family-owned team, family-worn tee. Game recap: 5 takeaways from Packers’ season-opening loss to Vikings means Jordan Love 10 Flag Number Shirt for the crew. Comment your size — S to 3XL, printed on demand.",
-          "hashtags": [
-            "#cheeseheadnation",
-            "#playertee",
-            "#packersfans",
-            "#gopackgo",
-            "#greenbaypatrioticshi",
-            "#jordanloveflagshirt",
-            "#fanfavorite",
-            "#packers10tee"
-          ],
-          "prompt": "Frosty lakeside morning near an empty stadium walkway; evergreen shadows, warm green and golden sunrise, breath-cold air, wood-and-metal textures; nostalgic warmth, muted contrast, and a reflective atmosphere; vertical 4:5 framing, cinematic editorial atmosphere, natural light, tactile detail, and generous negative space"
-        },
-        "tiktok": {
-          "caption": "POV: Cheesehead Nation sees Game recap: 5 takeaways from Packers’ season-opening loss to Vikings and grabs Jordan Love 10 Flag Number Shirt. Duet this with your game day look.",
-          "hashtags": [
-            "#greenbaypatrioticshi",
-            "#gopackgo",
-            "#fanfavorite",
-            "#jordanloveflagshirt",
-            "#cheeseheadnation",
-            "#playertee",
-            "#packersfans",
-            "#packers10tee"
-          ],
-          "prompt": "Frosty lakeside morning near an empty stadium walkway; evergreen shadows, warm green and golden sunrise, breath-cold air, wood-and-metal textures; nostalgic warmth, muted contrast, and a reflective atmosphere; vertical 9:16 framing with a strong center of calm negative space, cinematic editorial atmosphere, natural light, tactile detail, and generous negative space"
-        },
-        "facebook": {
-          "caption": "Not officially licensed, just officially Green Bay. Game recap: 5 takeaways from Packers’ season-opening loss to Vikings — Jordan Love 10 Flag Number Shirt is independent fan art, printed on demand. Tap through to see all colourways and garment styles.",
-          "hashtags": [
-            "#packers10tee",
-            "#greenbaypatrioticshi",
-            "#fanfavorite",
-            "#playertee",
-            "#gopackgo",
-            "#cheeseheadnation"
-          ],
-          "prompt": "Frosty lakeside morning near an empty stadium walkway; evergreen shadows, warm green and golden sunrise, breath-cold air, wood-and-metal textures; nostalgic warmth, muted contrast, and a reflective atmosphere; horizontal 16:9 framing, cinematic editorial atmosphere, natural light, tactile detail, and generous negative space"
-        },
-        "x": {
-          "caption": "Green Bay: Game recap: 5 takeaways from Packers’ season-opening loss to Vikings = Jordan Love 10 Flag Number Shirt season. Cheesehead Nation, assemble. https://viralstyle.com/kebystore/limited-edition-grb36",
-          "hashtags": [
-            "#gopackgo",
-            "#packersfans",
-            "#playertee",
-            "#greenbaypatrioticshi"
-          ],
-          "prompt": "Frosty lakeside morning near an empty stadium walkway; evergreen shadows, warm green and golden sunrise, breath-cold air, wood-and-metal textures; nostalgic warmth, muted contrast, and a reflective atmosphere; horizontal 16:9 framing with a wide horizon, cinematic editorial atmosphere, natural light, tactile detail, and generous negative space"
-        },
-        "pinterest": {
-          "caption": "Jordan Love 10 Flag Number Shirt - Titletown Fan Style | Wisconsin Winter Game Day Idea. Tap to see colourways, sizes, and secure checkout.",
-          "hashtags": [
-            "#packersfans",
-            "#fanfavorite",
-            "#playertee",
-            "#gopackgo",
-            "#cheeseheadnation",
-            "#jordanloveflagshirt",
-            "#packers10tee",
-            "#greenbaypatrioticshi"
-          ],
-          "prompt": "Frosty lakeside morning near an empty stadium walkway; evergreen shadows, warm green and golden sunrise, breath-cold air, wood-and-metal textures; nostalgic warmth, muted contrast, and a reflective atmosphere; vertical 2:3 framing with an airy editorial composition, cinematic editorial atmosphere, natural light, tactile detail, and generous negative space"
-        }
-      },
-      "live_headline": "Game recap: 5 takeaways from Packers’ season-opening loss to Vikings",
-      "rank": 18,
-      "reasons": [
-        "2026 search match",
-        "playoff/player theme",
-        "throwback penalty"
-      ]
-    },
-    {
-      "slug": "limited-edition-grb24",
-      "source_index": 104,
-      "collection": "green-bay-packers",
-      "collection_label": "Green Bay Packers",
-      "name": "Love 10 Jersey Back Shirt",
-      "catalogue_title": "Limited Edition GRB24",
-      "design_text": "LOVE 10 jersey back with player",
-      "theme": "player",
-      "product_type": "Apparel",
-      "price_usd": "24.99",
-      "product_url": "https://gridironlocker.store/shop/limited-edition-grb24/",
-      "image_url": "https://assets.viralstyle.com/campaigns/1a6021aa-59ba-7db4-b5a7-e41e8d03dff0/1abBEm-58oopOk-LKzzxXp-front-large.jpg",
-      "keywords": [
-        "jordan love jersey shirt",
-        "packers 10 back tee",
-        "green bay jersey shirt"
-      ],
-      "score": 53,
-      "score_breakdown": {
-        "score": 53,
-        "score_raw": 53,
-        "base": 50,
-        "season_search_terms": [
-          "jordan love 2026 shirt"
-        ],
-        "season_search_term_bonus": 22,
-        "headline_name_matches": [
-          {
-            "name": "jordan love",
-            "mentions": 0,
-            "repeated_mentions": 0,
-            "throwback_signal": true
-          }
-        ],
-        "headline_name_repeat_count": 0,
-        "headline_name_bonus": 0,
-        "playoff_or_player_theme": true,
-        "playoff_or_player_bonus": 6,
-        "throwback": true,
-        "throwback_entities": [
-          "jordan love"
-        ],
-        "throwback_penalty": -25
-      },
-      "opportunity": {
-        "score": 46.8,
-        "confidence": 75,
-        "factors": {
-          "audience": 70,
-          "search": 65,
-          "velocity": 10,
-          "gap": 35,
-          "competition": 50,
-          "business": 55,
-          "authority": 55,
-          "longevity": 10,
-          "distribution": 50
-        },
-        "weights": {
-          "audience": 20,
-          "search": 15,
-          "velocity": 15,
-          "gap": 15,
-          "competition": 10,
-          "business": 10,
-          "authority": 5,
-          "longevity": 5,
-          "distribution": 5
-        },
-        "trend_stage": "DECLINING",
-        "opportunity_type": "Commercial",
-        "decision": "REJECT",
-        "decision_reason": "Departed player/coach — keep listed, do not promote",
-        "gates": {
-          "audience": {
-            "passed": true,
-            "note": "Targeted fanbase defined"
-          },
-          "evidence": {
-            "passed": true,
-            "note": "Hot query / entity match"
-          },
-          "differentiation": {
-            "passed": true,
-            "note": "Original design copy present (estimate — no rival comparison yet)"
-          },
-          "discovery": {
-            "passed": true,
-            "note": "Searchable terms present"
-          },
-          "business": {
-            "passed": true,
-            "note": "Commercial product"
-          },
-          "risk": {
-            "passed": false,
-            "note": "IP/throwback risk"
-          },
-          "cannibalization": {
-            "passed": false,
-            "note": "8 sibling term match(es)"
-          }
-        },
-        "compliance": {
-          "terms": [
-            "packers",
-            "green bay",
-            "jordan love"
-          ],
-          "team_terms": [
-            "packers",
-            "green bay"
-          ],
-          "person_terms": [
-            "jordan love"
-          ],
-          "throwback_terms": [],
-          "level": "medium",
-          "social_safe": false,
-          "social_blocked": true
-        },
-        "evidence": {
-          "has_season_terms": true,
-          "has_headline_momentum": false,
-          "has_current_person": true,
-          "competitive_data": "estimate — no live rival data"
-        }
-      },
-      "platforms": {
-        "instagram": {
-          "caption": "Not loud, just loyal. Game recap: 5 takeaways from Packers’ season-opening loss to Vikings — Love 10 Jersey Back Shirt says Go Pack Go without yelling. Comment your size — S to 3XL, printed on demand.",
-          "hashtags": [
-            "#fanfavorite",
-            "#cheeseheadnation",
-            "#greenbayjerseyshirt",
-            "#packers10backtee",
-            "#packersfans",
-            "#playertee",
-            "#jordanlovejerseyshir",
-            "#gopackgo"
-          ],
-          "prompt": "Frosty lakeside morning near an empty stadium walkway; evergreen shadows, warm green and golden sunrise, breath-cold air, wood-and-metal textures; nostalgic warmth, muted contrast, and a reflective atmosphere; vertical 4:5 framing, cinematic editorial atmosphere, natural light, tactile detail, and generous negative space"
-        },
-        "tiktok": {
-          "caption": "Cheesehead mom, Pack dad, Game recap: 5 takeaways from Packers’ season-opening loss to Vikings — Love 10 Jersey Back Shirt for the crew. Show us the fit.",
-          "hashtags": [
-            "#fanfavorite",
-            "#greenbayjerseyshirt",
-            "#playertee",
-            "#cheeseheadnation",
-            "#packers10backtee",
-            "#jordanlovejerseyshir",
-            "#gopackgo",
-            "#packersfans"
-          ],
-          "prompt": "Frosty lakeside morning near an empty stadium walkway; evergreen shadows, warm green and golden sunrise, breath-cold air, wood-and-metal textures; nostalgic warmth, muted contrast, and a reflective atmosphere; vertical 9:16 framing with a strong center of calm negative space, cinematic editorial atmosphere, natural light, tactile detail, and generous negative space"
-        },
-        "facebook": {
-          "caption": "From frozen tundra mornings to Game recap: 5 takeaways from Packers’ season-opening loss to Vikings — Love 10 Jersey Back Shirt keeps the tradition warm. Tap through to see all colourways and garment styles.",
-          "hashtags": [
-            "#packersfans",
-            "#playertee",
-            "#gopackgo",
-            "#greenbayjerseyshirt",
-            "#cheeseheadnation",
-            "#fanfavorite"
-          ],
-          "prompt": "Frosty lakeside morning near an empty stadium walkway; evergreen shadows, warm green and golden sunrise, breath-cold air, wood-and-metal textures; nostalgic warmth, muted contrast, and a reflective atmosphere; horizontal 16:9 framing, cinematic editorial atmosphere, natural light, tactile detail, and generous negative space"
-        },
-        "x": {
-          "caption": "Game recap: 5 takeaways from Packers’ season-opening loss to Vikings just dropped. Love 10 Jersey Back Shirt is how Green Bay answers. https://viralstyle.com/kebystore/limited-edition-grb24",
-          "hashtags": [
-            "#fanfavorite",
-            "#jordanlovejerseyshir",
-            "#greenbayjerseyshirt",
-            "#gopackgo"
-          ],
-          "prompt": "Frosty lakeside morning near an empty stadium walkway; evergreen shadows, warm green and golden sunrise, breath-cold air, wood-and-metal textures; nostalgic warmth, muted contrast, and a reflective atmosphere; horizontal 16:9 framing with a wide horizon, cinematic editorial atmosphere, natural light, tactile detail, and generous negative space"
-        },
-        "pinterest": {
-          "caption": "Love 10 Jersey Back Shirt - Packers Outfit Inspo | Frozen Tundra to Everyday. Save to your game day board — S to 3XL, printed on demand.",
-          "hashtags": [
-            "#packers10backtee",
-            "#playertee",
-            "#greenbayjerseyshirt",
-            "#fanfavorite",
-            "#packersfans",
-            "#cheeseheadnation",
-            "#gopackgo",
-            "#jordanlovejerseyshir"
-          ],
-          "prompt": "Frosty lakeside morning near an empty stadium walkway; evergreen shadows, warm green and golden sunrise, breath-cold air, wood-and-metal textures; nostalgic warmth, muted contrast, and a reflective atmosphere; vertical 2:3 framing with an airy editorial composition, cinematic editorial atmosphere, natural light, tactile detail, and generous negative space"
-        }
-      },
-      "live_headline": "Game recap: 5 takeaways from Packers’ season-opening loss to Vikings",
-      "rank": 19,
-      "reasons": [
-        "2026 search match",
-        "playoff/player theme",
-        "throwback penalty"
-      ]
-    },
-    {
-      "slug": "limited-edition-grb4",
-      "source_index": 110,
-      "collection": "green-bay-packers",
-      "collection_label": "Green Bay Packers",
-      "name": "Let The 10VE Begin Green Bay Shirt",
-      "catalogue_title": "Limited Edition GRB4",
-      "design_text": "LET THE 10VE BEGIN",
-      "theme": "player",
-      "product_type": "Apparel",
-      "price_usd": "24.99",
-      "product_url": "https://gridironlocker.store/shop/limited-edition-grb4/",
-      "image_url": "https://assets.viralstyle.com/campaigns/6d1d8e9f-58c3-e3a4-c581-e63ff1850ec1/237ZJz-Xazz6Kn-YQrr0Vx-front-large.jpg",
-      "keywords": [
-        "let the love begin packers",
-        "jordan love 10 tee",
-        "green bay qb shirt"
-      ],
-      "score": 53,
-      "score_breakdown": {
-        "score": 53,
-        "score_raw": 53,
-        "base": 50,
-        "season_search_terms": [
-          "jordan love 2026 shirt"
-        ],
-        "season_search_term_bonus": 22,
-        "headline_name_matches": [
-          {
-            "name": "jordan love",
-            "mentions": 0,
-            "repeated_mentions": 0,
-            "throwback_signal": true
-          }
-        ],
-        "headline_name_repeat_count": 0,
-        "headline_name_bonus": 0,
-        "playoff_or_player_theme": true,
-        "playoff_or_player_bonus": 6,
-        "throwback": true,
-        "throwback_entities": [
-          "jordan love"
-        ],
-        "throwback_penalty": -25
-      },
-      "opportunity": {
-        "score": 46.8,
-        "confidence": 75,
-        "factors": {
-          "audience": 70,
-          "search": 65,
-          "velocity": 10,
-          "gap": 35,
-          "competition": 50,
-          "business": 55,
-          "authority": 55,
-          "longevity": 10,
-          "distribution": 50
-        },
-        "weights": {
-          "audience": 20,
-          "search": 15,
-          "velocity": 15,
-          "gap": 15,
-          "competition": 10,
-          "business": 10,
-          "authority": 5,
-          "longevity": 5,
-          "distribution": 5
-        },
-        "trend_stage": "DECLINING",
-        "opportunity_type": "Commercial",
-        "decision": "REJECT",
-        "decision_reason": "Departed player/coach — keep listed, do not promote",
-        "gates": {
-          "audience": {
-            "passed": true,
-            "note": "Targeted fanbase defined"
-          },
-          "evidence": {
-            "passed": true,
-            "note": "Hot query / entity match"
-          },
-          "differentiation": {
-            "passed": true,
-            "note": "Original design copy present (estimate — no rival comparison yet)"
-          },
-          "discovery": {
-            "passed": true,
-            "note": "Searchable terms present"
-          },
-          "business": {
-            "passed": true,
-            "note": "Commercial product"
-          },
-          "risk": {
-            "passed": false,
-            "note": "IP/throwback risk"
-          },
-          "cannibalization": {
-            "passed": false,
-            "note": "8 sibling term match(es)"
-          }
-        },
-        "compliance": {
-          "terms": [
-            "packers",
-            "green bay",
-            "jordan love"
-          ],
-          "team_terms": [
-            "packers",
-            "green bay"
-          ],
-          "person_terms": [
-            "jordan love"
-          ],
-          "throwback_terms": [],
-          "level": "medium",
-          "social_safe": false,
-          "social_blocked": true
-        },
-        "evidence": {
-          "has_season_terms": true,
-          "has_headline_momentum": false,
-          "has_current_person": true,
-          "competitive_data": "estimate — no live rival data"
-        }
-      },
-      "platforms": {
-        "instagram": {
-          "caption": "1919 crest, 2026 headlines. Game recap: 5 takeaways from Packers’ season-opening loss to Vikings and Let The 10VE Begin Green Bay Shirt bridge the gap. Save this idea and tap through to see the design.",
-          "hashtags": [
-            "#cheeseheadnation",
-            "#packersfans",
-            "#playertee",
-            "#greenbayqbshirt",
-            "#jordanlove10tee",
-            "#letthelovebeginpacke",
-            "#fanfavorite",
-            "#gopackgo"
-          ],
-          "prompt": "Frosty lakeside morning near an empty stadium walkway; evergreen shadows, warm green and golden sunrise, breath-cold air, wood-and-metal textures; nostalgic warmth, muted contrast, and a reflective atmosphere; vertical 4:5 framing, cinematic editorial atmosphere, natural light, tactile detail, and generous negative space"
-        },
-        "tiktok": {
-          "caption": "Sunday Funday uniform: Let The 10VE Begin Green Bay Shirt + Game recap: 5 takeaways from Packers’ season-opening loss to Vikings + brat. POV: you already ordered it.",
-          "hashtags": [
-            "#packersfans",
-            "#greenbayqbshirt",
-            "#cheeseheadnation",
-            "#gopackgo",
-            "#fanfavorite",
-            "#playertee",
-            "#jordanlove10tee",
-            "#letthelovebeginpacke"
-          ],
-          "prompt": "Frosty lakeside morning near an empty stadium walkway; evergreen shadows, warm green and golden sunrise, breath-cold air, wood-and-metal textures; nostalgic warmth, muted contrast, and a reflective atmosphere; vertical 9:16 framing with a strong center of calm negative space, cinematic editorial atmosphere, natural light, tactile detail, and generous negative space"
-        },
-        "facebook": {
-          "caption": "From frozen tundra mornings to Game recap: 5 takeaways from Packers’ season-opening loss to Vikings — Let The 10VE Begin Green Bay Shirt keeps the tradition warm. Printed on demand in the USA, shipped worldwide with tracking.",
-          "hashtags": [
-            "#fanfavorite",
-            "#packersfans",
-            "#jordanlove10tee",
-            "#greenbayqbshirt",
-            "#cheeseheadnation",
-            "#letthelovebeginpacke"
-          ],
-          "prompt": "Frosty lakeside morning near an empty stadium walkway; evergreen shadows, warm green and golden sunrise, breath-cold air, wood-and-metal textures; nostalgic warmth, muted contrast, and a reflective atmosphere; horizontal 16:9 framing, cinematic editorial atmosphere, natural light, tactile detail, and generous negative space"
-        },
-        "x": {
-          "caption": "Game recap: 5 takeaways from Packers’ season-opening loss to Vikings just dropped. Let The 10VE Begin Green Bay Shirt is how Green Bay answers. https://viralstyle.com/kebystore/limited-edition-grb4",
-          "hashtags": [
-            "#packersfans",
-            "#greenbayqbshirt",
-            "#gopackgo",
-            "#letthelovebeginpacke"
-          ],
-          "prompt": "Frosty lakeside morning near an empty stadium walkway; evergreen shadows, warm green and golden sunrise, breath-cold air, wood-and-metal textures; nostalgic warmth, muted contrast, and a reflective atmosphere; horizontal 16:9 framing with a wide horizon, cinematic editorial atmosphere, natural light, tactile detail, and generous negative space"
-        },
-        "pinterest": {
-          "caption": "Let The 10VE Begin Green Bay Shirt - Cheesehead Game Day Outfit Idea | Green Bay Packers Style. Save to your game day board — S to 3XL, printed on demand.",
-          "hashtags": [
-            "#gopackgo",
-            "#cheeseheadnation",
-            "#greenbayqbshirt",
-            "#letthelovebeginpacke",
-            "#playertee",
-            "#packersfans",
-            "#jordanlove10tee",
-            "#fanfavorite"
-          ],
-          "prompt": "Frosty lakeside morning near an empty stadium walkway; evergreen shadows, warm green and golden sunrise, breath-cold air, wood-and-metal textures; nostalgic warmth, muted contrast, and a reflective atmosphere; vertical 2:3 framing with an airy editorial composition, cinematic editorial atmosphere, natural light, tactile detail, and generous negative space"
-        }
-      },
-      "live_headline": "Game recap: 5 takeaways from Packers’ season-opening loss to Vikings",
-      "rank": 20,
-      "reasons": [
-        "2026 search match",
-        "playoff/player theme",
-        "throwback penalty"
-      ]
-    },
-    {
-      "slug": "limited-edition-grb11",
-      "source_index": 115,
-      "collection": "green-bay-packers",
-      "collection_label": "Green Bay Packers",
-      "name": "Jordan Love Is All You Need Shirt",
-      "catalogue_title": "Limited Edition GRB11",
-      "design_text": "JORDAN LOVE IS ALL YOU NEED with player",
-      "theme": "player",
-      "product_type": "Apparel",
-      "price_usd": "24.99",
-      "product_url": "https://gridironlocker.store/shop/limited-edition-grb11/",
-      "image_url": "https://assets.viralstyle.com/campaigns/6223fe69-b60b-7794-6166-512b50894f82/3Ll150-4AVVayJ-RAzzv7p-front-large.jpg",
-      "keywords": [
-        "jordan love shirt",
-        "love is all you need packers",
-        "green bay 10 tee"
-      ],
-      "score": 53,
-      "score_breakdown": {
-        "score": 53,
-        "score_raw": 53,
-        "base": 50,
-        "season_search_terms": [
-          "jordan love 2026 shirt"
-        ],
-        "season_search_term_bonus": 22,
-        "headline_name_matches": [
-          {
-            "name": "jordan love",
-            "mentions": 0,
-            "repeated_mentions": 0,
-            "throwback_signal": true
-          }
-        ],
-        "headline_name_repeat_count": 0,
-        "headline_name_bonus": 0,
-        "playoff_or_player_theme": true,
-        "playoff_or_player_bonus": 6,
-        "throwback": true,
-        "throwback_entities": [
-          "jordan love"
-        ],
-        "throwback_penalty": -25
-      },
-      "opportunity": {
-        "score": 46.8,
-        "confidence": 75,
-        "factors": {
-          "audience": 70,
-          "search": 65,
-          "velocity": 10,
-          "gap": 35,
-          "competition": 50,
-          "business": 55,
-          "authority": 55,
-          "longevity": 10,
-          "distribution": 50
-        },
-        "weights": {
-          "audience": 20,
-          "search": 15,
-          "velocity": 15,
-          "gap": 15,
-          "competition": 10,
-          "business": 10,
-          "authority": 5,
-          "longevity": 5,
-          "distribution": 5
-        },
-        "trend_stage": "DECLINING",
-        "opportunity_type": "Commercial",
-        "decision": "REJECT",
-        "decision_reason": "Departed player/coach — keep listed, do not promote",
-        "gates": {
-          "audience": {
-            "passed": true,
-            "note": "Targeted fanbase defined"
-          },
-          "evidence": {
-            "passed": true,
-            "note": "Hot query / entity match"
-          },
-          "differentiation": {
-            "passed": true,
-            "note": "Original design copy present (estimate — no rival comparison yet)"
-          },
-          "discovery": {
-            "passed": true,
-            "note": "Searchable terms present"
-          },
-          "business": {
-            "passed": true,
-            "note": "Commercial product"
-          },
-          "risk": {
-            "passed": false,
-            "note": "IP/throwback risk"
-          },
-          "cannibalization": {
-            "passed": false,
-            "note": "8 sibling term match(es)"
-          }
-        },
-        "compliance": {
-          "terms": [
-            "packers",
-            "green bay",
-            "jordan love"
-          ],
-          "team_terms": [
-            "packers",
-            "green bay"
-          ],
-          "person_terms": [
-            "jordan love"
-          ],
-          "throwback_terms": [],
-          "level": "medium",
-          "social_safe": false,
-          "social_blocked": true
-        },
-        "evidence": {
-          "has_season_terms": true,
-          "has_headline_momentum": false,
-          "has_current_person": true,
-          "competitive_data": "estimate — no live rival data"
-        }
-      },
-      "platforms": {
-        "instagram": {
-          "caption": "Family-owned team, family-worn tee. Game recap: 5 takeaways from Packers’ season-opening loss to Vikings means Jordan Love Is All You Need Shirt for the crew. Tap the link in bio to see colourways and sizes.",
-          "hashtags": [
-            "#jordanloveshirt",
-            "#greenbay10tee",
-            "#cheeseheadnation",
-            "#loveisallyouneedpack",
-            "#packersfans",
-            "#playertee",
-            "#gopackgo",
-            "#fanfavorite"
-          ],
-          "prompt": "Frosty lakeside morning near an empty stadium walkway; evergreen shadows, warm green and golden sunrise, breath-cold air, wood-and-metal textures; nostalgic warmth, muted contrast, and a reflective atmosphere; vertical 4:5 framing, cinematic editorial atmosphere, natural light, tactile detail, and generous negative space"
-        },
-        "tiktok": {
-          "caption": "POV: Cheesehead Nation sees Game recap: 5 takeaways from Packers’ season-opening loss to Vikings and grabs Jordan Love Is All You Need Shirt. Duet this with your game day look.",
-          "hashtags": [
-            "#fanfavorite",
-            "#gopackgo",
-            "#jordanloveshirt",
-            "#cheeseheadnation",
-            "#loveisallyouneedpack",
-            "#greenbay10tee",
-            "#playertee",
-            "#packersfans"
-          ],
-          "prompt": "Frosty lakeside morning near an empty stadium walkway; evergreen shadows, warm green and golden sunrise, breath-cold air, wood-and-metal textures; nostalgic warmth, muted contrast, and a reflective atmosphere; vertical 9:16 framing with a strong center of calm negative space, cinematic editorial atmosphere, natural light, tactile detail, and generous negative space"
-        },
-        "facebook": {
-          "caption": "Community-owned, family-worn. Game recap: 5 takeaways from Packers’ season-opening loss to Vikings — Jordan Love Is All You Need Shirt with JORDAN LOVE IS ALL YOU NEED with player is the tee that travels from Lambeau to the living room. Explore the design here — sizes S to 3XL, worldwide shipping.",
-          "hashtags": [
-            "#jordanloveshirt",
-            "#loveisallyouneedpack",
-            "#fanfavorite",
-            "#greenbay10tee",
-            "#gopackgo",
-            "#cheeseheadnation"
-          ],
-          "prompt": "Frosty lakeside morning near an empty stadium walkway; evergreen shadows, warm green and golden sunrise, breath-cold air, wood-and-metal textures; nostalgic warmth, muted contrast, and a reflective atmosphere; horizontal 16:9 framing, cinematic editorial atmosphere, natural light, tactile detail, and generous negative space"
-        },
-        "x": {
-          "caption": "Jordan Love Is All You Need Shirt with JORDAN LOVE IS ALL YOU NEED with player. Game recap: 5 takeaways from Packers’ season-opening loss to Vikings. Lambeau ready. https://viralstyle.com/kebystore/limited-edition-grb11",
-          "hashtags": [
-            "#cheeseheadnation",
-            "#packersfans",
-            "#fanfavorite",
-            "#playertee"
-          ],
-          "prompt": "Frosty lakeside morning near an empty stadium walkway; evergreen shadows, warm green and golden sunrise, breath-cold air, wood-and-metal textures; nostalgic warmth, muted contrast, and a reflective atmosphere; horizontal 16:9 framing with a wide horizon, cinematic editorial atmosphere, natural light, tactile detail, and generous negative space"
-        },
-        "pinterest": {
-          "caption": "Jordan Love Is All You Need Shirt - Cheesehead Game Day Outfit Idea | Green Bay Packers Style. Add to your tailgate outfit ideas.",
-          "hashtags": [
-            "#cheeseheadnation",
-            "#packersfans",
-            "#playertee",
-            "#loveisallyouneedpack",
-            "#fanfavorite",
-            "#jordanloveshirt",
-            "#gopackgo",
-            "#greenbay10tee"
-          ],
-          "prompt": "Frosty lakeside morning near an empty stadium walkway; evergreen shadows, warm green and golden sunrise, breath-cold air, wood-and-metal textures; nostalgic warmth, muted contrast, and a reflective atmosphere; vertical 2:3 framing with an airy editorial composition, cinematic editorial atmosphere, natural light, tactile detail, and generous negative space"
-        }
-      },
-      "live_headline": "Game recap: 5 takeaways from Packers’ season-opening loss to Vikings",
-      "rank": 21,
-      "reasons": [
-        "2026 search match",
-        "playoff/player theme",
-        "throwback penalty"
-      ]
-    },
-    {
       "slug": "bend-football-fans",
       "source_index": 2,
       "collection": "cleveland-browns",
@@ -4367,7 +3149,7 @@
         }
       },
       "live_headline": "Browns vs. Buccaneers: How to Watch, Listen & Live Stream",
-      "rank": 22,
+      "rank": 16,
       "reasons": [
         "evergreen catalogue fit"
       ]
@@ -4552,7 +3334,7 @@
         }
       },
       "live_headline": "Browns vs. Buccaneers: How to Watch, Listen & Live Stream",
-      "rank": 23,
+      "rank": 17,
       "reasons": [
         "evergreen catalogue fit"
       ]
@@ -4741,7 +3523,7 @@
         }
       },
       "live_headline": "Browns vs. Buccaneers: How to Watch, Listen & Live Stream",
-      "rank": 24,
+      "rank": 18,
       "reasons": [
         "evergreen catalogue fit"
       ]
@@ -4926,7 +3708,7 @@
         }
       },
       "live_headline": "Browns vs. Buccaneers: How to Watch, Listen & Live Stream",
-      "rank": 25,
+      "rank": 19,
       "reasons": [
         "evergreen catalogue fit"
       ]
@@ -5113,7 +3895,7 @@
         }
       },
       "live_headline": "Browns vs. Buccaneers: How to Watch, Listen & Live Stream",
-      "rank": 26,
+      "rank": 20,
       "reasons": [
         "evergreen catalogue fit"
       ]
@@ -5298,7 +4080,7 @@
         }
       },
       "live_headline": "Browns vs. Buccaneers: How to Watch, Listen & Live Stream",
-      "rank": 27,
+      "rank": 21,
       "reasons": [
         "evergreen catalogue fit"
       ]
@@ -5485,7 +4267,7 @@
         }
       },
       "live_headline": "Browns vs. Buccaneers: How to Watch, Listen & Live Stream",
-      "rank": 28,
+      "rank": 22,
       "reasons": [
         "evergreen catalogue fit"
       ]
@@ -5666,7 +4448,7 @@
         }
       },
       "live_headline": "Browns vs. Buccaneers: How to Watch, Listen & Live Stream",
-      "rank": 29,
+      "rank": 23,
       "reasons": [
         "evergreen catalogue fit"
       ]
@@ -5857,7 +4639,7 @@
         }
       },
       "live_headline": "Browns vs. Buccaneers: How to Watch, Listen & Live Stream",
-      "rank": 30,
+      "rank": 24,
       "reasons": [
         "evergreen catalogue fit"
       ]
@@ -6044,7 +4826,7 @@
         }
       },
       "live_headline": "Browns vs. Buccaneers: How to Watch, Listen & Live Stream",
-      "rank": 31,
+      "rank": 25,
       "reasons": [
         "evergreen catalogue fit"
       ]
@@ -6231,7 +5013,7 @@
         }
       },
       "live_headline": "Browns vs. Buccaneers: How to Watch, Listen & Live Stream",
-      "rank": 32,
+      "rank": 26,
       "reasons": [
         "evergreen catalogue fit"
       ]
@@ -6418,7 +5200,7 @@
         }
       },
       "live_headline": "Browns vs. Buccaneers: How to Watch, Listen & Live Stream",
-      "rank": 33,
+      "rank": 27,
       "reasons": [
         "evergreen catalogue fit"
       ]
@@ -6603,7 +5385,7 @@
         }
       },
       "live_headline": "Browns vs. Buccaneers: How to Watch, Listen & Live Stream",
-      "rank": 34,
+      "rank": 28,
       "reasons": [
         "evergreen catalogue fit"
       ]
@@ -6790,7 +5572,7 @@
         }
       },
       "live_headline": "Browns vs. Buccaneers: How to Watch, Listen & Live Stream",
-      "rank": 35,
+      "rank": 29,
       "reasons": [
         "evergreen catalogue fit"
       ]
@@ -6977,7 +5759,7 @@
         }
       },
       "live_headline": "Browns vs. Buccaneers: How to Watch, Listen & Live Stream",
-      "rank": 36,
+      "rank": 30,
       "reasons": [
         "evergreen catalogue fit"
       ]
@@ -7162,7 +5944,7 @@
         }
       },
       "live_headline": "Browns vs. Buccaneers: How to Watch, Listen & Live Stream",
-      "rank": 37,
+      "rank": 31,
       "reasons": [
         "evergreen catalogue fit"
       ]
@@ -7349,7 +6131,7 @@
         }
       },
       "live_headline": "Browns vs. Buccaneers: How to Watch, Listen & Live Stream",
-      "rank": 38,
+      "rank": 32,
       "reasons": [
         "evergreen catalogue fit"
       ]
@@ -7536,7 +6318,7 @@
         }
       },
       "live_headline": "Browns vs. Buccaneers: How to Watch, Listen & Live Stream",
-      "rank": 39,
+      "rank": 33,
       "reasons": [
         "evergreen catalogue fit"
       ]
@@ -7723,7 +6505,7 @@
         }
       },
       "live_headline": "Browns vs. Buccaneers: How to Watch, Listen & Live Stream",
-      "rank": 40,
+      "rank": 34,
       "reasons": [
         "evergreen catalogue fit"
       ]
@@ -7910,7 +6692,7 @@
         }
       },
       "live_headline": "Browns vs. Buccaneers: How to Watch, Listen & Live Stream",
-      "rank": 41,
+      "rank": 35,
       "reasons": [
         "evergreen catalogue fit"
       ]
@@ -8095,7 +6877,7 @@
         }
       },
       "live_headline": "Browns vs. Buccaneers: How to Watch, Listen & Live Stream",
-      "rank": 42,
+      "rank": 36,
       "reasons": [
         "evergreen catalogue fit"
       ]
@@ -8280,7 +7062,7 @@
         }
       },
       "live_headline": "Browns vs. Buccaneers: How to Watch, Listen & Live Stream",
-      "rank": 43,
+      "rank": 37,
       "reasons": [
         "evergreen catalogue fit"
       ]
@@ -8465,7 +7247,7 @@
         }
       },
       "live_headline": "Browns vs. Buccaneers: How to Watch, Listen & Live Stream",
-      "rank": 44,
+      "rank": 38,
       "reasons": [
         "evergreen catalogue fit"
       ]
@@ -8654,7 +7436,7 @@
         }
       },
       "live_headline": "Browns vs. Buccaneers: How to Watch, Listen & Live Stream",
-      "rank": 45,
+      "rank": 39,
       "reasons": [
         "evergreen catalogue fit"
       ]
@@ -8841,7 +7623,7 @@
         }
       },
       "live_headline": "Browns vs. Buccaneers: How to Watch, Listen & Live Stream",
-      "rank": 46,
+      "rank": 40,
       "reasons": [
         "evergreen catalogue fit"
       ]
@@ -9028,7 +7810,7 @@
         }
       },
       "live_headline": "Browns vs. Buccaneers: How to Watch, Listen & Live Stream",
-      "rank": 47,
+      "rank": 41,
       "reasons": [
         "evergreen catalogue fit"
       ]
@@ -9215,7 +7997,7 @@
         }
       },
       "live_headline": "Browns vs. Buccaneers: How to Watch, Listen & Live Stream",
-      "rank": 48,
+      "rank": 42,
       "reasons": [
         "evergreen catalogue fit"
       ]
@@ -9402,7 +8184,7 @@
         }
       },
       "live_headline": "Browns vs. Buccaneers: How to Watch, Listen & Live Stream",
-      "rank": 49,
+      "rank": 43,
       "reasons": [
         "evergreen catalogue fit"
       ]
@@ -9587,7 +8369,7 @@
         }
       },
       "live_headline": "Browns vs. Buccaneers: How to Watch, Listen & Live Stream",
-      "rank": 50,
+      "rank": 44,
       "reasons": [
         "evergreen catalogue fit"
       ]
@@ -9772,7 +8554,7 @@
         }
       },
       "live_headline": "Browns vs. Buccaneers: How to Watch, Listen & Live Stream",
-      "rank": 51,
+      "rank": 45,
       "reasons": [
         "evergreen catalogue fit"
       ]
@@ -9957,7 +8739,7 @@
         }
       },
       "live_headline": "Browns vs. Buccaneers: How to Watch, Listen & Live Stream",
-      "rank": 52,
+      "rank": 46,
       "reasons": [
         "evergreen catalogue fit"
       ]
@@ -10144,7 +8926,7 @@
         }
       },
       "live_headline": "Browns vs. Buccaneers: How to Watch, Listen & Live Stream",
-      "rank": 53,
+      "rank": 47,
       "reasons": [
         "evergreen catalogue fit"
       ]
@@ -10331,7 +9113,7 @@
         }
       },
       "live_headline": "Browns vs. Buccaneers: How to Watch, Listen & Live Stream",
-      "rank": 54,
+      "rank": 48,
       "reasons": [
         "evergreen catalogue fit"
       ]
@@ -10518,7 +9300,7 @@
         }
       },
       "live_headline": "Browns vs. Buccaneers: How to Watch, Listen & Live Stream",
-      "rank": 55,
+      "rank": 49,
       "reasons": [
         "evergreen catalogue fit"
       ]
@@ -10707,7 +9489,7 @@
         }
       },
       "live_headline": "Browns vs. Buccaneers: How to Watch, Listen & Live Stream",
-      "rank": 56,
+      "rank": 50,
       "reasons": [
         "evergreen catalogue fit"
       ]
@@ -10892,7 +9674,7 @@
         }
       },
       "live_headline": "Browns vs. Buccaneers: How to Watch, Listen & Live Stream",
-      "rank": 57,
+      "rank": 51,
       "reasons": [
         "evergreen catalogue fit"
       ]
@@ -11079,7 +9861,7 @@
         }
       },
       "live_headline": "Browns vs. Buccaneers: How to Watch, Listen & Live Stream",
-      "rank": 58,
+      "rank": 52,
       "reasons": [
         "evergreen catalogue fit"
       ]
@@ -11264,7 +10046,7 @@
         }
       },
       "live_headline": "Browns vs. Buccaneers: How to Watch, Listen & Live Stream",
-      "rank": 59,
+      "rank": 53,
       "reasons": [
         "evergreen catalogue fit"
       ]
@@ -11451,7 +10233,7 @@
         }
       },
       "live_headline": "Browns vs. Buccaneers: How to Watch, Listen & Live Stream",
-      "rank": 60,
+      "rank": 54,
       "reasons": [
         "evergreen catalogue fit"
       ]
@@ -11636,7 +10418,7 @@
         }
       },
       "live_headline": "Browns vs. Buccaneers: How to Watch, Listen & Live Stream",
-      "rank": 61,
+      "rank": 55,
       "reasons": [
         "evergreen catalogue fit"
       ]
@@ -11821,7 +10603,7 @@
         }
       },
       "live_headline": "Browns vs. Buccaneers: How to Watch, Listen & Live Stream",
-      "rank": 62,
+      "rank": 56,
       "reasons": [
         "evergreen catalogue fit"
       ]
@@ -12006,7 +10788,7 @@
         }
       },
       "live_headline": "Browns vs. Buccaneers: How to Watch, Listen & Live Stream",
-      "rank": 63,
+      "rank": 57,
       "reasons": [
         "evergreen catalogue fit"
       ]
@@ -12191,7 +10973,7 @@
         }
       },
       "live_headline": "Browns vs. Buccaneers: How to Watch, Listen & Live Stream",
-      "rank": 64,
+      "rank": 58,
       "reasons": [
         "evergreen catalogue fit"
       ]
@@ -12376,7 +11158,7 @@
         }
       },
       "live_headline": "Browns vs. Buccaneers: How to Watch, Listen & Live Stream",
-      "rank": 65,
+      "rank": 59,
       "reasons": [
         "evergreen catalogue fit"
       ]
@@ -12557,7 +11339,7 @@
         }
       },
       "live_headline": "Browns vs. Buccaneers: How to Watch, Listen & Live Stream",
-      "rank": 66,
+      "rank": 60,
       "reasons": [
         "evergreen catalogue fit"
       ]
@@ -12738,7 +11520,7 @@
         }
       },
       "live_headline": "Browns vs. Buccaneers: How to Watch, Listen & Live Stream",
-      "rank": 67,
+      "rank": 61,
       "reasons": [
         "evergreen catalogue fit"
       ]
@@ -12919,7 +11701,7 @@
         }
       },
       "live_headline": "Browns vs. Buccaneers: How to Watch, Listen & Live Stream",
-      "rank": 68,
+      "rank": 62,
       "reasons": [
         "evergreen catalogue fit"
       ]
@@ -13104,7 +11886,7 @@
         }
       },
       "live_headline": "Brian Schottenheimer on Cowboys' season-opening loss: 'We got humbled'",
-      "rank": 69,
+      "rank": 63,
       "reasons": [
         "evergreen catalogue fit"
       ]
@@ -13289,7 +12071,7 @@
         }
       },
       "live_headline": "Brian Schottenheimer on Cowboys' season-opening loss: 'We got humbled'",
-      "rank": 70,
+      "rank": 64,
       "reasons": [
         "evergreen catalogue fit"
       ]
@@ -13474,7 +12256,7 @@
         }
       },
       "live_headline": "Brian Schottenheimer on Cowboys' season-opening loss: 'We got humbled'",
-      "rank": 71,
+      "rank": 65,
       "reasons": [
         "evergreen catalogue fit"
       ]
@@ -13663,211 +12445,9 @@
         }
       },
       "live_headline": "Game recap: 5 takeaways from Packers’ season-opening loss to Vikings",
-      "rank": 72,
+      "rank": 66,
       "reasons": [
         "evergreen catalogue fit"
-      ]
-    },
-    {
-      "slug": "limited-edition-grb33",
-      "source_index": 96,
-      "collection": "green-bay-packers",
-      "collection_label": "Green Bay Packers",
-      "name": "All You Need Is Love 10 Helmet Shirt",
-      "catalogue_title": "Limited Edition GRB33",
-      "design_text": "ALL YOU NEED IS 10VE with helmet and waves",
-      "theme": "retro",
-      "product_type": "Apparel",
-      "price_usd": "24.99",
-      "product_url": "https://gridironlocker.store/shop/limited-edition-grb33/",
-      "image_url": "https://assets.viralstyle.com/campaigns/12809b9f-219b-b674-610a-768cadf0334d/pGnBqK-GnmE8wO-Evm11re-front-large.jpg",
-      "keywords": [
-        "all you need is love packers",
-        "jordan love 10 shirt",
-        "green bay retro tee"
-      ],
-      "score": 47,
-      "score_breakdown": {
-        "score": 47,
-        "score_raw": 47,
-        "base": 50,
-        "season_search_terms": [
-          "jordan love 2026 shirt"
-        ],
-        "season_search_term_bonus": 22,
-        "headline_name_matches": [
-          {
-            "name": "jordan love",
-            "mentions": 0,
-            "repeated_mentions": 0,
-            "throwback_signal": true
-          }
-        ],
-        "headline_name_repeat_count": 0,
-        "headline_name_bonus": 0,
-        "playoff_or_player_theme": false,
-        "playoff_or_player_bonus": 0,
-        "throwback": true,
-        "throwback_entities": [
-          "jordan love"
-        ],
-        "throwback_penalty": -25
-      },
-      "opportunity": {
-        "score": 44.8,
-        "confidence": 75,
-        "factors": {
-          "audience": 60,
-          "search": 65,
-          "velocity": 10,
-          "gap": 35,
-          "competition": 50,
-          "business": 55,
-          "authority": 40,
-          "longevity": 40,
-          "distribution": 35
-        },
-        "weights": {
-          "audience": 20,
-          "search": 15,
-          "velocity": 15,
-          "gap": 15,
-          "competition": 10,
-          "business": 10,
-          "authority": 5,
-          "longevity": 5,
-          "distribution": 5
-        },
-        "trend_stage": "DECLINING",
-        "opportunity_type": "Evergreen",
-        "decision": "REJECT",
-        "decision_reason": "Departed player/coach — keep listed, do not promote",
-        "gates": {
-          "audience": {
-            "passed": true,
-            "note": "Targeted fanbase defined"
-          },
-          "evidence": {
-            "passed": true,
-            "note": "Hot query / entity match"
-          },
-          "differentiation": {
-            "passed": true,
-            "note": "Original design copy present (estimate — no rival comparison yet)"
-          },
-          "discovery": {
-            "passed": true,
-            "note": "Searchable terms present"
-          },
-          "business": {
-            "passed": true,
-            "note": "Commercial product"
-          },
-          "risk": {
-            "passed": false,
-            "note": "IP/throwback risk"
-          },
-          "cannibalization": {
-            "passed": false,
-            "note": "8 sibling term match(es)"
-          }
-        },
-        "compliance": {
-          "terms": [
-            "packers",
-            "green bay",
-            "jordan love"
-          ],
-          "team_terms": [
-            "packers",
-            "green bay"
-          ],
-          "person_terms": [
-            "jordan love"
-          ],
-          "throwback_terms": [],
-          "level": "medium",
-          "social_safe": false,
-          "social_blocked": true
-        },
-        "evidence": {
-          "has_season_terms": true,
-          "has_headline_momentum": false,
-          "has_current_person": true,
-          "competitive_data": "estimate — no live rival data"
-        }
-      },
-      "platforms": {
-        "instagram": {
-          "caption": "Sunday Funday started as a joke. Game recap: 5 takeaways from Packers’ season-opening loss to Vikings made All You Need Is Love 10 Helmet Shirt the tradition. Add it to your gift list before kickoff.",
-          "hashtags": [
-            "#jordanlove10shirt",
-            "#vintagefootball",
-            "#allyouneedislovepack",
-            "#gopackgo",
-            "#greenbayretrotee",
-            "#cheeseheadnation",
-            "#packersfans",
-            "#retrostyle"
-          ],
-          "prompt": "Frosty lakeside morning near an empty stadium walkway; evergreen shadows, warm green and golden sunrise, breath-cold air, wood-and-metal textures; nostalgic warmth, muted contrast, and a reflective atmosphere; vertical 4:5 framing, cinematic editorial atmosphere, natural light, tactile detail, and generous negative space"
-        },
-        "tiktok": {
-          "caption": "Lambeau Leap tutorial but it's just All You Need Is Love 10 Helmet Shirt after Game recap: 5 takeaways from Packers’ season-opening loss to Vikings. Show us the fit.",
-          "hashtags": [
-            "#gopackgo",
-            "#jordanlove10shirt",
-            "#cheeseheadnation",
-            "#allyouneedislovepack",
-            "#retrostyle",
-            "#greenbayretrotee",
-            "#packersfans",
-            "#vintagefootball"
-          ],
-          "prompt": "Frosty lakeside morning near an empty stadium walkway; evergreen shadows, warm green and golden sunrise, breath-cold air, wood-and-metal textures; nostalgic warmth, muted contrast, and a reflective atmosphere; vertical 9:16 framing with a strong center of calm negative space, cinematic editorial atmosphere, natural light, tactile detail, and generous negative space"
-        },
-        "facebook": {
-          "caption": "Community-owned, family-worn. Game recap: 5 takeaways from Packers’ season-opening loss to Vikings — All You Need Is Love 10 Helmet Shirt with ALL YOU NEED IS 10VE with helmet and waves is the tee that travels from Lambeau to the living room. Order early in the week if you want it for Sunday.",
-          "hashtags": [
-            "#cheeseheadnation",
-            "#allyouneedislovepack",
-            "#gopackgo",
-            "#vintagefootball",
-            "#jordanlove10shirt",
-            "#packersfans"
-          ],
-          "prompt": "Frosty lakeside morning near an empty stadium walkway; evergreen shadows, warm green and golden sunrise, breath-cold air, wood-and-metal textures; nostalgic warmth, muted contrast, and a reflective atmosphere; horizontal 16:9 framing, cinematic editorial atmosphere, natural light, tactile detail, and generous negative space"
-        },
-        "x": {
-          "caption": "Green Bay: Game recap: 5 takeaways from Packers’ season-opening loss to Vikings = All You Need Is Love 10 Helmet Shirt season. Cheesehead Nation, assemble. https://viralstyle.com/kebystore/limited-edition-grb33",
-          "hashtags": [
-            "#cheeseheadnation",
-            "#allyouneedislovepack",
-            "#packersfans",
-            "#retrostyle"
-          ],
-          "prompt": "Frosty lakeside morning near an empty stadium walkway; evergreen shadows, warm green and golden sunrise, breath-cold air, wood-and-metal textures; nostalgic warmth, muted contrast, and a reflective atmosphere; horizontal 16:9 framing with a wide horizon, cinematic editorial atmosphere, natural light, tactile detail, and generous negative space"
-        },
-        "pinterest": {
-          "caption": "All You Need Is Love 10 Helmet Shirt - Titletown Fan Style | Wisconsin Winter Game Day Idea. Save to your game day board — S to 3XL, printed on demand.",
-          "hashtags": [
-            "#cheeseheadnation",
-            "#jordanlove10shirt",
-            "#vintagefootball",
-            "#retrostyle",
-            "#greenbayretrotee",
-            "#allyouneedislovepack",
-            "#packersfans",
-            "#gopackgo"
-          ],
-          "prompt": "Frosty lakeside morning near an empty stadium walkway; evergreen shadows, warm green and golden sunrise, breath-cold air, wood-and-metal textures; nostalgic warmth, muted contrast, and a reflective atmosphere; vertical 2:3 framing with an airy editorial composition, cinematic editorial atmosphere, natural light, tactile detail, and generous negative space"
-        }
-      },
-      "live_headline": "Game recap: 5 takeaways from Packers’ season-opening loss to Vikings",
-      "rank": 73,
-      "reasons": [
-        "2026 search match",
-        "throwback penalty"
       ]
     },
     {
@@ -14065,207 +12645,7 @@
         }
       },
       "live_headline": "Game recap: 5 takeaways from Packers’ season-opening loss to Vikings",
-      "rank": 74,
-      "reasons": [
-        "2026 search match",
-        "throwback penalty"
-      ]
-    },
-    {
-      "slug": "limited-edition-grb12",
-      "source_index": 116,
-      "collection": "green-bay-packers",
-      "collection_label": "Green Bay Packers",
-      "name": "What Would Jordan Do Retro Shirt",
-      "catalogue_title": "Limited Edition GRB12",
-      "design_text": "WHAT WOULD JORDAN DO? retro color letters",
-      "theme": "retro",
-      "product_type": "Apparel",
-      "price_usd": "24.99",
-      "product_url": "https://gridironlocker.store/shop/limited-edition-grb12/",
-      "image_url": "https://assets.viralstyle.com/campaigns/5340f8fc-6ef9-1994-8dc2-808d7275df69/vZe6KY-WmzzD62-VkVVyvM-front-large.jpg",
-      "keywords": [
-        "what would jordan do",
-        "jordan love retro shirt",
-        "packers retro tee"
-      ],
-      "score": 47,
-      "score_breakdown": {
-        "score": 47,
-        "score_raw": 47,
-        "base": 50,
-        "season_search_terms": [
-          "jordan love 2026 shirt"
-        ],
-        "season_search_term_bonus": 22,
-        "headline_name_matches": [
-          {
-            "name": "jordan love",
-            "mentions": 0,
-            "repeated_mentions": 0,
-            "throwback_signal": true
-          }
-        ],
-        "headline_name_repeat_count": 0,
-        "headline_name_bonus": 0,
-        "playoff_or_player_theme": false,
-        "playoff_or_player_bonus": 0,
-        "throwback": true,
-        "throwback_entities": [
-          "jordan love"
-        ],
-        "throwback_penalty": -25
-      },
-      "opportunity": {
-        "score": 44.8,
-        "confidence": 75,
-        "factors": {
-          "audience": 60,
-          "search": 65,
-          "velocity": 10,
-          "gap": 35,
-          "competition": 50,
-          "business": 55,
-          "authority": 40,
-          "longevity": 40,
-          "distribution": 35
-        },
-        "weights": {
-          "audience": 20,
-          "search": 15,
-          "velocity": 15,
-          "gap": 15,
-          "competition": 10,
-          "business": 10,
-          "authority": 5,
-          "longevity": 5,
-          "distribution": 5
-        },
-        "trend_stage": "DECLINING",
-        "opportunity_type": "Evergreen",
-        "decision": "REJECT",
-        "decision_reason": "Departed player/coach — keep listed, do not promote",
-        "gates": {
-          "audience": {
-            "passed": true,
-            "note": "Targeted fanbase defined"
-          },
-          "evidence": {
-            "passed": true,
-            "note": "Hot query / entity match"
-          },
-          "differentiation": {
-            "passed": true,
-            "note": "Original design copy present (estimate — no rival comparison yet)"
-          },
-          "discovery": {
-            "passed": true,
-            "note": "Searchable terms present"
-          },
-          "business": {
-            "passed": true,
-            "note": "Commercial product"
-          },
-          "risk": {
-            "passed": false,
-            "note": "IP/throwback risk"
-          },
-          "cannibalization": {
-            "passed": false,
-            "note": "8 sibling term match(es)"
-          }
-        },
-        "compliance": {
-          "terms": [
-            "packers",
-            "jordan love"
-          ],
-          "team_terms": [
-            "packers"
-          ],
-          "person_terms": [
-            "jordan love"
-          ],
-          "throwback_terms": [],
-          "level": "medium",
-          "social_safe": false,
-          "social_blocked": true
-        },
-        "evidence": {
-          "has_season_terms": true,
-          "has_headline_momentum": false,
-          "has_current_person": true,
-          "competitive_data": "estimate — no live rival data"
-        }
-      },
-      "platforms": {
-        "instagram": {
-          "caption": "Community-owned since 1919. Game recap: 5 takeaways from Packers’ season-opening loss to Vikings. What Would Jordan Do Retro Shirt keeps the tradition alive. Save for your next game day, share with your crew.",
-          "hashtags": [
-            "#whatwouldjordando",
-            "#packersretrotee",
-            "#jordanloveretroshirt",
-            "#retrostyle",
-            "#cheeseheadnation",
-            "#gopackgo",
-            "#packersfans",
-            "#vintagefootball"
-          ],
-          "prompt": "Frosty lakeside morning near an empty stadium walkway; evergreen shadows, warm green and golden sunrise, breath-cold air, wood-and-metal textures; nostalgic warmth, muted contrast, and a reflective atmosphere; vertical 4:5 framing, cinematic editorial atmosphere, natural light, tactile detail, and generous negative space"
-        },
-        "tiktok": {
-          "caption": "Sunday Funday uniform: What Would Jordan Do Retro Shirt + Game recap: 5 takeaways from Packers’ season-opening loss to Vikings + brat. Show us the fit.",
-          "hashtags": [
-            "#vintagefootball",
-            "#jordanloveretroshirt",
-            "#whatwouldjordando",
-            "#gopackgo",
-            "#packersretrotee",
-            "#retrostyle",
-            "#cheeseheadnation",
-            "#packersfans"
-          ],
-          "prompt": "Frosty lakeside morning near an empty stadium walkway; evergreen shadows, warm green and golden sunrise, breath-cold air, wood-and-metal textures; nostalgic warmth, muted contrast, and a reflective atmosphere; vertical 9:16 framing with a strong center of calm negative space, cinematic editorial atmosphere, natural light, tactile detail, and generous negative space"
-        },
-        "facebook": {
-          "caption": "From frozen tundra mornings to Game recap: 5 takeaways from Packers’ season-opening loss to Vikings — What Would Jordan Do Retro Shirt keeps the tradition warm. Printed on demand in the USA, shipped worldwide with tracking.",
-          "hashtags": [
-            "#retrostyle",
-            "#cheeseheadnation",
-            "#vintagefootball",
-            "#jordanloveretroshirt",
-            "#packersfans",
-            "#whatwouldjordando"
-          ],
-          "prompt": "Frosty lakeside morning near an empty stadium walkway; evergreen shadows, warm green and golden sunrise, breath-cold air, wood-and-metal textures; nostalgic warmth, muted contrast, and a reflective atmosphere; horizontal 16:9 framing, cinematic editorial atmosphere, natural light, tactile detail, and generous negative space"
-        },
-        "x": {
-          "caption": "Game recap: 5 takeaways from Packers’ season-opening loss to Vikings. What Would Jordan Do Retro Shirt for Titletown. Fan-made, printed on demand. https://viralstyle.com/kebystore/limited-edition-grb12",
-          "hashtags": [
-            "#vintagefootball",
-            "#gopackgo",
-            "#whatwouldjordando",
-            "#cheeseheadnation"
-          ],
-          "prompt": "Frosty lakeside morning near an empty stadium walkway; evergreen shadows, warm green and golden sunrise, breath-cold air, wood-and-metal textures; nostalgic warmth, muted contrast, and a reflective atmosphere; horizontal 16:9 framing with a wide horizon, cinematic editorial atmosphere, natural light, tactile detail, and generous negative space"
-        },
-        "pinterest": {
-          "caption": "What Would Jordan Do Retro Shirt - Lambeau Field Tailgate Look | Wisconsin Fan Gift. Save this look for your next game day outfit.",
-          "hashtags": [
-            "#jordanloveretroshirt",
-            "#packersfans",
-            "#cheeseheadnation",
-            "#gopackgo",
-            "#packersretrotee",
-            "#whatwouldjordando",
-            "#retrostyle",
-            "#vintagefootball"
-          ],
-          "prompt": "Frosty lakeside morning near an empty stadium walkway; evergreen shadows, warm green and golden sunrise, breath-cold air, wood-and-metal textures; nostalgic warmth, muted contrast, and a reflective atmosphere; vertical 2:3 framing with an airy editorial composition, cinematic editorial atmosphere, natural light, tactile detail, and generous negative space"
-        }
-      },
-      "live_headline": "Game recap: 5 takeaways from Packers’ season-opening loss to Vikings",
-      "rank": 75,
+      "rank": 67,
       "reasons": [
         "2026 search match",
         "throwback penalty"
@@ -14462,7 +12842,7 @@
         }
       },
       "live_headline": "Game recap: 5 takeaways from Packers’ season-opening loss to Vikings",
-      "rank": 76,
+      "rank": 68,
       "reasons": [
         "throwback penalty"
       ]
@@ -14660,7 +13040,7 @@
         }
       },
       "live_headline": "Game recap: 5 takeaways from Packers’ season-opening loss to Vikings",
-      "rank": 77,
+      "rank": 69,
       "reasons": [
         "throwback penalty"
       ]
@@ -14856,7 +13236,7 @@
         }
       },
       "live_headline": "Game recap: 5 takeaways from Packers’ season-opening loss to Vikings",
-      "rank": 78,
+      "rank": 70,
       "reasons": [
         "throwback penalty"
       ]
@@ -15054,7 +13434,7 @@
         }
       },
       "live_headline": "Game recap: 5 takeaways from Packers’ season-opening loss to Vikings",
-      "rank": 79,
+      "rank": 71,
       "reasons": [
         "throwback penalty"
       ]
@@ -15250,7 +13630,7 @@
         }
       },
       "live_headline": "Game recap: 5 takeaways from Packers’ season-opening loss to Vikings",
-      "rank": 80,
+      "rank": 72,
       "reasons": [
         "throwback penalty"
       ]
@@ -15446,7 +13826,7 @@
         }
       },
       "live_headline": "Game recap: 5 takeaways from Packers’ season-opening loss to Vikings",
-      "rank": 81,
+      "rank": 73,
       "reasons": [
         "throwback penalty"
       ]
@@ -15644,7 +14024,7 @@
         }
       },
       "live_headline": "Game recap: 5 takeaways from Packers’ season-opening loss to Vikings",
-      "rank": 82,
+      "rank": 74,
       "reasons": [
         "throwback penalty"
       ]
@@ -15840,7 +14220,7 @@
         }
       },
       "live_headline": "Game recap: 5 takeaways from Packers’ season-opening loss to Vikings",
-      "rank": 83,
+      "rank": 75,
       "reasons": [
         "throwback penalty"
       ]
@@ -16036,7 +14416,7 @@
         }
       },
       "live_headline": "Game recap: 5 takeaways from Packers’ season-opening loss to Vikings",
-      "rank": 84,
+      "rank": 76,
       "reasons": [
         "throwback penalty"
       ]
@@ -16234,7 +14614,7 @@
         }
       },
       "live_headline": "Game recap: 5 takeaways from Packers’ season-opening loss to Vikings",
-      "rank": 85,
+      "rank": 77,
       "reasons": [
         "throwback penalty"
       ]
@@ -16428,7 +14808,7 @@
         }
       },
       "live_headline": "Game recap: 5 takeaways from Packers’ season-opening loss to Vikings",
-      "rank": 86,
+      "rank": 78,
       "reasons": [
         "throwback penalty"
       ]
@@ -16624,7 +15004,7 @@
         }
       },
       "live_headline": "Game recap: 5 takeaways from Packers’ season-opening loss to Vikings",
-      "rank": 87,
+      "rank": 79,
       "reasons": [
         "throwback penalty"
       ]
@@ -16820,7 +15200,7 @@
         }
       },
       "live_headline": "Game recap: 5 takeaways from Packers’ season-opening loss to Vikings",
-      "rank": 88,
+      "rank": 80,
       "reasons": [
         "throwback penalty"
       ]
@@ -17016,7 +15396,7 @@
         }
       },
       "live_headline": "Game recap: 5 takeaways from Packers’ season-opening loss to Vikings",
-      "rank": 89,
+      "rank": 81,
       "reasons": [
         "throwback penalty"
       ]
@@ -17210,7 +15590,7 @@
         }
       },
       "live_headline": "Game recap: 5 takeaways from Packers’ season-opening loss to Vikings",
-      "rank": 90,
+      "rank": 82,
       "reasons": [
         "throwback penalty"
       ]
@@ -17406,7 +15786,7 @@
         }
       },
       "live_headline": "Game recap: 5 takeaways from Packers’ season-opening loss to Vikings",
-      "rank": 91,
+      "rank": 83,
       "reasons": [
         "throwback penalty"
       ]
@@ -17602,7 +15982,7 @@
         }
       },
       "live_headline": "Game recap: 5 takeaways from Packers’ season-opening loss to Vikings",
-      "rank": 92,
+      "rank": 84,
       "reasons": [
         "throwback penalty"
       ]
@@ -17798,7 +16178,7 @@
         }
       },
       "live_headline": "Game recap: 5 takeaways from Packers’ season-opening loss to Vikings",
-      "rank": 93,
+      "rank": 85,
       "reasons": [
         "throwback penalty"
       ]
@@ -17994,7 +16374,7 @@
         }
       },
       "live_headline": "Game recap: 5 takeaways from Packers’ season-opening loss to Vikings",
-      "rank": 94,
+      "rank": 86,
       "reasons": [
         "throwback penalty"
       ]
@@ -18190,7 +16570,7 @@
         }
       },
       "live_headline": "Game recap: 5 takeaways from Packers’ season-opening loss to Vikings",
-      "rank": 95,
+      "rank": 87,
       "reasons": [
         "throwback penalty"
       ]
@@ -18386,7 +16766,7 @@
         }
       },
       "live_headline": "Game recap: 5 takeaways from Packers’ season-opening loss to Vikings",
-      "rank": 96,
+      "rank": 88,
       "reasons": [
         "throwback penalty"
       ]
@@ -20411,90 +18791,6 @@
     },
     {
       "rank": 16,
-      "slug": "limited-edition-grb31",
-      "name": "Jordan Love 10 Green Bay Hoodie",
-      "collection": "Green Bay Packers",
-      "score": 53,
-      "prompts": {
-        "instagram": "Frosty lakeside morning near an empty stadium walkway; evergreen shadows, warm green and golden sunrise, breath-cold air, wood-and-metal textures; nostalgic warmth, muted contrast, and a reflective atmosphere; vertical 4:5 framing, cinematic editorial atmosphere, natural light, tactile detail, and generous negative space",
-        "tiktok": "Frosty lakeside morning near an empty stadium walkway; evergreen shadows, warm green and golden sunrise, breath-cold air, wood-and-metal textures; nostalgic warmth, muted contrast, and a reflective atmosphere; vertical 9:16 framing with a strong center of calm negative space, cinematic editorial atmosphere, natural light, tactile detail, and generous negative space",
-        "facebook": "Frosty lakeside morning near an empty stadium walkway; evergreen shadows, warm green and golden sunrise, breath-cold air, wood-and-metal textures; nostalgic warmth, muted contrast, and a reflective atmosphere; horizontal 16:9 framing, cinematic editorial atmosphere, natural light, tactile detail, and generous negative space",
-        "x": "Frosty lakeside morning near an empty stadium walkway; evergreen shadows, warm green and golden sunrise, breath-cold air, wood-and-metal textures; nostalgic warmth, muted contrast, and a reflective atmosphere; horizontal 16:9 framing with a wide horizon, cinematic editorial atmosphere, natural light, tactile detail, and generous negative space",
-        "pinterest": "Frosty lakeside morning near an empty stadium walkway; evergreen shadows, warm green and golden sunrise, breath-cold air, wood-and-metal textures; nostalgic warmth, muted contrast, and a reflective atmosphere; vertical 2:3 framing with an airy editorial composition, cinematic editorial atmosphere, natural light, tactile detail, and generous negative space"
-      }
-    },
-    {
-      "rank": 17,
-      "slug": "limited-edition-grb30",
-      "name": "Jordan Freaking Love Shirt",
-      "collection": "Green Bay Packers",
-      "score": 53,
-      "prompts": {
-        "instagram": "Frosty lakeside morning near an empty stadium walkway; evergreen shadows, warm green and golden sunrise, breath-cold air, wood-and-metal textures; nostalgic warmth, muted contrast, and a reflective atmosphere; vertical 4:5 framing, cinematic editorial atmosphere, natural light, tactile detail, and generous negative space",
-        "tiktok": "Frosty lakeside morning near an empty stadium walkway; evergreen shadows, warm green and golden sunrise, breath-cold air, wood-and-metal textures; nostalgic warmth, muted contrast, and a reflective atmosphere; vertical 9:16 framing with a strong center of calm negative space, cinematic editorial atmosphere, natural light, tactile detail, and generous negative space",
-        "facebook": "Frosty lakeside morning near an empty stadium walkway; evergreen shadows, warm green and golden sunrise, breath-cold air, wood-and-metal textures; nostalgic warmth, muted contrast, and a reflective atmosphere; horizontal 16:9 framing, cinematic editorial atmosphere, natural light, tactile detail, and generous negative space",
-        "x": "Frosty lakeside morning near an empty stadium walkway; evergreen shadows, warm green and golden sunrise, breath-cold air, wood-and-metal textures; nostalgic warmth, muted contrast, and a reflective atmosphere; horizontal 16:9 framing with a wide horizon, cinematic editorial atmosphere, natural light, tactile detail, and generous negative space",
-        "pinterest": "Frosty lakeside morning near an empty stadium walkway; evergreen shadows, warm green and golden sunrise, breath-cold air, wood-and-metal textures; nostalgic warmth, muted contrast, and a reflective atmosphere; vertical 2:3 framing with an airy editorial composition, cinematic editorial atmosphere, natural light, tactile detail, and generous negative space"
-      }
-    },
-    {
-      "rank": 18,
-      "slug": "limited-edition-grb36",
-      "name": "Jordan Love 10 Flag Number Shirt",
-      "collection": "Green Bay Packers",
-      "score": 53,
-      "prompts": {
-        "instagram": "Frosty lakeside morning near an empty stadium walkway; evergreen shadows, warm green and golden sunrise, breath-cold air, wood-and-metal textures; nostalgic warmth, muted contrast, and a reflective atmosphere; vertical 4:5 framing, cinematic editorial atmosphere, natural light, tactile detail, and generous negative space",
-        "tiktok": "Frosty lakeside morning near an empty stadium walkway; evergreen shadows, warm green and golden sunrise, breath-cold air, wood-and-metal textures; nostalgic warmth, muted contrast, and a reflective atmosphere; vertical 9:16 framing with a strong center of calm negative space, cinematic editorial atmosphere, natural light, tactile detail, and generous negative space",
-        "facebook": "Frosty lakeside morning near an empty stadium walkway; evergreen shadows, warm green and golden sunrise, breath-cold air, wood-and-metal textures; nostalgic warmth, muted contrast, and a reflective atmosphere; horizontal 16:9 framing, cinematic editorial atmosphere, natural light, tactile detail, and generous negative space",
-        "x": "Frosty lakeside morning near an empty stadium walkway; evergreen shadows, warm green and golden sunrise, breath-cold air, wood-and-metal textures; nostalgic warmth, muted contrast, and a reflective atmosphere; horizontal 16:9 framing with a wide horizon, cinematic editorial atmosphere, natural light, tactile detail, and generous negative space",
-        "pinterest": "Frosty lakeside morning near an empty stadium walkway; evergreen shadows, warm green and golden sunrise, breath-cold air, wood-and-metal textures; nostalgic warmth, muted contrast, and a reflective atmosphere; vertical 2:3 framing with an airy editorial composition, cinematic editorial atmosphere, natural light, tactile detail, and generous negative space"
-      }
-    },
-    {
-      "rank": 19,
-      "slug": "limited-edition-grb24",
-      "name": "Love 10 Jersey Back Shirt",
-      "collection": "Green Bay Packers",
-      "score": 53,
-      "prompts": {
-        "instagram": "Frosty lakeside morning near an empty stadium walkway; evergreen shadows, warm green and golden sunrise, breath-cold air, wood-and-metal textures; nostalgic warmth, muted contrast, and a reflective atmosphere; vertical 4:5 framing, cinematic editorial atmosphere, natural light, tactile detail, and generous negative space",
-        "tiktok": "Frosty lakeside morning near an empty stadium walkway; evergreen shadows, warm green and golden sunrise, breath-cold air, wood-and-metal textures; nostalgic warmth, muted contrast, and a reflective atmosphere; vertical 9:16 framing with a strong center of calm negative space, cinematic editorial atmosphere, natural light, tactile detail, and generous negative space",
-        "facebook": "Frosty lakeside morning near an empty stadium walkway; evergreen shadows, warm green and golden sunrise, breath-cold air, wood-and-metal textures; nostalgic warmth, muted contrast, and a reflective atmosphere; horizontal 16:9 framing, cinematic editorial atmosphere, natural light, tactile detail, and generous negative space",
-        "x": "Frosty lakeside morning near an empty stadium walkway; evergreen shadows, warm green and golden sunrise, breath-cold air, wood-and-metal textures; nostalgic warmth, muted contrast, and a reflective atmosphere; horizontal 16:9 framing with a wide horizon, cinematic editorial atmosphere, natural light, tactile detail, and generous negative space",
-        "pinterest": "Frosty lakeside morning near an empty stadium walkway; evergreen shadows, warm green and golden sunrise, breath-cold air, wood-and-metal textures; nostalgic warmth, muted contrast, and a reflective atmosphere; vertical 2:3 framing with an airy editorial composition, cinematic editorial atmosphere, natural light, tactile detail, and generous negative space"
-      }
-    },
-    {
-      "rank": 20,
-      "slug": "limited-edition-grb4",
-      "name": "Let The 10VE Begin Green Bay Shirt",
-      "collection": "Green Bay Packers",
-      "score": 53,
-      "prompts": {
-        "instagram": "Frosty lakeside morning near an empty stadium walkway; evergreen shadows, warm green and golden sunrise, breath-cold air, wood-and-metal textures; nostalgic warmth, muted contrast, and a reflective atmosphere; vertical 4:5 framing, cinematic editorial atmosphere, natural light, tactile detail, and generous negative space",
-        "tiktok": "Frosty lakeside morning near an empty stadium walkway; evergreen shadows, warm green and golden sunrise, breath-cold air, wood-and-metal textures; nostalgic warmth, muted contrast, and a reflective atmosphere; vertical 9:16 framing with a strong center of calm negative space, cinematic editorial atmosphere, natural light, tactile detail, and generous negative space",
-        "facebook": "Frosty lakeside morning near an empty stadium walkway; evergreen shadows, warm green and golden sunrise, breath-cold air, wood-and-metal textures; nostalgic warmth, muted contrast, and a reflective atmosphere; horizontal 16:9 framing, cinematic editorial atmosphere, natural light, tactile detail, and generous negative space",
-        "x": "Frosty lakeside morning near an empty stadium walkway; evergreen shadows, warm green and golden sunrise, breath-cold air, wood-and-metal textures; nostalgic warmth, muted contrast, and a reflective atmosphere; horizontal 16:9 framing with a wide horizon, cinematic editorial atmosphere, natural light, tactile detail, and generous negative space",
-        "pinterest": "Frosty lakeside morning near an empty stadium walkway; evergreen shadows, warm green and golden sunrise, breath-cold air, wood-and-metal textures; nostalgic warmth, muted contrast, and a reflective atmosphere; vertical 2:3 framing with an airy editorial composition, cinematic editorial atmosphere, natural light, tactile detail, and generous negative space"
-      }
-    },
-    {
-      "rank": 21,
-      "slug": "limited-edition-grb11",
-      "name": "Jordan Love Is All You Need Shirt",
-      "collection": "Green Bay Packers",
-      "score": 53,
-      "prompts": {
-        "instagram": "Frosty lakeside morning near an empty stadium walkway; evergreen shadows, warm green and golden sunrise, breath-cold air, wood-and-metal textures; nostalgic warmth, muted contrast, and a reflective atmosphere; vertical 4:5 framing, cinematic editorial atmosphere, natural light, tactile detail, and generous negative space",
-        "tiktok": "Frosty lakeside morning near an empty stadium walkway; evergreen shadows, warm green and golden sunrise, breath-cold air, wood-and-metal textures; nostalgic warmth, muted contrast, and a reflective atmosphere; vertical 9:16 framing with a strong center of calm negative space, cinematic editorial atmosphere, natural light, tactile detail, and generous negative space",
-        "facebook": "Frosty lakeside morning near an empty stadium walkway; evergreen shadows, warm green and golden sunrise, breath-cold air, wood-and-metal textures; nostalgic warmth, muted contrast, and a reflective atmosphere; horizontal 16:9 framing, cinematic editorial atmosphere, natural light, tactile detail, and generous negative space",
-        "x": "Frosty lakeside morning near an empty stadium walkway; evergreen shadows, warm green and golden sunrise, breath-cold air, wood-and-metal textures; nostalgic warmth, muted contrast, and a reflective atmosphere; horizontal 16:9 framing with a wide horizon, cinematic editorial atmosphere, natural light, tactile detail, and generous negative space",
-        "pinterest": "Frosty lakeside morning near an empty stadium walkway; evergreen shadows, warm green and golden sunrise, breath-cold air, wood-and-metal textures; nostalgic warmth, muted contrast, and a reflective atmosphere; vertical 2:3 framing with an airy editorial composition, cinematic editorial atmosphere, natural light, tactile detail, and generous negative space"
-      }
-    },
-    {
-      "rank": 22,
       "slug": "bend-football-fans",
       "name": "Bend & Snap Funny Football Shirt",
       "collection": "Cleveland Browns",
@@ -20508,7 +18804,7 @@
       }
     },
     {
-      "rank": 23,
+      "rank": 17,
       "slug": "cleveland-its-not-that-bad-have-a-beer",
       "name": "Cleveland It's Not That Bad Have A Beer Shirt",
       "collection": "Cleveland Browns",
@@ -20522,7 +18818,7 @@
       }
     },
     {
-      "rank": 24,
+      "rank": 18,
       "slug": "limited-edition-br-summer-2024",
       "name": "Cleveland Summer Slam Shirt",
       "collection": "Cleveland Browns",
@@ -20536,7 +18832,7 @@
       }
     },
     {
-      "rank": 25,
+      "rank": 19,
       "slug": "ohio-cleveland-fans",
       "name": "Ohio Football Cleveland State Outline Shirt",
       "collection": "Cleveland Browns",
@@ -20550,7 +18846,7 @@
       }
     },
     {
-      "rank": 26,
+      "rank": 20,
       "slug": "beware-of-dawg",
       "name": "Beware Of Dawg Cleveland Shirt",
       "collection": "Cleveland Browns",
@@ -20564,7 +18860,7 @@
       }
     },
     {
-      "rank": 27,
+      "rank": 21,
       "slug": "lets-go-cleveland",
       "name": "Let's Go Cleveland Football Shirt",
       "collection": "Cleveland Browns",
@@ -20578,7 +18874,7 @@
       }
     },
     {
-      "rank": 28,
+      "rank": 22,
       "slug": "this-girl-loves-browns-coach",
       "name": "This Girl Loves Browns' Coach Hoodie",
       "collection": "Cleveland Browns",
@@ -20592,7 +18888,7 @@
       }
     },
     {
-      "rank": 29,
+      "rank": 23,
       "slug": "my-heart-is-on-that-field",
       "name": "My Heart Is On That Field Football Shirt",
       "collection": "Cleveland Browns",
@@ -20606,7 +18902,7 @@
       }
     },
     {
-      "rank": 30,
+      "rank": 24,
       "slug": "dawg-pound",
       "name": "Cleveland Browns Dawg Pound Shirt",
       "collection": "Cleveland Browns",
@@ -20620,7 +18916,7 @@
       }
     },
     {
-      "rank": 31,
+      "rank": 25,
       "slug": "whispered-go-browns",
       "name": "So I Whispered Go Browns Funny Shirt",
       "collection": "Cleveland Browns",
@@ -20634,7 +18930,7 @@
       }
     },
     {
-      "rank": 32,
+      "rank": 26,
       "slug": "winter-hat-beanie-go-browns",
       "name": "Go Browns Orange Winter Beanie",
       "collection": "Cleveland Browns",
@@ -20648,7 +18944,7 @@
       }
     },
     {
-      "rank": 33,
+      "rank": 27,
       "slug": "limited-edition-lfg",
       "name": "LFG CLE Cleveland Sweatshirt",
       "collection": "Cleveland Browns",
@@ -20662,7 +18958,7 @@
       }
     },
     {
-      "rank": 34,
+      "rank": 28,
       "slug": "winter-hat-beanie-cleveland",
       "name": "Cleveland Black Winter Beanie",
       "collection": "Cleveland Browns",
@@ -20676,7 +18972,7 @@
       }
     },
     {
-      "rank": 35,
+      "rank": 29,
       "slug": "winter-hat-beanie-browns",
       "name": "Browns Orange Winter Beanie",
       "collection": "Cleveland Browns",
@@ -20690,7 +18986,7 @@
       }
     },
     {
-      "rank": 36,
+      "rank": 30,
       "slug": "limited-edition-2024n2",
       "name": "Dawg Life Bulldog Sweatshirt",
       "collection": "Cleveland Browns",
@@ -20704,7 +19000,7 @@
       }
     },
     {
-      "rank": 37,
+      "rank": 31,
       "slug": "limited-edition-241",
       "name": "Cleveland Skyline Football Shirt",
       "collection": "Cleveland Browns",
@@ -20718,7 +19014,7 @@
       }
     },
     {
-      "rank": 38,
+      "rank": 32,
       "slug": "limited-edition-our-coach",
       "name": "Our Coach Is Hotter Than Yours Sweatshirt",
       "collection": "Cleveland Browns",
@@ -20732,7 +19028,7 @@
       }
     },
     {
-      "rank": 39,
+      "rank": 33,
       "slug": "limited-edition-66",
       "name": "CLVLAND Find A Way By Any Means Sweatshirt",
       "collection": "Cleveland Browns",
@@ -20746,7 +19042,7 @@
       }
     },
     {
-      "rank": 40,
+      "rank": 34,
       "slug": "limited-edition-s-u-n-d-a-y-s",
       "name": "Sundays Are For The Browns Sweatshirt",
       "collection": "Cleveland Browns",
@@ -20760,7 +19056,7 @@
       }
     },
     {
-      "rank": 41,
+      "rank": 35,
       "slug": "limited-edition-d-w-a-g-s",
       "name": "Sundays Are For The Dawgs Red Sweatshirt",
       "collection": "Cleveland Browns",
@@ -20774,7 +19070,7 @@
       }
     },
     {
-      "rank": 42,
+      "rank": 36,
       "slug": "limited-edition-c2",
       "name": "CLE Script Football White Sweatshirt",
       "collection": "Cleveland Browns",
@@ -20788,7 +19084,7 @@
       }
     },
     {
-      "rank": 43,
+      "rank": 37,
       "slug": "limited-edition-c1",
       "name": "CLE Script Football Red Sweatshirt",
       "collection": "Cleveland Browns",
@@ -20802,7 +19098,7 @@
       }
     },
     {
-      "rank": 44,
+      "rank": 38,
       "slug": "limited-edition-b-e-k-i-n-d",
       "name": "Be Kind Cleveland Elf Sweatshirt",
       "collection": "Cleveland Browns",
@@ -20816,7 +19112,7 @@
       }
     },
     {
-      "rank": 45,
+      "rank": 39,
       "slug": "limited-edition-d-w-a-g",
       "name": "Dawg Pound Bulldog Red Sweatshirt",
       "collection": "Cleveland Browns",
@@ -20830,7 +19126,7 @@
       }
     },
     {
-      "rank": 46,
+      "rank": 40,
       "slug": "limited-edition-b-r-o-w-n-s-h-e-l-m-e-t",
       "name": "Cleveland Helmet Phone Case",
       "collection": "Cleveland Browns",
@@ -20844,7 +19140,7 @@
       }
     },
     {
-      "rank": 47,
+      "rank": 41,
       "slug": "limited-edition-cle-mug",
       "name": "Victory Monday Cleveland Coffee Mug",
       "collection": "Cleveland Browns",
@@ -20858,7 +19154,7 @@
       }
     },
     {
-      "rank": 48,
+      "rank": 42,
       "slug": "limited-edition-victory-morning",
       "name": "Victory Monday Red Sweatshirt",
       "collection": "Cleveland Browns",
@@ -20872,7 +19168,7 @@
       }
     },
     {
-      "rank": 49,
+      "rank": 43,
       "slug": "limited-edition-b-r-o-w-n-s1",
       "name": "Refuse To Surrender Winning Is Coming Sweatshirt",
       "collection": "Cleveland Browns",
@@ -20886,7 +19182,7 @@
       }
     },
     {
-      "rank": 50,
+      "rank": 44,
       "slug": "limited-edition-c-l-e-aint-for-sissies",
       "name": "Cleveland Ain't For Sissies Sweatshirt",
       "collection": "Cleveland Browns",
@@ -20900,7 +19196,7 @@
       }
     },
     {
-      "rank": 51,
+      "rank": 45,
       "slug": "limited-edition-rise-and-shine",
       "name": "Rise And Shine It's Game Day Sweatshirt",
       "collection": "Cleveland Browns",
@@ -20914,7 +19210,7 @@
       }
     },
     {
-      "rank": 52,
+      "rank": 46,
       "slug": "limited-edition-cleveland-lovers",
       "name": "I'll Always Be Your Biggest Fan Sweatshirt",
       "collection": "Cleveland Browns",
@@ -20928,7 +19224,7 @@
       }
     },
     {
-      "rank": 53,
+      "rank": 47,
       "slug": "limited-edition-b-r-o-w-n-s-cleveland-ca",
       "name": "Cleveland Helmet Splatter Phone Case",
       "collection": "Cleveland Browns",
@@ -20942,7 +19238,7 @@
       }
     },
     {
-      "rank": 54,
+      "rank": 48,
       "slug": "limited-edition-b-r-o-w-n-s",
       "name": "Cleveland Helmet Flag Phone Case",
       "collection": "Cleveland Browns",
@@ -20956,7 +19252,7 @@
       }
     },
     {
-      "rank": 55,
+      "rank": 49,
       "slug": "limited-edition-cleveland-fans",
       "name": "Stomping On These Haters Browns Style Sweatshirt",
       "collection": "Cleveland Browns",
@@ -20970,7 +19266,7 @@
       }
     },
     {
-      "rank": 56,
+      "rank": 50,
       "slug": "limited-edition-cleveland",
       "name": "Cleveland Bulldog Red Sweatshirt",
       "collection": "Cleveland Browns",
@@ -20984,7 +19280,7 @@
       }
     },
     {
-      "rank": 57,
+      "rank": 51,
       "slug": "d-a-w-g-b-i-t-c-limited-edition",
       "name": "Cleveland Bitcoin Bulldawgs Sweatshirt",
       "collection": "Cleveland Browns",
@@ -20998,7 +19294,7 @@
       }
     },
     {
-      "rank": 58,
+      "rank": 52,
       "slug": "i-love-b-r-o-w-n-s-limited-edition",
       "name": "I Love Browns Heart Sweatshirt",
       "collection": "Cleveland Browns",
@@ -21012,7 +19308,7 @@
       }
     },
     {
-      "rank": 59,
+      "rank": 53,
       "slug": "d-a-w-g-s-limited-edition",
       "name": "Sundays Are For The Dawgs Est 1946 Shirt",
       "collection": "Cleveland Browns",
@@ -21026,7 +19322,7 @@
       }
     },
     {
-      "rank": 60,
+      "rank": 54,
       "slug": "b-r-o-w-n-s-sugar-skull-halloween-long",
       "name": "Cleveland Sugar Skull Halloween All-Over Long Sleeve",
       "collection": "Cleveland Browns",
@@ -21040,7 +19336,7 @@
       }
     },
     {
-      "rank": 61,
+      "rank": 55,
       "slug": "br-sugar-skull-halloween",
       "name": "Cleveland Sugar Skull Halloween All-Over Shirt",
       "collection": "Cleveland Browns",
@@ -21054,7 +19350,7 @@
       }
     },
     {
-      "rank": 62,
+      "rank": 56,
       "slug": "cleveland-retro-vintage-classic-ohio-fan",
       "name": "Cleveland Retro Skyline Football Shirt",
       "collection": "Cleveland Browns",
@@ -21068,7 +19364,7 @@
       }
     },
     {
-      "rank": 63,
+      "rank": 57,
       "slug": "cleveland-retro-vintage-classic-ohio-shi-1",
       "name": "Cleveland Ohio Retro Bulldog Gameday Shirt",
       "collection": "Cleveland Browns",
@@ -21082,7 +19378,7 @@
       }
     },
     {
-      "rank": 64,
+      "rank": 58,
       "slug": "cleveland-retro-vintage-classic-ohio-shi",
       "name": "Cleveland Ohio Retro Bulldog Shirt",
       "collection": "Cleveland Browns",
@@ -21096,7 +19392,7 @@
       }
     },
     {
-      "rank": 65,
+      "rank": 59,
       "slug": "cleveland-retro-vintage-classic-ohio-gif",
       "name": "Vintage Cleveland Script Hoodie",
       "collection": "Cleveland Browns",
@@ -21110,7 +19406,7 @@
       }
     },
     {
-      "rank": 66,
+      "rank": 60,
       "slug": "line-man-dad-football-t-shirt",
       "name": "Lineman Dad Football Shirt",
       "collection": "Cleveland Browns",
@@ -21124,7 +19420,7 @@
       }
     },
     {
-      "rank": 67,
+      "rank": 61,
       "slug": "my-life-is-for-football-t-shirt",
       "name": "My Life Is For Football Shirt",
       "collection": "Cleveland Browns",
@@ -21138,7 +19434,7 @@
       }
     },
     {
-      "rank": 68,
+      "rank": 62,
       "slug": "dibs-on-the-coach-football-funny-football-1",
       "name": "Dibs On The Coach Funny Football Shirt",
       "collection": "Cleveland Browns",
@@ -21152,7 +19448,7 @@
       }
     },
     {
-      "rank": 69,
+      "rank": 63,
       "slug": "vintage-country",
       "name": "Y'all Can Kiss My Dallas Longhorn Shirt",
       "collection": "Dallas Cowboys",
@@ -21166,7 +19462,7 @@
       }
     },
     {
-      "rank": 70,
+      "rank": 64,
       "slug": "dallas-flag-tee",
       "name": "Dallas American Flag Vertical Shirt",
       "collection": "Dallas Cowboys",
@@ -21180,7 +19476,7 @@
       }
     },
     {
-      "rank": 71,
+      "rank": 65,
       "slug": "vintage-texas-pride",
       "name": "Dallas Texas State Flag Pride Shirt",
       "collection": "Dallas Cowboys",
@@ -21194,7 +19490,7 @@
       }
     },
     {
-      "rank": 72,
+      "rank": 66,
       "slug": "limited-edition-grb35",
       "name": "Cheese Heart Green Bay Mug",
       "collection": "Green Bay Packers",
@@ -21208,21 +19504,7 @@
       }
     },
     {
-      "rank": 73,
-      "slug": "limited-edition-grb33",
-      "name": "All You Need Is Love 10 Helmet Shirt",
-      "collection": "Green Bay Packers",
-      "score": 47,
-      "prompts": {
-        "instagram": "Frosty lakeside morning near an empty stadium walkway; evergreen shadows, warm green and golden sunrise, breath-cold air, wood-and-metal textures; nostalgic warmth, muted contrast, and a reflective atmosphere; vertical 4:5 framing, cinematic editorial atmosphere, natural light, tactile detail, and generous negative space",
-        "tiktok": "Frosty lakeside morning near an empty stadium walkway; evergreen shadows, warm green and golden sunrise, breath-cold air, wood-and-metal textures; nostalgic warmth, muted contrast, and a reflective atmosphere; vertical 9:16 framing with a strong center of calm negative space, cinematic editorial atmosphere, natural light, tactile detail, and generous negative space",
-        "facebook": "Frosty lakeside morning near an empty stadium walkway; evergreen shadows, warm green and golden sunrise, breath-cold air, wood-and-metal textures; nostalgic warmth, muted contrast, and a reflective atmosphere; horizontal 16:9 framing, cinematic editorial atmosphere, natural light, tactile detail, and generous negative space",
-        "x": "Frosty lakeside morning near an empty stadium walkway; evergreen shadows, warm green and golden sunrise, breath-cold air, wood-and-metal textures; nostalgic warmth, muted contrast, and a reflective atmosphere; horizontal 16:9 framing with a wide horizon, cinematic editorial atmosphere, natural light, tactile detail, and generous negative space",
-        "pinterest": "Frosty lakeside morning near an empty stadium walkway; evergreen shadows, warm green and golden sunrise, breath-cold air, wood-and-metal textures; nostalgic warmth, muted contrast, and a reflective atmosphere; vertical 2:3 framing with an airy editorial composition, cinematic editorial atmosphere, natural light, tactile detail, and generous negative space"
-      }
-    },
-    {
-      "rank": 74,
+      "rank": 67,
       "slug": "limited-edition-grb5",
       "name": "Go Pack Go Stencil Shirt",
       "collection": "Green Bay Packers",
@@ -21236,21 +19518,7 @@
       }
     },
     {
-      "rank": 75,
-      "slug": "limited-edition-grb12",
-      "name": "What Would Jordan Do Retro Shirt",
-      "collection": "Green Bay Packers",
-      "score": 47,
-      "prompts": {
-        "instagram": "Frosty lakeside morning near an empty stadium walkway; evergreen shadows, warm green and golden sunrise, breath-cold air, wood-and-metal textures; nostalgic warmth, muted contrast, and a reflective atmosphere; vertical 4:5 framing, cinematic editorial atmosphere, natural light, tactile detail, and generous negative space",
-        "tiktok": "Frosty lakeside morning near an empty stadium walkway; evergreen shadows, warm green and golden sunrise, breath-cold air, wood-and-metal textures; nostalgic warmth, muted contrast, and a reflective atmosphere; vertical 9:16 framing with a strong center of calm negative space, cinematic editorial atmosphere, natural light, tactile detail, and generous negative space",
-        "facebook": "Frosty lakeside morning near an empty stadium walkway; evergreen shadows, warm green and golden sunrise, breath-cold air, wood-and-metal textures; nostalgic warmth, muted contrast, and a reflective atmosphere; horizontal 16:9 framing, cinematic editorial atmosphere, natural light, tactile detail, and generous negative space",
-        "x": "Frosty lakeside morning near an empty stadium walkway; evergreen shadows, warm green and golden sunrise, breath-cold air, wood-and-metal textures; nostalgic warmth, muted contrast, and a reflective atmosphere; horizontal 16:9 framing with a wide horizon, cinematic editorial atmosphere, natural light, tactile detail, and generous negative space",
-        "pinterest": "Frosty lakeside morning near an empty stadium walkway; evergreen shadows, warm green and golden sunrise, breath-cold air, wood-and-metal textures; nostalgic warmth, muted contrast, and a reflective atmosphere; vertical 2:3 framing with an airy editorial composition, cinematic editorial atmosphere, natural light, tactile detail, and generous negative space"
-      }
-    },
-    {
-      "rank": 76,
+      "rank": 68,
       "slug": "limited-edition-grb37",
       "name": "This Girl Loves The Pack Shirt",
       "collection": "Green Bay Packers",
@@ -21264,7 +19532,7 @@
       }
     },
     {
-      "rank": 77,
+      "rank": 69,
       "slug": "limited-edition-grb32",
       "name": "Cheese Heart Green Bay Shirt",
       "collection": "Green Bay Packers",
@@ -21278,7 +19546,7 @@
       }
     },
     {
-      "rank": 78,
+      "rank": 70,
       "slug": "limited-edition-grb29",
       "name": "Pack Is Back Green Bay Shirt",
       "collection": "Green Bay Packers",
@@ -21292,7 +19560,7 @@
       }
     },
     {
-      "rank": 79,
+      "rank": 71,
       "slug": "limited-edition-grb8",
       "name": "Green Bay Football Cheesehead Nation Shirt",
       "collection": "Green Bay Packers",
@@ -21306,7 +19574,7 @@
       }
     },
     {
-      "rank": 80,
+      "rank": 72,
       "slug": "limited-edition-grb7",
       "name": "Green Bay Football Cheese And Beer Shirt",
       "collection": "Green Bay Packers",
@@ -21320,7 +19588,7 @@
       }
     },
     {
-      "rank": 81,
+      "rank": 73,
       "slug": "limited-edition-grb27",
       "name": "Packers Distressed American Flag Shirt",
       "collection": "Green Bay Packers",
@@ -21334,7 +19602,7 @@
       }
     },
     {
-      "rank": 82,
+      "rank": 74,
       "slug": "limited-edition-grb26",
       "name": "Green Bay Packers Football Stars Shirt",
       "collection": "Green Bay Packers",
@@ -21348,7 +19616,7 @@
       }
     },
     {
-      "rank": 83,
+      "rank": 75,
       "slug": "limited-edition-grb1-1",
       "name": "Green Bay Vs Everyone Shirt",
       "collection": "Green Bay Packers",
@@ -21362,7 +19630,7 @@
       }
     },
     {
-      "rank": 84,
+      "rank": 76,
       "slug": "limited-edition-grb16",
       "name": "Green Bay WI Football Team Est 1919 Shirt",
       "collection": "Green Bay Packers",
@@ -21376,7 +19644,7 @@
       }
     },
     {
-      "rank": 85,
+      "rank": 77,
       "slug": "limited-edition-grb15",
       "name": "Property Of Green Bay Packers 1919 Shirt",
       "collection": "Green Bay Packers",
@@ -21390,7 +19658,7 @@
       }
     },
     {
-      "rank": 86,
+      "rank": 78,
       "slug": "limited-edition-grb25",
       "name": "Sunday Funday Wisconsin Outline Shirt",
       "collection": "Green Bay Packers",
@@ -21404,7 +19672,7 @@
       }
     },
     {
-      "rank": 87,
+      "rank": 79,
       "slug": "limited-edition-grb2",
       "name": "The Packers Make Me Drink Shirt",
       "collection": "Green Bay Packers",
@@ -21418,7 +19686,7 @@
       }
     },
     {
-      "rank": 88,
+      "rank": 80,
       "slug": "limited-edition-grb3",
       "name": "Our Coach Is Hotter Than Your Coach Shirt",
       "collection": "Green Bay Packers",
@@ -21432,7 +19700,7 @@
       }
     },
     {
-      "rank": 89,
+      "rank": 81,
       "slug": "limited-edition-grb6",
       "name": "Sunday Funday Green Bay Script Shirt",
       "collection": "Green Bay Packers",
@@ -21446,7 +19714,7 @@
       }
     },
     {
-      "rank": 90,
+      "rank": 82,
       "slug": "limited-edition-grb9",
       "name": "Wisconsin Home State Shirt",
       "collection": "Green Bay Packers",
@@ -21460,7 +19728,7 @@
       }
     },
     {
-      "rank": 91,
+      "rank": 83,
       "slug": "limited-edition-grb10",
       "name": "Green Bay Touchdown Shirt",
       "collection": "Green Bay Packers",
@@ -21474,7 +19742,7 @@
       }
     },
     {
-      "rank": 92,
+      "rank": 84,
       "slug": "limited-edition-grb13",
       "name": "Packers Retro Stacked Repeat Shirt",
       "collection": "Green Bay Packers",
@@ -21488,7 +19756,7 @@
       }
     },
     {
-      "rank": 93,
+      "rank": 85,
       "slug": "limited-edition-grb14",
       "name": "Packers Groovy Wavy White Shirt",
       "collection": "Green Bay Packers",
@@ -21502,7 +19770,7 @@
       }
     },
     {
-      "rank": 94,
+      "rank": 86,
       "slug": "limited-edition-grb17",
       "name": "Green Bay Wisconsin Minimal Shirt",
       "collection": "Green Bay Packers",
@@ -21516,7 +19784,7 @@
       }
     },
     {
-      "rank": 95,
+      "rank": 87,
       "slug": "limited-edition-grb18",
       "name": "The Future Is Green Packers Shirt",
       "collection": "Green Bay Packers",
@@ -21530,7 +19798,7 @@
       }
     },
     {
-      "rank": 96,
+      "rank": 88,
       "slug": "limited-edition-grb20",
       "name": "Sunday Funday Green Bay Bars Shirt",
       "collection": "Green Bay Packers",
@@ -21829,7 +20097,7 @@
   "compliance": {
     "licensing_status": "UNVERIFIED",
     "restriction": "Promotional social content must not use team names, player names, player likenesses, or protected marks until licensing is verified.",
-    "social_blocked_designs": 91,
+    "social_blocked_designs": 83,
     "social_safe_designs": 5,
     "high_risk_designs": 0
   }

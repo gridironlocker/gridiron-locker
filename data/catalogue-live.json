@@ -3,24 +3,24 @@
   "generator": "src/catalogue_contract.py",
   "source": "src/build.py :: build.ALL - the merged master catalogue",
   "contract": "This is the ONLY authoritative list of sellable designs. Marketing must filter every queue, brief, drop and pin against it. Do not read data/products.json or data/products_live.json as a catalogue: both are stale crawl artefacts. Written by the storefront on every build; marketing reads it and never writes it.",
-  "count": 83,
+  "count": 69,
   "per_collection": {
-    "cleveland-browns": 19,
+    "cleveland-browns": 17,
     "dallas-cowboys": 10,
-    "green-bay-packers": 37,
-    "michigan": 17
+    "green-bay-packers": 27,
+    "michigan": 15
   },
   "products": [
     {
-      "slug": "be-awar-of-dawg",
-      "name": "Beware Of Dawg",
+      "slug": "beware-of-dawg",
+      "name": "Beware Of Dawg Cleveland Shirt",
       "collection": "cleveland-browns",
       "partner": "Mayzing",
-      "url": "https://gridironlocker.store/shop/be-awar-of-dawg/",
+      "url": "https://gridironlocker.store/shop/beware-of-dawg/",
       "buy_url": "https://gridironlocker.shop/be-awar-of-dawg?collectionId=P19bpeU2x_Ng&color=GILDAN-DARK_CHOCOLATE&productId=6aa548c6f475ab73b096ff20",
       "price_usd": 21.0,
       "garment": "T-Shirt",
-      "theme": "funny",
+      "theme": "classic",
       "site_published": true
     },
     {
@@ -108,6 +108,18 @@
       "site_published": true
     },
     {
+      "slug": "dawg",
+      "name": "DAWG",
+      "collection": "cleveland-browns",
+      "partner": "Mayzing",
+      "url": "https://gridironlocker.store/shop/dawg/",
+      "buy_url": "https://gridironlocker.shop/DWAG?collectionId=P19bpeU2x_Ng&color=GILDAN-OLD_GOLD&productId=6aa337dfdb76056cb9b29f0c",
+      "price_usd": 21.0,
+      "garment": "T-Shirt",
+      "theme": "funny",
+      "site_published": true
+    },
+    {
       "slug": "dawg-life",
       "name": "Dawg Life",
       "collection": "cleveland-browns",
@@ -117,30 +129,6 @@
       "price_usd": 21.0,
       "garment": "T-Shirt",
       "theme": "classic",
-      "site_published": true
-    },
-    {
-      "slug": "denzel-rock-out",
-      "name": "Denzel Rock Out",
-      "collection": "cleveland-browns",
-      "partner": "Mayzing",
-      "url": "https://gridironlocker.store/shop/denzel-rock-out/",
-      "buy_url": "https://gridironlocker.shop/denzel-rock-out?collectionId=P19bpeU2x_Ng&color=GILDAN-DARK_CHOCOLATE&productId=6aa55017f475ab73b09f6a72",
-      "price_usd": 21.0,
-      "garment": "T-Shirt",
-      "theme": "player",
-      "site_published": true
-    },
-    {
-      "slug": "dwag",
-      "name": "DAWG",
-      "collection": "cleveland-browns",
-      "partner": "Mayzing",
-      "url": "https://gridironlocker.store/shop/dwag/",
-      "buy_url": "https://gridironlocker.shop/DWAG?collectionId=P19bpeU2x_Ng&color=GILDAN-OLD_GOLD&productId=6aa337dfdb76056cb9b29f0c",
-      "price_usd": 21.0,
-      "garment": "T-Shirt",
-      "theme": "funny",
       "site_published": true
     },
     {
@@ -156,11 +144,11 @@
       "site_published": true
     },
     {
-      "slug": "lets-go-cle-copy",
+      "slug": "lets-go-cle",
       "name": "Let's Go CLE",
       "collection": "cleveland-browns",
       "partner": "Mayzing",
-      "url": "https://gridironlocker.store/shop/lets-go-cle-copy/",
+      "url": "https://gridironlocker.store/shop/lets-go-cle/",
       "buy_url": "https://gridironlocker.shop/lets-go-cle-copy?collectionId=P19bpeU2x_Ng&color=GILDAN-DARK_CHOCOLATE&productId=6aa3366e5520ba111a558fb1",
       "price_usd": 21.0,
       "garment": "T-Shirt",
@@ -177,18 +165,6 @@
       "price_usd": 21.0,
       "garment": "T-Shirt",
       "theme": "classic",
-      "site_published": true
-    },
-    {
-      "slug": "make-them-know-your-name",
-      "name": "Make Them Know Your Name",
-      "collection": "cleveland-browns",
-      "partner": "Mayzing",
-      "url": "https://gridironlocker.store/shop/make-them-know-your-name/",
-      "buy_url": "https://gridironlocker.shop/make-them-know-your-name?collectionId=P19bpeU2x_Ng&color=GILDAN-DARK_CHOCOLATE&productId=6aa33fa01cdc8689e252dab3",
-      "price_usd": 21.0,
-      "garment": "T-Shirt",
-      "theme": "player",
       "site_published": true
     },
     {
@@ -240,6 +216,18 @@
       "site_published": true
     },
     {
+      "slug": "dallas-1960-football-helmet-white-shirt",
+      "name": "Dallas 1960 Football Helmet White Shirt",
+      "collection": "dallas-cowboys",
+      "partner": "Viralstyle",
+      "url": "https://gridironlocker.store/shop/dallas-1960-football-helmet-white-shirt/",
+      "buy_url": "https://viralstyle.com/kebystore/dallas-texas-vintage-athletic-style-t-sh",
+      "price_usd": 21.99,
+      "garment": "T-Shirt",
+      "theme": "retro",
+      "site_published": true
+    },
+    {
       "slug": "dallas-flag-tee",
       "name": "Dallas American Flag Vertical Shirt",
       "collection": "dallas-cowboys",
@@ -252,11 +240,11 @@
       "site_published": true
     },
     {
-      "slug": "dallas-football-vintage-athletic-style-f",
+      "slug": "dallas-football-1960-helmet-vintage-shirt",
       "name": "Dallas Football 1960 Helmet Vintage Shirt",
       "collection": "dallas-cowboys",
       "partner": "Viralstyle",
-      "url": "https://gridironlocker.store/shop/dallas-football-vintage-athletic-style-f/",
+      "url": "https://gridironlocker.store/shop/dallas-football-1960-helmet-vintage-shirt/",
       "buy_url": "https://viralstyle.com/kebystore/dallas-football-vintage-athletic-style-f",
       "price_usd": 21.99,
       "garment": "T-Shirt",
@@ -276,23 +264,11 @@
       "site_published": true
     },
     {
-      "slug": "dallas-texas-vintage-athletic-sports",
-      "name": "Dallas Texas Est 1841 Navy Shirt",
-      "collection": "dallas-cowboys",
-      "partner": "Viralstyle",
-      "url": "https://gridironlocker.store/shop/dallas-texas-vintage-athletic-sports/",
-      "buy_url": "https://viralstyle.com/kebystore/dallas-texas-vintage-athletic-sports",
-      "price_usd": 21.99,
-      "garment": "T-Shirt",
-      "theme": "retro",
-      "site_published": true
-    },
-    {
-      "slug": "dallas-texas-vintage-athletic-sports-sty",
+      "slug": "dallas-texas-est-1841-grey-shirt",
       "name": "Dallas Texas Est 1841 Grey Shirt",
       "collection": "dallas-cowboys",
       "partner": "Viralstyle",
-      "url": "https://gridironlocker.store/shop/dallas-texas-vintage-athletic-sports-sty/",
+      "url": "https://gridironlocker.store/shop/dallas-texas-est-1841-grey-shirt/",
       "buy_url": "https://viralstyle.com/kebystore/dallas-texas-vintage-athletic-sports-sty",
       "price_usd": 21.99,
       "garment": "T-Shirt",
@@ -300,12 +276,12 @@
       "site_published": true
     },
     {
-      "slug": "dallas-texas-vintage-athletic-style-t-sh",
-      "name": "Dallas 1960 Football Helmet White Shirt",
+      "slug": "dallas-texas-vintage-athletic-sports",
+      "name": "Dallas Texas Est 1841 Navy Shirt",
       "collection": "dallas-cowboys",
       "partner": "Viralstyle",
-      "url": "https://gridironlocker.store/shop/dallas-texas-vintage-athletic-style-t-sh/",
-      "buy_url": "https://viralstyle.com/kebystore/dallas-texas-vintage-athletic-style-t-sh",
+      "url": "https://gridironlocker.store/shop/dallas-texas-vintage-athletic-sports/",
+      "buy_url": "https://viralstyle.com/kebystore/dallas-texas-vintage-athletic-sports",
       "price_usd": 21.99,
       "garment": "T-Shirt",
       "theme": "retro",
@@ -381,30 +357,6 @@
       "price_usd": 24.99,
       "garment": "T-Shirt",
       "theme": "classic",
-      "site_published": true
-    },
-    {
-      "slug": "limited-edition-grb11",
-      "name": "Jordan Love Is All You Need Shirt",
-      "collection": "green-bay-packers",
-      "partner": "Viralstyle",
-      "url": "https://gridironlocker.store/shop/limited-edition-grb11/",
-      "buy_url": "https://viralstyle.com/kebystore/limited-edition-grb11",
-      "price_usd": 24.99,
-      "garment": "T-Shirt",
-      "theme": "player",
-      "site_published": true
-    },
-    {
-      "slug": "limited-edition-grb12",
-      "name": "What Would Jordan Do Retro Shirt",
-      "collection": "green-bay-packers",
-      "partner": "Viralstyle",
-      "url": "https://gridironlocker.store/shop/limited-edition-grb12/",
-      "buy_url": "https://viralstyle.com/kebystore/limited-edition-grb12",
-      "price_usd": 24.99,
-      "garment": "T-Shirt",
-      "theme": "retro",
       "site_published": true
     },
     {
@@ -540,18 +492,6 @@
       "site_published": true
     },
     {
-      "slug": "limited-edition-grb24",
-      "name": "Love 10 Jersey Back Shirt",
-      "collection": "green-bay-packers",
-      "partner": "Viralstyle",
-      "url": "https://gridironlocker.store/shop/limited-edition-grb24/",
-      "buy_url": "https://viralstyle.com/kebystore/limited-edition-grb24",
-      "price_usd": 24.99,
-      "garment": "T-Shirt",
-      "theme": "player",
-      "site_published": true
-    },
-    {
       "slug": "limited-edition-grb25",
       "name": "Sunday Funday Wisconsin Outline Shirt",
       "collection": "green-bay-packers",
@@ -624,30 +564,6 @@
       "site_published": true
     },
     {
-      "slug": "limited-edition-grb30",
-      "name": "Jordan Freaking Love Shirt",
-      "collection": "green-bay-packers",
-      "partner": "Viralstyle",
-      "url": "https://gridironlocker.store/shop/limited-edition-grb30/",
-      "buy_url": "https://viralstyle.com/kebystore/limited-edition-grb30",
-      "price_usd": 24.99,
-      "garment": "T-Shirt",
-      "theme": "player",
-      "site_published": true
-    },
-    {
-      "slug": "limited-edition-grb31",
-      "name": "Jordan Love 10 Green Bay Hoodie",
-      "collection": "green-bay-packers",
-      "partner": "Viralstyle",
-      "url": "https://gridironlocker.store/shop/limited-edition-grb31/",
-      "buy_url": "https://viralstyle.com/kebystore/limited-edition-grb31",
-      "price_usd": 36.99,
-      "garment": "Hoodie",
-      "theme": "player",
-      "site_published": true
-    },
-    {
       "slug": "limited-edition-grb32",
       "name": "Cheese Heart Green Bay Shirt",
       "collection": "green-bay-packers",
@@ -657,30 +573,6 @@
       "price_usd": 24.99,
       "garment": "T-Shirt",
       "theme": "funny",
-      "site_published": true
-    },
-    {
-      "slug": "limited-edition-grb33",
-      "name": "All You Need Is Love 10 Helmet Shirt",
-      "collection": "green-bay-packers",
-      "partner": "Viralstyle",
-      "url": "https://gridironlocker.store/shop/limited-edition-grb33/",
-      "buy_url": "https://viralstyle.com/kebystore/limited-edition-grb33",
-      "price_usd": 24.99,
-      "garment": "T-Shirt",
-      "theme": "retro",
-      "site_published": true
-    },
-    {
-      "slug": "limited-edition-grb34-1",
-      "name": "Jordan Freaking Love Packers Beanie",
-      "collection": "green-bay-packers",
-      "partner": "Viralstyle",
-      "url": "https://gridironlocker.store/shop/limited-edition-grb34-1/",
-      "buy_url": "https://viralstyle.com/kebystore/limited-edition-grb34-1",
-      "price_usd": 24.99,
-      "garment": "Beanie",
-      "theme": "player",
       "site_published": true
     },
     {
@@ -696,18 +588,6 @@
       "site_published": true
     },
     {
-      "slug": "limited-edition-grb36",
-      "name": "Jordan Love 10 Flag Number Shirt",
-      "collection": "green-bay-packers",
-      "partner": "Viralstyle",
-      "url": "https://gridironlocker.store/shop/limited-edition-grb36/",
-      "buy_url": "https://viralstyle.com/kebystore/limited-edition-grb36",
-      "price_usd": 24.99,
-      "garment": "T-Shirt",
-      "theme": "player",
-      "site_published": true
-    },
-    {
       "slug": "limited-edition-grb37",
       "name": "This Girl Loves The Pack Shirt",
       "collection": "green-bay-packers",
@@ -717,30 +597,6 @@
       "price_usd": 24.99,
       "garment": "T-Shirt",
       "theme": "family",
-      "site_published": true
-    },
-    {
-      "slug": "limited-edition-grb4",
-      "name": "Let The 10VE Begin Green Bay Shirt",
-      "collection": "green-bay-packers",
-      "partner": "Viralstyle",
-      "url": "https://gridironlocker.store/shop/limited-edition-grb4/",
-      "buy_url": "https://viralstyle.com/kebystore/limited-edition-grb4",
-      "price_usd": 24.99,
-      "garment": "T-Shirt",
-      "theme": "player",
-      "site_published": true
-    },
-    {
-      "slug": "limited-edition-grb41",
-      "name": "Jordan Love 10 Packers Shirt",
-      "collection": "green-bay-packers",
-      "partner": "Viralstyle",
-      "url": "https://gridironlocker.store/shop/limited-edition-grb41/",
-      "buy_url": "https://viralstyle.com/kebystore/limited-edition-grb41",
-      "price_usd": 24.99,
-      "garment": "T-Shirt",
-      "theme": "player",
       "site_published": true
     },
     {
@@ -816,18 +672,6 @@
       "site_published": true
     },
     {
-      "slug": "bryce-19",
-      "name": "Bryce 19",
-      "collection": "michigan",
-      "partner": "Mayzing",
-      "url": "https://gridironlocker.store/shop/bryce-19/",
-      "buy_url": "https://gridironlocker.shop/bryce-19?collectionId=YYMlCmwgKG__&color=GILDAN-BLACK&productId=6aa597fd3919e1b7067eeddf",
-      "price_usd": 21.0,
-      "garment": "T-Shirt",
-      "theme": "player",
-      "site_published": true
-    },
-    {
       "slug": "legacy",
       "name": "Legacy",
       "collection": "michigan",
@@ -852,11 +696,11 @@
       "site_published": true
     },
     {
-      "slug": "limited-edition-h-a-i-l-mary",
+      "slug": "limited-edition-hail-mary",
       "name": "Limited Edition Hail Mary",
       "collection": "michigan",
       "partner": "Mayzing",
-      "url": "https://gridironlocker.store/shop/limited-edition-h-a-i-l-mary/",
+      "url": "https://gridironlocker.store/shop/limited-edition-hail-mary/",
       "buy_url": "https://gridironlocker.shop/limited-edition-h-a-i-l-mary?collectionId=YYMlCmwgKG__&color=GILDAN-NAVY&productId=6aa1f0b9534eadb8cbb5a139",
       "price_usd": 21.0,
       "garment": "T-Shirt",
@@ -994,22 +838,10 @@
       "garment": "T-Shirt",
       "theme": "classic",
       "site_published": true
-    },
-    {
-      "slug": "second-act-qb19-vintage-football",
-      "name": "Second Act QB19 Vintage Football",
-      "collection": "michigan",
-      "partner": "Mayzing",
-      "url": "https://gridironlocker.store/shop/second-act-qb19-vintage-football/",
-      "buy_url": "https://gridironlocker.shop/second-act-qb19-vintage-football?collectionId=YYMlCmwgKG__&color=GILDAN-HEATHER_SPORT_GREY&productId=6aa1db87f1c6bb96a2648225",
-      "price_usd": 21.0,
-      "garment": "T-Shirt",
-      "theme": "retro",
-      "site_published": true
     }
   ],
   "excluded": {
-    "delisted": 32,
+    "delisted": 46,
     "fulfillment_hold": 57,
     "stale_crawl_slugs": 113,
     "note": "stale_crawl_slugs is data/products.json - the raw Viralstyle crawl. It is NOT the catalogue and must never be used as one. count = stale_crawl_slugs + mayzing additions - delisted - hold - unpublished; reconcile via build.MODEL, not by arithmetic here."

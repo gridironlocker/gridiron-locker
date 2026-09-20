@@ -57,7 +57,7 @@ class SitemapDates(unittest.TestCase):
             self.rows[build.DOMAIN + "/shop/limited-edition-no-fly-zone/"],
             "2026-09-10")
         self.assertEqual(
-            self.rows[build.DOMAIN + "/shop/bryce-19/"],
+            self.rows[build.DOMAIN + "/shop/limited-edition-go-blue/"],
             "2026-09-12")
         self.assertEqual(
             self.rows[build.DOMAIN + "/shop/limited-edition-grb5/"],
@@ -78,7 +78,7 @@ class SitemapDates(unittest.TestCase):
         self.assertEqual(after[target], "2026-09-15")
 
     def test_sitemap_has_valid_unique_canonical_directory_urls(self):
-        self.assertEqual(len(self.rows), 107)
+        self.assertEqual(len(self.rows), len(build.ALL) + 24)
         self.assertEqual(len(self.rows), len(set(self.rows)))
         for url, lastmod in self.rows.items():
             self.assertTrue(url.startswith(build.DOMAIN + "/"), url)

@@ -79,6 +79,10 @@ jobs:
           YOUTUBE_API_KEY: ${{ secrets.YOUTUBE_API_KEY }}
         run: python marketing/social_watch.py
 
+      - name: Sync season freshness (scores)
+        continue-on-error: true
+        run: python3 src/scores_sync.py || echo 'scores sync failed; keeping hand-edited season'
+
       - name: Build three-day marketing pulse
         run: |
           python marketing/plan.py

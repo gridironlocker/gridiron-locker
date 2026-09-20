@@ -121,7 +121,7 @@ print(f"public pages audited: {len(PAGES)}\n")
 COUNT_RE = re.compile(r"(?<![\w-])(\d{1,4})\s+(?:original\s+|fan-made\s+|hand-picked\s+|fan\s+)?"
                       r"(designs|products)\b", re.I)
 for path, d in DOCS.items():
-    body = re.sub(r"<script.*?</script>|<style.*?</style>", " ", d["text"], flags=re.S | re.I)
+    body = re.sub(r"<script.*?</script>|<style.*?</style>|<meta http-equiv=\"Content-Security-Policy\"[^>]*>", " ", d["text"], flags=re.S | re.I)
     for m in COUNT_RE.finditer(body):
         n, noun = int(m.group(1)), m.group(2).lower()
         ctx = re.sub(r"\s+", " ", body[max(0, m.start() - 70): m.end() + 30]).strip()
@@ -148,7 +148,7 @@ for it in ALL:
     if partner == "Mayzing":
         if "gridironlocker.shop" not in host:
             issue("fulfilment", f"{p}: Mayzing product points at {buy}")
-        if re.search(r"viralstyle", d["text"], re.I):
+        if re.search(r"viralstyle", body, re.I):
             issue("fulfilment", f"{p}: Mayzing product mentions Viralstyle")
         # Viralstyle's published shipping rate / window must never appear on a
         # Mayzing page, in copy or in structured data.
@@ -163,14 +163,25 @@ for it in ALL:
             issue("fulfilment", f"{p}: Mayzing badge shown on Viralstyle product")
         if "viralstyle.com" not in host:
             issue("fulfilment", f"{p}: Viralstyle product points at {buy}")
-        if re.search(r"mayzing", d["text"], re.I):
+        if re.search(r"mayzing", body, re.I):
             issue("fulfilment", f"{p}: Viralstyle product mentions Mayzing")
     # every CTA on the page must go to the product's own checkout URL
     ctas = re.findall(r'href="([^"]+)"[^>]*class="[^"]*\b(?:cta|buy|shop)[^"]*"', d["text"])
     ctas += re.findall(r'class="[^"]*\b(?:cta|buy|shop)[^"]*"[^>]*href="([^"]+)"', d["text"])
     for c in set(ctas):
-        if c.startswith("http") and c != buy:
-            issue("fulfilment", f"{p}: CTA {c} != catalogue buy URL {buy}")
+        if c.startswith("http"):
+            # CTAs may append utm_* attribution for the partner dashboard, but
+            # scheme+host+path must still match the catalogue buy URL exactly.
+            from urllib.parse import urlsplit
+            b, h = urlsplit(buy), urlsplit(c)
+            if (b.scheme, b.netloc, b.path) != (h.scheme, h.netloc, h.path):
+                issue("fulfilment", f"{p}: CTA {c} != catalogue buy URL {buy}")
+            elif h.query:
+                own = {k.split("=")[0] for k in b.query.split("&") if k}
+                extra = {k.split("=")[0] for k in h.query.split("&") if k} - own - \
+                    {"utm_source", "utm_medium", "utm_campaign"}
+                if extra:
+                    issue("fulfilment", f"{p}: CTA {c} carries unexpected query params")
 
 # ------------------------------------------- 3. shipping / production language
 GLOBAL_CLAIMS = [
@@ -178,7 +189,7 @@ GLOBAL_CLAIMS = [
     (r"[Mm]ade in (?:the )?USA", "global 'made in the USA' claim"),
 ]
 for path, d in DOCS.items():
-    body = re.sub(r"<script.*?</script>|<style.*?</style>", " ", d["text"], flags=re.S | re.I)
+    body = re.sub(r"<script.*?</script>|<style.*?</style>|<meta http-equiv=\"Content-Security-Policy\"[^>]*>", " ", d["text"], flags=re.S | re.I)
     for rx, label in GLOBAL_CLAIMS:
         if re.search(rx, body):
             issue("shipping-claims", f"{path}: {label}")
@@ -427,7 +438,7 @@ LEAK_PATTERNS = [
     (r"\bgit (?:push|commit|checkout)\b", "git command"),
 ]
 for path, d in DOCS.items():
-    body = re.sub(r"<script.*?</script>|<style.*?</style>", " ", d["text"], flags=re.S | re.I)
+    body = re.sub(r"<script.*?</script>|<style.*?</style>|<meta http-equiv=\"Content-Security-Policy\"[^>]*>", " ", d["text"], flags=re.S | re.I)
     visible = _html.unescape(re.sub(r"<[^>]+>", " ", body))
     for rx, label in LEAK_PATTERNS:
         for m in re.finditer(rx, visible):
