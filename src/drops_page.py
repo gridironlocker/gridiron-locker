@@ -133,7 +133,7 @@ def page_drops_html(collections, order, model_lookup):
     body = f"""
 <main id="main">
 <section class="cbanner compact" style="padding:0">
- <div class="band"><img src="/img/hero-home.jpg?v=5" alt="Trending fan designs" width="2048" height="768" fetchpriority="high"></div>
+ <div class="band"><picture><source type="image/webp" sizes="100vw" srcset="/img/hero-home-800.webp 800w, /img/hero-home-1200.webp 1200w, /img/hero-home-1600.webp 1600w"><img src="/img/hero-home.jpg" alt="Trending fan designs" width="1600" height="600" fetchpriority="high" decoding="async"></picture></div>
  <div class="cb-in">
   <span class="eyebrow"><span class="dot"></span> Live &middot; updated {esc(generated)}</span>
   <h1>Today's <span class="accentword">Trending Drops</span></h1>

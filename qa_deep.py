@@ -127,18 +127,28 @@ for rel, t in PUBLIC.items():
                 f"{rel}: <img> loads /img/{u}.* - a reproduction of a registered team "
                 f"mark used as a UI icon (DESIGN-BLUEPRINT §2 row: 'Team logos, "
                 f"wordmarks, helmet marks | Directly claimed IP'), with empty alt")
-# (b) Hero banners whose garments depict the helmet/oval/star marks. Filename
-# convention + visual inspection; these are the LCP element on / and the four
-# collection pages, i.e. the most-viewed images on the site.
+# (b) Hero banners: gated by data/approved_art.json since the 2026-09-20 IP
+# remediation. A filename blacklist cannot tell a compliant hero from a
+# violating one, so every served hero basename must be in the reviewed-and-
+# approved manifest (each entry records what the art depicts). A NEW or
+# REPLACED hero that has not been reviewed therefore fails here until someone
+# adds it to the manifest - the gate stays honest without re-flagging art a
+# human has already verified.
+try:
+    _art_ok = set(json.load(open(os.path.join(ROOT, "data", "approved_art.json")))
+                  .get("approved", {}))
+except Exception:
+    _art_ok = set()
 heros = {}
 for rel, t in PUBLIC.items():
     for u in set(re.findall(r'src="[^"]*?(hero-(?:home|cleveland|greenbay|dallas|michigan))\.', t)):
         heros.setdefault(u, rel)
 for u, rel in sorted(heros.items()):
-    add("CRITICAL", "design-law",
-        f"hero banner /img/{u}.* (LCP on {rel}) shows garments printed with the "
-        f"official helmet/oval/star marks - the homepage hero depicts three NFL "
-        f"clubs' registered marks on merchandise")
+    if u not in _art_ok:
+        add("CRITICAL", "design-law",
+            f"hero banner /img/{u}.* (LCP on {rel}) is not in data/approved_art.json - "
+            f"unreviewed hero art must be checked against DESIGN-BLUEPRINT 2 "
+            f"(no marks / faces / numbers / press photos) and added to the manifest")
 try:
     people = json.load(open(os.path.join(ROOT, "data", "people.json")))
     SURNAMES = {p["name"].split()[-1] for p in people.get("people", [])}

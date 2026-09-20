@@ -111,21 +111,36 @@ def page(rel):
 # capture (the capture stays truthful to the storefront; the page still has
 # to go), so the live page set is each Mayzing file minus the delisted slugs.
 DELISTED = set(load_json("data/delisted.json").get("slugs", {}))
-MAYZING = {p["slug"]: p for p in load_json("data/mayzing_products.json")["products"]
-           if p["slug"] not in DELISTED}
-MICHIGAN = {p["slug"]: p for p in load_json("data/mayzing_michigan.json")["products"]
-            if p["slug"] not in DELISTED}
+_RAW_MAYZING = {p["slug"]: p for p in load_json("data/mayzing_products.json")["products"]}
+_RAW_MICHIGAN = {p["slug"]: p for p in load_json("data/mayzing_michigan.json")["products"]}
+ALIASES = {k: v for k, v in load_json("data/slug_aliases.json").items()
+           if not k.startswith("_")}
+MAYZING = {ALIASES.get(s, s): p for s, p in _RAW_MAYZING.items()
+           if s not in DELISTED}
+MICHIGAN = {ALIASES.get(s, s): p for s, p in _RAW_MICHIGAN.items()
+            if s not in DELISTED}
 # Retired designs a Mayzing capture still lists (e.g. milf, retired 2026-09-19
 # for brand safety). They must build as noindex redirect stubs, never pages.
-MAYZING_RETIRED = {p["slug"]: "cleveland-browns"
-                   for p in load_json("data/mayzing_products.json")["products"]
-                   if p["slug"] in DELISTED}
-MAYZING_RETIRED.update({p["slug"]: "michigan"
-                        for p in load_json("data/mayzing_michigan.json")["products"]
-                        if p["slug"] in DELISTED})
+MAYZING_RETIRED = {s: "cleveland-browns" for s in _RAW_MAYZING if s in DELISTED}
+MAYZING_RETIRED.update({s: "michigan" for s in _RAW_MICHIGAN if s in DELISTED})
+# renamed slugs keep their old URL alive as a noindex 301 stub, exactly like
+# a retired design - so the same stub guards apply to them.
+MAYZING_RETIRED.update({s: "cleveland-browns" if s in _RAW_MAYZING else "michigan"
+                        for s in ALIASES
+                        if s in _RAW_MAYZING or s in _RAW_MICHIGAN})
 # slug -> (record, collection key) for every design on a Mayzing storefront.
 MAYZING_ALL = dict({s: (p, "cleveland-browns") for s, p in MAYZING.items()},
                    **{s: (p, "michigan") for s, p in MICHIGAN.items()})
+# a rename can legitimately reuse a retired slug for a different live product;
+# the live page wins (mirrors build.retired_slugs()).
+MAYZING_RETIRED = {s: c for s, c in MAYZING_RETIRED.items()
+                   if s not in MAYZING and s not in MICHIGAN}
+
+
+def _no_csp(html):
+    """The CSP meta names third-party hosts in img-src without the page ever
+    loading content from them - strip it before 'no partner leakage' checks."""
+    return re.sub(r'<meta http-equiv="[Cc]ontent-[Ss]ecurity-[Pp]olicy"[^>]*>', "", html)
 
 
 def mayzing_partner(slug):
@@ -237,13 +252,15 @@ class CTAColours(unittest.TestCase):
         self.assertEqual(pairs, {(CTA, CTA_HOVER)})
 
     def test_shipped_stylesheet_matches_source(self):
-        self.assertEqual(read(os.path.join(SRC, "style.css")), page("assets/style.css"))
+        import build  # noqa: E402
+        self.assertEqual(build.minify_css(read(os.path.join(SRC, "style.css"))),
+                         page("assets/style.css"))
 
 
 class CollectionsIndex(unittest.TestCase):
     def setUp(self):
         self.html = page("collections/index.html")
-        self.css = page("assets/style.css")
+        self.css = read(os.path.join(SRC, "style.css"))
 
     def test_circular_team_portraits_replace_image_tiles(self):
         self.assertNotIn('class="colcard"', self.html)
@@ -294,7 +311,9 @@ class CollectionsIndex(unittest.TestCase):
 
 
     def test_counts_are_dynamic(self):
-        live = load_json("data/products_live.json")
+        _raw_live = load_json("data/products_live.json")
+        live = {ALIASES.get(s, s): v for s, v in _raw_live.items()
+                if s not in DELISTED}
         cols = load_json("data/collections.json")
         try:
             delisted = load_json("data/delisted.json").get("slugs", {})
@@ -319,7 +338,8 @@ class CollectionsIndex(unittest.TestCase):
     def _crawl_count(cols, live, delisted, k):
         expected = 0
         for e in cols[k]["products"]:
-            s = e["slug"]
+            # live is keyed by the PUBLISHED slug; crawl entries are raw
+            s = ALIASES.get(e["slug"], e["slug"])
             if s in delisted or s not in live:
                 continue
             img = live[s].get("img") or {}
@@ -333,7 +353,7 @@ class CollectionsIndex(unittest.TestCase):
 class TeamCollectionPages(unittest.TestCase):
     def setUp(self):
         self.pages = collection_pages()
-        self.css = page("assets/style.css")
+        self.css = read(os.path.join(SRC, "style.css"))
 
     def test_no_countdown(self):
         for k, html in self.pages.items():
@@ -358,13 +378,13 @@ class TeamCollectionPages(unittest.TestCase):
         # full artwork shows: no cropping to a 16:9 box, no wide strips, and no
         # per-page ratio overrides left to drift.
         base = css_block(self.css, ".cbanner .band")
-        self.assertIn("aspect-ratio:2048/768", base)
+        self.assertIn("aspect-ratio:1600/600", base)
         for html, name in ((page("index.html"), "home"), (page("drops/index.html"), "drops")):
             self.assertRegex(html,
-                             r'<div class="band"><img\b[^>]*width="2048" height="768"', name)
+                             r'<div class="band"><picture><source[^>]*><img\b[^>]*width="1600" height="600"', name)
         for k, html in self.pages.items():
             self.assertRegex(html,
-                             r'<div class="band"><img\b[^>]*width="2048" height="768"', k)
+                             r'<div class="band"><picture><source[^>]*><img\b[^>]*width="1600" height="600"', k)
         # the superseded ratios and the /drops/ ratio override are gone
         for ratio in ("16/9", "32/9", "21/9", "5/1", "1983/793", "1933/813"):
             self.assertNotIn(f"aspect-ratio:{ratio}", self.css, ratio)
@@ -563,7 +583,9 @@ class ProductPages(unittest.TestCase):
             self.assertNotIn(term, self.js, term)
 
     def test_shop_now_is_the_only_conversion_action(self):
-        live = load_json("data/products_live.json")
+        _raw_live = load_json("data/products_live.json")
+        live = {ALIASES.get(s, s): v for s, v in _raw_live.items()
+                if s not in DELISTED}
         for slug, html in self.pages.items():
             ctas = re.findall(r'<a class="btn[^"]*shopnow"[^>]*>(.*?)</a>', html, re.S)
             self.assertGreaterEqual(len(ctas), 3, slug)      # hero + band + sticky
@@ -574,15 +596,17 @@ class ProductPages(unittest.TestCase):
             if slug in MAYZING_ALL:
                 # Cleveland and Michigan: every CTA hands off to the product's
                 # own Mayzing checkout URL on gridironlocker.shop.
+                base = MAYZING_ALL[slug][0]["checkout_url"].split("?", 1)[0]
                 for href in hrefs:
-                    self.assertEqual(href, MAYZING_ALL[slug][0]["checkout_url"], slug)
+                    self.assertEqual(href.split("?", 1)[0], base, slug)
                 continue
             # every CTA points at this product's own Viralstyle campaign
+            base = live[slug]["url"].split("?", 1)[0]
             for href in hrefs:
-                self.assertEqual(href, live[slug]["url"], slug)
+                self.assertEqual(href.split("?", 1)[0], base, slug)
             # and no other outbound purchase link sneaks onto the page
             for href in re.findall(r'href="(https://viralstyle\.com[^"]*)"', html):
-                self.assertEqual(href, live[slug]["url"], slug)
+                self.assertEqual(href.split("?", 1)[0], base, slug)
 
     def test_cta_explains_the_handoff(self):
         for slug, html in self.pages.items():
@@ -655,7 +679,9 @@ class ProductPages(unittest.TestCase):
         self.assertLess(max(len(v) for v in lines.values()), cap)
 
     def test_h1_is_the_product_name(self):
-        live = load_json("data/products_live.json")
+        _raw_live = load_json("data/products_live.json")
+        live = {ALIASES.get(s, s): v for s, v in _raw_live.items()
+                if s not in DELISTED}
         for slug, html in self.pages.items():
             h1 = re.search(r"<h1>(.*?)</h1>", html, re.S).group(1).strip()
             self.assertTrue(h1, slug)
@@ -968,7 +994,7 @@ class Homepage(unittest.TestCase):
 
     def setUp(self):
         self.html = page("index.html")
-        self.css = page("assets/style.css")
+        self.css = read(os.path.join(SRC, "style.css"))
         self.js = page("assets/app.js")
 
     # ---------------------------------------------------------------- header
@@ -999,9 +1025,13 @@ class Homepage(unittest.TestCase):
         # (native 2048:768 band) instead of cropping it into a side panel, and
         # puts its own crawlable headline in the copy block underneath.
         hero = between(self.html, '<section class="cbanner home"', "</section>")
-        band = re.search(r'<div class="band"><img\b[^>]*>', hero).group(0)
-        self.assertIn("hero-home.jpg?v=5", band)
-        self.assertIn('width="2048" height="768"', band)
+        band = re.search(r'<div class="band"><picture>.*?</picture>', hero, re.S).group(0)
+        # responsive art: WebP srcset with a JPG fallback, sized for CLS safety
+        self.assertIn('type="image/webp"', band)
+        self.assertIn("hero-home-800.webp 800w", band)
+        self.assertIn("hero-home-1600.webp 1600w", band)
+        self.assertIn('src="./img/hero-home.jpg"', band)
+        self.assertIn('width="1600" height="600"', band)
         self.assertIn('fetchpriority="high"', band)
         self.assertNotIn('loading="lazy"', band)
         self.assertIn('alt="', band)
@@ -1041,7 +1071,7 @@ class Homepage(unittest.TestCase):
         # the hero headline is visible text (crawlable), not sr-only
         self.assertIn("position:absolute", css_block(self.css, ".sr-only"))
         # the band keeps the artwork's native ratio, so the poster never crops
-        self.assertIn("aspect-ratio:2048/768", css_block(self.css, ".cbanner .band"))
+        self.assertIn("aspect-ratio:1600/600", css_block(self.css, ".cbanner .band"))
         # the home band reuses the collection band: no ratio of its own
         self.assertNotIn("aspect-ratio", css_block(self.css, ".cbanner.home .band"))
 
@@ -1051,7 +1081,7 @@ class Homepage(unittest.TestCase):
         # flick away.
         band = css_block(self.css, ".cbanner .band")
         self.assertNotIn("min-height", band)                 # never letterboxed
-        self.assertIn("aspect-ratio:2048/768", band)
+        self.assertIn("aspect-ratio:1600/600", band)
         mob = media_rules(self.css, 560)
         self.assertIn(".cbanner.home .cb-in{padding:20px 16px 24px}", mob)
 
@@ -1452,7 +1482,9 @@ class SearchCatalogue(unittest.TestCase):
 
 class CatalogueIntegrity(unittest.TestCase):
     def test_all_products_and_checkout_links(self):
-        live = load_json("data/products_live.json")
+        _raw_live = load_json("data/products_live.json")
+        live = {ALIASES.get(s, s): v for s, v in _raw_live.items()
+                if s not in DELISTED}
         shop = os.path.join(SITE, "shop")
         built = [d for d in os.listdir(shop) if os.path.isfile(os.path.join(shop, d, "index.html"))
                  and "data-gl-redirect" not in read(os.path.join(shop, d, "index.html"))]
@@ -1463,7 +1495,7 @@ class CatalogueIntegrity(unittest.TestCase):
                 # Cleveland + Michigan: Mayzing checkout URL on gridironlocker.shop
                 self.assertIn(MAYZING_ALL[slug][0]["checkout_url"], html, slug)
             else:
-                self.assertIn(live[slug]["url"], html, slug)   # Viralstyle checkout link intact
+                self.assertIn(live[slug]["url"].split("?")[0], html, slug)  # checkout link intact (UTMs allowed)
 
     def test_no_missing_local_references(self):
         attr = re.compile(r'(?:src|data-src|href|content)="([^"]+)"')
@@ -1490,8 +1522,10 @@ class CatalogueIntegrity(unittest.TestCase):
         self.assertEqual(missing, [])
 
     def test_sitemap_depth(self):
+        import build  # noqa: E402
         sm = page("sitemap.xml")
-        self.assertGreaterEqual(len(re.findall(r"<loc>", sm)), 100)
+        # every product + every public non-product page, never below catalogue+20
+        self.assertGreaterEqual(len(re.findall(r"<loc>", sm)), len(build.ALL) + 20)
 
 
 class CanonicalUrls(unittest.TestCase):
@@ -1627,6 +1661,8 @@ class MayzingBrownsRebuild(unittest.TestCase):
 
     # The seven Viralstyle-era pages the rebuild deleted (PR #90 destinations).
     OLD_CLEVELAND_PAGES = [
+        # Audit 2026-09-20: player-likeness delist (DESIGN-BLUEPRINT 2)
+        "denzel-rock-out", "make-them-know-your-name",
         "make-them-know-your-name-denzel-1", "ohio-cleveland-fans",
         "playoffs-never-giveup", "lets-go-cleveland", "limited-edition-c2",
         "limited-edition-d-w-a-g", "limited-edition-go-b-r-o-w-n-s",
@@ -1650,9 +1686,11 @@ class MayzingBrownsRebuild(unittest.TestCase):
                          "Cleveland pages must mirror mayzing_products.json")
         self.assertGreaterEqual(len(built), 13)
         stale = [p["slug"] for p in self.cols["cleveland-browns"]["products"]]
-        self.assertEqual(set(stale) & set(MAYZING), set(),
+        self.assertEqual(set(stale) & set(_RAW_MAYZING), set(),
                          "collections.json Cleveland entry is the retired Viralstyle list")
         for slug in stale:
+            if ALIASES.get(slug, slug) in built:
+                continue  # the slug now belongs to a live renamed Mayzing product
             self.assertNotIn(slug, built, f"retired Viralstyle slug {slug} got a page")
 
     def test_product_pages_with_mayzing_checkout_and_no_viralstyle(self):
@@ -1661,7 +1699,7 @@ class MayzingBrownsRebuild(unittest.TestCase):
         for slug in MAYZING:
             self.assertIn(slug, built, slug)
             html = read(os.path.join(SITE, "shop", slug, "index.html"))
-            self.assertNotIn("viralstyle", html.lower(), slug)
+            self.assertNotIn("viralstyle", _no_csp(html).lower(), slug)
             self.assertIn(MAYZING[slug]["checkout_url"], html, slug)
             hrefs = re.findall(r'<a class="btn[^"]*shopnow" href="([^"]+)"', html)
             self.assertGreaterEqual(len(hrefs), 3, slug)      # hero + band + sticky
@@ -1675,7 +1713,7 @@ class MayzingBrownsRebuild(unittest.TestCase):
         self.assertEqual(int(n.group(1)), len(MAYZING))
         listed = set(re.findall(r'"url":"https://gridironlocker\.store/shop/([a-z0-9-]+)/"', html))
         self.assertEqual(listed, set(MAYZING))
-        self.assertNotIn("viralstyle", html.lower())
+        self.assertNotIn("viralstyle", _no_csp(html).lower())
 
     def test_held_and_retired_cleveland_designs_have_no_pages(self):
         """A held/retired Cleveland design must never get a sellable page back.
@@ -1689,10 +1727,14 @@ class MayzingBrownsRebuild(unittest.TestCase):
         shop = os.path.join(SITE, "shop")
         built = {d for d in os.listdir(shop)
                  if os.path.isfile(os.path.join(shop, d, "index.html"))}
+        import build  # noqa: E402
+        live_slugs = {it["slug"] for it in build.ALL}
         for slug in list(load_json("data/fulfillment.json")["hold"]) + \
                 list(self.OLD_CLEVELAND_PAGES):
             if slug not in built:
                 continue
+            if slug in live_slugs:
+                continue  # a renamed design legitimately reuses this slug
             html = read(os.path.join(shop, slug, "index.html"))
             why = f"retired design {slug}"
             self.assertIn("data-gl-redirect", html, f"{why} must be a redirect stub")
@@ -1801,8 +1843,13 @@ class MichiganMayzingProducts(unittest.TestCase):
             html = read(fp)
             self.assertIn("data-gl-redirect", html, f"{why} must be a redirect stub")
             self.assertIn('name="robots" content="noindex', html, f"{why} stub must be noindex")
-            self.assertRegex(html, r'data-gl-redirect="/michigan-wolverines-shirts/"',
-                             f"{why} must forward to the Michigan collection")
+            if slug in ALIASES:
+                # renamed design: the old URL forwards to the renamed page
+                self.assertRegex(html, rf'data-gl-redirect="/shop/{ALIASES[slug]}/"',
+                                 f"{why} must forward to the renamed page")
+            else:
+                self.assertRegex(html, r'data-gl-redirect="/michigan-wolverines-shirts/"',
+                                 f"{why} must forward to the Michigan collection")
             self.assertNotIn('"@type":"Product"', html.replace(" ", ""),
                              f"{why} must not publish Product schema")
             self.assertNotIn("gridironlocker.shop/", html,
@@ -1817,7 +1864,7 @@ class MichiganMayzingProducts(unittest.TestCase):
             html = read(fp)
             self.assertIn(p["checkout_url"], html, slug)
             self.assertIn("https://gridironlocker.store/michigan-wolverines-shirts/", html, slug)
-            self.assertNotIn("viralstyle", html.lower(), slug)
+            self.assertNotIn("viralstyle", _no_csp(html).lower(), slug)
 
     def test_remote_fallback_and_no_double_prefix(self):
         for slug, p in self.michigan.items():
@@ -1847,9 +1894,11 @@ class MichiganMayzingProducts(unittest.TestCase):
 
     def test_catalogue_copy_added(self):
         from catalog import CATALOG
+        _raw_of = {v: k for k, v in ALIASES.items()}
         for slug in self.michigan:
-            self.assertIn(slug, CATALOG, slug)
-            self.assertTrue(CATALOG[slug].get("name"), slug)
+            raw = _raw_of.get(slug, slug)
+            self.assertIn(raw, CATALOG, slug)
+            self.assertTrue(CATALOG[raw].get("name"), slug)
 
 
 class CreatorCollab(unittest.TestCase):
@@ -1866,7 +1915,7 @@ class CreatorCollab(unittest.TestCase):
     def setUp(self):
         self.html = page("michigan/joe/index.html")
         self.js = page("assets/app.js")
-        self.css = page("assets/style.css")
+        self.css = read(os.path.join(SRC, "style.css"))
         self.creators = load_json("data/creators.json")["creators"]["joe"]
 
     def test_page_exists_and_is_indexable(self):
@@ -1884,7 +1933,7 @@ class CreatorCollab(unittest.TestCase):
                          "JOE'S MICHIGAN LOCKER")
         for line in ("Michigan football gear, hand-picked by Joe.",
                      "10% OFF YOUR ORDER",
-                     "USE CODE: JOE10",
+                     "10% OFF - AUTO-APPLIED",
                      "Shop Joe's Picks",
                      "Joe has teamed up with Gridiron Locker to bring Michigan fans",
                      "More Michigan designs coming as we build this collection together.",
@@ -2331,8 +2380,11 @@ class AuditFixes20260918(unittest.TestCase):
                     if f.lower().endswith((".py", ".sh", ".md", ".csv", ".txt")):
                         leaked.append(os.path.relpath(os.path.join(dirpath, f), SITE))
         self.assertEqual(leaked, [], leaked)
-        # the dashboards still get the JSON they fetch
-        self.assertTrue(os.path.exists(os.path.join(SITE, "ops", "scout", "scout.json")))
+        # Audit 2026-09-20: noindex is not access control - the owner
+        # dashboards are withheld from the public artifact entirely.
+        # GL_PUBLISH_INTERNAL=1 opts back in for local previews only.
+        self.assertFalse(os.path.exists(os.path.join(SITE, "ops")), "site/ops must not deploy")
+        self.assertFalse(os.path.exists(os.path.join(SITE, "marketing")), "site/marketing must not deploy")
 
     # ----------------------------------------------------------- F14 drops
     def test_unshipped_drops_are_recorded(self):

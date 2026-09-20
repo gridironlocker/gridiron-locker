@@ -9,6 +9,19 @@ from collections_data import week1_dates_line
 import seocopy as _c
 import landing as _l
 from catalog import CATALOG
+
+# Season freshness (audit 2026-09-20 M1): data/season_override.json is written
+# by src/scores_sync.py in the refresh workflow and carries the latest final
+# scores / next kickoffs. It overrides the hand-edited SEASON prose so a game
+# result never goes stale on the site; delete the file to fall back.
+try:
+    _season_ov = read_json("data", "season_override.json").get("overrides", {})
+    for _ck, _ov in _season_ov.items():
+        if _ck in SEASON and isinstance(_ov, dict):
+            SEASON[_ck].update({k: v for k, v in _ov.items()
+                                if k in ("status", "headline", "result", "kickoff")})
+except Exception:
+    pass
 import auto_copy
 
 ROOT = os.path.dirname(os.path.dirname(os.path.abspath(__file__)))
@@ -155,6 +168,20 @@ def utc_today():
 TODAY = utc_today().isoformat()
 YEAR = utc_today().year
 STYLE_PATH = os.path.join(ROOT, "src/style.css")
+
+
+def minify_css(css):
+    """Conservative CSS minifier: strip comments and squeeze whitespace.
+
+    Never rewrites values, urls or calc() expressions, so the served sheet is
+    byte-different but semantically identical to src/style.css. STYLE_VERSION
+    (hash of the source) still cache-busts correctly because any source change
+    changes the hash.
+    """
+    css = re.sub(r"/\*.*?\*/", "", css, flags=re.S)
+    css = re.sub(r"\s+", " ", css)
+    css = re.sub(r"\s*([{}:;,>])\s*", r"\1", css)
+    return css.replace(";}", "}").strip()
 with open(STYLE_PATH, "rb") as _style_fh:
     STYLE_VERSION = hashlib.sha256(_style_fh.read()).hexdigest()[:8]
 CTA = "#49a59c"
@@ -266,6 +293,16 @@ try:
 except Exception:
     DELISTED = {}
 
+# Slug corrections (data/slug_aliases.json): the page is published under the
+# clean slug while partner data keeps the raw one, so a re-crawl can never
+# undo a rename. The old slug automatically becomes a noindex 301 stub that
+# redirects to the renamed page (see retired_slugs()).
+try:
+    ALIASES = {k: v for k, v in read_json("data", "slug_aliases.json").items()
+               if not k.startswith("_")}
+except Exception:
+    ALIASES = {}
+
 # Cleveland/Browns fulfillment migration (Viralstyle -> Mayzing). The whole
 # migration lives in data/ so it survives a re-crawl: dl.py rewrites
 # data/products_live.json from the Viralstyle storefront, so anything pinned
@@ -359,6 +396,14 @@ _KNOWN_THEMES = {"player", "funny", "playoff", "classic", "retro", "city", "fami
 for _f in FACTS.values():
     if isinstance(_f, dict) and _f.get("theme") not in _KNOWN_THEMES:
         _f["theme"] = "classic"
+
+# Aliased slugs resolve through the corrected slug everywhere, so renderers,
+# search, feeds and sitemaps never see the raw partner slug.
+for _old, _new in ALIASES.items():
+    if _old in FACTS and _new not in FACTS:
+        FACTS[_new] = FACTS[_old]
+    if _old in P and _new not in P:
+        P[_new] = P[_old]
 
 # live trend data produced by src/trends.py (optional - site builds fine without it)
 try:
@@ -719,7 +764,8 @@ def mayzing_item(m, ckey):
     hot-linked from the Mayzing CDN as a temporary fallback until dl.py learns
     to localise them, same as a freshly added Viralstyle campaign.
     """
-    f = FACTS[m["slug"]]
+    slug = ALIASES.get(m["slug"], m["slug"])
+    f = FACTS[slug]
     col = COLLECTIONS[ckey]
     img = OrderedDict(
         (t, u) for t, u in (m.get("img") or {}).items()
@@ -741,11 +787,11 @@ def mayzing_item(m, ckey):
     gal = [img["front"]] + ([img["back"]] if "back" in img else [])
     gal += [v for k, v in img.items() if k.startswith("c")]
     blob = (name + " " + f["art"]).lower()
-    trend = auto_trend(ckey, m["slug"], blob)
+    trend = auto_trend(ckey, slug, blob)
     return dict(trend=trend,
-        slug=m["slug"], name=name, art=f["art"], theme=f.get("theme", "classic"),
+        slug=slug, name=name, art=f["art"], theme=f.get("theme", "classic"),
         garment=garment, price=price, colours=colours,
-        styles=styles, sizes_avail=sizes_avail, url=f"/shop/{m['slug']}/",
+        styles=styles, sizes_avail=sizes_avail, url=f"/shop/{slug}/",
         gallery=gal, front=img["front"],
         back=img.get("back", img["front"]),
         buy=m["checkout_url"],
@@ -755,7 +801,7 @@ def mayzing_item(m, ckey):
         features=m.get("features") or "",
         # Keep this on the model so product HTML, sitemap.xml and the image
         # sitemap all use the same source-date decision.
-        lastmod=product_content_date(ckey, m["slug"], m),
+        lastmod=product_content_date(ckey, slug, m),
     )
 
 
@@ -779,7 +825,7 @@ def build_model():
             items[ckey] = lst
             continue
         for entry in COLS[ckey]["products"]:
-            slug = entry["slug"]
+            slug = ALIASES.get(entry["slug"], entry["slug"])
             if slug in DELISTED or slug in FUL_HOLD:
                 continue
             if slug not in P:
@@ -1062,6 +1108,8 @@ def head(title, desc, path, image=None, schema=None, keywords=None, col=None,
 <link rel="icon" href="/img/favicon.svg" type="image/svg+xml">
 <link rel="preconnect" href="https://fonts.googleapis.com">
 <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+<meta http-equiv="Content-Security-Policy" content="default-src 'self'; script-src 'self' 'unsafe-inline' https://www.googletagmanager.com; style-src 'self' 'unsafe-inline' https://fonts.googleapis.com; font-src 'self' data: https://fonts.gstatic.com; img-src 'self' data: https://buyer-experience-gateway.mayzing.com https://assets.viralstyle.com https://www.googletagmanager.com https://www.google-analytics.com; connect-src 'self' https://www.googletagmanager.com https://www.google-analytics.com https://analytics.google.com https://region1.google-analytics.com https://formsubmit.co; object-src 'none'; base-uri 'self'; form-action 'self' https://formsubmit.co">
+<meta name="referrer" content="strict-origin-when-cross-origin">
 <link rel="stylesheet" href="/assets/style.css?v={STYLE_VERSION}">
 <script>document.documentElement.className+=" js"</script>
 {acc}
@@ -1239,15 +1287,19 @@ def audience_gender(it):
 
 # Evergreen ticker terms, keyed by collection so a team page never scrolls
 # another team's slogans. The store-wide terms are appended on every page.
+# Evergreen ticker phrases. DESIGN-BLUEPRINT 2 covers ad copy, so no player
+# surnames or numbers here - chants, city and culture terms only (the
+# 2026-09-20 delist removed the player designs; the ticker must not keep
+# advertising them by name).
 TEAM_TICKER_TERMS = {
-    "cleveland-browns": [("Shedeur Sanders fan shirts", 1), ("Dawg Pound apparel", 0),
-                         ("Here We Go Brownies", 0), ("Cleveland skyline tees", 0)],
-    "green-bay-packers": [("Go Pack Go tees", 0), ("Jordan Love 10 shirts", 1),
+    "cleveland-browns": [("Dawg Pound apparel", 1), ("Here We Go Brownies", 0),
+                         ("Cleveland skyline tees", 0), ("Lake Erie football tees", 0)],
+    "green-bay-packers": [("Go Pack Go tees", 1), ("Green Bay football tees", 0),
                           ("Cheesehead Nation", 0), ("Lambeau game-day gear", 0)],
-    "dallas-cowboys": [("Dallas vintage tees", 0), ("Texas pride shirts", 0),
-                       ("Doomsday Defense tees", 1), ("Star-city lettering", 0)],
-    "michigan": [("Michigan vs Everybody", 0), ("Bryce Underwood era", 1),
-                 ("Go Blue tees", 0), ("Maize and navy tees", 0)],
+    "dallas-cowboys": [("Dallas vintage tees", 1), ("Texas pride shirts", 0),
+                       ("Doomsday Defense tees", 0), ("Star-city lettering", 0)],
+    "michigan": [("Michigan vs Everybody", 1), ("Go Blue tees", 0),
+                 ("Maize and navy tees", 0), ("Ann Arbor game-day tees", 0)],
 }
 STORE_TICKER_TERMS = [
     (f"Week 1 game day fits", 1), (f"Sizes {SIZE_RANGE}", 0),
@@ -1326,8 +1378,18 @@ def ticker_live_terms(ckey, limit=3):
     c = COLLECTIONS[ckey]
     own = set(re.findall(r"[a-z]+", f"{c['short']} {c['team']} {c['name']} {c['city']}".lower()))
     blocked = OTHER_TEAMS | TICKER_STOPWORDS | TICKER_OPPONENTS.get(ckey, set()) | own
+    # DESIGN-BLUEPRINT 2: player surnames/first names never become shirt ad
+    # copy (same person list qa_deep's design-law gate uses).
+    try:
+        _people = read_json("data", "people.json").get("people", [])
+        _player_words = {w.lower() for p in _people for w in p.get("name", "").split()
+                         if len(w) > 2}
+    except Exception:
+        _player_words = set()
+    blocked = blocked | _player_words
     mentions = (TRENDS.get("collections", {}).get(ckey, {}) or {}).get("entity_mentions") or {}
-    tracked_words = {w for e, n in mentions.items() if n > 0 for w in e.split()}
+    tracked_words = {w for e, n in mentions.items() if n > 0 for w in e.split()
+                     if w.lower() not in _player_words}
     out = []
     for t in (TRENDS.get("collections", {}).get(ckey, {}) or {}).get("top_terms", []):
         w = t.lower().strip()
@@ -1862,6 +1924,23 @@ def shop_nav():
 # not our tagline. It is gone. The poster keeps the brushwork, the block keeps
 # one typeface voice and one alignment, and the poster's yellow survives as a
 # single short rule under the headline.
+def hero_picture(base, alt, lazy=False, extra_attrs=""):
+    """Responsive hero: WebP srcset (800/1200/1600) with a JPG fallback.
+
+    A phone no longer downloads the same 2048px banner as a desktop; the
+    JPG fallback exists for social scrapers' previews and old browsers.
+    relativise() rewrites both the srcset candidates and the fallback.
+    """
+    fa = ' loading="lazy" decoding="async"' if lazy else \
+         ' fetchpriority="high" decoding="async"'
+    return (f'<picture>'
+            f'<source type="image/webp" sizes="100vw" '
+            f'srcset="/img/{base}-800.webp 800w, /img/{base}-1200.webp 1200w, '
+            f'/img/{base}-1600.webp 1600w">'
+            f'<img src="/img/{base}.jpg" alt="{esc(alt)}" '
+            f'width="1600" height="600"{fa}{extra_attrs}></picture>')
+
+
 HOME_HERO = "/img/hero-home.jpg?v=5"
 # Product-led crops of the four team banners, generated by src/crop_art.py.
 TEAM_CARD_ART = {
@@ -1899,9 +1978,8 @@ def home_banner():
     # the custom form). The poster above keeps the painted brand story; this
     # block never restates it and never adds a second headline voice.
     return f"""<section class="cbanner home" id="hero" style="padding:0">
- <div class="band"><img src="{HOME_HERO}"
-  alt="{esc(BRAND)} fan gear for Cleveland, Green Bay, Dallas and Michigan fans - fan-made tees, hoodies and crewnecks"
-  width="2048" height="768" fetchpriority="high" decoding="async"></div>
+ <div class="band">{hero_picture("hero-home",
+  BRAND + " fan gear for Cleveland, Green Bay, Dallas and Michigan fans - fan-made tees, hoodies and crewnecks")}</div>
  <div class="wrap cb-in">
   <div class="hero-copy">
    <span class="hero-kicker">Fan-Made Football</span>
@@ -2433,7 +2511,7 @@ def page_collection(k):
                    if se.get("legacy_note") else "")
     body = f"""
 <main id="main"><section class="cbanner compact" style="padding:0">
- <div class="band"><img src="{c['hero']}" alt="{esc(c['name'])} banner" width="2048" height="768" fetchpriority="high"></div>
+ <div class="band">{hero_picture(c["hero"].split("/")[-1].split("?")[0].replace(".jpg", ""), esc(c["name"]) + " banner")}</div>
  <div class="cb-in">
   <span class="eyebrow"><span class="dot"></span> {len(items)} designs &middot; from ${prices[0]:.2f}</span>
   <p class="posline">{esc(c['position'])}</p>
@@ -2556,9 +2634,8 @@ def page_creator(ckey="joe"):
     path = f"/{cre['page_slug']}/"
     prices = sorted(x["price"] for x in items)
     minp, maxp = prices[0], prices[-1]
-    cre_page_desc = (f"Joe's Michigan Locker: Michigan football tees hand-picked by Joe. "
-                     f"Save 10% with code JOE10 on game-day and vintage-inspired designs, "
-                     f"printed on demand.")
+    cre_page_desc = ("Joe's Michigan Locker: Michigan football tees hand-picked by Joe. "
+                     "10% off applied automatically in the cart, printed on demand.")
     types = sorted({x["garment"] for x in items})
     feat_slugs = [s for s in cre.get("featured", []) if s in {x["slug"] for x in items}]
     by_slug = {x["slug"]: x for x in items}
@@ -2599,9 +2676,9 @@ def page_creator(ckey="joe"):
          "designs from Gridiron Locker's Michigan collection and builds this "
          "dedicated locker for his audience. It is one permanent link - new "
          "designs are added to Joe's locker without ever changing it."),
-        ("How do I use Joe's discount code?",
-         "Enter the code JOE10 at checkout for 10% off your order. It applies "
-         "to the designs in this locker."),
+        ("How do I get Joe's 10% discount?",
+         "The 10% discount is applied automatically in the cart when you check "
+         "out - nothing to enter. It applies to the designs in this locker."),
         ("Are these officially licensed Michigan products?",
          "No. Everything here is independent, fan-made artwork. Gridiron Locker "
          "is not affiliated with, endorsed by or licensed by the University of "
@@ -2644,8 +2721,8 @@ def page_creator(ckey="joe"):
    <p class="jsub">Michigan football gear, hand-picked by Joe.</p>
    <div class="joffer">
     <span class="joffer-off">10% OFF YOUR ORDER</span>
-    <span class="joffer-code">USE CODE: JOE10</span>
-    <span class="joffer-note">Enter the code at checkout.</span>
+    <span class="joffer-code">10% OFF - AUTO-APPLIED</span>
+    <span class="joffer-note">Discount applied in the cart at checkout.</span>
    </div>
    <div class="jctas">
     <a class="jbtn" href="#picks">Shop Joe's Picks</a>
@@ -2714,8 +2791,8 @@ def page_creator(ckey="joe"):
  <div class="wrap center">
   <h2>JOE &times; GRIDIRON <span class="jgold">LOCKER</span></h2>
   <p>Joe's Michigan Locker brings together his favourite Gridiron Locker designs in one place -
-  built for Michigan fans and selected with Joe. Use code <strong>JOE10</strong> at checkout for
-  10% off your order.</p>
+  built for Michigan fans and selected with Joe. 10% off is applied
+  automatically in the cart at checkout.</p>
  </div>
 </section>
 
@@ -2740,6 +2817,18 @@ def page_creator(ckey="joe"):
           + header(ckey_col) + body + footer())
 
 
+def buy_href(it):
+    """Partner checkout URL with attribution for partner-side analytics.
+
+    The catalogue buy URL stays canonical (schema Offer.url, sitemap, qa gates);
+    only the clickable CTAs carry UTMs so the partner dashboard can attribute
+    traffic back to this store. Mayzing URLs already carry a query string.
+    """
+    sep = "&" if "?" in it["buy"] else "?"
+    return (f'{it["buy"]}{sep}utm_source=gridironlocker.store'
+            f'&utm_medium=product_page&utm_campaign={it["slug"]}')
+
+
 def shop_now_cta(it, placement, label="Shop Now", size="lg", block=True):
     """The one and only conversion control on a product page.
 
@@ -2750,7 +2839,7 @@ def shop_now_cta(it, placement, label="Shop Now", size="lg", block=True):
     so historical reporting keeps working.
     """
     cls = "btn" + (" block" if block else "") + (f" {size}" if size else "")
-    return (f'<a class="{cls} shopnow" href="{it["buy"]}" target="_blank" rel="noopener"'
+    return (f'<a class="{cls} shopnow" href="{buy_href(it)}" target="_blank" rel="noopener"'
             f' data-slug="{it["slug"]}" data-price="{it["price"]:.2f}"'
             f' data-collection="{it["col"]}" data-placement="{placement}">'
             f'{label} <span aria-hidden="true">&rarr;</span></a>')
@@ -2988,7 +3077,7 @@ def page_product(it):
    <span class="pricefrom">{price_label}</span></div>
   {trendhtml}
   {shop_now_cta(it, "hero")}
-  <p class="handoff-note">{handoff_note}</p>
+  <p class="handoff-note">{handoff_note} Prices are listed in USD; the checkout may show the equivalent in your local currency.</p>
   <ul class="atglance">
    <li><b>Design</b>{esc(_l.title_case_art(it['art']))}</li>
    <li><b>Apparel</b>{style_badge}</li>
@@ -3643,7 +3732,7 @@ people buying gifts.</p>
         body = f"""{cb}<section style="padding-top:6px"><div class="wrap prose">
 <h1>{esc(title)}</h1>
 <p class="muted">Updated {TODAY} &middot; {len(items)} designs reviewed &middot; from ${prices[0]:.2f}</p>
-<img src="{c['hero']}" alt="{esc(c['name'])}" style="border-radius:14px;margin:18px 0" loading="lazy" width="1200" height="500">
+{hero_picture(c["hero"].split("/")[-1].split("?")[0].replace(".jpg", ""), esc(c["name"]), lazy=True, extra_attrs=' style="border-radius:14px;margin:18px 0"')}
 <p>{esc(c['intro'].format(**c))}</p>
 <h2>Start with the garment, not the graphic</h2>
 <p>The single most common mistake is falling for a design and then picking the wrong garment. If you
@@ -3971,6 +4060,10 @@ def retired_slugs():
         out[slug] = meta.get("collection") or "cleveland-browns"
     for slug in FUL_HOLD:
         out.setdefault(slug, _FUL.get("collection") or "cleveland-browns")
+    _col_of = {it["slug"]: it["col"] for it in ALL}
+    for _old, _new in ALIASES.items():
+        if _old != _new and _new in _col_of:
+            out.setdefault(_old, _col_of[_new])
     live = {it["slug"] for it in ALL}
     return OrderedDict((s, c) for s, c in out.items()
                        if s not in live and c in COLLECTIONS)
@@ -4292,7 +4385,7 @@ def assets():
     # the only copy of the design lived in the generated directory the refresh
     # workflow rewrites. Emitting it here keeps site/ fully disposable.
     with open(os.path.join(ROOT, "src/style.css"), encoding="utf-8") as fh:
-        write("assets/style.css", fh.read())
+        write("assets/style.css", minify_css(fh.read()))
 
     # Search index for the sitewide header autocomplete and the /search/
     # catalogue. One compact row per live design, built from the same MODEL
@@ -5417,7 +5510,15 @@ def sync_marketing():
     s_m_dir = os.path.join(SITE, "marketing")
     if not os.path.exists(m_dir):
         return
-    n = _copy_publishable(m_dir, s_m_dir)
+    # noindex + robots.txt are not access control, so the dashboards are
+    # withheld from the public artifact unless explicitly re-enabled for a
+    # local preview with GL_PUBLISH_INTERNAL=1 (audit 2026-09-20).
+    if os.environ.get("GL_PUBLISH_INTERNAL") != "1":
+        if os.path.isdir(s_m_dir):
+            shutil.rmtree(s_m_dir)
+        n = 0
+    else:
+        n = _copy_publishable(m_dir, s_m_dir)
     print(f"sync_marketing: published {n} dashboard files of "
           f"{sum(len(f) for _, _, f in os.walk(m_dir))} in marketing/ "
           f"(source/playbooks/csv withheld)")
@@ -5501,7 +5602,12 @@ def sync_ops():
         return
     # Same allowlist as sync_marketing: dashboards and their data, never the
     # .py generators or health_check source.
-    n = _copy_publishable(o_dir, s_o_dir)
+    if os.environ.get("GL_PUBLISH_INTERNAL") != "1":
+        if os.path.isdir(s_o_dir):
+            shutil.rmtree(s_o_dir)
+        n = 0
+    else:
+        n = _copy_publishable(o_dir, s_o_dir)
     print(f"sync_ops: published {n} dashboard files (source withheld)")
 
 
