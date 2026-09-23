@@ -7,14 +7,22 @@ real, sourced "latest headlines" block on collection pages and the season hub,
 (c) score a Fan Trend Index (0-100 vs the hottest name in the window), and
 (d) attach live player moments (headlines that name a tracked player/coach).
 
-No API keys required - uses public Google News RSS.
+No API keys required - uses public Google News RSS, with a no-key Bing News
+RSS fallback per collection. Google throttles GitHub Actions datacenter IPs
+hard and unpredictably: one unlucky cron tick (run 35827081394, 2026-09-23,
+all four feeds blocked at the same minute) used to turn the whole refresh run
+red. The fetch path below retries retryable statuses with backoff and only
+gives up after a second provider also comes back empty.
 """
-import json, os, re, sys, html, datetime
+import json, os, re, sys, html, random, time, datetime
+import email.utils
 import xml.etree.ElementTree as ET
 from urllib.parse import quote
 
 try:
     import requests
+    from requests.adapters import HTTPAdapter
+    from urllib3.util.retry import Retry
 except ImportError:  # enrich-only / unit tests don't need the network client
     requests = None
 
@@ -31,6 +39,15 @@ UA = {
     "Accept-Language": "en-US,en;q=0.9",
 }
 WINDOW_DAYS = 10
+
+# Fetch resilience. Retries cover transient statuses (429 is the one that
+# actually happens from runner IPs; 403/418 are bot-wall variants); backoff is
+# exponential, capped, and honours Retry-After when Google sends one. Same
+# Retry pattern as ops/health_check.py. Pacing spreads the four collection
+# fetches so they no longer leave the runner as one back-to-back burst.
+RETRYABLE_STATUS = (403, 408, 418, 425, 429, 500, 502, 503, 504)
+PROVIDER_PACING_S = (1.5, 4.0)   # random delay before each collection fetch
+
 
 # Query used against Google News, per collection
 QUERIES = {
@@ -281,21 +298,62 @@ def write_report(data):
     return rep
 
 
-def fetch(ckey):
+class FeedError(Exception):
+    """One provider failed for one collection; fetch() moves to the next."""
+
+
+def build_session():
+    """Session with bounded retries on retryable statuses (and Retry-After).
+
+    raise_on_status=False so an exhausted, still-429 feed surfaces as a plain
+    response that _get_rss turns into a FeedError -> provider fallback, rather
+    than an exception that could skip the remaining attempts' handling.
+    """
     if requests is None:
-        print(f"  ! {ckey}: requests not installed")
-        return []
+        return None
+    session = requests.Session()
+    session.headers.update(UA)
+    retry = Retry(total=3, backoff_factor=2.0, backoff_max=90,
+                  status_forcelist=RETRYABLE_STATUS, allowed_methods=("GET",),
+                  raise_on_status=False)
+    adapter = HTTPAdapter(max_retries=retry)
+    session.mount("https://", adapter)
+    session.mount("http://", adapter)
+    return session
+
+
+SESSION = build_session()
+
+
+def google_feed_url(ckey):
     q = quote(QUERIES[ckey] + f" when:{WINDOW_DAYS}d")
-    url = f"https://news.google.com/rss/search?q={q}&hl=en-US&gl=US&ceid=US:en"
+    return f"https://news.google.com/rss/search?q={q}&hl=en-US&gl=US&ceid=US:en"
+
+
+def bing_feed_url(ckey):
+    # Bing has no `when:` operator - results are windowed client-side instead
+    # (parse_bing_items drops anything older than WINDOW_DAYS).
+    q = quote(QUERIES[ckey])
+    return ("https://www.bing.com/news/search?q=" + q
+            + "&format=rss&setlang=en-US&mkt=en-US&count=30")
+
+
+def _get_rss(url):
+    if SESSION is None:
+        raise FeedError("requests not installed")
     try:
-        r = requests.get(url, headers=UA, timeout=30)
-        if r.status_code != 200:
-            print(f"  ! {ckey}: HTTP {r.status_code} from Google News (possible rate limit)")
-            return []
-        root = ET.fromstring(r.content)
-    except Exception as e:
-        print(f"  ! {ckey}: feed error {e}")
-        return []
+        r = SESSION.get(url, timeout=30)
+    except Exception as e:  # DNS/TLS/timeout: treat as a provider failure
+        raise FeedError(str(e) or type(e).__name__)
+    if r.status_code != 200:
+        raise FeedError(f"HTTP {r.status_code} (possible rate limit)")
+    try:
+        return ET.fromstring(r.content)
+    except ET.ParseError as e:  # e.g. an interstitial HTML page, not RSS
+        raise FeedError(f"unparseable feed body ({e})")
+
+
+def parse_google_items(root):
     out = []
     for it in root.findall(".//item"):
         title = strip_tags(it.findtext("title"))
@@ -312,11 +370,67 @@ def fetch(ckey):
     return out
 
 
+def parse_bing_items(root, now=None):
+    """Bing News RSS: plain RSS 2.0 items (usually no <source>), and no
+    server-side `when:` window - so enforce the window here instead."""
+    now = now or datetime.datetime.now(datetime.timezone.utc)
+    horizon = now - datetime.timedelta(days=WINDOW_DAYS)
+    out = []
+    for it in root.findall(".//item"):
+        title = strip_tags(it.findtext("title"))
+        link = (it.findtext("link") or "").strip()
+        pub = (it.findtext("pubDate") or "").strip()
+        src_el = it.find("source")
+        src = strip_tags(src_el.text) if src_el is not None else ""
+        if not title:
+            continue
+        if pub:
+            try:
+                dt = email.utils.parsedate_to_datetime(pub)
+            except (TypeError, ValueError):
+                dt = None  # unparseable date: keep the headline anyway
+            if dt is not None:
+                if dt.tzinfo is None:
+                    dt = dt.replace(tzinfo=datetime.timezone.utc)
+                if dt < horizon:
+                    continue
+        out.append({"title": title, "url": link, "source": src, "pub": pub})
+    return out
+
+
+def fetch(ckey):
+    """Headlines for one collection: Google News first, Bing News fallback.
+
+    A provider "fails" on transport errors, retryable HTTP statuses that
+    survive the session's backoff, unparseable bodies, or an empty item list
+    (Google sometimes answers a throttle with HTTP 200 and a hollow feed).
+    [] means every provider failed; main() turns THAT into a red run only
+    when all four collections come back empty.
+    """
+    providers = [("Google News", google_feed_url(ckey), parse_google_items),
+                 ("Bing News", bing_feed_url(ckey), parse_bing_items)]
+    for name, url, parse in providers:
+        try:
+            items = parse(_get_rss(url))
+        except FeedError as e:
+            print(f"  ! {ckey}: {name} unavailable - {e}")
+            continue
+        if items:
+            if name != "Google News":
+                print(f"  ~ {ckey}: using {name} fallback ({len(items)} headlines)")
+            return items
+        print(f"  ! {ckey}: {name} returned an empty feed")
+    return []
+
+
 def main():
     today = datetime.date.today().isoformat()
     data = {"generated": today, "window_days": WINDOW_DAYS, "collections": {}}
 
     for ckey in ORDER:
+        # Pace the fetches - four back-to-back requests from a datacenter IP
+        # is exactly the burst pattern that gets runners throttled.
+        time.sleep(random.uniform(*PROVIDER_PACING_S))
         items = fetch(ckey)
         blob = " ".join(i["title"] for i in items).lower()
 
