@@ -1,106 +1,77 @@
-# Hunt Report - 2026-09-22
+# Hunt Report - 2026-09-23
 
-Generated: 2026-09-22 15:29 UTC by src/hunter_intelligence.py
+Generated: 2026-09-23 08:35 UTC by src/hunter_intelligence.py
 
-Ladder: SIGNAL 1 · TREND 0 · OPPORTUNITY 1 · ACTION 1 · HEADLINE 4
+Ladder: SIGNAL 0 · TREND 0 · OPPORTUNITY 1 · ACTION 1 · HEADLINE 7
 
 Fan connectors: no fan posts observed - reddit error (HTTP Error 403: Blocked); x not_configured (Set X_BEARER_TOKEN to use the official X recent-search API.); facebook not_configured (Set META_PAGE_ID and META_PAGE_ACCESS_TOKEN for the official Meta Page feed API.)
 
 ## What to do right now
 
-**Post the QB room: who is QB1 in Cleveland angle for Cleveland Browns on X (@gridironlocker1 first) now with Make Them Know Your Name - 76% confidence, ACTION.**
+**Post the Coaching: Monken's first season angle for Cleveland Browns on X (@gridironlocker1 first) now with Beware Of Dawg - 76% confidence, ACTION.**
 
-- Product: Make Them Know Your Name https://gridironlocker.shop/make-them-know-your-name?collectionId=P19bpeU2x_Ng&color=GILDAN-DARK_CHOCOLATE&productId=6aa33fa01cdc8689e252dab3
+- Product: Beware Of Dawg https://gridironlocker.shop/be-awar-of-dawg?collectionId=P19bpeU2x_Ng&color=GILDAN-DARK_CHOCOLATE&productId=6aa548c6f475ab73b096ff20
 - Platform: X (@gridironlocker1 first) · Timing: now
 - Confidence: 76% (ACTION) · 🟢 READY
-- Campaign: THEY FORGOT WHO I AM — QB1 belief
-- Creative: Post the belief, not the debate: 'QB1 wears 12' with the Sanders design. Never take a side on Watson - that thread eats the post.
-- Why: The whole fanbase is arguing one question: who starts. That is a belief argument, and belief is what a QB tee sells.
+- Campaign: COACH LOYALTY
+- Creative: Captain names and sideline moments, framed as 'this is our coach now'. Skip the schematic takes - fans do not buy those.
+- Why: New-coach hope and captain announcements are low-volume but very shareable inside the fanbase.
 
 ## Opportunities (SIGNAL and above)
 
-### 1. QB room: who is QB1 in Cleveland - Cleveland Browns
+### 1. Coaching: Monken's first season - Cleveland Browns
 - Level: ACTION · Confidence: 76% · 🟢 READY (matched design, posting window open, evidence under 12 h)
-- Fan signal: "Browns' Deshaun Watson-led win over Bucs was the worst thing for Cleveland in 2026" - CBS Sports (1 d ago)
-- Evidence: 8 reaction items (10.0 weighted) · 7 outlets · 0 utility listings excluded · 0 fan posts
-- Phrase velocity: ↑ 100% / 1440 min (4 vs 2)
-- Sentiment: anxious - 'anxious' on 6/11 lexicon hits across 8 item(s)
-- Game state: result coverage in the last 30 h (3 item(s))
-- Commercial: campaign - Make Them Know Your Name $21.00 (sellable) - THEY FORGOT WHO I AM — QB1 belief
-- Why fans care: The whole fanbase is arguing one question: who starts. That is a belief argument, and belief is what a QB tee sells.
-- Tracked names: deshaun watson (35 window mentions, FTI 100); todd monken (11 window mentions, FTI 31); shedeur sanders (4 window mentions, FTI 11)
-- Action: X (@gridironlocker1 first) - conversation post now (now)
-- Action: Threads - alternate angle (+20 min)
-- Action: Instagram - product creative after engagement confirms the angle (after the X post confirms the angle)
-- Action: Pinterest - keyword pin of the matched design (+2 h)
-  - Browns' Deshaun Watson-led win over Bucs was the worst thing for Cleveland in 2026 - CBS Sports - google_news (1 d ago) https://news.google.com/rss/articles/CBMiqAFBVV95cUxOcS1haHZwSWNKdWFZWF9tdk9sdEluNFFXMThYTXJ1MFMyYXFIQ0pKSVM1M0lKdWZHY2JRbDNWeFU2bTlzV2pmY1g1MjNMZUw3UFo3WU1HRnM1aHpHaGQwSk5CQ3VGb0VsREFSSm1nVkJZZmpiTzh2MzNBTlNSdC1sUGRjTlI4WkNySktWQko3ZFZoRnh5SXNBTlNiU3ZrUVVHdFp2S19fSmk?oc=5
-  - Cleveland Browns seal win as Tampa Bay Buccaneers quarterback Baker Mayfield’s fourth-down pass is incomplete - NFL.com (2 d ago) https://news.google.com/rss/articles/CBMimAFBVV95cUxQQ1lnYkF0V3JZNm14cUV3Q3daLTYtS2tTVGF4OVRqVUdwNFB5OUd6end6cGVJRzNXc2NqM3A0NmhYZHd0bXRMUTQ4ZnBlSElNSlBQbDhZSWM4V0J3NFY5VVBHTm9OY1VwQTd5eU81b3VCX21zdGZJTnFJNVY4djJCdWtSNXE2VEhMYzlNQVB4SjVJUGZKM0lReg?oc=5
-  - Browns QB Shedeur Sanders Breaks Silence After Bad News - heavy.com - google_news (6 h ago) https://news.google.com/rss/articles/CBMipAFBVV95cUxOWFctZmI3d185LW43MmNFVlVVejlpVDdrTDBpRHlTRzFjY212WDR6eE5BckUzSGUwNGpKeE1DckdQdDk5RmUyakpNMHdtSFZjeTNydTRaYWRsLXFhMllZLU5XTEdhTnlsMXZiMXFhU2ZmNXZlbkRtYVlqMWZGYmhIaWdSSThkOS05d3FVY1I0ZmhXQ194c0lzWXVCNnJIaEV5OTNkMg?oc=5
-  - Todd Monken admits the QB battle helped Shedeur Sanders but maybe not Deshaun Watson, and what he expects from Watson coming up: Mary Kay Cabot - cleveland.com - google_news (18 h ago) https://news.google.com/rss/articles/CBMilgJBVV95cUxQemduM0tRWWVkMXN4Z3dEUk5RQ3A1aE1XcEtvbVJBUjJWMG0yTmxSa0lsUktHUTZxdjBVUnhWdmw1bkZCRE4yMzFmQWJwMnJZelloWmkwQkdmMUFHVFY0SlZxQndDcmowWklUYjR5ZzduNEphNTEyMjRBMXpVUGFTdFpZTGYyclR3bkxDZlk4X3ZkY01CdnBBM1M2Y0dVTUsxcXctb0xNdmxNVWZtbTh4QkVlZ2FMVWRuLTJPLWR3ZDZwMkFONVRCdWhZNC13Nm1ialJTYk5DQTcwaWQybVlVc0hwS2VPUHZlOGZGYjc1bTRkWUExbTRsb0xxMGZvLTNPaHVZUXlPMlE5T2lKV3J0VTM2bW9rdw?oc=5
-
-### 2. Coaching: Monken's first season - Cleveland Browns
-- Level: OPPORTUNITY · Confidence: 70% · 🟡 PREP (matched, but the posting window is closed or the evidence is ageing)
-- Fan signal: "Browns HC Todd Monken claps back at Mike Tomlin barb after win over Bucs: 'Browns are gonna Browns — f*** that'" - Yahoo Sports (2 d ago)
-- Evidence: 4 reaction items (5.0 weighted) · 4 outlets · 0 utility listings excluded · 0 fan posts
-- Phrase velocity: ↑ 100% / 1440 min (2 vs 1)
-- Sentiment: anxious - 'anxious' on 3/4 lexicon hits across 4 item(s)
-- Game state: result coverage in the last 30 h (3 item(s))
+- Fan signal: "Browns Todd Monken gets his first win as NFL head coach: 2 takeaways on CLE’s new HC" - Dawgs By Nature (12 h ago)
+- Evidence: 6 reaction items (8.0 weighted) · 6 outlets · 0 utility listings excluded · 0 fan posts
+- Phrase velocity: ↑ 300% / 1440 min (4 vs 1)
+- Sentiment: anxious - 'anxious' on 2/4 lexicon hits across 6 item(s)
+- Game state: result coverage in the last 30 h (1 item(s))
 - Commercial: campaign - Beware Of Dawg $21.00 (sellable) - COACH LOYALTY
 - Why fans care: New-coach hope and captain announcements are low-volume but very shareable inside the fanbase.
-- Tracked names: deshaun watson (35 window mentions, FTI 100); todd monken (11 window mentions, FTI 31); shedeur sanders (4 window mentions, FTI 11)
+- Tracked names: deshaun watson (31 window mentions, FTI 100); shedeur sanders (7 window mentions, FTI 23); todd monken (7 window mentions, FTI 23)
 - Action: X (@gridironlocker1 first) - conversation post now (now)
 - Action: Threads - alternate angle (+20 min)
 - Action: Instagram - product creative after engagement confirms the angle (after the X post confirms the angle)
 - Action: Pinterest - keyword pin of the matched design (+2 h)
+  - Browns Todd Monken gets his first win as NFL head coach: 2 takeaways on CLE’s new HC - Dawgs By Nature - google_news (12 h ago) https://news.google.com/rss/articles/CBMirwFBVV95cUxNMEpCdEZGLWpoa1hGTDFQMnBNT01lRWJUWVhsMTdyLWVkeVkzYVVXNzVFcHlqSTFWYS1DQm1ZYmpsaVhXTElZbzlFUVZVRFc4YzBaWGlaLURSQUlHRklfN3pvRFMza2drSkZRSG1DQWNBa2dGWGhJOEtuSHZabUdmWC1sSF94czQtLVpkTHhscV9jbmU5dGhWR0t4RUdMellBTjN4bnh3anpWNmhpSHFF?oc=5
   - Browns HC Todd Monken claps back at Mike Tomlin barb after win over Bucs: 'Browns are gonna Browns — f*** that' - Yahoo Sports - google_news (2 d ago) https://news.google.com/rss/articles/CBMi7AFBVV95cUxQTnZrQzY2eVN6Vm4zY0dkc1BUSTBYVGY3RE9uUGl4cnNyQlpMc005ZTY1N1VqTkdVTWloR1Z3WFUzbGdzY0U1OXRXWHN2aXlEc2V5Wm5zT0hYWUR4MlZqUlhmQW0yZXo2eUoxaTE0TnAxaUh4cnRCS2NFc0hKZTh2Q0NQTVZoT3NUbFMtZ3loSGExNlM0cUkxOHFXVFU4SERwOUVhd1Bfa0dKdm1pWTNoVmxVQjZXZ01FSzBjYlY0YW1CSXhld21QdG0ybTRpR3hLUHNWd3dvX1J1VFRsNkdFdlREc1VzTGE3RENiOA?oc=5
-  - Todd Monken admits the QB battle helped Shedeur Sanders but maybe not Deshaun Watson, and what he expects from Watson coming up: Mary Kay Cabot - cleveland.com - google_news (18 h ago) https://news.google.com/rss/articles/CBMilgJBVV95cUxQemduM0tRWWVkMXN4Z3dEUk5RQ3A1aE1XcEtvbVJBUjJWMG0yTmxSa0lsUktHUTZxdjBVUnhWdmw1bkZCRE4yMzFmQWJwMnJZelloWmkwQkdmMUFHVFY0SlZxQndDcmowWklUYjR5ZzduNEphNTEyMjRBMXpVUGFTdFpZTGYyclR3bkxDZlk4X3ZkY01CdnBBM1M2Y0dVTUsxcXctb0xNdmxNVWZtbTh4QkVlZ2FMVWRuLTJPLWR3ZDZwMkFONVRCdWhZNC13Nm1ialJTYk5DQTcwaWQybVlVc0hwS2VPUHZlOGZGYjc1bTRkWUExbTRsb0xxMGZvLTNPaHVZUXlPMlE5T2lKV3J0VTM2bW9rdw?oc=5
-  - Todd Monken Explains Why Deshaun Watson Will Remain Browns QB1 - 247Sports - google_news (21 h ago) https://news.google.com/rss/articles/CBMiygFBVV95cUxPbnNmcUpJRjJGYm1qOWdMNV85aXduSnBKTmQ0Qm5Xb3k2Z1dkOGJaY0JVdUZNSlJwY0JXVWFVLXhyN291MUNfTWpuVUhmeHIxTkFOLWYwZnNsamRhZHFYczk4bHg2bzJSdk9zOXI5UlZyYkRHRTJ4MHNzWGtEUFZVZlQ3RGUxZWRRYmlhcWllZHM3bEVHMV9TY2dwbkxpMWNuM0tiNUJXOUtQWVQwNXFkNzVPc19maW1pLU44cmRCTjBEdjI5YURsTEd3?oc=5
-  - Todd Monken: Browns' big loss not just about Deshaun Watson - ESPN (9 d ago) https://news.google.com/rss/articles/CBMinAFBVV95cUxNZ1BiZ0k0T294bHR4SGJLUUYxcC1aa21YcGNJVlJ0bEtNZk5oWE5BWVR1WHFrbmZzQWhwb2lTR1NyekpQWTFxQjR1Q0lFUVlqbjhqUnlVc1VDRXBMX29wazFCRG5MRXhCYmxtdDlyVmxOOWJ2SWtjc0E1MXpfSWFwaGlVUzVyWGFCRFdaem9kcmNkOHJSV2RWZnpzYk0?oc=5
+  - Todd Monken isn't worried about Jerry Jeudy (and Browns fans shouldn't be either) - dawgpounddaily.com - google_news (12 h ago) https://news.google.com/rss/articles/CBMiuwFBVV95cUxPT1JIUldKRTF0NldBN2Z1dE5NeDVfaUhNeGJhQ2V1d3NSR1M1MjFSNTVYM2FTTmZQVjFCNVJYRU5TVzRIMHRvSHEwdy1hOC1nUHFubUd6bWRvd0FEcGlycXZsUXExM2hLaVFvLUlyZ0hvTHg2NHMyUHNyeDBTNFY3RWZoRDBoZjRzTFA4N2dCNlZUS0NNT2pUeVh3S0Y3SS1raU56bkNmZFBzUTVYSU5DWlAzZjdwVGJrRGJ3?oc=5
+  - Browns’ Monken Sounds Off on Jerry Jeudy Amid Trade Whispers - heavy.com - google_news (13 h ago) https://news.google.com/rss/articles/CBMijAFBVV95cUxPYVcxSkxoNGtZUzhLMW5ReWlzSEdVUmwxRnQ1TGVyQUVVV25nMG1HQVFtbWJETWFWb3o1RnNwNlliRTNtUEQxamgwREtsS21Lc09nd2NpTVBWeTBKNmpQQ2pBWVM0SXpsY3FCRFZRY0dpTDd6Ujc2clh1QUlLQ1kzZnF1My1ET1lzeWI1aQ?oc=5
 
-### 3. No Fly Zone: the secondary wins the argument - Cleveland Browns
-- Level: SIGNAL · Confidence: 57% · ⚪ WATCH (fans are reacting but nothing on the shelf answers it yet)
-- Fan signal: "Baker Mayfield blames ‘sweaty ball’ for crucial interception in stunning upset" - New York Post (1 d ago)
-- Evidence: 3 reaction items (4.0 weighted) · 3 outlets · 1 utility listings excluded · 0 fan posts
-- Phrase velocity: new - 1 item in last 240 min, none in the window before
-- Sentiment: anxious - 'anxious' on 1/2 lexicon hits across 3 item(s)
-- Game state: result coverage in the last 30 h (3 item(s))
-- Commercial: exact - Denzel Rock Out $21.00 (sellable) - NO FLY ZONE — Denzel Ward 21
-- Why fans care: Every live pick or three-and-out turns straight into defence pride in the Dawg Pound replies.
-- Tracked names: denzel ward (0 window mentions, FTI 0)
-  - Baker Mayfield blames ‘sweaty ball’ for crucial interception in stunning upset - New York Post - google_news (1 d ago) https://news.google.com/rss/articles/CBMiugFBVV95cUxONHQzRlBJNjhXbEt0RFQxU3VKTjY3OWRXWjhEazNYSENNbTdXcnZfd1U3UzBmQTltUnNnbDc4VVc3ZkxNTXViWkxnY3FyVmpfZkFVOUg2eldhaWtSR0xuczZNcE9PZk1pSnNXdmZfeDBKQVRZcW1CYjN0RHlVV1FkMDI5SXdDQnZwOUpzb1dqSGdwSkxtX1REWW9KUkhjSEozbUFvNTRiOHZtRXp2dHJ5Z2l2Y3ZOQ3RMbGc?oc=5
-  - Denzel Boston nominated for NFL Rookie of the Week for Week 2 - Cleveland Browns - google_news (1 h ago) https://news.google.com/rss/articles/CBMinwFBVV95cUxNWE5WcmJBSTZGNFVxbkNhYVRqNzNkSmVXSXZkajREY1VULVNnTE56dlhjRml1TWdJMzJybFc4dktLMFdvdlg2SVNkaC1vVWExS3JLQUxISEF5SkNjNGxBaGU3VHp0WVdQWV9pY0RTUDZtUW9kR2tUSDlEbFc1TEJ1emVrV2dyYTRpcUtoTlVNRDB0TFBxSlVXcUJ5bHA5dUU?oc=5
-  - Jerry Jeudy, Denzel Boston’s reps signal a chance: Browns offensive snap counts - Dawgs By Nature - google_news (20 h ago) https://news.google.com/rss/articles/CBMi1gFBVV95cUxNNUtsb01WRGFHdzRMWTg5M2x2WFdrREVUcWVIMG5LQm9EZF8wTTA1dGtiY1RrOGtrVDBmZFN2anFZOFBqRm1uNk1YdGplWGVDcHZoQjVOMm5DZjRicGRGU0w3VFFON2VLSGVaVlJqQ3NMZklWUllla3VFdFd5bnhVTWJLWUdnYWJXVW1QZnh3eEoxb0tQaWJXMG9rNWNKRFFNVmNhb2FicEdjNTBwM21tc3VGa1V1MlJ4MXRKTVNZdkxVVWpHelV5Q0R6dVlPSXhUZmo2WTJ3?oc=5
+### 2. QB room: who is QB1 in Cleveland - Cleveland Browns
+- Level: OPPORTUNITY · Confidence: 66% · 🟡 PREP (matched, but the posting window is closed or the evidence is ageing)
+- Fan signal: "Cleveland Browns seal win as Tampa Bay Buccaneers quarterback Baker Mayfield’s fourth-down pass is incomplete" - NFL.com (2 d ago)
+- Evidence: 7 reaction items (8.0 weighted) · 6 outlets · 0 utility listings excluded · 0 fan posts
+- Phrase velocity: → 0% / 1440 min (2 vs 2)
+- Sentiment: anxious - 'anxious' on 4/6 lexicon hits across 7 item(s)
+- Game state: result coverage in the last 30 h (1 item(s))
+- Commercial: campaign - Make Them Know Your Name $21.00 (sellable) - THEY FORGOT WHO I AM — QB1 belief
+- Why fans care: The whole fanbase is arguing one question: who starts. That is a belief argument, and belief is what a QB tee sells.
+- Tracked names: deshaun watson (31 window mentions, FTI 100); shedeur sanders (7 window mentions, FTI 23); todd monken (7 window mentions, FTI 23)
+- Action: X (@gridironlocker1 first) - conversation post now (now)
+- Action: Threads - alternate angle (+20 min)
+- Action: Instagram - product creative after engagement confirms the angle (after the X post confirms the angle)
+- Action: Pinterest - keyword pin of the matched design (+2 h)
+  - Cleveland Browns seal win as Tampa Bay Buccaneers quarterback Baker Mayfield’s fourth-down pass is incomplete - NFL.com (2 d ago) https://news.google.com/rss/articles/CBMimAFBVV95cUxQQ1lnYkF0V3JZNm14cUV3Q3daLTYtS2tTVGF4OVRqVUdwNFB5OUd6end6cGVJRzNXc2NqM3A0NmhYZHd0bXRMUTQ4ZnBlSElNSlBQbDhZSWM4V0J3NFY5VVBHTm9OY1VwQTd5eU81b3VCX21zdGZJTnFJNVY4djJCdWtSNXE2VEhMYzlNQVB4SjVJUGZKM0lReg?oc=5
+  - Browns QB Trade Could Help Giants After Jaxson Dart Injury - heavy.com - google_news (13 h ago) https://news.google.com/rss/articles/CBMikAFBVV95cUxNR3IyU19fNmhEcWw0WWw4eWJfbmp2dlh4ZXhUeXZHNnY1Uk9PSU95bWxjb0loUmh6VDVfajZlSGlobmduWHdBdU9xOVBPNDVxbWRIZjc3cmJqMlFOeVdDOXhEQTJ0b0FEeDl4SXA3Z2VaSFBzdERlU3lKWWR1ZUVNS0tiOG9uMTlxcjdaOGpsYXA?oc=5
+  - Andrew Berry Has a Browns Quarterback Problem, and an Opportunity - 247Sports - google_news (18 h ago) https://news.google.com/rss/articles/CBMiuAFBVV95cUxQREZFUksyem5TaGNVQXFKM1Z5M05kMUN6V3FkU0VXYmFCRG1Xb1U2dHdQRko5NGtWMk0za0xXVGRPTHEyNEgzY004eExoQXZOZlhnc1g4NTU4aTg5SnhLMjBFcy1hQnJITGR2Q1B3ZzAwMXd0ZDZod3hOeTRhTGJkQWpaWGdITWpVa2ZDSHpYQ0NQNS13OFdpYk9ycXlobmVKb0V2clEyT2dCbEZuQ3R3ejlKd3JDU0Rw?oc=5
+  - Deshaun Watson continues to take strides in Browns’ offense | News & Notes - Cleveland Browns - google_news (1 d ago) https://news.google.com/rss/articles/CBMiqgFBVV95cUxNT0VuLW5OemtzSU1vVXd1T1I4bnA3N3lrZ0diSzF4WU1CU1VOMkplNjJmY1JQUENacUJ2dXJ1cmtaeElZY2ZINEZBUGdJRXhkaXFVV1ZETFo3MU9rT09uU1lGQlNfZl9PblVPbFU0TU9Qb1N6YlZEN1NQalluWHhWVXdHenJETGhaNDdYdld4a3FOOFUyMDZGU1hQUHdyamRtSFJvbzI3NjNJdw?oc=5
 
-## Filtered as HEADLINE (4)
+## Filtered as HEADLINE (7)
 
-- COWBOYS - Doomsday memory: defence and the pass rush: 2 reaction item(s), 2 outlet(s), confidence 45% - not a reaction
-- COWBOYS - Sunday night at the Giants: prime-time opener: 3 reaction item(s), 1 outlet(s), confidence 38% - not a reaction
-- MICHIGAN - Recruiting: the class built around QB19: 1 reaction item(s), 1 outlet(s), confidence 35% - not a reaction
-- MICHIGAN - Underwood era: QB19 in Ann Arbor: 0 reaction item(s), 1 outlet(s), confidence 32% - not a reaction
+- BROWNS - No Fly Zone: the secondary wins the argument: 2 reaction item(s), 2 outlet(s), confidence 42% - not a reaction
+- COWBOYS - Doomsday memory: defence and the pass rush: 2 reaction item(s), 2 outlet(s), confidence 33% - not a reaction
+- COWBOYS - Sunday night at the Giants: prime-time opener: 2 reaction item(s), 1 outlet(s), confidence 31% - not a reaction
+- PACKERS - Kraft extension: the front office pays its own: 1 reaction item(s), 1 outlet(s), confidence 36% - not a reaction
+- MICHIGAN - Underwood era: QB19 in Ann Arbor: 2 reaction item(s), 2 outlet(s), confidence 42% - not a reaction
+- MICHIGAN - Go Blue: The Big House identity: 2 reaction item(s), 2 outlet(s), confidence 40% - not a reaction
+- MICHIGAN - Recruiting: the class built around QB19: 1 reaction item(s), 1 outlet(s), confidence 29% - not a reaction
 
 ## Article ideas (OPPORTUNITY+ only)
 
-- **[Medium] Cleveland Browns: what the Dawg Pound are actually saying about qb room: who is qb1 in cleveland**
-  - Where: NFL fan culture (Dawg Pound / Cleveland sports)
-  - Angle: Fan-demand piece built on the live signal (Browns' Deshaun Watson-led win over Bucs was the worst thing for Cleveland in 2026), not on a headline recap.
-  - Link: https://gridironlocker.shop/make-them-know-your-name?collectionId=P19bpeU2x_Ng&color=GILDAN-DARK_CHOCOLATE&productId=6aa33fa01cdc8689e252dab3
-  - Image: Make Them Know Your Name mockup next to the moment that started it.
-
-- **[Quora] Why are Cleveland Browns fans so focused on qb room: who is qb1 in cleveland right now?**
-  - Where: Cleveland Browns / NFL fandom
-  - Angle: Answer the question a fan would actually type, then answer it properly.
-  - Link: https://gridironlocker.shop/make-them-know-your-name?collectionId=P19bpeU2x_Ng&color=GILDAN-DARK_CHOCOLATE&productId=6aa33fa01cdc8689e252dab3
-  - Image: Simple stat/quote graphic - no product shot.
-
-- **[Reddit] QB room: who is QB1 in Cleveland - be a fan first in r/Browns**
-  - Where: r/Browns / r/DawgPoundByNature / r/nfl
-  - Angle: Join the existing thread instead of starting a promo post.
-  - Link: profile link only, if asked
-  - Image: None - text comment.
-
 - **[Medium] Cleveland Browns: what the Dawg Pound are actually saying about coaching: monken's first season**
   - Where: NFL fan culture (Dawg Pound / Cleveland sports)
-  - Angle: Fan-demand piece built on the live signal (Browns HC Todd Monken claps back at Mike Tomlin barb after win over Bucs: 'Browns are gonna Browns — f*** that'), not on a headline recap.
+  - Angle: Fan-demand piece built on the live signal (Browns Todd Monken gets his first win as NFL head coach: 2 takeaways on CLE’s new HC), not on a headline recap.
   - Link: https://gridironlocker.shop/be-awar-of-dawg?collectionId=P19bpeU2x_Ng&color=GILDAN-DARK_CHOCOLATE&productId=6aa548c6f475ab73b096ff20
   - Image: Beware Of Dawg mockup next to the moment that started it.
 
@@ -111,6 +82,24 @@ Fan connectors: no fan posts observed - reddit error (HTTP Error 403: Blocked); 
   - Image: Simple stat/quote graphic - no product shot.
 
 - **[Reddit] Coaching: Monken's first season - be a fan first in r/Browns**
+  - Where: r/Browns / r/DawgPoundByNature / r/nfl
+  - Angle: Join the existing thread instead of starting a promo post.
+  - Link: profile link only, if asked
+  - Image: None - text comment.
+
+- **[Medium] Cleveland Browns: what the Dawg Pound are actually saying about qb room: who is qb1 in cleveland**
+  - Where: NFL fan culture (Dawg Pound / Cleveland sports)
+  - Angle: Fan-demand piece built on the live signal (Cleveland Browns seal win as Tampa Bay Buccaneers quarterback Baker Mayfield’s fourth-down pass is incomplete), not on a headline recap.
+  - Link: https://gridironlocker.shop/make-them-know-your-name?collectionId=P19bpeU2x_Ng&color=GILDAN-DARK_CHOCOLATE&productId=6aa33fa01cdc8689e252dab3
+  - Image: Make Them Know Your Name mockup next to the moment that started it.
+
+- **[Quora] Why are Cleveland Browns fans so focused on qb room: who is qb1 in cleveland right now?**
+  - Where: Cleveland Browns / NFL fandom
+  - Angle: Answer the question a fan would actually type, then answer it properly.
+  - Link: https://gridironlocker.shop/make-them-know-your-name?collectionId=P19bpeU2x_Ng&color=GILDAN-DARK_CHOCOLATE&productId=6aa33fa01cdc8689e252dab3
+  - Image: Simple stat/quote graphic - no product shot.
+
+- **[Reddit] QB room: who is QB1 in Cleveland - be a fan first in r/Browns**
   - Where: r/Browns / r/DawgPoundByNature / r/nfl
   - Angle: Join the existing thread instead of starting a promo post.
   - Link: profile link only, if asked
