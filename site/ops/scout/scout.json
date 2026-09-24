@@ -2,7 +2,7 @@
  "generated": "2026-09-24",
  "window_days": 10,
  "fti_formula": "round(100 * entity_mentions / peak_mentions_in_window)",
- "peak_mentions": 30,
+ "peak_mentions": 28,
  "stats": {
   "products": 83,
   "collections": 4,
@@ -11,7 +11,7 @@
   "hot": 0,
   "throwback": 1,
   "steady": 82,
-  "gaps": 5,
+  "gaps": 6,
   "moments": 3,
   "tracked_names": 18,
   "dead_campaigns": 66
@@ -19,7 +19,7 @@
  "fti_rows": [
   {
    "name": "deshaun watson",
-   "mentions": 30,
+   "mentions": 28,
    "index": 100,
    "status": "trending",
    "gap": true,
@@ -27,45 +27,45 @@
    "collection": "cleveland-browns"
   },
   {
-   "name": "kyle whittingham",
-   "mentions": 10,
-   "index": 33,
-   "status": "trending",
-   "gap": true,
-   "shoppable": false,
-   "collection": "michigan"
-  },
-  {
-   "name": "dak prescott",
-   "mentions": 8,
-   "index": 27,
-   "status": "trending",
-   "gap": true,
-   "shoppable": false,
-   "collection": "dallas-cowboys"
-  },
-  {
-   "name": "todd monken",
-   "mentions": 8,
-   "index": 27,
-   "status": "trending",
-   "gap": true,
-   "shoppable": false,
-   "collection": "cleveland-browns"
-  },
-  {
    "name": "shedeur sanders",
-   "mentions": 7,
-   "index": 23,
+   "mentions": 9,
+   "index": 32,
    "status": "trending",
    "gap": false,
    "shoppable": true,
    "collection": "cleveland-browns"
   },
   {
+   "name": "dak prescott",
+   "mentions": 8,
+   "index": 29,
+   "status": "trending",
+   "gap": true,
+   "shoppable": false,
+   "collection": "dallas-cowboys"
+  },
+  {
+   "name": "kyle whittingham",
+   "mentions": 8,
+   "index": 29,
+   "status": "trending",
+   "gap": true,
+   "shoppable": false,
+   "collection": "michigan"
+  },
+  {
+   "name": "todd monken",
+   "mentions": 7,
+   "index": 25,
+   "status": "trending",
+   "gap": true,
+   "shoppable": false,
+   "collection": "cleveland-browns"
+  },
+  {
    "name": "bryce underwood",
-   "mentions": 6,
-   "index": 20,
+   "mentions": 4,
+   "index": 14,
    "status": "trending",
    "gap": false,
    "shoppable": true,
@@ -74,11 +74,20 @@
   {
    "name": "ceedee lamb",
    "mentions": 4,
-   "index": 13,
+   "index": 14,
    "status": "trending",
    "gap": true,
    "shoppable": false,
    "collection": "dallas-cowboys"
+  },
+  {
+   "name": "josh jacobs",
+   "mentions": 3,
+   "index": 11,
+   "status": "trending",
+   "gap": true,
+   "shoppable": false,
+   "collection": "green-bay-packers"
   },
   {
    "name": "jordan marshall",
@@ -101,25 +110,16 @@
   {
    "name": "jordan love",
    "mentions": 1,
-   "index": 3,
+   "index": 4,
    "status": "steady",
    "gap": false,
    "shoppable": true,
    "collection": "green-bay-packers"
   },
   {
-   "name": "josh jacobs",
-   "mentions": 1,
-   "index": 3,
-   "status": "steady",
-   "gap": false,
-   "shoppable": false,
-   "collection": "green-bay-packers"
-  },
-  {
    "name": "matt lafleur",
    "mentions": 1,
-   "index": 3,
+   "index": 4,
    "status": "steady",
    "gap": false,
    "shoppable": false,
@@ -183,7 +183,7 @@
  "gaps": [
   {
    "name": "deshaun watson",
-   "mentions": 30,
+   "mentions": 28,
    "index": 100,
    "status": "trending",
    "gap": true,
@@ -191,27 +191,27 @@
    "collection": "cleveland-browns"
   },
   {
-   "name": "kyle whittingham",
-   "mentions": 10,
-   "index": 33,
-   "status": "trending",
-   "gap": true,
-   "shoppable": false,
-   "collection": "michigan"
-  },
-  {
    "name": "dak prescott",
    "mentions": 8,
-   "index": 27,
+   "index": 29,
    "status": "trending",
    "gap": true,
    "shoppable": false,
    "collection": "dallas-cowboys"
   },
   {
-   "name": "todd monken",
+   "name": "kyle whittingham",
    "mentions": 8,
-   "index": 27,
+   "index": 29,
+   "status": "trending",
+   "gap": true,
+   "shoppable": false,
+   "collection": "michigan"
+  },
+  {
+   "name": "todd monken",
+   "mentions": 7,
+   "index": 25,
    "status": "trending",
    "gap": true,
    "shoppable": false,
@@ -220,11 +220,20 @@
   {
    "name": "ceedee lamb",
    "mentions": 4,
-   "index": 13,
+   "index": 14,
    "status": "trending",
    "gap": true,
    "shoppable": false,
    "collection": "dallas-cowboys"
+  },
+  {
+   "name": "josh jacobs",
+   "mentions": 3,
+   "index": 11,
+   "status": "trending",
+   "gap": true,
+   "shoppable": false,
+   "collection": "green-bay-packers"
   }
  ],
  "collections": [
@@ -241,7 +250,7 @@
    "gaps": [
     {
      "name": "deshaun watson",
-     "mentions": 30,
+     "mentions": 28,
      "index": 100,
      "status": "trending",
      "gap": true,
@@ -250,8 +259,8 @@
     },
     {
      "name": "todd monken",
-     "mentions": 8,
-     "index": 27,
+     "mentions": 7,
+     "index": 25,
      "status": "trending",
      "gap": true,
      "shoppable": false,
@@ -264,16 +273,16 @@
     "watson",
     "deshaun",
     "tampa",
+    "mayfield",
     "todd",
-    "monken",
-    "mayfield"
+    "monken"
    ],
    "headline_count": 100,
    "headlines": [
     {
      "title": "Rapid Reaction: Browns 23, Buccaneers 19",
      "url": "https://news.google.com/rss/articles/CBMiigFBVV95cUxNUjU1VHJ0bVdLb3lVc29FZXBvOEVVOVZQZUlKRno2c1R2dlVhdUNaSy1oMGY3RHIxVVNJN2htbWRyS0p1VTlHb19rTjFWWnhPUGd1Yl9lSncwbk9DUVQzNlNKR0JSUkthRUpKZ0d1R2FqT0tPcWFCNXV2UUx0M1I1SWRnUmxialBxcnc?oc=5",
-     "source": "Tampa Bay Buccaneers",
+     "source": "buccaneers.com",
      "pub": "Sun, 20 Sep 2026 22:32:40 GMT"
     },
     {
@@ -317,7 +326,7 @@
     {
      "name": "dak prescott",
      "mentions": 8,
-     "index": 27,
+     "index": 29,
      "status": "trending",
      "gap": true,
      "shoppable": false,
@@ -326,7 +335,7 @@
     {
      "name": "ceedee lamb",
      "mentions": 4,
-     "index": 13,
+     "index": 14,
      "status": "trending",
      "gap": true,
      "shoppable": false,
@@ -339,8 +348,8 @@
     "injury",
     "brazil",
     "watch",
-    "loss",
     "defense",
+    "talk",
     "prescott"
    ],
    "headline_count": 100,
@@ -358,6 +367,12 @@
      "pub": "Sun, 20 Sep 2026 14:28:13 GMT"
     },
     {
+     "title": "Dallas Cowboys Have Creative Solution To Fix Running Game Woes",
+     "url": "https://news.google.com/rss/articles/CBMimwFBVV95cUxQa0VtM0lNaXA4YVUydWhaN3dwU3M1OVZnSVBSWUxfTmczdVhPUkFRcVFnNHlFc2JxZWVzd1J1R0VoOHp2Um43ZVA1cmRTazFxa1EtZnpYMUl3aUxkYXdmOWVHaVFjNmNyM0xaRy1iQkVoVXZ3OE0wOFFaODNwcEpkYU1WbmRjN3kyRUc3ZUx3SXllMnE3Sy1PTWtCRQ?oc=5",
+     "source": "Sports Illustrated",
+     "pub": "Tue, 22 Sep 2026 18:02:00 GMT"
+    },
+    {
      "title": "Game Recap: Dak leads Dallas to win, 37-20",
      "url": "https://news.google.com/rss/articles/CBMigAFBVV95cUxPbFNTS01QYmE4WG9UU0tWRmptdEw2Z0w1OWQ4eEx3RFFlU0tzeXM5djk0NVpqVXpObnRwMTkzN1ctc1UwQk5JMy13SHJqX2thZjVoQXN6NVM0TGZSTURrOGtwY3NCR01LaGxhaXVTT2lWSkZlRnNKeGVKalR2TnljSQ?oc=5",
      "source": "Dallas Cowboys | Official Site of the Dallas Cowboys",
@@ -368,12 +383,6 @@
      "url": "https://news.google.com/rss/articles/CBMihgFBVV95cUxOZUlqZVUxQ0RQYlNfcTRkTENURXFSTEZ5bEVDNUpQb1BsWUJoS2pvdFBiYTF5c0tKUFF3RTNmOUg5UjhDX2I3WnZsYUV6ZnF2cGRPLThLMGYzQWw2UmgwRzVEd0JsbWlJTWJZWDdhZV8tZEFYaHdVWFp5OUNBRHBVclVsamdlZw?oc=5",
      "source": "Washington Commanders",
      "pub": "Mon, 21 Sep 2026 01:08:00 GMT"
-    },
-    {
-     "title": "Jerry Jones on potential to add to the roster, Quinnen and Kenny's play & more",
-     "url": "https://news.google.com/rss/articles/CBMirwFBVV95cUxNN0pwU29tWTNuNmFFcGFaejMwcFVnRnZEZlpEcmJoX1pRU093M2lid0RVNjB5Y3Z3bDBPWDViVTd6ZDVoTTF0MzU3SVI2bUlWeEM1dWh1OVpuVks4emUyZmRTUWVEbG9wcEticXlwX0FsclExRU5oa1d5aGFRSkJMTTVPVHZLX1pxVWVMOUlnSFVfcUwyOGMyMkFNNzdhNmlheG1sSDFMam5MQUNNTXQ0?oc=5",
-     "source": "Dallas Cowboys | Official Site of the Dallas Cowboys",
-     "pub": "Tue, 22 Sep 2026 14:55:09 GMT"
     }
    ],
    "fti_count": 2
@@ -388,30 +397,40 @@
    "avg_price": 25.18,
    "hot": 0,
    "throwback": 0,
-   "gaps": [],
+   "gaps": [
+    {
+     "name": "josh jacobs",
+     "mentions": 3,
+     "index": 11,
+     "status": "trending",
+     "gap": true,
+     "shoppable": false,
+     "collection": "green-bay-packers"
+    }
+   ],
    "top_terms": [
     "packers",
     "green",
-    "atlanta",
     "watch",
+    "atlanta",
     "thursday",
-    "against",
     "predictions",
-    "football"
+    "time",
+    "against"
    ],
    "headline_count": 100,
    "headlines": [
+    {
+     "title": "Packers vs. Falcons | How to watch, stream & listen | Week 3",
+     "url": "https://news.google.com/rss/articles/CBMijwFBVV95cUxQYXV4VzhXRFplanRqY1MyUzNYUjVjb1cyVkNURTBud1I2eFk4WmthZE05ZDVSWEtMelNObnVjXzlCNVBIbl9yLUNyS19YcEZpblNpLWpNX2lUY2txaFBSN1dPU0NyV1JvRkF4NU5ERTA1aVNQdE9SdThUSG9ySDViTGl3OENCQUlkV0xTallMNA?oc=5",
+     "source": "Green Bay Packers \u2013 packers.com",
+     "pub": "Thu, 24 Sep 2026 20:58:41 GMT"
+    },
     {
      "title": "Scouting Report: How the Green Bay Packers\u2019 offense performed in Week 2",
      "url": "https://news.google.com/rss/articles/CBMi0wFBVV95cUxPdlZaVjVOTnZXcTcwOGRtU1A3UFNGZkI1bWJnRmx6X2pxMnc5T0RDekR5MWZXMzhfV3pEX3FKZWgtUUs3MVk3UnpLVlBfOVduN256NFgySEpvNDVfWklEbWRxcndzU2kzejlzZnNXeWhkeGNTanBMY3BVbkZDcHlvOUdoN0JDZFkwNlJOdmd5ZmlfOWlEa1lQVFBhUkdMRTNKaVc2dDdfdnFJZklUMGpMWEh1eGNWZG5XZDN2d0lrNUdHeEFDZll6RVdDU3lUV3cyYWVF?oc=5",
      "source": "Acme Packing Company",
      "pub": "Mon, 21 Sep 2026 22:05:42 GMT"
-    },
-    {
-     "title": "Packers rally to beat Jets in OT, 20-17",
-     "url": "https://news.google.com/rss/articles/CBMibkFVX3lxTFBNX3RIQkpyQnRWTEVJX2lSZ1pVb3JnTzNCWUIxak1oYVJoWmd2bHRvdGhKbS1hMkF2RFNHdkZ4ZXZiSlpxYjU4aVhMQm94OXBidDZDeVo5RzE1UnhOUmRtX1plMWtESWhEdUNZUjF3?oc=5",
-     "source": "Green Bay Packers \u2013 packers.com",
-     "pub": "Sun, 20 Sep 2026 21:12:31 GMT"
     },
     {
      "title": "Atlanta Falcons' Week 3 depth chart vs. Green Bay Packers",
@@ -426,10 +445,10 @@
      "pub": "Sun, 20 Sep 2026 23:49:43 GMT"
     },
     {
-     "title": "What to know about Falcons - Packers on Thursday Night Football",
-     "url": "https://news.google.com/rss/articles/CBMi5gFBVV95cUxQelNVODBQcXRwalpRcklnd1VnOGI5clZGZ0VVTXlDQlNYdnJUWXEwQ3QyTW5lS25rNXBqTWNSVUtjLWhMQUpoODFDdExBWmNZbUNBR0FuTTFIdmo5WWtsLV96WlRJNWd5NFdSY2NLNzFtNVdXRXQtdU9mem1jeklsSWV0S0c1Ym1mUWVHZEpYbFM0Z2p1SnJfWm9QNDgtZkgzSmRBSFdQcVkwZm56Tm85QjNseHpqUndUUGhyVF9fWTl5bFY0VUZza2NLR2plR1pFV0dvbU1LSkxuMlNGRVVtUDNCV0xSZw?oc=5",
-     "source": "The Falcoholic",
-     "pub": "Wed, 23 Sep 2026 16:00:00 GMT"
+     "title": "Three things I\u2019m looking at in the Jets vs. Packers game",
+     "url": "https://news.google.com/rss/articles/CBMitgFBVV95cUxNQUtMMUhnU0lFX2piQjRYTFJKRkcxSkdiSUZJUGk4TENOUXZoSktqS01xTWFnZjVTeXFTZE42VU02MTBIZHItTjdVNm9SYzUwWDN4X3JqLW5ROHFUX1dST2VaX2RmMy1VVlZJT0ZBQUg5RjM2T2FzMjgzY1lHc2lBV21fdnJ1Q3R6WmotUVVUX2ZmdEFxR0JhMmJZN01uWlpyWDVQR3RCZmJKZ0NNLWIxckFYd3liUQ?oc=5",
+     "source": "Gang Green Nation",
+     "pub": "Sat, 19 Sep 2026 14:00:00 GMT"
     }
    ],
    "fti_count": 5
@@ -447,8 +466,8 @@
    "gaps": [
     {
      "name": "kyle whittingham",
-     "mentions": 10,
-     "index": 33,
+     "mentions": 8,
+     "index": 29,
      "status": "trending",
      "gap": true,
      "shoppable": false,
@@ -463,7 +482,7 @@
     "wolverines",
     "whittingham",
     "kyle",
-    "injury"
+    "things"
    ],
    "headline_count": 100,
    "headlines": [
