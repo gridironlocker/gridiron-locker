@@ -30,6 +30,13 @@ jobs:
       - name: Setup Pages
         uses: actions/configure-pages@v5
 
+      - name: Rebuild private Customer Finder
+        if: ${{ secrets.CF_CODE != '' }}
+        env:
+          CF_CODE: ${{ secrets.CF_CODE }}
+        run: |
+          node radar/static-finder/build.mjs
+          echo "Private Customer Finder rebuilt from current engine sources."
       - name: Upload website
         uses: actions/upload-pages-artifact@v4
         with:
