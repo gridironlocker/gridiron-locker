@@ -11,7 +11,7 @@
   "hot": 0,
   "throwback": 1,
   "steady": 82,
-  "gaps": 6,
+  "gaps": 5,
   "moments": 3,
   "tracked_names": 18,
   "dead_campaigns": 66
@@ -81,15 +81,6 @@
    "collection": "dallas-cowboys"
   },
   {
-   "name": "josh jacobs",
-   "mentions": 3,
-   "index": 11,
-   "status": "trending",
-   "gap": true,
-   "shoppable": false,
-   "collection": "green-bay-packers"
-  },
-  {
    "name": "jordan marshall",
    "mentions": 2,
    "index": 7,
@@ -117,7 +108,7 @@
    "collection": "green-bay-packers"
   },
   {
-   "name": "matt lafleur",
+   "name": "josh jacobs",
    "mentions": 1,
    "index": 4,
    "status": "steady",
@@ -160,6 +151,15 @@
    "gap": false,
    "shoppable": true,
    "collection": "cleveland-browns"
+  },
+  {
+   "name": "matt lafleur",
+   "mentions": 0,
+   "index": 0,
+   "status": "quiet",
+   "gap": false,
+   "shoppable": false,
+   "collection": "green-bay-packers"
   },
   {
    "name": "myles garrett",
@@ -225,15 +225,6 @@
    "gap": true,
    "shoppable": false,
    "collection": "dallas-cowboys"
-  },
-  {
-   "name": "josh jacobs",
-   "mentions": 3,
-   "index": 11,
-   "status": "trending",
-   "gap": true,
-   "shoppable": false,
-   "collection": "green-bay-packers"
   }
  ],
  "collections": [
@@ -349,8 +340,8 @@
     "brazil",
     "watch",
     "defense",
-    "talk",
-    "prescott"
+    "cheerleaders",
+    "talk"
    ],
    "headline_count": 100,
    "headlines": [
@@ -397,17 +388,7 @@
    "avg_price": 25.18,
    "hot": 0,
    "throwback": 0,
-   "gaps": [
-    {
-     "name": "josh jacobs",
-     "mentions": 3,
-     "index": 11,
-     "status": "trending",
-     "gap": true,
-     "shoppable": false,
-     "collection": "green-bay-packers"
-    }
-   ],
+   "gaps": [],
    "top_terms": [
     "packers",
     "green",
@@ -421,16 +402,16 @@
    "headline_count": 100,
    "headlines": [
     {
-     "title": "Packers vs. Falcons | How to watch, stream & listen | Week 3",
-     "url": "https://news.google.com/rss/articles/CBMijwFBVV95cUxQYXV4VzhXRFplanRqY1MyUzNYUjVjb1cyVkNURTBud1I2eFk4WmthZE05ZDVSWEtMelNObnVjXzlCNVBIbl9yLUNyS19YcEZpblNpLWpNX2lUY2txaFBSN1dPU0NyV1JvRkF4NU5ERTA1aVNQdE9SdThUSG9ySDViTGl3OENCQUlkV0xTallMNA?oc=5",
-     "source": "Green Bay Packers \u2013 packers.com",
-     "pub": "Thu, 24 Sep 2026 20:58:41 GMT"
-    },
-    {
      "title": "Scouting Report: How the Green Bay Packers\u2019 offense performed in Week 2",
      "url": "https://news.google.com/rss/articles/CBMi0wFBVV95cUxPdlZaVjVOTnZXcTcwOGRtU1A3UFNGZkI1bWJnRmx6X2pxMnc5T0RDekR5MWZXMzhfV3pEX3FKZWgtUUs3MVk3UnpLVlBfOVduN256NFgySEpvNDVfWklEbWRxcndzU2kzejlzZnNXeWhkeGNTanBMY3BVbkZDcHlvOUdoN0JDZFkwNlJOdmd5ZmlfOWlEa1lQVFBhUkdMRTNKaVc2dDdfdnFJZklUMGpMWEh1eGNWZG5XZDN2d0lrNUdHeEFDZll6RVdDU3lUV3cyYWVF?oc=5",
      "source": "Acme Packing Company",
      "pub": "Mon, 21 Sep 2026 22:05:42 GMT"
+    },
+    {
+     "title": "Packers vs. Falcons | How to watch, stream & listen | Week 3",
+     "url": "https://news.google.com/rss/articles/CBMijwFBVV95cUxQYXV4VzhXRFplanRqY1MyUzNYUjVjb1cyVkNURTBud1I2eFk4WmthZE05ZDVSWEtMelNObnVjXzlCNVBIbl9yLUNyS19YcEZpblNpLWpNX2lUY2txaFBSN1dPU0NyV1JvRkF4NU5ERTA1aVNQdE9SdThUSG9ySDViTGl3OENCQUlkV0xTallMNA?oc=5",
+     "source": "Green Bay Packers \u2013 packers.com",
+     "pub": "Thu, 24 Sep 2026 20:58:41 GMT"
     },
     {
      "title": "Atlanta Falcons' Week 3 depth chart vs. Green Bay Packers",
@@ -445,10 +426,10 @@
      "pub": "Sun, 20 Sep 2026 23:49:43 GMT"
     },
     {
-     "title": "Three things I\u2019m looking at in the Jets vs. Packers game",
-     "url": "https://news.google.com/rss/articles/CBMitgFBVV95cUxNQUtMMUhnU0lFX2piQjRYTFJKRkcxSkdiSUZJUGk4TENOUXZoSktqS01xTWFnZjVTeXFTZE42VU02MTBIZHItTjdVNm9SYzUwWDN4X3JqLW5ROHFUX1dST2VaX2RmMy1VVlZJT0ZBQUg5RjM2T2FzMjgzY1lHc2lBV21fdnJ1Q3R6WmotUVVUX2ZmdEFxR0JhMmJZN01uWlpyWDVQR3RCZmJKZ0NNLWIxckFYd3liUQ?oc=5",
-     "source": "Gang Green Nation",
-     "pub": "Sat, 19 Sep 2026 14:00:00 GMT"
+     "title": "NFL Executive Rips Into Green Bay Packers After Ugly Week 2 Win",
+     "url": "https://news.google.com/rss/articles/CBMigwFBVV95cUxPTlpIeXFfUFRweUdNdGZyTkVDVlNJbVEyM3lxaW5rZmM3cmoyb2V4X2hPbWtFUnlXV21CYmliRUI1UU51c1BxVWtVY0NSSWR0Z1NLMjcta1hXbTRIR25YQXo3U0lYT0pwSXY0VEF3Mm1wc1U0RFozUHdFb25PRVZhNU5DOA?oc=5",
+     "source": "Yahoo Sports",
+     "pub": "Mon, 21 Sep 2026 17:57:39 GMT"
     }
    ],
    "fti_count": 5
@@ -489,7 +470,7 @@
     {
      "title": "Postgame Notes: #19 Michigan 52, UTEP 17",
      "url": "https://news.google.com/rss/articles/CBMigAFBVV95cUxOMXZXRWp0cTVoQy1VQkZOdm9RbmdIRFFCUkZON19fb2hMc0dDQjhnakpQOE1kcUFjelhNTlFPaG5mSmtNQmxTcHJsMndDeHo1ZWl5TWdSdFJrdTgyNzRhSG1kNzlobU1LN3N5Z2V3OERMY1Y1djZPaW81ZTNqdVVzTg?oc=5",
-     "source": "University of Michigan Athletics",
+     "source": "mgoblue.com",
      "pub": "Sat, 19 Sep 2026 23:46:29 GMT"
     },
     {
