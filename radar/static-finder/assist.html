@@ -1,0 +1,256 @@
+<!-- Free discovery panel for the static Customer Finder.
+     build.mjs copies the markup block in after #banner and the script block in before </body>.
+     Everything here talks to the browser engine (cfAssistSearches / cfIngest / cfParsePaste /
+     cfBookmarkletHref / cfLiveStart / CF_SOURCES). No API keys, no scraping, nothing sent for you. -->
+
+<!--CF_ASSIST_MARKUP_START-->
+<style>
+.cfa{border-color:#2b3138}
+.cfa h2{margin:0;font-size:.8rem;letter-spacing:.14em;text-transform:uppercase;color:#9aa0a8}
+.cfa .cfa-head{display:flex;justify-content:space-between;align-items:center;gap:12px;flex-wrap:wrap}
+.cfa .cfa-title{display:flex;align-items:center;gap:8px;text-transform:none;letter-spacing:0;font-size:1rem;color:#e8eaed}
+.cfa .cfa-sub{font-size:.72rem;color:#8a9099;font-weight:600}
+.cfa .cfa-block{margin-top:16px;padding-top:14px;border-top:1px solid #1f232a}
+.cfa .cfa-blockhead{display:flex;align-items:center;gap:8px;flex-wrap:wrap;font-weight:800;font-size:.82rem;letter-spacing:.04em}
+.cfa .cfa-note{font-weight:400;color:#8a9099;font-size:.75rem}
+.cfa .cfa-grid{display:grid;grid-template-columns:repeat(auto-fit,minmax(215px,1fr));gap:8px;margin-top:10px}
+.cfa .cfa-btn{display:block;background:#161a20;border:1px solid #2a3038;border-radius:10px;padding:9px 12px;text-decoration:none;color:#e8eaed}
+.cfa .cfa-btn:hover{border-color:#F2B01E}
+.cfa .cfa-btn b{display:block;font-size:.85rem}
+.cfa .cfa-btn span{display:block;font-size:.72rem;color:#8a9099;margin-top:2px;word-break:break-word}
+.cfa .cfa-bm{display:inline-block;background:#F2B01E;color:#0a0b0d;font-weight:800;text-decoration:none;border-radius:10px;padding:10px 16px;cursor:grab}
+.cfa textarea{min-height:130px;margin-top:10px}
+.cfa .cfa-result{margin-top:10px;padding:10px 12px;border:1px dashed #2a3038;border-radius:10px;background:#0d0f12;display:none}
+.cfa .cfa-result.show{display:block}
+.cfa .cfa-pill{font-size:.68rem;font-weight:900;letter-spacing:.08em;padding:3px 9px;border-radius:999px;background:#1f2937;color:#cbd5e1}
+.cfa .cfa-pill.on{background:#14532d;color:#bbf7d0}
+.cfa .cfa-pill.bad{background:#7f1d1d;color:#fecaca}
+.cfa .cfa-warn{color:#fbbf24}
+.cfa .cfa-statusrow{display:flex;justify-content:space-between;gap:10px;padding:5px 0;border-bottom:1px solid #1a1e24;font-size:.82rem}
+.cfa .cfa-statusrow .cfa-word{font-weight:800;white-space:nowrap}
+.cfa .cfa-word.live{color:#4ade80}.cfa .cfa-word.off{color:#8a9099}.cfa .cfa-word.bad{color:#f87171}
+.cfa pre{margin:10px 0 0;padding:10px 12px;background:#0d0f12;border:1px solid #1f232a;border-radius:8px;max-height:170px;overflow:auto;font-size:.74rem;color:#9aa0a8;white-space:pre-wrap}
+</style>
+<section class="card cfa" id="cfAssist">
+  <div class="cfa-head">
+    <h2 class="cfa-title">🆓 Free discovery <span class="cfa-sub">no API keys · nothing scraped server-side</span></h2>
+    <div class="cfa-head">
+      <button class="btn" id="cfa-live-start">▶ Start Bluesky radar</button>
+      <button class="btn" id="cfa-live-stop">■ Stop</button>
+      <label class="cfa-note" style="cursor:pointer"><input type="checkbox" id="cfa-live-replay"> replay last 30 min</label>
+      <span class="cfa-pill" id="cfa-live-state">idle</span>
+    </div>
+  </div>
+  <p class="small" style="margin:10px 0 0">The 🔄 button above runs the only automatic source that still answers without keys (<b>Lemmy</b>). Reddit's unauthenticated JSON and Bluesky's searchPosts now return 403 to a browser, so they were removed instead of being faked. Everything below runs in <b>your own logged-in browser</b> — nothing is scraped here and no reply is ever sent for you.</p>
+
+  <div class="cfa-block">
+    <div class="cfa-blockhead">1 · Assisted search
+      <span class="cfa-note">opens a recent-post search in a new tab, logged in as you</span>
+      <span style="flex:1"></span>
+      <button class="btn" id="cfa-open-all">Open all searches</button>
+      <button class="btn" id="cfa-new-set">New query set</button>
+    </div>
+    <div class="cfa-grid" id="cfa-searches"></div>
+    <div class="cfa-result small" id="cfa-search-note"></div>
+  </div>
+
+  <div class="cfa-block">
+    <div class="cfa-blockhead">2 · 📥 Send to Finder bookmarklet</div>
+    <p class="small" style="margin:8px 0 0">Drag the gold button to your bookmarks bar (or copy it and make a bookmark). Open a search result page, then click the bookmark: it reads the posts that are <b>visible on screen</b>, opens this Finder in a new tab and ingests up to 60 of them. Reads: X articles (<code>tweetText</code> + the status link with <code>&lt;time&gt;</code>), Reddit posts/comments (new <code>shreddit-*</code> and old <code>.thing[data-permalink]</code>), Google results, and anywhere else the text you have selected plus the page URL.</p>
+    <div style="margin-top:10px;display:flex;align-items:center;gap:10px;flex-wrap:wrap">
+      <a class="cfa-bm" id="cfa-bm" href="#" draggable="true" title="Drag me to your bookmarks bar">📥 Send to Finder</a>
+      <button class="btn" id="cfa-bm-copy">Copy bookmarklet code</button>
+      <span class="cfa-note">Tip: on a page with no matching posts, select the post text first.</span>
+    </div>
+  </div>
+
+  <div class="cfa-block">
+    <div class="cfa-blockhead">3 · Paste posts</div>
+    <p class="small" style="margin:8px 0 0">One post per block, a blank line between blocks. Every block must include the post's URL — a block without a link is rejected, never guessed. Counts are shown after ingesting.</p>
+    <textarea id="cfa-paste" placeholder="Saw this on a forum, looking for a Michigan hoodie that isn't generic — any recs?&#10;https://www.reddit.com/r/uofm/comments/abc123/example/"></textarea>
+    <div style="margin-top:8px"><button class="btn" id="cfa-paste-go">📥 Ingest pasted posts</button></div>
+    <div class="cfa-result small" id="cfa-paste-result"></div>
+  </div>
+
+  <div class="cfa-block">
+    <div class="cfa-blockhead">4 · Bluesky live radar
+      <span class="cfa-note">public Jetstream firehose · filtered in this tab · batched every 1.5s</span>
+    </div>
+    <div class="small" id="cfa-live-stats" style="margin-top:8px">Not streaming.</div>
+    <div class="small cfa-note" id="cfa-live-hosts" style="margin-top:4px"></div>
+    <pre id="cfa-live-log" hidden></pre>
+  </div>
+
+  <div class="cfa-block">
+    <div class="cfa-blockhead">Source status</div>
+    <div id="cfa-status" style="margin-top:6px"></div>
+  </div>
+
+  <div class="cfa-result small" id="cfa-last"></div>
+</section>
+<!--CF_ASSIST_MARKUP_END-->
+
+<script>
+<!--CF_ASSIST_SCRIPT_START-->
+(function () {
+  "use strict";
+  var panel = document.getElementById("cfAssist");
+  if (!panel) return;
+  var $ = function (id) { return document.getElementById(id); };
+  var esc = function (s) { return String(s == null ? "" : s).replace(/[&<>"']/g, function (c) { return { "&": "&amp;", "<": "&lt;", ">": "&gt;", '"': "&quot;", "'": "&#39;" }[c]; }); };
+
+  // ---- honest counts, one wording everywhere -------------------------------------------
+  function countLine(c) {
+    c = c || {};
+    return (c.new_leads || 0) + " new, " + (c.duplicates || 0) + " previously seen, " + (c.low_filtered || 0) + " low-intent, "
+      + (c.excluded || 0) + " excluded (sellers/media/other teams/too old), " + (c.rejected || 0) + " rejected (no link) · "
+      + (c.candidates || 0) + " checked";
+  }
+  function show(id, html) { var el = $(id); if (!el) return; el.innerHTML = html; el.className = "cfa-result small show"; }
+
+  // ---- refresh the dashboard without stomping on what you are typing --------------------
+  var refreshTimer = null, refreshWanted = false;
+  function dashboardTyping() {
+    var a = document.activeElement;
+    return !!(a && (a.tagName === "TEXTAREA" || a.tagName === "INPUT") && a.closest && a.closest("#leads"));
+  }
+  function refreshDashboard(full) {
+    clearTimeout(refreshTimer);
+    refreshWanted = refreshWanted || !!full;
+    refreshTimer = setTimeout(async function () {
+      var want = refreshWanted; refreshWanted = false;
+      try {
+        if (typeof refreshState === "function") await refreshState();
+        if (typeof loadInsights === "function" && !dashboardTyping()) await loadInsights();
+        if (want && typeof loadLeads === "function" && !dashboardTyping()) await loadLeads();
+      } catch (e) { /* the panel must never break the dashboard */ }
+    }, 400);
+  }
+
+  // ---- one count the server dashboard doesn't have: rejected (no link) -------------------
+  // The dashboard's own renderMeta() paints the other counters, so wrap it and add ours.
+  var paintRejected = function (run) {
+    var el = document.getElementById("m-rej");
+    if (el) el.textContent = run && run.rejected != null ? run.rejected : 0;
+  };
+  if (typeof renderMeta === "function") {
+    var dashboardRenderMeta = renderMeta;
+    window.renderMeta = function (run, lastok) { dashboardRenderMeta(run, lastok); paintRejected(run); };
+  }
+  function refreshRejected() {
+    if (typeof localApi !== "function") return;
+    localApi("/state").then(function (st) { paintRejected(st.running || st.lastRun); }).catch(function () { /* ignore */ });
+  }
+
+  // ---- 1. assisted search buttons -------------------------------------------------------
+  function renderSearches() {
+    var rows = cfAssistSearches();
+    $("cfa-searches").innerHTML = rows.map(function (r) {
+      return '<a class="cfa-btn" href="' + esc(r.url) + '" target="_blank" rel="noopener noreferrer"><b>' + esc(r.label) + "</b><span>" + esc(r.hint) + "</span></a>";
+    }).join("");
+  }
+  $("cfa-open-all").addEventListener("click", function () {
+    var rows = cfAssistSearches(), blocked = 0;
+    rows.forEach(function (r) { try { var w = window.open(r.url, "_blank"); if (w) w.opener = null; else blocked++; } catch (e) { blocked++; } });
+    show("cfa-search-note", "Opened <b>" + (rows.length - blocked) + " of " + rows.length + "</b> searches." + (blocked ? ' <span class="cfa-warn">Your browser blocked some tabs — allow pop-ups for this page, or open them one at a time.</span>' : ""));
+  });
+  $("cfa-new-set").addEventListener("click", function () {
+    var i = cfNewQuerySet();
+    renderSearches();
+    show("cfa-search-note", "New query set (rotation " + i + ") ready. The phrases rotate through direct asks, recommendations, needs and style asks, and the rotation is remembered in this browser.");
+  });
+
+  // ---- 2. bookmarklet -------------------------------------------------------------------
+  var bmHref = cfBookmarkletHref(location.origin, location.pathname);
+  $("cfa-bm").setAttribute("href", bmHref);
+  $("cfa-bm-copy").addEventListener("click", async function () {
+    try {
+      if (navigator.clipboard && navigator.clipboard.writeText) { await navigator.clipboard.writeText(bmHref); show("cfa-search-note", "Bookmarklet copied. Paste it as the address of a new bookmark named “Send to Finder”."); }
+      else throw new Error("no clipboard");
+    } catch (e) { window.prompt("Copy this bookmarklet, then create a bookmark with it as the address:", bmHref); }
+  });
+
+  // ---- 3. paste box ---------------------------------------------------------------------
+  $("cfa-paste-go").addEventListener("click", async function () {
+    var parsed = cfParsePaste($("cfa-paste").value);
+    if (!parsed.blocks) { show("cfa-paste-result", "Nothing to ingest — paste at least one post with its URL."); return; }
+    var res = await cfIngest(parsed.items, "Assisted search");            // link-less blocks go in too: they come back as "rejected"
+    show("cfa-paste-result", "<b>Pasted " + parsed.blocks + " block(s):</b> " + esc(countLine(res.counts))
+      + (parsed.rejected ? ' <span class="cfa-warn">' + parsed.rejected + " block(s) had no link and were rejected.</span>" : ""));
+    refreshDashboard(true);
+  });
+
+  // ---- 4. Bluesky live radar ------------------------------------------------------------
+  function paintLive(s) {
+    var pill = $("cfa-live-state");
+    pill.textContent = s.state;
+    pill.className = "cfa-pill" + (s.state === "LIVE" ? " on" : (s.state === "FAILED" || s.state === "TEMPORARILY UNAVAILABLE") ? " bad" : "");
+    $("cfa-live-stats").innerHTML = "Posts checked: <b>" + s.postsChecked + "</b> · prefiltered (team+apparel words): <b>" + s.matched + "</b> · batches ingested: <b>" + s.batches + "</b>"
+      + (s.lastMessageAt ? " · last event " + esc(new Date(s.lastMessageAt).toLocaleTimeString()) : "")
+      + (s.lastCounts ? " · last batch: " + esc(countLine(s.lastCounts)) : "")
+      + (s.replayMinutes && !s.replayUnavailable ? ' · <span class="cfa-word live">replay: last ' + s.replayMinutes + " min</span>" : "")
+      + (s.replayUnavailable ? ' · <span class="cfa-warn">this host refused the replay cursor — streaming live only (nothing faked)</span>' : "")
+      + (s.error ? ' · <span class="cfa-warn">' + esc(s.error) + "</span>" : "");
+    $("cfa-live-hosts").textContent = "Hosts tried in order: jetstream.us-east (v2) → jetstream.us-west (v2) → jetstream2.us-east (v1) → jetstream1.us-west (v1). Current: " + (s.host || "—") + ".";
+    paintSources();
+  }
+  window.cfLivePaint = paintLive;                                          // the engine calls this on every state change
+
+  var streamLog = [];
+  window.cfAfterIngest = function (res) {
+    if (!res || !res.counts) return;
+    var live = res.run && res.run.live;
+    streamLog.unshift(new Date().toLocaleTimeString() + " · " + (res.run && res.run.trigger ? res.run.trigger : "ingest") + " → " + countLine(res.counts));
+    streamLog = streamLog.slice(0, 40);
+    var pre = $("cfa-live-log");
+    if (pre) { pre.hidden = streamLog.length < 2; pre.textContent = streamLog.join("\n"); }
+    if (!live) show("cfa-last", "Last ingest · " + esc(countLine(res.counts)));
+    paintRejected(res.run);
+    refreshDashboard(!live);
+  };
+
+  $("cfa-live-start").addEventListener("click", function () {
+    cfLiveStart({ replayMinutes: $("cfa-live-replay").checked ? 30 : 0 });
+    refreshDashboard(false);
+  });
+  $("cfa-live-stop").addEventListener("click", function () {
+    var s = cfLiveStop();
+    refreshDashboard(true);
+    show("cfa-last", "Bluesky radar stopped. " + esc(countLine({ candidates: s.postsChecked, new_leads: s.lastCounts ? s.lastCounts.new_leads : 0, duplicates: s.lastCounts ? s.lastCounts.duplicates : 0, low_filtered: s.lastCounts ? s.lastCounts.low_filtered : 0, excluded: s.lastCounts ? s.lastCounts.excluded : 0, rejected: 0 })));
+  });
+
+  // ---- source status list ---------------------------------------------------------------
+  function paintSources() {
+    if (typeof CF_SOURCES === "undefined") return;
+    $("cfa-status").innerHTML = CF_SOURCES.map(function (s) {
+      var st = s.status();
+      var word, cls;
+      if (st.enabled) { var live = /LIVE/.test(st.mode || ""); word = live ? "LIVE" : "READY"; cls = live ? "live" : "off"; }
+      else if (/NOT CONFIGURED/.test(st.reason || "")) { word = "NOT CONFIGURED"; cls = "bad"; }
+      else { word = "NOT AVAILABLE"; cls = "off"; }
+      return '<div class="cfa-statusrow"><div><b>' + esc(s.label) + '</b><div class="cfa-note">' + esc(st.enabled ? st.mode : st.reason) + '</div></div><div class="cfa-word ' + cls + '">' + word + "</div></div>";
+    }).join("");
+  }
+
+  // ---- start-up -------------------------------------------------------------------------
+  renderSearches();
+  paintSources();
+  paintLive(cfLiveStatus());
+  (async function () {
+    try {
+      var res = await cfIngestHash();                                      // bookmarklet: #import=<json>
+      if (res) {
+        show("cfa-last", "<b>Bookmarklet import:</b> " + esc(countLine(res.counts)));
+        paintRejected(res.run);
+        refreshDashboard(true);
+        return;
+      }
+    } catch (e) { show("cfa-last", '<span class="cfa-warn">Import failed: ' + esc(e.message) + "</span>"); }
+    refreshRejected();
+    paintSources();
+  })();
+  // the stream repaints itself through window.cfLivePaint; this keeps the clock/host line fresh too
+  setInterval(function () { var s = cfLiveStatus(); if (s.state !== "idle") paintLive(s); }, 1000);
+})();
+<!--CF_ASSIST_SCRIPT_END-->
+</script>
