@@ -39,3 +39,18 @@ In production the server won't start without a real session secret, and it refus
 
 ## Adding teams
 Add an entry to `lib/customer-finder/teams.js` (Browns, Packers, Cowboys) and point the router's `teamKey` at it.
+
+## Static version on the public site (code-protected)
+**URL:** `https://gridironlocker.store/private/customer-finder/`. It isn't linked anywhere or listed in the sitemap, and it's marked noindex.
+
+To rebuild after changing the engine or catalogue (the code is never saved in the repo):
+```bash
+CF_CODE='<access code>' node radar/static-finder/build.mjs
+```
+- The whole dashboard is **encrypted** with AES-256-GCM, using a key derived from the code (PBKDF2, 600k rounds).
+  The public file contains only ciphertext and an unlock screen.
+- **What it can't do (no server):** it searches only keyless public APIs from your browser (Reddit, Bluesky, Lemmy).
+  X and web search need secret keys and only work in the Radar server version. Leads are saved in *that browser*
+  (localStorage), so use **Export backup** and **Import** to move them or keep them safe.
+- It isn't true access control. Anyone can download the encrypted file and try to guess the code offline, so a long
+  code is much stronger than a short one. To change the code, rerun the build with a new `CF_CODE`.

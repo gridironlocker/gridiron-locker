@@ -20,7 +20,7 @@ ROOT = os.path.dirname(os.path.abspath(__file__))
 SITE = os.path.join(ROOT, "site")
 CFG = json.load(open(os.path.join(ROOT, "src/config.json")))
 DOMAIN = CFG["domain"].rstrip("/")
-PUBLIC_EXCLUDE = ("/ops/", "/marketing/")
+PUBLIC_EXCLUDE = ("/ops/", "/marketing/", "/private/")
 
 REPORT = defaultdict(list)
 
