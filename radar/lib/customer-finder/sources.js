@@ -74,7 +74,7 @@ const reddit = {
     const headers = token ? { Authorization: `Bearer ${token}` } : {};
     const items = [];
     let okCalls = 0, lastErr = null;
-    for (const { q, sub, label } of redditQueries(team)) {
+    for (const { q, sub, label } of rotate(redditQueries(team), runSeed())) {
       const path = sub ? `/r/${sub}/search${oauth ? "" : ".json"}` : `/search${oauth ? "" : ".json"}`;
       const params = new URLSearchParams({ q, sort: "new", t: "month", limit: "50", type: "link", raw_json: "1", ...(sub ? { restrict_sr: "1" } : {}) });
       try {
@@ -152,7 +152,14 @@ const bluesky = {
     const token = authed ? await bskyAuth(fetchImpl) : null;
     const host = authed ? "https://bsky.social" : "https://public.api.bsky.app";
     const headers = token ? { Authorization: `Bearer ${token}` } : {};
-    const qs = ["michigan shirt", "michigan hoodie", "michigan sweatshirt", "wolverines shirt", "michigan merch"];
+    const qs = rotate([
+      "michigan shirt", "michigan t-shirt", "michigan tee",
+      "michigan hoodie", "michigan sweatshirt", "michigan crewneck",
+      "wolverines shirt", "michigan merch",
+      "where can i buy michigan shirt", "looking for michigan hoodie",
+      "michigan shirt recommendations", "michigan game day shirt",
+      "affordable michigan shirt", "vintage michigan shirt"
+    ], runSeed()).slice(0, Number(process.env.CF_BSKY_QUERIES || 7));
     const items = []; let ok = 0, lastErr = null;
     for (const q of qs) {
       try {
@@ -199,11 +206,19 @@ const lemmy = {
 };
 
 // ---------------------------------------------------------------- Web search engines
+function rotate(list, seed) {
+  const a = [...list], out = [];
+  let x = Math.abs(Number(seed) || 0) % (a.length || 1);
+  while (a.length) { x = (x * 9301 + 49297) % 233280; const i = x % a.length; out.push(a.splice(i, 1)[0]); }
+  return out;
+}
+function runSeed() {
+  return Number(process.env.CF_RUN_SEED || Date.now());
+}
 function webPhrases(team) {
-  // Intent-bearing phrases first; web engines are expensive so stay bounded.
-  const intentFirst = team.phrases.filter((p) => /where|looking|recommend/i.test(p));
-  const rest = team.phrases.filter((p) => !/where|looking|recommend/i.test(p));
-  return [...intentFirst, ...rest].slice(0, Number(process.env.CF_WEB_QUERIES || 10));
+  const intentFirst = team.phrases.filter((p) => /where|looking|recommend|buy|find|need|want/i.test(p));
+  const rest = team.phrases.filter((p) => !/where|looking|recommend|buy|find|need|want/i.test(p));
+  return rotate([...intentFirst, ...rest], runSeed()).slice(0, Number(process.env.CF_WEB_QUERIES || 10));
 }
 
 const brave = {
