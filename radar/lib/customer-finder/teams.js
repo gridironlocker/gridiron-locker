@@ -15,9 +15,12 @@ export const TEAMS = {
     // Search concepts from the brief — the engine searches these, then reads context.
     phrases: [
       "Michigan shirt", "Michigan t-shirt", "Michigan hoodie", "Michigan sweatshirt", "Michigan merch",
-      "Michigan merchandise", "Michigan apparel", "where can I buy Michigan shirt", "where can I find Michigan shirt",
-      "looking for Michigan shirt", "looking for Michigan hoodie", "Michigan shirt recommendations",
-      "Michigan game day shirt", "Michigan fan shirt", "Michigan student shirt", "Michigan college shirt",
+      "Michigan merchandise", "Michigan apparel", "Michigan tee", "Michigan t-shirt", "Michigan crewneck",
+      "where can I buy Michigan shirt", "where can I find Michigan shirt", "where to get Michigan merch",
+      "looking for Michigan shirt", "looking for Michigan hoodie", "looking for Michigan sweatshirt",
+      "Michigan shirt recommendations", "Michigan hoodie recommendations", "Michigan game day shirt",
+      "Michigan tailgate shirt", "Michigan fan shirt", "Michigan student shirt", "Michigan college shirt",
+      "affordable Michigan shirt", "vintage Michigan shirt", "unique Michigan shirt", "Michigan shirt for freshman",
     ],
     communities: {
       reddit: ["MichiganWolverines", "uofm", "annarbor", "CFB"],
