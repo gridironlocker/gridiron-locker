@@ -16,7 +16,8 @@ import { fileURLToPath } from "url";
 const HERE = path.dirname(fileURLToPath(import.meta.url));
 const RADAR = path.resolve(HERE, "..");
 const REPO = path.resolve(RADAR, "..");
-const OUT = path.join(REPO, "site", "private", "customer-finder", "index.html");
+// CF_OUT lets the test suite build into a temp directory instead of the committed page.
+const OUT = process.env.CF_OUT || path.join(REPO, "site", "private", "customer-finder", "index.html");
 const ITER = 600000;
 
 const code = process.env.CF_CODE;
@@ -31,6 +32,16 @@ const catalogue = JSON.parse(fs.readFileSync(path.join(REPO, "data/catalogue-liv
 const engine = fs.readFileSync(path.join(HERE, "browser-engine.js"), "utf-8").replace("/*CATALOGUE*/[]", JSON.stringify(catalogue));
 const bundle = ["teams.js", "classifier.js", "dedupe-core.js", "match.js", "responder.js"].map(lib).join("\n") + "\n" + engine;
 
+// 1b. the "Free discovery" panel (assisted search, bookmarklet, paste box, Bluesky live radar)
+const assistSrc = fs.readFileSync(path.join(HERE, "assist.html"), "utf-8");
+const slice = (start, end) => {
+  const a = assistSrc.indexOf(start), b = assistSrc.indexOf(end);
+  if (a < 0 || b < 0 || b < a) throw new Error(`assist.html: missing ${start} / ${end}`);
+  return assistSrc.slice(a + start.length, b).trim();
+};
+const assistMarkup = slice("<!--CF_ASSIST_MARKUP_START-->", "<!--CF_ASSIST_MARKUP_END-->");
+const assistScript = slice("<!--CF_ASSIST_SCRIPT_START-->", "<!--CF_ASSIST_SCRIPT_END-->").replace(/<\/script/gi, "<\\/script");
+
 // 2. adapt the server dashboard to run fully in the browser
 let html = fs.readFileSync(path.join(RADAR, "public/customer-finder.html"), "utf-8");
 const apiStart = html.indexOf("async function api(");
@@ -43,12 +54,20 @@ const swaps = [
   [`<a href="#" id="logout">Sign out</a>`, `<a href="#" id="exp">Export backup</a> · <label style="cursor:pointer;color:#F2B01E">Import<input type="file" id="imp" accept="application/json" hidden></label> · <a href="#" id="logout">Lock</a>`],
   [`<script>\nconst BASE`, `<script>\n${bundle.replace(/<\/script/gi, "<\\/script")}\n</script>\n<script>\nconst BASE`],
   [`(async () => {\n`, `$("exp").addEventListener("click", (e) => { e.preventDefault(); cfExport(); });\n$("imp").addEventListener("change", (e) => e.target.files[0] && cfImport(e.target.files[0]));\n(async () => {\n`],
-  [`<p class="small" style="margin-top:20px">Privacy:`, `<p class="small" style="margin-top:20px">Static site build: searches Reddit, Bluesky and Lemmy live from your browser. X and web search need secret keys, so they only work in the Radar server version. Leads are saved in this browser; use Export backup regularly.</p>\n  <p class="small">Privacy:`],
+  [`<p class="small" style="margin-top:20px">Privacy:`, `<p class="small" style="margin-top:20px">Static site build: the automatic search inside this page is <b>Lemmy</b> only — Reddit's keyless JSON and Bluesky's searchPosts now return 403 to a browser, so they were removed instead of faked; X and web-search APIs need secret keys and live only in the Radar server build. Use the <b>Free discovery</b> panel above: assisted searches in your own logged-in browser, the Send to Finder bookmarklet, the paste box and the Bluesky live radar. Leads are saved in this browser; use Export backup regularly.</p>\n  <p class="small">Privacy:`],
+  // "rejected (no link)" is a real outcome of this build, so it belongs in the header line too
+  [`Sellers/media/off-topic excluded: <b id="m-exc">0</b></div>`, `Sellers/media/off-topic excluded: <b id="m-exc">0</b> · Missing link rejected: <b id="m-rej">0</b></div>`],
+  // 1c. the Free discovery panel, straight after the status banner
+  [`<div id="banner" class="banner"></div>`, `<div id="banner" class="banner"></div>\n\n${assistMarkup}`],
+  // 1d. its script, just before the end of the document
+  [`</body>\n</html>`, `<script>\n${assistScript}\n</script>\n</body>\n</html>`],
 ];
 for (const [a, b] of swaps) {
   const before = html; html = html.replace(a, b);
   if (html === before) throw new Error("template swap failed: " + String(a).slice(0, 60));
 }
+// the dashboard never fills #m-rej (the server build has no such count), so the panel does it
+if (!assistScript.includes("m-rej")) throw new Error("assist script must paint #m-rej");
 
 // 3. encrypt
 const salt = crypto.randomBytes(16), iv = crypto.randomBytes(12);
