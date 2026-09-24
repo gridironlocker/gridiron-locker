@@ -1,0 +1,48 @@
+name: Build private Customer Finder
+
+on:
+  push:
+    branches: [main]
+    paths:
+      - "radar/static-finder/**"
+      - "radar/lib/customer-finder/**"
+      - "radar/public/customer-finder.html"
+      - "data/catalogue-live.json"
+      - ".github/workflows/customer-finder-build.yml"
+  workflow_dispatch:
+
+permissions:
+  contents: write
+
+concurrency:
+  group: customer-finder-build
+  cancel-in-progress: false
+
+jobs:
+  build:
+    runs-on: ubuntu-latest
+    steps:
+      - uses: actions/checkout@v4
+
+      - uses: actions/setup-node@v4
+        with:
+          node-version: "22"
+
+      - name: Rebuild encrypted Customer Finder
+        if: ${{ secrets.CF_CODE != '' }}
+        env:
+          CF_CODE: ${{ secrets.CF_CODE }}
+        run: node radar/static-finder/build.mjs
+
+      - name: Commit rebuilt private page
+        if: ${{ secrets.CF_CODE != '' }}
+        run: |
+          git config user.name "gridiron-bot"
+          git config user.email "actions@github.com"
+          git add site/private/customer-finder/index.html
+          if git diff --staged --quiet; then
+            echo "Customer Finder page is already current."
+          else
+            git commit -m "Build Customer Finder bundle"
+            git push
+          fi
