@@ -3,6 +3,10 @@ import jwt from "jsonwebtoken";
 import dotenv from "dotenv";
 dotenv.config();
 
+const IS_PROD = process.env.NODE_ENV === "production";
+if (IS_PROD && (!process.env.RADAR_SESSION_SECRET || process.env.RADAR_SESSION_SECRET.length < 32)) {
+  throw new Error("[radar auth] RADAR_SESSION_SECRET (32+ chars) is required in production.");
+}
 const SESSION_SECRET = process.env.RADAR_SESSION_SECRET || "dev-secret-change-me-32-chars-minimum";
 const RAW_USER = process.env.RADAR_AUTH_USER || "owner";
 const RAW_HASH = process.env.RADAR_AUTH_PASSWORD_HASH || "";
@@ -17,7 +21,9 @@ try{
 if(RAW_HASH) users.unshift({user: RAW_USER, hash: RAW_HASH});
 // Fallback dev account: password "gridiron-radar-2026" — hash generated at boot if no env hash provided
 let DEV_FALLBACK = null;
-if(users.length===0){
+if(users.length===0 && IS_PROD){
+  console.error("[radar auth] No RADAR_AUTH_PASSWORD_HASH / RADAR_USERS set in production — all logins will be refused.");
+}else if(users.length===0){
   // generate a hash for dev password so local `npm run dev` works without env
   const devPass="gridiron-radar-2026";
   // precomputed bcrypt hash for devPass (cost 10) — so we don't need async at import

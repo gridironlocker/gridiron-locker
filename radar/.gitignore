@@ -3,3 +3,5 @@ node_modules/
 data/history/*.json
 !data/history/.gitkeep
 npm-debug.log
+data/*.db
+data/*.db-*

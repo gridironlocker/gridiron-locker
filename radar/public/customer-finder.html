@@ -1,0 +1,287 @@
+<!doctype html>
+<html lang="en">
+<head>
+<meta charset="utf-8">
+<meta name="viewport" content="width=device-width,initial-scale=1">
+<meta name="robots" content="noindex, nofollow, noarchive, nosnippet">
+<meta name="googlebot" content="noindex, nofollow">
+<meta name="referrer" content="no-referrer">
+<title>Customer Finder — Private</title>
+<style>
+*{box-sizing:border-box}
+body{margin:0;background:#0a0b0d;color:#e8eaed;font:14px/1.45 Inter,system-ui,-apple-system,Segoe UI,sans-serif}
+a{color:#F2B01E}
+header{display:flex;justify-content:space-between;align-items:center;padding:14px 22px;border-bottom:1px solid #1f232a;background:#0d0f12}
+header .k{letter-spacing:.16em;font-size:.7rem;color:#9aa0a8;font-weight:800;text-transform:uppercase}
+header h1{margin:2px 0 0;font-size:1.15rem}
+main{max-width:1280px;margin:0 auto;padding:20px}
+.card{background:#111418;border:1px solid #22262d;border-radius:14px;padding:18px}
+.hero{display:grid;grid-template-columns:auto 1fr;gap:24px;align-items:center}
+#find{font-size:1.25rem;font-weight:900;padding:20px 30px;border-radius:14px;border:0;background:#F2B01E;color:#0a0b0d;cursor:pointer;min-width:300px;box-shadow:0 8px 30px rgba(242,176,30,.25)}
+#find:disabled{background:#3a3f47;color:#c9ccd1;cursor:wait;box-shadow:none}
+#find.spin::before{content:"";display:inline-block;width:16px;height:16px;border:3px solid #c9ccd1;border-top-color:transparent;border-radius:50%;margin-right:10px;vertical-align:-2px;animation:s 1s linear infinite}
+@keyframes s{to{transform:rotate(360deg)}}
+.meta{display:grid;grid-template-columns:repeat(auto-fit,minmax(170px,1fr));gap:8px 18px}
+.meta div span{display:block;font-size:.68rem;letter-spacing:.1em;text-transform:uppercase;color:#8a9099;font-weight:800}
+.meta div b{font-size:.98rem}
+.banner{margin-top:14px;padding:12px 14px;border-radius:10px;font-weight:700;display:none}
+.banner.bad{display:block;background:#3b1414;border:1px solid #7f1d1d;color:#fecaca}
+.banner.ok{display:block;background:#10271a;border:1px solid #14532d;color:#bbf7d0}
+.banner.info{display:block;background:#1a1f27;border:1px solid #2c333d;color:#cbd5e1}
+.kpis{display:grid;grid-template-columns:repeat(8,1fr);gap:10px;margin:16px 0}
+.kpi{background:#111418;border:1px solid #22262d;border-radius:12px;padding:12px}
+.kpi span{font-size:.64rem;letter-spacing:.1em;text-transform:uppercase;color:#8a9099;font-weight:800;display:block}
+.kpi b{font-size:1.5rem}
+.kpi.hot b{color:#f87171}.kpi.warm b{color:#fbbf24}
+h2{font-size:.8rem;letter-spacing:.14em;text-transform:uppercase;color:#9aa0a8;margin:26px 0 10px}
+.tabs{display:flex;gap:6px;align-items:center;flex-wrap:wrap}
+.tabs button{background:#161a20;border:1px solid #2a3038;color:#e8eaed;border-radius:8px;padding:7px 14px;cursor:pointer;font-weight:700}
+.tabs button.on{background:#F2B01E;color:#0a0b0d;border-color:#F2B01E}
+.lead{background:#111418;border:1px solid #22262d;border-radius:12px;padding:14px 16px;margin-bottom:10px;display:grid;grid-template-columns:1fr 330px;gap:18px}
+.lead.new{border-color:#F2B01E66}
+.tag{display:inline-block;font-size:.68rem;font-weight:900;letter-spacing:.08em;padding:2px 8px;border-radius:999px;margin-right:6px}
+.HOT{background:#7f1d1d;color:#fecaca}.WARM{background:#78350f;color:#fde68a}.plat{background:#1f2937;color:#cbd5e1}.gap{background:#312e81;color:#c7d2fe}
+.quote{margin:8px 0;padding:8px 12px;border-left:3px solid #F2B01E55;background:#0d0f12;border-radius:6px;white-space:pre-wrap;word-break:break-word}
+.small{font-size:.8rem;color:#9aa0a8}
+.lbl{font-size:.64rem;letter-spacing:.1em;text-transform:uppercase;color:#8a9099;font-weight:800;margin-top:8px}
+textarea{width:100%;min-height:92px;background:#0d0f12;color:#e8eaed;border:1px solid #2a3038;border-radius:8px;padding:8px;font:inherit;font-size:.85rem}
+select,.btn{background:#161a20;color:#e8eaed;border:1px solid #2a3038;border-radius:8px;padding:6px 10px;font:inherit;cursor:pointer}
+.btn:hover{border-color:#F2B01E}
+table{width:100%;border-collapse:collapse;font-size:.82rem}
+td,th{padding:6px 8px;border-bottom:1px solid #1f232a;text-align:left}
+th{color:#8a9099;font-size:.66rem;letter-spacing:.08em;text-transform:uppercase}
+.grid2{display:grid;grid-template-columns:repeat(auto-fit,minmax(360px,1fr));gap:12px}
+.src{display:flex;justify-content:space-between;gap:10px;padding:5px 0;border-bottom:1px solid #1a1e24;font-size:.82rem}
+.ok{color:#4ade80}.fail{color:#f87171}.skip{color:#8a9099}
+.empty{padding:26px;text-align:center;color:#8a9099;border:1px dashed #2a3038;border-radius:12px}
+@media(max-width:900px){.kpis{grid-template-columns:repeat(4,1fr)}.lead{grid-template-columns:1fr}.hero{grid-template-columns:1fr}#find{width:100%}}
+</style>
+</head>
+<body>
+<header>
+  <div><div class="k">Private · Internal only</div><h1>Customer Intent Finder <span style="color:#F2B01E">· Michigan V1</span></h1></div>
+  <div class="small"><span id="who"></span> · <a href="#" id="logout">Sign out</a></div>
+</header>
+<main>
+  <section class="card hero">
+    <button id="find">🔄 FIND NEW BUYERS</button>
+    <div>
+      <div class="meta">
+        <div><span>Last search</span><b id="m-last">—</b></div>
+        <div><span>Search status</span><b id="m-status">—</b></div>
+        <div><span>New opportunities</span><b id="m-new">—</b></div>
+        <div><span>Duplicates removed</span><b id="m-dup">—</b></div>
+        <div><span>Sources searched</span><b id="m-src">—</b></div>
+        <div><span>Last successful search</span><b id="m-lastok">—</b></div>
+      </div>
+      <div class="small" style="margin-top:8px">New since last search: <b id="m-new2">0</b> · Previously seen: <b id="m-seen">0</b> · Low-intent filtered: <b id="m-low">0</b> · Sellers/media/off-topic excluded: <b id="m-exc">0</b></div>
+    </div>
+  </section>
+  <div id="banner" class="banner"></div>
+
+  <section class="kpis">
+    <div class="kpi hot"><span>HOT found</span><b id="k-hot">0</b></div>
+    <div class="kpi warm"><span>WARM found</span><b id="k-warm">0</b></div>
+    <div class="kpi"><span>New this search</span><b id="k-new">0</b></div>
+    <div class="kpi"><span>Total</span><b id="k-total">0</b></div>
+    <div class="kpi"><span>Contacted</span><b id="k-contacted">0</b></div>
+    <div class="kpi"><span>Responses</span><b id="k-resp">0</b></div>
+    <div class="kpi"><span>Clicks</span><b id="k-clicks">0</b></div>
+    <div class="kpi"><span>Conversions</span><b id="k-conv">0</b></div>
+  </section>
+
+  <div class="tabs">
+    <button data-scope="new" class="on">New this search</button>
+    <button data-scope="all">All opportunities</button>
+    <span style="width:18px"></span>
+    <button data-intent="ALL" class="on">ALL</button>
+    <button data-intent="HOT">HOT</button>
+    <button data-intent="WARM">WARM</button>
+    <span style="flex:1"></span>
+    <select id="statusFilter"><option value="">Any status</option></select>
+  </div>
+  <div id="leads" style="margin-top:12px"></div>
+
+  <h2>Where are our buyers talking?</h2>
+  <div class="grid2" id="insights"></div>
+
+  <h2>Sources &amp; search history</h2>
+  <div class="grid2">
+    <div class="card"><div class="lbl" style="margin-top:0">Connectors (configured server-side)</div><div id="sources"></div></div>
+    <div class="card"><div class="lbl" style="margin-top:0">Recent searches</div><div id="runs"></div></div>
+  </div>
+  <p class="small" style="margin-top:20px">Privacy: the engine doesn't collect, guess or buy email addresses, and removes any it finds in post text. You reach people by replying in their original public conversation. Replies are drafts only: nothing is sent automatically.</p>
+</main>
+<script>
+const BASE = "/private/customer-finder";
+const $ = (id) => document.getElementById(id);
+const esc = (s) => String(s ?? "").replace(/[&<>"']/g, (c) => ({"&":"&amp;","<":"&lt;",">":"&gt;",'"':"&quot;","'":"&#39;"}[c]));
+const safeUrl = (u) => /^https?:\/\//i.test(u || "") ? esc(u) : "#";
+const fmt = (t) => t ? new Date(t).toLocaleString() : "—";
+let STATE = null, scope = "new", intent = "ALL", statusF = "", viewRunId = null, polling = null;
+
+async function api(path, opts = {}) {
+  const r = await fetch(BASE + "/api" + path, { credentials: "same-origin", ...opts, headers: { "Content-Type": "application/json", "X-CF-Request": "1", ...(opts.headers || {}) } });
+  if (r.status === 401) { location.href = "/radar/login?next=" + encodeURIComponent(BASE + "/"); throw new Error("auth"); }
+  const j = await r.json().catch(() => ({}));
+  if (!r.ok && r.status !== 409) throw new Error(j.error || ("HTTP " + r.status));
+  return j;
+}
+
+function statusLabel(run) {
+  if (!run) return "Never run";
+  return { running: "Searching…", success: "Completed", partial: "Completed (some sources failed)", unavailable: "Live search unavailable", error: "Failed" }[run.status] || run.status;
+}
+
+function renderMeta(run, last_ok) {
+  $("m-last").textContent = run ? fmt(run.started_at) : "Never";
+  $("m-status").textContent = statusLabel(run);
+  $("m-new").textContent = run && run.status !== "running" ? run.new_leads : "—";
+  $("m-dup").textContent = run && run.status !== "running" ? run.duplicates : "—";
+  const ok = run ? run.sources_ok.map((s) => s.source) : [];
+  $("m-src").textContent = run && run.status !== "running" ? (ok.length ? ok.join(", ") : "none") : "—";
+  $("m-lastok").textContent = last_ok ? fmt(last_ok.finished_at) : "Never";
+  $("m-new2").textContent = run?.new_leads ?? 0; $("m-seen").textContent = run?.duplicates ?? 0;
+  $("m-low").textContent = run?.low_filtered ?? 0; $("m-exc").textContent = run?.excluded ?? 0;
+  $("k-new").textContent = run?.new_leads ?? 0;
+  const b = $("banner");
+  b.className = "banner";
+  if (!run) { b.className = "banner info"; b.textContent = "No searches yet. Press FIND NEW BUYERS to run a live search."; return; }
+  if (run.status === "running") { b.className = "banner info"; b.textContent = "Searching live sources now… this usually takes 15–60 seconds."; return; }
+  if (run.status === "unavailable" || run.status === "error") { b.className = "banner bad"; b.textContent = run.message || STATE.unavailableMessage; return; }
+  const failed = run.sources_failed.filter((f) => !f.skipped);
+  b.className = "banner ok";
+  b.textContent = `Live search finished ${fmt(run.finished_at)}. ${run.new_leads} new opportunit${run.new_leads === 1 ? "y" : "ies"}, ${run.duplicates} previously seen.` + (failed.length ? ` Failed: ${failed.map((f) => f.source).join(", ")}.` : "");
+}
+
+function renderKpis(s) {
+  $("k-hot").textContent = s.hot; $("k-warm").textContent = s.warm; $("k-total").textContent = s.total;
+  $("k-contacted").textContent = s.contacted; $("k-resp").textContent = s.responses; $("k-clicks").textContent = s.clicks; $("k-conv").textContent = s.conversions;
+}
+
+function renderSources(st) {
+  const run = st.lastRun;
+  const res = {};
+  if (run) { run.sources_ok.forEach((s) => res[s.source] = `<span class="ok">✓ ${s.results} results</span>`); run.sources_failed.forEach((f) => res[f.source] = f.skipped ? `<span class="skip">not configured</span>` : `<span class="fail">✗ ${esc(f.error)}</span>`); }
+  $("sources").innerHTML = st.sources.map((s) => `<div class="src"><div><b>${esc(s.label)}</b><div class="small">${esc(s.enabled ? s.mode : s.reason)}</div></div><div style="text-align:right;max-width:45%">${res[s.label] || (s.enabled ? '<span class="small">ready</span>' : '<span class="skip">off</span>')}</div></div>`).join("");
+  $("runs").innerHTML = st.recentRuns.length ? `<table><tr><th>Started</th><th>Status</th><th>New</th><th>Dupes</th><th>Sources OK / failed</th></tr>` + st.recentRuns.map((r) => `<tr><td>${fmt(r.started_at)}</td><td>${esc(statusLabel(r))}</td><td>${r.new_leads}</td><td>${r.duplicates}</td><td>${r.sources_ok.length} / ${r.sources_failed.filter((f) => !f.skipped).length}</td></tr>`).join("") + `</table>` : `<div class="small">No searches yet.</div>`;
+}
+
+function leadCard(l, isNew) {
+  const p = l.product || {};
+  const prods = (p.products || []).map((x) => `<a href="${safeUrl(x.url)}" target="_blank" rel="noopener noreferrer">${esc(x.name)}</a> ($${esc(x.price)})`).join(" · ");
+  const r = l.response || {};
+  const opts = STATE.statuses.map((s) => `<option ${s === l.status ? "selected" : ""}>${s}</option>`).join("");
+  return `<div class="lead ${isNew ? "new" : ""}" data-id="${esc(l.id)}">
+    <div>
+      <div><span class="tag ${esc(l.intent)}">${esc(l.intent)} · ${l.score}</span><span class="tag plat">${esc(l.platform)}</span>${p.gap ? '<span class="tag gap">CATALOG GAP</span>' : ""}
+        <b>${l.author ? (l.author_url ? `<a href="${safeUrl(l.author_url)}" target="_blank" rel="noopener noreferrer">${esc(l.author)}</a>` : esc(l.author)) : '<span class="small">name not shown</span>'}</b>
+        <span class="small"> · posted ${l.posted_at ? fmt(l.posted_at) : "date unknown"} · discovered ${fmt(l.discovered_at)}${l.seen_count > 1 ? ` · seen in ${l.seen_count} searches` : ""}</span></div>
+      <div class="quote">${esc(l.excerpt)}</div>
+      <div class="small"><a href="${safeUrl(l.url)}" target="_blank" rel="noopener noreferrer">Open original post ↗</a> · Team: ${esc(l.team)} · Query: ${esc(l.query || "—")}</div>
+      <div class="lbl">Appears to want</div><div>${esc(l.wants?.summary || "—")}</div>
+      <div class="lbl">Why this score</div><div class="small">${esc((l.reasons || []).join(" · "))}</div>
+      <div class="lbl">Suggested product / category</div>
+      <div><b>${esc(p.category || "—")}</b>${prods ? " — " + prods : ""}<div class="small">${esc(p.reason || "")} ${esc((p.caveats || []).join(" "))}</div></div>
+      <div class="lbl">How to reach them</div><div class="small">${esc(l.contact?.channel || "Reply in the original public thread")}.</div>
+    </div>
+    <div>
+      <div class="lbl" style="margin-top:0">Lead status</div>
+      <select class="st">${opts}</select>
+      <div class="lbl">Suggested response (draft only, edit it and post it yourself)</div>
+      ${r.text ? `<textarea class="resp">${esc(r.text)}</textarea><button class="btn copy" style="margin-top:6px">Copy reply</button> <a class="btn" style="text-decoration:none;display:inline-block;margin-top:6px" href="${safeUrl(l.url)}" target="_blank" rel="noopener noreferrer">Open thread ↗</a>` : `<div class="small">No draft.</div>`}
+      <div class="small" style="margin-top:6px">${esc(r.advice || "")}</div>
+      <div class="lbl">Notes</div><textarea class="notes" style="min-height:48px" placeholder="Private notes">${esc(l.notes || "")}</textarea>
+    </div></div>`;
+}
+
+async function loadLeads() {
+  let leads;
+  if (scope === "new") {
+    const runId = viewRunId || STATE.lastRun?.id;
+    if (!runId) { $("leads").innerHTML = `<div class="empty">Press <b>🔄 FIND NEW BUYERS</b> to run the first live search.</div>`; return; }
+    leads = (await api("/runs/" + runId)).leads;
+    if (intent !== "ALL") leads = leads.filter((l) => l.intent === intent);
+    if (statusF) leads = leads.filter((l) => l.status === statusF);
+  } else {
+    leads = (await api(`/leads?intent=${intent}${statusF ? "&status=" + statusF : ""}`)).leads;
+  }
+  if (!leads.length) {
+    const run = STATE.lastRun;
+    const msg = scope === "new" && run && (run.status === "unavailable" || run.status === "error") ? esc(run.message) : scope === "new" ? "No new HOT/WARM opportunities in the last search. Previously seen conversations aren't shown again." : "No opportunities match this filter.";
+    $("leads").innerHTML = `<div class="empty">${msg}</div>`; return;
+  }
+  leads.sort((a, b) => (a.intent === b.intent ? b.score - a.score : a.intent === "HOT" ? -1 : 1));
+  $("leads").innerHTML = leads.map((l) => leadCard(l, scope === "new")).join("");
+}
+
+async function loadInsights() {
+  const i = await api("/insights");
+  const tbl = (title, rows) => `<div class="card"><div class="lbl" style="margin-top:0">${title}</div>${rows.length ? `<table><tr><th></th><th>Leads</th><th>HOT</th><th>Contacted</th><th>Resp.</th><th>Clicks</th><th>Sales</th></tr>${rows.map((r) => `<tr><td>${esc(r.key)}</td><td>${r.leads}</td><td>${r.hot}</td><td>${r.contacted}</td><td>${r.responses}</td><td>${r.clicks}</td><td><b>${r.conversions}</b></td></tr>`).join("")}</table>` : `<div class="small">No data yet.</div>`}</div>`;
+  const conv = `<div class="card"><div class="lbl" style="margin-top:0">Conversations that produced responses / clicks / sales</div>${i.byConversation.length ? i.byConversation.map((c) => `<div class="src"><div><a href="${safeUrl(c.key)}" target="_blank" rel="noopener noreferrer">${esc(c.platform)}</a> <span class="small">${esc(c.excerpt.slice(0, 90))}</span></div><b>${esc(c.status)}</b></div>`).join("") : `<div class="small">Nothing marked RESPONDED/CLICKED/CONVERTED yet.</div>`}</div>`;
+  const gaps = `<div class="card"><div class="lbl" style="margin-top:0">Demand we can't serve yet (catalog gaps)</div>${i.catalogGaps.length ? i.catalogGaps.map((g) => `<div class="src"><span>Michigan ${esc(g.key)}</span><b>${g.leads} people asked</b></div>`).join("") : `<div class="small">None yet.</div>`}</div>`;
+  $("insights").innerHTML = tbl("Platforms", i.byPlatform) + tbl("Search phrases", i.byPhrase) + tbl("Apparel types", i.byApparel) + tbl("Teams", i.byTeam) + conv + gaps;
+}
+
+async function refreshState() {
+  STATE = await api("/state");
+  renderKpis(STATE.summary);
+  const run = STATE.running || STATE.lastRun;
+  renderMeta(run, STATE.lastSuccessfulRun);
+  renderSources(STATE);
+  setBusy(!!STATE.running);
+  return STATE;
+}
+
+function setBusy(b) {
+  const f = $("find");
+  f.disabled = b; f.classList.toggle("spin", b);
+  f.textContent = b ? "Searching..." : "🔄 FIND NEW BUYERS";
+}
+
+async function pollRun(id) {
+  clearTimeout(polling);
+  const j = await api("/runs/" + id);
+  if (j.run.status === "running") { polling = setTimeout(() => pollRun(id), 2000); return; }
+  viewRunId = id; scope = "new";
+  document.querySelectorAll("[data-scope]").forEach((b) => b.classList.toggle("on", b.dataset.scope === "new"));
+  await refreshState(); await loadLeads(); await loadInsights();
+}
+
+$("find").addEventListener("click", async () => {
+  setBusy(true);
+  renderMeta({ status: "running", started_at: new Date().toISOString(), sources_ok: [], sources_failed: [] }, STATE?.lastSuccessfulRun);
+  try { const j = await api("/search", { method: "POST", body: "{}" }); pollRun(j.run.id); }
+  catch (e) { setBusy(false); $("banner").className = "banner bad"; $("banner").textContent = "Live search unavailable. No new leads were added. (" + e.message + ")"; }
+});
+
+document.querySelectorAll("[data-scope]").forEach((b) => b.addEventListener("click", () => { scope = b.dataset.scope; document.querySelectorAll("[data-scope]").forEach((x) => x.classList.toggle("on", x === b)); loadLeads(); }));
+document.querySelectorAll("[data-intent]").forEach((b) => b.addEventListener("click", () => { intent = b.dataset.intent; document.querySelectorAll("[data-intent]").forEach((x) => x.classList.toggle("on", x === b)); loadLeads(); }));
+$("statusFilter").addEventListener("change", (e) => { statusF = e.target.value; loadLeads(); });
+
+$("leads").addEventListener("change", async (e) => {
+  const card = e.target.closest(".lead"); if (!card) return;
+  if (e.target.classList.contains("st")) { const j = await api("/leads/" + card.dataset.id, { method: "PATCH", body: JSON.stringify({ status: e.target.value }) }); renderKpis(j.summary); loadInsights(); }
+  if (e.target.classList.contains("notes")) await api("/leads/" + card.dataset.id, { method: "PATCH", body: JSON.stringify({ notes: e.target.value }) });
+});
+$("leads").addEventListener("click", async (e) => {
+  if (!e.target.classList.contains("copy")) return;
+  const card = e.target.closest(".lead");
+  await navigator.clipboard.writeText(card.querySelector(".resp").value);
+  e.target.textContent = "Copied ✓"; setTimeout(() => (e.target.textContent = "Copy reply"), 1500);
+  const sel = card.querySelector(".st");
+  if (sel.value === "NEW") { sel.value = "REVIEWED"; sel.dispatchEvent(new Event("change", { bubbles: true })); }
+});
+$("logout").addEventListener("click", async (e) => { e.preventDefault(); await fetch("/radar/api/auth/logout", { method: "POST" }); location.href = "/radar/login"; });
+
+(async () => {
+  const me = await fetch("/radar/api/auth/me").then((r) => r.json()).catch(() => ({}));
+  $("who").textContent = me.user || "";
+  await refreshState();
+  $("statusFilter").innerHTML += STATE.statuses.map((s) => `<option>${s}</option>`).join("");
+  if (STATE.running) pollRun(STATE.running.id);
+  await loadLeads(); await loadInsights();
+})();
+</script>
+</body>
+</html>

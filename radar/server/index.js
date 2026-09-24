@@ -7,6 +7,7 @@ import fs from "fs";
 import dotenv from "dotenv";
 import { fileURLToPath } from "url";
 import { verifyCredentials, signSession, authMiddleware, cookieOptions, verifySession } from "./auth.js";
+import { customerFinderRouter, BASE as CF_BASE } from "./customer-finder.js";
 
 dotenv.config();
 const __filename = fileURLToPath(import.meta.url);
@@ -26,6 +27,19 @@ app.use(morgan("tiny"));
 app.use(express.json({limit:"1mb"}));
 app.use(cookieParser());
 app.use(express.urlencoded({extended:true}));
+
+// This host is private: never index anything on it.
+app.use((req,res,next)=>{ res.set("X-Robots-Tag","noindex, nofollow, noarchive"); next(); });
+app.get("/robots.txt", (req,res)=> res.type("text/plain").send("User-agent: *\nDisallow: /\n"));
+
+// Simple in-memory login throttle (per IP): 10 attempts / 15 min.
+const loginAttempts = new Map();
+function loginThrottled(ip){
+  const now = Date.now(), w = 15*60*1000;
+  const a = (loginAttempts.get(ip)||[]).filter(t=> now-t < w);
+  a.push(now); loginAttempts.set(ip, a);
+  return a.length > 10;
+}
 
 // Health for PaaS
 app.get("/health", (req,res)=> res.json({ok:true, service:"gridiron-radar", time: new Date().toISOString()}));
@@ -58,7 +72,7 @@ app.get("/radar/login", (req,res)=>{
   const token = req.cookies?.radar_session;
   if(token){
     const payload = verifySession(token);
-    if(payload) return res.redirect("/radar/");
+    if(payload) return res.redirect(safeNext(req.query.next));
   }
   res.type("html").send(loginPage());
 });
@@ -66,6 +80,7 @@ app.get("/radar/login", (req,res)=>{
 app.post("/radar/api/auth/login", async (req,res)=>{
   const { user, password } = req.body||{};
   if(!user||!password) return res.status(400).json({error:"Missing credentials"});
+  if(loginThrottled(req.ip)) return res.status(429).json({error:"Too many attempts. Try again in 15 minutes."});
   // rate-limit: simple in-memory per IP
   const ok = await verifyCredentials(String(user).trim(), String(password));
   if(!ok){
@@ -302,16 +317,25 @@ app.get("/", (req,res)=>{
   res.redirect("/radar/login");
 });
 
+// Private Customer Intent Finder (auth enforced inside the router)
+app.use(CF_BASE, customerFinderRouter());
+
 // 404 for Radar
 app.use((req,res)=>{
   res.status(404).type("html").send(`<!doctype html><meta charset="utf-8"><title>Not found</title><body style="background:#0a0b0d;color:#e8eaed;font-family:Inter,system-ui;display:grid;place-items:center;min-height:100vh"><div style="text-align:center"><h1>404</h1><p>Not found</p><a href="/radar/" style="color:#F2B01E">Radar →</a></div>`);
 });
+
+// Only allow same-site relative redirect targets after login.
+function safeNext(n){
+  return (typeof n==="string" && /^\/(?!\/)[\w\-\/.]*$/.test(n)) ? n : "/radar/";
+}
 
 function loginPage(){
   return `<!doctype html>
 <html lang="en">
 <meta charset="utf-8">
 <meta name="viewport" content="width=device-width,initial-scale=1">
+<meta name="robots" content="noindex, nofollow">
 <title>GRIDIRON LOCKER RADAR — Sign in</title>
 <style>
 *{box-sizing:border-box}body{margin:0;min-height:100vh;display:grid;place-items:center;background:#0a0b0d;color:#e8eaed;font-family:Inter,system-ui;padding:24px}
@@ -354,7 +378,8 @@ f.addEventListener('submit', async (e)=>{
     const r=await fetch('/radar/api/auth/login',{method:'POST',headers:{'Content-Type':'application/json'},body:JSON.stringify({user,password}),credentials:'include'});
     const j=await r.json();
     if(!r.ok) throw new Error(j.error||'Invalid credentials');
-    location.href='/radar/';
+    const n=new URLSearchParams(location.search).get('next')||'';
+    location.href=/^\/(?!\/)[\w\-\/.]*$/.test(n)?n:'/radar/';
   }catch(ex){ err.textContent=ex.message||'Sign-in failed'; }
 });
 </script>
