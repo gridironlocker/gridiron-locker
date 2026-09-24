@@ -29,13 +29,13 @@ jobs:
           node-version: "22"
 
       - name: Rebuild encrypted Customer Finder
-        if: ${{ secrets.CF_CODE != '' }}
         env:
           CF_CODE: ${{ secrets.CF_CODE }}
+        if: env.CF_CODE != ''
         run: node radar/static-finder/build.mjs
 
       - name: Commit rebuilt private page
-        if: ${{ secrets.CF_CODE != '' }}
+        if: env.CF_CODE != ''
         run: |
           git config user.name "gridiron-bot"
           git config user.email "actions@github.com"
