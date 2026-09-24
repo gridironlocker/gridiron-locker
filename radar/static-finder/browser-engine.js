@@ -9,6 +9,14 @@
 //   * leads are stored in THIS browser (use Export/Import to move or back them up)
 
 const CF_STORE_KEY = "gl_customer_finder_v1";
+const CF_ENGINE_VERSION = "2.0";
+function cfRunNumber() { return Number(localStorage.getItem(CF_STORE_KEY + ":runs") || "0"); }
+function cfNextRunNumber() { const n = cfRunNumber() + 1; localStorage.setItem(CF_STORE_KEY + ":runs", String(n)); return n; }
+function cfRotate(list, seed) {
+  const a = [...list], out = []; let x = Math.abs(Number(seed) || 1) % (a.length || 1);
+  while (a.length) { x = (x * 9301 + 49297) % 233280; const i = x % a.length; out.push(a.splice(i, 1)[0]); }
+  return out;
+}
 const CF_STATUSES = ["NEW", "REVIEWED", "CONTACTED", "RESPONDED", "CLICKED", "CONVERTED", "DISMISSED"];
 const CF_UNAVAILABLE = "Live search unavailable. No new leads were added.";
 const CF_MAX_AGE_DAYS = 45;
@@ -38,13 +46,18 @@ const CF_SOURCES = [
     async search() {
       const apparel = "(shirt OR hoodie OR sweatshirt OR tee OR merch OR apparel OR crewneck)";
       const intent = `("where can i" OR "where to buy" OR "looking for" OR "anyone know" OR recommendations OR "where did you get" OR "need a")`;
-      const qs = [
+      const qs = cfRotate([
         { q: `michigan ${apparel} ${intent}`, sub: null, label: "michigan apparel + intent" },
+        { q: `michigan ${apparel} "where can i buy"`, sub: null, label: "michigan where-to-buy" },
+        { q: `michigan ${apparel} "looking for"`, sub: null, label: "michigan looking-for" },
+        { q: `michigan ${apparel} recommendations`, sub: null, label: "michigan recommendations" },
         { q: `wolverines ${apparel}`, sub: null, label: "wolverines apparel" },
         { q: apparel, sub: "MichiganWolverines", label: "r/MichiganWolverines apparel" },
         { q: apparel, sub: "uofm", label: "r/uofm apparel" },
         { q: apparel, sub: "annarbor", label: "r/annarbor apparel" },
-      ];
+        { q: `michigan ${apparel} affordable`, sub: null, label: "michigan affordable apparel" },
+        { q: `michigan ${apparel} vintage`, sub: null, label: "michigan vintage apparel" },
+      ], cfRunNumber()).slice(0, 6);
       const items = []; let ok = 0, err = null;
       for (const { q, sub, label } of qs) {
         const p = new URLSearchParams({ q, sort: "new", t: "month", limit: "50", type: "link", raw_json: "1", ...(sub ? { restrict_sr: "1" } : {}) });
@@ -67,7 +80,14 @@ const CF_SOURCES = [
     id: "bluesky", label: "Bluesky", status: () => ({ enabled: true, mode: "public search API" }),
     async search() {
       const items = []; let ok = 0, err = null;
-      for (const q of ["michigan shirt", "michigan hoodie", "michigan sweatshirt", "wolverines shirt", "michigan merch"]) {
+      for (const q of cfRotate([
+        "michigan shirt", "michigan t-shirt", "michigan tee",
+        "michigan hoodie", "michigan sweatshirt", "michigan crewneck",
+        "wolverines shirt", "michigan merch",
+        "where can i buy michigan shirt", "looking for michigan hoodie",
+        "michigan shirt recommendations", "michigan game day shirt",
+        "affordable michigan shirt", "vintage michigan shirt"
+      ], cfRunNumber()).slice(0, 7)) {
         try {
           const j = await cfGet(`https://public.api.bsky.app/xrpc/app.bsky.feed.searchPosts?${new URLSearchParams({ q, sort: "latest", limit: "50", lang: "en" })}`); ok++;
           for (const p of j?.posts || []) {
@@ -169,7 +189,7 @@ async function localApi(path, opts = {}) {
   // a run left "running" by a closed tab is stale
   for (const r of db.runs) if (r.status === "running" && Date.now() - Date.parse(r.started_at) > 5 * 60e3) Object.assign(r, { status: "error", message: "Interrupted (tab closed). No leads were added by this run." });
   if (path === "/state") {
-    return { summary: cfSummary(db), running: sorted.find((r) => r.status === "running") || null, lastRun: sorted.find((r) => r.status !== "running") || null,
+    return { engine_version: CF_ENGINE_VERSION, summary: cfSummary(db), running: sorted.find((r) => r.status === "running") || null, lastRun: sorted.find((r) => r.status !== "running") || null,
       lastSuccessfulRun: sorted.find((r) => r.status === "success" || r.status === "partial") || null,
       sources: CF_SOURCES.map((s) => ({ id: s.id, label: s.label, ...s.status() })), recentRuns: sorted.slice(0, 8), unavailableMessage: CF_UNAVAILABLE, statuses: CF_STATUSES };
   }
