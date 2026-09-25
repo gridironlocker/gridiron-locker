@@ -1,5 +1,5 @@
 {
-  "generated": "2026-09-24",
+  "generated": "2026-09-25",
   "generator": "src/catalogue_contract.py",
   "source": "src/build.py :: build.ALL - the merged master catalogue",
   "contract": "This is the ONLY authoritative list of sellable designs. Marketing must filter every queue, brief, drop and pin against it. Do not read data/products.json or data/products_live.json as a catalogue: both are stale crawl artefacts. Written by the storefront on every build; marketing reads it and never writes it.",
