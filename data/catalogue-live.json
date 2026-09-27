@@ -3,9 +3,9 @@
   "generator": "src/catalogue_contract.py",
   "source": "src/build.py :: build.ALL - the merged master catalogue",
   "contract": "This is the ONLY authoritative list of sellable designs. Marketing must filter every queue, brief, drop and pin against it. Do not read data/products.json or data/products_live.json as a catalogue: both are stale crawl artefacts. Written by the storefront on every build; marketing reads it and never writes it.",
-  "count": 83,
+  "count": 86,
   "per_collection": {
-    "cleveland-browns": 19,
+    "cleveland-browns": 22,
     "dallas-cowboys": 10,
     "green-bay-packers": 37,
     "michigan": 17
@@ -165,6 +165,42 @@
       "price_usd": 21.0,
       "garment": "T-Shirt",
       "theme": "city",
+      "site_published": true
+    },
+    {
+      "slug": "limited-edition-cleveland-football",
+      "name": "Limited Edition Cleveland Football",
+      "collection": "cleveland-browns",
+      "partner": "Mayzing",
+      "url": "https://gridironlocker.store/shop/limited-edition-cleveland-football/",
+      "buy_url": "https://gridironlocker.shop/limited-edition-cleveland-football?collectionId=P19bpeU2x_Ng&color=GILDAN-ASH_GREY&productId=6ab9971999c373baef106efd",
+      "price_usd": 21.0,
+      "garment": "T-Shirt",
+      "theme": "classic",
+      "site_published": true
+    },
+    {
+      "slug": "limited-edition-cleveland-football-beware-of-the-dawgs",
+      "name": "Limited Edition Cleveland Football Beware of the Dawgs Shirt",
+      "collection": "cleveland-browns",
+      "partner": "Mayzing",
+      "url": "https://gridironlocker.store/shop/limited-edition-cleveland-football-beware-of-the-dawgs/",
+      "buy_url": "https://gridironlocker.shop/limited-edition-cleveland-football-beware-of-the-dawgs?collectionId=P19bpeU2x_Ng&color=GILDAN-BLACK&productId=6ab99c6399c373baef10aadb",
+      "price_usd": 28.0,
+      "garment": "T-Shirt",
+      "theme": "funny",
+      "site_published": true
+    },
+    {
+      "slug": "limited-edition-cleveland-football-copy",
+      "name": "Limited Edition Browns Sunday Funday Shirt",
+      "collection": "cleveland-browns",
+      "partner": "Mayzing",
+      "url": "https://gridironlocker.store/shop/limited-edition-cleveland-football-copy/",
+      "buy_url": "https://gridironlocker.shop/limited-edition-cleveland-football-copy?collectionId=P19bpeU2x_Ng&color=GILDAN-WHITE&productId=6ab999a399c373baef109030",
+      "price_usd": 28.0,
+      "garment": "T-Shirt",
+      "theme": "classic",
       "site_published": true
     },
     {
