@@ -1,5 +1,5 @@
 {
- "_doc": "Cleveland/Browns catalogue from the Mayzing storefront (2026-09-12). This file is the source of truth for the whole collection: src/build.py builds the 19 product pages and the collection page from it (mayzing_item()), replacing the Viralstyle crawl for Cleveland. data/collections.json keeps an entry per product for tools that read the catalogue shape, but build.py no longer reads Cleveland products from there - so a Viralstyle re-crawl can never resurrect a Cleveland page. Data captured from gridironlocker.shop/p/browns and each product page (title, price, colour, sizes, mockup URLs, productId). Titles are used verbatim from Mayzing - several look like drafts ('Be Awar of Dawg', 'Browns Cle', 'DWAG', 'Let's Go Cle Copy', 'Ohio Cle'); renaming should happen in Mayzing admin, not here. Mockups are hot-linked from the Mayzing CDN with signature params; run dl.py-style localisation before those signatures can expire.",
+ "_doc": "Cleveland/Browns catalogue from the Mayzing storefront (2026-09-12). This file is the source of truth for the whole collection: src/build.py builds the 19 product pages and the collection page from it (mayzing_item()), replacing the Viralstyle crawl for Cleveland. data/collections.json keeps an entry per product for tools that read the catalogue shape, but build.py no longer reads Cleveland products from there - so a Viralstyle re-crawl can never resurrect a Cleveland page. Data captured from gridironlocker.shop/p/browns and each product page (title, price, colour, sizes, mockup URLs, productId). Titles are used verbatim from Mayzing - several look like drafts ('Be Awar of Dawg', 'Browns Cle', 'DWAG', 'Let's Go Cle Copy', 'Ohio Cle'); renaming should happen in Mayzing admin, not here. Mockups are hot-linked from the Mayzing CDN with signature params; run dl.py-style localisation before those signatures can expire. 2026-09-27: three further Browns designs published on the store on 2026-09-27 were captured from their live product pages and added here (product ids 6ab99719..., 6ab999a3... and 6ab99c63... - the three newest products in the store; the All page now totals 40 products: 19 in the Browns collection + 18 Michigan + these 3). They are not yet assigned to the Mayzing Browns collection filter (/p/browns still reports 'Showing 19 of 19'), so their checkout URLs are the product-page links the store itself publishes for them with the Browns collectionId appended for the in-collection context - the same treatment as the three unassigned Michigan designs in data/mayzing_michigan.json. Prices were verified in a USD session: the Ash Grey tee is $21.00; the White and Black tees are $28.00 (a NOK session renders them as 219 and 279 respectively - do not read NOK as a price change). 'limited-edition-cleveland-football-copy' is the store's handle for the product whose page title is 'Limited Edition Browns Sunday Funday'; the name here keeps the buyer-facing page title, and the curated SEO name in src/catalog.py cleans the '-copy' handle artifact the same way 'lets-go-cle-copy' was cleaned. The White and Black variants lead with the garment's back-view mockup on the store itself (both mockups for those two carry the design asset), so img.front mirrors the store's hero order (design view first) rather than fixing on garment orientation. Like the same-day Michigan additions of 2026-09-12, these three carry no per-record date: their sitemap lastmod follows this file's capture date (2026-09-12) until the next verified re-capture, so a rebuild never stamps the build day as lastmod.",
  "store": "https://gridironlocker.shop/p/browns",
  "store_id": "z2OF",
  "collectionId": "P19bpeU2x_Ng",
@@ -8,6 +8,87 @@
  "currency_note": "Storefront collection page quotes $21.00 but some product pages render NOK 209.00 depending on session geo; 209 NOK approximates 21 USD. Price recorded here is the USD collection price. Verify currency for US customers in Mayzing admin.",
  "captured": "2026-09-12",
  "products": [
+  {
+   "slug": "limited-edition-cleveland-football-beware-of-the-dawgs",
+   "name": "Limited Edition Cleveland Football “Beware of the Dawgs”",
+   "garment": "Men's T-Shirt",
+   "blank": "Gildan 5000",
+   "price_usd": "28.00",
+   "colour_code": "GILDAN-BLACK",
+   "colour_name": "Black",
+   "sizes": [
+    "S",
+    "M",
+    "L",
+    "XL",
+    "2XL",
+    "3XL",
+    "4XL",
+    "5XL"
+   ],
+   "handle": "limited-edition-cleveland-football-beware-of-the-dawgs",
+   "product_id": "6ab99c6399c373baef10aadb",
+   "checkout_url": "https://gridironlocker.shop/limited-edition-cleveland-football-beware-of-the-dawgs?collectionId=P19bpeU2x_Ng&color=GILDAN-BLACK&productId=6ab99c6399c373baef10aadb",
+   "features": "Gildan 5000 midweight 100% cotton, classic fit, double-needle sleeve and bottom hems",
+   "img": {
+    "front": "https://buyer-experience-gateway.mayzing.com/stores/z2OF/mockups/id:mi2vh7vm7225,sig:Z0MEHWMs3LZy_wreTM3Ys0Wn5WvKEgjD-7JHq3XQ6R8,c:GILDAN-BLACK,s:d802579f-ea09-4b75-a37e-2adc9a5bb616,d:6ab99c630171b6ca1afe2a2e,dv:3,cpd:pd2vh7vm720,w:1000/image.png",
+    "back": "https://buyer-experience-gateway.mayzing.com/stores/z2OF/mockups/id:mi2vh7vm7224,sig:P6_LpraV6iEOE0XWGcyzXlkjAOh_SMe_CcjFIftv3_4,c:GILDAN-BLACK,s:d3cfca9f-6be4-4751-94da-27ce3751a0ac,d:6ab99c630171b6ca1afe2a2e,dv:3,cpd:pd2vh7vm720,w:1000/image.png"
+   }
+  },
+  {
+   "slug": "limited-edition-cleveland-football-copy",
+   "name": "Limited Edition Browns Sunday Funday",
+   "garment": "Men's T-Shirt",
+   "blank": "Gildan 5000",
+   "price_usd": "28.00",
+   "colour_code": "GILDAN-WHITE",
+   "colour_name": "White",
+   "sizes": [
+    "S",
+    "M",
+    "L",
+    "XL",
+    "2XL",
+    "3XL",
+    "4XL",
+    "5XL"
+   ],
+   "handle": "limited-edition-cleveland-football-copy",
+   "product_id": "6ab999a399c373baef109030",
+   "checkout_url": "https://gridironlocker.shop/limited-edition-cleveland-football-copy?collectionId=P19bpeU2x_Ng&color=GILDAN-WHITE&productId=6ab999a399c373baef109030",
+   "features": "Gildan 5000 midweight 100% cotton, classic fit, double-needle sleeve and bottom hems",
+   "img": {
+    "front": "https://buyer-experience-gateway.mayzing.com/stores/z2OF/mockups/id:mi2vh7vm72d,sig:kcMeMH_0HT01Egtn7DDUkwPCOp_2EqmbA1bt_SbStwE,c:GILDAN-WHITE,s:d802579f-ea09-4b75-a37e-2adc9a5bb616,d:6ab999a33c82913217680169,dv:3,cpd:pd2vh7vm720,w:1000/image.png",
+    "back": "https://buyer-experience-gateway.mayzing.com/stores/z2OF/mockups/id:mi2vh7vm72c,sig:pDB1lELOippe5uYiHO20t01_FtVBbkZ9U6IVZVzQr5U,c:GILDAN-WHITE,s:d3cfca9f-6be4-4751-94da-27ce3751a0ac,d:6ab999a33c82913217680169,dv:3,cpd:pd2vh7vm720,w:1000/image.png"
+   }
+  },
+  {
+   "slug": "limited-edition-cleveland-football",
+   "name": "Limited Edition Cleveland Football",
+   "garment": "Men's T-Shirt",
+   "blank": "Gildan 5000",
+   "price_usd": "21.00",
+   "colour_code": "GILDAN-ASH_GREY",
+   "colour_name": "Ash Grey",
+   "sizes": [
+    "S",
+    "M",
+    "L",
+    "XL",
+    "2XL",
+    "3XL",
+    "4XL",
+    "5XL"
+   ],
+   "handle": "limited-edition-cleveland-football",
+   "product_id": "6ab9971999c373baef106efd",
+   "checkout_url": "https://gridironlocker.shop/limited-edition-cleveland-football?collectionId=P19bpeU2x_Ng&color=GILDAN-ASH_GREY&productId=6ab9971999c373baef106efd",
+   "features": "Gildan 5000 midweight 100% cotton, classic fit, double-needle sleeve and bottom hems",
+   "img": {
+    "front": "https://buyer-experience-gateway.mayzing.com/stores/z2OF/mockups/id:mi2vh7vm7218,sig:gWfC5ovJhHKvO8JgztuZG0lCE-an7HoyXoxnlgKEhXo,c:GILDAN-ASH_GREY,s:d3cfca9f-6be4-4751-94da-27ce3751a0ac,d:6ab997190171b6ca1afe28d1,dv:3,cpd:pd2vh7vm720,w:1000/image.png",
+    "back": "https://buyer-experience-gateway.mayzing.com/stores/z2OF/mockups/id:mi2vh7vm7219,sig:MSvgZwWTIYr3CBHZnAtmPt-mRXiLZIP1dpOpjZW9w4g,c:GILDAN-ASH_GREY,s:d802579f-ea09-4b75-a37e-2adc9a5bb616,cpd:pd2vh7vm720,w:1000/image.png"
+   }
+  },
   {
    "slug": "limited-edition-no-fly-zone",
    "name": "Limited Edition No Fly Zone",

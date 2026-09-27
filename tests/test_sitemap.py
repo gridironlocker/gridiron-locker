@@ -78,7 +78,11 @@ class SitemapDates(unittest.TestCase):
         self.assertEqual(after[target], "2026-09-15")
 
     def test_sitemap_has_valid_unique_canonical_directory_urls(self):
-        self.assertEqual(len(self.rows), 107)
+        # URL-count sentinel: update ONLY when the catalogue intentionally
+        # grows/shrinks. 2026-09-27: 107 -> 110 after three new Browns Mayzing
+        # products (limited-edition-cleveland-football*, 22 in the collection)
+        # landed in data/mayzing_products.json.
+        self.assertEqual(len(self.rows), 110)
         self.assertEqual(len(self.rows), len(set(self.rows)))
         for url, lastmod in self.rows.items():
             self.assertTrue(url.startswith(build.DOMAIN + "/"), url)
