@@ -848,8 +848,11 @@ class ProductPages(unittest.TestCase):
                 self.assertIn("handlingTime", dt, slug)
                 self.assertIn("transitTime", dt, slug)
             else:
-                self.assertNotIn("shippingDetails", o, slug)
-                self.assertNotIn("hasMerchantReturnPolicy", o, slug)
+                # Mayzing publishes a broad, non-price shipping window and an
+                # explicit no-returns category; it must not inherit Viralstyle's
+                # $4.95 rate or 30-day replacement terms.
+                self.assertEqual(o["shippingDetails"], build.MAYZING_SHIP, slug)
+                self.assertEqual(o["hasMerchantReturnPolicy"], build.MAYZING_RETURN, slug)
                 self.assertNotIn("4.95", json.dumps(o), slug)
         # both partners must actually be represented, or the branch above
         # would pass while asserting nothing

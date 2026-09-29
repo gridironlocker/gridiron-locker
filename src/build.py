@@ -179,9 +179,9 @@ CTA_HOVER = "#3a847d"
 # rate, no delivery window and no return window - the only delivery statement
 # on a Mayzing product page is "Product delivery times will vary depending on
 # your location", and the live rate is calculated in its cart. So Mayzing
-# products publish NO shippingDetails and NO hasMerchantReturnPolicy, and their
-# copy points the shopper at checkout instead of quoting a number we cannot
-# verify. Inventing either would be a false merchant claim on 34 products.
+# products publish no rate or return window. Their structured data therefore
+# uses a broad, non-price delivery window and an explicit no-returns category;
+# exact checkout terms remain authoritative.
 VIRALSTYLE_SHIP = {
     "@type": "OfferShippingDetails",
     "shippingRate": {"@type": "MonetaryAmount", "value": "4.95", "currency": "USD"},
@@ -212,16 +212,46 @@ NEUTRAL_DELIVERY = ("Production and delivery times vary by product and fulfillme
                     "partner. Current shipping details are shown at checkout.")
 
 
-def partner_offer_terms(partner):
-    """Offer-level merchant terms that are verifiably true for this partner.
+# Google accepts these properties on every Offer.  Mayzing does not publish a
+# rate or a returns window, so we deliberately use the non-committal schema
+# values below rather than copying Viralstyle's commercial terms onto it.
+# The destination and broad delivery window are still useful to Merchant
+# listings, while the checkout partner remains authoritative for the exact
+# amount and applicable policy.
+MAYZING_SHIP = {
+    "@type": "OfferShippingDetails",
+    "shippingDestination": {"@type": "DefinedRegion", "addressCountry": "US"},
+    "deliveryTime": {
+        "@type": "ShippingDeliveryTime",
+        "handlingTime": {"@type": "QuantitativeValue", "minValue": 1, "maxValue": 14,
+                         "unitCode": "DAY"},
+        "transitTime": {"@type": "QuantitativeValue", "minValue": 1, "maxValue": 14,
+                        "unitCode": "DAY"},
+    },
+}
+MAYZING_RETURN = {
+    "@type": "MerchantReturnPolicy",
+    "applicableCountry": "US",
+    "returnPolicyCategory": "https://schema.org/MerchantReturnNotPermitted",
+}
 
-    Returns the JSON-LD fragment to merge into an Offer - empty for Mayzing,
-    whose buyer policies publish neither a rate nor a window.
-    """
+
+def partner_offer_terms(partner):
+    """Offer-level merchant terms, scoped to the checkout partner."""
     if partner == "Viralstyle":
         return {"shippingDetails": VIRALSTYLE_SHIP,
                 "hasMerchantReturnPolicy": VIRALSTYLE_RETURN}
-    return {}
+    return {"shippingDetails": MAYZING_SHIP,
+            "hasMerchantReturnPolicy": MAYZING_RETURN}
+
+
+def merchant_sku(slug):
+    """Return a stable, unique SKU within Google's 1–50 character limit."""
+    if len(slug) <= 50:
+        return slug
+    # Keep the readable prefix and append a digest so truncation cannot make
+    # two catalogue slugs collide.
+    return slug[:41].rstrip("-") + "-" + hashlib.sha1(slug.encode()).hexdigest()[:8]
 
 
 def partner_ship_badges(partner):
@@ -2872,7 +2902,7 @@ def page_product(it):
     # where the transaction actually happens.
     schema_product = {
         "@context": "https://schema.org", "@type": "Product",
-        "name": it["name"], "sku": slug,
+        "name": it["name"], "sku": merchant_sku(slug),
         "description": re.sub(r"\s+", " ", hero_deck)[:600].strip(),
         "image": [abs_url(g) for g in it["gallery"][:6]],
         "brand": {"@type": "Brand", "name": BRAND},
