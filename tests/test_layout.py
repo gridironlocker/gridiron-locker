@@ -101,6 +101,11 @@ def page(rel):
     return read(os.path.join(SITE, rel))
 
 
+def json_ld_nodes(html):
+    return [json.loads(m.group(1))
+            for m in re.finditer(r'<script type="application/ld\+json">(.*?)</script>', html, re.S)]
+
+
 # Mayzing storefront catalogues: slug -> product record. Cleveland/Browns moved
 # on 2026-09-12 and Michigan followed, so neither collection appears in the
 # Viralstyle crawl (data/products_live.json) any more. Tests that want "the
@@ -208,6 +213,17 @@ class BuildFreshness(unittest.TestCase):
                 iso_date(stamp, "sitemap lastmod"), utc_today(),
                 f"the committed sitemap contains future date {stamp}; check "
                 "the source metadata and UTC clock")
+
+
+class StructuredData(unittest.TestCase):
+    def test_fan_trend_dataset_declares_license(self):
+        """Google Dataset rich results warn when Dataset.license is omitted."""
+        html = page("fan-trend-index/index.html")
+        dataset = next((n for n in json_ld_nodes(html) if n.get("@type") == "Dataset"), None)
+        self.assertIsNotNone(dataset, "/fan-trend-index/ must publish Dataset schema")
+        domain = load_json("src/config.json")["domain"].rstrip("/")
+        self.assertEqual(dataset.get("license"), f"{domain}/fan-trend-index/#license")
+        self.assertIn('id="license"', html, "Dataset.license must point at visible license terms")
 
 
 class CTAColours(unittest.TestCase):
