@@ -318,8 +318,13 @@ Local preview: serve `site/` with any static server
 1. **Compliance** — team/player names are the site's core keyword strategy and
    also the source of the Instagram disable. Licensing vs. original-design
    pivot is the live decision (see `BLUEPRINT.md` §9).
-2. **Growth** — 4 dead campaigns (`limited-edition-go-b-r-o-w-n-s`,
+2. **Growth** — the four dead campaigns (`limited-edition-go-b-r-o-w-n-s`,
    `it-s-not-a-team-logo-browns-it-s-a-famil`, `limited-edition-grb41`,
-   `limited-edition-m`) will return automatically if relaunched on Viralstyle.
+   `limited-edition-m`) are retired-URL tombstones now (2026-09-29):
+   `grb41` came back via `replay_updates.py`, the Browns pair sit on the
+   fulfillment hold list (a Mayzing upload restores their pages) and
+   `limited-edition-m` is delisted. Their old URLs answer with noindex
+   redirect stubs, never 404, and `data/published.json` now guarantees that
+   for every product URL the site has ever served.
 3. **Content gaps** — no designs yet for trending 2026 names (Watson,
    Underwood, Monken, Whittingham, Parsons).

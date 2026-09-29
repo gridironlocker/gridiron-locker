@@ -23,11 +23,11 @@ python3 marketing/three_day_pulse.py` to refresh the short-lived brief.
 
 | Item | Count |
 |---|---|
-| HTML files in `site/` | **206** (197 public + 9 internal `ops/` & `marketing/`) |
-| Public pages audited | **194** (`python3 qa_audit.py`) |
-| Redirect stubs (retired slugs) | **85** |
-| Product pages (one per design) | **83** |
-| `sitemap.xml` URLs | **108** = 84 products + 24 other indexable pages |
+| HTML files in `site/` | **609** (600 public + 9 internal `ops/` & `marketing/`) |
+| Public pages audited | **596** (`python3 qa_audit.py`) |
+| Redirect stubs (retired slugs) | **485** = 113 product URLs + 372 garment-variant tombstones |
+| Product pages (one per design) | **86** |
+| `sitemap.xml` URLs | **110** = 86 products + 24 other indexable pages |
 | Collection pages | 4 (+ All Collections, + Search/browse all) |
 | Creator collaboration pages | **1** (Joe's Michigan Locker, `/michigan/joe/`) |
 | SEO buying guides (articles) | 5 (4 buying guides + Week 1) |
@@ -35,8 +35,8 @@ python3 marketing/three_day_pulse.py` to refresh the short-lived brief.
 | Product images | self-hosted Viralstyle set + Mayzing CDN mockups |
 | Broken links / invalid schema | **0** |
 
-Collections: Green Bay Packers (37), Cleveland Browns (19), Michigan (18), Dallas Cowboys (10).
-Fulfilment split: Viralstyle 47 / Mayzing 37.
+Collections: Green Bay Packers (37), Cleveland Browns (22), Michigan (17), Dallas Cowboys (10).
+Fulfilment split: Viralstyle 47 / Mayzing 39.
 
 Counts are not hand-maintained: `src/build.py` computes them from the merged master
 catalogue (`data/products_live.json` + `data/mayzing_products.json` +
@@ -55,11 +55,24 @@ output, so re-run the build and read its footer rather than trusting this table.
 > run's `dl.py` downloads the local WebPs and the build swaps them in. Until then the page renders
 > from the supplier CDN, which the sanity gate and `abs_url()` both expect.
 
-### 4 dead campaigns found
-These slugs no longer return product data on Viralstyle and were excluded — relaunch them and
-re-run the build to add them:
-`limited-edition-go-b-r-o-w-n-s`, `it-s-not-a-team-logo-browns-it-s-a-famil`,
-`limited-edition-grb41`, `limited-edition-m`
+### Retired product URLs never 404
+The 2026-09-20 Search Console "Not found (404)" report was 27 product pages that the
+2026-09-12 Viralstyle → Mayzing migrations had silently dropped (9 Browns campaigns with no
+Mayzing equivalent, 18 Michigan designs not carried into the Mayzing capture), plus the 372
+`/shop/<slug>/<style>/` garment-variant URLs from the scheme that lived a few hours on
+2026-09-05 before being reverted. All of them now get the standard noindex redirect stub:
+
+- the 9 Browns campaigns sit on the `data/fulfillment.json` hold list, so a future Mayzing
+  upload automatically restores each page;
+- the 18 Michigan designs are retired in `data/delisted.json`;
+- the 372 variant paths are tombstoned in `data/retired-variants.json`;
+- `data/published.json` (written by every build) is the permanent record of every product
+  URL the site has ever served — `retired_slugs()` reads it as a third source, so a re-crawl
+  or migration can never again delete a page without leaving a redirect stub behind.
+
+Of the four campaigns originally listed here, `limited-edition-grb41` is live again (re-injected
+by `replay_updates.py`), `it-s-not-a-team-logo-browns-it-s-a-famil` was already stubbed, and
+`limited-edition-go-b-r-o-w-n-s` / `limited-edition-m` are among the 27 stubbed above.
 
 ---
 
