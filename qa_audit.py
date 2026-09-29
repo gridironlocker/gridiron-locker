@@ -279,12 +279,25 @@ for path, d in DOCS.items():
             slug = path.strip("/").split("/")[-1]
             item = next((i for i in ALL if i["slug"] == slug), None)
             if item and item["partner"] == "Mayzing":
-                if sd:
+                if sd == build.VIRALSTYLE_SHIP:
                     issue("structured-data",
                           f"{path}: Mayzing Offer carries Viralstyle shippingDetails")
-                if rp:
+                elif sd != build.MAYZING_SHIP:
+                    issue("structured-data",
+                          f"{path}: Mayzing Offer shippingDetails do not match Mayzing terms")
+                if rp == build.VIRALSTYLE_RETURN:
                     issue("structured-data",
                           f"{path}: Mayzing Offer carries Viralstyle return policy")
+                elif rp != build.MAYZING_RETURN:
+                    issue("structured-data",
+                          f"{path}: Mayzing Offer return policy does not match Mayzing terms")
+            elif item and item["partner"] == "Viralstyle":
+                if sd != build.VIRALSTYLE_SHIP:
+                    issue("structured-data",
+                          f"{path}: Viralstyle Offer shippingDetails do not match Viralstyle terms")
+                if rp != build.VIRALSTYLE_RETURN:
+                    issue("structured-data",
+                          f"{path}: Viralstyle Offer return policy does not match Viralstyle terms")
         if t == "Dataset":
             if not n.get("license"):
                 issue("structured-data", f"{path}: Dataset without license")
