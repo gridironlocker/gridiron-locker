@@ -4031,13 +4031,27 @@ def page_redirects():
     GitHub Pages has no server-side 301, so a retired /shop/<slug>/ URL used
     to fall through to 404.html - a dead end for an indexed, externally
     linked page. Each stub is a real file that sends the visitor straight to
-    the closest active page and tells crawlers the same thing three ways:
-    meta refresh, a canonical pointing at the target, and a visible link
-    fallback for anyone with refresh disabled. Stubs are noindex so they
-    never compete with the page they point at, and they stay crawlable so
-    Google can follow the signal. A companion _redirects file gives a true
-    301 on any host that reads it (Netlify, Cloudflare Pages), per the
-    deploy options in README.md.
+    the closest active page and tells crawlers the same thing two ways: an
+    instant meta refresh (Googlebot treats a 0-second refresh as a permanent
+    redirect) and a visible link fallback for anyone with refresh disabled.
+    Stubs are noindex so they never compete with the page they point at, and
+    they stay crawlable so Google can follow the redirect. A companion
+    _redirects file gives a true 301 on any host that reads it (Netlify,
+    Cloudflare Pages), per the deploy options in README.md.
+
+    A stub carries NO <link rel="canonical">. A retired product page and the
+    collection it forwards to are not duplicates, so a canonical pointing from
+    one to the other is a misuse of the tag; worse, pairing that cross-page
+    canonical with noindex feeds Google two contradictory signals on the same
+    URL. Google resolves the conflict by honouring the canonical over the
+    noindex, which parks the stub under Search Console's "Alternate page with
+    proper canonical tag" - and that status refused to clear no matter how many
+    times the fix was validated (some pages flip to "Excluded by noindex",
+    some stay "alternate", none ever settle). Google's own guidance is to never
+    combine noindex with rel=canonical and to use a redirect - not a canonical -
+    for a page that has genuinely moved. The stub now sends exactly one signal:
+    a redirect. og:url self-references so no crawler treats the stub as an
+    alternate of another URL either.
     """
     retired = retired_slugs()
     lines = []
@@ -4063,13 +4077,12 @@ def page_redirects():
 <title>{stub_title}</title>
 <meta name="description" content="{meta_who} no longer listed on its own page. Browse the current {esc(COLLECTIONS[ckey]['name'])} at {esc(BRAND)}.">
 <meta name="robots" content="noindex,follow">
-<link rel="canonical" href="{turl}">
 <meta http-equiv="refresh" content="0;url={turl}">
 <meta property="og:type" content="website">
 <meta property="og:title" content="{stub_title}">
 <meta property="og:description" content="{meta_who} no longer listed on its own page. Browse the current {esc(COLLECTIONS[ckey]['name'])}.">
 <meta property="og:image" content="{abs_url(COLLECTIONS[ckey]['hero'])}">
-<meta property="og:url" content="{turl}">
+<meta property="og:url" content="{abs_url(path)}">
 <meta property="og:site_name" content="{esc(BRAND)}">
 <meta name="twitter:card" content="summary_large_image">
 <meta name="twitter:title" content="{stub_title}">

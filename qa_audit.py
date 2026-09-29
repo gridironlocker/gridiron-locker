@@ -210,19 +210,22 @@ for path, d in DOCS.items():
         issue("seo-h1", f"{path}: {len(d['h1'])} H1s {d['h1'][:3]}")
     if d["h1"]:
         h1map[d["h1"][0]] += 1
-    # canonical. A noindex redirect stub (retired product URL) deliberately
-    # canonicalises to the page it forwards to - that IS the redirect signal.
-    # An INDEXABLE page canonicalising away is the real defect.
+    # canonical. A noindex redirect stub (retired product URL) carries NO
+    # canonical at all: it forwards with a meta refresh instead, and a
+    # cross-page canonical stacked on top of noindex is the contradictory
+    # signal that kept these URLs stuck under Search Console's "Alternate page
+    # with proper canonical tag". So a missing canonical is only a defect on an
+    # INDEXABLE page; a stub that still canonicalises away is the new defect.
     expect = DOMAIN + path
-    if not d["canonical"]:
+    is_stub = "data-gl-redirect" in d["text"]
+    if is_stub:
+        if d["canonical"] and d["canonical"] != expect:
+            issue("seo-canonical",
+                  f"{path}: redirect stub must not canonicalise away: {d['canonical']}")
+    elif not d["canonical"]:
         issue("seo-canonical", f"{path}: no canonical")
     elif d["canonical"] != expect:
-        if d["robots"] and "noindex" in d["robots"]:
-            if d["canonical"] not in {DOMAIN + p for p in DOCS}:
-                issue("seo-canonical",
-                      f"{path}: redirect stub canonical not a live page: {d['canonical']}")
-        else:
-            issue("seo-canonical", f"{path}: canonical {d['canonical']} != {expect}")
+        issue("seo-canonical", f"{path}: canonical {d['canonical']} != {expect}")
     # social
     if not d["og_title"]:
         issue("social", f"{path}: missing og:title")

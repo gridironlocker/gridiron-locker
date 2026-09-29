@@ -1589,21 +1589,49 @@ class CanonicalUrls(unittest.TestCase):
                 continue
             own = domain + "/" + os.path.dirname(rel).replace(os.sep, "/")
             own = (own + "/").replace("//", "/").replace(":/", "://")
-            # A noindex redirect stub for a retired URL deliberately
-            # canonicalises to the live page it forwards to - that IS the
-            # redirect signal, and it must not be in the sitemap. Every
-            # indexable page still has to canonicalise to itself.
-            if "data-gl-redirect" in html:
-                self.assertIn('name="robots" content="noindex', html, rel)
-                self.assertNotEqual(found.group(1), own, rel)
-                self.assertIn(found.group(1), locs,
-                              f"{rel} stub canonical is not a live page")
-                checked += 1
-                continue
+            # A noindex redirect stub for a retired URL carries NO canonical
+            # (see test_redirect_stub_has_no_canonical): it forwards with a
+            # meta refresh instead. `found` is therefore None for stubs and the
+            # `if not found` guard above already skipped them - so anything that
+            # reaches here is an indexable page that must canonicalise to
+            # itself.
+            self.assertNotIn("data-gl-redirect", html,
+                             f"{rel} is a redirect stub and must not carry a canonical")
             self.assertEqual(found.group(1), own, rel)
             self.assertIn(found.group(1), locs, f"{rel} canonical is missing from sitemap.xml")
             checked += 1
         self.assertGreaterEqual(checked, 100)
+
+    def test_redirect_stub_has_no_canonical(self):
+        """A retired-URL redirect stub sends exactly one signal: a redirect.
+
+        Google's guidance is never to combine noindex with rel=canonical, and
+        never to canonicalise a page to a URL it is not a duplicate of. The old
+        stub did both (noindex + canonical to the collection it forwards to),
+        which parked every retired URL under Search Console's "Alternate page
+        with proper canonical tag" and made that fix impossible to validate.
+        The stub now carries NO canonical - only noindex, an instant meta
+        refresh and a visible fallback link - so Google reads it as a plain
+        redirect. This test also proves no stub self-canonicalises (which would
+        contradict the redirect just as loudly).
+        """
+        shop = os.path.join(SITE, "shop")
+        stubs = 0
+        for d in sorted(os.listdir(shop)):
+            index = os.path.join(shop, d, "index.html")
+            if not os.path.isfile(index):
+                continue
+            html = read(index)
+            if "data-gl-redirect" not in html:
+                continue
+            stubs += 1
+            self.assertNotIn('<link rel="canonical"', html,
+                             f"stub {d} must not carry any canonical tag")
+            self.assertIn('name="robots" content="noindex', html,
+                          f"stub {d} must stay noindex")
+            self.assertRegex(html, r'<meta http-equiv="refresh" content="0;url=',
+                             f"stub {d} must redirect via meta refresh")
+        self.assertGreaterEqual(stubs, 50, "expected the retired-URL redirect stubs")
 
 
 # Locked-in hero / logo URLs from current main - must never drift.
