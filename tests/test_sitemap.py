@@ -47,18 +47,32 @@ class SitemapDates(unittest.TestCase):
         today = build.TODAY
         product_rows = {u: d for u, d in self.rows.items() if "/shop/" in u}
         self.assertTrue(product_rows)
+        # A verified per-record source date is allowed to equal the build date:
+        # that is exactly what happens when a new supplier product is captured
+        # and published on the same day. Products without such source metadata
+        # must never inherit TODAY merely because the site was rebuilt.
+        explicitly_dated = {
+            build.DOMAIN + f"/shop/{slug}/"
+            for source in build.MAYZING_SOURCES.values()
+            for slug, record in source.items()
+            if build.record_content_date(record)
+        }
         self.assertTrue(
-            all(value != today for value in product_rows.values()),
-            "product <lastmod> must not be the build date")
-        # These are source facts already present in the repository: the newest
-        # Browns campaign was added on Sept 10, and Mayzing captured the
-        # migrated catalogue on Sept 12.
+            all(value != today for url, value in product_rows.items()
+                if url not in explicitly_dated),
+            "product <lastmod> without source metadata must not be the build date")
+        # These are source facts already present in the repository: a Browns
+        # campaign was added on Sept 10, Mayzing captured the migrated catalogue
+        # on Sept 12, and the newest Browns tee was captured on Sept 29.
         self.assertEqual(
             self.rows[build.DOMAIN + "/shop/limited-edition-no-fly-zone/"],
             "2026-09-10")
         self.assertEqual(
             self.rows[build.DOMAIN + "/shop/bryce-19/"],
             "2026-09-12")
+        self.assertEqual(
+            self.rows[build.DOMAIN + "/shop/cleveland-football-est-1946/"],
+            "2026-09-29")
         self.assertEqual(
             self.rows[build.DOMAIN + "/shop/limited-edition-grb5/"],
             build.SITEMAP_DATE_FALLBACK)
@@ -79,10 +93,9 @@ class SitemapDates(unittest.TestCase):
 
     def test_sitemap_has_valid_unique_canonical_directory_urls(self):
         # URL-count sentinel: update ONLY when the catalogue intentionally
-        # grows/shrinks. 2026-09-27: 107 -> 110 after three new Browns Mayzing
-        # products (limited-edition-cleveland-football*, 22 in the collection)
-        # landed in data/mayzing_products.json.
-        self.assertEqual(len(self.rows), 110)
+        # grows/shrinks. 2026-09-29: 110 -> 111 after Cleveland Football Est.
+        # 1946 became the 23rd Browns Mayzing product.
+        self.assertEqual(len(self.rows), 111)
         self.assertEqual(len(self.rows), len(set(self.rows)))
         for url, lastmod in self.rows.items():
             self.assertTrue(url.startswith(build.DOMAIN + "/"), url)

@@ -101,7 +101,7 @@ currently violated. See §5.
 |---|---|
 | `data/products.json` | A **stale** Viralstyle crawl snapshot. 113 slugs. **Not the catalogue.** |
 | `data/products_live.json` | The Viralstyle half only. Also 113 slugs, also stale. |
-| `data/mayzing_products.json` | Cleveland/Browns catalogue on Mayzing (19). |
+| `data/mayzing_products.json` | Cleveland/Browns catalogue on Mayzing (23). |
 | `data/mayzing_michigan.json` | Michigan catalogue on Mayzing (18). |
 | `data/campaigns_extra.json` | Hand-added campaigns a re-crawl would drop; re-injected by `replay_updates.py`. |
 | `data/delisted.json` | 50 slugs retired by hand (departed players, pulled artwork, ended supplier campaigns). |
@@ -110,8 +110,8 @@ currently violated. See §5.
 | `data/retired-variants.json` | Hand-maintained tombstones for the 372 `/shop/<slug>/<style>/` URLs of the reverted 2026-09-05 variant scheme. |
 
 **The real catalogue is the merged set that `src/build.py` computes**, after
-applying `delisted` and `fulfillment.hold`. It is currently **86 designs**:
-green-bay-packers 37 · cleveland-browns 22 · michigan 17 · dallas-cowboys 10.
+applying `delisted` and `fulfillment.hold`. It is currently **87 designs**:
+green-bay-packers 37 · cleveland-browns 23 · michigan 17 · dallas-cowboys 10.
 
 **The published contract is `data/catalogue-live.json`.** It is regenerated on
 every build by `src/catalogue_contract.py` (run by `refresh.yml` after the

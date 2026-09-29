@@ -3,9 +3,9 @@
   "generator": "src/catalogue_contract.py",
   "source": "src/build.py :: build.ALL - the merged master catalogue",
   "contract": "This is the ONLY authoritative list of sellable designs. Marketing must filter every queue, brief, drop and pin against it. Do not read data/products.json or data/products_live.json as a catalogue: both are stale crawl artefacts. Written by the storefront on every build; marketing reads it and never writes it.",
-  "count": 86,
+  "count": 87,
   "per_collection": {
-    "cleveland-browns": 22,
+    "cleveland-browns": 23,
     "dallas-cowboys": 10,
     "green-bay-packers": 37,
     "michigan": 17
@@ -102,6 +102,18 @@
       "partner": "Mayzing",
       "url": "https://gridironlocker.store/shop/cleveland-1946/",
       "buy_url": "https://gridironlocker.shop/cleveland-1946?collectionId=P19bpeU2x_Ng&color=GILDAN-ASH_GREY&productId=6aa54591ec52fa428dbc1a0b",
+      "price_usd": 21.0,
+      "garment": "T-Shirt",
+      "theme": "retro",
+      "site_published": true
+    },
+    {
+      "slug": "cleveland-football-est-1946",
+      "name": "Cleveland Football Est. 1946 Shirt",
+      "collection": "cleveland-browns",
+      "partner": "Mayzing",
+      "url": "https://gridironlocker.store/shop/cleveland-football-est-1946/",
+      "buy_url": "https://gridironlocker.shop/cleveland-football-est-1946?collectionId=P19bpeU2x_Ng&color=GILDAN-NATURAL&productId=6abc2326d038dff39dbe8803",
       "price_usd": 21.0,
       "garment": "T-Shirt",
       "theme": "retro",

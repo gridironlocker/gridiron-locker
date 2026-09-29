@@ -23,11 +23,11 @@ python3 marketing/three_day_pulse.py` to refresh the short-lived brief.
 
 | Item | Count |
 |---|---|
-| HTML files in `site/` | **609** (600 public + 9 internal `ops/` & `marketing/`) |
-| Public pages audited | **596** (`python3 qa_audit.py`) |
+| HTML files in `site/` | **610** (601 public + 9 internal `ops/` & `marketing/`) |
+| Public pages audited | **597** (`python3 qa_audit.py`) |
 | Redirect stubs (retired slugs) | **485** = 113 product URLs + 372 garment-variant tombstones |
-| Product pages (one per design) | **86** |
-| `sitemap.xml` URLs | **110** = 86 products + 24 other indexable pages |
+| Product pages (one per design) | **87** |
+| `sitemap.xml` URLs | **111** = 87 products + 24 other indexable pages |
 | Collection pages | 4 (+ All Collections, + Search/browse all) |
 | Creator collaboration pages | **1** (Joe's Michigan Locker, `/michigan/joe/`) |
 | SEO buying guides (articles) | 5 (4 buying guides + Week 1) |
@@ -35,8 +35,8 @@ python3 marketing/three_day_pulse.py` to refresh the short-lived brief.
 | Product images | self-hosted Viralstyle set + Mayzing CDN mockups |
 | Broken links / invalid schema | **0** |
 
-Collections: Green Bay Packers (37), Cleveland Browns (22), Michigan (17), Dallas Cowboys (10).
-Fulfilment split: Viralstyle 47 / Mayzing 39.
+Collections: Green Bay Packers (37), Cleveland Browns (23), Michigan (17), Dallas Cowboys (10).
+Fulfilment split: Viralstyle 47 / Mayzing 40.
 
 Counts are not hand-maintained: `src/build.py` computes them from the merged master
 catalogue (`data/products_live.json` + `data/mayzing_products.json` +

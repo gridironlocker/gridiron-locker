@@ -19,6 +19,8 @@ const REPO = path.resolve(RADAR, "..");
 // CF_OUT lets the test suite build into a temp directory instead of the committed page.
 const OUT = process.env.CF_OUT || path.join(REPO, "site", "private", "customer-finder", "index.html");
 const ITER = 600000;
+const siteConfig = JSON.parse(fs.readFileSync(path.join(REPO, "src", "config.json"), "utf-8"));
+const pinterestVerify = siteConfig.pinterest_verify || "";
 
 const code = process.env.CF_CODE;
 if (!code) { console.error("Set CF_CODE to the access code, e.g. CF_CODE='…' node radar/static-finder/build.mjs"); process.exit(1); }
@@ -84,6 +86,7 @@ const gate = `<!doctype html>
 <meta name="viewport" content="width=device-width,initial-scale=1">
 <meta name="robots" content="noindex, nofollow, noarchive, nosnippet, noimageindex">
 <meta name="googlebot" content="noindex, nofollow">
+${pinterestVerify ? `<meta name="p:domain_verify" content="${pinterestVerify}">` : ""}
 <meta name="referrer" content="no-referrer">
 <title>Private</title>
 <style>
