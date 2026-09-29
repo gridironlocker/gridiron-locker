@@ -317,6 +317,35 @@ FUL_DEST = _FUL.get("destinations", {})
 FUL_HOLD = set(_FUL.get("hold", []))
 FUL_COLLECTION = _FUL.get("collection", "")
 FUL_PARTNER = _FUL.get("partner", "Mayzing")
+
+# Every product URL this repository has EVER served, live page or redirect
+# stub (slug -> collection key). main() rewrites the file on each build, so it
+# only ever grows when new designs launch. retired_slugs() treats it as a
+# third source of retired URLs next to delisted.json and the fulfillment hold
+# list, which are curated by hand. Why that matters: a Viralstyle re-crawl or
+# a fulfilment migration can drop a campaign from the catalogue without
+# anybody editing those two files - the page silently disappeared and GitHub
+# Pages answered 404 on an indexed, externally linked URL (Google Search
+# Console "Not found (404)" wave, 2026-09-20, 27 URLs). With the manifest, a
+# once-published slug either keeps its live page or automatically gets a
+# redirect stub at the same path, forever.
+try:
+    PUBLISHED = read_json("data", "published.json").get("slugs", {})
+except Exception:
+    PUBLISHED = {}
+
+# One-time tombstones for the garment-variant URL scheme
+# (/shop/<slug>/<style>/): one page per garment style, live for a few hours on
+# 2026-09-05 and reverted the same day (PR #32 + #31). The variant URLs were
+# in the sitemap while the scheme was live, so crawlers fetched some of them
+# and they have answered 404 ever since - the same never-a-404 invariant
+# applies. Hand-maintained like delisted.json (the paths exist in no crawl or
+# catalogue file), read on every build so nothing can lose them.
+try:
+    RETIRED_VARIANTS = read_json("data", "retired-variants.json").get("variants", {})
+except Exception:
+    RETIRED_VARIANTS = {}
+
 # Mayzing-sourced collections: collection key -> OrderedDict(slug -> product).
 # Cleveland already lives in data/mayzing_products.json; Michigan (and any
 # future team) is captured the same way so a Viralstyle re-crawl can never
@@ -3987,12 +4016,18 @@ def page_404():
 def retired_slugs():
     """Every /shop/<slug>/ URL that used to exist and no longer has a product.
 
-    Two sources, both in data/ so a re-crawl cannot lose them:
+    Three sources, all in data/ so a re-crawl cannot lose them:
       * data/delisted.json - designs retired because the player or coach left.
       * data/fulfillment.json "hold" - Cleveland designs withheld when the
         collection moved to Mayzing, because they have no Mayzing equivalent
         yet. They were live on Viralstyle, so their URLs are indexed and
         externally linked.
+      * data/published.json - the manifest of every product URL any build has
+        ever served. The two sources above are curated by hand, and the
+        2026-09-12 Mayzing migrations showed what happens when a drop misses
+        them: the page vanished with no stub and the URL 404ed for weeks
+        (GSC "Not found (404)", 2026-09-20). The manifest closes that hole -
+        whatever the curated lists miss, the URL history catches.
     Anything that has since come back into the catalogue is excluded, so
     relaunching a design automatically stops redirecting its own URL.
     """
@@ -4001,6 +4036,8 @@ def retired_slugs():
         out[slug] = meta.get("collection") or "cleveland-browns"
     for slug in FUL_HOLD:
         out.setdefault(slug, _FUL.get("collection") or "cleveland-browns")
+    for slug, ckey in PUBLISHED.items():
+        out.setdefault(slug, ckey)
     live = {it["slug"] for it in ALL}
     return OrderedDict((s, c) for s, c in out.items()
                        if s not in live and c in COLLECTIONS)
@@ -4027,6 +4064,10 @@ def redirect_target(slug, ckey):
 
 def page_redirects():
     """Publish a redirect stub at every retired product URL.
+
+    Covers retired /shop/<slug>/ URLs (delisted designs, fulfillment holds,
+    the published-URL manifest) and the /shop/<slug>/<style>/ garment-variant
+    tombstones from the reverted 2026-09-05 scheme (data/retired-variants.json).
 
     GitHub Pages has no server-side 301, so a retired /shop/<slug>/ URL used
     to fall through to 404.html - a dead end for an indexed, externally
@@ -4105,12 +4146,76 @@ sold on its own page. Taking you to the {esc(COLLECTIONS[ckey]['name'])} &mdash;
 </body></html>"""
         write(f"shop/{slug}/index.html", doc)
         lines.append(f"/shop/{slug}/ {target} 301")
+
+    # ---- garment-variant tombstones -------------------------------------
+    # /shop/<slug>/<style>/ URLs from the reverted variant scheme. A variant
+    # of a LIVE design forwards to that design's page: since the revert, all
+    # garment styles are chosen on the design page, so that is where the
+    # shopper's intent now lives. A variant of a RETIRED design skips the
+    # chain (stub -> stub -> collection) and goes straight to the same target
+    # the design's own stub uses. Same shape as a design stub: noindex,follow,
+    # instant meta refresh, NO canonical, self-referencing og:url. The
+    # Pinterest claim tag ships on these because the domain-claim test only
+    # exempts the slug-level stubs in retired_slugs().
+    live_slugs = {it["slug"] for it in ALL}
+    for vpath, ckey in RETIRED_VARIANTS.items():
+        slug, style = vpath.split("/", 1)
+        if slug in live_slugs:
+            vname = (FACTS.get(slug) or {}).get("name") or "the design"
+            target, tname = f"/shop/{slug}/", vname
+            lead = (f"The {esc(style)} version of <strong>{esc(vname)}</strong> no longer has "
+                    f"its own page. Every garment style is chosen on the design page.")
+        else:
+            target, tname = redirect_target(slug, ckey)
+            lead = (f"The {esc(style)} version of this design no longer has its own page. "
+                    f"Taking you to the {esc(COLLECTIONS[ckey]['name'])} designs.")
+        vurl = abs_url(target)
+        vtitle = f"{esc(style.capitalize())} version moved | {esc(BRAND)}"
+        vmeta = (f"The {esc(style)} version of this design no longer has its own page. "
+                 f"Browse the current {esc(COLLECTIONS[ckey]['name'])} at {esc(BRAND)}.")
+        vdoc = f"""<!DOCTYPE html>
+<html lang="en"><head>
+<meta charset="utf-8">
+<meta name="viewport" content="width=device-width, initial-scale=1">
+<title>{vtitle}</title>
+<meta name="description" content="{vmeta}">
+<meta name="robots" content="noindex,follow">
+<meta http-equiv="refresh" content="0;url={vurl}">
+<meta name="p:domain_verify" content="{esc(PINTEREST_VERIFY)}">
+<meta property="og:type" content="website">
+<meta property="og:title" content="{vtitle}">
+<meta property="og:description" content="{vmeta}">
+<meta property="og:image" content="{abs_url(COLLECTIONS[ckey]['hero'])}">
+<meta property="og:url" content="{abs_url('/shop/' + vpath + '/')}">
+<meta property="og:site_name" content="{esc(BRAND)}">
+<meta name="twitter:card" content="summary_large_image">
+<meta name="twitter:title" content="{vtitle}">
+<meta name="twitter:image" content="{abs_url(COLLECTIONS[ckey]['hero'])}">
+<link rel="icon" href="/img/favicon.svg" type="image/svg+xml">
+<link rel="stylesheet" href="/assets/style.css?v={STYLE_VERSION}">
+<script>location.replace({json.dumps(vurl)});</script>
+</head><body>
+<main data-gl-redirect="{target}"><section><div class="wrap center" style="padding:70px 0">
+<h1>This style moved</h1>
+<p class="muted" style="max-width:60ch;margin:0 auto 22px">{lead}</p>
+<div class="btnrow" style="justify-content:center">
+<a class="btn" href="{target}">Go to {esc(tname)}</a>
+<a class="btn ghost" href="/collections/">All collections</a></div>
+<p class="muted small" style="margin-top:26px">Not redirected automatically?
+<a href="{target}">Continue to {esc(tname)}</a>.</p>
+</div></section></main>
+</body></html>"""
+        write(f"shop/{vpath}/index.html", vdoc)
+        lines.append(f"/shop/{vpath}/ {target} 301")
+
     # Netlify / Cloudflare Pages read this and answer with a real 301, which
     # is strictly better than a client-side redirect; GitHub Pages ignores it.
     write("_redirects", "# Retired / migrated product URLs -> closest active page.\n"
+                        "# Covers delisted designs, the fulfillment hold list and the\n"
+                        "# garment-variant tombstones from the reverted 2026-09-05 scheme.\n"
                         "# Honoured as a true 301 by Netlify and Cloudflare Pages;\n"
                         "# GitHub Pages ignores this file and serves the noindex\n"
-                        "# canonical stubs built at the same paths instead.\n"
+                        "# redirect stubs built at the same paths instead.\n"
           + "\n".join(lines) + "\n")
     return len(lines)
 
@@ -5548,6 +5653,33 @@ def sync_ops():
     print(f"sync_ops: published {n} dashboard files (source withheld)")
 
 
+def save_published_manifest():
+    """Record every product URL this build serves: live page or redirect stub.
+
+    Written AFTER page_redirects() so retired_slugs() - which reads the
+    previous run's manifest - has already decided this build's stubs. The
+    file is committed with the site (refresh.yml uses `git add -A`), so the
+    URL history survives re-crawls, migrations and rebuilds. Sorted by slug
+    so a rebuild that changes nothing produces no manifest diff.
+    """
+    live = {it["slug"]: it["col"] for it in ALL}
+    retired = retired_slugs()
+    slugs = OrderedDict()
+    for slug in sorted(set(retired) | set(live)):
+        slugs[slug] = live.get(slug) or retired.get(slug)
+    doc = ("Product URLs this repository has ever served, as slug -> collection "
+           "key. Written by src/build.py on every run; do not edit by hand. "
+           "retired_slugs() reads it so a slug that leaves the live catalogue "
+           "gets a redirect stub instead of a 404 at its old path - the "
+           "2026-09-20 GSC 'Not found (404)' report was 27 URLs that dropped "
+           "without one.")
+    path = os.path.join(ROOT, "data", "published.json")
+    with open(path, "w", encoding="utf-8") as fh:
+        json.dump(OrderedDict([("_doc", doc), ("slugs", slugs)]), fh, indent=2)
+        fh.write("\n")
+    return len(slugs)
+
+
 def main():
     page_home()
     page_collections_index()
@@ -5566,6 +5698,7 @@ def main():
     page_static()
     page_404()
     nr = page_redirects()
+    np_ = save_published_manifest()
     assets()
     write(".nojekyll", "")
     sync_marketing()
@@ -5574,6 +5707,7 @@ def main():
     print(f"homepage team order (next kickoff first): {', '.join(HOMEPAGE_ORDER)}")
     print(f"relative-linked {n} pages for GitHub Pages / offline")
     print(f"redirect stubs: {nr} retired product URLs -> closest active page")
+    print(f"published manifest: {np_} product URLs remembered (live pages + stubs)")
     print(f"catalogue: {N_DESIGNS} designs across {N_COLLECTIONS} collections, "
           f"sizes {SIZE_RANGE}, Mayzing {sum(1 for i in ALL if i['partner'] == 'Mayzing')} / "
           f"Viralstyle {sum(1 for i in ALL if i['partner'] == 'Viralstyle')}")

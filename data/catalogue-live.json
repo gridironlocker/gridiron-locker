@@ -1045,8 +1045,8 @@
     }
   ],
   "excluded": {
-    "delisted": 32,
-    "fulfillment_hold": 57,
+    "delisted": 50,
+    "fulfillment_hold": 66,
     "stale_crawl_slugs": 114,
     "note": "stale_crawl_slugs is data/products.json - the raw Viralstyle crawl. It is NOT the catalogue and must never be used as one. count = stale_crawl_slugs + mayzing additions - delisted - hold - unpublished; reconcile via build.MODEL, not by arithmetic here."
   },

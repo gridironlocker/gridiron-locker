@@ -1,5 +1,5 @@
 {
-  "_doc": "Cleveland/Browns fulfillment (2026-09-12): Viralstyle -> Mayzing. The collection catalogue itself now lives in data/mayzing_products.json (every product live on the Mayzing Browns storefront); src/build.py sources Cleveland from that file, so a Viralstyle re-crawl cannot resurrect a Cleveland page. This manifest keeps the partner naming and the 'hold' list: Cleveland designs with NO Mayzing equivalent yet (previously sold on Viralstyle). They are withheld from the storefront so no customer is handed to Viralstyle. As each design is uploaded to Mayzing, remove its slug from 'hold' and add the product to data/mayzing_products.json - the page then returns on the next build.",
+  "_doc": "Cleveland/Browns fulfillment (2026-09-12): Viralstyle -> Mayzing. The collection catalogue itself now lives in data/mayzing_products.json (every product live on the Mayzing Browns storefront); src/build.py sources Cleveland from that file, so a Viralstyle re-crawl cannot resurrect a Cleveland page. This manifest keeps the partner naming and the 'hold' list: Cleveland designs with NO Mayzing equivalent yet (previously sold on Viralstyle). They are withheld from the storefront so no customer is handed to Viralstyle. As each design is uploaded to Mayzing, remove its slug from 'hold' and add the product to data/mayzing_products.json - the page then returns on the next build. The nine slugs appended 2026-09-29 are campaigns already dead on Viralstyle whose pages were dropped by the migration with no redirect stub (Google Search Console 'Not found (404)' report, 2026-09-20); 'hold' is used so a future Mayzing upload automatically restores each page.",
   "partner": "Mayzing",
   "collection": "cleveland-browns",
   "collection_url": "https://gridironlocker.shop/p/browns",
@@ -60,6 +60,15 @@
     "it-s-not-a-team-logo-browns-it-s-a-famil",
     "line-man-dad-football-t-shirt",
     "my-life-is-for-football-t-shirt",
-    "dibs-on-the-coach-football-funny-football-1"
+    "dibs-on-the-coach-football-funny-football-1",
+    "lets-go-cleveland",
+    "limited-edition-c2",
+    "limited-edition-d-w-a-g",
+    "limited-edition-go-b-r-o-w-n-s",
+    "limited-edition-rock-out-denzel",
+    "limited-edition-the-wall-graham",
+    "make-them-know-your-name-denzel-1",
+    "ohio-cleveland-fans",
+    "playoffs-never-giveup"
   ]
 }

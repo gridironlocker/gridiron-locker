@@ -1,6 +1,6 @@
 # Hunt Report - 2026-09-29
 
-Generated: 2026-09-29 18:53 UTC by src/hunter_intelligence.py
+Generated: 2026-09-29 19:12 UTC by src/hunter_intelligence.py
 
 Ladder: SIGNAL 1 · TREND 0 · OPPORTUNITY 2 · ACTION 0 · HEADLINE 8
 
@@ -34,13 +34,13 @@ Fan connectors: no fan posts observed - reddit error (HTTP Error 403: Blocked); 
 - Action: Instagram - product creative after engagement confirms the angle (after the X post confirms the angle)
 - Action: Pinterest - keyword pin of the matched design (+2 h)
   - Carolina Panthers vs. Cleveland Browns recap: Deshaun Watson, defense play complete game to win home opener - Dawgs By Nature (2 d ago) https://news.google.com/rss/articles/CBMigwJBVV95cUxOa1NmNlJ5TTRpcWQxVUtGbzVrWDVPaE5DcVhBQjdqTllodWVCM09pd0tHTnV6QWpudmRodndSSTl1SlJRMXpPd3pYb0IxYVdtSlhHUmpMblEtQkhaOTdGNnMtY1NCZjFEeTlEaG44OVBtelVINzN5SFNkR2FOZ0JNSUNXWTUtX3RydW1LUGw5ZlBncW5xaEVUUFE2Y1VzdENPcWN5THJjellxNE1DbnNlSloyNVNGa1Rqamh2T1JzTG8zYVRRWG5FeGpETU8zZndxdFduZEd2dUVFU09wZm5FbEw1Vndkal9YeUJtUnE5OVhrcFJPT2tlOWlFZGFtbzlZS3o4?oc=5
-  - Cleveland Browns QB Deshaun Watson talks Steeles defense, Aaron Rodgers - Yahoo Sports - google_news (1 h ago) https://news.google.com/rss/articles/CBMiiAFBVV95cUxPYlpSSVUyOEYtSEp1X2RldnBtakItdkJEdTZ2RmRNckRuWUJhTV85eUxLa0Z0UkVzRkUyTi1QOFBONWJhQXF3WGxvZzcyUC1xNHY2ZVAxUXlLSk1WTWFSYW94bHBQNmE5OG91eXRCMzJUVGk1eG14a1BOc3lieVJJODA1cEhTQmot?oc=5
+  - Cleveland Browns QB Deshaun Watson talks Steeles defense, Aaron Rodgers - Yahoo Sports - google_news (2 h ago) https://news.google.com/rss/articles/CBMiiAFBVV95cUxPYlpSSVUyOEYtSEp1X2RldnBtakItdkJEdTZ2RmRNckRuWUJhTV85eUxLa0Z0UkVzRkUyTi1QOFBONWJhQXF3WGxvZzcyUC1xNHY2ZVAxUXlLSk1WTWFSYW94bHBQNmE5OG91eXRCMzJUVGk1eG14a1BOc3lieVJJODA1cEhTQmot?oc=5
   - Deshaun Watson’s early success puts the Browns on a path leading to puzzling outcomes - Dawg Pound Daily - google_news (7 h ago) https://news.google.com/rss/articles/CBMiwwFBVV95cUxOanhBSjZuR3BldUpZOVpEVW8tZGlrXy1UN0t6Y01LRFd2MFZ4RkZBTUZyWTh5cThwUGl4aUtPOUNPX0J3YVk2VHAtTERlSExmQS1HejBFTXN5N3IyM1M4b3N0V181QXpWb2RJa01WUzRsc3dfekd1MHV1dE00SVhxb3Zwb0xkblhrN050dnBpck1aWm9MYnlhYUtndThPYmJWUXEwZGcxeERqQkNoVjl4Vk9aSUFRUjVTMm5VeUFReDdFd1k?oc=5
   - Deshaun Watson is beginning to craft one of the most improbable comeback stories in sports history - Fox News - google_news (1 d ago) https://news.google.com/rss/articles/CBMisgFBVV95cUxONzNUVm1SQ1VwVEhDQ1Zadl9ENGNMV3ZSZGhJUTJyd2NMUzkwM0s0Q2tJMW1Ec1BPTXdCTTBJdk1QTzZJM1lLTkhmV1dQZ3BzTHd0SU9PYUpiYlp6d2xYV0FqbzlYLVRMY1Y0dEZlNXRYMUhCeEZ1d1ptOW02UFFxMGRVZHRHMl81OWp5WEoxaEk3SU83ZW9ZVkxEbkhIWEZfOFZBY0c1QlZzUm9EYjI5U25R?oc=5
 
 ### 2. Kraft extension: the front office pays its own - Green Bay Packers
 - Level: OPPORTUNITY · Confidence: 66% · 🟢 READY (matched design, posting window open, evidence under 12 h)
-- Fan signal: "Tucker Kraft addresses Packers fans criticism with candid admission" - Yahoo Sports (4 h ago)
+- Fan signal: "Tucker Kraft addresses Packers fans criticism with candid admission" - Yahoo Sports (5 h ago)
 - Evidence: 3 reaction items (3.0 weighted) · 3 outlets · 0 utility listings excluded · 0 fan posts
 - Phrase velocity: new - 3 items in last 1440 min, none in the window before
 - Sentiment: optimistic - 'optimistic' on 3/3 lexicon hits across 3 item(s)
@@ -52,17 +52,17 @@ Fan connectors: no fan posts observed - reddit error (HTTP Error 403: Blocked); 
 - Action: Threads - alternate angle (+20 min)
 - Action: Instagram - product creative after engagement confirms the angle (after the X post confirms the angle)
 - Action: Pinterest - keyword pin of the matched design (+2 h)
-  - Tucker Kraft addresses Packers fans criticism with candid admission - Yahoo Sports - google_news (4 h ago) https://news.google.com/rss/articles/CBMijAFBVV95cUxNNnBVWVB3LWJEZldGeXN6R3IxVWhmUEt4YnNnSF9HS0psaGdLR0N5Z2R4ZHZ4UXJkRDZYRktFNVYzT1pZVzhLOVg1RjJ5Z2xGTG1LYTdnUmtQWm5hRGtwS1F3WmYtWmdldUt4U09vamQ5c2lwa2dCR0FqQjJpN2FPVWhncEVhWnVkdHNtTg?oc=5
-  - Tucker Kraft Responds to Backlash From Packers Fans - heavy.com - google_news (7 h ago) https://news.google.com/rss/articles/CBMihAFBVV95cUxPNHduVDFKQkVqdVRxV3dXUHJsd1puWG42M0dfNXJPNk5JZEo5cXNXMHl5STNLNEU5QkFUa2dmSWRFS25vcFA4Q29QTkJUbjMyUjcwZ2ZZX0RvLXlCUFgtZUNuUE1zTlRxbWxValNtTjhfTDFrTzdMUldqMFZNcXdGRzhNamo?oc=5
+  - Tucker Kraft addresses Packers fans criticism with candid admission - Yahoo Sports - google_news (5 h ago) https://news.google.com/rss/articles/CBMijAFBVV95cUxNNnBVWVB3LWJEZldGeXN6R3IxVWhmUEt4YnNnSF9HS0psaGdLR0N5Z2R4ZHZ4UXJkRDZYRktFNVYzT1pZVzhLOVg1RjJ5Z2xGTG1LYTdnUmtQWm5hRGtwS1F3WmYtWmdldUt4U09vamQ5c2lwa2dCR0FqQjJpN2FPVWhncEVhWnVkdHNtTg?oc=5
+  - Tucker Kraft Responds to Backlash From Packers Fans - heavy.com - google_news (8 h ago) https://news.google.com/rss/articles/CBMihAFBVV95cUxPNHduVDFKQkVqdVRxV3dXUHJsd1puWG42M0dfNXJPNk5JZEo5cXNXMHl5STNLNEU5QkFUa2dmSWRFS25vcFA4Q29QTkJUbjMyUjcwZ2ZZX0RvLXlCUFgtZUNuUE1zTlRxbWxValNtTjhfTDFrTzdMUldqMFZNcXdGRzhNamo?oc=5
   - Tucker Kraft changes his tune, a bit, on reaction to Green Bay booing - NBC Sports - google_news (22 h ago) https://news.google.com/rss/articles/CBMiyAFBVV95cUxPMmg0anVZNEFYUkRxTl9xa2k3YTFyVVl2Ym5uSWdXQ2liWmVaNVNiQnBtUm9OUTI0eFE5VlhVV210ZTkzXzRNMWo2UW5zVENwblBuUkd3LW43NEJXWkxlaEkxaktDaHRqRHlOZ0xtNzhpamhpQXI3MDE5b3docFRqUnBacm9MMzZFMTR6aUQzMjdNSDhNbVRqaVM5Si1HNUxZV3lBREdrcXc3bXJBYUhtbDJvRGtmc25yX0kzTnpOOVA5MWhielk3Rg?oc=5
 
 ### 3. Texas pride: flag, star and Est. 1841 - Dallas Cowboys
-- Level: SIGNAL · Confidence: 59% · ⚪ WATCH (fans are reacting but nothing on the shelf answers it yet)
+- Level: SIGNAL · Confidence: 56% · ⚪ WATCH (fans are reacting but nothing on the shelf answers it yet)
 - Fan signal: "Dallas Cowboys Cheerleaders Director Kelli Finglass Will Join CHICAGO on Broadway" - broadwayworld.com (5 h ago)
 - Evidence: 3 reaction items (3.0 weighted) · 3 outlets · 0 utility listings excluded · 0 fan posts
 - Phrase velocity: → 0% / 1440 min (1 vs 1)
 - Sentiment: proud - 'proud' on 3/3 lexicon hits across 3 item(s)
-- Game state: result coverage in the last 30 h (1 item(s))
+- Game state: next game in ~5 day(s)
 - Commercial: campaign - This Girl Loves Cowboys Women's Shirt $21.99 (sellable) - VINTAGE TEXAS PRIDE
 - Why fans care: Identity demand that does not care about the score - and the women's cut is the one design line this collection actually has.
   - Dallas Cowboys Cheerleaders Director Kelli Finglass Will Join CHICAGO on Broadway - broadwayworld.com - google_news (5 h ago) https://news.google.com/rss/articles/CBMixwFBVV95cUxNcGd3STQxcl9KT25nQUZKU3p5Ynd6RWVCM3V4UFM0MGNodDNQNGQ5RjNIYUs0NkhESEtQMk9xV1kxallpVUpPSTg4bjc0ZVc3VmJGbWM0RWpTRTMxeTJLVVVaSElnajFtMDV5czgzcWdtRWJ2dTNKOFF4SG9YVmhvSEZxY0RPdjJ4OVZJUWhSV1JrSVd5N3dPYURmSXRXYW8wM3czV21TSndyclc0OFlVTko4S3NBdGp3U1VFaHBOR1hRdjhmbkpZ?oc=5
@@ -71,8 +71,8 @@ Fan connectors: no fan posts observed - reddit error (HTTP Error 403: Blocked); 
 
 ## Filtered as HEADLINE (8)
 
-- BROWNS - Coaching: Monken's first season: 2 reaction item(s), 1 outlet(s), confidence 43% - not a reaction
-- COWBOYS - Doomsday memory: defence and the pass rush: 2 reaction item(s), 2 outlet(s), confidence 54% - not a reaction
+- BROWNS - Coaching: Monken's first season: 2 reaction item(s), 1 outlet(s), confidence 39% - not a reaction
+- COWBOYS - Doomsday memory: defence and the pass rush: 2 reaction item(s), 2 outlet(s), confidence 51% - not a reaction
 - PACKERS - Jordan Love era: 10 is the number: 1 reaction item(s), 1 outlet(s), confidence 34% - not a reaction
 - PACKERS - Cheesehead Nation: Lambeau and the tundra: 1 reaction item(s), 1 outlet(s), confidence 26% - not a reaction
 - MICHIGAN - Respond: nothing given, everything earned: 1 reaction item(s), 1 outlet(s), confidence 41% - not a reaction

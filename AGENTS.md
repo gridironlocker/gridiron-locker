@@ -104,12 +104,14 @@ currently violated. See §5.
 | `data/mayzing_products.json` | Cleveland/Browns catalogue on Mayzing (19). |
 | `data/mayzing_michigan.json` | Michigan catalogue on Mayzing (18). |
 | `data/campaigns_extra.json` | Hand-added campaigns a re-crawl would drop; re-injected by `replay_updates.py`. |
-| `data/delisted.json` | 31 slugs retired by hand (departed players, pulled artwork). |
-| `data/fulfillment.json` | Partner naming **plus a `hold` list of 57 slugs** withheld from Viralstyle pending Mayzing upload. |
+| `data/delisted.json` | 50 slugs retired by hand (departed players, pulled artwork, ended supplier campaigns). |
+| `data/fulfillment.json` | Partner naming **plus a `hold` list of 66 slugs** withheld from Viralstyle pending Mayzing upload. |
+| `data/published.json` | Build-written manifest of every product URL ever served; `retired_slugs()` reads it so a dropped campaign gets a stub, not a 404. |
+| `data/retired-variants.json` | Hand-maintained tombstones for the 372 `/shop/<slug>/<style>/` URLs of the reverted 2026-09-05 variant scheme. |
 
 **The real catalogue is the merged set that `src/build.py` computes**, after
-applying `delisted` and `fulfillment.hold`. It is currently **83 designs**:
-green-bay-packers 37 · cleveland-browns 19 · michigan 17 · dallas-cowboys 10.
+applying `delisted` and `fulfillment.hold`. It is currently **86 designs**:
+green-bay-packers 37 · cleveland-browns 22 · michigan 17 · dallas-cowboys 10.
 
 **The published contract is `data/catalogue-live.json`.** It is regenerated on
 every build by `src/catalogue_contract.py` (run by `refresh.yml` after the
@@ -159,7 +161,9 @@ polish. It follows controlled autonomy:
   keywords stuffing, player-likeness / team-logo suggestions.
 
 - Retired slugs get a **noindex redirect stub** at the same path, never a 404
-  and never a reused slug. 86 stubs exist today.
+  and never a reused slug. 485 stubs exist today (113 product URLs + 372
+  garment-variant tombstones); `data/published.json` makes the invariant
+  self-healing, so the count can only grow.
 - `tests/test_layout.py` encodes the SEO contract as executable assertions. If
   your change makes it fail, your change is wrong — do not weaken the test to
   make it pass. Ask first.
