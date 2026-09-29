@@ -1,5 +1,5 @@
 {
- "_doc": "Cleveland/Browns catalogue from the Mayzing storefront (2026-09-12). This file is the source of truth for the whole collection: src/build.py builds the 19 product pages and the collection page from it (mayzing_item()), replacing the Viralstyle crawl for Cleveland. data/collections.json keeps an entry per product for tools that read the catalogue shape, but build.py no longer reads Cleveland products from there - so a Viralstyle re-crawl can never resurrect a Cleveland page. Data captured from gridironlocker.shop/p/browns and each product page (title, price, colour, sizes, mockup URLs, productId). Titles are used verbatim from Mayzing - several look like drafts ('Be Awar of Dawg', 'Browns Cle', 'DWAG', 'Let's Go Cle Copy', 'Ohio Cle'); renaming should happen in Mayzing admin, not here. Mockups are hot-linked from the Mayzing CDN with signature params; run dl.py-style localisation before those signatures can expire. 2026-09-27: three further Browns designs published on the store on 2026-09-27 were captured from their live product pages and added here (product ids 6ab99719..., 6ab999a3... and 6ab99c63... - the three newest products in the store; the All page now totals 40 products: 19 in the Browns collection + 18 Michigan + these 3). They are not yet assigned to the Mayzing Browns collection filter (/p/browns still reports 'Showing 19 of 19'), so their checkout URLs are the product-page links the store itself publishes for them with the Browns collectionId appended for the in-collection context - the same treatment as the three unassigned Michigan designs in data/mayzing_michigan.json. Prices were verified in a USD session: the Ash Grey tee is $21.00; the White and Black tees are $28.00 (a NOK session renders them as 219 and 279 respectively - do not read NOK as a price change). 'limited-edition-cleveland-football-copy' is the store's handle for the product whose page title is 'Limited Edition Browns Sunday Funday'; the name here keeps the buyer-facing page title, and the curated SEO name in src/catalog.py cleans the '-copy' handle artifact the same way 'lets-go-cle-copy' was cleaned. The White and Black variants lead with the garment's back-view mockup on the store itself (both mockups for those two carry the design asset), so img.front mirrors the store's hero order (design view first) rather than fixing on garment orientation. Like the same-day Michigan additions of 2026-09-12, these three carry no per-record date: their sitemap lastmod follows this file's capture date (2026-09-12) until the next verified re-capture, so a rebuild never stamps the build day as lastmod.",
+ "_doc": "Cleveland/Browns catalogue from the Mayzing storefront, initially captured 2026-09-12 and updated through 2026-09-29. This file is the source of truth for the whole collection: src/build.py now builds 23 product pages and the collection page from it (mayzing_item()), replacing the Viralstyle crawl for Cleveland. Data is captured from gridironlocker.shop/p/browns and each product page (title, price, colour, sizes, mockup URLs and productId). Supplier titles are kept verbatim here; customer-facing SEO names are curated in src/catalog.py. Mockups are hot-linked from the Mayzing CDN with signature params. On 2026-09-29 the Browns collection page showed 23 of 23 items and published Cleveland Football Est. 1946 first, as a $21.00 Natural Gildan 5000 tee in S-5XL (product id 6abc2326d038dff39dbe8803). The collection capture date remains the original 2026-09-12 baseline so unchanged product URLs keep stable sitemap dates; the new record carries its verified capture date and data/content_dates.json records the collection update date.",
  "store": "https://gridironlocker.shop/p/browns",
  "store_id": "z2OF",
  "collectionId": "P19bpeU2x_Ng",
@@ -8,6 +8,34 @@
  "currency_note": "Storefront collection page quotes $21.00 but some product pages render NOK 209.00 depending on session geo; 209 NOK approximates 21 USD. Price recorded here is the USD collection price. Verify currency for US customers in Mayzing admin.",
  "captured": "2026-09-12",
  "products": [
+  {
+   "slug": "cleveland-football-est-1946",
+   "name": "Cleveland Football Est. 1946",
+   "garment": "Men's T-Shirt",
+   "blank": "Gildan 5000",
+   "price_usd": "21.00",
+   "colour_code": "GILDAN-NATURAL",
+   "colour_name": "Natural",
+   "sizes": [
+    "S",
+    "M",
+    "L",
+    "XL",
+    "2XL",
+    "3XL",
+    "4XL",
+    "5XL"
+   ],
+   "handle": "cleveland-football-est-1946",
+   "product_id": "6abc2326d038dff39dbe8803",
+   "checkout_url": "https://gridironlocker.shop/cleveland-football-est-1946?collectionId=P19bpeU2x_Ng&color=GILDAN-NATURAL&productId=6abc2326d038dff39dbe8803",
+   "features": "Gildan 5000 midweight 100% cotton, classic fit, double-needle sleeve and bottom hems",
+   "captured": "2026-09-29",
+   "img": {
+    "front": "https://buyer-experience-gateway.mayzing.com/stores/z2OF/mockups/id:mi2vh7vm720,sig:HKntJNljcF0kSCB9gaMMAajeMmffyRXgP2CYYPg-o2w,c:GILDAN-NATURAL,s:d3cfca9f-6be4-4751-94da-27ce3751a0ac,d:6abc23258b8fcc0b9a110630,dv:2,cpd:pd2vh7vm720,w:1000/image.png",
+    "back": "https://buyer-experience-gateway.mayzing.com/stores/z2OF/mockups/id:mi2vh7vm721,sig:XxhtVt6cYubu1eujf1_4yj3mr8XyCItLSDIIXIh2gtY,c:GILDAN-NATURAL,s:d802579f-ea09-4b75-a37e-2adc9a5bb616,cpd:pd2vh7vm720,w:1000/image.png"
+   }
+  },
   {
    "slug": "limited-edition-cleveland-football-beware-of-the-dawgs",
    "name": "Limited Edition Cleveland Football “Beware of the Dawgs”",

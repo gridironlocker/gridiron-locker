@@ -4600,6 +4600,7 @@ Sitemap: {DOMAIN}/sitemap-images.xml
         u = DOMAIN + it["url"]
         fitems += (f"<item><title>{esc(it['name'])}</title><link>{u}</link>"
                    f"<guid isPermaLink='false'>{u}</guid>"
+                   f"<pubDate>{_rfc822(it.get('lastmod') or DATA_DATE)}</pubDate>"
                    f"<description>{esc(it['art'])} - ${it['price']:.2f}</description></item>")
     write("feed.xml", '<?xml version="1.0" encoding="UTF-8"?>'
           '<rss version="2.0" xmlns:atom="http://www.w3.org/2005/Atom"><channel>'
