@@ -3854,6 +3854,7 @@ def page_fti():
     moments_html = moments_block(None, limit=16)
     desc = (f"Fan Trend Index for Cleveland, Green Bay, Dallas and Michigan: a 0-100 score of "
             f"who the last {window} days of headlines are about, plus shoppable player moments.")
+    license_url = DOMAIN + path + "#license"
     schema = [cbs, {
         "@context": "https://schema.org", "@type": "Dataset",
         "name": f"{BRAND} Fan Trend Index",
@@ -3861,6 +3862,7 @@ def page_fti():
         "url": DOMAIN + path,
         "dateModified": DATA_DATE,
         "creator": {"@type": "Organization", "name": BRAND, "url": DOMAIN},
+        "license": license_url,
         "variableMeasured": "Fan Trend Index (0-100 vs peak headline mentions)",
         "measurementTechnique": FTI_FORMULA,
     }, {
@@ -3901,8 +3903,13 @@ def page_fti():
   from the public headlines we read. Quiet names score 0. Names that clear the trending bar
   get a Trending tag.</p>
   <p>Linked stories belong to their publishers. {esc(BRAND)} is independent fan-made apparel,
-  not affiliated with any team, league, university or player.
-  <a class="link" href="/2026-season/">Back to the 2026 season hub →</a></p>
+  not affiliated with any team, league, university or player.</p>
+  <h2 id="license">Dataset license</h2>
+  <p>The summary Fan Trend Index scores on this page are published by {esc(BRAND)} and may be
+  linked to or cited with attribution to this page. Bulk republication, resale, or use as a
+  standalone data product requires written permission. Source headlines remain owned by their
+  publishers.</p>
+  <p><a class="link" href="/2026-season/">Back to the 2026 season hub →</a></p>
  </div>
 </div></section></div></main>"""
     URLS.append((DOMAIN + path, "0.8", "daily"))

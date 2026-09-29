@@ -285,6 +285,9 @@ for path, d in DOCS.items():
                 if rp:
                     issue("structured-data",
                           f"{path}: Mayzing Offer carries Viralstyle return policy")
+        if t == "Dataset":
+            if not n.get("license"):
+                issue("structured-data", f"{path}: Dataset without license")
         if t == "BreadcrumbList":
             items = n.get("itemListElement") or []
             if not items:
