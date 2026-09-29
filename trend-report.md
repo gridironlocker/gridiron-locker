@@ -1,159 +1,97 @@
-# Hunt Report - 2026-09-28
+# Hunt Report - 2026-09-29
 
-Generated: 2026-09-28 21:16 UTC by src/hunter_intelligence.py
+Generated: 2026-09-29 12:50 UTC by src/hunter_intelligence.py
 
-Ladder: SIGNAL 0 · TREND 0 · OPPORTUNITY 3 · ACTION 1 · HEADLINE 5
+Ladder: SIGNAL 2 · TREND 0 · OPPORTUNITY 1 · ACTION 0 · HEADLINE 9
 
 Fan connectors: no fan posts observed - reddit error (HTTP Error 403: Blocked); x not_configured (Set X_BEARER_TOKEN to use the official X recent-search API.); facebook not_configured (Set META_PAGE_ID and META_PAGE_ACCESS_TOKEN for the official Meta Page feed API.)
 
 ## What to do right now
 
-**Post the QB room: who is QB1 in Cleveland angle for Cleveland Browns on X (@gridironlocker1 first) now with Make Them Know Your Name - 75% confidence, ACTION.**
+**Post the Texas pride: flag, star and Est. 1841 angle for Dallas Cowboys on X (@gridironlocker1 first) now with This Girl Loves Cowboys Women's Shirt - 64% confidence, OPPORTUNITY.**
 
-- Product: Make Them Know Your Name https://gridironlocker.shop/make-them-know-your-name?collectionId=P19bpeU2x_Ng&color=GILDAN-DARK_CHOCOLATE&productId=6aa33fa01cdc8689e252dab3
+- Product: This Girl Loves Cowboys Women's Shirt https://viralstyle.com/kebystore/girly-vintage-texas-pride
 - Platform: X (@gridironlocker1 first) · Timing: now
-- Confidence: 75% (ACTION) · 🟢 READY
-- Campaign: THEY FORGOT WHO I AM — QB1 belief
-- Creative: Post the belief, not the debate: 'QB1 wears 12' with the Sanders design. Never take a side on Watson - that thread eats the post.
-- Why: The whole fanbase is arguing one question: who starts. That is a belief argument, and belief is what a QB tee sells.
+- Confidence: 64% (OPPORTUNITY) · 🟡 PREP
+- Campaign: VINTAGE TEXAS PRIDE
+- Creative: Flag + star creative with the women's 'This Girl Loves Cowboys' cut called out explicitly. Gifting copy, not gameday copy.
+- Why: Identity demand that does not care about the score - and the women's cut is the one design line this collection actually has.
 
 ## Opportunities (SIGNAL and above)
 
-### 1. QB room: who is QB1 in Cleveland - Cleveland Browns
-- Level: ACTION · Confidence: 75% · 🟢 READY (matched design, posting window open, evidence under 12 h)
-- Fan signal: "Deshaun Watson Cheered at Home After Comeback Win | Around the AFC North" - Baltimore Ravens (1 h ago)
-- Evidence: 10 reaction items (12.0 weighted) · 9 outlets · 0 utility listings excluded · 0 fan posts
-- Phrase velocity: → 0% / 60 min (1 vs 1)
-- Sentiment: anxious - 'anxious' on 9/14 lexicon hits across 10 item(s)
-- Game state: result coverage in the last 30 h (4 item(s))
+### 1. Texas pride: flag, star and Est. 1841 - Dallas Cowboys
+- Level: OPPORTUNITY · Confidence: 64% · 🟡 PREP (matched, but the posting window is closed or the evidence is ageing)
+- Fan signal: "How the Dallas Cowboys Cheerleaders wowed Ricky Martin, Brazilian fans at Maracanã Stadium" - Dallas News (19 h ago)
+- Evidence: 3 reaction items (3.0 weighted) · 3 outlets · 0 utility listings excluded · 0 fan posts
+- Phrase velocity: ↑ 100% / 1440 min (2 vs 1)
+- Sentiment: proud - 'proud' on 3/3 lexicon hits across 3 item(s)
+- Game state: result coverage in the last 30 h (2 item(s))
+- Commercial: campaign - This Girl Loves Cowboys Women's Shirt $21.99 (sellable) - VINTAGE TEXAS PRIDE
+- Why fans care: Identity demand that does not care about the score - and the women's cut is the one design line this collection actually has.
+- Action: X (@gridironlocker1 first) - conversation post now (now)
+- Action: Threads - alternate angle (+20 min)
+- Action: Instagram - product creative after engagement confirms the angle (after the X post confirms the angle)
+- Action: Pinterest - keyword pin of the matched design (+2 h)
+  - How the Dallas Cowboys Cheerleaders wowed Ricky Martin, Brazilian fans at Maracanã Stadium - Dallas News - google_news (19 h ago) https://news.google.com/rss/articles/CBMirwFBVV95cUxQTHF6YjlNOVJsSV83cFFvSHBZRUExcW1KaVJHRHlsS3pzUTJtVTBMa3dlNWNGbXd4andkMk51SWpVWUJVT2RRdkN2NnhLVTU1ZmlCNGFRdmg0cFdQVDZ1NXBQNk1wclN0cHdEZlItNjBWOFJzRjhEbWRNRGxvaHNnMFh3b1gxYzFORzBMM3RHLS05Rk42UGpkSldjQWxISmhLNGxSUUdLRG44VXVtVy1B?oc=5
+  - Dallas Cowboys cheerleaders have fun in Brazil despite crushing defeat, Browns fans fight & sad Michigan fans - Fox News - google_news (24 h ago) https://news.google.com/rss/articles/CBMi0wFBVV95cUxOcW9pd0RiWHlIb1k4MXc1bGU2UXA4QjNaZTNTX3VxQV9fbTFzbDJzZHlrTVEyN1NlaEUxTVpUaUZ2dDFlay1HdktqQkRBZzIyZTBhOXpQWUdRZFhLMkI5RkZyQ19iQVA3WTFiMXY0NUhXcktQX053Ny1FVDRLSTdkU3ZTMWVLa1NxclNka2tpbmkwZmk1OHZHMkFCTERXVTFtOUdxa251YzR3M1JJdUhOVk1UUUdYNjBKM1I1Nkk2SWFWR3NmMUpPRFNyeVA1Qk5RclpV?oc=5
+  - Dee Brock, Who Created the Dallas Cowboys Cheerleaders, Dies at 96 - The New York Times - google_news (2 d ago) https://news.google.com/rss/articles/CBMiaEFVX3lxTE53dWRUQTJqbjk5OWxkTk1uOFA0Y1dneDdzRm1YZF9HNW1rQU9UMGYxNUtGa09CZWNLQ1VOSHRCN3Z3ZFl6YktGWDhYWVV6aUw5SlBrdFFGa0hLeF9rY1M4NmE5RFVaOV81?oc=5
+
+### 2. QB room: who is QB1 in Cleveland - Cleveland Browns
+- Level: SIGNAL · Confidence: 57% · ⚪ WATCH (fans are reacting but nothing on the shelf answers it yet)
+- Fan signal: "Carolina Panthers vs. Cleveland Browns recap: Deshaun Watson, defense play complete game to win home opener" - Dawgs By Nature (2 d ago)
+- Evidence: 6 reaction items (7.0 weighted) · 6 outlets · 0 utility listings excluded · 0 fan posts
+- Phrase velocity: ↓ 75% / 1440 min (1 vs 4)
+- Sentiment: anxious - 'anxious' on 6/9 lexicon hits across 6 item(s)
+- Game state: next game in ~5 day(s)
 - Commercial: campaign - Make Them Know Your Name $21.00 (sellable) - THEY FORGOT WHO I AM — QB1 belief
 - Why fans care: The whole fanbase is arguing one question: who starts. That is a belief argument, and belief is what a QB tee sells.
-- Tracked names: deshaun watson (37 window mentions, FTI 100); shedeur sanders (18 window mentions, FTI 49)
-- Action: X (@gridironlocker1 first) - conversation post now (now)
-- Action: Threads - alternate angle (+20 min)
-- Action: Instagram - product creative after engagement confirms the angle (after the X post confirms the angle)
-- Action: Pinterest - keyword pin of the matched design (+2 h)
-  - Deshaun Watson Cheered at Home After Comeback Win | Around the AFC North - Baltimore Ravens - google_news (1 h ago) https://news.google.com/rss/articles/CBMi1AFBVV95cUxOX0o2R05iRHZiZk1KWThZS0JUM1c4RW1WbTZ2MXVuNmQ0RkRxVnByLVNCc3U0dTRDZG1oQV82eU11a3daZWVCVkp1QlFsd0l2eWZHeFB4VlVXZGoyNTdJU2pISzVYRUNBM09CbXloRVVjRHVvdDBCRFJjNmJHNy1QeWNRM3ppVUVsR3VPdjM2Y1p5YTBjMzRtdGpSQVBBa1hPVTNpMUhKbEwzNHVUcWFOZU92MVYyN04xM2E0VWRIOUc3VGk2dGhUdlE5Qm1qQ3dHZzRNSQ?oc=5
-  - Carolina Panthers vs. Cleveland Browns recap: Deshaun Watson, defense play complete game to win home opener - Dawgs By Nature (1 d ago) https://news.google.com/rss/articles/CBMigwJBVV95cUxOa1NmNlJ5TTRpcWQxVUtGbzVrWDVPaE5DcVhBQjdqTllodWVCM09pd0tHTnV6QWpudmRodndSSTl1SlJRMXpPd3pYb0IxYVdtSlhHUmpMblEtQkhaOTdGNnMtY1NCZjFEeTlEaG44OVBtelVINzN5SFNkR2FOZ0JNSUNXWTUtX3RydW1LUGw5ZlBncW5xaEVUUFE2Y1VzdENPcWN5THJjellxNE1DbnNlSloyNVNGa1Rqamh2T1JzTG8zYVRRWG5FeGpETU8zZndxdFduZEd2dUVFU09wZm5FbEw1Vndkal9YeUJtUnE5OVhrcFJPT2tlOWlFZGFtbzlZS3o4?oc=5
-  - Can Deshaun Watson lead Browns to the playoffs? - Yahoo Sports - google_news (35 min ago) https://news.google.com/rss/articles/CBMiiAFBVV95cUxQVXlMaXU1NDRYcHlMSVVXaGN2dkx0S3haVzcxd2NOLWpOUTlub010YjdDYXpYVk5iWk9BaTZxZjdtV0VOa09tTTJHT2hTWW45Vmlwdklwa2NRU1hTcGJXazF5WHhXV3gwbUMyeGxkd0xlbTRxYW1JZ25DSVJfcTFPQllFWHdvQ1Ex?oc=5
-  - Ex-Browns QB Baker Mayfield will miss weeks with injury - FOX 8 News - google_news (2 h ago) https://news.google.com/rss/articles/CBMiwAFBVV95cUxQa01DLTRqNjN4dDlrU1JIX1BRLTNrM01QaGpvSERjSGtWNXZzdDBrUEFHNUx1X3BGT3E2Vjc2MlYybEhiYUtGbWdpcU91b2FnNDBpM1ZUTGhPb0lZZWFxWUpVZ2wyUXhOM0pHbGRSU01QWnlZMnVmSGRELVhrZGQ4S19NdFlCcW1pSHdSeVF4M2oxa1BhQ3JtV2FxYTZ1aDRER0p6anZhZ2p1SkZ6cFhkVGw3NmlaRzhJazhMcFE5S1_SAcYBQVVfeXFMUHBvSjJTV3hYZm10X0VwRHBETi1sTS1jSEVjLTA4TmJ0VTZwb0FQRmZrNFRKZW1aT01ZVVU1eG9fZTNQOWhtdGRJbFh4clpmU29vV0U0am1ub3NVTzJ6Q0RpV2ZkSUp4aWhOaXNoVktKQUhuenZ1dzVuOFRxckg3dVNQbUlCYm4zeEZ5VFZibFoxdXJzZUk2VTBJZEN2ZXFrUVZaUzZxMmZ4eXp1dG93WXBodVc4Vjd3bzFBUXI1MW5BZXFxWDRB?oc=5
+- Tracked names: deshaun watson (33 window mentions, FTI 100); shedeur sanders (9 window mentions, FTI 27)
+  - Carolina Panthers vs. Cleveland Browns recap: Deshaun Watson, defense play complete game to win home opener - Dawgs By Nature (2 d ago) https://news.google.com/rss/articles/CBMigwJBVV95cUxOa1NmNlJ5TTRpcWQxVUtGbzVrWDVPaE5DcVhBQjdqTllodWVCM09pd0tHTnV6QWpudmRodndSSTl1SlJRMXpPd3pYb0IxYVdtSlhHUmpMblEtQkhaOTdGNnMtY1NCZjFEeTlEaG44OVBtelVINzN5SFNkR2FOZ0JNSUNXWTUtX3RydW1LUGw5ZlBncW5xaEVUUFE2Y1VzdENPcWN5THJjellxNE1DbnNlSloyNVNGa1Rqamh2T1JzTG8zYVRRWG5FeGpETU8zZndxdFduZEd2dUVFU09wZm5FbEw1Vndkal9YeUJtUnE5OVhrcFJPT2tlOWlFZGFtbzlZS3o4?oc=5
+  - Deshaun Watson is beginning to craft one of the most improbable comeback stories in sports history - Fox News - google_news (18 h ago) https://news.google.com/rss/articles/CBMisgFBVV95cUxONzNUVm1SQ1VwVEhDQ1Zadl9ENGNMV3ZSZGhJUTJyd2NMUzkwM0s0Q2tJMW1Ec1BPTXdCTTBJdk1QTzZJM1lLTkhmV1dQZ3BzTHd0SU9PYUpiYlp6d2xYV0FqbzlYLVRMY1Y0dEZlNXRYMUhCeEZ1d1ptOW02UFFxMGRVZHRHMl81OWp5WEoxaEk3SU83ZW9ZVkxEbkhIWEZfOFZBY0c1QlZzUm9EYjI5U25R?oc=5
+  - Deshaun Watson’s big day for Cleveland Browns could be a turning point - Andscape (1 d ago) https://news.google.com/rss/articles/CBMiiAFBVV95cUxOcGtkd0xUcTBkaFRmY0w0UFZKcWIzUTZnQnd3UU1ybEpCVHZCTVZ3ZVp4a2gxS0JjRlFzQnNuRWd2WkxERmVhbWI3OXpDa1dOUG5wNU1fMnRNazgwMnZoUmYyMjhQWlZDM2hqNFRTXzBFcDctWUdDcVVSWlZ2bG5VazRLTDFLeDBk?oc=5
+  - Ex-Browns QB Baker Mayfield Gets Bad News After Scary Injury - heavy.com - google_news (2 d ago) https://news.google.com/rss/articles/CBMiiwFBVV95cUxPUGNhR2RqU0ItQ3BPYjNUOXBiLUdBZm1TSldHc1BDMDZKRE4teFZQYkVKMWttX0pvOE00a1p6NjE5VVJXNkNtOFBOOGtPMmIxZG9qWVlzOHgxYmdVV0NVa0FDWmxYU1diMHRtWHFtTFBEZkNzRFRlM0RITGJ4LUJaVDNzd0RGZjV1d0tR?oc=5
 
-### 2. Cheesehead Nation: Lambeau and the tundra - Green Bay Packers
-- Level: OPPORTUNITY · Confidence: 69% · 🟢 READY (matched design, posting window open, evidence under 12 h)
-- Fan signal: "Photos: Packers alumni honored in halftime ceremony at Lambeau Field" - Green Bay Packers – packers.com (9 min ago)
-- Evidence: 5 reaction items (6.0 weighted) · 5 outlets · 0 utility listings excluded · 0 fan posts
-- Phrase velocity: new - 1 item in last 60 min, none in the window before
-- Sentiment: proud - 'proud' on 5/6 lexicon hits across 5 item(s)
-- Game state: next game in ~6 day(s)
-- Commercial: exact - Property Of Green Bay Packers 1919 Shirt $24.99 (sellable) - CHEESEHEAD NATION — Sundays are better here
-- Why fans care: The culture topic is the one that sells 52 weeks a year, and it is the only Packers angle with mugs and hoodies behind it.
-- Tracked names: jordan love (6 window mentions, FTI 16)
-- Action: X (@gridironlocker1 first) - conversation post now (now)
-- Action: Threads - alternate angle (+20 min)
-- Action: Instagram - product creative after engagement confirms the angle (after the X post confirms the angle)
-- Action: Pinterest - keyword pin of the matched design (+2 h)
-  - Photos: Packers alumni honored in halftime ceremony at Lambeau Field - Green Bay Packers – packers.com - google_news (9 min ago) https://news.google.com/rss/articles/CBMisAFBVV95cUxNa1Z6TlZBc1czVGllX29KTy1FWkJ3Z1AxOENHVFMzYktmQjlsYXdteFRvTVJ2bmxnOHIzRHFvcnd4TFI2MVlkLWJxai1NYWRfdW0zX1dlcFFoNmNvc0NBZmp3d01Vbk1XMXJkbE9acGw5YjhObGNuOHJ4b0taR3VSUHVSSFJkUWhfRXUtMkppSmUyMm9rNVpyaWU1TFMxUHNwcElzSmljeHgyUnh1dXc5Yw?oc=5
-  - Green Bay Packers hosting October job fairs for Lambeau Field gameday, seasonal positions - WBAY - google_news (4 h ago) https://news.google.com/rss/articles/CBMiuAFBVV95cUxPbVpmaVpXTnk5WUpvVk5Pd2xlVUVxTmE2c1hEQXFoSHFNOTNscnBuaDF1YmJsdjA5aGZiZGFaSVhvaG56clhOQzRrU28zdXJWdFlXN0hBS1R1QURTdG95Y2RuTDhER0NKQlVZQmktdFA5WDZsa1BnS0JSR051VV9BYmgxS0xCMWRjbmVrcVh2WDc0aGt3Ulp2OV80d3JTRW5OaWk4V2pfbjhlTTVRLTdRaVpwNXNaZFZY?oc=5
-  - How do Packers rank on fans, Lambeau, city? Answers may surprise you - Green Bay Press-Gazette - google_news (5 h ago) https://news.google.com/rss/articles/CBMihwJBVV95cUxNRXczZy1YQkpEbmRPN2hvejZCRkVIYTJ0Y01RLWRaRWRkM2FTbFlZY3M5Zjd5SjlQX0pzbG0ta19PWXJVZU9KRExkYk95aVp1RUdDQklzU21LOXVLZVZtY0hkLUpEc3FfR2YtYjZMYTJVeVJzYlRnVkpJR1daMWxqLWFaQThRb1RMUHBMVHNFSHRMR2VmVDI3aEZNcUk2cGJoVmRBa0dMN3JmVEs0b3U5dmRwX2FzNmZIajZfVGphb1A3dHpzdWVGeFZzRWJCTGd0SHpxcGdsVTB2WU9UZnQ5REJjaUF0U1lzNkc5b3VrQUEwTGxrSjRXMXRZQ05nZ01OSHNHYUhfNA?oc=5
-  - Ronika Stone Love says her purse, camera were stolen at Lambeau Field - Milwaukee Journal Sentinel - google_news (1 d ago) https://news.google.com/rss/articles/CBMi0wFBVV95cUxOYkgwOHVac2tILWZSZDgtZmR0c2E1TDFabDRldm1ucTBxVmhOLWJEclZyWThFenVROER4TG9HaE5wMkhaZFphemZTSEE1cHo0UjJVSUcxQmptZXFYbWNJQXJia2Q0UUlaZ1ZyOUlMeEw5X3BhejNiQndtODNLdDFQMFE5enB5UWNaOWZKc1NRbHlLNkNSMlZYYy1sNjl5b3RxNjNCeEx2U1oybkVYNTVYaHA0NXNFVGRndTh3WHliZ212NVZfa1lnZi1xekVtUExKOXNV?oc=5
+### 3. Late-game heroics: the Hail Mary folklore - Michigan Wolverines
+- Level: SIGNAL · Confidence: 56% · ⚪ WATCH (fans are reacting but nothing on the shelf answers it yet)
+- Fan signal: "The early word on John Henry Daley, injured before final play in Michigan loss" - MLive.com (12 h ago)
+- Evidence: 3 reaction items (6.0 weighted) · 3 outlets · 0 utility listings excluded · 0 fan posts
+- Phrase velocity: new - 1 item in last 1440 min, none in the window before
+- Sentiment: hype - 'hype' on 1/2 lexicon hits across 3 item(s)
+- Game state: result coverage in the last 30 h (2 item(s))
+- Commercial: exact - Limited Edition Hail Mary $21.00 (sellable) - H.A.I.L. MARY — one second left
+- Why fans care: The Hail Mary win is the story Michigan fans keep re-telling - and we own the only design named after it.
+  - The early word on John Henry Daley, injured before final play in Michigan loss - MLive.com - google_news (12 h ago) https://news.google.com/rss/articles/CBMizgFBVV95cUxOSGhEb21oOWd4QUhlczZ5TXZOR0E1bmowbzUzeUgtOGtsWU9kcGdIOHkzYjZOTllGMV9hYWFrUm10cXRvbWFTOE9LWElKUDFYOVFtX0xYS1cxN29leUxuVUVQT3FFSU5wUlNib3FhX3VmalViM2l2UUVwS2hOWV9tUnZPQ2VpNWhZRHRjcDFvaHJFbGkyRHRUVzdscFlvSEtOdFVPMkRGNk9uLUNZbTZoZ0tBbmtEbzNaakhnVl9VR2JBcUtrNWRtbzVqZDV5Z9IB4gFBVV95cUxPZGhETndlOWRLajc2d2pzQTR0bEJOczkxczNRQVRfMVhDcm5ZNDBud09RTDV2QjNEWEpjMEppbGU4eU9CeDhxcjVJQ1pTYXp4OGF1TnA5NERjaUh5V3puazZwTVR2dlNzNHpyN1lPUEZfcjVadS1xMlhCMm9BcERwQWViMXVwRGI3VGFzX2p1eElpZEhQeEo1MHVYQzBOejRiYllmSjBsYTdZVDFpQmpVYmZFZC1DdVZrTGlhY3FkZzlOQWE5SjBVNGp3TzZUTFFPUVpiaHZDLWdjbTFqZXBkaUNR?oc=5
+  - Another ‘Miracle at Michigan’: Iowa stuns Michigan on final play - AL.com - google_news (3 d ago) https://news.google.com/rss/articles/CBMirAFBVV95cUxQaU02M2dmTnpIRm5ETzczZDZRd3pNR3lRU3hENFlET0hINkF6NzQzYXNGdF9IM0hvclVWbWFMSlZqMm5wWFpDYndnSnZXOEhNSzZIZGRtT3F2YXlOSTduWmw0bU93MzFyUXRrdUtEQUlubGtLb2NXb3FTdHBma2pBRUtuQU5VNFRaZmE3N0psN3ltRGxHRzJMdHM4ZEZXdjNFc2NIYk9obFE5WkJX?oc=5
+  - Michigan football stunned by Iowa with walk-off touchdown on final play - Detroit Free Press - google_news (3 d ago) https://news.google.com/rss/articles/CBMihAJBVV95cUxQcllfTjZQbFEzMXFOOXEwZHYyRnotb0xDMlo1RzJoWU41MlM2dlRUb3NYU2dXS2xLT0VZdjR4eXB3aGJGbFN0UUp6Nzhnbnl4dGQwUWxDWUtIQWtNeW10VVJhYWEzUzYzTEZkaHdqQXBHMmlsbERBLU5yUWZFRV9DVjlkVXlxbElRY0hqYWRKR3hnOWM2TDQ2Mm1KZUc2dWtDdm11R0RuNTk4VjZoUHpEWTlrdDdkZUdabzFVVm4tcy1RMFZfX1BQN0ROOFFvQjRzUkdwNFlwOWNRd3ZERWxpMTlnNVFxTVRTYldZQkJaN2N3QTYwbEF4Y05jWXVKY1hSVjJzSg?oc=5
 
-### 3. Coaching: Monken's first season - Cleveland Browns
-- Level: OPPORTUNITY · Confidence: 68% · 🟢 READY (matched design, posting window open, evidence under 12 h)
-- Fan signal: "Browns coach Todd Monken: Penalties have to get fixed quickly" - Yahoo Sports (22 min ago)
-- Evidence: 4 reaction items (4.0 weighted) · 4 outlets · 0 utility listings excluded · 0 fan posts
-- Phrase velocity: new - 2 items in last 60 min, none in the window before
-- Sentiment: neutral - 4 item(s), none matched the BROWNS lexicon
-- Game state: result coverage in the last 30 h (4 item(s))
-- Commercial: campaign - Beware Of Dawg $21.00 (sellable) - COACH LOYALTY
-- Why fans care: New-coach hope and captain announcements are low-volume but very shareable inside the fanbase.
-- Tracked names: todd monken (5 window mentions, FTI 14)
-- Action: X (@gridironlocker1 first) - conversation post now (now)
-- Action: Threads - alternate angle (+20 min)
-- Action: Instagram - product creative after engagement confirms the angle (after the X post confirms the angle)
-- Action: Pinterest - keyword pin of the matched design (+2 h)
-  - Browns coach Todd Monken: Penalties have to get fixed quickly - Yahoo Sports - google_news (22 min ago) https://news.google.com/rss/articles/CBMiiAFBVV95cUxNcU90bVQ0Q2tFNWRVUkZpSVdaQ1k5SURpdVN4NmNBRnY2TjNRcnVqRkVXSng5LUtjQTJhVXNWckdJNG5GdHJpOEtCMVhPRWZSMU83MnJpY1ppb0czd3FTVDlLMmJXczJKZ29aMHpxTnpkaDhGazVWWVRWSWFDNkJJZ0V3S2NLZURs?oc=5
-  - Todd Monken Press Conference: September 28th, 2026 - clevelandbrowns.com - google_news (30 min ago) https://news.google.com/rss/articles/CBMijwFBVV95cUxQTVVmWmVwUkZRV1lQTmxDa0JqSm45YkozQUhwWmpFenlWT3dmcGhTZjgzZ3A4Y254NWJTV2ZWWUo1eUxrc2NzNzhBT3pZYTRaTlFFeElKZkM1T3dzbnJNMlZQR2lkM0RIR0xsMEZnOXpXbGx2Z0dPdzdEME5qZS1pUHBuaFdxYU5XUkdhTDVYcw?oc=5
-  - Todd Monken is trying to build a new Browns identity around their most painful chapter - nytimes.com - google_news (11 h ago) https://news.google.com/rss/articles/CBMimwFBVV95cUxQT245V3NFVFpjYUFLTzBGeUpjb0xFUkdhMDJ4Q0twNnY4MTdrMTJ0b3lfX1FBSEgyc2l2WGN2UTFEZzc3TWotWVd3T0MySnBIU3ZxQ1FzY2didGNCVDZDRlEtLThpY3ZTY2hxb2xoT1NoRmRGcEE2SWFweEJVQVpCRVNiUjVVR3BVaTdwN0ZfQ1ZtRlRsdGJQaXExNA?oc=5
-  - Monken's bold 4th-down call is about identity: Dan Labbe - Cleveland.com - google_news (11 h ago) https://news.google.com/rss/articles/CBMi5AFBVV95cUxOMDBtd0xIYmgxZXRVcWtaMmVmalRuTE5UTFh6MEF5R3lQbkdzeDAtNFZfM1lkbTRqNWtmWV83cE1ESUU2dTlQVzFsWWk5TUFUaWNUOUxvei1zc1I1elpxNWNDLVVXNXB4NkFwRDJPcWpCWTNrMXFYQVhzdDk2RFBpRjJSY3NLSWo3Q3QxaWFNZXY2eG1yUXV2eWtZUlM1ZlloN29xX3BjZUNwVXF0RThEREExMVFVa1JPYWx4YnQ5S21LS3YtNlJHSUt4ZjhlcV8xTzYwMXFMQ21IY2RXSFV0RWNhTU8?oc=5
+## Filtered as HEADLINE (9)
 
-### 4. Doomsday memory: defence and the pass rush - Dallas Cowboys
-- Level: OPPORTUNITY · Confidence: 68% · 🟢 READY (matched design, posting window open, evidence under 12 h)
-- Fan signal: "Von Miller Perfectly Forecasted Dallas Cowboys Tenure With Throwaway Quote" - Sports Illustrated (4 h ago)
-- Evidence: 3 reaction items (3.0 weighted) · 2 outlets · 0 utility listings excluded · 0 fan posts
-- Phrase velocity: ↑ 100% / 1440 min (2 vs 1)
-- Sentiment: proud - 'proud' on 2/2 lexicon hits across 3 item(s)
-- Game state: result coverage in the last 30 h (6 item(s))
-- Commercial: exact - Doomsday Defense Dallas Football Shirt $21.99 (sellable) - DOOMSDAY DEFENSE
-- Why fans care: Dallas defence talk always drifts to the Doomsday era - the one defensive identity we own a design for.
-- Tracked names: von miller (0 window mentions, FTI 0)
-- Action: X (@gridironlocker1 first) - conversation post now (now)
-- Action: Threads - alternate angle (+20 min)
-- Action: Instagram - product creative after engagement confirms the angle (after the X post confirms the angle)
-- Action: Pinterest - keyword pin of the matched design (+2 h)
-  - Von Miller Perfectly Forecasted Dallas Cowboys Tenure With Throwaway Quote - Sports Illustrated - google_news (4 h ago) https://news.google.com/rss/articles/CBMiqAFBVV95cUxQVE9zM1doelRJLTQ1SkhYQ0M4eGxWRlV3Y2pqTTY4TVNQQjBPcGUybFFDdU1HWVdaR0QzRy1jOUJCWVRybzlyd284OXhIX2lUclotZ0dNNHprUmhPZmcyczF6U2NXUktIczM0bTZpdXA2MDZEUF9NSmxPSU51M2h2RDFIVHFUTlpwZ1dyWjByRHB5eDZCRXd5Uzl1bzVhRVRZOThyY3ZSSU0?oc=5
-  - Brian Schottenheimer Play-Calling Cost Cowboys, Inexcusable Defense Made It Worse - Sports Illustrated - google_news (9 h ago) https://news.google.com/rss/articles/CBMirgFBVV95cUxOUFhweWx0VmZ6UTh1Vkdqd3IzSFNfdzdhSGt1Z0ZkbWEyanlOdkFhd0ozaTFaa2h1eTFDY2Y4d0JWX1RuVnJmSTdYZDRTLWIzX1FDX24wR1k2SmtUWnIwSnBGSGNwajRjbW5PVlBXU3NiY2lZMDNzSS1VU2U1YV9TdDltMklpdlk4RVhzUE81WDFqTFF0MDFJTnZ4bFpiZWl6ejJDWG03MXFXaGI2OFE?oc=5
-  - Dallas Cowboys among teams calling Steelers about Joey Porter Jr trade - Behind the Steel Curtain - google_news (1 d ago) https://news.google.com/rss/articles/CBMi1wFBVV95cUxNQmtfR19UbkhRVV95WmMza1lSd0R6MHVQXy1NYjI5RFNOWmxZWDYwcFVlSmxkLUNCb0NpTXplSFJ4TDcwZ2hTR01pZmR5YUZidHNIWHU2R3ZBbmJibS1UTzNFVHBxcWpYMlJUdk9DMk82NDFLbzZYdFBmWWhCSXh3RU9FNjBoVkJ1UWg3RkFyLVl0TmtwOHN3QjdWb01qdV9maGczRFhpWFI1U0VpSjRtX1JGVkZnT3pEOUdJX0d0RlpUY0R0UTVac3NodUlqRzNYRzNQMXRnZw?oc=5
-
-## Filtered as HEADLINE (5)
-
-- BROWNS - Dawg Pound identity: orange, brown and 1946: 1 reaction item(s), 1 outlet(s), confidence 42% - not a reaction
-- COWBOYS - Texas pride: flag, star and Est. 1841: 2 reaction item(s), 2 outlet(s), confidence 56% - not a reaction
-- COWBOYS - Thirty years: the drought joke we own: 1 reaction item(s), 1 outlet(s), confidence 37% - not a reaction
-- MICHIGAN - Late-game heroics: the Hail Mary folklore: 2 reaction item(s), 2 outlet(s), confidence 44% - not a reaction
-- MICHIGAN - Go Blue: The Big House identity: 1 reaction item(s), 1 outlet(s), confidence 42% - not a reaction
+- BROWNS - No Fly Zone: the secondary wins the argument: 1 reaction item(s), 1 outlet(s), confidence 43% - not a reaction
+- BROWNS - Coaching: Monken's first season: 1 reaction item(s), 1 outlet(s), confidence 24% - not a reaction
+- COWBOYS - Doomsday memory: defence and the pass rush: 2 reaction item(s), 2 outlet(s), confidence 50% - not a reaction
+- PACKERS - Jordan Love era: 10 is the number: 1 reaction item(s), 1 outlet(s), confidence 34% - not a reaction
+- PACKERS - Kraft extension: the front office pays its own: 1 reaction item(s), 1 outlet(s), confidence 34% - not a reaction
+- PACKERS - Cheesehead Nation: Lambeau and the tundra: 1 reaction item(s), 1 outlet(s), confidence 34% - not a reaction
+- MICHIGAN - Respond: nothing given, everything earned: 1 reaction item(s), 1 outlet(s), confidence 46% - not a reaction
+- MICHIGAN - Go Blue: The Big House identity: 0 reaction item(s), 1 outlet(s), confidence 33% - not a reaction
+- MICHIGAN - Recruiting: the class built around QB19: 0 reaction item(s), 1 outlet(s), confidence 31% - not a reaction
 
 ## Article ideas (OPPORTUNITY+ only)
 
-- **[Medium] Cleveland Browns: what the Dawg Pound are actually saying about qb room: who is qb1 in cleveland**
-  - Where: NFL fan culture (Dawg Pound / Cleveland sports)
-  - Angle: Fan-demand piece built on the live signal (Deshaun Watson Cheered at Home After Comeback Win | Around the AFC North), not on a headline recap.
-  - Link: https://gridironlocker.shop/make-them-know-your-name?collectionId=P19bpeU2x_Ng&color=GILDAN-DARK_CHOCOLATE&productId=6aa33fa01cdc8689e252dab3
-  - Image: Make Them Know Your Name mockup next to the moment that started it.
+- **[Medium] Dallas Cowboys: what the America's Team faithful are actually saying about texas pride: flag, star and est. 1841**
+  - Where: Cowboys fan culture (Texas football)
+  - Angle: Fan-demand piece built on the live signal (How the Dallas Cowboys Cheerleaders wowed Ricky Martin, Brazilian fans at Maracanã Stadium), not on a headline recap.
+  - Link: https://viralstyle.com/kebystore/girly-vintage-texas-pride
+  - Image: This Girl Loves Cowboys Women's Shirt mockup next to the moment that started it.
 
-- **[Quora] Why are Cleveland Browns fans so focused on qb room: who is qb1 in cleveland right now?**
-  - Where: Cleveland Browns / NFL fandom
+- **[Quora] Why are Dallas Cowboys fans so focused on texas pride: flag, star and est. 1841 right now?**
+  - Where: Dallas Cowboys / NFC East
   - Angle: Answer the question a fan would actually type, then answer it properly.
-  - Link: https://gridironlocker.shop/make-them-know-your-name?collectionId=P19bpeU2x_Ng&color=GILDAN-DARK_CHOCOLATE&productId=6aa33fa01cdc8689e252dab3
+  - Link: https://viralstyle.com/kebystore/girly-vintage-texas-pride
   - Image: Simple stat/quote graphic - no product shot.
 
-- **[Reddit] QB room: who is QB1 in Cleveland - be a fan first in r/Browns**
-  - Where: r/Browns / r/DawgPoundByNature / r/nfl
-  - Angle: Join the existing thread instead of starting a promo post.
-  - Link: profile link only, if asked
-  - Image: None - text comment.
-
-- **[Medium] Green Bay Packers: what the Cheesehead Nation are actually saying about cheesehead nation: lambeau and the tundra**
-  - Where: Packers fan culture (Cheesehead Nation)
-  - Angle: Fan-demand piece built on the live signal (Photos: Packers alumni honored in halftime ceremony at Lambeau Field), not on a headline recap.
-  - Link: https://viralstyle.com/kebystore/limited-edition-grb15
-  - Image: Property Of Green Bay Packers 1919 Shirt mockup next to the moment that started it.
-
-- **[Quora] Why are Green Bay Packers fans so focused on cheesehead nation: lambeau and the tundra right now?**
-  - Where: Green Bay Packers / NFC North
-  - Angle: Answer the question a fan would actually type, then answer it properly.
-  - Link: https://viralstyle.com/kebystore/limited-edition-grb15
-  - Image: Simple stat/quote graphic - no product shot.
-
-- **[Reddit] Cheesehead Nation: Lambeau and the tundra - be a fan first in r/GreenBayPackers**
-  - Where: r/GreenBayPackers / r/nfl
-  - Angle: Join the existing thread instead of starting a promo post.
-  - Link: profile link only, if asked
-  - Image: None - text comment.
-
-- **[Medium] Cleveland Browns: what the Dawg Pound are actually saying about coaching: monken's first season**
-  - Where: NFL fan culture (Dawg Pound / Cleveland sports)
-  - Angle: Fan-demand piece built on the live signal (Browns coach Todd Monken: Penalties have to get fixed quickly), not on a headline recap.
-  - Link: https://gridironlocker.shop/be-awar-of-dawg?collectionId=P19bpeU2x_Ng&color=GILDAN-DARK_CHOCOLATE&productId=6aa548c6f475ab73b096ff20
-  - Image: Beware Of Dawg mockup next to the moment that started it.
-
-- **[Quora] Why are Cleveland Browns fans so focused on coaching: monken's first season right now?**
-  - Where: Cleveland Browns / NFL fandom
-  - Angle: Answer the question a fan would actually type, then answer it properly.
-  - Link: https://gridironlocker.shop/be-awar-of-dawg?collectionId=P19bpeU2x_Ng&color=GILDAN-DARK_CHOCOLATE&productId=6aa548c6f475ab73b096ff20
-  - Image: Simple stat/quote graphic - no product shot.
-
-- **[Reddit] Coaching: Monken's first season - be a fan first in r/Browns**
-  - Where: r/Browns / r/DawgPoundByNature / r/nfl
+- **[Reddit] Texas pride: flag, star and Est. 1841 - be a fan first in r/cowboys**
+  - Where: r/cowboys / r/Dallas_Cowboys / r/nfl
   - Angle: Join the existing thread instead of starting a promo post.
   - Link: profile link only, if asked
   - Image: None - text comment.
