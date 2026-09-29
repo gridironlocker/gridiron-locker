@@ -66,16 +66,24 @@ every Viralstyle product at `viralstyle.com`, verified per-product against the c
   Cleveland 64 — all wrong), and now state that counts come from the build.
 
 ### Redirects (retired + migrated URLs)
-- **85** retired URLs (31 delisted + 57 fulfillment `hold`) get stubs: meta-refresh,
-  `location.replace()`, canonical to target, `noindex,follow`, full OG/Twitter,
-  visible fallback link.
+- Retired URLs (delisted + fulfillment `hold`) get stubs: instant meta-refresh,
+  `location.replace()`, `noindex,follow`, self-referencing OG url, full OG/Twitter,
+  visible fallback link. **No `rel=canonical`** — a stub sends one signal (a
+  redirect), never a canonical to a page it is not a duplicate of.
 - No retired slug has a same-name active replacement, so each forwards to **its own
   collection page** — never the homepage.
 - `site/_redirects` provides true 301s on Netlify/Cloudflare.
+- **Why no canonical:** the old stub combined `noindex` with a `rel=canonical`
+  pointing at the collection. Those are contradictory signals on one URL, so Google
+  honoured the canonical and parked every retired URL under Search Console's
+  "Alternate page with proper canonical tag" — a status that would not clear on
+  validation. Google's guidance is to never mix `noindex` with `rel=canonical` and
+  to use a redirect (not a canonical) for genuinely moved content, so the stub now
+  redirects and nothing else.
 
 ### SEO
 - Exactly one H1 per page; unique titles and meta descriptions (4 over-long metas trimmed).
-- Canonical correct on every indexable page; stubs correctly canonical to their target.
+- Canonical correct on every indexable page (self-referencing); retired-URL stubs carry no canonical and redirect instead.
 - Internal linking verified home → collections → products → related, guides → products,
   nav, season hub, trending.
 - **`site/404.html`** had `data-root="./"`, which broke the search-index fetch and
