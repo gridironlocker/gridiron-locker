@@ -2,7 +2,7 @@
  "generated": "2026-09-29",
  "window_days": 10,
  "fti_formula": "round(100 * entity_mentions / peak_mentions_in_window)",
- "peak_mentions": 33,
+ "peak_mentions": 35,
  "stats": {
   "products": 86,
   "collections": 4,
@@ -12,14 +12,14 @@
   "throwback": 0,
   "steady": 75,
   "gaps": 7,
-  "moments": 5,
+  "moments": 6,
   "tracked_names": 18,
   "dead_campaigns": 66
  },
  "fti_rows": [
   {
    "name": "deshaun watson",
-   "mentions": 33,
+   "mentions": 35,
    "index": 100,
    "status": "trending",
    "gap": true,
@@ -29,7 +29,7 @@
   {
    "name": "kyle whittingham",
    "mentions": 12,
-   "index": 36,
+   "index": 34,
    "status": "trending",
    "gap": true,
    "shoppable": false,
@@ -38,7 +38,7 @@
   {
    "name": "dak prescott",
    "mentions": 10,
-   "index": 30,
+   "index": 29,
    "status": "trending",
    "gap": true,
    "shoppable": false,
@@ -47,7 +47,7 @@
   {
    "name": "shedeur sanders",
    "mentions": 9,
-   "index": 27,
+   "index": 26,
    "status": "trending",
    "gap": false,
    "shoppable": true,
@@ -56,7 +56,7 @@
   {
    "name": "matt lafleur",
    "mentions": 7,
-   "index": 21,
+   "index": 20,
    "status": "trending",
    "gap": true,
    "shoppable": false,
@@ -65,7 +65,7 @@
   {
    "name": "todd monken",
    "mentions": 7,
-   "index": 21,
+   "index": 20,
    "status": "trending",
    "gap": true,
    "shoppable": false,
@@ -74,7 +74,7 @@
   {
    "name": "jordan love",
    "mentions": 5,
-   "index": 15,
+   "index": 14,
    "status": "trending",
    "gap": false,
    "shoppable": true,
@@ -83,7 +83,7 @@
   {
    "name": "josh jacobs",
    "mentions": 5,
-   "index": 15,
+   "index": 14,
    "status": "trending",
    "gap": true,
    "shoppable": false,
@@ -92,7 +92,7 @@
   {
    "name": "bryce underwood",
    "mentions": 4,
-   "index": 12,
+   "index": 11,
    "status": "trending",
    "gap": false,
    "shoppable": true,
@@ -101,7 +101,7 @@
   {
    "name": "ceedee lamb",
    "mentions": 4,
-   "index": 12,
+   "index": 11,
    "status": "trending",
    "gap": true,
    "shoppable": false,
@@ -115,15 +115,6 @@
    "gap": false,
    "shoppable": true,
    "collection": "green-bay-packers"
-  },
-  {
-   "name": "myles garrett",
-   "mentions": 2,
-   "index": 6,
-   "status": "steady",
-   "gap": false,
-   "shoppable": true,
-   "collection": "cleveland-browns"
   },
   {
    "name": "denzel ward",
@@ -171,6 +162,15 @@
    "collection": "cleveland-browns"
   },
   {
+   "name": "myles garrett",
+   "mentions": 0,
+   "index": 0,
+   "status": "quiet",
+   "gap": false,
+   "shoppable": true,
+   "collection": "cleveland-browns"
+  },
+  {
    "name": "robert tonyan",
    "mentions": 0,
    "index": 0,
@@ -183,7 +183,7 @@
  "gaps": [
   {
    "name": "deshaun watson",
-   "mentions": 33,
+   "mentions": 35,
    "index": 100,
    "status": "trending",
    "gap": true,
@@ -193,7 +193,7 @@
   {
    "name": "kyle whittingham",
    "mentions": 12,
-   "index": 36,
+   "index": 34,
    "status": "trending",
    "gap": true,
    "shoppable": false,
@@ -202,7 +202,7 @@
   {
    "name": "dak prescott",
    "mentions": 10,
-   "index": 30,
+   "index": 29,
    "status": "trending",
    "gap": true,
    "shoppable": false,
@@ -211,7 +211,7 @@
   {
    "name": "matt lafleur",
    "mentions": 7,
-   "index": 21,
+   "index": 20,
    "status": "trending",
    "gap": true,
    "shoppable": false,
@@ -220,7 +220,7 @@
   {
    "name": "todd monken",
    "mentions": 7,
-   "index": 21,
+   "index": 20,
    "status": "trending",
    "gap": true,
    "shoppable": false,
@@ -229,7 +229,7 @@
   {
    "name": "josh jacobs",
    "mentions": 5,
-   "index": 15,
+   "index": 14,
    "status": "trending",
    "gap": true,
    "shoppable": false,
@@ -238,7 +238,7 @@
   {
    "name": "ceedee lamb",
    "mentions": 4,
-   "index": 12,
+   "index": 11,
    "status": "trending",
    "gap": true,
    "shoppable": false,
@@ -259,7 +259,7 @@
    "gaps": [
     {
      "name": "deshaun watson",
-     "mentions": 33,
+     "mentions": 35,
      "index": 100,
      "status": "trending",
      "gap": true,
@@ -269,7 +269,7 @@
     {
      "name": "todd monken",
      "mentions": 7,
-     "index": 21,
+     "index": 20,
      "status": "trending",
      "gap": true,
      "shoppable": false,
@@ -283,8 +283,8 @@
     "deshaun",
     "carolina",
     "home",
-    "opener",
-    "watch"
+    "watch",
+    "monken"
    ],
    "headline_count": 100,
    "headlines": [
@@ -297,7 +297,7 @@
     {
      "title": "Deshaun Watson\u2019s big day for Cleveland Browns could be a turning point",
      "url": "https://news.google.com/rss/articles/CBMiiAFBVV95cUxOcGtkd0xUcTBkaFRmY0w0UFZKcWIzUTZnQnd3UU1ybEpCVHZCTVZ3ZVp4a2gxS0JjRlFzQnNuRWd2WkxERmVhbWI3OXpDa1dOUG5wNU1fMnRNazgwMnZoUmYyMjhQWlZDM2hqNFRTXzBFcDctWUdDcVVSWlZ2bG5VazRLTDFLeDBk?oc=5",
-     "source": "Andscape",
+     "source": "andscape.com",
      "pub": "Mon, 28 Sep 2026 08:58:34 GMT"
     },
     {
@@ -315,7 +315,7 @@
     {
      "title": "Deshaun Watson's TD pass to Fannin Jr. boosts Browns' lead to 9-0 against Carolina",
      "url": "https://news.google.com/rss/articles/CBMiqwFBVV95cUxQU0NkWnk5Z1JGVndyTkFkUlBNb1dHcmdjNnpaMWtOMFN5N1VMZUxqQ3diVEFlTGdoS0Fnb0VBb1VFeVU0MC1rLV9jVFBIRTFUQ3puN2JtM0E5SWd0RlJZbG1Zb3kzN2FmdFFkWTVxRGhzSmM4RklOMk9pODhsYzBzU2trVTZmYXdOeWI1WTdPTDhoTXBob09ub2dMYi0tcllpZDJwZGVFOFNCZzA?oc=5",
-     "source": "NFL.com",
+     "source": "nfl.com",
      "pub": "Sun, 27 Sep 2026 18:42:07 GMT"
     }
    ],
@@ -335,7 +335,7 @@
     {
      "name": "dak prescott",
      "mentions": 10,
-     "index": 30,
+     "index": 29,
      "status": "trending",
      "gap": true,
      "shoppable": false,
@@ -344,7 +344,7 @@
     {
      "name": "ceedee lamb",
      "mentions": 4,
-     "index": 12,
+     "index": 11,
      "status": "trending",
      "gap": true,
      "shoppable": false,
@@ -366,31 +366,31 @@
     {
      "title": "Eatman: This game ended like it started \u2013 not running",
      "url": "https://news.google.com/rss/articles/CBMijgFBVV95cUxOSkU5M2hXMUpCUkpSRnRyb1ZhRFhBcXdZS2RUekdqTWRrLUo4b3lpRW1TVjRya09nWUJEZVl6NmYwYUZNTlpYOXM5M3lCWmRJczNVQmRCcUw2cFdlTk9vcUJhMGxwNXZKaGhCV2o2eTZZMmo0Um9wQUcyTUphb0RDeHpyai1KSFVSRWx0WERB?oc=5",
-     "source": "dallascowboys.com",
+     "source": "Dallas Cowboys | Official Site of the Dallas Cowboys",
      "pub": "Mon, 28 Sep 2026 02:04:48 GMT"
     },
     {
      "title": "Eatman: No one could envision Dak Prescott\u2019s record-setting journey \u2013 except Dak",
      "url": "https://news.google.com/rss/articles/CBMisgFBVV95cUxOcHdCVzhEOWI2ck13c0p0dk5PT2ljUHlYWFN5aDBxeVVDTV85dk1tTmlwTWhwbTVfbjJCNFBsQ0doUmI3dTE5WlRkeW9vN3RsNW8xZ3hON3JrNlp0V01DQ0YzQjd6aWtsLWl2c1NpeVVWTF9iQ2V3N1FBakZKUzY4R2Y1R0VMLWVSNEZaLVlURXF0enpaRDNOclR0ME1ZeDc5OFFJVUYtR2IzMjMtWmM2TzRR?oc=5",
-     "source": "dallascowboys.com",
+     "source": "Dallas Cowboys | Official Site of the Dallas Cowboys",
      "pub": "Sun, 20 Sep 2026 07:00:00 GMT"
     },
     {
      "title": "Game Recap: Dak leads Dallas to win, 37-20",
      "url": "https://news.google.com/rss/articles/CBMigAFBVV95cUxPbFNTS01QYmE4WG9UU0tWRmptdEw2Z0w1OWQ4eEx3RFFlU0tzeXM5djk0NVpqVXpObnRwMTkzN1ctc1UwQk5JMy13SHJqX2thZjVoQXN6NVM0TGZSTURrOGtwY3NCR01LaGxhaXVTT2lWSkZlRnNKeGVKalR2TnljSQ?oc=5",
-     "source": "dallascowboys.com",
+     "source": "Dallas Cowboys | Official Site of the Dallas Cowboys",
      "pub": "Sun, 20 Sep 2026 07:00:00 GMT"
     },
     {
      "title": "Game Recap: Cowboys lose in Rio, 34-31",
      "url": "https://news.google.com/rss/articles/CBMie0FVX3lxTE9GSjZsXzlkUTVZWDN4WjF6WGhPUHQ0OENnNGVHbGFEdktEdEt2anhDeVh6UkJtZ1RMc1djZ1NCUkZIZWZPVGlLWWVNN3c5UGdjcjJ5VWRwNVRkRWRzdUMwQWhNdUcxa0dzLWFzeW1UR3p3U2JTUnRUU2VSTQ?oc=5",
-     "source": "dallascowboys.com",
+     "source": "Dallas Cowboys | Official Site of the Dallas Cowboys",
      "pub": "Mon, 28 Sep 2026 00:20:48 GMT"
     },
     {
      "title": "Brian Schottenheimer on Cowboys narrow loss to Ravens in Rio: 'This one stings'",
      "url": "https://news.google.com/rss/articles/CBMisAFBVV95cUxNaGxMd0xPUEc0cTJiUHJESElLanZDYTBHT3ViZnNseU5tRVRNcXNLcV9wNDNuWFExeWIxQWFOR2FqWjJXWTZKUjBVbERFdWdXRHdtdi1IY0swczBQYzRMSy1iTW1jRE5CbDhTa0xUTnRWeG0ySGNqZ0hkemRSd0djamh0aUFmNE0tYjQ3Vm1oYzQzc3RKdUhMYUdna3ItQ2J2RDMyWnRKU3RGOWZ6ZUIxMw?oc=5",
-     "source": "dallascowboys.com",
+     "source": "Dallas Cowboys | Official Site of the Dallas Cowboys",
      "pub": "Mon, 28 Sep 2026 01:14:47 GMT"
     }
    ],
@@ -410,7 +410,7 @@
     {
      "name": "matt lafleur",
      "mentions": 7,
-     "index": 21,
+     "index": 20,
      "status": "trending",
      "gap": true,
      "shoppable": false,
@@ -419,7 +419,7 @@
     {
      "name": "josh jacobs",
      "mentions": 5,
-     "index": 15,
+     "index": 14,
      "status": "trending",
      "gap": true,
      "shoppable": false,
@@ -432,8 +432,8 @@
     "atlanta",
     "loss",
     "offensive",
-    "line",
     "lafleur",
+    "line",
     "suffer"
    ],
    "headline_count": 100,
@@ -453,7 +453,7 @@
     {
      "title": "Falcons vs. Packers: Three must-know storylines for Thursday's Week 3 prime-time game",
      "url": "https://news.google.com/rss/articles/CBMirAFBVV95cUxOVFVZNkZfWkxiYTdwbGJQWmM4U0tpTy00MEhSc1ZmWEhmV1RYUHItRWs5UEE3MDVxZUhBS2tDQ19EMGphQXZSVWFQOFB4NXB1dFBGU09rMzlIVGdIb3pxYmNfLVFXQjN2ZzdDMnFCTG9MQjZkd2V3SHpVa0JhOGxaNGtDUjhENmhLcFdUTWdNOGFLLTV1dDNjb2lZNDFxSnd3cTFzc0FmZ2VidlNU?oc=5",
-     "source": "NFL.com",
+     "source": "nfl.com",
      "pub": "Wed, 23 Sep 2026 14:05:12 GMT"
     },
     {
@@ -485,7 +485,7 @@
     {
      "name": "kyle whittingham",
      "mentions": 12,
-     "index": 36,
+     "index": 34,
      "status": "trending",
      "gap": true,
      "shoppable": false,
@@ -874,7 +874,7 @@
   {
    "title": "Deshaun Watson\u2019s big day for Cleveland Browns could be a turning point",
    "url": "https://news.google.com/rss/articles/CBMiiAFBVV95cUxOcGtkd0xUcTBkaFRmY0w0UFZKcWIzUTZnQnd3UU1ybEpCVHZCTVZ3ZVp4a2gxS0JjRlFzQnNuRWd2WkxERmVhbWI3OXpDa1dOUG5wNU1fMnRNazgwMnZoUmYyMjhQWlZDM2hqNFRTXzBFcDctWUdDcVVSWlZ2bG5VazRLTDFLeDBk?oc=5",
-   "source": "Andscape",
+   "source": "andscape.com",
    "pub": "Mon, 28 Sep 2026 08:58:34 GMT",
    "collection": "cleveland-browns",
    "entities": [
@@ -895,7 +895,7 @@
   {
    "title": "Deshaun Watson's TD pass to Fannin Jr. boosts Browns' lead to 9-0 against Carolina",
    "url": "https://news.google.com/rss/articles/CBMiqwFBVV95cUxQU0NkWnk5Z1JGVndyTkFkUlBNb1dHcmdjNnpaMWtOMFN5N1VMZUxqQ3diVEFlTGdoS0Fnb0VBb1VFeVU0MC1rLV9jVFBIRTFUQ3puN2JtM0E5SWd0RlJZbG1Zb3kzN2FmdFFkWTVxRGhzSmM4RklOMk9pODhsYzBzU2trVTZmYXdOeWI1WTdPTDhoTXBob09ub2dMYi0tcllpZDJwZGVFOFNCZzA?oc=5",
-   "source": "NFL.com",
+   "source": "nfl.com",
    "pub": "Sun, 27 Sep 2026 18:42:07 GMT",
    "collection": "cleveland-browns",
    "entities": [
@@ -913,9 +913,19 @@
    ]
   },
   {
+   "title": "Browns HC Todd Monken confirms backup plan Cleveland has for struggling veteran starter",
+   "url": "https://news.google.com/rss/articles/CBMiuAFBVV95cUxPaHhINEFuZXdEd2pmM05majdncmhvaWpNTUk2c0hzX2s4TXdkWkNqVFdaNUJvVlNqem0wcTZhZzFFLWl5Nm52TkxDM3RWMGVBbF9DUHl3MVZYQmFYOHI4MWpWX193anA0cGhSbGp2dUYzZy1EWnJKQXB3WUlDR055YU42RU5qcWtLb2YxN2txRWR5ZVVHU1VwTFBYSldwQmUxTWhrQXUzYW1UeU9vTnZXd0F2WHhmWWJf?oc=5",
+   "source": "A to Z Sports",
+   "pub": "Tue, 29 Sep 2026 11:53:41 GMT",
+   "collection": "cleveland-browns",
+   "entities": [
+    "todd monken"
+   ]
+  },
+  {
    "title": "Eatman: No one could envision Dak Prescott\u2019s record-setting journey \u2013 except Dak",
    "url": "https://news.google.com/rss/articles/CBMisgFBVV95cUxOcHdCVzhEOWI2ck13c0p0dk5PT2ljUHlYWFN5aDBxeVVDTV85dk1tTmlwTWhwbTVfbjJCNFBsQ0doUmI3dTE5WlRkeW9vN3RsNW8xZ3hON3JrNlp0V01DQ0YzQjd6aWtsLWl2c1NpeVVWTF9iQ2V3N1FBakZKUzY4R2Y1R0VMLWVSNEZaLVlURXF0enpaRDNOclR0ME1ZeDc5OFFJVUYtR2IzMjMtWmM2TzRR?oc=5",
-   "source": "dallascowboys.com",
+   "source": "Dallas Cowboys | Official Site of the Dallas Cowboys",
    "pub": "Sun, 20 Sep 2026 07:00:00 GMT",
    "collection": "dallas-cowboys",
    "entities": [
