@@ -1,5 +1,5 @@
 {
- "_doc": "Cleveland/Browns catalogue from the Mayzing storefront, initially captured 2026-09-12 and updated through 2026-09-29. This file is the source of truth for the whole collection: src/build.py now builds 23 product pages and the collection page from it (mayzing_item()), replacing the Viralstyle crawl for Cleveland. Data is captured from gridironlocker.shop/p/browns and each product page (title, price, colour, sizes, mockup URLs and productId). Supplier titles are kept verbatim here; customer-facing SEO names are curated in src/catalog.py. Mockups are hot-linked from the Mayzing CDN with signature params. On 2026-09-29 the Browns collection page showed 23 of 23 items and published Cleveland Football Est. 1946 first, as a $21.00 Natural Gildan 5000 tee in S-5XL (product id 6abc2326d038dff39dbe8803). The collection capture date remains the original 2026-09-12 baseline so unchanged product URLs keep stable sitemap dates; the new record carries its verified capture date and data/content_dates.json records the collection update date.",
+ "_doc": "Cleveland/Browns catalogue from the Mayzing storefront, initially captured 2026-09-12 and updated through 2026-09-30. This file is the source of truth for the whole collection: src/build.py now builds 25 product pages and the collection page from it (mayzing_item()), replacing the Viralstyle crawl for Cleveland. Data is captured from gridironlocker.shop/p/browns and each product page (title, price, colour, sizes, mockup URLs and productId). Supplier titles are kept verbatim here; customer-facing SEO names are curated in src/catalog.py. Mockups are hot-linked from the Mayzing CDN with signature params. On 2026-09-30 the Browns collection page showed 25 of 25 items and published Dawg Pound Cleveland Skyline and Cleveland Skyline Dawg Pound, as $21.00 Black Gildan 5000 tees in S-5XL (product ids 6abd8fd9f33b76ed082bebe1 and 6abd8df35dda6a6b2d5dfc78). The collection capture date remains the original 2026-09-12 baseline so unchanged product URLs keep stable sitemap dates; the new records carry their verified capture date and data/content_dates.json records the collection update date.",
  "store": "https://gridironlocker.shop/p/browns",
  "store_id": "z2OF",
  "collectionId": "P19bpeU2x_Ng",
@@ -8,6 +8,62 @@
  "currency_note": "Storefront collection page quotes $21.00 but some product pages render NOK 209.00 depending on session geo; 209 NOK approximates 21 USD. Price recorded here is the USD collection price. Verify currency for US customers in Mayzing admin.",
  "captured": "2026-09-12",
  "products": [
+  {
+   "slug": "dawg-pound-cleveland-skyline",
+   "name": "Dawg Pound Cleveland Skyline",
+   "garment": "Men's T-Shirt",
+   "blank": "Gildan 5000",
+   "price_usd": "21.00",
+   "colour_code": "GILDAN-BLACK",
+   "colour_name": "Black",
+   "sizes": [
+    "S",
+    "M",
+    "L",
+    "XL",
+    "2XL",
+    "3XL",
+    "4XL",
+    "5XL"
+   ],
+   "handle": "dawg-pound-cleveland-skyline",
+   "product_id": "6abd8fd9f33b76ed082bebe1",
+   "checkout_url": "https://gridironlocker.shop/dawg-pound-cleveland-skyline?collectionId=P19bpeU2x_Ng&color=GILDAN-BLACK&productId=6abd8fd9f33b76ed082bebe1",
+   "features": "Gildan 5000 midweight 100% cotton, classic fit, double-needle sleeve and bottom hems",
+   "captured": "2026-09-30",
+   "img": {
+    "front": "https://buyer-experience-gateway.mayzing.com/stores/z2OF/mockups/id:mi2vh7vm7224,sig:Eezp4Eo2NR1xGp1eMEEJQkUgIi2jT-XBR20Xp6std4U,c:GILDAN-BLACK,s:d3cfca9f-6be4-4751-94da-27ce3751a0ac,d:6abd8fd99b799fb4cb595e76,dv:2,cpd:pd2vh7vm720,w:1000/image.png",
+    "back": "https://buyer-experience-gateway.mayzing.com/stores/z2OF/mockups/id:mi2vh7vm7225,sig:0D4tpf2h8ySls4M1Uz-SWLrrzs5wWAMRLCn8z1KEWXc,c:GILDAN-BLACK,s:d802579f-ea09-4b75-a37e-2adc9a5bb616,cpd:pd2vh7vm720,w:1000/image.png"
+   }
+  },
+  {
+   "slug": "cleveland-skyline-dawg-pound",
+   "name": "Cleveland Skyline Dawg Pound",
+   "garment": "Men's T-Shirt",
+   "blank": "Gildan 5000",
+   "price_usd": "21.00",
+   "colour_code": "GILDAN-BLACK",
+   "colour_name": "Black",
+   "sizes": [
+    "S",
+    "M",
+    "L",
+    "XL",
+    "2XL",
+    "3XL",
+    "4XL",
+    "5XL"
+   ],
+   "handle": "cleveland-skyline-dawg-pound",
+   "product_id": "6abd8df35dda6a6b2d5dfc78",
+   "checkout_url": "https://gridironlocker.shop/cleveland-skyline-dawg-pound?collectionId=P19bpeU2x_Ng&color=GILDAN-BLACK&productId=6abd8df35dda6a6b2d5dfc78",
+   "features": "Gildan 5000 midweight 100% cotton, classic fit, double-needle sleeve and bottom hems",
+   "captured": "2026-09-30",
+   "img": {
+    "front": "https://buyer-experience-gateway.mayzing.com/stores/z2OF/mockups/id:mi2vh7vm7224,sig:27f7tvYJsx6cg-1fFv2n6letAqwN6v175BVLnUfBHf8,c:GILDAN-BLACK,s:d3cfca9f-6be4-4751-94da-27ce3751a0ac,d:6abd8df3c93c4a638d635f2a,dv:2,cpd:pd2vh7vm720,w:1000/image.png",
+    "back": "https://buyer-experience-gateway.mayzing.com/stores/z2OF/mockups/id:mi2vh7vm7225,sig:0D4tpf2h8ySls4M1Uz-SWLrrzs5wWAMRLCn8z1KEWXc,c:GILDAN-BLACK,s:d802579f-ea09-4b75-a37e-2adc9a5bb616,cpd:pd2vh7vm720,w:1000/image.png"
+   }
+  },
   {
    "slug": "cleveland-football-est-1946",
    "name": "Cleveland Football Est. 1946",
