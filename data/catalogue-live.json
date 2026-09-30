@@ -3,9 +3,9 @@
   "generator": "src/catalogue_contract.py",
   "source": "src/build.py :: build.ALL - the merged master catalogue",
   "contract": "This is the ONLY authoritative list of sellable designs. Marketing must filter every queue, brief, drop and pin against it. Do not read data/products.json or data/products_live.json as a catalogue: both are stale crawl artefacts. Written by the storefront on every build; marketing reads it and never writes it.",
-  "count": 87,
+  "count": 89,
   "per_collection": {
-    "cleveland-browns": 23,
+    "cleveland-browns": 25,
     "dallas-cowboys": 10,
     "green-bay-packers": 37,
     "michigan": 17
@@ -120,6 +120,18 @@
       "site_published": true
     },
     {
+      "slug": "cleveland-skyline-dawg-pound",
+      "name": "Cleveland Skyline Dawg Pound Shirt",
+      "collection": "cleveland-browns",
+      "partner": "Mayzing",
+      "url": "https://gridironlocker.store/shop/cleveland-skyline-dawg-pound/",
+      "buy_url": "https://gridironlocker.shop/cleveland-skyline-dawg-pound?collectionId=P19bpeU2x_Ng&color=GILDAN-BLACK&productId=6abd8df35dda6a6b2d5dfc78",
+      "price_usd": 21.0,
+      "garment": "T-Shirt",
+      "theme": "city",
+      "site_published": true
+    },
+    {
       "slug": "dawg-life",
       "name": "Dawg Life",
       "collection": "cleveland-browns",
@@ -129,6 +141,18 @@
       "price_usd": 21.0,
       "garment": "T-Shirt",
       "theme": "classic",
+      "site_published": true
+    },
+    {
+      "slug": "dawg-pound-cleveland-skyline",
+      "name": "Dawg Pound Cleveland Skyline Shirt",
+      "collection": "cleveland-browns",
+      "partner": "Mayzing",
+      "url": "https://gridironlocker.store/shop/dawg-pound-cleveland-skyline/",
+      "buy_url": "https://gridironlocker.shop/dawg-pound-cleveland-skyline?collectionId=P19bpeU2x_Ng&color=GILDAN-BLACK&productId=6abd8fd9f33b76ed082bebe1",
+      "price_usd": 21.0,
+      "garment": "T-Shirt",
+      "theme": "city",
       "site_published": true
     },
     {

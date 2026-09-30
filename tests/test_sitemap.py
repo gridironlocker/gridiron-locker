@@ -74,6 +74,12 @@ class SitemapDates(unittest.TestCase):
             self.rows[build.DOMAIN + "/shop/cleveland-football-est-1946/"],
             "2026-09-29")
         self.assertEqual(
+            self.rows[build.DOMAIN + "/shop/dawg-pound-cleveland-skyline/"],
+            "2026-09-30")
+        self.assertEqual(
+            self.rows[build.DOMAIN + "/shop/cleveland-skyline-dawg-pound/"],
+            "2026-09-30")
+        self.assertEqual(
             self.rows[build.DOMAIN + "/shop/limited-edition-grb5/"],
             build.SITEMAP_DATE_FALLBACK)
 
@@ -93,9 +99,9 @@ class SitemapDates(unittest.TestCase):
 
     def test_sitemap_has_valid_unique_canonical_directory_urls(self):
         # URL-count sentinel: update ONLY when the catalogue intentionally
-        # grows/shrinks. 2026-09-29: 110 -> 111 after Cleveland Football Est.
-        # 1946 became the 23rd Browns Mayzing product.
-        self.assertEqual(len(self.rows), 111)
+        # grows/shrinks. 2026-09-30: 111 -> 113 after Dawg Pound Cleveland Skyline
+        # and Cleveland Skyline Dawg Pound became the 24th and 25th Browns Mayzing products.
+        self.assertEqual(len(self.rows), 113)
         self.assertEqual(len(self.rows), len(set(self.rows)))
         for url, lastmod in self.rows.items():
             self.assertTrue(url.startswith(build.DOMAIN + "/"), url)
