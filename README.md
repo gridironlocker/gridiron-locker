@@ -435,6 +435,15 @@ Being straight with you:
   under `/marketing/`. The domain-claim token and the (consent-gated) Pinterest Tag ID live in
   `src/config.json` as `pinterest_verify` / `pinterest_tag_id`; the Tag ships only when the ID
   is set, and only after the visitor allows analytics. `tests/test_pinterest.py` pins all of it.
+- `site/feeds/google-merchant.xml` - the Google Merchant Center data source (Google Shopping
+  product-data spec, RSS 2.0 + `g:` namespace), derived from the same rows as the Pinterest
+  feed so the two can never disagree, one `<item>` per live design in `build.ALL`, regenerated
+  by every build. In Merchant Center: **Products → Data sources → Add data source → Scheduled
+  fetch** → `https://gridironlocker.store/feeds/google-merchant.xml`, daily. Every item carries
+  `identifier_exists=no` (print-on-demand gear has no GTIN/MPN) and shipping is partner-scoped:
+  Viralstyle items carry the published `4.95 USD` US rate, Mayzing items carry none (set an
+  account-level shipping service in Merchant Center for those).
+  `tests/test_google_merchant.py` pins all of it.
 - `trend-report.md` - your daily opportunity briefing
 
 
