@@ -2,7 +2,7 @@
  "generated": "2026-10-03",
  "window_days": 10,
  "fti_formula": "round(100 * entity_mentions / peak_mentions_in_window)",
- "peak_mentions": 30,
+ "peak_mentions": 28,
  "stats": {
   "products": 89,
   "collections": 4,
@@ -11,7 +11,7 @@
   "hot": 0,
   "throwback": 0,
   "steady": 89,
-  "gaps": 5,
+  "gaps": 6,
   "moments": 1,
   "tracked_names": 18,
   "dead_campaigns": 66
@@ -19,7 +19,7 @@
  "fti_rows": [
   {
    "name": "deshaun watson",
-   "mentions": 30,
+   "mentions": 28,
    "index": 100,
    "status": "trending",
    "gap": true,
@@ -29,7 +29,7 @@
   {
    "name": "micah parsons",
    "mentions": 8,
-   "index": 27,
+   "index": 29,
    "status": "trending",
    "gap": false,
    "shoppable": true,
@@ -37,8 +37,8 @@
   },
   {
    "name": "matt lafleur",
-   "mentions": 7,
-   "index": 23,
+   "mentions": 6,
+   "index": 21,
    "status": "trending",
    "gap": true,
    "shoppable": false,
@@ -46,8 +46,8 @@
   },
   {
    "name": "kyle whittingham",
-   "mentions": 6,
-   "index": 20,
+   "mentions": 5,
+   "index": 18,
    "status": "trending",
    "gap": true,
    "shoppable": false,
@@ -56,16 +56,25 @@
   {
    "name": "dak prescott",
    "mentions": 4,
-   "index": 13,
+   "index": 14,
    "status": "trending",
    "gap": true,
    "shoppable": false,
    "collection": "dallas-cowboys"
   },
   {
+   "name": "jordan marshall",
+   "mentions": 3,
+   "index": 11,
+   "status": "trending",
+   "gap": true,
+   "shoppable": false,
+   "collection": "michigan"
+  },
+  {
    "name": "todd monken",
    "mentions": 3,
-   "index": 10,
+   "index": 11,
    "status": "trending",
    "gap": true,
    "shoppable": false,
@@ -81,13 +90,13 @@
    "collection": "dallas-cowboys"
   },
   {
-   "name": "jordan marshall",
+   "name": "myles garrett",
    "mentions": 2,
    "index": 7,
    "status": "steady",
    "gap": false,
-   "shoppable": false,
-   "collection": "michigan"
+   "shoppable": true,
+   "collection": "cleveland-browns"
   },
   {
    "name": "shedeur sanders",
@@ -101,7 +110,7 @@
   {
    "name": "denzel ward",
    "mentions": 1,
-   "index": 3,
+   "index": 4,
    "status": "steady",
    "gap": false,
    "shoppable": true,
@@ -110,7 +119,7 @@
   {
    "name": "jordan love",
    "mentions": 1,
-   "index": 3,
+   "index": 4,
    "status": "steady",
    "gap": false,
    "shoppable": true,
@@ -119,7 +128,7 @@
   {
    "name": "josh jacobs",
    "mentions": 1,
-   "index": 3,
+   "index": 4,
    "status": "steady",
    "gap": false,
    "shoppable": false,
@@ -162,15 +171,6 @@
    "collection": "cleveland-browns"
   },
   {
-   "name": "myles garrett",
-   "mentions": 0,
-   "index": 0,
-   "status": "quiet",
-   "gap": false,
-   "shoppable": true,
-   "collection": "cleveland-browns"
-  },
-  {
    "name": "robert tonyan",
    "mentions": 0,
    "index": 0,
@@ -183,7 +183,7 @@
  "gaps": [
   {
    "name": "deshaun watson",
-   "mentions": 30,
+   "mentions": 28,
    "index": 100,
    "status": "trending",
    "gap": true,
@@ -192,8 +192,8 @@
   },
   {
    "name": "matt lafleur",
-   "mentions": 7,
-   "index": 23,
+   "mentions": 6,
+   "index": 21,
    "status": "trending",
    "gap": true,
    "shoppable": false,
@@ -201,8 +201,8 @@
   },
   {
    "name": "kyle whittingham",
-   "mentions": 6,
-   "index": 20,
+   "mentions": 5,
+   "index": 18,
    "status": "trending",
    "gap": true,
    "shoppable": false,
@@ -211,16 +211,25 @@
   {
    "name": "dak prescott",
    "mentions": 4,
-   "index": 13,
+   "index": 14,
    "status": "trending",
    "gap": true,
    "shoppable": false,
    "collection": "dallas-cowboys"
   },
   {
+   "name": "jordan marshall",
+   "mentions": 3,
+   "index": 11,
+   "status": "trending",
+   "gap": true,
+   "shoppable": false,
+   "collection": "michigan"
+  },
+  {
    "name": "todd monken",
    "mentions": 3,
-   "index": 10,
+   "index": 11,
    "status": "trending",
    "gap": true,
    "shoppable": false,
@@ -241,7 +250,7 @@
    "gaps": [
     {
      "name": "deshaun watson",
-     "mentions": 30,
+     "mentions": 28,
      "index": 100,
      "status": "trending",
      "gap": true,
@@ -251,7 +260,7 @@
     {
      "name": "todd monken",
      "mentions": 3,
-     "index": 10,
+     "index": 11,
      "status": "trending",
      "gap": true,
      "shoppable": false,
@@ -265,8 +274,8 @@
     "deshaun",
     "thursday",
     "football",
-    "night",
-    "pittsburgh"
+    "pittsburgh",
+    "night"
    ],
    "headline_count": 100,
    "headlines": [
@@ -317,7 +326,7 @@
     {
      "name": "dak prescott",
      "mentions": 4,
-     "index": 13,
+     "index": 14,
      "status": "trending",
      "gap": true,
      "shoppable": false,
@@ -332,7 +341,7 @@
     "trade",
     "houston",
     "watch",
-    "predictions"
+    "loss"
    ],
    "headline_count": 100,
    "headlines": [
@@ -382,8 +391,8 @@
    "gaps": [
     {
      "name": "matt lafleur",
-     "mentions": 7,
-     "index": 23,
+     "mentions": 6,
+     "index": 21,
      "status": "trending",
      "gap": true,
      "shoppable": false,
@@ -394,11 +403,11 @@
     "packers",
     "green",
     "offensive",
+    "four",
     "line",
-    "lafleur",
+    "practice",
     "kevin",
-    "zeitler",
-    "update"
+    "zeitler"
    ],
    "headline_count": 100,
    "headlines": [
@@ -448,8 +457,17 @@
    "gaps": [
     {
      "name": "kyle whittingham",
-     "mentions": 6,
-     "index": 20,
+     "mentions": 5,
+     "index": 18,
+     "status": "trending",
+     "gap": true,
+     "shoppable": false,
+     "collection": "michigan"
+    },
+    {
+     "name": "jordan marshall",
+     "mentions": 3,
+     "index": 11,
      "status": "trending",
      "gap": true,
      "shoppable": false,
@@ -460,25 +478,19 @@
     "michigan",
     "football",
     "iowa",
-    "watch",
     "wolverines",
     "road",
-    "channel",
-    "time"
+    "watch",
+    "loss",
+    "channel"
    ],
    "headline_count": 100,
    "headlines": [
     {
      "title": "What channel is Michigan football vs Minnesota on today? Time, TV",
      "url": "https://news.google.com/rss/articles/CBMiiAJBVV95cUxNbUFrU1ByUGNNbk40TWxPTHNlQnNzYjZnXzRaVXo2RGxjMi1odTVEWVdvRkFPcGpJV1dPWjNBeDJ3TGNCTHZGczdFblBkMmNmeUlqdnAwQW9TWHk5NjZadE9fN1ViZVpyYl9NNExsRC1NNk01a2FtSjRmNnFtTGk1b2YwTnp4MjZRNnUtbFJRamNxS2s3azN2dmEwM0xUWVEzdjItaTI0MEJPOXlsLWx4Z2pmd0FCZFlkbjV2T3FndFR0OHVtT1RmaEhNMm5pejZuLVprX3NQM2lUQzlyLUg1eVcxSTdnLWlzRWZmNXVhR0tybVlxQl8za1JNVTFKZHVuWXk0X1BOUVg?oc=5",
-     "source": "The Detroit News",
+     "source": "detroitnews.com",
      "pub": "Sat, 03 Oct 2026 16:21:00 GMT"
-    },
-    {
-     "title": "Iowa 20-19 Michigan (Sep 26, 2026) Game Recap",
-     "url": "https://news.google.com/rss/articles/CBMibEFVX3lxTE01LW9wZFl0R2xhUkFJZVk4U2ZGMHl5WUVEa053Ry04QXNJZU1MX3NQVkZmSmpreTFRNEZnN1RhVEdnU1RDekE3M280V21ZQmViZXlzeGdhcllUc0RfZnh0S1VhcFViV3I3cjBtMw?oc=5",
-     "source": "espn.com",
-     "pub": "Sat, 26 Sep 2026 23:30:01 GMT"
     },
     {
      "title": "How to watch Michigan vs Minnesota: Live stream College Football, NCAA, TV channel",
@@ -487,16 +499,22 @@
      "pub": "Sat, 03 Oct 2026 14:20:00 GMT"
     },
     {
+     "title": "What channel is Michigan football vs Minnesota? Week 5 time, TV schedule",
+     "url": "https://news.google.com/rss/articles/CBMi0wFBVV95cUxNbVZ0LVgyTVZoTTkxcDFoYlZqZklyLVQ0Vktmd29KcVdtbUVZcUM2U3l4R2k1R2dyTlo1T1lKcmJOcC1vWDBCNi13OElESGcyUnRSV1hGSGc0VkYzX1JWV2UyZmh3YlBNODBVT3ViWXMxdmxmZ0tpZTlQdVY4R3JVRVllYWlhRjF2allTVExqS01scHlZU0hGMi1HT1JGaDB3NFNzMDltLXZIZlRjNEVuVGJza0ZhNzE4bk4zSUJubGl6ZEhrX3FDUS05cjNWd0dZWExJ?oc=5",
+     "source": "Detroit Free Press",
+     "pub": "Sat, 03 Oct 2026 15:39:00 GMT"
+    },
+    {
+     "title": "Iowa 20-19 Michigan (Sep 26, 2026) Game Recap",
+     "url": "https://news.google.com/rss/articles/CBMibEFVX3lxTE01LW9wZFl0R2xhUkFJZVk4U2ZGMHl5WUVEa053Ry04QXNJZU1MX3NQVkZmSmpreTFRNEZnN1RhVEdnU1RDekE3M280V21ZQmViZXlzeGdhcllUc0RfZnh0S1VhcFViV3I3cjBtMw?oc=5",
+     "source": "ESPN",
+     "pub": "Sat, 26 Sep 2026 23:30:01 GMT"
+    },
+    {
      "title": "How to Watch Iowa vs. Michigan: TV Channel, Live Stream, Time",
      "url": "https://news.google.com/rss/articles/CBMivAFBVV95cUxNUFlYTFZTVHVkM3dqZE1MdjE1N3VWRmk1Z2kwZjlUWmhTZ2NhLW1Vc0JiU01wZmU4OWRqUjZUODQwSElyZ3dtMmZwVXZYaG8wTmgxMWRDc0VxXzZyWjZfOXBLOXdqNTRjeU1VSGxtLS1SX1VSNGxsS19FdmVjYzR1LTl2TU1BSnpwQThUOHBWMmlCb1poWGFVU3VvWHdfNkZiVGJDemczS3ZrMFpyQUhWaHVTai15cmVYM1M4Vg?oc=5",
      "source": "FOX Sports",
      "pub": "Sat, 26 Sep 2026 12:33:30 GMT"
-    },
-    {
-     "title": "National Experts Split in Game Between Michigan Football vs. Minnesota \u2014 But Should They?",
-     "url": "https://news.google.com/rss/articles/CBMiygFBVV95cUxNSWt3cVBvSS1KaW0xZ0VrNldhM0JVU3R3TzMzYXlRUDdPWE92UHZpdVNSWkg2bmhfemo2TmVCdk84Tk15dzFPY0RFSnludmhCZ3lnZEE5MEIzWU1Lb1dZM25KTm5mWVB6ZGpvaV8yR21NTWRSamh1WWRUMDhZSk5TdHRvdXgxd3FDMV9YNnE2SHBkUWZMS0taaXV4a2ZNT0JMRjJFN1VqbDlqbHZKT2pNT2pPQks1SlNTekU1MURLdUgxYkdKTEtBVThR?oc=5",
-     "source": "si.com",
-     "pub": "Fri, 02 Oct 2026 15:00:00 GMT"
     }
    ],
    "fti_count": 4
