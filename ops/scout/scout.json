@@ -2,7 +2,7 @@
  "generated": "2026-10-03",
  "window_days": 10,
  "fti_formula": "round(100 * entity_mentions / peak_mentions_in_window)",
- "peak_mentions": 32,
+ "peak_mentions": 30,
  "stats": {
   "products": 89,
   "collections": 4,
@@ -19,7 +19,7 @@
  "fti_rows": [
   {
    "name": "deshaun watson",
-   "mentions": 32,
+   "mentions": 30,
    "index": 100,
    "status": "trending",
    "gap": true,
@@ -27,27 +27,27 @@
    "collection": "cleveland-browns"
   },
   {
-   "name": "matt lafleur",
-   "mentions": 8,
-   "index": 25,
-   "status": "trending",
-   "gap": true,
-   "shoppable": false,
-   "collection": "green-bay-packers"
-  },
-  {
    "name": "micah parsons",
    "mentions": 8,
-   "index": 25,
+   "index": 27,
    "status": "trending",
    "gap": false,
    "shoppable": true,
    "collection": "green-bay-packers"
   },
   {
-   "name": "kyle whittingham",
+   "name": "matt lafleur",
    "mentions": 7,
-   "index": 22,
+   "index": 23,
+   "status": "trending",
+   "gap": true,
+   "shoppable": false,
+   "collection": "green-bay-packers"
+  },
+  {
+   "name": "kyle whittingham",
+   "mentions": 6,
+   "index": 20,
    "status": "trending",
    "gap": true,
    "shoppable": false,
@@ -56,7 +56,7 @@
   {
    "name": "dak prescott",
    "mentions": 4,
-   "index": 12,
+   "index": 13,
    "status": "trending",
    "gap": true,
    "shoppable": false,
@@ -65,7 +65,7 @@
   {
    "name": "todd monken",
    "mentions": 3,
-   "index": 9,
+   "index": 10,
    "status": "trending",
    "gap": true,
    "shoppable": false,
@@ -74,7 +74,7 @@
   {
    "name": "ceedee lamb",
    "mentions": 2,
-   "index": 6,
+   "index": 7,
    "status": "steady",
    "gap": false,
    "shoppable": false,
@@ -83,7 +83,7 @@
   {
    "name": "jordan marshall",
    "mentions": 2,
-   "index": 6,
+   "index": 7,
    "status": "steady",
    "gap": false,
    "shoppable": false,
@@ -92,7 +92,7 @@
   {
    "name": "shedeur sanders",
    "mentions": 2,
-   "index": 6,
+   "index": 7,
    "status": "steady",
    "gap": false,
    "shoppable": true,
@@ -183,7 +183,7 @@
  "gaps": [
   {
    "name": "deshaun watson",
-   "mentions": 32,
+   "mentions": 30,
    "index": 100,
    "status": "trending",
    "gap": true,
@@ -192,8 +192,8 @@
   },
   {
    "name": "matt lafleur",
-   "mentions": 8,
-   "index": 25,
+   "mentions": 7,
+   "index": 23,
    "status": "trending",
    "gap": true,
    "shoppable": false,
@@ -201,8 +201,8 @@
   },
   {
    "name": "kyle whittingham",
-   "mentions": 7,
-   "index": 22,
+   "mentions": 6,
+   "index": 20,
    "status": "trending",
    "gap": true,
    "shoppable": false,
@@ -211,7 +211,7 @@
   {
    "name": "dak prescott",
    "mentions": 4,
-   "index": 12,
+   "index": 13,
    "status": "trending",
    "gap": true,
    "shoppable": false,
@@ -220,7 +220,7 @@
   {
    "name": "todd monken",
    "mentions": 3,
-   "index": 9,
+   "index": 10,
    "status": "trending",
    "gap": true,
    "shoppable": false,
@@ -241,7 +241,7 @@
    "gaps": [
     {
      "name": "deshaun watson",
-     "mentions": 32,
+     "mentions": 30,
      "index": 100,
      "status": "trending",
      "gap": true,
@@ -251,7 +251,7 @@
     {
      "name": "todd monken",
      "mentions": 3,
-     "index": 9,
+     "index": 10,
      "status": "trending",
      "gap": true,
      "shoppable": false,
@@ -279,7 +279,7 @@
     {
      "title": "Steelers vs. Browns: Three must-know storylines for Thursday's Week 4 prime-time game",
      "url": "https://news.google.com/rss/articles/CBMirAFBVV95cUxNaFFuV180QlFBTFROV0x5NGh3TUpiN2cyZnpEaWZncHpWQjZqM3c4NTVObGZfVm5McGo3OTFNNnc2V3lzV0s5di0wNkJsV3Y2aVFldFJxZUhzTnA4STUtVmw0VUNqT0N3RnpTT3ZXLXBsVUt5VlRKWWVXdTFFby01a3l5UmtndEJDZFd0RUxya1hhcnNGeWxWWUtCVWxaVUFDQTlFSF9iYjZGRmpj?oc=5",
-     "source": "nfl.com",
+     "source": "NFL.com",
      "pub": "Wed, 30 Sep 2026 14:01:27 GMT"
     },
     {
@@ -291,14 +291,14 @@
     {
      "title": "Steelers edged by Browns, 27-24",
      "url": "https://news.google.com/rss/articles/CBMibEFVX3lxTE1PejNOVHF0OXN0bnVYaUM4eHIxcDNmZ0t1YzlVY0J0Y0FGOTFxend3NmJzbGlYQm9aRTdaNnFhb0lCRkFGQ1M4dGEwczFIMWlocmtxa1pvXzhaeEQ1cjRBd09ROTJkeV9PbXJ3Tw?oc=5",
-     "source": "Steelers.com",
+     "source": "steelers.com",
      "pub": "Fri, 02 Oct 2026 05:39:34 GMT"
     },
     {
-     "title": "Browns vs. Steelers: How to Watch, Listen & Live Stream",
-     "url": "https://news.google.com/rss/articles/CBMimAFBVV95cUxPUDhxNFBJTXlrRnFXV0pQc0M3VEx4LW02ME9fS1lzcFpDNmVoZFJPelYxZWhnRHM1YWVGQkxsc3dfWlRRdmNNQzE4dmtwQ04xaUJwYkJvWEo5MzFjNEJsRE9XdkdTRkRvVVBiMGNmMjFXaHZGWFNWVjIwZEZheDBGOWZ3Y0l1RmdvY2xBcnBDX1lGVTR1Z2lWXw?oc=5",
-     "source": "Cleveland Browns",
-     "pub": "Fri, 02 Oct 2026 00:15:00 GMT"
+     "title": "Cleveland Browns News and Rumors 10/3/26: Good Fortune for Once",
+     "url": "https://news.google.com/rss/articles/CBMilwFBVV95cUxQX3JfTUtFWHdDVGFRU0ltbDdMNkl6M214OTlha2puTWVYdGtmT2YwazI3U2RLU2xaMW1GazBudEQ3OEFOUjUyU1hPZVVQOVBNUVBQVXNlQlJ4NS14NTlBbEs4emtBbkhqRmhXUkVkR1V0RGpzaFdHTVo5SFppc0NDYXFta0o3U18xXy1EanlzWjBWQjh5OWdN?oc=5",
+     "source": "Cleveland 19 News",
+     "pub": "Sat, 03 Oct 2026 12:45:00 GMT"
     }
    ],
    "fti_count": 7
@@ -317,7 +317,7 @@
     {
      "name": "dak prescott",
      "mentions": 4,
-     "index": 12,
+     "index": 13,
      "status": "trending",
      "gap": true,
      "shoppable": false,
@@ -330,8 +330,8 @@
     "joey",
     "porter",
     "trade",
-    "watch",
     "houston",
+    "watch",
     "predictions"
    ],
    "headline_count": 100,
@@ -382,8 +382,8 @@
    "gaps": [
     {
      "name": "matt lafleur",
-     "mentions": 8,
-     "index": 25,
+     "mentions": 7,
+     "index": 23,
      "status": "trending",
      "gap": true,
      "shoppable": false,
@@ -394,11 +394,11 @@
     "packers",
     "green",
     "offensive",
-    "lafleur",
     "line",
-    "update",
-    "four",
-    "matt"
+    "lafleur",
+    "kevin",
+    "zeitler",
+    "update"
    ],
    "headline_count": 100,
    "headlines": [
@@ -409,28 +409,28 @@
      "pub": "Fri, 25 Sep 2026 07:00:00 GMT"
     },
     {
+     "title": "Green Bay Packers News: Packers fans must free themselves",
+     "url": "https://news.google.com/rss/articles/CBMivAFBVV95cUxNQVl5UjNvTXI0RnFtWVRkMTZvWktJZkQzZ01xUEZVSi1ZMGxIUU5SVW5IYUI5Y3EySllYcUlXNk82WndFc2FQN3JfYnlKdndOcHo3ZEk5d1lQWXF3NmRxeXVWeXBrTW1fRGtoVFJvT0ViaXpmZXd2ekJGMFNsSFROb1NnLWNKcmJ5cDF5LUt3UngweEVZQWZSMkxXblF0Rl94Q2pFc0VZUTBMLUJpRGxLeDA4dHVtQ1VuTU9XXw?oc=5",
+     "source": "Acme Packing Company",
+     "pub": "Fri, 25 Sep 2026 07:00:00 GMT"
+    },
+    {
      "title": "Week Four Expert Picks: Packers at Buccaneers",
      "url": "https://news.google.com/rss/articles/CBMiggFBVV95cUxOZnU1S1JyeFJDYk5NMjdYaHViakxSeDNieGRINERJek0xejVmbFpJOFVNcGNNT3B4SmlXa2hxSXFnVncxWEdKX0duVmdUVHM4bU0wUloyejI3WUdIOUtoRG10UlBIOWhoOEowVTFXbVJFaERzTzZaWnNGejZkekRESjlB?oc=5",
      "source": "Tampa Bay Buccaneers",
      "pub": "Fri, 02 Oct 2026 18:11:29 GMT"
     },
     {
-     "title": "Green Bay Packers News: Packers fans must free themselves",
-     "url": "https://news.google.com/rss/articles/CBMivAFBVV95cUxNQVl5UjNvTXI0RnFtWVRkMTZvWktJZkQzZ01xUEZVSi1ZMGxIUU5SVW5IYUI5Y3EySllYcUlXNk82WndFc2FQN3JfYnlKdndOcHo3ZEk5d1lQWXF3NmRxeXVWeXBrTW1fRGtoVFJvT0ViaXpmZXd2ekJGMFNsSFROb1NnLWNKcmJ5cDF5LUt3UngweEVZQWZSMkxXblF0Rl94Q2pFc0VZUTBMLUJpRGxLeDA4dHVtQ1VuTU9XXw?oc=5",
-     "source": "acmepackingcompany.com",
-     "pub": "Fri, 25 Sep 2026 07:00:00 GMT"
-    },
-    {
-     "title": "Falcons-Packers on 'Thursday Night Football': What We Learned from Atlanta's 35-14 win",
-     "url": "https://news.google.com/rss/articles/CBMirAFBVV95cUxQNVU4bjFwc0Y2NDZ6d3MwbkRzY0dPSzhJLUl6anBIY0xkaWNFbmZQQ0ZBYm1oUkkzbDdvcXNmamloLWIxRVdsbVpyNlU5TWFhZFVjOWNBeWRoLWZ5dlB6Wm5fd0pYcG05aHlWcDluOUxzQzhsMHZhOEc4ZnBDWWRNYkRaVVpxSkx3YXNRdEE1a3JDY0MxTVJrN0ptNTJKU29rcWxjT21JVVc2UXVv?oc=5",
-     "source": "nfl.com",
-     "pub": "Thu, 24 Sep 2026 07:00:00 GMT"
-    },
-    {
      "title": "Falcons - Packers recap: Awesome Atlanta gives Green Bay Grief",
      "url": "https://news.google.com/rss/articles/CBMi7AFBVV95cUxPOGhMLUo4TW5RbHNxM0hJODNITVNQYjk5Yy1Lb0ZxQ3BiX0czeThybEd0QjZKdTN6WXJiRE0xb3pWODFxMmdDM1pOd0FyOUVhdjN5dW9QcW1tM1B5QlRMM1pOMTVZSXRVUmFobTR0UEpIRXFsdlJOTDRBNWozcWN0OGxPMUxrT1lZaktRT2ZYalJ3S3NTWjd2S2Z4UFp0d3U2R2d6Ti11MnZPYjVsYVphVVB5OFp5ZzY0Ujg3cHhZYUtjQmZZbjVUb2pINUJ5ajgwUmxwdjRzUU5lcEJHaXNhYV9IUjk1dWE2ZFNqag?oc=5",
      "source": "The Falcoholic",
      "pub": "Fri, 25 Sep 2026 07:00:00 GMT"
+    },
+    {
+     "title": "Green Bay Packers could strengthen defensive front with intriguing trade option",
+     "url": "https://news.google.com/rss/articles/CBMiiwFBVV95cUxPSHhWa3NzSFhYWnFobFZuQkVTd2NwVW8tZF9aZ2NadGNRN2ctUDlfTkVoTXZjeE4yeVQ1SldKYmN5OF9vNm12R2tyUnZJRlpVNGF2cmJQWmRYeVFBR1ZKMERrNEVBUEpGc2tHVG5CdW9uZFVOUmxWV2pyY1NRdGFEWGlXbXh6enowTjk4?oc=5",
+     "source": "Yahoo Sports",
+     "pub": "Fri, 02 Oct 2026 10:47:10 GMT"
     }
    ],
    "fti_count": 5
@@ -448,8 +448,8 @@
    "gaps": [
     {
      "name": "kyle whittingham",
-     "mentions": 7,
-     "index": 22,
+     "mentions": 6,
+     "index": 20,
      "status": "trending",
      "gap": true,
      "shoppable": false,
@@ -460,11 +460,11 @@
     "michigan",
     "football",
     "iowa",
-    "wolverines",
     "watch",
+    "wolverines",
     "road",
     "channel",
-    "predictions"
+    "time"
    ],
    "headline_count": 100,
    "headlines": [
@@ -472,7 +472,7 @@
      "title": "What channel is Michigan football vs Minnesota on today? Time, TV",
      "url": "https://news.google.com/rss/articles/CBMiiAJBVV95cUxNbUFrU1ByUGNNbk40TWxPTHNlQnNzYjZnXzRaVXo2RGxjMi1odTVEWVdvRkFPcGpJV1dPWjNBeDJ3TGNCTHZGczdFblBkMmNmeUlqdnAwQW9TWHk5NjZadE9fN1ViZVpyYl9NNExsRC1NNk01a2FtSjRmNnFtTGk1b2YwTnp4MjZRNnUtbFJRamNxS2s3azN2dmEwM0xUWVEzdjItaTI0MEJPOXlsLWx4Z2pmd0FCZFlkbjV2T3FndFR0OHVtT1RmaEhNMm5pejZuLVprX3NQM2lUQzlyLUg1eVcxSTdnLWlzRWZmNXVhR0tybVlxQl8za1JNVTFKZHVuWXk0X1BOUVg?oc=5",
      "source": "The Detroit News",
-     "pub": "Sat, 03 Oct 2026 09:26:00 GMT"
+     "pub": "Sat, 03 Oct 2026 16:21:00 GMT"
     },
     {
      "title": "Iowa 20-19 Michigan (Sep 26, 2026) Game Recap",
@@ -481,10 +481,10 @@
      "pub": "Sat, 26 Sep 2026 23:30:01 GMT"
     },
     {
-     "title": "What channel is Michigan football vs Minnesota? Week 5 time, TV schedule",
-     "url": "https://news.google.com/rss/articles/CBMi0wFBVV95cUxNbVZ0LVgyTVZoTTkxcDFoYlZqZklyLVQ0Vktmd29KcVdtbUVZcUM2U3l4R2k1R2dyTlo1T1lKcmJOcC1vWDBCNi13OElESGcyUnRSV1hGSGc0VkYzX1JWV2UyZmh3YlBNODBVT3ViWXMxdmxmZ0tpZTlQdVY4R3JVRVllYWlhRjF2allTVExqS01scHlZU0hGMi1HT1JGaDB3NFNzMDltLXZIZlRjNEVuVGJza0ZhNzE4bk4zSUJubGl6ZEhrX3FDUS05cjNWd0dZWExJ?oc=5",
-     "source": "Detroit Free Press",
-     "pub": "Sat, 03 Oct 2026 15:39:00 GMT"
+     "title": "How to watch Michigan vs Minnesota: Live stream College Football, NCAA, TV channel",
+     "url": "https://news.google.com/rss/articles/CBMiiAFBVV95cUxQbzFzNlBrRmxDMUJmUzZDd09BMXoxZWhnTmp4TW1zWk83WThFc0wxMm1QTHJwU3VPOFBDc2tPWVBDZGtQalp1UzFvOUVhZlprTDRrclRrNVFuRlhBQzY0eDBsa19yQThtRkVIamcxOVJSZWllQWJmSWRwODkzNGVzb0NQVWlCV3lu?oc=5",
+     "source": "Yahoo Sports",
+     "pub": "Sat, 03 Oct 2026 14:20:00 GMT"
     },
     {
      "title": "How to Watch Iowa vs. Michigan: TV Channel, Live Stream, Time",
@@ -493,10 +493,10 @@
      "pub": "Sat, 26 Sep 2026 12:33:30 GMT"
     },
     {
-     "title": "How to watch Michigan vs Minnesota: Live stream College Football, NCAA, TV channel",
-     "url": "https://news.google.com/rss/articles/CBMiiAFBVV95cUxQbzFzNlBrRmxDMUJmUzZDd09BMXoxZWhnTmp4TW1zWk83WThFc0wxMm1QTHJwU3VPOFBDc2tPWVBDZGtQalp1UzFvOUVhZlprTDRrclRrNVFuRlhBQzY0eDBsa19yQThtRkVIamcxOVJSZWllQWJmSWRwODkzNGVzb0NQVWlCV3lu?oc=5",
-     "source": "sports.yahoo.com",
-     "pub": "Sat, 03 Oct 2026 14:20:00 GMT"
+     "title": "National Experts Split in Game Between Michigan Football vs. Minnesota \u2014 But Should They?",
+     "url": "https://news.google.com/rss/articles/CBMiygFBVV95cUxNSWt3cVBvSS1KaW0xZ0VrNldhM0JVU3R3TzMzYXlRUDdPWE92UHZpdVNSWkg2bmhfemo2TmVCdk84Tk15dzFPY0RFSnludmhCZ3lnZEE5MEIzWU1Lb1dZM25KTm5mWVB6ZGpvaV8yR21NTWRSamh1WWRUMDhZSk5TdHRvdXgxd3FDMV9YNnE2SHBkUWZMS0taaXV4a2ZNT0JMRjJFN1VqbDlqbHZKT2pNT2pPQks1SlNTekU1MURLdUgxYkdKTEtBVThR?oc=5",
+     "source": "si.com",
+     "pub": "Fri, 02 Oct 2026 15:00:00 GMT"
     }
    ],
    "fti_count": 4
