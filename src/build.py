@@ -4453,6 +4453,14 @@ def pinterest_feed_csv(rows=None):
 #       Mayzing publishes no rate, so its items carry none and rely on the
 #       Merchant Center account-level shipping setting.
 GOOGLE_FEED_PATH = "feeds/google-merchant.xml"
+_GOOGLE_ID_MAX = 50
+
+
+def google_item_id(slug):
+    if len(slug) <= _GOOGLE_ID_MAX:
+        return slug
+    digest = hashlib.sha1(slug.encode("utf-8")).hexdigest()[:8]
+    return f"{slug[:_GOOGLE_ID_MAX - 9]}-{digest}"
 
 
 def google_feed_items(rows=None):
@@ -4464,6 +4472,7 @@ def google_feed_items(rows=None):
     items = []
     for r in (rows if rows is not None else pinterest_feed_rows()):
         g = dict(r)
+        g["id"] = google_item_id(r["id"])
         g["identifier_exists"] = "no"
         # custom_label_0 is the fulfilment partner (see pinterest_feed_rows).
         if g.get("custom_label_0") == "Viralstyle":
