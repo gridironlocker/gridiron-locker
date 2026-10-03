@@ -4434,6 +4434,84 @@ def pinterest_feed_csv(rows=None):
     return buf.getvalue()
 
 
+# ------------------------------------------------------- Google Merchant
+# Google Merchant Center "scheduled fetch" data source: one RSS 2.0 XML file
+# (the Google Shopping product-data spec, support.google.com/merchants/answer/
+# 7052112) that Merchant Center downloads daily from
+#   https://gridironlocker.store/feeds/google-merchant.xml
+# The attribute vocabulary is the same one pinterest_feed_rows() already
+# emits - Pinterest's retail-catalogue spec is a copy of Google's - so the
+# rows are derived from that function and stay in lockstep with it: one item
+# per live design in ALL, never a retired slug, never a held design.
+#
+# Two Google-specific additions:
+#   identifier_exists=no - print-on-demand fan apparel has no GTIN/MPN and no
+#       manufacturer brand; without this flag Google disapproves every item
+#       for "missing GTIN". ("no" is the spec's value, not "false".)
+#   shipping            - partner-scoped, same rule as the page schema above:
+#       Viralstyle publishes a $4.95 US standard rate, so its items carry it;
+#       Mayzing publishes no rate, so its items carry none and rely on the
+#       Merchant Center account-level shipping setting.
+GOOGLE_FEED_PATH = "feeds/google-merchant.xml"
+
+
+def google_feed_items(rows=None):
+    """Google Shopping item dicts, one per live design.
+
+    Pure: derives from pinterest_feed_rows(), touches no files.
+    tests/test_google_merchant.py calls it directly.
+    """
+    items = []
+    for r in (rows if rows is not None else pinterest_feed_rows()):
+        g = dict(r)
+        g["identifier_exists"] = "no"
+        # custom_label_0 is the fulfilment partner (see pinterest_feed_rows).
+        if g.get("custom_label_0") == "Viralstyle":
+            g["shipping"] = {"country": "US", "service": "Standard",
+                             "price": "4.95 USD"}
+        items.append(g)
+    return items
+
+
+# Attribute order in each <item>. Everything is namespaced g: except <link>,
+# which the RSS flavour of the spec keeps un-namespaced.
+_GOOGLE_FEED_FIELDS = [
+    "id", "title", "description", "link", "image_link", "additional_image_link",
+    "price", "availability", "condition", "brand", "google_product_category",
+    "product_type", "gender", "age_group", "identifier_exists",
+    "custom_label_0", "custom_label_1",
+]
+
+
+def google_feed_xml(items=None):
+    """Render the feed as UTF-8 RSS 2.0 XML text."""
+    esc = lambda s: html.escape(str(s), quote=False)  # noqa: E731
+    out = ['<?xml version="1.0" encoding="UTF-8"?>',
+           '<rss version="2.0" xmlns:g="http://base.google.com/ns/1.0">',
+           "<channel>",
+           f"<title>{esc(BRAND)}</title>",
+           f"<link>{esc(DOMAIN + '/')}</link>",
+           f"<description>{esc(CFG.get('tagline', ''))}</description>"]
+    for it in (items if items is not None else google_feed_items()):
+        out.append("<item>")
+        for f in _GOOGLE_FEED_FIELDS:
+            v = it.get(f, "")
+            if not v:
+                continue
+            tag = "link" if f == "link" else f"g:{f}"
+            out.append(f"<{tag}>{esc(v)}</{tag}>")
+        ship = it.get("shipping")
+        if ship:
+            out.append("<g:shipping>"
+                       f"<g:country>{esc(ship['country'])}</g:country>"
+                       f"<g:service>{esc(ship['service'])}</g:service>"
+                       f"<g:price>{esc(ship['price'])}</g:price>"
+                       "</g:shipping>")
+        out.append("</item>")
+    out += ["</channel>", "</rss>", ""]
+    return "\n".join(out)
+
+
 def assets():
     # Pinterest Catalogs data source - see pinterest_feed_rows(). Written
     # here, with the other machine-readable outputs (search index, feed.xml,
@@ -4441,6 +4519,12 @@ def assets():
     pin_rows = pinterest_feed_rows()
     write(PINTEREST_FEED_PATH, pinterest_feed_csv(pin_rows))
     print(f"pinterest feed: {len(pin_rows)} products -> /{PINTEREST_FEED_PATH}")
+
+    # Google Merchant Center scheduled-fetch feed - see google_feed_items().
+    # Derived from the same rows, so the two catalogues can never disagree.
+    g_items = google_feed_items(pin_rows)
+    write(GOOGLE_FEED_PATH, google_feed_xml(g_items))
+    print(f"google merchant feed: {len(g_items)} products -> /{GOOGLE_FEED_PATH}")
 
     # The stylesheet is a SOURCE file (src/style.css) copied out on every
     # build. It used to live in site/assets/ and be hand-edited, which meant
