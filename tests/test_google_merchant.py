@@ -59,10 +59,23 @@ class TestGoogleMerchantFeed(unittest.TestCase):
 
     def test_one_item_per_live_design(self):
         ids = sorted(gtext(i, "id") for i in feed_items())
-        live = sorted(i["slug"] for i in build.ALL)
+        live = sorted(build.google_item_id(i["slug"]) for i in build.ALL)
         self.assertEqual(ids, live,
                          "feed must list exactly the live catalogue - no "
                          "retired slugs, no held designs, no omissions")
+
+    def test_ids_obey_google_limit_and_stay_stable(self):
+        ids = [gtext(i, "id") for i in feed_items()]
+        self.assertTrue(all(len(sid) <= 50 for sid in ids))
+        self.assertEqual(len(ids), len(set(ids)), "feed ids must be unique")
+        for item in build.ALL:
+            slug = item["slug"]
+            if len(slug) <= 50:
+                self.assertEqual(build.google_item_id(slug), slug)
+        self.assertEqual(
+            build.google_item_id(
+                "limited-edition-cleveland-football-beware-of-the-dawgs"),
+            "limited-edition-cleveland-football-beware-b0e407b2")
 
     def test_required_fields_on_every_item(self):
         for item in feed_items():
@@ -84,7 +97,8 @@ class TestGoogleMerchantFeed(unittest.TestCase):
                              "identifier_exists=no Google disapproves it")
 
     def test_links_stay_on_claimed_domain(self):
-        urls = {i["slug"]: build.DOMAIN + i["url"] for i in build.ALL}
+        urls = {build.google_item_id(i["slug"]): build.DOMAIN + i["url"]
+                for i in build.ALL}
         for item in feed_items():
             sid = gtext(item, "id")
             link = item.find("link").text
@@ -94,7 +108,8 @@ class TestGoogleMerchantFeed(unittest.TestCase):
             self.assertTrue(gtext(item, "image_link").startswith("https://"), sid)
 
     def test_shipping_is_partner_scoped(self):
-        partner = {i["slug"]: i["partner"] for i in build.ALL}
+        partner = {build.google_item_id(i["slug"]): i["partner"]
+                   for i in build.ALL}
         for item in feed_items():
             sid = gtext(item, "id")
             ship = item.find(G + "shipping")
