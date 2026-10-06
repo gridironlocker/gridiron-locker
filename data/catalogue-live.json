@@ -1,16 +1,28 @@
 {
-  "generated": "2026-10-05",
+  "generated": "2026-10-06",
   "generator": "src/catalogue_contract.py",
   "source": "src/build.py :: build.ALL - the merged master catalogue",
   "contract": "This is the ONLY authoritative list of sellable designs. Marketing must filter every queue, brief, drop and pin against it. Do not read data/products.json or data/products_live.json as a catalogue: both are stale crawl artefacts. Written by the storefront on every build; marketing reads it and never writes it.",
-  "count": 89,
+  "count": 94,
   "per_collection": {
-    "cleveland-browns": 25,
+    "cleveland-browns": 30,
     "dallas-cowboys": 10,
     "green-bay-packers": 37,
     "michigan": 17
   },
   "products": [
+    {
+      "slug": "1946-cleveland",
+      "name": "1946 Cleveland Football Shirt",
+      "collection": "cleveland-browns",
+      "partner": "Mayzing",
+      "url": "https://gridironlocker.store/shop/1946-cleveland/",
+      "buy_url": "https://gridironlocker.shop/1946-cleveland?collectionId=P19bpeU2x_Ng&color=GILDAN-DARK_CHOCOLATE&productId=6ac441eda581314ed10d7d3e",
+      "price_usd": 20.0,
+      "garment": "T-Shirt",
+      "theme": "retro",
+      "site_published": true
+    },
     {
       "slug": "be-awar-of-dawg",
       "name": "Beware Of Dawg",
@@ -33,6 +45,18 @@
       "price_usd": 21.0,
       "garment": "T-Shirt",
       "theme": "classic",
+      "site_published": true
+    },
+    {
+      "slug": "classic-1946",
+      "name": "Classic 1946 Cleveland Football Shirt",
+      "collection": "cleveland-browns",
+      "partner": "Mayzing",
+      "url": "https://gridironlocker.store/shop/classic-1946/",
+      "buy_url": "https://gridironlocker.shop/classic-1946?collectionId=P19bpeU2x_Ng&color=GILDAN-DARK_CHOCOLATE&productId=6ac4437ea581314ed10e1e7a",
+      "price_usd": 20.0,
+      "garment": "T-Shirt",
+      "theme": "retro",
       "site_published": true
     },
     {
@@ -108,6 +132,30 @@
       "site_published": true
     },
     {
+      "slug": "cleveland-1946-tshirt",
+      "name": "Cleveland 1946 White Shirt",
+      "collection": "cleveland-browns",
+      "partner": "Mayzing",
+      "url": "https://gridironlocker.store/shop/cleveland-1946-tshirt/",
+      "buy_url": "https://gridironlocker.shop/cleveland-1946-tshirt?collectionId=P19bpeU2x_Ng&color=GILDAN-WHITE&productId=6ac43e22913cb3999f50c1f5",
+      "price_usd": 20.0,
+      "garment": "T-Shirt",
+      "theme": "retro",
+      "site_published": true
+    },
+    {
+      "slug": "cleveland-football",
+      "name": "Cleveland Football Shirt",
+      "collection": "cleveland-browns",
+      "partner": "Mayzing",
+      "url": "https://gridironlocker.store/shop/cleveland-football/",
+      "buy_url": "https://gridironlocker.shop/cleveland-football?collectionId=P19bpeU2x_Ng&color=GILDAN-DARK_CHOCOLATE&productId=6ac4461e2753510a596d602d",
+      "price_usd": 20.0,
+      "garment": "T-Shirt",
+      "theme": "classic",
+      "site_published": true
+    },
+    {
       "slug": "cleveland-football-est-1946",
       "name": "Cleveland Football Est. 1946 Shirt",
       "collection": "cleveland-browns",
@@ -120,13 +168,13 @@
       "site_published": true
     },
     {
-      "slug": "cleveland-skyline-dawg-pound",
-      "name": "Cleveland Skyline Dawg Pound Shirt",
+      "slug": "cleveland-tshirt",
+      "name": "Cleveland Football White Shirt",
       "collection": "cleveland-browns",
       "partner": "Mayzing",
-      "url": "https://gridironlocker.store/shop/cleveland-skyline-dawg-pound/",
-      "buy_url": "https://gridironlocker.shop/cleveland-skyline-dawg-pound?collectionId=P19bpeU2x_Ng&color=GILDAN-BLACK&productId=6abd8df35dda6a6b2d5dfc78",
-      "price_usd": 21.0,
+      "url": "https://gridironlocker.store/shop/cleveland-tshirt/",
+      "buy_url": "https://gridironlocker.shop/cleveland-tshirt?collectionId=P19bpeU2x_Ng&color=GILDAN-WHITE&productId=6ac43fe6a581314ed10d6915",
+      "price_usd": 20.0,
       "garment": "T-Shirt",
       "theme": "city",
       "site_published": true
@@ -297,6 +345,18 @@
       "price_usd": 21.0,
       "garment": "T-Shirt",
       "theme": "playoff",
+      "site_published": true
+    },
+    {
+      "slug": "sunday-funday",
+      "name": "Sunday Funday Cleveland Football Shirt",
+      "collection": "cleveland-browns",
+      "partner": "Mayzing",
+      "url": "https://gridironlocker.store/shop/sunday-funday/",
+      "buy_url": "https://gridironlocker.shop/sunday-funday?collectionId=P19bpeU2x_Ng&color=GILDAN-DARK_CHOCOLATE&productId=6ac43e54b42e7be7216d7ac8",
+      "price_usd": 20.0,
+      "garment": "T-Shirt",
+      "theme": "funny",
       "site_published": true
     },
     {

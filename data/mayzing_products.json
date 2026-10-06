@@ -1,13 +1,181 @@
 {
- "_doc": "Cleveland/Browns catalogue from the Mayzing storefront, initially captured 2026-09-12 and updated through 2026-09-30. This file is the source of truth for the whole collection: src/build.py now builds 25 product pages and the collection page from it (mayzing_item()), replacing the Viralstyle crawl for Cleveland. Data is captured from gridironlocker.shop/p/browns and each product page (title, price, colour, sizes, mockup URLs and productId). Supplier titles are kept verbatim here; customer-facing SEO names are curated in src/catalog.py. Mockups are hot-linked from the Mayzing CDN with signature params. On 2026-09-30 the Browns collection page showed 25 of 25 items and published Dawg Pound Cleveland Skyline and Cleveland Skyline Dawg Pound, as $21.00 Black Gildan 5000 tees in S-5XL (product ids 6abd8fd9f33b76ed082bebe1 and 6abd8df35dda6a6b2d5dfc78). The collection capture date remains the original 2026-09-12 baseline so unchanged product URLs keep stable sitemap dates; the new records carry their verified capture date and data/content_dates.json records the collection update date.",
+ "_doc": "Cleveland/Browns catalogue from the Mayzing storefront, initially captured 2026-09-12 and updated through 2026-10-06. This file is the source of truth for the whole collection: src/build.py builds the product pages and the collection page from it (mayzing_item()), replacing the Viralstyle crawl for Cleveland. Data is captured from gridironlocker.shop/p/browns and each product page (title, price, colour, sizes, mockup URLs and productId). Supplier titles are kept verbatim here; customer-facing SEO names are curated in src/catalog.py. Mockups are hot-linked from the Mayzing CDN with signature params. On 2026-10-06 the owner retired Cleveland Skyline Dawg Pound (product id 6abd8df35dda6a6b2d5dfc78) from the collection - the slug stays in data/published.json so the old /shop/ URL keeps a redirect stub instead of 404ing - and published six new Classic Unisex T-shirts, verified live at $20.00 in S-5XL: Cleveland Football, Classic 1946, 1946 Cleveland, Cleveland (white), Sunday Funday and Cleveland 1946 (white). The collection capture date remains the original 2026-09-12 baseline so unchanged product URLs keep stable sitemap dates; the new records carry their verified capture date and data/content_dates.json records the collection update date.",
  "store": "https://gridironlocker.shop/p/browns",
  "store_id": "z2OF",
  "collectionId": "P19bpeU2x_Ng",
  "partner": "Mayzing",
  "currency": "USD",
- "currency_note": "Storefront collection page quotes $21.00 but some product pages render NOK 209.00 depending on session geo; 209 NOK approximates 21 USD. Price recorded here is the USD collection price. Verify currency for US customers in Mayzing admin.",
+ "currency_note": "Storefront product pages quote USD 20.00 for the 2026-10-06 additions (the older records were captured at 21.00); some product pages render NOK 209.00 depending on session geo, which approximates the same USD price. Price recorded here is the USD storefront price. Verify currency for US customers in Mayzing admin.",
  "captured": "2026-09-12",
  "products": [
+  {
+   "slug": "cleveland-football",
+   "name": "Cleveland Football Tshirt",
+   "garment": "Men's T-Shirt",
+   "blank": "Gildan 5000",
+   "price_usd": "20.00",
+   "colour_code": "GILDAN-DARK_CHOCOLATE",
+   "colour_name": "Dark Chocolate",
+   "sizes": [
+    "S",
+    "M",
+    "L",
+    "XL",
+    "2XL",
+    "3XL",
+    "4XL",
+    "5XL"
+   ],
+   "handle": "cleveland-football",
+   "product_id": "6ac4461e2753510a596d602d",
+   "checkout_url": "https://gridironlocker.shop/cleveland-football?collectionId=P19bpeU2x_Ng&color=GILDAN-DARK_CHOCOLATE&productId=6ac4461e2753510a596d602d",
+   "features": "Gildan 5000 midweight 100% cotton, classic fit, double-needle sleeve and bottom hems",
+   "captured": "2026-10-06",
+   "img": {
+    "front": "https://buyer-experience-gateway.mayzing.com/stores/z2OF/mockups/id:miz0accu8c20,sig:OiF6Fyy5HlTP74D0ulRYe_PnBg4Cp-DM_fgftzOvN2c,c:GILDAN-DARK_CHOCOLATE,s:41a8f2db-c26c-4aa6-8f4c-7729cd25b4ee,d:6ac4461ed5f3f962b20701df,dv:2,cpd:pdz0accu8c0,w:1000/image.png",
+    "back": "https://buyer-experience-gateway.mayzing.com/stores/z2OF/mockups/id:miz0accu8c21,sig:VsHV1zcG1wZp0R5XWw2CuNlo45N1w3k3Iy3xNp3ZCWA,c:GILDAN-DARK_CHOCOLATE,s:68cc43b4-f55a-46a0-9a99-5f88952ca97c,cpd:pdz0accu8c0,w:1000/image.png"
+   }
+  },
+  {
+   "slug": "classic-1946",
+   "name": "Classic 1946 Tshirt",
+   "garment": "Men's T-Shirt",
+   "blank": "Gildan 5000",
+   "price_usd": "20.00",
+   "colour_code": "GILDAN-DARK_CHOCOLATE",
+   "colour_name": "Dark Chocolate",
+   "sizes": [
+    "S",
+    "M",
+    "L",
+    "XL",
+    "2XL",
+    "3XL",
+    "4XL",
+    "5XL"
+   ],
+   "handle": "classic-1946",
+   "product_id": "6ac4437ea581314ed10e1e7a",
+   "checkout_url": "https://gridironlocker.shop/classic-1946?collectionId=P19bpeU2x_Ng&color=GILDAN-DARK_CHOCOLATE&productId=6ac4437ea581314ed10e1e7a",
+   "features": "Gildan 5000 midweight 100% cotton, classic fit, double-needle sleeve and bottom hems",
+   "captured": "2026-10-06",
+   "img": {
+    "front": "https://buyer-experience-gateway.mayzing.com/stores/z2OF/mockups/id:miz0accu8c20,sig:hqXU-BNPSVmI5Um3SJ6-OwGPnOpSPlEI9DMkm1T3m_A,c:GILDAN-DARK_CHOCOLATE,s:41a8f2db-c26c-4aa6-8f4c-7729cd25b4ee,d:6ac4437dd85eeecb03547f93,dv:2,cpd:pdz0accu8c0,w:1000/image.png",
+    "back": "https://buyer-experience-gateway.mayzing.com/stores/z2OF/mockups/id:miz0accu8c21,sig:VsHV1zcG1wZp0R5XWw2CuNlo45N1w3k3Iy3xNp3ZCWA,c:GILDAN-DARK_CHOCOLATE,s:68cc43b4-f55a-46a0-9a99-5f88952ca97c,cpd:pdz0accu8c0,w:1000/image.png"
+   }
+  },
+  {
+   "slug": "1946-cleveland",
+   "name": "1946 Cleveland Tshirt",
+   "garment": "Men's T-Shirt",
+   "blank": "Gildan 5000",
+   "price_usd": "20.00",
+   "colour_code": "GILDAN-DARK_CHOCOLATE",
+   "colour_name": "Dark Chocolate",
+   "sizes": [
+    "S",
+    "M",
+    "L",
+    "XL",
+    "2XL",
+    "3XL",
+    "4XL",
+    "5XL"
+   ],
+   "handle": "1946-cleveland",
+   "product_id": "6ac441eda581314ed10d7d3e",
+   "checkout_url": "https://gridironlocker.shop/1946-cleveland?collectionId=P19bpeU2x_Ng&color=GILDAN-DARK_CHOCOLATE&productId=6ac441eda581314ed10d7d3e",
+   "features": "Gildan 5000 midweight 100% cotton, classic fit, double-needle sleeve and bottom hems",
+   "captured": "2026-10-06",
+   "img": {
+    "front": "https://buyer-experience-gateway.mayzing.com/stores/z2OF/mockups/id:miz0accu8c20,sig:lYiwnFfxQKVCrSoWo7CuicvAYM6xJBh31bymPk3pFLc,c:GILDAN-DARK_CHOCOLATE,s:41a8f2db-c26c-4aa6-8f4c-7729cd25b4ee,d:6ac441ed29654103613d2704,dv:2,cpd:pdz0accu8c0,w:1000/image.png",
+    "back": "https://buyer-experience-gateway.mayzing.com/stores/z2OF/mockups/id:miz0accu8c21,sig:VsHV1zcG1wZp0R5XWw2CuNlo45N1w3k3Iy3xNp3ZCWA,c:GILDAN-DARK_CHOCOLATE,s:68cc43b4-f55a-46a0-9a99-5f88952ca97c,cpd:pdz0accu8c0,w:1000/image.png"
+   }
+  },
+  {
+   "slug": "cleveland-tshirt",
+   "name": "Cleveland Tshirt",
+   "garment": "Men's T-Shirt",
+   "blank": "Gildan 5000",
+   "price_usd": "20.00",
+   "colour_code": "GILDAN-WHITE",
+   "colour_name": "White",
+   "sizes": [
+    "S",
+    "M",
+    "L",
+    "XL",
+    "2XL",
+    "3XL",
+    "4XL",
+    "5XL"
+   ],
+   "handle": "cleveland-tshirt",
+   "product_id": "6ac43fe6a581314ed10d6915",
+   "checkout_url": "https://gridironlocker.shop/cleveland-tshirt?collectionId=P19bpeU2x_Ng&color=GILDAN-WHITE&productId=6ac43fe6a581314ed10d6915",
+   "features": "Gildan 5000 midweight 100% cotton, classic fit, double-needle sleeve and bottom hems",
+   "captured": "2026-10-06",
+   "img": {
+    "front": "https://buyer-experience-gateway.mayzing.com/stores/z2OF/mockups/id:miz0accu8c0,sig:7sQMBcuXG7Bwzca4Pl8QEbHGW9nQSEnZ-_NeIK5ipWg,c:GILDAN-WHITE,s:41a8f2db-c26c-4aa6-8f4c-7729cd25b4ee,d:6ac43fe623a2b87cd71d7d39,dv:2,cpd:pdz0accu8c0,w:1000/image.png",
+    "back": "https://buyer-experience-gateway.mayzing.com/stores/z2OF/mockups/id:miz0accu8c1,sig:iX9EJWIANaVbk4vsAkiS_GkGeUkQ9F1vtuK__YS-kPI,c:GILDAN-WHITE,s:68cc43b4-f55a-46a0-9a99-5f88952ca97c,cpd:pdz0accu8c0,w:1000/image.png"
+   }
+  },
+  {
+   "slug": "sunday-funday",
+   "name": "Sunday Funday Tshirt",
+   "garment": "Men's T-Shirt",
+   "blank": "Gildan 5000",
+   "price_usd": "20.00",
+   "colour_code": "GILDAN-DARK_CHOCOLATE",
+   "colour_name": "Dark Chocolate",
+   "sizes": [
+    "S",
+    "M",
+    "L",
+    "XL",
+    "2XL",
+    "3XL",
+    "4XL",
+    "5XL"
+   ],
+   "handle": "sunday-funday",
+   "product_id": "6ac43e54b42e7be7216d7ac8",
+   "checkout_url": "https://gridironlocker.shop/sunday-funday?collectionId=P19bpeU2x_Ng&color=GILDAN-DARK_CHOCOLATE&productId=6ac43e54b42e7be7216d7ac8",
+   "features": "Gildan 5000 midweight 100% cotton, classic fit, double-needle sleeve and bottom hems",
+   "captured": "2026-10-06",
+   "img": {
+    "front": "https://buyer-experience-gateway.mayzing.com/stores/z2OF/mockups/id:miz0accu8c20,sig:3yUnJYagJ3YOCqH9L7m7eeceGi_LNoYvsCRO9Ck7znk,c:GILDAN-DARK_CHOCOLATE,s:41a8f2db-c26c-4aa6-8f4c-7729cd25b4ee,d:6ac43e54a961e04e564aa8a9,dv:2,cpd:pdz0accu8c0,w:1000/image.png",
+    "back": "https://buyer-experience-gateway.mayzing.com/stores/z2OF/mockups/id:miz0accu8c21,sig:VsHV1zcG1wZp0R5XWw2CuNlo45N1w3k3Iy3xNp3ZCWA,c:GILDAN-DARK_CHOCOLATE,s:68cc43b4-f55a-46a0-9a99-5f88952ca97c,cpd:pdz0accu8c0,w:1000/image.png"
+   }
+  },
+  {
+   "slug": "cleveland-1946-tshirt",
+   "name": "Cleveland 1946 Tshirt",
+   "garment": "Men's T-Shirt",
+   "blank": "Gildan 5000",
+   "price_usd": "20.00",
+   "colour_code": "GILDAN-WHITE",
+   "colour_name": "White",
+   "sizes": [
+    "S",
+    "M",
+    "L",
+    "XL",
+    "2XL",
+    "3XL",
+    "4XL",
+    "5XL"
+   ],
+   "handle": "cleveland-1946-tshirt",
+   "product_id": "6ac43e22913cb3999f50c1f5",
+   "checkout_url": "https://gridironlocker.shop/cleveland-1946-tshirt?collectionId=P19bpeU2x_Ng&color=GILDAN-WHITE&productId=6ac43e22913cb3999f50c1f5",
+   "features": "Gildan 5000 midweight 100% cotton, classic fit, double-needle sleeve and bottom hems",
+   "captured": "2026-10-06",
+   "img": {
+    "front": "https://buyer-experience-gateway.mayzing.com/stores/z2OF/mockups/id:miz0accu8c0,sig:gJlFX5ADAloY7CSQOOy-kOgx-_U0dvUgwWxZGjKD_7g,c:GILDAN-WHITE,s:41a8f2db-c26c-4aa6-8f4c-7729cd25b4ee,d:6ac43d5938c68507f579e601,dv:1,cpd:pdz0accu8c0,w:1000/image.png",
+    "back": "https://buyer-experience-gateway.mayzing.com/stores/z2OF/mockups/id:miz0accu8c1,sig:iX9EJWIANaVbk4vsAkiS_GkGeUkQ9F1vtuK__YS-kPI,c:GILDAN-WHITE,s:68cc43b4-f55a-46a0-9a99-5f88952ca97c,cpd:pdz0accu8c0,w:1000/image.png"
+   }
+  },
   {
    "slug": "dawg-pound-cleveland-skyline",
    "name": "Dawg Pound Cleveland Skyline",
@@ -33,34 +201,6 @@
    "captured": "2026-09-30",
    "img": {
     "front": "https://buyer-experience-gateway.mayzing.com/stores/z2OF/mockups/id:mi2vh7vm7224,sig:Eezp4Eo2NR1xGp1eMEEJQkUgIi2jT-XBR20Xp6std4U,c:GILDAN-BLACK,s:d3cfca9f-6be4-4751-94da-27ce3751a0ac,d:6abd8fd99b799fb4cb595e76,dv:2,cpd:pd2vh7vm720,w:1000/image.png",
-    "back": "https://buyer-experience-gateway.mayzing.com/stores/z2OF/mockups/id:mi2vh7vm7225,sig:0D4tpf2h8ySls4M1Uz-SWLrrzs5wWAMRLCn8z1KEWXc,c:GILDAN-BLACK,s:d802579f-ea09-4b75-a37e-2adc9a5bb616,cpd:pd2vh7vm720,w:1000/image.png"
-   }
-  },
-  {
-   "slug": "cleveland-skyline-dawg-pound",
-   "name": "Cleveland Skyline Dawg Pound",
-   "garment": "Men's T-Shirt",
-   "blank": "Gildan 5000",
-   "price_usd": "21.00",
-   "colour_code": "GILDAN-BLACK",
-   "colour_name": "Black",
-   "sizes": [
-    "S",
-    "M",
-    "L",
-    "XL",
-    "2XL",
-    "3XL",
-    "4XL",
-    "5XL"
-   ],
-   "handle": "cleveland-skyline-dawg-pound",
-   "product_id": "6abd8df35dda6a6b2d5dfc78",
-   "checkout_url": "https://gridironlocker.shop/cleveland-skyline-dawg-pound?collectionId=P19bpeU2x_Ng&color=GILDAN-BLACK&productId=6abd8df35dda6a6b2d5dfc78",
-   "features": "Gildan 5000 midweight 100% cotton, classic fit, double-needle sleeve and bottom hems",
-   "captured": "2026-09-30",
-   "img": {
-    "front": "https://buyer-experience-gateway.mayzing.com/stores/z2OF/mockups/id:mi2vh7vm7224,sig:27f7tvYJsx6cg-1fFv2n6letAqwN6v175BVLnUfBHf8,c:GILDAN-BLACK,s:d3cfca9f-6be4-4751-94da-27ce3751a0ac,d:6abd8df3c93c4a638d635f2a,dv:2,cpd:pd2vh7vm720,w:1000/image.png",
     "back": "https://buyer-experience-gateway.mayzing.com/stores/z2OF/mockups/id:mi2vh7vm7225,sig:0D4tpf2h8ySls4M1Uz-SWLrrzs5wWAMRLCn8z1KEWXc,c:GILDAN-BLACK,s:d802579f-ea09-4b75-a37e-2adc9a5bb616,cpd:pd2vh7vm720,w:1000/image.png"
    }
   },

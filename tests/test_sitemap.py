@@ -76,9 +76,12 @@ class SitemapDates(unittest.TestCase):
         self.assertEqual(
             self.rows[build.DOMAIN + "/shop/dawg-pound-cleveland-skyline/"],
             "2026-09-30")
+        # 2026-10-06: Cleveland Skyline Dawg Pound was retired from the
+        # collection (it now serves a redirect stub, so it has no sitemap row)
+        # and six new Browns tees were captured.
         self.assertEqual(
-            self.rows[build.DOMAIN + "/shop/cleveland-skyline-dawg-pound/"],
-            "2026-09-30")
+            self.rows[build.DOMAIN + "/shop/cleveland-football/"],
+            "2026-10-06")
         self.assertEqual(
             self.rows[build.DOMAIN + "/shop/limited-edition-grb5/"],
             build.SITEMAP_DATE_FALLBACK)
@@ -101,7 +104,9 @@ class SitemapDates(unittest.TestCase):
         # URL-count sentinel: update ONLY when the catalogue intentionally
         # grows/shrinks. 2026-09-30: 111 -> 113 after Dawg Pound Cleveland Skyline
         # and Cleveland Skyline Dawg Pound became the 24th and 25th Browns Mayzing products.
-        self.assertEqual(len(self.rows), 113)
+        # 2026-10-06: 113 -> 118 - Cleveland Skyline Dawg Pound retired (-1)
+        # and six new Browns tees published (+6).
+        self.assertEqual(len(self.rows), 118)
         self.assertEqual(len(self.rows), len(set(self.rows)))
         for url, lastmod in self.rows.items():
             self.assertTrue(url.startswith(build.DOMAIN + "/"), url)
