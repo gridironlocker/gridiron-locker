@@ -35,7 +35,7 @@ python3 marketing/three_day_pulse.py` to refresh the short-lived brief.
 | Product images | self-hosted Viralstyle set + Mayzing CDN mockups |
 | Broken links / invalid schema | **0** |
 
-Collections: Green Bay Packers (37), Cleveland Browns (23), Michigan (17), Dallas Cowboys (10).
+Collections: Green Bay Packers (37), Cleveland Browns (30), Michigan (17), Dallas Cowboys (10).
 Fulfilment split: Viralstyle 47 / Mayzing 47.
 
 Counts are not hand-maintained: `src/build.py` computes them from the merged master
