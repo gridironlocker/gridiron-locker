@@ -1,229 +1,273 @@
 {
- "program": "Gridiron Locker creator collaborations",
- "updated": "2026-10-07",
- "creators": {
-  "joe": {
-   "id": "JOE",
-   "display_name": "Joe",
-   "role": "Michigan football creator",
-   "page_slug": "michigan/joe",
-   "page_name": "Joe's Michigan Locker",
-   "page_tagline": "A Gridiron Locker x Joe Collaboration",
-   "collection_key": "michigan",
-   "one_link": "https://gridironlocker.store/michigan/joe/",
-   "commission": {
-    "rate_pct": 20,
-    "basis": "net product sales",
-    "exclusions": [
-     "taxes",
-     "shipping",
-     "refunds",
-     "cancellations",
-     "chargebacks"
-    ],
-    "customer_facing": false
-   },
-   "attribution": {
-    "creator_id": "JOE",
-    "cookie_name": "gl_creator",
-    "cookie_ttl_days": 90,
-    "checkout_query": {
-     "creator": "JOE"
+  "program": "Gridiron Locker creator collaborations",
+  "updated": "2026-10-07",
+  "creators": {
+    "joe": {
+      "id": "JOE",
+      "display_name": "Joe",
+      "role": "Michigan football creator",
+      "page_slug": "michigan/joe",
+      "page_name": "Joe's Michigan Locker",
+      "page_tagline": "A Gridiron Locker x Joe Collaboration",
+      "collection_key": "michigan",
+      "one_link": "https://gridironlocker.store/michigan/joe/",
+      "commission": {
+        "rate_pct": 20,
+        "basis": "net product sales",
+        "exclusions": [
+          "taxes",
+          "shipping",
+          "refunds",
+          "cancellations",
+          "chargebacks"
+        ],
+        "customer_facing": false
+      },
+      "attribution": {
+        "creator_id": "JOE",
+        "cookie_name": "gl_creator",
+        "cookie_ttl_days": 90,
+        "checkout_query": {
+          "creator": "JOE"
+        },
+        "utm": {
+          "utm_source": "creator",
+          "utm_medium": "referral",
+          "utm_campaign": "creator-JOE"
+        },
+        "ga4_events": [
+          "creator_attribution_set",
+          "creator_page_view",
+          "creator_session",
+          "shop_now_click (creator dimension)"
+        ]
+      },
+      "featured": [
+        "michigan-v-everybody",
+        "bet-m",
+        "second-act-qb19-vintage-football",
+        "limited-edition-go-blue"
+      ],
+      "picks": [
+        "michigan-v-everybody",
+        "bet-m",
+        "second-act-qb19-vintage-football",
+        "limited-edition-go-blue",
+        "limited-edition-h-a-i-l-mary",
+        "m-vs-everybody",
+        "michigan-bet",
+        "michigan-revenge-tour",
+        "michigan-bet-vintage",
+        "one-second",
+        "second-act"
+      ],
+      "hero": "/img/hero-joe.jpg",
+      "hero_w": 1933,
+      "hero_h": 813,
+      "hero_alt": "Vintage football on a locker-room bench beside folded navy and maize shirts",
+      "promo": {
+        "code": "JOE10",
+        "pct": 10
+      },
+      "page_desc": "Joe's Michigan Locker: Michigan football tees hand-picked by Joe. Save 10% with code JOE10 on game-day and vintage-inspired designs, printed on demand.",
+      "sub": "Michigan football gear, hand-picked by Joe.",
+      "quote": "Joe has teamed up with Gridiron Locker to bring Michigan fans a collection of\n   designs built around the moments, stories and culture that make Michigan football special.",
+      "collab_note": "Joe's Michigan Locker brings together his favourite Gridiron Locker designs in one place -\n  built for Michigan fans and selected with Joe. Use code <strong>JOE10</strong> at checkout for\n  10% off your order.",
+      "possessive": "his",
+      "keywords": [
+        "joe's michigan locker",
+        "michigan football shirt",
+        "go blue t-shirt",
+        "michigan vs everybody shirt",
+        "ann arbor football gear",
+        "qb19 shirt",
+        "michigan slogan tee",
+        "maize and navy tee",
+        "michigan game day shirt",
+        "wolverines fan gear"
+      ]
     },
-    "utm": {
-     "utm_source": "creator",
-     "utm_medium": "referral",
-     "utm_campaign": "creator-JOE"
-    },
-    "ga4_events": [
-     "creator_attribution_set",
-     "creator_page_view",
-     "creator_session",
-     "shop_now_click (creator dimension)"
-    ]
-   },
-   "featured": [
-    "michigan-v-everybody",
-    "bet-m",
-    "second-act-qb19-vintage-football",
-    "limited-edition-go-blue"
-   ],
-   "picks": [
-    "michigan-v-everybody",
-    "bet-m",
-    "second-act-qb19-vintage-football",
-    "limited-edition-go-blue",
-    "limited-edition-h-a-i-l-mary",
-    "m-vs-everybody",
-    "michigan-bet",
-    "michigan-revenge-tour",
-    "michigan-bet-vintage",
-    "one-second",
-    "second-act"
-   ],
-   "hero": "/img/hero-joe.jpg",
-   "hero_w": 1933,
-   "hero_h": 813,
-   "hero_alt": "Vintage football on a locker-room bench beside folded navy and maize shirts",
-   "promo": {
-    "code": "JOE10",
-    "pct": 10
-   },
-   "page_desc": "Joe's Michigan Locker: Michigan football tees hand-picked by Joe. Save 10% with code JOE10 on game-day and vintage-inspired designs, printed on demand.",
-   "sub": "Michigan football gear, hand-picked by Joe.",
-   "quote": "Joe has teamed up with Gridiron Locker to bring Michigan fans a collection of\n   designs built around the moments, stories and culture that make Michigan football special.",
-   "collab_note": "Joe's Michigan Locker brings together his favourite Gridiron Locker designs in one place -\n  built for Michigan fans and selected with Joe. Use code <strong>JOE10</strong> at checkout for\n  10% off your order.",
-   "possessive": "his",
-   "keywords": [
-    "joe's michigan locker",
-    "michigan football shirt",
-    "go blue t-shirt",
-    "michigan vs everybody shirt",
-    "ann arbor football gear",
-    "qb19 shirt",
-    "michigan slogan tee",
-    "maize and navy tee",
-    "michigan game day shirt",
-    "wolverines fan gear"
-   ]
-  },
-  "bella": {
-   "id": "BELLA",
-   "display_name": "Bella Lopresti",
-   "role": "Michigan lifestyle creator",
-   "page_slug": "michigan/bella",
-   "page_name": "Bella's Michigan Locker",
-   "page_tagline": "A Gridiron Locker x Bella Lopresti Collaboration",
-   "collection_key": "michigan",
-   "one_link": "https://gridironlocker.store/michigan/bella/",
-   "commission": {
-    "rate_pct": 15,
-    "basis": "net product sales",
-    "exclusions": [
-     "taxes",
-     "shipping",
-     "refunds",
-     "cancellations",
-     "chargebacks"
-    ],
-    "customer_facing": false
-   },
-   "attribution": {
-    "creator_id": "BELLA",
-    "cookie_name": "gl_creator",
-    "cookie_ttl_days": 90,
-    "checkout_query": {
-     "creator": "BELLA"
-    },
-    "utm": {
-     "utm_source": "creator",
-     "utm_medium": "referral",
-     "utm_campaign": "creator-BELLA"
-    },
-    "ga4_events": [
-     "creator_attribution_set",
-     "creator_page_view",
-     "creator_session",
-     "shop_now_click (creator dimension)"
-    ]
-   },
-   "featured": [
-    "michigan",
-    "legacy",
-    "one-second",
-    "maize-out"
-   ],
-   "picks": [
-    "michigan",
-    "legacy",
-    "one-second",
-    "second-act",
-    "maize-out",
-    "limited-edition-h-a-i-l-mary"
-   ],
-   "hero": "/img/hero-bella.jpg",
-   "hero_w": 1376,
-   "hero_h": 768,
-   "hero_alt": "Flat lay of folded Michigan tees in cream, blush, maize and navy on a linen table",
-   "page_desc": "Bella's Michigan Locker: Michigan football tees hand-picked by Bella. Game-day and vintage-inspired designs, printed on demand.",
-   "sub": "Michigan designs for the girls who live in maize & blue \u2014 hand-picked by Bella.",
-   "quote": "Bella has teamed up with Gridiron Locker to bring her audience a collection of designs built around the Michigan lifestyle - game day, the walk to the game, and everything in between.",
-   "collab_note": "Bella's Michigan Locker brings together Bella's favourite Gridiron Locker designs in one place - built for Michigan fans and selected with Bella.",
-   "possessive": "her",
-   "keywords": [
-    "bella's michigan locker",
-    "michigan girl shirt",
-    "michigan girl tee",
-    "ann arbor shirt",
-    "michigan lifestyle tee",
-    "go blue girl shirt",
-    "ann arbor michigan t-shirt",
-    "michigan game day outfit",
-    "maize and navy girl tee",
-    "wolverines fan gear"
-   ],
-   "theme": "girly",
-   "hide_nav": true,
-   "girly": {
-    "hero_eyebrow": "Gridiron Locker \u00d7 Bella Lopresti",
-    "hero_script": "Bella\u2019s",
-    "hero_title": "Michigan Locker",
-    "hero_sub": "Michigan designs for the girls who live in maize & blue \u2014 hand-picked by Bella.",
-    "hero_tag": "6 designs \u00b7 One collection",
-    "hero_cta": "Shop the collection",
-    "hero_story_link": "read my story \u2193",
-    "hero_image": "/img/hero-bella.jpg",
-    "hero_alt": "Flat lay of folded Michigan tees in cream, blush, maize and navy on a linen table",
-    "polaroids": [
-     {
-      "image": "/img/bella-polaroid-1.jpg",
-      "alt": "Bella walking through downtown Ann Arbor on an autumn afternoon",
-      "caption": "a walk through ann arbor"
-     },
-     {
-      "image": "/img/bella-polaroid-2.jpg",
-      "alt": "The game-day crowd walking toward the stadium in maize and blue",
-      "caption": "the game-day walk"
-     }
-    ],
-    "intro_overline": "the girl behind the locker",
-    "intro_heading": "Hey, I\u2019m Bella",
-    "quote": "if you know me, you know i\u2019m in maize & blue by september.",
-    "collection_overline": "the collection",
-    "collection_heading": "Made for Michigan Girls",
-    "collection_desc": "Six designs picked for the girls who show up in maize & blue \u2014 soft, a little vintage, and always game-day ready.",
-    "labels": {
-     "michigan": "Signature",
-     "legacy": "Vintage",
-     "one-second": "Game Day",
-     "second-act": "Classic",
-     "maize-out": "Everyday",
-     "limited-edition-h-a-i-l-mary": "Statement"
-    },
-    "captions": {
-     "michigan": "the one that started it all",
-     "legacy": "a little vintage, a lot of blue",
-     "one-second": "for the moment it all changes",
-     "second-act": "soft-spoken maize & blue",
-     "maize-out": "sunshine, but make it wolverine",
-     "limited-edition-h-a-i-l-mary": "the one everyone asks about"
-    },
-    "store_label": "Shop design",
-    "statement_pick": "one-second",
-    "statement_kicker": "bella\u2019s fave \u2665",
-    "statement_note": "the grey one i keep on repeat. it goes with everything i own.",
-    "coming_soon": {
-     "num": "07",
-     "label": "Next Drop",
-     "caption": "more pretty things, soon",
-     "heart": "\u2665"
-    },
-    "signoff_lead": "Michigan isn\u2019t just a place... ",
-    "signoff_accent": "it\u2019s a vibe.",
-    "collab_line": "Gridiron Locker \u00d7 Bella Lopresti",
-    "signoff_cta": "Shop The Locker",
-    "fleuron": "\u2766"
-   }
+    "bella": {
+      "id": "BELLA",
+      "display_name": "Bella Lopresti",
+      "role": "Michigan lifestyle creator",
+      "page_slug": "michigan/bella",
+      "page_name": "Bella's Michigan Locker",
+      "page_tagline": "A Gridiron Locker x Bella Lopresti Collaboration",
+      "collection_key": "michigan",
+      "one_link": "https://gridironlocker.store/michigan/bella/",
+      "commission": {
+        "rate_pct": 15,
+        "basis": "net product sales",
+        "exclusions": [
+          "taxes",
+          "shipping",
+          "refunds",
+          "cancellations",
+          "chargebacks"
+        ],
+        "customer_facing": false
+      },
+      "attribution": {
+        "creator_id": "BELLA",
+        "cookie_name": "gl_creator",
+        "cookie_ttl_days": 90,
+        "checkout_query": {
+          "creator": "BELLA"
+        },
+        "utm": {
+          "utm_source": "creator",
+          "utm_medium": "referral",
+          "utm_campaign": "creator-BELLA"
+        },
+        "ga4_events": [
+          "creator_attribution_set",
+          "creator_page_view",
+          "creator_session",
+          "shop_now_click (creator dimension)"
+        ]
+      },
+      "featured": [
+        "michigan",
+        "legacy",
+        "one-second",
+        "second-act"
+      ],
+      "picks": [
+        "michigan",
+        "legacy",
+        "one-second",
+        "second-act",
+        "maize-out",
+        "limited-edition-h-a-i-l-mary",
+        "respond-nothing-given-everything-earned-tee",
+        "bryce-19",
+        "respond-nothing-given-everything-earned",
+        "m-vs-everybody",
+        "second-act-qb19-vintage-football",
+        "limited-edition-go-blue",
+        "michigan-v-everybody",
+        "bet-m",
+        "michigan-bet-vintage",
+        "michigan-revenge-tour",
+        "michigan-bet"
+      ],
+      "hero": "/img/hero-bella.jpg",
+      "hero_w": 1376,
+      "hero_h": 768,
+      "hero_alt": "Flat lay of folded Michigan tees in cream, blush, maize and navy on a linen table",
+      "page_desc": "Bella's Michigan Locker: Michigan football tees hand-picked by Bella. Game-day and vintage-inspired designs, printed on demand.",
+      "sub": "Michigan designs for the girls who live in maize & blue — hand-picked by Bella.",
+      "quote": "Bella has teamed up with Gridiron Locker to bring her audience a collection of designs built around the Michigan lifestyle - game day, the walk to the game, and everything in between.",
+      "collab_note": "Bella's Michigan Locker brings together Bella's favourite Gridiron Locker designs in one place - built for Michigan fans and selected with Bella.",
+      "possessive": "her",
+      "keywords": [
+        "bella's michigan locker",
+        "michigan girl shirt",
+        "michigan girl tee",
+        "ann arbor shirt",
+        "michigan lifestyle tee",
+        "go blue girl shirt",
+        "ann arbor michigan t-shirt",
+        "michigan game day outfit",
+        "maize and navy girl tee",
+        "wolverines fan gear"
+      ],
+      "theme": "girly",
+      "hide_nav": true,
+      "girly": {
+        "hero_kicker": "A LITTLE GAME-DAY MAGIC",
+        "hero_script": "Bella’s",
+        "hero_title": "Michigan Locker",
+        "hero_sub": "Michigan designs for the girls who live for game-day Saturdays.",
+        "collab_stamp": "Gridiron Locker × Bella Lopresti",
+        "hero_facts": "{n} live Michigan designs · picked for every kind of Saturday",
+        "hero_cta": "Find Your Favorite",
+        "hero_story_link": "read the little story ↓",
+        "hero_image": "/img/hero-bella.jpg",
+        "hero_alt": "Folded blank tees in cream, blush, maize and navy on a linen table",
+        "collage": [
+          {
+            "image": "/img/bella-collage-1.jpg",
+            "alt": "A crowd walking along an autumn campus path toward a football stadium",
+            "caption": "the walk to kickoff"
+          },
+          {
+            "image": "/img/bella-collage-2.jpg",
+            "alt": "A brick main street in a Midwestern college town in autumn",
+            "caption": "a little downtown detour",
+            "arrow": "1"
+          },
+          {
+            "image": "/img/bella-collage-3.jpg",
+            "alt": "A fan in a plain navy cap among autumn leaves, seen from behind",
+            "caption": "navy cap, golden leaves"
+          }
+        ],
+        "collage_arrow_label": "your next favorite is this way",
+        "intro_photo": {
+          "image": "/img/bella-polaroid-1.jpg",
+          "alt": "A woman walking past brick storefronts on an autumn afternoon",
+          "caption": "the long way to the game"
+        },
+        "intro_overline": "a note from bella",
+        "intro_heading": "More Than a Saturday",
+        "quote": "if you know me, you know i’m in maize & blue by september.",
+        "collection_overline": "the designs i picked",
+        "collection_heading": "The Whole Locker",
+        "collection_desc": "Game-day staples, throwback energy and a few favorites for every day — the full Michigan collection, all in one place.",
+        "labels": {
+          "michigan": "Signature",
+          "legacy": "Vintage",
+          "one-second": "Game Day",
+          "second-act": "Classic",
+          "maize-out": "Everyday",
+          "limited-edition-h-a-i-l-mary": "Statement",
+          "respond-nothing-given-everything-earned-tee": "Game Day",
+          "bryce-19": "Player Story",
+          "respond-nothing-given-everything-earned": "Everyday",
+          "m-vs-everybody": "Fan Culture",
+          "second-act-qb19-vintage-football": "Vintage Game Day",
+          "limited-edition-go-blue": "Classic",
+          "michigan-v-everybody": "Fan Culture",
+          "bet-m": "Bold",
+          "michigan-bet-vintage": "Vintage",
+          "michigan-revenge-tour": "Throwback",
+          "michigan-bet": "Classic"
+        },
+        "captions": {
+          "michigan": "the one that started it all",
+          "legacy": "a little vintage, a lot of blue",
+          "one-second": "for the moment it all changes",
+          "second-act": "a fresh start with an old-school feel",
+          "maize-out": "a little maize for the everyday",
+          "limited-edition-h-a-i-l-mary": "for the hail-mary moments",
+          "respond-nothing-given-everything-earned-tee": "nothing given, everything earned",
+          "bryce-19": "the next chapter in number nineteen",
+          "respond-nothing-given-everything-earned": "the same message, a different take",
+          "m-vs-everybody": "a little us-against-everybody energy",
+          "second-act-qb19-vintage-football": "vintage football, next-chapter spirit",
+          "limited-edition-go-blue": "a little old-school go blue",
+          "michigan-v-everybody": "for the side-by-side Saturdays",
+          "bet-m": "a bold one for game day",
+          "michigan-bet-vintage": "throwback look, game-day heart",
+          "michigan-revenge-tour": "for the comeback story",
+          "michigan-bet": "one more way to back the bet"
+        },
+        "store_label": "Shop design",
+        "statement_pick": "one-second",
+        "statement_kicker": "bella’s fave ♥",
+        "statement_note": "the grey one i keep on repeat. it goes with everything i own.",
+        "next_drop": {
+          "label": "NEXT CHAPTER",
+          "caption": "more pretty things, when they’re ready",
+          "heart": "♥"
+        },
+        "signoff_lead": "Find your ",
+        "signoff_accent": "game-day thing.",
+        "collab_line": "Gridiron Locker × Bella Lopresti",
+        "signoff_cta": "Back to the Locker"
+      }
+    }
   }
- }
 }
