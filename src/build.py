@@ -1576,7 +1576,7 @@ def trust(heading=False):
 </div>"""
 
 
-def footer(popup=True):
+def footer(popup=True, collection=None):
     """Sitewide footer: Shop / Help / Brand / Compliance, then the fan-made
     disclaimer. The columns mirror the header's shopping destinations so the
     bottom of any page is a second, complete route back into the catalogue.
@@ -1585,15 +1585,26 @@ def footer(popup=True):
     passes False: it already carries the full custom-design section, and a
     floating card there would fight the mobile shopping bar for the same
     corner of a phone screen.
+
+    `collection` scopes the creator-collab Shop links to that collection's
+    own creators: a Browns, Green Bay or Dallas page never cross-sells a
+    Michigan locker. Site-wide pages (home, collections index, search, the
+    static pages) pass nothing and keep every creator locker.
     """
     cl = "".join(
         f'<a href="/{COLLECTIONS[k]["slug"]}/">'
         f'{esc(COLLECTIONS[k].get("menu", COLLECTIONS[k]["short"]))}</a>'
         for k in ORDER)
     # Creator collab pages are a permanent Shop destination (one link each,
-    # e.g. Joe's locker at /michigan/joe/).
+    # e.g. Joe's locker at /michigan/joe/). Collection pages surface only the
+    # creators who belong to that collection; site-wide pages list them all.
+    if collection is None:
+        _creators = list(CREATORS.values())
+    else:
+        _creators = [v for v in CREATORS.values()
+                     if v.get("collection_key") == collection]
     cl_creators = "".join(
-        f'<a href="/{v["page_slug"]}/">{esc(v["page_name"])}</a>' for v in CREATORS.values())
+        f'<a href="/{v["page_slug"]}/">{esc(v["page_name"])}</a>' for v in _creators)
     soc = "".join(f'<a href="{u}{SOCIAL_UTM}" target="_blank" rel="noopener">{esc(n)}</a>' for n, u in SOCIALS)
     cspop = """
 <div class="cs-pop" id="csPop" role="dialog" aria-modal="true" aria-label="Custom design offer" hidden>
@@ -2578,7 +2589,7 @@ def page_collection(k):
          head(f"{c['name']} | {BRAND}", desc, path, c["hero"], schema,
                c["keywords"] + se["hot"], col=k,
                body_attrs=f' data-collection-page="{k}"')
-          + header(k) + body + footer())
+          + header(k) + body + footer(collection=k))
 
 
 def page_creator(ckey="joe"):
@@ -2806,7 +2817,7 @@ def page_creator(ckey="joe"):
     write(f"{cre['page_slug']}/index.html",
           head(f"{cre['page_name']} | {BRAND}", cre_page_desc, path, cre["hero"],
                schema, kw, col=ckey_col, body_attrs=f' data-creator-page="{track}"')
-          + header(ckey_col) + body + footer())
+          + header(ckey_col) + body + footer(collection=ckey_col))
 
 
 def shop_now_cta(it, placement, label="Shop Now", size="lg", block=True):
@@ -3172,7 +3183,7 @@ def page_product(it):
     URLS.append((DOMAIN + path, "0.8", "weekly"))
     write(f"shop/{slug}/index.html",
           head(title, metad, path, it["front"], schema, kws, col=it["col"])
-          + header(it["col"]) + body + footer())
+          + header(it["col"]) + body + footer(collection=it["col"]))
 
 
 # ---------------------------------------------------------------- static pages
@@ -3738,7 +3749,7 @@ or mug removes the risk entirely.</p>
         URLS.append((DOMAIN + path, "0.7", "monthly"))
         write(f"guides/{c['slug']}-buying-guide/index.html",
               head(f"{title} | {BRAND}", desc, path, c["hero"], [cbs, art], c["keywords"], col=k)
-              + header(k) + body + footer())
+              + header(k) + body + footer(collection=k))
 
 
 
