@@ -2,7 +2,7 @@
  "generated": "2026-10-07",
  "window_days": 10,
  "fti_formula": "round(100 * entity_mentions / peak_mentions_in_window)",
- "peak_mentions": 21,
+ "peak_mentions": 20,
  "stats": {
   "products": 94,
   "collections": 4,
@@ -12,33 +12,33 @@
   "throwback": 1,
   "steady": 82,
   "gaps": 7,
-  "moments": 8,
+  "moments": 9,
   "tracked_names": 18,
   "dead_campaigns": 66
  },
  "fti_rows": [
   {
-   "name": "bryce underwood",
-   "mentions": 21,
-   "index": 100,
-   "status": "trending",
-   "gap": false,
-   "shoppable": true,
-   "collection": "michigan"
-  },
-  {
    "name": "kyle whittingham",
    "mentions": 20,
-   "index": 95,
+   "index": 100,
    "status": "trending",
    "gap": true,
    "shoppable": false,
    "collection": "michigan"
   },
   {
+   "name": "bryce underwood",
+   "mentions": 19,
+   "index": 95,
+   "status": "trending",
+   "gap": false,
+   "shoppable": true,
+   "collection": "michigan"
+  },
+  {
    "name": "deshaun watson",
    "mentions": 15,
-   "index": 71,
+   "index": 75,
    "status": "trending",
    "gap": true,
    "shoppable": false,
@@ -46,8 +46,8 @@
   },
   {
    "name": "matt lafleur",
-   "mentions": 10,
-   "index": 48,
+   "mentions": 9,
+   "index": 45,
    "status": "trending",
    "gap": true,
    "shoppable": false,
@@ -56,7 +56,7 @@
   {
    "name": "dak prescott",
    "mentions": 8,
-   "index": 38,
+   "index": 40,
    "status": "trending",
    "gap": true,
    "shoppable": false,
@@ -65,7 +65,7 @@
   {
    "name": "ceedee lamb",
    "mentions": 6,
-   "index": 29,
+   "index": 30,
    "status": "trending",
    "gap": true,
    "shoppable": false,
@@ -74,7 +74,7 @@
   {
    "name": "jordan love",
    "mentions": 4,
-   "index": 19,
+   "index": 20,
    "status": "trending",
    "gap": false,
    "shoppable": true,
@@ -83,7 +83,7 @@
   {
    "name": "micah parsons",
    "mentions": 4,
-   "index": 19,
+   "index": 20,
    "status": "trending",
    "gap": false,
    "shoppable": true,
@@ -92,7 +92,7 @@
   {
    "name": "shedeur sanders",
    "mentions": 4,
-   "index": 19,
+   "index": 20,
    "status": "trending",
    "gap": false,
    "shoppable": true,
@@ -101,7 +101,7 @@
   {
    "name": "todd monken",
    "mentions": 4,
-   "index": 19,
+   "index": 20,
    "status": "trending",
    "gap": true,
    "shoppable": false,
@@ -110,7 +110,7 @@
   {
    "name": "josh jacobs",
    "mentions": 3,
-   "index": 14,
+   "index": 15,
    "status": "trending",
    "gap": true,
    "shoppable": false,
@@ -184,7 +184,7 @@
   {
    "name": "kyle whittingham",
    "mentions": 20,
-   "index": 95,
+   "index": 100,
    "status": "trending",
    "gap": true,
    "shoppable": false,
@@ -193,7 +193,7 @@
   {
    "name": "deshaun watson",
    "mentions": 15,
-   "index": 71,
+   "index": 75,
    "status": "trending",
    "gap": true,
    "shoppable": false,
@@ -201,8 +201,8 @@
   },
   {
    "name": "matt lafleur",
-   "mentions": 10,
-   "index": 48,
+   "mentions": 9,
+   "index": 45,
    "status": "trending",
    "gap": true,
    "shoppable": false,
@@ -211,7 +211,7 @@
   {
    "name": "dak prescott",
    "mentions": 8,
-   "index": 38,
+   "index": 40,
    "status": "trending",
    "gap": true,
    "shoppable": false,
@@ -220,7 +220,7 @@
   {
    "name": "ceedee lamb",
    "mentions": 6,
-   "index": 29,
+   "index": 30,
    "status": "trending",
    "gap": true,
    "shoppable": false,
@@ -229,7 +229,7 @@
   {
    "name": "todd monken",
    "mentions": 4,
-   "index": 19,
+   "index": 20,
    "status": "trending",
    "gap": true,
    "shoppable": false,
@@ -238,7 +238,7 @@
   {
    "name": "josh jacobs",
    "mentions": 3,
-   "index": 14,
+   "index": 15,
    "status": "trending",
    "gap": true,
    "shoppable": false,
@@ -260,7 +260,7 @@
     {
      "name": "deshaun watson",
      "mentions": 15,
-     "index": 71,
+     "index": 75,
      "status": "trending",
      "gap": true,
      "shoppable": false,
@@ -269,7 +269,7 @@
     {
      "name": "todd monken",
      "mentions": 4,
-     "index": 19,
+     "index": 20,
      "status": "trending",
      "gap": true,
      "shoppable": false,
@@ -283,8 +283,8 @@
     "watson",
     "deshaun",
     "rumors",
-    "football",
-    "thursday"
+    "injury",
+    "football"
    ],
    "headline_count": 100,
    "headlines": [
@@ -335,7 +335,7 @@
     {
      "name": "dak prescott",
      "mentions": 8,
-     "index": 38,
+     "index": 40,
      "status": "trending",
      "gap": true,
      "shoppable": false,
@@ -344,7 +344,7 @@
     {
      "name": "ceedee lamb",
      "mentions": 6,
-     "index": 29,
+     "index": 30,
      "status": "trending",
      "gap": true,
      "shoppable": false,
@@ -359,7 +359,7 @@
     "houston",
     "trade",
     "smith",
-    "defense"
+    "tyler"
    ],
    "headline_count": 100,
    "headlines": [
@@ -409,8 +409,8 @@
    "gaps": [
     {
      "name": "matt lafleur",
-     "mentions": 10,
-     "index": 48,
+     "mentions": 9,
+     "index": 45,
      "status": "trending",
      "gap": true,
      "shoppable": false,
@@ -419,7 +419,7 @@
     {
      "name": "josh jacobs",
      "mentions": 3,
-     "index": 14,
+     "index": 15,
      "status": "trending",
      "gap": true,
      "shoppable": false,
@@ -431,9 +431,9 @@
     "green",
     "cooper",
     "edgerrin",
+    "injury",
     "matt",
     "lafleur",
-    "injury",
     "update"
    ],
    "headline_count": 100,
@@ -463,10 +463,10 @@
      "pub": "Wed, 30 Sep 2026 14:30:00 GMT"
     },
     {
-     "title": "Love lofts 2-yard TD pass to Kraft",
-     "url": "https://news.google.com/rss/articles/CBMibkFVX3lxTE12Q3FMeV9RY1JKRHpjVTFTSUdFLVI5S2FDQnFvOU5GaGczelhIMWRhaW1VSGxYeTNsY2w4Wk5mdFF3eGdqcTVQZ2c4aEFsY0xrN1RDMGk2VHdpVnJVckhSaU1MVGpYRkNtekU3VDhB?oc=5",
+     "title": "Jordan Love's best plays from 2-TD game vs. Buccaneers | Week 4",
+     "url": "https://news.google.com/rss/articles/CBMikAFBVV95cUxQOXdvWVdWd0cxMmZzSlF3eGMxOUY5TC1TY25FMGltbGd2cXNqS29YNktVcG9MUDVMY3cxaWJNME5Fa0ZISldHV09uRGt1M2dsMUZ0NS0tMTdnVVlOT0RBa243R2hWRE12WTRibDU2N1YwTlI2ZXpUOXBYUEgtaWZ0QmVvbkF2UnJwZkp1ZU1USXM?oc=5",
      "source": "NFL.com",
-     "pub": "Sun, 04 Oct 2026 18:55:49 GMT"
+     "pub": "Sun, 04 Oct 2026 20:24:22 GMT"
     }
    ],
    "fti_count": 5
@@ -485,7 +485,7 @@
     {
      "name": "kyle whittingham",
      "mentions": 20,
-     "index": 95,
+     "index": 100,
      "status": "trending",
      "gap": true,
      "shoppable": false,
@@ -495,12 +495,12 @@
    "top_terms": [
     "michigan",
     "football",
+    "whittingham",
     "loss",
     "kyle",
-    "whittingham",
     "wolverines",
     "underwood",
-    "bryce"
+    "offense"
    ],
    "headline_count": 100,
    "headlines": [
@@ -899,6 +899,16 @@
    "collection": "green-bay-packers",
    "entities": [
     "matt lafleur"
+   ]
+  },
+  {
+   "title": "Jordan Love's best plays from 2-TD game vs. Buccaneers | Week 4",
+   "url": "https://news.google.com/rss/articles/CBMikAFBVV95cUxQOXdvWVdWd0cxMmZzSlF3eGMxOUY5TC1TY25FMGltbGd2cXNqS29YNktVcG9MUDVMY3cxaWJNME5Fa0ZISldHV09uRGt1M2dsMUZ0NS0tMTdnVVlOT0RBa243R2hWRE12WTRibDU2N1YwTlI2ZXpUOXBYUEgtaWZ0QmVvbkF2UnJwZkp1ZU1USXM?oc=5",
+   "source": "NFL.com",
+   "pub": "Sun, 04 Oct 2026 20:24:22 GMT",
+   "collection": "green-bay-packers",
+   "entities": [
+    "jordan love"
    ]
   },
   {
