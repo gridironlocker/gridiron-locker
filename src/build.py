@@ -2582,10 +2582,10 @@ def page_collection(k):
 
 
 def page_creator(ckey="joe"):
-    """Creator collaboration page: Joe's Michigan Locker.
+    """Creator collaboration page (e.g. Joe's / Bella's Michigan Locker).
 
     A creator gets ONE permanent, addressable destination
-    (``/{page_slug}/``, e.g. /michigan/joe/) that he links from social
+    (``/{page_slug}/``, e.g. /michigan/joe/) that they link from social
     media. The page is a premium, team-coloured shopping surface for the
     creator's hand-picked designs (data/creators.json: ``picks`` /
     ``featured``), and it is the attribution root of the collaboration:
@@ -2613,19 +2613,33 @@ def page_creator(ckey="joe"):
         return
     track = (cre.get("attribution") or {}).get("creator_id") or cre["id"]
     path = f"/{cre['page_slug']}/"
+    display = cre["display_name"]
+    first = display.split()[0]
+    possessive = cre.get("possessive", "their")
+    promo = cre.get("promo")
+    promo_code = (promo or {}).get("code")
+    promo_pct = (promo or {}).get("pct")
     prices = sorted(x["price"] for x in items)
     minp, maxp = prices[0], prices[-1]
-    cre_page_desc = (f"Joe's Michigan Locker: Michigan football tees hand-picked by Joe. "
-                     f"Save 10% with code JOE10 on game-day and vintage-inspired designs, "
-                     f"printed on demand.")
+    cre_page_desc = cre.get("page_desc") or (
+        f"{cre['page_name']}: {c['short']} designs hand-picked by {display}. "
+        f"Printed on demand and shipped worldwide.")
     types = sorted({x["garment"] for x in items})
     feat_slugs = [s for s in cre.get("featured", []) if s in {x["slug"] for x in items}]
     by_slug = {x["slug"]: x for x in items}
     feat = [by_slug[s] for s in feat_slugs] or items[:4]
-    kw = ["joe's michigan locker", "michigan football shirt", "go blue t-shirt",
-          "michigan vs everybody shirt", "ann arbor football gear", "qb19 shirt",
-          "michigan slogan tee", "maize and navy tee", "michigan game day shirt",
-          "wolverines fan gear"]
+    kw = cre.get("keywords") or ["michigan football shirt", "go blue t-shirt",
+                                 "ann arbor football gear", "michigan slogan tee",
+                                 "maize and navy tee", "wolverines fan gear"]
+    h1_words = cre["page_name"].upper().split()
+    h1 = " ".join(h1_words[:-1]) + f' <span class="jgold">{h1_words[-1]}</span>'
+    offer_html = ""
+    if promo and promo_code:
+        offer_html = (f'   <div class="joffer">\n'
+                      f'    <span class="joffer-off">{promo_pct}% OFF YOUR ORDER</span>\n'
+                      f'    <span class="joffer-code">USE CODE: {promo_code}</span>\n'
+                      f'    <span class="joffer-note">Enter the code at checkout.</span>\n'
+                      f'   </div>\n')
 
     def jlink(it):
         """Internal product link that carries the creator id forward."""
@@ -2653,14 +2667,18 @@ def page_creator(ckey="joe"):
     grid_cards = "".join(jcard(it, "jcard", eager=(n < 2)) for n, it in enumerate(items))
 
     faq = [
-        ("What is Joe's Michigan Locker?",
-         "A creator collaboration: Joe, a Michigan football creator, hand-picks "
-         "designs from Gridiron Locker's Michigan collection and builds this "
-         "dedicated locker for his audience. It is one permanent link - new "
-         "designs are added to Joe's locker without ever changing it."),
-        ("How do I use Joe's discount code?",
-         "Enter the code JOE10 at checkout for 10% off your order. It applies "
-         "to the designs in this locker."),
+        (f"What is {cre['page_name']}?",
+         f"A creator collaboration: {display}, a {cre.get('role', 'Michigan creator')}, "
+         f"hand-picks designs from Gridiron Locker's {c['short']} collection and "
+         f"builds this dedicated locker for {possessive} audience. It is one "
+         f"permanent link - new designs are added to {first}'s locker without "
+         f"ever changing it."),
+    ]
+    if promo and promo_code:
+        faq.append((f"How do I use {first}'s discount code?",
+                    f"Enter the code {promo_code} at checkout for {promo_pct}% off "
+                    f"your order. It applies to the designs in this locker."))
+    faq += [
         ("Are these officially licensed Michigan products?",
          "No. Everything here is independent, fan-made artwork. Gridiron Locker "
          "is not affiliated with, endorsed by or licensed by the University of "
@@ -2674,10 +2692,10 @@ def page_creator(ckey="joe"):
     ]
 
     cb, cbs = crumbs([("Home", "/"), ("Michigan", f"/{c['slug']}/"),
-                      ("Joe's Michigan Locker", None)], path)
+                      (cre["page_name"], None)], path)
     schema = [cbs,
               {"@context": "https://schema.org", "@type": "CollectionPage",
-               "name": "Joe's Michigan Locker", "url": DOMAIN + path,
+               "name": cre["page_name"], "url": DOMAIN + path,
                "description": cre_page_desc,
                "isPartOf": {"@type": "WebSite", "name": BRAND, "url": DOMAIN},
                "about": {"@type": "ItemList", "numberOfItems": len(items),
@@ -2698,39 +2716,33 @@ def page_creator(ckey="joe"):
 <section class="jhero">
  <div class="wrap jhero-grid">
   <div class="jcopy">
-   <span class="jeyebrow"><span class="jdiamond"></span> A Gridiron Locker &times; Joe Collaboration</span>
-   <h1>JOE'S MICHIGAN <span class="jgold">LOCKER</span></h1>
-   <p class="jsub">Michigan football gear, hand-picked by Joe.</p>
-   <div class="joffer">
-    <span class="joffer-off">10% OFF YOUR ORDER</span>
-    <span class="joffer-code">USE CODE: JOE10</span>
-    <span class="joffer-note">Enter the code at checkout.</span>
-   </div>
-   <div class="jctas">
-    <a class="jbtn" href="#picks">Shop Joe's Picks</a>
+   <span class="jeyebrow"><span class="jdiamond"></span> A Gridiron Locker &times; {display} Collaboration</span>
+   <h1>{h1}</h1>
+   <p class="jsub">{esc(cre['sub'])}</p>
+{offer_html}   <div class="jctas">
+    <a class="jbtn" href="#picks">Shop {first}'s Picks</a>
     <a class="jbtn ghost" href="/{c['slug']}/">All Michigan</a>
    </div>
    <p class="jfacts">{desc_bits}</p>
   </div>
   <div class="jart">
-   <img src="/img/hero-joe.jpg" alt="Vintage football on a locker-room bench beside folded navy and maize shirts"
-    width="1933" height="813" fetchpriority="high" decoding="async">
+   <img src="{cre['hero']}" alt="{esc(cre['hero_alt'])}"
+    width="{cre['hero_w']}" height="{cre['hero_h']}" fetchpriority="high" decoding="async">
   </div>
  </div>
 </section>
 
 <section class="jintro">
  <div class="wrap">
-  <span class="jeyebrow"><span class="jdiamond"></span> Joe's Picks</span>
+  <span class="jeyebrow"><span class="jdiamond"></span> {first}'s Picks</span>
   <h2>A locker built by a fan</h2>
   <blockquote class="jquote">
-   <p>Joe has teamed up with Gridiron Locker to bring Michigan fans a collection of
-   designs built around the moments, stories and culture that make Michigan football special.</p>
-   <cite>Joe &times; Gridiron Locker</cite>
+   <p>{esc(cre['quote'])}</p>
+   <cite>{first} &times; Gridiron Locker</cite>
   </blockquote>
   <p class="jnote">This is not an official Michigan store. It is a creator-curated selection of
-  independent, fan-made artwork from Gridiron Locker's Michigan collection - hand-picked by Joe
-  for his audience, printed on demand by {esc(partner_of("michigan"))} with no warehouse stock.</p>
+  independent, fan-made artwork from Gridiron Locker's {c['short']} collection - hand-picked by {display}
+  for {possessive} audience, printed on demand by {esc(partner_of(ckey_col))} with no warehouse stock.</p>
  </div>
 </section>
 
@@ -2738,8 +2750,8 @@ def page_creator(ckey="joe"):
  <div class="wrap">
   <div class="jsechead">
    <span class="jeyebrow"><span class="jdiamond"></span> Featured</span>
-   <h2>Joe's Top Picks</h2>
-   <p>Four designs Joe is most excited to see on the street this season.</p>
+   <h2>{first}'s Top Picks</h2>
+   <p>Four designs {first} is most excited to see on the street this season.</p>
   </div>
   <div class="jfeat-row">{feat_cards}</div>
  </div>
@@ -2749,10 +2761,10 @@ def page_creator(ckey="joe"):
  <div class="wrap">
   <div class="jsechead">
    <span class="jeyebrow"><span class="jdiamond"></span> The Locker</span>
-   <h2>Joe's Michigan Collection</h2>
-   <p>Every design in this locker was picked by Joe from the Gridiron Locker Michigan
+   <h2>{first}'s {c['short']} Collection</h2>
+   <p>Every design in this locker was picked by {display} from the Gridiron Locker {c['short']}
    collection - game-day tees and vintage-inspired pieces with original artwork.
-   No official logos, no licensed assets: just Michigan football culture.</p>
+   No official logos, no licensed assets: just {c['short']} football culture.</p>
   </div>
   <div class="jtrustwrap">{trust()}</div>
   <div class="jgrid">{grid_cards}</div>
@@ -2771,30 +2783,28 @@ def page_creator(ckey="joe"):
 
 <section class="jcollab">
  <div class="wrap center">
-  <h2>JOE &times; GRIDIRON <span class="jgold">LOCKER</span></h2>
-  <p>Joe's Michigan Locker brings together his favourite Gridiron Locker designs in one place -
-  built for Michigan fans and selected with Joe. Use code <strong>JOE10</strong> at checkout for
-  10% off your order.</p>
+  <h2>{first.upper()} &times; GRIDIRON <span class="jgold">LOCKER</span></h2>
+  <p>{cre['collab_note']}</p>
  </div>
 </section>
 
 <section class="jfinal">
  <div class="wrap center">
-  <span class="jeyebrow navy"><span class="jdiamond navy"></span> Joe &times; Gridiron Locker</span>
-  <h2>JOE'S MICHIGAN LOCKER</h2>
-  <p>More Michigan designs coming as we build this collection together.</p>
+  <span class="jeyebrow navy"><span class="jdiamond navy"></span> {first} &times; Gridiron Locker</span>
+  <h2>{cre['page_name'].upper()}</h2>
+  <p>More {c['short']} designs coming as we build this collection together.</p>
   <a class="jbtn navy" href="#locker">Shop The Locker</a>
  </div>
 </section>
 <div class="jbar">
- <span class="jbar-l"><b>Joe's Michigan Locker</b><span>from ${minp:.2f}</span></span>
+ <span class="jbar-l"><b>{cre['page_name']}</b><span>from ${minp:.2f}</span></span>
  <a class="jbtn" href="#picks">Shop Picks</a>
 </div>
 </main>"""
 
     URLS.append((DOMAIN + path, "0.9", "weekly"))
     write(f"{cre['page_slug']}/index.html",
-          head(f"{cre['page_name']} | {BRAND}", cre_page_desc, path, "/img/hero-joe.jpg",
+          head(f"{cre['page_name']} | {BRAND}", cre_page_desc, path, cre["hero"],
                schema, kw, col=ckey_col, body_attrs=f' data-creator-page="{track}"')
           + header(ckey_col) + body + footer())
 
