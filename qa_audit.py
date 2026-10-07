@@ -107,6 +107,7 @@ N_ALL = len(ALL)
 CATALOG_COUNTS = {k: len(v) for k, v in MODEL.items()}
 MAYZING = [i for i in ALL if i["partner"] == "Mayzing"]
 VIRAL = [i for i in ALL if i["partner"] == "Viralstyle"]
+CREATOR_PATHS = {f"/{cre['page_slug']}/" for cre in build.CREATORS.values()}
 
 print(f"catalogue: {N_ALL} products across {len(MODEL)} collections")
 for k, n in CATALOG_COUNTS.items():
@@ -129,8 +130,8 @@ for path, d in DOCS.items():
         before = body[max(0, m.start() - 12):m.start()]
         if re.search(r"\b(week|day|game|round|phase)\s+$", before, re.I):
             continue
-        # Joe's creator locker legitimately shows its own pick count
-        if path.startswith("/michigan/joe/") and n != N_ALL and n <= 12:
+        # A creator locker legitimately shows its own curated pick count
+        if path in CREATOR_PATHS and n != N_ALL and n <= 12:
             continue
         if n in CATALOG_COUNTS.values() or n == N_ALL or n == len(ORDER := build.ORDER):
             continue

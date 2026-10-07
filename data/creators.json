@@ -1,66 +1,167 @@
 {
-  "program": "Gridiron Locker creator collaborations",
-  "updated": "2026-09-09",
-  "creators": {
-    "joe": {
-      "id": "JOE",
-      "display_name": "Joe",
-      "role": "Michigan football creator",
-      "page_slug": "michigan/joe",
-      "page_name": "Joe's Michigan Locker",
-      "page_tagline": "A Gridiron Locker x Joe Collaboration",
-      "collection_key": "michigan",
-      "one_link": "https://gridironlocker.store/michigan/joe/",
-      "commission": {
-        "rate_pct": 20,
-        "basis": "net product sales",
-        "exclusions": [
-          "taxes",
-          "shipping",
-          "refunds",
-          "cancellations",
-          "chargebacks"
-        ],
-        "customer_facing": false
-      },
-      "attribution": {
-        "creator_id": "JOE",
-        "cookie_name": "gl_creator",
-        "cookie_ttl_days": 90,
-        "checkout_query": {
-          "creator": "JOE"
-        },
-        "utm": {
-          "utm_source": "creator",
-          "utm_medium": "referral",
-          "utm_campaign": "creator-JOE"
-        },
-        "ga4_events": [
-          "creator_attribution_set",
-          "creator_page_view",
-          "creator_session",
-          "shop_now_click (creator dimension)"
-        ]
-      },
-      "featured": [
-        "michigan-v-everybody",
-        "bet-m",
-        "second-act-qb19-vintage-football",
-        "limited-edition-go-blue"
-      ],
-      "picks": [
-        "michigan-v-everybody",
-        "bet-m",
-        "second-act-qb19-vintage-football",
-        "limited-edition-go-blue",
-        "limited-edition-h-a-i-l-mary",
-        "m-vs-everybody",
-        "michigan-bet",
-        "michigan-revenge-tour",
-        "michigan-bet-vintage",
-        "one-second",
-        "second-act"
-      ]
-    }
+ "program": "Gridiron Locker creator collaborations",
+ "updated": "2026-10-07",
+ "creators": {
+  "joe": {
+   "id": "JOE",
+   "display_name": "Joe",
+   "role": "Michigan football creator",
+   "page_slug": "michigan/joe",
+   "page_name": "Joe's Michigan Locker",
+   "page_tagline": "A Gridiron Locker x Joe Collaboration",
+   "collection_key": "michigan",
+   "one_link": "https://gridironlocker.store/michigan/joe/",
+   "commission": {
+    "rate_pct": 20,
+    "basis": "net product sales",
+    "exclusions": [
+     "taxes",
+     "shipping",
+     "refunds",
+     "cancellations",
+     "chargebacks"
+    ],
+    "customer_facing": false
+   },
+   "attribution": {
+    "creator_id": "JOE",
+    "cookie_name": "gl_creator",
+    "cookie_ttl_days": 90,
+    "checkout_query": {
+     "creator": "JOE"
+    },
+    "utm": {
+     "utm_source": "creator",
+     "utm_medium": "referral",
+     "utm_campaign": "creator-JOE"
+    },
+    "ga4_events": [
+     "creator_attribution_set",
+     "creator_page_view",
+     "creator_session",
+     "shop_now_click (creator dimension)"
+    ]
+   },
+   "featured": [
+    "michigan-v-everybody",
+    "bet-m",
+    "second-act-qb19-vintage-football",
+    "limited-edition-go-blue"
+   ],
+   "picks": [
+    "michigan-v-everybody",
+    "bet-m",
+    "second-act-qb19-vintage-football",
+    "limited-edition-go-blue",
+    "limited-edition-h-a-i-l-mary",
+    "m-vs-everybody",
+    "michigan-bet",
+    "michigan-revenge-tour",
+    "michigan-bet-vintage",
+    "one-second",
+    "second-act"
+   ],
+   "hero": "/img/hero-joe.jpg",
+   "hero_w": 1933,
+   "hero_h": 813,
+   "hero_alt": "Vintage football on a locker-room bench beside folded navy and maize shirts",
+   "promo": {
+    "code": "JOE10",
+    "pct": 10
+   },
+   "page_desc": "Joe's Michigan Locker: Michigan football tees hand-picked by Joe. Save 10% with code JOE10 on game-day and vintage-inspired designs, printed on demand.",
+   "sub": "Michigan football gear, hand-picked by Joe.",
+   "quote": "Joe has teamed up with Gridiron Locker to bring Michigan fans a collection of\n   designs built around the moments, stories and culture that make Michigan football special.",
+   "collab_note": "Joe's Michigan Locker brings together his favourite Gridiron Locker designs in one place -\n  built for Michigan fans and selected with Joe. Use code <strong>JOE10</strong> at checkout for\n  10% off your order.",
+   "possessive": "his",
+   "keywords": [
+    "joe's michigan locker",
+    "michigan football shirt",
+    "go blue t-shirt",
+    "michigan vs everybody shirt",
+    "ann arbor football gear",
+    "qb19 shirt",
+    "michigan slogan tee",
+    "maize and navy tee",
+    "michigan game day shirt",
+    "wolverines fan gear"
+   ]
+  },
+  "bella": {
+   "id": "BELLA",
+   "display_name": "Bella Lopresti",
+   "role": "Michigan lifestyle creator",
+   "page_slug": "michigan/bella",
+   "page_name": "Bella's Michigan Locker",
+   "page_tagline": "A Gridiron Locker x Bella Lopresti Collaboration",
+   "collection_key": "michigan",
+   "one_link": "https://gridironlocker.store/michigan/bella/",
+   "commission": {
+    "rate_pct": 15,
+    "basis": "net product sales",
+    "exclusions": [
+     "taxes",
+     "shipping",
+     "refunds",
+     "cancellations",
+     "chargebacks"
+    ],
+    "customer_facing": false
+   },
+   "attribution": {
+    "creator_id": "BELLA",
+    "cookie_name": "gl_creator",
+    "cookie_ttl_days": 90,
+    "checkout_query": {
+     "creator": "BELLA"
+    },
+    "utm": {
+     "utm_source": "creator",
+     "utm_medium": "referral",
+     "utm_campaign": "creator-BELLA"
+    },
+    "ga4_events": [
+     "creator_attribution_set",
+     "creator_page_view",
+     "creator_session",
+     "shop_now_click (creator dimension)"
+    ]
+   },
+   "featured": [
+    "michigan",
+    "legacy",
+    "one-second",
+    "maize-out"
+   ],
+   "picks": [
+    "michigan",
+    "legacy",
+    "one-second",
+    "second-act",
+    "maize-out",
+    "limited-edition-h-a-i-l-mary"
+   ],
+   "hero": "/img/hero-michigan.jpg",
+   "hero_w": 2048,
+   "hero_h": 768,
+   "hero_alt": "Flat lay of folded Gridiron Locker Michigan tees in navy, maize and grey",
+   "page_desc": "Bella's Michigan Locker: Michigan football tees hand-picked by Bella. Game-day and vintage-inspired designs, printed on demand.",
+   "sub": "Michigan designs, hand-picked by Bella.",
+   "quote": "Bella has teamed up with Gridiron Locker to bring her audience a collection of designs built around the Michigan lifestyle - game day, the walk to the game, and everything in between.",
+   "collab_note": "Bella's Michigan Locker brings together Bella's favourite Gridiron Locker designs in one place - built for Michigan fans and selected with Bella.",
+   "possessive": "her",
+   "keywords": [
+    "bella's michigan locker",
+    "michigan girl shirt",
+    "michigan girl tee",
+    "ann arbor shirt",
+    "michigan lifestyle tee",
+    "go blue girl shirt",
+    "ann arbor michigan t-shirt",
+    "michigan game day outfit",
+    "maize and navy girl tee",
+    "wolverines fan gear"
+   ]
   }
+ }
 }
