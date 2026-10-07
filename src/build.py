@@ -1207,7 +1207,7 @@ def season_promo():
     return f"2026 season kicks off {month} {d.day}"
 
 
-def header(active=""):
+def header(active="", hide_nav=False):
     """Site header, shared by every page.
 
     Two rows: the logo row (logo + search), then a FULL-WIDTH menu bar that
@@ -1248,6 +1248,21 @@ def header(active=""):
     partner = partner_of(active) if active in COLLECTIONS else ""
     promo_fact = (f"Printed on demand by {partner}" if partner
                   else "Printed on demand &middot; No warehouse stock")
+    # A locker page that curates its own picks (e.g. a girly creator page) can
+    # drop the nine-destination menu bar - it only cross-sells away from the
+    # collection. The logo row, promo bar and search stay; the footer is part
+    # of the shared page chrome and is untouched either way.
+    menubar = "" if hide_nav else f"""
+ <nav class="menubar" aria-label="Shop">
+  <div class="mb-track">
+   <a href="/collections/">All Collections</a>
+   {links}
+   <a href="/drops/">Trending</a>
+   <a href="/guides/">Guides</a>
+   <a href="/#shop-the-locker">Shop The Locker</a>
+   <a class="custom-link" data-placement="nav" href="/#custom-design">Custom Design</a>
+  </div>
+ </nav>"""
     return f"""\
 <a class="skip" href="#main">Skip to content</a>
 <div class="promo">{season_promo()} &middot; {promo_fact}</div>
@@ -1262,17 +1277,7 @@ def header(active=""):
    <button class="searchbtn" aria-label="Search designs"
     onclick="var m=document.getElementById('ms');m.classList.toggle('open');var i=m.querySelector('input');if(m.classList.contains('open')&&i)i.focus()">{search_ico}</button>
   </div>
- </div>
- <nav class="menubar" aria-label="Shop">
-  <div class="mb-track">
-   <a href="/collections/">All Collections</a>
-   {links}
-   <a href="/drops/">Trending</a>
-   <a href="/guides/">Guides</a>
-   <a href="/#shop-the-locker">Shop The Locker</a>
-   <a class="custom-link" data-placement="nav" href="/#custom-design">Custom Design</a>
-  </div>
- </nav>
+ </div>{menubar}
  <div class="mobsearch" id="ms"><span class="gs"><input class="gsearch" type="search"
   placeholder="Search all {len(ALL)} designs..." aria-label="Search all designs" autocomplete="off"></span></div>
 </header>"""
@@ -2592,6 +2597,104 @@ def page_collection(k):
           + header(k) + body + footer(collection=k))
 
 
+def _girly_body(cre, c, items, track):
+    """The cream-scrapbook variant of a creator page (theme == "girly").
+
+    Only emitted for creators whose record sets ``theme: "girly"`` (Bella).
+    It keeps the shared storefront chrome (header / footer) but renders the
+    owner's mockup: cream page, paper cards, navy ink, pink + maize accents,
+    Georgia serif with a Brush Script flourish, taped polaroids and a navy
+    vibe sign-off. Cards are the REAL catalogue picks - images and the
+    ``?creator=<ID>`` attribution links come straight from the live model.
+    """
+    g = cre.get("girly", {})
+    first = cre["display_name"].split()[0]
+    labels = g.get("labels", {})
+    captions = g.get("captions", {})
+    statement = g.get("statement_pick")
+    ckey_col = cre["collection_key"]
+
+    def jlink(it):
+        return f"/shop/{it['slug']}/?creator={track}"
+
+    cards = []
+    for idx, it in enumerate(items):
+        num = f"{idx + 1:02d}"
+        lab = esc(labels.get(it["slug"], "Pick"))
+        cap = esc(captions.get(it["slug"], ""))
+        attrs = (f'href="{jlink(it)}" data-slug="{it["slug"]}" '
+                 f'data-price="{it["price"]:.2f}" data-creator="{track}" '
+                 f'data-collection="{ckey_col}"')
+        img = (f'<span class="gph"><img src="{it["front"]}" alt="{card_alt(it)}" '
+               f'width="530" height="630" loading="lazy" decoding="async"></span>')
+        info = (f'<span class="gb"><span class="gnum">{num} &ndash; {lab}</span>'
+                f'<span class="gname">{esc(it["name"])}</span>'
+                f'<span class="gcap">{cap}</span>')
+        if it["slug"] == statement:
+            pill = (f'<span class="gshop gmaize"><span>Shop design</span>'
+                    f'<b>${it["price"]:.2f}</b></span>')
+            cards.append(f'<a class="gcard gwide" {attrs}>{img}{info}{pill}</span></a>')
+        else:
+            rot = "grot-a" if idx % 2 == 0 else "grot-b"
+            pill = (f'<span class="gshop"><span>Shop design</span>'
+                    f'<b>${it["price"]:.2f}</b></span>')
+            cards.append(f'<a class="gcard {rot}" {attrs}>{img}{info}{pill}</span></a>')
+    cs = g.get("coming_soon", {})
+    cards.append(f'<div class="gcard gsoon" aria-hidden="true">'
+                 f'<span class="gnum">{esc(cs.get("num", "07"))} &ndash; '
+                 f'{esc(cs.get("label", "Next Drop"))}</span>'
+                 f'<span class="gsoon-cap">{esc(cs.get("caption", "more pretty things, soon"))}</span>'
+                 f'</div>')
+    grid = "".join(cards)
+
+    pols = ""
+    for i, pol in enumerate(g.get("polaroids", [])):
+        pols += (f'<figure class="gpolaroid p{i % 2 + 1}"><span class="gtape"></span>'
+                 f'<img src="{pol["image"]}" alt="{esc(pol["alt"])}" '
+                 f'loading="lazy" decoding="async">'
+                 f'<figcaption>{esc(pol["caption"])}</figcaption></figure>')
+
+    return f"""
+<main id="main" class="jlock jlock-girly">
+<section class="ghero"><div class="wrap">
+ <div class="ghero-card">
+  <span class="gtag">{esc(g.get("hero_tag", "6 designs &middot; One collection"))}</span>
+  <div class="ghero-copy">
+   <span class="geyebrow">{esc(g.get("hero_eyebrow", ""))}</span>
+   <span class="gscript">{esc(g.get("hero_script", first))}</span>
+   <h1 class="gtitle">{esc(g.get("hero_title", cre["page_name"]))}</h1>
+   <p class="gsub">{esc(g.get("hero_sub", cre.get("sub", "")))}</p>
+  </div>
+  <div class="ghero-art"><img src="{g.get("hero_image", cre["hero"])}" alt="{esc(g.get("hero_alt", cre["hero_alt"]))}"
+   width="{cre["hero_w"]}" height="{cre["hero_h"]}" fetchpriority="high" decoding="async"></div>
+ </div>
+</div></section>
+
+<section class="gintro"><div class="wrap gintro-grid">
+ <div class="gpols">{pols}</div>
+ <figure class="gnote"><span class="gtape"></span>
+  <blockquote><p>{esc(g.get("quote", cre.get("quote", "")))}</p>
+  <cite>&mdash; {first}</cite></blockquote>
+ </figure>
+</div></section>
+
+<section id="locker" class="gcoll"><div class="wrap">
+ <div class="ghead">
+  <h2>{esc(g.get("collection_heading", "The Collection"))}</h2>
+  <span class="grule"></span>
+  <p>{esc(g.get("collection_desc", ""))}</p>
+ </div>
+ <div class="ggrid">{grid}</div>
+</div></section>
+
+<section class="gsign"><div class="wrap center">
+ <h2>{esc(g.get("signoff_lead", ""))}<em>{esc(g.get("signoff_accent", ""))}</em></h2>
+ <p>{esc(g.get("collab_line", ""))}</p>
+ <a class="gbtn" href="#locker">Shop The Locker</a>
+</div></section>
+</main>"""
+
+
 def page_creator(ckey="joe"):
     """Creator collaboration page (e.g. Joe's / Bella's Michigan Locker).
 
@@ -2813,11 +2916,18 @@ def page_creator(ckey="joe"):
 </div>
 </main>"""
 
+    # Girly variant (Bella): swap the navy editorial body for the owner's
+    # cream-scrapbook mockup and let her page drop the menu bar. Joe's record
+    # has neither flag, so his page renders byte-identically.
+    if cre.get("theme") == "girly":
+        body = _girly_body(cre, c, items, track)
+    hide_nav = bool(cre.get("hide_nav", False))
+
     URLS.append((DOMAIN + path, "0.9", "weekly"))
     write(f"{cre['page_slug']}/index.html",
           head(f"{cre['page_name']} | {BRAND}", cre_page_desc, path, cre["hero"],
                schema, kw, col=ckey_col, body_attrs=f' data-creator-page="{track}"')
-          + header(ckey_col) + body + footer(collection=ckey_col))
+          + header(ckey_col, hide_nav=hide_nav) + body + footer(collection=ckey_col))
 
 
 def shop_now_cta(it, placement, label="Shop Now", size="lg", block=True):
