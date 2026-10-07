@@ -34,6 +34,10 @@ Covered:
     headline panels (those live on /2026-season/ and /fan-trend-index/), and
     live ticker terms are team-safe (no raw headline words, no opponents).
   * Artwork hygiene: no PNG masters in site/img (they live in artwork-source/).
+  * Bella's /michigan/bella/ (theme "girly"): the cream-scrapbook skin is
+    scoped to that page, its Google Fonts load in <head> only, the six cards
+    are the real catalogue picks, and all motion is off under
+    prefers-reduced-motion.
   * Preserved: team accents, hero images, product count, checkout links, SEO
     metadata, dynamic catalogue counts, no missing local references.
 """
@@ -2048,6 +2052,203 @@ class CreatorCollab(unittest.TestCase):
         self.assertIn('"@type":"FAQPage"', self.html)
         self.assertIn('"@type":"BreadcrumbList"', self.html)
 
+
+class GirlyLocker(unittest.TestCase):
+    """Bella's /michigan/bella/: the themed cream-scrapbook locker.
+
+    Guard rails for the girly variant of a creator page (``theme: "girly"``
+    in data/creators.json). Joe's page and the rest of the storefront are the
+    control group:
+
+    * the skin is scoped - the Google Fonts <link> ships on that page only and
+      every rule lives under .jlock-girly, so nothing here can restyle another
+      page (the mockup's pieces are classes, not bare element selectors),
+    * the curation in creators.json still ships - six REAL catalogue cards,
+      each one a ?creator=BELLA link with its price on the Shop pill,
+    * the mockup's parts are present: washi tape, cream hero card, round maize
+      sticker, squiggle-underlined names, the navy statement card, the dashed
+      coming-soon tile, fleuron dividers and the paper-cut sign-off,
+    * the motion (card lift + straighten + zoom, polaroid straighten, sticker
+      wiggle) is switched off for reduced-motion visitors,
+    * the copy is data-driven: labels, captions, polaroid captions, the note,
+      the statement kicker and the sign-off line all come from the record.
+    """
+
+    def setUp(self):
+        self.html = page("michigan/bella/index.html")
+        self.joe = page("michigan/joe/index.html")
+        self.css = page("assets/style.css")
+        self.cre = load_json("data/creators.json")["creators"]["bella"]
+        self.girly = self.cre["girly"]
+
+    def girly_css(self):
+        """The girly skin: from its banner comment to the end of the file."""
+        marker = "CREATOR COLLABORATION - GIRLY VARIANT"
+        return self.css[self.css.index(marker):]
+
+    def girly_rules(self):
+        """The girly skin with its CSS comments stripped (selectors only).
+
+        The slice starts inside the banner comment, so its tail is dropped
+        first - otherwise there is no opening ``/*`` left for the strip to
+        match and the comment body reads as a selector.
+        """
+        css = self.girly_css()
+        css = css[css.index("*/") + 2:] if "*/" in css else css
+        return re.sub(r"/\*.*?\*/", "", css, flags=re.S)
+
+    def cards(self):
+        sec = self.html[self.html.index('id="locker"'):self.html.index('class="gsign"')]
+        return re.findall(r'<a class="gcard[^"]*" href="[^"]*?/shop/([a-z0-9-]+)/\?creator=BELLA"(.*?)</a>',
+                          sec, re.S)
+
+    # ------------------------------------------------------------ the skin
+    def test_fonts_load_on_this_page_only(self):
+        head = self.html[:self.html.index("</head>")]
+        self.assertIn("fonts.googleapis.com/css2?family=Caveat", head)
+        self.assertIn("family=Playfair+Display", head)
+        # the typefaces are injected in <head>; an @import appended mid-file in
+        # style.css would be dropped by the browser, so it must not be there
+        self.assertNotIn("@import url('https://fonts.googleapis.com/css2?family=Caveat",
+                         self.css)
+        self.assertNotIn("fonts.googleapis.com/css2", self.joe)
+
+    def test_every_girly_rule_is_scoped(self):
+        unscoped = []
+        for group in re.findall(r"([^{}]+)\{", self.girly_rules()):
+            for sel in group.split(","):
+                sel = sel.strip()
+                if not sel or sel.startswith("@") or sel == "*":
+                    continue
+                if sel.startswith(".jlock-girly") or sel.startswith("main.jlock-girly"):
+                    continue
+                unscoped.append(sel)
+        self.assertEqual(unscoped, [], unscoped[:6])
+
+    def test_palette_and_type_tokens(self):
+        css = self.girly_css()
+        for token in ("--g-cream:#f5f0e6", "--g-paper:#fffdf7", "--g-navy:#182d4d",
+                      "--g-navy-h:#263f65", "--g-pink:#e8a6b2", "--g-pink-d:#d9899a",
+                      "--g-maize:#ffcb05", "--g-maize-d:#e6b800",
+                      "--g-serif:'Playfair Display'", "--g-hand:'Caveat'"):
+            self.assertIn(token, css, token)
+        # paper feel: polka dots + a soft light from the top, both on the page
+        self.assertIn("radial-gradient(circle at 13px 13px", css)
+
+    def test_motion_is_opt_out_for_reduced_motion(self):
+        css = self.girly_css()
+        self.assertIn("@media (prefers-reduced-motion:reduce){", css)
+        self.assertIn("*{transition:none;animation:none}", css)
+        self.assertIn("transition:none!important;animation:none!important", css)
+
+    def test_hover_micro_interactions(self):
+        css = self.girly_css()
+        self.assertIn(".jlock-girly .gcard:hover{transform:rotate(0) translateY(-6px)", css)
+        self.assertIn(".jlock-girly .gcard:hover .gph img{transform:scale(1.05)}", css)
+        self.assertIn(".jlock-girly .gpolaroid:hover{transform:rotate(0) translateY(-5px)", css)
+        self.assertIn(".jlock-girly .gcard:hover .gshop{background:var(--g-navy-h)", css)
+        self.assertIn(".jlock-girly .ghero-art:hover .gsticker{", css)
+
+    # ------------------------------------------------------ the mockup parts
+    def test_scrapbook_parts_are_present(self):
+        for part in ('class="gpaper ghero-card"', 'class="gstamp"', 'class="gscript"',
+                     'class="gprint"', 'class="gsticker"', 'class="gpolaroid p1"',
+                     'class="gpolaroid p2"', 'class="gnote"', 'class="goverline"',
+                     'class="grule"', 'class="gnum-sticker"', 'class="gheart"',
+                     'class="gbtn gbtn-maize"', 'class="ghand"', 'class="gbtn gbtn-papercut"'):
+            self.assertIn(part, self.html, part)
+        # the fleuron divides hero / intro / collection / sign-off
+        self.assertEqual(len(re.findall(r'class="gfleuron"', self.html)), 3)
+        # washi tape is always decoration
+        for tag in re.findall(r'<span class="gtape[^"]*"[^>]*>', self.html):
+            self.assertIn('aria-hidden="true"', tag)
+
+    def test_names_carry_the_pink_squiggle_underline(self):
+        self.assertIn("background-image:url(\"data:image/svg+xml,", self.girly_css())
+        self.assertIn(".jlock-girly .gname{", self.girly_css())
+        self.assertEqual(len(re.findall(r'class="gname"', self.html)), 6)
+
+    def test_signoff_band_and_coming_soon_tile(self):
+        self.assertIn(self.girly["signoff_lead"], self.html)
+        self.assertIn(f'<em>{self.girly["signoff_accent"]}</em>', self.html)
+        self.assertIn(f'class="gbtn gbtn-papercut" href="#locker">'
+                      f'{self.girly["signoff_cta"]}</a>', self.html)
+        self.assertIn('class="gcard gsoon" aria-hidden="true"', self.html)
+        self.assertIn(self.girly["coming_soon"]["heart"], self.html)
+        self.assertIn(self.girly["coming_soon"]["caption"], self.html)
+
+    # ------------------------------------------------------- the real cards
+    def test_cards_are_exactly_the_curated_picks(self):
+        import build  # noqa: E402
+        live = {it["slug"] for it in build.ALL}
+        cards = self.cards()
+        self.assertEqual([slug for slug, _ in cards], self.cre["picks"])
+        for slug, block in cards:
+            self.assertIn(slug, live, slug)
+            self.assertIn("$", block, slug)
+            self.assertIn("Shop design", block, slug)
+            self.assertIn('width="530" height="630"', block)   # no layout shift
+            self.assertIn('loading="lazy"', block)
+            self.assertIn("buyer-experience-gateway.mayzing.com", block)  # CDN artwork
+
+    def test_statement_pick_is_the_navy_card_across_both_columns(self):
+        pick = self.girly["statement_pick"]
+        m = re.search(r'<a class="gcard gwide" href="[^"]*?/shop/([a-z0-9-]+)/\?creator=BELLA"',
+                      self.html)
+        self.assertIsNotNone(m)
+        self.assertEqual(m.group(1), pick)
+        self.assertIn(self.girly["statement_kicker"], self.html)
+        self.assertIn(self.girly["statement_note"], self.html)
+        css = self.girly_css()
+        self.assertIn(".jlock-girly .gcard.gwide{grid-column:1 / -1", css)
+        self.assertIn(".jlock-girly .gcard.gwide .gshop,.jlock-girly .gshop.gmaize"
+                      "{background:var(--g-maize)", css)
+        wide = self.html[self.html.index('<a class="gcard gwide"'):]
+        wide = wide[:wide.index("</a>")]
+        self.assertIn(self.girly["statement_kicker"], wide)
+        self.assertIn(f'href="../../shop/{pick}/?creator=BELLA"', wide)
+        self.assertIn("gshop gmaize", wide)
+
+    # ------------------------------------------------------ data-driven copy
+    def test_labels_captions_and_polaroids_come_from_the_record(self):
+        for slug, label in self.girly["labels"].items():
+            self.assertIn(f"&ndash; {label}", self.html, slug)
+        for slug, cap in self.girly["captions"].items():
+            self.assertIn(cap.replace("&", "&amp;"), self.html, slug)
+        for pol in self.girly["polaroids"]:
+            self.assertTrue(os.path.isfile(os.path.join(SITE, pol["image"].lstrip("/"))),
+                            pol["image"])
+            self.assertIn(pol["image"].lstrip("/"), self.html, pol["image"])
+            self.assertIn(pol["caption"], self.html, pol["caption"])
+        self.assertIn(self.girly["quote"].replace("&", "&amp;"), self.html)
+        self.assertIn(self.girly["hero_cta"], self.html)
+        self.assertIn(self.girly["hero_story_link"], self.html)
+        self.assertIn(self.girly["intro_heading"], self.html)
+        self.assertIn(self.girly["collection_heading"], self.html)
+        self.assertIn(self.girly["collab_line"], self.html)
+
+    def test_page_is_indexable_and_carries_no_commission_terms(self):
+        self.assertIn('<link rel="canonical" href="https://gridironlocker.store/michigan/bella/">',
+                      self.html)
+        self.assertIn("<loc>https://gridironlocker.store/michigan/bella/</loc>",
+                      page("sitemap.xml"))
+        self.assertIn('data-creator-page="BELLA"', self.html)
+        low = self.html.lower()
+        self.assertNotIn("commission", low)
+        self.assertNotIn("15%", low)
+
+    def test_heading_order_survives_the_new_sections(self):
+        levels = [int(m) for m in re.findall(r"<h([1-6])[ >]", self.html)]
+        self.assertEqual(levels.count(1), 1)
+        for a, b in zip(levels, levels[1:]):
+            self.assertLessEqual(b - a, 1)
+
+    # ------------------------------------------------ the control group: Joe
+    def test_joe_page_keeps_the_navy_editorial_body(self):
+        self.assertIn('<main id="main" class="jlock">', self.joe)
+        self.assertNotIn("jlock-girly", self.joe)
+        self.assertNotIn("gcard", self.joe)
+        self.assertIn('class="jfeat"', self.joe)
 
 class ConversionUpgrades(unittest.TestCase):
     """The conversion pass: truthful trust strip, faster PDP hand-off,
