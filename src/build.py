@@ -1006,7 +1006,14 @@ def theme_vars(ckey):
 
 
 def head(title, desc, path, image=None, schema=None, keywords=None, col=None,
-         noindex=False, body_attrs=""):
+         noindex=False, body_attrs="", extra_head=""):
+    """<head> for one page. ``extra_head`` is raw markup for the ONE page that
+    asked for it (currently the Google Fonts <link> on a ``theme == "girly"``
+    creator page) and defaults to "" so every other page's head is unchanged.
+    Fonts arrive here rather than as an @import in src/style.css: that file is
+    one stylesheet, an @import is only honoured before any other rule, and the
+    girly block is appended mid-file - so a browser would silently drop it.
+    """
     canon = abs_url(path)
     # SEO Engine overrides (data/seo/overrides.json) win over generated defaults
     # for title / description / og_* only. Canonical, robots, schema and H1 are
@@ -1122,7 +1129,7 @@ def head(title, desc, path, image=None, schema=None, keywords=None, col=None,
 <link rel="preconnect" href="https://fonts.googleapis.com">
 <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
 <link rel="stylesheet" href="/assets/style.css?v={STYLE_VERSION}">
-<script>document.documentElement.className+=" js"</script>
+{extra_head}<script>document.documentElement.className+=" js"</script>
 {acc}
 {sc}
 <!-- Google tag (gtag.js) - consent-gated. The tag is NOT loaded until the
@@ -2597,15 +2604,39 @@ def page_collection(k):
           + header(k) + body + footer(collection=k))
 
 
+#: Google Fonts for the cream-scrapbook (girly) creator pages: Playfair Display
+#: for the serif headings, Caveat for the handwriting. Loaded with a <link> in
+#: <head> on those pages only - see head(extra_head=...) for why this cannot be
+#: an @import in src/style.css. The host already preconnects to both Fonts
+#: origins site-wide, so this costs one stylesheet, not a fresh DNS/TLS dance.
+GIRLY_FONTS = (
+    '<link rel="stylesheet" href="https://fonts.googleapis.com/css2'
+    "?family=Caveat:wght@400;600;700"
+    "&amp;family=Playfair+Display:ital,wght@0,500;0,700;0,800;1,500"
+    '&amp;display=swap">\n'
+)
+
+
 def _girly_body(cre, c, items, track):
     """The cream-scrapbook variant of a creator page (theme == "girly").
 
     Only emitted for creators whose record sets ``theme: "girly"`` (Bella).
     It keeps the shared storefront chrome (header / footer) but renders the
-    owner's mockup: cream page, paper cards, navy ink, pink + maize accents,
-    Georgia serif with a Brush Script flourish, taped polaroids and a navy
-    vibe sign-off. Cards are the REAL catalogue picks - images and the
-    ``?creator=<ID>`` attribution links come straight from the live model.
+    owner's handmade-paper mockup: a cream page with a faint polka-dot plus
+    grain texture, a framed paper hero card with washi-tape corners, Playfair
+    Display headings, Caveat handwriting, taped polaroids, a lined-paper note,
+    paper product cards with a washi tape, a round maize number sticker and a
+    hard-offset navy "Shop design" pill, a navy statement card and a navy
+    "vibe" sign-off.
+
+    Everything a copywriter would want to change (eyebrow, script, title,
+    subtitle, both CTAs, overlines, labels, captions, statement kicker,
+    coming-soon copy, sign-off line and button label) comes from
+    ``cre["girly"]`` in data/creators.json, with the defaults below as the
+    fallback. The cards themselves are the REAL catalogue picks: the CDN
+    artwork and the ``?creator=<ID>`` attribution links come straight from the
+    live model, so this page can never advertise a design the store does not
+    sell.
     """
     g = cre.get("girly", {})
     first = cre["display_name"].split()[0]
@@ -2613,9 +2644,29 @@ def _girly_body(cre, c, items, track):
     captions = g.get("captions", {})
     statement = g.get("statement_pick")
     ckey_col = cre["collection_key"]
+    store = esc(g.get("store_label", "Shop design"))
+    coming = g.get("coming_soon", {})
+    fleuron = esc(g.get("fleuron", "\u2766"))
+    # The sticker is one data string ("6 designs · One collection") split on
+    # the middle dot so it can be set as two lines inside a round badge.
+    tag_a, _, tag_b = str(g.get("hero_tag", "6 designs \u00b7 One collection")).partition("\u00b7")
+
+    # Both of these carry a glyph, so they are resolved here: a backslash in an
+    # f-string expression is a SyntaxError before Python 3.12.
+    story_link = esc(g.get("hero_story_link", "read my story \u2193"))
 
     def jlink(it):
         return f"/shop/{it['slug']}/?creator={track}"
+
+    def tape(cls="gtape"):
+        return f'<span class="{cls}" aria-hidden="true"></span>'
+
+    def divider():
+        return f'<div class="gfleuron" aria-hidden="true">{fleuron}</div>'
+
+    def pill(it, extra=""):
+        return (f'<span class="gshop{extra}"><span>{store}</span>'
+                f'<b>${it["price"]:.2f}</b></span>')
 
     cards = []
     for idx, it in enumerate(items):
@@ -2626,71 +2677,98 @@ def _girly_body(cre, c, items, track):
                  f'data-price="{it["price"]:.2f}" data-creator="{track}" '
                  f'data-collection="{ckey_col}"')
         img = (f'<span class="gph"><img src="{it["front"]}" alt="{card_alt(it)}" '
-               f'width="530" height="630" loading="lazy" decoding="async"></span>')
-        info = (f'<span class="gb"><span class="gnum">{num} &ndash; {lab}</span>'
-                f'<span class="gname">{esc(it["name"])}</span>'
-                f'<span class="gcap">{cap}</span>')
+               f'width="530" height="630" loading="lazy" decoding="async">'
+               f'<span class="gnum-sticker" aria-hidden="true">{num}</span></span>')
         if it["slug"] == statement:
-            pill = (f'<span class="gshop gmaize"><span>Shop design</span>'
-                    f'<b>${it["price"]:.2f}</b></span>')
-            cards.append(f'<a class="gcard gwide" {attrs}>{img}{info}{pill}</span></a>')
+            # The statement pick is the navy card spanning both columns: the
+            # one design the creator leads with, so it carries the kicker, an
+            # extra line of copy and the maize price button.
+            note = g.get("statement_note", "")
+            note_html = f'<p class="gstatement">{esc(note)}</p>' if note else ""
+            kicker = g.get("statement_kicker", f"{first.lower()}\u2019s fave \u2665")
+            cards.append(f'<a class="gcard gwide" {attrs}>{tape()}{img}'
+                         f'<div class="gb"><span class="gkick">{esc(kicker)}</span>'
+                         f'<span class="gnum">{num} &ndash; {lab}</span>'
+                         f'<h3 class="gname">{esc(it["name"])}</h3>'
+                         f'<span class="gcap">{cap}</span>{note_html}'
+                         f'{pill(it, " gmaize")}</div></a>')
         else:
             rot = "grot-a" if idx % 2 == 0 else "grot-b"
-            pill = (f'<span class="gshop"><span>Shop design</span>'
-                    f'<b>${it["price"]:.2f}</b></span>')
-            cards.append(f'<a class="gcard {rot}" {attrs}>{img}{info}{pill}</span></a>')
-    cs = g.get("coming_soon", {})
-    cards.append(f'<div class="gcard gsoon" aria-hidden="true">'
-                 f'<span class="gnum">{esc(cs.get("num", "07"))} &ndash; '
-                 f'{esc(cs.get("label", "Next Drop"))}</span>'
-                 f'<span class="gsoon-cap">{esc(cs.get("caption", "more pretty things, soon"))}</span>'
-                 f'</div>')
+            cards.append(f'<a class="gcard {rot}" {attrs}>{tape()}{img}'
+                         f'<div class="gb"><span class="gnum">{num} &ndash; {lab}</span>'
+                         f'<h3 class="gname">{esc(it["name"])}</h3>'
+                         f'<span class="gcap">{cap}</span>{pill(it)}</div></a>')
+    # The dashed "coming soon" tile is decoration, not a product: aria-hidden
+    # so a screen reader never announces a design that does not exist yet.
+    heart = esc(coming.get("heart", "\u2665"))
+    cards.append('<div class="gcard gsoon" aria-hidden="true">'
+                 f'<span class="gheart">{heart}</span>'
+                 f'<span class="gnum">{esc(coming.get("num", "07"))} &ndash; '
+                 f'{esc(coming.get("label", "Next Drop"))}</span>'
+                 f'<span class="gsoon-cap">{esc(coming.get("caption", "more pretty things, soon"))}</span>'
+                 '</div>')
     grid = "".join(cards)
 
     pols = ""
     for i, pol in enumerate(g.get("polaroids", [])):
-        pols += (f'<figure class="gpolaroid p{i % 2 + 1}"><span class="gtape"></span>'
+        pols += (f'<figure class="gpolaroid p{i % 2 + 1}">{tape()}'
                  f'<img src="{pol["image"]}" alt="{esc(pol["alt"])}" '
-                 f'loading="lazy" decoding="async">'
+                 f'width="640" height="640" loading="lazy" decoding="async">'
                  f'<figcaption>{esc(pol["caption"])}</figcaption></figure>')
 
     return f"""
 <main id="main" class="jlock jlock-girly">
 <section class="ghero"><div class="wrap">
- <div class="ghero-card">
-  <span class="gtag">{esc(g.get("hero_tag", "6 designs &middot; One collection"))}</span>
+ <article class="gpaper ghero-card">
+  {tape("gtape gtape-tl")}{tape("gtape gtape-br")}
   <div class="ghero-copy">
-   <span class="geyebrow">{esc(g.get("hero_eyebrow", ""))}</span>
+   <span class="gstamp">{esc(g.get("hero_eyebrow", ""))}</span>
    <span class="gscript">{esc(g.get("hero_script", first))}</span>
    <h1 class="gtitle">{esc(g.get("hero_title", cre["page_name"]))}</h1>
    <p class="gsub">{esc(g.get("hero_sub", cre.get("sub", "")))}</p>
+   <div class="gctas">
+    <a class="gbtn gbtn-maize" href="#locker">{esc(g.get("hero_cta", "Shop the collection"))}</a>
+    <a class="ghand" href="#story">{story_link}</a>
+   </div>
   </div>
-  <div class="ghero-art"><img src="{g.get("hero_image", cre["hero"])}" alt="{esc(g.get("hero_alt", cre["hero_alt"]))}"
-   width="{cre["hero_w"]}" height="{cre["hero_h"]}" fetchpriority="high" decoding="async"></div>
+  <div class="ghero-art">
+   <figure class="gprint">{tape()}
+    <img src="{g.get("hero_image", cre["hero"])}" alt="{esc(g.get("hero_alt", cre["hero_alt"]))}"
+     width="{cre["hero_w"]}" height="{cre["hero_h"]}" fetchpriority="high" decoding="async"></figure>
+   <span class="gsticker"><span class="gsticker-a">{esc(tag_a.strip())}</span><span class="gsticker-b">{esc(tag_b.strip())}</span></span>
+  </div>
+ </article>
+</div></section>
+{divider()}
+<section id="story" class="gintro"><div class="wrap">
+ <div class="gintro-head">
+  <span class="goverline">{esc(g.get("intro_overline", "the girl behind the locker"))}</span>
+  <h2 class="gintro-h">{esc(g.get("intro_heading", f"Meet {first}"))}</h2>
+ </div>
+ <div class="gintro-grid">
+  <div class="gpols">{pols}</div>
+  <figure class="gnote">{tape()}
+   <blockquote><p>{esc(g.get("quote", cre.get("quote", "")))}</p>
+   <cite>&mdash; {first}</cite></blockquote>
+  </figure>
  </div>
 </div></section>
-
-<section class="gintro"><div class="wrap gintro-grid">
- <div class="gpols">{pols}</div>
- <figure class="gnote"><span class="gtape"></span>
-  <blockquote><p>{esc(g.get("quote", cre.get("quote", "")))}</p>
-  <cite>&mdash; {first}</cite></blockquote>
- </figure>
-</div></section>
-
+{divider()}
 <section id="locker" class="gcoll"><div class="wrap">
+ <span class="goverline">{esc(g.get("collection_overline", "the collection"))}</span>
  <div class="ghead">
   <h2>{esc(g.get("collection_heading", "The Collection"))}</h2>
-  <span class="grule"></span>
+  <span class="grule" aria-hidden="true"></span>
   <p>{esc(g.get("collection_desc", ""))}</p>
  </div>
  <div class="ggrid">{grid}</div>
 </div></section>
+{divider()}
 
 <section class="gsign"><div class="wrap center">
  <h2>{esc(g.get("signoff_lead", ""))}<em>{esc(g.get("signoff_accent", ""))}</em></h2>
- <p>{esc(g.get("collab_line", ""))}</p>
- <a class="gbtn" href="#locker">Shop The Locker</a>
+ <p class="gcollab">{esc(g.get("collab_line", ""))}</p>
+ <a class="gbtn gbtn-papercut" href="#locker">{esc(g.get("signoff_cta", "Shop The Locker"))}</a>
 </div></section>
 </main>"""
 
@@ -2917,16 +2995,20 @@ def page_creator(ckey="joe"):
 </main>"""
 
     # Girly variant (Bella): swap the navy editorial body for the owner's
-    # cream-scrapbook mockup and let her page drop the menu bar. Joe's record
-    # has neither flag, so his page renders byte-identically.
-    if cre.get("theme") == "girly":
+    # cream-scrapbook mockup, let her page drop the menu bar, and load the
+    # two Google Fonts the skin sets in <head> (Playfair Display + Caveat).
+    # Joe's record has neither flag, so his page - and its head, because
+    # extra_head defaults to "" - renders byte-identically.
+    girly = cre.get("theme") == "girly"
+    if girly:
         body = _girly_body(cre, c, items, track)
     hide_nav = bool(cre.get("hide_nav", False))
 
     URLS.append((DOMAIN + path, "0.9", "weekly"))
     write(f"{cre['page_slug']}/index.html",
           head(f"{cre['page_name']} | {BRAND}", cre_page_desc, path, cre["hero"],
-               schema, kw, col=ckey_col, body_attrs=f' data-creator-page="{track}"')
+               schema, kw, col=ckey_col, body_attrs=f' data-creator-page="{track}"',
+               extra_head=GIRLY_FONTS if girly else "")
           + header(ckey_col, hide_nav=hide_nav) + body + footer(collection=ckey_col))
 
 
