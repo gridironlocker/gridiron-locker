@@ -2112,6 +2112,16 @@ class GirlyLocker(unittest.TestCase):
             self.assertRegex(block, r'<img src="[^"]+" alt="[^"]+"')
             self.assertIn("Shop design", block)
             self.assertNotIn(">>", block)
+            # the gallery-wall pass: the curatorial label rides on the piece
+            # as a .gmood tag, the number is an italic serif span inside the
+            # title, and the footer names only the place
+            label = self.girly["labels"][slug]
+            self.assertIn(f'<p class="gmood">{escape_html(label)}</p>', block, slug)
+            num = self.cre["picks"].index(slug) + 1
+            self.assertIn(f'<span class="gname-num">{num:02d}.</span> '
+                          f'{escape_html(item["name"])}', block, slug)
+            self.assertIn('<p class="gfoot-meta">Ann Arbor · Michigan</p>', block, slug)
+            self.assertNotIn(f'Ann Arbor · Michigan · {escape_html(label)}', block, slug)
 
     def test_swatch_names_and_counts_match_the_model(self):
         import build  # noqa: E402
@@ -2262,6 +2272,11 @@ class GirlyLocker(unittest.TestCase):
         for slug in self.cre["picks"]:
             self.assertIn(escape_html(self.girly["labels"][slug]), self.html, slug)
             self.assertIn(escape_html(self.girly["captions"][slug]), self.html, slug)
+        # the label is promoted from the footer slug onto the piece itself:
+        # every pick carries its label in a .gmood curatorial tag
+        for slug in self.cre["picks"]:
+            self.assertIn(f'<p class="gmood">{escape_html(self.girly["labels"][slug])}</p>',
+                          self.html, slug)
         hero = self.cre["hero"]
         hero_alt = self.cre["hero_alt"]
         self.assertEqual(hero, "/img/bella-hero-autumn.jpg")
@@ -2324,6 +2339,14 @@ class GirlyLocker(unittest.TestCase):
                 continue
             self.assertIn('<span class="gshop"><span>', other["html"], other["slug"])
             self.assertNotIn("gmaize", other["html"], other["slug"])
+        # the fave hangs in a double frame: pink border, gold keyline and
+        # gold tape, with a rosy glow
+        fave_rule = re.search(r"\.jlock-girly \.gcard\.gcard-fave\{[^}]*\}", css)
+        self.assertIsNotNone(fave_rule)
+        self.assertIn("border:2px solid var(--g-pink)", fave_rule.group(0))
+        self.assertIn("0 0 30px rgba(232,166,178,.45)", fave_rule.group(0))
+        self.assertIn(".jlock-girly .gcard.gcard-fave::after{border-color:rgba(255,203,5,.62)}", css)
+        self.assertIn(".jlock-girly .gcard.gcard-fave .gtape-card{background:rgba(255,203,5,.68)}", css)
 
     def test_next_drop_is_data_driven_and_not_a_fake_listing(self):
         tile = self.girly["next_drop"]
@@ -2334,6 +2357,80 @@ class GirlyLocker(unittest.TestCase):
             self.assertIn(escape_html(tile[key]), block.group(0))
         self.assertEqual(len(self.cards()), 17)
         self.assertNotIn('href="', block.group(0))
+
+    def test_premium_gallery_wall_framing_and_variation(self):
+        """Every piece is hung like framed art, and no two lean alike.
+
+        Structural checks only - no browser here, so nothing below claims a
+        pixel-level result: the matte, keyline, medallion, per-piece tilt and
+        tape cycles, the collection header dressing and the next-drop tile all
+        have to exist in the shipped CSS and markup.
+        """
+        css = self.girly_css()
+        # gallery framing: a white matte around the artwork, a hairline frame
+        # on the artwork itself, and layered shadows under the card
+        panel = re.search(r"\.jlock-girly \.gphoto-panel\{[^}]*\}", css)
+        self.assertIsNotNone(panel)
+        self.assertIn("padding:12px", panel.group(0))
+        self.assertIn("background:#fff", panel.group(0))
+        frame = re.search(r"\.jlock-girly \.gphoto-panel img\{[^}]*\}", css)
+        self.assertIsNotNone(frame)
+        self.assertIn("border:1px solid rgba(24,45,77,.16)", frame.group(0))
+        card = re.search(r"\.jlock-girly \.gcard\{[^}]*\}", css)
+        self.assertIsNotNone(card)
+        self.assertGreaterEqual(card.group(0).count("rgba(10,28,56,"), 2)
+        # gold keyline: an inset hairline that brightens on hover
+        keyline = re.search(r"\.jlock-girly \.gcard::after\{[^}]*\}", css)
+        self.assertIsNotNone(keyline)
+        self.assertIn("inset:6px", keyline.group(0))
+        self.assertIn("border:1px solid rgba(230,184,0,.32)", keyline.group(0))
+        self.assertIn(".jlock-girly .gcard:hover::after{border-color:rgba(255,203,5,.82)", css)
+        # gold-foil medallion: radial maize foil, navy serif numerals, and a
+        # shine sweep that crosses the disc when the piece is hovered
+        badge = re.search(r"\.jlock-girly \.gnum-badge\{[^}]*\}", css)
+        self.assertIsNotNone(badge)
+        self.assertIn("radial-gradient(circle at 32% 27%,#fff6cc,var(--g-maize)", badge.group(0))
+        self.assertIn("color:var(--g-navy)", badge.group(0))
+        self.assertIn("font-family:var(--g-serif)", badge.group(0))
+        self.assertIn(".jlock-girly .gcard:hover .gnum-badge::after{opacity:1", css)
+        # per-piece variation: a four-card tilt cycle and three tape hues
+        for cycle in ("4n+1", "4n+2", "4n+3", "4n+4"):
+            tilt = re.search(r"\.jlock-girly \.gcard:nth-child\(" + re.escape(cycle)
+                             + r"\)\{transform:rotate\([^)]*\)\}", css)
+            self.assertIsNotNone(tilt, cycle)
+        hues = re.findall(r"\.jlock-girly \.gcard:nth-child\(3n\+\d\) \.gtape-card\{"
+                          r"background:rgba\([^)]*\)\}", css)
+        self.assertEqual(len(hues), 3)
+        self.assertEqual(len(set(hues)), 3, hues)
+        # ... and each of the 17 pieces is numbered in the title and tagged
+        self.assertEqual(self.html.count('<p class="gmood">'), 17)
+        self.assertEqual(self.html.count('<span class="gname-num">'), 17)
+        for num in range(1, 18):
+            self.assertIn(f'<span class="gname-num">{num:02d}.</span>', self.html, num)
+        self.assertEqual(self.html.count('<p class="gfoot-meta">Ann Arbor · Michigan</p>'), 17)
+        # collection header: heart-flanked overline, maize flourish, italic
+        # description, and a soft glow behind a 1100px salon hang
+        hearts = re.search(r"\.jlock-girly \.gcollection-head \.goverline::before,"
+                           r"\.jlock-girly \.gcollection-head \.goverline::after\{[^}]*\}", css)
+        self.assertIsNotNone(hearts)
+        self.assertIn('content:"\\2665"', hearts.group(0))
+        flourish = re.search(r"\.jlock-girly \.gcollection-head h2::after\{[^}]*\}", css)
+        self.assertIsNotNone(flourish)
+        self.assertIn("var(--g-maize)", flourish.group(0))
+        desc = re.search(r"\.jlock-girly \.gcollection-head p\{[^}]*\}", css)
+        self.assertIsNotNone(desc)
+        self.assertIn("font-style:italic", desc.group(0))
+        glow = re.search(r"\.jlock-girly \.gcollection\{[^}]*\}", css)
+        self.assertIsNotNone(glow)
+        self.assertIn("radial-gradient(", glow.group(0))
+        grid = re.search(r"\.jlock-girly \.ggrid\{[^}]*\}", css)
+        self.assertIsNotNone(grid)
+        self.assertIn("gap:32px 24px", grid.group(0))
+        self.assertIn("max-width:1100px", grid.group(0))
+        # the next-drop tile is a pink dashed placeholder, not a listing
+        nxt = re.search(r"\.jlock-girly \.gnextdrop\{[^}]*\}", css)
+        self.assertIsNotNone(nxt)
+        self.assertIn("border:2px dashed rgba(232,166,178,.6)", nxt.group(0))
 
     def test_page_is_indexable_in_sitemap_and_has_no_commission_copy(self):
         self.assertIn('<link rel="canonical" href="https://gridironlocker.store/michigan/bella/">',

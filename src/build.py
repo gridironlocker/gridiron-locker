@@ -2714,15 +2714,18 @@ def _girly_body(cre, c, items, track):
         merch = (f'<span class="gmerch-chip">{esc(it["garment"])}'
                  f' <span aria-hidden="true">·</span> {esc(size_range)}</span>')
         card_num = f'<span class="gnum-badge" aria-hidden="true">{num}</span>'
+        # The label is a curatorial tag on the piece itself, not a third line
+        # of the footer slug, which now names only the place.
+        mood = f'<p class="gmood">{lab}</p>'
         cards.append(
             f'<a class="{classes}" {attrs}>{tape("gtape gtape-card")}'
             f'<figure class="gphoto-panel">{main_image}{card_num}</figure>'
             f'<div class="gb">{flatlay}'
-            f'<div class="gcard-note">{kicker}<p class="gcap">{cap}</p>{note_html}</div>'
+            f'<div class="gcard-note">{kicker}<p class="gcap">{cap}</p>{note_html}{mood}</div>'
             f'<div class="gcard-chips">{swatch}{merch}</div>'
             f'<footer class="gcard-foot"><div class="gfoot-copy">'
-            f'<h3 class="gname">{num}. {esc(it["name"])}</h3>'
-            f'<p class="gfoot-meta">Ann Arbor · {esc(c["short"])} · {lab}</p>'
+            f'<h3 class="gname"><span class="gname-num">{num}.</span> {esc(it["name"])}</h3>'
+            f'<p class="gfoot-meta">Ann Arbor · {esc(c["short"])}</p>'
             f'</div>{price_pill(it, fave)}</footer></div></a>'
         )
 
