@@ -2,7 +2,7 @@
  "generated": "2026-10-08",
  "window_days": 10,
  "fti_formula": "round(100 * entity_mentions / peak_mentions_in_window)",
- "peak_mentions": 21,
+ "peak_mentions": 22,
  "stats": {
   "products": 94,
   "collections": 4,
@@ -12,14 +12,23 @@
   "throwback": 0,
   "steady": 94,
   "gaps": 7,
-  "moments": 7,
+  "moments": 5,
   "tracked_names": 18,
   "dead_campaigns": 66
  },
  "fti_rows": [
   {
+   "name": "bryce underwood",
+   "mentions": 22,
+   "index": 100,
+   "status": "trending",
+   "gap": false,
+   "shoppable": true,
+   "collection": "michigan"
+  },
+  {
    "name": "kyle whittingham",
-   "mentions": 21,
+   "mentions": 22,
    "index": 100,
    "status": "trending",
    "gap": true,
@@ -27,18 +36,9 @@
    "collection": "michigan"
   },
   {
-   "name": "bryce underwood",
-   "mentions": 20,
-   "index": 95,
-   "status": "trending",
-   "gap": false,
-   "shoppable": true,
-   "collection": "michigan"
-  },
-  {
    "name": "deshaun watson",
    "mentions": 13,
-   "index": 62,
+   "index": 59,
    "status": "trending",
    "gap": true,
    "shoppable": false,
@@ -46,26 +46,17 @@
   },
   {
    "name": "ceedee lamb",
-   "mentions": 10,
-   "index": 48,
+   "mentions": 8,
+   "index": 36,
    "status": "trending",
    "gap": true,
    "shoppable": false,
    "collection": "dallas-cowboys"
   },
   {
-   "name": "shedeur sanders",
-   "mentions": 8,
-   "index": 38,
-   "status": "trending",
-   "gap": false,
-   "shoppable": true,
-   "collection": "cleveland-browns"
-  },
-  {
    "name": "matt lafleur",
    "mentions": 7,
-   "index": 33,
+   "index": 32,
    "status": "trending",
    "gap": true,
    "shoppable": false,
@@ -74,16 +65,25 @@
   {
    "name": "dak prescott",
    "mentions": 6,
-   "index": 29,
+   "index": 27,
    "status": "trending",
    "gap": true,
    "shoppable": false,
    "collection": "dallas-cowboys"
   },
   {
+   "name": "shedeur sanders",
+   "mentions": 6,
+   "index": 27,
+   "status": "trending",
+   "gap": false,
+   "shoppable": true,
+   "collection": "cleveland-browns"
+  },
+  {
    "name": "micah parsons",
    "mentions": 4,
-   "index": 19,
+   "index": 18,
    "status": "trending",
    "gap": false,
    "shoppable": true,
@@ -110,7 +110,7 @@
   {
    "name": "jordan love",
    "mentions": 2,
-   "index": 10,
+   "index": 9,
    "status": "steady",
    "gap": false,
    "shoppable": true,
@@ -183,7 +183,7 @@
  "gaps": [
   {
    "name": "kyle whittingham",
-   "mentions": 21,
+   "mentions": 22,
    "index": 100,
    "status": "trending",
    "gap": true,
@@ -193,7 +193,7 @@
   {
    "name": "deshaun watson",
    "mentions": 13,
-   "index": 62,
+   "index": 59,
    "status": "trending",
    "gap": true,
    "shoppable": false,
@@ -201,8 +201,8 @@
   },
   {
    "name": "ceedee lamb",
-   "mentions": 10,
-   "index": 48,
+   "mentions": 8,
+   "index": 36,
    "status": "trending",
    "gap": true,
    "shoppable": false,
@@ -211,7 +211,7 @@
   {
    "name": "matt lafleur",
    "mentions": 7,
-   "index": 33,
+   "index": 32,
    "status": "trending",
    "gap": true,
    "shoppable": false,
@@ -220,7 +220,7 @@
   {
    "name": "dak prescott",
    "mentions": 6,
-   "index": 29,
+   "index": 27,
    "status": "trending",
    "gap": true,
    "shoppable": false,
@@ -260,7 +260,7 @@
     {
      "name": "deshaun watson",
      "mentions": 13,
-     "index": 62,
+     "index": 59,
      "status": "trending",
      "gap": true,
      "shoppable": false,
@@ -281,10 +281,10 @@
     "cleveland",
     "trade",
     "watson",
-    "injury",
-    "deshaun",
-    "against",
-    "practice"
+    "press",
+    "conference",
+    "october",
+    "injury"
    ],
    "headline_count": 100,
    "headlines": [
@@ -334,8 +334,8 @@
    "gaps": [
     {
      "name": "ceedee lamb",
-     "mentions": 10,
-     "index": 48,
+     "mentions": 8,
+     "index": 36,
      "status": "trending",
      "gap": true,
      "shoppable": false,
@@ -344,7 +344,7 @@
     {
      "name": "dak prescott",
      "mentions": 6,
-     "index": 29,
+     "index": 27,
      "status": "trending",
      "gap": true,
      "shoppable": false,
@@ -410,7 +410,7 @@
     {
      "name": "matt lafleur",
      "mentions": 7,
-     "index": 33,
+     "index": 32,
      "status": "trending",
      "gap": true,
      "shoppable": false,
@@ -429,12 +429,12 @@
    "top_terms": [
     "packers",
     "green",
-    "cooper",
     "edgerrin",
+    "cooper",
     "matt",
     "lafleur",
     "chicago",
-    "injury"
+    "offensive"
    ],
    "headline_count": 100,
    "headlines": [
@@ -463,10 +463,10 @@
      "pub": "Mon, 05 Oct 2026 19:28:15 GMT"
     },
     {
-     "title": "Jordan Love's best plays from 2-TD game vs. Buccaneers | Week 4",
-     "url": "https://news.google.com/rss/articles/CBMikAFBVV95cUxQOXdvWVdWd0cxMmZzSlF3eGMxOUY5TC1TY25FMGltbGd2cXNqS29YNktVcG9MUDVMY3cxaWJNME5Fa0ZISldHV09uRGt1M2dsMUZ0NS0tMTdnVVlOT0RBa243R2hWRE12WTRibDU2N1YwTlI2ZXpUOXBYUEgtaWZ0QmVvbkF2UnJwZkp1ZU1USXM?oc=5",
-     "source": "NFL.com",
-     "pub": "Sun, 04 Oct 2026 20:24:22 GMT"
+     "title": "Packers vs. Buccaneers | How to watch, stream & listen | Week 4",
+     "url": "https://news.google.com/rss/articles/CBMikwFBVV95cUxQNGhIMWFMUHB0eWFaOWFYVlZBd1pZRHhRN2ZmYzd0LWNsMUNXaU91NnUzbUJmMUxuTkZpQXNTR3BSRTBiM0ppdG9ReVRXRlA2UGF6VmNoNXoxMWVuclJjaGlwSV9YUi1KekpLN0JZU0tnYVVFeEtqSkFMWW5KQUZ0YmFBSEZKcmlqa0R0eThrSHFncHc?oc=5",
+     "source": "Green Bay Packers \u2013 packers.com",
+     "pub": "Sun, 04 Oct 2026 07:00:00 GMT"
     }
    ],
    "fti_count": 5
@@ -484,7 +484,7 @@
    "gaps": [
     {
      "name": "kyle whittingham",
-     "mentions": 21,
+     "mentions": 22,
      "index": 100,
      "status": "trending",
      "gap": true,
@@ -499,8 +499,8 @@
     "kyle",
     "loss",
     "wolverines",
-    "offense",
-    "bryce"
+    "bryce",
+    "underwood"
    ],
    "headline_count": 100,
    "headlines": [
@@ -882,16 +882,6 @@
    ]
   },
   {
-   "title": "Jordan Love's best plays from 2-TD game vs. Buccaneers | Week 4",
-   "url": "https://news.google.com/rss/articles/CBMikAFBVV95cUxQOXdvWVdWd0cxMmZzSlF3eGMxOUY5TC1TY25FMGltbGd2cXNqS29YNktVcG9MUDVMY3cxaWJNME5Fa0ZISldHV09uRGt1M2dsMUZ0NS0tMTdnVVlOT0RBa243R2hWRE12WTRibDU2N1YwTlI2ZXpUOXBYUEgtaWZ0QmVvbkF2UnJwZkp1ZU1USXM?oc=5",
-   "source": "NFL.com",
-   "pub": "Sun, 04 Oct 2026 20:24:22 GMT",
-   "collection": "green-bay-packers",
-   "entities": [
-    "jordan love"
-   ]
-  },
-  {
    "title": "Dak Prescott promises Cowboys will be '100' percent for TNF vs. Buccaneers",
    "url": "https://news.google.com/rss/articles/CBMiqgFBVV95cUxQeTN4Mk5TdFAxeHh4R0NWVlNCUkgybDFzV1NndUoxSG41R3FjUkJYcE1EQmZIOXNZSC1nQmtaT2pNNXlmY1JJWTVUbmRpRERqcFR1WjFsMWNqTDE0a01XcXo0U3BxMmZ3Vy1KeXhzT25nQk5IU0FTT2lTVmJLUS1NYnJiUlQ4MHh5M3R5clhvbzBqWjZhaHFpaVFXM0w4dXlmQlI0STNLYWhhQQ?oc=5",
    "source": "Dallas Cowboys | Official Site of the Dallas Cowboys",
@@ -930,16 +920,6 @@
    "collection": "michigan",
    "entities": [
     "bryce underwood"
-   ]
-  },
-  {
-   "title": "Tony Garcia grades Michigan football coach Kyle Whittingham and the three coordinators through five games heading into the Wolverines' bye week. See link below \u2b07\ufe0f \ud83d\udcf8 Junfu Han, Detroit Free Press",
-   "url": "https://news.google.com/rss/articles/CBMi3wFBVV95cUxOdTI4NlJRdHBKVkNEZ1E1akV0Y0xaSmlydnNibXhBdHhCcW55VHpiWFI5M1BaRFp6ZmQwLUY2azdfNU50azJpbEpvOTNuM2M4Z1VnRDRVNGN6WE1OcEJzaGswZUxCYkZmaS1lMG5hcUNEdW05cW15STB6MWd5YTdmVk81cDdHNFhPd3J0S1BSQzVVck5wcHpvNGpWZDFkakI5TTdNZndIZTNfWW53OFB6UVE5dGNSNWhDWmNaY0trdHdZSHR0Ym5HNko2YUhqcW03bEVncVZlQ1dNUkJjem1B?oc=5",
-   "source": "Facebook",
-   "pub": "Thu, 08 Oct 2026 14:30:12 GMT",
-   "collection": "michigan",
-   "entities": [
-    "kyle whittingham"
    ]
   }
  ]
