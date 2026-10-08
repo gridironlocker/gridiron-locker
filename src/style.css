@@ -1418,6 +1418,27 @@ footer .logo{color:var(--ink)}
 }
 
 /* =============================================================
+   CREATOR COLLABORATION - BELLA'S MASTHEAD (GIRLY HEADER)
+   -------------------------------------------------------------
+   Her page replaces the storefront GL wordmark with her own
+   script lockup: a maize heart, "bella's" in her Caveat hand
+   and "locker" in Playfair. The masthead renders in the site
+   header, OUTSIDE <main class="jlock-girly">, so the --g-*
+   custom properties the girly skin declares on <main> never
+   reach it - the palette is repeated here as literals that
+   keep their contrast on the white header strip. Every rule is
+   pinned to body[data-creator-page="BELLA"], so no other page
+   - Joe's included - is affected.
+   ============================================================= */
+body[data-creator-page="BELLA"] .logo.glogo{gap:7px;color:#182d4d}
+body[data-creator-page="BELLA"] .glogo-heart{color:#ffcb05;font-size:1.06rem;
+  line-height:1;transform:rotate(9deg)}
+body[data-creator-page="BELLA"] .glogo-script{font-family:'Caveat','Segoe Script','Brush Script MT',cursive;
+  font-size:1.66rem;font-weight:700;line-height:1;letter-spacing:.01em;color:#d9899a}
+body[data-creator-page="BELLA"] .glogo-serif{font-family:'Playfair Display',Georgia,'Times New Roman',serif;
+  font-size:1.14rem;font-weight:800;letter-spacing:.045em;color:#182d4d}
+
+/* =============================================================
    CREATOR COLLABORATION - GIRLY VARIANT (BELLA'S LOCKER)
    -------------------------------------------------------------
    Bella's handmade-paper collage board on a deep navy canvas. The
@@ -1517,8 +1538,11 @@ main.jlock-girly{padding-bottom:0;overflow:hidden}
 /* story: one taped polaroid beside a lined note -------------------------- */
 .jlock-girly .gintro{padding:35px 0 25px}
 .jlock-girly .gintro-head{text-align:center;margin:0 0 24px}
-.jlock-girly .goverline{display:block;margin:0 0 5px;color:var(--g-pink);font-family:var(--g-hand);
-  font-size:1.45rem;line-height:1}
+/* both overlines - the intro note and the collection header - read as one
+   tracked serif label now: maize, uppercase, widely letter-spaced, replacing
+   the 1.45rem handwriting line */
+.jlock-girly .goverline{display:block;margin:0 0 9px;color:var(--g-maize);font-family:var(--g-serif);
+  font-size:.68rem;font-weight:800;letter-spacing:.26em;line-height:1.4;text-transform:uppercase}
 /* the intro heading ("More Than a Saturday") sits on its own paper scrap so
    the line reads as dark navy on white, not cream over the navy grain. The
    collection heading below keeps the cream-on-canvas treatment. */
@@ -1526,6 +1550,10 @@ main.jlock-girly{padding-bottom:0;overflow:hidden}
   background:var(--g-paper);border:1px solid rgba(24,45,77,.14);box-shadow:0 9px 20px rgba(0,0,0,.24);
   font-family:var(--g-serif);font-size:clamp(1.85rem,4vw,2.8rem);font-weight:800;line-height:1.08;
   transform:rotate(-.5deg)}
+/* the intro heading carries the same maize flourish as the collection
+   heading, so both sections open with one identical stroke */
+.jlock-girly .gintro-head h2::after{display:block;content:"";width:88px;height:3px;margin:13px auto 0;
+  border-radius:2px;background:linear-gradient(90deg,rgba(255,203,5,0),var(--g-maize),rgba(255,203,5,0))}
 .jlock-girly .gcollection-head h2{margin:0;color:var(--g-paper);
   font-family:var(--g-serif);font-size:clamp(1.85rem,4vw,2.8rem);font-weight:800;line-height:1.08}
 .jlock-girly .gintro-grid{display:grid;grid-template-columns:minmax(230px,.78fr) minmax(0,1.22fr);
@@ -1547,19 +1575,22 @@ main.jlock-girly{padding-bottom:0;overflow:hidden}
 .jlock-girly .gnote cite{color:var(--g-pink-d);font-family:var(--g-serif);font-size:.67rem;
   font-style:normal;font-weight:800;letter-spacing:.17em;text-transform:uppercase}
 .jlock-girly .gnote:hover{transform:rotate(0)}
-/* collection: two real products per row, two distinct campaign panels ----- */
+/* collection: two real products per row, one framed artwork per piece ------ */
 /* the wall itself: a soft maize glow behind the grid, and the grid held to a
    1100px salon-hang so the mattes never stretch */
 .jlock-girly .gcollection{position:relative;padding:45px 0 0;
   background:radial-gradient(78% 56% at 50% 2%,rgba(255,203,5,.1),transparent 72%)}
-.jlock-girly .gcollection-head{max-width:760px;margin:0 auto 32px;text-align:center}
-.jlock-girly .gcollection-head p{max-width:66ch;margin:12px auto 0;color:rgba(255,253,247,.78);
+/* the collection header hangs on its own navy placard with a gold keyline,
+   so the overline, heading and description read as one framed sign above
+   the wall; the h2 keeps its cream-on-navy treatment */
+.jlock-girly .gcollection-head{max-width:760px;margin:0 auto 32px;padding:26px 26px 30px;text-align:center;
+  background:rgba(10,28,56,.82);border:1px solid rgba(230,184,0,.32)}
+.jlock-girly .gcollection-head p{max-width:66ch;margin:12px auto 0;color:rgba(255,253,247,.9);
   font-size:.98rem;font-style:italic;line-height:1.65}
-/* the collection overline is flanked by a heart either side; the intro
-   overline above keeps its plain handwriting treatment */
+/* the collection overline is flanked by a maize heart either side */
 .jlock-girly .gcollection-head .goverline{display:flex;align-items:center;justify-content:center;gap:9px}
 .jlock-girly .gcollection-head .goverline::before,.jlock-girly .gcollection-head .goverline::after{
-  content:"\2665";color:var(--g-pink);font-family:var(--g-serif);font-size:.76rem;line-height:1}
+  content:"\2665";color:var(--g-maize);font-family:var(--g-serif);font-size:.76rem;line-height:1}
 /* a maize flourish under the collection heading */
 .jlock-girly .gcollection-head h2::after{display:block;content:"";width:88px;height:3px;margin:13px auto 0;
   border-radius:2px;background:linear-gradient(90deg,rgba(255,203,5,0),var(--g-maize),rgba(255,203,5,0))}
@@ -1598,28 +1629,7 @@ main.jlock-girly{padding-bottom:0;overflow:hidden}
   box-shadow:inset 0 0 0 1px rgba(24,45,77,.05)}
 .jlock-girly .gphoto-panel img{display:block;width:100%;height:100%;min-height:250px;max-height:360px;
   aspect-ratio:5/6;object-fit:contain;background:#fff;border:1px solid rgba(24,45,77,.16)}
-/* gold-foil medallion: radial maize foil, navy serif numerals and a shine
-   sweep that crosses the disc on hover */
-.jlock-girly .gnum-badge{position:absolute;top:10px;left:10px;display:grid;place-items:center;width:36px;height:36px;
-  overflow:hidden;border-radius:50%;border:1px solid rgba(255,255,255,.9);
-  background:radial-gradient(circle at 32% 27%,#fff6cc,var(--g-maize) 54%,var(--g-maize-d) 100%);
-  color:var(--g-navy);font-family:var(--g-serif);font-size:.78rem;font-weight:800;
-  box-shadow:0 2px 7px rgba(24,45,77,.3),inset 0 1px 0 rgba(255,255,255,.72)}
-.jlock-girly .gnum-badge::after{position:absolute;content:"";inset:-40%;border-radius:50%;
-  background:linear-gradient(105deg,transparent 36%,rgba(255,255,255,.78) 50%,transparent 64%);
-  opacity:0;transform:translateX(-62%);transition:opacity .3s ease,transform .45s ease}
-.jlock-girly .gcard:hover .gnum-badge::after{opacity:1;transform:translateX(0)}
 .jlock-girly .gb{display:flex;min-width:0;flex-direction:column;gap:10px;padding:15px 15px 13px}
-.jlock-girly .gflatlay-panel{position:relative;display:grid;place-items:center;width:100%;height:116px;min-height:116px;
-  margin:0;overflow:hidden;background:#f5f0e6;border:1px solid rgba(24,45,77,.13);box-shadow:inset 0 0 0 4px rgba(255,255,255,.58)}
-.jlock-girly .gflatlay-img{display:block;width:100%;height:100%;object-fit:contain;background:#f5f0e6}
-.jlock-girly .gflatlay-empty{background-image:radial-gradient(circle at center,rgba(217,137,154,.15),transparent 54%),
-  repeating-linear-gradient(135deg,rgba(24,45,77,.045) 0 1px,transparent 1px 8px)}
-.jlock-girly .gflatlay-stitch{position:relative;display:block;width:48px;height:48px;border:1px dashed rgba(24,45,77,.32);
-  border-radius:50%;transform:rotate(-12deg)}
-.jlock-girly .gflatlay-stitch::before,.jlock-girly .gflatlay-stitch::after{position:absolute;content:"";top:23px;left:8px;
-  width:31px;height:1px;background:rgba(24,45,77,.25);transform:rotate(38deg)}
-.jlock-girly .gflatlay-stitch::after{transform:rotate(-38deg)}
 .jlock-girly .gcard-note{display:flex;min-height:62px;flex-direction:column;justify-content:center;gap:2px}
 .jlock-girly .gcap{margin:0;color:var(--g-ink);font-family:var(--g-hand);font-size:1.2rem;line-height:1.12}
 .jlock-girly .gkick{display:block;color:var(--g-pink-d);font-family:var(--g-hand);font-size:1.17rem;font-weight:700;line-height:1}
@@ -1659,7 +1669,6 @@ main.jlock-girly{padding-bottom:0;overflow:hidden}
   box-shadow:0 1px 0 rgba(255,255,255,.72) inset,0 14px 24px rgba(10,28,56,.26),0 28px 48px rgba(10,28,56,.36);
   border-color:rgba(232,166,178,.78)}
 .jlock-girly .gcard:hover::after{border-color:rgba(255,203,5,.82);box-shadow:0 0 0 1px rgba(255,203,5,.14) inset}
-.jlock-girly .gcard:hover .gflatlay-img{transform:scale(1.035)}
 .jlock-girly .gcard:hover .gshop{transform:translateY(-1px);background:var(--g-navy-h)}
 .jlock-girly .gcard:hover .gshop.gmaize{background:var(--g-maize-d)}
 .jlock-girly .gnextdrop{display:flex;min-height:225px;flex-direction:column;align-items:center;justify-content:center;gap:7px;
@@ -1687,7 +1696,7 @@ main.jlock-girly{padding-bottom:0;overflow:hidden}
   .jlock-girly *,.jlock-girly *::before,.jlock-girly *::after{
     scroll-behavior:auto!important;transition:none!important;animation:none!important}
   .jlock-girly .gcard:hover,.jlock-girly .gpolaroid:hover,.jlock-girly .ghero-photo:hover,
-  .jlock-girly .gcollage-photo:hover,.jlock-girly .gcard:hover .gflatlay-img{
+  .jlock-girly .gcollage-photo:hover{
     transform:none!important;box-shadow:none!important}
 }
 @media(max-width:1080px){
@@ -1729,7 +1738,6 @@ main.jlock-girly{padding-bottom:0;overflow:hidden}
   .jlock-girly .gcard{grid-template-columns:minmax(0,.72fr) minmax(0,1.28fr)}
   .jlock-girly .gphoto-panel img{min-height:215px}
   .jlock-girly .gb{gap:8px;padding:12px 11px 11px}
-  .jlock-girly .gflatlay-panel{height:92px;min-height:92px}
   .jlock-girly .gcard-note{min-height:52px}
   .jlock-girly .gcap{font-size:1.06rem}
   .jlock-girly .gcard-foot{align-items:flex-start;flex-direction:column;gap:7px}

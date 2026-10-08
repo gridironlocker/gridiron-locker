@@ -1214,7 +1214,7 @@ def season_promo():
     return f"2026 season kicks off {month} {d.day}"
 
 
-def header(active="", hide_nav=False):
+def header(active="", hide_nav=False, logo=""):
     """Site header, shared by every page.
 
     Two rows: the logo row (logo + search), then a FULL-WIDTH menu bar that
@@ -1239,6 +1239,11 @@ def header(active="", hide_nav=False):
     promised state this site does not own, in the two slots a visitor's eye
     goes to first. The header's only job is product discovery.
 
+    ``logo`` is raw markup for the ONE page that carries its own masthead in
+    the logo row instead of the storefront wordmark (a girly creator page).
+    It defaults to "" so every other page's header - Joe's included - renders
+    byte-identically.
+
     Still the only sane way to make a nav change: edit it here, never in the
     built site/*.html files, because the daily refresh workflow re-runs this
     generator.
@@ -1257,8 +1262,9 @@ def header(active="", hide_nav=False):
                   else "Printed on demand &middot; No warehouse stock")
     # A locker page that curates its own picks (e.g. a girly creator page) can
     # drop the nine-destination menu bar - it only cross-sells away from the
-    # collection. The logo row, promo bar and search stay; the footer is part
-    # of the shared page chrome and is untouched either way.
+    # collection. The logo row, promo bar and search stay; the sitewide footer
+    # is page chrome the caller assembles (see page_creator), and a girly page
+    # ends on its own sign-off instead.
     menubar = "" if hide_nav else f"""
  <nav class="menubar" aria-label="Shop">
   <div class="mb-track">
@@ -1270,12 +1276,15 @@ def header(active="", hide_nav=False):
    <a class="custom-link" data-placement="nav" href="/#custom-design">Custom Design</a>
   </div>
  </nav>"""
+    logo_html = logo or (
+        '<a class="logo" href="/"><span class="mark">GL</span>'
+        f'<span class="wordmark">{esc(BRAND)}</span></a>')
     return f"""\
 <a class="skip" href="#main">Skip to content</a>
 <div class="promo">{season_promo()} &middot; {promo_fact}</div>
 <header>
  <div class="wrap nav">
-  <a class="logo" href="/"><span class="mark">GL</span><span class="wordmark">{esc(BRAND)}</span></a>
+  {logo_html}
   <div class="navtools">
    <span class="navsearch" role="search">
     <input class="gsearch" type="search" placeholder="Search designs..." aria-label="Search all designs" autocomplete="off">
@@ -2614,6 +2623,19 @@ GIRLY_FONTS = (
     '&amp;display=swap">\n'
 )
 
+#: Bella's own masthead. On her page - and only hers - the storefront GL
+#: wordmark in the site header is replaced by her script lockup. It renders
+#: OUTSIDE <main class="jlock-girly">, so the --g-* custom properties the
+#: girly skin declares on <main> never reach it: the palette is repeated as
+#: literals in the .glogo rules of src/style.css, which are pinned to
+#: body[data-creator-page="BELLA"] so no other page is affected.
+GIRLY_LOGO = (
+    '<a class="logo glogo" href="/">'
+    '<span class="glogo-heart" aria-hidden="true">♥</span>'
+    '<span class="glogo-script">bella’s</span>'
+    '<span class="glogo-serif">locker</span></a>'
+)
+
 # Exact, catalogue-published names only. The map supplies the visual dot for a
 # named colourway; it never supplies or infers the text shown to shoppers.
 GIRLY_SWATCH = {
@@ -2647,8 +2669,9 @@ def _girly_body(cre, c, items, track):
     """Build Bella's navy-canvas handmade-paper collage locker.
 
     The only product cards emitted here are ``items`` resolved from the live
-    collection model. The first image is the real campaign artwork; a second
-    view is shown only when the campaign actually publishes one. All editorial
+    collection model. Each piece hangs as ONE framed artwork - the real
+    campaign front; no flatlay panel or placeholder stitch is emitted, so the
+    wall reads as a gallery, not a product comparison grid. All editorial
     copy, collage art, labels and captions are owned in data/creators.json.
     """
     g = cre.get("girly", {})
@@ -2677,11 +2700,6 @@ def _girly_body(cre, c, items, track):
         return (f'<span class="gshop{tone}"><span>{store}</span>'
                 f'<b>${it["price"]:.2f}</b></span>')
 
-    def next_campaign_view(it):
-        front = it.get("front")
-        return next((src for src in (it.get("gallery") or [])[1:]
-                     if src and src != front), None)
-
     cards = []
     for idx, it in enumerate(items):
         num = f"{idx + 1:02d}"
@@ -2695,15 +2713,6 @@ def _girly_body(cre, c, items, track):
                  f'data-collection="{collection_key}"')
         main_image = (f'<img src="{esc(it["front"])}" alt="{card_alt(it)}" '
                       f'width="530" height="630" loading="lazy" decoding="async">')
-        second = next_campaign_view(it)
-        if second:
-            flatlay = (f'<figure class="gflatlay-panel" aria-hidden="true">'
-                       f'<img class="gflatlay-img" src="{esc(second)}" alt="" '
-                       f'role="presentation" width="530" height="630" '
-                       f'loading="lazy" decoding="async"></figure>')
-        else:
-            flatlay = ('<div class="gflatlay-panel gflatlay-empty" aria-hidden="true">'
-                       '<span class="gflatlay-stitch"></span></div>')
         note_html = (f'<p class="gstatement-note">{esc(g.get("statement_note", ""))}</p>'
                      if fave and g.get("statement_note") else "")
         kicker = (f'<span class="gkick">{esc(g.get("statement_kicker", statement_default))}</span>'
@@ -2713,14 +2722,15 @@ def _girly_body(cre, c, items, track):
         size_range = f"{sizes[0]}–{sizes[-1]}" if sizes else "No size range"
         merch = (f'<span class="gmerch-chip">{esc(it["garment"])}'
                  f' <span aria-hidden="true">·</span> {esc(size_range)}</span>')
-        card_num = f'<span class="gnum-badge" aria-hidden="true">{num}</span>'
         # The label is a curatorial tag on the piece itself, not a third line
-        # of the footer slug, which now names only the place.
+        # of the footer slug, which now names only the place. The piece number
+        # rides in the title as <span class="gname-num"> - no medallion over
+        # the art.
         mood = f'<p class="gmood">{lab}</p>'
         cards.append(
             f'<a class="{classes}" {attrs}>{tape("gtape gtape-card")}'
-            f'<figure class="gphoto-panel">{main_image}{card_num}</figure>'
-            f'<div class="gb">{flatlay}'
+            f'<figure class="gphoto-panel">{main_image}</figure>'
+            f'<div class="gb">'
             f'<div class="gcard-note">{kicker}<p class="gcap">{cap}</p>{note_html}{mood}</div>'
             f'<div class="gcard-chips">{swatch}{merch}</div>'
             f'<footer class="gcard-foot"><div class="gfoot-copy">'
@@ -3051,10 +3061,12 @@ def page_creator(ckey="joe"):
 </main>"""
 
     # Girly variant (Bella): swap the navy editorial body for the owner's
-    # cream-scrapbook mockup, let her page drop the menu bar, and load the
-    # two Google Fonts the skin sets in <head> (Playfair Display + Caveat).
-    # Joe's record has neither flag, so his page - and its head, because
-    # extra_head defaults to "" - renders byte-identically.
+    # cream-scrapbook mockup, let her page drop the menu bar, load the two
+    # Google Fonts the skin sets in <head> (Playfair Display + Caveat), hang
+    # her own masthead in the logo row, and drop the sitewide footer - the
+    # page ends on her own .gsign sign-off. Joe's record has none of these
+    # flags, so his page - head, header and footer alike - renders
+    # byte-identically.
     girly = cre.get("theme") == "girly"
     if girly:
         body = _girly_body(cre, c, items, track)
@@ -3065,7 +3077,8 @@ def page_creator(ckey="joe"):
           head(f"{cre['page_name']} | {BRAND}", cre_page_desc, path, cre["hero"],
                schema, kw, col=ckey_col, body_attrs=f' data-creator-page="{track}"',
                extra_head=GIRLY_FONTS if girly else "")
-          + header(ckey_col, hide_nav=hide_nav) + body + footer(collection=ckey_col))
+          + header(ckey_col, hide_nav=hide_nav, logo=GIRLY_LOGO if girly else "")
+          + body + ("" if girly else footer(collection=ckey_col)))
 
 
 def shop_now_cta(it, placement, label="Shop Now", size="lg", block=True):
