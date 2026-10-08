@@ -1519,7 +1519,14 @@ main.jlock-girly{padding-bottom:0;overflow:hidden}
 .jlock-girly .gintro-head{text-align:center;margin:0 0 24px}
 .jlock-girly .goverline{display:block;margin:0 0 5px;color:var(--g-pink);font-family:var(--g-hand);
   font-size:1.45rem;line-height:1}
-.jlock-girly .gintro-head h2,.jlock-girly .gcollection-head h2{margin:0;color:var(--g-paper);
+/* the intro heading ("More Than a Saturday") sits on its own paper scrap so
+   the line reads as dark navy on white, not cream over the navy grain. The
+   collection heading below keeps the cream-on-canvas treatment. */
+.jlock-girly .gintro-head h2{display:inline-block;margin:0;padding:9px 22px;color:var(--g-navy);
+  background:var(--g-paper);border:1px solid rgba(24,45,77,.14);box-shadow:0 9px 20px rgba(0,0,0,.24);
+  font-family:var(--g-serif);font-size:clamp(1.85rem,4vw,2.8rem);font-weight:800;line-height:1.08;
+  transform:rotate(-.5deg)}
+.jlock-girly .gcollection-head h2{margin:0;color:var(--g-paper);
   font-family:var(--g-serif);font-size:clamp(1.85rem,4vw,2.8rem);font-weight:800;line-height:1.08}
 .jlock-girly .gintro-grid{display:grid;grid-template-columns:minmax(230px,.78fr) minmax(0,1.22fr);
   gap:clamp(26px,6vw,76px);align-items:center;max-width:900px;margin:0 auto}
@@ -1593,8 +1600,11 @@ main.jlock-girly{padding-bottom:0;overflow:hidden}
   padding:8px 11px;border-radius:999px;background:var(--g-navy);color:var(--g-paper);font-family:var(--g-serif);
   font-size:.61rem;font-weight:800;line-height:1.1;text-decoration:none;white-space:nowrap;
   box-shadow:2px 2px 0 rgba(24,45,77,.24);transition:transform .18s ease,background .18s ease,box-shadow .18s ease}
-.jlock-girly .gshop b{font-size:.72rem}
+/* price pills: the regular navy pill states its price in maize for contrast;
+   the featured maize pill stays navy-on-maize for legibility */
+.jlock-girly .gshop b{font-size:.72rem;color:var(--g-maize)}
 .jlock-girly .gshop.gmaize{background:var(--g-maize);color:var(--g-navy);box-shadow:2px 2px 0 var(--g-pink)}
+.jlock-girly .gshop.gmaize b{color:var(--g-navy)}
 .jlock-girly .gcard:hover{z-index:3;transform:translateY(-5px) rotate(0);box-shadow:0 21px 38px rgba(0,0,0,.35);
   border-color:rgba(232,166,178,.78)}
 .jlock-girly .gcard:hover .gflatlay-img{transform:scale(1.035)}

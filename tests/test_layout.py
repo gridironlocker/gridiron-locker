@@ -2103,7 +2103,7 @@ class GirlyLocker(unittest.TestCase):
             self.assertRegex(card["href"], rf"/shop/{re.escape(slug)}/\?creator=BELLA$")
             self.assertIn('data-creator="BELLA"', block)
             self.assertIn(f'data-price="{item["price"]:.2f}"', block)
-            self.assertIn(f'${item["price"]:.2f}', block)
+            self.assertIn(f'<b>${item["price"]:.2f}</b>', block, slug)
             self.assertIn('width="530" height="630"', block)
             self.assertIn(f'<img src="{escape_html(item["front"])}"', block, slug)
             self.assertNotIn("/img/bella-hero-autumn.jpg", block, slug)
@@ -2229,6 +2229,27 @@ class GirlyLocker(unittest.TestCase):
         self.assertEqual(
             self.girly["quote"],
             "if you know me, you know i’m in maize & blue every Saturday.")
+        # the quote stays date-neutral: the retired "by September" deadline
+        # wording must not come back on the page or in the copy map
+        note = re.search(r'<blockquote class="gnote">.*?</blockquote>', self.html, re.S)
+        self.assertIsNotNone(note)
+        self.assertIn(escape_html(self.girly["quote"]), note.group(0))
+        self.assertNotIn("September", note.group(0))
+        self.assertNotIn("September", self.html)
+        for value in self.girly.values():
+            if isinstance(value, str):
+                self.assertNotIn("September", value)
+        # the intro heading ("More Than a Saturday") is dark navy text on its
+        # own paper chip, not cream over the navy canvas; the collection
+        # heading keeps the cream-on-canvas treatment
+        intro_h2 = re.search(r"\.jlock-girly \.gintro-head h2\{[^}]*\}", self.girly_css())
+        self.assertIsNotNone(intro_h2)
+        self.assertIn("color:var(--g-navy)", intro_h2.group(0))
+        self.assertIn("background:var(--g-paper)", intro_h2.group(0))
+        collection_h2 = re.search(r"\.jlock-girly \.gcollection-head h2\{[^}]*\}",
+                                  self.girly_css())
+        self.assertIsNotNone(collection_h2)
+        self.assertIn("color:var(--g-paper)", collection_h2.group(0))
         for key in ("hero_kicker", "hero_sub", "collab_stamp", "hero_cta", "hero_story_link",
                     "hero_facts", "intro_overline", "intro_heading", "quote",
                     "collection_overline", "collection_heading", "collection_desc",
@@ -2294,6 +2315,15 @@ class GirlyLocker(unittest.TestCase):
         self.assertIn('class="gshop gmaize"', card["html"])
         css = self.girly_css()
         self.assertIn(".jlock-girly .gshop.gmaize{background:var(--g-maize)", css)
+        # price contrast: regular cards state the price on the navy pill in
+        # maize; only the featured maize pill keeps navy text (incl. its price)
+        self.assertIn(".jlock-girly .gshop b{font-size:.72rem;color:var(--g-maize)}", css)
+        self.assertIn(".jlock-girly .gshop.gmaize b{color:var(--g-navy)}", css)
+        for other in self.cards():
+            if other["slug"] == pick:
+                continue
+            self.assertIn('<span class="gshop"><span>', other["html"], other["slug"])
+            self.assertNotIn("gmaize", other["html"], other["slug"])
 
     def test_next_drop_is_data_driven_and_not_a_fake_listing(self):
         tile = self.girly["next_drop"]
