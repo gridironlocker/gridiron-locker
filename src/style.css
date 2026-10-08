@@ -1677,6 +1677,17 @@ main.jlock-girly{padding-bottom:0;overflow:hidden}
 .jlock-girly .gheart{color:var(--g-pink);font-size:1.8rem;line-height:1}
 .jlock-girly .gnext-label{font-family:var(--g-serif);font-size:.72rem;font-weight:800;letter-spacing:.18em}
 .jlock-girly .gnextdrop p{max-width:24ch;margin:0;color:rgba(255,253,247,.7);font-family:var(--g-hand);font-size:1.3rem;line-height:1.25}
+/* Bella's hand-written offer and custom-design hand-off ----------------- */
+.jlock-girly .goffer{display:flex;flex-wrap:wrap;gap:4px 14px;margin:16px 0 0;padding:12px 13px 10px;border:1.5px dashed rgba(217,137,154,.8);background:rgba(232,166,178,.16);transform:rotate(-.9deg)}
+.jlock-girly .goffer-off,.jlock-girly .goffer-code{font-family:var(--g-hand);font-size:1.18rem;font-weight:700;line-height:1.15}
+.jlock-girly .goffer-code b{display:inline-block;padding:2px 7px;background:var(--g-maize);color:var(--g-navy);font-family:var(--g-serif);font-size:.75rem;letter-spacing:.08em}
+.jlock-girly .goffer-note{flex-basis:100%;color:rgba(24,45,77,.7);font-family:var(--g-serif);font-size:.56rem;font-weight:800;letter-spacing:.13em;text-transform:uppercase}
+.jlock-girly .gcustom{padding:48px 0 0}
+.jlock-girly .gcustom-note{position:relative;max-width:680px;margin:0 auto;padding:30px 24px 27px;color:var(--g-navy);background:#fbf6ea;background-image:repeating-linear-gradient(to bottom,transparent 0,transparent 29px,rgba(24,45,77,.1) 30px);box-shadow:0 12px 24px rgba(0,0,0,.2);transform:rotate(-1.2deg)}
+.jlock-girly .gcustom-title,.jlock-girly .gcustom-pitch{font-family:var(--g-hand)}
+.jlock-girly .gcustom-title{margin:5px 0 9px;font-size:clamp(2rem,4vw,3rem);line-height:1}
+.jlock-girly .gcustom-pitch{max-width:58ch;margin:0;font-size:1.35rem;line-height:1.25}
+.jlock-girly .gcustom-dream{margin:16px 0 18px;color:var(--g-pink-d);font-family:var(--g-serif);font-size:.68rem;font-weight:800;letter-spacing:.18em;text-transform:uppercase}
 /* hand-painted closing line ----------------------------------- */
 .jlock-girly .gsign{margin-top:48px;padding:67px 0 75px;text-align:center;color:var(--g-paper)}
 .jlock-girly .gsign h2{max-width:24ch;margin:0 auto;color:var(--g-paper);font-family:var(--g-hand);
@@ -1726,6 +1737,9 @@ main.jlock-girly{padding-bottom:0;overflow:hidden}
   .jlock-girly .gsign{margin-top:38px;padding:54px 0 63px}
 }
 @media(max-width:540px){
+.jlock-girly .gcustom{padding:34px 0 0}
+.jlock-girly .gcustom-note{padding:28px 20px 24px}
+
   .jlock-girly .gheropaper{padding:28px 21px 38px}
   .jlock-girly .gscript{font-size:2.8rem}
   .jlock-girly .gtitle{font-size:2rem}
