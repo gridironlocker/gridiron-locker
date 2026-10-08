@@ -2215,7 +2215,7 @@ class GirlyLocker(unittest.TestCase):
 
     def test_hover_micro_interactions_are_present(self):
         css = self.girly_css()
-        for selector in (".jlock-girly .gcard:hover{", ".jlock-girly .gcard:hover .gflatlay-img{",
+        for selector in (".jlock-girly .gcard:hover{",
                          ".jlock-girly .gpolaroid:hover{", ".jlock-girly .ghero-photo:hover{",
                          ".jlock-girly .gcollage-photo:hover{"):
             self.assertIn(selector, css)
@@ -2305,21 +2305,29 @@ class GirlyLocker(unittest.TestCase):
         self.assertIn(escape_html(self.girly["collab_stamp"]), self.html)
         self.assertIn(escape_html(self.girly["signoff_accent"]), self.html)
 
-    def test_flatlay_panel_uses_only_a_distinct_real_campaign_view(self):
+    def test_cards_show_one_real_artwork_view_and_no_placeholder_panels(self):
+        """The wall shows one framed artwork per piece - the campaign front.
+
+        The flatlay panels are gone from every card: no second-view comparison
+        image, no stitched placeholder disc where a campaign publishes only one
+        mockup. Every flatlay class is absent from both the page and the
+        shipped stylesheet, so no orphan styling survives the cleanup.
+        """
         import build  # noqa: E402
         model = {it["slug"]: it for it in build.MODEL["michigan"]}
         for card in self.cards():
             item = model[card["slug"]]
-            gallery = item.get("gallery") or []
-            second = next((src for src in gallery[1:] if src and src != item["front"]), None)
-            if second:
-                self.assertIn(escape_html(second), card["html"], card["slug"])
-                self.assertIn('class="gflatlay-img"', card["html"])
-                self.assertIn('alt="" role="presentation"', card["html"])
-            else:
-                self.assertIn('class="gflatlay-panel gflatlay-empty"', card["html"])
-                self.assertNotIn('class="gflatlay-img"', card["html"])
-                self.assertNotIn(escape_html(item["front"]) + '" alt=""', card["html"])
+            # exactly one artwork view per piece: the real campaign front,
+            # framed in the photo panel, carrying the curated alt text
+            img = re.search(r'<img src="([^"]+)" alt="([^"]*)"',
+                            card["html"], re.S)
+            self.assertIsNotNone(img, card["slug"])
+            self.assertEqual(img.group(1), item["front"], card["slug"])
+            self.assertTrue(img.group(2).strip(), card["slug"])
+            self.assertEqual(card["html"].count("<img "), 1, card["slug"])
+        for flatlay in ("gflatlay-panel", "gflatlay-img", "gflatlay-empty", "gflatlay-stitch"):
+            self.assertNotIn(flatlay, self.html, flatlay)
+            self.assertNotIn(flatlay, self.css, flatlay)
 
     def test_statement_pick_gets_the_kicker_note_and_maize_pill(self):
         pick = self.girly["statement_pick"]
@@ -2362,8 +2370,8 @@ class GirlyLocker(unittest.TestCase):
         """Every piece is hung like framed art, and no two lean alike.
 
         Structural checks only - no browser here, so nothing below claims a
-        pixel-level result: the matte, keyline, medallion, per-piece tilt and
-        tape cycles, the collection header dressing and the next-drop tile all
+        pixel-level result: the matte, keyline, per-piece tilt and tape
+        cycles, the collection header dressing and the next-drop tile all
         have to exist in the shipped CSS and markup.
         """
         css = self.girly_css()
@@ -2385,14 +2393,6 @@ class GirlyLocker(unittest.TestCase):
         self.assertIn("inset:6px", keyline.group(0))
         self.assertIn("border:1px solid rgba(230,184,0,.32)", keyline.group(0))
         self.assertIn(".jlock-girly .gcard:hover::after{border-color:rgba(255,203,5,.82)", css)
-        # gold-foil medallion: radial maize foil, navy serif numerals, and a
-        # shine sweep that crosses the disc when the piece is hovered
-        badge = re.search(r"\.jlock-girly \.gnum-badge\{[^}]*\}", css)
-        self.assertIsNotNone(badge)
-        self.assertIn("radial-gradient(circle at 32% 27%,#fff6cc,var(--g-maize)", badge.group(0))
-        self.assertIn("color:var(--g-navy)", badge.group(0))
-        self.assertIn("font-family:var(--g-serif)", badge.group(0))
-        self.assertIn(".jlock-girly .gcard:hover .gnum-badge::after{opacity:1", css)
         # per-piece variation: a four-card tilt cycle and three tape hues
         for cycle in ("4n+1", "4n+2", "4n+3", "4n+4"):
             tilt = re.search(r"\.jlock-girly \.gcard:nth-child\(" + re.escape(cycle)
@@ -2451,6 +2451,72 @@ class GirlyLocker(unittest.TestCase):
         self.assertNotIn("gcard", self.joe)
         self.assertIn('class="jfeat"', self.joe)
         self.assertNotIn("fonts.googleapis.com/css2", self.joe)
+
+    def test_her_own_masthead_and_no_sitewide_footer(self):
+        """Bella's page opens on her own masthead and ends on her sign-off.
+
+        The storefront GL wordmark is replaced by her script lockup in the
+        site header - the one piece of girly chrome that lives OUTSIDE
+        <main class="jlock-girly"> - and the sitewide footer is dropped
+        entirely: her page ends on its own .gsign sign-off, not on the shared
+        shop/help/brand columns. Joe's page keeps the storefront logo and the
+        shared footer untouched.
+        """
+        # the masthead sits in the site header, before <main>, and links home
+        main_at = self.html.index('<main id="main" class="jlock jlock-girly">')
+        masthead = self.html[:main_at]
+        self.assertIn('<a class="logo glogo" href="../../">', masthead)
+        self.assertIn('class="glogo-heart"', masthead)
+        self.assertIn('class="glogo-script"', masthead)
+        self.assertIn(">bella’s</span>", masthead)
+        self.assertIn('class="glogo-serif"', masthead)
+        self.assertIn(">locker</span>", masthead)
+        # the storefront wordmark is gone from her page only
+        self.assertNotIn('<span class="mark">GL</span>', self.html)
+        # no sitewide footer: she ends on her own sign-off
+        self.assertNotIn("<footer>", self.html)
+        signoff = self.html[self.html.rindex('class="gsign"'):]
+        self.assertIn('class="gcollab"', signoff)
+        self.assertIn('class="gbtn gbtn-papercut"', signoff)
+        self.assertTrue(self.html.rstrip().endswith("</main>"))
+        # Joe keeps the storefront chrome: GL logo, shared footer, no glogo
+        self.assertIn('<span class="mark">GL</span>', self.joe)
+        self.assertIn("<footer>", self.joe)
+        self.assertNotIn("glogo", self.joe)
+
+    def test_masthead_css_is_scoped_and_selfcontained(self):
+        """The masthead carries its own palette, because nothing else reaches it.
+
+        The masthead lives in the site header, outside <main
+        class="jlock-girly"> where every --g-* custom property is declared,
+        so its rules cannot lean on those tokens: each one is scoped to
+        body[data-creator-page="BELLA"] and repeats the locker palette as
+        literals that keep their contrast on the white header strip - navy
+        serif ink, pink script, maize heart, and the two girly fonts by name.
+        """
+        rules = re.findall(r'body\[data-creator-page="BELLA"\][^{}]*\{[^}]*\}',
+                           self.css)
+        self.assertTrue(rules)
+        joined = "\n".join(rules)
+        for cls in (".glogo-heart", ".glogo-script", ".glogo-serif"):
+            self.assertIn(cls, joined, cls)
+        # the locker palette and fonts as literals - no --g-* token can reach
+        # the header, so none may appear in these rules
+        self.assertIn("#182d4d", joined)
+        self.assertIn("#d9899a", joined)
+        self.assertIn("#ffcb05", joined)
+        self.assertIn("'Caveat'", joined)
+        self.assertIn("'Playfair Display'", joined)
+        self.assertNotIn("var(--g-", joined)
+        # every glogo rule in the stylesheet is scoped to Bella's page
+        stripped = re.sub(r"/\*.*?\*/", "", self.css, flags=re.S)
+        for group in re.findall(r"([^{}]+)\{", stripped):
+            for selector in group.split(","):
+                selector = selector.strip()
+                if "glogo" in selector:
+                    self.assertTrue(
+                        selector.startswith('body[data-creator-page="BELLA"]'),
+                        selector)
 
 class ConversionUpgrades(unittest.TestCase):
     """The conversion pass: truthful trust strip, faster PDP hand-off,
