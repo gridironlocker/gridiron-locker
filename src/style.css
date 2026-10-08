@@ -1789,13 +1789,14 @@ main.jlock-girly{padding-bottom:0;overflow:hidden}
   .jlock-girly .gcollage-photo figcaption{font-size:.68rem}
   .jlock-girly .garrow-doodle{right:-12px;width:62px}
   .jlock-girly .gcollage-arrow-label{right:-12px;width:100px;font-size:.91rem}
-  .jlock-girly .gcard{grid-template-columns:minmax(0,.72fr) minmax(0,1.28fr)}
-  .jlock-girly .gphoto-panel img{min-height:215px}
-  .jlock-girly .gb{gap:8px;padding:12px 11px 11px}
-  .jlock-girly .gcard-note{min-height:52px}
-  .jlock-girly .gcap{font-size:1.06rem}
   .jlock-girly .gcard-foot{align-items:flex-start;flex-direction:column;gap:7px}
   .jlock-girly .gshop{min-height:37px}
+  /* phones: hang the framed artwork FULL WIDTH above the piece's plate -
+     the wall reads like a wall again (art first, caption beneath) instead
+     of a thumbnail beside a receipt */
+  .jlock-girly .gcard{grid-template-columns:minmax(0,1fr)}
+  .jlock-girly .gphoto-panel{border-right:0;border-bottom:1px solid rgba(24,45,77,.13)}
+  .jlock-girly .gphoto-panel img{min-height:0;max-height:none}
   .jlock-girly .gintro-head{margin-bottom:26px;padding:6px 4px 9px 24px}
   .jlock-girly .gintro-head h2{font-size:2.05rem}
   .jlock-girly .gintro-head::before{left:2px;width:8px;background-size:8px 100%}

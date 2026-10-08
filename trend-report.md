@@ -1,44 +1,25 @@
 # Hunt Report - 2026-10-08
 
-Generated: 2026-10-08 22:16 UTC by src/hunter_intelligence.py
+Generated: 2026-10-08 22:30 UTC by src/hunter_intelligence.py
 
-Ladder: SIGNAL 3 · TREND 0 · OPPORTUNITY 1 · ACTION 0 · HEADLINE 3
+Ladder: SIGNAL 4 · TREND 0 · OPPORTUNITY 0 · ACTION 0 · HEADLINE 3
 
 Fan connectors: no fan posts observed - reddit error (HTTP Error 403: Blocked); x not_configured (Set X_BEARER_TOKEN to use the official X recent-search API.); facebook not_configured (Set META_PAGE_ID and META_PAGE_ACCESS_TOKEN for the official Meta Page feed API.)
 
 ## What to do right now
 
-**Post the Underwood era: QB19 in Ann Arbor angle for Michigan Wolverines on X (@gridironlocker1 first) now with Second Act QB19 Vintage Football - 71% confidence, OPPORTUNITY.**
+**Post the Josh Jacobs and the run game angle for Green Bay Packers on X now with Green Bay Football Cheesehead Nation Shirt - 58% confidence, SIGNAL.**
 
-- Product: Second Act QB19 Vintage Football https://gridironlocker.shop/second-act-qb19-vintage-football?collectionId=YYMlCmwgKG__&color=GILDAN-HEATHER_SPORT_GREY&productId=6aa1db87f1c6bb96a2648225
-- Platform: X (@gridironlocker1 first) · Timing: now
-- Confidence: 71% (OPPORTUNITY) · 🟢 READY
-- Campaign: SECOND ACT QB19
-- Creative: Grade/stat line → 'QB19' creative. Bryce 19 for the believer, Second Act QB19 for the story. Recruiting news = same designs.
-- Why: Every Michigan story right now routes through Underwood - the grade, the coach backing him, and what the era means next.
+- Product: Green Bay Football Cheesehead Nation Shirt https://viralstyle.com/kebystore/limited-edition-grb8
+- Platform: X · Timing: now
+- Confidence: 58% (SIGNAL) · ⚪ WATCH
+- Campaign: GO PACK GO — identity over one back
+- Creative: Do not print a Jacobs shirt on suspension news. Post the identity design with a 'the run game is deeper than one name' line.
+- Why: Jacobs is the most-mentioned Packer in the window and every mention is about availability - that is a nervous fan, and nervous fans buy identity, not player tees.
 
 ## Opportunities (SIGNAL and above)
 
-### 1. Underwood era: QB19 in Ann Arbor - Michigan Wolverines
-- Level: OPPORTUNITY · Confidence: 71% · 🟢 READY (matched design, posting window open, evidence under 12 h)
-- Fan signal: "Grading the Jason Beck and Bryce Underwood Marriage Through Five Weeks" - Sports Illustrated (2 h ago)
-- Evidence: 6 reaction items (6.0 weighted) · 4 outlets · 0 utility listings excluded · 0 fan posts
-- Phrase velocity: ↑ 100% / 240 min (2 vs 1)
-- Sentiment: pride - 'pride' on 1/1 lexicon hits across 6 item(s)
-- Game state: next game in ~2 day(s)
-- Commercial: exact - Second Act QB19 Vintage Football $21.00 (sellable) - SECOND ACT QB19
-- Why fans care: Every Michigan story right now routes through Underwood - the grade, the coach backing him, and what the era means next.
-- Tracked names: bryce underwood (22 window mentions, FTI 100)
-- Action: X (@gridironlocker1 first) - conversation post now (now)
-- Action: Threads - alternate angle (+20 min)
-- Action: Instagram - product creative after engagement confirms the angle (after the X post confirms the angle)
-- Action: Pinterest - keyword pin of the matched design (+2 h)
-  - Grading the Jason Beck and Bryce Underwood Marriage Through Five Weeks - Sports Illustrated - google_news (2 h ago) https://news.google.com/rss/articles/CBMitgFBVV95cUxObmtNOGhlbDBfaXBTSUs0MThyMlE0UFN1NENPUTdKR0pSQTRUVlprUDNXREFDSFFicTZ6UUJoX2lLSWF3YW9ZeWQxcm1SVjkxU01GM0xidEpIaHhpelpDcUlHVHB2dUhLVXNKYkFnYTBVM3hFbWpLbFJPdFlhUXpRc1FWNjNXZXUxYlNJQnhWT1FZYm9YaTd6eHVQazJydVlobm9HNGRFMFhsSm5DSjVLMEFaM1F6dw?oc=5
-  - Jake Butt Wants Michigan to Bench Bryce Underwood - Yahoo Sports - google_news (4 h ago) https://news.google.com/rss/articles/CBMihgFBVV95cUxQSno2NTJVVFB0cXY5NTJ2bnJpcmFKdUdYYVNqOVRHRUxYcFdtemx6dm5yZ1d4RGYzNEszN1o4Y0JiMF8yOTJzU1pFZ3BpYmlrSERoand5dEpCb24yNVMwd1NiMi1qZTV5S1JQNUg5RHdQUTc4dnM5aHAzYmZJOE51c3FYVWFNUQ?oc=5
-  - Robert Griffin III warns Michigan against benching Bryce Underwood - Wolverines Wire - google_news (6 h ago) https://news.google.com/rss/articles/CBMi-gFBVV95cUxNRkNaUW9wbG03cVU1c0RMbTYxRml4WktmM0FJeWtIcGhBUnh1VHg2SEpkbkt3Z0FGQnBLdy01Z25XSDZlWnc3WUxZdWFZdURyVW1GclFTMFlXT0QyQU9GUEwzN0UwUlRQaktGMEdJeno2Wjl6bEdwWUZmbUZFbDA3V3RVSko1Q0FucE05VWdMeGhwcWRXSThSSDNXSHN3bFhBV0Z5WktjYXpabnpjQ05qOWpzQm5LQlhBLXlmcHNRbkdyZ1R3Yi1rbXY1RlB5ZVkweGY0Unl2dFNvclpuYkNtZmNXVXhRcmNLVHBLaU9CMnNjajZ5MXV0RDJR?oc=5
-  - Why Benching Bryce Underwood Would 'Throw Away' Michigan Football's Season - Sports Illustrated - google_news (10 h ago) https://news.google.com/rss/articles/CBMitgFBVV95cUxOMWdOOXZFczZXRnUzdzg5bTdnVzhHcDVCaVZNU0E1VFlLeDVWM3JxMU95TmdpSDhpakU0X2ZpUkw5LWVHa01mUEFHSXRzVXp5SVZJeDNRU3dRQWE0Qmx4YXJ0WlYtQmJQRWVVZm1aN05Qb3lieEpSczZrNlRtdTlMVkpZZ0g4MFN5TUFvUnhWTFAtU3ZrTVMxb0NnY2tRQzlxZmd1a2didjR1Q1g2MlV1eWtCUzkzQQ?oc=5
-
-### 2. Josh Jacobs and the run game - Green Bay Packers
+### 1. Josh Jacobs and the run game - Green Bay Packers
 - Level: SIGNAL · Confidence: 58% · ⚪ WATCH (fans are reacting but nothing on the shelf answers it yet)
 - Fan signal: "Will Josh Jacobs play football this year? Latest news on Packers RB's court case" - USA Today (2 h ago)
 - Evidence: 4 reaction items (4.0 weighted) · 4 outlets · 0 utility listings excluded · 0 fan posts
@@ -51,7 +32,22 @@ Fan connectors: no fan posts observed - reddit error (HTTP Error 403: Blocked); 
   - Will Josh Jacobs play football this year? Latest news on Packers RB's court case - USA Today - google_news (2 h ago) https://news.google.com/rss/articles/CBMiuAFBVV95cUxNRlNLc3kzTnJlUExFRUpNZXJsRVlyRkgyd21DNjZIYUNSdGRtNkFWU01ZblZwMGxxbVVJMmZXdnpJRzRWSkxtVVhFcU5QNUM4RV9kYlVxQzMtakJ6cTg3RHlxNHlLREgtSEpmQS1Eai1pZzJ1S1ZLdjE1cDg0S000LTdqd1NIOEQxYTVaMjJjWmlYMzlNeVFHLWNjdmdzMkVvZ1Y3TGFwMXZtekRqVHhRTGoyOG55WENh?oc=5
   - Green Bay Packers News: Baby steps for Packers run game - Acme Packing Company - google_news (5 h ago) https://news.google.com/rss/articles/CBMivwFBVV95cUxPYWpBekV4d3ZQYVk5aURCSk85ODhoaXJ4dTczMnVrUERpazdnWjgzV0xDcHRLajVlWGdfWFZVWlpDUlNZMGdMOE53R2NfTF9sWkVQc01yQ3AtQVdiaS1kTjE0TFExR2JvY3o2Ny1oVDFCYUQzSWM1T2JDR05nVjM2Nl9MVkNiUDBmakl0VXNudFZ6R3Q2MkpBZURDRGxIZ2k0NXJlSUtna0F6bjIxWjZFaGF3TkFLVFB6ZlJrajhUYw?oc=5
   - With Bad Run Game, Packers Should Trade for One More Veteran to Fill Hole - Sports Illustrated - google_news (10 h ago) https://news.google.com/rss/articles/CBMirAFBVV95cUxNN3R2SnF4VjRmRnZvVV96cEJjRm4wMUFQb2tBWWVsSmw5eFpUdjFtRkVKR2I1NERXcnhXQ3VaX2JGUlRzTG5wZ29Za3hiX2NHbzRuemZORGNfVGU2Qk1uQXQtdGxPRE1GM2s5azRnSzF1cldJYlFUWG80cjlkQU9kdldna3lYa242SFdBWDUzS0NsUVkwSFhaa1hqbkI5U0t5VnNlYi1wazljUnlC?oc=5
-  - Packers could exploit Eagles' surprising trade to pursue the star weapon their struggling run game desperately needs - A to Z Sports - google_news (11 h ago) https://news.google.com/rss/articles/CBMihwFBVV95cUxQYXdqdmJiQlpxUlpMYW1rUjQxUFhYWjlRWU1SNDBROVl0NzVkbGVMR0Z3SUFRQjV5VFF2Qnp3VTVJb3dOc3ZuRThLOTd1NElVeXduWHozOHF6cjZDT01GRDBhbzJENU5MVTg2OHh0STRuUFR5VnpjcXR5MmZKU21McHlyQmt1dWs?oc=5
+  - Packers could exploit Eagles' surprising trade to pursue the star weapon their struggling run game desperately needs - A to Z Sports - google_news (12 h ago) https://news.google.com/rss/articles/CBMihwFBVV95cUxQYXdqdmJiQlpxUlpMYW1rUjQxUFhYWjlRWU1SNDBROVl0NzVkbGVMR0Z3SUFRQjV5VFF2Qnp3VTVJb3dOc3ZuRThLOTd1NElVeXduWHozOHF6cjZDT01GRDBhbzJENU5MVTg2OHh0STRuUFR5VnpjcXR5MmZKU21McHlyQmt1dWs?oc=5
+
+### 2. Underwood era: QB19 in Ann Arbor - Michigan Wolverines
+- Level: SIGNAL · Confidence: 57% · ⚪ WATCH (fans are reacting but nothing on the shelf answers it yet)
+- Fan signal: "Grading the Jason Beck and Bryce Underwood Marriage Through Five Weeks" - Sports Illustrated (2 h ago)
+- Evidence: 6 reaction items (6.0 weighted) · 4 outlets · 0 utility listings excluded · 0 fan posts
+- Phrase velocity: ↓ 50% / 240 min (1 vs 2)
+- Sentiment: pride - 'pride' on 1/1 lexicon hits across 6 item(s)
+- Game state: next game in ~2 day(s)
+- Commercial: exact - Second Act QB19 Vintage Football $21.00 (sellable) - SECOND ACT QB19
+- Why fans care: Every Michigan story right now routes through Underwood - the grade, the coach backing him, and what the era means next.
+- Tracked names: bryce underwood (22 window mentions, FTI 100)
+  - Grading the Jason Beck and Bryce Underwood Marriage Through Five Weeks - Sports Illustrated - google_news (2 h ago) https://news.google.com/rss/articles/CBMitgFBVV95cUxObmtNOGhlbDBfaXBTSUs0MThyMlE0UFN1NENPUTdKR0pSQTRUVlprUDNXREFDSFFicTZ6UUJoX2lLSWF3YW9ZeWQxcm1SVjkxU01GM0xidEpIaHhpelpDcUlHVHB2dUhLVXNKYkFnYTBVM3hFbWpLbFJPdFlhUXpRc1FWNjNXZXUxYlNJQnhWT1FZYm9YaTd6eHVQazJydVlobm9HNGRFMFhsSm5DSjVLMEFaM1F6dw?oc=5
+  - Jake Butt Wants Michigan to Bench Bryce Underwood - Yahoo Sports - google_news (4 h ago) https://news.google.com/rss/articles/CBMihgFBVV95cUxQSno2NTJVVFB0cXY5NTJ2bnJpcmFKdUdYYVNqOVRHRUxYcFdtemx6dm5yZ1d4RGYzNEszN1o4Y0JiMF8yOTJzU1pFZ3BpYmlrSERoand5dEpCb24yNVMwd1NiMi1qZTV5S1JQNUg5RHdQUTc4dnM5aHAzYmZJOE51c3FYVWFNUQ?oc=5
+  - Robert Griffin III warns Michigan against benching Bryce Underwood - Wolverines Wire - google_news (7 h ago) https://news.google.com/rss/articles/CBMi-gFBVV95cUxNRkNaUW9wbG03cVU1c0RMbTYxRml4WktmM0FJeWtIcGhBUnh1VHg2SEpkbkt3Z0FGQnBLdy01Z25XSDZlWnc3WUxZdWFZdURyVW1GclFTMFlXT0QyQU9GUEwzN0UwUlRQaktGMEdJeno2Wjl6bEdwWUZmbUZFbDA3V3RVSko1Q0FucE05VWdMeGhwcWRXSThSSDNXSHN3bFhBV0Z5WktjYXpabnpjQ05qOWpzQm5LQlhBLXlmcHNRbkdyZ1R3Yi1rbXY1RlB5ZVkweGY0Unl2dFNvclpuYkNtZmNXVXhRcmNLVHBLaU9CMnNjajZ5MXV0RDJR?oc=5
+  - Why Benching Bryce Underwood Would 'Throw Away' Michigan Football's Season - Sports Illustrated - google_news (11 h ago) https://news.google.com/rss/articles/CBMitgFBVV95cUxOMWdOOXZFczZXRnUzdzg5bTdnVzhHcDVCaVZNU0E1VFlLeDVWM3JxMU95TmdpSDhpakU0X2ZpUkw5LWVHa01mUEFHSXRzVXp5SVZJeDNRU3dRQWE0Qmx4YXJ0WlYtQmJQRWVVZm1aN05Qb3lieEpSczZrNlRtdTlMVkpZZ0g4MFN5TUFvUnhWTFAtU3ZrTVMxb0NnY2tRQzlxZmd1a2didjR1Q1g2MlV1eWtCUzkzQQ?oc=5
 
 ### 3. QB room: who is QB1 in Cleveland - Cleveland Browns
 - Level: SIGNAL · Confidence: 57% · ⚪ WATCH (fans are reacting but nothing on the shelf answers it yet)
@@ -91,21 +87,4 @@ Fan connectors: no fan posts observed - reddit error (HTTP Error 403: Blocked); 
 
 ## Article ideas (OPPORTUNITY+ only)
 
-- **[Medium] Michigan Wolverines: what the Go Blue faithful are actually saying about underwood era: qb19 in ann arbor**
-  - Where: Michigan football culture (Ann Arbor)
-  - Angle: Fan-demand piece built on the live signal (Grading the Jason Beck and Bryce Underwood Marriage Through Five Weeks), not on a headline recap.
-  - Link: https://gridironlocker.shop/second-act-qb19-vintage-football?collectionId=YYMlCmwgKG__&color=GILDAN-HEATHER_SPORT_GREY&productId=6aa1db87f1c6bb96a2648225
-  - Image: Second Act QB19 Vintage Football mockup next to the moment that started it.
-
-- **[Quora] Why are Michigan Wolverines fans so focused on underwood era: qb19 in ann arbor right now?**
-  - Where: Michigan football / college football recruiting
-  - Angle: Answer the question a fan would actually type, then answer it properly.
-  - Link: https://gridironlocker.shop/second-act-qb19-vintage-football?collectionId=YYMlCmwgKG__&color=GILDAN-HEATHER_SPORT_GREY&productId=6aa1db87f1c6bb96a2648225
-  - Image: Simple stat/quote graphic - no product shot.
-
-- **[Reddit] Underwood era: QB19 in Ann Arbor - be a fan first in r/MichiganWolverines**
-  - Where: r/MichiganWolverines / r/CFB / r/collegefootball
-  - Angle: Join the existing thread instead of starting a promo post.
-  - Link: profile link only, if asked
-  - Image: None - text comment.
-
+- None. Articles need confidence >= 60 plus a matched design.

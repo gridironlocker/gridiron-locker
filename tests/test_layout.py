@@ -2377,6 +2377,31 @@ class GirlyLocker(unittest.TestCase):
         self.assertIn(".jlock-girly .gcard.gcard-fave::after{border-color:rgba(255,203,5,.62)}", css)
         self.assertIn(".jlock-girly .gcard.gcard-fave .gtape-card{background:rgba(255,203,5,.68)}", css)
 
+    def test_phone_hangs_the_artwork_full_width(self):
+        """On phones the artwork is the piece, not a thumbnail beside text.
+
+        The horizontal split the cards use on desktop shrinks the framed
+        artwork to barely a third of a phone's width, so at <=540px the card
+        stacks: the white-matte panel goes full width on top (divider moved
+        from the right edge to the bottom edge), and the image's height caps
+        are lifted so its width + 5/6 aspect ratio drive the render - art
+        first, plate beneath.
+        """
+        mob = media_rules(self.css, 540)
+        self.assertIn(".jlock-girly .gcard{grid-template-columns:minmax(0,1fr)}", mob)
+        self.assertNotIn(".jlock-girly .gcard{grid-template-columns:minmax(0,.72fr)", mob)
+        img = re.search(r"\.jlock-girly \.gphoto-panel img\{[^}]*\}", mob)
+        self.assertIsNotNone(img)
+        self.assertIn("min-height:0", img.group(0))
+        self.assertIn("max-height:none", img.group(0))
+        panel = re.search(r"\.jlock-girly \.gphoto-panel\{[^}]*\}", mob)
+        self.assertIsNotNone(panel)
+        self.assertIn("border-right:0", panel.group(0))
+        self.assertIn("border-bottom:1px solid", panel.group(0))
+        # desktop keeps the horizontal salon hang exactly as pinned above
+        card = re.search(r"\.jlock-girly \.gcard\{[^}]*\}", self.girly_rules())
+        self.assertIn("minmax(0,.84fr)", card.group(0))
+
     def test_next_drop_is_data_driven_and_not_a_fake_listing(self):
         tile = self.girly["next_drop"]
         block = re.search(r'<div class="gnextdrop".*?</div>', self.html, re.S)
