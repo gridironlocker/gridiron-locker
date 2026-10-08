@@ -108,7 +108,7 @@
     {
      "name": "deshaun watson",
      "mentions": 15,
-     "index": 75,
+     "index": 71,
      "status": "trending",
      "gap": true,
      "shoppable": false
@@ -116,7 +116,7 @@
     {
      "name": "shedeur sanders",
      "mentions": 4,
-     "index": 20,
+     "index": 19,
      "status": "trending",
      "gap": false,
      "shoppable": true
@@ -124,7 +124,7 @@
     {
      "name": "todd monken",
      "mentions": 4,
-     "index": 20,
+     "index": 19,
      "status": "trending",
      "gap": true,
      "shoppable": false
@@ -213,10 +213,10 @@
      "pub": "Sun, 04 Oct 2026 21:37:15 GMT"
     },
     {
-     "title": "Green Bay Packers: Christian Watson gives heartfelt response to Edgerrin Cooper injury in 17-14 win",
-     "url": "https://news.google.com/rss/articles/CBMiiwFBVV95cUxNRXBoME9jeVpxS2ZsNjlGbGlSTnVJNXRGTFBPZDlnMGplVXFFTjZhd1RRdlZTVHlaTHNfVzVUMjJyQjR1ZXhFTG5YU1RsWU5XVV83OEFtenRZZTQzcmxmaTB3TmhTTmZ5bURQQy1vSGhfMEtUZUN0a09DSzNIOTI0b0I2Vi14NG1nZm1n?oc=5",
+     "title": "Green Bay Packers: Must Count on This $4.85 Million Captain",
+     "url": "https://news.google.com/rss/articles/CBMigwFBVV95cUxNZVJuZjYxeHF1NzJ1Yi12VTVSZHZvUm9TYjFwSTIyRXBDOExmWlV1TF9Ya1haUUkxNEpUb3AxVDFRdE80UWRCM1hCQmtVT0NzblhjM3JkRU1RMWtuNTdvTFZpZWJPRlUzN2NCRjhINzNBMU5UT2pBOWQ3MUVYME9PMFBnWQ?oc=5",
      "source": "Yahoo Sports",
-     "pub": "Mon, 05 Oct 2026 11:57:07 GMT"
+     "pub": "Mon, 05 Oct 2026 19:28:15 GMT"
     }
    ],
    "entity_mentions": {
@@ -224,7 +224,7 @@
     "micah parsons": 4,
     "robert tonyan": 0,
     "josh jacobs": 3,
-    "matt lafleur": 9
+    "matt lafleur": 8
    },
    "top_terms": [
     "packers",
@@ -238,7 +238,7 @@
     "bucs",
     "achilles",
     "offensive",
-    "tampa"
+    "sign"
    ],
    "headline_count": 100,
    "moments": [
@@ -266,8 +266,8 @@
    "fan_trend_index": [
     {
      "name": "matt lafleur",
-     "mentions": 9,
-     "index": 45,
+     "mentions": 8,
+     "index": 38,
      "status": "trending",
      "gap": true,
      "shoppable": false
@@ -275,7 +275,7 @@
     {
      "name": "jordan love",
      "mentions": 4,
-     "index": 20,
+     "index": 19,
      "status": "trending",
      "gap": false,
      "shoppable": true
@@ -283,7 +283,7 @@
     {
      "name": "micah parsons",
      "mentions": 4,
-     "index": 20,
+     "index": 19,
      "status": "trending",
      "gap": false,
      "shoppable": true
@@ -291,7 +291,7 @@
     {
      "name": "josh jacobs",
      "mentions": 3,
-     "index": 15,
+     "index": 14,
      "status": "trending",
      "gap": true,
      "shoppable": false
@@ -408,7 +408,7 @@
     {
      "name": "ceedee lamb",
      "mentions": 8,
-     "index": 40,
+     "index": 38,
      "status": "trending",
      "gap": true,
      "shoppable": false
@@ -416,7 +416,7 @@
     {
      "name": "dak prescott",
      "mentions": 8,
-     "index": 40,
+     "index": 38,
      "status": "trending",
      "gap": true,
      "shoppable": false
@@ -481,22 +481,22 @@
    "entity_mentions": {
     "bryce underwood": 19,
     "jj mccarthy": 0,
-    "kyle whittingham": 20,
+    "kyle whittingham": 21,
     "jordan marshall": 1
    },
    "top_terms": [
     "michigan",
     "football",
     "whittingham",
-    "loss",
     "kyle",
+    "loss",
     "wolverines",
     "underwood",
     "offense",
     "bryce",
     "time",
     "things",
-    "little"
+    "college"
    ],
    "headline_count": 100,
    "moments": [
@@ -534,7 +534,7 @@
    "fan_trend_index": [
     {
      "name": "kyle whittingham",
-     "mentions": 20,
+     "mentions": 21,
      "index": 100,
      "status": "trending",
      "gap": true,
@@ -543,7 +543,7 @@
     {
      "name": "bryce underwood",
      "mentions": 19,
-     "index": 95,
+     "index": 90,
      "status": "trending",
      "gap": false,
      "shoppable": true
@@ -569,13 +569,13 @@
  },
  "fan_trend_index": {
   "formula": "round(100 * entity_mentions / peak_mentions_in_window)",
-  "peak_mentions": 20,
+  "peak_mentions": 21,
   "window_days": 10,
   "generated": "2026-10-08",
   "rows": [
    {
     "name": "kyle whittingham",
-    "mentions": 20,
+    "mentions": 21,
     "index": 100,
     "status": "trending",
     "gap": true,
@@ -585,7 +585,7 @@
    {
     "name": "bryce underwood",
     "mentions": 19,
-    "index": 95,
+    "index": 90,
     "status": "trending",
     "gap": false,
     "shoppable": true,
@@ -594,25 +594,16 @@
    {
     "name": "deshaun watson",
     "mentions": 15,
-    "index": 75,
+    "index": 71,
     "status": "trending",
     "gap": true,
     "shoppable": false,
     "collection": "cleveland-browns"
    },
    {
-    "name": "matt lafleur",
-    "mentions": 9,
-    "index": 45,
-    "status": "trending",
-    "gap": true,
-    "shoppable": false,
-    "collection": "green-bay-packers"
-   },
-   {
     "name": "ceedee lamb",
     "mentions": 8,
-    "index": 40,
+    "index": 38,
     "status": "trending",
     "gap": true,
     "shoppable": false,
@@ -621,16 +612,25 @@
    {
     "name": "dak prescott",
     "mentions": 8,
-    "index": 40,
+    "index": 38,
     "status": "trending",
     "gap": true,
     "shoppable": false,
     "collection": "dallas-cowboys"
    },
    {
+    "name": "matt lafleur",
+    "mentions": 8,
+    "index": 38,
+    "status": "trending",
+    "gap": true,
+    "shoppable": false,
+    "collection": "green-bay-packers"
+   },
+   {
     "name": "jordan love",
     "mentions": 4,
-    "index": 20,
+    "index": 19,
     "status": "trending",
     "gap": false,
     "shoppable": true,
@@ -639,7 +639,7 @@
    {
     "name": "micah parsons",
     "mentions": 4,
-    "index": 20,
+    "index": 19,
     "status": "trending",
     "gap": false,
     "shoppable": true,
@@ -648,7 +648,7 @@
    {
     "name": "shedeur sanders",
     "mentions": 4,
-    "index": 20,
+    "index": 19,
     "status": "trending",
     "gap": false,
     "shoppable": true,
@@ -657,7 +657,7 @@
    {
     "name": "todd monken",
     "mentions": 4,
-    "index": 20,
+    "index": 19,
     "status": "trending",
     "gap": true,
     "shoppable": false,
@@ -666,7 +666,7 @@
    {
     "name": "josh jacobs",
     "mentions": 3,
-    "index": 15,
+    "index": 14,
     "status": "trending",
     "gap": true,
     "shoppable": false,
