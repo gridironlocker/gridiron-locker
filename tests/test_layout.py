@@ -2105,6 +2105,8 @@ class GirlyLocker(unittest.TestCase):
             self.assertIn(f'data-price="{item["price"]:.2f}"', block)
             self.assertIn(f'${item["price"]:.2f}', block)
             self.assertIn('width="530" height="630"', block)
+            self.assertIn(f'<img src="{escape_html(item["front"])}"', block, slug)
+            self.assertNotIn("/img/bella-hero-autumn.jpg", block, slug)
             self.assertIn('loading="lazy"', block)
             self.assertIn("buyer-experience-gateway.mayzing.com", block)
             self.assertRegex(block, r'<img src="[^"]+" alt="[^"]+"')
@@ -2224,6 +2226,9 @@ class GirlyLocker(unittest.TestCase):
     def test_data_driven_copy_and_label_caption_maps_cover_every_pick(self):
         self.assertEqual(set(self.girly["labels"]), set(self.cre["picks"]))
         self.assertEqual(set(self.girly["captions"]), set(self.cre["picks"]))
+        self.assertEqual(
+            self.girly["quote"],
+            "if you know me, you know i’m in maize & blue every Saturday.")
         for key in ("hero_kicker", "hero_sub", "collab_stamp", "hero_cta", "hero_story_link",
                     "hero_facts", "intro_overline", "intro_heading", "quote",
                     "collection_overline", "collection_heading", "collection_desc",
@@ -2236,6 +2241,27 @@ class GirlyLocker(unittest.TestCase):
         for slug in self.cre["picks"]:
             self.assertIn(escape_html(self.girly["labels"][slug]), self.html, slug)
             self.assertIn(escape_html(self.girly["captions"][slug]), self.html, slug)
+        hero = self.cre["hero"]
+        hero_alt = self.cre["hero_alt"]
+        self.assertEqual(hero, "/img/bella-hero-autumn.jpg")
+        self.assertEqual(self.girly["hero_image"], hero)
+        self.assertEqual(self.girly["hero_alt"], hero_alt)
+        self.assertEqual((self.cre["hero_w"], self.cre["hero_h"]), (1376, 768))
+        for detail in ("adult woman seen from behind", "plain navy t-shirt",
+                       "leafy campus path in autumn"):
+            self.assertIn(detail, hero_alt.lower())
+        hero_path = os.path.join(SITE, hero.lstrip("/"))
+        self.assertTrue(os.path.isfile(hero_path), hero)
+        self.assertLess(os.path.getsize(hero_path), 165_000, hero)
+        hero_src = "../../" + hero.lstrip("/")
+        self.assertIn(f'<img src="{hero_src}" alt="{escape_html(hero_alt)}"', self.html)
+        self.assertIn(f'width="{self.cre["hero_w"]}" height="{self.cre["hero_h"]}"',
+                      self.html)
+        social_image = "https://gridironlocker.store" + hero
+        self.assertIn(f'<meta property="og:image" content="{social_image}">', self.html)
+        self.assertIn(f'<meta name="twitter:image" content="{social_image}">', self.html)
+        for card in self.cards():
+            self.assertNotIn(hero, card["html"], card["slug"])
         photo = self.girly["intro_photo"]
         self.assertTrue(os.path.isfile(os.path.join(SITE, photo["image"].lstrip("/"))))
         self.assertIn(photo["image"].lstrip("/"), self.html)
