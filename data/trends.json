@@ -1,5 +1,5 @@
 {
- "generated": "2026-10-07",
+ "generated": "2026-10-08",
  "window_days": 10,
  "collections": {
   "cleveland-browns": {
@@ -74,12 +74,12 @@
     "watson",
     "deshaun",
     "rumors",
-    "injury",
     "football",
     "thursday",
     "practice",
+    "injury",
     "pittsburgh",
-    "against"
+    "todd"
    ],
    "headline_count": 100,
    "moments": [
@@ -364,7 +364,7 @@
    ],
    "entity_mentions": {
     "dak prescott": 8,
-    "ceedee lamb": 6
+    "ceedee lamb": 8
    },
    "top_terms": [
     "cowboys",
@@ -374,8 +374,8 @@
     "houston",
     "trade",
     "smith",
-    "tyler",
     "defense",
+    "tyler",
     "brian",
     "schottenheimer",
     "injury"
@@ -406,7 +406,7 @@
    ],
    "fan_trend_index": [
     {
-     "name": "dak prescott",
+     "name": "ceedee lamb",
      "mentions": 8,
      "index": 40,
      "status": "trending",
@@ -414,9 +414,9 @@
      "shoppable": false
     },
     {
-     "name": "ceedee lamb",
-     "mentions": 6,
-     "index": 30,
+     "name": "dak prescott",
+     "mentions": 8,
+     "index": 40,
      "status": "trending",
      "gap": true,
      "shoppable": false
@@ -454,16 +454,16 @@
      "pub": "Mon, 05 Oct 2026 12:00:00 GMT"
     },
     {
-     "title": "Kyle Whittingham Loses Trust as Michigan Star\u2019s Leaked Conversation Allegedly Accuses Staff of Failures: \u201cWorse Than Sherrone [Moore]\u201d",
-     "url": "https://news.google.com/rss/articles/CBMijwFBVV95cUxQcTF6VHBvZS1jd2l6QU1ycWgxNjhnLU5CT3BnQ1dtUE82OFhkYUFuNWJ2bFhCX000LUFBbHBQM3d1U3QzbkNESW9MYmc5M3k4MGxvQ1ZkT1Z1N3JWX25LcVB0WlFmQ29IMFBQWUlmMmlkQUVUYlYweGxRdVZVTFpFWjJVX3FYUi01RWNYNXlWZw?oc=5",
-     "source": "Yahoo Sports",
-     "pub": "Tue, 06 Oct 2026 02:33:00 GMT"
-    },
-    {
      "title": "Michigan\u2019s QB, coordinator cost $6 million per year. The scheme is costing them the season - The Athletic",
      "url": "https://news.google.com/rss/articles/CBMiowFBVV95cUxOYTRNZThuZlQyRGFnX3cwVlFNTktUNTBnR0xmYW5icHVTUkJfRlozcV9xd2J2RGhGMGxtS3JPUEVnM3lqQ20yQnF6bzAzb09ZS3o4WDd5eWdJbXlpOGtVcUJaVlh2S0ZueG42WkQwSE9TVVdFZVBkVWVoNVBubUtpazVUdG9HWGdWd3EzTzBYVExfQ25UR2dITG9pc2l4bDNCZEtV?oc=5",
      "source": "The New York Times",
      "pub": "Wed, 07 Oct 2026 09:30:34 GMT"
+    },
+    {
+     "title": "Kyle Whittingham Loses Trust as Michigan Star\u2019s Leaked Conversation Allegedly Accuses Staff of Failures: \u201cWorse Than Sherrone [Moore]\u201d",
+     "url": "https://news.google.com/rss/articles/CBMijwFBVV95cUxQcTF6VHBvZS1jd2l6QU1ycWgxNjhnLU5CT3BnQ1dtUE82OFhkYUFuNWJ2bFhCX000LUFBbHBQM3d1U3QzbkNESW9MYmc5M3k4MGxvQ1ZkT1Z1N3JWX25LcVB0WlFmQ29IMFBQWUlmMmlkQUVUYlYweGxRdVZVTFpFWjJVX3FYUi01RWNYNXlWZw?oc=5",
+     "source": "Yahoo Sports",
+     "pub": "Tue, 06 Oct 2026 02:33:00 GMT"
     },
     {
      "title": "Bryce Underwood gets F grade in Michigan football collapse vs Minnesota",
@@ -571,7 +571,7 @@
   "formula": "round(100 * entity_mentions / peak_mentions_in_window)",
   "peak_mentions": 20,
   "window_days": 10,
-  "generated": "2026-10-07",
+  "generated": "2026-10-08",
   "rows": [
    {
     "name": "kyle whittingham",
@@ -610,7 +610,7 @@
     "collection": "green-bay-packers"
    },
    {
-    "name": "dak prescott",
+    "name": "ceedee lamb",
     "mentions": 8,
     "index": 40,
     "status": "trending",
@@ -619,9 +619,9 @@
     "collection": "dallas-cowboys"
    },
    {
-    "name": "ceedee lamb",
-    "mentions": 6,
-    "index": 30,
+    "name": "dak prescott",
+    "mentions": 8,
+    "index": 40,
     "status": "trending",
     "gap": true,
     "shoppable": false,
