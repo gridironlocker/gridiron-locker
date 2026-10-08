@@ -1214,7 +1214,7 @@ def season_promo():
     return f"2026 season kicks off {month} {d.day}"
 
 
-def header(active="", hide_nav=False, logo=""):
+def header(active="", hide_nav=False, logo="", hide_promo=False):
     """Site header, shared by every page.
 
     Two rows: the logo row (logo + search), then a FULL-WIDTH menu bar that
@@ -1253,7 +1253,7 @@ def header(active="", hide_nav=False, logo=""):
         f'{esc(COLLECTIONS[k].get("menu", COLLECTIONS[k]["short"]))}</a>'
         for k in ORDER)
     search_ico = '<svg width="17" height="17" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.8" aria-hidden="true"><circle cx="11" cy="11" r="6.2"/><path d="M20 20l-4.3-4.3"/></svg>'
-    # The announcement bar is on every page, so it must never state a
+    # The announcement bar sits on every page that keeps the storefront chrome,
     # production or shipping fact that is only true for one fulfillment
     # partner. On a page that belongs to exactly one collection it can name
     # that collection's partner; anywhere else it stays partner-neutral.
@@ -1265,6 +1265,7 @@ def header(active="", hide_nav=False, logo=""):
     # collection. The logo row, promo bar and search stay; the sitewide footer
     # is page chrome the caller assembles (see page_creator), and a girly page
     # ends on its own sign-off instead.
+    promo_bar = "" if hide_promo else '\n<div class="promo">' + season_promo() + ' &middot; ' + promo_fact + '</div>'
     menubar = "" if hide_nav else f"""
  <nav class="menubar" aria-label="Shop">
   <div class="mb-track">
@@ -1280,8 +1281,7 @@ def header(active="", hide_nav=False, logo=""):
         '<a class="logo" href="/"><span class="mark">GL</span>'
         f'<span class="wordmark">{esc(BRAND)}</span></a>')
     return f"""\
-<a class="skip" href="#main">Skip to content</a>
-<div class="promo">{season_promo()} &middot; {promo_fact}</div>
+<a class="skip" href="#main">Skip to content</a>{promo_bar}
 <header>
  <div class="wrap nav">
   {logo_html}
@@ -2688,6 +2688,13 @@ def _girly_body(cre, c, items, track):
     script = esc(g.get("hero_script", first))
     title = esc(g.get("hero_title", cre["page_name"]))
     statement_default = first.lower() + "’s fave ♥"
+    promo = cre.get("promo") or {}
+    offer_html = ""
+    if promo.get("code") and promo.get("pct"):
+        offer_html = (f'<p class="goffer"><span class="goffer-off">{promo["pct"]}% off your order</span>'
+                      f'<span class="goffer-code">use code <b>{esc(promo["code"])}</b></span>'
+                      f'<span class="goffer-note">Enter the code at checkout.</span></p>')
+
 
     def jlink(it):
         return f"/shop/{it['slug']}/?creator={track}"
@@ -2695,6 +2702,16 @@ def _girly_body(cre, c, items, track):
     def tape(cls="gtape"):
         return f'<span class="{cls}" aria-hidden="true"></span>'
 
+    custom = g.get("custom") or {}
+    custom_section = ""
+    if custom:
+        custom_section = (f'<section id="custom" class="gcustom"><div class="wrap"><div class="gcustom-note">{tape()}'
+                          f'<span class="gkicker">{esc(custom.get("overline", ""))}</span>'
+                          f'<h2 class="gcustom-title">{esc(custom.get("heading", ""))}</h2>'
+                          f'<p class="gcustom-pitch">{esc(custom.get("pitch", ""))}</p>'
+                          f'<p class="gcustom-dream">{esc(custom.get("dream_line", ""))}</p>'
+                          f'<a class="gbtn gbtn-maize custom-link" data-placement="girly_band" href="../../#custom-design">{esc(custom.get("cta", ""))} <span aria-hidden="true">&rarr;</span></a>'
+                          f'</div></div></section>')
     def price_pill(it, fave=False):
         tone = " gmaize" if fave else ""
         return (f'<span class="gshop{tone}"><span>{store}</span>'
@@ -2800,7 +2817,7 @@ def _girly_body(cre, c, items, track):
    <span class="gcollab-stamp">{esc(g.get('collab_stamp', ''))}</span>
    <p class="gsub">{esc(g.get('hero_sub', cre.get('sub', '')))}</p>
    <p class="gfacts">{esc(facts)}</p>
-   <div class="gctas">
+{offer_html}   <div class="gctas">
     <a class="gbtn gbtn-maize" href="#locker">{esc(g.get('hero_cta', 'Shop the collection'))}</a>
     <a class="ghand" href="#story">{story_link}</a>
    </div>
@@ -2831,6 +2848,8 @@ def _girly_body(cre, c, items, track):
  </header>
  <div class="ggrid">{grid}</div>
 </div></section>
+
+{custom_section}
 
 <section class="gsign"><div class="wrap center">
  <h2>{esc(g.get('signoff_lead', ''))}<em>{esc(g.get('signoff_accent', ''))}</em></h2>
@@ -3077,7 +3096,7 @@ def page_creator(ckey="joe"):
           head(f"{cre['page_name']} | {BRAND}", cre_page_desc, path, cre["hero"],
                schema, kw, col=ckey_col, body_attrs=f' data-creator-page="{track}"',
                extra_head=GIRLY_FONTS if girly else "")
-          + header(ckey_col, hide_nav=hide_nav, logo=GIRLY_LOGO if girly else "")
+          + header(ckey_col, hide_nav=hide_nav, hide_promo=girly, logo=GIRLY_LOGO if girly else "")
           + body + ("" if girly else footer(collection=ckey_col)))
 
 

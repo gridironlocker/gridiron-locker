@@ -2518,6 +2518,32 @@ class GirlyLocker(unittest.TestCase):
                         selector.startswith('body[data-creator-page="BELLA"]'),
                         selector)
 
+    def test_promo_ticket_on_the_hero_paper_is_data_driven(self):
+        self.assertEqual(self.cre["promo"], {"code": "BELLA", "pct": 10})
+        self.assertIn('class="goffer"', self.html)
+        self.assertIn('10% off your order', self.html)
+        self.assertIn('use code <b>BELLA</b>', self.html)
+        self.assertLess(self.html.index('class="gfacts"'), self.html.index('class="goffer"'))
+        self.assertLess(self.html.index('class="goffer"'), self.html.index('class="gctas"'))
+        self.assertIn("Save 10% with code BELLA", self.html)
+        self.assertIn("How do I use Bella's discount code?", self.html)
+        self.assertIn("Enter the code BELLA at checkout for 10% off", self.html)
+        self.assertNotIn('class="goffer"', self.joe)
+        self.assertIn("USE CODE: JOE10", self.joe)
+
+    def test_custom_designs_note_opens_the_service_in_her_voice(self):
+        custom = self.cre["girly"]["custom"]
+        for value in custom.values():
+            rendered = value.replace(" — ", " - ").replace("'", "&#x27;")
+            self.assertIn(rendered, self.html)
+        self.assertIn('class="gcustom-note"', self.html)
+        self.assertIn('href="../../#custom-design"', self.html)
+        self.assertIn('data-placement="girly_band"', self.html)
+        self.assertLess(self.html.index('id="locker"'), self.html.index('class="gcustom"'))
+        self.assertLess(self.html.index('class="gcustom"'), self.html.index('class="gsign"'))
+        self.assertNotIn('class="gcustom"', self.joe)
+
+
 class ConversionUpgrades(unittest.TestCase):
     """The conversion pass: truthful trust strip, faster PDP hand-off,
     visible custom-design service, completed funnel analytics.
