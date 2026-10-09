@@ -1333,6 +1333,16 @@ class Homepage(unittest.TestCase):
         # important field), and the three-step flow makes the service
         # understandable in one glance - no multi-step application implied.
         self.assertIn('textarea name="idea"', sec)
+        # Custom requests are currently available for Michigan only. Keep
+        # the blank placeholder and required selection on the homepage.
+        team = re.search(r'<select name="team"(?P<attrs>[^>]*)>'
+                         r'(?P<options>.*?)</select>', sec, re.S)
+        self.assertIsNotNone(team)
+        self.assertIn("required", team.group("attrs"))
+        self.assertIn('<option value="">Choose</option>', team.group("options"))
+        options = re.findall(r'<option(?:\s[^>]*)?>(.*?)</option>',
+                             team.group("options"), re.S)
+        self.assertEqual(options, ["Choose", "Michigan"])
         for step in ("<b>01</b><span>Your idea</span>",
                      "<b>02</b><span>Our design</span>",
                      "<b>03</b><span>Your shirt</span>"):
@@ -2598,68 +2608,14 @@ class GirlyLocker(unittest.TestCase):
         self.assertNotIn('class="goffer"', self.joe)
         self.assertIn("USE CODE: JOE10", self.joe)
 
-    def test_custom_designs_note_anchors_to_her_own_inline_form(self):
-        custom = self.cre["girly"]["custom"]
-        for value in custom.values():
-            rendered = value.replace(" — ", " - ").replace("'", "&#x27;")
-            self.assertIn(rendered, self.html)
-        self.assertIn('class="gcustom-note"', self.html)
-        # the note CTA no longer hands off to the homepage form; it anchors
-        # to the working form taped to the same board
-        self.assertIn('href="#custom-form"', self.html)
-        self.assertNotIn('href="../../#custom-design"', self.html)
-        self.assertIn('data-placement="girly_band"', self.html)
-        self.assertLess(self.html.index('id="locker"'), self.html.index('class="gcustom"'))
-        self.assertLess(self.html.index('class="gcustom"'), self.html.index('class="gsign"'))
-        self.assertNotIn('class="gcustom"', self.joe)
-
-    def test_custom_form_keeps_the_homepage_formsubmit_contract(self):
-        """Her inline form posts exactly like the homepage one.
-
-        Same #customForm hook, data-formsubmit marker, accessible label,
-        FormSubmit action and hidden inputs, same field names app.js reads
-        (name/email/idea/team/garment/colors/details + #formmsg), so the
-        app.js AJAX upgrade treats it identically wherever app.js loads. On
-        her page - where the footer (and so app.js) is dropped - the native
-        browser POST is the delivery path either way.
-        """
-        self.assertIn('id="custom-form"', self.html)
-        self.assertEqual(self.html.count('id="customForm"'), 1)
-        home = page("index.html")
-        home_form = re.search(r'<form id="customForm"(?P<head>[^>]*)>', home, re.S)
-        form = re.search(r'<form id="customForm"(?P<head>[^>]*)>(?P<body>.*?)</form>',
-                         self.html, re.S)
-        self.assertIsNotNone(form)
-        head, body = form.group("head"), form.group("body")
-        self.assertIn('method="POST"', head)
-        self.assertIn('data-formsubmit="1"', head)
-        self.assertIn('aria-label="Custom design request form"', head)
-        action = re.search(r'action="(https://formsubmit\.co/[^"]+)"', head)
-        self.assertIsNotNone(action)
-        # the exact same FormSubmit destination as the homepage form
-        self.assertIn(action.group(0), home_form.group("head"))
-        # hidden FormSubmit inputs: subject, table template, no captcha,
-        # honey pot - same quartet the homepage sends
-        for hidden in ('name="_subject"', 'name="_template"', 'name="_captcha"',
-                       'name="_honey"'):
-            self.assertIn(hidden, body, hidden)
-        # every field app.js reads is present with its contract name
-        for field in ('name="name"', 'name="email"', 'name="idea"', 'name="team"',
-                      'name="garment"', 'name="colors"', 'name="details"'):
-            self.assertIn(field, body, field)
-        idea = re.search(r'<textarea name="idea"[^>]*>', body)
-        team = re.search(r'<select name="team"[^>]*>', body)
-        self.assertIsNotNone(idea)
-        self.assertIsNotNone(team)
-        self.assertIn("required", idea.group(0))
-        self.assertIn("required", team.group(0))
-        # the inquiry framing + the reply-window expectation ride the form
-        self.assertIn("a free inquiry, not an order", body)
-        self.assertIn("usually within 1–2 days", body)
-        self.assertIn('id="formmsg"', body)
-        self.assertIn('aria-live="polite"', body)
-        self.assertIn('<button class="gbtn gbtn-maize gform-btn" type="submit">', body)
-        # the form is hers alone: Joe's page stays untouched
+    def test_custom_design_section_is_removed_from_bella_page(self):
+        self.assertNotIn("custom", self.girly)
+        for marker in ('id="custom"', 'class="gcustom"', 'class="gcustom-note"',
+                       'id="custom-form"', 'id="customForm"', 'class="gcustom-form"',
+                       'href="#custom-form"', 'data-placement="girly_band"',
+                       "have an idea of your own?", "custom football designs"):
+            self.assertNotIn(marker, self.html, marker)
+        # The removal is Bella-only; Joe still has no inline custom form.
         self.assertNotIn('id="customForm"', self.joe)
         self.assertNotIn('class="gcustom-form"', self.joe)
 

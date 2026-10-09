@@ -2102,8 +2102,7 @@ def custom_design():
      placeholder="e.g. 'DAWG POUND FOREVER' in orange and brown - or a nickname, a family motto, a group slogan"></textarea></label>
     <div class="row">
      <label>Team / theme<select name="team" required>
-      <option value="">Choose</option><option>Cleveland</option><option>Green Bay</option>
-      <option>Dallas</option><option>Michigan</option><option>Other / custom</option></select></label>
+      <option value="">Choose</option><option>Michigan</option></select></label>
      <label>Product type<select name="garment">
       <option value="">Choose</option><option>T-Shirt</option><option>Hoodie</option>
       <option>Sweatshirt</option><option>Long Sleeve</option><option>Mug</option><option>Beanie</option>
@@ -2702,63 +2701,6 @@ def _girly_body(cre, c, items, track):
     def tape(cls="gtape"):
         return f'<span class="{cls}" aria-hidden="true"></span>'
 
-    custom = g.get("custom") or {}
-    custom_section = ""
-    if custom:
-        # The taped note now answers itself: her CTA jumps to a working form
-        # taped to the same board instead of handing the visitor off to the
-        # homepage. The form keeps the EXACT #customForm / FormSubmit contract
-        # the homepage section uses (ids, field names, hidden inputs,
-        # #formmsg), so the app.js AJAX upgrade treats it identically wherever
-        # app.js loads - and on her page, where the footer (and so app.js) is
-        # intentionally dropped, the native browser POST to FormSubmit is the
-        # delivery path. Every customer-facing string is copy-owned in
-        # data/creators.json (girly.custom), so the note and the form stay in
-        # her voice.
-        custom_section = (f'''<section id="custom" class="gcustom"><div class="wrap">
- <div class="gcustom-note">{tape()}
-  <span class="gkicker">{esc(custom.get("overline", ""))}</span>
-  <h2 class="gcustom-title">{esc(custom.get("heading", ""))}</h2>
-  <p class="gcustom-pitch">{esc(custom.get("pitch", ""))}</p>
-  <p class="gcustom-dream">{esc(custom.get("dream_line", ""))}</p>
-  <a class="gbtn gbtn-maize custom-link" data-placement="girly_band" href="#custom-form">{esc(custom.get("cta", ""))} <span aria-hidden="true">&rarr;</span></a>
- </div>
- <div class="gcustom-formwrap" id="custom-form">{tape("gtape gtape-form")}
-  <form id="customForm" class="gcustom-form" method="POST"
-   action="https://formsubmit.co/{CONTACT_EMAIL}"
-   data-formsubmit="1" aria-label="Custom design request form">
-   <div class="gform-head">{esc(custom.get("form_head", ""))}</div>
-   <p class="gform-free">{esc(custom.get("free_note", ""))}</p>
-   <input type="hidden" name="_subject" value="New Custom Design Request from Bella's Michigan Locker">
-   <input type="hidden" name="_template" value="table">
-   <input type="hidden" name="_captcha" value="false">
-   <input type="text" name="_honey" style="display:none" tabindex="-1" autocomplete="off">
-   <div class="gform-row">
-    <label>{esc(custom.get("field_name", "your name"))}<input type="text" name="name" required
-     placeholder="{esc(custom.get("ph_name", ""))}" autocomplete="name"></label>
-    <label>{esc(custom.get("field_email", "your email"))}<input type="email" name="email" required
-     placeholder="{esc(custom.get("ph_email", ""))}" autocomplete="email"></label>
-   </div>
-   <label class="gform-idea"><span>{esc(custom.get("field_idea", "your idea"))} <span class="greq">*</span></span><textarea name="idea" rows="3" required
-    placeholder="{esc(custom.get("ph_idea", ""))}"></textarea></label>
-   <div class="gform-row">
-    <label><span>{esc(custom.get("field_team", "team / theme"))} <span class="greq">*</span></span><select name="team" required>
-     <option value="">pick one</option><option>Cleveland</option><option>Green Bay</option>
-     <option>Dallas</option><option>Michigan</option><option>Other / custom</option></select></label>
-    <label>{esc(custom.get("field_garment", "product type"))}<select name="garment">
-     <option value="">pick one</option><option>T-Shirt</option><option>Hoodie</option>
-     <option>Sweatshirt</option><option>Long Sleeve</option><option>Mug</option><option>Beanie</option>
-     <option>Other</option></select></label>
-   </div>
-   <label>{esc(custom.get("field_colors", "preferred colors (optional)"))}<input type="text" name="colors"
-    placeholder="{esc(custom.get("ph_colors", ""))}" autocomplete="off"></label>
-   <label>{esc(custom.get("field_details", "anything else?"))}<textarea name="details" rows="2"
-    placeholder="{esc(custom.get("ph_details", ""))}"></textarea></label>
-   <button class="gbtn gbtn-maize gform-btn" type="submit">{esc(custom.get("submit", custom.get("cta", "")))} <span aria-hidden="true">&rarr;</span></button>
-   <p class="gformmsg formmsg" id="formmsg" aria-live="polite">{esc(custom.get("reply_note", ""))}</p>
-  </form>
- </div>
-</div></section>''')
     def price_pill(it, fave=False):
         tone = " gmaize" if fave else ""
         return (f'<span class="gshop{tone}"><span>{store}</span>'
@@ -2895,8 +2837,6 @@ def _girly_body(cre, c, items, track):
  </header>
  <div class="ggrid">{grid}</div>
 </div></section>
-
-{custom_section}
 
 <section class="gsign"><div class="wrap center">
  <h2>{esc(g.get('signoff_lead', ''))}<em>{esc(g.get('signoff_accent', ''))}</em></h2>
