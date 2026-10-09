@@ -2703,30 +2703,36 @@ def _girly_body(cre, c, items, track):
 
     custom = g.get("custom") or {}
     custom_section = ""
-    if custom and not g.get("hide_custom", False):
-        # Creators can keep their custom-design copy in the record while
-        # opting out of rendering the note and inline form on their locker.
-        # The taped note now answers itself: her CTA jumps to a working form
-        # taped to the same board instead of handing the visitor off to the
-        # homepage. The form keeps the EXACT #customForm / FormSubmit contract
-        # the homepage section uses (ids, field names, hidden inputs,
-        # #formmsg), so the app.js AJAX upgrade treats it identically wherever
-        # app.js loads - and on her page, where the footer (and so app.js) is
-        # intentionally dropped, the native browser POST to FormSubmit is the
-        # delivery path. Every customer-facing string is copy-owned in
-        # data/creators.json (girly.custom), so the note and the form stay in
-        # her voice. Custom requests are currently available for Michigan
-        # only, so the required team selector offers just the blank
-        # placeholder and Michigan - the same pair the homepage sends.
-        custom_section = (f'''<section id="custom" class="gcustom"><div class="wrap">
- <div class="gcustom-note">{tape()}
+    if custom:
+        # The taped promo note (overline, heading, pitch, dream line and the
+        # yellow CTA) is a separate opt-out from the form: hide_custom_note
+        # silences the pitch while the inquiry form stays taped to the same
+        # board. The form is never replaced by a link or redirect to the
+        # shared Gridiron Locker form on the homepage - visitors fill it in
+        # right here. The form keeps the EXACT #customForm / FormSubmit
+        # contract the homepage section uses (ids, field names, hidden
+        # inputs, #formmsg), so the app.js AJAX upgrade treats it
+        # identically wherever app.js loads - and on her page, where the
+        # footer (and so app.js) is intentionally dropped, the native
+        # browser POST to FormSubmit is the delivery path. Every
+        # customer-facing string is copy-owned in data/creators.json
+        # (girly.custom), so the note and the form stay in her voice.
+        # Custom requests are currently available for Michigan only, so the
+        # required team selector offers just the blank placeholder and
+        # Michigan - the same pair the homepage sends.
+        if g.get("hide_custom_note", False):
+            note_html = ""
+        else:
+            note_html = (f''' <div class="gcustom-note">{tape()}
   <span class="gkicker">{esc(custom.get("overline", ""))}</span>
   <h2 class="gcustom-title">{esc(custom.get("heading", ""))}</h2>
   <p class="gcustom-pitch">{esc(custom.get("pitch", ""))}</p>
   <p class="gcustom-dream">{esc(custom.get("dream_line", ""))}</p>
   <a class="gbtn gbtn-maize custom-link" data-placement="girly_band" href="#custom-form">{esc(custom.get("cta", ""))} <span aria-hidden="true">&rarr;</span></a>
  </div>
- <div class="gcustom-formwrap" id="custom-form">{tape("gtape gtape-form")}
+''')
+        custom_section = (f'''<section id="custom" class="gcustom"><div class="wrap">
+{note_html} <div class="gcustom-formwrap" id="custom-form">{tape("gtape gtape-form")}
   <form id="customForm" class="gcustom-form" method="POST"
    action="https://formsubmit.co/{CONTACT_EMAIL}"
    data-formsubmit="1" aria-label="Custom design request form">
