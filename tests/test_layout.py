@@ -2233,6 +2233,27 @@ class GirlyLocker(unittest.TestCase):
         self.assertIn("filter:drop-shadow(", css)
         self.assertIn("clip-path:var(--g-torn)", css)
 
+    def test_intro_heading_container_is_transparent_not_a_white_header_plaque(self):
+        # the story heading is a <header class="gintro-head">, so it inherits
+        # the global `header{...background:#fff;border-bottom...;z-index:60}`
+        # site-chrome rule. Setting only the inner h2 background leaves the
+        # white strip behind the handwriting (seen in a 375px Chromium review),
+        # so the container itself is reset, scoped to Bella.
+        head = re.search(r"\.jlock-girly \.gintro-head\{[^}]*\}", self.girly_css())
+        self.assertIsNotNone(head)
+        rule = head.group(0)
+        self.assertIn("background:transparent", rule)
+        self.assertIn("border:0", rule)
+        self.assertIn("z-index:auto", rule)
+        self.assertNotIn("#fff", rule)
+        self.assertNotIn("var(--g-paper)", rule)
+        self.assertNotIn("z-index:60", rule)
+        # the reset is scoped: the global site-chrome header rule is untouched
+        self.assertIn("header{position:sticky;top:0;z-index:60;background:#fff;"
+                      "border-bottom:1px solid var(--line)}", self.css)
+        self.assertNotIn(".gintro-head", self.css.split(
+            "CREATOR COLLABORATION - GIRLY VARIANT (BELLA'S LOCKER)")[0])
+
     def test_data_driven_copy_and_label_caption_maps_cover_every_pick(self):
         self.assertEqual(set(self.girly["labels"]), set(self.cre["picks"]))
         self.assertEqual(set(self.girly["captions"]), set(self.cre["picks"]))
@@ -2249,17 +2270,38 @@ class GirlyLocker(unittest.TestCase):
         for value in self.girly.values():
             if isinstance(value, str):
                 self.assertNotIn("September", value)
-        # the intro heading ("More Than a Saturday") is dark navy text on its
-        # own paper chip, not cream over the navy canvas; the collection
-        # heading keeps the cream-on-canvas treatment
+        # the intro heading ("More Than a Saturday") hangs as her handwriting
+        # straight on the navy canvas - the white paper plaque is gone: Caveat
+        # cream ink, a pink hand-drawn squiggle underneath and a pink vertical
+        # stroke down the left edge of the block. The collection heading keeps
+        # the cream-on-canvas serif treatment untouched.
         intro_h2 = re.search(r"\.jlock-girly \.gintro-head h2\{[^}]*\}", self.girly_css())
         self.assertIsNotNone(intro_h2)
-        self.assertIn("color:var(--g-navy)", intro_h2.group(0))
-        self.assertIn("background:var(--g-paper)", intro_h2.group(0))
+        self.assertIn("color:var(--g-cream)", intro_h2.group(0))
+        self.assertIn("font-family:var(--g-hand)", intro_h2.group(0))
+        self.assertIn("background:none", intro_h2.group(0))
+        self.assertIn("clamp(", intro_h2.group(0))
+        self.assertNotIn("var(--g-paper)", intro_h2.group(0))
+        under = re.search(r"\.jlock-girly \.gintro-head h2::after\{[^}]*\}", self.girly_css())
+        self.assertIsNotNone(under)
+        self.assertIn("data:image/svg+xml", under.group(0))
+        self.assertIn("%23e8a6b2", under.group(0))  # pink felt-tip underline
+        stroke = re.search(r"\.jlock-girly \.gintro-head::before\{[^}]*\}", self.girly_css())
+        self.assertIsNotNone(stroke)
+        self.assertIn("data:image/svg+xml", stroke.group(0))
+        self.assertIn("%23d9899a", stroke.group(0))  # pink margin stroke
+        # "a note from bella" rides on a maize washi label, not a text label
+        label = re.search(r"\.jlock-girly \.gintro-head \.goverline\{[^}]*\}",
+                          self.girly_css())
+        self.assertIsNotNone(label)
+        self.assertIn("background:var(--g-maize)", label.group(0))
+        self.assertIn("color:var(--g-navy)", label.group(0))
+        self.assertIn("rotate(", label.group(0))
         collection_h2 = re.search(r"\.jlock-girly \.gcollection-head h2\{[^}]*\}",
                                   self.girly_css())
         self.assertIsNotNone(collection_h2)
         self.assertIn("color:var(--g-paper)", collection_h2.group(0))
+        self.assertIn("font-family:var(--g-serif)", collection_h2.group(0))
         for key in ("hero_kicker", "hero_sub", "collab_stamp", "hero_cta", "hero_story_link",
                     "hero_facts", "intro_overline", "intro_heading", "quote",
                     "collection_overline", "collection_heading", "collection_desc",
@@ -2355,6 +2397,31 @@ class GirlyLocker(unittest.TestCase):
         self.assertIn("0 0 30px rgba(232,166,178,.45)", fave_rule.group(0))
         self.assertIn(".jlock-girly .gcard.gcard-fave::after{border-color:rgba(255,203,5,.62)}", css)
         self.assertIn(".jlock-girly .gcard.gcard-fave .gtape-card{background:rgba(255,203,5,.68)}", css)
+
+    def test_phone_hangs_the_artwork_full_width(self):
+        """On phones the artwork is the piece, not a thumbnail beside text.
+
+        The horizontal split the cards use on desktop shrinks the framed
+        artwork to barely a third of a phone's width, so at <=540px the card
+        stacks: the white-matte panel goes full width on top (divider moved
+        from the right edge to the bottom edge), and the image's height caps
+        are lifted so its width + 5/6 aspect ratio drive the render - art
+        first, plate beneath.
+        """
+        mob = media_rules(self.css, 540)
+        self.assertIn(".jlock-girly .gcard{grid-template-columns:minmax(0,1fr)}", mob)
+        self.assertNotIn(".jlock-girly .gcard{grid-template-columns:minmax(0,.72fr)", mob)
+        img = re.search(r"\.jlock-girly \.gphoto-panel img\{[^}]*\}", mob)
+        self.assertIsNotNone(img)
+        self.assertIn("min-height:0", img.group(0))
+        self.assertIn("max-height:none", img.group(0))
+        panel = re.search(r"\.jlock-girly \.gphoto-panel\{[^}]*\}", mob)
+        self.assertIsNotNone(panel)
+        self.assertIn("border-right:0", panel.group(0))
+        self.assertIn("border-bottom:1px solid", panel.group(0))
+        # desktop keeps the horizontal salon hang exactly as pinned above
+        card = re.search(r"\.jlock-girly \.gcard\{[^}]*\}", self.girly_rules())
+        self.assertIn("minmax(0,.84fr)", card.group(0))
 
     def test_next_drop_is_data_driven_and_not_a_fake_listing(self):
         tile = self.girly["next_drop"]
@@ -2531,17 +2598,70 @@ class GirlyLocker(unittest.TestCase):
         self.assertNotIn('class="goffer"', self.joe)
         self.assertIn("USE CODE: JOE10", self.joe)
 
-    def test_custom_designs_note_opens_the_service_in_her_voice(self):
+    def test_custom_designs_note_anchors_to_her_own_inline_form(self):
         custom = self.cre["girly"]["custom"]
         for value in custom.values():
             rendered = value.replace(" — ", " - ").replace("'", "&#x27;")
             self.assertIn(rendered, self.html)
         self.assertIn('class="gcustom-note"', self.html)
-        self.assertIn('href="../../#custom-design"', self.html)
+        # the note CTA no longer hands off to the homepage form; it anchors
+        # to the working form taped to the same board
+        self.assertIn('href="#custom-form"', self.html)
+        self.assertNotIn('href="../../#custom-design"', self.html)
         self.assertIn('data-placement="girly_band"', self.html)
         self.assertLess(self.html.index('id="locker"'), self.html.index('class="gcustom"'))
         self.assertLess(self.html.index('class="gcustom"'), self.html.index('class="gsign"'))
         self.assertNotIn('class="gcustom"', self.joe)
+
+    def test_custom_form_keeps_the_homepage_formsubmit_contract(self):
+        """Her inline form posts exactly like the homepage one.
+
+        Same #customForm hook, data-formsubmit marker, accessible label,
+        FormSubmit action and hidden inputs, same field names app.js reads
+        (name/email/idea/team/garment/colors/details + #formmsg), so the
+        app.js AJAX upgrade treats it identically wherever app.js loads. On
+        her page - where the footer (and so app.js) is dropped - the native
+        browser POST is the delivery path either way.
+        """
+        self.assertIn('id="custom-form"', self.html)
+        self.assertEqual(self.html.count('id="customForm"'), 1)
+        home = page("index.html")
+        home_form = re.search(r'<form id="customForm"(?P<head>[^>]*)>', home, re.S)
+        form = re.search(r'<form id="customForm"(?P<head>[^>]*)>(?P<body>.*?)</form>',
+                         self.html, re.S)
+        self.assertIsNotNone(form)
+        head, body = form.group("head"), form.group("body")
+        self.assertIn('method="POST"', head)
+        self.assertIn('data-formsubmit="1"', head)
+        self.assertIn('aria-label="Custom design request form"', head)
+        action = re.search(r'action="(https://formsubmit\.co/[^"]+)"', head)
+        self.assertIsNotNone(action)
+        # the exact same FormSubmit destination as the homepage form
+        self.assertIn(action.group(0), home_form.group("head"))
+        # hidden FormSubmit inputs: subject, table template, no captcha,
+        # honey pot - same quartet the homepage sends
+        for hidden in ('name="_subject"', 'name="_template"', 'name="_captcha"',
+                       'name="_honey"'):
+            self.assertIn(hidden, body, hidden)
+        # every field app.js reads is present with its contract name
+        for field in ('name="name"', 'name="email"', 'name="idea"', 'name="team"',
+                      'name="garment"', 'name="colors"', 'name="details"'):
+            self.assertIn(field, body, field)
+        idea = re.search(r'<textarea name="idea"[^>]*>', body)
+        team = re.search(r'<select name="team"[^>]*>', body)
+        self.assertIsNotNone(idea)
+        self.assertIsNotNone(team)
+        self.assertIn("required", idea.group(0))
+        self.assertIn("required", team.group(0))
+        # the inquiry framing + the reply-window expectation ride the form
+        self.assertIn("a free inquiry, not an order", body)
+        self.assertIn("usually within 1–2 days", body)
+        self.assertIn('id="formmsg"', body)
+        self.assertIn('aria-live="polite"', body)
+        self.assertIn('<button class="gbtn gbtn-maize gform-btn" type="submit">', body)
+        # the form is hers alone: Joe's page stays untouched
+        self.assertNotIn('id="customForm"', self.joe)
+        self.assertNotIn('class="gcustom-form"', self.joe)
 
 
 class ConversionUpgrades(unittest.TestCase):

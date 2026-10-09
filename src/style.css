@@ -1462,7 +1462,7 @@ body[data-creator-page="BELLA"] .glogo-serif{font-family:'Playfair Display',Geor
   font-family:var(--g-serif);
 }
 main.jlock-girly{padding-bottom:0;overflow:hidden}
-.jlock-girly #story,.jlock-girly #locker{scroll-margin-top:96px}
+.jlock-girly #story,.jlock-girly #locker,.jlock-girly #custom-form{scroll-margin-top:96px}
 .jlock-girly .gtape{position:absolute;z-index:4;width:84px;height:22px;pointer-events:none;
   background:rgba(232,166,178,.57);border-left:1px dashed rgba(255,255,255,.68);
   border-right:1px dashed rgba(255,255,255,.68);box-shadow:0 2px 7px rgba(0,0,0,.12)}
@@ -1537,23 +1537,37 @@ main.jlock-girly{padding-bottom:0;overflow:hidden}
 .jlock-girly .gcollage-photo:hover{z-index:3;transform:rotate(0) translateY(-4px);box-shadow:0 18px 30px rgba(0,0,0,.4)}
 /* story: one taped polaroid beside a lined note -------------------------- */
 .jlock-girly .gintro{padding:35px 0 25px}
-.jlock-girly .gintro-head{text-align:center;margin:0 0 24px}
-/* both overlines - the intro note and the collection header - read as one
-   tracked serif label now: maize, uppercase, widely letter-spaced, replacing
-   the 1.45rem handwriting line */
+/* the story heading reads like a margin note in her scrapbook, held slightly
+   off the centre line with a hand-drawn pink stroke running down its left
+   edge - no white paper plaque, just her handwriting on the navy canvas */
+/* the global `header` rule (site chrome) gives every <header> a white
+   background, a bottom border and z-index:60. This block is a <header>, so
+   it is reset here, scoped to Bella: transparent so the heading sits on the
+   navy canvas, no border, and z-index:auto so it can never stack over the
+   sticky site header while the page scrolls underneath it */
+.jlock-girly .gintro-head{position:relative;z-index:auto;max-width:620px;margin:0 auto 32px;padding:9px 6px 12px 32px;
+  background:transparent;border:0;text-align:left}
+.jlock-girly .gintro-head::before{position:absolute;content:"";left:5px;top:10px;bottom:12px;width:10px;
+  background:url("data:image/svg+xml,%3Csvg xmlns='http://www.w3.org/2000/svg' viewBox='0 0 10 96' preserveAspectRatio='none'%3E%3Cpath d='M6 2C2.6 20 8.8 34 4.8 48 1 62 8 78 5 94' fill='none' stroke='%23d9899a' stroke-width='2.6' stroke-linecap='round'/%3E%3C/svg%3E") left center/10px 100% no-repeat;
+  transform:rotate(-.7deg)}
+/* the base overline stays the tracked maize serif label (the collection
+   header keeps it exactly so); the intro overline below overrides it into a
+   washi label */
 .jlock-girly .goverline{display:block;margin:0 0 9px;color:var(--g-maize);font-family:var(--g-serif);
   font-size:.68rem;font-weight:800;letter-spacing:.26em;line-height:1.4;text-transform:uppercase}
-/* the intro heading ("More Than a Saturday") sits on its own paper scrap so
-   the line reads as dark navy on white, not cream over the navy grain. The
-   collection heading below keeps the cream-on-canvas treatment. */
-.jlock-girly .gintro-head h2{display:inline-block;margin:0;padding:9px 22px;color:var(--g-navy);
-  background:var(--g-paper);border:1px solid rgba(24,45,77,.14);box-shadow:0 9px 20px rgba(0,0,0,.24);
-  font-family:var(--g-serif);font-size:clamp(1.85rem,4vw,2.8rem);font-weight:800;line-height:1.08;
-  transform:rotate(-.5deg)}
-/* the intro heading carries the same maize flourish as the collection
-   heading, so both sections open with one identical stroke */
-.jlock-girly .gintro-head h2::after{display:block;content:"";width:88px;height:3px;margin:13px auto 0;
-  border-radius:2px;background:linear-gradient(90deg,rgba(255,203,5,0),var(--g-maize),rgba(255,203,5,0))}
+/* "a note from bella" is stuck on as a little maize washi-tape label */
+.jlock-girly .gintro-head .goverline{display:inline-block;margin:0 0 14px;padding:4px 13px 3px;
+  background:var(--g-maize);color:var(--g-navy);box-shadow:0 2px 6px rgba(0,0,0,.3);
+  letter-spacing:.3em;transform:rotate(-1.8deg)}
+/* "More Than a Saturday" is her Caveat hand straight on the navy canvas with
+   a loose pink felt-tip underline; the collection heading below keeps its
+   cream-on-canvas serif treatment untouched */
+.jlock-girly .gintro-head h2{position:relative;display:inline-block;margin:0;padding:0 4px 12px;
+  color:var(--g-cream);background:none;border:0;box-shadow:none;font-family:var(--g-hand);
+  font-size:clamp(2.4rem,7vw,4.1rem);font-weight:700;line-height:1;transform:rotate(-1.3deg)}
+.jlock-girly .gintro-head h2::after{position:absolute;content:"";left:-6px;right:-8px;bottom:-3px;height:13px;margin:0;
+  background:url("data:image/svg+xml,%3Csvg xmlns='http://www.w3.org/2000/svg' viewBox='0 0 220 14' preserveAspectRatio='none'%3E%3Cpath d='M4 9C50 3 96 12 140 7 174 3 200 9 216 6' fill='none' stroke='%23e8a6b2' stroke-width='3' stroke-linecap='round'/%3E%3C/svg%3E") left bottom/100% 100% no-repeat;
+  transform:rotate(-.4deg)}
 .jlock-girly .gcollection-head h2{margin:0;color:var(--g-paper);
   font-family:var(--g-serif);font-size:clamp(1.85rem,4vw,2.8rem);font-weight:800;line-height:1.08}
 .jlock-girly .gintro-grid{display:grid;grid-template-columns:minmax(230px,.78fr) minmax(0,1.22fr);
@@ -1677,7 +1691,7 @@ main.jlock-girly{padding-bottom:0;overflow:hidden}
 .jlock-girly .gheart{color:var(--g-pink);font-size:1.8rem;line-height:1}
 .jlock-girly .gnext-label{font-family:var(--g-serif);font-size:.72rem;font-weight:800;letter-spacing:.18em}
 .jlock-girly .gnextdrop p{max-width:24ch;margin:0;color:rgba(255,253,247,.7);font-family:var(--g-hand);font-size:1.3rem;line-height:1.25}
-/* Bella's hand-written offer and custom-design hand-off ----------------- */
+/* Bella's hand-written offer -------------------------------------------- */
 .jlock-girly .goffer{display:flex;flex-wrap:wrap;gap:4px 14px;margin:16px 0 0;padding:12px 13px 10px;border:1.5px dashed rgba(217,137,154,.8);background:rgba(232,166,178,.16);transform:rotate(-.9deg)}
 .jlock-girly .goffer-off,.jlock-girly .goffer-code{font-family:var(--g-hand);font-size:1.18rem;font-weight:700;line-height:1.15}
 .jlock-girly .goffer-code b{display:inline-block;padding:2px 7px;background:var(--g-maize);color:var(--g-navy);font-family:var(--g-serif);font-size:.75rem;letter-spacing:.08em}
@@ -1688,6 +1702,33 @@ main.jlock-girly{padding-bottom:0;overflow:hidden}
 .jlock-girly .gcustom-title{margin:5px 0 9px;font-size:clamp(2rem,4vw,3rem);line-height:1}
 .jlock-girly .gcustom-pitch{max-width:58ch;margin:0;font-size:1.35rem;line-height:1.25}
 .jlock-girly .gcustom-dream{margin:16px 0 18px;color:var(--g-pink-d);font-family:var(--g-serif);font-size:.68rem;font-weight:800;letter-spacing:.18em;text-transform:uppercase}
+/* the note's CTA no longer hands off to the homepage: it jumps to a second
+   taped scrap on the same board - a working ruled-paper form tilted the
+   other way, ink-blue borders and Caveat labels, straight out of the same
+   scrapbook */
+.jlock-girly .gcustom-formwrap{position:relative;max-width:680px;margin:34px auto 0}
+.jlock-girly .gcustom-form{position:relative;display:flex;flex-direction:column;gap:11px;margin:0;
+  padding:32px 26px 24px;color:var(--g-navy);background:#fbf6ea;
+  background-image:repeating-linear-gradient(to bottom,transparent 0,transparent 29px,rgba(24,45,77,.1) 30px);
+  border:1px solid rgba(255,253,247,.4);box-shadow:0 14px 28px rgba(0,0,0,.26);transform:rotate(.75deg)}
+.jlock-girly .gtape-form{top:-11px;left:50%;width:104px;transform:translateX(-50%) rotate(-4deg)}
+.jlock-girly .gform-head{color:var(--g-navy);font-family:var(--g-hand);font-size:1.8rem;font-weight:700;line-height:1.05}
+.jlock-girly .gform-free{margin:-3px 0 3px;color:var(--g-ink);font-family:var(--g-hand);font-size:1.16rem;line-height:1.2}
+.jlock-girly .gform-row{display:grid;grid-template-columns:minmax(0,1fr) minmax(0,1fr);gap:11px}
+.jlock-girly .gcustom-form label{display:flex;min-width:0;flex-direction:column;gap:4px;margin:0;
+  color:var(--g-ink);font-family:var(--g-hand);font-size:1.15rem;font-weight:600;line-height:1.15}
+.jlock-girly .greq{color:var(--g-pink-d)}
+.jlock-girly .gcustom-form input,.jlock-girly .gcustom-form select,.jlock-girly .gcustom-form textarea{
+  width:100%;padding:8px 10px;color:var(--g-navy);background:var(--g-paper);
+  border:1.5px solid rgba(24,45,77,.42);border-radius:3px;font-family:var(--g-serif);
+  font-size:.84rem;line-height:1.45;box-shadow:inset 1px 1px 0 rgba(24,45,77,.12)}
+.jlock-girly .gcustom-form textarea{min-height:54px;resize:vertical}
+.jlock-girly .gcustom-form input::placeholder,.jlock-girly .gcustom-form textarea::placeholder{
+  color:rgba(24,45,77,.48)}
+.jlock-girly .gcustom-form input:focus,.jlock-girly .gcustom-form select:focus,.jlock-girly .gcustom-form textarea:focus{
+  border-color:var(--g-navy);background:#fff;outline:2px solid var(--g-pink-d);outline-offset:1px}
+.jlock-girly .gform-btn{align-self:flex-start;margin:5px 0 0;cursor:pointer}
+.jlock-girly .gformmsg{margin:2px 0 0;color:var(--g-ink);font-family:var(--g-hand);font-size:1.12rem;line-height:1.25}
 /* hand-painted closing line ----------------------------------- */
 .jlock-girly .gsign{margin-top:48px;padding:67px 0 75px;text-align:center;color:var(--g-paper)}
 .jlock-girly .gsign h2{max-width:24ch;margin:0 auto;color:var(--g-paper);font-family:var(--g-hand);
@@ -1739,6 +1780,10 @@ main.jlock-girly{padding-bottom:0;overflow:hidden}
 @media(max-width:540px){
 .jlock-girly .gcustom{padding:34px 0 0}
 .jlock-girly .gcustom-note{padding:28px 20px 24px}
+  .jlock-girly .gcustom-formwrap{margin-top:26px}
+  .jlock-girly .gcustom-form{gap:10px;padding:27px 20px 22px}
+  .jlock-girly .gform-row{grid-template-columns:minmax(0,1fr)}
+  .jlock-girly .gform-head{font-size:1.55rem}
 
   .jlock-girly .gheropaper{padding:28px 21px 38px}
   .jlock-girly .gscript{font-size:2.8rem}
@@ -1749,12 +1794,17 @@ main.jlock-girly{padding-bottom:0;overflow:hidden}
   .jlock-girly .gcollage-photo figcaption{font-size:.68rem}
   .jlock-girly .garrow-doodle{right:-12px;width:62px}
   .jlock-girly .gcollage-arrow-label{right:-12px;width:100px;font-size:.91rem}
-  .jlock-girly .gcard{grid-template-columns:minmax(0,.72fr) minmax(0,1.28fr)}
-  .jlock-girly .gphoto-panel img{min-height:215px}
-  .jlock-girly .gb{gap:8px;padding:12px 11px 11px}
-  .jlock-girly .gcard-note{min-height:52px}
-  .jlock-girly .gcap{font-size:1.06rem}
   .jlock-girly .gcard-foot{align-items:flex-start;flex-direction:column;gap:7px}
   .jlock-girly .gshop{min-height:37px}
-  .jlock-girly .gintro-head h2,.jlock-girly .gcollection-head h2{font-size:1.85rem}
+  /* phones: hang the framed artwork FULL WIDTH above the piece's plate -
+     the wall reads like a wall again (art first, caption beneath) instead
+     of a thumbnail beside a receipt */
+  .jlock-girly .gcard{grid-template-columns:minmax(0,1fr)}
+  .jlock-girly .gphoto-panel{border-right:0;border-bottom:1px solid rgba(24,45,77,.13)}
+  .jlock-girly .gphoto-panel img{min-height:0;max-height:none}
+  .jlock-girly .gintro-head{margin-bottom:26px;padding:6px 4px 9px 24px}
+  .jlock-girly .gintro-head h2{font-size:2.05rem}
+  .jlock-girly .gintro-head::before{left:2px;width:8px;background-size:8px 100%}
+  .jlock-girly .gintro-head .goverline{margin-bottom:11px}
+  .jlock-girly .gcollection-head h2{font-size:1.85rem}
 }
