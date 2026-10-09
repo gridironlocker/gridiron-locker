@@ -1,6 +1,6 @@
 # Hunt Report - 2026-10-09
 
-Generated: 2026-10-09 00:54 UTC by src/hunter_intelligence.py
+Generated: 2026-10-09 01:11 UTC by src/hunter_intelligence.py
 
 Ladder: SIGNAL 2 · TREND 0 · OPPORTUNITY 3 · ACTION 0 · HEADLINE 3
 
@@ -28,17 +28,36 @@ Fan connectors: no fan posts observed - reddit error (HTTP Error 403: Blocked); 
 - Game state: next game in ~2 day(s)
 - Commercial: exact - M vs Everybody $21.00 (sellable) - M VS EVERYBODY — Go Blue
 - Why fans care: The evergreen identity buy - Michigan fans gift Go Blue apparel year round, and it does not depend on a result.
-- Tracked names: bryce underwood (22 window mentions, FTI 100); kyle whittingham (17 window mentions, FTI 77)
+- Tracked names: bryce underwood (22 window mentions, FTI 100); kyle whittingham (19 window mentions, FTI 86)
 - Action: X (@gridironlocker1 first) - conversation post now (now)
 - Action: Threads - alternate angle (+20 min)
 - Action: Instagram - product creative after engagement confirms the angle (after the X post confirms the angle)
 - Action: Pinterest - keyword pin of the matched design (+2 h)
   - Michigan Wolverines Still Draw Huge TV Audiences in 2026 - Sports Illustrated - google_news (3 h ago) https://news.google.com/rss/articles/CBMirwFBVV95cUxPX2hqUVZNNG1JTTZaYlQ2MWVuN0Z4VUN2d21OcVY5SVp3SmhWa3I3bmhUaDBlUXB4ZjRCTkphNVI2NVl6bWtwSGJ0U2NOanZZaVVBMi1RRFhvazdmTDFpQnNiQ2pYSHlpUjlDSUdTTlJ5N2dVT0dHTndwblVrYXM0MFR0OEZ2Zld3MVJHTGRLSHhobGk3MElBa0V6RHpNTGlKOWd4anFkWVNKTXpKUzZn?oc=5
-  - Tony Garcia grades Michigan football coach Kyle Whittingham and the three coordinators through five games heading into the Wolverines' bye week. See link below ⬇️ 📸 Junfu Han, Detroit Free Press - Facebook - google_news (10 h ago) https://news.google.com/rss/articles/CBMi3wFBVV95cUxOdTI4NlJRdHBKVkNEZ1E1akV0Y0xaSmlydnNibXhBdHhCcW55VHpiWFI5M1BaRFp6ZmQwLUY2azdfNU50azJpbEpvOTNuM2M4Z1VnRDRVNGN6WE1OcEJzaGswZUxCYkZmaS1lMG5hcUNEdW05cW15STB6MWd5YTdmVk81cDdHNFhPd3J0S1BSQzVVck5wcHpvNGpWZDFkakI5TTdNZndIZTNfWW53OFB6UVE5dGNSNWhDWmNaY0trdHdZSHR0Ym5HNko2YUhqcW03bEVncVZlQ1dNUkJjem1B?oc=5
+  - Tony Garcia grades Michigan football coach Kyle Whittingham and the three coordinators through five games heading into the Wolverines' bye week. See link below ⬇️ 📸 Junfu Han, Detroit Free Press - Facebook - google_news (11 h ago) https://news.google.com/rss/articles/CBMi3wFBVV95cUxOdTI4NlJRdHBKVkNEZ1E1akV0Y0xaSmlydnNibXhBdHhCcW55VHpiWFI5M1BaRFp6ZmQwLUY2azdfNU50azJpbEpvOTNuM2M4Z1VnRDRVNGN6WE1OcEJzaGswZUxCYkZmaS1lMG5hcUNEdW05cW15STB6MWd5YTdmVk81cDdHNFhPd3J0S1BSQzVVck5wcHpvNGpWZDFkakI5TTdNZndIZTNfWW53OFB6UVE5dGNSNWhDWmNaY0trdHdZSHR0Ym5HNko2YUhqcW03bEVncVZlQ1dNUkJjem1B?oc=5
   - Michigan football rumors: Bryce Underwood’s $12 million contract could be terminated after season if Wolverines give up on him - Yahoo Sports (1 d ago) https://news.google.com/rss/articles/CBMikwFBVV95cUxOcnB2WnZuLW1LZzZJOUc4Y3pYUTdUYm9yOFZ2Ql9PTVB0ZHZ2RjFMTUlWUUtlUGlyb0hBMDd5QklKUzRycjhtcFBhRXloa1ZlekdCai0tSElacjBRSndtOEo1YkNZU25zV1RCMGs0dWhTQVdjYzV5ajl5ay00RExxNWxsWVJHeWxCX0wwQXI4a01IbzA?oc=5
   - Urban Meyer calls Michigan a ‘train wreck’ after latest Wolverines loss - The Columbus Dispatch (2 d ago) https://news.google.com/rss/articles/CBMi3gFBVV95cUxPbFQ4ZElyS01VbmVHNDd6TWNuYVpYX29XcUljcFoxdm9uNklwN1FLT3laVldtSzE3bTFfajMwbzNVbHBVaUEzcE5WakVyX0NXbndCMlhYSGZMZk5rRkQtdzlsV0RLRnBpemtHN0k5T0d4b1lMVW5BTWQtOXpHQ25aOTFYZWROLTJtVmI2T0JxSnR6REFIS09KUTlPMzAzbm8yeFFld2pCTEdHTmNaQnlCTWpoY25Hb1JfbXFfSXZyZHRXMUlXbUhDYi1Qb3ZhME1FUF9oYjVRcFFKeWZTWnc?oc=5
 
-### 2. Doomsday memory: defence and the pass rush - Dallas Cowboys
+### 2. QB room: who is QB1 in Cleveland - Cleveland Browns
+- Level: OPPORTUNITY · Confidence: 63% · 🟢 READY (matched design, posting window open, evidence under 12 h)
+- Fan signal: "Dillon Gabriel’s Return Creates Major QB Decision for Browns With Shedeur Sanders and Deshaun Watson" - Yahoo Sports (3 h ago)
+- Evidence: 4 reaction items (4.0 weighted) · 4 outlets · 0 utility listings excluded · 0 fan posts
+- Phrase velocity: → 0% / 240 min (1 vs 1)
+- Sentiment: anxious - 'anxious' on 2/3 lexicon hits across 4 item(s)
+- Game state: result coverage in the last 30 h (1 item(s))
+- Commercial: campaign - Make Them Know Your Name $21.00 (sellable) - THEY FORGOT WHO I AM — QB1 belief
+- Why fans care: The whole fanbase is arguing one question: who starts. That is a belief argument, and belief is what a QB tee sells.
+- Tracked names: deshaun watson (15 window mentions, FTI 68); shedeur sanders (4 window mentions, FTI 18)
+- Action: X (@gridironlocker1 first) - conversation post now (now)
+- Action: Threads - alternate angle (+20 min)
+- Action: Instagram - product creative after engagement confirms the angle (after the X post confirms the angle)
+- Action: Pinterest - keyword pin of the matched design (+2 h)
+  - Dillon Gabriel’s Return Creates Major QB Decision for Browns With Shedeur Sanders and Deshaun Watson - Yahoo Sports - google_news (3 h ago) https://news.google.com/rss/articles/CBMijAFBVV95cUxPMFRzNS1rS2drMGVIZU1CSFFzTlNPSDBOeHBiZHg0VXpoaE1UY0tNeHNyWDd3amlEUTExc293LXlvT1NxNWRGNktZMEo2MUdUaFdocllvRzkxMFJfN2VKalVfSG9lSS14VnVTdFhIYW5zYW40aktSTF9aTW9tVno1QU9SLWJCM3ZsbFNjRQ?oc=5
+  - Why the Browns are holding onto their QB depth - Cleveland.com - google_news (8 h ago) https://news.google.com/rss/articles/CBMirAFBVV95cUxQYThrazlFdjFSZVROeVJQdXdKbHM4OVNEemJWZndtTFBYQ3lEYjE1LTNhRGlsd2Y5eUJsSElrNGNCR1RLeWhpaXJwYWtSYzJNdzRseXJDN1pCSlpHc2Q5UHo5N2NmN254b0FCYkhfVzdRdEpLMjJ2VWhOTXEzRWlVTVg0eGNscWRqMzRCNlk0clJDSF9ZSGVmY0h6VjFJQmEyMFcwM1JOdElJcFRR?oc=5
+  - Cleveland Browns make a potential key move at the QB position - Dawgs By Nature - google_news (2 d ago) https://news.google.com/rss/articles/CBMilwFBVV95cUxPVjN6LTAwN0lSd0xzZUVhS0NlNGllUGRtYjBqVUVabVFVQnFRdlQ1MDZadGFleXQyWU9VUzBXOFBmYkdiZ2ZmSlAySFFuUnFzY1lCbUlRZW1xQV9LRWtiWkdlQVZqUU5wNjA1czBib2MyQU5ZQjBVN1VEc1RpcXA5eC1NaWUxMFlJWTBKSGJJTHNUbTlsbjdz?oc=5
+  - Browns' QB situation takes a turn as Deshaun Watson finds his footing - ESPN (8 d ago) https://news.google.com/rss/articles/CBMiugFBVV95cUxQeXVOM0M3VWhmRnhDX2N6dmdlaUlMcGZZc2xyZVhrRzhQbGZ3UzZGZjM2M3N0YVUwUjZrS1I5Q2tQRVlfU2d0QTBpaHZYS3FiY0ZiTEhXTHR4ZjJma0ZKVklvLU5PSUlReTFHcXJrSkZOREtkUm1Tcnp5ZVhSRU1xSnRxMVdlMzlaVV9tc2g4a2pJX2xZUDJScnQ4YTBNM25aT2ZhTFk0c1NoMjVkYm93ODZKS2J2ZkFSRkE?oc=5
+
+### 3. Doomsday memory: defence and the pass rush - Dallas Cowboys
 - Level: OPPORTUNITY · Confidence: 62% · 🟢 READY (matched design, posting window open, evidence under 12 h)
 - Fan signal: "Breaking: Joey Porter Jr. out for Thursday night" - Blogging The Boys (2 h ago)
 - Evidence: 3 reaction items (3.0 weighted) · 3 outlets · 0 utility listings excluded · 0 fan posts
@@ -54,25 +73,6 @@ Fan connectors: no fan posts observed - reddit error (HTTP Error 403: Blocked); 
   - Breaking: Joey Porter Jr. out for Thursday night - Blogging The Boys - google_news (2 h ago) https://news.google.com/rss/articles/CBMirwFBVV95cUxPWjRwRm1vNTZabkxXa3dwLVRwQ1NDZzJGQkg1MUx6RWtWalVHQ296MTBnZnZoNVhBVGh0MjBTS2pkdHBvd3lqUE8xMGlvbHpHc0FJY3NJYWFHdU9PYXVKNzZ5Zng0Y24yUEU1UjNCdjdFRDEwVERVRVExNjdLenIxYVFNenVjNWVjdDA1ZnpXRFR3dm1vTVRYWC1GY0YtQ3ZtR1ItZU9QSWpEVFBnTG8w?oc=5
   - Cowboys' secondary takes another hit as Joey Porter Jr. ruled out ahead of Buccaneers bout - Dallas News - google_news (2 h ago) https://news.google.com/rss/articles/CBMisgFBVV95cUxPY1lDZDlRNXhUdTlLZ194dXFJNW1aaWtPYlNCTjNyQV9PRDN1YXNNTUh3VlNPd256U2dnbXZuUVFYQzM4c20td0hWQzdPSm53U2gyVS1SWjlwaDVlWmFpS2hEZGhHLVl6dDZYT084cWN2UFZSVFB5MkJiVGxjNHRMenBKbE41elpJLTdlYTZUNUo0UDJvd3o5dUtzcnNYeDFHTWhxaV9yN29Cd2p1dEI0Nkdn?oc=5
   - Brian Schottenheimer on Cowboys' defense against Texans - NFL.com - google_news (3 d ago) https://news.google.com/rss/articles/CBMiiAFBVV95cUxPSW9INTFJZllOMmMxaXpaVnVwcjBSOVpYZDgwWE91RmZid293UkZsaXRMVGJQY3BVX0draTM3bmYwZHJTYUh0MDdWX2JuQTlQb2FKZzYxOFVtSENwRkRON0pOR01YcTlHTEsxbDZXUFBwd1RiS09ReVc2SnZoRWh6OVpscEdvMExl?oc=5
-
-### 3. QB room: who is QB1 in Cleveland - Cleveland Browns
-- Level: OPPORTUNITY · Confidence: 60% · 🟢 READY (matched design, posting window open, evidence under 12 h)
-- Fan signal: "Dillon Gabriel’s Return Creates Major QB Decision for Browns With Shedeur Sanders and Deshaun Watson" - Yahoo Sports (3 h ago)
-- Evidence: 4 reaction items (4.0 weighted) · 4 outlets · 0 utility listings excluded · 0 fan posts
-- Phrase velocity: → 0% / 240 min (1 vs 1)
-- Sentiment: anxious - 'anxious' on 2/2 lexicon hits across 4 item(s)
-- Game state: next game in ~3 day(s)
-- Commercial: campaign - Make Them Know Your Name $21.00 (sellable) - THEY FORGOT WHO I AM — QB1 belief
-- Why fans care: The whole fanbase is arguing one question: who starts. That is a belief argument, and belief is what a QB tee sells.
-- Tracked names: deshaun watson (15 window mentions, FTI 68); shedeur sanders (4 window mentions, FTI 18)
-- Action: X (@gridironlocker1 first) - conversation post now (now)
-- Action: Threads - alternate angle (+20 min)
-- Action: Instagram - product creative after engagement confirms the angle (after the X post confirms the angle)
-- Action: Pinterest - keyword pin of the matched design (+2 h)
-  - Dillon Gabriel’s Return Creates Major QB Decision for Browns With Shedeur Sanders and Deshaun Watson - Yahoo Sports - google_news (3 h ago) https://news.google.com/rss/articles/CBMijAFBVV95cUxPMFRzNS1rS2drMGVIZU1CSFFzTlNPSDBOeHBiZHg0VXpoaE1UY0tNeHNyWDd3amlEUTExc293LXlvT1NxNWRGNktZMEo2MUdUaFdocllvRzkxMFJfN2VKalVfSG9lSS14VnVTdFhIYW5zYW40aktSTF9aTW9tVno1QU9SLWJCM3ZsbFNjRQ?oc=5
-  - Why the Browns are holding onto their QB depth - Cleveland.com - google_news (7 h ago) https://news.google.com/rss/articles/CBMirAFBVV95cUxQYThrazlFdjFSZVROeVJQdXdKbHM4OVNEemJWZndtTFBYQ3lEYjE1LTNhRGlsd2Y5eUJsSElrNGNCR1RLeWhpaXJwYWtSYzJNdzRseXJDN1pCSlpHc2Q5UHo5N2NmN254b0FCYkhfVzdRdEpLMjJ2VWhOTXEzRWlVTVg0eGNscWRqMzRCNlk0clJDSF9ZSGVmY0h6VjFJQmEyMFcwM1JOdElJcFRR?oc=5
-  - Browns Make QB Move After Shedeur Sanders Trade Decision - Athlon Sports - google_news (2 d ago) https://news.google.com/rss/articles/CBMirgFBVV95cUxNYWZ4MzZrLWlLdzlYRzB3SDBhbENBZ1dOMjN3THUtN3NOc2NLTFNja1JJQnFwT1lCYzkyeUROV0hVaTdpZFBoQ2tZUm1ST1Uta2sta05EaW9SLWxQSzVmazdEaFZlZjZTNjRzQnA2SGhPT2VMQ0VOQ3Y1cGRZdktGeDc5TzFBWENycTBPY3AyU0pDaVRYeTZJUXRHT3ByZVN0Ui0yc3JIVWYzeGtmM1E?oc=5
-  - Browns' QB situation takes a turn as Deshaun Watson finds his footing - ESPN (8 d ago) https://news.google.com/rss/articles/CBMiugFBVV95cUxQeXVOM0M3VWhmRnhDX2N6dmdlaUlMcGZZc2xyZVhrRzhQbGZ3UzZGZjM2M3N0YVUwUjZrS1I5Q2tQRVlfU2d0QTBpaHZYS3FiY0ZiTEhXTHR4ZjJma0ZKVklvLU5PSUlReTFHcXJrSkZOREtkUm1Tcnp5ZVhSRU1xSnRxMVdlMzlaVV9tc2g4a2pJX2xZUDJScnQ4YTBNM25aT2ZhTFk0c1NoMjVkYm93ODZKS2J2ZkFSRkE?oc=5
 
 ### 4. Josh Jacobs and the run game - Green Bay Packers
 - Level: SIGNAL · Confidence: 56% · ⚪ WATCH (fans are reacting but nothing on the shelf answers it yet)
@@ -90,23 +90,23 @@ Fan connectors: no fan posts observed - reddit error (HTTP Error 403: Blocked); 
   - With Bad Run Game, Packers Should Trade for One More Veteran to Fill Hole - Sports Illustrated - google_news (13 h ago) https://news.google.com/rss/articles/CBMirAFBVV95cUxNN3R2SnF4VjRmRnZvVV96cEJjRm4wMUFQb2tBWWVsSmw5eFpUdjFtRkVKR2I1NERXcnhXQ3VaX2JGUlRzTG5wZ29Za3hiX2NHbzRuemZORGNfVGU2Qk1uQXQtdGxPRE1GM2s5azRnSzF1cldJYlFUWG80cjlkQU9kdldna3lYa242SFdBWDUzS0NsUVkwSFhaa1hqbkI5U0t5VnNlYi1wazljUnlC?oc=5
 
 ### 5. Underwood era: QB19 in Ann Arbor - Michigan Wolverines
-- Level: SIGNAL · Confidence: 48% · ⚪ WATCH (fans are reacting but nothing on the shelf answers it yet)
-- Fan signal: "Why Benching Bryce Underwood Would 'Throw Away' Michigan Football's Season" - Sports Illustrated (13 h ago)
-- Evidence: 3 reaction items (3.0 weighted) · 3 outlets · 0 utility listings excluded · 0 fan posts
+- Level: SIGNAL · Confidence: 45% · ⚪ WATCH (fans are reacting but nothing on the shelf answers it yet)
+- Fan signal: "Why Benching Bryce Underwood Would 'Throw Away' Michigan Football's Season" - Yahoo Sports (13 h ago)
+- Evidence: 3 reaction items (3.0 weighted) · 2 outlets · 0 utility listings excluded · 0 fan posts
 - Phrase velocity: → 0% / 1440 min (1 vs 1)
 - Sentiment: pride - 'pride' on 1/1 lexicon hits across 3 item(s)
 - Game state: next game in ~2 day(s)
 - Commercial: exact - Second Act QB19 Vintage Football $21.00 (sellable) - SECOND ACT QB19
 - Why fans care: Every Michigan story right now routes through Underwood - the grade, the coach backing him, and what the era means next.
 - Tracked names: bryce underwood (22 window mentions, FTI 100)
-  - Why Benching Bryce Underwood Would 'Throw Away' Michigan Football's Season - Sports Illustrated - google_news (13 h ago) https://news.google.com/rss/articles/CBMitgFBVV95cUxOMWdOOXZFczZXRnUzdzg5bTdnVzhHcDVCaVZNU0E1VFlLeDVWM3JxMU95TmdpSDhpakU0X2ZpUkw5LWVHa01mUEFHSXRzVXp5SVZJeDNRU3dRQWE0Qmx4YXJ0WlYtQmJQRWVVZm1aN05Qb3lieEpSczZrNlRtdTlMVkpZZ0g4MFN5TUFvUnhWTFAtU3ZrTVMxb0NnY2tRQzlxZmd1a2didjR1Q1g2MlV1eWtCUzkzQQ?oc=5
+  - Why Benching Bryce Underwood Would 'Throw Away' Michigan Football's Season - Yahoo Sports - google_news (13 h ago) https://news.google.com/rss/articles/CBMiiwFBVV95cUxQTVZWUV9CbUJVYkFZVmpvTFMyMDJoUkNsTldreUM4bXhhN0NGWWN3WWhvQ1NHeUU0VS1SWEY1U2tpeTFmaHVoN1hKTUQ3cnptZDNSS3g4X2pTbFZJSVFxam9pek5oN3BibXdRMm5ZNDMxU2k0TTJuMUNrSEdKRmswVFpQZ1U0RlJVNFo4?oc=5
   - Michigan football rumors: Bryce Underwood’s $12 million contract could be terminated after season if Wolverines give up on him - Yahoo Sports (1 d ago) https://news.google.com/rss/articles/CBMikwFBVV95cUxOcnB2WnZuLW1LZzZJOUc4Y3pYUTdUYm9yOFZ2Ql9PTVB0ZHZ2RjFMTUlWUUtlUGlyb0hBMDd5QklKUzRycjhtcFBhRXloa1ZlekdCai0tSElacjBRSndtOEo1YkNZU25zV1RCMGs0dWhTQVdjYzV5ajl5ay00RExxNWxsWVJHeWxCX0wwQXI4a01IbzA?oc=5
   - Bryce Underwood gets F grade in Michigan football collapse vs Minnesota - Detroit Free Press (5 d ago) https://news.google.com/rss/articles/CBMi3wFBVV95cUxPeWxxT19McTdXY3pDQkpEczFPN0N3T0F5d0VUMUpLUG1qbmo3UlFxU1hJclVyMGhBaHo3Y2xHNDhoZ0hCVHVNeGlmNHpNSW1LdGJMQXJ2VF9xeWJvN25GdFBDRnlMd2V5WjlESmdjT0tvdXNsdjhlMUJHaGFQMXhWbmZFd1JkMGN1Ry01VWo5UnFleGNjN2JST0oweHN1R3dRb3kzdkR3UjBFNkVFbzk3eU14Q1VhTjZQb3J5SUV5MTJJRUdOdTJQaFhXOTc1TVNmbURjUnV3RTZKUW5MZ0FF?oc=5
 
 ## Filtered as HEADLINE (3)
 
-- BROWNS - Coaching: Monken's first season: 1 reaction item(s), 1 outlet(s), confidence 37% - not a reaction
-- COWBOYS - Sunday night at the Giants: prime-time opener: 0 reaction item(s), 1 outlet(s), confidence 35% - not a reaction
+- BROWNS - No Fly Zone: the secondary wins the argument: 1 reaction item(s), 1 outlet(s), confidence 43% - not a reaction
+- BROWNS - Coaching: Monken's first season: 1 reaction item(s), 1 outlet(s), confidence 40% - not a reaction
 - PACKERS - Cheesehead Nation: Lambeau and the tundra: 1 reaction item(s), 1 outlet(s), confidence 41% - not a reaction
 
 ## Article ideas (OPPORTUNITY+ only)
@@ -129,24 +129,6 @@ Fan connectors: no fan posts observed - reddit error (HTTP Error 403: Blocked); 
   - Link: profile link only, if asked
   - Image: None - text comment.
 
-- **[Medium] Dallas Cowboys: what the America's Team faithful are actually saying about doomsday memory: defence and the pass rush**
-  - Where: Cowboys fan culture (Texas football)
-  - Angle: Fan-demand piece built on the live signal (Breaking: Joey Porter Jr. out for Thursday night), not on a headline recap.
-  - Link: https://viralstyle.com/kebystore/doomsday-defense-tee
-  - Image: Doomsday Defense Dallas Football Shirt mockup next to the moment that started it.
-
-- **[Quora] Why are Dallas Cowboys fans so focused on doomsday memory: defence and the pass rush right now?**
-  - Where: Dallas Cowboys / NFC East
-  - Angle: Answer the question a fan would actually type, then answer it properly.
-  - Link: https://viralstyle.com/kebystore/doomsday-defense-tee
-  - Image: Simple stat/quote graphic - no product shot.
-
-- **[Reddit] Doomsday memory: defence and the pass rush - be a fan first in r/cowboys**
-  - Where: r/cowboys / r/Dallas_Cowboys / r/nfl
-  - Angle: Join the existing thread instead of starting a promo post.
-  - Link: profile link only, if asked
-  - Image: None - text comment.
-
 - **[Medium] Cleveland Browns: what the Dawg Pound are actually saying about qb room: who is qb1 in cleveland**
   - Where: NFL fan culture (Dawg Pound / Cleveland sports)
   - Angle: Fan-demand piece built on the live signal (Dillon Gabriel’s Return Creates Major QB Decision for Browns With Shedeur Sanders and Deshaun Watson), not on a headline recap.
@@ -161,6 +143,24 @@ Fan connectors: no fan posts observed - reddit error (HTTP Error 403: Blocked); 
 
 - **[Reddit] QB room: who is QB1 in Cleveland - be a fan first in r/Browns**
   - Where: r/Browns / r/DawgPoundByNature / r/nfl
+  - Angle: Join the existing thread instead of starting a promo post.
+  - Link: profile link only, if asked
+  - Image: None - text comment.
+
+- **[Medium] Dallas Cowboys: what the America's Team faithful are actually saying about doomsday memory: defence and the pass rush**
+  - Where: Cowboys fan culture (Texas football)
+  - Angle: Fan-demand piece built on the live signal (Breaking: Joey Porter Jr. out for Thursday night), not on a headline recap.
+  - Link: https://viralstyle.com/kebystore/doomsday-defense-tee
+  - Image: Doomsday Defense Dallas Football Shirt mockup next to the moment that started it.
+
+- **[Quora] Why are Dallas Cowboys fans so focused on doomsday memory: defence and the pass rush right now?**
+  - Where: Dallas Cowboys / NFC East
+  - Angle: Answer the question a fan would actually type, then answer it properly.
+  - Link: https://viralstyle.com/kebystore/doomsday-defense-tee
+  - Image: Simple stat/quote graphic - no product shot.
+
+- **[Reddit] Doomsday memory: defence and the pass rush - be a fan first in r/cowboys**
+  - Where: r/cowboys / r/Dallas_Cowboys / r/nfl
   - Angle: Join the existing thread instead of starting a promo post.
   - Link: profile link only, if asked
   - Image: None - text comment.
