@@ -1,5 +1,5 @@
 {
- "generated": "2026-10-08",
+ "generated": "2026-10-09",
  "window_days": 10,
  "fti_formula": "round(100 * entity_mentions / peak_mentions_in_window)",
  "peak_mentions": 22,
@@ -11,8 +11,8 @@
   "hot": 0,
   "throwback": 0,
   "steady": 94,
-  "gaps": 7,
-  "moments": 5,
+  "gaps": 6,
+  "moments": 4,
   "tracked_names": 18,
   "dead_campaigns": 66
  },
@@ -28,8 +28,8 @@
   },
   {
    "name": "kyle whittingham",
-   "mentions": 20,
-   "index": 91,
+   "mentions": 17,
+   "index": 77,
    "status": "trending",
    "gap": true,
    "shoppable": false,
@@ -37,8 +37,8 @@
   },
   {
    "name": "deshaun watson",
-   "mentions": 13,
-   "index": 59,
+   "mentions": 15,
+   "index": 68,
    "status": "trending",
    "gap": true,
    "shoppable": false,
@@ -46,8 +46,8 @@
   },
   {
    "name": "ceedee lamb",
-   "mentions": 8,
-   "index": 36,
+   "mentions": 10,
+   "index": 45,
    "status": "trending",
    "gap": true,
    "shoppable": false,
@@ -55,39 +55,30 @@
   },
   {
    "name": "matt lafleur",
-   "mentions": 7,
-   "index": 32,
+   "mentions": 8,
+   "index": 36,
    "status": "trending",
    "gap": true,
    "shoppable": false,
    "collection": "green-bay-packers"
   },
   {
-   "name": "dak prescott",
-   "mentions": 6,
-   "index": 27,
-   "status": "trending",
-   "gap": true,
-   "shoppable": false,
-   "collection": "dallas-cowboys"
-  },
-  {
-   "name": "shedeur sanders",
+   "name": "micah parsons",
    "mentions": 6,
    "index": 27,
    "status": "trending",
    "gap": false,
    "shoppable": true,
-   "collection": "cleveland-browns"
+   "collection": "green-bay-packers"
   },
   {
-   "name": "micah parsons",
+   "name": "shedeur sanders",
    "mentions": 4,
    "index": 18,
    "status": "trending",
    "gap": false,
    "shoppable": true,
-   "collection": "green-bay-packers"
+   "collection": "cleveland-browns"
   },
   {
    "name": "josh jacobs",
@@ -106,6 +97,15 @@
    "gap": true,
    "shoppable": false,
    "collection": "cleveland-browns"
+  },
+  {
+   "name": "dak prescott",
+   "mentions": 2,
+   "index": 9,
+   "status": "steady",
+   "gap": false,
+   "shoppable": false,
+   "collection": "dallas-cowboys"
   },
   {
    "name": "jordan love",
@@ -183,8 +183,8 @@
  "gaps": [
   {
    "name": "kyle whittingham",
-   "mentions": 20,
-   "index": 91,
+   "mentions": 17,
+   "index": 77,
    "status": "trending",
    "gap": true,
    "shoppable": false,
@@ -192,8 +192,8 @@
   },
   {
    "name": "deshaun watson",
-   "mentions": 13,
-   "index": 59,
+   "mentions": 15,
+   "index": 68,
    "status": "trending",
    "gap": true,
    "shoppable": false,
@@ -201,8 +201,8 @@
   },
   {
    "name": "ceedee lamb",
-   "mentions": 8,
-   "index": 36,
+   "mentions": 10,
+   "index": 45,
    "status": "trending",
    "gap": true,
    "shoppable": false,
@@ -210,21 +210,12 @@
   },
   {
    "name": "matt lafleur",
-   "mentions": 7,
-   "index": 32,
+   "mentions": 8,
+   "index": 36,
    "status": "trending",
    "gap": true,
    "shoppable": false,
    "collection": "green-bay-packers"
-  },
-  {
-   "name": "dak prescott",
-   "mentions": 6,
-   "index": 27,
-   "status": "trending",
-   "gap": true,
-   "shoppable": false,
-   "collection": "dallas-cowboys"
   },
   {
    "name": "josh jacobs",
@@ -259,8 +250,8 @@
    "gaps": [
     {
      "name": "deshaun watson",
-     "mentions": 13,
-     "index": 59,
+     "mentions": 15,
+     "index": 68,
      "status": "trending",
      "gap": true,
      "shoppable": false,
@@ -279,12 +270,12 @@
    "top_terms": [
     "browns",
     "cleveland",
-    "trade",
     "watson",
+    "deshaun",
+    "trade",
     "press",
     "conference",
-    "october",
-    "injury"
+    "october"
    ],
    "headline_count": 100,
    "headlines": [
@@ -334,17 +325,8 @@
    "gaps": [
     {
      "name": "ceedee lamb",
-     "mentions": 8,
-     "index": 36,
-     "status": "trending",
-     "gap": true,
-     "shoppable": false,
-     "collection": "dallas-cowboys"
-    },
-    {
-     "name": "dak prescott",
-     "mentions": 6,
-     "index": 27,
+     "mentions": 10,
+     "index": 45,
      "status": "trending",
      "gap": true,
      "shoppable": false,
@@ -356,9 +338,9 @@
     "dallas",
     "joey",
     "porter",
-    "tyler",
-    "smith",
-    "defense",
+    "time",
+    "thursday",
+    "bucs",
     "trade"
    ],
    "headline_count": 100,
@@ -376,12 +358,6 @@
      "pub": "Tue, 06 Oct 2026 03:18:24 GMT"
     },
     {
-     "title": "Dak Prescott promises Cowboys will be '100' percent for TNF vs. Buccaneers",
-     "url": "https://news.google.com/rss/articles/CBMiqgFBVV95cUxQeTN4Mk5TdFAxeHh4R0NWVlNCUkgybDFzV1NndUoxSG41R3FjUkJYcE1EQmZIOXNZSC1nQmtaT2pNNXlmY1JJWTVUbmRpRERqcFR1WjFsMWNqTDE0a01XcXo0U3BxMmZ3Vy1KeXhzT25nQk5IU0FTT2lTVmJLUS1NYnJiUlQ4MHh5M3R5clhvbzBqWjZhaHFpaVFXM0w4dXlmQlI0STNLYWhhQQ?oc=5",
-     "source": "Dallas Cowboys | Official Site of the Dallas Cowboys",
-     "pub": "Tue, 06 Oct 2026 21:29:26 GMT"
-    },
-    {
      "title": "Brian Schottenheimer, Cowboys find a way to finish vs. Texans: 'I wanted this game'",
      "url": "https://news.google.com/rss/articles/CBMiswFBVV95cUxPSW1zNkMtVDV6bmpZbnZhQVpYNklCUEdDbV9LczVTVkkyOWtxLXRGT2F5VkVHbVlpdVZLc2Y1NHJyOTZPMTlxZVFzUmRILTJOTmkzX3hNTTVnbGRjbHJFYk94RzM0TG05Nllidk9DOUNZdmE1R3lBaHljT2ZiekMyZWtUUUx1XzFsRlNuWGxUenQzRmluejFmYkhZUjdqcE5fUTYxcXc3eklIbFlwVWZEaXRQYw?oc=5",
      "source": "Dallas Cowboys | Official Site of the Dallas Cowboys",
@@ -392,6 +368,12 @@
      "url": "https://news.google.com/rss/articles/CBMitwFBVV95cUxPUVk3SWU3NWNIekJ5X2FVclZHQjM3RlFUU0NTUmROWXlWa1REel82ZkFqbEUySHR3LUxVU05qVkRYX0VaYnN3cTVKWUs4dVlKOGNTWGlzcmI0OWJ4MkF4WnVNaWdEUm5Fbmk1eDZDbGswMFJ3dGhPSENoLWo4dzhLdFVJR0FRbFM1elU1d252aDQ5dDhZZS00ZlNDVHhCaEREemtRcUtMZEhZM19OUlVrdDBUS3hLdkk?oc=5",
      "source": "Dallas Cowboys | Official Site of the Dallas Cowboys",
      "pub": "Tue, 06 Oct 2026 02:14:04 GMT"
+    },
+    {
+     "title": "Dak Prescott on CeeDee Lamb's performance, Cowboys' response vs. Texans",
+     "url": "https://news.google.com/rss/articles/CBMipgFBVV95cUxNbzRzTFBraXpFYjliWWRieWozTF9YRERFRXlpemNwSVl2dVhUZzNKcnBLMGlYek5Ld1FoMWtubUMwV1c2dFAxYURRdXBtZFJ2ODBDXzJIYkVuMndoS3d4Qk8yX04xaGFGM09wRzNCYnRhelpxcXhhak5VS19YRDhwQmNFSDR4N1d1Tzczems2al9kTVFGbUxxZ2VOVTQtSzhhZEE1OGF3?oc=5",
+     "source": "Dallas Cowboys | Official Site of the Dallas Cowboys",
+     "pub": "Sun, 04 Oct 2026 23:02:09 GMT"
     }
    ],
    "fti_count": 2
@@ -409,8 +391,8 @@
    "gaps": [
     {
      "name": "matt lafleur",
-     "mentions": 7,
-     "index": 32,
+     "mentions": 8,
+     "index": 36,
      "status": "trending",
      "gap": true,
      "shoppable": false,
@@ -429,12 +411,12 @@
    "top_terms": [
     "packers",
     "green",
-    "edgerrin",
-    "cooper",
-    "chicago",
     "matt",
     "lafleur",
-    "injury"
+    "chicago",
+    "injury",
+    "update",
+    "offensive"
    ],
    "headline_count": 100,
    "headlines": [
@@ -451,22 +433,22 @@
      "pub": "Sun, 04 Oct 2026 21:10:26 GMT"
     },
     {
+     "title": "Green Bay Packers working out former UDFA ahead of Week 5",
+     "url": "https://news.google.com/rss/articles/CBMiiAFBVV95cUxOTEYxOG1uWndYczdKXzdsU2JhRzl1OFFkOVl3bkRYejNPMkNIY05KYW5xcDVxeVNiUWhHX2Etc3pkSXg3ZXdmeF8zclo4YlVwaDNha1Vpd2dTTzEyYUtSbk96U2dxT0x4SzFiY05EUlJaTEUweWNxZjVlUDc3U096M1ZRWkhYOEJ0?oc=5",
+     "source": "Yahoo Sports",
+     "pub": "Tue, 06 Oct 2026 18:35:59 GMT"
+    },
+    {
      "title": "The Packers\u2019 offensive line renovation is wild and unprecedented",
      "url": "https://news.google.com/rss/articles/CBMiywFBVV95cUxQU2FSeE9veTdTLXdFSGwwZGZkVHdUME9MQS1OSjNUWmZ0eHphdmVvSEJ3QTBTbnBMMExsQm95Q3FwN1dqTHpIT1l5TGhOUUxSWHZtWkZCZTRCbkxkenpLTHpxOE1pRzFuTEkwRGY4NWFISlpGdGdJbzNEdmlBd1JTa3hfaldZc0ZxRHNUbmc2YlFBSU1sUHNBU3E5SXVVcFl4dUhrX0d1eU12ZHhBSVhkRXB4dDB4ZkR4ZzFCbUtPTHZQSlA2cWJGNmJGSQ?oc=5",
      "source": "Acme Packing Company",
      "pub": "Wed, 30 Sep 2026 07:00:00 GMT"
     },
     {
-     "title": "Green Bay Packers: Must Count on This $4.85 Million Captain",
-     "url": "https://news.google.com/rss/articles/CBMigwFBVV95cUxNZVJuZjYxeHF1NzJ1Yi12VTVSZHZvUm9TYjFwSTIyRXBDOExmWlV1TF9Ya1haUUkxNEpUb3AxVDFRdE80UWRCM1hCQmtVT0NzblhjM3JkRU1RMWtuNTdvTFZpZWJPRlUzN2NCRjhINzNBMU5UT2pBOWQ3MUVYME9PMFBnWQ?oc=5",
-     "source": "Yahoo Sports",
-     "pub": "Mon, 05 Oct 2026 19:28:15 GMT"
-    },
-    {
-     "title": "Packers vs. Buccaneers | How to watch, stream & listen | Week 4",
-     "url": "https://news.google.com/rss/articles/CBMikwFBVV95cUxQNGhIMWFMUHB0eWFaOWFYVlZBd1pZRHhRN2ZmYzd0LWNsMUNXaU91NnUzbUJmMUxuTkZpQXNTR3BSRTBiM0ppdG9ReVRXRlA2UGF6VmNoNXoxMWVuclJjaGlwSV9YUi1KekpLN0JZU0tnYVVFeEtqSkFMWW5KQUZ0YmFBSEZKcmlqa0R0eThrSHFncHc?oc=5",
-     "source": "Green Bay Packers \u2013 packers.com",
-     "pub": "Sun, 04 Oct 2026 07:00:00 GMT"
+     "title": "\"Bears have a chance to bury the Packers\" | Chicago Sports Tonight",
+     "url": "https://news.google.com/rss/articles/CBMitgFBVV95cUxQODE1THpDeEUycklnT0ZNODJqLVYybnVMUE5xUXVDdEVBdGljc1EwVlpNQlRobF9TVzBPa2w3ZEhSQWdGM3RUR0tUdXBfZDJfUTdXelJCdVpNejBwTUJ2RGNCNEF6Y1NPRzY4OV8wRjZyeFdWb2s0a0REZFRzTzNHOVNvZ05RNFh5RXp6VTdRYXhETnQxSkE5dkc1dDFMSERza1RfVWlXS3ZOTHdjZnpSVEdCc0V2d9IBuwFBVV95cUxQalZWUTVxYmdMN1VMNzBPQWlyWFEtdkpsc1UtaWU3SmYwX3dpR3ZLeVpmZ1FLNGswa1l2ZGloUmxzSDJ2SG4xUVNwR3NYbjYxeGt3ZWhnRDhzNWp6M3R3RF9NZVEwVjhQNnRyLWtxQ0xRRjVtUzFoT3R1Z0cxX1RrZWVGSlJLSnh3TWlWZkRnVkZNeVY0dF9wR180Uk5IZVlIVmFWeFZiTVZLeDluVkUzUXlIRFo4MFVlRVdB?oc=5",
+     "source": "FOX 32 Chicago",
+     "pub": "Wed, 07 Oct 2026 18:17:19 GMT"
     }
    ],
    "fti_count": 5
@@ -484,8 +466,8 @@
    "gaps": [
     {
      "name": "kyle whittingham",
-     "mentions": 20,
-     "index": 91,
+     "mentions": 17,
+     "index": 77,
      "status": "trending",
      "gap": true,
      "shoppable": false,
@@ -497,10 +479,10 @@
     "football",
     "whittingham",
     "kyle",
-    "loss",
+    "wolverines",
+    "offense",
     "bryce",
-    "underwood",
-    "wolverines"
+    "underwood"
    ],
    "headline_count": 100,
    "headlines": [
@@ -511,16 +493,16 @@
      "pub": "Sat, 03 Oct 2026 19:24:35 GMT"
     },
     {
-     "title": "3 bold predictions for the rest of the Michigan Football season",
-     "url": "https://news.google.com/rss/articles/CBMizAFBVV95cUxOUmNnZUxUZG0xTWY3bE9tejlmX2oxcHhZYkl0VUNyVUZFWlh2X0drdFNJdjlGZUxOZlRaSTN6N2l4Y29SbXlpN2R6cGl6NXVNQnoxT09ZcGJYUV9YLWR5RG85VmNOWE9COElPQk40VFUybmJOR2d3YnFHZzhKN2pvT1RZSzVyMlBuU0x2UWNfcU0wSWdXUjhlYUhCV3prQkZWbmhQc2lEa3NxU0h3M2g0Nl9HRm1Cd2Q5cmhhVjcta1drR3hPQmVWQlNyc04?oc=5",
-     "source": "Maize n Brew",
-     "pub": "Thu, 08 Oct 2026 12:00:00 GMT"
-    },
-    {
      "title": "What channel is Michigan football vs Minnesota on today? Time, TV",
      "url": "https://news.google.com/rss/articles/CBMiiAJBVV95cUxNbUFrU1ByUGNNbk40TWxPTHNlQnNzYjZnXzRaVXo2RGxjMi1odTVEWVdvRkFPcGpJV1dPWjNBeDJ3TGNCTHZGczdFblBkMmNmeUlqdnAwQW9TWHk5NjZadE9fN1ViZVpyYl9NNExsRC1NNk01a2FtSjRmNnFtTGk1b2YwTnp4MjZRNnUtbFJRamNxS2s3azN2dmEwM0xUWVEzdjItaTI0MEJPOXlsLWx4Z2pmd0FCZFlkbjV2T3FndFR0OHVtT1RmaEhNMm5pejZuLVprX3NQM2lUQzlyLUg1eVcxSTdnLWlzRWZmNXVhR0tybVlxQl8za1JNVTFKZHVuWXk0X1BOUVg?oc=5",
      "source": "The Detroit News",
      "pub": "Sat, 03 Oct 2026 16:21:00 GMT"
+    },
+    {
+     "title": "3 bold predictions for the rest of the Michigan Football season",
+     "url": "https://news.google.com/rss/articles/CBMizAFBVV95cUxOUmNnZUxUZG0xTWY3bE9tejlmX2oxcHhZYkl0VUNyVUZFWlh2X0drdFNJdjlGZUxOZlRaSTN6N2l4Y29SbXlpN2R6cGl6NXVNQnoxT09ZcGJYUV9YLWR5RG85VmNOWE9COElPQk40VFUybmJOR2d3YnFHZzhKN2pvT1RZSzVyMlBuU0x2UWNfcU0wSWdXUjhlYUhCV3prQkZWbmhQc2lEa3NxU0h3M2g0Nl9HRm1Cd2Q5cmhhVjcta1drR3hPQmVWQlNyc04?oc=5",
+     "source": "Maize n Brew",
+     "pub": "Thu, 08 Oct 2026 12:00:00 GMT"
     },
     {
      "title": "Michigan Falls to Minnesota in 100th Battle for Little Brown Jug",
@@ -882,16 +864,6 @@
    ]
   },
   {
-   "title": "Dak Prescott promises Cowboys will be '100' percent for TNF vs. Buccaneers",
-   "url": "https://news.google.com/rss/articles/CBMiqgFBVV95cUxQeTN4Mk5TdFAxeHh4R0NWVlNCUkgybDFzV1NndUoxSG41R3FjUkJYcE1EQmZIOXNZSC1nQmtaT2pNNXlmY1JJWTVUbmRpRERqcFR1WjFsMWNqTDE0a01XcXo0U3BxMmZ3Vy1KeXhzT25nQk5IU0FTT2lTVmJLUS1NYnJiUlQ4MHh5M3R5clhvbzBqWjZhaHFpaVFXM0w4dXlmQlI0STNLYWhhQQ?oc=5",
-   "source": "Dallas Cowboys | Official Site of the Dallas Cowboys",
-   "pub": "Tue, 06 Oct 2026 21:29:26 GMT",
-   "collection": "dallas-cowboys",
-   "entities": [
-    "dak prescott"
-   ]
-  },
-  {
    "title": "Dak Prescott on CeeDee Lamb's performance, Cowboys' response vs. Texans",
    "url": "https://news.google.com/rss/articles/CBMipgFBVV95cUxNbzRzTFBraXpFYjliWWRieWozTF9YRERFRXlpemNwSVl2dVhUZzNKcnBLMGlYek5Ld1FoMWtubUMwV1c2dFAxYURRdXBtZFJ2ODBDXzJIYkVuMndoS3d4Qk8yX04xaGFGM09wRzNCYnRhelpxcXhhak5VS19YRDhwQmNFSDR4N1d1Tzczems2al9kTVFGbUxxZ2VOVTQtSzhhZEE1OGF3?oc=5",
    "source": "Dallas Cowboys | Official Site of the Dallas Cowboys",
@@ -903,13 +875,13 @@
    ]
   },
   {
-   "title": "Kyle Whittingham Loses Trust as Michigan Star\u2019s Leaked Conversation Allegedly Accuses Staff of Failures: \u201cWorse Than Sherrone [Moore]\u201d",
-   "url": "https://news.google.com/rss/articles/CBMijwFBVV95cUxQcTF6VHBvZS1jd2l6QU1ycWgxNjhnLU5CT3BnQ1dtUE82OFhkYUFuNWJ2bFhCX000LUFBbHBQM3d1U3QzbkNESW9MYmc5M3k4MGxvQ1ZkT1Z1N3JWX25LcVB0WlFmQ29IMFBQWUlmMmlkQUVUYlYweGxRdVZVTFpFWjJVX3FYUi01RWNYNXlWZw?oc=5",
+   "title": "Michigan football rumors: Bryce Underwood\u2019s $12 million contract could be terminated after season if Wolverines give up on him",
+   "url": "https://news.google.com/rss/articles/CBMikwFBVV95cUxOcnB2WnZuLW1LZzZJOUc4Y3pYUTdUYm9yOFZ2Ql9PTVB0ZHZ2RjFMTUlWUUtlUGlyb0hBMDd5QklKUzRycjhtcFBhRXloa1ZlekdCai0tSElacjBRSndtOEo1YkNZU25zV1RCMGs0dWhTQVdjYzV5ajl5ay00RExxNWxsWVJHeWxCX0wwQXI4a01IbzA?oc=5",
    "source": "Yahoo Sports",
-   "pub": "Tue, 06 Oct 2026 02:33:00 GMT",
+   "pub": "Wed, 07 Oct 2026 14:50:32 GMT",
    "collection": "michigan",
    "entities": [
-    "kyle whittingham"
+    "bryce underwood"
    ]
   },
   {
