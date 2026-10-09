@@ -2703,7 +2703,9 @@ def _girly_body(cre, c, items, track):
 
     custom = g.get("custom") or {}
     custom_section = ""
-    if custom:
+    if custom and not g.get("hide_custom", False):
+        # Creators can keep their custom-design copy in the record while
+        # opting out of rendering the note and inline form on their locker.
         # The taped note now answers itself: her CTA jumps to a working form
         # taped to the same board instead of handing the visitor off to the
         # homepage. The form keeps the EXACT #customForm / FormSubmit contract
