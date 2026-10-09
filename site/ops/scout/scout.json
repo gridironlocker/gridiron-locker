@@ -28,8 +28,8 @@
   },
   {
    "name": "kyle whittingham",
-   "mentions": 19,
-   "index": 86,
+   "mentions": 18,
+   "index": 82,
    "status": "trending",
    "gap": true,
    "shoppable": false,
@@ -55,11 +55,20 @@
   },
   {
    "name": "matt lafleur",
-   "mentions": 6,
-   "index": 27,
+   "mentions": 7,
+   "index": 32,
    "status": "trending",
    "gap": true,
    "shoppable": false,
+   "collection": "green-bay-packers"
+  },
+  {
+   "name": "micah parsons",
+   "mentions": 6,
+   "index": 27,
+   "status": "trending",
+   "gap": false,
+   "shoppable": true,
    "collection": "green-bay-packers"
   },
   {
@@ -70,15 +79,6 @@
    "gap": true,
    "shoppable": false,
    "collection": "dallas-cowboys"
-  },
-  {
-   "name": "micah parsons",
-   "mentions": 4,
-   "index": 18,
-   "status": "trending",
-   "gap": false,
-   "shoppable": true,
-   "collection": "green-bay-packers"
   },
   {
    "name": "shedeur sanders",
@@ -183,8 +183,8 @@
  "gaps": [
   {
    "name": "kyle whittingham",
-   "mentions": 19,
-   "index": 86,
+   "mentions": 18,
+   "index": 82,
    "status": "trending",
    "gap": true,
    "shoppable": false,
@@ -210,8 +210,8 @@
   },
   {
    "name": "matt lafleur",
-   "mentions": 6,
-   "index": 27,
+   "mentions": 7,
+   "index": 32,
    "status": "trending",
    "gap": true,
    "shoppable": false,
@@ -280,8 +280,8 @@
     "browns",
     "cleveland",
     "watson",
-    "injury",
     "deshaun",
+    "trade",
     "press",
     "conference",
     "october"
@@ -357,8 +357,8 @@
     "joey",
     "porter",
     "time",
-    "watch",
     "tampa",
+    "watch",
     "bucs"
    ],
    "headline_count": 100,
@@ -368,12 +368,6 @@
      "url": "https://news.google.com/rss/articles/CBMiaEFVX3lxTE01cDJmVzdnSDgzR1lHeFpzQXNrLUFKOTVnLVd3ZUF3TDdyLXFvdnR0eWxDTzIyY1BIZm5nVmtkRW5zbE1fdkRZU293V2xMY0pxRWFULS1rZWpYNk9vUmlIZXlzZ0UtUFJl?oc=5",
      "source": "Dallas Cowboys | Official Site of the Dallas Cowboys",
      "pub": "Sun, 04 Oct 2026 07:00:00 GMT"
-    },
-    {
-     "title": "Buccaneers' Next Game: Battle in Dallas Gets Prime-Time Stage",
-     "url": "https://news.google.com/rss/articles/CBMipgFBVV95cUxQbWNPWHg4SExMRThHSHVoX3NrUllHRzJwZjVqRDdwcXB1ZnA0MkE1bXJIdmp5RktFNTdjTVp2eFU4WXRGNnNxdW52eXpqcVBrdFV3TDJHRWtWOVNMNjNjTVB1bTJtc1hGbUZVajhWWGlLcWJXNEhxeWQ5TndVVjRoNDNZYTV2MFlZdDhOYTg3cG5XQzdyY1Z0UFg3bDF5eUE4eUJOUjRR?oc=5",
-     "source": "Tampa Bay Buccaneers",
-     "pub": "Sun, 04 Oct 2026 21:52:02 GMT"
     },
     {
      "title": "Big Picture: 10 Storylines for Cowboys & Bucs",
@@ -392,6 +386,12 @@
      "url": "https://news.google.com/rss/articles/CBMipgFBVV95cUxNbzRzTFBraXpFYjliWWRieWozTF9YRERFRXlpemNwSVl2dVhUZzNKcnBLMGlYek5Ld1FoMWtubUMwV1c2dFAxYURRdXBtZFJ2ODBDXzJIYkVuMndoS3d4Qk8yX04xaGFGM09wRzNCYnRhelpxcXhhak5VS19YRDhwQmNFSDR4N1d1Tzczems2al9kTVFGbUxxZ2VOVTQtSzhhZEE1OGF3?oc=5",
      "source": "Dallas Cowboys | Official Site of the Dallas Cowboys",
      "pub": "Sun, 04 Oct 2026 23:02:09 GMT"
+    },
+    {
+     "title": "Tyler Smith leaves door open for return vs. Bucs on Thursday: 'I think it's possible'",
+     "url": "https://news.google.com/rss/articles/CBMitwFBVV95cUxPUVk3SWU3NWNIekJ5X2FVclZHQjM3RlFUU0NTUmROWXlWa1REel82ZkFqbEUySHR3LUxVU05qVkRYX0VaYnN3cTVKWUs4dVlKOGNTWGlzcmI0OWJ4MkF4WnVNaWdEUm5Fbmk1eDZDbGswMFJ3dGhPSENoLWo4dzhLdFVJR0FRbFM1elU1d252aDQ5dDhZZS00ZlNDVHhCaEREemtRcUtMZEhZM19OUlVrdDBUS3hLdkk?oc=5",
+     "source": "Dallas Cowboys | Official Site of the Dallas Cowboys",
+     "pub": "Tue, 06 Oct 2026 02:14:04 GMT"
     }
    ],
    "fti_count": 2
@@ -409,8 +409,8 @@
    "gaps": [
     {
      "name": "matt lafleur",
-     "mentions": 6,
-     "index": 27,
+     "mentions": 7,
+     "index": 32,
      "status": "trending",
      "gap": true,
      "shoppable": false,
@@ -430,11 +430,11 @@
     "packers",
     "green",
     "chicago",
-    "update",
+    "matt",
+    "lafleur",
     "offensive",
     "edgerrin",
-    "cooper",
-    "injury"
+    "cooper"
    ],
    "headline_count": 100,
    "headlines": [
@@ -484,8 +484,8 @@
    "gaps": [
     {
      "name": "kyle whittingham",
-     "mentions": 19,
-     "index": 86,
+     "mentions": 18,
+     "index": 82,
      "status": "trending",
      "gap": true,
      "shoppable": false,
@@ -497,10 +497,10 @@
     "football",
     "whittingham",
     "kyle",
-    "loss",
     "wolverines",
     "bryce",
-    "underwood"
+    "underwood",
+    "offense"
    ],
    "headline_count": 100,
    "headlines": [
@@ -517,10 +517,10 @@
      "pub": "Sat, 03 Oct 2026 16:21:00 GMT"
     },
     {
-     "title": "2 things we learned from Michigan Football\u2019s loss to Minnesota",
-     "url": "https://news.google.com/rss/articles/CBMiuwFBVV95cUxQWDBDbmgwVU5GUTZtaWFmYW0yNEpYOExnZjczc2Q0bC00aFNsU1hSbWw5V096X3FQdm5XNmFObFVjaUd3MmdkTFBlX01hVldYRlBLVDctSmQyOXVxLU9DYl9qVE1saVBlSzJManZ6ZFo0SmRZRDVyaHNTaTFZREtWcmM4WkhESEtwQWJLRFZUaHNsdkdZSWx1QV81dU14R1JJcUNoaWJ3ZUhiaU5Fc3VoVHN4Yi1CRWRXSjlZ?oc=5",
+     "title": "3 bold predictions for the rest of the Michigan Football season",
+     "url": "https://news.google.com/rss/articles/CBMizAFBVV95cUxOUmNnZUxUZG0xTWY3bE9tejlmX2oxcHhZYkl0VUNyVUZFWlh2X0drdFNJdjlGZUxOZlRaSTN6N2l4Y29SbXlpN2R6cGl6NXVNQnoxT09ZcGJYUV9YLWR5RG85VmNOWE9COElPQk40VFUybmJOR2d3YnFHZzhKN2pvT1RZSzVyMlBuU0x2UWNfcU0wSWdXUjhlYUhCV3prQkZWbmhQc2lEa3NxU0h3M2g0Nl9HRm1Cd2Q5cmhhVjcta1drR3hPQmVWQlNyc04?oc=5",
      "source": "Maize n Brew",
-     "pub": "Mon, 05 Oct 2026 12:00:00 GMT"
+     "pub": "Thu, 08 Oct 2026 12:00:00 GMT"
     },
     {
      "title": "Michigan Falls to Minnesota in 100th Battle for Little Brown Jug",
