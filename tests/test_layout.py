@@ -2608,20 +2608,63 @@ class GirlyLocker(unittest.TestCase):
         self.assertNotIn('class="goffer"', self.joe)
         self.assertIn("USE CODE: JOE10", self.joe)
 
-    def test_custom_design_section_is_hidden_from_bella(self):
-        """The Bella locker no longer promotes or embeds custom requests."""
-        self.assertTrue(self.girly.get("hide_custom"))
+    def test_custom_design_promo_note_is_hidden_but_the_form_stays(self):
+        """The promo note is gone; Bella's own inquiry form stays taped up.
+
+        PR #158 hid the whole custom-design section, which also removed the
+        working inquiry form. Only the pitch may be hidden: the overline,
+        heading, pitch copy, dream line and the yellow "Start a custom
+        design" CTA. Bella's #customForm keeps its place on her page with
+        its full FormSubmit contract - never replaced by a link or redirect
+        to the shared Gridiron Locker form.
+        """
+        self.assertTrue(self.girly.get("hide_custom_note"))
         custom = self.girly["custom"]
+        # 1. the promo note and every line of its copy are gone
         for key in ("overline", "heading", "pitch", "dream_line", "cta"):
             value = custom[key].replace(" — ", " - ").replace("'", "&#x27;")
             self.assertNotIn(value, self.html, key)
-        for marker in ('class="gcustom"', 'class="gcustom-note"',
-                       'id="custom-form"', 'id="customForm"',
-                       'data-placement="girly_band"', 'href="#custom-form"'):
+        for marker in ('class="gcustom-note"', 'data-placement="girly_band"',
+                       'href="#custom-form"', "custom-link"):
             self.assertNotIn(marker, self.html, marker)
-        self.assertLess(self.html.index('id="locker"'), self.html.index('class="gsign"'))
-        # This is a Bella-only choice: the shared homepage inquiry form and
-        # Joe's separate creator page keep their existing behavior.
+        # nothing on her page links or redirects to the shared form either
+        self.assertNotIn("#custom-design", self.html)
+        # 2. her on-page form sits between the locker grid and the sign-off
+        self.assertLess(self.html.index('id="locker"'),
+                        self.html.index('id="customForm"'))
+        self.assertLess(self.html.index('id="customForm"'),
+                        self.html.index('class="gsign"'))
+        sec = between(self.html, '<section id="custom" class="gcustom">',
+                      'class="gsign"')
+        self.assertIn('class="gcustom-formwrap" id="custom-form"', sec)
+        # 3. the submission contract: native POST to the store's FormSubmit
+        #    inbox, same hidden inputs and hooks as the homepage form
+        self.assertIn('method="POST"', sec)
+        self.assertIn('action="https://formsubmit.co/itsnoury65@gmail.com"', sec)
+        self.assertIn('data-formsubmit="1"', sec)
+        self.assertIn('aria-label="Custom design request form"', sec)
+        self.assertIn('name="_subject" '
+                      'value="New Custom Design Request from Bella\'s Michigan Locker"', sec)
+        self.assertIn('name="_template" value="table"', sec)
+        self.assertIn('name="_captcha" value="false"', sec)
+        self.assertIn('name="_honey"', sec)
+        for field in ('name="name"', 'name="email"', 'name="idea"',
+                      'name="team"', 'name="garment"', 'name="colors"',
+                      'name="details"'):
+            self.assertIn(field, sec)
+        for req in ('name="name" required', 'name="email" required',
+                    'name="idea" rows="3" required', 'name="team" required'):
+            self.assertIn(req, sec)
+        # the team selector stays Michigan-only
+        team = between(sec, '<select name="team"', "</select>")
+        self.assertIn('<option value="">Choose</option><option>Michigan</option>', team)
+        # the yellow submit button in her voice, plus the reply note
+        self.assertIn('class="gbtn gbtn-maize gform-btn" type="submit"', sec)
+        self.assertIn(escape_html(custom["submit"]), sec)
+        self.assertIn('id="formmsg"', sec)
+        self.assertIn(escape_html(custom["reply_note"]), sec)
+        # 4. a Bella-only choice: the shared homepage inquiry form and Joe's
+        #    separate creator page keep their existing behavior
         self.assertIn('id="customForm"', page("index.html"))
         self.assertNotIn('class="gcustom"', self.joe)
 
