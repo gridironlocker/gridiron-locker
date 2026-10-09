@@ -1540,8 +1540,13 @@ main.jlock-girly{padding-bottom:0;overflow:hidden}
 /* the story heading reads like a margin note in her scrapbook, held slightly
    off the centre line with a hand-drawn pink stroke running down its left
    edge - no white paper plaque, just her handwriting on the navy canvas */
-.jlock-girly .gintro-head{position:relative;max-width:620px;margin:0 auto 32px;padding:9px 6px 12px 32px;
-  text-align:left}
+/* the global `header` rule (site chrome) gives every <header> a white
+   background, a bottom border and z-index:60. This block is a <header>, so
+   it is reset here, scoped to Bella: transparent so the heading sits on the
+   navy canvas, no border, and z-index:auto so it can never stack over the
+   sticky site header while the page scrolls underneath it */
+.jlock-girly .gintro-head{position:relative;z-index:auto;max-width:620px;margin:0 auto 32px;padding:9px 6px 12px 32px;
+  background:transparent;border:0;text-align:left}
 .jlock-girly .gintro-head::before{position:absolute;content:"";left:5px;top:10px;bottom:12px;width:10px;
   background:url("data:image/svg+xml,%3Csvg xmlns='http://www.w3.org/2000/svg' viewBox='0 0 10 96' preserveAspectRatio='none'%3E%3Cpath d='M6 2C2.6 20 8.8 34 4.8 48 1 62 8 78 5 94' fill='none' stroke='%23d9899a' stroke-width='2.6' stroke-linecap='round'/%3E%3C/svg%3E") left center/10px 100% no-repeat;
   transform:rotate(-.7deg)}

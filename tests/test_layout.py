@@ -2233,6 +2233,27 @@ class GirlyLocker(unittest.TestCase):
         self.assertIn("filter:drop-shadow(", css)
         self.assertIn("clip-path:var(--g-torn)", css)
 
+    def test_intro_heading_container_is_transparent_not_a_white_header_plaque(self):
+        # the story heading is a <header class="gintro-head">, so it inherits
+        # the global `header{...background:#fff;border-bottom...;z-index:60}`
+        # site-chrome rule. Setting only the inner h2 background leaves the
+        # white strip behind the handwriting (seen in a 375px Chromium review),
+        # so the container itself is reset, scoped to Bella.
+        head = re.search(r"\.jlock-girly \.gintro-head\{[^}]*\}", self.girly_css())
+        self.assertIsNotNone(head)
+        rule = head.group(0)
+        self.assertIn("background:transparent", rule)
+        self.assertIn("border:0", rule)
+        self.assertIn("z-index:auto", rule)
+        self.assertNotIn("#fff", rule)
+        self.assertNotIn("var(--g-paper)", rule)
+        self.assertNotIn("z-index:60", rule)
+        # the reset is scoped: the global site-chrome header rule is untouched
+        self.assertIn("header{position:sticky;top:0;z-index:60;background:#fff;"
+                      "border-bottom:1px solid var(--line)}", self.css)
+        self.assertNotIn(".gintro-head", self.css.split(
+            "CREATOR COLLABORATION - GIRLY VARIANT (BELLA'S LOCKER)")[0])
+
     def test_data_driven_copy_and_label_caption_maps_cover_every_pick(self):
         self.assertEqual(set(self.girly["labels"]), set(self.cre["picks"]))
         self.assertEqual(set(self.girly["captions"]), set(self.cre["picks"]))
