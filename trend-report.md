@@ -1,8 +1,8 @@
 # Hunt Report - 2026-10-11
 
-Generated: 2026-10-11 12:46 UTC by src/hunter_intelligence.py
+Generated: 2026-10-11 19:35 UTC by src/hunter_intelligence.py
 
-Ladder: SIGNAL 1 · TREND 0 · OPPORTUNITY 1 · ACTION 0 · HEADLINE 6
+Ladder: SIGNAL 1 · TREND 0 · OPPORTUNITY 1 · ACTION 0 · HEADLINE 4
 
 Fan connectors: no fan posts observed - reddit error (HTTP Error 403: Blocked); x not_configured (Set X_BEARER_TOKEN to use the official X recent-search API.); facebook not_configured (Set META_PAGE_ID and META_PAGE_ACCESS_TOKEN for the official Meta Page feed API.)
 
@@ -21,52 +21,50 @@ Fan connectors: no fan posts observed - reddit error (HTTP Error 403: Blocked); 
 
 ### 1. QB room: who is QB1 in Cleveland - Cleveland Browns
 - Level: OPPORTUNITY · Confidence: 68% · 🟢 READY (matched design, posting window open, evidence under 12 h)
-- Fan signal: "Deshaun Watson throws for 268 yards in win over Steelers | By the Numbers" - Cleveland Browns (9 d ago)
-- Evidence: 6 reaction items (7.0 weighted) · 5 outlets · 0 utility listings excluded · 0 fan posts
+- Fan signal: "NFL Fines Quinshon Judkins and Deshaun Watson Over $36,000 for Touchdown Celebration" - Yahoo Sports (4 h ago)
+- Evidence: 5 reaction items (7.0 weighted) · 4 outlets · 0 utility listings excluded · 0 fan posts
 - Phrase velocity: new - 1 item in last 240 min, none in the window before
-- Sentiment: anxious - 'anxious' on 4/5 lexicon hits across 6 item(s)
+- Sentiment: anxious - 'anxious' on 4/7 lexicon hits across 5 item(s)
 - Game state: result coverage in the last 30 h (2 item(s))
 - Commercial: campaign - Make Them Know Your Name $21.00 (sellable) - THEY FORGOT WHO I AM — QB1 belief
 - Why fans care: The whole fanbase is arguing one question: who starts. That is a belief argument, and belief is what a QB tee sells.
-- Tracked names: deshaun watson (18 window mentions, FTI 82); shedeur sanders (0 window mentions, FTI 0)
+- Tracked names: deshaun watson (17 window mentions, FTI 77)
 - Action: X (@gridironlocker1 first) - conversation post now (now)
 - Action: Threads - alternate angle (+20 min)
 - Action: Instagram - product creative after engagement confirms the angle (after the X post confirms the angle)
 - Action: Pinterest - keyword pin of the matched design (+2 h)
-  - Deshaun Watson throws for 268 yards in win over Steelers | By the Numbers - Cleveland Browns (9 d ago) https://news.google.com/rss/articles/CBMirAFBVV95cUxOMkU1NVgyd1lKTGpYQlo0WGliTTJUdnM0eUVWbENONXZMNTNaZ205TTZvYWRYdDk4RGVTSngweHRPWnd5RjFEblgwd3Z4Y0FtTGd4RHBHLVdDWVR0aWhxLS1xRjJRQ3RnX290cHBWc1hLaDhfNmNSNFh2VjR6YnJnUm10eGRvcEJra3dfTkxyS0xHSkRSa2hkSHVxVmVxRm5PY0V5SG9ZOFk3ZlZB?oc=5
-  - Marshawn Lynch Gives Browns QB Reality Check - Yahoo Sports - google_news (1 h ago) https://news.google.com/rss/articles/CBMihgFBVV95cUxPSXV0eDNjVFl5MERUVEFKZTU2M3ByRURJNGF5TUZCODgzM2E4cTc2SFp2bnRpaWwwQTdEcF9VQ09tMFh1UExSQTgwQUpHVEszZVE2NkI5d1h3a3VCakV0VUJjdFpockI2VzFWNlAxSTlSYml4QlVJRkF5Y1o0MGFXV1oyVk05Zw?oc=5
-  - NFL fines three Browns players, including Deshaun Watson, for smoking celebration - NBC Sports - google_news (15 h ago) https://news.google.com/rss/articles/CBMi2AFBVV95cUxPZ2ktdldkRFo3ejhUdmpUWlpWX0N6aW5YNWxHMGZnU1VUTjVwb0ZYT2JVSldxYW1Ec0NTdjA5WE5UQ3llX0dzeHBreFNtNUVHV0RpVENrZHRQZmF5bjV5Zm4zU21YUjRram1qQy1aTl9vaHMxSmx3NXJON3l4T0F3eTN5N05HNk5JZGdBSjYyTzhnMmltakJmTHJuN2M3UzhjQUd4cUtkQ3VuRVBVdHdMNk1JNFB6OEtUdy0xM0xJZWNodm8zVXpMVFI0bmszRktZcTF1SS02dkI?oc=5
-  - Shedeur Sanders knows he's not 'a bad guy' as Browns QB wishes 'people understood me more' - New York Post - google_news (16 h ago) https://news.google.com/rss/articles/CBMiwAFBVV95cUxQTjNBNzB1X2NYRVBaSkVGQWNqMEpDdE5PRlV0VThIMWhmcGpGN0pGWUFaQlNBZW96SjhZczZnTG1nZjZYeE9DNldsYUNyUjducEVpVU1QYnI3MU1FWFBHUDRrRHZOM3ZkQUlXcVhieUtzRDgxaktTRXVpblJweFpfcGYxeFhjZzBhTnZmUndrOGNTT21pYVJJWE82RUt1M1h2SFMtM0VwSXhPbjJsckg5RXcyeVdGN1ktc3pMTVd1LU0?oc=5
+  - NFL Fines Quinshon Judkins and Deshaun Watson Over $36,000 for Touchdown Celebration - Yahoo Sports - google_news (4 h ago) https://news.google.com/rss/articles/CBMiiwFBVV95cUxNOG1GZ0hXSDExTjlRR2ZYUk5yOFVHVkRXMHotNGtaRzNkZWNmYkQ3NDRreDg5NHlkOWtGNEdQY2RnTWdRQkVUU2JpVmhxam5MQnhkd0VCZjFwakswSFFyNk5wN2Q4bjZFbzdGcXJ4aU9SZHowNmpHdGlqdWJDNlhoamNueHZKckJEdG9r?oc=5
+  - NFL reportedly fines Browns QB Deshaun Watson, RB Quinshon Judkins more than $14K for smoking gesture in win over Steelers - Yahoo Sports - google_news (21 h ago) https://news.google.com/rss/articles/CBMiggJBVV95cUxOdFoxMEpwczE1a0Vvb2VCQml5d1AzaHFKa09rMXdrdTBXT1I0UXZkaGFTVmxCMWNSZlhTR2hTSFhBQlJoeU5CV1hnSG5kMkJRLUxtQnRZRDNid2hnODdPWmd4Q0pLLW56MHZCVzVNY1VjLU1XZGpkUnotNno5OFdyU05WZEYxY2NpWHUxU3hpdWdhZWVoelFVWER6R1A1XzlfUG9ZNVdCbkxYNkd4dU1tRnV6MGVGNE5FdWs0Mm1MWEw5bmQ5RFdGRE1XR0RGZHp6QU9CZ2tBYkx5NFlaczlCUHI5UGNxMWpjRHBmR1lNU2NWVXBQLWkzTlMtaVFDSUZWSWc?oc=5
+  - NFL fines three Browns players, including Deshaun Watson, for smoking celebration - NBC Sports - google_news (22 h ago) https://news.google.com/rss/articles/CBMi2AFBVV95cUxPZ2ktdldkRFo3ejhUdmpUWlpWX0N6aW5YNWxHMGZnU1VUTjVwb0ZYT2JVSldxYW1Ec0NTdjA5WE5UQ3llX0dzeHBreFNtNUVHV0RpVENrZHRQZmF5bjV5Zm4zU21YUjRram1qQy1aTl9vaHMxSmx3NXJON3l4T0F3eTN5N05HNk5JZGdBSjYyTzhnMmltakJmTHJuN2M3UzhjQUd4cUtkQ3VuRVBVdHdMNk1JNFB6OEtUdy0xM0xJZWNodm8zVXpMVFI0bmszRktZcTF1SS02dkI?oc=5
+  - Browns weigh all options on Deshaun Watson's future - Cleveland.com (1 d ago) https://news.google.com/rss/articles/CBMijAJBVV95cUxPTjItOVhrVDVGT094S1paX3NWZHF2eGJZRTN0M0oweDZhZW04V01rVGItUkxncy1HRzJNMW5PTi1IVG5kZmVWVko5MW5aUXlyb2tKcjMtY1k3Vm5DUEVlaksxZU5MRjJFY0tSYXBKZDl3cERnaVhDV1JtTmFud254NWVMWmJMZ0htcW1KdmpxaURnNGFfZElSMExVVDVRN2xwUlNMVmZwSWQ2Y05DbnY4eG9uX0RPUXNjU3hYOHlFb0ZmRmk3S0pCX0ZjNG5Pb01OdVFUaUpYb2VxYk1xdzdTRC03NENvZFNCYTN1bE5JYldHZV9mUmxBSzRyZjlIdzJUMjEyLVlTLTNudlNQ?oc=5
 
-### 2. Underwood era: QB19 in Ann Arbor - Michigan Wolverines
-- Level: SIGNAL · Confidence: 43% · 🔴 STALE (newest evidence is 3 day(s) old)
-- Fan signal: "Kyle Whittingham's U-M is a mess and Bryce Underwood is in over his head" - Detroit Free Press (3 d ago)
-- Evidence: 4 reaction items (4.0 weighted) · 3 outlets · 0 utility listings excluded · 0 fan posts
-- Phrase velocity: new - 0 items in last 1440 min, none in the window before
-- Sentiment: pride - 'pride' on 1/1 lexicon hits across 4 item(s)
-- Game state: next game in ~6 day(s)
-- Commercial: exact - Second Act QB19 Vintage Football $21.00 (sellable) - SECOND ACT QB19
-- Why fans care: Every Michigan story right now routes through Underwood - the grade, the coach backing him, and what the era means next.
-- Tracked names: bryce underwood (22 window mentions, FTI 100); kyle whittingham (19 window mentions, FTI 86)
-  - Kyle Whittingham's U-M is a mess and Bryce Underwood is in over his head - Detroit Free Press - google_news (3 d ago) https://news.google.com/rss/articles/CBMi1gFBVV95cUxPMzNGRnhwSHdKUUpuZ1d5aEtwZ1ppYlhROWNwSEVzeXhBc0MxTk9xNV9KbVg0X0tFTG5lVS1KYlUzdlBkazZLZW5nWm05dTZaaDlQd2pBRVFMeC03Wk5rV1pVNklBWFV4NHp5SGpZZmpWV21OOVRxS3NwZVZIbGdjQjd4MjFCY1BXTWdXS0hJUWJXcmhvcEpnTWh3LVhvVEFLSFFfNm1pTFB6d3djX0dNaVM1SnlBRGhYVlh1UXp3ekNqTS03SUdoUGRmQ3lTQTA3R2ViR0JR?oc=5
-  - Why Benching Bryce Underwood Would 'Throw Away' Michigan Football's Season - Sports Illustrated - google_news (3 d ago) https://news.google.com/rss/articles/CBMitgFBVV95cUxOMWdOOXZFczZXRnUzdzg5bTdnVzhHcDVCaVZNU0E1VFlLeDVWM3JxMU95TmdpSDhpakU0X2ZpUkw5LWVHa01mUEFHSXRzVXp5SVZJeDNRU3dRQWE0Qmx4YXJ0WlYtQmJQRWVVZm1aN05Qb3lieEpSczZrNlRtdTlMVkpZZ0g4MFN5TUFvUnhWTFAtU3ZrTVMxb0NnY2tRQzlxZmd1a2didjR1Q1g2MlV1eWtCUzkzQQ?oc=5
-  - Michigan football rumors: Bryce Underwood’s $12 million contract could be terminated after season if Wolverines give up on him - Yahoo Sports - google_news (4 d ago) https://news.google.com/rss/articles/CBMikwFBVV95cUxOcnB2WnZuLW1LZzZJOUc4Y3pYUTdUYm9yOFZ2Ql9PTVB0ZHZ2RjFMTUlWUUtlUGlyb0hBMDd5QklKUzRycjhtcFBhRXloa1ZlekdCai0tSElacjBRSndtOEo1YkNZU25zV1RCMGs0dWhTQVdjYzV5ajl5ay00RExxNWxsWVJHeWxCX0wwQXI4a01IbzA?oc=5
-  - Bryce Underwood gets F grade in Michigan football collapse vs Minnesota - Detroit Free Press (8 d ago) https://news.google.com/rss/articles/CBMi3wFBVV95cUxPeWxxT19McTdXY3pDQkpEczFPN0N3T0F5d0VUMUpLUG1qbmo3UlFxU1hJclVyMGhBaHo3Y2xHNDhoZ0hCVHVNeGlmNHpNSW1LdGJMQXJ2VF9xeWJvN25GdFBDRnlMd2V5WjlESmdjT0tvdXNsdjhlMUJHaGFQMXhWbmZFd1JkMGN1Ry01VWo5UnFleGNjN2JST0oweHN1R3dRb3kzdkR3UjBFNkVFbzk3eU14Q1VhTjZQb3J5SUV5MTJJRUdOdTJQaFhXOTc1TVNmbURjUnV3RTZKUW5MZ0FF?oc=5
+### 2. Go Blue: The Big House identity - Michigan Wolverines
+- Level: SIGNAL · Confidence: 59% · ⚪ WATCH (fans are reacting but nothing on the shelf answers it yet)
+- Fan signal: "Michigan’s next opponent will come to Big House riding 3-game losing streak" - MLive.com (7 h ago)
+- Evidence: 4 reaction items (4.0 weighted) · 4 outlets · 1 utility listings excluded · 0 fan posts
+- Phrase velocity: new - 1 item in last 1440 min, none in the window before
+- Sentiment: pride - 'pride' on 4/5 lexicon hits across 4 item(s)
+- Game state: result coverage in the last 30 h (1 item(s))
+- Commercial: exact - M vs Everybody $21.00 (sellable) - M VS EVERYBODY — Go Blue
+- Why fans care: The evergreen identity buy - Michigan fans gift Go Blue apparel year round, and it does not depend on a result.
+- Tracked names: kyle whittingham (18 window mentions, FTI 82)
+  - Michigan’s next opponent will come to Big House riding 3-game losing streak - MLive.com - google_news (7 h ago) https://news.google.com/rss/articles/CBMiyAFBVV95cUxNbE5NbVlrelU1WUdwMHhWZ0F3NjVtNHNkWlhFcGRrd2xLREJNZ1MxYk5PeDZFbklfMTE0aG9lR0FmZHhGWUtKWkpzNElVOW9LdHBSM2RYVGU2enF2X2NJRmZMVVlsOFpiVjB5aEpHQVNkYzd2OTNLWWJtYU1HYWdmV010bW5vMXIzUWdJMU5kMnhpdVMtd0M0Q244VmJ0VHliN2ZvLXVjTTY0QWdlOUo2bk0tNzZuZ1hoTDNyUVlTc2ljSnBidzJwTdIB3AFBVV95cUxOa255Z1dJUHVPSmgyVGhfeERXSWRST0g0TWVzZWJNTVBjVElXSW9xeEFVckdyTmg5RHl4UmxRQmhZakE4d0Z2bFVENFFBeEZ3X2gxUTNXaVhIYTNTMFRKOUZNcUZiOGE4cFdqVlFxcXV5WHdzZ3lJQTkwdXZQaWpnVC1jSXhNRm9menkxMWVxZlRfVjdtbURzVlNQQU1BMlRSd1dmWlNKTmY5b3pKTnB1TW9hUzV2WjBlWUFkaWFzcHlDcUxzNmNld29qYlA4ZVBvLW1xSG9nNndNX3lF?oc=5
+  - Tony Garcia grades Michigan football coach Kyle Whittingham and the three coordinators through five games heading into the Wolverines' bye week. See link below ⬇️ 📸 Junfu Han, Detroit Free Press - Facebook - google_news (3 d ago) https://news.google.com/rss/articles/CBMi3wFBVV95cUxOdTI4NlJRdHBKVkNEZ1E1akV0Y0xaSmlydnNibXhBdHhCcW55VHpiWFI5M1BaRFp6ZmQwLUY2azdfNU50azJpbEpvOTNuM2M4Z1VnRDRVNGN6WE1OcEJzaGswZUxCYkZmaS1lMG5hcUNEdW05cW15STB6MWd5YTdmVk81cDdHNFhPd3J0S1BSQzVVck5wcHpvNGpWZDFkakI5TTdNZndIZTNfWW53OFB6UVE5dGNSNWhDWmNaY0trdHdZSHR0Ym5HNko2YUhqcW03bEVncVZlQ1dNUkJjem1B?oc=5
+  - Urban Meyer calls Michigan a ‘train wreck’ after latest Wolverines loss - The Columbus Dispatch (4 d ago) https://news.google.com/rss/articles/CBMi3gFBVV95cUxPbFQ4ZElyS01VbmVHNDd6TWNuYVpYX29XcUljcFoxdm9uNklwN1FLT3laVldtSzE3bTFfajMwbzNVbHBVaUEzcE5WakVyX0NXbndCMlhYSGZMZk5rRkQtdzlsV0RLRnBpemtHN0k5T0d4b1lMVW5BTWQtOXpHQ25aOTFYZWROLTJtVmI2T0JxSnR6REFIS09KUTlPMzAzbm8yeFFld2pCTEdHTmNaQnlCTWpoY25Hb1JfbXFfSXZyZHRXMUlXbUhDYi1Qb3ZhME1FUF9oYjVRcFFKeWZTWnc?oc=5
+  - Former Michigan All-American TE Jake Butt Has Blunt Take on Wolverines - He's Right - Yahoo Sports - google_news (6 d ago) https://news.google.com/rss/articles/CBMiiAFBVV95cUxOd013aXowZ195aUN6QS02V1hiMnprdTZmakhTTnZlRkFPUkRsWm16ZUhvbHhTUE8zNzZ2TW5PQndVd0tqRGNXWURYX0c0V1hXZjRCN2txTThaakNvTXNiVFpnQ1ZlM25VY2duNGYzT3JSZEJMZDlORWZZdFFqa0RxaU9EM2lnenpW?oc=5
 
-## Filtered as HEADLINE (6)
+## Filtered as HEADLINE (4)
 
-- BROWNS - Coaching: Monken's first season: 2 reaction item(s), 2 outlet(s), confidence 40% - not a reaction
-- BROWNS - Dawg Pound identity: orange, brown and 1946: 1 reaction item(s), 1 outlet(s), confidence 37% - not a reaction
-- COWBOYS - Sunday night at the Giants: prime-time opener: 1 reaction item(s), 1 outlet(s), confidence 34% - not a reaction
-- COWBOYS - Doomsday memory: defence and the pass rush: 1 reaction item(s), 1 outlet(s), confidence 32% - not a reaction
-- PACKERS - Josh Jacobs and the run game: 1 reaction item(s), 1 outlet(s), confidence 34% - not a reaction
-- MICHIGAN - Go Blue: The Big House identity: 2 reaction item(s), 2 outlet(s), confidence 40% - not a reaction
+- COWBOYS - Thirty years: the drought joke we own: 1 reaction item(s), 1 outlet(s), confidence 39% - not a reaction
+- COWBOYS - Doomsday memory: defence and the pass rush: 1 reaction item(s), 1 outlet(s), confidence 29% - not a reaction
+- PACKERS - Jordan Love era: 10 is the number: 1 reaction item(s), 1 outlet(s), confidence 39% - not a reaction
+- MICHIGAN - Underwood era: QB19 in Ann Arbor: 2 reaction item(s), 1 outlet(s), confidence 31% - not a reaction
 
 ## Article ideas (OPPORTUNITY+ only)
 
 - **[Medium] Cleveland Browns: what the Dawg Pound are actually saying about qb room: who is qb1 in cleveland**
   - Where: NFL fan culture (Dawg Pound / Cleveland sports)
-  - Angle: Fan-demand piece built on the live signal (Deshaun Watson throws for 268 yards in win over Steelers | By the Numbers), not on a headline recap.
+  - Angle: Fan-demand piece built on the live signal (NFL Fines Quinshon Judkins and Deshaun Watson Over $36,000 for Touchdown Celebration), not on a headline recap.
   - Link: https://gridironlocker.shop/make-them-know-your-name?collectionId=P19bpeU2x_Ng&color=GILDAN-DARK_CHOCOLATE&productId=6aa33fa01cdc8689e252dab3
   - Image: Make Them Know Your Name mockup next to the moment that started it.
 
