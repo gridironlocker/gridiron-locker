@@ -1,5 +1,5 @@
 {
- "generated": "2026-10-10",
+ "generated": "2026-10-11",
  "window_days": 10,
  "fti_formula": "round(100 * entity_mentions / peak_mentions_in_window)",
  "peak_mentions": 22,
@@ -9,10 +9,10 @@
   "images": 446,
   "avg_price": 22.84,
   "hot": 0,
-  "throwback": 0,
-  "steady": 94,
+  "throwback": 11,
+  "steady": 83,
   "gaps": 6,
-  "moments": 3,
+  "moments": 6,
   "tracked_names": 18,
   "dead_campaigns": 66
  },
@@ -28,8 +28,8 @@
   },
   {
    "name": "kyle whittingham",
-   "mentions": 20,
-   "index": 91,
+   "mentions": 19,
+   "index": 86,
    "status": "trending",
    "gap": true,
    "shoppable": false,
@@ -37,8 +37,8 @@
   },
   {
    "name": "deshaun watson",
-   "mentions": 19,
-   "index": 86,
+   "mentions": 18,
+   "index": 82,
    "status": "trending",
    "gap": true,
    "shoppable": false,
@@ -46,8 +46,8 @@
   },
   {
    "name": "dak prescott",
-   "mentions": 16,
-   "index": 73,
+   "mentions": 14,
+   "index": 64,
    "status": "trending",
    "gap": true,
    "shoppable": false,
@@ -63,58 +63,49 @@
    "collection": "dallas-cowboys"
   },
   {
+   "name": "matt lafleur",
+   "mentions": 6,
+   "index": 27,
+   "status": "trending",
+   "gap": true,
+   "shoppable": false,
+   "collection": "green-bay-packers"
+  },
+  {
    "name": "micah parsons",
-   "mentions": 8,
-   "index": 36,
+   "mentions": 4,
+   "index": 18,
    "status": "trending",
    "gap": false,
    "shoppable": true,
    "collection": "green-bay-packers"
   },
   {
-   "name": "matt lafleur",
-   "mentions": 4,
-   "index": 18,
-   "status": "trending",
-   "gap": true,
-   "shoppable": false,
-   "collection": "green-bay-packers"
-  },
-  {
-   "name": "todd monken",
-   "mentions": 4,
-   "index": 18,
-   "status": "trending",
-   "gap": true,
-   "shoppable": false,
-   "collection": "cleveland-browns"
-  },
-  {
    "name": "josh jacobs",
-   "mentions": 2,
-   "index": 9,
-   "status": "steady",
-   "gap": false,
+   "mentions": 3,
+   "index": 14,
+   "status": "trending",
+   "gap": true,
    "shoppable": false,
    "collection": "green-bay-packers"
   },
   {
    "name": "denzel ward",
-   "mentions": 1,
-   "index": 5,
+   "mentions": 2,
+   "index": 9,
    "status": "steady",
    "gap": false,
    "shoppable": true,
    "collection": "cleveland-browns"
   },
   {
-   "name": "jordan love",
-   "mentions": 1,
-   "index": 5,
+   "name": "todd monken",
+   "mentions": 2,
+   "index": 9,
    "status": "steady",
    "gap": false,
-   "shoppable": true,
-   "collection": "green-bay-packers"
+   "shoppable": false,
+   "collection": "cleveland-browns"
   },
   {
    "name": "jj mccarthy",
@@ -133,6 +124,15 @@
    "gap": false,
    "shoppable": true,
    "collection": "cleveland-browns"
+  },
+  {
+   "name": "jordan love",
+   "mentions": 0,
+   "index": 0,
+   "status": "quiet",
+   "gap": false,
+   "shoppable": true,
+   "collection": "green-bay-packers"
   },
   {
    "name": "jordan marshall",
@@ -183,8 +183,8 @@
  "gaps": [
   {
    "name": "kyle whittingham",
-   "mentions": 20,
-   "index": 91,
+   "mentions": 19,
+   "index": 86,
    "status": "trending",
    "gap": true,
    "shoppable": false,
@@ -192,8 +192,8 @@
   },
   {
    "name": "deshaun watson",
-   "mentions": 19,
-   "index": 86,
+   "mentions": 18,
+   "index": 82,
    "status": "trending",
    "gap": true,
    "shoppable": false,
@@ -201,8 +201,8 @@
   },
   {
    "name": "dak prescott",
-   "mentions": 16,
-   "index": 73,
+   "mentions": 14,
+   "index": 64,
    "status": "trending",
    "gap": true,
    "shoppable": false,
@@ -219,21 +219,21 @@
   },
   {
    "name": "matt lafleur",
-   "mentions": 4,
-   "index": 18,
+   "mentions": 6,
+   "index": 27,
    "status": "trending",
    "gap": true,
    "shoppable": false,
    "collection": "green-bay-packers"
   },
   {
-   "name": "todd monken",
-   "mentions": 4,
-   "index": 18,
+   "name": "josh jacobs",
+   "mentions": 3,
+   "index": 14,
    "status": "trending",
    "gap": true,
    "shoppable": false,
-   "collection": "cleveland-browns"
+   "collection": "green-bay-packers"
   }
  ],
  "collections": [
@@ -250,17 +250,8 @@
    "gaps": [
     {
      "name": "deshaun watson",
-     "mentions": 19,
-     "index": 86,
-     "status": "trending",
-     "gap": true,
-     "shoppable": false,
-     "collection": "cleveland-browns"
-    },
-    {
-     "name": "todd monken",
-     "mentions": 4,
-     "index": 18,
+     "mentions": 18,
+     "index": 82,
      "status": "trending",
      "gap": true,
      "shoppable": false,
@@ -270,26 +261,26 @@
    "top_terms": [
     "browns",
     "cleveland",
-    "watson",
     "york",
+    "watson",
     "deshaun",
-    "final",
-    "mason",
-    "graham"
+    "injury",
+    "practice",
+    "predictions"
    ],
    "headline_count": 100,
    "headlines": [
     {
-     "title": "Browns 27, Steelers 24 | Final Score, Stats & Game Recap",
-     "url": "https://news.google.com/rss/articles/CBMikAFBVV95cUxQM3VGaFJSSkN0dDdOUVBnUkZhbjhCaVJSRDBkUHhyTkZGNF82YjN2eGY5WlV6UjU1M3ZZVFRsSC15UTdXMFlrZ0NWdGlKTklrZXpoalNxRjlfOE1DZGVXZllzbFZGYjgtS2dSU2xZNEJiVXZrbi1PVkUxVFM3Yy1nZTlLaXlUUTVlRFJxeC12dTI?oc=5",
+     "title": "Browns vs. Jets: How to Watch, Listen & Live Stream",
+     "url": "https://news.google.com/rss/articles/CBMikwFBVV95cUxQNTBpM3BOZDlpYzkwRzRBbVo3aUdXNzU5XzBVSjFqSlV6Zk1QenhlbFFUbmoyNDRhV2ZtSzM1WkhHcU5zQUNLVndaa3pGOWxiVDhXTzkyU2c4WGFCdldWeFl1WVA2TjdRaWx5T3pJZ1FsRjlxMk9lT3VZNmRnMWtxb0EyTHdFams4d05WZTBYVHNKM0E?oc=5",
      "source": "Cleveland Browns",
-     "pub": "Thu, 01 Oct 2026 07:00:00 GMT"
+     "pub": "Wed, 07 Oct 2026 18:58:02 GMT"
     },
     {
      "title": "Steelers edged by Browns, 27-24",
      "url": "https://news.google.com/rss/articles/CBMibEFVX3lxTE1PejNOVHF0OXN0bnVYaUM4eHIxcDNmZ0t1YzlVY0J0Y0FGOTFxend3NmJzbGlYQm9aRTdaNnFhb0lCRkFGQ1M4dGEwczFIMWlocmtxa1pvXzhaeEQ1cjRBd09ROTJkeV9PbXJ3Tw?oc=5",
      "source": "Steelers.com",
-     "pub": "Fri, 02 Oct 2026 05:39:34 GMT"
+     "pub": "Fri, 02 Oct 2026 07:00:00 GMT"
     },
     {
      "title": "Cleveland Browns make five roster moves with their practice squad",
@@ -298,16 +289,16 @@
      "pub": "Wed, 07 Oct 2026 09:55:58 GMT"
     },
     {
-     "title": "Steelers-Browns on 'Thursday Night Football': What We Learned from Cleveland's 27-24 win",
-     "url": "https://news.google.com/rss/articles/CBMirwFBVV95cUxPcUo2NkdZLXRuRHNzYWgtTmJHSzhMaEVCUjhScmdYcVJCTElOTGlsWExyaDM3RnIyYmV0bHYtZ0pxVlhhSTJfcFBCb1lsc1c5aHVKamlwOUtFSWRuaEg0WUY1a25HdDUzLThXNXpOQkJDSTd2eTMzXy1iOFlfcFdraDl1RlVoSUlmM2VFVlFLbmRQNW43VUpsWDVvVUw5WDFZaURWdUNnMXpoNlhPSjFz?oc=5",
-     "source": "NFL.com",
-     "pub": "Thu, 01 Oct 2026 07:00:00 GMT"
-    },
-    {
      "title": "Browns 27-24 Steelers (Oct 1, 2026) Game Recap",
      "url": "https://news.google.com/rss/articles/CBMiW0FVX3lxTFBfamlmaFktaHVSb0Q0WG5YcmxRbGM0c1ZFVHhNd1pSQTdmZWhOaUk1TGYwTzhlc1hKZnJRY2Q5WEpsQnRtdmlEanNaNDhrQnNFTmwwSXpHOGtUdVk?oc=5",
      "source": "ESPN",
-     "pub": "Thu, 01 Oct 2026 07:00:00 GMT"
+     "pub": "Fri, 02 Oct 2026 07:00:00 GMT"
+    },
+    {
+     "title": "Browns weigh all options on Deshaun Watson's future",
+     "url": "https://news.google.com/rss/articles/CBMijAJBVV95cUxPTjItOVhrVDVGT094S1paX3NWZHF2eGJZRTN0M0oweDZhZW04V01rVGItUkxncy1HRzJNMW5PTi1IVG5kZmVWVko5MW5aUXlyb2tKcjMtY1k3Vm5DUEVlaksxZU5MRjJFY0tSYXBKZDl3cERnaVhDV1JtTmFud254NWVMWmJMZ0htcW1KdmpxaURnNGFfZElSMExVVDVRN2xwUlNMVmZwSWQ2Y05DbnY4eG9uX0RPUXNjU3hYOHlFb0ZmRmk3S0pCX0ZjNG5Pb01OdVFUaUpYb2VxYk1xdzdTRC03NENvZFNCYTN1bE5JYldHZV9mUmxBSzRyZjlIdzJUMjEyLVlTLTNudlNQ?oc=5",
+     "source": "Cleveland.com",
+     "pub": "Sat, 10 Oct 2026 17:58:00 GMT"
     }
    ],
    "fti_count": 7
@@ -325,8 +316,8 @@
    "gaps": [
     {
      "name": "dak prescott",
-     "mentions": 16,
-     "index": 73,
+     "mentions": 14,
+     "index": 64,
      "status": "trending",
      "gap": true,
      "shoppable": false,
@@ -345,12 +336,12 @@
    "top_terms": [
     "cowboys",
     "dallas",
-    "loss",
     "bucs",
-    "joey",
-    "porter",
+    "loss",
     "prescott",
-    "schottenheimer"
+    "time",
+    "thursday",
+    "joey"
    ],
    "headline_count": 100,
    "headlines": [
@@ -396,12 +387,21 @@
    "products": 37,
    "avg_price": 25.18,
    "hot": 0,
-   "throwback": 0,
+   "throwback": 11,
    "gaps": [
     {
      "name": "matt lafleur",
-     "mentions": 4,
-     "index": 18,
+     "mentions": 6,
+     "index": 27,
+     "status": "trending",
+     "gap": true,
+     "shoppable": false,
+     "collection": "green-bay-packers"
+    },
+    {
+     "name": "josh jacobs",
+     "mentions": 3,
+     "index": 14,
      "status": "trending",
      "gap": true,
      "shoppable": false,
@@ -412,19 +412,19 @@
     "packers",
     "green",
     "chicago",
-    "injury",
     "watch",
-    "update",
-    "practice",
-    "edgerrin"
+    "injury",
+    "predictions",
+    "matt",
+    "lafleur"
    ],
    "headline_count": 100,
    "headlines": [
     {
-     "title": "Packers vs. Bears | How to watch, stream & listen | Week 5",
-     "url": "https://news.google.com/rss/articles/CBMijAFBVV95cUxQSnFQY0RiT3VuMzAxRl9nMVc2NnJRa2hkRU05cl9sejBudWJ0VjFjeGFyRkEwdDZJU3hBdHNrZ191cVJ3UnltbG4tcUJJeFg5WVJOU1dCNG9sNXRQa3JGeVEzVUlIVzRyZWszM2pVci1DMC1SZ1FQUWh1T3hOc2NHeUZpLVdlXzA3dDJEeA?oc=5",
+     "title": "Statement from the Green Bay Packers",
+     "url": "https://news.google.com/rss/articles/CBMiggFBVV95cUxPWnVwZWxnUFlTY2ZkSlJMenNNdFdtbWRSMHIzVF81c3ZHX0o2MkxhMWduUk9fREw4YWJTUUI5anJyUTk2SFpVZ0VtWVUyQ2lhSTRsdnZoV2NEd1d0YTVhdk9RZVhtOFdjTTB1X1QwZzNWNnQwWGk0Y2xUT3AyY2lFUmZR?oc=5",
      "source": "Green Bay Packers \u2013 packers.com",
-     "pub": "Tue, 06 Oct 2026 22:04:10 GMT"
+     "pub": "Fri, 09 Oct 2026 16:57:00 GMT"
     },
     {
      "title": "Green Bay Packers: Promote Intriguing RB to 53-Man Roster",
@@ -439,16 +439,16 @@
      "pub": "Wed, 07 Oct 2026 18:17:19 GMT"
     },
     {
-     "title": "Everything Chicago Bears Have to Fear About Green Bay Packers in Week 5",
-     "url": "https://news.google.com/rss/articles/CBMikgFBVV95cUxPUkctUGZKNjYxTnB5Zkk3bWY0ZWpfQWVnakJvMjRkdjY0WVhNQ0hjLWpFOER6RzMyZ3hXWUxacjVsSkRDSHVPV29MTVpBY2tYWEFYYm5FVFdVVGJxb1VlaUpFRlhTU3ZUTTMyTEo3R0xVQTR3T2poTkVjZU5RTVJPMjlhS1pqd3NZeURwV1d1UEpsQQ?oc=5",
-     "source": "Sports Illustrated",
-     "pub": "Fri, 09 Oct 2026 13:31:33 GMT"
+     "title": "Green Bay Packers News: What do the Packers do without Edgerrin Cooper?",
+     "url": "https://news.google.com/rss/articles/CBMi0wFBVV95cUxNYlo1U2U3VXpYaDd0Z2ktYjB4OVJndF9pcm9YYjVMTy1GS1g3anpybmV3Rk5CM0tLU0VIZ0hOSW9jT294aUJjSks1SnJ6enVvTGpxREF5dzYyLTd0Z1BMUnNRaFhBU21ueTRkSlZhOERiZmJJbFZVNE5sUHlzMG9fMXpSa3VmZU50aW83UzBOWTdkUWFjZU9WTDF6TlhpaXZGaUtSNlFIQ0U3bTVCMW51OUN5ZUNwalhRODN0VHVEOTRkSG0zS1Bua0h0cnpyamZ5dTNn?oc=5",
+     "source": "Acme Packing Company",
+     "pub": "Tue, 06 Oct 2026 13:53:49 GMT"
     },
     {
-     "title": "Statement from the Green Bay Packers",
-     "url": "https://news.google.com/rss/articles/CBMiggFBVV95cUxPWnVwZWxnUFlTY2ZkSlJMenNNdFdtbWRSMHIzVF81c3ZHX0o2MkxhMWduUk9fREw4YWJTUUI5anJyUTk2SFpVZ0VtWVUyQ2lhSTRsdnZoV2NEd1d0YTVhdk9RZVhtOFdjTTB1X1QwZzNWNnQwWGk0Y2xUT3AyY2lFUmZR?oc=5",
-     "source": "Green Bay Packers \u2013 packers.com",
-     "pub": "Fri, 09 Oct 2026 17:04:04 GMT"
+     "title": "How wild-card game sent Bears, Packers in opposite directions",
+     "url": "https://news.google.com/rss/articles/CBMipgFBVV95cUxQTVY3b1ZhY1NDVll5QUlQSmI5eWZwZGdRbFQ3TEJJSWtJSDMzRWp6Yk9naFU2MEhabTlCM1gxNHVscklHWlA2a1pyNVJzVkdELW1DSzNFazZhbE5oR0RjN0wxVFh5Ymo5b1NZeW1hRDFlNDFUdVp2czRwUEhUQ082S0F6TjcyT2IxN1FmQkdEV3d4OVhJaGtDbnZfdkhfMWM0MUNadW13?oc=5",
+     "source": "ESPN",
+     "pub": "Sat, 10 Oct 2026 10:00:00 GMT"
     }
    ],
    "fti_count": 5
@@ -466,8 +466,8 @@
    "gaps": [
     {
      "name": "kyle whittingham",
-     "mentions": 20,
-     "index": 91,
+     "mentions": 19,
+     "index": 86,
      "status": "trending",
      "gap": true,
      "shoppable": false,
@@ -480,29 +480,23 @@
     "whittingham",
     "kyle",
     "wolverines",
+    "offense",
     "bryce",
-    "underwood",
-    "offense"
+    "underwood"
    ],
    "headline_count": 100,
    "headlines": [
-    {
-     "title": "Is Michigan football playing today? Time, TV for Wolverines' next game",
-     "url": "https://news.google.com/rss/articles/CBMijgFBVV95cUxPUGtKQmIzZHNYVW5XMUJlTUpjbkZiVXNKQW4tQnJvRTFlTFJDU1Z3aGQ5X0xzLUpLOTlSUWhfcUhFSXViZHJmbFc3MGZidTJ4Sk1leXU0UlhSTGZTNzZIVDJUeXhkLU9kc1M4ejRoc181U1NfRXNGN2kzdHd0TjZkQXZDYmVFU1pIcHFzV1V3?oc=5",
-     "source": "Yahoo Sports",
-     "pub": "Sat, 10 Oct 2026 09:07:05 GMT"
-    },
-    {
-     "title": "4 Immediate Takeaways From Michigan Football's Disjointed Loss to Minnesota",
-     "url": "https://news.google.com/rss/articles/CBMiygFBVV95cUxPeFpBN2pLeFlBSDZIeTdobDBpd01YZXR3VWdLeGUwR1g5V0lYQzYtX1M2V0R2Xy1YY2NsZGJUOEptaGdfdl9pa0tacjg2bDRDZFJUVmJSbXNmWVFIVWdNT0VwWUJOQ2lTSmp0dEpSMVNaWkF3RDhZVFM0Mi1CUWNOUFFvZTJsUTJHUHNqbG5Rb2tIRG1ZQWYzb0twRHdmOTJiWTUzcTJEd1dySjJmUWliZkxTREwzNWhqQUVCbS1wZEsxbldxZTV1a21R?oc=5",
-     "source": "Sports Illustrated",
-     "pub": "Sat, 03 Oct 2026 19:24:35 GMT"
-    },
     {
      "title": "What channel is Michigan football vs Minnesota on today? Time, TV",
      "url": "https://news.google.com/rss/articles/CBMiiAJBVV95cUxNbUFrU1ByUGNNbk40TWxPTHNlQnNzYjZnXzRaVXo2RGxjMi1odTVEWVdvRkFPcGpJV1dPWjNBeDJ3TGNCTHZGczdFblBkMmNmeUlqdnAwQW9TWHk5NjZadE9fN1ViZVpyYl9NNExsRC1NNk01a2FtSjRmNnFtTGk1b2YwTnp4MjZRNnUtbFJRamNxS2s3azN2dmEwM0xUWVEzdjItaTI0MEJPOXlsLWx4Z2pmd0FCZFlkbjV2T3FndFR0OHVtT1RmaEhNMm5pejZuLVprX3NQM2lUQzlyLUg1eVcxSTdnLWlzRWZmNXVhR0tybVlxQl8za1JNVTFKZHVuWXk0X1BOUVg?oc=5",
      "source": "The Detroit News",
      "pub": "Sat, 03 Oct 2026 16:21:00 GMT"
+    },
+    {
+     "title": "Michigan Falls to Minnesota in 100th Battle for Little Brown Jug",
+     "url": "https://news.google.com/rss/articles/CBMirAFBVV95cUxOUHZ5N3lYQlluQWpJX0xSN2xNZFdHNUJDZG9pXzIzUXFDSEdPTUFBd3ZIcUpGRE90TVE1bzR3c3U5ZWJ2OU1NZXNucVR5NVJDUFlRdXBtcHpEa1BBejcwc2dpYUpKU1ZpY2pWQ05GLWFQLUk3QVkxMzhIdXJfenlscnVIQzF6NVRnNktUckZ3WFhkbEZYR3lvdzlYeFBZdjNfRVV2OVpDcmY5UjlG?oc=5",
+     "source": "University of Michigan Athletics",
+     "pub": "Sat, 03 Oct 2026 19:54:48 GMT"
     },
     {
      "title": "3 bold predictions for the rest of the Michigan Football season",
@@ -511,10 +505,16 @@
      "pub": "Thu, 08 Oct 2026 12:00:00 GMT"
     },
     {
-     "title": "Michigan Falls to Minnesota in 100th Battle for Little Brown Jug",
-     "url": "https://news.google.com/rss/articles/CBMirAFBVV95cUxOUHZ5N3lYQlluQWpJX0xSN2xNZFdHNUJDZG9pXzIzUXFDSEdPTUFBd3ZIcUpGRE90TVE1bzR3c3U5ZWJ2OU1NZXNucVR5NVJDUFlRdXBtcHpEa1BBejcwc2dpYUpKU1ZpY2pWQ05GLWFQLUk3QVkxMzhIdXJfenlscnVIQzF6NVRnNktUckZ3WFhkbEZYR3lvdzlYeFBZdjNfRVV2OVpDcmY5UjlG?oc=5",
-     "source": "University of Michigan Athletics",
-     "pub": "Sat, 03 Oct 2026 19:54:48 GMT"
+     "title": "Kyle Whittingham isn\u2019t helping himself by holding ASMR sessions during press conferences. His Michigan football team is getting ripped by everyone. See link below \u2b07\ufe0f \ud83d\udcf8 Junfu Han, Detroit Free Press",
+     "url": "https://news.google.com/rss/articles/CBMi3wFBVV95cUxNaUMzek95M3Q5NHdfZzNrSV91SjlnNVJWT2NpdmhMc1huZzlhTW5rY1ZpMzMwR3FVZldSRHU5QTE3dlNFZDNwQkV4YmlFSGhCRGwtT09KdHBKaklWcTAxQktuMmFZbHJNX0dLWDF0anBaNmFHbDl5QVBJc1l2eGZXQ0xzN0hWOWVnekFhZVRnQVg1WkY3SVZ4X205V0FiM25GWWdteldYXzRrYWxUcExqejJCcVFIeW9WcFgyVko4Vll6NXRXMUxEZlJXcDhHdVNSYjRVUXZwaXRxVUdlZTV3?oc=5",
+     "source": "Facebook",
+     "pub": "Thu, 08 Oct 2026 13:20:11 GMT"
+    },
+    {
+     "title": "Michigan Football Bowl Projections After Dropping Second Consecutive Game",
+     "url": "https://news.google.com/rss/articles/CBMirgFBVV95cUxQTlo3NGRBbHNiZ1FEYXpDTHF3VkdYZ2VrY2s5RE0wZHZhR1hrZXJqdFBXaC0wa3JMSjJERVBsM3lxVWdnTl8tMF82am1FQ3lGX3poX3BJYUlQTW96YmkyVlFiSWNKd2lvZUdkY25IQjVCbmJhTHE4OTB2UmNaYmJpMnpXSERaX3ltYW92ZWRxVk1KV2JEcldEYlFXM0JEUkRUN2pWSTdiR3RyV1ZKMVE?oc=5",
+     "source": "Sports Illustrated",
+     "pub": "Mon, 05 Oct 2026 22:30:00 GMT"
     }
    ],
    "fti_count": 4
@@ -854,6 +854,26 @@
  ],
  "moments": [
   {
+   "title": "Browns weigh all options on Deshaun Watson's future",
+   "url": "https://news.google.com/rss/articles/CBMijAJBVV95cUxPTjItOVhrVDVGT094S1paX3NWZHF2eGJZRTN0M0oweDZhZW04V01rVGItUkxncy1HRzJNMW5PTi1IVG5kZmVWVko5MW5aUXlyb2tKcjMtY1k3Vm5DUEVlaksxZU5MRjJFY0tSYXBKZDl3cERnaVhDV1JtTmFud254NWVMWmJMZ0htcW1KdmpxaURnNGFfZElSMExVVDVRN2xwUlNMVmZwSWQ2Y05DbnY4eG9uX0RPUXNjU3hYOHlFb0ZmRmk3S0pCX0ZjNG5Pb01OdVFUaUpYb2VxYk1xdzdTRC03NENvZFNCYTN1bE5JYldHZV9mUmxBSzRyZjlIdzJUMjEyLVlTLTNudlNQ?oc=5",
+   "source": "Cleveland.com",
+   "pub": "Sat, 10 Oct 2026 17:58:00 GMT",
+   "collection": "cleveland-browns",
+   "entities": [
+    "deshaun watson"
+   ]
+  },
+  {
+   "title": "Deshaun Watson throws for 268 yards in win over Steelers | By the Numbers",
+   "url": "https://news.google.com/rss/articles/CBMirAFBVV95cUxOMkU1NVgyd1lKTGpYQlo0WGliTTJUdnM0eUVWbENONXZMNTNaZ205TTZvYWRYdDk4RGVTSngweHRPWnd5RjFEblgwd3Z4Y0FtTGd4RHBHLVdDWVR0aWhxLS1xRjJRQ3RnX290cHBWc1hLaDhfNmNSNFh2VjR6YnJnUm10eGRvcEJra3dfTkxyS0xHSkRSa2hkSHVxVmVxRm5PY0V5SG9ZOFk3ZlZB?oc=5",
+   "source": "Cleveland Browns",
+   "pub": "Fri, 02 Oct 2026 07:00:00 GMT",
+   "collection": "cleveland-browns",
+   "entities": [
+    "deshaun watson"
+   ]
+  },
+  {
    "title": "Dak Prescott promises Cowboys will be '100' percent for TNF vs. Buccaneers",
    "url": "https://news.google.com/rss/articles/CBMiqgFBVV95cUxQeTN4Mk5TdFAxeHh4R0NWVlNCUkgybDFzV1NndUoxSG41R3FjUkJYcE1EQmZIOXNZSC1nQmtaT2pNNXlmY1JJWTVUbmRpRERqcFR1WjFsMWNqTDE0a01XcXo0U3BxMmZ3Vy1KeXhzT25nQk5IU0FTT2lTVmJLUS1NYnJiUlQ4MHh5M3R5clhvbzBqWjZhaHFpaVFXM0w4dXlmQlI0STNLYWhhQQ?oc=5",
    "source": "Dallas Cowboys | Official Site of the Dallas Cowboys",
@@ -868,6 +888,16 @@
    "url": "https://news.google.com/rss/articles/CBMi3wFBVV95cUxNaUMzek95M3Q5NHdfZzNrSV91SjlnNVJWT2NpdmhMc1huZzlhTW5rY1ZpMzMwR3FVZldSRHU5QTE3dlNFZDNwQkV4YmlFSGhCRGwtT09KdHBKaklWcTAxQktuMmFZbHJNX0dLWDF0anBaNmFHbDl5QVBJc1l2eGZXQ0xzN0hWOWVnekFhZVRnQVg1WkY3SVZ4X205V0FiM25GWWdteldYXzRrYWxUcExqejJCcVFIeW9WcFgyVko4Vll6NXRXMUxEZlJXcDhHdVNSYjRVUXZwaXRxVUdlZTV3?oc=5",
    "source": "Facebook",
    "pub": "Thu, 08 Oct 2026 13:20:11 GMT",
+   "collection": "michigan",
+   "entities": [
+    "kyle whittingham"
+   ]
+  },
+  {
+   "title": "Kyle Whittingham Loses Trust as Michigan Star\u2019s Leaked Conversation Allegedly Accuses Staff of Failures: \u201cWorse Than Sherrone [Moore]\u201d",
+   "url": "https://news.google.com/rss/articles/CBMijwFBVV95cUxQcTF6VHBvZS1jd2l6QU1ycWgxNjhnLU5CT3BnQ1dtUE82OFhkYUFuNWJ2bFhCX000LUFBbHBQM3d1U3QzbkNESW9MYmc5M3k4MGxvQ1ZkT1Z1N3JWX25LcVB0WlFmQ29IMFBQWUlmMmlkQUVUYlYweGxRdVZVTFpFWjJVX3FYUi01RWNYNXlWZw?oc=5",
+   "source": "Yahoo Sports",
+   "pub": "Tue, 06 Oct 2026 02:33:00 GMT",
    "collection": "michigan",
    "entities": [
     "kyle whittingham"
