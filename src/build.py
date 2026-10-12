@@ -3,6 +3,7 @@
 import json, os, re, shutil, html, sys, datetime, hashlib
 sys.path.insert(0, os.path.dirname(__file__))
 from collections import OrderedDict
+from urllib.parse import parse_qsl, urlencode, urlsplit, urlunsplit
 from collections_data import COLLECTIONS, ORDER, SEASON, NEXT_GAME, partner_of
 from collections_data import season_recap_long, season_recap_short, season_slate_sentence
 from collections_data import week1_dates_line
@@ -459,12 +460,50 @@ except Exception:
 
 
 def creator_items(cre):
-    """Resolve a creator's curated picks against the live MODEL, in order.
+    """Resolve a creator's ordered picks from its declared catalogue source.
 
-    Unknown / delisted / imageless slugs are skipped silently so a stale
-    curation can never crash the build or ship a broken card; the curated
-    order is otherwise preserved (that order IS the curation).
+    Most creator lockers curate the live Gridiron Locker model. A locker may
+    instead declare a small, source-backed ``store_catalogue`` when its
+    products live on the creator's own partner storefront; those records stay
+    creator-scoped and never leak into the public Michigan catalogue. Missing
+    or imageless records are skipped, and stale picks can never crash a build.
     """
+    catalog = cre.get("store_catalogue")
+    if isinstance(catalog, dict):
+        by_slug = {}
+        collection_key = cre.get("collection_key", "michigan")
+        for p in catalog.get("products", []):
+            slug, image, source_url = p.get("slug"), p.get("image"), p.get("source_url")
+            if not (slug and isinstance(image, str) and image.startswith("https://")
+                    and isinstance(source_url, str)
+                    and source_url.startswith(("https://", "http://"))):
+                continue
+            try:
+                price = float(p["price_usd"])
+            except (KeyError, TypeError, ValueError):
+                continue
+            by_slug[slug] = dict(
+                slug=slug, name=p.get("name") or slug.replace("-", " ").title(),
+                art=p.get("art") or p.get("name") or slug,
+                theme=p.get("theme", "classic"),
+                garment=p.get("garment") or "Apparel", price=price,
+                colours=1, styles=[p.get("garment") or "Apparel"],
+                sizes_avail=list(p.get("sizes") or []),
+                url=source_url, source_url=source_url, buy=source_url,
+                gallery=[image], front=image, back=image,
+                partner=catalog.get("partner", "Mayzing"),
+                colour=p.get("colour"), colour_code=p.get("colour_code"),
+                kw=[], col=collection_key, external_store=True,
+                source_store=catalog.get("url", ""),
+                product_id=p.get("product_id", ""),
+            )
+        out, seen = [], set()
+        for slug in cre.get("picks", []):
+            if slug in by_slug and slug not in seen:
+                seen.add(slug)
+                out.append(by_slug[slug])
+        return out
+
     by_slug = {x["slug"]: x for x in MODEL.get(cre.get("collection_key"), [])}
     out, seen = [], set()
     for slug in cre.get("picks", []):
@@ -472,6 +511,23 @@ def creator_items(cre):
             seen.add(slug)
             out.append(by_slug[slug])
     return out
+
+
+def creator_item_href(it, track):
+    """Creator-tag a direct supplier link, or keep the local PDP hand-off."""
+    source = it.get("source_url")
+    if not source:
+        return f"/shop/{it['slug']}/?creator={track}"
+    parsed = urlsplit(source)
+    query = dict(parse_qsl(parsed.query, keep_blank_values=True))
+    query.update({
+        "creator": track,
+        "utm_source": "creator",
+        "utm_medium": "referral",
+        "utm_campaign": f"creator-{track}",
+    })
+    return urlunsplit((parsed.scheme, parsed.netloc, parsed.path,
+                       urlencode(query), parsed.fragment))
 
 
 def creator_by_collection(ckey):
@@ -485,6 +541,11 @@ def creator_by_collection(ckey):
 def creator_page_meta(cre):
     """One-line public description of a creator page (feed / llms.txt)."""
     c = COLLECTIONS[cre.get("collection_key", "michigan")]
+    catalog = cre.get("store_catalogue") or {}
+    if catalog:
+        count = len(catalog.get("products", []))
+        return (f"A {c['short']} apparel collection selected with {cre['display_name']} - "
+                f"{count} designs with product options on {catalog.get('name', 'the creator store')}.")
     return (f"A {c['short']} collection selected with {cre['display_name']} - "
             f"hand-picked designs, printed on demand and shipped worldwide.")
 
@@ -2629,110 +2690,94 @@ GIRLY_FONTS = (
 #: literals in the .glogo rules of src/style.css, which are pinned to
 #: body[data-creator-page="BELLA"] so no other page is affected.
 GIRLY_LOGO = (
-    '<a class="logo glogo" href="/">'
-    '<span class="glogo-heart" aria-hidden="true">♥</span>'
+    '<a class="logo glogo" href="/" aria-label="Bella’s Collection home">'
+    '<span class="glogo-lockup"><span class="glogo-top">'
     '<span class="glogo-script">bella’s</span>'
-    '<span class="glogo-serif">locker</span></a>'
+    '<span class="glogo-heart" aria-hidden="true">♡</span></span>'
+    '<span class="glogo-serif">COLLECTION</span></span></a>'
 )
 
-# Exact, catalogue-published names only. The map supplies the visual dot for a
-# named colourway; it never supplies or infers the text shown to shoppers.
-GIRLY_SWATCH = {
-    "navy": "#182d4d",
-    "black": "#202124",
-    "heather sport grey": "#a5a6a8",
-}
-
-
-def _girly_swatch(it):
-    """Render the catalogue's published colour name without inventing one.
-
-    A named colour gets a dot only when its exact catalogue name has a visual
-    mapping in GIRLY_SWATCH. If the campaign publishes only a colourway count,
-    show an outlined dot and that count instead of guessing at a colour.
-    """
-    colour = str(it.get("colour") or "").strip()
-    try:
-        count = max(0, int(it.get("colours") or 0))
-    except (TypeError, ValueError):
-        count = 0
-    mapped = GIRLY_SWATCH.get(colour.casefold()) if colour else None
-    dot_class = "gswatch-dot" if mapped else "gswatch-dot is-outline"
-    style = f' style="--g-swatch:{mapped}"' if mapped else ""
-    label = esc(colour) if colour else f"{count} colourways"
-    return (f'<span class="gswatch"><span class="{dot_class}"{style} '
-            f'aria-hidden="true"></span><span class="gswatch-name">{label}</span></span>')
-
+GIRLY_NAV = (
+    '<nav class="bellanav" aria-label="Bella’s Collection">'
+    '<div class="wrap bellanav-links">'
+    '<a href="/">Home</a><a href="#locker">Shop</a>'
+    '<a href="#apparel">Collections</a><a href="#about">About</a>'
+    '</div></nav>'
+)
 
 def _girly_body(cre, c, items, track):
-    """Build Bella's navy-canvas handmade-paper collage locker.
+    """Render Bella's clean, source-linked apparel locker.
 
-    The only product cards emitted here are ``items`` resolved from the live
-    collection model. Each piece hangs as ONE framed artwork - the real
-    campaign front; no flatlay panel or placeholder stitch is emitted, so the
-    wall reads as a gallery, not a product comparison grid. All editorial
-    copy, collage art, labels and captions are owned in data/creators.json.
+    Product records are scoped to Bella's creator entry rather than added to
+    Michigan's canonical Gridiron Locker catalogue. Each design card links to
+    its matching Silent Touch page, where the fulfilment partner publishes
+    current apparel styles, colours, sizes and prices.
     """
     g = cre.get("girly", {})
+    catalog = cre.get("store_catalogue") or {}
     first = cre["display_name"].split()[0]
-    labels = g.get("labels", {})
-    captions = g.get("captions", {})
-    statement = g.get("statement_pick")
-    collection_key = cre["collection_key"]
-    store = esc(g.get("store_label", "Shop design"))
-    facts = str(g.get("hero_facts", "{n} live designs"))
-    facts = facts.replace("{n}", str(len(items)))
-    story_link = esc(g.get("hero_story_link", "read my story"))
-    arrow_label = esc(g.get("collage_arrow_label", "this way"))
+    store_name = esc(catalog.get("name", "Bella's store"))
+    store_url = esc(catalog.get("url", "https://silenttouch.store/"))
+    facts = str(g.get("hero_facts", "{n} designs")).replace("{n}", str(len(items)))
     script = esc(g.get("hero_script", first))
     title = esc(g.get("hero_title", cre["page_name"]))
-    statement_default = first.lower() + "’s fave ♥"
-    promo = cre.get("promo") or {}
-    offer_html = ""
-    if promo.get("code") and promo.get("pct"):
-        offer_html = (f'<p class="goffer"><span class="goffer-off">{promo["pct"]}% off your order</span>'
-                      f'<span class="goffer-code">use code <b>{esc(promo["code"])}</b></span>'
-                      f'<span class="goffer-note">Enter the code at checkout.</span></p>')
+    def category_icon(label):
+        if any(word in label.casefold() for word in ("cap", "hat")):
+            path = '<path d="M3 15c1.8-4.4 5-7 9-7s7.2 2.6 9 7H3Z"/><path d="M3 15h12c0 3-3.4 4-7.3 4-2.8 0-4.7-1-4.7-2.5"/>'
+        else:
+            path = '<path d="m7 5 5 2 5-2 5 4-3 4-2-1v8H7v-8l-2 1-3-4 5-4Z"/><path d="m7 5 1.5 4L12 11l3.5-2L17 5"/>'
+        return (f'<svg viewBox="0 0 24 24" fill="none" stroke="currentColor" '
+                f'stroke-width="1.5" stroke-linecap="round" stroke-linejoin="round" '
+                f'aria-hidden="true">{path}</svg>')
 
+    category_tiles = "".join(
+        f'<div class="gcategory-tile">{category_icon(label)}'
+        f'<span>{esc(label)}</span></div>'
+        for label in catalog.get("categories", []))
 
-    def jlink(it):
-        return f"/shop/{it['slug']}/?creator={track}"
-
-    def tape(cls="gtape"):
-        return f'<span class="{cls}" aria-hidden="true"></span>'
+    cards = []
+    for idx, it in enumerate(items):
+        href = esc(creator_item_href(it, track))
+        image = esc(it["front"])
+        name = esc(it["name"])
+        slug = esc(it["slug"])
+        alt = esc(f'{it["name"]} design on a {it["garment"].lower()}')
+        cards.append(
+            f'<article class="gproduct" data-slug="{slug}" data-creator="{track}">'
+            f'<a class="gproduct-art" href="{href}" target="_blank" '
+            f'rel="noopener noreferrer" aria-label="View {name} on {store_name} (opens in a new tab)">'
+            f'<img src="{image}" alt="{alt}" width="500" height="500" '
+            f'loading="lazy" decoding="async">'
+            f'<span class="gproduct-art-cta">View design <span aria-hidden="true">↗</span></span>'
+            f'</a>'
+            f'<div class="gproduct-body">'
+            f'<p class="gproduct-kicker">BELLA’S PICK {idx + 1:02d}</p>'
+            f'<h3>{name}</h3>'
+            f'<div class="gproduct-meta"><span>Apparel &amp; colour options</span><b>See listing</b></div>'
+            f'<p class="gproduct-note">Confirm this design’s styles, colours, sizes and current price on {store_name}.</p>'
+            f'<a class="gproduct-link" href="{href}" target="_blank" rel="noopener noreferrer">'
+            f'Explore available styles <span aria-hidden="true">&rarr;</span></a>'
+            f'</div></article>'
+        )
 
     custom = g.get("custom") or {}
     custom_section = ""
     if custom:
-        # The taped promo note (overline, heading, pitch, dream line and the
-        # yellow CTA) is a separate opt-out from the form: hide_custom_note
-        # silences the pitch while the inquiry form stays taped to the same
-        # board. The form is never replaced by a link or redirect to the
-        # shared Gridiron Locker form on the homepage - visitors fill it in
-        # right here. The form keeps the EXACT #customForm / FormSubmit
-        # contract the homepage section uses (ids, field names, hidden
-        # inputs, #formmsg), so the app.js AJAX upgrade treats it
-        # identically wherever app.js loads - and on her page, where the
-        # footer (and so app.js) is intentionally dropped, the native
-        # browser POST to FormSubmit is the delivery path. Every
-        # customer-facing string is copy-owned in data/creators.json
-        # (girly.custom), so the note and the form stay in her voice.
-        # Custom requests are currently available for Michigan only, so the
-        # required team selector offers just the blank placeholder and
-        # Michigan - the same pair the homepage sends.
+        # The custom-design inquiry remains available, but its promotional
+        # note is independently hidden by hide_custom_note.
         if g.get("hide_custom_note", False):
             note_html = ""
         else:
-            note_html = (f''' <div class="gcustom-note">{tape()}
+            note_html = (f""" <div class="gcustom-note">
   <span class="gkicker">{esc(custom.get("overline", ""))}</span>
   <h2 class="gcustom-title">{esc(custom.get("heading", ""))}</h2>
   <p class="gcustom-pitch">{esc(custom.get("pitch", ""))}</p>
   <p class="gcustom-dream">{esc(custom.get("dream_line", ""))}</p>
   <a class="gbtn gbtn-maize custom-link" data-placement="girly_band" href="#custom-form">{esc(custom.get("cta", ""))} <span aria-hidden="true">&rarr;</span></a>
  </div>
-''')
-        custom_section = (f'''<section id="custom" class="gcustom"><div class="wrap">
-{note_html} <div class="gcustom-formwrap" id="custom-form">{tape("gtape gtape-form")}
+""")
+        custom_section = (f"""<section id="custom" class="gcustom"><div class="wrap">
+{note_html} <div class="gcustom-formwrap" id="custom-form">
   <form id="customForm" class="gcustom-form" method="POST"
    action="https://formsubmit.co/{CONTACT_EMAIL}"
    data-formsubmit="1" aria-label="Custom design request form">
@@ -2755,162 +2800,65 @@ def _girly_body(cre, c, items, track):
      <option value="">Choose</option><option>Michigan</option></select></label>
     <label>{esc(custom.get("field_garment", "product type"))}<select name="garment">
      <option value="">pick one</option><option>T-Shirt</option><option>Hoodie</option>
-     <option>Sweatshirt</option><option>Long Sleeve</option><option>Mug</option><option>Beanie</option>
-     <option>Other</option></select></label>
+     <option>Sweatshirt</option><option>Long Sleeve</option><option>Tank Top</option>
+     <option>Cap</option><option>Hat</option><option>Mug</option><option>Other</option></select></label>
    </div>
    <label>{esc(custom.get("field_colors", "preferred colors (optional)"))}<input type="text" name="colors"
     placeholder="{esc(custom.get("ph_colors", ""))}" autocomplete="off"></label>
    <label>{esc(custom.get("field_details", "anything else?"))}<textarea name="details" rows="2"
     placeholder="{esc(custom.get("ph_details", ""))}"></textarea></label>
-   <button class="gbtn gbtn-maize gform-btn" type="submit">{esc(custom.get("submit", custom.get("cta", "")))} <span aria-hidden="true">&rarr;</span></button>
+   <button class="gbtn gbtn-maize gform-btn" type="submit">{esc(custom.get("submit", "Send inquiry"))} <span aria-hidden="true">&rarr;</span></button>
    <p class="gformmsg formmsg" id="formmsg" aria-live="polite">{esc(custom.get("reply_note", ""))}</p>
   </form>
  </div>
-</div></section>''')
+</div></section>""")
 
-    def price_pill(it, fave=False):
-        tone = " gmaize" if fave else ""
-        return (f'<span class="gshop{tone}"><span>{store}</span>'
-                f'<b>${it["price"]:.2f}</b></span>')
-
-    cards = []
-    for idx, it in enumerate(items):
-        num = f"{idx + 1:02d}"
-        slug = it["slug"]
-        lab = esc(labels.get(slug, "Pick"))
-        cap = esc(captions.get(slug, ""))
-        fave = slug == statement
-        classes = "gcard gcard-fave" if fave else "gcard"
-        attrs = (f'href="{esc(jlink(it))}" data-slug="{slug}" '
-                 f'data-price="{it["price"]:.2f}" data-creator="{track}" '
-                 f'data-collection="{collection_key}"')
-        main_image = (f'<img src="{esc(it["front"])}" alt="{card_alt(it)}" '
-                      f'width="530" height="630" loading="lazy" decoding="async">')
-        note_html = (f'<p class="gstatement-note">{esc(g.get("statement_note", ""))}</p>'
-                     if fave and g.get("statement_note") else "")
-        kicker = (f'<span class="gkick">{esc(g.get("statement_kicker", statement_default))}</span>'
-                  if fave else "")
-        swatch = _girly_swatch(it)
-        sizes = it.get("sizes_avail") or []
-        size_range = f"{sizes[0]}–{sizes[-1]}" if sizes else "No size range"
-        merch = (f'<span class="gmerch-chip">{esc(it["garment"])}'
-                 f' <span aria-hidden="true">·</span> {esc(size_range)}</span>')
-        # The label is a curatorial tag on the piece itself, not a third line
-        # of the footer slug, which now names only the place. The piece number
-        # rides in the title as <span class="gname-num"> - no medallion over
-        # the art.
-        mood = f'<p class="gmood">{lab}</p>'
-        cards.append(
-            f'<a class="{classes}" {attrs}>{tape("gtape gtape-card")}'
-            f'<figure class="gphoto-panel">{main_image}</figure>'
-            f'<div class="gb">'
-            f'<div class="gcard-note">{kicker}<p class="gcap">{cap}</p>{note_html}{mood}</div>'
-            f'<div class="gcard-chips">{swatch}{merch}</div>'
-            f'<footer class="gcard-foot"><div class="gfoot-copy">'
-            f'<h3 class="gname"><span class="gname-num">{num}.</span> {esc(it["name"])}</h3>'
-            f'<p class="gfoot-meta">Ann Arbor · {esc(c["short"])}</p>'
-            f'</div>{price_pill(it, fave)}</footer></div></a>'
-        )
-
-    next_drop = g.get("next_drop", {})
-    cards.append(
-        '<div class="gnextdrop" aria-hidden="true">'
-        f'<span class="gheart">{esc(next_drop.get("heart", "♥"))}</span>'
-        f'<span class="gnext-label">{esc(next_drop.get("label", "Next Drop"))}</span>'
-        f'<p>{esc(next_drop.get("caption", "more pretty things, soon"))}</p>'
-        '</div>'
-    )
-    grid = "".join(cards)
-
-    collage_tiles = []
-    for idx, tile in enumerate(g.get("collage", [])):
-        arrow = tile.get("arrow") == "1"
-        arrow_markup = (
-            f'<svg class="garrow-doodle" viewBox="0 0 120 82" aria-hidden="true">'
-            f'<path d="M8 69 C25 33 56 21 91 27"/><path d="M77 13 L94 27 L76 38"/>'
-            f'</svg><span class="gcollage-arrow-label">{arrow_label}</span>'
-        ) if arrow else ""
-        arrow_attr = ' data-arrow="1"' if arrow else ""
-        collage_tiles.append(
-            f'<figure class="gcollage-photo gcollage-{idx + 1}"{arrow_attr}>'
-            f'{tape("gtape gtape-collage")}'
-            f'<img src="{esc(tile["image"])}" alt="" role="presentation" '
-            f'width="600" height="744" loading="lazy" decoding="async">'
-            f'<figcaption>{esc(tile["caption"])}</figcaption>{arrow_markup}</figure>'
-        )
-    collage = "".join(collage_tiles)
-
-    intro_photo = g.get("intro_photo", {})
-    intro = (
-        f'<figure class="gpolaroid">{tape()}'
-        f'<img src="{esc(intro_photo.get("image", ""))}" alt="" role="presentation" '
-        f'width="768" height="1024" loading="lazy" decoding="async">'
-        f'<figcaption>{esc(intro_photo.get("caption", ""))}</figcaption></figure>'
-    )
-
-    heart_svg = (
-        '<svg class="gheart-mark" width="29" height="27" viewBox="0 0 29 27" '
-        'fill="none" aria-hidden="true"><path d="M14.5 24S2.8 17.3 2.8 9.6A6.1 '
-        '6.1 0 0 1 14.5 7a6.1 6.1 0 0 1 11.7 2.6C26.2 17.3 14.5 24 14.5 24Z" '
-        'stroke="currentColor" stroke-width="2.2" stroke-linecap="round" '
-        'stroke-linejoin="round"/></svg>'
-    )
-
+    hero_image = esc(g.get("hero_image", cre.get("hero", "")))
+    hero_alt = esc(g.get("hero_alt", cre.get("hero_alt", "")))
     return f"""
 <main id="main" class="jlock jlock-girly">
-<section class="ghero"><div class="wrap ghero-layout">
- <figure class="ghero-photo">
-  {tape("gtape gtape-photo")}
-  <img src="{esc(g.get('hero_image', cre['hero']))}" alt="{esc(g.get('hero_alt', cre['hero_alt']))}"
-   width="{cre['hero_w']}" height="{cre['hero_h']}" fetchpriority="high" decoding="async">
- </figure>
- <div class="gtorn-wrap">
-  {tape("gtape gtape-torn-a")}{tape("gtape gtape-torn-b")}
-  <article class="gheropaper">
-   <span class="gkicker">{esc(g.get('hero_kicker', ''))}</span>
-   <h1 class="gtitle-lockup"><span class="gscript">{script}{heart_svg}</span>
-    <span class="gtitle">{title}</span></h1>
-   <span class="gcollab-stamp">{esc(g.get('collab_stamp', ''))}</span>
-   <p class="gsub">{esc(g.get('hero_sub', cre.get('sub', '')))}</p>
-   <p class="gfacts">{esc(facts)}</p>
-{offer_html}   <div class="gctas">
+<section class="gbanner"><div class="wrap">
+ <div class="gbanner-panel">
+  <img class="gbanner-photo" src="{hero_image}" alt="{hero_alt}" width="{cre['hero_w']}" height="{cre['hero_h']}"
+   fetchpriority="high" decoding="async">
+  <div class="gbanner-copy">
+   <p class="gbanner-kicker">{esc(g.get('hero_kicker', ''))}</p>
+   <h1 class="gbanner-title"><span class="gscript">{script}</span><span class="gtitle">{title}</span></h1>
+   <p class="gbanner-sub">{esc(g.get('hero_sub', cre.get('sub', '')))}</p>
+   <p class="gbanner-facts">{esc(facts)}</p>
+   <div class="gbanner-actions">
     <a class="gbtn gbtn-maize" href="#locker">{esc(g.get('hero_cta', 'Shop the collection'))}</a>
-    <a class="ghand" href="#story">{story_link}</a>
+    <a class="gbanner-link" href="{store_url}" target="_blank" rel="noopener noreferrer">Visit {store_name} <span aria-hidden="true">↗</span></a>
    </div>
-  </article>
+  </div>
  </div>
- <div class="gcollage" role="group" aria-label="Decorative game-day photo collage">{collage}</div>
 </div></section>
 
-<section id="story" class="gintro"><div class="wrap">
- <header class="gintro-head">
-  <span class="goverline">{esc(g.get('intro_overline', ''))}</span>
-  <h2>{esc(g.get('intro_heading', f'Meet {first}'))}</h2>
- </header>
- <div class="gintro-grid">
-  {intro}
-  <blockquote class="gnote">{tape()}
-   <p>{esc(g.get('quote', cre.get('quote', '')))}</p>
-   <cite>&mdash; {esc(first)}</cite>
-  </blockquote>
- </div>
+<section id="apparel" class="gcategory-row" aria-label="Shop by apparel style"><div class="wrap">
+ <p class="gcategory-heading">APPAREL OPTIONS ON SILENT TOUCH</p>
+ <div class="gcategory-tiles">{category_tiles}</div>
+ <p class="gcategory-note">These are store-wide categories; exact options vary by design. Check each Silent Touch product page.</p>
 </div></section>
 
 <section id="locker" class="gcollection"><div class="wrap">
- <header class="gcollection-head">
-  <span class="goverline">{esc(g.get('collection_overline', ''))}</span>
-  <h2>{esc(g.get('collection_heading', 'The Collection'))}</h2>
+ <div class="gcollection-head">
+  <p class="goverline">{esc(g.get('collection_overline', 'THE COLLECTION'))}</p>
+  <h2>{esc(g.get('collection_heading', 'Bella’s Michigan Designs'))}</h2>
   <p>{esc(g.get('collection_desc', ''))}</p>
- </header>
- <div class="ggrid">{grid}</div>
+ </div>
+ <div class="ggrid">{"".join(cards)}</div>
+ <p class="gstore-note">Each design opens on <a href="{store_url}" target="_blank" rel="noopener noreferrer">{store_name}</a>. Available apparel, colours, sizes and current prices are confirmed on its product page.</p>
 </div></section>
 
 {custom_section}
 
-<section class="gsign"><div class="wrap center">
- <h2>{esc(g.get('signoff_lead', ''))}<em>{esc(g.get('signoff_accent', ''))}</em></h2>
- <p class="gcollab">{esc(g.get('collab_line', ''))}</p>
- <a class="gbtn gbtn-papercut" href="#locker">{esc(g.get('signoff_cta', 'Shop The Locker'))}</a>
+<section id="about" class="gdisclosure"><div class="wrap">
+ <div class="gabout-copy">
+  <p class="goverline">ABOUT THE COLLECTION</p>
+  <h2>Bella’s Michigan Collection</h2>
+  <p>{esc(cre.get('collab_note', ''))}</p>
+ </div>
+ <p class="glegal"><strong>Independent fan-made apparel.</strong> Gridiron Locker is not affiliated with, endorsed by or licensed by the University of Michigan, the NCAA or any player. All trademarks belong to their respective owners.</p>
 </div></section>
 </main>"""
 
@@ -2975,16 +2923,18 @@ def page_creator(ckey="joe"):
                       f'   </div>\n')
 
     def jlink(it):
-        """Internal product link that carries the creator id forward."""
-        return f"/shop/{it['slug']}/?creator={track}"
+        """Link to the local PDP or direct store listing with creator UTMs."""
+        return creator_item_href(it, track)
 
     def jcard(it, cls, eager=False):
         lazy = hint(eager)
         tag = {"player": "Player Story", "retro": "Vintage", "funny": "Culture"}.get(it["theme"], "Game Day")
-        return (f'<a class="{cls}" href="{jlink(it)}" '
+        external_attrs = (' target="_blank" rel="noopener noreferrer"'
+                          if it.get("external_store") else "")
+        return (f'<a class="{cls}" href="{esc(jlink(it))}"{external_attrs} '
                 f'data-slug="{it["slug"]}" data-price="{it["price"]:.2f}" '
                 f'data-creator="{track}" data-collection="{ckey_col}">'
-                f'<span class="jph"><img src="{it["front"]}" '
+                f'<span class="jph"><img src="{esc(it["front"])}" '
                 f'alt="{card_alt(it)}" '
                 f'width="530" height="630"{lazy}></span>'
                 f'<span class="jb">'
@@ -2999,30 +2949,45 @@ def page_creator(ckey="joe"):
     feat_cards = "".join(jcard(it, "jfeat", eager=(n < 2)) for n, it in enumerate(feat))
     grid_cards = "".join(jcard(it, "jcard", eager=(n < 2)) for n, it in enumerate(items))
 
-    faq = [
-        (f"What is {cre['page_name']}?",
-         f"A creator collaboration: {display}, a {cre.get('role', 'Michigan creator')}, "
-         f"hand-picks designs from Gridiron Locker's {c['short']} collection and "
-         f"builds this dedicated locker for {possessive} audience. It is one "
-         f"permanent link - new designs are added to {first}'s locker without "
-         f"ever changing it."),
-    ]
-    if promo and promo_code:
-        faq.append((f"How do I use {first}'s discount code?",
-                    f"Enter the code {promo_code} at checkout for {promo_pct}% off "
-                    f"your order. It applies to the designs in this locker."))
-    faq += [
-        ("Are these officially licensed Michigan products?",
-         "No. Everything here is independent, fan-made artwork. Gridiron Locker "
-         "is not affiliated with, endorsed by or licensed by the University of "
-         "Michigan, the NCAA or any player. All trademarks are the property of "
-         "their respective owners."),
-        ("How does ordering work?",
-         "Tap any design to see the full story, garment styles, colours and "
-         "sizing. Then Shop Now opens the checkout page for that exact design, "
-         "where the available garment option, colour and size are confirmed. Items are printed on "
-         "demand and shipped worldwide with tracking."),
-    ]
+    store_catalogue = cre.get("store_catalogue") or {}
+    if store_catalogue:
+        store_name = store_catalogue.get("name", "the creator store")
+        faq = [
+            (f"What is {cre['page_name']}?",
+             f"A Gridiron Locker creator page featuring {len(items)} designs selected by "
+             f"{display}. Each listing opens the matching product page on {store_name}."),
+            ("Which apparel styles are available?",
+             "Bella's store lists T-shirts, hoodies, sweatshirts, long sleeves, tank tops, "
+             "caps and hats. Open a design to confirm its available styles, colours and sizes."),
+            ("How does ordering work?",
+             f"Choose a design to open its product page on {store_name}. The current price, "
+             "available apparel, colour and size are confirmed there before checkout."),
+        ]
+    else:
+        faq = [
+            (f"What is {cre['page_name']}?",
+             f"A creator collaboration: {display}, a {cre.get('role', 'Michigan creator')}, "
+             f"hand-picks designs from Gridiron Locker's {c['short']} collection and "
+             f"builds this dedicated locker for {possessive} audience. It is one "
+             f"permanent link - new designs are added to {first}'s locker without "
+             f"ever changing it."),
+        ]
+        if promo and promo_code:
+            faq.append((f"How do I use {first}'s discount code?",
+                        f"Enter the code {promo_code} at checkout for {promo_pct}% off "
+                        f"your order. It applies to the designs in this locker."))
+        faq += [
+            ("Are these officially licensed Michigan products?",
+             "No. Everything here is independent, fan-made artwork. Gridiron Locker "
+             "is not affiliated with, endorsed by or licensed by the University of "
+             "Michigan, the NCAA or any player. All trademarks are the property of "
+             "their respective owners."),
+            ("How does ordering work?",
+             "Tap any design to see the full story, garment styles, colours and "
+             "sizing. Then Shop Now opens the checkout page for that exact design, "
+             "where the available garment option, colour and size are confirmed. Items are printed on "
+             "demand and shipped worldwide with tracking."),
+        ]
 
     cb, cbs = crumbs([("Home", "/"), ("Michigan", f"/{c['slug']}/"),
                       (cre["page_name"], None)], path)
@@ -3034,7 +2999,8 @@ def page_creator(ckey="joe"):
                "about": {"@type": "ItemList", "numberOfItems": len(items),
                          "itemListElement": [
                              {"@type": "ListItem", "position": n + 1,
-                              "url": DOMAIN + f"/shop/{x['slug']}/", "name": x["name"]}
+                              "url": x.get("source_url") or DOMAIN + f"/shop/{x['slug']}/",
+                              "name": x["name"]}
                              for n, x in enumerate(items)]}},
               {"@context": "https://schema.org", "@type": "FAQPage",
                "mainEntity": [
@@ -3153,6 +3119,7 @@ def page_creator(ckey="joe"):
                schema, kw, col=ckey_col, body_attrs=f' data-creator-page="{track}"',
                extra_head=GIRLY_FONTS if girly else "")
           + header(ckey_col, hide_nav=hide_nav, hide_promo=girly, logo=GIRLY_LOGO if girly else "")
+          + (GIRLY_NAV if girly else "")
           + body + ("" if girly else footer(collection=ckey_col)))
 
 

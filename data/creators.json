@@ -1,6 +1,6 @@
 {
   "program": "Gridiron Locker creator collaborations",
-  "updated": "2026-10-07",
+  "updated": "2026-10-11",
   "creators": {
     "joe": {
       "id": "JOE",
@@ -92,7 +92,7 @@
       "display_name": "Bella Lopresti",
       "role": "Michigan lifestyle creator",
       "page_slug": "michigan/bella",
-      "page_name": "Bella's Michigan Locker",
+      "page_name": "Bella's Michigan Collection",
       "page_tagline": "A Gridiron Locker x Bella Lopresti Collaboration",
       "collection_key": "michigan",
       "one_link": "https://gridironlocker.store/michigan/bella/",
@@ -128,39 +128,28 @@
         ]
       },
       "featured": [
-        "michigan",
-        "legacy",
-        "one-second",
-        "second-act"
+        "michigan-vs-everybody-heart",
+        "hot-girls-go-to-michigan",
+        "michigan-heart",
+        "navy-maize-m"
       ],
       "picks": [
-        "michigan",
-        "legacy",
-        "one-second",
-        "second-act",
-        "maize-out",
-        "limited-edition-h-a-i-l-mary",
-        "respond-nothing-given-everything-earned-tee",
-        "bryce-19",
-        "respond-nothing-given-everything-earned",
-        "m-vs-everybody",
-        "second-act-qb19-vintage-football",
-        "limited-edition-go-blue",
-        "michigan-v-everybody",
-        "bet-m",
-        "michigan-bet-vintage",
-        "michigan-revenge-tour",
-        "michigan-bet"
+        "michigan-vs-everybody-heart",
+        "hot-girls-go-to-michigan",
+        "michigan-heart",
+        "navy-maize-m",
+        "university-of-michigan-maize-and-blue-tower",
+        "michigan-vs-all",
+        "bold-maize-m-streetwear"
       ],
-      "hero": "/img/bella-hero-autumn.jpg",
-      "hero_w": 1376,
-      "hero_h": 768,
-      "hero_alt": "Adult woman seen from behind in a plain navy T-shirt walking along a leafy campus path in autumn",
-      "promo": {"code": "BELLA", "pct": 10},
-      "page_desc": "Bella's Michigan Locker: Michigan football tees hand-picked by Bella. Save 10% with code BELLA on game-day and vintage-inspired designs, printed on demand.",
-      "sub": "Michigan designs for the girls who live in maize & blue — hand-picked by Bella.",
+      "hero": "/img/bella-banner.jpg",
+      "hero_w": 1896,
+      "hero_h": 830,
+      "hero_alt": "Smiling adult fan in an unbranded navy sleeveless top at a softly blurred stadium concourse",
+      "page_desc": "Shop Bella's Michigan collection: seven fan-inspired designs with apparel options on her Silent Touch store.",
+      "sub": "Cute designs. Big team energy. Made for real fans.",
       "quote": "Bella has teamed up with Gridiron Locker to bring her audience a collection of designs built around the Michigan lifestyle - game day, the walk to the game, and everything in between.",
-      "collab_note": "Bella's Michigan Locker brings together Bella's favourite Gridiron Locker designs in one place - built for Michigan fans and selected with Bella.",
+      "collab_note": "Bella's Michigan collection brings together seven fan-inspired designs with direct links to her Silent Touch apparel pages.",
       "possessive": "her",
       "keywords": [
         "bella's michigan locker",
@@ -177,16 +166,19 @@
       "theme": "girly",
       "hide_nav": true,
       "girly": {
-        "hero_kicker": "A LITTLE GAME-DAY MAGIC",
+        "hero_kicker": "MICHIGAN GAME-DAY APPAREL",
         "hero_script": "Bella’s",
-        "hero_title": "Michigan Locker",
-        "hero_sub": "Michigan designs for the girls who live for game-day Saturdays.",
-        "collab_stamp": "Gridiron Locker × Bella Lopresti",
-        "hero_facts": "{n} live Michigan designs · picked for every kind of Saturday",
-        "hero_cta": "Find Your Favorite",
-        "hero_story_link": "read the little story ↓",
-        "hero_image": "/img/bella-hero-autumn.jpg",
-        "hero_alt": "Adult woman seen from behind in a plain navy T-shirt walking along a leafy campus path in autumn",
+        "hero_title": "Collection",
+        "hero_sub": "Cute designs. Big team energy. Made for real fans.",
+        "collab_stamp": "MICHIGAN APPAREL · MADE FOR SATURDAY",
+        "hero_facts": "{n} designs · tees, hoodies & more",
+        "hero_cta": "Shop now",
+        "hero_image": "/img/bella-banner.jpg",
+        "hero_alt": "Smiling adult fan in an unbranded navy sleeveless top at a softly blurred stadium concourse",
+        "collection_overline": "MADE FOR GAME DAY & EVERY DAY",
+        "collection_heading": "Shop the collection",
+        "collection_desc": "Choose a design to see its available apparel, colours, sizes and current prices on Bella’s Silent Touch store. Browse T-shirts, hoodies, sweatshirts and other apparel, including long sleeves and tank tops, plus caps and hats; each product page confirms the options for that design.",
+        "store_label": "Silent Touch",
         "hide_custom_note": true,
         "custom": {
           "overline": "custom football designs",
@@ -210,88 +202,156 @@
           "ph_idea": "e.g. 'MAIZE ERA' in maize and blue — or a nickname, a family motto, a group slogan",
           "ph_colors": "e.g. maize and blue, blush pink, cream",
           "ph_details": "sizes, quantity, or the story behind the design (optional)"
-        },
-        "collage": [
-          {
-            "image": "/img/bella-collage-1.jpg",
-            "alt": "A crowd walking along an autumn campus path toward a football stadium",
-            "caption": "the walk to kickoff"
-          },
-          {
-            "image": "/img/bella-collage-2.jpg",
-            "alt": "A brick main street in a Midwestern college town in autumn",
-            "caption": "a little downtown detour",
-            "arrow": "1"
-          },
-          {
-            "image": "/img/bella-collage-3.jpg",
-            "alt": "A fan in a plain navy cap among autumn leaves, seen from behind",
-            "caption": "navy cap, golden leaves"
-          }
+        }
+      },
+      "store_catalogue": {
+        "_doc": "Bella apparel collection captured from her public Silent Touch storefront; the product URL opens the design page where current available styles, sizes and prices are shown.",
+        "captured": "2026-10-11",
+        "name": "Silent Touch",
+        "url": "https://silenttouch.store/",
+        "categories": [
+          "T-Shirts",
+          "Hoodies",
+          "Sweatshirts",
+          "Long Sleeves",
+          "Tank Tops",
+          "Caps & Hats"
         ],
-        "collage_arrow_label": "your next favorite is this way",
-        "intro_photo": {
-          "image": "/img/bella-polaroid-1.jpg",
-          "alt": "A woman walking past brick storefronts on an autumn afternoon",
-          "caption": "the long way to the game"
-        },
-        "intro_overline": "a note from bella",
-        "intro_heading": "More Than a Saturday",
-        "quote": "if you know me, you know i’m in maize & blue every Saturday.",
-        "collection_overline": "the designs i picked",
-        "collection_heading": "The Whole Locker",
-        "collection_desc": "Game-day staples, throwback energy and a few favorites for every day — the full Michigan collection, all in one place.",
-        "labels": {
-          "michigan": "Signature",
-          "legacy": "Vintage",
-          "one-second": "Game Day",
-          "second-act": "Classic",
-          "maize-out": "Everyday",
-          "limited-edition-h-a-i-l-mary": "Statement",
-          "respond-nothing-given-everything-earned-tee": "Game Day",
-          "bryce-19": "Player Story",
-          "respond-nothing-given-everything-earned": "Everyday",
-          "m-vs-everybody": "Fan Culture",
-          "second-act-qb19-vintage-football": "Vintage Game Day",
-          "limited-edition-go-blue": "Classic",
-          "michigan-v-everybody": "Fan Culture",
-          "bet-m": "Bold",
-          "michigan-bet-vintage": "Vintage",
-          "michigan-revenge-tour": "Throwback",
-          "michigan-bet": "Classic"
-        },
-        "captions": {
-          "michigan": "the one that started it all",
-          "legacy": "a little vintage, a lot of blue",
-          "one-second": "for the moment it all changes",
-          "second-act": "a fresh start with an old-school feel",
-          "maize-out": "a little maize for the everyday",
-          "limited-edition-h-a-i-l-mary": "for the hail-mary moments",
-          "respond-nothing-given-everything-earned-tee": "nothing given, everything earned",
-          "bryce-19": "the next chapter in number nineteen",
-          "respond-nothing-given-everything-earned": "the same message, a different take",
-          "m-vs-everybody": "a little us-against-everybody energy",
-          "second-act-qb19-vintage-football": "vintage football, next-chapter spirit",
-          "limited-edition-go-blue": "a little old-school go blue",
-          "michigan-v-everybody": "for the side-by-side Saturdays",
-          "bet-m": "a bold one for game day",
-          "michigan-bet-vintage": "throwback look, game-day heart",
-          "michigan-revenge-tour": "for the comeback story",
-          "michigan-bet": "one more way to back the bet"
-        },
-        "store_label": "Shop design",
-        "statement_pick": "one-second",
-        "statement_kicker": "bella’s fave ♥",
-        "statement_note": "the grey one i keep on repeat. it goes with everything i own.",
-        "next_drop": {
-          "label": "NEXT CHAPTER",
-          "caption": "more pretty things, when they’re ready",
-          "heart": "♥"
-        },
-        "signoff_lead": "Find your ",
-        "signoff_accent": "game-day thing.",
-        "collab_line": "Gridiron Locker × Bella Lopresti",
-        "signoff_cta": "Back to the Locker"
+        "products": [
+          {
+            "slug": "michigan-vs-everybody-heart",
+            "name": "Michigan VS Everybody Heart",
+            "source_url": "https://silenttouch.store/michigan-vs-everybody-heart?color=GILDAN-HEATHER_SPORT_GREY&productId=6acc180627b43a43d9ca5403",
+            "image": "https://buyer-experience-gateway.mayzing.com/stores/qMlK/mockups/id:mik5830uwm34,sig:EIPXO45kSb8_pJgA234WjtiqWE6E6KjsOe6-Qn_H6GQ,c:GILDAN-HEATHER_SPORT_GREY,s:36d60810-0bbf-427d-afad-b4d7929008f8,d:6acc1806fd823bfd5d01c033,dv:3,cpd:pdk5830uwm0,w:500/image.png",
+            "garment": "Women's Fitted Tee",
+            "price_usd": "21.99",
+            "colour": "Sport Grey",
+            "colour_code": "GILDAN-HEATHER_SPORT_GREY",
+            "product_id": "6acc180627b43a43d9ca5403",
+            "sizes": [
+              "S",
+              "M",
+              "L",
+              "XL",
+              "2XL",
+              "3XL"
+            ]
+          },
+          {
+            "slug": "hot-girls-go-to-michigan",
+            "name": "Hot Girls Go to Michigan",
+            "source_url": "https://silenttouch.store/hot-girls-go-to-michigan?color=GILDAN-WHITE&productId=6acc0ff327b43a43d9c99dfa",
+            "image": "https://buyer-experience-gateway.mayzing.com/stores/qMlK/mockups/id:mik5830uwm27,sig:OqAx2-bkfSV8kGEH2I8lH_a7RCb-ck0hZYKS3tZF2M8,c:GILDAN-WHITE,s:36d60810-0bbf-427d-afad-b4d7929008f8,d:6acc0ff3f1a4c5c598b84e39,dv:2,cpd:pdk5830uwm0,w:500/image.png",
+            "garment": "Women's Fitted Tee",
+            "price_usd": "21.99",
+            "colour": "White",
+            "colour_code": "GILDAN-WHITE",
+            "product_id": "6acc0ff327b43a43d9c99dfa",
+            "sizes": [
+              "S",
+              "M",
+              "L",
+              "XL",
+              "2XL",
+              "3XL"
+            ]
+          },
+          {
+            "slug": "michigan-heart",
+            "name": "Michigan Heart",
+            "source_url": "https://silenttouch.store/michigan-heart?color=GILDAN-NAVY&productId=6acc0e0c7a1d5d2ad1585993",
+            "image": "https://buyer-experience-gateway.mayzing.com/stores/qMlK/mockups/id:mik5830uwmd,sig:TgYpbUuLwAiOmuf8ydvLKpsTGWAylcwj2sqCf1w9rtQ,c:GILDAN-NAVY,s:36d60810-0bbf-427d-afad-b4d7929008f8,d:6acc0e0c1b73fe31c827a84b,dv:2,cpd:pdk5830uwm0,w:500/image.png",
+            "garment": "Women's Fitted Tee",
+            "price_usd": "21.99",
+            "colour": "Navy",
+            "colour_code": "GILDAN-NAVY",
+            "product_id": "6acc0e0c7a1d5d2ad1585993",
+            "sizes": [
+              "S",
+              "M",
+              "L",
+              "XL",
+              "2XL",
+              "3XL"
+            ]
+          },
+          {
+            "slug": "navy-maize-m",
+            "name": "Navy Maize M",
+            "source_url": "https://silenttouch.store/navy-maize-m?color=GILDAN-NAVY&productId=6acc0a227a1d5d2ad15834ca",
+            "image": "https://buyer-experience-gateway.mayzing.com/stores/qMlK/mockups/id:mik5830uwmd,sig:fNyKZl4DUbzBhaEuZhVOsk7H4Jk94Lms66IPdfilZ9E,c:GILDAN-NAVY,s:36d60810-0bbf-427d-afad-b4d7929008f8,d:6acc0a22fd823bfd5d01bbfa,dv:2,cpd:pdk5830uwm0,w:500/image.png",
+            "garment": "Women's Fitted Tee",
+            "price_usd": "21.99",
+            "colour": "Navy",
+            "colour_code": "GILDAN-NAVY",
+            "product_id": "6acc0a227a1d5d2ad15834ca",
+            "sizes": [
+              "S",
+              "M",
+              "L",
+              "XL",
+              "2XL",
+              "3XL"
+            ]
+          },
+          {
+            "slug": "university-of-michigan-maize-and-blue-tower",
+            "name": "University of Michigan Maize & Blue Tower",
+            "source_url": "https://silenttouch.store/university-of-michigan-maize-and-blue-tower?color=GILDAN-WHITE&productId=6acc022a7a1d5d2ad15729b6",
+            "image": "https://buyer-experience-gateway.mayzing.com/stores/qMlK/mockups/id:mik5830uwm27,sig:9HuxweSXxvZ5hAKFzi2XjDGrWM1yNatHUW2YdKT73DA,c:GILDAN-WHITE,s:36d60810-0bbf-427d-afad-b4d7929008f8,d:6acc022a05083748200e069e,dv:2,cpd:pdk5830uwm0,w:500/image.png",
+            "garment": "Women's Fitted Tee",
+            "price_usd": "26.99",
+            "colour": "White",
+            "colour_code": "GILDAN-WHITE",
+            "product_id": "6acc022a7a1d5d2ad15729b6",
+            "sizes": [
+              "S",
+              "M",
+              "L",
+              "XL",
+              "2XL",
+              "3XL"
+            ]
+          },
+          {
+            "slug": "michigan-vs-all",
+            "name": "Michigan VS All",
+            "source_url": "https://silenttouch.store/michigan-vs-all?color=GILDAN-NAVY&productId=6acbfc277a1d5d2ad1565bc6",
+            "image": "https://buyer-experience-gateway.mayzing.com/stores/qMlK/mockups/id:mik5830uwmd,sig:jiVjI8c93HY_OXC_Ob1Uq_ieRNKY7AXALPxO_B8AZOk,c:GILDAN-NAVY,s:36d60810-0bbf-427d-afad-b4d7929008f8,d:6acbfc27f91d6d1caa3e320b,dv:3,cpd:pdk5830uwm0,w:500/image.png",
+            "garment": "Women's Fitted Tee",
+            "price_usd": "21.99",
+            "colour": "Navy",
+            "colour_code": "GILDAN-NAVY",
+            "product_id": "6acbfc277a1d5d2ad1565bc6",
+            "sizes": [
+              "S",
+              "M",
+              "L",
+              "XL",
+              "2XL",
+              "3XL"
+            ]
+          },
+          {
+            "slug": "bold-maize-m-streetwear",
+            "name": "Bold Maize M Streetwear",
+            "source_url": "https://silenttouch.store/bold-maize-m-streetwear?color=GILDAN-NAVY&productId=6acbfba2121b24c7bf0bacc8",
+            "image": "https://buyer-experience-gateway.mayzing.com/stores/qMlK/mockups/id:mik5830uwmd,sig:xgtKm6OlAdpixkUMH1BxKit3LZHCQu2I5B5R2sGNp80,c:GILDAN-NAVY,s:36d60810-0bbf-427d-afad-b4d7929008f8,d:6acbf9f08e889ff0ddd77a73,dv:3,cpd:pdk5830uwm0,w:500/image.png",
+            "garment": "Women's Fitted Tee",
+            "price_usd": "21.99",
+            "colour": "Navy",
+            "colour_code": "GILDAN-NAVY",
+            "product_id": "6acbfba2121b24c7bf0bacc8",
+            "sizes": [
+              "S",
+              "M",
+              "L",
+              "XL",
+              "2XL",
+              "3XL"
+            ]
+          }
+        ]
       }
     }
   }
