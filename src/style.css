@@ -1555,6 +1555,10 @@ main.jlock-girly{padding:0 0 32px;overflow:hidden}
 .jlock-girly .gproduct.is-muted{background:#fbfaf7}
 .jlock-girly .gproduct.is-muted .gproduct-art::after{position:absolute;inset:0;content:"";
   background:rgba(255,255,255,.42);pointer-events:none}
+/* Caps & Hats is a real product list rather than a comparison. The native
+   hidden attribute removes designs without a cap; this explicit rule prevents
+   a future .gproduct display declaration from overriding the browser default. */
+.jlock-girly .gproduct[hidden]{display:none}
 /* the swapped card's View design chip goes navy, so its text must go white
    to stay readable (it was ink-on-ink and invisible) */
 .jlock-girly .gproduct.is-swapped .gproduct-art-cta{background:#1c3555;color:#fff}
@@ -1571,13 +1575,14 @@ main.jlock-girly{padding:0 0 32px;overflow:hidden}
 .jlock-girly .gcustom{padding:24px 0 42px}
 /* The custom tee photo beside the form - the same visual weight the main
    site's custom-design section gives its offer ("tell us about your idea"
-   reads as a real offer, not a bare form). */
+   reads as a real offer, not a bare form). The source is a tall 2:3 portrait;
+   let its intrinsic ratio set the box instead of cropping its lower half to a
+   made-up max-height. */
 .jlock-girly .gcustom-grid{display:grid;grid-template-columns:minmax(0,.82fr) minmax(0,1.18fr);
   gap:26px;align-items:center;max-width:1020px;margin:0 auto}
 .jlock-girly .gcustom-img{border-radius:16px;overflow:hidden;border:1px solid var(--g-line);
   background:#fff;box-shadow:0 10px 26px rgba(24,45,77,.09)}
-.jlock-girly .gcustom-img img{display:block;width:100%;height:100%;max-height:560px;
-  object-fit:cover;object-position:center top}
+.jlock-girly .gcustom-img img{display:block;width:100%;height:auto;object-fit:contain}
 .jlock-girly .gcustom-formwrap{margin:0}
 .jlock-girly .gcustom-form{display:flex;flex-direction:column;gap:12px;margin:0;padding:28px;
   border:1px solid var(--g-line);border-radius:16px;background:#fff;box-shadow:0 8px 24px rgba(24,45,77,.07)}
@@ -1621,7 +1626,6 @@ main.jlock-girly{padding:0 0 32px;overflow:hidden}
   .jlock-girly .gstyle-row{gap:7px;margin-top:11px}
   .jlock-girly .gstyle-chip{padding:8px 12px;font-size:.68rem}
   .jlock-girly .gcustom-grid{grid-template-columns:minmax(0,1fr);gap:18px}
-  .jlock-girly .gcustom-img img{max-height:330px}
   body[data-creator-page="BELLA"] .bellanav-links{gap:25px}
 }
 @media(max-width:430px){
@@ -1643,6 +1647,5 @@ main.jlock-girly{padding:0 0 32px;overflow:hidden}
   .jlock-girly .gproduct-body{padding:15px}
   .jlock-girly .gform-row{grid-template-columns:minmax(0,1fr)}
   .jlock-girly .gcustom-form{padding:20px}
-  .jlock-girly .gcustom-img img{max-height:250px}
   body[data-creator-page="BELLA"] .bellanav-links{gap:22px}
 }
