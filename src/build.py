@@ -1672,6 +1672,18 @@ def trust(heading=False):
 </div>"""
 
 
+#: The sitewide behaviour script (search, filters, favourite toasts, consent
+#: banner, analytics, Bella's apparel-style buttons) plus the document close.
+#: It normally rides at the end of the footer - but a girly creator page drops
+#: the sitewide footer entirely, and with it every script the shell emits: the
+#: page shipped no JavaScript at all, so its style buttons, custom form and
+#: consent banner were inert, and the document never even closed. The girly
+#: branch in page_creator() therefore appends this same constant, so app.js
+#: loads exactly once on every page and </body></html> is always written.
+APP_JS_TAG = ('\n<script src="/assets/app.js" defer></script>\n'
+              '</body></html>')
+
+
 def footer(popup=True, collection=None):
     """Sitewide footer: Shop / Help / Brand / Compliance, then the fan-made
     disclaimer. The columns mirror the header's shopping destinations so the
@@ -1746,9 +1758,7 @@ def footer(popup=True, collection=None):
  </div>
 </footer>{cspop}
 <button class="totop" id="totop" aria-label="Back to top">&uarr;</button>
-<div class="toast" id="favMsg" aria-live="polite" hidden></div>
-<script src="/assets/app.js" defer></script>
-</body></html>"""
+<div class="toast" id="favMsg" aria-live="polite" hidden></div>{APP_JS_TAG}"""
 
 
 def crumbs(pairs, current=None):
@@ -3246,8 +3256,9 @@ def page_creator(ckey="joe"):
     # cream-scrapbook mockup, let her page drop the menu bar, load the two
     # Google Fonts the skin sets in <head> (Playfair Display + Caveat), hang
     # her own masthead in the logo row, and drop the sitewide footer - the
-    # page ends on her own .gsign sign-off. Joe's record has none of these
-    # flags, so his page - head, header and footer alike - renders
+    # page ends on her own .gsign sign-off, then APP_JS_TAG so the behaviour
+    # script still loads and the document still closes. Joe's record has none
+    # of these flags, so his page - head, header and footer alike - renders
     # byte-identically.
     girly = cre.get("theme") == "girly"
     if girly:
@@ -3261,7 +3272,7 @@ def page_creator(ckey="joe"):
                extra_head=GIRLY_FONTS if girly else "")
           + header(ckey_col, hide_nav=hide_nav, hide_promo=girly, logo=GIRLY_LOGO if girly else "")
           + (GIRLY_NAV if girly else "")
-          + body + ("" if girly else footer(collection=ckey_col)))
+          + body + (APP_JS_TAG if girly else footer(collection=ckey_col)))
 
 
 def shop_now_cta(it, placement, label="Shop Now", size="lg", block=True):
