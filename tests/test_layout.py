@@ -2124,6 +2124,21 @@ class BellaLocker(unittest.TestCase):
             self.assertIn(escape_html(product["image"]), card)
             self.assertIn("Explore available styles", card)
             self.assertNotIn("$", card)  # price/currency is confirmed on the supplier page
+
+    def test_page_loads_app_js_exactly_once(self):
+        """The girly page drops the sitewide footer - and with it the only
+        place the page shell emitted a script - so /michigan/bella/ shipped
+        no JavaScript at all and every button on it was inert. The page now
+        closes with the same load the footer gives every other page: app.js
+        exactly once, deferred, and the document properly closed."""
+        loads = re.findall(r'<script src="[^"]*assets/app\.js"[^>]*></script>',
+                           self.html)
+        self.assertEqual(len(loads), 1)
+        self.assertIn("defer", loads[0])
+        self.assertTrue(self.html.endswith("</body></html>"))
+        # the shell page (footer included) still loads it exactly once too
+        self.assertEqual(
+            len(re.findall(r'src="[^"]*assets/app\.js"', self.joe)), 1)
     def test_storewide_apparel_options_are_named_without_promising_per_design_stock(self):
         """The category copy names the styles her store showed, dates the
         check, and sends every visitor to the design's own product page."""
@@ -2143,7 +2158,9 @@ class BellaLocker(unittest.TestCase):
                       "product page", text)
         self.assertIn("Confirm this design’s styles, colours, sizes and current price", text)
         self.assertIn("on Silent Touch", text)
-        self.assertIn("not listed yet", text)
+        # every category now lists real garments for at least one design, so
+        # the empty-category flag ("not listed yet") no longer renders
+        self.assertNotIn("not listed yet", text)
         # no price reaches the page - the current price lives on the listing
         apparel = self.html[self.html.index('id="apparel"'):self.html.index('id="locker"')]
         locker = self.html[self.html.index('id="locker"'):self.html.index('id="about"')]
@@ -2173,11 +2190,12 @@ class BellaLocker(unittest.TestCase):
             self.assertIn("<svg", button)
             wanted = escape_html(styles[slug][0]) if styles[slug] else ""
             self.assertIn(f'data-gstyle="{wanted}"', button)
-        # caps and hats: nothing was listed, so the tile says so rather than
-        # offering a swap that would have to invent one
-        self.assertEqual(styles["caps-hats"], [])
-        self.assertIn('data-gstyle=""', buttons[-1])
-        self.assertIn('<span class="gcategory-flag">not listed yet</span>', buttons[-1])
+        # caps and hats: the store's hats filter lists a Heavy Cotton Cap for
+        # four of the seven designs, so the tile offers that swap - no
+        # empty-category flag anywhere on the page
+        self.assertEqual(styles["caps-hats"], ["Heavy Cotton Cap"])
+        self.assertIn('data-gstyle="Heavy Cotton Cap"', buttons[-1])
+        self.assertNotIn("gcategory-flag", self.html)
 
         # The second row of buttons covers the five t-shirt listings, each
         # carrying the style it shows and the number of designs that listed it.
@@ -2255,16 +2273,18 @@ class BellaLocker(unittest.TestCase):
     def test_swapped_garments_match_what_bellas_store_publishes(self):
         """The matrix a click shows is the matrix her live store showed.
 
-        Every garment in data/creators.json was read from that design's own
-        Silent Touch product page on 2026-10-12 (reached with ?productId=, the
-        page's own "Product" field), so the page payload must carry exactly
-        those listings - and the coverage must stay the store's: no invented
-        garment, no invented design.
+        Every garment in data/creators.json was captured from the store's own
+        category filter pages on 2026-10-12 (?category=hoodie / sweatshirt /
+        long_sleeve / tank_top / hats, which list one product per design; each
+        listing's own "Product" field names the garment), so the page payload
+        must carry exactly those listings - and the coverage must stay the
+        store's: no invented garment, no invented design.
         """
         from urllib.parse import parse_qs, urlsplit
 
-        # coverage as captured: 7/7/6/4/3 tee listings, 4 hoodies, 5
-        # sweatshirts, 3 tank tops, 1 long sleeve, no caps or hats anywhere.
+        # coverage as captured from the filters: 7/7/6/4/3 tee listings, a
+        # hoodie, sweatshirt, long sleeve and tank top for every one of the
+        # seven designs, and a Heavy Cotton Cap for four of them.
         counts = {}
         artworks = {}
         for product in self.catalog["products"]:
@@ -2281,13 +2301,22 @@ class BellaLocker(unittest.TestCase):
         self.assertEqual(counts, {
             "Women's Fitted Tee": 7, "Men's T-shirt": 7, "Premium T-Shirt": 6,
             "Ladies Slim T-Shirt": 4, "Women's V-neck Tee": 3,
-            "Essential Hoodie": 4, "Unisex Sweatshirt": 5,
-            "Unisex Tank Top": 3, "Long Sleeve T-Shirt": 1})
-        self.assertEqual(self.catalog["apparel_styles"]["caps-hats"], [])
-        # the one long sleeve is Hot Girls Go to Michigan, as captured
-        long_sleeves = [product["slug"] for product in self.catalog["products"]
-                        if product["apparel"].get("long-sleeves")]
-        self.assertEqual(long_sleeves, ["hot-girls-go-to-michigan"])
+            "Essential Hoodie": 7, "Unisex Sweatshirt": 7,
+            "Unisex Tank Top": 7, "Long Sleeve T-Shirt": 7,
+            "Heavy Cotton Cap": 4})
+        self.assertEqual(self.catalog["apparel_styles"]["caps-hats"],
+                         ["Heavy Cotton Cap"])
+        # the long-sleeve and tank filters listed one product for every
+        # design; the caps listing is the four Heavy Cotton Caps the store's
+        # hats filter showed, as captured
+        for cat, wanted in (("long-sleeves", self.cre["picks"]),
+                            ("tank-tops", self.cre["picks"]),
+                            ("caps-hats", ["michigan-heart", "navy-maize-m",
+                                           "michigan-vs-all",
+                                           "bold-maize-m-streetwear"])):
+            slugs = [product["slug"] for product in self.catalog["products"]
+                     if product["apparel"].get(cat)]
+            self.assertEqual(slugs, wanted, cat)
         # the s: artwork id is not a garment label: one uuid is shared by a
         # ladies slim tee, a tank top and a long sleeve, which is why every
         # label above had to be page-verified instead of decoded from the URL
