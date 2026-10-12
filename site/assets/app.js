@@ -758,3 +758,58 @@ document.querySelectorAll('a.custom-link').forEach(function(a){
     if(e.key==='Escape'&&!modal.hidden)close();
   });
 })();
+
+// ---------- creator apparel-style buttons (.gcategory-tile) ----------
+// The six store-wide category buttons over a creator collection are a CANDIDATE
+// filter, never a stock list. The fulfilling partner publishes each design's
+// real styles, colours, sizes and prices on that design's own product page, so
+// every card is emitted as a candidate for every category; a click scrolls the
+// collection into view, labels each design as that style's candidate and
+// repeats where the exact options are confirmed. Clicking the active button
+// again clears the selection. The status line is a live region, so the change
+// is announced; with no JS the buttons stay inert and the standing note under
+// them still says availability varies by design.
+(function(){
+  var row=document.querySelector('.gcategory-tiles'); if(!row)return;
+  var tiles=[].slice.call(row.querySelectorAll('.gcategory-tile[data-gcat]'));
+  if(!tiles.length)return;
+  var grid=document.querySelector('.ggrid'); if(!grid)return;
+  var cards=[].slice.call(grid.children);
+  var status=document.getElementById('gcatStatus'), active=null;
+  function label(t){var s=t.querySelector('span');return s?s.textContent.trim():'';}
+  function setStatus(tpl){
+    if(!status||!tpl)return;
+    status.textContent=tpl
+      .replace('{n}',String(cards.filter(function(c){return !c.hidden;}).length))
+      .replace('{style}',active?label(active):'');
+  }
+  function apply(sel){
+    active=sel;
+    tiles.forEach(function(t){
+      t.setAttribute('aria-pressed',t===sel?'true':'false');
+    });
+    cards.forEach(function(c){
+      var cats=(c.getAttribute('data-gcat')||'').split(/\s+/);
+      var ok=!sel||cats.indexOf(sel.getAttribute('data-gcat'))>-1;
+      c.hidden=!ok;
+      var tag=c.querySelector('.gproduct-gtag');
+      if(!tag)return;
+      tag.textContent=ok&&sel?label(sel)+' candidate':'';
+      tag.hidden=!(ok&&sel);
+    });
+    if(sel){
+      setStatus(status?status.getAttribute('data-status-one'):'');
+      try{
+        var calm=window.matchMedia&&window.matchMedia('(prefers-reduced-motion: reduce)').matches;
+        grid.scrollIntoView({behavior:calm?'auto':'smooth',block:'start'});
+      }catch(e){}
+    }else{
+      setStatus(status?status.getAttribute('data-status-all'):'');
+    }
+  }
+  tiles.forEach(function(t){
+    t.addEventListener('click',function(){
+      apply(t===active?null:t);
+    });
+  });
+})();

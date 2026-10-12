@@ -14,7 +14,7 @@ import sys
 import html as _html
 import xml.etree.ElementTree as ET
 from collections import Counter, defaultdict
-from urllib.parse import urljoin, urlparse
+from urllib.parse import unquote, urljoin, urlparse
 
 ROOT = os.path.dirname(os.path.abspath(__file__))
 SITE = os.path.join(ROOT, "site")
@@ -324,15 +324,18 @@ def resolves(target, base="/"):
 
     The build emits relative hrefs (``./collections/``) so the tree also works
     off GitHub Pages subpaths and from disk; those are resolved against the
-    linking page exactly as a browser would.
+    linking page exactly as a browser would - including percent-decoding the
+    path, because a URL is encoded and a filename on disk is not (Bella's
+    campus hero banner is a .png whose name contains spaces, so the build emits
+    it as ``Smiling%20Michigan%20Campus%20Portrait.png``).
     """
     t = target.split("#")[0].split("?")[0]
     if not t:
         return True
     if t.startswith("/"):
-        cand = t
+        cand = unquote(t)
     else:
-        cand = urlparse(urljoin(base, t)).path
+        cand = unquote(urlparse(urljoin(base, t)).path)
     if cand in KNOWN or cand.rstrip("/") + "/index.html" in EXISTING_FILES:
         return True
     return cand in EXISTING_FILES
