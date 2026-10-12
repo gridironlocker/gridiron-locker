@@ -2713,13 +2713,21 @@ GIRLY_FONTS = (
 #: girly skin declares on <main> never reach it: the palette is repeated as
 #: literals in the .glogo rules of src/style.css, which are pinned to
 #: body[data-creator-page="BELLA"] so no other page is affected.
-GIRLY_LOGO = (
-    '<a class="logo glogo" href="/" aria-label="Bella’s Collection home">'
-    '<span class="glogo-lockup"><span class="glogo-top">'
-    '<span class="glogo-script">bella’s</span>'
-    '<span class="glogo-heart" aria-hidden="true">♡</span></span>'
-    '<span class="glogo-serif">COLLECTION</span></span></a>'
-)
+#:
+#: ``href`` is the creator's own canonical path, NOT "/". The lockup reads
+#: "bella's COLLECTION", so tapping it has to keep the visitor inside the
+#: collection they are already browsing - page_creator passes its own
+#: ``path``. As a "/" link it sent her followers out of her locker and onto
+#: the Gridiron Locker homepage, mid-browse, which is the one exit the page
+#: is built to avoid.
+def girly_logo(href):
+    return (
+        f'<a class="logo glogo" href="{href}" aria-label="Bella’s Collection home">'
+        '<span class="glogo-lockup"><span class="glogo-top">'
+        '<span class="glogo-script">bella’s</span>'
+        '<span class="glogo-heart" aria-hidden="true">♡</span></span>'
+        '<span class="glogo-serif">COLLECTION</span></span></a>'
+    )
 
 GIRLY_NAV = (
     '<nav class="bellanav" aria-label="Bella’s Collection">'
@@ -3269,7 +3277,8 @@ def page_creator(ckey="joe"):
           head(f"{cre['page_name']} | {BRAND}", cre_page_desc, path, cre["hero"],
                schema, kw, col=ckey_col, body_attrs=f' data-creator-page="{track}"',
                extra_head=GIRLY_FONTS if girly else "")
-          + header(ckey_col, hide_nav=hide_nav, hide_promo=girly, logo=GIRLY_LOGO if girly else "")
+          + header(ckey_col, hide_nav=hide_nav, hide_promo=girly,
+                   logo=girly_logo(path) if girly else "")
           + (GIRLY_NAV if girly else "")
           + body + (APP_JS_TAG if girly else footer(collection=ckey_col)))
 
