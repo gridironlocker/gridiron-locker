@@ -1545,15 +1545,10 @@ main.jlock-girly{padding:0 0 32px;overflow:hidden}
 .jlock-girly .gproduct-meta{display:flex;align-items:center;justify-content:space-between;gap:8px;
   margin:10px 0 0;padding-bottom:10px;border-bottom:1px solid #ecebe7;color:#696d70;font-size:.68rem;line-height:1.3}
 .jlock-girly .gproduct-meta b{flex:none;color:var(--g-ink);font-size:.8rem}
-/* The style tag app.js writes onto each card once a category button is
-   pressed: it names the style the shopper is browsing, never a guarantee
-   that the design is sold in it. It wears the page's button colour so it
-   reads as part of the same control family. The [hidden] rule must win over
-   the display above, so it is an attribute selector on the same class. */
-.jlock-girly .gproduct-gtag{align-self:flex-start;margin:10px 0 0;padding:4px 9px;border-radius:999px;
-  background:#e99aaa;color:#fff;box-shadow:0 2px 0 #d78597;font-size:.6rem;font-weight:800;letter-spacing:.08em;
-  line-height:1.35;text-transform:uppercase}
-.jlock-girly .gproduct-gtag[hidden]{display:none}
+/* The pink "Showing <style>" card badge that used to sit here was removed on
+   request: the pressed category tile / style chip is what tells the shopper
+   which garment is on screen, and the swapped mockup shows it. No markup and
+   no rule for it ships any more. */
 /* a design that did not list the chosen style keeps its own mockup, muted -
    the card never disappears and its link is never rewritten */
 .jlock-girly .gproduct.is-muted .gproduct-art img{filter:grayscale(1);opacity:.42}

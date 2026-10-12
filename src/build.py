@@ -2817,10 +2817,10 @@ def _girly_body(cre, c, items, track):
         for label in categories
         for style in styles_by_cat.get(cat_slug[label], [])
         if len(styles_by_cat.get(cat_slug[label], [])) > 1)
-    # The page deliberately carries no standing caveat paragraph and no live
-    # status line: the tiles, the on-card "Showing {style}" tag and each
-    # design's own product page say everything the shopper needs.
-    garment_showing = str(g.get("garment_showing", "Showing {style}"))
+    # The page deliberately carries no standing caveat paragraph, no live
+    # status line and no per-card "Showing {style}" badge: the pressed tile,
+    # the swapped mockup and each design's own product page say everything the
+    # shopper needs (the pink card badge was removed on request).
     garment_row_heading = str(g.get("garment_row_heading", "Apparel styles"))
     style_row = ""
     if style_chips:
@@ -2854,7 +2854,6 @@ def _girly_body(cre, c, items, track):
             f'<p class="gproduct-kicker">BELLA’S PICK {idx + 1:02d}</p>'
             f'<h3>{name}</h3>'
             f'<div class="gproduct-meta"><span>Apparel &amp; colour options</span><b>See listing</b></div>'
-            f'<p class="gproduct-gtag" hidden></p>'
             f'<a class="gproduct-link" href="{href}" target="_blank" rel="noopener noreferrer">'
             f'Explore available styles <span aria-hidden="true">&rarr;</span></a>'
             f'</div></article>'
@@ -2983,7 +2982,7 @@ def _girly_body(cre, c, items, track):
   <h2>{esc(g.get('collection_heading', 'Bella’s Michigan Designs'))}</h2>
   <p>{esc(g.get('collection_desc', ''))}</p>
  </div>
- <div class="ggrid" id="{grid_id}" data-apparel="{apparel_attr}" data-showing="{esc(garment_showing)}">{"".join(cards)}</div>
+ <div class="ggrid" id="{grid_id}" data-apparel="{apparel_attr}">{"".join(cards)}</div>
  <p class="gstore-note">Each design opens on <a href="{store_url}" target="_blank" rel="noopener noreferrer">{store_name}</a>. Available apparel, colours, sizes and current prices are confirmed on its product page.</p>
 </div></section>
 
@@ -5996,16 +5995,15 @@ document.querySelectorAll('a.custom-link').forEach(function(a){
 // each with that listing's own signed mockup and product page. One click
 // therefore lands on all seven designs and never invents stock:
 //   * a design that listed the chosen style swaps its mockup and both links
-//     to that listing (attribution parameters included) and its card is
-//     tagged with the grid's data-showing template ("Showing <style>");
+//     to that listing (attribution parameters included);
 //   * a design that did not keeps its own mockup, muted, still linking to
 //     its own product page so the visitor can check the styles that design
 //     offers today;
 //   * the five t-shirt listings get a second row of buttons, hidden until
 //     one of their styles is chosen.
 // There is deliberately no live status line and no per-card badge: the swap
-// itself, the on-card tag and each design's own product page say everything
-// the shopper needs. Clicking the active style again clears the selection
+// itself, the pressed button and each design's own product page say
+// everything the shopper needs. Clicking the active style again clears the selection
 // and every card returns to its own mockup. Everything is scoped to this
 // page: without the tiles, or without the grid payload, the block does
 // nothing at all.
@@ -6020,10 +6018,6 @@ document.querySelectorAll('a.custom-link').forEach(function(a){
   var chips=[].slice.call(document.querySelectorAll('.gstyle-chip[data-gstyle]'));
   var chipRow=document.getElementById('gstyleRow');
   function name(el){var s=el.querySelector('.gstyle-name')||el.querySelector('span');return s?s.textContent.trim():'';}
-  function showLabel(style){
-    var tpl=grid.getAttribute('data-showing');
-    return tpl?tpl.replace('{style}',style):'';
-  }
   cards.forEach(function(card){
     var styles={}, groups=matrix[card.getAttribute('data-slug')]||{};
     Object.keys(groups).forEach(function(cat){
@@ -6036,7 +6030,6 @@ document.querySelectorAll('a.custom-link').forEach(function(a){
     card._img=img;
     card._link=card.querySelector('a.gproduct-art');
     card._name=(card.querySelector('h3')||{}).textContent||'';
-    card._tag=card.querySelector('.gproduct-gtag');
     card._src=img?img.getAttribute('src'):'';
     card._alt=img?img.getAttribute('alt'):'';
     card._href=card._link?card._link.getAttribute('href'):'';
@@ -6051,7 +6044,6 @@ document.querySelectorAll('a.custom-link').forEach(function(a){
     if(card._link&&card._href)card._link.href=card._href;
     card.classList.remove('is-swapped');
     card.classList.remove('is-muted');
-    if(card._tag){card._tag.textContent='';card._tag.hidden=true;}
   }
   function apply(){
     cards.forEach(function(card){
@@ -6064,7 +6056,6 @@ document.querySelectorAll('a.custom-link').forEach(function(a){
         if(card._link&&entry.url)card._link.href=entry.url;
         card.classList.add('is-swapped');
         card.classList.remove('is-muted');
-        if(card._tag){card._tag.textContent=showLabel(garment);card._tag.hidden=false;}
         return;
       }
       restore(card);
