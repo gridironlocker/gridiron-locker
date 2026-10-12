@@ -2387,6 +2387,24 @@ class BellaLocker(unittest.TestCase):
         for anchor in re.findall(r'href="#([^"]+)"', self.html):
             self.assertIn(anchor, ids, f"missing anchor target #{anchor}")
 
+    def test_banner_store_link_is_hidden_when_the_creator_asks(self):
+        """Bella's banner offers one action, not two: ``hide_banner_store_link``
+        drops the "Visit Silent Touch" link that restated the storefront the
+        cards already open, and leaves the "Shop now" anchor CTA beside it.
+        The store notes further down the page are deliberately untouched - a
+        shopper still needs to know where checkout happens."""
+        self.assertTrue(self.girly["hide_banner_store_link"])
+        actions = re.search(r'<div class="gbanner-actions">(.*?)</div>', self.html, re.S)
+        self.assertIsNotNone(actions)
+        self.assertIn('class="gbtn gbtn-maize" href="#locker"', actions.group(0))
+        self.assertNotIn("gbanner-link", actions.group(0))
+        self.assertNotIn("Visit Silent Touch", actions.group(0))
+        # nowhere else on the page revived the class either
+        self.assertNotIn("gbanner-link", self.html)
+        # the note under the grid still names the store the cards open on
+        self.assertIn("Each design opens on", self.html)
+        self.assertIn("silenttouch.store", self.html)
+
     def test_requested_canvas_banner_and_category_styles_are_bella_scoped(self):
         self.assertIn('body[data-creator-page="BELLA"]{background:#efefed', self.css)
         for selector in (".jlock-girly .gbanner-photo{", ".jlock-girly .gcategory-tiles{",

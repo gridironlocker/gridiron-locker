@@ -2951,6 +2951,17 @@ def _girly_body(cre, c, items, track):
 
     hero_image = esc(url_safe(g.get("hero_image", cre.get("hero", ""))))
     hero_alt = esc(g.get("hero_alt", cre.get("hero_alt", "")))
+    # The banner's store link is optional. It points at the same storefront the
+    # design cards and the note under the grid already open, so a creator can
+    # hide it with ``hide_banner_store_link`` and keep the anchor CTA beside it;
+    # the store notes elsewhere on the page are deliberately unaffected.
+    if g.get("hide_banner_store_link", False):
+        banner_store_link = ""
+    else:
+        banner_store_link = (
+            f'\n    <a class="gbanner-link" href="{store_url}" target="_blank"'
+            f' rel="noopener noreferrer">Visit {store_name}'
+            ' <span aria-hidden="true">↗</span></a>')
     return f"""
 <main id="main" class="jlock jlock-girly">
 <section class="gbanner"><div class="wrap">
@@ -2963,8 +2974,7 @@ def _girly_body(cre, c, items, track):
    <p class="gbanner-sub">{esc(g.get('hero_sub', cre.get('sub', '')))}</p>
    <p class="gbanner-facts">{esc(facts)}</p>
    <div class="gbanner-actions">
-    <a class="gbtn gbtn-maize" href="#locker">{esc(g.get('hero_cta', 'Shop the collection'))}</a>
-    <a class="gbanner-link" href="{store_url}" target="_blank" rel="noopener noreferrer">Visit {store_name} <span aria-hidden="true">↗</span></a>
+    <a class="gbtn gbtn-maize" href="#locker">{esc(g.get('hero_cta', 'Shop the collection'))}</a>{banner_store_link}
    </div>
   </div>
  </div>
