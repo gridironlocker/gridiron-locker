@@ -2140,26 +2140,32 @@ class BellaLocker(unittest.TestCase):
         self.assertEqual(
             len(re.findall(r'src="[^"]*assets/app\.js"', self.joe)), 1)
     def test_storewide_apparel_options_are_named_without_promising_per_design_stock(self):
-        """The category copy names the styles her store showed, dates the
-        check, and sends every visitor to the design's own product page."""
+        """The category tiles name the styles her store showed and the page
+        stays light on words: no standing caveat paragraph, no live status
+        essay, no per-card disclaimer - the swap, the on-card tag and each
+        design's own product page carry the details."""
         text = unescape(self.html)
         for category in self.catalog["categories"]:
             self.assertIn(f"<span>{category}</span>", text)
-        for kind in ("T-shirts", "hoodies", "sweatshirts", "long sleeves",
-                     "tank tops", "caps and hats"):
-            self.assertIn(kind.lower(), text.lower())
+        for kind in ("T-shirts", "Hoodies", "Sweatshirts", "Long Sleeves",
+                     "Tank Tops", "Caps & Hats"):
+            self.assertIn(kind, text)
+        # the chips' screen-reader counts still date the check
         self.assertIn(self.catalog["apparel_captured"], text)
-        self.assertIn("when it was checked on 2026-10-12", text)
-        self.assertIn("Availability varies by design", text)
-        self.assertIn("each design's product page is where the exact styles, "
-                      "colours, sizes and prices are confirmed", text)
-        self.assertIn("availability varies by design", text.lower())
-        self.assertIn("confirm the exact styles, colours, sizes and prices on each "
-                      "product page", text)
-        self.assertIn("Confirm this design’s styles, colours, sizes and current price", text)
-        self.assertIn("on Silent Touch", text)
-        # every category now lists real garments for at least one design, so
-        # the empty-category flag ("not listed yet") no longer renders
+        self.assertIn("listed by 7 of 7 designs in the 2026-10-12 check", text)
+        # ...but the wordy standing note, the live status line, the muted-card
+        # badge and the per-card disclaimer are gone
+        self.assertNotIn("gcategory-note", self.html)
+        self.assertNotIn("gcatStatus", self.html)
+        self.assertNotIn("gcategory-status", self.html)
+        self.assertNotIn("when it was checked on", text)
+        self.assertNotIn("Tap the active style", text)
+        self.assertNotIn("Confirm on the product page", text)
+        self.assertNotIn("Confirm this design’s styles", text)
+        self.assertNotIn("gproduct-badge", self.html)
+        self.assertNotIn("gproduct-note", self.html)
+        # every category lists real garments for at least one design, so the
+        # empty-category flag ("not listed yet") does not render either
         self.assertNotIn("not listed yet", text)
         # no price reaches the page - the current price lives on the listing
         apparel = self.html[self.html.index('id="apparel"'):self.html.index('id="locker"')]
@@ -2170,8 +2176,8 @@ class BellaLocker(unittest.TestCase):
     def test_apparel_categories_are_buttons_that_swap_the_products(self):
         """The six store-wide categories are real buttons that change the
         displayed garment: one click reaches every design, a design that did
-        not list the style is muted and badged, and a category her store never
-        listed anything in says so instead of swapping."""
+        not list the style is muted, and a category her store never listed
+        anything in says so instead of swapping."""
         labels = self.catalog["categories"]
         styles = self.catalog["apparel_styles"]
         self.assertEqual(len(labels), 6)
@@ -2221,48 +2227,36 @@ class BellaLocker(unittest.TestCase):
         row = re.search(r'<div class="gstyle-row"([^>]*)>', self.html)
         self.assertIsNotNone(row)
         self.assertIn('role="group"', row.group(1))
-        self.assertIn('aria-describedby="gcatNote"', row.group(1))
         self.assertIn("hidden", row.group(1))   # revealed only for a tee style
 
-        # the tiles are grouped and described by the standing caveat...
+        # the tiles are grouped under their heading - no standing-caveat
+        # paragraph to describe them any more
         tiles = re.search(r'<div class="gcategory-tiles"([^>]*)>', self.html)
         self.assertIsNotNone(tiles)
         self.assertIn('role="group"', tiles.group(1))
         self.assertIn('aria-labelledby="gcatHeading"', tiles.group(1))
-        self.assertIn('aria-describedby="gcatNote"', tiles.group(1))
-        self.assertIn("Availability varies by design", unescape(self.html))
-        self.assertIn("Tap the active style again to show every design's own mockup",
-                      unescape(self.html))
+        self.assertNotIn("aria-describedby", tiles.group(1))
 
-        # ...and the live status line covers all three outcomes.
-        status = re.search(r'<p class="gcategory-status" id="gcatStatus"([^>]*)></p>',
-                           self.html, re.S)
-        self.assertIsNotNone(status)
-        for attr in ('role="status"', 'aria-live="polite"', 'data-status-all="',
-                     'data-status-one="', 'data-status-none="', 'data-showing="'):
-            self.assertIn(attr, status.group(0))
-        one = unescape(status.group(0))
-        self.assertIn("{n} of {total} designs listed {style}", one)
-        self.assertIn("availability varies by design", one.lower())
-        self.assertIn("{total} designs", unescape(status.group(0)))
-
-        # every card carries the badge slot the muted state uses, and the grid
-        # carries the captured matrix the swap reads.
-        self.assertEqual(self.html.count('class="gproduct-badge" hidden'), 7)
-        grid = re.search(r'<div class="ggrid" id="gcollectionGrid" data-apparel="([^"]*)">',
-                         self.html, re.S)
+        # the grid carries the captured matrix the swap reads plus the
+        # "Showing {style}" template the swap tags each card with
+        grid = re.search(r'<div class="ggrid" id="gcollectionGrid" data-apparel="([^"]*)" '
+                         r'data-showing="([^"]*)">', self.html, re.S)
         self.assertIsNotNone(grid)
+        self.assertEqual(unescape(grid.group(2)),
+                         self.girly["garment_showing"])
         payload = json.loads(unescape(grid.group(1)))
         self.assertEqual(list(payload), self.cre["picks"])
 
         # the behaviour itself, and the fact that it is page-scoped, live in app.js
         js = page("assets/app.js")
         for term in (".gcategory-tile[data-gcat]", ".gstyle-chip[data-gstyle]",
-                     "data-apparel", "data-status-one", "data-status-none",
-                     "data-showing", "gproduct-badge", "gproduct-gtag",
+                     "data-apparel", "data-showing", "gproduct-gtag",
                      "aria-pressed", "is-muted", "is-swapped", "scrollIntoView",
                      "prefers-reduced-motion"):
             self.assertIn(term, js, term)
+        self.assertIn("grid.getAttribute('data-showing')", js)
+        self.assertNotIn("gproduct-badge", js)
+        self.assertNotIn("gcatStatus", js)
         self.assertIn("var row=document.querySelector('.gcategory-tiles'); if(!row)return;", js)
         self.assertIn("var grid=document.querySelector('.ggrid[data-apparel]'); if(!grid)return;", js)
         # the swap never writes a price: the Bella block ships no price data
@@ -2325,8 +2319,8 @@ class BellaLocker(unittest.TestCase):
 
         # the page payload carries the captured matrix, the signed mockup and
         # the attributed listing URL - and nothing else
-        grid = re.search(r'<div class="ggrid" id="gcollectionGrid" data-apparel="([^"]*)">',
-                         self.html, re.S)
+        grid = re.search(r'<div class="ggrid" id="gcollectionGrid" data-apparel="([^"]*)" '
+                         r'data-showing="', self.html, re.S)
         self.assertIsNotNone(grid)
         self.assertNotIn("price_seen", grid.group(1))
         self.assertNotIn("$", grid.group(1))
@@ -2394,14 +2388,15 @@ class BellaLocker(unittest.TestCase):
                          ".jlock-girly .gcategory-tile{", ".jlock-girly .gabout-copy{",
                          '.jlock-girly .gcategory-tile:focus-visible{',
                          '.jlock-girly .gcategory-tile[aria-pressed="true"]{',
-                         ".jlock-girly .gcategory-status{", ".jlock-girly .gcategory-flag{",
+                         ".jlock-girly .gcategory-flag{",
                          ".jlock-girly .gstyle-row{", ".jlock-girly .gstyle-chip{",
                          '.jlock-girly .gstyle-chip:focus-visible{',
                          '.jlock-girly .gstyle-chip[aria-pressed="true"]{',
                          ".jlock-girly .gstyle-count{", ".jlock-girly .gstyle-sr{",
                          ".jlock-girly .gproduct.is-muted .gproduct-art img{",
-                         ".jlock-girly .gproduct-badge{",
-                         ".jlock-girly .gproduct-gtag[hidden]{display:none}"):
+                         ".jlock-girly .gproduct-gtag{",
+                         ".jlock-girly .gproduct-gtag[hidden]{display:none}",
+                         ".jlock-girly .gcustom-grid{", ".jlock-girly .gcustom-img{"):
             self.assertIn(selector, self.css)
         self.assertNotIn(".gbanner-art", self.css)
         self.assertIn("prefers-reduced-motion:reduce", self.css)
@@ -2420,6 +2415,13 @@ class BellaLocker(unittest.TestCase):
         self.assertIn('id="customForm"', self.html)
         self.assertIn('data-formsubmit="1"', self.html)
         self.assertIn('name="idea"', self.html)
+        # the custom offer carries the same custom-tee photo the main site's
+        # custom-design section shows, beside the form
+        self.assertIn('class="gcustom-img"', self.html)
+        self.assertIn("custom-tee1.jpg", self.html)
+        self.assertIn('alt="Custom t-shirt design - make your own fan apparel"', self.html)
+        self.assertLess(self.html.index('class="gcustom-img"'),
+                        self.html.index('id="custom-form"'))
 
     def test_page_is_indexable_and_schema_uses_supplier_listings(self):
         self.assertIn('<link rel="canonical" href="https://gridironlocker.store/michigan/bella/">',

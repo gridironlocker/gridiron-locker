@@ -762,21 +762,23 @@ document.querySelectorAll('a.custom-link').forEach(function(a){
 // ---------- creator apparel-style buttons (.gcategory-tile) ----------
 // Bella's category buttons are real garment swaps over the collection grid,
 // driven by the grid's data-apparel payload: per design, ONLY the garments her
-// live Silent Touch product pages actually listed when the store was captured
-// (2026-10-12), each with that listing's own signed mockup and product page.
-// One click therefore lands on all seven designs and never invents stock:
-//   * a design that listed the chosen style swaps its mockup and both links to
-//     that listing (attribution parameters included);
-//   * a design that did not keeps its own mockup, muted, badged "Confirm on
-//     the product page", still linking to its own product page so the visitor
-//     can check the styles that design offers today;
-//   * the five t-shirt listings get a second row of buttons, hidden until one
-//     of their styles is chosen;
-//   * a category with no listing at all (caps and hats) swaps nothing, mutes
-//     every card and says so in the live status.
-// Clicking the active style again clears the selection and every card returns
-// to its own mockup. Everything is scoped to this page: without the tiles, or
-// without the grid payload, the block does nothing at all.
+// live Silent Touch store actually listed when it was captured (2026-10-12),
+// each with that listing's own signed mockup and product page. One click
+// therefore lands on all seven designs and never invents stock:
+//   * a design that listed the chosen style swaps its mockup and both links
+//     to that listing (attribution parameters included) and its card is
+//     tagged with the grid's data-showing template ("Showing <style>");
+//   * a design that did not keeps its own mockup, muted, still linking to
+//     its own product page so the visitor can check the styles that design
+//     offers today;
+//   * the five t-shirt listings get a second row of buttons, hidden until
+//     one of their styles is chosen.
+// There is deliberately no live status line and no per-card badge: the swap
+// itself, the on-card tag and each design's own product page say everything
+// the shopper needs. Clicking the active style again clears the selection
+// and every card returns to its own mockup. Everything is scoped to this
+// page: without the tiles, or without the grid payload, the block does
+// nothing at all.
 (function(){
   var row=document.querySelector('.gcategory-tiles'); if(!row)return;
   var tiles=[].slice.call(row.querySelectorAll('.gcategory-tile[data-gcat]'));
@@ -787,10 +789,9 @@ document.querySelectorAll('a.custom-link').forEach(function(a){
   if(!cards.length)return;
   var chips=[].slice.call(document.querySelectorAll('.gstyle-chip[data-gstyle]'));
   var chipRow=document.getElementById('gstyleRow');
-  var status=document.getElementById('gcatStatus');
   function name(el){var s=el.querySelector('.gstyle-name')||el.querySelector('span');return s?s.textContent.trim():'';}
   function showLabel(style){
-    var tpl=status?status.getAttribute('data-showing'):'';
+    var tpl=grid.getAttribute('data-showing');
     return tpl?tpl.replace('{style}',style):'';
   }
   cards.forEach(function(card){
@@ -806,26 +807,12 @@ document.querySelectorAll('a.custom-link').forEach(function(a){
     card._link=card.querySelector('a.gproduct-art');
     card._name=(card.querySelector('h3')||{}).textContent||'';
     card._tag=card.querySelector('.gproduct-gtag');
-    card._badge=card.querySelector('.gproduct-badge');
     card._src=img?img.getAttribute('src'):'';
     card._alt=img?img.getAttribute('alt'):'';
     card._href=card._link?card._link.getAttribute('href'):'';
   });
-  var cat=null, garment=null, swapped=0;
+  var cat=null, garment=null;
   function press(el,on){el.setAttribute('aria-pressed',on?'true':'false');}
-  function catName(slug){
-    for(var i=0;i<tiles.length;i++){
-      if(tiles[i].getAttribute('data-gcat')===slug)return name(tiles[i]).toLowerCase()||slug;
-    }
-    return slug;
-  }
-  function setStatus(tpl,style){
-    if(!status||!tpl)return;
-    status.textContent=tpl
-      .replace('{n}',String(swapped))
-      .replace('{total}',String(cards.length))
-      .replace('{style}',style||'');
-  }
   function restore(card){
     if(card._img){
       if(card._src)card._img.src=card._src;
@@ -835,14 +822,11 @@ document.querySelectorAll('a.custom-link').forEach(function(a){
     card.classList.remove('is-swapped');
     card.classList.remove('is-muted');
     if(card._tag){card._tag.textContent='';card._tag.hidden=true;}
-    if(card._badge)card._badge.hidden=true;
   }
   function apply(){
-    swapped=0;
     cards.forEach(function(card){
       var entry=garment?(card._styles[garment]||null):null;
       if(entry){
-        swapped++;
         if(card._img){
           card._img.src=entry.image;
           card._img.alt=card._name+' design on a '+garment.toLowerCase();
@@ -850,14 +834,12 @@ document.querySelectorAll('a.custom-link').forEach(function(a){
         if(card._link&&entry.url)card._link.href=entry.url;
         card.classList.add('is-swapped');
         card.classList.remove('is-muted');
-        if(card._badge)card._badge.hidden=true;
         if(card._tag){card._tag.textContent=showLabel(garment);card._tag.hidden=false;}
         return;
       }
       restore(card);
       if(cat){
         card.classList.add('is-muted');
-        if(card._badge)card._badge.hidden=false;
       }
     });
     tiles.forEach(function(t){press(t,cat!==null&&t.getAttribute('data-gcat')===cat);});
@@ -867,9 +849,6 @@ document.querySelectorAll('a.custom-link').forEach(function(a){
         return c.getAttribute('data-gcat')===cat;
       }));
     }
-    if(!cat)setStatus(status?status.getAttribute('data-status-all'):'');
-    else if(garment&&swapped)setStatus(status?status.getAttribute('data-status-one'):'',garment);
-    else setStatus(status?status.getAttribute('data-status-none'):'',garment||catName(cat));
   }
   function choose(nextCat,nextGarment){
     if(cat===nextCat&&garment===nextGarment){cat=null;garment=null;}

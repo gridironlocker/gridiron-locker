@@ -1480,14 +1480,12 @@ main.jlock-girly{padding:0 0 32px;overflow:hidden}
 .jlock-girly .gcategory-row{padding:12px 0 25px}
 .jlock-girly .gcategory-heading{margin:0 0 12px;color:#59606a;text-align:center;font-size:.61rem;
   font-weight:800;letter-spacing:.19em;line-height:1.4;text-transform:uppercase}
-.jlock-girly .gcategory-note{max-width:70ch;margin:10px auto 0;color:#6b7075;text-align:center;
-  font-size:.72rem;line-height:1.5}
 .jlock-girly .gcategory-tiles{display:grid;grid-template-columns:repeat(6,minmax(0,1fr));gap:12px;max-width:1180px;margin:0 auto}
-/* Real buttons, styled as cards: a click shows all seven designs as candidates
-   for that style (candidate list only - the partner product page is where a
-   design's exact styles, colours and sizes are confirmed). The button chrome is
-   reset here, and the pressed state below is what the aria-pressed attribute
-   app.js toggles. */
+/* Real buttons, styled as cards: a click swaps the grid to that garment
+   (only the garments the store's category filters actually listed - the
+   partner product page is where a design's exact styles, colours and sizes
+   are confirmed). The button chrome is reset here, and the pressed state
+   below is what the aria-pressed attribute app.js toggles. */
 .jlock-girly .gcategory-tile{display:flex;min-width:0;width:100%;min-height:88px;flex-direction:column;align-items:center;
   justify-content:center;gap:6px;padding:12px 8px;border:1px solid #e6d9d9;border-bottom:3px solid #e8a6b2;
   border-radius:11px;background:#fffaf9;color:#26364c;font-family:inherit;text-align:center;cursor:pointer;
@@ -1519,9 +1517,6 @@ main.jlock-girly{padding:0 0 32px;overflow:hidden}
 .jlock-girly .gcategory-tile[aria-pressed="true"]{border-color:#d9899a;border-bottom-color:#1c3555;
   background:#fff1f4;box-shadow:0 0 0 2px rgba(217,137,154,.38) inset}
 .jlock-girly .gcategory-tile[aria-pressed="true"] svg{color:#b8697c}
-.jlock-girly .gcategory-status{max-width:74ch;margin:12px auto 0;padding:9px 14px;border:1px solid #e6d9d9;
-  border-radius:10px;background:#fffaf9;color:#4c5257;text-align:center;font-size:.72rem;line-height:1.5}
-.jlock-girly .gcategory-status:empty{display:none}
 .jlock-girly .gcollection{padding:14px 0 48px;background:transparent}
 .jlock-girly .gcollection-head{max-width:850px;margin:0 auto 26px;text-align:center}
 .jlock-girly .goverline{margin:0 0 9px;color:#8a744b;font-size:.66rem;font-weight:800;
@@ -1550,26 +1545,24 @@ main.jlock-girly{padding:0 0 32px;overflow:hidden}
 .jlock-girly .gproduct-meta{display:flex;align-items:center;justify-content:space-between;gap:8px;
   margin:10px 0 0;padding-bottom:10px;border-bottom:1px solid #ecebe7;color:#696d70;font-size:.68rem;line-height:1.3}
 .jlock-girly .gproduct-meta b{flex:none;color:var(--g-ink);font-size:.8rem}
-/* The style badge app.js writes onto each card once a category button is
+/* The style tag app.js writes onto each card once a category button is
    pressed: it names the style the shopper is browsing, never a guarantee
-   that the design is sold in it. The [hidden] rule must win over the
-   display above, so it is an attribute selector on the same class. */
+   that the design is sold in it. It wears the page's button colour so it
+   reads as part of the same control family. The [hidden] rule must win over
+   the display above, so it is an attribute selector on the same class. */
 .jlock-girly .gproduct-gtag{align-self:flex-start;margin:10px 0 0;padding:4px 9px;border-radius:999px;
-  background:#f7e9ec;color:#8f4a5b;font-size:.6rem;font-weight:800;letter-spacing:.08em;
+  background:#e99aaa;color:#fff;box-shadow:0 2px 0 #d78597;font-size:.6rem;font-weight:800;letter-spacing:.08em;
   line-height:1.35;text-transform:uppercase}
 .jlock-girly .gproduct-gtag[hidden]{display:none}
-/* a design that did not list the chosen style keeps its own mockup, muted,
-   badged - the card never disappears and its link is never rewritten */
+/* a design that did not list the chosen style keeps its own mockup, muted -
+   the card never disappears and its link is never rewritten */
 .jlock-girly .gproduct.is-muted .gproduct-art img{filter:grayscale(1);opacity:.42}
 .jlock-girly .gproduct.is-muted{background:#fbfaf7}
 .jlock-girly .gproduct.is-muted .gproduct-art::after{position:absolute;inset:0;content:"";
   background:rgba(255,255,255,.42);pointer-events:none}
-.jlock-girly .gproduct.is-swapped .gproduct-art-cta{background:#1c3555}
-.jlock-girly .gproduct-badge{position:absolute;top:10px;left:10px;z-index:1;max-width:calc(100% - 20px);
-  padding:5px 10px;border-radius:999px;background:#fff5f6;color:#8d4356;font-size:.56rem;
-  font-weight:800;letter-spacing:.05em;text-transform:uppercase;box-shadow:0 2px 8px rgba(24,45,77,.13)}
-.jlock-girly .gproduct-badge[hidden]{display:none}
-.jlock-girly .gproduct-note{margin:10px 0 13px;color:#64696d;font-size:.72rem;line-height:1.45}
+/* the swapped card's View design chip goes navy, so its text must go white
+   to stay readable (it was ink-on-ink and invisible) */
+.jlock-girly .gproduct.is-swapped .gproduct-art-cta{background:#1c3555;color:#fff}
 .jlock-girly .gproduct-link{display:flex;align-items:center;justify-content:space-between;gap:10px;
   margin-top:auto;padding:10px 12px;border-radius:8px;background:var(--g-ink);color:#fff;
   font-size:.7rem;font-weight:800;text-decoration:none;transition:background .16s ease}
@@ -1581,7 +1574,16 @@ main.jlock-girly{padding:0 0 32px;overflow:hidden}
   color:#62676b;font-size:.79rem;line-height:1.6;text-align:center}
 .jlock-girly .gstore-note a{color:var(--g-ink);font-weight:800;text-decoration:underline;text-underline-offset:3px}
 .jlock-girly .gcustom{padding:24px 0 42px}
-.jlock-girly .gcustom-formwrap{max-width:700px;margin:0 auto}
+/* The custom tee photo beside the form - the same visual weight the main
+   site's custom-design section gives its offer ("tell us about your idea"
+   reads as a real offer, not a bare form). */
+.jlock-girly .gcustom-grid{display:grid;grid-template-columns:minmax(0,.82fr) minmax(0,1.18fr);
+  gap:26px;align-items:center;max-width:1020px;margin:0 auto}
+.jlock-girly .gcustom-img{border-radius:16px;overflow:hidden;border:1px solid var(--g-line);
+  background:#fff;box-shadow:0 10px 26px rgba(24,45,77,.09)}
+.jlock-girly .gcustom-img img{display:block;width:100%;height:100%;max-height:560px;
+  object-fit:cover;object-position:center top}
+.jlock-girly .gcustom-formwrap{margin:0}
 .jlock-girly .gcustom-form{display:flex;flex-direction:column;gap:12px;margin:0;padding:28px;
   border:1px solid var(--g-line);border-radius:16px;background:#fff;box-shadow:0 8px 24px rgba(24,45,77,.07)}
 .jlock-girly .gform-head{color:var(--g-ink);font-family:var(--g-serif);font-size:1.35rem;font-weight:700}
@@ -1623,6 +1625,8 @@ main.jlock-girly{padding:0 0 32px;overflow:hidden}
   .jlock-girly .gproduct-link{font-size:.66rem}
   .jlock-girly .gstyle-row{gap:7px;margin-top:11px}
   .jlock-girly .gstyle-chip{padding:8px 12px;font-size:.68rem}
+  .jlock-girly .gcustom-grid{grid-template-columns:minmax(0,1fr);gap:18px}
+  .jlock-girly .gcustom-img img{max-height:330px}
   body[data-creator-page="BELLA"] .bellanav-links{gap:25px}
 }
 @media(max-width:430px){
@@ -1644,5 +1648,6 @@ main.jlock-girly{padding:0 0 32px;overflow:hidden}
   .jlock-girly .gproduct-body{padding:15px}
   .jlock-girly .gform-row{grid-template-columns:minmax(0,1fr)}
   .jlock-girly .gcustom-form{padding:20px}
+  .jlock-girly .gcustom-img img{max-height:250px}
   body[data-creator-page="BELLA"] .bellanav-links{gap:22px}
 }
