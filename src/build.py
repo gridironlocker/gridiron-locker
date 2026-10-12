@@ -2744,34 +2744,95 @@ def _girly_body(cre, c, items, track):
                 f'stroke-width="1.5" stroke-linecap="round" stroke-linejoin="round" '
                 f'aria-hidden="true">{path}</svg>')
 
-    # The store-wide apparel categories are real BUTTONS, not decoration: a
-    # click shows all of the creator's designs as candidates for that style and
-    # scrolls the collection into view (app.js, the .gcategory-tile handler).
-    # They are a candidate filter and never an availability claim - the
-    # supplier publishes each design's real styles, colours, sizes and prices on
-    # that design's own product page - so every card carries every category id
-    # and both the standing note and the live status say so.
+    # The store-wide apparel categories are real BUTTONS that change the
+    # displayed garment (app.js, the .gcategory-tile handler) - and they never
+    # invent availability. Only the garments that were actually seen on that
+    # design's live Silent Touch product page ship (store_catalogue.products[]
+    # .apparel, captured 2026-10-12); the payload below carries each listing's
+    # own signed mockup and product page. A click lands on every design: the
+    # designs that listed the style swap to that garment, and the designs that
+    # did not keep their own mockup, muted and badged. The five t-shirt
+    # listings get their own second row of buttons, and a category with no
+    # listing anywhere - caps and hats - says "not listed yet" instead of
+    # swapping anything.
     grid_id = "gcollectionGrid"
     categories = [str(label) for label in catalog.get("categories", [])]
     cat_slug = {label: slugify(label) for label in categories}
-    candidates = " ".join(cat_slug[label] for label in categories)
-    category_buttons = "".join(
-        f'<button class="gcategory-tile" type="button" data-gcat="{cat_slug[label]}" '
-        f'aria-controls="{grid_id}" aria-pressed="false">{category_icon(label)}'
-        f'<span>{esc(label)}</span></button>'
-        for label in categories)
+    styles_by_cat = {str(k): [str(style) for style in v]
+                     for k, v in (catalog.get("apparel_styles") or {}).items()}
+    apparel_by_slug = {str(product.get("slug", "")): (product.get("apparel") or {})
+                       for product in catalog.get("products", [])}
+    captured = str(catalog.get("apparel_captured") or catalog.get("captured", ""))
+    total_designs = len(items)
+    style_counts = {}
+    for product in catalog.get("products", []):
+        for cat, rows in (product.get("apparel") or {}).items():
+            for row in rows:
+                key = (str(cat), str(row.get("garment", "")))
+                style_counts[key] = style_counts.get(key, 0) + 1
+
+    def count_label(garment, cat):
+        tpl = str(g.get("garment_count_label",
+                        "listed by {n} of {total} designs in the {date} check"))
+        return (tpl.replace("{n}", str(style_counts.get((cat, garment), 0)))
+                   .replace("{total}", str(total_designs))
+                   .replace("{date}", captured))
+    def cat_flag(cat):
+        if styles_by_cat.get(cat):
+            return ""
+        return esc(str(g.get("category_flag_none", "not listed yet")))
+    def cat_default(cat):
+        styles = styles_by_cat.get(cat) or []
+        return styles[0] if styles else ""
+    def category_tile(label):
+        cat = cat_slug[label]
+        flag = ""
+        if not styles_by_cat.get(cat):
+            flag = f'<span class="gcategory-flag">{cat_flag(cat)}</span>'
+        return (f'<button class="gcategory-tile" type="button" data-gcat="{cat}" '
+                f'data-gstyle="{esc(cat_default(cat))}" '
+                f'aria-controls="{grid_id}" aria-pressed="false">{category_icon(label)}'
+                f'<span>{esc(label)}</span>{flag}</button>')
+    category_buttons = "".join(category_tile(label) for label in categories)
+    # The second row of buttons: every category that lists more than one style
+    # (in practice the five t-shirt listings). Each button carries the style it
+    # shows, the number of designs that listed it, and the same standing caveat.
+    style_chips = "".join(
+        f'<button class="gstyle-chip" type="button" data-gcat="{cat_slug[label]}" '
+        f'data-gstyle="{esc(style)}" aria-controls="{grid_id}" aria-pressed="false">'
+        f'<span class="gstyle-name">{esc(style)}</span>'
+        f'<span class="gstyle-count" aria-hidden="true">{style_counts.get((cat_slug[label], style), 0)}</span>'
+        f'<span class="gstyle-sr">{esc(count_label(style, cat_slug[label]))}</span>'
+        f'</button>'
+        for label in categories
+        for style in styles_by_cat.get(cat_slug[label], [])
+        if len(styles_by_cat.get(cat_slug[label], [])) > 1)
     category_note = str(g.get(
         "category_note",
         "These are store-wide categories; exact options vary by design. Tap a style "
-        "to see all {n} designs as candidates for it, then confirm the exact styles, "
-        "colours, sizes and prices on each Silent Touch product page.")).replace(
+        "to swap the mockups, then confirm the exact styles, colours, sizes and "
+        "prices on each Silent Touch product page.")).replace(
             "{n}", str(len(items)))
     category_status_all = str(g.get(
         "category_status_all", "Showing all {n} designs."))
     category_status_one = str(g.get(
         "category_status_one",
-        "Showing all {n} designs as {style} candidates - availability varies by "
-        "design, so confirm the exact options on each Silent Touch product page."))
+        "{n} of {total} designs listed {style} when the store was last checked; "
+        "availability varies by design, so confirm the exact options on each "
+        "Silent Touch product page."))
+    category_status_none = str(g.get(
+        "category_status_none",
+        "No {style} listing turned up for any of the {total} designs when the store "
+        "was last checked - every design keeps its own mockup."))
+    garment_badge = str(g.get("garment_badge", "Confirm on the product page"))
+    garment_showing = str(g.get("garment_showing", "Showing {style}"))
+    garment_row_heading = str(g.get("garment_row_heading", "Apparel styles"))
+    style_row = ""
+    if style_chips:
+        style_row = (
+            f'<div class="gstyle-row" id="gstyleRow" role="group" '
+            f'aria-label="{esc(garment_row_heading)}" aria-describedby="gcatNote" '
+            f'hidden>{style_chips}</div>')
 
     cards = []
     for idx, it in enumerate(items):
@@ -2780,14 +2841,20 @@ def _girly_body(cre, c, items, track):
         name = esc(it["name"])
         slug = esc(it["slug"])
         alt = esc(f'{it["name"]} design on a {it["garment"].lower()}')
+        # data-gcat lists only the categories this design actually listed when
+        # the store was captured, so the ids on the card never overstate it.
+        design_cats = " ".join(
+            cat_slug[label] for label in categories
+            if apparel_by_slug.get(str(it["slug"]), {}).get(cat_slug[label]))
         cards.append(
             f'<article class="gproduct" data-slug="{slug}" data-creator="{track}" '
-            f'data-gcat="{candidates}">'
+            f'data-gcat="{design_cats}">'
             f'<a class="gproduct-art" href="{href}" target="_blank" '
             f'rel="noopener noreferrer" aria-label="View {name} on {store_name} (opens in a new tab)">'
             f'<img src="{image}" alt="{alt}" width="500" height="500" '
             f'loading="lazy" decoding="async">'
             f'<span class="gproduct-art-cta">View design <span aria-hidden="true">↗</span></span>'
+            f'<span class="gproduct-badge" hidden>{esc(garment_badge)}</span>'
             f'</a>'
             f'<div class="gproduct-body">'
             f'<p class="gproduct-kicker">BELLA’S PICK {idx + 1:02d}</p>'
@@ -2799,6 +2866,34 @@ def _girly_body(cre, c, items, track):
             f'Explore available styles <span aria-hidden="true">&rarr;</span></a>'
             f'</div></article>'
         )
+
+
+    # data-apparel carries the captured matrix to the page: per design slug,
+    # per category slug, the listings that design's product pages actually
+    # showed. Each entry keeps the garment label, the signed w:500 mockup and
+    # the attributed URL of that one listing - nothing else, so no price can
+    # ever reach the DOM (price_seen stays in data/creators.json as an audit
+    # record). It is HTML-escaped exactly once: the browser decodes the
+    # attribute, JSON.parse reads it back and app.js never re-escapes a value.
+    apparel_payload = {}
+    for product in catalog.get("products", []):
+        slug = str(product.get("slug", ""))
+        groups = {}
+        for cat, rows in (product.get("apparel") or {}).items():
+            entries = []
+            for row in rows:
+                source = str(row.get("url", ""))
+                entries.append({
+                    "garment": str(row.get("garment", "")),
+                    "image": str(row.get("image", "")),
+                    "url": creator_item_href({"source_url": source}, track) if source else "",
+                })
+            if entries:
+                groups[str(cat)] = entries
+        if groups:
+            apparel_payload[slug] = groups
+    apparel_attr = esc(json.dumps(apparel_payload, ensure_ascii=False,
+                                  separators=(",", ":")))
 
     custom = g.get("custom") or {}
     custom_section = ""
@@ -2877,8 +2972,10 @@ def _girly_body(cre, c, items, track):
 <section id="apparel" class="gcategory-row" aria-label="Shop by apparel style"><div class="wrap">
  <p class="gcategory-heading" id="gcatHeading">APPAREL OPTIONS ON SILENT TOUCH</p>
  <div class="gcategory-tiles" role="group" aria-labelledby="gcatHeading" aria-describedby="gcatNote">{category_buttons}</div>
+ {style_row}
  <p class="gcategory-status" id="gcatStatus" role="status" aria-live="polite"
-  data-status-all="{esc(category_status_all)}" data-status-one="{esc(category_status_one)}"></p>
+  data-status-all="{esc(category_status_all)}" data-status-one="{esc(category_status_one)}"
+  data-status-none="{esc(category_status_none)}" data-showing="{esc(garment_showing)}"></p>
  <p class="gcategory-note" id="gcatNote">{esc(category_note)}</p>
 </div></section>
 
@@ -2888,7 +2985,7 @@ def _girly_body(cre, c, items, track):
   <h2>{esc(g.get('collection_heading', 'Bella’s Michigan Designs'))}</h2>
   <p>{esc(g.get('collection_desc', ''))}</p>
  </div>
- <div class="ggrid" id="{grid_id}">{"".join(cards)}</div>
+ <div class="ggrid" id="{grid_id}" data-apparel="{apparel_attr}">{"".join(cards)}</div>
  <p class="gstore-note">Each design opens on <a href="{store_url}" target="_blank" rel="noopener noreferrer">{store_name}</a>. Available apparel, colours, sizes and current prices are confirmed on its product page.</p>
 </div></section>
 
@@ -5894,56 +5991,135 @@ document.querySelectorAll('a.custom-link').forEach(function(a){
 })();
 
 // ---------- creator apparel-style buttons (.gcategory-tile) ----------
-// The six store-wide category buttons over a creator collection are a CANDIDATE
-// filter, never a stock list. The fulfilling partner publishes each design's
-// real styles, colours, sizes and prices on that design's own product page, so
-// every card is emitted as a candidate for every category; a click scrolls the
-// collection into view, labels each design as that style's candidate and
-// repeats where the exact options are confirmed. Clicking the active button
-// again clears the selection. The status line is a live region, so the change
-// is announced; with no JS the buttons stay inert and the standing note under
-// them still says availability varies by design.
+// Bella's category buttons are real garment swaps over the collection grid,
+// driven by the grid's data-apparel payload: per design, ONLY the garments her
+// live Silent Touch product pages actually listed when the store was captured
+// (2026-10-12), each with that listing's own signed mockup and product page.
+// One click therefore lands on all seven designs and never invents stock:
+//   * a design that listed the chosen style swaps its mockup and both links to
+//     that listing (attribution parameters included);
+//   * a design that did not keeps its own mockup, muted, badged "Confirm on
+//     the product page", still linking to its own product page so the visitor
+//     can check the styles that design offers today;
+//   * the five t-shirt listings get a second row of buttons, hidden until one
+//     of their styles is chosen;
+//   * a category with no listing at all (caps and hats) swaps nothing, mutes
+//     every card and says so in the live status.
+// Clicking the active style again clears the selection and every card returns
+// to its own mockup. Everything is scoped to this page: without the tiles, or
+// without the grid payload, the block does nothing at all.
 (function(){
   var row=document.querySelector('.gcategory-tiles'); if(!row)return;
   var tiles=[].slice.call(row.querySelectorAll('.gcategory-tile[data-gcat]'));
   if(!tiles.length)return;
-  var grid=document.querySelector('.ggrid'); if(!grid)return;
-  var cards=[].slice.call(grid.children);
-  var status=document.getElementById('gcatStatus'), active=null;
-  function label(t){var s=t.querySelector('span');return s?s.textContent.trim():'';}
-  function setStatus(tpl){
+  var grid=document.querySelector('.ggrid[data-apparel]'); if(!grid)return;
+  var matrix; try{matrix=JSON.parse(grid.getAttribute('data-apparel')||'{}');}catch(e){return;}
+  var cards=[].slice.call(grid.querySelectorAll('.gproduct[data-slug]'));
+  if(!cards.length)return;
+  var chips=[].slice.call(document.querySelectorAll('.gstyle-chip[data-gstyle]'));
+  var chipRow=document.getElementById('gstyleRow');
+  var status=document.getElementById('gcatStatus');
+  function name(el){var s=el.querySelector('.gstyle-name')||el.querySelector('span');return s?s.textContent.trim():'';}
+  function showLabel(style){
+    var tpl=status?status.getAttribute('data-showing'):'';
+    return tpl?tpl.replace('{style}',style):'';
+  }
+  cards.forEach(function(card){
+    var styles={}, groups=matrix[card.getAttribute('data-slug')]||{};
+    Object.keys(groups).forEach(function(cat){
+      (groups[cat]||[]).forEach(function(entry){
+        if(entry&&entry.garment&&!styles[entry.garment])styles[entry.garment]=entry;
+      });
+    });
+    var img=card.querySelector('.gproduct-art img');
+    card._styles=styles;
+    card._img=img;
+    card._link=card.querySelector('a.gproduct-art');
+    card._name=(card.querySelector('h3')||{}).textContent||'';
+    card._tag=card.querySelector('.gproduct-gtag');
+    card._badge=card.querySelector('.gproduct-badge');
+    card._src=img?img.getAttribute('src'):'';
+    card._alt=img?img.getAttribute('alt'):'';
+    card._href=card._link?card._link.getAttribute('href'):'';
+  });
+  var cat=null, garment=null, swapped=0;
+  function press(el,on){el.setAttribute('aria-pressed',on?'true':'false');}
+  function catName(slug){
+    for(var i=0;i<tiles.length;i++){
+      if(tiles[i].getAttribute('data-gcat')===slug)return name(tiles[i]).toLowerCase()||slug;
+    }
+    return slug;
+  }
+  function setStatus(tpl,style){
     if(!status||!tpl)return;
     status.textContent=tpl
-      .replace('{n}',String(cards.filter(function(c){return !c.hidden;}).length))
-      .replace('{style}',active?label(active):'');
+      .replace('{n}',String(swapped))
+      .replace('{total}',String(cards.length))
+      .replace('{style}',style||'');
   }
-  function apply(sel){
-    active=sel;
-    tiles.forEach(function(t){
-      t.setAttribute('aria-pressed',t===sel?'true':'false');
-    });
-    cards.forEach(function(c){
-      var cats=(c.getAttribute('data-gcat')||'').split(/\s+/);
-      var ok=!sel||cats.indexOf(sel.getAttribute('data-gcat'))>-1;
-      c.hidden=!ok;
-      var tag=c.querySelector('.gproduct-gtag');
-      if(!tag)return;
-      tag.textContent=ok&&sel?label(sel)+' candidate':'';
-      tag.hidden=!(ok&&sel);
-    });
-    if(sel){
-      setStatus(status?status.getAttribute('data-status-one'):'');
-      try{
-        var calm=window.matchMedia&&window.matchMedia('(prefers-reduced-motion: reduce)').matches;
-        grid.scrollIntoView({behavior:calm?'auto':'smooth',block:'start'});
-      }catch(e){}
-    }else{
-      setStatus(status?status.getAttribute('data-status-all'):'');
+  function restore(card){
+    if(card._img){
+      if(card._src)card._img.src=card._src;
+      if(card._alt)card._img.alt=card._alt;
     }
+    if(card._link&&card._href)card._link.href=card._href;
+    card.classList.remove('is-swapped');
+    card.classList.remove('is-muted');
+    if(card._tag){card._tag.textContent='';card._tag.hidden=true;}
+    if(card._badge)card._badge.hidden=true;
+  }
+  function apply(){
+    swapped=0;
+    cards.forEach(function(card){
+      var entry=garment?(card._styles[garment]||null):null;
+      if(entry){
+        swapped++;
+        if(card._img){
+          card._img.src=entry.image;
+          card._img.alt=card._name+' design on a '+garment.toLowerCase();
+        }
+        if(card._link&&entry.url)card._link.href=entry.url;
+        card.classList.add('is-swapped');
+        card.classList.remove('is-muted');
+        if(card._badge)card._badge.hidden=true;
+        if(card._tag){card._tag.textContent=showLabel(garment);card._tag.hidden=false;}
+        return;
+      }
+      restore(card);
+      if(cat){
+        card.classList.add('is-muted');
+        if(card._badge)card._badge.hidden=false;
+      }
+    });
+    tiles.forEach(function(t){press(t,cat!==null&&t.getAttribute('data-gcat')===cat);});
+    chips.forEach(function(c){press(c,garment!==null&&c.getAttribute('data-gstyle')===garment);});
+    if(chipRow){
+      chipRow.hidden=!(cat&&chips.some(function(c){
+        return c.getAttribute('data-gcat')===cat;
+      }));
+    }
+    if(!cat)setStatus(status?status.getAttribute('data-status-all'):'');
+    else if(garment&&swapped)setStatus(status?status.getAttribute('data-status-one'):'',garment);
+    else setStatus(status?status.getAttribute('data-status-none'):'',garment||catName(cat));
+  }
+  function choose(nextCat,nextGarment){
+    if(cat===nextCat&&garment===nextGarment){cat=null;garment=null;}
+    else{cat=nextCat;garment=nextGarment;}
+    apply();
+    if(!cat)return;
+    try{
+      var calm=window.matchMedia&&window.matchMedia('(prefers-reduced-motion: reduce)').matches;
+      grid.scrollIntoView({behavior:calm?'auto':'smooth',block:'start'});
+    }catch(e){}
   }
   tiles.forEach(function(t){
     t.addEventListener('click',function(){
-      apply(t===active?null:t);
+      choose(t.getAttribute('data-gcat'),t.getAttribute('data-gstyle')||null);
+    });
+  });
+  chips.forEach(function(c){
+    c.addEventListener('click',function(){
+      choose(c.getAttribute('data-gcat'),c.getAttribute('data-gstyle'));
     });
   });
 })();
@@ -6235,6 +6411,32 @@ def main():
     print(f"catalogue: {N_DESIGNS} designs across {N_COLLECTIONS} collections, "
           f"sizes {SIZE_RANGE}, Mayzing {sum(1 for i in ALL if i['partner'] == 'Mayzing')} / "
           f"Viralstyle {sum(1 for i in ALL if i['partner'] == 'Viralstyle')}")
+    # audit: the garments the Bella buttons can swap to, straight from the
+    # captured store matrix - N listings per garment, and which designs listed
+    # nothing in a category at all (caps and hats today).
+    cat_cov = {}
+    for cre in CREATORS.values():
+        catalog = cre.get("store_catalogue") or {}
+        for product in catalog.get("products", []):
+            for cat, rows in (product.get("apparel") or {}).items():
+                for row in rows:
+                    cat_cov.setdefault(cat, {}).setdefault(str(row.get("garment")), []).append(
+                        str(product.get("slug")))
+    if cat_cov:
+        captured = ""
+        for cre in CREATORS.values():
+            catalog = cre.get("store_catalogue") or {}
+            captured = captured or str(catalog.get("apparel_captured") or "")
+        known = set(cat_cov)
+        for cre in CREATORS.values():
+            catalog = cre.get("store_catalogue") or {}
+            known.update(str(cat) for cat in (catalog.get("apparel_styles") or {}))
+        parts = []
+        for cat in sorted(known):
+            styles = ", ".join(f"{garment} x{len(slugs)}"
+                               for garment, slugs in sorted(cat_cov.get(cat, {}).items()))
+            parts.append(f"{cat}: {styles or 'no listings'}")
+        print(f"apparel swaps (checked {captured}): " + " | ".join(parts))
     print(f"built {len(ALL)} products, {len(ORDER)} collections, {len(URLS)} urls")
 
 

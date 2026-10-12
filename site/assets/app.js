@@ -760,56 +760,135 @@ document.querySelectorAll('a.custom-link').forEach(function(a){
 })();
 
 // ---------- creator apparel-style buttons (.gcategory-tile) ----------
-// The six store-wide category buttons over a creator collection are a CANDIDATE
-// filter, never a stock list. The fulfilling partner publishes each design's
-// real styles, colours, sizes and prices on that design's own product page, so
-// every card is emitted as a candidate for every category; a click scrolls the
-// collection into view, labels each design as that style's candidate and
-// repeats where the exact options are confirmed. Clicking the active button
-// again clears the selection. The status line is a live region, so the change
-// is announced; with no JS the buttons stay inert and the standing note under
-// them still says availability varies by design.
+// Bella's category buttons are real garment swaps over the collection grid,
+// driven by the grid's data-apparel payload: per design, ONLY the garments her
+// live Silent Touch product pages actually listed when the store was captured
+// (2026-10-12), each with that listing's own signed mockup and product page.
+// One click therefore lands on all seven designs and never invents stock:
+//   * a design that listed the chosen style swaps its mockup and both links to
+//     that listing (attribution parameters included);
+//   * a design that did not keeps its own mockup, muted, badged "Confirm on
+//     the product page", still linking to its own product page so the visitor
+//     can check the styles that design offers today;
+//   * the five t-shirt listings get a second row of buttons, hidden until one
+//     of their styles is chosen;
+//   * a category with no listing at all (caps and hats) swaps nothing, mutes
+//     every card and says so in the live status.
+// Clicking the active style again clears the selection and every card returns
+// to its own mockup. Everything is scoped to this page: without the tiles, or
+// without the grid payload, the block does nothing at all.
 (function(){
   var row=document.querySelector('.gcategory-tiles'); if(!row)return;
   var tiles=[].slice.call(row.querySelectorAll('.gcategory-tile[data-gcat]'));
   if(!tiles.length)return;
-  var grid=document.querySelector('.ggrid'); if(!grid)return;
-  var cards=[].slice.call(grid.children);
-  var status=document.getElementById('gcatStatus'), active=null;
-  function label(t){var s=t.querySelector('span');return s?s.textContent.trim():'';}
-  function setStatus(tpl){
+  var grid=document.querySelector('.ggrid[data-apparel]'); if(!grid)return;
+  var matrix; try{matrix=JSON.parse(grid.getAttribute('data-apparel')||'{}');}catch(e){return;}
+  var cards=[].slice.call(grid.querySelectorAll('.gproduct[data-slug]'));
+  if(!cards.length)return;
+  var chips=[].slice.call(document.querySelectorAll('.gstyle-chip[data-gstyle]'));
+  var chipRow=document.getElementById('gstyleRow');
+  var status=document.getElementById('gcatStatus');
+  function name(el){var s=el.querySelector('.gstyle-name')||el.querySelector('span');return s?s.textContent.trim():'';}
+  function showLabel(style){
+    var tpl=status?status.getAttribute('data-showing'):'';
+    return tpl?tpl.replace('{style}',style):'';
+  }
+  cards.forEach(function(card){
+    var styles={}, groups=matrix[card.getAttribute('data-slug')]||{};
+    Object.keys(groups).forEach(function(cat){
+      (groups[cat]||[]).forEach(function(entry){
+        if(entry&&entry.garment&&!styles[entry.garment])styles[entry.garment]=entry;
+      });
+    });
+    var img=card.querySelector('.gproduct-art img');
+    card._styles=styles;
+    card._img=img;
+    card._link=card.querySelector('a.gproduct-art');
+    card._name=(card.querySelector('h3')||{}).textContent||'';
+    card._tag=card.querySelector('.gproduct-gtag');
+    card._badge=card.querySelector('.gproduct-badge');
+    card._src=img?img.getAttribute('src'):'';
+    card._alt=img?img.getAttribute('alt'):'';
+    card._href=card._link?card._link.getAttribute('href'):'';
+  });
+  var cat=null, garment=null, swapped=0;
+  function press(el,on){el.setAttribute('aria-pressed',on?'true':'false');}
+  function catName(slug){
+    for(var i=0;i<tiles.length;i++){
+      if(tiles[i].getAttribute('data-gcat')===slug)return name(tiles[i]).toLowerCase()||slug;
+    }
+    return slug;
+  }
+  function setStatus(tpl,style){
     if(!status||!tpl)return;
     status.textContent=tpl
-      .replace('{n}',String(cards.filter(function(c){return !c.hidden;}).length))
-      .replace('{style}',active?label(active):'');
+      .replace('{n}',String(swapped))
+      .replace('{total}',String(cards.length))
+      .replace('{style}',style||'');
   }
-  function apply(sel){
-    active=sel;
-    tiles.forEach(function(t){
-      t.setAttribute('aria-pressed',t===sel?'true':'false');
-    });
-    cards.forEach(function(c){
-      var cats=(c.getAttribute('data-gcat')||'').split(/\s+/);
-      var ok=!sel||cats.indexOf(sel.getAttribute('data-gcat'))>-1;
-      c.hidden=!ok;
-      var tag=c.querySelector('.gproduct-gtag');
-      if(!tag)return;
-      tag.textContent=ok&&sel?label(sel)+' candidate':'';
-      tag.hidden=!(ok&&sel);
-    });
-    if(sel){
-      setStatus(status?status.getAttribute('data-status-one'):'');
-      try{
-        var calm=window.matchMedia&&window.matchMedia('(prefers-reduced-motion: reduce)').matches;
-        grid.scrollIntoView({behavior:calm?'auto':'smooth',block:'start'});
-      }catch(e){}
-    }else{
-      setStatus(status?status.getAttribute('data-status-all'):'');
+  function restore(card){
+    if(card._img){
+      if(card._src)card._img.src=card._src;
+      if(card._alt)card._img.alt=card._alt;
     }
+    if(card._link&&card._href)card._link.href=card._href;
+    card.classList.remove('is-swapped');
+    card.classList.remove('is-muted');
+    if(card._tag){card._tag.textContent='';card._tag.hidden=true;}
+    if(card._badge)card._badge.hidden=true;
+  }
+  function apply(){
+    swapped=0;
+    cards.forEach(function(card){
+      var entry=garment?(card._styles[garment]||null):null;
+      if(entry){
+        swapped++;
+        if(card._img){
+          card._img.src=entry.image;
+          card._img.alt=card._name+' design on a '+garment.toLowerCase();
+        }
+        if(card._link&&entry.url)card._link.href=entry.url;
+        card.classList.add('is-swapped');
+        card.classList.remove('is-muted');
+        if(card._badge)card._badge.hidden=true;
+        if(card._tag){card._tag.textContent=showLabel(garment);card._tag.hidden=false;}
+        return;
+      }
+      restore(card);
+      if(cat){
+        card.classList.add('is-muted');
+        if(card._badge)card._badge.hidden=false;
+      }
+    });
+    tiles.forEach(function(t){press(t,cat!==null&&t.getAttribute('data-gcat')===cat);});
+    chips.forEach(function(c){press(c,garment!==null&&c.getAttribute('data-gstyle')===garment);});
+    if(chipRow){
+      chipRow.hidden=!(cat&&chips.some(function(c){
+        return c.getAttribute('data-gcat')===cat;
+      }));
+    }
+    if(!cat)setStatus(status?status.getAttribute('data-status-all'):'');
+    else if(garment&&swapped)setStatus(status?status.getAttribute('data-status-one'):'',garment);
+    else setStatus(status?status.getAttribute('data-status-none'):'',garment||catName(cat));
+  }
+  function choose(nextCat,nextGarment){
+    if(cat===nextCat&&garment===nextGarment){cat=null;garment=null;}
+    else{cat=nextCat;garment=nextGarment;}
+    apply();
+    if(!cat)return;
+    try{
+      var calm=window.matchMedia&&window.matchMedia('(prefers-reduced-motion: reduce)').matches;
+      grid.scrollIntoView({behavior:calm?'auto':'smooth',block:'start'});
+    }catch(e){}
   }
   tiles.forEach(function(t){
     t.addEventListener('click',function(){
-      apply(t===active?null:t);
+      choose(t.getAttribute('data-gcat'),t.getAttribute('data-gstyle')||null);
+    });
+  });
+  chips.forEach(function(c){
+    c.addEventListener('click',function(){
+      choose(c.getAttribute('data-gcat'),c.getAttribute('data-gstyle'));
     });
   });
 })();
