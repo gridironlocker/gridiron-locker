@@ -766,16 +766,15 @@ document.querySelectorAll('a.custom-link').forEach(function(a){
 // each with that listing's own signed mockup and product page. One click
 // therefore lands on all seven designs and never invents stock:
 //   * a design that listed the chosen style swaps its mockup and both links
-//     to that listing (attribution parameters included) and its card is
-//     tagged with the grid's data-showing template ("Showing <style>");
+//     to that listing (attribution parameters included);
 //   * a design that did not keeps its own mockup, muted, still linking to
 //     its own product page so the visitor can check the styles that design
 //     offers today;
 //   * the five t-shirt listings get a second row of buttons, hidden until
 //     one of their styles is chosen.
 // There is deliberately no live status line and no per-card badge: the swap
-// itself, the on-card tag and each design's own product page say everything
-// the shopper needs. Clicking the active style again clears the selection
+// itself, the pressed button and each design's own product page say
+// everything the shopper needs. Clicking the active style again clears the selection
 // and every card returns to its own mockup. Everything is scoped to this
 // page: without the tiles, or without the grid payload, the block does
 // nothing at all.
@@ -790,10 +789,6 @@ document.querySelectorAll('a.custom-link').forEach(function(a){
   var chips=[].slice.call(document.querySelectorAll('.gstyle-chip[data-gstyle]'));
   var chipRow=document.getElementById('gstyleRow');
   function name(el){var s=el.querySelector('.gstyle-name')||el.querySelector('span');return s?s.textContent.trim():'';}
-  function showLabel(style){
-    var tpl=grid.getAttribute('data-showing');
-    return tpl?tpl.replace('{style}',style):'';
-  }
   cards.forEach(function(card){
     var styles={}, groups=matrix[card.getAttribute('data-slug')]||{};
     Object.keys(groups).forEach(function(cat){
@@ -806,7 +801,6 @@ document.querySelectorAll('a.custom-link').forEach(function(a){
     card._img=img;
     card._link=card.querySelector('a.gproduct-art');
     card._name=(card.querySelector('h3')||{}).textContent||'';
-    card._tag=card.querySelector('.gproduct-gtag');
     card._src=img?img.getAttribute('src'):'';
     card._alt=img?img.getAttribute('alt'):'';
     card._href=card._link?card._link.getAttribute('href'):'';
@@ -821,7 +815,6 @@ document.querySelectorAll('a.custom-link').forEach(function(a){
     if(card._link&&card._href)card._link.href=card._href;
     card.classList.remove('is-swapped');
     card.classList.remove('is-muted');
-    if(card._tag){card._tag.textContent='';card._tag.hidden=true;}
   }
   function apply(){
     cards.forEach(function(card){
@@ -834,7 +827,6 @@ document.querySelectorAll('a.custom-link').forEach(function(a){
         if(card._link&&entry.url)card._link.href=entry.url;
         card.classList.add('is-swapped');
         card.classList.remove('is-muted');
-        if(card._tag){card._tag.textContent=showLabel(garment);card._tag.hidden=false;}
         return;
       }
       restore(card);

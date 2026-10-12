@@ -2237,26 +2237,31 @@ class BellaLocker(unittest.TestCase):
         self.assertIn('aria-labelledby="gcatHeading"', tiles.group(1))
         self.assertNotIn("aria-describedby", tiles.group(1))
 
-        # the grid carries the captured matrix the swap reads plus the
-        # "Showing {style}" template the swap tags each card with
-        grid = re.search(r'<div class="ggrid" id="gcollectionGrid" data-apparel="([^"]*)" '
-                         r'data-showing="([^"]*)">', self.html, re.S)
+        # the grid carries the captured matrix the swap reads - and nothing
+        # else: the pink per-card "Showing {style}" badge was removed on
+        # request, so neither the template nor the card markup ships
+        grid = re.search(r'<div class="ggrid" id="gcollectionGrid" data-apparel="([^"]*)">',
+                         self.html, re.S)
         self.assertIsNotNone(grid)
-        self.assertEqual(unescape(grid.group(2)),
-                         self.girly["garment_showing"])
+        self.assertNotIn("data-showing", self.html)
         payload = json.loads(unescape(grid.group(1)))
         self.assertEqual(list(payload), self.cre["picks"])
 
         # the behaviour itself, and the fact that it is page-scoped, live in app.js
         js = page("assets/app.js")
         for term in (".gcategory-tile[data-gcat]", ".gstyle-chip[data-gstyle]",
-                     "data-apparel", "data-showing", "gproduct-gtag",
+                     "data-apparel",
                      "aria-pressed", "is-muted", "is-swapped", "scrollIntoView",
                      "prefers-reduced-motion"):
             self.assertIn(term, js, term)
-        self.assertIn("grid.getAttribute('data-showing')", js)
         self.assertNotIn("gproduct-badge", js)
         self.assertNotIn("gcatStatus", js)
+        # the removed pink card badge stays removed: no markup on the page, no
+        # hook in the script, no rule in the stylesheet
+        self.assertNotIn("gproduct-gtag", self.html)
+        self.assertNotIn("gproduct-gtag", js)
+        self.assertNotIn("data-showing", js)
+        self.assertNotIn("gproduct-gtag", self.css)
         self.assertIn("var row=document.querySelector('.gcategory-tiles'); if(!row)return;", js)
         self.assertIn("var grid=document.querySelector('.ggrid[data-apparel]'); if(!grid)return;", js)
         # the swap never writes a price: the Bella block ships no price data
@@ -2319,8 +2324,8 @@ class BellaLocker(unittest.TestCase):
 
         # the page payload carries the captured matrix, the signed mockup and
         # the attributed listing URL - and nothing else
-        grid = re.search(r'<div class="ggrid" id="gcollectionGrid" data-apparel="([^"]*)" '
-                         r'data-showing="', self.html, re.S)
+        grid = re.search(r'<div class="ggrid" id="gcollectionGrid" data-apparel="([^"]*)">',
+                         self.html, re.S)
         self.assertIsNotNone(grid)
         self.assertNotIn("price_seen", grid.group(1))
         self.assertNotIn("$", grid.group(1))
@@ -2394,8 +2399,6 @@ class BellaLocker(unittest.TestCase):
                          '.jlock-girly .gstyle-chip[aria-pressed="true"]{',
                          ".jlock-girly .gstyle-count{", ".jlock-girly .gstyle-sr{",
                          ".jlock-girly .gproduct.is-muted .gproduct-art img{",
-                         ".jlock-girly .gproduct-gtag{",
-                         ".jlock-girly .gproduct-gtag[hidden]{display:none}",
                          ".jlock-girly .gcustom-grid{", ".jlock-girly .gcustom-img{"):
             self.assertIn(selector, self.css)
         self.assertNotIn(".gbanner-art", self.css)

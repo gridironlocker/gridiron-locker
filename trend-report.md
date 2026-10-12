@@ -1,6 +1,6 @@
 # Hunt Report - 2026-10-12
 
-Generated: 2026-10-12 02:44 UTC by src/hunter_intelligence.py
+Generated: 2026-10-12 02:53 UTC by src/hunter_intelligence.py
 
 Ladder: SIGNAL 0 · TREND 0 · OPPORTUNITY 0 · ACTION 0 · HEADLINE 9
 
@@ -15,7 +15,7 @@ Nothing cleared SIGNAL this run - the correct answer is not to post.
 ## Filtered as HEADLINE (9)
 
 - BROWNS - QB room: who is QB1 in Cleveland: 2 reaction item(s), 2 outlet(s), confidence 48% - not a reaction
-- BROWNS - Coaching: Monken's first season: 1 reaction item(s), 1 outlet(s), confidence 38% - not a reaction
+- BROWNS - Coaching: Monken's first season: 1 reaction item(s), 1 outlet(s), confidence 32% - not a reaction
 - COWBOYS - Doomsday memory: defence and the pass rush: 2 reaction item(s), 2 outlet(s), confidence 41% - not a reaction
 - COWBOYS - Thirty years: the drought joke we own: 1 reaction item(s), 1 outlet(s), confidence 34% - not a reaction
 - COWBOYS - Texas pride: flag, star and Est. 1841: 1 reaction item(s), 1 outlet(s), confidence 32% - not a reaction
