@@ -34,10 +34,9 @@ Covered:
     headline panels (those live on /2026-season/ and /fan-trend-index/), and
     live ticker terms are team-safe (no raw headline words, no opponents).
   * Artwork hygiene: no PNG masters in site/img (they live in artwork-source/).
-  * Bella's /michigan/bella/ (theme "girly"): the cream-scrapbook skin is
-    scoped to that page, its Google Fonts load in <head> only, the six cards
-    are the real catalogue picks, and all motion is off under
-    prefers-reduced-motion.
+  * Bella's /michigan/bella/: seven Silent Touch listings, honest store-wide
+    apparel categories, design-specific availability guidance, a simple
+    boutique banner, the #efefed canvas, and no discount promo code.
   * Preserved: team accents, hero images, product count, checkout links, SEO
     metadata, dynamic catalogue counts, no missing local references.
 """
@@ -2063,610 +2062,150 @@ class CreatorCollab(unittest.TestCase):
         self.assertIn('"@type":"BreadcrumbList"', self.html)
 
 
-class GirlyLocker(unittest.TestCase):
-    """Bella's complete Michigan catalogue on a handmade-paper collage board."""
+class BellaLocker(unittest.TestCase):
+    """Bella's supplier-linked collection and boutique-style landing page."""
 
     def setUp(self):
         self.html = page("michigan/bella/index.html")
         self.joe = page("michigan/joe/index.html")
         self.css = page("assets/style.css")
         self.cre = load_json("data/creators.json")["creators"]["bella"]
+        self.catalog = self.cre["store_catalogue"]
         self.girly = self.cre["girly"]
 
-    def girly_css(self):
-        marker = "CREATOR COLLABORATION - GIRLY VARIANT (BELLA'S LOCKER)"
-        return self.css[self.css.index(marker):]
-
-    def girly_rules(self):
-        css = self.girly_css()
-        css = css[css.index("*/") + 2:] if "*/" in css else css
-        return re.sub(r"/\*.*?\*/", "", css, flags=re.S)
-
-    def cards(self):
-        start = self.html.index('id="locker"')
-        end = self.html.index('class="gnextdrop"', start)
-        section = self.html[start:end]
-        pattern = re.compile(
-            r'<a class="(?P<class>gcard[^"]*)" href="(?P<href>[^"]+)" '
-            r'data-slug="(?P<slug>[^"]+)"(?P<attrs>[^>]*)>(?P<body>.*?)</a>', re.S)
-        return [dict(match.groupdict(), html=match.group(0))
-                for match in pattern.finditer(section)]
-
-    def test_picks_are_all_seventeen_live_michigan_designs_in_order(self):
+    def test_seven_supplier_products_are_scoped_to_bella(self):
         import build  # noqa: E402
-        live = {it["slug"] for it in build.MODEL["michigan"]}
-        slugs = [card["slug"] for card in self.cards()]
-        self.assertEqual(len(live), 17)
-        self.assertEqual(len(slugs), 17)
-        self.assertEqual(slugs, self.cre["picks"])
-        self.assertEqual(set(slugs), live)
-        self.assertEqual(self.cre["featured"], self.cre["picks"][:4])
 
-    def test_each_card_is_a_real_attributed_catalogue_listing(self):
-        import build  # noqa: E402
-        model = {it["slug"]: it for it in build.MODEL["michigan"]}
-        cards = self.cards()
-        self.assertEqual(len(cards), 17)
-        for card in cards:
-            slug, block = card["slug"], card["html"]
-            item = model[slug]
-            self.assertRegex(card["href"], rf"/shop/{re.escape(slug)}/\?creator=BELLA$")
-            self.assertIn('data-creator="BELLA"', block)
-            self.assertIn(f'data-price="{item["price"]:.2f}"', block)
-            self.assertIn(f'<b>${item["price"]:.2f}</b>', block, slug)
-            self.assertIn('width="530" height="630"', block)
-            self.assertIn(f'<img src="{escape_html(item["front"])}"', block, slug)
-            self.assertNotIn("/img/bella-hero-autumn.jpg", block, slug)
-            self.assertIn('loading="lazy"', block)
-            self.assertIn("buyer-experience-gateway.mayzing.com", block)
-            self.assertRegex(block, r'<img src="[^"]+" alt="[^"]+"')
-            self.assertIn("Shop design", block)
-            self.assertNotIn(">>", block)
-            # the gallery-wall pass: the curatorial label rides on the piece
-            # as a .gmood tag, the number is an italic serif span inside the
-            # title, and the footer names only the place
-            label = self.girly["labels"][slug]
-            self.assertIn(f'<p class="gmood">{escape_html(label)}</p>', block, slug)
-            num = self.cre["picks"].index(slug) + 1
-            self.assertIn(f'<span class="gname-num">{num:02d}.</span> '
-                          f'{escape_html(item["name"])}', block, slug)
-            self.assertIn('<p class="gfoot-meta">Ann Arbor · Michigan</p>', block, slug)
-            self.assertNotIn(f'Ann Arbor · Michigan · {escape_html(label)}', block, slug)
+        items = build.creator_items(self.cre)
+        self.assertEqual(len(items), 7)
+        self.assertEqual([item["slug"] for item in items], self.cre["picks"])
+        self.assertEqual([p["slug"] for p in self.catalog["products"]], self.cre["picks"])
+        for item in items:
+            self.assertTrue(item["external_store"])
+            self.assertTrue(item["source_url"].startswith("https://silenttouch.store/"))
+            self.assertEqual(item["col"], "michigan")
 
-    def test_swatch_names_and_counts_match_the_model(self):
-        import build  # noqa: E402
-        model = {it["slug"]: it for it in build.MODEL["michigan"]}
-        cards = {card["slug"]: card["html"] for card in self.cards()}
-        for slug, item in model.items():
-            rendered = build._girly_swatch(item)
-            self.assertIn(rendered, cards[slug], slug)
-            if item.get("colour"):
-                self.assertIn(item["colour"], rendered, slug)
-            else:
-                self.assertIn(f'{item.get("colours", 0)} colourways', rendered, slug)
+    def test_each_design_links_to_its_supplier_listing_with_attribution(self):
+        from urllib.parse import parse_qs, urlsplit
 
-    def test_unnamed_swatch_uses_an_outlined_dot_and_count(self):
-        import build  # noqa: E402
-        swatch = build._girly_swatch({"colour": None, "colours": 4})
-        self.assertIn('class="gswatch-dot is-outline"', swatch)
-        self.assertIn("4 colourways", swatch)
-        self.assertNotIn("style=", swatch)
-
-    def test_hero_facts_count_is_filled_from_the_live_curation(self):
-        import build  # noqa: E402
-        facts = re.search(r'<p class="gfacts">(.*?)</p>', self.html, re.S)
-        self.assertIsNotNone(facts)
-        self.assertIn("{n}", self.girly["hero_facts"])
-        self.assertIn(str(len(build.creator_items(self.cre))), facts.group(1))
-        self.assertIn("17 live Michigan designs", facts.group(1))
-
-    def test_collage_has_three_taped_photos_one_arrow_and_small_assets(self):
-        tiles = self.girly["collage"]
-        self.assertEqual(len(tiles), 3)
-        self.assertEqual(sum(tile.get("arrow") == "1" for tile in tiles), 1)
-        rendered = re.findall(r'<figure class="gcollage-photo[^>]*>.*?</figure>',
-                              self.html, re.S)
-        self.assertEqual(len(rendered), 3)
-        self.assertEqual(self.html.count('data-arrow="1"'), 1)
-        self.assertEqual(self.html.count('class="garrow-doodle"'), 1)
-        for tile, block in zip(tiles, rendered):
-            path = os.path.join(SITE, tile["image"].lstrip("/"))
-            self.assertTrue(os.path.isfile(path), tile["image"])
-            self.assertLessEqual(os.path.getsize(path), 165_000, tile["image"])
-            self.assertIn(tile["image"].lstrip("/"), block)
-            self.assertIn(escape_html(tile["caption"]), block)
-            self.assertIn('class="gtape gtape-collage" aria-hidden="true"', block)
-            self.assertIn('alt="" role="presentation"', block)
-        self.assertIn(self.girly["collage_arrow_label"], self.html)
-
-    def test_one_h1_holds_both_lines_of_the_lockup(self):
-        headings = re.findall(r'<h1\b[^>]*>(.*?)</h1>', self.html, re.S)
-        self.assertEqual(len(headings), 1)
-        self.assertIn('class="gscript"', headings[0])
-        self.assertIn(self.girly["hero_script"], headings[0])
-        self.assertIn('class="gtitle"', headings[0])
-        self.assertIn(self.girly["hero_title"], headings[0])
-        self.assertIn('<svg class="gheart-mark"', headings[0])
-
-    def test_google_fonts_load_on_bella_only(self):
-        head = self.html[:self.html.index("</head>")]
-        self.assertIn("fonts.googleapis.com/css2?family=Caveat", head)
-        self.assertIn("family=Playfair+Display", head)
-        self.assertNotIn("fonts.googleapis.com/css2", self.joe)
-        self.assertNotIn("fonts.googleapis.com/css2", page("index.html"))
-        self.assertNotIn("@import", self.girly_css())
-
-    def test_every_girly_css_selector_is_scoped(self):
-        unscoped = []
-        for group in re.findall(r"([^{}]+)\{", self.girly_rules()):
-            for selector in group.split(","):
-                selector = selector.strip()
-                if not selector or selector.startswith("@"):
-                    continue
-                if not selector.startswith((".jlock-girly", "main.jlock-girly")):
-                    unscoped.append(selector)
-        self.assertEqual(unscoped, [], unscoped[:8])
-
-    def test_palette_type_torn_edge_and_grain_tokens(self):
-        css = self.girly_css()
-        for token in ("--g-canvas:#0a1c38", "--g-cream:#f5f0e6", "--g-paper:#fffdf7",
-                      "--g-navy:#182d4d", "--g-navy-h:#263f65", "--g-pink:#e8a6b2",
-                      "--g-pink-d:#d9899a", "--g-maize:#ffcb05", "--g-maize-d:#e6b800",
-                      "--g-serif:'Playfair Display'", "--g-hand:'Caveat'",
-                      "--g-torn:polygon(", "--g-grain:url("):
-            self.assertIn(token, css, token)
-
-    def test_reduced_motion_resets_scoped_motion_and_transforms(self):
-        css = self.girly_css()
-        self.assertIn("@media(prefers-reduced-motion:reduce){", css)
-        self.assertIn("transition:none!important;animation:none!important", css)
-        self.assertIn("transform:none!important;box-shadow:none!important", css)
-        self.assertNotIn("*{transition:none;animation:none}", css)
-
-    def test_hover_micro_interactions_are_present(self):
-        css = self.girly_css()
-        for selector in (".jlock-girly .gcard:hover{",
-                         ".jlock-girly .gpolaroid:hover{", ".jlock-girly .ghero-photo:hover{",
-                         ".jlock-girly .gcollage-photo:hover{"):
-            self.assertIn(selector, css)
-        self.assertIn("transform:translateY(-5px)", css)
-
-    def test_torn_paper_wrapper_keeps_tape_and_shadow_unclipped(self):
-        wrapper = self.html[self.html.index('class="gtorn-wrap"'):]
-        wrapper = wrapper[:wrapper.index('class="gcollage"')]
-        self.assertIn('class="gtorn-wrap"', wrapper)
-        self.assertIn('class="gtape gtape-torn-a" aria-hidden="true"', wrapper)
-        self.assertIn('class="gtape gtape-torn-b" aria-hidden="true"', wrapper)
-        self.assertIn('class="gheropaper"', wrapper)
-        css = self.girly_css()
-        self.assertIn(".jlock-girly .gtorn-wrap{", css)
-        self.assertIn("filter:drop-shadow(", css)
-        self.assertIn("clip-path:var(--g-torn)", css)
-
-    def test_intro_heading_container_is_transparent_not_a_white_header_plaque(self):
-        # the story heading is a <header class="gintro-head">, so it inherits
-        # the global `header{...background:#fff;border-bottom...;z-index:60}`
-        # site-chrome rule. Setting only the inner h2 background leaves the
-        # white strip behind the handwriting (seen in a 375px Chromium review),
-        # so the container itself is reset, scoped to Bella.
-        head = re.search(r"\.jlock-girly \.gintro-head\{[^}]*\}", self.girly_css())
-        self.assertIsNotNone(head)
-        rule = head.group(0)
-        self.assertIn("background:transparent", rule)
-        self.assertIn("border:0", rule)
-        self.assertIn("z-index:auto", rule)
-        self.assertNotIn("#fff", rule)
-        self.assertNotIn("var(--g-paper)", rule)
-        self.assertNotIn("z-index:60", rule)
-        # the reset is scoped: the global site-chrome header rule is untouched
-        self.assertIn("header{position:sticky;top:0;z-index:60;background:#fff;"
-                      "border-bottom:1px solid var(--line)}", self.css)
-        self.assertNotIn(".gintro-head", self.css.split(
-            "CREATOR COLLABORATION - GIRLY VARIANT (BELLA'S LOCKER)")[0])
-
-    def test_data_driven_copy_and_label_caption_maps_cover_every_pick(self):
-        self.assertEqual(set(self.girly["labels"]), set(self.cre["picks"]))
-        self.assertEqual(set(self.girly["captions"]), set(self.cre["picks"]))
+        cards = re.findall(r'<article class="gproduct".*?</article>', self.html, re.S)
+        products = {item["slug"]: item for item in self.catalog["products"]}
+        self.assertEqual(len(cards), 7)
         self.assertEqual(
-            self.girly["quote"],
-            "if you know me, you know i’m in maize & blue every Saturday.")
-        # the quote stays date-neutral: the retired "by September" deadline
-        # wording must not come back on the page or in the copy map
-        note = re.search(r'<blockquote class="gnote">.*?</blockquote>', self.html, re.S)
-        self.assertIsNotNone(note)
-        self.assertIn(escape_html(self.girly["quote"]), note.group(0))
-        self.assertNotIn("September", note.group(0))
-        self.assertNotIn("September", self.html)
-        for value in self.girly.values():
-            if isinstance(value, str):
-                self.assertNotIn("September", value)
-        # the intro heading ("More Than a Saturday") hangs as her handwriting
-        # straight on the navy canvas - the white paper plaque is gone: Caveat
-        # cream ink, a pink hand-drawn squiggle underneath and a pink vertical
-        # stroke down the left edge of the block. The collection heading keeps
-        # the cream-on-canvas serif treatment untouched.
-        intro_h2 = re.search(r"\.jlock-girly \.gintro-head h2\{[^}]*\}", self.girly_css())
-        self.assertIsNotNone(intro_h2)
-        self.assertIn("color:var(--g-cream)", intro_h2.group(0))
-        self.assertIn("font-family:var(--g-hand)", intro_h2.group(0))
-        self.assertIn("background:none", intro_h2.group(0))
-        self.assertIn("clamp(", intro_h2.group(0))
-        self.assertNotIn("var(--g-paper)", intro_h2.group(0))
-        under = re.search(r"\.jlock-girly \.gintro-head h2::after\{[^}]*\}", self.girly_css())
-        self.assertIsNotNone(under)
-        self.assertIn("data:image/svg+xml", under.group(0))
-        self.assertIn("%23e8a6b2", under.group(0))  # pink felt-tip underline
-        stroke = re.search(r"\.jlock-girly \.gintro-head::before\{[^}]*\}", self.girly_css())
-        self.assertIsNotNone(stroke)
-        self.assertIn("data:image/svg+xml", stroke.group(0))
-        self.assertIn("%23d9899a", stroke.group(0))  # pink margin stroke
-        # "a note from bella" rides on a maize washi label, not a text label
-        label = re.search(r"\.jlock-girly \.gintro-head \.goverline\{[^}]*\}",
-                          self.girly_css())
-        self.assertIsNotNone(label)
-        self.assertIn("background:var(--g-maize)", label.group(0))
-        self.assertIn("color:var(--g-navy)", label.group(0))
-        self.assertIn("rotate(", label.group(0))
-        collection_h2 = re.search(r"\.jlock-girly \.gcollection-head h2\{[^}]*\}",
-                                  self.girly_css())
-        self.assertIsNotNone(collection_h2)
-        self.assertIn("color:var(--g-paper)", collection_h2.group(0))
-        self.assertIn("font-family:var(--g-serif)", collection_h2.group(0))
-        for key in ("hero_kicker", "hero_sub", "collab_stamp", "hero_cta", "hero_story_link",
-                    "hero_facts", "intro_overline", "intro_heading", "quote",
-                    "collection_overline", "collection_heading", "collection_desc",
-                    "collage_arrow_label", "collab_line", "signoff_cta"):
-            value = self.girly[key]
-            if key == "hero_facts":
-                value = value.replace("{n}", "17")
-            value = re.sub(r"\s*(?:—|&mdash;)\s*", " - ", value)
-            self.assertIn(escape_html(value), self.html, key)
-        for slug in self.cre["picks"]:
-            self.assertIn(escape_html(self.girly["labels"][slug]), self.html, slug)
-            self.assertIn(escape_html(self.girly["captions"][slug]), self.html, slug)
-        # the label is promoted from the footer slug onto the piece itself:
-        # every pick carries its label in a .gmood curatorial tag
-        for slug in self.cre["picks"]:
-            self.assertIn(f'<p class="gmood">{escape_html(self.girly["labels"][slug])}</p>',
-                          self.html, slug)
-        hero = self.cre["hero"]
-        hero_alt = self.cre["hero_alt"]
-        self.assertEqual(hero, "/img/bella-hero-autumn.jpg")
-        self.assertEqual(self.girly["hero_image"], hero)
-        self.assertEqual(self.girly["hero_alt"], hero_alt)
-        self.assertEqual((self.cre["hero_w"], self.cre["hero_h"]), (1376, 768))
-        for detail in ("adult woman seen from behind", "plain navy t-shirt",
-                       "leafy campus path in autumn"):
-            self.assertIn(detail, hero_alt.lower())
-        hero_path = os.path.join(SITE, hero.lstrip("/"))
-        self.assertTrue(os.path.isfile(hero_path), hero)
-        self.assertLess(os.path.getsize(hero_path), 165_000, hero)
-        hero_src = "../../" + hero.lstrip("/")
-        self.assertIn(f'<img src="{hero_src}" alt="{escape_html(hero_alt)}"', self.html)
-        self.assertIn(f'width="{self.cre["hero_w"]}" height="{self.cre["hero_h"]}"',
-                      self.html)
-        social_image = "https://gridironlocker.store" + hero
-        self.assertIn(f'<meta property="og:image" content="{social_image}">', self.html)
-        self.assertIn(f'<meta name="twitter:image" content="{social_image}">', self.html)
-        for card in self.cards():
-            self.assertNotIn(hero, card["html"], card["slug"])
-        photo = self.girly["intro_photo"]
-        self.assertTrue(os.path.isfile(os.path.join(SITE, photo["image"].lstrip("/"))))
-        self.assertIn(photo["image"].lstrip("/"), self.html)
-        self.assertIn(escape_html(photo["caption"]), self.html)
-        self.assertIn(escape_html(self.girly["collab_stamp"]), self.html)
-        self.assertIn(escape_html(self.girly["signoff_accent"]), self.html)
+            re.findall(r'<article class="gproduct" data-slug="([^"]+)"', self.html),
+            self.cre["picks"])
+        for slug, card in zip(self.cre["picks"], cards):
+            product = products[slug]
+            source = urlsplit(product["source_url"])
+            links = re.findall(r'href="(https://silenttouch\.store[^"]+)"', card)
+            self.assertEqual(len(links), 2, slug)
+            for href in links:
+                parsed = urlsplit(unescape(href))
+                query = parse_qs(parsed.query)
+                self.assertEqual(parsed.netloc, "silenttouch.store")
+                self.assertEqual(parsed.path, source.path)
+                self.assertEqual(query.get("productId"), [product["product_id"]])
+                self.assertEqual(query.get("creator"), ["BELLA"])
+                self.assertEqual(query.get("utm_source"), ["creator"])
+                self.assertEqual(query.get("utm_medium"), ["referral"])
+                self.assertEqual(query.get("utm_campaign"), ["creator-BELLA"])
+            self.assertIn('target="_blank"', card)
+            self.assertIn('rel="noopener noreferrer"', card)
+            self.assertIn(escape_html(product["image"]), card)
+            self.assertIn("Explore available styles", card)
+            self.assertNotIn("$", card)  # price/currency is confirmed on the supplier page
 
-    def test_cards_show_one_real_artwork_view_and_no_placeholder_panels(self):
-        """The wall shows one framed artwork per piece - the campaign front.
+    def test_storewide_apparel_options_are_named_without_promising_per_design_stock(self):
+        text = unescape(self.html)
+        for category in self.catalog["categories"]:
+            self.assertIn(f"<span>{category}</span>", text)
+        for kind in ("T-shirts", "hoodies", "sweatshirts", "long sleeves",
+                     "tank tops", "caps and hats"):
+            self.assertIn(kind.lower(), text.lower())
+        self.assertIn("each product page confirms the options for that design", text.lower())
+        self.assertIn("These are store-wide categories; exact options vary by design.", text)
+        self.assertIn("Confirm this design’s styles, colours, sizes and current price", text)
+        self.assertIn("on Silent Touch", text)
 
-        The flatlay panels are gone from every card: no second-view comparison
-        image, no stitched placeholder disc where a campaign publishes only one
-        mockup. Every flatlay class is absent from both the page and the
-        shipped stylesheet, so no orphan styling survives the cleanup.
-        """
-        import build  # noqa: E402
-        model = {it["slug"]: it for it in build.MODEL["michigan"]}
-        for card in self.cards():
-            item = model[card["slug"]]
-            # exactly one artwork view per piece: the real campaign front,
-            # framed in the photo panel, carrying the curated alt text
-            img = re.search(r'<img src="([^"]+)" alt="([^"]*)"',
-                            card["html"], re.S)
-            self.assertIsNotNone(img, card["slug"])
-            self.assertEqual(img.group(1), item["front"], card["slug"])
-            self.assertTrue(img.group(2).strip(), card["slug"])
-            self.assertEqual(card["html"].count("<img "), 1, card["slug"])
-        for flatlay in ("gflatlay-panel", "gflatlay-img", "gflatlay-empty", "gflatlay-stitch"):
-            self.assertNotIn(flatlay, self.html, flatlay)
-            self.assertNotIn(flatlay, self.css, flatlay)
+    def test_boutique_banner_local_navigation_and_anchors(self):
+        self.assertEqual(self.cre["hero"], "/img/bella-banner.jpg")
+        self.assertTrue(os.path.isfile(os.path.join(IMG, "bella-banner.jpg")))
+        self.assertIn('class="gbanner-photo" src="../../img/bella-banner.jpg"', self.html)
+        self.assertIn('alt="Smiling adult fan', self.html)
+        self.assertIn('class="logo glogo"', self.html)
+        nav = re.search(r'<nav class="bellanav".*?</nav>', self.html, re.S)
+        self.assertIsNotNone(nav)
+        for link in ('href="../../"', 'href="#locker"', 'href="#apparel"', 'href="#about"'):
+            self.assertIn(link, nav.group(0))
+        self.assertLess(self.html.index('class="bellanav"'),
+                        self.html.index('<main id="main" class="jlock jlock-girly">'))
+        ids = re.findall(r'id="([^"]+)"', self.html)
+        self.assertEqual(len(ids), len(set(ids)))
+        for anchor in re.findall(r'href="#([^"]+)"', self.html):
+            self.assertIn(anchor, ids, f"missing anchor target #{anchor}")
 
-    def test_statement_pick_gets_the_kicker_note_and_maize_pill(self):
-        pick = self.girly["statement_pick"]
-        card = next(card for card in self.cards() if card["slug"] == pick)
-        self.assertIn("gcard-fave", card["class"])
-        self.assertIn(escape_html(self.girly["statement_kicker"]), card["html"])
-        self.assertIn(escape_html(self.girly["statement_note"]), card["html"])
-        self.assertIn('class="gshop gmaize"', card["html"])
-        css = self.girly_css()
-        self.assertIn(".jlock-girly .gshop.gmaize{background:var(--g-maize)", css)
-        # price contrast: regular cards state the price on the navy pill in
-        # maize; only the featured maize pill keeps navy text (incl. its price)
-        self.assertIn(".jlock-girly .gshop b{font-size:.72rem;color:var(--g-maize)}", css)
-        self.assertIn(".jlock-girly .gshop.gmaize b{color:var(--g-navy)}", css)
-        for other in self.cards():
-            if other["slug"] == pick:
-                continue
-            self.assertIn('<span class="gshop"><span>', other["html"], other["slug"])
-            self.assertNotIn("gmaize", other["html"], other["slug"])
-        # the fave hangs in a double frame: pink border, gold keyline and
-        # gold tape, with a rosy glow
-        fave_rule = re.search(r"\.jlock-girly \.gcard\.gcard-fave\{[^}]*\}", css)
-        self.assertIsNotNone(fave_rule)
-        self.assertIn("border:2px solid var(--g-pink)", fave_rule.group(0))
-        self.assertIn("0 0 30px rgba(232,166,178,.45)", fave_rule.group(0))
-        self.assertIn(".jlock-girly .gcard.gcard-fave::after{border-color:rgba(255,203,5,.62)}", css)
-        self.assertIn(".jlock-girly .gcard.gcard-fave .gtape-card{background:rgba(255,203,5,.68)}", css)
+    def test_requested_canvas_banner_and_category_styles_are_bella_scoped(self):
+        self.assertIn('body[data-creator-page="BELLA"]{background:#efefed', self.css)
+        for selector in (".jlock-girly .gbanner-photo{", ".jlock-girly .gcategory-tiles{",
+                         ".jlock-girly .gcategory-tile{", ".jlock-girly .gabout-copy{"):
+            self.assertIn(selector, self.css)
+        self.assertNotIn(".gbanner-art", self.css)
+        self.assertIn("prefers-reduced-motion:reduce", self.css)
+        tablet = media_rules(self.css, 980)
+        self.assertIn(".jlock-girly .gcategory-tiles{grid-template-columns:repeat(3", tablet)
+        mobile = media_rules(self.css, 760)
+        self.assertIn(".jlock-girly .gbanner-photo{object-position:66% center}", mobile)
 
-    def test_phone_hangs_the_artwork_full_width(self):
-        """On phones the artwork is the piece, not a thumbnail beside text.
+    def test_discount_promo_is_removed_but_the_custom_inquiry_form_remains(self):
+        low = self.html.lower()
+        self.assertNotIn("promo", self.cre)
+        for stale in ('class="promo"', 'class="goffer"', 'use code:',
+                      "discount code", "10% off your order"):
+            self.assertNotIn(stale, low, stale)
+        self.assertNotIn("class=\"gcustom-note\"", self.html)
+        self.assertIn('id="customForm"', self.html)
+        self.assertIn('data-formsubmit="1"', self.html)
+        self.assertIn('name="idea"', self.html)
 
-        The horizontal split the cards use on desktop shrinks the framed
-        artwork to barely a third of a phone's width, so at <=540px the card
-        stacks: the white-matte panel goes full width on top (divider moved
-        from the right edge to the bottom edge), and the image's height caps
-        are lifted so its width + 5/6 aspect ratio drive the render - art
-        first, plate beneath.
-        """
-        mob = media_rules(self.css, 540)
-        self.assertIn(".jlock-girly .gcard{grid-template-columns:minmax(0,1fr)}", mob)
-        self.assertNotIn(".jlock-girly .gcard{grid-template-columns:minmax(0,.72fr)", mob)
-        img = re.search(r"\.jlock-girly \.gphoto-panel img\{[^}]*\}", mob)
-        self.assertIsNotNone(img)
-        self.assertIn("min-height:0", img.group(0))
-        self.assertIn("max-height:none", img.group(0))
-        panel = re.search(r"\.jlock-girly \.gphoto-panel\{[^}]*\}", mob)
-        self.assertIsNotNone(panel)
-        self.assertIn("border-right:0", panel.group(0))
-        self.assertIn("border-bottom:1px solid", panel.group(0))
-        # desktop keeps the horizontal salon hang exactly as pinned above
-        card = re.search(r"\.jlock-girly \.gcard\{[^}]*\}", self.girly_rules())
-        self.assertIn("minmax(0,.84fr)", card.group(0))
-
-    def test_next_drop_is_data_driven_and_not_a_fake_listing(self):
-        tile = self.girly["next_drop"]
-        block = re.search(r'<div class="gnextdrop".*?</div>', self.html, re.S)
-        self.assertIsNotNone(block)
-        self.assertIn('aria-hidden="true"', block.group(0))
-        for key in ("label", "caption", "heart"):
-            self.assertIn(escape_html(tile[key]), block.group(0))
-        self.assertEqual(len(self.cards()), 17)
-        self.assertNotIn('href="', block.group(0))
-
-    def test_premium_gallery_wall_framing_and_variation(self):
-        """Every piece is hung like framed art, and no two lean alike.
-
-        Structural checks only - no browser here, so nothing below claims a
-        pixel-level result: the matte, keyline, per-piece tilt and tape
-        cycles, the collection header dressing and the next-drop tile all
-        have to exist in the shipped CSS and markup.
-        """
-        css = self.girly_css()
-        # gallery framing: a white matte around the artwork, a hairline frame
-        # on the artwork itself, and layered shadows under the card
-        panel = re.search(r"\.jlock-girly \.gphoto-panel\{[^}]*\}", css)
-        self.assertIsNotNone(panel)
-        self.assertIn("padding:12px", panel.group(0))
-        self.assertIn("background:#fff", panel.group(0))
-        frame = re.search(r"\.jlock-girly \.gphoto-panel img\{[^}]*\}", css)
-        self.assertIsNotNone(frame)
-        self.assertIn("border:1px solid rgba(24,45,77,.16)", frame.group(0))
-        card = re.search(r"\.jlock-girly \.gcard\{[^}]*\}", css)
-        self.assertIsNotNone(card)
-        self.assertGreaterEqual(card.group(0).count("rgba(10,28,56,"), 2)
-        # gold keyline: an inset hairline that brightens on hover
-        keyline = re.search(r"\.jlock-girly \.gcard::after\{[^}]*\}", css)
-        self.assertIsNotNone(keyline)
-        self.assertIn("inset:6px", keyline.group(0))
-        self.assertIn("border:1px solid rgba(230,184,0,.32)", keyline.group(0))
-        self.assertIn(".jlock-girly .gcard:hover::after{border-color:rgba(255,203,5,.82)", css)
-        # per-piece variation: a four-card tilt cycle and three tape hues
-        for cycle in ("4n+1", "4n+2", "4n+3", "4n+4"):
-            tilt = re.search(r"\.jlock-girly \.gcard:nth-child\(" + re.escape(cycle)
-                             + r"\)\{transform:rotate\([^)]*\)\}", css)
-            self.assertIsNotNone(tilt, cycle)
-        hues = re.findall(r"\.jlock-girly \.gcard:nth-child\(3n\+\d\) \.gtape-card\{"
-                          r"background:rgba\([^)]*\)\}", css)
-        self.assertEqual(len(hues), 3)
-        self.assertEqual(len(set(hues)), 3, hues)
-        # ... and each of the 17 pieces is numbered in the title and tagged
-        self.assertEqual(self.html.count('<p class="gmood">'), 17)
-        self.assertEqual(self.html.count('<span class="gname-num">'), 17)
-        for num in range(1, 18):
-            self.assertIn(f'<span class="gname-num">{num:02d}.</span>', self.html, num)
-        self.assertEqual(self.html.count('<p class="gfoot-meta">Ann Arbor · Michigan</p>'), 17)
-        # collection header: heart-flanked overline, maize flourish, italic
-        # description, and a soft glow behind a 1100px salon hang
-        hearts = re.search(r"\.jlock-girly \.gcollection-head \.goverline::before,"
-                           r"\.jlock-girly \.gcollection-head \.goverline::after\{[^}]*\}", css)
-        self.assertIsNotNone(hearts)
-        self.assertIn('content:"\\2665"', hearts.group(0))
-        flourish = re.search(r"\.jlock-girly \.gcollection-head h2::after\{[^}]*\}", css)
-        self.assertIsNotNone(flourish)
-        self.assertIn("var(--g-maize)", flourish.group(0))
-        desc = re.search(r"\.jlock-girly \.gcollection-head p\{[^}]*\}", css)
-        self.assertIsNotNone(desc)
-        self.assertIn("font-style:italic", desc.group(0))
-        glow = re.search(r"\.jlock-girly \.gcollection\{[^}]*\}", css)
-        self.assertIsNotNone(glow)
-        self.assertIn("radial-gradient(", glow.group(0))
-        grid = re.search(r"\.jlock-girly \.ggrid\{[^}]*\}", css)
-        self.assertIsNotNone(grid)
-        self.assertIn("gap:32px 24px", grid.group(0))
-        self.assertIn("max-width:1100px", grid.group(0))
-        # the next-drop tile is a pink dashed placeholder, not a listing
-        nxt = re.search(r"\.jlock-girly \.gnextdrop\{[^}]*\}", css)
-        self.assertIsNotNone(nxt)
-        self.assertIn("border:2px dashed rgba(232,166,178,.6)", nxt.group(0))
-
-    def test_page_is_indexable_in_sitemap_and_has_no_commission_copy(self):
+    def test_page_is_indexable_and_schema_uses_supplier_listings(self):
         self.assertIn('<link rel="canonical" href="https://gridironlocker.store/michigan/bella/">',
                       self.html)
-        self.assertIn("<loc>https://gridironlocker.store/michigan/bella/</loc>", page("sitemap.xml"))
+        self.assertIn("<loc>https://gridironlocker.store/michigan/bella/</loc>",
+                      page("sitemap.xml"))
         self.assertIn('data-creator-page="BELLA"', self.html)
         self.assertNotIn('name="robots" content="noindex', self.html)
-        self.assertNotIn("commission", self.html.lower())
-        self.assertNotIn("15%", self.html)
+        nodes = json_ld_nodes(self.html)
+        collection = next(node for node in nodes if node.get("@type") == "CollectionPage")
+        urls = [entry.get("url") for entry in collection["about"]["itemListElement"]]
+        self.assertEqual(urls, [product["source_url"]
+                                 for product in self.catalog["products"]])
 
-    def test_heading_order_and_joe_control_page(self):
-        levels = [int(level) for level in re.findall(r"<h([1-6])[ >]", self.html)]
-        self.assertEqual(levels.count(1), 1)
-        for previous, current in zip(levels, levels[1:]):
-            self.assertLessEqual(current - previous, 1)
-        self.assertIn('<main id="main" class="jlock">', self.joe)
-        self.assertNotIn("jlock-girly", self.joe)
-        self.assertNotIn("gcard", self.joe)
+    def test_joe_and_the_public_michigan_catalogue_are_not_replaced(self):
+        import build  # noqa: E402
+
+        self.assertNotIn("bellanav", self.joe)
+        self.assertNotIn("gproduct", self.joe)
         self.assertIn('class="jfeat"', self.joe)
-        self.assertNotIn("fonts.googleapis.com/css2", self.joe)
+        bella_slugs = {product["slug"] for product in self.catalog["products"]}
+        public_slugs = {item["slug"] for item in build.MODEL["michigan"]}
+        self.assertTrue(bella_slugs.isdisjoint(public_slugs))
 
-    def test_her_own_masthead_and_no_sitewide_footer(self):
-        """Bella's page opens on her own masthead and ends on her sign-off.
-
-        The storefront GL wordmark is replaced by her script lockup in the
-        site header - the one piece of girly chrome that lives OUTSIDE
-        <main class="jlock-girly"> - and the sitewide footer is dropped
-        entirely: her page ends on its own .gsign sign-off, not on the shared
-        shop/help/brand columns. Joe's page keeps the storefront logo and the
-        shared footer untouched.
-        """
-        # the masthead sits in the site header, before <main>, and links home
-        main_at = self.html.index('<main id="main" class="jlock jlock-girly">')
-        masthead = self.html[:main_at]
-        self.assertIn('<a class="logo glogo" href="../../">', masthead)
-        self.assertIn('class="glogo-heart"', masthead)
-        self.assertIn('class="glogo-script"', masthead)
-        self.assertIn(">bella’s</span>", masthead)
-        self.assertIn('class="glogo-serif"', masthead)
-        self.assertIn(">locker</span>", masthead)
-        # the storefront wordmark is gone from her page only
-        self.assertNotIn('<span class="mark">GL</span>', self.html)
-        # no sitewide footer: she ends on her own sign-off
-        self.assertNotIn("<footer>", self.html)
-        signoff = self.html[self.html.rindex('class="gsign"'):]
-        self.assertIn('class="gcollab"', signoff)
-        self.assertIn('class="gbtn gbtn-papercut"', signoff)
-        self.assertTrue(self.html.rstrip().endswith("</main>"))
-        # Joe keeps the storefront chrome: GL logo, shared footer, no glogo
-        self.assertIn('<span class="mark">GL</span>', self.joe)
-        self.assertIn("<footer>", self.joe)
-        self.assertNotIn("glogo", self.joe)
-
-    def test_masthead_css_is_scoped_and_selfcontained(self):
-        """The masthead carries its own palette, because nothing else reaches it.
-
-        The masthead lives in the site header, outside <main
-        class="jlock-girly"> where every --g-* custom property is declared,
-        so its rules cannot lean on those tokens: each one is scoped to
-        body[data-creator-page="BELLA"] and repeats the locker palette as
-        literals that keep their contrast on the white header strip - navy
-        serif ink, pink script, maize heart, and the two girly fonts by name.
-        """
-        rules = re.findall(r'body\[data-creator-page="BELLA"\][^{}]*\{[^}]*\}',
-                           self.css)
-        self.assertTrue(rules)
-        joined = "\n".join(rules)
-        for cls in (".glogo-heart", ".glogo-script", ".glogo-serif"):
-            self.assertIn(cls, joined, cls)
-        # the locker palette and fonts as literals - no --g-* token can reach
-        # the header, so none may appear in these rules
-        self.assertIn("#182d4d", joined)
-        self.assertIn("#d9899a", joined)
-        self.assertIn("#ffcb05", joined)
-        self.assertIn("'Caveat'", joined)
-        self.assertIn("'Playfair Display'", joined)
-        self.assertNotIn("var(--g-", joined)
-        # every glogo rule in the stylesheet is scoped to Bella's page
-        stripped = re.sub(r"/\*.*?\*/", "", self.css, flags=re.S)
-        for group in re.findall(r"([^{}]+)\{", stripped):
-            for selector in group.split(","):
-                selector = selector.strip()
-                if "glogo" in selector:
-                    self.assertTrue(
-                        selector.startswith('body[data-creator-page="BELLA"]'),
-                        selector)
-
-    def test_promo_ticket_on_the_hero_paper_is_data_driven(self):
-        self.assertEqual(self.cre["promo"], {"code": "BELLA", "pct": 10})
-        self.assertIn('class="goffer"', self.html)
-        self.assertIn('10% off your order', self.html)
-        self.assertIn('use code <b>BELLA</b>', self.html)
-        self.assertLess(self.html.index('class="gfacts"'), self.html.index('class="goffer"'))
-        self.assertLess(self.html.index('class="goffer"'), self.html.index('class="gctas"'))
-        self.assertIn("Save 10% with code BELLA", self.html)
-        self.assertIn("How do I use Bella's discount code?", self.html)
-        self.assertIn("Enter the code BELLA at checkout for 10% off", self.html)
-        self.assertNotIn('class="goffer"', self.joe)
-        self.assertIn("USE CODE: JOE10", self.joe)
-
-    def test_custom_design_promo_note_is_hidden_but_the_form_stays(self):
-        """The promo note is gone; Bella's own inquiry form stays taped up.
-
-        PR #158 hid the whole custom-design section, which also removed the
-        working inquiry form. Only the pitch may be hidden: the overline,
-        heading, pitch copy, dream line and the yellow "Start a custom
-        design" CTA. Bella's #customForm keeps its place on her page with
-        its full FormSubmit contract - never replaced by a link or redirect
-        to the shared Gridiron Locker form.
-        """
-        self.assertTrue(self.girly.get("hide_custom_note"))
-        custom = self.girly["custom"]
-        # 1. the promo note and every line of its copy are gone
-        for key in ("overline", "heading", "pitch", "dream_line", "cta"):
-            value = custom[key].replace(" — ", " - ").replace("'", "&#x27;")
-            self.assertNotIn(value, self.html, key)
-        for marker in ('class="gcustom-note"', 'data-placement="girly_band"',
-                       'href="#custom-form"', "custom-link"):
-            self.assertNotIn(marker, self.html, marker)
-        # nothing on her page links or redirects to the shared form either
-        self.assertNotIn("#custom-design", self.html)
-        # 2. her on-page form sits between the locker grid and the sign-off
-        self.assertLess(self.html.index('id="locker"'),
-                        self.html.index('id="customForm"'))
-        self.assertLess(self.html.index('id="customForm"'),
-                        self.html.index('class="gsign"'))
-        sec = between(self.html, '<section id="custom" class="gcustom">',
-                      'class="gsign"')
-        self.assertIn('class="gcustom-formwrap" id="custom-form"', sec)
-        # 3. the submission contract: native POST to the store's FormSubmit
-        #    inbox, same hidden inputs and hooks as the homepage form
-        self.assertIn('method="POST"', sec)
-        self.assertIn('action="https://formsubmit.co/itsnoury65@gmail.com"', sec)
-        self.assertIn('data-formsubmit="1"', sec)
-        self.assertIn('aria-label="Custom design request form"', sec)
-        self.assertIn('name="_subject" '
-                      'value="New Custom Design Request from Bella\'s Michigan Locker"', sec)
-        self.assertIn('name="_template" value="table"', sec)
-        self.assertIn('name="_captcha" value="false"', sec)
-        self.assertIn('name="_honey"', sec)
-        for field in ('name="name"', 'name="email"', 'name="idea"',
-                      'name="team"', 'name="garment"', 'name="colors"',
-                      'name="details"'):
-            self.assertIn(field, sec)
-        for req in ('name="name" required', 'name="email" required',
-                    'name="idea" rows="3" required', 'name="team" required'):
-            self.assertIn(req, sec)
-        # the team selector stays Michigan-only
-        team = between(sec, '<select name="team"', "</select>")
-        self.assertIn('<option value="">Choose</option><option>Michigan</option>', team)
-        # the yellow submit button in her voice, plus the reply note
-        self.assertIn('class="gbtn gbtn-maize gform-btn" type="submit"', sec)
-        self.assertIn(escape_html(custom["submit"]), sec)
-        self.assertIn('id="formmsg"', sec)
-        self.assertIn(escape_html(custom["reply_note"]), sec)
-        # 4. a Bella-only choice: the shared homepage inquiry form and Joe's
-        #    separate creator page keep their existing behavior
-        self.assertIn('id="customForm"', page("index.html"))
-        self.assertNotIn('class="gcustom"', self.joe)
+    def test_local_asset_references_resolve(self):
+        fp = os.path.join(SITE, "michigan/bella/index.html")
+        attr = re.compile(r'(?:src|data-src|href|content)="([^"]+)"')
+        for match in attr.finditer(self.html):
+            value = unescape(match.group(1).strip())
+            if not (value.startswith("/") or value.startswith("./") or value.startswith("../")):
+                continue
+            value = value.split("#")[0].split("?")[0]
+            if value in ("", "/", "./"):
+                continue
+            target = (os.path.join(SITE, value.lstrip("/")) if value.startswith("/")
+                      else os.path.join(os.path.dirname(fp), value))
+            target = os.path.normpath(target)
+            if os.path.isdir(target):
+                target = os.path.join(target, "index.html")
+            self.assertTrue(os.path.isfile(target), f"{fp}: {value}")
 
 
 class ConversionUpgrades(unittest.TestCase):
