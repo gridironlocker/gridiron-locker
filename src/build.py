@@ -107,6 +107,20 @@ def record_content_date(record):
     return None
 
 
+def url_safe(path):
+    """Percent-encode the spaces in a site path so it is a valid URL.
+
+    Exactly one asset in the repository has a human-readable filename: Bella's
+    hero banner, ``/michigan/bella/Smiling Michigan Campus Portrait.png``
+    (referenced by data/creators.json). A raw space is not a legal URL
+    character - browsers, social unfurlers and the W3C validator all dislike it
+    - so every place the build emits that path *as a URL* (og:image,
+    twitter:image and the <img src>) encodes it. A no-op for every other path
+    in the repo, none of which contains a space.
+    """
+    return str(path).replace(" ", "%20")
+
+
 def abs_url(path):
     """Return an absolute URL for a site path on the configured domain.
 
@@ -118,7 +132,7 @@ def abs_url(path):
         return path
     if path.startswith("http://") or path.startswith("https://"):
         return path
-    return DOMAIN + path
+    return DOMAIN + url_safe(path)
 BRAND = CFG["site_name"]
 
 
@@ -2730,10 +2744,34 @@ def _girly_body(cre, c, items, track):
                 f'stroke-width="1.5" stroke-linecap="round" stroke-linejoin="round" '
                 f'aria-hidden="true">{path}</svg>')
 
-    category_tiles = "".join(
-        f'<div class="gcategory-tile">{category_icon(label)}'
-        f'<span>{esc(label)}</span></div>'
-        for label in catalog.get("categories", []))
+    # The store-wide apparel categories are real BUTTONS, not decoration: a
+    # click shows all of the creator's designs as candidates for that style and
+    # scrolls the collection into view (app.js, the .gcategory-tile handler).
+    # They are a candidate filter and never an availability claim - the
+    # supplier publishes each design's real styles, colours, sizes and prices on
+    # that design's own product page - so every card carries every category id
+    # and both the standing note and the live status say so.
+    grid_id = "gcollectionGrid"
+    categories = [str(label) for label in catalog.get("categories", [])]
+    cat_slug = {label: slugify(label) for label in categories}
+    candidates = " ".join(cat_slug[label] for label in categories)
+    category_buttons = "".join(
+        f'<button class="gcategory-tile" type="button" data-gcat="{cat_slug[label]}" '
+        f'aria-controls="{grid_id}" aria-pressed="false">{category_icon(label)}'
+        f'<span>{esc(label)}</span></button>'
+        for label in categories)
+    category_note = str(g.get(
+        "category_note",
+        "These are store-wide categories; exact options vary by design. Tap a style "
+        "to see all {n} designs as candidates for it, then confirm the exact styles, "
+        "colours, sizes and prices on each Silent Touch product page.")).replace(
+            "{n}", str(len(items)))
+    category_status_all = str(g.get(
+        "category_status_all", "Showing all {n} designs."))
+    category_status_one = str(g.get(
+        "category_status_one",
+        "Showing all {n} designs as {style} candidates - availability varies by "
+        "design, so confirm the exact options on each Silent Touch product page."))
 
     cards = []
     for idx, it in enumerate(items):
@@ -2743,7 +2781,8 @@ def _girly_body(cre, c, items, track):
         slug = esc(it["slug"])
         alt = esc(f'{it["name"]} design on a {it["garment"].lower()}')
         cards.append(
-            f'<article class="gproduct" data-slug="{slug}" data-creator="{track}">'
+            f'<article class="gproduct" data-slug="{slug}" data-creator="{track}" '
+            f'data-gcat="{candidates}">'
             f'<a class="gproduct-art" href="{href}" target="_blank" '
             f'rel="noopener noreferrer" aria-label="View {name} on {store_name} (opens in a new tab)">'
             f'<img src="{image}" alt="{alt}" width="500" height="500" '
@@ -2754,6 +2793,7 @@ def _girly_body(cre, c, items, track):
             f'<p class="gproduct-kicker">BELLA’S PICK {idx + 1:02d}</p>'
             f'<h3>{name}</h3>'
             f'<div class="gproduct-meta"><span>Apparel &amp; colour options</span><b>See listing</b></div>'
+            f'<p class="gproduct-gtag" hidden></p>'
             f'<p class="gproduct-note">Confirm this design’s styles, colours, sizes and current price on {store_name}.</p>'
             f'<a class="gproduct-link" href="{href}" target="_blank" rel="noopener noreferrer">'
             f'Explore available styles <span aria-hidden="true">&rarr;</span></a>'
@@ -2813,7 +2853,7 @@ def _girly_body(cre, c, items, track):
  </div>
 </div></section>""")
 
-    hero_image = esc(g.get("hero_image", cre.get("hero", "")))
+    hero_image = esc(url_safe(g.get("hero_image", cre.get("hero", ""))))
     hero_alt = esc(g.get("hero_alt", cre.get("hero_alt", "")))
     return f"""
 <main id="main" class="jlock jlock-girly">
@@ -2835,9 +2875,11 @@ def _girly_body(cre, c, items, track):
 </div></section>
 
 <section id="apparel" class="gcategory-row" aria-label="Shop by apparel style"><div class="wrap">
- <p class="gcategory-heading">APPAREL OPTIONS ON SILENT TOUCH</p>
- <div class="gcategory-tiles">{category_tiles}</div>
- <p class="gcategory-note">These are store-wide categories; exact options vary by design. Check each Silent Touch product page.</p>
+ <p class="gcategory-heading" id="gcatHeading">APPAREL OPTIONS ON SILENT TOUCH</p>
+ <div class="gcategory-tiles" role="group" aria-labelledby="gcatHeading" aria-describedby="gcatNote">{category_buttons}</div>
+ <p class="gcategory-status" id="gcatStatus" role="status" aria-live="polite"
+  data-status-all="{esc(category_status_all)}" data-status-one="{esc(category_status_one)}"></p>
+ <p class="gcategory-note" id="gcatNote">{esc(category_note)}</p>
 </div></section>
 
 <section id="locker" class="gcollection"><div class="wrap">
@@ -2846,7 +2888,7 @@ def _girly_body(cre, c, items, track):
   <h2>{esc(g.get('collection_heading', 'Bella’s Michigan Designs'))}</h2>
   <p>{esc(g.get('collection_desc', ''))}</p>
  </div>
- <div class="ggrid">{"".join(cards)}</div>
+ <div class="ggrid" id="{grid_id}">{"".join(cards)}</div>
  <p class="gstore-note">Each design opens on <a href="{store_url}" target="_blank" rel="noopener noreferrer">{store_name}</a>. Available apparel, colours, sizes and current prices are confirmed on its product page.</p>
 </div></section>
 
@@ -2957,8 +2999,10 @@ def page_creator(ckey="joe"):
              f"A Gridiron Locker creator page featuring {len(items)} designs selected by "
              f"{display}. Each listing opens the matching product page on {store_name}."),
             ("Which apparel styles are available?",
-             "Bella's store lists T-shirts, hoodies, sweatshirts, long sleeves, tank tops, "
-             "caps and hats. Open a design to confirm its available styles, colours and sizes."),
+             f"Availability varies by design. {store_name} lists T-shirts, hoodies, "
+             "sweatshirts, long sleeves, tank tops, caps and hats store-wide, and each "
+             "design's product page confirms the styles, colours and sizes that design "
+             "is actually sold in."),
             ("How does ordering work?",
              f"Choose a design to open its product page on {store_name}. The current price, "
              "available apparel, colour and size are confirmed there before checkout."),
@@ -3025,7 +3069,7 @@ def page_creator(ckey="joe"):
    <p class="jfacts">{desc_bits}</p>
   </div>
   <div class="jart">
-   <img src="{cre['hero']}" alt="{esc(cre['hero_alt'])}"
+   <img src="{esc(url_safe(cre['hero']))}" alt="{esc(cre['hero_alt'])}"
     width="{cre['hero_w']}" height="{cre['hero_h']}" fetchpriority="high" decoding="async">
   </div>
  </div>
@@ -5846,6 +5890,61 @@ document.querySelectorAll('a.custom-link').forEach(function(a){
   modal.querySelector('.qv-overlay').addEventListener('click',close);
   document.addEventListener('keydown',function(e){
     if(e.key==='Escape'&&!modal.hidden)close();
+  });
+})();
+
+// ---------- creator apparel-style buttons (.gcategory-tile) ----------
+// The six store-wide category buttons over a creator collection are a CANDIDATE
+// filter, never a stock list. The fulfilling partner publishes each design's
+// real styles, colours, sizes and prices on that design's own product page, so
+// every card is emitted as a candidate for every category; a click scrolls the
+// collection into view, labels each design as that style's candidate and
+// repeats where the exact options are confirmed. Clicking the active button
+// again clears the selection. The status line is a live region, so the change
+// is announced; with no JS the buttons stay inert and the standing note under
+// them still says availability varies by design.
+(function(){
+  var row=document.querySelector('.gcategory-tiles'); if(!row)return;
+  var tiles=[].slice.call(row.querySelectorAll('.gcategory-tile[data-gcat]'));
+  if(!tiles.length)return;
+  var grid=document.querySelector('.ggrid'); if(!grid)return;
+  var cards=[].slice.call(grid.children);
+  var status=document.getElementById('gcatStatus'), active=null;
+  function label(t){var s=t.querySelector('span');return s?s.textContent.trim():'';}
+  function setStatus(tpl){
+    if(!status||!tpl)return;
+    status.textContent=tpl
+      .replace('{n}',String(cards.filter(function(c){return !c.hidden;}).length))
+      .replace('{style}',active?label(active):'');
+  }
+  function apply(sel){
+    active=sel;
+    tiles.forEach(function(t){
+      t.setAttribute('aria-pressed',t===sel?'true':'false');
+    });
+    cards.forEach(function(c){
+      var cats=(c.getAttribute('data-gcat')||'').split(/\s+/);
+      var ok=!sel||cats.indexOf(sel.getAttribute('data-gcat'))>-1;
+      c.hidden=!ok;
+      var tag=c.querySelector('.gproduct-gtag');
+      if(!tag)return;
+      tag.textContent=ok&&sel?label(sel)+' candidate':'';
+      tag.hidden=!(ok&&sel);
+    });
+    if(sel){
+      setStatus(status?status.getAttribute('data-status-one'):'');
+      try{
+        var calm=window.matchMedia&&window.matchMedia('(prefers-reduced-motion: reduce)').matches;
+        grid.scrollIntoView({behavior:calm?'auto':'smooth',block:'start'});
+      }catch(e){}
+    }else{
+      setStatus(status?status.getAttribute('data-status-all'):'');
+    }
+  }
+  tiles.forEach(function(t){
+    t.addEventListener('click',function(){
+      apply(t===active?null:t);
+    });
   });
 })();
 """.replace("__EMAIL__", CFG["email_b64"]).replace("__CONSENT_COPY__", consent_copy))

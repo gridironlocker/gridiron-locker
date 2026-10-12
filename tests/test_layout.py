@@ -34,9 +34,11 @@ Covered:
     headline panels (those live on /2026-season/ and /fan-trend-index/), and
     live ticker terms are team-safe (no raw headline words, no opponents).
   * Artwork hygiene: no PNG masters in site/img (they live in artwork-source/).
-  * Bella's /michigan/bella/: seven Silent Touch listings, honest store-wide
-    apparel categories, design-specific availability guidance, a simple
-    boutique banner, the #efefed canvas, and no discount promo code.
+  * Bella's /michigan/bella/: seven Silent Touch listings, six accessible
+    apparel-category buttons that offer every design as a candidate for the
+    chosen style (without ever implying the style is stocked), design-specific
+    availability guidance, the campus hero banner, the #efefed canvas, and no
+    discount promo code.
   * Preserved: team accents, hero images, product count, checkout links, SEO
     metadata, dynamic catalogue counts, no missing local references.
 """
@@ -1498,6 +1500,8 @@ class CatalogueIntegrity(unittest.TestCase):
                 self.assertIn(live[slug]["url"], html, slug)   # Viralstyle checkout link intact
 
     def test_no_missing_local_references(self):
+        from urllib.parse import unquote
+
         attr = re.compile(r'(?:src|data-src|href|content)="([^"]+)"')
         missing = []
         for base, _, files in os.walk(SITE):
@@ -1510,7 +1514,10 @@ class CatalogueIntegrity(unittest.TestCase):
                     if val.startswith("//") or not (val.startswith("/") or val.startswith("../")
                                                     or val.startswith("./")):
                         continue
-                    val = val.split("#")[0].split("?")[0]
+                    # Decode the way a browser does: a URL is percent-encoded
+                    # (Bella's campus hero banner is a .png with spaces in its
+                    # filename), the file on disk is not.
+                    val = unquote(val.split("#")[0].split("?")[0])
                     if val in ("", "/", "./"):
                         continue
                     cand = (os.path.normpath(os.path.join(SITE, val.lstrip("/"))) if val.startswith("/")
@@ -2008,13 +2015,15 @@ class CreatorCollab(unittest.TestCase):
             self.assertIn("width=\"530\" height=\"630\"", block)  # no layout shift
 
     def test_local_references_resolve(self):
+        from urllib.parse import unquote
+
         fp = os.path.join(SITE, "michigan/joe/index.html")
         attr = re.compile(r'(?:src|data-src|href|content)="([^"]+)"')
         for m in attr.finditer(self.html):
             val = m.group(1).strip()
             if not (val.startswith("/") or val.startswith("./") or val.startswith("../")):
                 continue
-            val = val.split("#")[0].split("?")[0]
+            val = unquote(val.split("#")[0].split("?")[0])
             if val in ("", "/", "./"):
                 continue
             cand = os.path.normpath(
@@ -2124,14 +2133,92 @@ class BellaLocker(unittest.TestCase):
             self.assertIn(kind.lower(), text.lower())
         self.assertIn("each product page confirms the options for that design", text.lower())
         self.assertIn("These are store-wide categories; exact options vary by design.", text)
+        self.assertIn("availability varies by design", text.lower())
+        self.assertIn(
+            "confirm the exact styles, colours, sizes and prices on each Silent Touch "
+            "product page", text)
         self.assertIn("Confirm this design’s styles, colours, sizes and current price", text)
         self.assertIn("on Silent Touch", text)
 
+    def test_apparel_categories_are_buttons_that_offer_candidates_not_stock(self):
+        """The six store-wide categories are buttons, and a click is a candidate
+        filter - never a promise that every design is sold in that style."""
+        unescaped = unescape(self.html)
+        labels = self.catalog["categories"]
+        self.assertEqual(len(labels), 6)
+        buttons = re.findall(r'<button class="gcategory-tile"[^>]*>.*?</button>',
+                             self.html, re.S)
+        self.assertEqual(len(buttons), len(labels))
+        slugs = ["t-shirts", "hoodies", "sweatshirts", "long-sleeves", "tank-tops",
+                 "caps-hats"]
+        for button, label, slug in zip(buttons, labels, slugs):
+            self.assertIn('type="button"', button)
+            self.assertIn(f'data-gcat="{slug}"', button)
+            self.assertIn('aria-controls="gcollectionGrid"', button)
+            self.assertIn('aria-pressed="false"', button)   # nothing selected yet
+            self.assertIn(f"<span>{escape_html(label)}</span>", button)  # accessible name
+            self.assertIn("<svg", button)
+
+        # The buttons are grouped and described by the standing caveat...
+        row = re.search(r'<div class="gcategory-tiles"([^>]*)>', self.html)
+        self.assertIsNotNone(row)
+        self.assertIn('role="group"', row.group(1))
+        self.assertIn('aria-describedby="gcatNote"', row.group(1))
+        self.assertIn("These are store-wide categories; exact options vary by design.",
+                      unescaped)
+        self.assertIn("Tap a style to see all 7 designs as candidates for it", unescaped)
+        self.assertIn("Tap the active style again to show all designs.", unescaped)
+
+        # ...and the live status repeats it for the style actually chosen.
+        status = re.search(r'<p class="gcategory-status" id="gcatStatus"[^>]*></p>',
+                           self.html, re.S)
+        self.assertIsNotNone(status)
+        self.assertIn('role="status"', status.group(0))
+        self.assertIn('aria-live="polite"', status.group(0))
+        self.assertIn("Showing all {n} designs.", status.group(0))
+        status_one = unescape(status.group(0))
+        self.assertIn("Showing all {n} designs as {style} candidates", status_one)
+        self.assertIn("availability varies by design", status_one.lower())
+
+        # Every design is emitted as a candidate for every category: seven cards,
+        # all six ids each, and a badge slot per card for the chosen style.
+        grid = re.search(r'<div class="ggrid" id="gcollectionGrid">(.*?)<p class="gstore-note">',
+                         self.html, re.S)
+        self.assertIsNotNone(grid)
+        cards = re.findall(r'<article class="gproduct" data-slug="([^"]+)" '
+                           r'data-creator="BELLA" data-gcat="([^"]+)"', grid.group(1))
+        self.assertEqual([slug for slug, _ in cards], self.cre["picks"])
+        for slug, ids in cards:
+            self.assertEqual(ids.split(), slugs, slug)
+        self.assertEqual(grid.group(1).count('class="gproduct-gtag" hidden'), len(cards))
+
+        # the behaviour itself, and the fact that it is page-scoped, live in app.js
+        js = page("assets/app.js")
+        for term in (".gcategory-tile[data-gcat]", "data-status-one", "data-status-all",
+                     "gproduct-gtag", "aria-pressed", "scrollIntoView",
+                     "prefers-reduced-motion"):
+            self.assertIn(term, js, term)
+
     def test_boutique_banner_local_navigation_and_anchors(self):
-        self.assertEqual(self.cre["hero"], "/img/bella-banner.jpg")
-        self.assertTrue(os.path.isfile(os.path.join(IMG, "bella-banner.jpg")))
-        self.assertIn('class="gbanner-photo" src="../../img/bella-banner.jpg"', self.html)
-        self.assertIn('alt="Smiling adult fan', self.html)
+        self.assertEqual(self.cre["hero"],
+                         "/michigan/bella/Smiling Michigan Campus Portrait.png")
+        self.assertEqual((self.cre["hero_w"], self.cre["hero_h"]), (1894, 830))
+        self.assertEqual(self.girly["hero_image"], self.cre["hero"])
+        self.assertEqual(self.girly["hero_alt"], self.cre["hero_alt"])
+        self.assertTrue(os.path.isfile(os.path.join(
+            SITE, "michigan/bella/Smiling Michigan Campus Portrait.png")))
+        # a space is not a legal URL character, so the build percent-encodes the
+        # banner path everywhere it emits it as a URL
+        self.assertIn('class="gbanner-photo" '
+                      'src="../../michigan/bella/Smiling%20Michigan%20Campus%20Portrait.png"',
+                      self.html)
+        self.assertIn('<meta property="og:image" content="https://gridironlocker.store'
+                      '/michigan/bella/Smiling%20Michigan%20Campus%20Portrait.png">',
+                      self.html)
+        self.assertNotIn("bella-banner.jpg", self.html)
+        self.assertIn('width="1894" height="830"', self.html)
+        self.assertIn('alt="Smiling Michigan fan in a navy MICHIGAN tee', self.html)
+        self.assertIn("fetchpriority=\"high\"", self.html)
         self.assertIn('class="logo glogo"', self.html)
         nav = re.search(r'<nav class="bellanav".*?</nav>', self.html, re.S)
         self.assertIsNotNone(nav)
@@ -2147,7 +2234,11 @@ class BellaLocker(unittest.TestCase):
     def test_requested_canvas_banner_and_category_styles_are_bella_scoped(self):
         self.assertIn('body[data-creator-page="BELLA"]{background:#efefed', self.css)
         for selector in (".jlock-girly .gbanner-photo{", ".jlock-girly .gcategory-tiles{",
-                         ".jlock-girly .gcategory-tile{", ".jlock-girly .gabout-copy{"):
+                         ".jlock-girly .gcategory-tile{", ".jlock-girly .gabout-copy{",
+                         '.jlock-girly .gcategory-tile:focus-visible{',
+                         '.jlock-girly .gcategory-tile[aria-pressed="true"]{',
+                         ".jlock-girly .gcategory-status{",
+                         ".jlock-girly .gproduct-gtag[hidden]{display:none}"):
             self.assertIn(selector, self.css)
         self.assertNotIn(".gbanner-art", self.css)
         self.assertIn("prefers-reduced-motion:reduce", self.css)
@@ -2191,13 +2282,17 @@ class BellaLocker(unittest.TestCase):
         self.assertTrue(bella_slugs.isdisjoint(public_slugs))
 
     def test_local_asset_references_resolve(self):
+        from urllib.parse import unquote
+
         fp = os.path.join(SITE, "michigan/bella/index.html")
         attr = re.compile(r'(?:src|data-src|href|content)="([^"]+)"')
         for match in attr.finditer(self.html):
             value = unescape(match.group(1).strip())
             if not (value.startswith("/") or value.startswith("./") or value.startswith("../")):
                 continue
-            value = value.split("#")[0].split("?")[0]
+            # the campus hero banner is a .png with spaces in its filename, and
+            # the build percent-encodes it in URLs
+            value = unquote(value.split("#")[0].split("?")[0])
             if value in ("", "/", "./"):
                 continue
             target = (os.path.join(SITE, value.lstrip("/")) if value.startswith("/")
