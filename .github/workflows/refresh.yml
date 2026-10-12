@@ -104,6 +104,7 @@ jobs:
         run: |
           python - <<'PY'
           import json, os, re, sys
+          from urllib.parse import unquote
           # 1) Catalogue size - read the MASTER catalogue, not one crawl file.
           # data/products_live.json is only the Viralstyle half: Cleveland and
           # Michigan are sourced from data/mayzing_products.json and
@@ -149,6 +150,14 @@ jobs:
                       if val.startswith("//") or not (val.startswith("/") or val.startswith("../")):
                           continue
                       val = val.split("#")[0].split("?")[0]
+                      # Percent-decode the way a browser does before hitting the
+                      # filesystem. The build's url_safe() percent-encodes the
+                      # one asset whose filename contains spaces (Bella's hero
+                      # banner), so the page says %20 where the disk says " ".
+                      # Same rule as qa_audit.py and tests/test_layout.py - this
+                      # gate was the one place that forgot it, and failed every
+                      # run from PR #161 on with a phantom missing ref.
+                      val = unquote(val)
                       if val in ("", "/"):
                           continue
                       if val.startswith("/"):
