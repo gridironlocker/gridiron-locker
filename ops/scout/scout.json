@@ -1,5 +1,5 @@
 {
- "generated": "2026-10-11",
+ "generated": "2026-10-12",
  "window_days": 10,
  "fti_formula": "round(100 * entity_mentions / peak_mentions_in_window)",
  "peak_mentions": 22,
@@ -12,7 +12,7 @@
   "throwback": 0,
   "steady": 94,
   "gaps": 6,
-  "moments": 6,
+  "moments": 5,
   "tracked_names": 18,
   "dead_campaigns": 66
  },
@@ -28,35 +28,35 @@
   },
   {
    "name": "kyle whittingham",
-   "mentions": 18,
-   "index": 82,
+   "mentions": 16,
+   "index": 73,
    "status": "trending",
    "gap": true,
    "shoppable": false,
    "collection": "michigan"
   },
   {
-   "name": "deshaun watson",
-   "mentions": 17,
-   "index": 77,
-   "status": "trending",
-   "gap": true,
-   "shoppable": false,
-   "collection": "cleveland-browns"
-  },
-  {
    "name": "dak prescott",
-   "mentions": 15,
-   "index": 68,
+   "mentions": 14,
+   "index": 64,
    "status": "trending",
    "gap": true,
    "shoppable": false,
    "collection": "dallas-cowboys"
   },
   {
+   "name": "deshaun watson",
+   "mentions": 13,
+   "index": 59,
+   "status": "trending",
+   "gap": true,
+   "shoppable": false,
+   "collection": "cleveland-browns"
+  },
+  {
    "name": "ceedee lamb",
-   "mentions": 10,
-   "index": 45,
+   "mentions": 8,
+   "index": 36,
    "status": "trending",
    "gap": true,
    "shoppable": false,
@@ -73,8 +73,8 @@
   },
   {
    "name": "micah parsons",
-   "mentions": 6,
-   "index": 27,
+   "mentions": 4,
+   "index": 18,
    "status": "trending",
    "gap": false,
    "shoppable": true,
@@ -90,6 +90,15 @@
    "collection": "green-bay-packers"
   },
   {
+   "name": "jordan love",
+   "mentions": 2,
+   "index": 9,
+   "status": "steady",
+   "gap": false,
+   "shoppable": true,
+   "collection": "green-bay-packers"
+  },
+  {
    "name": "denzel ward",
    "mentions": 1,
    "index": 5,
@@ -99,13 +108,13 @@
    "collection": "cleveland-browns"
   },
   {
-   "name": "jordan love",
+   "name": "myles garrett",
    "mentions": 1,
    "index": 5,
    "status": "steady",
    "gap": false,
    "shoppable": true,
-   "collection": "green-bay-packers"
+   "collection": "cleveland-browns"
   },
   {
    "name": "todd monken",
@@ -153,15 +162,6 @@
    "collection": "cleveland-browns"
   },
   {
-   "name": "myles garrett",
-   "mentions": 0,
-   "index": 0,
-   "status": "quiet",
-   "gap": false,
-   "shoppable": true,
-   "collection": "cleveland-browns"
-  },
-  {
    "name": "robert tonyan",
    "mentions": 0,
    "index": 0,
@@ -183,35 +183,35 @@
  "gaps": [
   {
    "name": "kyle whittingham",
-   "mentions": 18,
-   "index": 82,
+   "mentions": 16,
+   "index": 73,
    "status": "trending",
    "gap": true,
    "shoppable": false,
    "collection": "michigan"
   },
   {
-   "name": "deshaun watson",
-   "mentions": 17,
-   "index": 77,
-   "status": "trending",
-   "gap": true,
-   "shoppable": false,
-   "collection": "cleveland-browns"
-  },
-  {
    "name": "dak prescott",
-   "mentions": 15,
-   "index": 68,
+   "mentions": 14,
+   "index": 64,
    "status": "trending",
    "gap": true,
    "shoppable": false,
    "collection": "dallas-cowboys"
   },
   {
+   "name": "deshaun watson",
+   "mentions": 13,
+   "index": 59,
+   "status": "trending",
+   "gap": true,
+   "shoppable": false,
+   "collection": "cleveland-browns"
+  },
+  {
    "name": "ceedee lamb",
-   "mentions": 10,
-   "index": 45,
+   "mentions": 8,
+   "index": 36,
    "status": "trending",
    "gap": true,
    "shoppable": false,
@@ -250,8 +250,8 @@
    "gaps": [
     {
      "name": "deshaun watson",
-     "mentions": 17,
-     "index": 77,
+     "mentions": 13,
+     "index": 59,
      "status": "trending",
      "gap": true,
      "shoppable": false,
@@ -263,10 +263,10 @@
     "cleveland",
     "york",
     "watch",
+    "stream",
     "watson",
-    "injury",
-    "deshaun",
-    "stream"
+    "live",
+    "deshaun"
    ],
    "headline_count": 100,
    "headlines": [
@@ -274,7 +274,7 @@
      "title": "Browns vs. Jets: How to Watch, Listen & Live Stream",
      "url": "https://news.google.com/rss/articles/CBMikwFBVV95cUxQNTBpM3BOZDlpYzkwRzRBbVo3aUdXNzU5XzBVSjFqSlV6Zk1QenhlbFFUbmoyNDRhV2ZtSzM1WkhHcU5zQUNLVndaa3pGOWxiVDhXTzkyU2c4WGFCdldWeFl1WVA2TjdRaWx5T3pJZ1FsRjlxMk9lT3VZNmRnMWtxb0EyTHdFams4d05WZTBYVHNKM0E?oc=5",
      "source": "Cleveland Browns",
-     "pub": "Sun, 11 Oct 2026 15:56:53 GMT"
+     "pub": "Wed, 07 Oct 2026 18:58:02 GMT"
     },
     {
      "title": "Steelers edged by Browns, 27-24",
@@ -316,8 +316,8 @@
    "gaps": [
     {
      "name": "dak prescott",
-     "mentions": 15,
-     "index": 68,
+     "mentions": 14,
+     "index": 64,
      "status": "trending",
      "gap": true,
      "shoppable": false,
@@ -325,8 +325,8 @@
     },
     {
      "name": "ceedee lamb",
-     "mentions": 10,
-     "index": 45,
+     "mentions": 8,
+     "index": 36,
      "status": "trending",
      "gap": true,
      "shoppable": false,
@@ -336,12 +336,12 @@
    "top_terms": [
     "cowboys",
     "dallas",
-    "bucs",
     "loss",
+    "bucs",
     "prescott",
+    "schottenheimer",
     "time",
-    "thursday",
-    "schottenheimer"
+    "brian"
    ],
    "headline_count": 100,
    "headlines": [
@@ -415,8 +415,8 @@
     "watch",
     "channel",
     "time",
-    "predictions",
-    "stream"
+    "stream",
+    "matt"
    ],
    "headline_count": 100,
    "headlines": [
@@ -427,28 +427,28 @@
      "pub": "Fri, 09 Oct 2026 16:57:00 GMT"
     },
     {
-     "title": "Can't-Miss Play: Jordan Love's 42-yard TD launch to Watson opens scoring in Bears-Packers",
-     "url": "https://news.google.com/rss/articles/CBMitgFBVV95cUxOUnZ2UWQweG1MNDRHRWVFMUVjRmliUjZuV2hVUFk0NDIwLTZpRDhBS0F6R0VKcDNUUkJrTXpZblZralg2TlE5S09tOEIxSTBGWTBMYWdtTHY1ekdjOFJCMXhrSFFRdkM4ZVRfV2NXOF96WXdxQlg2U1kxMzFHalR1UmlvZVJtUnk1QzFRS0E2X0NSdGtEQU1zV1BvQU5GVGRHa0FzTzdnamdOVVFFN216M2prbXQ1dw?oc=5",
-     "source": "NFL.com",
-     "pub": "Sun, 11 Oct 2026 17:35:13 GMT"
-    },
-    {
-     "title": "Game recap: 5 takeaways from Packers\u2019 victory over Buccaneers",
-     "url": "https://news.google.com/rss/articles/CBMiogFBVV95cUxNYzRNQm1abTlNU3ROQWh0SklLdUpubXI5NFZMNVFScXhpYnI2TkpFZzkwaUxudW9qaHZ4N1NqaklYQ3dZelh0MmNyQy1OY3dHNzA5T2VmRjdOOF9qVGhGblBOWmNRa21meGlMMGFQUXVCR09teGJtMU9XS3RtVm9LeFZNUW03aXN0QXVBUjFuSldyQ3hiLWh0ZzZxTVlVeUV3QVE?oc=5",
-     "source": "Green Bay Packers \u2013 packers.com",
-     "pub": "Sun, 04 Oct 2026 21:10:26 GMT"
-    },
-    {
-     "title": "Packers Hold Off Bucs in Jalon Daniels' Debut Start",
-     "url": "https://news.google.com/rss/articles/CBMihAFBVV95cUxPNWhUVzNZbWZocmJ4eUlaTExOdV9NMVhrZVZUY0k3aXQxeWlGZEpZQ0Q2eGYxclJwaElxYWpscFpvekhjS3hXeFBrckZLemFrV0h1S3JBcnZUbzFlVVI1UWg1a0FMZmE5YUVWa0tpbDNIZDdVdnp6X2EwT3J6ektEU3ZsT3k?oc=5",
+     "title": "Rapid Reaction: Packers 17, Buccaneers 14",
+     "url": "https://news.google.com/rss/articles/CBMiiwFBVV95cUxNWVQ0WHBfZmE0T04wUFF1eElCQm91MTlNbmdzYjFZS3QxTnBkUC1lNHA4eWo4bXJheVNLWlV6VE53OGRBaFlfaG13VUJJb28tVDdCRmpIbFZJemxoRVlqSTFzNG9Qd0V6N3FoRDJTY1l5QzJ5YzMzRXI4SWd3LUh3RVFKTzlldGR6Y2hr?oc=5",
      "source": "Tampa Bay Buccaneers",
-     "pub": "Sun, 04 Oct 2026 21:37:15 GMT"
+     "pub": "Sun, 04 Oct 2026 20:05:19 GMT"
     },
     {
-     "title": "Green Bay Packers: Promote Intriguing RB to 53-Man Roster",
-     "url": "https://news.google.com/rss/articles/CBMijgFBVV95cUxNanFDcEN3YW45X2xtdGJ5NFp5T05fbmlfVG9ocnlhWDYzODhUbzg1TVpZUDVwNVg3bEtiRUdpOGdELW1Td0FnUHZHUVhRelFuWmlWcmdZN09MRWVQMGpXQ2R0SjZKdUQ0b2J5UDR1cmxJcXVENzJjWExrMHhFYUE0QTVNcDcyeEVaZjJ5UkR3?oc=5",
-     "source": "Yahoo Sports",
-     "pub": "Thu, 08 Oct 2026 22:22:24 GMT"
+     "title": "Game Recap: Bears fall to Packers in Green Bay",
+     "url": "https://news.google.com/rss/articles/CBMilgFBVV95cUxQXzRDYmxkYXlkMTlSbXdMVTBOQm1XZG5iUkgzeW9SWXpXeUVGTU5oYkk2T3N3S2JlWElKZFk3eW1KSmlsVW1NWDZoZ0pXdU5iUzNXUU1BY2FmWVhEQWIySi1CXzUybzJnelkycnhYblhqZk93RUVIdWlhODZsMThHbURaWS1BdEtiMU5fV25lOGhTLVpWUVE?oc=5",
+     "source": "Chicago Bears",
+     "pub": "Sun, 11 Oct 2026 23:42:45 GMT"
+    },
+    {
+     "title": "The Good, Bad And Ugly From The Green Bay Packers\u2019 Rout Of The Bears",
+     "url": "https://news.google.com/rss/articles/CBMiuwFBVV95cUxQY0E2YmdQUXBNZTl0cnMzMWhhQ3VfbUpUd0dBdTAtN0Fib1oyb0wyZUNGTHo0VXZwak5SR0FhWUJFQ1I1MEJHS21mbXM2M0RqZExOdmU4U051YlhRNEF1OFFDdldfeldKSW0wV3AtWlItX1A0REhUNHNTOVVtUjVRcFpEUElBR0JLNE9pWnhQNzNUVUg4eUdZQUs5a1c1QzllSzloWXIwbnBlcEg3akh3dW85OGx0TzVzR2JR?oc=5",
+     "source": "Forbes",
+     "pub": "Sun, 11 Oct 2026 23:28:06 GMT"
+    },
+    {
+     "title": "Can't-Miss Play: Jordan Love's 36-yard launch ends with marvelous catch by Matthew Golden",
+     "url": "https://news.google.com/rss/articles/CBMitgFBVV95cUxNT1E1TzRMZDBXaXdIaXFLNWZFUkxhaTAyQkRoWXptVHZmOTZWQ3BPcUxLbjZYYUZVWkpVd2VZX2QzN3hLeXkySF81bnRjN1d1dkFCaXQ1UUpadUgtOXN1aHF2TERnanRSOHFDNmh2N29GZDl3TWt2emM4b1lGTTFETU1HUE04T0laZDF2U29jaUU2d1hjSnhLMWRjTE96eHVBeFRDSFFBSXNITFFZN05TVUR4UW9Hdw?oc=5",
+     "source": "NFL.com",
+     "pub": "Sun, 11 Oct 2026 19:38:11 GMT"
     }
    ],
    "fti_count": 5
@@ -466,8 +466,8 @@
    "gaps": [
     {
      "name": "kyle whittingham",
-     "mentions": 18,
-     "index": 82,
+     "mentions": 16,
+     "index": 73,
      "status": "trending",
      "gap": true,
      "shoppable": false,
@@ -477,15 +477,21 @@
    "top_terms": [
     "michigan",
     "football",
+    "wolverines",
     "whittingham",
     "kyle",
-    "wolverines",
-    "offense",
     "bryce",
-    "underwood"
+    "underwood",
+    "offense"
    ],
    "headline_count": 100,
    "headlines": [
+    {
+     "title": "Is Michigan football playing today? Time, TV for Wolverines' next game",
+     "url": "https://news.google.com/rss/articles/CBMijgFBVV95cUxPUGtKQmIzZHNYVW5XMUJlTUpjbkZiVXNKQW4tQnJvRTFlTFJDU1Z3aGQ5X0xzLUpLOTlSUWhfcUhFSXViZHJmbFc3MGZidTJ4Sk1leXU0UlhSTGZTNzZIVDJUeXhkLU9kc1M4ejRoc181U1NfRXNGN2kzdHd0TjZkQXZDYmVFU1pIcHFzV1V3?oc=5",
+     "source": "Yahoo Sports",
+     "pub": "Sat, 10 Oct 2026 09:07:05 GMT"
+    },
     {
      "title": "Michigan Falls to Minnesota in 100th Battle for Little Brown Jug",
      "url": "https://news.google.com/rss/articles/CBMirAFBVV95cUxOUHZ5N3lYQlluQWpJX0xSN2xNZFdHNUJDZG9pXzIzUXFDSEdPTUFBd3ZIcUpGRE90TVE1bzR3c3U5ZWJ2OU1NZXNucVR5NVJDUFlRdXBtcHpEa1BBejcwc2dpYUpKU1ZpY2pWQ05GLWFQLUk3QVkxMzhIdXJfenlscnVIQzF6NVRnNktUckZ3WFhkbEZYR3lvdzlYeFBZdjNfRVV2OVpDcmY5UjlG?oc=5",
@@ -509,12 +515,6 @@
      "url": "https://news.google.com/rss/articles/CBMirgFBVV95cUxQTlo3NGRBbHNiZ1FEYXpDTHF3VkdYZ2VrY2s5RE0wZHZhR1hrZXJqdFBXaC0wa3JMSjJERVBsM3lxVWdnTl8tMF82am1FQ3lGX3poX3BJYUlQTW96YmkyVlFiSWNKd2lvZUdkY25IQjVCbmJhTHE4OTB2UmNaYmJpMnpXSERaX3ltYW92ZWRxVk1KV2JEcldEYlFXM0JEUkRUN2pWSTdiR3RyV1ZKMVE?oc=5",
      "source": "Sports Illustrated",
      "pub": "Mon, 05 Oct 2026 22:30:00 GMT"
-    },
-    {
-     "title": "Kyle Whittingham Loses Trust as Michigan Star\u2019s Leaked Conversation Allegedly Accuses Staff of Failures: \u201cWorse Than Sherrone [Moore]\u201d",
-     "url": "https://news.google.com/rss/articles/CBMijwFBVV95cUxQcTF6VHBvZS1jd2l6QU1ycWgxNjhnLU5CT3BnQ1dtUE82OFhkYUFuNWJ2bFhCX000LUFBbHBQM3d1U3QzbkNESW9MYmc5M3k4MGxvQ1ZkT1Z1N3JWX25LcVB0WlFmQ29IMFBQWUlmMmlkQUVUYlYweGxRdVZVTFpFWjJVX3FYUi01RWNYNXlWZw?oc=5",
-     "source": "Yahoo Sports",
-     "pub": "Tue, 06 Oct 2026 02:33:00 GMT"
     }
    ],
    "fti_count": 4
@@ -864,10 +864,10 @@
    ]
   },
   {
-   "title": "Can't-Miss Play: Jordan Love's 42-yard TD launch to Watson opens scoring in Bears-Packers",
-   "url": "https://news.google.com/rss/articles/CBMitgFBVV95cUxOUnZ2UWQweG1MNDRHRWVFMUVjRmliUjZuV2hVUFk0NDIwLTZpRDhBS0F6R0VKcDNUUkJrTXpZblZralg2TlE5S09tOEIxSTBGWTBMYWdtTHY1ekdjOFJCMXhrSFFRdkM4ZVRfV2NXOF96WXdxQlg2U1kxMzFHalR1UmlvZVJtUnk1QzFRS0E2X0NSdGtEQU1zV1BvQU5GVGRHa0FzTzdnamdOVVFFN216M2prbXQ1dw?oc=5",
+   "title": "Can't-Miss Play: Jordan Love's 36-yard launch ends with marvelous catch by Matthew Golden",
+   "url": "https://news.google.com/rss/articles/CBMitgFBVV95cUxNT1E1TzRMZDBXaXdIaXFLNWZFUkxhaTAyQkRoWXptVHZmOTZWQ3BPcUxLbjZYYUZVWkpVd2VZX2QzN3hLeXkySF81bnRjN1d1dkFCaXQ1UUpadUgtOXN1aHF2TERnanRSOHFDNmh2N29GZDl3TWt2emM4b1lGTTFETU1HUE04T0laZDF2U29jaUU2d1hjSnhLMWRjTE96eHVBeFRDSFFBSXNITFFZN05TVUR4UW9Hdw?oc=5",
    "source": "NFL.com",
-   "pub": "Sun, 11 Oct 2026 17:35:13 GMT",
+   "pub": "Sun, 11 Oct 2026 19:38:11 GMT",
    "collection": "green-bay-packers",
    "entities": [
     "jordan love"
@@ -888,16 +888,6 @@
    "url": "https://news.google.com/rss/articles/CBMi3wFBVV95cUxNaUMzek95M3Q5NHdfZzNrSV91SjlnNVJWT2NpdmhMc1huZzlhTW5rY1ZpMzMwR3FVZldSRHU5QTE3dlNFZDNwQkV4YmlFSGhCRGwtT09KdHBKaklWcTAxQktuMmFZbHJNX0dLWDF0anBaNmFHbDl5QVBJc1l2eGZXQ0xzN0hWOWVnekFhZVRnQVg1WkY3SVZ4X205V0FiM25GWWdteldYXzRrYWxUcExqejJCcVFIeW9WcFgyVko4Vll6NXRXMUxEZlJXcDhHdVNSYjRVUXZwaXRxVUdlZTV3?oc=5",
    "source": "Facebook",
    "pub": "Thu, 08 Oct 2026 13:20:11 GMT",
-   "collection": "michigan",
-   "entities": [
-    "kyle whittingham"
-   ]
-  },
-  {
-   "title": "Kyle Whittingham Loses Trust as Michigan Star\u2019s Leaked Conversation Allegedly Accuses Staff of Failures: \u201cWorse Than Sherrone [Moore]\u201d",
-   "url": "https://news.google.com/rss/articles/CBMijwFBVV95cUxQcTF6VHBvZS1jd2l6QU1ycWgxNjhnLU5CT3BnQ1dtUE82OFhkYUFuNWJ2bFhCX000LUFBbHBQM3d1U3QzbkNESW9MYmc5M3k4MGxvQ1ZkT1Z1N3JWX25LcVB0WlFmQ29IMFBQWUlmMmlkQUVUYlYweGxRdVZVTFpFWjJVX3FYUi01RWNYNXlWZw?oc=5",
-   "source": "Yahoo Sports",
-   "pub": "Tue, 06 Oct 2026 02:33:00 GMT",
    "collection": "michigan",
    "entities": [
     "kyle whittingham"
