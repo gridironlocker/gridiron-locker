@@ -2431,6 +2431,35 @@ class BellaLocker(unittest.TestCase):
         for anchor in re.findall(r'href="#([^"]+)"', self.html):
             self.assertIn(anchor, ids, f"missing anchor target #{anchor}")
 
+    def test_lockup_keeps_the_visitor_inside_bellas_collection(self):
+        """Her script lockup is the collection's OWN masthead, not the
+        storefront GL wordmark, so tapping it must leave the visitor on
+        /michigan/bella/.
+
+        It shipped as ``href="/"``, which relativise() rewrote to ``../../``:
+        the Gridiron Locker homepage. A shopper who tapped the wordmark that
+        says "bella's COLLECTION" was thrown out of the collection she was
+        browsing - the one exit this page is built to avoid, in the slot a
+        visitor's eye goes to first.
+
+        The link now carries the creator's own canonical path (the same
+        ``path`` page_creator canonicalises and sitemaps), so a future girly
+        creator page cannot inherit Bella's URL by accident. Every other page
+        - Joe's included - still renders the storefront wordmark -> homepage.
+        """
+        logo = re.search(r'<a class="logo glogo" href="([^"]+)"', self.html)
+        self.assertIsNotNone(logo, "Bella's masthead lockup is missing")
+        # two directories deep, so /michigan/bella/ relativises to this
+        self.assertEqual(logo.group(1), "../../michigan/bella/")
+        # and that href resolves to her own page, not the site root
+        landing = os.path.normpath(os.path.join(SITE, "michigan/bella",
+                                                logo.group(1)))
+        self.assertEqual(landing, os.path.join(SITE, "michigan", "bella"))
+        self.assertTrue(os.path.isfile(os.path.join(landing, "index.html")))
+        self.assertNotIn('class="logo glogo" href="../../"', self.html)
+        # Joe's page keeps the storefront wordmark, pointed at the homepage
+        self.assertIn('class="logo" href="../../"', self.joe)
+
     def test_banner_store_link_is_hidden_when_the_creator_asks(self):
         """Bella's banner offers one action, not two: ``hide_banner_store_link``
         drops the "Visit Silent Touch" link that restated the storefront the
