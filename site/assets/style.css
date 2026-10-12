@@ -1497,6 +1497,25 @@ main.jlock-girly{padding:0 0 32px;overflow:hidden}
 .jlock-girly .gcategory-tile span{font-size:.64rem;font-weight:800;letter-spacing:.055em;line-height:1.25;text-transform:uppercase}
 .jlock-girly .gcategory-tile:hover{transform:translateY(-2px);border-color:#d9899a;box-shadow:0 8px 18px rgba(24,45,77,.09)}
 .jlock-girly .gcategory-tile:focus-visible{outline:3px solid var(--g-pink);outline-offset:3px}
+.jlock-girly .gcategory-flag{margin-top:5px;padding:2px 7px;border-radius:999px;background:#f1efea;
+  color:#6f7580;font-size:.5rem;font-weight:800;letter-spacing:.06em;text-transform:none}
+.jlock-girly .gstyle-row{display:flex;flex-wrap:wrap;justify-content:center;gap:9px;max-width:1180px;
+  margin:14px auto 0}
+.jlock-girly .gstyle-row[hidden]{display:none}
+.jlock-girly .gstyle-chip{display:inline-flex;min-height:44px;align-items:center;gap:8px;padding:9px 15px;
+  border:1px solid #e2d3d6;border-radius:999px;background:#fff;color:#22375a;cursor:pointer;
+  font-family:var(--font);font-size:.72rem;font-weight:800;letter-spacing:.03em;
+  box-shadow:0 2px 0 rgba(24,45,77,.06);transition:transform .16s ease,box-shadow .16s ease}
+.jlock-girly .gstyle-chip:hover{transform:translateY(-1px);border-color:#d9899a}
+.jlock-girly .gstyle-chip:focus-visible{outline:3px solid var(--g-pink);outline-offset:3px}
+.jlock-girly .gstyle-chip[aria-pressed="true"]{border-color:#b8697c;background:#fff5f6;color:#8d4356}
+.jlock-girly .gstyle-name{white-space:nowrap}
+.jlock-girly .gstyle-count{display:inline-flex;min-width:19px;height:19px;align-items:center;
+  justify-content:center;border-radius:999px;background:#eef0f4;color:#4a5566;font-size:.61rem;
+  font-weight:800}
+.jlock-girly .gstyle-chip[aria-pressed="true"] .gstyle-count{background:#1c3555;color:#fff}
+.jlock-girly .gstyle-sr{position:absolute;width:1px;height:1px;overflow:hidden;clip:rect(0 0 0 0);
+  clip-path:inset(50%);white-space:nowrap}
 .jlock-girly .gcategory-tile[aria-pressed="true"]{border-color:#d9899a;border-bottom-color:#1c3555;
   background:#fff1f4;box-shadow:0 0 0 2px rgba(217,137,154,.38) inset}
 .jlock-girly .gcategory-tile[aria-pressed="true"] svg{color:#b8697c}
@@ -1539,6 +1558,17 @@ main.jlock-girly{padding:0 0 32px;overflow:hidden}
   background:#f7e9ec;color:#8f4a5b;font-size:.6rem;font-weight:800;letter-spacing:.08em;
   line-height:1.35;text-transform:uppercase}
 .jlock-girly .gproduct-gtag[hidden]{display:none}
+/* a design that did not list the chosen style keeps its own mockup, muted,
+   badged - the card never disappears and its link is never rewritten */
+.jlock-girly .gproduct.is-muted .gproduct-art img{filter:grayscale(1);opacity:.42}
+.jlock-girly .gproduct.is-muted{background:#fbfaf7}
+.jlock-girly .gproduct.is-muted .gproduct-art::after{position:absolute;inset:0;content:"";
+  background:rgba(255,255,255,.42);pointer-events:none}
+.jlock-girly .gproduct.is-swapped .gproduct-art-cta{background:#1c3555}
+.jlock-girly .gproduct-badge{position:absolute;top:10px;left:10px;z-index:1;max-width:calc(100% - 20px);
+  padding:5px 10px;border-radius:999px;background:#fff5f6;color:#8d4356;font-size:.56rem;
+  font-weight:800;letter-spacing:.05em;text-transform:uppercase;box-shadow:0 2px 8px rgba(24,45,77,.13)}
+.jlock-girly .gproduct-badge[hidden]{display:none}
 .jlock-girly .gproduct-note{margin:10px 0 13px;color:#64696d;font-size:.72rem;line-height:1.45}
 .jlock-girly .gproduct-link{display:flex;align-items:center;justify-content:space-between;gap:10px;
   margin-top:auto;padding:10px 12px;border-radius:8px;background:var(--g-ink);color:#fff;
@@ -1591,6 +1621,8 @@ main.jlock-girly{padding:0 0 32px;overflow:hidden}
   .jlock-girly .ggrid{grid-template-columns:repeat(2,minmax(0,1fr));gap:13px}
   .jlock-girly .gproduct-body{padding:12px}
   .jlock-girly .gproduct-link{font-size:.66rem}
+  .jlock-girly .gstyle-row{gap:7px;margin-top:11px}
+  .jlock-girly .gstyle-chip{padding:8px 12px;font-size:.68rem}
   body[data-creator-page="BELLA"] .bellanav-links{gap:25px}
 }
 @media(max-width:430px){
@@ -1606,6 +1638,8 @@ main.jlock-girly{padding:0 0 32px;overflow:hidden}
   .jlock-girly .gcategory-tile{min-height:76px;padding:8px 4px}
   .jlock-girly .gcategory-tile svg{width:24px;height:24px}
   .jlock-girly .gcategory-tile span{font-size:.57rem}
+  .jlock-girly .gstyle-chip{padding:7px 10px;font-size:.64rem}
+  .jlock-girly .gstyle-name{white-space:normal}
   .jlock-girly .ggrid{grid-template-columns:minmax(0,1fr);max-width:360px}
   .jlock-girly .gproduct-body{padding:15px}
   .jlock-girly .gform-row{grid-template-columns:minmax(0,1fr)}

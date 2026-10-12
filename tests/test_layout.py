@@ -35,10 +35,11 @@ Covered:
     live ticker terms are team-safe (no raw headline words, no opponents).
   * Artwork hygiene: no PNG masters in site/img (they live in artwork-source/).
   * Bella's /michigan/bella/: seven Silent Touch listings, six accessible
-    apparel-category buttons that offer every design as a candidate for the
-    chosen style (without ever implying the style is stocked), design-specific
-    availability guidance, the campus hero banner, the #efefed canvas, and no
-    discount promo code.
+    apparel-category buttons that swap every design to that garment plus a
+    second row of buttons for the five t-shirt listings - each swap drawn from
+    the live store capture (data-apparel), with a design that did not list the
+    style muted, badged and still linked to its own product page, and the
+    campus hero banner, the #efefed canvas and no discount promo code.
   * Preserved: team accents, hero images, product count, checkout links, SEO
     metadata, dynamic catalogue counts, no missing local references.
 """
@@ -2123,34 +2124,46 @@ class BellaLocker(unittest.TestCase):
             self.assertIn(escape_html(product["image"]), card)
             self.assertIn("Explore available styles", card)
             self.assertNotIn("$", card)  # price/currency is confirmed on the supplier page
-
     def test_storewide_apparel_options_are_named_without_promising_per_design_stock(self):
+        """The category copy names the styles her store showed, dates the
+        check, and sends every visitor to the design's own product page."""
         text = unescape(self.html)
         for category in self.catalog["categories"]:
             self.assertIn(f"<span>{category}</span>", text)
         for kind in ("T-shirts", "hoodies", "sweatshirts", "long sleeves",
                      "tank tops", "caps and hats"):
             self.assertIn(kind.lower(), text.lower())
-        self.assertIn("each product page confirms the options for that design", text.lower())
-        self.assertIn("These are store-wide categories; exact options vary by design.", text)
+        self.assertIn(self.catalog["apparel_captured"], text)
+        self.assertIn("when it was checked on 2026-10-12", text)
+        self.assertIn("Availability varies by design", text)
+        self.assertIn("each design's product page is where the exact styles, "
+                      "colours, sizes and prices are confirmed", text)
         self.assertIn("availability varies by design", text.lower())
-        self.assertIn(
-            "confirm the exact styles, colours, sizes and prices on each Silent Touch "
-            "product page", text)
+        self.assertIn("confirm the exact styles, colours, sizes and prices on each "
+                      "product page", text)
         self.assertIn("Confirm this design’s styles, colours, sizes and current price", text)
         self.assertIn("on Silent Touch", text)
+        self.assertIn("not listed yet", text)
+        # no price reaches the page - the current price lives on the listing
+        apparel = self.html[self.html.index('id="apparel"'):self.html.index('id="locker"')]
+        locker = self.html[self.html.index('id="locker"'):self.html.index('id="about"')]
+        self.assertNotIn("$", apparel)
+        self.assertNotIn("$", locker)
 
-    def test_apparel_categories_are_buttons_that_offer_candidates_not_stock(self):
-        """The six store-wide categories are buttons, and a click is a candidate
-        filter - never a promise that every design is sold in that style."""
-        unescaped = unescape(self.html)
+    def test_apparel_categories_are_buttons_that_swap_the_products(self):
+        """The six store-wide categories are real buttons that change the
+        displayed garment: one click reaches every design, a design that did
+        not list the style is muted and badged, and a category her store never
+        listed anything in says so instead of swapping."""
         labels = self.catalog["categories"]
+        styles = self.catalog["apparel_styles"]
         self.assertEqual(len(labels), 6)
         buttons = re.findall(r'<button class="gcategory-tile"[^>]*>.*?</button>',
                              self.html, re.S)
         self.assertEqual(len(buttons), len(labels))
         slugs = ["t-shirts", "hoodies", "sweatshirts", "long-sleeves", "tank-tops",
                  "caps-hats"]
+        self.assertEqual(list(styles), slugs)
         for button, label, slug in zip(buttons, labels, slugs):
             self.assertIn('type="button"', button)
             self.assertIn(f'data-gcat="{slug}"', button)
@@ -2158,47 +2171,162 @@ class BellaLocker(unittest.TestCase):
             self.assertIn('aria-pressed="false"', button)   # nothing selected yet
             self.assertIn(f"<span>{escape_html(label)}</span>", button)  # accessible name
             self.assertIn("<svg", button)
+            wanted = escape_html(styles[slug][0]) if styles[slug] else ""
+            self.assertIn(f'data-gstyle="{wanted}"', button)
+        # caps and hats: nothing was listed, so the tile says so rather than
+        # offering a swap that would have to invent one
+        self.assertEqual(styles["caps-hats"], [])
+        self.assertIn('data-gstyle=""', buttons[-1])
+        self.assertIn('<span class="gcategory-flag">not listed yet</span>', buttons[-1])
 
-        # The buttons are grouped and described by the standing caveat...
-        row = re.search(r'<div class="gcategory-tiles"([^>]*)>', self.html)
+        # The second row of buttons covers the five t-shirt listings, each
+        # carrying the style it shows and the number of designs that listed it.
+        counts = {}
+        for product in self.catalog["products"]:
+            for rows in (product["apparel"] or {}).values():
+                for row in rows:
+                    counts[row["garment"]] = counts.get(row["garment"], 0) + 1
+        chips = re.findall(r'<button class="gstyle-chip"[^>]*>.*?</button>', self.html, re.S)
+        self.assertEqual(len(chips), 5)
+        for chip, style in zip(chips, styles["t-shirts"]):
+            self.assertIn('type="button"', chip)
+            self.assertIn('data-gcat="t-shirts"', chip)
+            self.assertIn(f'data-gstyle="{escape_html(style)}"', chip)
+            self.assertIn('aria-controls="gcollectionGrid"', chip)
+            self.assertIn('aria-pressed="false"', chip)
+            self.assertIn(f'<span class="gstyle-name">{escape_html(style)}</span>', chip)
+            shown = re.search(r'<span class="gstyle-count" aria-hidden="true">(\d+)</span>', chip)
+            self.assertIsNotNone(shown, style)
+            self.assertEqual(int(shown.group(1)), counts[style], style)
+            self.assertIn(f"listed by {counts[style]} of 7 designs in the "
+                          "2026-10-12 check", unescape(chip))
+        row = re.search(r'<div class="gstyle-row"([^>]*)>', self.html)
         self.assertIsNotNone(row)
         self.assertIn('role="group"', row.group(1))
         self.assertIn('aria-describedby="gcatNote"', row.group(1))
-        self.assertIn("These are store-wide categories; exact options vary by design.",
-                      unescaped)
-        self.assertIn("Tap a style to see all 7 designs as candidates for it", unescaped)
-        self.assertIn("Tap the active style again to show all designs.", unescaped)
+        self.assertIn("hidden", row.group(1))   # revealed only for a tee style
 
-        # ...and the live status repeats it for the style actually chosen.
-        status = re.search(r'<p class="gcategory-status" id="gcatStatus"[^>]*></p>',
+        # the tiles are grouped and described by the standing caveat...
+        tiles = re.search(r'<div class="gcategory-tiles"([^>]*)>', self.html)
+        self.assertIsNotNone(tiles)
+        self.assertIn('role="group"', tiles.group(1))
+        self.assertIn('aria-labelledby="gcatHeading"', tiles.group(1))
+        self.assertIn('aria-describedby="gcatNote"', tiles.group(1))
+        self.assertIn("Availability varies by design", unescape(self.html))
+        self.assertIn("Tap the active style again to show every design's own mockup",
+                      unescape(self.html))
+
+        # ...and the live status line covers all three outcomes.
+        status = re.search(r'<p class="gcategory-status" id="gcatStatus"([^>]*)></p>',
                            self.html, re.S)
         self.assertIsNotNone(status)
-        self.assertIn('role="status"', status.group(0))
-        self.assertIn('aria-live="polite"', status.group(0))
-        self.assertIn("Showing all {n} designs.", status.group(0))
-        status_one = unescape(status.group(0))
-        self.assertIn("Showing all {n} designs as {style} candidates", status_one)
-        self.assertIn("availability varies by design", status_one.lower())
+        for attr in ('role="status"', 'aria-live="polite"', 'data-status-all="',
+                     'data-status-one="', 'data-status-none="', 'data-showing="'):
+            self.assertIn(attr, status.group(0))
+        one = unescape(status.group(0))
+        self.assertIn("{n} of {total} designs listed {style}", one)
+        self.assertIn("availability varies by design", one.lower())
+        self.assertIn("{total} designs", unescape(status.group(0)))
 
-        # Every design is emitted as a candidate for every category: seven cards,
-        # all six ids each, and a badge slot per card for the chosen style.
-        grid = re.search(r'<div class="ggrid" id="gcollectionGrid">(.*?)<p class="gstore-note">',
+        # every card carries the badge slot the muted state uses, and the grid
+        # carries the captured matrix the swap reads.
+        self.assertEqual(self.html.count('class="gproduct-badge" hidden'), 7)
+        grid = re.search(r'<div class="ggrid" id="gcollectionGrid" data-apparel="([^"]*)">',
                          self.html, re.S)
         self.assertIsNotNone(grid)
-        cards = re.findall(r'<article class="gproduct" data-slug="([^"]+)" '
-                           r'data-creator="BELLA" data-gcat="([^"]+)"', grid.group(1))
-        self.assertEqual([slug for slug, _ in cards], self.cre["picks"])
-        for slug, ids in cards:
-            self.assertEqual(ids.split(), slugs, slug)
-        self.assertEqual(grid.group(1).count('class="gproduct-gtag" hidden'), len(cards))
+        payload = json.loads(unescape(grid.group(1)))
+        self.assertEqual(list(payload), self.cre["picks"])
 
         # the behaviour itself, and the fact that it is page-scoped, live in app.js
         js = page("assets/app.js")
-        for term in (".gcategory-tile[data-gcat]", "data-status-one", "data-status-all",
-                     "gproduct-gtag", "aria-pressed", "scrollIntoView",
+        for term in (".gcategory-tile[data-gcat]", ".gstyle-chip[data-gstyle]",
+                     "data-apparel", "data-status-one", "data-status-none",
+                     "data-showing", "gproduct-badge", "gproduct-gtag",
+                     "aria-pressed", "is-muted", "is-swapped", "scrollIntoView",
                      "prefers-reduced-motion"):
             self.assertIn(term, js, term)
+        self.assertIn("var row=document.querySelector('.gcategory-tiles'); if(!row)return;", js)
+        self.assertIn("var grid=document.querySelector('.ggrid[data-apparel]'); if(!grid)return;", js)
+        # the swap never writes a price: the Bella block ships no price data
+        bella_js = js[js.index("// ---------- creator apparel-style buttons"):]
+        self.assertNotIn("price", bella_js.lower())
+        self.assertNotIn("$", bella_js)
 
+    def test_swapped_garments_match_what_bellas_store_publishes(self):
+        """The matrix a click shows is the matrix her live store showed.
+
+        Every garment in data/creators.json was read from that design's own
+        Silent Touch product page on 2026-10-12 (reached with ?productId=, the
+        page's own "Product" field), so the page payload must carry exactly
+        those listings - and the coverage must stay the store's: no invented
+        garment, no invented design.
+        """
+        from urllib.parse import parse_qs, urlsplit
+
+        # coverage as captured: 7/7/6/4/3 tee listings, 4 hoodies, 5
+        # sweatshirts, 3 tank tops, 1 long sleeve, no caps or hats anywhere.
+        counts = {}
+        artworks = {}
+        for product in self.catalog["products"]:
+            for cat, rows in (product["apparel"] or {}).items():
+                self.assertIn(cat, self.catalog["apparel_styles"])
+                for row in rows:
+                    counts[row["garment"]] = counts.get(row["garment"], 0) + 1
+                    art = re.search(r"s:([0-9a-f]+)-", row["image"])
+                    self.assertIsNotNone(art, row["image"])
+                    artworks.setdefault(art.group(1), set()).add(row["garment"])
+                    self.assertTrue(row["product_id"])
+                    self.assertTrue(row["product_id"] in row["url"], row["url"])
+                    self.assertIs(row["price_seen"], True)   # audit record only
+        self.assertEqual(counts, {
+            "Women's Fitted Tee": 7, "Men's T-shirt": 7, "Premium T-Shirt": 6,
+            "Ladies Slim T-Shirt": 4, "Women's V-neck Tee": 3,
+            "Essential Hoodie": 4, "Unisex Sweatshirt": 5,
+            "Unisex Tank Top": 3, "Long Sleeve T-Shirt": 1})
+        self.assertEqual(self.catalog["apparel_styles"]["caps-hats"], [])
+        # the one long sleeve is Hot Girls Go to Michigan, as captured
+        long_sleeves = [product["slug"] for product in self.catalog["products"]
+                        if product["apparel"].get("long-sleeves")]
+        self.assertEqual(long_sleeves, ["hot-girls-go-to-michigan"])
+        # the s: artwork id is not a garment label: one uuid is shared by a
+        # ladies slim tee, a tank top and a long sleeve, which is why every
+        # label above had to be page-verified instead of decoded from the URL
+        self.assertEqual(artworks["293b0ab4"],
+                         {"Ladies Slim T-Shirt", "Unisex Tank Top", "Long Sleeve T-Shirt"})
+
+        # the page payload carries the captured matrix, the signed mockup and
+        # the attributed listing URL - and nothing else
+        grid = re.search(r'<div class="ggrid" id="gcollectionGrid" data-apparel="([^"]*)">',
+                         self.html, re.S)
+        self.assertIsNotNone(grid)
+        self.assertNotIn("price_seen", grid.group(1))
+        self.assertNotIn("$", grid.group(1))
+        payload = json.loads(unescape(grid.group(1)))
+        self.assertEqual(list(payload), self.cre["picks"])
+        by_slug = {product["slug"]: product for product in self.catalog["products"]}
+        for slug, product in by_slug.items():
+            self.assertEqual(sorted(payload[slug]), sorted(product["apparel"]))
+            for cat, rows in product["apparel"].items():
+                self.assertEqual([entry["garment"] for entry in payload[slug][cat]],
+                                 [row["garment"] for row in rows])
+                for entry, row in zip(payload[slug][cat], rows):
+                    # the mockup URL is the signed one, copied verbatim
+                    self.assertEqual(entry["image"], row["image"])
+                    self.assertIn("sig:", entry["image"])
+                    self.assertIn(",w:500/image.png", entry["image"])
+                    parsed = urlsplit(unescape(entry["url"]))
+                    query = parse_qs(parsed.query)
+                    self.assertEqual(parsed.netloc, "silenttouch.store")
+                    self.assertEqual(parsed.path, f"/{slug}")
+                    self.assertEqual(query.get("productId"), [row["product_id"]])
+                    self.assertEqual(query.get("creator"), ["BELLA"])
+                    self.assertEqual(query.get("utm_campaign"), ["creator-BELLA"])
+        # each card's own category ids are the categories it actually listed
+        cards = re.findall(r'<article class="gproduct" data-slug="([^"]+)" '
+                           r'data-creator="BELLA" data-gcat="([^"]*)"', self.html)
+        self.assertEqual([slug for slug, _ in cards], self.cre["picks"])
+        for slug, cats in cards:
+            self.assertEqual(sorted(cats.split()), sorted(by_slug[slug]["apparel"]), slug)
     def test_boutique_banner_local_navigation_and_anchors(self):
         self.assertEqual(self.cre["hero"],
                          "/michigan/bella/Smiling Michigan Campus Portrait.png")
@@ -2237,7 +2365,13 @@ class BellaLocker(unittest.TestCase):
                          ".jlock-girly .gcategory-tile{", ".jlock-girly .gabout-copy{",
                          '.jlock-girly .gcategory-tile:focus-visible{',
                          '.jlock-girly .gcategory-tile[aria-pressed="true"]{',
-                         ".jlock-girly .gcategory-status{",
+                         ".jlock-girly .gcategory-status{", ".jlock-girly .gcategory-flag{",
+                         ".jlock-girly .gstyle-row{", ".jlock-girly .gstyle-chip{",
+                         '.jlock-girly .gstyle-chip:focus-visible{',
+                         '.jlock-girly .gstyle-chip[aria-pressed="true"]{',
+                         ".jlock-girly .gstyle-count{", ".jlock-girly .gstyle-sr{",
+                         ".jlock-girly .gproduct.is-muted .gproduct-art img{",
+                         ".jlock-girly .gproduct-badge{",
                          ".jlock-girly .gproduct-gtag[hidden]{display:none}"):
             self.assertIn(selector, self.css)
         self.assertNotIn(".gbanner-art", self.css)
