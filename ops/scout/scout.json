@@ -9,10 +9,10 @@
   "images": 446,
   "avg_price": 22.84,
   "hot": 0,
-  "throwback": 0,
-  "steady": 94,
+  "throwback": 1,
+  "steady": 93,
   "gaps": 6,
-  "moments": 5,
+  "moments": 6,
   "tracked_names": 18,
   "dead_campaigns": 66
  },
@@ -28,8 +28,8 @@
   },
   {
    "name": "kyle whittingham",
-   "mentions": 16,
-   "index": 73,
+   "mentions": 17,
+   "index": 77,
    "status": "trending",
    "gap": true,
    "shoppable": false,
@@ -46,8 +46,8 @@
   },
   {
    "name": "deshaun watson",
-   "mentions": 13,
-   "index": 59,
+   "mentions": 11,
+   "index": 50,
    "status": "trending",
    "gap": true,
    "shoppable": false,
@@ -99,15 +99,6 @@
    "collection": "green-bay-packers"
   },
   {
-   "name": "denzel ward",
-   "mentions": 1,
-   "index": 5,
-   "status": "steady",
-   "gap": false,
-   "shoppable": true,
-   "collection": "cleveland-browns"
-  },
-  {
    "name": "myles garrett",
    "mentions": 1,
    "index": 5,
@@ -123,6 +114,15 @@
    "status": "steady",
    "gap": false,
    "shoppable": false,
+   "collection": "cleveland-browns"
+  },
+  {
+   "name": "denzel ward",
+   "mentions": 0,
+   "index": 0,
+   "status": "quiet",
+   "gap": false,
+   "shoppable": true,
    "collection": "cleveland-browns"
   },
   {
@@ -183,8 +183,8 @@
  "gaps": [
   {
    "name": "kyle whittingham",
-   "mentions": 16,
-   "index": 73,
+   "mentions": 17,
+   "index": 77,
    "status": "trending",
    "gap": true,
    "shoppable": false,
@@ -201,8 +201,8 @@
   },
   {
    "name": "deshaun watson",
-   "mentions": 13,
-   "index": 59,
+   "mentions": 11,
+   "index": 50,
    "status": "trending",
    "gap": true,
    "shoppable": false,
@@ -246,12 +246,12 @@
    "products": 30,
    "avg_price": 21.27,
    "hot": 0,
-   "throwback": 0,
+   "throwback": 1,
    "gaps": [
     {
      "name": "deshaun watson",
-     "mentions": 13,
-     "index": 59,
+     "mentions": 11,
+     "index": 50,
      "status": "trending",
      "gap": true,
      "shoppable": false,
@@ -263,10 +263,10 @@
     "cleveland",
     "york",
     "watch",
+    "concepcion",
     "stream",
-    "watson",
     "live",
-    "deshaun"
+    "watson"
    ],
    "headline_count": 100,
    "headlines": [
@@ -336,12 +336,12 @@
    "top_terms": [
     "cowboys",
     "dallas",
-    "loss",
     "bucs",
+    "loss",
     "prescott",
     "schottenheimer",
-    "tampa",
-    "brian"
+    "time",
+    "thursday"
    ],
    "headline_count": 100,
    "headlines": [
@@ -415,8 +415,8 @@
     "watch",
     "channel",
     "time",
-    "stream",
-    "live"
+    "injury",
+    "debut"
    ],
    "headline_count": 100,
    "headlines": [
@@ -442,13 +442,13 @@
      "title": "The Good, Bad And Ugly From The Green Bay Packers\u2019 Rout Of The Bears",
      "url": "https://news.google.com/rss/articles/CBMiuwFBVV95cUxQY0E2YmdQUXBNZTl0cnMzMWhhQ3VfbUpUd0dBdTAtN0Fib1oyb0wyZUNGTHo0VXZwak5SR0FhWUJFQ1I1MEJHS21mbXM2M0RqZExOdmU4U051YlhRNEF1OFFDdldfeldKSW0wV3AtWlItX1A0REhUNHNTOVVtUjVRcFpEUElBR0JLNE9pWnhQNzNUVUg4eUdZQUs5a1c1QzllSzloWXIwbnBlcEg3akh3dW85OGx0TzVzR2JR?oc=5",
      "source": "Forbes",
-     "pub": "Sun, 11 Oct 2026 23:28:06 GMT"
+     "pub": "Sun, 11 Oct 2026 20:12:43 GMT"
     },
     {
-     "title": "Can't-Miss Play: Jordan Love's 36-yard launch ends with marvelous catch by Matthew Golden",
-     "url": "https://news.google.com/rss/articles/CBMitgFBVV95cUxNT1E1TzRMZDBXaXdIaXFLNWZFUkxhaTAyQkRoWXptVHZmOTZWQ3BPcUxLbjZYYUZVWkpVd2VZX2QzN3hLeXkySF81bnRjN1d1dkFCaXQ1UUpadUgtOXN1aHF2TERnanRSOHFDNmh2N29GZDl3TWt2emM4b1lGTTFETU1HUE04T0laZDF2U29jaUU2d1hjSnhLMWRjTE96eHVBeFRDSFFBSXNITFFZN05TVUR4UW9Hdw?oc=5",
+     "title": "Can't-Miss Play: Jordan Love's 42-yard TD launch to Watson opens scoring in Bears-Packers",
+     "url": "https://news.google.com/rss/articles/CBMitgFBVV95cUxOUnZ2UWQweG1MNDRHRWVFMUVjRmliUjZuV2hVUFk0NDIwLTZpRDhBS0F6R0VKcDNUUkJrTXpZblZralg2TlE5S09tOEIxSTBGWTBMYWdtTHY1ekdjOFJCMXhrSFFRdkM4ZVRfV2NXOF96WXdxQlg2U1kxMzFHalR1UmlvZVJtUnk1QzFRS0E2X0NSdGtEQU1zV1BvQU5GVGRHa0FzTzdnamdOVVFFN216M2prbXQ1dw?oc=5",
      "source": "NFL.com",
-     "pub": "Sun, 11 Oct 2026 19:38:11 GMT"
+     "pub": "Sun, 11 Oct 2026 17:35:13 GMT"
     }
    ],
    "fti_count": 5
@@ -466,8 +466,8 @@
    "gaps": [
     {
      "name": "kyle whittingham",
-     "mentions": 16,
-     "index": 73,
+     "mentions": 17,
+     "index": 77,
      "status": "trending",
      "gap": true,
      "shoppable": false,
@@ -477,20 +477,20 @@
    "top_terms": [
     "michigan",
     "football",
-    "wolverines",
     "whittingham",
     "kyle",
+    "wolverines",
+    "offense",
     "bryce",
-    "underwood",
-    "offense"
+    "underwood"
    ],
    "headline_count": 100,
    "headlines": [
     {
-     "title": "Is Michigan football playing today? Time, TV for Wolverines' next game",
-     "url": "https://news.google.com/rss/articles/CBMijgFBVV95cUxPUGtKQmIzZHNYVW5XMUJlTUpjbkZiVXNKQW4tQnJvRTFlTFJDU1Z3aGQ5X0xzLUpLOTlSUWhfcUhFSXViZHJmbFc3MGZidTJ4Sk1leXU0UlhSTGZTNzZIVDJUeXhkLU9kc1M4ejRoc181U1NfRXNGN2kzdHd0TjZkQXZDYmVFU1pIcHFzV1V3?oc=5",
-     "source": "Yahoo Sports",
-     "pub": "Sat, 10 Oct 2026 09:07:05 GMT"
+     "title": "3 bold predictions for the rest of the Michigan Football season",
+     "url": "https://news.google.com/rss/articles/CBMizAFBVV95cUxOUmNnZUxUZG0xTWY3bE9tejlmX2oxcHhZYkl0VUNyVUZFWlh2X0drdFNJdjlGZUxOZlRaSTN6N2l4Y29SbXlpN2R6cGl6NXVNQnoxT09ZcGJYUV9YLWR5RG85VmNOWE9COElPQk40VFUybmJOR2d3YnFHZzhKN2pvT1RZSzVyMlBuU0x2UWNfcU0wSWdXUjhlYUhCV3prQkZWbmhQc2lEa3NxU0h3M2g0Nl9HRm1Cd2Q5cmhhVjcta1drR3hPQmVWQlNyc04?oc=5",
+     "source": "Maize n Brew",
+     "pub": "Thu, 08 Oct 2026 12:00:00 GMT"
     },
     {
      "title": "Michigan Falls to Minnesota in 100th Battle for Little Brown Jug",
@@ -505,16 +505,16 @@
      "pub": "Thu, 08 Oct 2026 13:20:11 GMT"
     },
     {
-     "title": "3 bold predictions for the rest of the Michigan Football season",
-     "url": "https://news.google.com/rss/articles/CBMizAFBVV95cUxOUmNnZUxUZG0xTWY3bE9tejlmX2oxcHhZYkl0VUNyVUZFWlh2X0drdFNJdjlGZUxOZlRaSTN6N2l4Y29SbXlpN2R6cGl6NXVNQnoxT09ZcGJYUV9YLWR5RG85VmNOWE9COElPQk40VFUybmJOR2d3YnFHZzhKN2pvT1RZSzVyMlBuU0x2UWNfcU0wSWdXUjhlYUhCV3prQkZWbmhQc2lEa3NxU0h3M2g0Nl9HRm1Cd2Q5cmhhVjcta1drR3hPQmVWQlNyc04?oc=5",
-     "source": "Maize n Brew",
-     "pub": "Thu, 08 Oct 2026 12:00:00 GMT"
-    },
-    {
      "title": "Michigan Football Bowl Projections After Dropping Second Consecutive Game",
      "url": "https://news.google.com/rss/articles/CBMirgFBVV95cUxQTlo3NGRBbHNiZ1FEYXpDTHF3VkdYZ2VrY2s5RE0wZHZhR1hrZXJqdFBXaC0wa3JMSjJERVBsM3lxVWdnTl8tMF82am1FQ3lGX3poX3BJYUlQTW96YmkyVlFiSWNKd2lvZUdkY25IQjVCbmJhTHE4OTB2UmNaYmJpMnpXSERaX3ltYW92ZWRxVk1KV2JEcldEYlFXM0JEUkRUN2pWSTdiR3RyV1ZKMVE?oc=5",
      "source": "Sports Illustrated",
      "pub": "Mon, 05 Oct 2026 22:30:00 GMT"
+    },
+    {
+     "title": "Michigan\u2019s QB, coordinator cost $6 million per year. The scheme is costing them the season - The Athletic",
+     "url": "https://news.google.com/rss/articles/CBMiowFBVV95cUxOYTRNZThuZlQyRGFnX3cwVlFNTktUNTBnR0xmYW5icHVTUkJfRlozcV9xd2J2RGhGMGxtS3JPUEVnM3lqQ20yQnF6bzAzb09ZS3o4WDd5eWdJbXlpOGtVcUJaVlh2S0ZueG42WkQwSE9TVVdFZVBkVWVoNVBubUtpazVUdG9HWGdWd3EzTzBYVExfQ25UR2dITG9pc2l4bDNCZEtV?oc=5",
+     "source": "The New York Times",
+     "pub": "Wed, 07 Oct 2026 09:30:34 GMT"
     }
    ],
    "fti_count": 4
@@ -864,10 +864,10 @@
    ]
   },
   {
-   "title": "Can't-Miss Play: Jordan Love's 36-yard launch ends with marvelous catch by Matthew Golden",
-   "url": "https://news.google.com/rss/articles/CBMitgFBVV95cUxNT1E1TzRMZDBXaXdIaXFLNWZFUkxhaTAyQkRoWXptVHZmOTZWQ3BPcUxLbjZYYUZVWkpVd2VZX2QzN3hLeXkySF81bnRjN1d1dkFCaXQ1UUpadUgtOXN1aHF2TERnanRSOHFDNmh2N29GZDl3TWt2emM4b1lGTTFETU1HUE04T0laZDF2U29jaUU2d1hjSnhLMWRjTE96eHVBeFRDSFFBSXNITFFZN05TVUR4UW9Hdw?oc=5",
+   "title": "Can't-Miss Play: Jordan Love's 42-yard TD launch to Watson opens scoring in Bears-Packers",
+   "url": "https://news.google.com/rss/articles/CBMitgFBVV95cUxOUnZ2UWQweG1MNDRHRWVFMUVjRmliUjZuV2hVUFk0NDIwLTZpRDhBS0F6R0VKcDNUUkJrTXpZblZralg2TlE5S09tOEIxSTBGWTBMYWdtTHY1ekdjOFJCMXhrSFFRdkM4ZVRfV2NXOF96WXdxQlg2U1kxMzFHalR1UmlvZVJtUnk1QzFRS0E2X0NSdGtEQU1zV1BvQU5GVGRHa0FzTzdnamdOVVFFN216M2prbXQ1dw?oc=5",
    "source": "NFL.com",
-   "pub": "Sun, 11 Oct 2026 19:38:11 GMT",
+   "pub": "Sun, 11 Oct 2026 17:35:13 GMT",
    "collection": "green-bay-packers",
    "entities": [
     "jordan love"
@@ -888,6 +888,16 @@
    "url": "https://news.google.com/rss/articles/CBMi3wFBVV95cUxNaUMzek95M3Q5NHdfZzNrSV91SjlnNVJWT2NpdmhMc1huZzlhTW5rY1ZpMzMwR3FVZldSRHU5QTE3dlNFZDNwQkV4YmlFSGhCRGwtT09KdHBKaklWcTAxQktuMmFZbHJNX0dLWDF0anBaNmFHbDl5QVBJc1l2eGZXQ0xzN0hWOWVnekFhZVRnQVg1WkY3SVZ4X205V0FiM25GWWdteldYXzRrYWxUcExqejJCcVFIeW9WcFgyVko4Vll6NXRXMUxEZlJXcDhHdVNSYjRVUXZwaXRxVUdlZTV3?oc=5",
    "source": "Facebook",
    "pub": "Thu, 08 Oct 2026 13:20:11 GMT",
+   "collection": "michigan",
+   "entities": [
+    "kyle whittingham"
+   ]
+  },
+  {
+   "title": "Kyle Whittingham Loses Trust as Michigan Star\u2019s Leaked Conversation Allegedly Accuses Staff of Failures: \u201cWorse Than Sherrone [Moore]\u201d",
+   "url": "https://news.google.com/rss/articles/CBMijwFBVV95cUxQcTF6VHBvZS1jd2l6QU1ycWgxNjhnLU5CT3BnQ1dtUE82OFhkYUFuNWJ2bFhCX000LUFBbHBQM3d1U3QzbkNESW9MYmc5M3k4MGxvQ1ZkT1Z1N3JWX25LcVB0WlFmQ29IMFBQWUlmMmlkQUVUYlYweGxRdVZVTFpFWjJVX3FYUi01RWNYNXlWZw?oc=5",
+   "source": "Yahoo Sports",
+   "pub": "Tue, 06 Oct 2026 02:33:00 GMT",
    "collection": "michigan",
    "entities": [
     "kyle whittingham"
