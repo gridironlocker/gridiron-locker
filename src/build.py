@@ -2762,9 +2762,11 @@ def _girly_body(cre, c, items, track):
     # own signed mockup and product page. A click lands on every design: the
     # designs that listed the style swap to that garment and are tagged
     # "Showing <style>", and the designs that did not keep their own mockup,
-    # muted. The five t-shirt listings get their own second row of buttons,
-    # and a category with no listing anywhere says "not listed yet" on its
-    # tile instead of swapping anything.
+    # muted. Caps & Hats is the deliberate exception: its three designs without
+    # cap listings leave the grid, so the category lists the four real caps
+    # rather than presenting t-shirts as hats. The five t-shirt listings get
+    # their own second row of buttons, and a category with no listing anywhere
+    # says "not listed yet" on its tile instead of swapping anything.
     grid_id = "gcollectionGrid"
     categories = [str(label) for label in catalog.get("categories", [])]
     cat_slug = {label: slugify(label) for label in categories}
@@ -6009,6 +6011,8 @@ document.querySelectorAll('a.custom-link').forEach(function(a){
 //   * a design that did not keeps its own mockup, muted, still linking to
 //     its own product page so the visitor can check the styles that design
 //     offers today;
+//   * Caps & Hats is the deliberate product-list exception: its three designs
+//     without a cap listing are hidden, leaving exactly the four cap cards;
 //   * the five t-shirt listings get a second row of buttons, hidden until
 //     one of their styles is chosen.
 // There is deliberately no live status line and no per-card badge: the swap
@@ -6054,11 +6058,13 @@ document.querySelectorAll('a.custom-link').forEach(function(a){
     if(card._link&&card._href)card._link.href=card._href;
     card.classList.remove('is-swapped');
     card.classList.remove('is-muted');
+    card.hidden=false;
   }
   function apply(){
     cards.forEach(function(card){
       var entry=garment?(card._styles[garment]||null):null;
       if(entry){
+        card.hidden=false;
         if(card._img){
           card._img.src=entry.image;
           card._img.alt=card._name+' design on a '+garment.toLowerCase();
@@ -6070,7 +6076,8 @@ document.querySelectorAll('a.custom-link').forEach(function(a){
       }
       restore(card);
       if(cat){
-        card.classList.add('is-muted');
+        if(cat==='caps-hats')card.hidden=true;
+        else card.classList.add('is-muted');
       }
     });
     tiles.forEach(function(t){press(t,cat!==null&&t.getAttribute('data-gcat')===cat);});

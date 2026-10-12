@@ -2175,9 +2175,9 @@ class BellaLocker(unittest.TestCase):
 
     def test_apparel_categories_are_buttons_that_swap_the_products(self):
         """The six store-wide categories are real buttons that change the
-        displayed garment: one click reaches every design, a design that did
-        not list the style is muted, and a category her store never listed
-        anything in says so instead of swapping."""
+        displayed garment. Non-cap choices keep every design reachable and
+        mute unavailable styles; Caps & Hats lists only designs with a cap.
+        A category the store never listed still says so instead of swapping."""
         labels = self.catalog["categories"]
         styles = self.catalog["apparel_styles"]
         self.assertEqual(len(labels), 6)
@@ -2250,10 +2250,12 @@ class BellaLocker(unittest.TestCase):
         # the behaviour itself, and the fact that it is page-scoped, live in app.js
         js = page("assets/app.js")
         for term in (".gcategory-tile[data-gcat]", ".gstyle-chip[data-gstyle]",
-                     "data-apparel",
+                     "data-apparel", "card.hidden=false", "card.hidden=true",
                      "aria-pressed", "is-muted", "is-swapped", "scrollIntoView",
                      "prefers-reduced-motion"):
             self.assertIn(term, js, term)
+        self.assertIn("if(cat==='caps-hats')card.hidden=true", js)
+        self.assertIn("else card.classList.add('is-muted')", js)
         self.assertNotIn("gproduct-badge", js)
         self.assertNotIn("gcatStatus", js)
         # the removed pink card badge stays removed: no markup on the page, no
@@ -2268,6 +2270,48 @@ class BellaLocker(unittest.TestCase):
         bella_js = js[js.index("// ---------- creator apparel-style buttons"):]
         self.assertNotIn("price", bella_js.lower())
         self.assertNotIn("$", bella_js)
+
+        # Regression model for the partial category: derive the cards that the
+        # Caps & Hats click is allowed to leave in the grid from the same JSON
+        # payload consumed by app.js. This deliberately does not hard-code the
+        # four names; if the captured catalogue changes, the expected list
+        # follows its audited matrix while still pinning the list-only rule.
+        cap_style = styles["caps-hats"][0]
+        self.assertEqual(cap_style, "Heavy Cotton Cap")
+        cap_slugs = [
+            slug for slug, groups in payload.items()
+            if any(row["garment"] == cap_style
+                   for row in groups.get("caps-hats", []))
+        ]
+        self.assertEqual(len(cap_slugs), 4)
+        self.assertEqual(
+            cap_slugs,
+            ["michigan-heart", "navy-maize-m", "michigan-vs-all",
+             "bold-maize-m-streetwear"])
+        no_cap_slugs = [slug for slug in self.cre["picks"]
+                        if slug not in cap_slugs]
+        self.assertEqual(len(no_cap_slugs), 3)
+        for slug in cap_slugs:
+            rows = payload[slug]["caps-hats"]
+            self.assertEqual(len(rows), 1, slug)
+            self.assertEqual(rows[0]["garment"], "Heavy Cotton Cap")
+            self.assertTrue(rows[0]["image"], slug)
+            self.assertTrue(rows[0]["url"], slug)
+        for slug in no_cap_slugs:
+            self.assertNotIn("caps-hats", payload[slug])
+
+        # The initial HTML remains complete and indexable: hiding is applied
+        # only after an explicit click, and clearing that pressed choice must
+        # restore all seven cards. The order below matters because restore()
+        # runs before the caps-only branch decides whether to hide the card.
+        self.assertNotIn('<article class="gproduct" hidden', self.html)
+        bella_js = js[js.index("// ---------- creator apparel-style buttons"):]
+        restore_at = bella_js.index("card.hidden=false")
+        caps_at = bella_js.index("if(cat==='caps-hats')card.hidden=true")
+        self.assertLess(restore_at, caps_at)
+        self.assertIn("if(cat===nextCat&&garment===nextGarment)", bella_js)
+        self.assertIn("{cat=null;garment=null;}", bella_js)
+        self.assertIn("if(!cat)return;", bella_js)
 
     def test_swapped_garments_match_what_bellas_store_publishes(self):
         """The matrix a click shows is the matrix her live store showed.
@@ -2417,6 +2461,7 @@ class BellaLocker(unittest.TestCase):
                          '.jlock-girly .gstyle-chip[aria-pressed="true"]{',
                          ".jlock-girly .gstyle-count{", ".jlock-girly .gstyle-sr{",
                          ".jlock-girly .gproduct.is-muted .gproduct-art img{",
+                         ".jlock-girly .gproduct[hidden]{display:none}",
                          ".jlock-girly .gcustom-grid{", ".jlock-girly .gcustom-img{"):
             self.assertIn(selector, self.css)
         self.assertNotIn(".gbanner-art", self.css)
@@ -2443,6 +2488,21 @@ class BellaLocker(unittest.TestCase):
         self.assertIn('alt="Custom t-shirt design - make your own fan apparel"', self.html)
         self.assertLess(self.html.index('class="gcustom-img"'),
                         self.html.index('id="custom-form"'))
+
+        # custom-tee1.jpg is a 2:3 portrait. Let its intrinsic aspect ratio
+        # render the complete image: fixed heights and breakpoint max-heights
+        # used to cut off the bottom of the photo beside the form.
+        image_rule = css_block(self.css, ".jlock-girly .gcustom-img img")
+        self.assertIn("width:100%", image_rule)
+        self.assertIn("height:auto", image_rule)
+        self.assertIn("object-fit:contain", image_rule)
+        self.assertNotIn("object-fit:cover", image_rule)
+        self.assertNotIn("max-height", image_rule)
+        self.assertNotIn("object-position", image_rule)
+        self.assertNotIn(".jlock-girly .gcustom-img img{max-height:",
+                         media_rules(self.css, 760))
+        self.assertNotIn(".jlock-girly .gcustom-img img{max-height:",
+                         media_rules(self.css, 430))
 
     def test_page_is_indexable_and_schema_uses_supplier_listings(self):
         self.assertIn('<link rel="canonical" href="https://gridironlocker.store/michigan/bella/">',

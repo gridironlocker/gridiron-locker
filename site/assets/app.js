@@ -770,6 +770,8 @@ document.querySelectorAll('a.custom-link').forEach(function(a){
 //   * a design that did not keeps its own mockup, muted, still linking to
 //     its own product page so the visitor can check the styles that design
 //     offers today;
+//   * Caps & Hats is the deliberate product-list exception: its three designs
+//     without a cap listing are hidden, leaving exactly the four cap cards;
 //   * the five t-shirt listings get a second row of buttons, hidden until
 //     one of their styles is chosen.
 // There is deliberately no live status line and no per-card badge: the swap
@@ -815,11 +817,13 @@ document.querySelectorAll('a.custom-link').forEach(function(a){
     if(card._link&&card._href)card._link.href=card._href;
     card.classList.remove('is-swapped');
     card.classList.remove('is-muted');
+    card.hidden=false;
   }
   function apply(){
     cards.forEach(function(card){
       var entry=garment?(card._styles[garment]||null):null;
       if(entry){
+        card.hidden=false;
         if(card._img){
           card._img.src=entry.image;
           card._img.alt=card._name+' design on a '+garment.toLowerCase();
@@ -831,7 +835,8 @@ document.querySelectorAll('a.custom-link').forEach(function(a){
       }
       restore(card);
       if(cat){
-        card.classList.add('is-muted');
+        if(cat==='caps-hats')card.hidden=true;
+        else card.classList.add('is-muted');
       }
     });
     tiles.forEach(function(t){press(t,cat!==null&&t.getAttribute('data-gcat')===cat);});
