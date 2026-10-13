@@ -2,24 +2,24 @@
  "generated": "2026-10-13",
  "window_days": 10,
  "fti_formula": "round(100 * entity_mentions / peak_mentions_in_window)",
- "peak_mentions": 39,
+ "peak_mentions": 45,
  "stats": {
   "products": 94,
   "collections": 4,
   "images": 446,
   "avg_price": 22.84,
-  "hot": 11,
+  "hot": 0,
   "throwback": 1,
-  "steady": 82,
+  "steady": 93,
   "gaps": 6,
-  "moments": 7,
+  "moments": 6,
   "tracked_names": 18,
   "dead_campaigns": 66
  },
  "fti_rows": [
   {
    "name": "bryce underwood",
-   "mentions": 39,
+   "mentions": 45,
    "index": 100,
    "status": "trending",
    "gap": false,
@@ -28,8 +28,8 @@
   },
   {
    "name": "kyle whittingham",
-   "mentions": 17,
-   "index": 44,
+   "mentions": 16,
+   "index": 36,
    "status": "trending",
    "gap": true,
    "shoppable": false,
@@ -37,8 +37,8 @@
   },
   {
    "name": "dak prescott",
-   "mentions": 15,
-   "index": 38,
+   "mentions": 14,
+   "index": 31,
    "status": "trending",
    "gap": true,
    "shoppable": false,
@@ -46,8 +46,8 @@
   },
   {
    "name": "deshaun watson",
-   "mentions": 13,
-   "index": 33,
+   "mentions": 11,
+   "index": 24,
    "status": "trending",
    "gap": true,
    "shoppable": false,
@@ -56,7 +56,7 @@
   {
    "name": "ceedee lamb",
    "mentions": 10,
-   "index": 26,
+   "index": 22,
    "status": "trending",
    "gap": true,
    "shoppable": false,
@@ -65,43 +65,43 @@
   {
    "name": "josh jacobs",
    "mentions": 4,
-   "index": 10,
+   "index": 9,
    "status": "trending",
    "gap": true,
    "shoppable": false,
-   "collection": "green-bay-packers"
-  },
-  {
-   "name": "micah parsons",
-   "mentions": 4,
-   "index": 10,
-   "status": "trending",
-   "gap": false,
-   "shoppable": true,
-   "collection": "green-bay-packers"
-  },
-  {
-   "name": "jordan love",
-   "mentions": 3,
-   "index": 8,
-   "status": "trending",
-   "gap": false,
-   "shoppable": true,
    "collection": "green-bay-packers"
   },
   {
    "name": "matt lafleur",
    "mentions": 3,
-   "index": 8,
+   "index": 7,
    "status": "trending",
    "gap": true,
    "shoppable": false,
    "collection": "green-bay-packers"
   },
   {
+   "name": "jordan love",
+   "mentions": 2,
+   "index": 4,
+   "status": "steady",
+   "gap": false,
+   "shoppable": true,
+   "collection": "green-bay-packers"
+  },
+  {
+   "name": "micah parsons",
+   "mentions": 2,
+   "index": 4,
+   "status": "steady",
+   "gap": false,
+   "shoppable": true,
+   "collection": "green-bay-packers"
+  },
+  {
    "name": "myles garrett",
    "mentions": 1,
-   "index": 3,
+   "index": 2,
    "status": "steady",
    "gap": false,
    "shoppable": true,
@@ -110,7 +110,7 @@
   {
    "name": "todd monken",
    "mentions": 1,
-   "index": 3,
+   "index": 2,
    "status": "steady",
    "gap": false,
    "shoppable": false,
@@ -183,8 +183,8 @@
  "gaps": [
   {
    "name": "kyle whittingham",
-   "mentions": 17,
-   "index": 44,
+   "mentions": 16,
+   "index": 36,
    "status": "trending",
    "gap": true,
    "shoppable": false,
@@ -192,8 +192,8 @@
   },
   {
    "name": "dak prescott",
-   "mentions": 15,
-   "index": 38,
+   "mentions": 14,
+   "index": 31,
    "status": "trending",
    "gap": true,
    "shoppable": false,
@@ -201,8 +201,8 @@
   },
   {
    "name": "deshaun watson",
-   "mentions": 13,
-   "index": 33,
+   "mentions": 11,
+   "index": 24,
    "status": "trending",
    "gap": true,
    "shoppable": false,
@@ -211,7 +211,7 @@
   {
    "name": "ceedee lamb",
    "mentions": 10,
-   "index": 26,
+   "index": 22,
    "status": "trending",
    "gap": true,
    "shoppable": false,
@@ -220,7 +220,7 @@
   {
    "name": "josh jacobs",
    "mentions": 4,
-   "index": 10,
+   "index": 9,
    "status": "trending",
    "gap": true,
    "shoppable": false,
@@ -229,7 +229,7 @@
   {
    "name": "matt lafleur",
    "mentions": 3,
-   "index": 8,
+   "index": 7,
    "status": "trending",
    "gap": true,
    "shoppable": false,
@@ -250,8 +250,8 @@
    "gaps": [
     {
      "name": "deshaun watson",
-     "mentions": 13,
-     "index": 33,
+     "mentions": 11,
+     "index": 24,
      "status": "trending",
      "gap": true,
      "shoppable": false,
@@ -264,8 +264,8 @@
     "york",
     "watch",
     "loss",
-    "concepcion",
     "watson",
+    "injury",
     "deshaun"
    ],
    "headline_count": 100,
@@ -316,8 +316,8 @@
    "gaps": [
     {
      "name": "dak prescott",
-     "mentions": 15,
-     "index": 38,
+     "mentions": 14,
+     "index": 31,
      "status": "trending",
      "gap": true,
      "shoppable": false,
@@ -326,7 +326,7 @@
     {
      "name": "ceedee lamb",
      "mentions": 10,
-     "index": 26,
+     "index": 22,
      "status": "trending",
      "gap": true,
      "shoppable": false,
@@ -339,9 +339,9 @@
     "loss",
     "bucs",
     "defensive",
-    "prescott",
+    "defense",
     "jerry",
-    "jones"
+    "prescott"
    ],
    "headline_count": 100,
    "headlines": [
@@ -386,13 +386,13 @@
    "store": "https://viralstyle.com/store/kebystore/Packss/1",
    "products": 37,
    "avg_price": 25.18,
-   "hot": 11,
+   "hot": 0,
    "throwback": 0,
    "gaps": [
     {
      "name": "josh jacobs",
      "mentions": 4,
-     "index": 10,
+     "index": 9,
      "status": "trending",
      "gap": true,
      "shoppable": false,
@@ -401,7 +401,7 @@
     {
      "name": "matt lafleur",
      "mentions": 3,
-     "index": 8,
+     "index": 7,
      "status": "trending",
      "gap": true,
      "shoppable": false,
@@ -413,24 +413,18 @@
     "green",
     "chicago",
     "lambeau",
-    "johnson",
     "cowboys",
-    "odds",
-    "watch"
+    "watch",
+    "johnson",
+    "channel"
    ],
    "headline_count": 100,
    "headlines": [
     {
-     "title": "Statement from the Green Bay Packers",
-     "url": "https://news.google.com/rss/articles/CBMiggFBVV95cUxPWnVwZWxnUFlTY2ZkSlJMenNNdFdtbWRSMHIzVF81c3ZHX0o2MkxhMWduUk9fREw4YWJTUUI5anJyUTk2SFpVZ0VtWVUyQ2lhSTRsdnZoV2NEd1d0YTVhdk9RZVhtOFdjTTB1X1QwZzNWNnQwWGk0Y2xUT3AyY2lFUmZR?oc=5",
+     "title": "Inbox: The Packers have been winning this way for decades",
+     "url": "https://news.google.com/rss/articles/CBMingFBVV95cUxQV3VlMzFVNldqNVE2N1lhZGVuNjdyWVVRa2ptaDU4dDM3Y1BjTjk2RUl6Sm9yU2l5UkYwZG45aEF4enVMQzY0UXlGbFoyU3BEU2tMenJ3VUpXamtqX1JtNDFuZUQ0eFRhdmZCUFdxM1lWb3ZuUkNEX0NjSmxQdVNLdThiZzlsRGFnZzgtWnU0eTBSZW5FYlNhZnJHejFPdw?oc=5",
      "source": "Green Bay Packers \u2013 packers.com",
-     "pub": "Fri, 09 Oct 2026 16:57:00 GMT"
-    },
-    {
-     "title": "The Good, Bad And Ugly From The Green Bay Packers\u2019 Rout Of The Bears",
-     "url": "https://news.google.com/rss/articles/CBMiuwFBVV95cUxQY0E2YmdQUXBNZTl0cnMzMWhhQ3VfbUpUd0dBdTAtN0Fib1oyb0wyZUNGTHo0VXZwak5SR0FhWUJFQ1I1MEJHS21mbXM2M0RqZExOdmU4U051YlhRNEF1OFFDdldfeldKSW0wV3AtWlItX1A0REhUNHNTOVVtUjVRcFpEUElBR0JLNE9pWnhQNzNUVUg4eUdZQUs5a1c1QzllSzloWXIwbnBlcEg3akh3dW85OGx0TzVzR2JR?oc=5",
-     "source": "Forbes",
-     "pub": "Sun, 11 Oct 2026 20:12:43 GMT"
+     "pub": "Tue, 13 Oct 2026 13:33:22 GMT"
     },
     {
      "title": "Game Recap: Bears fall to Packers in Green Bay",
@@ -439,16 +433,22 @@
      "pub": "Sun, 11 Oct 2026 23:42:45 GMT"
     },
     {
+     "title": "The Good, Bad And Ugly From The Green Bay Packers\u2019 Rout Of The Bears",
+     "url": "https://news.google.com/rss/articles/CBMiuwFBVV95cUxQY0E2YmdQUXBNZTl0cnMzMWhhQ3VfbUpUd0dBdTAtN0Fib1oyb0wyZUNGTHo0VXZwak5SR0FhWUJFQ1I1MEJHS21mbXM2M0RqZExOdmU4U051YlhRNEF1OFFDdldfeldKSW0wV3AtWlItX1A0REhUNHNTOVVtUjVRcFpEUElBR0JLNE9pWnhQNzNUVUg4eUdZQUs5a1c1QzllSzloWXIwbnBlcEg3akh3dW85OGx0TzVzR2JR?oc=5",
+     "source": "Forbes",
+     "pub": "Sun, 11 Oct 2026 20:12:43 GMT"
+    },
+    {
+     "title": "Packers 31-7 Bears (Oct 11, 2026) Game Recap",
+     "url": "https://news.google.com/rss/articles/CBMiW0FVX3lxTE1McndXWmpndXA3THBiTXZ4bFZmUFg5blh2TXVRdlloR1FFbXlRT0RNYWczVnNpam4yT3REbFYzODJhcW9aTjJ1SENfeG92cllXMmpsVEF1MDhvUTA?oc=5",
+     "source": "ESPN",
+     "pub": "Sun, 11 Oct 2026 23:31:45 GMT"
+    },
+    {
      "title": "Can't-Miss Play: Jordan Love's 36-yard launch ends with marvelous catch by Matthew Golden",
      "url": "https://news.google.com/rss/articles/CBMitgFBVV95cUxNT1E1TzRMZDBXaXdIaXFLNWZFUkxhaTAyQkRoWXptVHZmOTZWQ3BPcUxLbjZYYUZVWkpVd2VZX2QzN3hLeXkySF81bnRjN1d1dkFCaXQ1UUpadUgtOXN1aHF2TERnanRSOHFDNmh2N29GZDl3TWt2emM4b1lGTTFETU1HUE04T0laZDF2U29jaUU2d1hjSnhLMWRjTE96eHVBeFRDSFFBSXNITFFZN05TVUR4UW9Hdw?oc=5",
      "source": "NFL.com",
      "pub": "Sun, 11 Oct 2026 19:38:11 GMT"
-    },
-    {
-     "title": "Green Bay Packers: Confirm Career-Altering News for 2x-Pro Bowler",
-     "url": "https://news.google.com/rss/articles/CBMiiAFBVV95cUxQb0VlZTktSHl3RW10YndPelZtY2pNSHg3clZ6M3BKTWFNaFhyNGQwSkp1NnR0Z3otTHN1aTcwUjFwUGxMbG5UVXJUX3otZGlRS0RFNWNqdTQ5QUtPT2c1S0RvNWxSS2RHMWtoT1FTdWhqWHFIcWM2VUtiQmdYemVZck1TSElJNzdf?oc=5",
-     "source": "Yahoo Sports",
-     "pub": "Mon, 12 Oct 2026 17:09:04 GMT"
     }
    ],
    "fti_count": 5
@@ -466,8 +466,8 @@
    "gaps": [
     {
      "name": "kyle whittingham",
-     "mentions": 17,
-     "index": 44,
+     "mentions": 16,
+     "index": 36,
      "status": "trending",
      "gap": true,
      "shoppable": false,
@@ -480,9 +480,9 @@
     "bryce",
     "underwood",
     "whittingham",
-    "kyle",
     "state",
-    "penn"
+    "penn",
+    "kyle"
    ],
    "headline_count": 100,
    "headlines": [
@@ -491,6 +491,12 @@
      "url": "https://news.google.com/rss/articles/CBMizAFBVV95cUxOUmNnZUxUZG0xTWY3bE9tejlmX2oxcHhZYkl0VUNyVUZFWlh2X0drdFNJdjlGZUxOZlRaSTN6N2l4Y29SbXlpN2R6cGl6NXVNQnoxT09ZcGJYUV9YLWR5RG85VmNOWE9COElPQk40VFUybmJOR2d3YnFHZzhKN2pvT1RZSzVyMlBuU0x2UWNfcU0wSWdXUjhlYUhCV3prQkZWbmhQc2lEa3NxU0h3M2g0Nl9HRm1Cd2Q5cmhhVjcta1drR3hPQmVWQlNyc04?oc=5",
      "source": "Maize n Brew",
      "pub": "Thu, 08 Oct 2026 12:00:00 GMT"
+    },
+    {
+     "title": "Michigan Monday: Game 6 vs. Penn State",
+     "url": "https://news.google.com/rss/articles/CBMif0FVX3lxTFB4bDlCMV9sQ2ZqRFVtMWluZVJYZWg1cjFDNlFRWkx2SV8xbUYyUFNMVXZoODl0a25fWEVUOFl6N1R0VnMtdFFrdXZOQXllMzgySG1wNkc0cXpxcmplMVVVT28zaE81c2xwajA0NkZNTkhJdU5ZSjRSTGtXUHZuRXM?oc=5",
+     "source": "University of Michigan Athletics",
+     "pub": "Mon, 12 Oct 2026 15:39:47 GMT"
     },
     {
      "title": "Michigan\u2019s QB, coordinator cost $6 million per year. The scheme is costing them the season - The Athletic",
@@ -509,12 +515,6 @@
      "url": "https://news.google.com/rss/articles/CBMikwFBVV95cUxOcnB2WnZuLW1LZzZJOUc4Y3pYUTdUYm9yOFZ2Ql9PTVB0ZHZ2RjFMTUlWUUtlUGlyb0hBMDd5QklKUzRycjhtcFBhRXloa1ZlekdCai0tSElacjBRSndtOEo1YkNZU25zV1RCMGs0dWhTQVdjYzV5ajl5ay00RExxNWxsWVJHeWxCX0wwQXI4a01IbzA?oc=5",
      "source": "Yahoo Sports",
      "pub": "Wed, 07 Oct 2026 14:50:32 GMT"
-    },
-    {
-     "title": "Michigan Monday: Game 6 vs. Penn State",
-     "url": "https://news.google.com/rss/articles/CBMif0FVX3lxTFB4bDlCMV9sQ2ZqRFVtMWluZVJYZWg1cjFDNlFRWkx2SV8xbUYyUFNMVXZoODl0a25fWEVUOFl6N1R0VnMtdFFrdXZOQXllMzgySG1wNkc0cXpxcmplMVVVT28zaE81c2xwajA0NkZNTkhJdU5ZSjRSTGtXUHZuRXM?oc=5",
-     "source": "University of Michigan Athletics",
-     "pub": "Mon, 12 Oct 2026 15:39:47 GMT"
     }
    ],
    "fti_count": 4
@@ -912,17 +912,6 @@
    "collection": "michigan",
    "entities": [
     "bryce underwood"
-   ]
-  },
-  {
-   "title": "Kyle Whittingham's Bryce Underwood Announcement Isn't Shocking as Michigan Seeks Turnaround",
-   "url": "https://news.google.com/rss/articles/CBMi1AFBVV95cUxNVHRBMVpJY0EySDRaMU5uZE1FVXJCYXp6YzQxaHJST0VFQWJ5bFdBeTBMM1F2TFVfSUFuZFVEOG13OXc1djRWWExwb2NDQlhZOWdzd1REOGpqbTNtWjdEMFYzcUdaQmNUWW5GRURXYklNeUN2MmpyYmlLQVZIWmJWTzIxMHF6bURrN1BCQTBpNXRlTjFjUHhmVFVGVmk2NkJaNjk1UWRiM0w3dmtrNUhWSEN1MnpkRUVBVGFjMjZ6M3NNeHdtMDdwajZpLXpIZElaV3FSaQ?oc=5",
-   "source": "Sports Illustrated",
-   "pub": "Mon, 12 Oct 2026 14:24:35 GMT",
-   "collection": "michigan",
-   "entities": [
-    "bryce underwood",
-    "kyle whittingham"
    ]
   }
  ]
