@@ -157,6 +157,18 @@ CATALOG = {
 "cleveland-tshirt": dict(name="Cleveland Football White Shirt", art="CLEVELAND", kw=["cleveland shirt", "cleveland white tee", "cleveland football t shirt", "browns white shirt", "cleveland ohio football tee", "cleveland football gift"], theme="city", type="T-Shirt"),
 "sunday-funday": dict(name="Sunday Funday Cleveland Football Shirt", art="SUNDAY FUNDAY", kw=["sunday funday shirt", "cleveland sunday funday tee", "browns game day shirt", "football sunday shirt", "funny cleveland football tee", "cleveland football gift"], theme="funny", type="T-Shirt"),
 "cleveland-1946-tshirt": dict(name="Cleveland 1946 White Shirt", art="CLEVELAND 1946", kw=["cleveland 1946 shirt", "cleveland 1946 white tee", "vintage cleveland football shirt", "browns 1946 tee", "retro cleveland ohio shirt", "cleveland football gift"], theme="retro", type="T-Shirt"),
+# 2026-10-14 Mayzing Browns additions (titles verbatim from the live product
+# pages, artwork line kept to the title words because the mockups were not
+# image-verifiable at capture time - same convention as the 2026-09-27
+# additions above. cle-browns2 is a second live listing under the supplier
+# title "Cle Browns"; its Dark Chocolate colourway is what the build's
+# duplicate-name colour qualifier uses to keep its SEO title distinct from
+# cle-browns (Sand) and cle-browns-light (Natural), and its keywords are
+# angled at the dark chocolate tee for the same reason).
+"cleveland-victory-monday": dict(name="Cleveland Victory Monday", art="CLEVELAND VICTORY MONDAY", kw=["cleveland victory monday shirt", "cleveland victory monday tee", "browns victory monday shirt", "victory monday cleveland tee", "dark chocolate browns shirt", "cleveland football gift"], theme="classic", type="T-Shirt"),
+"cleveland-football-for-life": dict(name="Cleveland Football For Life", art="CLEVELAND FOOTBALL FOR LIFE", kw=["cleveland football for life shirt", "cleveland football for life tee", "browns for life shirt", "cleveland browns for life tee", "black cleveland football shirt", "cleveland football gift"], theme="classic", type="T-Shirt"),
+"browns": dict(name="Browns", art="BROWNS", kw=["browns shirt", "cleveland browns tee", "browns football shirt", "dark chocolate browns tee", "dawg pound shirt", "browns fan gear"], theme="classic", type="T-Shirt"),
+"cle-browns2": dict(name="Cle Browns", art="CLE BROWNS", kw=["cle browns dark chocolate shirt", "cle browns tee", "cleveland browns cle shirt", "browns cle dark chocolate tee", "cleveland football t shirt", "browns fan apparel"], theme="classic", type="T-Shirt"),
 # ---------------- DALLAS ----------------
 "doomsday-defense-tee": dict(name="Doomsday Defense Dallas Football Shirt", art="DOOMSDAY DEFENSE with skull in a retro helmet and stars", kw=["doomsday defense shirt","dallas defense tee","vintage cowboys defense shirt"], theme="retro"),
 "girly-vintage-texas-pride": dict(name="This Girl Loves Cowboys Women's Shirt", art="THIS GIRL LOVES COWBOYS with football and stars", kw=["this girl loves cowboys","dallas womens shirt","cowboys girlfriend gift"], theme="family"),

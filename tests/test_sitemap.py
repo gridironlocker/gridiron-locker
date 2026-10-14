@@ -106,7 +106,11 @@ class SitemapDates(unittest.TestCase):
         # and Cleveland Skyline Dawg Pound became the 24th and 25th Browns Mayzing products.
         # 2026-10-06: 113 -> 118 - Cleveland Skyline Dawg Pound retired (-1)
         # and six new Browns tees published (+6).
-        self.assertEqual(len(self.rows), 118)
+        # 2026-10-14: 119 -> 123 - four new Browns tees published (+4). The
+        # 119 on disk at HEAD already sat one above the 118 sentinel (an
+        # undocumented URL from the 2026-10-13 refresh); the +4 delta from
+        # that on-disk count is exactly the four new product URLs.
+        self.assertEqual(len(self.rows), 123)
         self.assertEqual(len(self.rows), len(set(self.rows)))
         for url, lastmod in self.rows.items():
             self.assertTrue(url.startswith(build.DOMAIN + "/"), url)

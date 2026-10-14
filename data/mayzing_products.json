@@ -1,13 +1,125 @@
 {
- "_doc": "Cleveland/Browns catalogue from the Mayzing storefront, initially captured 2026-09-12 and updated through 2026-10-06. This file is the source of truth for the whole collection: src/build.py builds the product pages and the collection page from it (mayzing_item()), replacing the Viralstyle crawl for Cleveland. Data is captured from gridironlocker.shop/p/browns and each product page (title, price, colour, sizes, mockup URLs and productId). Supplier titles are kept verbatim here; customer-facing SEO names are curated in src/catalog.py. Mockups are hot-linked from the Mayzing CDN with signature params. On 2026-10-06 the owner retired Cleveland Skyline Dawg Pound (product id 6abd8df35dda6a6b2d5dfc78) from the collection - the slug stays in data/published.json so the old /shop/ URL keeps a redirect stub instead of 404ing - and published six new Classic Unisex T-shirts, verified live at $20.00 in S-5XL: Cleveland Football, Classic 1946, 1946 Cleveland, Cleveland (white), Sunday Funday and Cleveland 1946 (white). The collection capture date remains the original 2026-09-12 baseline so unchanged product URLs keep stable sitemap dates; the new records carry their verified capture date and data/content_dates.json records the collection update date.",
+ "_doc": "Cleveland/Browns catalogue from the Mayzing storefront, initially captured 2026-09-12 and updated through 2026-10-14. This file is the source of truth for the whole collection: src/build.py builds the product pages and the collection page from it (mayzing_item()), replacing the Viralstyle crawl for Cleveland. Data is captured from gridironlocker.shop/p/browns and each product page (title, price, colour, sizes, mockup URLs and productId). Supplier titles are kept verbatim here; customer-facing SEO names are curated in src/catalog.py. Mockups are hot-linked from the Mayzing CDN with signature params. On 2026-10-06 the owner retired Cleveland Skyline Dawg Pound (product id 6abd8df35dda6a6b2d5dfc78) from the collection - the slug stays in data/published.json so the old /shop/ URL keeps a redirect stub instead of 404ing - and published six new Classic Unisex T-shirts, verified live at $20.00 in S-5XL: Cleveland Football, Classic 1946, 1946 Cleveland, Cleveland (white), Sunday Funday and Cleveland 1946 (white). On 2026-10-14 the owner published four new Classic Unisex T-shirts, verified live at $21.99 in S-5XL and captured from their product pages: Cleveland Victory Monday (Dark Chocolate), Cleveland Football For Life (Black), Browns (Dark Chocolate) and Cle Browns (Dark Chocolate, handle cle-browns2 - a second live listing under the same supplier title as cle-browns/cle-browns-light, kept distinct by its own productId and Dark Chocolate colourway). The collection capture date remains the original 2026-09-12 baseline so unchanged product URLs keep stable sitemap dates; the new records carry their verified capture date and data/content_dates.json records the collection update date.",
  "store": "https://gridironlocker.shop/p/browns",
  "store_id": "z2OF",
  "collectionId": "P19bpeU2x_Ng",
  "partner": "Mayzing",
  "currency": "USD",
- "currency_note": "Storefront product pages quote USD 20.00 for the 2026-10-06 additions (the older records were captured at 21.00); some product pages render NOK 209.00 depending on session geo, which approximates the same USD price. Price recorded here is the USD storefront price. Verify currency for US customers in Mayzing admin.",
+ "currency_note": "Storefront product pages quote USD 20.00 for the 2026-10-06 additions (the older records were captured at 21.00) and USD 21.99 for the 2026-10-14 additions; some product pages render NOK 209.00 / NOK 229.00 respectively depending on session geo, which approximates the same USD prices. Price recorded here is the USD storefront price. Verify currency for US customers in Mayzing admin.",
  "captured": "2026-09-12",
  "products": [
+  {
+   "slug": "cleveland-victory-monday",
+   "name": "Cleveland Victory Monday",
+   "garment": "Classic Unisex T-shirt",
+   "blank": "Gildan 64000",
+   "price_usd": "21.99",
+   "colour_code": "GILDAN-DARK_CHOCOLATE",
+   "colour_name": "Dark Chocolate",
+   "sizes": [
+    "S",
+    "M",
+    "L",
+    "XL",
+    "2XL",
+    "3XL",
+    "4XL",
+    "5XL"
+   ],
+   "handle": "cleveland-victory-monday",
+   "product_id": "6acec9e32baf05e953d51933",
+   "checkout_url": "https://gridironlocker.shop/cleveland-victory-monday?collectionId=P19bpeU2x_Ng&color=GILDAN-DARK_CHOCOLATE&productId=6acec9e32baf05e953d51933",
+   "features": "Gildan 64000 soft ring-spun 100% cotton, modern classic fit, tubular body, taped neck and shoulders, double-needle sleeve and bottom hems",
+   "captured": "2026-10-14",
+   "img": {
+    "front": "https://buyer-experience-gateway.mayzing.com/stores/z2OF/mockups/id:miz0accu8c20,sig:oU-72BRYh2zua5VaYxZx4cawOHP1XoxQvfdqf8EWfL4,c:GILDAN-DARK_CHOCOLATE,s:41a8f2db-c26c-4aa6-8f4c-7729cd25b4ee,d:6acec9e387e03f5ada13f3d2,dv:3,cpd:pdz0accu8c0,w:1000/image.png",
+    "back": "https://buyer-experience-gateway.mayzing.com/stores/z2OF/mockups/id:miz0accu8c21,sig:VsHV1zcG1wZp0R5XWw2CuNlo45N1w3k3Iy3xNp3ZCWA,c:GILDAN-DARK_CHOCOLATE,s:68cc43b4-f55a-46a0-9a99-5f88952ca97c,cpd:pdz0accu8c0,w:1000/image.png"
+   }
+  },
+  {
+   "slug": "cleveland-football-for-life",
+   "name": "Cleveland Football For Life",
+   "garment": "Classic Unisex T-shirt",
+   "blank": "Gildan 64000",
+   "price_usd": "21.99",
+   "colour_code": "GILDAN-BLACK",
+   "colour_name": "Black",
+   "sizes": [
+    "S",
+    "M",
+    "L",
+    "XL",
+    "2XL",
+    "3XL",
+    "4XL",
+    "5XL"
+   ],
+   "handle": "cleveland-football-for-life",
+   "product_id": "6acec02c2672bd64f2428d7f",
+   "checkout_url": "https://gridironlocker.shop/cleveland-football-for-life?collectionId=P19bpeU2x_Ng&color=GILDAN-BLACK&productId=6acec02c2672bd64f2428d7f",
+   "features": "Gildan 64000 soft ring-spun 100% cotton, modern classic fit, tubular body, taped neck and shoulders, double-needle sleeve and bottom hems",
+   "captured": "2026-10-14",
+   "img": {
+    "front": "https://buyer-experience-gateway.mayzing.com/stores/z2OF/mockups/id:miz0accu8c20,sig:KLRz43XfrvpAx2Xs5HWwA-ik65tAZkmfuZoh5zS-jBo,c:GILDAN-BLACK,s:41a8f2db-c26c-4aa6-8f4c-7729cd25b4ee,d:6acec02c00bf9ad27bcb41b7,dv:2,cpd:pdz0accu8c0,w:1000/image.png",
+    "back": "https://buyer-experience-gateway.mayzing.com/stores/z2OF/mockups/id:miz0accu8c21,sig:bOphm_LJIVOqx_cyw1UPPdD372hmwPPz3IPKQGgaqo8,c:GILDAN-BLACK,s:68cc43b4-f55a-46a0-9a99-5f88952ca97c,cpd:pdz0accu8c0,w:1000/image.png"
+   }
+  },
+  {
+   "slug": "browns",
+   "name": "Browns",
+   "garment": "Classic Unisex T-shirt",
+   "blank": "Gildan 64000",
+   "price_usd": "21.99",
+   "colour_code": "GILDAN-DARK_CHOCOLATE",
+   "colour_name": "Dark Chocolate",
+   "sizes": [
+    "S",
+    "M",
+    "L",
+    "XL",
+    "2XL",
+    "3XL",
+    "4XL",
+    "5XL"
+   ],
+   "handle": "browns",
+   "product_id": "6acebd562672bd64f2427058",
+   "checkout_url": "https://gridironlocker.shop/browns?collectionId=P19bpeU2x_Ng&color=GILDAN-DARK_CHOCOLATE&productId=6acebd562672bd64f2427058",
+   "features": "Gildan 64000 soft ring-spun 100% cotton, modern classic fit, tubular body, taped neck and shoulders, double-needle sleeve and bottom hems",
+   "captured": "2026-10-14",
+   "img": {
+    "front": "https://buyer-experience-gateway.mayzing.com/stores/z2OF/mockups/id:miz0accu8c20,sig:YJQ-bhughQ4dEatcst99-6fi_Y1TXxDGHSuR1sLREXY,c:GILDAN-DARK_CHOCOLATE,s:41a8f2db-c26c-4aa6-8f4c-7729cd25b4ee,d:6acebd5669520652542e9dff,dv:3,cpd:pdz0accu8c0,w:1000/image.png",
+    "back": "https://buyer-experience-gateway.mayzing.com/stores/z2OF/mockups/id:miz0accu8c21,sig:VsHV1zcG1wZp0R5XWw2CuNlo45N1w3k3Iy3xNp3ZCWA,c:GILDAN-DARK_CHOCOLATE,s:68cc43b4-f55a-46a0-9a99-5f88952ca97c,cpd:pdz0accu8c0,w:1000/image.png"
+   }
+  },
+  {
+   "slug": "cle-browns2",
+   "name": "Cle Browns",
+   "garment": "Classic Unisex T-shirt",
+   "blank": "Gildan 64000",
+   "price_usd": "21.99",
+   "colour_code": "GILDAN-DARK_CHOCOLATE",
+   "colour_name": "Dark Chocolate",
+   "sizes": [
+    "S",
+    "M",
+    "L",
+    "XL",
+    "2XL",
+    "3XL",
+    "4XL",
+    "5XL"
+   ],
+   "handle": "cle-browns2",
+   "product_id": "6aceb7f126cbec379b282833",
+   "checkout_url": "https://gridironlocker.shop/cle-browns2?collectionId=P19bpeU2x_Ng&color=GILDAN-DARK_CHOCOLATE&productId=6aceb7f126cbec379b282833",
+   "features": "Gildan 64000 soft ring-spun 100% cotton, modern classic fit, tubular body, taped neck and shoulders, double-needle sleeve and bottom hems",
+   "captured": "2026-10-14",
+   "img": {
+    "front": "https://buyer-experience-gateway.mayzing.com/stores/z2OF/mockups/id:miz0accu8c20,sig:m5SMDYhu0bODh_NhHxBqyRyNIDqOoT4Ky1YoBh77Pbk,c:GILDAN-DARK_CHOCOLATE,s:41a8f2db-c26c-4aa6-8f4c-7729cd25b4ee,d:6aceb7f147c24805af5daec3,dv:3,cpd:pdz0accu8c0,w:1000/image.png",
+    "back": "https://buyer-experience-gateway.mayzing.com/stores/z2OF/mockups/id:miz0accu8c21,sig:VsHV1zcG1wZp0R5XWw2CuNlo45N1w3k3Iy3xNp3ZCWA,c:GILDAN-DARK_CHOCOLATE,s:68cc43b4-f55a-46a0-9a99-5f88952ca97c,cpd:pdz0accu8c0,w:1000/image.png"
+   }
+  },
   {
    "slug": "cleveland-football",
    "name": "Cleveland Football Tshirt",
@@ -234,7 +346,7 @@
   },
   {
    "slug": "limited-edition-cleveland-football-beware-of-the-dawgs",
-   "name": "Limited Edition Cleveland Football “Beware of the Dawgs”",
+   "name": "Limited Edition Cleveland Football \u201cBeware of the Dawgs\u201d",
    "garment": "Men's T-Shirt",
    "blank": "Gildan 5000",
    "price_usd": "28.00",
