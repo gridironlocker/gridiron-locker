@@ -1,11 +1,11 @@
 {
-  "generated": "2026-10-13",
+  "generated": "2026-10-14",
   "generator": "src/catalogue_contract.py",
   "source": "src/build.py :: build.ALL - the merged master catalogue",
   "contract": "This is the ONLY authoritative list of sellable designs. Marketing must filter every queue, brief, drop and pin against it. Do not read data/products.json or data/products_live.json as a catalogue: both are stale crawl artefacts. Written by the storefront on every build; marketing reads it and never writes it.",
-  "count": 94,
+  "count": 98,
   "per_collection": {
-    "cleveland-browns": 30,
+    "cleveland-browns": 34,
     "dallas-cowboys": 10,
     "green-bay-packers": 37,
     "michigan": 17
@@ -33,6 +33,18 @@
       "price_usd": 21.0,
       "garment": "T-Shirt",
       "theme": "funny",
+      "site_published": true
+    },
+    {
+      "slug": "browns",
+      "name": "Browns",
+      "collection": "cleveland-browns",
+      "partner": "Mayzing",
+      "url": "https://gridironlocker.store/shop/browns/",
+      "buy_url": "https://gridironlocker.shop/browns?collectionId=P19bpeU2x_Ng&color=GILDAN-DARK_CHOCOLATE&productId=6acebd562672bd64f2427058",
+      "price_usd": 21.99,
+      "garment": "T-Shirt",
+      "theme": "classic",
       "site_published": true
     },
     {
@@ -108,6 +120,18 @@
       "site_published": true
     },
     {
+      "slug": "cle-browns2",
+      "name": "Cle Browns",
+      "collection": "cleveland-browns",
+      "partner": "Mayzing",
+      "url": "https://gridironlocker.store/shop/cle-browns2/",
+      "buy_url": "https://gridironlocker.shop/cle-browns2?collectionId=P19bpeU2x_Ng&color=GILDAN-DARK_CHOCOLATE&productId=6aceb7f126cbec379b282833",
+      "price_usd": 21.99,
+      "garment": "T-Shirt",
+      "theme": "classic",
+      "site_published": true
+    },
+    {
       "slug": "cleveland",
       "name": "Cleveland",
       "collection": "cleveland-browns",
@@ -168,6 +192,18 @@
       "site_published": true
     },
     {
+      "slug": "cleveland-football-for-life",
+      "name": "Cleveland Football For Life",
+      "collection": "cleveland-browns",
+      "partner": "Mayzing",
+      "url": "https://gridironlocker.store/shop/cleveland-football-for-life/",
+      "buy_url": "https://gridironlocker.shop/cleveland-football-for-life?collectionId=P19bpeU2x_Ng&color=GILDAN-BLACK&productId=6acec02c2672bd64f2428d7f",
+      "price_usd": 21.99,
+      "garment": "T-Shirt",
+      "theme": "classic",
+      "site_published": true
+    },
+    {
       "slug": "cleveland-tshirt",
       "name": "Cleveland Football White Shirt",
       "collection": "cleveland-browns",
@@ -177,6 +213,18 @@
       "price_usd": 20.0,
       "garment": "T-Shirt",
       "theme": "city",
+      "site_published": true
+    },
+    {
+      "slug": "cleveland-victory-monday",
+      "name": "Cleveland Victory Monday",
+      "collection": "cleveland-browns",
+      "partner": "Mayzing",
+      "url": "https://gridironlocker.store/shop/cleveland-victory-monday/",
+      "buy_url": "https://gridironlocker.shop/cleveland-victory-monday?collectionId=P19bpeU2x_Ng&color=GILDAN-DARK_CHOCOLATE&productId=6acec9e32baf05e953d51933",
+      "price_usd": 21.99,
+      "garment": "T-Shirt",
+      "theme": "classic",
       "site_published": true
     },
     {
