@@ -1,8 +1,8 @@
-# Hunt Report - 2026-10-17
+# Hunt Report - 2026-10-18
 
-Generated: 2026-10-17 17:53 UTC by src/hunter_intelligence.py
+Generated: 2026-10-18 11:01 UTC by src/hunter_intelligence.py
 
-Ladder: SIGNAL 0 · TREND 0 · OPPORTUNITY 3 · ACTION 0 · HEADLINE 4
+Ladder: SIGNAL 0 · TREND 0 · OPPORTUNITY 3 · ACTION 0 · HEADLINE 5
 
 Fan connectors: no fan posts observed - reddit error (HTTP Error 403: Blocked); x not_configured (Set X_BEARER_TOKEN to use the official X recent-search API.); facebook not_configured (Set META_PAGE_ID and META_PAGE_ACCESS_TOKEN for the official Meta Page feed API.)
 
@@ -21,73 +21,73 @@ Fan connectors: no fan posts observed - reddit error (HTTP Error 403: Blocked); 
 
 ### 1. Doomsday memory: defence and the pass rush - Dallas Cowboys
 - Level: OPPORTUNITY · Confidence: 71% · 🟢 READY (matched design, posting window open, evidence under 12 h)
-- Fan signal: "Steelers dodge a bullet as Joey Porter Jr. drama gets stranger with Cowboys | See link below ⬇️ 📸 Barry Reeger, IMAGN IMAGES via Reuters Connect" - Facebook (2 h ago)
-- Evidence: 7 reaction items (7.0 weighted) · 6 outlets · 0 utility listings excluded · 0 fan posts
-- Phrase velocity: → 0% / 240 min (1 vs 1)
-- Sentiment: proud - 'proud' on 3/3 lexicon hits across 7 item(s)
-- Game state: result coverage in the last 30 h (1 item(s))
+- Fan signal: "Cowboys CB Joey Porter Jr. Injury Update; Issue Not Related to Contract Talks" - Yahoo Sports (14 h ago)
+- Evidence: 7 reaction items (7.0 weighted) · 4 outlets · 0 utility listings excluded · 0 fan posts
+- Phrase velocity: new - 1 item in last 60 min, none in the window before
+- Sentiment: proud - 'proud' on 2/4 lexicon hits across 7 item(s)
+- Game state: next game in ~0 day(s)
 - Commercial: exact - Doomsday Defense Dallas Football Shirt $21.99 (sellable) - DOOMSDAY DEFENSE
 - Why fans care: Dallas defence talk always drifts to the Doomsday era - the one defensive identity we own a design for.
-- Tracked names: micah parsons (0 window mentions, FTI 33)
 - Action: X (@gridironlocker1 first) - conversation post now (now)
 - Action: Threads - alternate angle (+20 min)
 - Action: Instagram - product creative after engagement confirms the angle (after the X post confirms the angle)
 - Action: Pinterest - keyword pin of the matched design (+2 h)
-  - Steelers dodge a bullet as Joey Porter Jr. drama gets stranger with Cowboys | See link below ⬇️ 📸 Barry Reeger, IMAGN IMAGES via Reuters Connect - Facebook - google_news (2 h ago) https://news.google.com/rss/articles/CBMi2gFBVV95cUxNR1k1SG1fMFBIQVM3REVvcldfRExPV2NOZy03WERJblIzS3Rzc2JUUU5Ma3BJVllmQm91WnVnSkRjdVhpSEtsYm9oMFN5VHRUM2JMTU1NS0E4dzZFcjhNekxZQVJqMmdsa3l0a3lTaGc5OEVzT0JIa3Q1MXBpbUFhZEQ3U0JmVmNzN2E1UjBxcERXVlVjVW03c1I3RzdCdVdNcENYRDJ4dUdEbThPc0hNMG1adkVUMHRCNjVkV1FJb1hFRjNXdjBUMEcxRkFCdUtNb05VRnkwOEJpZw?oc=5
-  - Diagnosing the five areas where the Cowboys' defense is struggling the most - Dallas News - google_news (7 h ago) https://news.google.com/rss/articles/CBMiswFBVV95cUxQdWd4SHhHVHhtT0pYcjEteFZSb1lkcEktN09JalJ1TWZVVXhvYU9XcXE0U3JXbDllbzJFYzZfT054NnZiTnlIblF2TnkxeXRlcEV2TFFwZ3NYWmx1cmNiUVR0R2szM2E0cF81bE51NXpUYkNuUTF6NDdTTUNTS0VVRmVWVFNrYURuX3RIWHVpdXBrbV9VU3FEWGtxZl94WE9xWktuTWMxeHlaa3NlRDFjTlJkcw?oc=5
-  - Spagnola: High time defense springs into action - Dallas Cowboys | Official Site of the Dallas Cowboys - google_news (20 h ago) https://news.google.com/rss/articles/CBMiiAFBVV95cUxNNUNhRm9ZNU1lSkF0LWZwY1VvRjBzV0pvaW9zZ3FCUDlwMnZQbkdrby1aSmxvbmxQazVkbDl3di1RalBFbkljS1FuWlRCMS05Um5HbFFpN1VhbndMZHk5Y25KN3ZoWHRRNlBsSWVYc0t5R3YycWZIdWhjTUxSVE1CT3NKekxwQno3?oc=5
-  - Four players questionable, two out for Dallas Cowboys; will Micah Parsons play? - Fort Worth Star-Telegram - google_news (21 h ago) https://news.google.com/rss/articles/CBMigwFBVV95cUxOMEdBRHpHZDVEUVBseThSU2VaUG9lUGh0U1kteUJEN29vVGRzLUVxa1JGbzN3dTNUWU4yUWFBenV4RkF0eWlKOXJCRmpGZVpGN3dJOG1UX1llV2VEZ0RZNENWSFRrSi1OZVlGTVE1NWtSVVNDWXItM1AwT2VuX3JWNllVZ9IBgwFBVV95cUxQUGRDZnAwUGpXdDhGa3BhTmpLMktETW1pcEFzdVNtQWJWR2xMNGk2SWpKUk5NU1Q0azFTdG5aZTVCTlNYdjBQTDNZRC1iSHNURmx0N3Y3ZnZRX0duVnY2RnZiS3NmbW1ZVmRrRXR5ZWw3VkNkRUdXM3Q4dVpYSGhpUHRpWQ?oc=5
+  - Steelers dodge a bullet as Joey Porter Jr. drama gets stranger with Cowboys | See link below ⬇️ 📸 Barry Reeger, IMAGN IMAGES via Reuters Connect - Facebook - google_news (45 min ago) https://news.google.com/rss/articles/CBMi2gFBVV95cUxNR1k1SG1fMFBIQVM3REVvcldfRExPV2NOZy03WERJblIzS3Rzc2JUUU5Ma3BJVllmQm91WnVnSkRjdVhpSEtsYm9oMFN5VHRUM2JMTU1NS0E4dzZFcjhNekxZQVJqMmdsa3l0a3lTaGc5OEVzT0JIa3Q1MXBpbUFhZEQ3U0JmVmNzN2E1UjBxcERXVlVjVW03c1I3RzdCdVdNcENYRDJ4dUdEbThPc0hNMG1adkVUMHRCNjVkV1FJb1hFRjNXdjBUMEcxRkFCdUtNb05VRnkwOEJpZw?oc=5
+  - Cowboys Could Have a Joey Porter Jr. Problem - Yahoo Sports - google_news (10 h ago) https://news.google.com/rss/articles/CBMigwFBVV95cUxOc3pyYTZQX2hEcXE1TjJ1TXktZTBOcHdVS2JuQl8wTzlZR01FaG5KMFZVTm1oeklmX095bkN2WWEwR1FVNUxybC1lbjBJYnEtYWFmSzBRNmtQZmpIanhiaDVOZ1UxVTZwWVpRYkxvZEUxRzRZbFpmWDM0T0xSRmc1VVZJQQ?oc=5
+  - Cowboys CB Joey Porter Jr. Injury Update; Issue Not Related to Contract Talks - Yahoo Sports - google_news (14 h ago) https://news.google.com/rss/articles/CBMif0FVX3lxTFA2c0VlMkhQeGpLNTBMUmRGNGczaVh6SzI0YXNxNm5UXzlwcnY0eHliYzA2SjNsQWFQR3lGQ1AzZ2lQNFpmbElOVDVnM1BMREtFZVVCMkFvSGRRRl9kcXJwOVlxN2s3cVM4RVBnNldwenBMWUxPSlAtSWhXWms5QjA?oc=5
+  - Spagnola: High time defense springs into action - Dallas Cowboys | Official Site of the Dallas Cowboys - google_news (2 d ago) https://news.google.com/rss/articles/CBMiiAFBVV95cUxNNUNhRm9ZNU1lSkF0LWZwY1VvRjBzV0pvaW9zZ3FCUDlwMnZQbkdrby1aSmxvbmxQazVkbDl3di1RalBFbkljS1FuWlRCMS05Um5HbFFpN1VhbndMZHk5Y25KN3ZoWHRRNlBsSWVYc0t5R3YycWZIdWhjTUxSVE1CT3NKekxwQno3?oc=5
 
-### 2. QB room: who is QB1 in Cleveland - Cleveland Browns
-- Level: OPPORTUNITY · Confidence: 70% · 🟢 READY (matched design, posting window open, evidence under 12 h)
-- Fan signal: "Browns weigh all options on Deshaun Watson's future" - Cleveland.com (7 d ago)
-- Evidence: 5 reaction items (5.0 weighted) · 5 outlets · 0 utility listings excluded · 0 fan posts
-- Phrase velocity: new - 2 items in last 240 min, none in the window before
-- Sentiment: proud - 'proud' on 2/3 lexicon hits across 5 item(s)
-- Game state: next game in ~1 day(s)
-- Commercial: campaign - Make Them Know Your Name $21.00 (sellable) - THEY FORGOT WHO I AM — QB1 belief
-- Why fans care: The whole fanbase is arguing one question: who starts. That is a belief argument, and belief is what a QB tee sells.
-- Tracked names: shedeur sanders (11 window mentions, FTI 61); deshaun watson (8 window mentions, FTI 44)
+### 2. Go Blue: The Big House identity - Michigan Wolverines
+- Level: OPPORTUNITY · Confidence: 71% · 🟢 READY (matched design, posting window open, evidence under 12 h)
+- Fan signal: "Penn State Nittany Lions vs Michigan Wolverines football live: Penn State Nittany Lions vs Michigan Wolverines football look to seize control of thrilling Penn State Nittany…" - Universidad de Córdoba (UCO) (11 h ago)
+- Evidence: 9 reaction items (9.0 weighted) · 2 outlets · 2 utility listings excluded · 0 fan posts
+- Phrase velocity: new - 9 items in last 1440 min, none in the window before
+- Sentiment: pride - 'pride' on 9/9 lexicon hits across 9 item(s)
+- Game state: result coverage in the last 30 h (3 item(s))
+- Commercial: exact - M vs Everybody $21.00 (sellable) - M VS EVERYBODY — Go Blue
+- Why fans care: The evergreen identity buy - Michigan fans gift Go Blue apparel year round, and it does not depend on a result.
+- Tracked names: bryce underwood (14 window mentions, FTI 88); kyle whittingham (4 window mentions, FTI 25)
 - Action: X (@gridironlocker1 first) - conversation post now (now)
 - Action: Threads - alternate angle (+20 min)
 - Action: Instagram - product creative after engagement confirms the angle (after the X post confirms the angle)
 - Action: Pinterest - keyword pin of the matched design (+2 h)
-  - Shedeur Sanders trade: What Browns GM Andrew Berry is rumored to think about the QB - Dawgs By Nature - google_news (1 h ago) https://news.google.com/rss/articles/CBMirAFBVV95cUxNM1hjQ3hBdnZXa3Y5SDNuQ0U2U1hPcWVUTGpBZEdSMlA1cEtwYWR4UjdhZlJDdHQ3TXBCZk1GazhLSENvdTVKdE05QndQSkVCQXFOR043R2QwVGdqSXk5bkE2aUtYdVg4RzQyNEtYY3lZYmxReDR2NFMtLU9yNWVwR3BiZGsycklwcDdqeExGNGZXN2ZOcVRuR3NPQVlNV0FxUGxjU040NEpIZlRw?oc=5
-  - New Shedeur Sanders Trade Rumors Leak After Browns QB Hires Travis Hunter's Agent - Bleacher Report - google_news (2 h ago) https://news.google.com/rss/articles/CBMiwwFBVV95cUxQdC1faG1uaE5sOTl1alZsRmFIc2VIQU9Xc3Q1anY1YmlHWHVOMVBaaHJXanNfbGdPY1hWcVdSSHotZmJNZldpdWFDblZvWUZBT3dRM2JnR2stWmVxR3kzVkRjMHc0ZTdfWms2S0sxWWIxVzd5OFFCdnk5UmxjOXQtUWszNUQwMzRZcC1HNXE0X3libnA0WTl1QmZnZk9VVm15VXYtTWh5VUtJTldTT3IxcktmRmZaaUVsdHliTkVQbmdUTnc?oc=5
-  - Cleveland Browns Trade Pitch Deals Shedeur Sanders to QB Needy Team Amid Rumors - Heavy.com - google_news (1 d ago) https://news.google.com/rss/articles/CBMiiAFBVV95cUxQSXdGZTdfcGh3bDByeHc3RkdRbXh1S0tHbDROeGNRRFFJVGxqZmZ4SHVqTlNIOHJZb2VDN1lqakxSVlc1N1BTRUUyZjlESl9JWGgwVFhBR3VfaWtwZ0dnNldnN2RDcDMyQ1JuU3FvdzU5YVFGbmw0cS1oWFdvTzBydEpPUXZsbVo2?oc=5
-  - Shedeur Sanders Makes Move That Could Signal Cleveland Browns Trade Demand Is Coming - Sportsnaut - google_news (3 d ago) https://news.google.com/rss/articles/CBMikgFBVV95cUxQcGtyN2xGMzkwZi1uZ0F2b0FSaUN4UlpSSE5aaG9hMkk2c21rc0pUSzhaYy1fZElleThpSDhBTFd4TUxQYU90T3k3VGNSNm5Lc3V3TTRQTzcySFNqbk0tTE1xQU5INEkzblNUQlNZOHpqTy03ZmppTDZCci1XNmY0bkRlYThwaEFvTlk3dGJrS3pUQQ?oc=5
+  - Penn State Nittany Lions vs Michigan Wolverines football live: Penn State Nittany Lions vs Michigan Wolverines football look to seize control of thrilling Penn State Nittany Lions vs Michigan Wolverines football. Every team in the Penn State Nittany Lions vs Mic - Universidad de Córdoba (UCO) - google_news (11 h ago) https://news.google.com/rss/articles/CBMi6AJBVV95cUxNX0lVaVlySl9tQTEwLWM5NGNuenc4Umd4enZGdHZnV3V2dWEtNUwxNW9LdV9nNE9qLVRVN2tHWWFKV2F1WFBOSFlleXhYOGxPdzljaTlRM2RqU25leUJ3d1Z6VjRrbUFCZGJOZThMaktDaVJ6V1RxNWxtVHR1Z1JBSEd6UXQ2TWxkdFJuTHpDM3UxdTR0RnVoLVl2LUtsXzl6dmZFbEtKTS1ZR2V4XzJDejVDaWl1SFJpNGk2RFV1c2Vlc3ROVDhMaTUtZmF2SmJHN200Q1BrYUJ4NzVoajl1bTN3cmJfQWNiTHdBX1FfcmlGMF9LS2FHeGZyZHVJa01GczQzZ1kwYWdiU2RhOTREOW92LUtKM0FUS1FYNFJNUE5pVEdnR0Jodk9zNlVjSEpyX3ZsTUlMOFFkcHFQbzlWN1dmaEliOWhwU2ZkeXozR2NHYlZOenUxY3V5dDIwa1FtN1kyUXNEVng?oc=5
+  - Michigan Wolverines vs Penn State Nittany Lions Football live: Michigan Wolverines vs Penn State Nittany Lions Football look to seize control of thrilling Michigan Wolverines vs Penn State Nittany Lions Football. Every team in the Michigan Wolverines vs Pen - Universidad de Córdoba (UCO) - google_news (11 h ago) https://news.google.com/rss/articles/CBMi4gJBVV95cUxQdlVBT3Fxc08zY1h6cnJMZzZMVlNJOGJla1NuTG9tQUl5OHJwZTVOV1diZWY1MXhqUlV4Sjd4WFFTQTFmcXdjVTdWWkROOE1TclJPc2ZKaWRZZmZubl9aNVV6M0NxUGM1bXlJaXRaa2JBOWJtaUVYakthTklIQjRWaThKMFJTUHpMM1JaTEw0TVJvV3hxVnFTLUpqS2Z1N3hoUmZjZVNJeFNCUzN0NXBGaGpyS1dadTdud1N1cS16YURiMmdBdEJTUW9sRFFWWEtPcFBFZmdXY3JEbDFvQzV5cE85ZUJfcFE0M2N4Qk0xU2ZBMXVmSURhNTViWjBfckFsY3dDRXpLV2xrQUowbGhCMThlakZSMzU2R09JMmVrYWZieEVCVTZXSzhrR2pOQTRnYkYzSnlvYnVxOEt6VjhubkNvWnkwQWhQTGhyWmVTV1pzdkpZb2FKWncwaWptTzQxcWc?oc=5
+  - Michigan Wolverines HC Kyle Whittingham finally draws a line in the sand when it comes to QB Bryce Underwood - A to Z Sports (13 h ago) https://news.google.com/rss/articles/CBMi6gFBVV95cUxNb3RXdXdNN0kyZ2NVdHhqTlN5S1RtTmx1TE81bUtQNlpxU0xkM1p6aVdyNS1vUi14SlpqaVVtX2hnYmh6dUhiQk9Fa3dRTlZxU3VxUlRVbFdaUHJuRlRrUU5qZlE3LU82eGU1SkdzMUxrOE5UMXJUZUdHUVh3VFBKbWhGZW0wMTVra2ZxUzA2bFF1UzUwSnJ0S0R4ODlmMHdhU3NGeGVpUjhyQnFMSHh2MERsai1ydEI3SmwwZ2h5dnNsSWJpYXkzNkY2SVJVUjJtSU1GcEtrejZOZ1RTeGtLWmphRm00ZEoxcFE?oc=5
+  - [!!LIVESTREAM!!]TV!]* Michigan Wolverines football Ｌｉｖｅ Ｓｔｒｅａｍｉｎｇ Ｆｒｅｅ ＯＮ Ｔｖ Ｃｈａｎｎｅｌ 17 October 2026 - Universidad de Córdoba (UCO) - google_news (15 h ago) https://news.google.com/rss/articles/CBMivAJBVV95cUxNMzZIZHk2RFNmY21hclFzM2hoWjFYcElxZmVmX0wwcjh2RXNvZFVaTzdSMzM4MWxibGJsdHZzeC0tcF9OZjB1UHRzRDhkWG5yckpUVHZQZ3hjcVBGRXo3YnRBN3NDd3FBV2ZlVWxvOEhhd1JyYk9TTktzdnhsRUpUVDNlVEFybG94eHItd2NqQ21GbDJQaXdSN1l2b1E0SjQydXpscVFTUnFEVWs1bEJxQUR2bnlTcmoyMmc2RHBSaWNEWWw3TlpFVEY4YnFFY1ZSdENFRWlTQjM5ZEhXVWpBT00xZVFuTzM0N2NPM21kbXpVek5YdFdfYmZhMWpydFFBRGlIQUJ3VHJrZGd3dmdoVF9IVFV1TmhhY2VCMW5LdHpVVDd3ZEFpTWVZN0JBSU9VSWVWcUNVNzY5bGNh?oc=5
 
-### 3. Josh Jacobs and the run game - Green Bay Packers
-- Level: OPPORTUNITY · Confidence: 60% · 🟢 READY (matched design, posting window open, evidence under 12 h)
-- Fan signal: "Packers Make Starting Decision on RB Josh Jacobs: Report" - Heavy.com (4 h ago)
-- Evidence: 5 reaction items (5.0 weighted) · 5 outlets · 1 utility listings excluded · 0 fan posts
-- Phrase velocity: ↓ 50% / 240 min (1 vs 2)
-- Sentiment: optimistic - 'optimistic' on 4/4 lexicon hits across 5 item(s)
-- Game state: next game in ~1 day(s)
-- Commercial: exact - Green Bay Football Cheesehead Nation Shirt $24.99 (sellable) - GO PACK GO — identity over one back
-- Why fans care: Jacobs is the most-mentioned Packer in the window and every mention is about availability - that is a nervous fan, and nervous fans buy identity, not player tees.
-- Tracked names: josh jacobs (18 window mentions, FTI 100)
+### 3. Underwood era: QB19 in Ann Arbor - Michigan Wolverines
+- Level: OPPORTUNITY · Confidence: 63% · 🟢 READY (matched design, posting window open, evidence under 12 h)
+- Fan signal: "Michigan outlasts Penn State as backup QB Tommy Carr delivers after Bryce Underwood benching" - CBS Sports (11 h ago)
+- Evidence: 4 reaction items (4.0 weighted) · 4 outlets · 0 utility listings excluded · 0 fan posts
+- Phrase velocity: new - 4 items in last 1440 min, none in the window before
+- Sentiment: pride - 'pride' on 1/1 lexicon hits across 4 item(s)
+- Game state: result coverage in the last 30 h (3 item(s))
+- Commercial: exact - Second Act QB19 Vintage Football $21.00 (sellable) - SECOND ACT QB19
+- Why fans care: Every Michigan story right now routes through Underwood - the grade, the coach backing him, and what the era means next.
+- Tracked names: bryce underwood (14 window mentions, FTI 88); kyle whittingham (4 window mentions, FTI 25)
 - Action: X (@gridironlocker1 first) - conversation post now (now)
 - Action: Threads - alternate angle (+20 min)
 - Action: Instagram - product creative after engagement confirms the angle (after the X post confirms the angle)
 - Action: Pinterest - keyword pin of the matched design (+2 h)
-  - Packers Make Starting Decision on RB Josh Jacobs: Report - Heavy.com - google_news (4 h ago) https://news.google.com/rss/articles/CBMinAFBVV95cUxNcE9vNlljck5jbmJtd3UwR0tjM0RJdUpRUmQ3ZFpyOUlGNjBGY3kyWjlnb2gwemNNZGtvVkdmVy1IWVo3WURINTFrX25HdnIweFR3M3lyVlZvamJvTXBHYVh0NXpXUHlWeVk2RXZLc1h2RGozcURMUFBPLUMzaDJZbjlJa2hXTG50ME1KYUxkTURCSjJXdEJkeF80WEQ?oc=5
-  - Green Bay Packers: Josh Jacobs will return as the starting running back immediately in Week 7 - Yahoo Sports - google_news (5 h ago) https://news.google.com/rss/articles/CBMihAFBVV95cUxPc3pzMFNlM3hWOGxvVTlSekE2cGdhUGFxSVdYXzUwMElMNEh5dllMYVdaaUhwcWpqNWhLSjkzcWxKa2k5OEIwZHJEVUxyaVhhdWlyajNSYUVSODNLanVFSjhyQXh4Z2V1RjFMZ3pMSTY2aUplVExkaHZLakl4Ynd2QjZPMTY?oc=5
-  - Green Bay Packers' Josh Jacobs convicted of misdemeanor battery, fined $1,000 - ABC News - Breaking News, Latest News and Videos - google_news (6 h ago) https://news.google.com/rss/articles/CBMiowFBVV95cUxPVzB6VXVrVTN1OWFmbXRZNEUxSkRkTS1ReWliNlExNTRxNldySzZaMUU2UVo3b0daUDVlR3UtaG0wZlh4NEdOYnRnOUJseGc2MDRRSzlqNWp5R0ROMTgwMXNYbkJpRGE3dkpOcllIaHVYNFI4RkJiMFZ0VHFJMnFOSWJaaVMtZWpmc0FiSk4zZVZWeUt4VHJhZ2xwVnN3aTN6QVJR0gGoAUFVX3lxTE9wdjRtRDI5QWtzd2dTYnJuTVZDcWs2ckMtbk5wUzB2SnltUjlDRHR3eXoyLU9RNmQ0M1JpUHgwUXZkZWJBU0V5WlhwWjF5T3RaT3dvVUZHZGZBOThfWkJTbzc3ZXd0WXlTT0Rab1RVRW5aTloxVC13WnNpYzhEV0dKMkdVbnpiTW14TExRNU5INTh2N1NHMHIxSUxfYnRHelY5dUhydDB3MQ?oc=5
-  - Green Bay Packers defensive tackle Chris McClellan (55) is blocked from tackling Atlanta Falcons running back Bijan Robinson (7) - Wisconsin State Journal - google_news (13 h ago) https://news.google.com/rss/articles/CBMidkFVX3lxTE5ZZVRyWnhOUXhZWVZzczNLMVYtLXZPdFNsSVJ3MS1GUFp4WVF1RUMteTRkRnQ4RFRZUlJpWnRab3NYUkl3WW1iZ0o2ZTU5MDRKNVEzc05nXzdqRXR2X1FqME5KMW8yYzdyemhjVnBlZXZkTWVQQ0E?oc=5
+  - Michigan outlasts Penn State as backup QB Tommy Carr delivers after Bryce Underwood benching - CBS Sports - google_news (11 h ago) https://news.google.com/rss/articles/CBMitwFBVV95cUxOeFpfTHVUUnZaMnFlemU5S1hKMmhaT1NYRm93aHFUbjVIeXY0b054MkpwZkw5NE9KbEw2Umk0Y3lTZk1NUEFHWXJQZVozX3M1dG5ha1FEVjBrV1BJUWZFcThyMGRoUWNNdkoxdld1eG9VblVEOGx1YkZvWXJndkZnTkZoZkNRV2J0NXVLSVNKV3NZeWxVNzlGYkNYRGZwd1NwRmtNdkFkU053QVMyNFVjV0VZV3dLMG8?oc=5
+  - Michigan Wolverines HC Kyle Whittingham finally draws a line in the sand when it comes to QB Bryce Underwood - A to Z Sports (13 h ago) https://news.google.com/rss/articles/CBMi6gFBVV95cUxNb3RXdXdNN0kyZ2NVdHhqTlN5S1RtTmx1TE81bUtQNlpxU0xkM1p6aVdyNS1vUi14SlpqaVVtX2hnYmh6dUhiQk9Fa3dRTlZxU3VxUlRVbFdaUHJuRlRrUU5qZlE3LU82eGU1SkdzMUxrOE5UMXJUZUdHUVh3VFBKbWhGZW0wMTVra2ZxUzA2bFF1UzUwSnJ0S0R4ODlmMHdhU3NGeGVpUjhyQnFMSHh2MERsai1ydEI3SmwwZ2h5dnNsSWJpYXkzNkY2SVJVUjJtSU1GcEtrejZOZ1RTeGtLWmphRm00ZEoxcFE?oc=5
+  - Michigan football benches Bryce Underwood after brutal half vs Penn State - Yahoo Sports (13 h ago) https://news.google.com/rss/articles/CBMilAFBVV95cUxPR2puS21ZM2Zpb0lDMm51TkNQNUJwLTVwU21oR25mYXJnQmsyWjdsbmVpU0lYUlNQek8wTEdHZ0FtaXI4ZWJuNlRHOGlXQ2paSlA3d1dCSWNCTnJNSGE4X1lQUmp0WnZlS2lRaW9MemZ4R0JQVUhYRmhsb3Z5TENXNGpfLWRBZFUyLWNLMDZpM1EwcEFW?oc=5
+  - Bryce Underwood Benched vs. Penn State, Tommy Carr Takes Over - Sports Illustrated - google_news (13 h ago) https://news.google.com/rss/articles/CBMimwFBVV95cUxNQ3JRYUw5QldNbkRKM1cwTjdGdEhmSmJPM3g0SFIyVVlPQVgwV0FjcVJXTlZZeG42S1RlaU0yN196SjRNVlluTmFzVy13WE1OTGt0UnhxcTR2NkdLbWdTZVdVWS1qdGdBQkJuZnpsYjhZbUlwLW5kUnZGR2N0SnhYYlRQVGtZb1pfTnBaYmlrLWRpVXJ4NzlIVEhDOA?oc=5
 
-## Filtered as HEADLINE (4)
+## Filtered as HEADLINE (5)
 
-- BROWNS - Coaching: Monken's first season: 1 reaction item(s), 1 outlet(s), confidence 32% - not a reaction
+- BROWNS - QB room: who is QB1 in Cleveland: 2 reaction item(s), 1 outlet(s), confidence 41% - not a reaction
 - BROWNS - No Fly Zone: the secondary wins the argument: 1 reaction item(s), 1 outlet(s), confidence 29% - not a reaction
-- MICHIGAN - Go Blue: The Big House identity: 1 reaction item(s), 1 outlet(s), confidence 47% - not a reaction
-- MICHIGAN - Underwood era: QB19 in Ann Arbor: 2 reaction item(s), 2 outlet(s), confidence 33% - not a reaction
+- COWBOYS - Texas pride: flag, star and Est. 1841: 1 reaction item(s), 1 outlet(s), confidence 37% - not a reaction
+- PACKERS - Josh Jacobs and the run game: 2 reaction item(s), 2 outlet(s), confidence 40% - not a reaction
+- PACKERS - Jordan Love era: 10 is the number: 0 reaction item(s), 1 outlet(s), confidence 30% - not a reaction
 
 ## Article ideas (OPPORTUNITY+ only)
 
 - **[Medium] Dallas Cowboys: what the America's Team faithful are actually saying about doomsday memory: defence and the pass rush**
   - Where: Cowboys fan culture (Texas football)
-  - Angle: Fan-demand piece built on the live signal (Steelers dodge a bullet as Joey Porter Jr. drama gets stranger with Cowboys | See link below ⬇️ 📸 Barry Reeger, IMAGN IMAGES via Reuters Connect), not on a headline recap.
+  - Angle: Fan-demand piece built on the live signal (Cowboys CB Joey Porter Jr. Injury Update; Issue Not Related to Contract Talks), not on a headline recap.
   - Link: https://viralstyle.com/kebystore/doomsday-defense-tee
   - Image: Doomsday Defense Dallas Football Shirt mockup next to the moment that started it.
 
@@ -103,38 +103,38 @@ Fan connectors: no fan posts observed - reddit error (HTTP Error 403: Blocked); 
   - Link: profile link only, if asked
   - Image: None - text comment.
 
-- **[Medium] Cleveland Browns: what the Dawg Pound are actually saying about qb room: who is qb1 in cleveland**
-  - Where: NFL fan culture (Dawg Pound / Cleveland sports)
-  - Angle: Fan-demand piece built on the live signal (Browns weigh all options on Deshaun Watson's future), not on a headline recap.
-  - Link: https://gridironlocker.shop/make-them-know-your-name?collectionId=P19bpeU2x_Ng&color=GILDAN-DARK_CHOCOLATE&productId=6aa33fa01cdc8689e252dab3
-  - Image: Make Them Know Your Name mockup next to the moment that started it.
+- **[Medium] Michigan Wolverines: what the Go Blue faithful are actually saying about go blue: the big house identity**
+  - Where: Michigan football culture (Ann Arbor)
+  - Angle: Fan-demand piece built on the live signal (Penn State Nittany Lions vs Michigan Wolverines football live: Penn State Nittany Lions vs Michigan Wolverines football look to seize control of thrilling Penn State Nittany…), not on a headline recap.
+  - Link: https://gridironlocker.shop/m-vs-everybody?collectionId=YYMlCmwgKG__&color=GILDAN-NAVY&productId=6aa1e7c8047e2b3b0d59e904
+  - Image: M vs Everybody mockup next to the moment that started it.
 
-- **[Quora] Why are Cleveland Browns fans so focused on qb room: who is qb1 in cleveland right now?**
-  - Where: Cleveland Browns / NFL fandom
+- **[Quora] Why are Michigan Wolverines fans so focused on go blue: the big house identity right now?**
+  - Where: Michigan football / college football recruiting
   - Angle: Answer the question a fan would actually type, then answer it properly.
-  - Link: https://gridironlocker.shop/make-them-know-your-name?collectionId=P19bpeU2x_Ng&color=GILDAN-DARK_CHOCOLATE&productId=6aa33fa01cdc8689e252dab3
+  - Link: https://gridironlocker.shop/m-vs-everybody?collectionId=YYMlCmwgKG__&color=GILDAN-NAVY&productId=6aa1e7c8047e2b3b0d59e904
   - Image: Simple stat/quote graphic - no product shot.
 
-- **[Reddit] QB room: who is QB1 in Cleveland - be a fan first in r/Browns**
-  - Where: r/Browns / r/DawgPoundByNature / r/nfl
+- **[Reddit] Go Blue: The Big House identity - be a fan first in r/MichiganWolverines**
+  - Where: r/MichiganWolverines / r/CFB / r/collegefootball
   - Angle: Join the existing thread instead of starting a promo post.
   - Link: profile link only, if asked
   - Image: None - text comment.
 
-- **[Medium] Green Bay Packers: what the Cheesehead Nation are actually saying about josh jacobs and the run game**
-  - Where: Packers fan culture (Cheesehead Nation)
-  - Angle: Fan-demand piece built on the live signal (Packers Make Starting Decision on RB Josh Jacobs: Report), not on a headline recap.
-  - Link: https://viralstyle.com/kebystore/limited-edition-grb8
-  - Image: Green Bay Football Cheesehead Nation Shirt mockup next to the moment that started it.
+- **[Medium] Michigan Wolverines: what the Go Blue faithful are actually saying about underwood era: qb19 in ann arbor**
+  - Where: Michigan football culture (Ann Arbor)
+  - Angle: Fan-demand piece built on the live signal (Michigan outlasts Penn State as backup QB Tommy Carr delivers after Bryce Underwood benching), not on a headline recap.
+  - Link: https://gridironlocker.shop/second-act-qb19-vintage-football?collectionId=YYMlCmwgKG__&color=GILDAN-HEATHER_SPORT_GREY&productId=6aa1db87f1c6bb96a2648225
+  - Image: Second Act QB19 Vintage Football mockup next to the moment that started it.
 
-- **[Quora] Why are Green Bay Packers fans so focused on josh jacobs and the run game right now?**
-  - Where: Green Bay Packers / NFC North
+- **[Quora] Why are Michigan Wolverines fans so focused on underwood era: qb19 in ann arbor right now?**
+  - Where: Michigan football / college football recruiting
   - Angle: Answer the question a fan would actually type, then answer it properly.
-  - Link: https://viralstyle.com/kebystore/limited-edition-grb8
+  - Link: https://gridironlocker.shop/second-act-qb19-vintage-football?collectionId=YYMlCmwgKG__&color=GILDAN-HEATHER_SPORT_GREY&productId=6aa1db87f1c6bb96a2648225
   - Image: Simple stat/quote graphic - no product shot.
 
-- **[Reddit] Josh Jacobs and the run game - be a fan first in r/GreenBayPackers**
-  - Where: r/GreenBayPackers / r/nfl
+- **[Reddit] Underwood era: QB19 in Ann Arbor - be a fan first in r/MichiganWolverines**
+  - Where: r/MichiganWolverines / r/CFB / r/collegefootball
   - Angle: Join the existing thread instead of starting a promo post.
   - Link: profile link only, if asked
   - Image: None - text comment.
