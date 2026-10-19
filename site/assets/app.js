@@ -759,6 +759,58 @@ document.querySelectorAll('a.custom-link').forEach(function(a){
   });
 })();
 
+// ---------- copyable promo code (.gpromobar-code) ----------
+// The code stays visible in the button whether or not this runs: the click
+// only copies it and flips the small "Copy" chip for a moment. A denied or
+// unavailable clipboard leaves the page untouched (and the code selectable).
+// .gpromobar-status is a visually hidden live region, so the confirmation is
+// announced without adding visible noise to the banner.
+(function(){
+  var buttons=[].slice.call(document.querySelectorAll('.gpromobar-code[data-copy-code]'));
+  if(!buttons.length)return;
+  var status=document.querySelector('.gpromobar-status');
+  function copied(btn,code,ok){
+    if(!ok)return;
+    var chip=btn.querySelector('.gpromobar-copy');
+    if(chip&&!btn.getAttribute('data-copy-label')){
+      btn.setAttribute('data-copy-label',chip.textContent);
+    }
+    btn.classList.add('is-copied');
+    if(chip)chip.textContent='Copied';
+    if(status)status.textContent='Promo code '+code+' copied.';
+    if(btn._copyTimer)clearTimeout(btn._copyTimer);
+    btn._copyTimer=setTimeout(function(){
+      btn.classList.remove('is-copied');
+      if(chip)chip.textContent=btn.getAttribute('data-copy-label')||'Copy';
+    },2200);
+  }
+  function fallback(btn,code){
+    var t=document.createElement('textarea');
+    t.value=code;
+    t.setAttribute('readonly','');
+    t.style.position='fixed';
+    t.style.left='-9999px';
+    document.body.appendChild(t);
+    t.select();
+    var ok=false;
+    try{ok=document.execCommand('copy');}catch(e){}
+    document.body.removeChild(t);
+    copied(btn,code,ok);
+  }
+  buttons.forEach(function(btn){
+    btn.addEventListener('click',function(){
+      var code=btn.getAttribute('data-copy-code')||'';
+      if(!code)return;
+      if(navigator.clipboard&&navigator.clipboard.writeText){
+        navigator.clipboard.writeText(code).then(function(){copied(btn,code,true);},
+                                                 function(){fallback(btn,code);});
+      }else{
+        fallback(btn,code);
+      }
+    });
+  });
+})();
+
 // ---------- creator apparel-style buttons (.gcategory-tile) ----------
 // Bella's category buttons are real garment swaps over the collection grid,
 // driven by the grid's data-apparel payload: per design, ONLY the garments her
