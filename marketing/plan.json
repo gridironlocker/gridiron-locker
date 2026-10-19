@@ -96,7 +96,7 @@
     "top_score": 100,
     "throwback_count": 30,
     "season_match_count": 19,
-    "headline_gap_count": 2,
+    "headline_gap_count": 3,
     "headline_count": 400,
     "unique_copy": true,
     "vault": "team-specific voices, headline injection"
@@ -19989,7 +19989,14 @@
       "collection_label": "Green Bay Packers",
       "query": "Green Bay Packers",
       "headline_count": 100,
-      "gaps": [],
+      "gaps": [
+        {
+          "name": "josh jacobs",
+          "mentions": 4,
+          "angle": "Current conversation around Josh Jacobs",
+          "copy_text": "Opportunity: explore an independent fan-made Green Bay concept around Josh Jacobs while the conversation is active (4 recent headline mentions). Validate the current context before publishing."
+        }
+      ],
       "top_headlines": [
         {
           "title": "Inbox: The Packers have been winning this way for decades",
@@ -20025,7 +20032,7 @@
       "covered_names": [
         {
           "name": "josh jacobs",
-          "mentions": 2
+          "mentions": 4
         },
         {
           "name": "micah parsons",
@@ -20053,9 +20060,9 @@
       "gaps": [
         {
           "name": "dak prescott",
-          "mentions": 8,
+          "mentions": 9,
           "angle": "Current conversation around Dak Prescott",
-          "copy_text": "Opportunity: explore an independent fan-made Dallas concept around Dak Prescott while the conversation is active (8 recent headline mentions). Validate the current context before publishing."
+          "copy_text": "Opportunity: explore an independent fan-made Dallas concept around Dak Prescott while the conversation is active (9 recent headline mentions). Validate the current context before publishing."
         }
       ],
       "top_headlines": [
@@ -20072,16 +20079,16 @@
           "pub": "Mon, 19 Oct 2026 00:41:02 GMT"
         },
         {
+          "title": "Impact: Jalen Hurts moved to IR by Eagles",
+          "url": "https://news.google.com/rss/articles/CBMiZ0FVX3lxTE56aGtoMDdKbXA2SGZ5WkdGYUVEUUV4cmNqOW0wN3MzS1FCVkdNYVBNR1A0QUJHWUNxLVZuOW9QMGdTZ2s2YkRMNXVmdnZSZWtfNnNnZTNzQnFSTF9NbnNiZXRhaFVkcTQ?oc=5",
+          "source": "Dallas Cowboys | Official Site of the Dallas Cowboys",
+          "pub": "Mon, 19 Oct 2026 19:53:39 GMT"
+        },
+        {
           "title": "Updates: Injury news on Turpin, Winters",
           "url": "https://news.google.com/rss/articles/CBMiZkFVX3lxTE41U3JDcmpCb1YyZjBxRFNnV25kSktlMVJ5aEJsX1hhNTFTcHJWdWdTbjF5cFhvQ3ZKZGd4bEdfT0VtT1RobmJwd3ZSbnZzM0c3RnJiTS1kSG5fMUtJWW9qclRUWlZtQQ?oc=5",
           "source": "Dallas Cowboys | Official Site of the Dallas Cowboys",
           "pub": "Sun, 18 Oct 2026 07:00:00 GMT"
-        },
-        {
-          "title": "⊕[ＷＡＴＣＨ ＬＩＶＥ]⊕Dallas Cowboys vs Green Bay Packers Ｌｉｖｅ ｓｔｒｅａｍ Ｆｒｅｅ",
-          "url": "https://news.google.com/rss/articles/CBMiwgJBVV95cUxON2Q1SmQ1ZEE2SDJBVi1GY2FaRkN3QmJ0VTBSSzRKLUl2MGpjLVg4bEdWb2NkZk9Jd3JxcGVHVXg4M3dMb1AwdHN2VGt2TlJpa19Ka19vTjh1cVk0QXFHNEtJMmdWQlFLbXRuS3lvRGZvZ3ZtdVhUSzUxOUpkMzVDXzlVM3hrUXN2YjJHeFhuRmJjczZTRktFTENOR3dvakdNQWdSekhjY2huUUtydXRUUHFsTzlSNm1QR0dXUmt1TzNlNzVQaERBTVVHRW51M0VDWGpKZFhvYTRDajNWTDdLUk54bEV0M2Z0YTBDai1hTmU3aVB6ZUhOdzQxSUdPR0duNzZpdlZsQ2RxMlU0a3h3UTNSXzdBSDA0NDB1aWtJLUpuNE55a3VhYmlnNkJlVUtWaWMyWFU1X2FxMkNIdHh5cm5n?oc=5",
-          "source": "Universidad de Córdoba (UCO)",
-          "pub": "Mon, 19 Oct 2026 04:18:58 GMT"
         },
         {
           "title": "Eatman: Finger-pointing now turning to offense",
@@ -20093,7 +20100,7 @@
       "covered_names": [
         {
           "name": "dak prescott",
-          "mentions": 8
+          "mentions": 9
         },
         {
           "name": "ceedee lamb",
@@ -20122,10 +20129,10 @@
           "pub": "Mon, 12 Oct 2026 15:39:47 GMT"
         },
         {
-          "title": "4 Instant Takeaways as Tommy Carr Propels Michigan Football Over Penn State",
-          "url": "https://news.google.com/rss/articles/CBMiwgFBVV95cUxPTFVIODJuVmg5Sk16NThRdk5LRXlKOENqYnROcHFLWkp3cUYyMUUybE42TmpSdExoRVVuNHJ4czd6a3Voc0NLcHFyRWVIdGhFUTNSVkpBMTFicFlnMVI1dDVtR0xHcHJoWkJTakpRVGwtRXpfbXRHY3JHVTUtVWFXREU0TVhVTnV5c2ZsM0I3VWt2R0Vla3Z3VGVTakthUjVzaUZsTGFydGRCQVh5SzgtSFk0RVFyME44eGJKY0JNYWtSdw?oc=5",
+          "title": "Wolverine Thoughts: Michigan Football Has One Clear Direction After Win Over Penn State",
+          "url": "https://news.google.com/rss/articles/CBMi1AFBVV95cUxNdTVGbUNSb0IxOURlNm80S1dBSGs5QjFZTjhnX1BSREN2Z0FYbVo2Vk9fQnRucUdXMWtjRnduanhIRDNaaFNtQU5WU3VOSFhPOGwwQlp4SnN3ZVE1U0JfWVE1aktjdGhMSWJUZWM1VUJtREMycF91QV9zVnI2QXFBVTl1MmxKNWRuLU9iTlBpUmtheWI0YW9TVkhqUkgtcHRXVVJMZEpSa2ZFQ052dzVrU0VDY19XYWhJTDBQTGo2d2ZON3B6UFZwTXh3XzhDZHA1VHY0Wg?oc=5",
           "source": "Sports Illustrated",
-          "pub": "Sat, 17 Oct 2026 23:10:35 GMT"
+          "pub": "Sun, 18 Oct 2026 11:00:05 GMT"
         },
         {
           "title": "Michigan 21-18 Penn State (Oct 17, 2026) Game Recap",
@@ -20149,7 +20156,7 @@
       "covered_names": [
         {
           "name": "bryce underwood",
-          "mentions": 14
+          "mentions": 16
         },
         {
           "name": "kyle whittingham",
