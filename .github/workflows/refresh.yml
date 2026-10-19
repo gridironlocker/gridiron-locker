@@ -97,6 +97,14 @@ jobs:
           PINTEREST_BOARD_ID: ${{ secrets.PINTEREST_BOARD_ID }}
         run: python marketing/publisher.py --publish
 
+      # The Mayzing stores publish their garments as category filter pages, so
+      # the team pages' apparel buttons are only as current as this capture.
+      # Best-effort: a storefront hiccup keeps the last good file rather than
+      # failing the refresh (the script itself refuses to write a partial one).
+      - name: Capture Mayzing apparel categories
+        continue-on-error: true
+        run: python src/scrape_mayzing_apparel.py
+
       - name: Rebuild site
         run: python src/build.py
 

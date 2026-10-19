@@ -2507,6 +2507,293 @@ def page_search():
           + header() + body + footer())
 
 
+# ---------------------------------------------------------------------------
+# Apparel-style filter buttons for the team collection pages.
+#
+# The same pattern as Bella's locker (page_creator): the apparel categories are
+# real <button>s that swap each design's mockup to the garment that design
+# actually lists. Availability is read from the campaign records and never
+# assumed - a tile only drops its "not listed yet" flag when at least one
+# design in the collection genuinely lists that garment:
+#
+#   data/products_live.json     the campaign's own style list (Viralstyle)
+#   data/campaigns_extra.json   hand-added campaigns a re-crawl would drop
+#   data/retired-variants.json  /shop/<slug>/<style>/ tombstones - proof the
+#                               garment was listed even when the crawl lost it
+#
+# a Mayzing listing sells exactly ONE garment, captured on its record, so its
+# single garment (not a retired Viralstyle style list) is what ships.
+#
+# A mockup only swaps when that garment's render exists in site/img/p. A design
+# that lists a garment we hold no render for stays listed and linked but keeps
+# its own artwork - a t-shirt is never presented as a hoodie.
+#: The categories the supplier storefronts actually expose. Mayzing runs one
+#: filter page per category (/p/<store>?category=tshirt|hoodie|sweatshirt|
+#: tank_top|crop_tops) and Viralstyle lists the same garment families in each
+#: campaign's own style list. Caps & Hats and Long Sleeves are deliberately
+#: absent: no live store lists either, so a tile for them could only ever say
+#: "not listed yet".
+APPAREL_CATEGORIES = [
+    ("t-shirts", "T-Shirts"),
+    ("hoodies", "Hoodies"),
+    ("sweatshirts", "Sweatshirts"),
+    ("tank-tops", "Tank Tops"),
+    ("crop-tops", "Crop Tops"),
+]
+#: the categories that actually get a tile
+APPAREL_CATEGORY_KEYS = {c for c, _label in APPAREL_CATEGORIES}
+
+#: category -> the site/img/p suffix that holds that garment's mockup. The
+#: Mayzing stores carry no local render, so their mockups are hot-linked from
+#: the capture; a Viralstyle campaign's render has to exist on disk.
+APPAREL_MOCKUP_SUFFIX = {
+    "hoodies": "hoodie",
+    "sweatshirts": "crewneck",
+    "tank-tops": "tank-top",
+}
+#: worn-garment icons. Caps get their own silhouette; everything else is the
+#: tee outline Bella's locker uses, because a single generic "apparel" glyph
+#: reads better than six near-identical ones at 28px.
+APPAREL_ICON_SHIRT = (
+    '<path d="m7 5 5 2 5-2 5 4-3 4-2-1v8H7v-8l-2 1-3-4 5-4Z"/>'
+    '<path d="m7 5 1.5 4L12 11l3.5-2L17 5"/>')
+APPAREL_ICON_CAP = (
+    '<path d="M3 15c1.8-4.4 5-7 9-7s7.2 2.6 9 7H3Z"/>'
+    '<path d="M3 15h12c0 3-3.4 4-7.3 4-2.8 0-4.7-1-4.7-2.5"/>')
+APPAREL_FLAG_NONE = "not listed yet"
+
+
+def apparel_category(style):
+    """Map a supplier style name onto one of the six storefront categories."""
+    s = str(style).lower()
+    if "hoodie" in s:
+        return "hoodies"
+    if "sweatshirt" in s or "crewneck" in s:
+        return "sweatshirts"
+    if "tank" in s:
+        return "tank-tops"
+    if "crop" in s:
+        return "crop-tops"
+    if "long sleeve" in s or "long-sleeve" in s:
+        return "long-sleeves"
+    if "beanie" in s or "cap" in s or "hat" in s:
+        return "caps-hats"
+    if "tee" in s or "shirt" in s:
+        return "t-shirts"
+    return ""
+
+
+def _apparel_mockups():
+    """{slug: {suffix: "/img/p/..."}} for every garment render that ships."""
+    folder = os.path.join(SITE, "img", "p")
+    try:
+        names = os.listdir(folder)
+    except OSError:
+        return {}
+    suffixes = ("front", "back", "hoodie", "crewneck", "tank-top",
+                "v-neck", "long-sleeve")
+    out = {}
+    for name in names:
+        if not name.endswith(".webp"):
+            continue
+        for suf in suffixes:
+            tail = "-" + suf + ".webp"
+            if name.endswith(tail):
+                out.setdefault(name[:-len(tail)], {})[suf] = "/img/p/" + name
+                break
+    return out
+
+
+def _apparel_styles():
+    """{slug: [style, ...]} - the styles each design actually listed."""
+    out = {}
+
+    def add(slug, styles):
+        bucket = out.setdefault(str(slug), [])
+        for sty in styles or []:
+            sty = str(sty).strip()
+            if sty and sty not in bucket:
+                bucket.append(sty)
+
+    for slug, rec in P.items():
+        add(slug, (rec or {}).get("styles"))
+    try:
+        for slug, rec in read_json("data", "campaigns_extra.json").items():
+            add(slug, (rec or {}).get("styles"))
+    except Exception:
+        pass
+    # A /shop/<slug>/<style>/ tombstone is evidence the garment was listed.
+    from_tombstone = {"hoodie": "Unisex Hoodie",
+                      "crewneck": "Crew Neck Sweatshirt",
+                      "tank-top": "Men's Tank Top",
+                      "v-neck": "Mens V-Neck",
+                      "long-sleeve": "Unisex Long Sleeve"}
+    for path in RETIRED_VARIANTS:
+        slug, _, style = str(path).partition("/")
+        if style in from_tombstone:
+            add(slug, [from_tombstone[style]])
+    return out
+
+
+APPAREL_MOCKUPS = _apparel_mockups()
+APPAREL_STYLES = _apparel_styles()
+
+# The Mayzing stores expose their garments as category filter pages rather
+# than as a style list on each record, so src/scrape_mayzing_apparel.py
+# captures every page into data/mayzing_apparel.json. That file is the
+# authority for a Mayzing collection's matrix: a design appears under a
+# category only because the store listed it there, with that listing's own
+# mockup and checkout URL. Absent file (offline build, first checkout) simply
+# falls back to each record's single captured garment.
+try:
+    _MAYZING_APPAREL = read_json("data", "mayzing_apparel.json")
+    MAYZING_APPAREL = _MAYZING_APPAREL.get("collections") or {}
+    MAYZING_APPAREL_CAPTURED = str(_MAYZING_APPAREL.get("captured") or "")
+except Exception:
+    MAYZING_APPAREL = {}
+    MAYZING_APPAREL_CAPTURED = ""
+
+
+def apparel_matrix(items):
+    """Per design, per category, the listings that design genuinely has.
+
+    The collection pages sit one directory deep (/<collection>/), so the
+    payload carries ../ paths - data-apparel is a JSON attribute, not an
+    href/src, so the build's relativiser never sees it.
+    """
+    matrix = {}
+    for it in items:
+        slug, garment = it["slug"], it.get("garment") or ""
+        mockups = APPAREL_MOCKUPS.get(slug, {})
+        captured = (MAYZING_APPAREL.get(it.get("col") or "") or {}).get(slug)
+        if captured or it.get("partner") == "Mayzing":
+            # The store's category pages say which garments this design is
+            # sold in and carry the mockup and checkout URL for each. They are
+            # the authority for the categories they cover; the product record
+            # still supplies the design's own garment, because the t-shirt
+            # page is paginated and returns fewer designs than the store
+            # actually sells. A captured listing wins where both exist.
+            groups = {}
+            for cat, rows in (captured or {}).items():
+                for row in rows:
+                    groups.setdefault(cat, []).append({
+                        "garment": row.get("garment") or "",
+                        "image": row.get("image") or "",
+                        "url": row.get("url") or "../shop/%s/" % slug,
+                    })
+            own = apparel_category(garment)
+            if own and garment and own not in groups:
+                img = it.get("front") or ""
+                groups[own] = [{
+                    "garment": garment,
+                    "image": img,
+                    "url": it.get("buy") or "../shop/%s/" % slug,
+                }]
+            groups = {c: rows for c, rows in groups.items()
+                      if c in APPAREL_CATEGORY_KEYS}
+            if groups:
+                matrix[slug] = groups
+            continue
+        else:
+            styles = list(APPAREL_STYLES.get(slug) or [])
+        # The design's own garment is always available, even when the crawl
+        # kept only the garment-variant tombstones and lost the style list.
+        own = apparel_category(garment)
+        if own and not any(apparel_category(s) == own for s in styles):
+            styles.append(garment)
+        groups = {}
+        for style in styles:
+            cat = apparel_category(style)
+            if not cat:
+                continue
+            if cat in APPAREL_MOCKUP_SUFFIX:
+                img = mockups.get(APPAREL_MOCKUP_SUFFIX[cat], "")
+            elif cat == "t-shirts":
+                # A v-neck style has its own render; every other tee style
+                # shares the campaign's front mockup.
+                want = "v-neck" if "v-neck" in style.lower() else "front"
+                img = mockups.get(want, "") or mockups.get("front", "")
+            else:  # caps-hats: the product photo IS the garment
+                img = mockups.get("front", "")
+            if not img and cat == apparel_category(garment):
+                # The design's own garment always has its own product mockup,
+                # even when the campaign has no dedicated garment render.
+                img = it.get("front") or ""
+            if img.startswith("/"):
+                img = ".." + img
+            groups.setdefault(cat, []).append({
+                "garment": style,
+                "image": img,
+                "url": "../shop/%s/" % slug,
+            })
+        groups = {c: rows for c, rows in groups.items()
+                  if c in APPAREL_CATEGORY_KEYS}
+        if groups:
+            matrix[slug] = groups
+    return matrix
+
+
+def apparel_filter_html(items):
+    """The filter-button section plus the payload attribute for #grid."""
+    matrix = apparel_matrix(items)
+    style_counts = {}
+    for groups in matrix.values():
+        for cat, rows in groups.items():
+            for row in rows:
+                key = (cat, row["garment"])
+                style_counts[key] = style_counts.get(key, 0) + 1
+    styles_by_cat = {}
+    for (cat, style), n in sorted(style_counts.items(),
+                                  key=lambda kv: (-kv[1], kv[0][1])):
+        styles_by_cat.setdefault(cat, []).append(style)
+
+    def icon(cat):
+        return APPAREL_ICON_CAP if cat == "caps-hats" else APPAREL_ICON_SHIRT
+
+    tiles = []
+    for cat, label in APPAREL_CATEGORIES:
+        styles = styles_by_cat.get(cat) or []
+        default = styles[0] if styles else ""
+        flag = ("" if styles
+                else '<span class="gcategory-flag">%s</span>' % APPAREL_FLAG_NONE)
+        tiles.append(
+            '<button class="gcategory-tile" type="button" data-gcat="%s" '
+            'data-gstyle="%s" aria-controls="pg" aria-pressed="false">'
+            '<svg viewBox="0 0 24 24" fill="none" stroke="currentColor" '
+            'stroke-width="1.5" stroke-linecap="round" stroke-linejoin="round" '
+            'aria-hidden="true">%s</svg><span>%s</span>%s</button>'
+            % (cat, esc(default), icon(cat), esc(label), flag))
+
+    chips = []
+    for cat, label in APPAREL_CATEGORIES:
+        styles = styles_by_cat.get(cat) or []
+        if len(styles) < 2:
+            continue
+        for style in styles:
+            chips.append(
+                '<button class="gstyle-chip" type="button" data-gcat="%s" '
+                'data-gstyle="%s" aria-controls="pg" aria-pressed="false">'
+                '<span class="gstyle-name">%s</span>'
+                '<span class="gstyle-count" aria-hidden="true">%d</span>'
+                '<span class="gstyle-sr">listed by %d of %d designs</span></button>'
+                % (cat, esc(style), esc(style), style_counts[(cat, style)],
+                   style_counts[(cat, style)], len(items)))
+    style_row = ""
+    if chips:
+        style_row = ('\n <div class="gstyle-row" id="gstyleRow" role="group" '
+                     'aria-label="Apparel styles" hidden>%s</div>'
+                     % "".join(chips))
+
+    section = (
+        '\n<section id="apparel" class="gcategory-row" aria-label="Shop by apparel style">'
+        '<div class="wrap">\n'
+        ' <p class="gcategory-heading" id="gcatHeading">APPAREL OPTIONS ON GRIDIRON LOCKER</p>\n'
+        ' <div class="gcategory-tiles" role="group" aria-labelledby="gcatHeading">%s</div>%s\n'
+        '</div></section>' % ("".join(tiles), style_row))
+    payload = esc(json.dumps(matrix, ensure_ascii=False, separators=(",", ":")))
+    return section, ' data-apparel="%s"' % payload
+
+
 def page_collection(k):
     c = COLLECTIONS[k]
     items = MODEL[k]
@@ -2606,6 +2893,10 @@ def page_collection(k):
                        f"{esc(se['headline'])} {esc(se['status'])}")
     legacy_html = (f'<p class="muted" style="font-size:.85rem">{esc(se["legacy_note"])}</p>'
                    if se.get("legacy_note") else "")
+    # Apparel-style buttons (Bella's locker pattern) for this collection: the
+    # six category tiles, the per-style chip row and the data-apparel payload
+    # that tells app.js which garments each design actually lists.
+    apparel_section, apparel_attr = apparel_filter_html(items)
     body = f"""
 <main id="main"><section class="cbanner compact" style="padding:0">
  <div class="band"><img src="{c['hero']}" alt="{esc(c['name'])} banner" width="2048" height="768" fetchpriority="high"></div>
@@ -2619,7 +2910,7 @@ def page_collection(k):
 {ticker(k)}
 <div class="light">
 {cb}
-<section id="grid" style="padding-top:4px"><div class="wrap">
+{apparel_section}<section id="grid"{apparel_attr} style="padding-top:4px"><div class="wrap">
  <div class="filterbar" role="search">
   <div class="frow">
    <input id="q" type="search" placeholder="Search {esc(c['short'])} designs..." aria-label="Search designs">
@@ -5511,6 +5802,92 @@ document.querySelectorAll('a.custom-link').forEach(function(a){
       });}catch(e){}
     });
   });
+})();
+
+// ---------- team collection apparel buttons (.gcategory-tile) ----------
+// Same garment-swap behaviour as Bella's locker, over a team page's
+// #grid[data-apparel] grid of .card cards. Each click swaps, per design, the
+// mockup of a garment that design actually lists, and never invents stock:
+// a design with no listing for the chosen garment keeps its own artwork,
+// muted, so a garment category never presents a t-shirt as that garment. An
+// entry with no image means we hold the listing but no garment render, so the
+// card stays visible and linked on its own mockup.
+// Clicking the active button again clears the selection. Scoped to pages that
+// emit both the tiles and the payload; without them this block does nothing.
+(function(){
+  var row=document.querySelector('.gcategory-tiles'); if(!row)return;
+  var tiles=[].slice.call(row.querySelectorAll('.gcategory-tile[data-gcat]'));
+  if(!tiles.length)return;
+  var grid=document.querySelector('#grid[data-apparel]'); if(!grid)return;
+  var matrix; try{matrix=JSON.parse(grid.getAttribute('data-apparel')||'{}');}catch(e){return;}
+  var cards=[].slice.call(grid.querySelectorAll('.card[data-slug]'));
+  if(!cards.length)return;
+  var chips=[].slice.call(document.querySelectorAll('.gstyle-chip[data-gstyle]'));
+  var chipRow=document.getElementById('gstyleRow');
+  cards.forEach(function(card){
+    var styles={}, byCat={}, groups=matrix[card.getAttribute('data-slug')]||{};
+    Object.keys(groups).forEach(function(cat){
+      var list=(groups[cat]||[]).filter(function(e){return e&&e.garment;});
+      byCat[cat]=list;
+      list.forEach(function(entry){
+        if(!styles[entry.garment])styles[entry.garment]=entry;
+      });
+    });
+    var img=card.querySelector('.ph img');
+    card._styles=styles; card._byCat=byCat; card._img=img;
+    card._link=card.querySelector('a');
+    card._meta=card.querySelector('.meta');
+    card._name=(card.querySelector('h3')||{}).textContent||'';
+    card._src=img?img.getAttribute('src'):'';
+    card._alt=img?img.getAttribute('alt'):'';
+    card._href=card._link?card._link.getAttribute('href'):'';
+    card._label=card._meta?card._meta.textContent:'';
+  });
+  var cat=null, garment=null, loose=false;
+  function press(el,on){el.setAttribute('aria-pressed',on?'true':'false');}
+  // A category tile means "this garment class", so it resolves to whichever
+  // style (if any) the design actually listed there. A style chip is exact:
+  // a design that did not list that specific cut stays out of the swap.
+  function listed(card){
+    if(garment){
+      if(card._styles[garment])return card._styles[garment];
+      if(!loose)return null;
+    }
+    var list=cat?(card._byCat[cat]||[]):[];
+    return list.length?list[0]:null;
+  }
+  function restore(card){
+    if(card._img){if(card._src)card._img.src=card._src; if(card._alt)card._img.alt=card._alt;}
+    if(card._link&&card._href)card._link.href=card._href;
+    if(card._meta&&card._label)card._meta.textContent=card._label;
+    card.classList.remove('is-swapped'); card.classList.remove('is-muted'); card.hidden=false;
+  }
+  function apply(){
+    cards.forEach(function(card){
+      var entry=listed(card);
+      if(entry){
+        card.hidden=false;
+        if(card._img&&entry.image){card._img.src=entry.image; card._img.alt=card._name+' design on a '+entry.garment.toLowerCase();}
+        if(card._link&&entry.url)card._link.href=entry.url;
+        if(card._meta)card._meta.textContent=entry.garment;
+        card.classList.add('is-swapped'); card.classList.remove('is-muted'); return;
+      }
+      restore(card);
+      if(cat)card.classList.add('is-muted');
+    });
+    tiles.forEach(function(t){press(t,cat!==null&&t.getAttribute('data-gcat')===cat);});
+    chips.forEach(function(c){press(c,garment!==null&&c.getAttribute('data-gstyle')===garment);});
+    if(chipRow){ chipRow.hidden=!(cat&&chips.some(function(c){return c.getAttribute('data-gcat')===cat;})); }
+  }
+  function choose(nextCat,nextGarment,isTile){
+    if(cat===nextCat&&(isTile||garment===nextGarment)){cat=null;garment=null;loose=false;}
+    else{cat=nextCat;garment=nextGarment;loose=!!isTile;}
+    apply();
+    if(!cat)return;
+    try{var calm=window.matchMedia&&window.matchMedia('(prefers-reduced-motion: reduce)').matches; grid.scrollIntoView({behavior:calm?'auto':'smooth',block:'start'});}catch(e){}
+  }
+  tiles.forEach(function(t){t.addEventListener('click',function(){choose(t.getAttribute('data-gcat'),t.getAttribute('data-gstyle')||null,true);});});
+  chips.forEach(function(c){c.addEventListener('click',function(){choose(c.getAttribute('data-gcat'),c.getAttribute('data-gstyle'),false);});});
 })();
 
 // ---------- custom design form (FormSubmit, no backend needed) ----------
