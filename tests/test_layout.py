@@ -486,6 +486,32 @@ class TeamCollectionPages(unittest.TestCase):
         # and no rule greys a team card any more
         self.assertNotIn(".card.is-muted", self.css)
 
+    def test_hover_back_view_never_shows_another_garment(self):
+        """The hover image is a back view of the design on ONE garment.
+
+        The store captures a back render per design, never per garment, so a
+        card swapped to a hoodie/tank/crop has no matching back. It must hide
+        the hover image instead of flashing the t-shirt back the design was
+        first shot on, and put it back when the tile is cleared."""
+        js = page("assets/app.js")
+        start = js.index("// ---------- team collection apparel buttons")
+        end = js.index("// ----------", start + 10)
+        team = js[start:end]
+        # the back view is captured and its garment class compared
+        self.assertIn("querySelector('.ph img.alt')", team)
+        self.assertIn("card._ownCat=categoryOf(card.getAttribute('data-type')", team)
+        self.assertIn("var shown=entry?categoryOf(entry.garment):'';", team)
+        self.assertIn("card._back.hidden=true", team)
+        # clearing the tile brings the original hover image back
+        self.assertIn("card._back.hidden=false", team)
+        # and the hidden back stays hidden on hover
+        self.assertIn(".card .ph img.alt[hidden]{display:none}", self.css)
+        self.assertIn(".card:hover .ph img.alt{opacity:1}", self.css)
+        # every team page ships the two slots for the script to work on
+        for k in COLLECTIONS:
+            html = self.pages[k]
+            self.assertIn('<img class="alt"', html, k)
+
     def test_apparel_payload_is_generated_not_hand_edited(self):
         """site/ is disposable: the buttons and the payload must come from
         src/build.py, otherwise the twice-daily rebuild silently reverts them."""

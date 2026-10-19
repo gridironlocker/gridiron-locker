@@ -5836,12 +5836,20 @@ document.querySelectorAll('a.custom-link').forEach(function(a){
       });
     });
     var img=card.querySelector('.ph img');
+    // The second <img class="alt"> is the hover/back view. It is a render of
+    // the design's OWN garment, so it is wrong the moment the card swaps to
+    // another garment - a t-shirt back under a hoodie front.
+    var back=card.querySelector('.ph img.alt');
     card._styles=styles; card._byCat=byCat; card._img=img;
+    card._back=back;
     card._link=card.querySelector('a');
     card._meta=card.querySelector('.meta');
     card._name=(card.querySelector('h3')||{}).textContent||'';
     card._src=img?img.getAttribute('src'):'';
     card._alt=img?img.getAttribute('alt'):'';
+    card._backSrc=back?back.getAttribute('src'):'';
+    card._backAlt=back?back.getAttribute('alt'):'';
+    card._ownCat=categoryOf(card.getAttribute('data-type')||'');
     card._href=card._link?card._link.getAttribute('href'):'';
     card._label=card._meta?card._meta.textContent:'';
   });
@@ -5873,8 +5881,43 @@ document.querySelectorAll('a.custom-link').forEach(function(a){
     var list=cat?(card._byCat[cat]||[]):[];
     return list.length?list[0]:null;
   }
+  // Mirrors apparel_category() in src/build.py: the card's data-type is the
+  // garment the store actually sells that design in.
+  function categoryOf(label){
+    var s=(label||'').toLowerCase();
+    if(s.indexOf('hoodie')>-1)return 'hoodies';
+    if(s.indexOf('sweatshirt')>-1||s.indexOf('crewneck')>-1)return 'sweatshirts';
+    if(s.indexOf('tank')>-1)return 'tank-tops';
+    if(s.indexOf('crop')>-1)return 'crop-tops';
+    if(s.indexOf('long sleeve')>-1||s.indexOf('long-sleeve')>-1)return 'long-sleeves';
+    if(s.indexOf('beanie')>-1||s.indexOf('cap')>-1||s.indexOf('hat')>-1)return 'caps-hats';
+    if(s.indexOf('tee')>-1||s.indexOf('shirt')>-1)return 't-shirts';
+    return '';
+  }
+  // The hover <img class="alt"> is a back view of the design on the garment
+  // the card was built from. That render is only correct while the card shows
+  // the same garment class; the store captures a back view per design, never
+  // per garment, so there is nothing to swap in for a hoodie/tank/crop. When
+  // the swap changes the class the back view is switched off - hovering a
+  // hoodie must never flash the t-shirt back the design was first shot on.
+  function setBack(card,entry){
+    if(!card._back)return;
+    var shown=entry?categoryOf(entry.garment):'';
+    if(shown&&shown===card._ownCat){
+      if(card._backSrc)card._back.src=card._backSrc;
+      if(card._backAlt)card._back.alt=card._backAlt;
+      card._back.hidden=false;
+      return;
+    }
+    card._back.hidden=true;
+  }
   function restore(card){
     if(card._img){if(card._src)card._img.src=card._src; if(card._alt)card._img.alt=card._alt;}
+    if(card._back){
+      if(card._backSrc)card._back.src=card._backSrc;
+      if(card._backAlt)card._back.alt=card._backAlt;
+      card._back.hidden=false;
+    }
     if(card._link&&card._href)card._link.href=card._href;
     if(card._meta&&card._label)card._meta.textContent=card._label;
     card.classList.remove('is-swapped'); card.hidden=false;
@@ -5885,6 +5928,7 @@ document.querySelectorAll('a.custom-link').forEach(function(a){
       if(entry){
         card.hidden=false;
         if(card._img&&entry.image){card._img.src=entry.image; card._img.alt=card._name+' design on a '+entry.garment.toLowerCase();}
+        setBack(card,entry);
         if(card._link&&entry.url)card._link.href=entry.url;
         if(card._meta)card._meta.textContent=entry.garment;
         card.classList.add('is-swapped'); return;
