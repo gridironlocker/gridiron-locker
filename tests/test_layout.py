@@ -438,11 +438,16 @@ class TeamCollectionPages(unittest.TestCase):
             items = build.MODEL[k]
             self.assertTrue(payload, k)
             # every design that lists a garment ships that garment
+            shipped = {c for c, _ in build.APPAREL_CATEGORIES}
             for it in items:
                 own = build.apparel_category(it["garment"])
-                if own and it["slug"] in payload:
+                if own in shipped and it["slug"] in payload:
                     self.assertIn(own, payload[it["slug"]],
                                   f"{k}/{it['slug']} lost its {own} listing")
+            # no tile is shipped for a category that is not in the table, and
+            # none of those categories may linger in the payload
+            for groups in payload.values():
+                self.assertFalse(set(groups) - shipped, k)
             # the flag is only allowed on a category nothing in the
             # collection lists, and listed categories never carry it
             listed = {cat for groups in payload.values() for cat in groups}

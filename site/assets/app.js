@@ -218,9 +218,9 @@ document.querySelectorAll('a.custom-link').forEach(function(a){
 // #grid[data-apparel] grid of .card cards. Each click swaps, per design, the
 // mockup of a garment that design actually lists, and never invents stock:
 // a design with no listing for the chosen garment keeps its own artwork,
-// muted (Caps & Hats hides them instead, so the category never presents a
-// t-shirt as a cap). An entry with no image means we hold the listing but no
-// garment render, so the card stays visible and linked on its own mockup.
+// muted, so a garment category never presents a t-shirt as that garment. An
+// entry with no image means we hold the listing but no garment render, so the
+// card stays visible and linked on its own mockup.
 // Clicking the active button again clears the selection. Scoped to pages that
 // emit both the tiles and the payload; without them this block does nothing.
 (function(){
@@ -282,7 +282,7 @@ document.querySelectorAll('a.custom-link').forEach(function(a){
         card.classList.add('is-swapped'); card.classList.remove('is-muted'); return;
       }
       restore(card);
-      if(cat){ if(cat==='caps-hats')card.hidden=true; else card.classList.add('is-muted'); }
+      if(cat)card.classList.add('is-muted');
     });
     tiles.forEach(function(t){press(t,cat!==null&&t.getAttribute('data-gcat')===cat);});
     chips.forEach(function(c){press(c,garment!==null&&c.getAttribute('data-gstyle')===garment);});

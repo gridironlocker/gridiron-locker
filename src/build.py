@@ -2540,6 +2540,9 @@ APPAREL_CATEGORIES = [
     ("tank-tops", "Tank Tops"),
     ("crop-tops", "Crop Tops"),
 ]
+#: the categories that actually get a tile
+APPAREL_CATEGORY_KEYS = {c for c, _label in APPAREL_CATEGORIES}
+
 #: category -> the site/img/p suffix that holds that garment's mockup. The
 #: Mayzing stores carry no local render, so their mockups are hot-linked from
 #: the capture; a Viralstyle campaign's render has to exist on disk.
@@ -2686,6 +2689,8 @@ def apparel_matrix(items):
                     "image": img,
                     "url": it.get("buy") or "../shop/%s/" % slug,
                 }]
+            groups = {c: rows for c, rows in groups.items()
+                      if c in APPAREL_CATEGORY_KEYS}
             if groups:
                 matrix[slug] = groups
             continue
@@ -2721,6 +2726,8 @@ def apparel_matrix(items):
                 "image": img,
                 "url": "../shop/%s/" % slug,
             })
+        groups = {c: rows for c, rows in groups.items()
+                  if c in APPAREL_CATEGORY_KEYS}
         if groups:
             matrix[slug] = groups
     return matrix
