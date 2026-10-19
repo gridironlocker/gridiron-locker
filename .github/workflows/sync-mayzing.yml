@@ -42,11 +42,7 @@ jobs:
 
       - name: Capture garment categories
         id: scrape
-        run: |
-          set +e
-          python src/scrape_mayzing_apparel.py
-          echo "status=$?" >> "$GITHUB_OUTPUT"
-          exit 0
+        run: python src/scrape_mayzing_apparel.py
 
       - name: Report counts
         run: |
@@ -68,7 +64,9 @@ jobs:
 
       - name: Commit the capture
         run: |
-          if git diff --quiet -- data/mayzing_apparel.json; then
+          # git diff ignores an untracked file, and on the first capture the
+          # data file is new - status --porcelain catches both cases.
+          if [ -z "$(git status --porcelain -- data/mayzing_apparel.json)" ]; then
             echo "data/mayzing_apparel.json unchanged"
             exit 0
           fi
