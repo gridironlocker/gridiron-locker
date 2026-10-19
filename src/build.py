@@ -2663,23 +2663,32 @@ def apparel_matrix(items):
         slug, garment = it["slug"], it.get("garment") or ""
         mockups = APPAREL_MOCKUPS.get(slug, {})
         captured = (MAYZING_APPAREL.get(it.get("col") or "") or {}).get(slug)
-        if captured:
-            # The store's own category pages already say which garments this
-            # design is sold in, and carry the mockup and checkout URL for
-            # each. Nothing here is inferred.
+        if captured or it.get("partner") == "Mayzing":
+            # The store's category pages say which garments this design is
+            # sold in and carry the mockup and checkout URL for each. They are
+            # the authority for the categories they cover; the product record
+            # still supplies the design's own garment, because the t-shirt
+            # page is paginated and returns fewer designs than the store
+            # actually sells. A captured listing wins where both exist.
             groups = {}
-            for cat, rows in captured.items():
+            for cat, rows in (captured or {}).items():
                 for row in rows:
                     groups.setdefault(cat, []).append({
                         "garment": row.get("garment") or "",
                         "image": row.get("image") or "",
                         "url": row.get("url") or "../shop/%s/" % slug,
                     })
+            own = apparel_category(garment)
+            if own and garment and own not in groups:
+                img = it.get("front") or ""
+                groups[own] = [{
+                    "garment": garment,
+                    "image": img,
+                    "url": it.get("buy") or "../shop/%s/" % slug,
+                }]
             if groups:
                 matrix[slug] = groups
             continue
-        if it.get("partner") == "Mayzing":
-            styles = [garment] if garment else []
         else:
             styles = list(APPAREL_STYLES.get(slug) or [])
         # The design's own garment is always available, even when the crawl

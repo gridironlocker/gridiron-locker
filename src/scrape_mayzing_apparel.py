@@ -141,6 +141,10 @@ def parse_page(html):
                     src = inner
         if src.startswith("/"):
             src = "https://gridironlocker.shop" + src
+        if href.startswith("/"):
+            # The card links are root-relative on the storefront; store the
+            # absolute checkout URL so the site can use it verbatim.
+            href = "https://gridironlocker.shop" + href
         out.append({"slug": slug, "garment": garment,
                     "image": src, "url": href})
     return out
