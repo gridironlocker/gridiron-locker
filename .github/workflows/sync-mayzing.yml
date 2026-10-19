@@ -10,6 +10,13 @@ name: Sync Mayzing apparel categories
 
 on:
   workflow_dispatch:
+  # Two triggers, no loop: a push that touches the parser or this file wants a
+  # fresh capture, and the capture's own commit only adds
+  # data/mayzing_apparel.json, which matches neither path.
+  push:
+    paths:
+      - "src/scrape_mayzing_apparel.py"
+      - ".github/workflows/sync-mayzing.yml"
 
 permissions:
   contents: write
