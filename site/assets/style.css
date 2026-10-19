@@ -1704,3 +1704,38 @@ main.jlock-girly{padding:0 0 32px;overflow:hidden}
   .jlock-girly .gcustom-form{padding:20px}
   body[data-creator-page="BELLA"] .bellanav-links{gap:22px}
 }
+
+/* ===== Apparel filter buttons - team collection pages (same as Bella) =====
+   Bella's .gcategory-tile/.gcategory-row rules are scoped to .jlock-girly.
+   These rules give team collection pages the identical button behaviour using
+   the page's own --ca / --ca-ink brand colours. They are less specific than
+   the .jlock-girly rules, so Bella's locker is unaffected. */
+.gcategory-row{padding:12px 0 25px}
+.gcategory-heading{margin:0 0 12px;color:#59606a;text-align:center;font-size:.61rem;
+  font-weight:800;letter-spacing:.19em;line-height:1.4;text-transform:uppercase}
+.gcategory-tiles{display:grid;grid-template-columns:repeat(6,minmax(0,1fr));gap:12px;
+  max-width:1180px;margin:0 auto}
+.gcategory-tile{display:flex;min-width:0;width:100%;min-height:88px;
+  flex-direction:column;align-items:center;justify-content:center;gap:6px;
+  padding:12px 8px;border:1px solid #e6d9d9;border-bottom:3px solid var(--ca,#999);
+  border-radius:11px;background:#fffaf9;color:#26364c;font-family:inherit;
+  text-align:center;cursor:pointer;-webkit-appearance:none;appearance:none;
+  transition:transform .18s ease,box-shadow .18s ease,background .18s ease}
+.gcategory-tile svg{width:28px;height:28px;color:#1c3555}
+.gcategory-tile span{font-size:.64rem;font-weight:800;letter-spacing:.055em;
+  line-height:1.25;text-transform:uppercase}
+.gcategory-tile:hover{transform:translateY(-2px);border-color:#b8697c;
+  box-shadow:0 8px 18px rgba(24,45,77,.09)}
+.gcategory-tile:focus-visible{outline:3px solid var(--ca,#999);outline-offset:3px}
+.gcategory-flag{margin-top:5px;padding:2px 7px;border-radius:999px;background:#f1efea;
+  color:#6f7580;font-size:.5rem;font-weight:800;letter-spacing:.06em;
+  text-transform:none}
+.gcategory-tile[aria-pressed="true"]{border-color:#b8697c;
+  border-bottom-color:var(--ca,#999);background:#f5f0f7;
+  box-shadow:0 0 0 2px rgba(217,137,154,.38) inset}
+.gcategory-tile[aria-pressed="true"] svg{color:var(--ca-ink,#1c3555)}
+/* designs that did not list the chosen style keep their own mockup, muted */
+.card.is-muted{background:#fbfaf7}
+.card.is-muted .ph img{filter:grayscale(1);opacity:.42}
+.card.is-muted .ph img.alt{filter:grayscale(1);opacity:.42}
+.card[hidden]{display:none}
