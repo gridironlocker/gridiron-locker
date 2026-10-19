@@ -4,7 +4,9 @@
     "generator": "marketing/three_day_pulse.py",
     "horizon_days": 3,
     "refresh_rule": "Regenerate after every web/social signal collection; this is not an evergreen content calendar.",
-    "connected_sources": [],
+    "connected_sources": [
+      "google_news"
+    ],
     "human_approval_required": true,
     "auto_publish_enabled": false
   },
@@ -21,35 +23,35 @@
           "team": "Cleveland Browns",
           "trend": {
             "team": "cleveland-browns",
-            "story": "Todd Monken's latest Deshaun Watson comments reveal Browns' uncomfortable reality",
+            "story": "Browns vault into first place with last-second field goal, as Ravens blow another double-digit lead - Yahoo Sports",
             "emotion": "confident",
             "stage": "ACCELERATING",
-            "signal_count": 8,
+            "signal_count": 28,
             "sources": [
               {
-                "source": "repository_trend_snapshot",
-                "text": "Todd Monken's latest Deshaun Watson comments reveal Browns' uncomfortable reality",
-                "url": "http://www.bing.com/news/apiclick.aspx?ref=FexRss&aid=&tid=6ad674facf46478190a45c95c77c639e&url=https%3a%2f%2fsports.yahoo.com%2farticles%2ftodd-monkens-latest-deshaun-watson-150004319.html&c=6773058979577020315&mkt=en-us"
+                "source": "google_news",
+                "text": "Browns vault into first place with last-second field goal, as Ravens blow another double-digit lead - Yahoo Sports",
+                "url": "https://news.google.com/rss/articles/CBMi3AFBVV95cUxQc1dQQThUeHhYYk02WXRqSXZXaXBBWFJ1dERsRkhndUZ6djIzcjdVQmJPVUNrYks2MTZJcnpiZEJuM0EySlVfMnphZ0M1RGktLVU5Uk0zMndZT2VaOEE3WElfdk1URW1YNWdEWjBkOV9QclNNYTVnVmZJSVJzZjV6UDFVTlVPVXpwQlhkMVJZMWZ4UGY4eVB4MW1LWENMZU5TT1N4bV8zNzlYT0VyYlZUZ09SZlptR01yWDJ5d2I1SXhHUEYtX1prZGZVT3Y2dnI0TWlqQmJHUUltMU9L?oc=5"
               },
               {
-                "source": "repository_trend_snapshot",
-                "text": "Browns vs Titans picks, predictions, odds for NFL Week 7 game Sunday",
-                "url": "http://www.bing.com/news/apiclick.aspx?ref=FexRss&aid=&tid=6ad674facf46478190a45c95c77c639e&url=https%3a%2f%2fwww.azcentral.com%2fstory%2fsports%2fnfl%2f2026%2f10%2f19%2fcleveland-browns-tennessee-titans-picks-predictions-odds-nfl-week-7%2f90426923007%2f&c=5357776758822627447&mkt=en-us"
+                "source": "google_news",
+                "text": "Jerry Jeudy, amid trade buzz, has clutch catch in Browns' win, gets game ball - ESPN",
+                "url": "https://news.google.com/rss/articles/CBMimwFBVV95cUxQU0ZvNUpkd2FMTEQ0MkFJLTgyLVAyU0R5Y1RhWnJXbExxOUZhdkJzdndLVkctY19yeWlaZnZQaE9tdXVsQ0dEenJZT3NneHhWRFRUR1gtd2FQamMtSW02UXBPMURVVURXdEhYMW9TSnhiZ3FxUktTMURwVGY4cm5wOFgtR2ZEeU1wRTZRWXdZdzI4RUVEVlhLb2dZRQ?oc=5"
               },
               {
-                "source": "repository_trend_snapshot",
-                "text": "‘This Might Be the Best Defense That I’ve Seen’ — Former Browns WR Makes Bold Claim About Cleveland Without Myles Garrett After Ravens Win",
-                "url": "http://www.bing.com/news/apiclick.aspx?ref=FexRss&aid=&tid=6ad674facf46478190a45c95c77c639e&url=https%3a%2f%2fwww.msn.com%2fen-us%2fnews%2fother%2fthis-might-be-the-best-defense-that-i-ve-seen-former-browns-wr-makes-bold-claim-about-cleveland-without-myles-garrett-after-ravens-win%2far-AA2fB3st&c=11391187706629233997&mkt=en-us"
+                "source": "google_news",
+                "text": "Around the AFC North: Jerry Jeudy’s Clutch Play May Silence Trade Rumors - Baltimore Ravens",
+                "url": "https://news.google.com/rss/articles/CBMiggJBVV95cUxPLW92b2pXNkRxWm5kUDROUk5TWVRqdUJ4M1hBbUJJRWFhNDlZQWU1djZUNDV2dWJfVzFlSEswc01kZk9HYVVDRncxQ1BtcHotSjB5eU8zaUt2bUpoXzZmazBsWE9fWFJhOEtnRGpZRThiZTYxVkFvcUZoSzFIS3BuU0k1V0xHN28yQkdfalNPV1BIV0pFYnVBckxDcTVZVlZ3SlIwUkdSNVdJeVRJbHd6eHFIZ3o5VElWbEZlRzhXc0JoU2tuU0hQajNUQ0pwbkp0b3FKelVPdnhETUkta1RhUmJ0NjVfcXFfbG5wZUtWd1ZCcTdJWXNvWGNFQ0J4c0VZQ2c?oc=5"
               },
               {
-                "source": "repository_trend_snapshot",
-                "text": "Browns' Andre Szmyt can't get enough of the feeling of winning",
-                "url": "http://www.bing.com/news/apiclick.aspx?ref=FexRss&aid=&tid=6ad674facf46478190a45c95c77c639e&url=https%3a%2f%2fbrownswire.usatoday.com%2fstory%2fsports%2fnfl%2fbrowns%2f2026%2f10%2f19%2fbrowns-andre-szmyt-cant-get-enough-of-winning%2f92329843007%2f&c=16001909200175016506&mkt=en-us"
+                "source": "google_news",
+                "text": "Amid trade rumors, Jerry Jeudy reminds the Browns of his value - AL.com",
+                "url": "https://news.google.com/rss/articles/CBMingFBVV95cUxPVWYzWmJEN3NqNDhMbUdlNVVGUmEtalViNFRhclppbldFZi1obFNSU3Nqb3VWNmhPNXd5MW90SHJ6UVBiam16TF82cmI2LXNlY1VEOG1TN1VaaUJEeWFMZ0JTbGJ2OGotMmNXOVVZRjNSajljTURPRmRyRDFqQnpjQ2VuVUZMX3NjaklBT3dNc1BtY2NxZUx2aFhxQ29Udw?oc=5"
               },
               {
-                "source": "repository_trend_snapshot",
-                "text": "Tyler Huntley's Missed Oppurtunities Proved Costly Against Browns",
-                "url": "http://www.bing.com/news/apiclick.aspx?ref=FexRss&aid=&tid=6ad674facf46478190a45c95c77c639e&url=https%3a%2f%2fwww.msn.com%2fen-us%2fnews%2fother%2ftyler-huntleys-missed-oppurtunities-proved-costly-against-browns%2far-AA2fAkCd&c=16856772890200139881&mkt=en-us"
+                "source": "google_news",
+                "text": "Why These ‘Ain’t the Same Old Browns Anymore’ - Sports Illustrated",
+                "url": "https://news.google.com/rss/articles/CBMickFVX3lxTFBaX1VBdVF3bG9pMHN3UnR4U21EaEZ4bl84a182S2xteTlYamVjclN0eWliU01PT1lkYUFqVWpYMlZmS0ZwZFRCbktBUjA3RDN2Ql94UW9pOXVhS0NyWF9xLXMzQTBkYVVLWG4wbFB3aG1uZw?oc=5"
               }
             ],
             "evidence": "public signal collector"
@@ -62,12 +64,12 @@
             "hook_template": "You can spot a real {team} fan before kickoff. {line}",
             "angle_label": "Fan identity statement",
             "hook": "You can spot a real Cleveland Browns fan before kickoff. “THEY FORGOT WHO I AM” on a tee at $22.99.",
-            "ad_copy": "You can spot a real Cleveland Browns fan before kickoff. “THEY FORGOT WHO I AM” on a tee at $22.99. Angle: fan identity statement. Signal driving it: Todd Monken's latest Deshaun Watson comments reveal Browns' uncomfortable reality Product: Shedeur Sanders 12 They Forgot Who I Am Shirt (shedeur sanders shirt). Verify licensing and the live listing before promotion.",
+            "ad_copy": "You can spot a real Cleveland Browns fan before kickoff. “THEY FORGOT WHO I AM” on a tee at $22.99. Angle: fan identity statement. Signal driving it: Browns vault into first place with last-second field goal, as Ravens blow another double-digit lead - Yahoo Sports Product: Shedeur Sanders 12 They Forgot Who I Am Shirt (shedeur sanders shirt). Verify licensing and the live listing before promotion.",
             "captions": {
-              "instagram": "Closet upgrade. You can spot a real Cleveland Browns fan before kickoff. “THEY FORGOT WHO I AM” on a tee at $22.99. Why now: Todd Monken's latest Deshaun Watson comments reveal Browns' uncomfortable reality Tap through to the product page. #clevelandbrowns #shedeursandersshirt #sandersbrownsqbtee",
-              "facebook": "You can spot a real Cleveland Browns fan before kickoff. “THEY FORGOT WHO I AM” on a tee at $22.99. Context for Cleveland Browns fans: Todd Monken's latest Deshaun Watson comments reveal Browns' uncomfortable reality It is a tee at $22.99 from the Cleveland Browns collection. Tap through to the product page. https://gridironlocker.store/shop/sanders-13-special-edition/",
-              "x": "You can spot a real Cleveland Browns fan before kickoff. “THEY FORGOT WHO I AM” on a tee at $22.99. Todd Monken's latest Deshaun Watson comments reveal Browns' uncomfortable reality https://gridironlocker.store/shop/sanders-13-special-edition/",
-              "tiktok": "Fit check: You can spot a real Cleveland Browns fan before kickoff. “THEY FORGOT WHO I AM” on a tee at $22.99. Script beat: Say who you root for before you say a word. Show the print, then the fit, then the price.",
+              "instagram": "Read the shirt. You can spot a real Cleveland Browns fan before kickoff. “THEY FORGOT WHO I AM” on a tee at $22.99. Why now: Browns vault into first place with last-second field goal, as Ravens blow another double-digit lead - Yahoo Sports Link in bio for the listing. #clevelandbrowns #shedeursandersshirt #sandersbrownsqbtee",
+              "facebook": "You can spot a real Cleveland Browns fan before kickoff. “THEY FORGOT WHO I AM” on a tee at $22.99. Context for Cleveland Browns fans: Browns vault into first place with last-second field goal, as Ravens blow another double-digit lead - Yahoo Sports It is a tee at $22.99 from the Cleveland Browns collection. Link in bio for the listing. https://gridironlocker.store/shop/sanders-13-special-edition/",
+              "x": "You can spot a real Cleveland Browns fan before kickoff. “THEY FORGOT WHO I AM” on a tee at $22.99. Browns vault into first place with last-second field goal, as Ravens blow another double-d https://gridironlocker.store/shop/sanders-13-special-edition/",
+              "tiktok": "POV: You can spot a real Cleveland Browns fan before kickoff. “THEY FORGOT WHO I AM” on a tee at $22.99. Script beat: Say who you root for before you say a word. Show the print, then the fit, then the price.",
               "pinterest": "Shedeur Sanders 12 They Forgot Who I Am Shirt - shedeur sanders shirt idea for Cleveland Browns fans. Say who you root for before you say a word. Tee at $22.99."
             },
             "pinterest": {
@@ -100,20 +102,35 @@
           "team": "Dallas Cowboys",
           "trend": {
             "team": "dallas-cowboys",
-            "story": "Cowboys sideline exclusive: When Dallas should've known it'd be a tough night in Green Bay",
+            "story": "LIVE: Player's Lounge | 10/19/26 - Dallas Cowboys | Official Site of the Dallas Cowboys",
             "emotion": "worried",
-            "stage": "MAINSTREAM",
-            "signal_count": 2,
+            "stage": "ACCELERATING",
+            "signal_count": 28,
             "sources": [
               {
-                "source": "repository_trend_snapshot",
-                "text": "Cowboys sideline exclusive: When Dallas should've known it'd be a tough night in Green Bay",
-                "url": "http://www.bing.com/news/apiclick.aspx?ref=FexRss&aid=&tid=6ad6754e0b3343f58002a5e8feccaf90&url=https%3a%2f%2fwww.msn.com%2fen-us%2fnews%2fother%2fcowboys-sideline-exclusive-when-dallas-shouldve-known-itd-be-a-tough-night-in-green-bay%2far-AA2fApQs&c=2100190840428134233&mkt=en-us"
+                "source": "google_news",
+                "text": "Pic 6: Cowboys struggle vs. Green Bay's pressure, make multiple personnel changes - Dallas Cowboys | Official Site of the Dallas Cowboys",
+                "url": "https://news.google.com/rss/articles/CBMiswFBVV95cUxPWWE3VkRacVl5UEt1cFFfNnhaTnN3cnZJWUxlbEpqUVhlUXdtWTQzMGw0MXZPbTZjM2ZXclpXaWRRMmhJdld5cUV3R0NYejJOQ05UcUpQa2JtZ2szM21pdUNOQ3NaVndSOFhmb0QyR2g5anJQOXRJZDd1UG5ZZy11VHVNSHNrSVZBZ0dQbzRqMjhXbG1nZlRONmt3OHpoaTJ3QklhOWUtOW1meDA4VDNCMEI4RQ?oc=5"
               },
               {
-                "source": "repository_trend_snapshot",
-                "text": "Dallas Cowboys legend 'concerned' Jerry Jones will start firing coaches",
-                "url": "https://www.msn.com/en-us/sports/football/dallas-cowboys-legend-concerned-jerry-jones-will-start-firing-coaches/ar-AA2fAxef?ocid=BingNewsVerp"
+                "source": "google_news",
+                "text": "Cowboys’ perfect Josh Sweat trade offer to Cardinals before NFL trade deadline - Yahoo Sports",
+                "url": "https://news.google.com/rss/articles/CBMiiAFBVV95cUxONndEZzVna0o5alItNElkaVdBQTdfaG44T1lfdDhQR0xhVDJyS29IYTEtdlhLblRWT3Jkb2hORFg4QXVFUzR6NUtqR3NXTmp5X3BmTXRDQ0RYajl5Ry1wX2E0dUtiZlhROHdGOF9HR0RveV9pbHBHSWx5QWUtaERxY0ZRZi1Jcm96?oc=5"
+              },
+              {
+                "source": "google_news",
+                "text": "LIVE: Player's Lounge | 10/19/26 - Dallas Cowboys | Official Site of the Dallas Cowboys",
+                "url": "https://news.google.com/rss/articles/CBMic0FVX3lxTE93YU1Hakpha1ZENFZZaVdGWnBlc1pDMkk5TmNkbGFHRE5Jb2FqSHU4Tmh1YzJrdHRrb0lLQmN4eDNQSWlUa2xNWnNOUklHeGhZYzBKMFROUjZNSVI3TmNHeG5fS2JQYVAtTmxkamszZ2MwTDA?oc=5"
+              },
+              {
+                "source": "google_news",
+                "text": "Dee Winters' 42-yard pick-six score is simply ruled an INT after video review - NFL.com",
+                "url": "https://news.google.com/rss/articles/CBMipgFBVV95cUxOV2ZVSEZOdGtqd3V1RFRHUTJwUUw1bDFTdjdVa0ZiNm0zbnhaZk04a3lNRlBnaHAtcVh2MTRPUzV5WGV1cnlYUS1CQUxISTVKUk81VjVJRWRUU0JyT1JsdU9ieFNwb0xNbngtd2VRNldIOWVqaFBiM1V3UDEtTm15eXMyVmNvcmtCMlhrN1JRVld0b2ZmZ3NJZHF3a2pWeWdpY3N2YVJR?oc=5"
+              },
+              {
+                "source": "google_news",
+                "text": "Ex-Dallas Cowboys player dead at 35 after cancer battle: ‘Fought an incredible fight’ - PennLive.com",
+                "url": "https://news.google.com/rss/articles/CBMixgFBVV95cUxNS1dYeXl6Mi1lMnN3Nkl0WEVTeVNEUVRoZlQ0X2FxUDRxOFNUZ1V6c0E5cGFqSmFiMlNaMWxGYV94OU9ud3o3R2JkU0VFSVFfajhyZ1J4UlZXZnlRdTA4WW9ZREItT1RMZ3ZPVU1sdEpSX1RRd2ZDT0VwblRKWmE5TmRIQWxTX3N4N01LRXFPblZVN2NIYllxelRjeUNSQktIY0s3cWpQMFdFWWRXdXZHbWw2cVlKN2RucXItZWtuUXdFcl9BSEHSAdoBQVVfeXFMUGJQRG5hU1B2SGczaS1DUldTOXdTaWZJczluZm51WDExSk1iMWFLc3VKc0V3aHl2XzJxTEtONm9EOS1rdkJDUGNFaEdjdEFXR2NQc01qeXFLSFBmbjl5LWNhcWpwUlNhNVZyZjBDQWFXd1V6amJkSkRSREZQU2lHRjZZMUZLZ0V5VzNQdldsYUFCR1FLQy05VDIxVmFuUlpmSjk5Z19uTUVlYXFwVU9VRHV1UjhyOGg1dEtpM3B6M1FPZVlFc3BOR24zU2w0U1BfQlRvN09lWGluclE?oc=5"
               }
             ],
             "evidence": "public signal collector"
@@ -123,15 +140,15 @@
           "product_signal_score": 111.4,
           "copy": {
             "angle": "gift",
-            "hook_template": "There is one {team} fan in every family who is impossible to shop for. {line}",
+            "hook_template": "Buy it for them and they will wear it every Sunday. {line}",
             "angle_label": "Gift / relationship",
-            "hook": "There is one Dallas Cowboys fan in every family who is impossible to shop for. “THIS GIRL LOVES COWBOYS WITH FOOTBALL AND STARS” on a women's tee at $21.99.",
-            "ad_copy": "There is one Dallas Cowboys fan in every family who is impossible to shop for. “THIS GIRL LOVES COWBOYS WITH FOOTBALL AND STARS” on a women's tee at $21.99. Angle: gift / relationship. Signal driving it: Cowboys sideline exclusive: When Dallas should've known it'd be a tough night in Green Bay Product: This Girl Loves Cowboys Women's Shirt (this girl loves cowboys). Verify licensing and the live listing before promotion.",
+            "hook": "Buy it for them and they will wear it every Sunday. “THIS GIRL LOVES COWBOYS WITH FOOTBALL AND STARS” on a women's tee at $21.99.",
+            "ad_copy": "Buy it for them and they will wear it every Sunday. “THIS GIRL LOVES COWBOYS WITH FOOTBALL AND STARS” on a women's tee at $21.99. Angle: gift / relationship. Signal driving it: LIVE: Player's Lounge | 10/19/26 - Dallas Cowboys | Official Site of the Dallas Cowboys Product: This Girl Loves Cowboys Women's Shirt (this girl loves cowboys). Verify licensing and the live listing before promotion.",
             "captions": {
-              "instagram": "Read the shirt. There is one Dallas Cowboys fan in every family who is impossible to shop for. “THIS GIRL LOVES COWBOYS WITH FOOTBALL AND STARS” on a women's tee at $21.99. Why now: Cowboys sideline exclusive: When Dallas should've known it'd be a tough night in Green Bay Link in bio for the listing. #dallascowboys #thisgirllovescowboys #dallaswomensshirt",
-              "facebook": "There is one Dallas Cowboys fan in every family who is impossible to shop for. “THIS GIRL LOVES COWBOYS WITH FOOTBALL AND STARS” on a women's tee at $21.99. Context for Dallas Cowboys fans: Cowboys sideline exclusive: When Dallas should've known it'd be a tough night in Green Bay It is a women's tee at $21.99 from the Dallas Cowboys collection. Link in bio for the listing. https://gridironlocker.store/shop/girly-vintage-texas-pride/",
-              "x": "There is one Dallas Cowboys fan in every family who is impossible to shop for. “THIS GIRL LOVES COWBOYS WITH FOOTBALL AND STARS” on a women's tee at $21.99. Cowboys sideline exclusive: When Dallas should've known it'd be a tough night in Green Bay https://gridironlocker.store/…",
-              "tiktok": "POV: There is one Dallas Cowboys fan in every family who is impossible to shop for. “THIS GIRL LOVES COWBOYS WITH FOOTBALL AND STARS” on a women's tee at $21.99. Script beat: Frame the product as a gift for a specific person. Show the print, then the fit, then the price.",
+              "instagram": "Locked in. Buy it for them and they will wear it every Sunday. “THIS GIRL LOVES COWBOYS WITH FOOTBALL AND STARS” on a women's tee at $21.99. Why now: LIVE: Player's Lounge | 10/19/26 - Dallas Cowboys | Official Site of the Dallas Cowboys Full details on the listing. #dallascowboys #thisgirllovescowboys #dallaswomensshirt",
+              "facebook": "Buy it for them and they will wear it every Sunday. “THIS GIRL LOVES COWBOYS WITH FOOTBALL AND STARS” on a women's tee at $21.99. Context for Dallas Cowboys fans: LIVE: Player's Lounge | 10/19/26 - Dallas Cowboys | Official Site of the Dallas Cowboys It is a women's tee at $21.99 from the Dallas Cowboys collection. Full details on the listing. https://gridironlocker.store/shop/girly-vintage-texas-pride/",
+              "x": "Buy it for them and they will wear it every Sunday. “THIS GIRL LOVES COWBOYS WITH FOOTBALL AND STARS” on a women's tee at $21.99. LIVE: Player's Lounge | 10/19/26 - Dallas Cowboys | Official Site of the Dallas Cowboys https://gridironlocker.store/shop/girly-vintage-texas-pride/",
+              "tiktok": "Storytime, short version: Buy it for them and they will wear it every Sunday. “THIS GIRL LOVES COWBOYS WITH FOOTBALL AND STARS” on a women's tee at $21.99. Script beat: Frame the product as a gift for a specific person. Show the print, then the fit, then the price.",
               "pinterest": "This Girl Loves Cowboys Women's Shirt - this girl loves cowboys idea for Dallas Cowboys fans. Frame the product as a gift for a specific person. Women's tee at $21.99."
             },
             "pinterest": {
@@ -164,43 +181,58 @@
           "team": "Green Bay Packers",
           "trend": {
             "team": "green-bay-packers",
-            "story": "Packers reporter refuses to rule out blockbuster Eagles trade after Jalen Hurts setback",
-            "emotion": "worried",
-            "stage": "MAINSTREAM",
-            "signal_count": 2,
+            "story": "Green Bay Packers quarterback Jordan Love reflects on Week 6 win over Dallas Cowboys - NFL.com",
+            "emotion": "confident",
+            "stage": "ACCELERATING",
+            "signal_count": 28,
             "sources": [
               {
-                "source": "repository_trend_snapshot",
-                "text": "Green Bay Packers Trade Pitch Lands $105.8 Million DT in Massive In-Season Move",
-                "url": "http://www.bing.com/news/apiclick.aspx?ref=FexRss&aid=&tid=6ad67522bed14fe1850320af892c42f6&url=https%3a%2f%2fsports.yahoo.com%2farticles%2fgreen-bay-packers-trade-pitch-162618182.html&c=17657256722980980533&mkt=en-us"
+                "source": "google_news",
+                "text": "Packers Week 6 Snap Counts: Who played against the Dallas Cowboys? - Acme Packing Company",
+                "url": "https://news.google.com/rss/articles/CBMi0AFBVV95cUxPejNlZk1GNk9fbFljS0ppNm05c1cxNHROMzNiel8zZEEzdG43T05PRVVxZEVEdHpEdnVmMnRFZmZlbUFFYWJPcGI5aGJfelB2LUJUMXAyeF9uR1pURU1KTXhnVFA2NTVidDZ2Ni14VWRJc0RaVWtIcUo0cGRtdTFzQ0dCVEdfaGRRUHdubFBPaVNBN2dYVUJJZWtDc3AtbHdSZmJIN3RXZ1NwMno2VTN5YkdNZW5qVkxLc1RPeXNtblhwNzJqM2RNWHBPVzl4d19Q?oc=5"
               },
               {
-                "source": "repository_trend_snapshot",
-                "text": "Packers reporter refuses to rule out blockbuster Eagles trade after Jalen Hurts setback",
-                "url": "https://www.aol.com/articles/packers-reporter-refuses-rule-blockbuster-191726000.html"
+                "source": "google_news",
+                "text": "Green Bay Packers quarterback Jordan Love reflects on Week 6 win over Dallas Cowboys - NFL.com",
+                "url": "https://news.google.com/rss/articles/CBMif0FVX3lxTE05Z1RQWWlLY0xNay1kLWJVYmF0aW5lTmxfZ3FkeVJnZUYzR3VVeWZya2RHT05peTNlLXUwcHptZ1d6Y1RtS01mbHlSb2JVS2k3akNwb2FxMkZjelZhelFkSDRGYUo1eUxkRTVqcE51dk9oRExzd2VlZnhKMW0wVjg?oc=5"
+              },
+              {
+                "source": "google_news",
+                "text": "Green Bay Packers extend historic Sunday night home record with win over Cowboys - Yahoo Sports",
+                "url": "https://news.google.com/rss/articles/CBMiigFBVV95cUxNVFZ0UW8tUzlrNThXNzBRNUlIT2dnQXJiVGFZODViLWhQX0VnYnhEVmtkeTdCaUhTSzlEZ2JzWnZiczJfX3lReUJjRDEydE8wWnFsTDBtd2NjRXJDemN0OWlLMjVfMmJPbUNXLVlqQ2FtX1NLN3diSHFPRGtTcnRLZ0JtelhTcVRpVmc?oc=5"
+              },
+              {
+                "source": "google_news",
+                "text": "16 ejected, 6 arrested during Cowboys-Packers game for Sunday Night Football - WLUK",
+                "url": "https://news.google.com/rss/articles/CBMi5gFBVV95cUxPdklqZnBFYkpzalZkNndLVkw0N25Ld2h1aWF1T0h2akxoN0pPNC1Yc3oyaENPZ3NpdTZOTDhhZk1QV0FyUzdyakhQN2kzWEZ5ZFVtQzV5aWM0TUhzakRuQW1ja2REVDk5VTVNRGI0QWZxcGcxYUQ2cFBILUJrR2lGbWdYamtUUnZ1dlJ2a01pWlVmOEl2LTd0SkhaVGw5NndHZ0V4QjI2M2JZdGhRenIxMFpnNDFOcWRSVzY2cEFRcmllLWZ0SFdZQWt4bXlaQ2RDRktTZE9FYUk2SHgzakhkWncwcFNBZw?oc=5"
+              },
+              {
+                "source": "google_news",
+                "text": "Packers receiver Matthew Golden doesn’t mind flexing on the Cowboys, even if he wasn’t - PackersNews.com",
+                "url": "https://news.google.com/rss/articles/CBMi4AFBVV95cUxPaVZONUpNQ2syRU9QSmZKd3dMaHNLQTlkc21DNHp5S0N4M2owUUI1VHJkRU5td0dPUlR3Unk3V2JpQzZXVm8zQXpuaVlPNllCN1FFZGtlcUczYS0zZlBzbG5Na2ZJeVNrWXlGc0wyS1htdmhqcHJHQ0tRUzBDM0JRZnZZcXBRYVJMbExUQjRLQTZoV0J3bElhZXdIQ2YtMGJTT21pX2trZzdweldoSXZPWFFYVFFLdm9KOGpSZXVKOEotWFZTNjZybVhkTDk3eHRlUmhlb1huXzNiVkpUenNaNg?oc=5"
               }
             ],
             "evidence": "public signal collector"
           },
-          "fan_emotion": "worried",
+          "fan_emotion": "confident",
           "creative_angle": "News reaction",
-          "product_signal_score": 87.4,
+          "product_signal_score": 99.4,
           "copy": {
             "angle": "news_react",
             "hook_template": "One headline, one {team} reaction piece: {line}",
             "angle_label": "News reaction",
             "hook": "One headline, one Green Bay Packers reaction piece: “10 LOVE WITH PLAYER AND GOLD 10” on a hoodie at $36.99.",
-            "ad_copy": "One headline, one Green Bay Packers reaction piece: “10 LOVE WITH PLAYER AND GOLD 10” on a hoodie at $36.99. Angle: news reaction. Signal driving it: Packers reporter refuses to rule out blockbuster Eagles trade after Jalen Hurts setback Product: Jordan Love 10 Green Bay Hoodie (jordan love hoodie). Verify licensing and the live listing before promotion.",
+            "ad_copy": "One headline, one Green Bay Packers reaction piece: “10 LOVE WITH PLAYER AND GOLD 10” on a hoodie at $36.99. Angle: news reaction. Signal driving it: Green Bay Packers quarterback Jordan Love reflects on Week 6 win over Dallas Cowboys - NFL.com Product: Jordan Love 10 Green Bay Hoodie (jordan love hoodie). Verify licensing and the live listing before promotion.",
             "captions": {
-              "instagram": "Saved for Sunday. One headline, one Green Bay Packers reaction piece: “10 LOVE WITH PLAYER AND GOLD 10” on a hoodie at $36.99. Why now: Packers reporter refuses to rule out blockbuster Eagles trade after Jalen Hurts setback See it on the shop page. #greenbaypackers #jordanlovehoodie #packers10sweatshirt",
-              "facebook": "One headline, one Green Bay Packers reaction piece: “10 LOVE WITH PLAYER AND GOLD 10” on a hoodie at $36.99. Context for Green Bay Packers fans: Packers reporter refuses to rule out blockbuster Eagles trade after Jalen Hurts setback It is a hoodie at $36.99 from the Green Bay Packers collection. See it on the shop page. https://gridironlocker.store/shop/limited-edition-grb31/",
-              "x": "One headline, one Green Bay Packers reaction piece: “10 LOVE WITH PLAYER AND GOLD 10” on a hoodie at $36.99. Packers reporter refuses to rule out blockbuster Eagles trade after Jalen Hurts setback https://gridironlocker.store/shop/limited-edition-grb31/",
-              "tiktok": "Nobody asked, but: One headline, one Green Bay Packers reaction piece: “10 LOVE WITH PLAYER AND GOLD 10” on a hoodie at $36.99. Script beat: React to the storyline that is moving right now. Show the print, then the fit, then the price.",
+              "instagram": "Closet upgrade. One headline, one Green Bay Packers reaction piece: “10 LOVE WITH PLAYER AND GOLD 10” on a hoodie at $36.99. Why now: Green Bay Packers quarterback Jordan Love reflects on Week 6 win over Dallas Cowboys - NFL.com Tap through to the product page. #greenbaypackers #jordanlovehoodie #packers10sweatshirt",
+              "facebook": "One headline, one Green Bay Packers reaction piece: “10 LOVE WITH PLAYER AND GOLD 10” on a hoodie at $36.99. Context for Green Bay Packers fans: Green Bay Packers quarterback Jordan Love reflects on Week 6 win over Dallas Cowboys - NFL.com It is a hoodie at $36.99 from the Green Bay Packers collection. Tap through to the product page. https://gridironlocker.store/shop/limited-edition-grb31/",
+              "x": "One headline, one Green Bay Packers reaction piece: “10 LOVE WITH PLAYER AND GOLD 10” on a hoodie at $36.99. Green Bay Packers quarterback Jordan Love reflects on Week 6 win over Dallas Cowboys - NFL https://gridironlocker.store/shop/limited-edition-grb31/",
+              "tiktok": "Fit check: One headline, one Green Bay Packers reaction piece: “10 LOVE WITH PLAYER AND GOLD 10” on a hoodie at $36.99. Script beat: React to the storyline that is moving right now. Show the print, then the fit, then the price.",
               "pinterest": "Jordan Love 10 Green Bay Hoodie - jordan love hoodie idea for Green Bay Packers fans. React to the storyline that is moving right now. Hoodie at $36.99."
             },
             "pinterest": {
               "title": "Jordan Love 10 Green Bay Hoodie: Jordan Love Hoodie",
-              "description": "News reaction pin for Green Bay Packers fans feeling worried. “10 LOVE WITH PLAYER AND GOLD 10” on a hoodie at $36.99. Use only after the product and licensing review.",
+              "description": "News reaction pin for Green Bay Packers fans feeling confident. “10 LOVE WITH PLAYER AND GOLD 10” on a hoodie at $36.99. Use only after the product and licensing review.",
               "keywords": [
                 "jordan love hoodie",
                 "packers 10 sweatshirt",
@@ -234,35 +266,35 @@
           "team": "Cleveland Browns",
           "trend": {
             "team": "cleveland-browns",
-            "story": "Browns vs Titans picks, predictions, odds for NFL Week 7 game Sunday",
+            "story": "Jerry Jeudy, amid trade buzz, has clutch catch in Browns' win, gets game ball - ESPN",
             "emotion": "confident",
             "stage": "ACCELERATING",
-            "signal_count": 8,
+            "signal_count": 28,
             "sources": [
               {
-                "source": "repository_trend_snapshot",
-                "text": "Todd Monken's latest Deshaun Watson comments reveal Browns' uncomfortable reality",
-                "url": "http://www.bing.com/news/apiclick.aspx?ref=FexRss&aid=&tid=6ad674facf46478190a45c95c77c639e&url=https%3a%2f%2fsports.yahoo.com%2farticles%2ftodd-monkens-latest-deshaun-watson-150004319.html&c=6773058979577020315&mkt=en-us"
+                "source": "google_news",
+                "text": "Browns vault into first place with last-second field goal, as Ravens blow another double-digit lead - Yahoo Sports",
+                "url": "https://news.google.com/rss/articles/CBMi3AFBVV95cUxQc1dQQThUeHhYYk02WXRqSXZXaXBBWFJ1dERsRkhndUZ6djIzcjdVQmJPVUNrYks2MTZJcnpiZEJuM0EySlVfMnphZ0M1RGktLVU5Uk0zMndZT2VaOEE3WElfdk1URW1YNWdEWjBkOV9QclNNYTVnVmZJSVJzZjV6UDFVTlVPVXpwQlhkMVJZMWZ4UGY4eVB4MW1LWENMZU5TT1N4bV8zNzlYT0VyYlZUZ09SZlptR01yWDJ5d2I1SXhHUEYtX1prZGZVT3Y2dnI0TWlqQmJHUUltMU9L?oc=5"
               },
               {
-                "source": "repository_trend_snapshot",
-                "text": "Browns vs Titans picks, predictions, odds for NFL Week 7 game Sunday",
-                "url": "http://www.bing.com/news/apiclick.aspx?ref=FexRss&aid=&tid=6ad674facf46478190a45c95c77c639e&url=https%3a%2f%2fwww.azcentral.com%2fstory%2fsports%2fnfl%2f2026%2f10%2f19%2fcleveland-browns-tennessee-titans-picks-predictions-odds-nfl-week-7%2f90426923007%2f&c=5357776758822627447&mkt=en-us"
+                "source": "google_news",
+                "text": "Jerry Jeudy, amid trade buzz, has clutch catch in Browns' win, gets game ball - ESPN",
+                "url": "https://news.google.com/rss/articles/CBMimwFBVV95cUxQU0ZvNUpkd2FMTEQ0MkFJLTgyLVAyU0R5Y1RhWnJXbExxOUZhdkJzdndLVkctY19yeWlaZnZQaE9tdXVsQ0dEenJZT3NneHhWRFRUR1gtd2FQamMtSW02UXBPMURVVURXdEhYMW9TSnhiZ3FxUktTMURwVGY4cm5wOFgtR2ZEeU1wRTZRWXdZdzI4RUVEVlhLb2dZRQ?oc=5"
               },
               {
-                "source": "repository_trend_snapshot",
-                "text": "‘This Might Be the Best Defense That I’ve Seen’ — Former Browns WR Makes Bold Claim About Cleveland Without Myles Garrett After Ravens Win",
-                "url": "http://www.bing.com/news/apiclick.aspx?ref=FexRss&aid=&tid=6ad674facf46478190a45c95c77c639e&url=https%3a%2f%2fwww.msn.com%2fen-us%2fnews%2fother%2fthis-might-be-the-best-defense-that-i-ve-seen-former-browns-wr-makes-bold-claim-about-cleveland-without-myles-garrett-after-ravens-win%2far-AA2fB3st&c=11391187706629233997&mkt=en-us"
+                "source": "google_news",
+                "text": "Around the AFC North: Jerry Jeudy’s Clutch Play May Silence Trade Rumors - Baltimore Ravens",
+                "url": "https://news.google.com/rss/articles/CBMiggJBVV95cUxPLW92b2pXNkRxWm5kUDROUk5TWVRqdUJ4M1hBbUJJRWFhNDlZQWU1djZUNDV2dWJfVzFlSEswc01kZk9HYVVDRncxQ1BtcHotSjB5eU8zaUt2bUpoXzZmazBsWE9fWFJhOEtnRGpZRThiZTYxVkFvcUZoSzFIS3BuU0k1V0xHN28yQkdfalNPV1BIV0pFYnVBckxDcTVZVlZ3SlIwUkdSNVdJeVRJbHd6eHFIZ3o5VElWbEZlRzhXc0JoU2tuU0hQajNUQ0pwbkp0b3FKelVPdnhETUkta1RhUmJ0NjVfcXFfbG5wZUtWd1ZCcTdJWXNvWGNFQ0J4c0VZQ2c?oc=5"
               },
               {
-                "source": "repository_trend_snapshot",
-                "text": "Browns' Andre Szmyt can't get enough of the feeling of winning",
-                "url": "http://www.bing.com/news/apiclick.aspx?ref=FexRss&aid=&tid=6ad674facf46478190a45c95c77c639e&url=https%3a%2f%2fbrownswire.usatoday.com%2fstory%2fsports%2fnfl%2fbrowns%2f2026%2f10%2f19%2fbrowns-andre-szmyt-cant-get-enough-of-winning%2f92329843007%2f&c=16001909200175016506&mkt=en-us"
+                "source": "google_news",
+                "text": "Amid trade rumors, Jerry Jeudy reminds the Browns of his value - AL.com",
+                "url": "https://news.google.com/rss/articles/CBMingFBVV95cUxPVWYzWmJEN3NqNDhMbUdlNVVGUmEtalViNFRhclppbldFZi1obFNSU3Nqb3VWNmhPNXd5MW90SHJ6UVBiam16TF82cmI2LXNlY1VEOG1TN1VaaUJEeWFMZ0JTbGJ2OGotMmNXOVVZRjNSajljTURPRmRyRDFqQnpjQ2VuVUZMX3NjaklBT3dNc1BtY2NxZUx2aFhxQ29Udw?oc=5"
               },
               {
-                "source": "repository_trend_snapshot",
-                "text": "Tyler Huntley's Missed Oppurtunities Proved Costly Against Browns",
-                "url": "http://www.bing.com/news/apiclick.aspx?ref=FexRss&aid=&tid=6ad674facf46478190a45c95c77c639e&url=https%3a%2f%2fwww.msn.com%2fen-us%2fnews%2fother%2ftyler-huntleys-missed-oppurtunities-proved-costly-against-browns%2far-AA2fAkCd&c=16856772890200139881&mkt=en-us"
+                "source": "google_news",
+                "text": "Why These ‘Ain’t the Same Old Browns Anymore’ - Sports Illustrated",
+                "url": "https://news.google.com/rss/articles/CBMickFVX3lxTFBaX1VBdVF3bG9pMHN3UnR4U21EaEZ4bl84a182S2xteTlYamVjclN0eWliU01PT1lkYUFqVWpYMlZmS0ZwZFRCbktBUjA3RDN2Ql94UW9pOXVhS0NyWF9xLXMzQTBkYVVLWG4wbFB3aG1uZw?oc=5"
               }
             ],
             "evidence": "public signal collector"
@@ -272,15 +304,15 @@
           "product_signal_score": 155.6,
           "copy": {
             "angle": "identity",
-            "hook_template": "No slogan, no filler: {line}",
+            "hook_template": "{team} fandom is not a costume - it is a wardrobe decision. {line}",
             "angle_label": "Fan identity statement",
-            "hook": "No slogan, no filler: “SANDERS QB 12 WITH SIGNATURE” on a tee at $22.99.",
-            "ad_copy": "No slogan, no filler: “SANDERS QB 12 WITH SIGNATURE” on a tee at $22.99. Angle: fan identity statement. Signal driving it: Browns vs Titans picks, predictions, odds for NFL Week 7 game Sunday Product: Sanders QB 12 Signature Shirt (sanders qb shirt). Verify licensing and the live listing before promotion.",
+            "hook": "Cleveland Browns fandom is not a costume - it is a wardrobe decision. “SANDERS QB 12 WITH SIGNATURE” on a tee at $22.99.",
+            "ad_copy": "Cleveland Browns fandom is not a costume - it is a wardrobe decision. “SANDERS QB 12 WITH SIGNATURE” on a tee at $22.99. Angle: fan identity statement. Signal driving it: Jerry Jeudy, amid trade buzz, has clutch catch in Browns' win, gets game ball - ESPN Product: Sanders QB 12 Signature Shirt (sanders qb shirt). Verify licensing and the live listing before promotion.",
             "captions": {
-              "instagram": "Locked in. No slogan, no filler: “SANDERS QB 12 WITH SIGNATURE” on a tee at $22.99. Why now: Browns vs Titans picks, predictions, odds for NFL Week 7 game Sunday Full details on the listing. #clevelandbrowns #sandersqbshirt #browns12quarterbacktee",
-              "facebook": "No slogan, no filler: “SANDERS QB 12 WITH SIGNATURE” on a tee at $22.99. Context for Cleveland Browns fans: Browns vs Titans picks, predictions, odds for NFL Week 7 game Sunday It is a tee at $22.99 from the Cleveland Browns collection. Full details on the listing. https://gridironlocker.store/shop/sanders-12-special-edition/",
-              "x": "No slogan, no filler: “SANDERS QB 12 WITH SIGNATURE” on a tee at $22.99. Browns vs Titans picks, predictions, odds for NFL Week 7 game Sunday https://gridironlocker.store/shop/sanders-12-special-edition/",
-              "tiktok": "Storytime, short version: No slogan, no filler: “SANDERS QB 12 WITH SIGNATURE” on a tee at $22.99. Script beat: Say who you root for before you say a word. Show the print, then the fit, then the price.",
+              "instagram": "Closet upgrade. Cleveland Browns fandom is not a costume - it is a wardrobe decision. “SANDERS QB 12 WITH SIGNATURE” on a tee at $22.99. Why now: Jerry Jeudy, amid trade buzz, has clutch catch in Browns' win, gets game ball - ESPN Tap through to the product page. #clevelandbrowns #sandersqbshirt #browns12quarterbacktee",
+              "facebook": "Cleveland Browns fandom is not a costume - it is a wardrobe decision. “SANDERS QB 12 WITH SIGNATURE” on a tee at $22.99. Context for Cleveland Browns fans: Jerry Jeudy, amid trade buzz, has clutch catch in Browns' win, gets game ball - ESPN It is a tee at $22.99 from the Cleveland Browns collection. Tap through to the product page. https://gridironlocker.store/shop/sanders-12-special-edition/",
+              "x": "Cleveland Browns fandom is not a costume - it is a wardrobe decision. “SANDERS QB 12 WITH SIGNATURE” on a tee at $22.99. Jerry Jeudy, amid trade buzz, has clutch catch in Browns' win, gets game ball - ESPN https://gridironlocker.store/shop/sanders-12-special-edition/",
+              "tiktok": "Fit check: Cleveland Browns fandom is not a costume - it is a wardrobe decision. “SANDERS QB 12 WITH SIGNATURE” on a tee at $22.99. Script beat: Say who you root for before you say a word. Show the print, then the fit, then the price.",
               "pinterest": "Sanders QB 12 Signature Shirt - sanders qb shirt idea for Cleveland Browns fans. Say who you root for before you say a word. Tee at $22.99."
             },
             "pinterest": {
@@ -313,20 +345,35 @@
           "team": "Dallas Cowboys",
           "trend": {
             "team": "dallas-cowboys",
-            "story": "Dallas Cowboys legend 'concerned' Jerry Jones will start firing coaches",
+            "story": "Dee Winters' 42-yard pick-six score is simply ruled an INT after video review - NFL.com",
             "emotion": "worried",
-            "stage": "MAINSTREAM",
-            "signal_count": 2,
+            "stage": "ACCELERATING",
+            "signal_count": 28,
             "sources": [
               {
-                "source": "repository_trend_snapshot",
-                "text": "Cowboys sideline exclusive: When Dallas should've known it'd be a tough night in Green Bay",
-                "url": "http://www.bing.com/news/apiclick.aspx?ref=FexRss&aid=&tid=6ad6754e0b3343f58002a5e8feccaf90&url=https%3a%2f%2fwww.msn.com%2fen-us%2fnews%2fother%2fcowboys-sideline-exclusive-when-dallas-shouldve-known-itd-be-a-tough-night-in-green-bay%2far-AA2fApQs&c=2100190840428134233&mkt=en-us"
+                "source": "google_news",
+                "text": "Pic 6: Cowboys struggle vs. Green Bay's pressure, make multiple personnel changes - Dallas Cowboys | Official Site of the Dallas Cowboys",
+                "url": "https://news.google.com/rss/articles/CBMiswFBVV95cUxPWWE3VkRacVl5UEt1cFFfNnhaTnN3cnZJWUxlbEpqUVhlUXdtWTQzMGw0MXZPbTZjM2ZXclpXaWRRMmhJdld5cUV3R0NYejJOQ05UcUpQa2JtZ2szM21pdUNOQ3NaVndSOFhmb0QyR2g5anJQOXRJZDd1UG5ZZy11VHVNSHNrSVZBZ0dQbzRqMjhXbG1nZlRONmt3OHpoaTJ3QklhOWUtOW1meDA4VDNCMEI4RQ?oc=5"
               },
               {
-                "source": "repository_trend_snapshot",
-                "text": "Dallas Cowboys legend 'concerned' Jerry Jones will start firing coaches",
-                "url": "https://www.msn.com/en-us/sports/football/dallas-cowboys-legend-concerned-jerry-jones-will-start-firing-coaches/ar-AA2fAxef?ocid=BingNewsVerp"
+                "source": "google_news",
+                "text": "Cowboys’ perfect Josh Sweat trade offer to Cardinals before NFL trade deadline - Yahoo Sports",
+                "url": "https://news.google.com/rss/articles/CBMiiAFBVV95cUxONndEZzVna0o5alItNElkaVdBQTdfaG44T1lfdDhQR0xhVDJyS29IYTEtdlhLblRWT3Jkb2hORFg4QXVFUzR6NUtqR3NXTmp5X3BmTXRDQ0RYajl5Ry1wX2E0dUtiZlhROHdGOF9HR0RveV9pbHBHSWx5QWUtaERxY0ZRZi1Jcm96?oc=5"
+              },
+              {
+                "source": "google_news",
+                "text": "LIVE: Player's Lounge | 10/19/26 - Dallas Cowboys | Official Site of the Dallas Cowboys",
+                "url": "https://news.google.com/rss/articles/CBMic0FVX3lxTE93YU1Hakpha1ZENFZZaVdGWnBlc1pDMkk5TmNkbGFHRE5Jb2FqSHU4Tmh1YzJrdHRrb0lLQmN4eDNQSWlUa2xNWnNOUklHeGhZYzBKMFROUjZNSVI3TmNHeG5fS2JQYVAtTmxkamszZ2MwTDA?oc=5"
+              },
+              {
+                "source": "google_news",
+                "text": "Dee Winters' 42-yard pick-six score is simply ruled an INT after video review - NFL.com",
+                "url": "https://news.google.com/rss/articles/CBMipgFBVV95cUxOV2ZVSEZOdGtqd3V1RFRHUTJwUUw1bDFTdjdVa0ZiNm0zbnhaZk04a3lNRlBnaHAtcVh2MTRPUzV5WGV1cnlYUS1CQUxISTVKUk81VjVJRWRUU0JyT1JsdU9ieFNwb0xNbngtd2VRNldIOWVqaFBiM1V3UDEtTm15eXMyVmNvcmtCMlhrN1JRVld0b2ZmZ3NJZHF3a2pWeWdpY3N2YVJR?oc=5"
+              },
+              {
+                "source": "google_news",
+                "text": "Ex-Dallas Cowboys player dead at 35 after cancer battle: ‘Fought an incredible fight’ - PennLive.com",
+                "url": "https://news.google.com/rss/articles/CBMixgFBVV95cUxNS1dYeXl6Mi1lMnN3Nkl0WEVTeVNEUVRoZlQ0X2FxUDRxOFNUZ1V6c0E5cGFqSmFiMlNaMWxGYV94OU9ud3o3R2JkU0VFSVFfajhyZ1J4UlZXZnlRdTA4WW9ZREItT1RMZ3ZPVU1sdEpSX1RRd2ZDT0VwblRKWmE5TmRIQWxTX3N4N01LRXFPblZVN2NIYllxelRjeUNSQktIY0s3cWpQMFdFWWRXdXZHbWw2cVlKN2RucXItZWtuUXdFcl9BSEHSAdoBQVVfeXFMUGJQRG5hU1B2SGczaS1DUldTOXdTaWZJczluZm51WDExSk1iMWFLc3VKc0V3aHl2XzJxTEtONm9EOS1rdkJDUGNFaEdjdEFXR2NQc01qeXFLSFBmbjl5LWNhcWpwUlNhNVZyZjBDQWFXd1V6amJkSkRSREZQU2lHRjZZMUZLZ0V5VzNQdldsYUFCR1FLQy05VDIxVmFuUlpmSjk5Z19uTUVlYXFwVU9VRHV1UjhyOGg1dEtpM3B6M1FPZVlFc3BOR24zU2w0U1BfQlRvN09lWGluclE?oc=5"
               }
             ],
             "evidence": "public signal collector"
@@ -339,12 +386,12 @@
             "hook_template": "Some {team} looks aged well. {line}",
             "angle_label": "Throwback / heritage",
             "hook": "Some Dallas Cowboys looks aged well. “DALLAS FOOTBALL 1960 DALLAS” on a tee at $21.99.",
-            "ad_copy": "Some Dallas Cowboys looks aged well. “DALLAS FOOTBALL 1960 DALLAS” on a tee at $21.99. Angle: throwback / heritage. Signal driving it: Dallas Cowboys legend 'concerned' Jerry Jones will start firing coaches Product: Dallas Football 1960 Helmet Vintage Shirt (dallas 1960 shirt). Verify licensing and the live listing before promotion.",
+            "ad_copy": "Some Dallas Cowboys looks aged well. “DALLAS FOOTBALL 1960 DALLAS” on a tee at $21.99. Angle: throwback / heritage. Signal driving it: Dee Winters' 42-yard pick-six score is simply ruled an INT after video review - NFL.com Product: Dallas Football 1960 Helmet Vintage Shirt (dallas 1960 shirt). Verify licensing and the live listing before promotion.",
             "captions": {
-              "instagram": "Closet upgrade. Some Dallas Cowboys looks aged well. “DALLAS FOOTBALL 1960 DALLAS” on a tee at $21.99. Why now: Dallas Cowboys legend 'concerned' Jerry Jones will start firing coaches Tap through to the product page. #dallascowboys #dallas1960shirt #vintagedallasfootballtee",
-              "facebook": "Some Dallas Cowboys looks aged well. “DALLAS FOOTBALL 1960 DALLAS” on a tee at $21.99. Context for Dallas Cowboys fans: Dallas Cowboys legend 'concerned' Jerry Jones will start firing coaches It is a tee at $21.99 from the Dallas Cowboys collection. Tap through to the product page. https://gridironlocker.store/shop/dallas-football-vintage-athletic-style-f/",
-              "x": "Some Dallas Cowboys looks aged well. “DALLAS FOOTBALL 1960 DALLAS” on a tee at $21.99. Dallas Cowboys legend 'concerned' Jerry Jones will start firing coaches https://gridironlocker.store/shop/dallas-football-vintage-athletic-style-f/",
-              "tiktok": "Fit check: Some Dallas Cowboys looks aged well. “DALLAS FOOTBALL 1960 DALLAS” on a tee at $21.99. Script beat: Anchor the product in the era fans keep bringing up. Show the print, then the fit, then the price.",
+              "instagram": "Read the shirt. Some Dallas Cowboys looks aged well. “DALLAS FOOTBALL 1960 DALLAS” on a tee at $21.99. Why now: Dee Winters' 42-yard pick-six score is simply ruled an INT after video review - NFL.com Link in bio for the listing. #dallascowboys #dallas1960shirt #vintagedallasfootballtee",
+              "facebook": "Some Dallas Cowboys looks aged well. “DALLAS FOOTBALL 1960 DALLAS” on a tee at $21.99. Context for Dallas Cowboys fans: Dee Winters' 42-yard pick-six score is simply ruled an INT after video review - NFL.com It is a tee at $21.99 from the Dallas Cowboys collection. Link in bio for the listing. https://gridironlocker.store/shop/dallas-football-vintage-athletic-style-f/",
+              "x": "Some Dallas Cowboys looks aged well. “DALLAS FOOTBALL 1960 DALLAS” on a tee at $21.99. Dee Winters' 42-yard pick-six score is simply ruled an INT after video review - NFL.com https://gridironlocker.store/shop/dallas-football-vintage-athletic-style-f/",
+              "tiktok": "POV: Some Dallas Cowboys looks aged well. “DALLAS FOOTBALL 1960 DALLAS” on a tee at $21.99. Script beat: Anchor the product in the era fans keep bringing up. Show the print, then the fit, then the price.",
               "pinterest": "Dallas Football 1960 Helmet Vintage Shirt - dallas 1960 shirt idea for Dallas Cowboys fans. Anchor the product in the era fans keep bringing up. Tee at $21.99."
             },
             "pinterest": {
@@ -377,43 +424,58 @@
           "team": "Green Bay Packers",
           "trend": {
             "team": "green-bay-packers",
-            "story": "Green Bay Packers Trade Pitch Lands $105.8 Million DT in Massive In-Season Move",
-            "emotion": "worried",
-            "stage": "MAINSTREAM",
-            "signal_count": 2,
+            "story": "Green Bay Packers extend historic Sunday night home record with win over Cowboys - Yahoo Sports",
+            "emotion": "confident",
+            "stage": "ACCELERATING",
+            "signal_count": 28,
             "sources": [
               {
-                "source": "repository_trend_snapshot",
-                "text": "Green Bay Packers Trade Pitch Lands $105.8 Million DT in Massive In-Season Move",
-                "url": "http://www.bing.com/news/apiclick.aspx?ref=FexRss&aid=&tid=6ad67522bed14fe1850320af892c42f6&url=https%3a%2f%2fsports.yahoo.com%2farticles%2fgreen-bay-packers-trade-pitch-162618182.html&c=17657256722980980533&mkt=en-us"
+                "source": "google_news",
+                "text": "Packers Week 6 Snap Counts: Who played against the Dallas Cowboys? - Acme Packing Company",
+                "url": "https://news.google.com/rss/articles/CBMi0AFBVV95cUxPejNlZk1GNk9fbFljS0ppNm05c1cxNHROMzNiel8zZEEzdG43T05PRVVxZEVEdHpEdnVmMnRFZmZlbUFFYWJPcGI5aGJfelB2LUJUMXAyeF9uR1pURU1KTXhnVFA2NTVidDZ2Ni14VWRJc0RaVWtIcUo0cGRtdTFzQ0dCVEdfaGRRUHdubFBPaVNBN2dYVUJJZWtDc3AtbHdSZmJIN3RXZ1NwMno2VTN5YkdNZW5qVkxLc1RPeXNtblhwNzJqM2RNWHBPVzl4d19Q?oc=5"
               },
               {
-                "source": "repository_trend_snapshot",
-                "text": "Packers reporter refuses to rule out blockbuster Eagles trade after Jalen Hurts setback",
-                "url": "https://www.aol.com/articles/packers-reporter-refuses-rule-blockbuster-191726000.html"
+                "source": "google_news",
+                "text": "Green Bay Packers quarterback Jordan Love reflects on Week 6 win over Dallas Cowboys - NFL.com",
+                "url": "https://news.google.com/rss/articles/CBMif0FVX3lxTE05Z1RQWWlLY0xNay1kLWJVYmF0aW5lTmxfZ3FkeVJnZUYzR3VVeWZya2RHT05peTNlLXUwcHptZ1d6Y1RtS01mbHlSb2JVS2k3akNwb2FxMkZjelZhelFkSDRGYUo1eUxkRTVqcE51dk9oRExzd2VlZnhKMW0wVjg?oc=5"
+              },
+              {
+                "source": "google_news",
+                "text": "Green Bay Packers extend historic Sunday night home record with win over Cowboys - Yahoo Sports",
+                "url": "https://news.google.com/rss/articles/CBMiigFBVV95cUxNVFZ0UW8tUzlrNThXNzBRNUlIT2dnQXJiVGFZODViLWhQX0VnYnhEVmtkeTdCaUhTSzlEZ2JzWnZiczJfX3lReUJjRDEydE8wWnFsTDBtd2NjRXJDemN0OWlLMjVfMmJPbUNXLVlqQ2FtX1NLN3diSHFPRGtTcnRLZ0JtelhTcVRpVmc?oc=5"
+              },
+              {
+                "source": "google_news",
+                "text": "16 ejected, 6 arrested during Cowboys-Packers game for Sunday Night Football - WLUK",
+                "url": "https://news.google.com/rss/articles/CBMi5gFBVV95cUxPdklqZnBFYkpzalZkNndLVkw0N25Ld2h1aWF1T0h2akxoN0pPNC1Yc3oyaENPZ3NpdTZOTDhhZk1QV0FyUzdyakhQN2kzWEZ5ZFVtQzV5aWM0TUhzakRuQW1ja2REVDk5VTVNRGI0QWZxcGcxYUQ2cFBILUJrR2lGbWdYamtUUnZ1dlJ2a01pWlVmOEl2LTd0SkhaVGw5NndHZ0V4QjI2M2JZdGhRenIxMFpnNDFOcWRSVzY2cEFRcmllLWZ0SFdZQWt4bXlaQ2RDRktTZE9FYUk2SHgzakhkWncwcFNBZw?oc=5"
+              },
+              {
+                "source": "google_news",
+                "text": "Packers receiver Matthew Golden doesn’t mind flexing on the Cowboys, even if he wasn’t - PackersNews.com",
+                "url": "https://news.google.com/rss/articles/CBMi4AFBVV95cUxPaVZONUpNQ2syRU9QSmZKd3dMaHNLQTlkc21DNHp5S0N4M2owUUI1VHJkRU5td0dPUlR3Unk3V2JpQzZXVm8zQXpuaVlPNllCN1FFZGtlcUczYS0zZlBzbG5Na2ZJeVNrWXlGc0wyS1htdmhqcHJHQ0tRUzBDM0JRZnZZcXBRYVJMbExUQjRLQTZoV0J3bElhZXdIQ2YtMGJTT21pX2trZzdweldoSXZPWFFYVFFLdm9KOGpSZXVKOEotWFZTNjZybVhkTDk3eHRlUmhlb1huXzNiVkpUenNaNg?oc=5"
               }
             ],
             "evidence": "public signal collector"
           },
-          "fan_emotion": "worried",
+          "fan_emotion": "confident",
           "creative_angle": "News reaction",
-          "product_signal_score": 87.4,
+          "product_signal_score": 99.4,
           "copy": {
             "angle": "news_react",
             "hook_template": "The storyline moved this morning; the merch shelf did not. {line}",
             "angle_label": "News reaction",
             "hook": "The storyline moved this morning; the merch shelf did not. “JORDAN FREAKING LOVE” on a tee at $24.99.",
-            "ad_copy": "The storyline moved this morning; the merch shelf did not. “JORDAN FREAKING LOVE” on a tee at $24.99. Angle: news reaction. Signal driving it: Green Bay Packers Trade Pitch Lands $105.8 Million DT in Massive In-Season Move Product: Jordan Freaking Love Shirt (jordan love shirt). Verify licensing and the live listing before promotion.",
+            "ad_copy": "The storyline moved this morning; the merch shelf did not. “JORDAN FREAKING LOVE” on a tee at $24.99. Angle: news reaction. Signal driving it: Green Bay Packers extend historic Sunday night home record with win over Cowboys - Yahoo Sports Product: Jordan Freaking Love Shirt (jordan love shirt). Verify licensing and the live listing before promotion.",
             "captions": {
-              "instagram": "Saved for Sunday. The storyline moved this morning; the merch shelf did not. “JORDAN FREAKING LOVE” on a tee at $24.99. Why now: Green Bay Packers Trade Pitch Lands $105.8 Million DT in Massive In-Season Move See it on the shop page. #greenbaypackers #jordanloveshirt #packersqbtee",
-              "facebook": "The storyline moved this morning; the merch shelf did not. “JORDAN FREAKING LOVE” on a tee at $24.99. Context for Green Bay Packers fans: Green Bay Packers Trade Pitch Lands $105.8 Million DT in Massive In-Season Move It is a tee at $24.99 from the Green Bay Packers collection. See it on the shop page. https://gridironlocker.store/shop/limited-edition-grb30/",
-              "x": "The storyline moved this morning; the merch shelf did not. “JORDAN FREAKING LOVE” on a tee at $24.99. Green Bay Packers Trade Pitch Lands $105.8 Million DT in Massive In-Season Move https://gridironlocker.store/shop/limited-edition-grb30/",
-              "tiktok": "Nobody asked, but: The storyline moved this morning; the merch shelf did not. “JORDAN FREAKING LOVE” on a tee at $24.99. Script beat: React to the storyline that is moving right now. Show the print, then the fit, then the price.",
+              "instagram": "Locked in. The storyline moved this morning; the merch shelf did not. “JORDAN FREAKING LOVE” on a tee at $24.99. Why now: Green Bay Packers extend historic Sunday night home record with win over Cowboys - Yahoo Sports Full details on the listing. #greenbaypackers #jordanloveshirt #packersqbtee",
+              "facebook": "The storyline moved this morning; the merch shelf did not. “JORDAN FREAKING LOVE” on a tee at $24.99. Context for Green Bay Packers fans: Green Bay Packers extend historic Sunday night home record with win over Cowboys - Yahoo Sports It is a tee at $24.99 from the Green Bay Packers collection. Full details on the listing. https://gridironlocker.store/shop/limited-edition-grb30/",
+              "x": "The storyline moved this morning; the merch shelf did not. “JORDAN FREAKING LOVE” on a tee at $24.99. Green Bay Packers extend historic Sunday night home record with win over Cowboys - Yahoo S https://gridironlocker.store/shop/limited-edition-grb30/",
+              "tiktok": "Storytime, short version: The storyline moved this morning; the merch shelf did not. “JORDAN FREAKING LOVE” on a tee at $24.99. Script beat: React to the storyline that is moving right now. Show the print, then the fit, then the price.",
               "pinterest": "Jordan Freaking Love Shirt - jordan love shirt idea for Green Bay Packers fans. React to the storyline that is moving right now. Tee at $24.99."
             },
             "pinterest": {
               "title": "Jordan Freaking Love Shirt: Jordan Love Shirt",
-              "description": "News reaction pin for Green Bay Packers fans feeling worried. “JORDAN FREAKING LOVE” on a tee at $24.99. Use only after the product and licensing review.",
+              "description": "News reaction pin for Green Bay Packers fans feeling confident. “JORDAN FREAKING LOVE” on a tee at $24.99. Use only after the product and licensing review.",
               "keywords": [
                 "jordan love shirt",
                 "packers qb tee",
@@ -447,35 +509,35 @@
           "team": "Cleveland Browns",
           "trend": {
             "team": "cleveland-browns",
-            "story": "‘This Might Be the Best Defense That I’ve Seen’ — Former Browns WR Makes Bold Claim About Cleveland Without Myles Garrett After Ravens Win",
+            "story": "Around the AFC North: Jerry Jeudy’s Clutch Play May Silence Trade Rumors - Baltimore Ravens",
             "emotion": "confident",
             "stage": "ACCELERATING",
-            "signal_count": 8,
+            "signal_count": 28,
             "sources": [
               {
-                "source": "repository_trend_snapshot",
-                "text": "Todd Monken's latest Deshaun Watson comments reveal Browns' uncomfortable reality",
-                "url": "http://www.bing.com/news/apiclick.aspx?ref=FexRss&aid=&tid=6ad674facf46478190a45c95c77c639e&url=https%3a%2f%2fsports.yahoo.com%2farticles%2ftodd-monkens-latest-deshaun-watson-150004319.html&c=6773058979577020315&mkt=en-us"
+                "source": "google_news",
+                "text": "Browns vault into first place with last-second field goal, as Ravens blow another double-digit lead - Yahoo Sports",
+                "url": "https://news.google.com/rss/articles/CBMi3AFBVV95cUxQc1dQQThUeHhYYk02WXRqSXZXaXBBWFJ1dERsRkhndUZ6djIzcjdVQmJPVUNrYks2MTZJcnpiZEJuM0EySlVfMnphZ0M1RGktLVU5Uk0zMndZT2VaOEE3WElfdk1URW1YNWdEWjBkOV9QclNNYTVnVmZJSVJzZjV6UDFVTlVPVXpwQlhkMVJZMWZ4UGY4eVB4MW1LWENMZU5TT1N4bV8zNzlYT0VyYlZUZ09SZlptR01yWDJ5d2I1SXhHUEYtX1prZGZVT3Y2dnI0TWlqQmJHUUltMU9L?oc=5"
               },
               {
-                "source": "repository_trend_snapshot",
-                "text": "Browns vs Titans picks, predictions, odds for NFL Week 7 game Sunday",
-                "url": "http://www.bing.com/news/apiclick.aspx?ref=FexRss&aid=&tid=6ad674facf46478190a45c95c77c639e&url=https%3a%2f%2fwww.azcentral.com%2fstory%2fsports%2fnfl%2f2026%2f10%2f19%2fcleveland-browns-tennessee-titans-picks-predictions-odds-nfl-week-7%2f90426923007%2f&c=5357776758822627447&mkt=en-us"
+                "source": "google_news",
+                "text": "Jerry Jeudy, amid trade buzz, has clutch catch in Browns' win, gets game ball - ESPN",
+                "url": "https://news.google.com/rss/articles/CBMimwFBVV95cUxQU0ZvNUpkd2FMTEQ0MkFJLTgyLVAyU0R5Y1RhWnJXbExxOUZhdkJzdndLVkctY19yeWlaZnZQaE9tdXVsQ0dEenJZT3NneHhWRFRUR1gtd2FQamMtSW02UXBPMURVVURXdEhYMW9TSnhiZ3FxUktTMURwVGY4cm5wOFgtR2ZEeU1wRTZRWXdZdzI4RUVEVlhLb2dZRQ?oc=5"
               },
               {
-                "source": "repository_trend_snapshot",
-                "text": "‘This Might Be the Best Defense That I’ve Seen’ — Former Browns WR Makes Bold Claim About Cleveland Without Myles Garrett After Ravens Win",
-                "url": "http://www.bing.com/news/apiclick.aspx?ref=FexRss&aid=&tid=6ad674facf46478190a45c95c77c639e&url=https%3a%2f%2fwww.msn.com%2fen-us%2fnews%2fother%2fthis-might-be-the-best-defense-that-i-ve-seen-former-browns-wr-makes-bold-claim-about-cleveland-without-myles-garrett-after-ravens-win%2far-AA2fB3st&c=11391187706629233997&mkt=en-us"
+                "source": "google_news",
+                "text": "Around the AFC North: Jerry Jeudy’s Clutch Play May Silence Trade Rumors - Baltimore Ravens",
+                "url": "https://news.google.com/rss/articles/CBMiggJBVV95cUxPLW92b2pXNkRxWm5kUDROUk5TWVRqdUJ4M1hBbUJJRWFhNDlZQWU1djZUNDV2dWJfVzFlSEswc01kZk9HYVVDRncxQ1BtcHotSjB5eU8zaUt2bUpoXzZmazBsWE9fWFJhOEtnRGpZRThiZTYxVkFvcUZoSzFIS3BuU0k1V0xHN28yQkdfalNPV1BIV0pFYnVBckxDcTVZVlZ3SlIwUkdSNVdJeVRJbHd6eHFIZ3o5VElWbEZlRzhXc0JoU2tuU0hQajNUQ0pwbkp0b3FKelVPdnhETUkta1RhUmJ0NjVfcXFfbG5wZUtWd1ZCcTdJWXNvWGNFQ0J4c0VZQ2c?oc=5"
               },
               {
-                "source": "repository_trend_snapshot",
-                "text": "Browns' Andre Szmyt can't get enough of the feeling of winning",
-                "url": "http://www.bing.com/news/apiclick.aspx?ref=FexRss&aid=&tid=6ad674facf46478190a45c95c77c639e&url=https%3a%2f%2fbrownswire.usatoday.com%2fstory%2fsports%2fnfl%2fbrowns%2f2026%2f10%2f19%2fbrowns-andre-szmyt-cant-get-enough-of-winning%2f92329843007%2f&c=16001909200175016506&mkt=en-us"
+                "source": "google_news",
+                "text": "Amid trade rumors, Jerry Jeudy reminds the Browns of his value - AL.com",
+                "url": "https://news.google.com/rss/articles/CBMingFBVV95cUxPVWYzWmJEN3NqNDhMbUdlNVVGUmEtalViNFRhclppbldFZi1obFNSU3Nqb3VWNmhPNXd5MW90SHJ6UVBiam16TF82cmI2LXNlY1VEOG1TN1VaaUJEeWFMZ0JTbGJ2OGotMmNXOVVZRjNSajljTURPRmRyRDFqQnpjQ2VuVUZMX3NjaklBT3dNc1BtY2NxZUx2aFhxQ29Udw?oc=5"
               },
               {
-                "source": "repository_trend_snapshot",
-                "text": "Tyler Huntley's Missed Oppurtunities Proved Costly Against Browns",
-                "url": "http://www.bing.com/news/apiclick.aspx?ref=FexRss&aid=&tid=6ad674facf46478190a45c95c77c639e&url=https%3a%2f%2fwww.msn.com%2fen-us%2fnews%2fother%2ftyler-huntleys-missed-oppurtunities-proved-costly-against-browns%2far-AA2fAkCd&c=16856772890200139881&mkt=en-us"
+                "source": "google_news",
+                "text": "Why These ‘Ain’t the Same Old Browns Anymore’ - Sports Illustrated",
+                "url": "https://news.google.com/rss/articles/CBMickFVX3lxTFBaX1VBdVF3bG9pMHN3UnR4U21EaEZ4bl84a182S2xteTlYamVjclN0eWliU01PT1lkYUFqVWpYMlZmS0ZwZFRCbktBUjA3RDN2Ql94UW9pOXVhS0NyWF9xLXMzQTBkYVVLWG4wbFB3aG1uZw?oc=5"
               }
             ],
             "evidence": "public signal collector"
@@ -485,15 +547,15 @@
           "product_signal_score": 155.6,
           "copy": {
             "angle": "identity",
-            "hook_template": "{team} fandom is not a costume - it is a wardrobe decision. {line}",
+            "hook_template": "No slogan, no filler: {line}",
             "angle_label": "Fan identity statement",
-            "hook": "Cleveland Browns fandom is not a costume - it is a wardrobe decision. “SANDERS QB 12 SIGNATURE” on a tee at $22.99.",
-            "ad_copy": "Cleveland Browns fandom is not a costume - it is a wardrobe decision. “SANDERS QB 12 SIGNATURE” on a tee at $22.99. Angle: fan identity statement. Signal driving it: ‘This Might Be the Best Defense That I’ve Seen’ — Former Browns WR Makes Bold Claim About Cleveland Without Myles Garrett After Ravens Win Product: Sanders QB Signature White Shirt (sanders white tee). Verify licensing and the live listing before promotion.",
+            "hook": "No slogan, no filler: “SANDERS QB 12 SIGNATURE” on a tee at $22.99.",
+            "ad_copy": "No slogan, no filler: “SANDERS QB 12 SIGNATURE” on a tee at $22.99. Angle: fan identity statement. Signal driving it: Around the AFC North: Jerry Jeudy’s Clutch Play May Silence Trade Rumors - Baltimore Ravens Product: Sanders QB Signature White Shirt (sanders white tee). Verify licensing and the live listing before promotion.",
             "captions": {
-              "instagram": "Read the shirt. Cleveland Browns fandom is not a costume - it is a wardrobe decision. “SANDERS QB 12 SIGNATURE” on a tee at $22.99. Why now: ‘This Might Be the Best Defense That I’ve Seen’ — Former Browns WR Makes Bold Claim About Cleveland Without Myles Garrett After Ravens Win Link in bio for the listing. #clevelandbrowns #sanderswhitetee #brownsquarterbackshirt",
-              "facebook": "Cleveland Browns fandom is not a costume - it is a wardrobe decision. “SANDERS QB 12 SIGNATURE” on a tee at $22.99. Context for Cleveland Browns fans: ‘This Might Be the Best Defense That I’ve Seen’ — Former Browns WR Makes Bold Claim About Cleveland Without Myles Garrett After Ravens Win It is a tee at $22.99 from the Cleveland Browns collection. Link in bio for the listing. https://gridironlocker.store/shop/sanders-special-edition/",
-              "x": "Cleveland Browns fandom is not a costume - it is a wardrobe decision. “SANDERS QB 12 SIGNATURE” on a tee at $22.99. ‘This Might Be the Best Defense That I’ve Seen’ — Former Browns WR Makes Bold Claim About https://gridironlocker.store/shop/sanders-special-edition/",
-              "tiktok": "POV: Cleveland Browns fandom is not a costume - it is a wardrobe decision. “SANDERS QB 12 SIGNATURE” on a tee at $22.99. Script beat: Say who you root for before you say a word. Show the print, then the fit, then the price.",
+              "instagram": "One piece, whole mood. No slogan, no filler: “SANDERS QB 12 SIGNATURE” on a tee at $22.99. Why now: Around the AFC North: Jerry Jeudy’s Clutch Play May Silence Trade Rumors - Baltimore Ravens Sizes and colours are on the product page. #clevelandbrowns #sanderswhitetee #brownsquarterbackshirt",
+              "facebook": "No slogan, no filler: “SANDERS QB 12 SIGNATURE” on a tee at $22.99. Context for Cleveland Browns fans: Around the AFC North: Jerry Jeudy’s Clutch Play May Silence Trade Rumors - Baltimore Ravens It is a tee at $22.99 from the Cleveland Browns collection. Sizes and colours are on the product page. https://gridironlocker.store/shop/sanders-special-edition/",
+              "x": "No slogan, no filler: “SANDERS QB 12 SIGNATURE” on a tee at $22.99. Around the AFC North: Jerry Jeudy’s Clutch Play May Silence Trade Rumors - Baltimore Raven https://gridironlocker.store/shop/sanders-special-edition/",
+              "tiktok": "Three seconds of Cleveland Browns truth: No slogan, no filler: “SANDERS QB 12 SIGNATURE” on a tee at $22.99. Script beat: Say who you root for before you say a word. Show the print, then the fit, then the price.",
               "pinterest": "Sanders QB Signature White Shirt - sanders white tee idea for Cleveland Browns fans. Say who you root for before you say a word. Tee at $22.99."
             },
             "pinterest": {
@@ -526,43 +588,58 @@
           "team": "Dallas Cowboys",
           "trend": {
             "team": "dallas-cowboys",
-            "story": "Cowboys sideline exclusive: When Dallas should've known it'd be a tough night in Green Bay",
+            "story": "Ex-Dallas Cowboys player dead at 35 after cancer battle: ‘Fought an incredible fight’ - PennLive.com",
             "emotion": "worried",
-            "stage": "MAINSTREAM",
-            "signal_count": 2,
+            "stage": "ACCELERATING",
+            "signal_count": 28,
             "sources": [
               {
-                "source": "repository_trend_snapshot",
-                "text": "Cowboys sideline exclusive: When Dallas should've known it'd be a tough night in Green Bay",
-                "url": "http://www.bing.com/news/apiclick.aspx?ref=FexRss&aid=&tid=6ad6754e0b3343f58002a5e8feccaf90&url=https%3a%2f%2fwww.msn.com%2fen-us%2fnews%2fother%2fcowboys-sideline-exclusive-when-dallas-shouldve-known-itd-be-a-tough-night-in-green-bay%2far-AA2fApQs&c=2100190840428134233&mkt=en-us"
+                "source": "google_news",
+                "text": "Pic 6: Cowboys struggle vs. Green Bay's pressure, make multiple personnel changes - Dallas Cowboys | Official Site of the Dallas Cowboys",
+                "url": "https://news.google.com/rss/articles/CBMiswFBVV95cUxPWWE3VkRacVl5UEt1cFFfNnhaTnN3cnZJWUxlbEpqUVhlUXdtWTQzMGw0MXZPbTZjM2ZXclpXaWRRMmhJdld5cUV3R0NYejJOQ05UcUpQa2JtZ2szM21pdUNOQ3NaVndSOFhmb0QyR2g5anJQOXRJZDd1UG5ZZy11VHVNSHNrSVZBZ0dQbzRqMjhXbG1nZlRONmt3OHpoaTJ3QklhOWUtOW1meDA4VDNCMEI4RQ?oc=5"
               },
               {
-                "source": "repository_trend_snapshot",
-                "text": "Dallas Cowboys legend 'concerned' Jerry Jones will start firing coaches",
-                "url": "https://www.msn.com/en-us/sports/football/dallas-cowboys-legend-concerned-jerry-jones-will-start-firing-coaches/ar-AA2fAxef?ocid=BingNewsVerp"
+                "source": "google_news",
+                "text": "Cowboys’ perfect Josh Sweat trade offer to Cardinals before NFL trade deadline - Yahoo Sports",
+                "url": "https://news.google.com/rss/articles/CBMiiAFBVV95cUxONndEZzVna0o5alItNElkaVdBQTdfaG44T1lfdDhQR0xhVDJyS29IYTEtdlhLblRWT3Jkb2hORFg4QXVFUzR6NUtqR3NXTmp5X3BmTXRDQ0RYajl5Ry1wX2E0dUtiZlhROHdGOF9HR0RveV9pbHBHSWx5QWUtaERxY0ZRZi1Jcm96?oc=5"
+              },
+              {
+                "source": "google_news",
+                "text": "LIVE: Player's Lounge | 10/19/26 - Dallas Cowboys | Official Site of the Dallas Cowboys",
+                "url": "https://news.google.com/rss/articles/CBMic0FVX3lxTE93YU1Hakpha1ZENFZZaVdGWnBlc1pDMkk5TmNkbGFHRE5Jb2FqSHU4Tmh1YzJrdHRrb0lLQmN4eDNQSWlUa2xNWnNOUklHeGhZYzBKMFROUjZNSVI3TmNHeG5fS2JQYVAtTmxkamszZ2MwTDA?oc=5"
+              },
+              {
+                "source": "google_news",
+                "text": "Dee Winters' 42-yard pick-six score is simply ruled an INT after video review - NFL.com",
+                "url": "https://news.google.com/rss/articles/CBMipgFBVV95cUxOV2ZVSEZOdGtqd3V1RFRHUTJwUUw1bDFTdjdVa0ZiNm0zbnhaZk04a3lNRlBnaHAtcVh2MTRPUzV5WGV1cnlYUS1CQUxISTVKUk81VjVJRWRUU0JyT1JsdU9ieFNwb0xNbngtd2VRNldIOWVqaFBiM1V3UDEtTm15eXMyVmNvcmtCMlhrN1JRVld0b2ZmZ3NJZHF3a2pWeWdpY3N2YVJR?oc=5"
+              },
+              {
+                "source": "google_news",
+                "text": "Ex-Dallas Cowboys player dead at 35 after cancer battle: ‘Fought an incredible fight’ - PennLive.com",
+                "url": "https://news.google.com/rss/articles/CBMixgFBVV95cUxNS1dYeXl6Mi1lMnN3Nkl0WEVTeVNEUVRoZlQ0X2FxUDRxOFNUZ1V6c0E5cGFqSmFiMlNaMWxGYV94OU9ud3o3R2JkU0VFSVFfajhyZ1J4UlZXZnlRdTA4WW9ZREItT1RMZ3ZPVU1sdEpSX1RRd2ZDT0VwblRKWmE5TmRIQWxTX3N4N01LRXFPblZVN2NIYllxelRjeUNSQktIY0s3cWpQMFdFWWRXdXZHbWw2cVlKN2RucXItZWtuUXdFcl9BSEHSAdoBQVVfeXFMUGJQRG5hU1B2SGczaS1DUldTOXdTaWZJczluZm51WDExSk1iMWFLc3VKc0V3aHl2XzJxTEtONm9EOS1rdkJDUGNFaEdjdEFXR2NQc01qeXFLSFBmbjl5LWNhcWpwUlNhNVZyZjBDQWFXd1V6amJkSkRSREZQU2lHRjZZMUZLZ0V5VzNQdldsYUFCR1FLQy05VDIxVmFuUlpmSjk5Z19uTUVlYXFwVU9VRHV1UjhyOGg1dEtpM3B6M1FPZVlFc3BOR24zU2w0U1BfQlRvN09lWGluclE?oc=5"
               }
             ],
             "evidence": "public signal collector"
           },
           "fan_emotion": "worried",
-          "creative_angle": "Outfit styling",
+          "creative_angle": "Throwback / heritage",
           "product_signal_score": 111.4,
           "copy": {
-            "angle": "styling",
-            "hook_template": "Game day fit, weekday wearable. {line}",
-            "angle_label": "Outfit styling",
-            "hook": "Game day fit, weekday wearable. “DALLAS 1960 FOOTBALL WITH RETRO HELMET” on a tee at $21.99.",
-            "ad_copy": "Game day fit, weekday wearable. “DALLAS 1960 FOOTBALL WITH RETRO HELMET” on a tee at $21.99. Angle: outfit styling. Signal driving it: Cowboys sideline exclusive: When Dallas should've known it'd be a tough night in Green Bay Product: Dallas 1960 Football Helmet White Shirt (dallas white tee). Verify licensing and the live listing before promotion.",
+            "angle": "throwback",
+            "hook_template": "Fans keep bringing up the old {team} era, so here it is on cotton. {line}",
+            "angle_label": "Throwback / heritage",
+            "hook": "Fans keep bringing up the old Dallas Cowboys era, so here it is on cotton. “DALLAS 1960 FOOTBALL WITH RETRO HELMET” on a tee at $21.99.",
+            "ad_copy": "Fans keep bringing up the old Dallas Cowboys era, so here it is on cotton. “DALLAS 1960 FOOTBALL WITH RETRO HELMET” on a tee at $21.99. Angle: throwback / heritage. Signal driving it: Ex-Dallas Cowboys player dead at 35 after cancer battle: ‘Fought an incredible fight’ - PennLive.com Product: Dallas 1960 Football Helmet White Shirt (dallas white tee). Verify licensing and the live listing before promotion.",
             "captions": {
-              "instagram": "Read the shirt. Game day fit, weekday wearable. “DALLAS 1960 FOOTBALL WITH RETRO HELMET” on a tee at $21.99. Why now: Cowboys sideline exclusive: When Dallas should've known it'd be a tough night in Green Bay Link in bio for the listing. #dallascowboys #dallaswhitetee #vintage1960dallasshirt",
-              "facebook": "Game day fit, weekday wearable. “DALLAS 1960 FOOTBALL WITH RETRO HELMET” on a tee at $21.99. Context for Dallas Cowboys fans: Cowboys sideline exclusive: When Dallas should've known it'd be a tough night in Green Bay It is a tee at $21.99 from the Dallas Cowboys collection. Link in bio for the listing. https://gridironlocker.store/shop/dallas-texas-vintage-athletic-style-t-sh/",
-              "x": "Game day fit, weekday wearable. “DALLAS 1960 FOOTBALL WITH RETRO HELMET” on a tee at $21.99. Cowboys sideline exclusive: When Dallas should've known it'd be a tough night in Green Bay https://gridironlocker.store/shop/dallas-texas-vintage-athletic-style-t-sh/",
-              "tiktok": "POV: Game day fit, weekday wearable. “DALLAS 1960 FOOTBALL WITH RETRO HELMET” on a tee at $21.99. Script beat: Show how the piece is worn, not just what it says. Show the print, then the fit, then the price.",
-              "pinterest": "Dallas 1960 Football Helmet White Shirt - dallas white tee idea for Dallas Cowboys fans. Show how the piece is worn, not just what it says. Tee at $21.99."
+              "instagram": "Closet upgrade. Fans keep bringing up the old Dallas Cowboys era, so here it is on cotton. “DALLAS 1960 FOOTBALL WITH RETRO HELMET” on a tee at $21.99. Why now: Ex-Dallas Cowboys player dead at 35 after cancer battle: ‘Fought an incredible fight’ - PennLive.com Tap through to the product page. #dallascowboys #dallaswhitetee #vintage1960dallasshirt",
+              "facebook": "Fans keep bringing up the old Dallas Cowboys era, so here it is on cotton. “DALLAS 1960 FOOTBALL WITH RETRO HELMET” on a tee at $21.99. Context for Dallas Cowboys fans: Ex-Dallas Cowboys player dead at 35 after cancer battle: ‘Fought an incredible fight’ - PennLive.com It is a tee at $21.99 from the Dallas Cowboys collection. Tap through to the product page. https://gridironlocker.store/shop/dallas-texas-vintage-athletic-style-t-sh/",
+              "x": "Fans keep bringing up the old Dallas Cowboys era, so here it is on cotton. “DALLAS 1960 FOOTBALL WITH RETRO HELMET” on a tee at $21.99. Ex-Dallas Cowboys player dead at 35 after cancer battle: ‘Fought an incredible fight’ - Pe https://gridironlocker.store/shop/dallas-texas-vin…",
+              "tiktok": "Fit check: Fans keep bringing up the old Dallas Cowboys era, so here it is on cotton. “DALLAS 1960 FOOTBALL WITH RETRO HELMET” on a tee at $21.99. Script beat: Anchor the product in the era fans keep bringing up. Show the print, then the fit, then the price.",
+              "pinterest": "Dallas 1960 Football Helmet White Shirt - dallas white tee idea for Dallas Cowboys fans. Anchor the product in the era fans keep bringing up. Tee at $21.99."
             },
             "pinterest": {
               "title": "Dallas 1960 Football Helmet White Shirt: Dallas White Tee",
-              "description": "Outfit styling pin for Dallas Cowboys fans feeling worried. “DALLAS 1960 FOOTBALL WITH RETRO HELMET” on a tee at $21.99. Use only after the product and licensing review.",
+              "description": "Throwback / heritage pin for Dallas Cowboys fans feeling worried. “DALLAS 1960 FOOTBALL WITH RETRO HELMET” on a tee at $21.99. Use only after the product and licensing review.",
               "keywords": [
                 "dallas white tee",
                 "vintage 1960 dallas shirt",
@@ -590,43 +667,58 @@
           "team": "Green Bay Packers",
           "trend": {
             "team": "green-bay-packers",
-            "story": "Packers reporter refuses to rule out blockbuster Eagles trade after Jalen Hurts setback",
-            "emotion": "worried",
-            "stage": "MAINSTREAM",
-            "signal_count": 2,
+            "story": "16 ejected, 6 arrested during Cowboys-Packers game for Sunday Night Football - WLUK",
+            "emotion": "confident",
+            "stage": "ACCELERATING",
+            "signal_count": 28,
             "sources": [
               {
-                "source": "repository_trend_snapshot",
-                "text": "Green Bay Packers Trade Pitch Lands $105.8 Million DT in Massive In-Season Move",
-                "url": "http://www.bing.com/news/apiclick.aspx?ref=FexRss&aid=&tid=6ad67522bed14fe1850320af892c42f6&url=https%3a%2f%2fsports.yahoo.com%2farticles%2fgreen-bay-packers-trade-pitch-162618182.html&c=17657256722980980533&mkt=en-us"
+                "source": "google_news",
+                "text": "Packers Week 6 Snap Counts: Who played against the Dallas Cowboys? - Acme Packing Company",
+                "url": "https://news.google.com/rss/articles/CBMi0AFBVV95cUxPejNlZk1GNk9fbFljS0ppNm05c1cxNHROMzNiel8zZEEzdG43T05PRVVxZEVEdHpEdnVmMnRFZmZlbUFFYWJPcGI5aGJfelB2LUJUMXAyeF9uR1pURU1KTXhnVFA2NTVidDZ2Ni14VWRJc0RaVWtIcUo0cGRtdTFzQ0dCVEdfaGRRUHdubFBPaVNBN2dYVUJJZWtDc3AtbHdSZmJIN3RXZ1NwMno2VTN5YkdNZW5qVkxLc1RPeXNtblhwNzJqM2RNWHBPVzl4d19Q?oc=5"
               },
               {
-                "source": "repository_trend_snapshot",
-                "text": "Packers reporter refuses to rule out blockbuster Eagles trade after Jalen Hurts setback",
-                "url": "https://www.aol.com/articles/packers-reporter-refuses-rule-blockbuster-191726000.html"
+                "source": "google_news",
+                "text": "Green Bay Packers quarterback Jordan Love reflects on Week 6 win over Dallas Cowboys - NFL.com",
+                "url": "https://news.google.com/rss/articles/CBMif0FVX3lxTE05Z1RQWWlLY0xNay1kLWJVYmF0aW5lTmxfZ3FkeVJnZUYzR3VVeWZya2RHT05peTNlLXUwcHptZ1d6Y1RtS01mbHlSb2JVS2k3akNwb2FxMkZjelZhelFkSDRGYUo1eUxkRTVqcE51dk9oRExzd2VlZnhKMW0wVjg?oc=5"
+              },
+              {
+                "source": "google_news",
+                "text": "Green Bay Packers extend historic Sunday night home record with win over Cowboys - Yahoo Sports",
+                "url": "https://news.google.com/rss/articles/CBMiigFBVV95cUxNVFZ0UW8tUzlrNThXNzBRNUlIT2dnQXJiVGFZODViLWhQX0VnYnhEVmtkeTdCaUhTSzlEZ2JzWnZiczJfX3lReUJjRDEydE8wWnFsTDBtd2NjRXJDemN0OWlLMjVfMmJPbUNXLVlqQ2FtX1NLN3diSHFPRGtTcnRLZ0JtelhTcVRpVmc?oc=5"
+              },
+              {
+                "source": "google_news",
+                "text": "16 ejected, 6 arrested during Cowboys-Packers game for Sunday Night Football - WLUK",
+                "url": "https://news.google.com/rss/articles/CBMi5gFBVV95cUxPdklqZnBFYkpzalZkNndLVkw0N25Ld2h1aWF1T0h2akxoN0pPNC1Yc3oyaENPZ3NpdTZOTDhhZk1QV0FyUzdyakhQN2kzWEZ5ZFVtQzV5aWM0TUhzakRuQW1ja2REVDk5VTVNRGI0QWZxcGcxYUQ2cFBILUJrR2lGbWdYamtUUnZ1dlJ2a01pWlVmOEl2LTd0SkhaVGw5NndHZ0V4QjI2M2JZdGhRenIxMFpnNDFOcWRSVzY2cEFRcmllLWZ0SFdZQWt4bXlaQ2RDRktTZE9FYUk2SHgzakhkWncwcFNBZw?oc=5"
+              },
+              {
+                "source": "google_news",
+                "text": "Packers receiver Matthew Golden doesn’t mind flexing on the Cowboys, even if he wasn’t - PackersNews.com",
+                "url": "https://news.google.com/rss/articles/CBMi4AFBVV95cUxPaVZONUpNQ2syRU9QSmZKd3dMaHNLQTlkc21DNHp5S0N4M2owUUI1VHJkRU5td0dPUlR3Unk3V2JpQzZXVm8zQXpuaVlPNllCN1FFZGtlcUczYS0zZlBzbG5Na2ZJeVNrWXlGc0wyS1htdmhqcHJHQ0tRUzBDM0JRZnZZcXBRYVJMbExUQjRLQTZoV0J3bElhZXdIQ2YtMGJTT21pX2trZzdweldoSXZPWFFYVFFLdm9KOGpSZXVKOEotWFZTNjZybVhkTDk3eHRlUmhlb1huXzNiVkpUenNaNg?oc=5"
               }
             ],
             "evidence": "public signal collector"
           },
-          "fan_emotion": "worried",
+          "fan_emotion": "confident",
           "creative_angle": "News reaction",
-          "product_signal_score": 87.4,
+          "product_signal_score": 99.4,
           "copy": {
             "angle": "news_react",
-            "hook_template": "One headline, one {team} reaction piece: {line}",
+            "hook_template": "Everyone in the {team} timeline is arguing about the same thing today. {line}",
             "angle_label": "News reaction",
-            "hook": "One headline, one Green Bay Packers reaction piece: “PLAYER WITH A STARS AND STRIPES NUMBER 10” on a tee at $24.99.",
-            "ad_copy": "One headline, one Green Bay Packers reaction piece: “PLAYER WITH A STARS AND STRIPES NUMBER 10” on a tee at $24.99. Angle: news reaction. Signal driving it: Packers reporter refuses to rule out blockbuster Eagles trade after Jalen Hurts setback Product: Jordan Love 10 Flag Number Shirt (jordan love flag shirt). Verify licensing and the live listing before promotion.",
+            "hook": "Everyone in the Green Bay Packers timeline is arguing about the same thing today. “PLAYER WITH A STARS AND STRIPES NUMBER 10” on a tee at $24.99.",
+            "ad_copy": "Everyone in the Green Bay Packers timeline is arguing about the same thing today. “PLAYER WITH A STARS AND STRIPES NUMBER 10” on a tee at $24.99. Angle: news reaction. Signal driving it: 16 ejected, 6 arrested during Cowboys-Packers game for Sunday Night Football - WLUK Product: Jordan Love 10 Flag Number Shirt (jordan love flag shirt). Verify licensing and the live listing before promotion.",
             "captions": {
-              "instagram": "Locked in. One headline, one Green Bay Packers reaction piece: “PLAYER WITH A STARS AND STRIPES NUMBER 10” on a tee at $24.99. Why now: Packers reporter refuses to rule out blockbuster Eagles trade after Jalen Hurts setback Full details on the listing. #greenbaypackers #jordanloveflagshirt #packers10tee",
-              "facebook": "One headline, one Green Bay Packers reaction piece: “PLAYER WITH A STARS AND STRIPES NUMBER 10” on a tee at $24.99. Context for Green Bay Packers fans: Packers reporter refuses to rule out blockbuster Eagles trade after Jalen Hurts setback It is a tee at $24.99 from the Green Bay Packers collection. Full details on the listing. https://gridironlocker.store/shop/limited-edition-grb36/",
-              "x": "One headline, one Green Bay Packers reaction piece: “PLAYER WITH A STARS AND STRIPES NUMBER 10” on a tee at $24.99. Packers reporter refuses to rule out blockbuster Eagles trade after Jalen Hurts setback https://gridironlocker.store/shop/limited-edition-grb36/",
-              "tiktok": "Storytime, short version: One headline, one Green Bay Packers reaction piece: “PLAYER WITH A STARS AND STRIPES NUMBER 10” on a tee at $24.99. Script beat: React to the storyline that is moving right now. Show the print, then the fit, then the price.",
+              "instagram": "Locked in. Everyone in the Green Bay Packers timeline is arguing about the same thing today. “PLAYER WITH A STARS AND STRIPES NUMBER 10” on a tee at $24.99. Why now: 16 ejected, 6 arrested during Cowboys-Packers game for Sunday Night Football - WLUK Full details on the listing. #greenbaypackers #jordanloveflagshirt #packers10tee",
+              "facebook": "Everyone in the Green Bay Packers timeline is arguing about the same thing today. “PLAYER WITH A STARS AND STRIPES NUMBER 10” on a tee at $24.99. Context for Green Bay Packers fans: 16 ejected, 6 arrested during Cowboys-Packers game for Sunday Night Football - WLUK It is a tee at $24.99 from the Green Bay Packers collection. Full details on the listing. https://gridironlocker.store/shop/limited-edition-grb36/",
+              "x": "Everyone in the Green Bay Packers timeline is arguing about the same thing today. “PLAYER WITH A STARS AND STRIPES NUMBER 10” on a tee at $24.99. 16 ejected, 6 arrested during Cowboys-Packers game for Sunday Night Football - WLUK https://gridironlocker.store/shop/limited-editi…",
+              "tiktok": "Storytime, short version: Everyone in the Green Bay Packers timeline is arguing about the same thing today. “PLAYER WITH A STARS AND STRIPES NUMBER 10” on a tee at $24.99. Script beat: React to the storyline that is moving right now. Show the print, then the fit, then the price.",
               "pinterest": "Jordan Love 10 Flag Number Shirt - jordan love flag shirt idea for Green Bay Packers fans. React to the storyline that is moving right now. Tee at $24.99."
             },
             "pinterest": {
               "title": "Jordan Love 10 Flag Number Shirt: Jordan Love Flag Shirt",
-              "description": "News reaction pin for Green Bay Packers fans feeling worried. “PLAYER WITH A STARS AND STRIPES NUMBER 10” on a tee at $24.99. Use only after the product and licensing review.",
+              "description": "News reaction pin for Green Bay Packers fans feeling confident. “PLAYER WITH A STARS AND STRIPES NUMBER 10” on a tee at $24.99. Use only after the product and licensing review.",
               "keywords": [
                 "jordan love flag shirt",
                 "packers 10 tee",
@@ -663,9 +755,650 @@
   },
   "signal_limits": {
     "google_news": {
-      "status": "error",
-      "items": [],
-      "reason": "HTTP Error 503: Service Unavailable"
+      "status": "connected",
+      "items": [
+        {
+          "source": "google_news",
+          "team": "cleveland-browns",
+          "text": "Browns vault into first place with last-second field goal, as Ravens blow another double-digit lead - Yahoo Sports",
+          "url": "https://news.google.com/rss/articles/CBMi3AFBVV95cUxQc1dQQThUeHhYYk02WXRqSXZXaXBBWFJ1dERsRkhndUZ6djIzcjdVQmJPVUNrYks2MTZJcnpiZEJuM0EySlVfMnphZ0M1RGktLVU5Uk0zMndZT2VaOEE3WElfdk1URW1YNWdEWjBkOV9QclNNYTVnVmZJSVJzZjV6UDFVTlVPVXpwQlhkMVJZMWZ4UGY4eVB4MW1LWENMZU5TT1N4bV8zNzlYT0VyYlZUZ09SZlptR01yWDJ5d2I1SXhHUEYtX1prZGZVT3Y2dnI0TWlqQmJHUUltMU9L?oc=5",
+          "published": "Sun, 18 Oct 2026 23:35:32 GMT",
+          "metrics": {}
+        },
+        {
+          "source": "google_news",
+          "team": "cleveland-browns",
+          "text": "Jerry Jeudy, amid trade buzz, has clutch catch in Browns' win, gets game ball - ESPN",
+          "url": "https://news.google.com/rss/articles/CBMimwFBVV95cUxQU0ZvNUpkd2FMTEQ0MkFJLTgyLVAyU0R5Y1RhWnJXbExxOUZhdkJzdndLVkctY19yeWlaZnZQaE9tdXVsQ0dEenJZT3NneHhWRFRUR1gtd2FQamMtSW02UXBPMURVVURXdEhYMW9TSnhiZ3FxUktTMURwVGY4cm5wOFgtR2ZEeU1wRTZRWXdZdzI4RUVEVlhLb2dZRQ?oc=5",
+          "published": "Sun, 18 Oct 2026 22:10:00 GMT",
+          "metrics": {}
+        },
+        {
+          "source": "google_news",
+          "team": "cleveland-browns",
+          "text": "Around the AFC North: Jerry Jeudy’s Clutch Play May Silence Trade Rumors - Baltimore Ravens",
+          "url": "https://news.google.com/rss/articles/CBMiggJBVV95cUxPLW92b2pXNkRxWm5kUDROUk5TWVRqdUJ4M1hBbUJJRWFhNDlZQWU1djZUNDV2dWJfVzFlSEswc01kZk9HYVVDRncxQ1BtcHotSjB5eU8zaUt2bUpoXzZmazBsWE9fWFJhOEtnRGpZRThiZTYxVkFvcUZoSzFIS3BuU0k1V0xHN28yQkdfalNPV1BIV0pFYnVBckxDcTVZVlZ3SlIwUkdSNVdJeVRJbHd6eHFIZ3o5VElWbEZlRzhXc0JoU2tuU0hQajNUQ0pwbkp0b3FKelVPdnhETUkta1RhUmJ0NjVfcXFfbG5wZUtWd1ZCcTdJWXNvWGNFQ0J4c0VZQ2c?oc=5",
+          "published": "Mon, 19 Oct 2026 17:08:42 GMT",
+          "metrics": {}
+        },
+        {
+          "source": "google_news",
+          "team": "cleveland-browns",
+          "text": "Amid trade rumors, Jerry Jeudy reminds the Browns of his value - AL.com",
+          "url": "https://news.google.com/rss/articles/CBMingFBVV95cUxPVWYzWmJEN3NqNDhMbUdlNVVGUmEtalViNFRhclppbldFZi1obFNSU3Nqb3VWNmhPNXd5MW90SHJ6UVBiam16TF82cmI2LXNlY1VEOG1TN1VaaUJEeWFMZ0JTbGJ2OGotMmNXOVVZRjNSajljTURPRmRyRDFqQnpjQ2VuVUZMX3NjaklBT3dNc1BtY2NxZUx2aFhxQ29Udw?oc=5",
+          "published": "Mon, 19 Oct 2026 11:00:00 GMT",
+          "metrics": {}
+        },
+        {
+          "source": "google_news",
+          "team": "cleveland-browns",
+          "text": "Why These ‘Ain’t the Same Old Browns Anymore’ - Sports Illustrated",
+          "url": "https://news.google.com/rss/articles/CBMickFVX3lxTFBaX1VBdVF3bG9pMHN3UnR4U21EaEZ4bl84a182S2xteTlYamVjclN0eWliU01PT1lkYUFqVWpYMlZmS0ZwZFRCbktBUjA3RDN2Ql94UW9pOXVhS0NyWF9xLXMzQTBkYVVLWG4wbFB3aG1uZw?oc=5",
+          "published": "Mon, 19 Oct 2026 14:21:40 GMT",
+          "metrics": {}
+        },
+        {
+          "source": "google_news",
+          "team": "cleveland-browns",
+          "text": "Todd Monken Describes Browns In One Telling Word - Browns Nation",
+          "url": "https://news.google.com/rss/articles/CBMihAFBVV95cUxNZTZ5Y1p3Z2xSazY2NERDUmI5Z3E0YURROHNPaEVqUkZtc2pUYzdia2lsOGhyOHAxb0g3c1ZZbFlmVjg5TERERkhkS25RSFhnRHhmOWZldHhjVWhkczF1UGJsQXBObksxM1hGclpWeEtEVTI3TTJMRW5qclZ5dkRjSktyUnc?oc=5",
+          "published": "Sun, 18 Oct 2026 20:32:38 GMT",
+          "metrics": {}
+        },
+        {
+          "source": "google_news",
+          "team": "cleveland-browns",
+          "text": "Browns HC Todd Monken knows Cleveland has room to improve - Yahoo Sports",
+          "url": "https://news.google.com/rss/articles/CBMiggFBVV95cUxPWm5UaW9RWXRWZWN5NDhFN1JONUxUdm1ULUpsVDgyNUxnZVlGSGZaOFFLbFBGNlhnSjRFWDNtYXNMWnVSU0lXb3NiRlFXaTlfYU0yaGFiU0NyZ0xXUU1ucU5seEZyTTdNMkFnLS1DZVN4d0hMUkZXRzlGSnZxVl8wMkxR?oc=5",
+          "published": "Mon, 19 Oct 2026 19:55:19 GMT",
+          "metrics": {}
+        },
+        {
+          "source": "google_news",
+          "team": "cleveland-browns",
+          "text": "NFL Week 6: Biggest Winners and Losers, Including the Cleveland Browns and Mike McDaniel - Sportsnaut",
+          "url": "https://news.google.com/rss/articles/CBMiswFBVV95cUxOVmprVGxSN3M3TzZ0bVNERHJGSlc2OXFmSTFJOXIxV3ZSVm9BT3ZUaXl4d1hsbG1oLVo0TEVMTzlid1h3VkhwWkZkY1pHZVlQODZ6eFFncGtjNUVTR3UybEZrN3U3bnl6VnZCOE5CTUNlTF9UNDk2QmZNTnVhWXg4VjJwNURvaTFNY1FHRTQ2N0g5MUhCSnRvaVJvdTh2S3VTLUhWcjVXaXdPNEV3c1Fqa2RWcw?oc=5",
+          "published": "Mon, 19 Oct 2026 03:03:09 GMT",
+          "metrics": {}
+        },
+        {
+          "source": "google_news",
+          "team": "cleveland-browns",
+          "text": "NFL trade deadline: Browns might have some big-game options if they go hunting - Dawgs By Nature",
+          "url": "https://news.google.com/rss/articles/CBMixgFBVV95cUxPQ0tMMlV6cUpRbU0zVzRFTTBNWVo0WmhVclZnd3FaLVY5cm11Ni1UakZ1QjZMZ2ktelZQVl91RHB6UG5IdEV1bXF2SE8tUWtWdFgwTVNVMWZUUnZFYUZxZ1AtUmpDSy11UER1VjdDN1QzdjZTeEZpd0FKSDN2NXcyQ2lWUC05NFhJN0E2NXBOZVJGVEdUNUhxMTVieDZqVnNuMGVYOU5oSjVQeG5tQWZnRnVRN1c1bWNNNy0xVUdMVHFGOTgzYnc?oc=5",
+          "published": "Mon, 19 Oct 2026 16:02:16 GMT",
+          "metrics": {}
+        },
+        {
+          "source": "google_news",
+          "team": "cleveland-browns",
+          "text": "How Deshaun Watson, Jerry Jeudy, and the rest of the Browns offense graded vs. the Ravens - Cleveland.com",
+          "url": "https://news.google.com/rss/articles/CBMizAFBVV95cUxQU1VWYlBNemJQaDYzc3FuVkxFMzZUaE9pZ1FZUmtxYkFTZlh4WEZJVkRhTDBoWTJJeFlyQWFLakozQ0NoNnk1TGh4N3lsN29iQlJMcmw3aWZCZXV4eWpVVlpILVQwcFh5UXlDUmhUd2pNQUNFdXp5RE9PX0UzU0xXLUN6bUZYNGtDb0JLUlN3bk5GWF9XR0VrT1Z4WXBwZWgtaElXVnNteW9iZ0o0ZGhXbFlZMzN5bmcxNFpYYS1DNU0yYkh4TjF2aEJkdmw?oc=5",
+          "published": "Mon, 19 Oct 2026 18:29:00 GMT",
+          "metrics": {}
+        },
+        {
+          "source": "google_news",
+          "team": "cleveland-browns",
+          "text": "Browns 21-18 Panthers (Sep 27, 2026) Final Score - ESPN",
+          "url": "https://news.google.com/rss/articles/CBMickFVX3lxTE5ibjVvZ2xqUkVOOG1KaDZfZmJNVFVaRk04MXZhcmdERUZSdF82bkFqUUZWdzhZVmdNVk4zTzVmZWRlemRzVmZnYnhzRm9yQm9NX0ZKUzVBbGNtMmFJTTJJc2NWX3BzMHdGMVFtZE5NbnB1Zw?oc=5",
+          "published": "Fri, 15 May 2026 00:42:55 GMT",
+          "metrics": {}
+        },
+        {
+          "source": "google_news",
+          "team": "cleveland-browns",
+          "text": "Browns’ defense with key defensive plays led by LB Carson Schwesinger | 3 Big Takeaways - Cleveland Browns",
+          "url": "https://news.google.com/rss/articles/CBMivgFBVV95cUxQbDViNFhnWmEtQXVUeWtDdkpBa1BKTVJBT0VlcmEtMWhfbWY3R3FGbG83Z05DWlBPZmpTQ29ySEtZUHI1d09YbV84SlhPMDd0aEhQbUpicl92dXBnTDJJd0czMlg2YjR3QWNXeGhfbFNSWXYtY0JXX0FPNDQ3X2pXdXdWTkZ5bXhheFJSVkxURndrR3pNWnZ4YnhtRHBaVXVyLUlQbkVxa2lNRU9sZG9mNmpvUWJkdVVRXzdnMmxB?oc=5",
+          "published": "Sun, 18 Oct 2026 23:15:15 GMT",
+          "metrics": {}
+        },
+        {
+          "source": "google_news",
+          "team": "cleveland-browns",
+          "text": "Cleveland Browns or Cincinnati Bengals? See search rankings for Ohio - Cincinnati Enquirer",
+          "url": "https://news.google.com/rss/articles/CBMi1AFBVV95cUxPNTdLS3hnSlRQSkxvSlRZdTllQ3VhMjdXdXdLLU1UODZERlhZd1BXRjZXai1HLWlhWmVVVEZQQ3FCaWlkcWpDaGwzMDBBZU1BUm84QzVzREM4OTNvLUwtVXZYa0NENXRxTF9pTWU3eWtMQmctUnJIOTRkejNsc2lsRW5SVUROdjhNU3lpYmdweFU5SlZnTF8zN09Uck92M25rVjJDLWw1VXhkb3VrR0FVcENJYVhfSlI3U0RRVzNldmVjTVpsd0M0Ui1Cb2FWWHliUFA1SA?oc=5",
+          "published": "Mon, 19 Oct 2026 12:57:00 GMT",
+          "metrics": {}
+        },
+        {
+          "source": "google_news",
+          "team": "cleveland-browns",
+          "text": "Derrick Henry Takes Blame After Ravens’ Offense Falls Short in Cleveland - Baltimore Ravens",
+          "url": "https://news.google.com/rss/articles/CBMioAFBVV95cUxQaHVyQXNxb2p3dzBrYzJXdEFIOTJkOGhma0FGV0lmREhLU3A2alRnczZ4bVNuRVV6VWQ5WEJUeEZrYmVDTTlTRjFLWVJCM1hxbWg1dUxyZ2ZBVFJKNGdpNWpXVEhZMWtQRVlqd1A3S2xmVTR2T2Mtd0RuR19HRFNidk8wdVptZ0RvX3k1Q09XUTc0SzlVZkRESWczbTI1QUJS?oc=5",
+          "published": "Sun, 18 Oct 2026 22:18:42 GMT",
+          "metrics": {}
+        },
+        {
+          "source": "google_news",
+          "team": "cleveland-browns",
+          "text": "Browns coach Todd Monken recognizes need for offense to start faster - USA Today",
+          "url": "https://news.google.com/rss/articles/CBMi2gFBVV95cUxNU1RsZkpEUjVYTnBGSVQ3SWdaMjZjd1k0M1JGbEJMWElyZXdQZzkwLW5LS3RYamJaZl84dVJQMmowVUxSNS1tbDhMNTNOc1o0Z2ZycUpzUmp1T1MzRmJudVVTNFZHYVl3d29KTHgtRFAwWnh0RDc5WVVYdHRfbzJ5VXVrV204NVhCLUVZRERuODZvblZqRWJqdDhZZ2ZGcjFrcGxxdFNPdEpXLVk0VXJyZUV5WXFVTjRSYU11MUJ6ZnhtcENDZFhBVWFQTG8zT3RBQy1kakNFVXd2dw?oc=5",
+          "published": "Mon, 19 Oct 2026 20:01:32 GMT",
+          "metrics": {}
+        },
+        {
+          "source": "google_news",
+          "team": "cleveland-browns",
+          "text": "2 Browns Players Who Deserve More Credit for Win vs. Ravens - 247Sports",
+          "url": "https://news.google.com/rss/articles/CBMiswFBVV95cUxPRXFIZk9xYzdIMGpmeWQ1cWZQN2syeEdxX09neWpHdEVINTBfZnoxaHdSREZBQk9qYU1lb0k4eDY5SHRuYlVEUkQzMlpkVmRMMzFtaXp1d0hXSWFBblVRLV8xNkhsYkFpZDVubjg5b09TWVI5ZFk3dnEzVWNPZVB0eEV6NTVhTDVybko5b1ZtSTkyVVJBZmMtQmxGeXdZUmZkRjg5Zno5LWg3MWUzSXMxb2hwTQ?oc=5",
+          "published": "Mon, 19 Oct 2026 02:02:07 GMT",
+          "metrics": {}
+        },
+        {
+          "source": "google_news",
+          "team": "cleveland-browns",
+          "text": "Browns QB Deshaun Watson Put on Notice Despite Defeating Ravens - Heavy.com",
+          "url": "https://news.google.com/rss/articles/CBMilwFBVV95cUxNb2U4OTNBSjJOcU14Yi1wbDBTUUt5bFRtdThQWlc2NVh3MVd5ampGTmtob2t6RHdGenk5RzI1NXNRMmlmYzZXYjR4T0F1djQyQ3hGOTdSTmpEOFAzbnRIbmg2N0ozTjgwT1ItSVotWHlOelNlOFZGcl9oV2p1Y3ViemdYSlZHaHNaLXRXTHl5MVRlWkhiMThR?oc=5",
+          "published": "Mon, 19 Oct 2026 10:25:26 GMT",
+          "metrics": {}
+        },
+        {
+          "source": "google_news",
+          "team": "cleveland-browns",
+          "text": "Former player says Cleveland Browns look like ‘cardiac kids’ - FOX 8 News",
+          "url": "https://news.google.com/rss/articles/CBMiiwFBVV95cUxOTWJ0TVRfcGl5Nlh6T2w3aDJvekZGNEVBUmxTLWhMekNGWDVGa2ZubzVZaDVuUTkyOExJMXN6Yk53MFA3ZmVyZFJVd3U1RnFaRW9EZ3ZIRVluanZPS1JDYzBaZHZ4NXFJUnJxMTk4Vk45SHVOUS1IeFkyQUs3TGZVR3hWLVRoUm42VlJ30gGQAUFVX3lxTE5zbXJ2dkhNMldsNmFwalYzVUhDcjVHdjE2dDJjZ0tremFtbDh5bDVjSjFMQWVCRXd4c21Od1pNQWt6RHNfX1BlenVPSVVEXzhLSWpnSnJJZGlyZFVJTmRlWmFrSENxY2RNaGV3QVphS0E3djlTaUxscEVjWGpya1NwdzZ4OXZlUTd4VjdsZUVOeA?oc=5",
+          "published": "Mon, 19 Oct 2026 12:37:47 GMT",
+          "metrics": {}
+        },
+        {
+          "source": "google_news",
+          "team": "cleveland-browns",
+          "text": "Baltimore Ravens vs. Cleveland Browns Week 6 game discussion - Baltimore Beatdown",
+          "url": "https://news.google.com/rss/articles/CBMi0AFBVV95cUxPWU5yVFFSRTdHZ29DSmdMem83R05XaDEwQk1LZ1ltZzNFSXN4QW1lcGFaTm1wbngzV3c5cWp1aGhDaHd3Y1V0ZTVmejZPTGsybF9YSlJRbFR3UkpDVVpYMDNvX1cxekhQWmo1WjdxUG9Mdzlhb2kyXzhDek50bXhoR0Y5VVktZ0xERUQ5UVB1MFFWcHU0RFZ4WUhfUFlHSTZTVGRIeWlEaFM1ZzJGbEY0SUFvZ19pdE80aUd3OFFnM3AtdWt6U0NGYms5c3B5SzdH?oc=5",
+          "published": "Sun, 18 Oct 2026 16:33:32 GMT",
+          "metrics": {}
+        },
+        {
+          "source": "google_news",
+          "team": "cleveland-browns",
+          "text": "Browns atop AFC North after win over Ravens. Can Cleveland continue 4th-quarter magic? - The Athletic - The New York Times",
+          "url": "https://news.google.com/rss/articles/CBMimgFBVV95cUxNSHlzejRPbnBMM2FxRDhYTnZYZWZEdkQxTk41WE9Ub0RaMkIzbDBHcDVSVzRDWUxoSUx2MVE1ZEtkNFZUQ1RZcHlibGs0c004NXlDeG1tdjNCV253ZWVKTVB0bzhyWjVvTzJDSUZlVllfOXY5VHNqYk9NT3gyT2ljNjVvcnhKc1ZWNGhrY0QxcHh4V0RaRWtsRU1n?oc=5",
+          "published": "Sun, 18 Oct 2026 21:48:00 GMT",
+          "metrics": {}
+        },
+        {
+          "source": "google_news",
+          "team": "green-bay-packers",
+          "text": "Packers Week 6 Snap Counts: Who played against the Dallas Cowboys? - Acme Packing Company",
+          "url": "https://news.google.com/rss/articles/CBMi0AFBVV95cUxPejNlZk1GNk9fbFljS0ppNm05c1cxNHROMzNiel8zZEEzdG43T05PRVVxZEVEdHpEdnVmMnRFZmZlbUFFYWJPcGI5aGJfelB2LUJUMXAyeF9uR1pURU1KTXhnVFA2NTVidDZ2Ni14VWRJc0RaVWtIcUo0cGRtdTFzQ0dCVEdfaGRRUHdubFBPaVNBN2dYVUJJZWtDc3AtbHdSZmJIN3RXZ1NwMno2VTN5YkdNZW5qVkxLc1RPeXNtblhwNzJqM2RNWHBPVzl4d19Q?oc=5",
+          "published": "Mon, 19 Oct 2026 06:13:00 GMT",
+          "metrics": {}
+        },
+        {
+          "source": "google_news",
+          "team": "green-bay-packers",
+          "text": "Green Bay Packers quarterback Jordan Love reflects on Week 6 win over Dallas Cowboys - NFL.com",
+          "url": "https://news.google.com/rss/articles/CBMif0FVX3lxTE05Z1RQWWlLY0xNay1kLWJVYmF0aW5lTmxfZ3FkeVJnZUYzR3VVeWZya2RHT05peTNlLXUwcHptZ1d6Y1RtS01mbHlSb2JVS2k3akNwb2FxMkZjelZhelFkSDRGYUo1eUxkRTVqcE51dk9oRExzd2VlZnhKMW0wVjg?oc=5",
+          "published": "Mon, 19 Oct 2026 19:49:52 GMT",
+          "metrics": {}
+        },
+        {
+          "source": "google_news",
+          "team": "green-bay-packers",
+          "text": "Green Bay Packers extend historic Sunday night home record with win over Cowboys - Yahoo Sports",
+          "url": "https://news.google.com/rss/articles/CBMiigFBVV95cUxNVFZ0UW8tUzlrNThXNzBRNUlIT2dnQXJiVGFZODViLWhQX0VnYnhEVmtkeTdCaUhTSzlEZ2JzWnZiczJfX3lReUJjRDEydE8wWnFsTDBtd2NjRXJDemN0OWlLMjVfMmJPbUNXLVlqQ2FtX1NLN3diSHFPRGtTcnRLZ0JtelhTcVRpVmc?oc=5",
+          "published": "Mon, 19 Oct 2026 20:00:02 GMT",
+          "metrics": {}
+        },
+        {
+          "source": "google_news",
+          "team": "green-bay-packers",
+          "text": "16 ejected, 6 arrested during Cowboys-Packers game for Sunday Night Football - WLUK",
+          "url": "https://news.google.com/rss/articles/CBMi5gFBVV95cUxPdklqZnBFYkpzalZkNndLVkw0N25Ld2h1aWF1T0h2akxoN0pPNC1Yc3oyaENPZ3NpdTZOTDhhZk1QV0FyUzdyakhQN2kzWEZ5ZFVtQzV5aWM0TUhzakRuQW1ja2REVDk5VTVNRGI0QWZxcGcxYUQ2cFBILUJrR2lGbWdYamtUUnZ1dlJ2a01pWlVmOEl2LTd0SkhaVGw5NndHZ0V4QjI2M2JZdGhRenIxMFpnNDFOcWRSVzY2cEFRcmllLWZ0SFdZQWt4bXlaQ2RDRktTZE9FYUk2SHgzakhkWncwcFNBZw?oc=5",
+          "published": "Mon, 19 Oct 2026 09:32:07 GMT",
+          "metrics": {}
+        },
+        {
+          "source": "google_news",
+          "team": "green-bay-packers",
+          "text": "Packers receiver Matthew Golden doesn’t mind flexing on the Cowboys, even if he wasn’t - PackersNews.com",
+          "url": "https://news.google.com/rss/articles/CBMi4AFBVV95cUxPaVZONUpNQ2syRU9QSmZKd3dMaHNLQTlkc21DNHp5S0N4M2owUUI1VHJkRU5td0dPUlR3Unk3V2JpQzZXVm8zQXpuaVlPNllCN1FFZGtlcUczYS0zZlBzbG5Na2ZJeVNrWXlGc0wyS1htdmhqcHJHQ0tRUzBDM0JRZnZZcXBRYVJMbExUQjRLQTZoV0J3bElhZXdIQ2YtMGJTT21pX2trZzdweldoSXZPWFFYVFFLdm9KOGpSZXVKOEotWFZTNjZybVhkTDk3eHRlUmhlb1huXzNiVkpUenNaNg?oc=5",
+          "published": "Mon, 19 Oct 2026 08:12:00 GMT",
+          "metrics": {}
+        },
+        {
+          "source": "google_news",
+          "team": "green-bay-packers",
+          "text": "Green Bay Packers Trade Pitch Lands $105.8 Million DT in Massive In-Season Move - Heavy.com",
+          "url": "https://news.google.com/rss/articles/CBMiqgFBVV95cUxQM1UzLUM0bkdsZi1kZzVSejBoUjlWWHRxamxTOWtaVVkxNTJyYXlKa0hHWHM5eldqX3JVT1VKN3c1VHRMS1J0UGNWODBqbFpKSHZ2MjZGeWVWRHdVRl9tT1lFTVBpc0ZtLTB1S2VpYmhhSFpMcXRyMlNlNE5KVnJlV01RcjlBSXlyWWZIOWsxcG0yZWVWLXd0TUVZMG5aSllpVGd2Q3MyUk1nQQ?oc=5",
+          "published": "Mon, 19 Oct 2026 13:26:18 GMT",
+          "metrics": {}
+        },
+        {
+          "source": "google_news",
+          "team": "green-bay-packers",
+          "text": "Meet One of the Most Dedicated Packers Fans on the Planet - TODAY.com",
+          "url": "https://news.google.com/rss/articles/CBMiowFBVV95cUxNQnhQSEJkT0w4MkJWQ0lybjVEVlIwbG1BY25iX2pzNlBXYXJUcGltT2Q5aWVFTklkNm5xNmlPQmVtSVVIZWNBUTdNOUxNVlo1WE04MU5lZVFkRzJYM0pzM2lEWE1ZcV8zMnBXUEwxSXpKd1RmRHIwLTEwemJSb3J5aXBjeGQ0V3dMYS1QSkk4Ni1ZcVkyc0F3THY4UTVtZVcxZF9v?oc=5",
+          "published": "Mon, 19 Oct 2026 13:07:58 GMT",
+          "metrics": {}
+        },
+        {
+          "source": "google_news",
+          "team": "green-bay-packers",
+          "text": "Best Green Bay Packers player to wear No. 99 was even better in the front office - Lombardi Ave",
+          "url": "https://news.google.com/rss/articles/CBMisgFBVV95cUxNbEREVnVMZlF1UnVOck1SNnNRWW5rQzhQc2FBWFFUOVhvazZWTDl1Wno2c2l1VzJXMjZrZFRvcUs5U3A0Q0RjWDNnWF9nRzVreFV3aGJwcUpKM09BaHA1dWVaQjFZUTJyaUtSNS1GWlFsb3dHNHNyR2Z1MGszbzJXMWdQS0ppaDluU1JJcmxFNUtkZnJIVklOSkJZOGtsRGVhdmd2QmJVZ2FCOElILXNWUUlR?oc=5",
+          "published": "Mon, 19 Oct 2026 04:07:28 GMT",
+          "metrics": {}
+        },
+        {
+          "source": "google_news",
+          "team": "green-bay-packers",
+          "text": "Packers vs Lions picks, predictions, odds for NFL Week 7 game Sunday - azcentral.com and The Arizona Republic",
+          "url": "https://news.google.com/rss/articles/CBMizAFBVV95cUxNdFJPQXJrZlNJTWhZYXIxX2pJVlltN2JmLV9QdXAxWDdTdHMyMnFtVks0RU5ibXdyLXo2NDhfRWpUWVlaTUtHZ1Q3ZFFnUUxJWGVJVFlFQmJFZ1pnWnd5Tzl0QXlDdlhiS2lnQzd0VklhaThIYmppMDk5UFUyZXl3R05yWWp1d3huQTkyUEwzWWZxYm42TE80WWxvOW83eTJ0Q0tVUnloUTBEalpFSDFHNFBXZWZNR09SamYwQTJDVEQwelIzMXdYWTlJVXY?oc=5",
+          "published": "Mon, 19 Oct 2026 18:44:00 GMT",
+          "metrics": {}
+        },
+        {
+          "source": "google_news",
+          "team": "green-bay-packers",
+          "text": "Jordan Love Identifies Major Concern For Packers Despite Win Over Cowboys - Wisconsin Sports Heroics",
+          "url": "https://news.google.com/rss/articles/CBMif0FVX3lxTE1LS1ZnNUwtdkx4Sm1CcHp6SEVad0hQbEREdTVyOTN3dHVvT2puNU5UVy0xXzFlbXhlX2lkT2x5LVVoWHhzNFZSeERTM0RIWXZKdmlHN0ZvNDlacEtxTDQ5aXJaM3U4LWt1czZRckFuOXlqR0RDdzRhVFhiY3M0eDg?oc=5",
+          "published": "Mon, 19 Oct 2026 10:00:34 GMT",
+          "metrics": {}
+        },
+        {
+          "source": "google_news",
+          "team": "green-bay-packers",
+          "text": "Takeaways from Cowboys-Packers Week 6 'SNF' matchup | 'GMFB' - NFL.com",
+          "url": "https://news.google.com/rss/articles/CBMiiAFBVV95cUxObG1Gb0hsTERrSDQ5dUQzbUVYQ1VGMEg2SEx2UkNmaWFrSDhBaWNYMVd5TF9DUVpjWDRCekNoV3I1d2Nld00tZ1RVRHI3cGZ1V3FILWZqSGNjaHl1ZG52X1dDb2hQVW1WcmkwS0EyQkY0ckJmWXFRbzdMcldzZ1VZdlItd3VFRnZK?oc=5",
+          "published": "Mon, 19 Oct 2026 13:18:50 GMT",
+          "metrics": {}
+        },
+        {
+          "source": "google_news",
+          "team": "green-bay-packers",
+          "text": "Packers 23-13 Cowboys (Oct 18, 2026) Game Recap - ESPN",
+          "url": "https://news.google.com/rss/articles/CBMiW0FVX3lxTE1TTy1sYVlEUnBPR3AzUFNqbFJ2bmUyOEQ4WnVrdms1VkExRklGbjNtYjQ5U1dOTU5vV21RVkNYejlQaFNmNWdCMVdzcktDY0Q1SElwdmNYdFcyLVE?oc=5",
+          "published": "Mon, 19 Oct 2026 07:13:05 GMT",
+          "metrics": {}
+        },
+        {
+          "source": "google_news",
+          "team": "green-bay-packers",
+          "text": "Green Bay Packers Trade Pitch Lands $105.8 Million DT in Massive In-Season Move - Yahoo Sports",
+          "url": "https://news.google.com/rss/articles/CBMihAFBVV95cUxPdjJCZlFEWjZZd3lzTkdTZUF6Q0xtVXZtZ1dsb0tUTlVINFRQdnZMU2hxNGdTYXdyMDV4VC14c3V3UnM0NmJFelprZUg3V1ctajVnWS1hVEpybFVtcmVEazJWYjJuSkJhVzdUVms3MC1LSTRmdnpTbFRRUVEtS0RNb2lVN0E?oc=5",
+          "published": "Mon, 19 Oct 2026 16:26:18 GMT",
+          "metrics": {}
+        },
+        {
+          "source": "google_news",
+          "team": "green-bay-packers",
+          "text": "Green Bay Packers News: Defense is impressing thanks to Gannon’s aggressiveness - Acme Packing Company",
+          "url": "https://news.google.com/rss/articles/CBMi2AFBVV95cUxNY00wTWp3MU4wWHdwTmF1NVVocWVqdkhZNUU3bHVqWk0tTUVELUR0WXM2aFE5c29zTzZVNFBtRldFWlBtYm1CdGxRT0xrXzdNdVB6NDJJeDZhRDhqMFZuTnV4WndPV0pydFhOX1FIcXI1M2VZRFk1TmI2UVhuRndCR2hueTFNRmlsX29TUFhtclVqV2wtMFNWM1J3Rm5QWVBrbDRNUV9KTHBQVnFpQW53SG5nYmVDaEtIVE5Jc0NGM0hpR3E1Nk4zYXU1VkRVRkEzTEFLZ19wWUs?oc=5",
+          "published": "Mon, 19 Oct 2026 13:00:00 GMT",
+          "metrics": {}
+        },
+        {
+          "source": "google_news",
+          "team": "green-bay-packers",
+          "text": "⊕[ＷＡＴＣＨ ＬＩＶＥ]⊕Dallas Cowboys vs Green Bay Packers Ｌｉｖｅ ｓｔｒｅａｍ Ｆｒｅｅ - Universidad de Córdoba (UCO)",
+          "url": "https://news.google.com/rss/articles/CBMiwgJBVV95cUxON2Q1SmQ1ZEE2SDJBVi1GY2FaRkN3QmJ0VTBSSzRKLUl2MGpjLVg4bEdWb2NkZk9Jd3JxcGVHVXg4M3dMb1AwdHN2VGt2TlJpa19Ka19vTjh1cVk0QXFHNEtJMmdWQlFLbXRuS3lvRGZvZ3ZtdVhUSzUxOUpkMzVDXzlVM3hrUXN2YjJHeFhuRmJjczZTRktFTENOR3dvakdNQWdSekhjY2huUUtydXRUUHFsTzlSNm1QR0dXUmt1TzNlNzVQaERBTVVHRW51M0VDWGpKZFhvYTRDajNWTDdLUk54bEV0M2Z0YTBDai1hTmU3aVB6ZUhOdzQxSUdPR0duNzZpdlZsQ2RxMlU0a3h3UTNSXzdBSDA0NDB1aWtJLUpuNE55a3VhYmlnNkJlVUtWaWMyWFU1X2FxMkNIdHh5cm5n?oc=5",
+          "published": "Mon, 19 Oct 2026 04:18:58 GMT",
+          "metrics": {}
+        },
+        {
+          "source": "google_news",
+          "team": "green-bay-packers",
+          "text": "Packers defeat Cowboys, 23-13 - Packers.com",
+          "url": "https://news.google.com/rss/articles/CBMickFVX3lxTFBiOUhzWjNnWUxwLTcwNFNLbF9veWJZbllDR3N6cmEzazU1TkJ3M2lFTTBja0hRSVp5YXR2a3phR0hRNDhHUUJHMXUtaFcwblZ3eUVYcnZvX0s4SGxneHZyYWNFM2lndGV4RlNWWm54LUtBdw?oc=5",
+          "published": "Mon, 19 Oct 2026 04:30:26 GMT",
+          "metrics": {}
+        },
+        {
+          "source": "google_news",
+          "team": "green-bay-packers",
+          "text": "Dak Prescott: Cowboys offense 'didn't hold our own' in loss to Packers - Dallas Cowboys | Official Site of the Dallas Cowboys",
+          "url": "https://news.google.com/rss/articles/CBMipAFBVV95cUxPLWR3ZzNjbms1akJpVVdVS283NU51SkFuRDNxLVJLYUE3V2RTUXd0SE94QV85NDFQT0s2ei1BVmdoZmRES0RQWl8wM21hYXFEQy1KRUdtZ05RbkNMRkp4OE9YNW90akkwY2hpZHZ5YTc0bjdPSlo1X29oa1BROENJZmw4LWtqc3FzblRGTDEzY1FmWmNON19XV2hJWC1Cd3lDUUdUTA?oc=5",
+          "published": "Mon, 19 Oct 2026 05:07:52 GMT",
+          "metrics": {}
+        },
+        {
+          "source": "google_news",
+          "team": "green-bay-packers",
+          "text": "Green Bay Packers' Josh Jacobs convicted of misdemeanor battery, fined $1,000 - ABC News - Breaking News, Latest News and Videos",
+          "url": "https://news.google.com/rss/articles/CBMiowFBVV95cUxPVzB6VXVrVTN1OWFmbXRZNEUxSkRkTS1ReWliNlExNTRxNldySzZaMUU2UVo3b0daUDVlR3UtaG0wZlh4NEdOYnRnOUJseGc2MDRRSzlqNWp5R0ROMTgwMXNYbkJpRGE3dkpOcllIaHVYNFI4RkJiMFZ0VHFJMnFOSWJaaVMtZWpmc0FiSk4zZVZWeUt4VHJhZ2xwVnN3aTN6QVJR0gGoAUFVX3lxTE9wdjRtRDI5QWtzd2dTYnJuTVZDcWs2ckMtbk5wUzB2SnltUjlDRHR3eXoyLU9RNmQ0M1JpUHgwUXZkZWJBU0V5WlhwWjF5T3RaT3dvVUZHZGZBOThfWkJTbzc3ZXd0WXlTT0Rab1RVRW5aTloxVC13WnNpYzhEV0dKMkdVbnpiTW14TExRNU5INTh2N1NHMHIxSUxfYnRHelY5dUhydDB3MQ?oc=5",
+          "published": "Mon, 19 Oct 2026 09:46:46 GMT",
+          "metrics": {}
+        },
+        {
+          "source": "google_news",
+          "team": "green-bay-packers",
+          "text": "Packers' D shines vs. Cowboys as Micah Parsons nears return - ESPN",
+          "url": "https://news.google.com/rss/articles/CBMimAFBVV95cUxOWEZVeUREZDhCTGF6S21XSnFTdnZNQ3l0TUxyUWZGdGVhYVJVajhpWUk5bmpYZTZyc3dmUG9KM2Q1emhReEFHblNxOWVfTTI3WkE1dHBseThHUGhWZnlIVnJ2X21XNlV3RzVmTWhLaXl2b3VkbThBdXhyal9MdWROM0h0M0pTR0JJZDBhY1EwSWNFM05xMndVdQ?oc=5",
+          "published": "Mon, 19 Oct 2026 13:38:00 GMT",
+          "metrics": {}
+        },
+        {
+          "source": "google_news",
+          "team": "green-bay-packers",
+          "text": "Game recap: 5 takeaways from Packers’ victory over Cowboys - Packers.com",
+          "url": "https://news.google.com/rss/articles/CBMingFBVV95cUxNTHJFYkowdnRxd0pmY2d1bzVCRUEyUlFySXVzQmdxTEhER00zRjhQbWhsMW1ZbnJoZllFTWhrWDFvNkFXQ3RadjlNUzhORUtyS1NiMjljSDRfMWxSbVJBa09yd3J0dGVyMm9lVDhvVHVobjZ2aXBHU3V3TlJJdVJnZ3paRFY5R3hDWUlVbURtWHp5UHliUmQwbE5kZ3loZw?oc=5",
+          "published": "Mon, 19 Oct 2026 06:14:27 GMT",
+          "metrics": {}
+        },
+        {
+          "source": "google_news",
+          "team": "dallas-cowboys",
+          "text": "Pic 6: Cowboys struggle vs. Green Bay's pressure, make multiple personnel changes - Dallas Cowboys | Official Site of the Dallas Cowboys",
+          "url": "https://news.google.com/rss/articles/CBMiswFBVV95cUxPWWE3VkRacVl5UEt1cFFfNnhaTnN3cnZJWUxlbEpqUVhlUXdtWTQzMGw0MXZPbTZjM2ZXclpXaWRRMmhJdld5cUV3R0NYejJOQ05UcUpQa2JtZ2szM21pdUNOQ3NaVndSOFhmb0QyR2g5anJQOXRJZDd1UG5ZZy11VHVNSHNrSVZBZ0dQbzRqMjhXbG1nZlRONmt3OHpoaTJ3QklhOWUtOW1meDA4VDNCMEI4RQ?oc=5",
+          "published": "Mon, 19 Oct 2026 15:19:53 GMT",
+          "metrics": {}
+        },
+        {
+          "source": "google_news",
+          "team": "dallas-cowboys",
+          "text": "Cowboys’ perfect Josh Sweat trade offer to Cardinals before NFL trade deadline - Yahoo Sports",
+          "url": "https://news.google.com/rss/articles/CBMiiAFBVV95cUxONndEZzVna0o5alItNElkaVdBQTdfaG44T1lfdDhQR0xhVDJyS29IYTEtdlhLblRWT3Jkb2hORFg4QXVFUzR6NUtqR3NXTmp5X3BmTXRDQ0RYajl5Ry1wX2E0dUtiZlhROHdGOF9HR0RveV9pbHBHSWx5QWUtaERxY0ZRZi1Jcm96?oc=5",
+          "published": "Mon, 19 Oct 2026 18:07:32 GMT",
+          "metrics": {}
+        },
+        {
+          "source": "google_news",
+          "team": "dallas-cowboys",
+          "text": "LIVE: Player's Lounge | 10/19/26 - Dallas Cowboys | Official Site of the Dallas Cowboys",
+          "url": "https://news.google.com/rss/articles/CBMic0FVX3lxTE93YU1Hakpha1ZENFZZaVdGWnBlc1pDMkk5TmNkbGFHRE5Jb2FqSHU4Tmh1YzJrdHRrb0lLQmN4eDNQSWlUa2xNWnNOUklHeGhZYzBKMFROUjZNSVI3TmNHeG5fS2JQYVAtTmxkamszZ2MwTDA?oc=5",
+          "published": "Mon, 19 Oct 2026 18:57:12 GMT",
+          "metrics": {}
+        },
+        {
+          "source": "google_news",
+          "team": "dallas-cowboys",
+          "text": "Dee Winters' 42-yard pick-six score is simply ruled an INT after video review - NFL.com",
+          "url": "https://news.google.com/rss/articles/CBMipgFBVV95cUxOV2ZVSEZOdGtqd3V1RFRHUTJwUUw1bDFTdjdVa0ZiNm0zbnhaZk04a3lNRlBnaHAtcVh2MTRPUzV5WGV1cnlYUS1CQUxISTVKUk81VjVJRWRUU0JyT1JsdU9ieFNwb0xNbngtd2VRNldIOWVqaFBiM1V3UDEtTm15eXMyVmNvcmtCMlhrN1JRVld0b2ZmZ3NJZHF3a2pWeWdpY3N2YVJR?oc=5",
+          "published": "Mon, 19 Oct 2026 01:12:22 GMT",
+          "metrics": {}
+        },
+        {
+          "source": "google_news",
+          "team": "dallas-cowboys",
+          "text": "Ex-Dallas Cowboys player dead at 35 after cancer battle: ‘Fought an incredible fight’ - PennLive.com",
+          "url": "https://news.google.com/rss/articles/CBMixgFBVV95cUxNS1dYeXl6Mi1lMnN3Nkl0WEVTeVNEUVRoZlQ0X2FxUDRxOFNUZ1V6c0E5cGFqSmFiMlNaMWxGYV94OU9ud3o3R2JkU0VFSVFfajhyZ1J4UlZXZnlRdTA4WW9ZREItT1RMZ3ZPVU1sdEpSX1RRd2ZDT0VwblRKWmE5TmRIQWxTX3N4N01LRXFPblZVN2NIYllxelRjeUNSQktIY0s3cWpQMFdFWWRXdXZHbWw2cVlKN2RucXItZWtuUXdFcl9BSEHSAdoBQVVfeXFMUGJQRG5hU1B2SGczaS1DUldTOXdTaWZJczluZm51WDExSk1iMWFLc3VKc0V3aHl2XzJxTEtONm9EOS1rdkJDUGNFaEdjdEFXR2NQc01qeXFLSFBmbjl5LWNhcWpwUlNhNVZyZjBDQWFXd1V6amJkSkRSREZQU2lHRjZZMUZLZ0V5VzNQdldsYUFCR1FLQy05VDIxVmFuUlpmSjk5Z19uTUVlYXFwVU9VRHV1UjhyOGg1dEtpM3B6M1FPZVlFc3BOR24zU2w0U1BfQlRvN09lWGluclE?oc=5",
+          "published": "Mon, 19 Oct 2026 09:30:00 GMT",
+          "metrics": {}
+        },
+        {
+          "source": "google_news",
+          "team": "dallas-cowboys",
+          "text": "Dallas Cowboys 2026 NFL Playoff Simulator - The New York Times",
+          "url": "https://news.google.com/rss/articles/CBMitAFBVV95cUxPYnJRbkdfUUItOEM5QmoxN0VYazFoWF9JVS00SnBPTnAzRW5GQ1htRllWZmhNaGMxaV9PNE9vUE9WVXZQVWVPaTExcXU5dWFNYklncjNFRno0YXhPcndhYTJPVzhzVWRPVjVfczJOM1hUanRFSlMwcjRiY3NXb3A0dzExYVdyd1BGVlE3Yk5ZM181YUM4ZU5MaU5ia2NlVjJhRUp6eE82ZjhtSS1uTXMyMllzOWk?oc=5",
+          "published": "Mon, 19 Oct 2026 03:50:32 GMT",
+          "metrics": {}
+        },
+        {
+          "source": "google_news",
+          "team": "dallas-cowboys",
+          "text": "Dallas Cowboys Legend 'Concerned' Jerry Jones Will Start Firing Coaches - Sports Illustrated",
+          "url": "https://news.google.com/rss/articles/CBMiqAFBVV95cUxQV0hRdnNVUEN2SnoyOHJDVXZfVEpHTlJTZkxlOW5SbXFXVDk4QkI5X3pXTzJqYW93SE80cV9DQTF6ZnA5RWxHeFdqWVNVVEtfMUZJcjZDbWx2Z3Z2LTRrblFDZGhMQ3pXd09TenlFUk1EQjNSMXJvYzJHd21fT2NoUVRLV2NsaWtKbG1mRGV5LXF1bVJNQmF0LXN4MFlXRFF1eGItSFctSUs?oc=5",
+          "published": "Mon, 19 Oct 2026 16:36:47 GMT",
+          "metrics": {}
+        },
+        {
+          "source": "google_news",
+          "team": "dallas-cowboys",
+          "text": "Dee Winters to miss time, DeMarvion Overshown gets major update from Cowboys - Dallas Cowboys | Official Site of the Dallas Cowboys",
+          "url": "https://news.google.com/rss/articles/CBMirwFBVV95cUxPX2J5MFBtTElfVUhra2Jjcnc3S0wtOVktRXhjelEwYU9sM3lua1FxNjQyR3RvRUd6czRGaWFpc1FxbWVaSDhzeGpucU1FY19LZ3JxdzVTNGd5d1lwTC00NExDYlFubjJieEZNS19rVXIxbWJBdHNucmVSbF9Jb1dzbzJ2aW5OT3RfQ2RaZDdrdWtSQV9hWi02b0dPNnE4TmxEdkdEalBjaDJ4dXpfT1ZV?oc=5",
+          "published": "Mon, 19 Oct 2026 17:34:23 GMT",
+          "metrics": {}
+        },
+        {
+          "source": "google_news",
+          "team": "dallas-cowboys",
+          "text": "Eatman: Finger-pointing now turning to offense - Dallas Cowboys | Official Site of the Dallas Cowboys",
+          "url": "https://news.google.com/rss/articles/CBMihwFBVV95cUxNY3RUMmhXaVcxR2JUTUZrTVZoa2Q0bnZPc3JXVGt6QW8ya0ZwZ0pCRlhHeXN4MkhueU9ielRMWVMtdVk0MUxWbHUyazNlV2NBdGxYMjJsejVoXzdLcW9UOXlTN0htVklJX1NuQkhHWWxpdWRqZ0ZnUGxWZ0hmY3RDVG1wYWthUm8?oc=5",
+          "published": "Mon, 19 Oct 2026 06:13:52 GMT",
+          "metrics": {}
+        },
+        {
+          "source": "google_news",
+          "team": "dallas-cowboys",
+          "text": "DaRon Bland speaks on biggest hurdle for Cowboys defense in 2026 - Dallas Cowboys | Official Site of the Dallas Cowboys",
+          "url": "https://news.google.com/rss/articles/CBMioAFBVV95cUxPNWRGVFpTNkplSFlHY29sZU5LT05uLXpCRWRPZkZvRGhDMmsxNUI2akUxYXNtUlF3cHNQZlc4NFZILUZZNS1LTU1DTmlCMWp1ZjZvOFJBWEVmVTQ0RW5zZ3dNdEpLcHhaM0hNQ1ItdV9JQkZHVXJFUHFHMExPenVialZlRVAtUzZLckpsd2J2T2NFcTU1bWFYM0dCeW9YYTdU?oc=5",
+          "published": "Mon, 19 Oct 2026 05:33:11 GMT",
+          "metrics": {}
+        },
+        {
+          "source": "google_news",
+          "team": "dallas-cowboys",
+          "text": "⊕[ＷＡＴＣＨ ＬＩＶＥ]⊕Dallas Cowboys vs Green Bay Packers Ｌｉｖｅ ｓｔｒｅａｍ Ｆｒｅｅ - Universidad de Córdoba (UCO)",
+          "url": "https://news.google.com/rss/articles/CBMiwgJBVV95cUxON2Q1SmQ1ZEE2SDJBVi1GY2FaRkN3QmJ0VTBSSzRKLUl2MGpjLVg4bEdWb2NkZk9Jd3JxcGVHVXg4M3dMb1AwdHN2VGt2TlJpa19Ka19vTjh1cVk0QXFHNEtJMmdWQlFLbXRuS3lvRGZvZ3ZtdVhUSzUxOUpkMzVDXzlVM3hrUXN2YjJHeFhuRmJjczZTRktFTENOR3dvakdNQWdSekhjY2huUUtydXRUUHFsTzlSNm1QR0dXUmt1TzNlNzVQaERBTVVHRW51M0VDWGpKZFhvYTRDajNWTDdLUk54bEV0M2Z0YTBDai1hTmU3aVB6ZUhOdzQxSUdPR0duNzZpdlZsQ2RxMlU0a3h3UTNSXzdBSDA0NDB1aWtJLUpuNE55a3VhYmlnNkJlVUtWaWMyWFU1X2FxMkNIdHh5cm5n?oc=5",
+          "published": "Mon, 19 Oct 2026 04:18:58 GMT",
+          "metrics": {}
+        },
+        {
+          "source": "google_news",
+          "team": "dallas-cowboys",
+          "text": "Ex-Cowboys $118 Million Starting Quarterback Signs With Falcons - Yahoo Sports",
+          "url": "https://news.google.com/rss/articles/CBMihwFBVV95cUxONElRQ3V5aDltemtGcEY3YjNPQnpTa0U0SjlWT0VTVVM0NElIbUlhbDAxRWFKemI4eUpERUpzdEdPdGlKN3lLOUw5b0poTDkyMkM1cDFacHNFSGhzQWp2UGFWWEtuX3ZQbEgyRVE3V19wWl9wb2U3a1NJUkc2VXE5U1d4c21oTGM?oc=5",
+          "published": "Mon, 19 Oct 2026 16:57:57 GMT",
+          "metrics": {}
+        },
+        {
+          "source": "google_news",
+          "team": "dallas-cowboys",
+          "text": "Cowboys news: Dallas drops second-straight game behind a flat offensive performance - Blogging The Boys",
+          "url": "https://news.google.com/rss/articles/CBMi0AFBVV95cUxQQ0lqanRaUWRJMFlwMkR2Tmt5eENoMWRTaXpsWjZ4bTdoZTV6NXNuWVRqVEp0SkJNUjZ4RjhxVk1DS2toTGE2NGRGRC1lU1dMZklVZGxVcHF1dE1kUGdYU294SHAteG5TaGx6X2xOTkZFVnJjLUM3NERXSXlKSE1CMTJlTzhTZFV2MTBuekxSN2thNmxla1BaNkRhQ1FjaUc2Tm93ZDNRWF8ydFlIUjEySkt6eU5fYUNYSXF6ejR2bDdVdktpR2xuUVh2dGdIbHFj?oc=5",
+          "published": "Mon, 19 Oct 2026 11:00:00 GMT",
+          "metrics": {}
+        },
+        {
+          "source": "google_news",
+          "team": "dallas-cowboys",
+          "text": "Cowboys fall to Packers as Jordan Love, Green Bay defense lead way to victory - NBC 5 Dallas-Fort Worth",
+          "url": "https://news.google.com/rss/articles/CBMitAFBVV95cUxOVllDb2lzZjc2QUNORGpjenN5NWxCYkZ4M1d3Q1M5OGwxbnJnbjAzYWVQTnpBYTZ6Uk9sdnk2S2QteDhvQlQyYlljUC1VMXpiZWdBaGNpVkJncnIwTlM2THd3NjM3Vkp3Sm12dzJhZzZGdFJpVlhUcVc2V21QTFFqUXZVVWhPb193eW0zUVMwT091SHM1bG42T3JmS0FfVkZjZUdYSW9iTDhFR1g3QUx3cjJRdWPSAbwBQVVfeXFMT0N0UmwwZ1ZsSFY4QUF4ZGZJRWtGQTRVaDJwNWxEczBzMTllZTBncHoxaUtvUWRMUnpMUV8tVXN6YUlKX1ljbm5ETGpEY1d4czAyNjVjQVdBbDhGVTRKb2pmbzJYeS1uLXBqY1B6UGtkbXhtekxLRWxmbFBCV3BNOHFuVl81RjVIV1pKM0RqVllVUkQzeXZ6dFI3Y1poSEZmUjlVTi1WVXE3Uk1rN3Q5U3czZFZmN01GQjhTVHA?oc=5",
+          "published": "Mon, 19 Oct 2026 03:23:15 GMT",
+          "metrics": {}
+        },
+        {
+          "source": "google_news",
+          "team": "dallas-cowboys",
+          "text": "Packers 23-13 Cowboys (Oct 18, 2026) Game Recap - ESPN",
+          "url": "https://news.google.com/rss/articles/CBMiW0FVX3lxTE1TTy1sYVlEUnBPR3AzUFNqbFJ2bmUyOEQ4WnVrdms1VkExRklGbjNtYjQ5U1dOTU5vV21RVkNYejlQaFNmNWdCMVdzcktDY0Q1SElwdmNYdFcyLVE?oc=5",
+          "published": "Mon, 19 Oct 2026 07:13:05 GMT",
+          "metrics": {}
+        },
+        {
+          "source": "google_news",
+          "team": "dallas-cowboys",
+          "text": "Dak Prescott: Cowboys offense 'didn't hold our own' in loss to Packers - NFL.com",
+          "url": "https://news.google.com/rss/articles/CBMilwFBVV95cUxNR0FiQnBzYzFDZ1JhT012Sm5pMlZ4bDhWUS1CRG1rT1N5OFJvdUpEUEo0dlZ4cUFOWlg4OVhtWkdzRFNYa1VSOHRwNWhUZ0wzdXFLcWtrT3R1ZWpva1dQOC1MV2p3alZhQ2xHWGtZZ1h2ZGxXMzdWSkswdE9QZXVwUjhub3VOMXI1ODJDdzVfS09lUWpPT2dV?oc=5",
+          "published": "Mon, 19 Oct 2026 10:45:18 GMT",
+          "metrics": {}
+        },
+        {
+          "source": "google_news",
+          "team": "dallas-cowboys",
+          "text": "Stephen Jones' Delusional Comments After Cowboys' Week 6 Loss Leave No Hope For Change - Sports Illustrated",
+          "url": "https://news.google.com/rss/articles/CBMipgFBVV95cUxQaUdYM3lxNHR2eEQ1REhQUFlhZUJCTl8tc3VVMVJCaFZWZ3lZSXVyak5Wb3E5b05OVW1rYm9KWmtwamlzTnh5Rm9XX2JBLUxvcDRsOU1UcHBqUWVpWXN0TkdlVkxhX2VscGV6cjVDRlpCOV90eS1NTVFSaHd4OUxmcFgwQXREcDVCOG5kdjBKTVZlVnVfWkIyY1g1dzZ4dEtJbzhrdGtR?oc=5",
+          "published": "Mon, 19 Oct 2026 17:48:00 GMT",
+          "metrics": {}
+        },
+        {
+          "source": "google_news",
+          "team": "dallas-cowboys",
+          "text": "‍‍‍[!LIVE-NFL!] Dallas Cowboys Game Time - Universidad de Córdoba (UCO)",
+          "url": "https://news.google.com/rss/articles/CBMitAJBVV95cUxPRWNkWjNnS1BSdGpoYlBQVTFfdFNRWFF5UGNrMHBCaHRfT01uT29Lc0VDU2JlLURJbXhHdlpsejRYVU5QdlFtZlRtSXF1TjFFZTJ2OEVYWkZQczVBRkxqZVg3ajY1ejNaNEkxQk9Pd2FMOGJNQzRUZ2l3UTRaNE1IM3dQTXhYVi1FS1h0YzQyQXNFLUZXMzZjQkdWcU1PMlhDX0xJbWwya0JHNTROZnBHSXZmYTgwTVNvSnZra2FoN0FpUzJ5V3ZTSHFRdHBrYWJKME1vUTdqYUczWEV6bnMwV3lqM1dNWkd4ajUzeUEtTTVXQUpBYzBpVzc4aTBxRTM5cGF4NXZxYVhrcmxzSE9aV25iR3BudkYxV1Y3VG1VWWFsaUpzMFdnR1FnVE9NNUxZeERjTw?oc=5",
+          "published": "Mon, 19 Oct 2026 00:41:02 GMT",
+          "metrics": {}
+        },
+        {
+          "source": "google_news",
+          "team": "dallas-cowboys",
+          "text": "Dallas Cowboys Injury Updates After Week 6 Loss Include Another Starting Defender - Sports Illustrated",
+          "url": "https://news.google.com/rss/articles/CBMiqwFBVV95cUxPRlZONUhmNGZnRHlzWHlBOGZIT1ZYYlJHamwwQ19CUjRYRmJsaG4xb3IyZXBrNm90UF9nQzdrd24xTzZCU2EyN0twejFhdEFZdUlRWjl5MFZ1VG5SWUhDd0NhSkpjTkwtLW5RTWN6M0VfaUpraGhBLU9oTjd6a0FFSkx5Nm9nRnZIR2tzNFdxOGpjeGtxR2Vab0VmR01vMGRuMkI0QmMzY2Myc0U?oc=5",
+          "published": "Mon, 19 Oct 2026 12:00:03 GMT",
+          "metrics": {}
+        },
+        {
+          "source": "google_news",
+          "team": "dallas-cowboys",
+          "text": "Game Recap: Cowboys lose to Packers, 23-13 - Dallas Cowboys | Official Site of the Dallas Cowboys",
+          "url": "https://news.google.com/rss/articles/CBMigAFBVV95cUxPTEZqYlNvdXlDakNIb0tFNVRsRmZzWV9JQXA2MDA4QkdVckRQNkpfZFRCOTl0dldyWVd3NFVmemlBSXhid3dyLXhQNHNKX3RGbkkzRjliNWlMUlRaQ2MtZWRNY3BjQURSQUR5TlZycFZhYllyZ0NWaTU3QXVUdkdfZQ?oc=5",
+          "published": "Mon, 19 Oct 2026 04:03:11 GMT",
+          "metrics": {}
+        },
+        {
+          "source": "google_news",
+          "team": "michigan",
+          "text": "Michigan football benches Bryce Underwood, but Kyle Whittingham’s QB decision isn’t over - USA Today",
+          "url": "https://news.google.com/rss/articles/CBMi3AFBVV95cUxPUGRGY25uOW1lX3VuWHJQZ25za0ZUeXN3NlNiU2tKZ1RWU2dFekZHb0VsQ0hHUmV5djdoYlVsalJ1ZU9uWTBqdThqMnBoWWdlX0JzYnh1bEF3OVdXcWs2LS1xUWMyTDhiTU9zX0xNQTdUbVhURHdJRlVtLWg4SWpWMGVUMmU2M0U5Z3RZVTJneTNmS1VUVDFtNFBGeXVkMG95bVdmdXlMbGF4WjlOLWlZX2c0enVCcnkwNS1uUS1GTE9GQVVOTmtvTWplZ3NxLVdwbEFYWHk4RW5BdzVx?oc=5",
+          "published": "Sun, 18 Oct 2026 15:20:00 GMT",
+          "metrics": {}
+        },
+        {
+          "source": "google_news",
+          "team": "michigan",
+          "text": "Kickoff time, TV designation revealed for Michigan Football at Rutgers - Maize n Brew",
+          "url": "https://news.google.com/rss/articles/CBMivAFBVV95cUxOMFFYX2J2UzlfeWV5ekZ0RWxXd1JXSGM2ZVY4MUVFcTM0SXdSZzMyRTZLeXp4anRMRnJ1TllfeENBbTJjUHRlUk9ERjZybmU0akcxdUp0MGQxeUlCUFJReS1ScDg1Zkh5QTZrbDMzcVZtU0ZsT2VxaGZSSDJOOUdaNXZaUGRrTVFLbUlRN24zV20xUWtMMUx6WTZaV3JBNmF4YWdlLXVwOWRqbFMyZllyTTNvN1BGWEZwVTVGcQ?oc=5",
+          "published": "Mon, 19 Oct 2026 17:08:54 GMT",
+          "metrics": {}
+        },
+        {
+          "source": "google_news",
+          "team": "michigan",
+          "text": "Rutgers Football versus Michigan Game Time Announced - On3",
+          "url": "https://news.google.com/rss/articles/CBMiqgFBVV95cUxQQk0ySDgyVDFVUk85LU1MeVNNMVJsYjd1eDI5T1d1SXplZ1dBZEp6U1dFU2lFYVdOTS0wR1N2Ylphal9OLWZRdzl2c05rbGZfZjNaV25uN3dEbi1tZHRNNmNNWmtxaWRYZmtTN3RwRnNlZW1McklzQnJGRlVrLTZHQ1ExajdOQXdtbzlUUTFvb3V2MkRuQlh1bEMybzBXOHVjZUdMMF9RX05Xdw?oc=5",
+          "published": "Mon, 19 Oct 2026 17:00:10 GMT",
+          "metrics": {}
+        },
+        {
+          "source": "google_news",
+          "team": "michigan",
+          "text": "Michigan Draws the Big Ten’s Least Flattering Window at Rutgers - Yahoo Sports",
+          "url": "https://news.google.com/rss/articles/CBMigwFBVV95cUxPb29CZHE0SFN6VkI3bVhuSEZISUZ3TXFXVFIzTDdoQnpKZjB0SklzU0Znek5jMGFUc01QM2hVZmhmczJZYlNpUVg3SDBoeVVnUW5XY25uYnZGN0VTS1JFLUszUmNvbW9PQ0Myd0Q1Zlhidm9mcUtWVjM3el9qWko4Z05pZw?oc=5",
+          "published": "Mon, 19 Oct 2026 19:05:00 GMT",
+          "metrics": {}
+        },
+        {
+          "source": "google_news",
+          "team": "michigan",
+          "text": "Michigan Monday: Game 7 vs. No. 6 Indiana - University of Michigan Athletics",
+          "url": "https://news.google.com/rss/articles/CBMie0FVX3lxTFAzTThUaUFQX1R2RnFnaFJ6Q1Rickw0YzdtNDJIRm5EYlRQUWhyS2JMQkxMeHZYM3psM2ZHRmc3Rm9ISURFU3RiaHpVT2JBOGRBM0tlc2pyaExBeEJIRHl6VWxOVVF6WlZMRHppRGVTTHVUdGsxVUF4S2VNOA?oc=5",
+          "published": "Mon, 19 Oct 2026 18:57:41 GMT",
+          "metrics": {}
+        },
+        {
+          "source": "google_news",
+          "team": "michigan",
+          "text": "Big Ten Football Power Rankings: Ohio State snags the top spot - Maize n Brew",
+          "url": "https://news.google.com/rss/articles/CBMi2AFBVV95cUxNZm5PZ2RkTkQ0X24weUl3bUN1VHZ3cWlXQUZVcVI2eXctMktHZDh2TjgzNmZXRXlldUdWOVdWUnFIcFdfSnh4RTVKcUI4NnJZdVpaeExCR0N2OVlWbEJQcVozZkhKdkt5Z1NhWEx5LWdVSHpWdTRHeUR6Q1A4TGJDZGdaZlNQdnA2eG1iMDBvbi03YS1sN3BGVXljZWtjUGZYOE9DT0RhNmhrWTl2eFRRRjlFMWV0Vnlja1JTaHh6aTNBTFVlT3pZdjF4UE1GVVhiazhRY3NRSXM?oc=5",
+          "published": "Mon, 19 Oct 2026 13:00:00 GMT",
+          "metrics": {}
+        },
+        {
+          "source": "google_news",
+          "team": "michigan",
+          "text": "Michigan 13-12 Western Michigan (Sep 5, 2026) Final Score - ESPN",
+          "url": "https://news.google.com/rss/articles/CBMiiAFBVV95cUxOMFA3U2oxTkY0V3dsTlhBWDJKOElpUklyRkFQY1hqSUJMU210Z09jdzlDVmVpTkw1NG95NElJSHBRVjlrVmhhS19xTHp6Z1hLQ1hTZ3hBNlBDb3JwbFpYREFVOG5KNEZPMFZfSWtObnhGZ3ZwUHFaTEE1MWY4MFFHVXNYS2JaSXBn?oc=5",
+          "published": "Wed, 28 Jan 2026 01:19:57 GMT",
+          "metrics": {}
+        },
+        {
+          "source": "google_news",
+          "team": "michigan",
+          "text": "Michigan comes to life after halftime to beat Penn State: Recap - The Detroit News",
+          "url": "https://news.google.com/rss/articles/CBMi_AFBVV95cUxOYjVucEtxNVY3dDJjMk5pR3RkbXRkbEd0X3lOcGJaUlMybktxdjlwSGtpdUU4Um9jR3hVdEhGZFlqSG0zbnhCc0pjN1lfbzY4QnIzWVlCNHdBd290d2ZJRjNkSHlONEdUYjViTk1YbzhWUGdfMTl1c0t6MlZ2NEhobFdKcnVWVFRXX3B1Um9udmE4b3pKbUE2RWdVaV93b3Rjc0NjMmFJNE0weF8wTWZEMUdmd1BCRDNJcC1mYjlXdTE3emw1aC1UV2lKaFZIY0JxRG84ODdPQnB4VWxFSklUeUc1QTVYRDFJNzNoc2MtTWRjX3JoR1JCM3p0S0E?oc=5",
+          "published": "Sat, 17 Oct 2026 23:45:00 GMT",
+          "metrics": {}
+        },
+        {
+          "source": "google_news",
+          "team": "michigan",
+          "text": "IU football game eight: Early odds, projections, details for Michigan - The Daily Hoosier",
+          "url": "https://news.google.com/rss/articles/CBMioAFBVV95cUxNOWZFbU5LdFZKU2Z6dXRCZU1DVjFKSGNiZ2ZIU1Z3RkpYQVFOZjRPMEZPbEhvWWdva25fMV9WdkhENVlVUEFHeUdNekhCYmxYMWlUOEFOX3ZGVFZodUtpM0U3OVNpaW9xNVl4aVRwd1JGVENfOUlrZEtSQkE1TVBsMEYyZGtsb0IyQk9tVnh0ZjlfbjlzNTFGNUdZV3puQjE4?oc=5",
+          "published": "Mon, 19 Oct 2026 13:30:23 GMT",
+          "metrics": {}
+        },
+        {
+          "source": "google_news",
+          "team": "michigan",
+          "text": "Penn State Football’s Post-Michigan Report Card - Onward State",
+          "url": "https://news.google.com/rss/articles/CBMijAFBVV95cUxOOGV2Uy01VUwyaGVmYkZTV0I1OEtZT05mZVFJRl9DTHd3MjE4WVRPX3AzeVRWdWJLYTA2WkJOVVAwamtQVHBha1kxNEx5RVk4X2V5ZU1NajBzS3NneHMtMEhZQlVXOWd0YkJ2Um5PYzFLcTFhZmd5dHZkWXJGSEd6cm1MdmR0azZza0E5QQ?oc=5",
+          "published": "Mon, 19 Oct 2026 08:02:02 GMT",
+          "metrics": {}
+        },
+        {
+          "source": "google_news",
+          "team": "michigan",
+          "text": "How to watch Penn State vs. Michigan football today on free streams, TV - PennLive.com",
+          "url": "https://news.google.com/rss/articles/CBMirwFBVV95cUxQS2otQjEtMUJUQjhqaFBKbDI2d2NwZk03YVZNTC05T2E3cTdJMjBNM0oyT1RJS19zdGthZDFLQktRM01SNVdzRm50MGJ1azgzRlgwTWJhUHBxTU9DcldFQkhpQ2FPbndQc1puWERPSWlrNkZvSm40czRrVWM4SmRFV19naWZzWC1xRF8telh0dFcwWE5LaHhlTzJWbFd2RVREYUxrUG5lNHd4WDdlV0w4?oc=5",
+          "published": "Sat, 17 Oct 2026 15:29:00 GMT",
+          "metrics": {}
+        },
+        {
+          "source": "google_news",
+          "team": "michigan",
+          "text": "How to watch Michigan football vs Indiana on Saturday - FOX 2 Detroit",
+          "url": "https://news.google.com/rss/articles/CBMihwFBVV95cUxOYlJNM0ZQUnJ0SE5wcl9STHFvaEFLaUU2R2YwTjNPU1l1ZGZ3b1Y3TnJGdWpucnJEQ21RWVVDcmc2R2h2TjMyQlQzTHJXUGM0SjNkb1E4WFRlOVVSZXdsLWdDTkhWZTIzaFBhY3AyNDNfYklORkdJbzJDVV9ydWdHY1hkOGlJSTg?oc=5",
+          "published": "Mon, 19 Oct 2026 12:47:09 GMT",
+          "metrics": {}
+        },
+        {
+          "source": "google_news",
+          "team": "michigan",
+          "text": "3 things we learned: Why Michigan looked better across the board with Tommy Carr - MLive.com",
+          "url": "https://news.google.com/rss/articles/CBMizwFBVV95cUxPZ0hFSGxBdjI5cVF6ZEhMeGR6V2tmVlZReEx1SktSSmZQaTFGcWphZldwYVlhRksxTEtNMVlqR3NDR0I1Y25BUU1aQnpZTlBTTjVlNndHaEZqOXJnZndJRUctSVFuU3A4MzBaam05UVVzYTFsMjc1WnprTFU3bnpKQkVwWVFfeHVockh3WDY5YXEwLVZWX09DTVpJX2RHaGMzNjhvZkMwem9hamc1d1FMVW9abHI4TmhZaS13R0llOE82cU1QajE3NHZPbUxOeG_SAeMBQVVfeXFMT3Z6SUFIeVlIZDZmTTFnWG5uSGNrTTlLMWNVVFBVelJnNnhvWGV3YnVzZXNocThfODVmdTZQbzlqWlVnZDBtdVZhcmU5b1d6d3FZMjVyaUNqREoybkdLSnUtcVRuQXVfbzd3ZVdFdm9KU0lzbFJFSVA1blVrakFTbG1VVFQ0dHRudklkSGVvNDJMVGQyak5UbHU1Ump0amtuZWg4RlNCa09PNVJmVVAxX3NnYXFHcFFxTnJjb1h1Tzg3bGhyZ2gtOXNhY1BCWE1MdjM0WS1NWFZrYzZqbGV2VEkwYlU?oc=5",
+          "published": "Mon, 19 Oct 2026 15:24:00 GMT",
+          "metrics": {}
+        },
+        {
+          "source": "google_news",
+          "team": "michigan",
+          "text": "Kyle Whittingham Named Michigan's Starting QB Against Indiana Without Saying It - Sports Illustrated",
+          "url": "https://news.google.com/rss/articles/CBMi0wFBVV95cUxQMDAzVVR1b2JfeXBlLTVseGFHblJ2S1doY1VlbTVJUThrZFduNF9FY3hqYm1BSWIyNzVTN0Rwb2NTTWJsd1k0Y2ExRmFaZkVOTDJ0d3lwRDdnR2p1TmFsOE1iYkl6U1lxTk05LTZWSHZrRkplci1ZRUFfbkdpWXVfeGo4cUIzdDdiUXZ2R2RFdXFJOWl1OW81cTFpSHNvdGVvdmFVNUxaMWNwNm1DbDRaNzM4TkJNaVp3a25jTFNLTGdDUURWX1pmeUtJX2g4bmw3d1NB?oc=5",
+          "published": "Mon, 19 Oct 2026 16:28:13 GMT",
+          "metrics": {}
+        },
+        {
+          "source": "google_news",
+          "team": "michigan",
+          "text": "Penn State Nittany Lions vs Michigan Wolverines football live: Penn State Nittany Lions vs Michigan Wolverines football look to seize control of thrilling Penn State Nittany Lions vs Michigan Wolverines football. Every team in the Penn State Nittany Lions vs Mic - Universidad de Córdoba (UCO)",
+          "url": "https://news.google.com/rss/articles/CBMi4gJBVV95cUxOVHJHZjhTbE9CejlnR3R6VTlxeHVLSzhXVkttblEyV0dzSEpaMkZEdFB4MFA3MGg3TGdURFFYanFUX2EyYXVNckViUVBGTDNaazYtbThHaU5WSDBaWEkwRmlBSnFqclp0eWtnLUdrcmRiRTM1OV9nVnZ3VnctSC0ybDdWZ2F2VGFXTHdBSnlJU3VJNmNiR3hDUXR5UkJJb0VTbHBObi1HMEs4ZVRpYVlTb1lxZUJTeWNQekprUjZXNVdBRUl1MFNZaFJIclY0UWVaVjRVVFVaRUhxenN4SVE4NG0tQUVOUTJ0TVBHSHZ4WENpeklGRWhHcDh6bzJMdGR2eXNCV2RCVjdEQzg1cWxMVG53U1VjYnc5T1E3UGFrSWFWWk9Tc3d5R0RVNU5adENaN012cUg1cG9UYVRQeHdUMU9wTjFiekNRbHpTU1VKU0JJTG82RWJybG5rTTFrTlpfVkE?oc=5",
+          "published": "Mon, 19 Oct 2026 02:48:35 GMT",
+          "metrics": {}
+        },
+        {
+          "source": "google_news",
+          "team": "michigan",
+          "text": "Michigan football winners, losers vs Penn State as Tommy Carr shines - Yahoo Sports",
+          "url": "https://news.google.com/rss/articles/CBMijAFBVV95cUxNN2xNTVZYc0FobGdyb3JoYTd6N085M1RWZGhMSllxVkJYRk8tTmVPajVES2x3MEhKVDJhSzBIbWFxLVd1ZXRZRnFMQTJ0NVRnZzZ5cjdhOG9HcS1yX3EwZkZIem8xU2lxUjA1QzFUSGZiWGxMMEJmc25HLS1zd3JyXzl6cnltTFpueXhjaA?oc=5",
+          "published": "Mon, 19 Oct 2026 09:09:37 GMT",
+          "metrics": {}
+        },
+        {
+          "source": "google_news",
+          "team": "michigan",
+          "text": "Michigan 21-18 Penn State (Oct 17, 2026) Game Recap - ESPN",
+          "url": "https://news.google.com/rss/articles/CBMibEFVX3lxTE5tbFI4UkJlbC1JWHVaUWk1N0JSMGQzM09LbGVWdmJ1RUZNdzU1OWdqc2dzUFBDY3ZmcnBtVDlmRnB0VFAtNVFHcXQ4VXJuTWJWcm9xWUhoSzRBdkFFTjlIQWxuRHo2eDhIX2pwRA?oc=5",
+          "published": "Sat, 17 Oct 2026 23:46:28 GMT",
+          "metrics": {}
+        },
+        {
+          "source": "google_news",
+          "team": "michigan",
+          "text": "Whittingham Won’t Name Michigan's QB1 Vs. Indiana: 'Not Going to Tip Our Hand’ - FOX Sports",
+          "url": "https://news.google.com/rss/articles/CBMivgFBVV95cUxNeWk0bDV0U3JNUnpBeVhiRllOZ0d0a1BGa05HSU1PNGJKSWNFeUs0MXpTbklyclg0RW5Od01NejVFa1FjYjRJSUJJZXg4VVFydU80T0ZDcFVHU1l5bEpsdVoydkZmSlQzQXU3NS15RGVFWGhYUWZTZjIzc2N1VW1xOE52cUlTbFpUMmw2Z0tNZVpUWHV5TWgxaHZ2R1JoQnowZ0h2d2FfNE9UWHNLTFZWbm5NMnVNTmRpbGJ4c0hR0gG-AUFVX3lxTE5vZG5wTXlNLXdVbTZHUndXTFVaZTBaTFZZdFdoY2dmN2tlX3RoMU9JRVNzVTFYcl9XM0M4N0YzTHpHa3NYNjBxaDNOQTBveE9FOUtjd3F0UWVocklMb0Y5aTdzcGFKdFAtS2NnMHpMYmN1SUJ1WjU1WmxuSGc3bE5DNTRUX1N6SFB3dUY0cENTREJWVjkyRUFfNHBuZ1JlektOdUh3ZWZvZ2dpUnRZbnBmTkwwNzBoT1VwVEhJT1E?oc=5",
+          "published": "Mon, 19 Oct 2026 17:11:31 GMT",
+          "metrics": {}
+        },
+        {
+          "source": "google_news",
+          "team": "michigan",
+          "text": "Michigan football writer Tony Garcia assess the winners and losers for the Wolverines after their 21-18 victory over Penn State in Week 7. See link below ⬇️ 📸 Junfu Han, Detroit Free Press - Facebook",
+          "url": "https://news.google.com/rss/articles/CBMi3wFBVV95cUxNT1JLNDNnbXdPbkNYa0VBMnVoTGFSVzVVZVpzc0FOT0lSaGhRUlp6ZDB1dVFldk1COENGeU90bjRZcXNoNnh1Qjl1RUltUU80RnBoOVpCcEdsQTdMb1h3YXpqbDVzYk5DekptSEE4RGtEUElCeHZaQ3dqRktyTzExamdiMTR5NHNOendhLXpnZmhZN2kxQXA0dWVsSEdOeW9oZ0s4Z3lQdkg0QVRubFFPT2JiNDRQMDZPbFF0MWd6SG1mT2ZlWkFrQkZrQ2Y2cnVTdjUzYVZ4ZWRvOGxTd0lR?oc=5",
+          "published": "Mon, 19 Oct 2026 12:00:16 GMT",
+          "metrics": {}
+        },
+        {
+          "source": "google_news",
+          "team": "michigan",
+          "text": "Rushing Attack, Turnovers Lead Michigan Past Penn State for First Big Ten Win - University of Michigan Athletics",
+          "url": "https://news.google.com/rss/articles/CBMixgFBVV95cUxPd2dRN0tnMDY1U1V4ckVmbm1yUERzVkZldFhCdWYtWDM4THFGblVIc3FxaGtscFVxNTVXX1E4NnN2QUlGVlhYTUs5d3g0Y2ZMMkE4a0lYSFFFdkVGZ3MwNWNFYjVabG9xOVpqM1FETWk2bFBhUHhZWFpqdlp4Tm45NFBHcV9USlFqb0dWVHNZUU1aSlVxejJVc0V6NmtJV3YxMUdUZUNhSFNFdGM0V01sc2luMlNodW9aZlhtNDZBV1R3RHVkaUE?oc=5",
+          "published": "Sat, 17 Oct 2026 23:56:07 GMT",
+          "metrics": {}
+        }
+      ],
+      "reason": null
     },
     "reddit": {
       "status": "error",
@@ -709,161 +1442,257 @@
         {
           "source": "repository_trend_snapshot",
           "team": "cleveland-browns",
-          "text": "Todd Monken's latest Deshaun Watson comments reveal Browns' uncomfortable reality",
-          "url": "http://www.bing.com/news/apiclick.aspx?ref=FexRss&aid=&tid=6ad674facf46478190a45c95c77c639e&url=https%3a%2f%2fsports.yahoo.com%2farticles%2ftodd-monkens-latest-deshaun-watson-150004319.html&c=6773058979577020315&mkt=en-us",
-          "published": "Mon, 19 Oct 2026 08:00:00 GMT",
+          "text": "How will the Browns contain RB Derrick Henry? | Burning Questions",
+          "url": "https://news.google.com/rss/articles/CBMioAFBVV95cUxNemtBRE03MjJSTHEyQWFGNHFZNFBrYmp0U3RfSkFmNW1xVWU4VWVCbU9QZTNtSmdZNnBiOTludFJObTZjUVVOdmRaNmtfaDhudGtERDBPb0lqN2NFYXlta01VT3gxdlFKNTJGNmxNbVB1WDN2TjJpMEQtUmVpbXp0NVVtYTFaOGpLNnA1VlhBaXZxb05Pbjd1bkVOSHdXbURJ?oc=5",
+          "published": "Sat, 17 Oct 2026 13:06:32 GMT",
           "metrics": {}
         },
         {
           "source": "repository_trend_snapshot",
           "team": "cleveland-browns",
-          "text": "Browns vs Titans picks, predictions, odds for NFL Week 7 game Sunday",
-          "url": "http://www.bing.com/news/apiclick.aspx?ref=FexRss&aid=&tid=6ad674facf46478190a45c95c77c639e&url=https%3a%2f%2fwww.azcentral.com%2fstory%2fsports%2fnfl%2f2026%2f10%2f19%2fcleveland-browns-tennessee-titans-picks-predictions-odds-nfl-week-7%2f90426923007%2f&c=5357776758822627447&mkt=en-us",
-          "published": "Mon, 19 Oct 2026 04:25:00 GMT",
+          "text": "The Cleveland Browns are good. What do we all do now?",
+          "url": "https://news.google.com/rss/articles/CBMipgFBVV95cUxNUjNJaU0zVWdTaUtGSEdyamZTalJkSzkyQXhqcXN2OWo1OG5QVS04UzUwaFJPNnRKQW1XY0pFX0NFa09HUEJkX3RvUlpDLWV5UFp2WExRZFlpcEFpTTFEVFFxX3U2RWpSMk9GTTNDaDZCc1NWRHRqQ2dvdDNEdHB2WFozY3gtVGpsSVZXYUdEbllhSURBS0ljZ3pIS3FrYjVWdDdZRWpR?oc=5",
+          "published": "Mon, 19 Oct 2026 15:14:39 GMT",
           "metrics": {}
         },
         {
           "source": "repository_trend_snapshot",
           "team": "cleveland-browns",
-          "text": "‘This Might Be the Best Defense That I’ve Seen’ — Former Browns WR Makes Bold Claim About Cleveland Without Myles Garrett After Ravens Win",
-          "url": "http://www.bing.com/news/apiclick.aspx?ref=FexRss&aid=&tid=6ad674facf46478190a45c95c77c639e&url=https%3a%2f%2fwww.msn.com%2fen-us%2fnews%2fother%2fthis-might-be-the-best-defense-that-i-ve-seen-former-browns-wr-makes-bold-claim-about-cleveland-without-myles-garrett-after-ravens-win%2far-AA2fB3st&c=11391187706629233997&mkt=en-us",
-          "published": "Mon, 19 Oct 2026 09:43:03 GMT",
+          "text": "Audric Estimé scores a TD in his first game as a Cleveland Brown",
+          "url": "https://news.google.com/rss/articles/CBMilgFBVV95cUxNRUxmNm1TUUpaM3BVRUhYZmVDTXhnTzdCZ1dtRHVHZ1lnUm10RnMyUFBBZGs0emhCMDdDdTJNZFdhcG5hWmQ0cjdFM3Atck12LWRiVHA3OFd2bk4xTTFNY2xjT0N5YlVjYjd4ZkVjRzQxUHo0cFV5UUVDTTVDNTZ6cHFRUngwV1gxTW1SQXQxMnBoQTBYenc?oc=5",
+          "published": "Sun, 18 Oct 2026 19:46:41 GMT",
           "metrics": {}
         },
         {
           "source": "repository_trend_snapshot",
           "team": "cleveland-browns",
-          "text": "Browns' Andre Szmyt can't get enough of the feeling of winning",
-          "url": "http://www.bing.com/news/apiclick.aspx?ref=FexRss&aid=&tid=6ad674facf46478190a45c95c77c639e&url=https%3a%2f%2fbrownswire.usatoday.com%2fstory%2fsports%2fnfl%2fbrowns%2f2026%2f10%2f19%2fbrowns-andre-szmyt-cant-get-enough-of-winning%2f92329843007%2f&c=16001909200175016506&mkt=en-us",
-          "published": "Sun, 18 Oct 2026 22:55:00 GMT",
+          "text": "Cleveland Browns gets their close-up in first trailer for Hulu's 'The Land'",
+          "url": "https://news.google.com/rss/articles/CBMihgFBVV95cUxQdzFabjBXUXNlemdFM1NUMXgydUdmR0lLZUhvMTRDbmZRS3dVd3Fkb1VQc0pUT250aHFGeGI4REphMTViMEVoRlpCbmg1dDZYdE5wemtzTHdXYkM0SEJ3dEJ2MXlzbXRRTU4tRm9RN3pVcHVURkNER1pTVy0xb1RzaWVoRGtBQQ?oc=5",
+          "published": "Wed, 14 Oct 2026 00:28:00 GMT",
           "metrics": {}
         },
         {
           "source": "repository_trend_snapshot",
           "team": "cleveland-browns",
-          "text": "Tyler Huntley's Missed Oppurtunities Proved Costly Against Browns",
-          "url": "http://www.bing.com/news/apiclick.aspx?ref=FexRss&aid=&tid=6ad674facf46478190a45c95c77c639e&url=https%3a%2f%2fwww.msn.com%2fen-us%2fnews%2fother%2ftyler-huntleys-missed-oppurtunities-proved-costly-against-browns%2far-AA2fAkCd&c=16856772890200139881&mkt=en-us",
-          "published": "Mon, 19 Oct 2026 10:24:44 GMT",
+          "text": "Browns weigh all options on Deshaun Watson's future",
+          "url": "https://news.google.com/rss/articles/CBMijAJBVV95cUxPTjItOVhrVDVGT094S1paX3NWZHF2eGJZRTN0M0oweDZhZW04V01rVGItUkxncy1HRzJNMW5PTi1IVG5kZmVWVko5MW5aUXlyb2tKcjMtY1k3Vm5DUEVlaksxZU5MRjJFY0tSYXBKZDl3cERnaVhDV1JtTmFud254NWVMWmJMZ0htcW1KdmpxaURnNGFfZElSMExVVDVRN2xwUlNMVmZwSWQ2Y05DbnY4eG9uX0RPUXNjU3hYOHlFb0ZmRmk3S0pCX0ZjNG5Pb01OdVFUaUpYb2VxYk1xdzdTRC03NENvZFNCYTN1bE5JYldHZV9mUmxBSzRyZjlIdzJUMjEyLVlTLTNudlNQ?oc=5",
+          "published": "Sat, 10 Oct 2026 07:00:00 GMT",
           "metrics": {}
         },
         {
           "source": "repository_trend_snapshot",
           "team": "cleveland-browns",
-          "text": "Browns atop AFC North after win over Ravens. Can Cleveland continue 4th-quarter magic?",
-          "url": "http://www.bing.com/news/apiclick.aspx?ref=FexRss&aid=&tid=6ad674facf46478190a45c95c77c639e&url=https%3a%2f%2fwww.nytimes.com%2fathletic%2f7701595%2f2026%2f10%2f18%2fravens-browns-nfl-week-6-result-takeaways%2f&c=5036493258816156159&mkt=en-us",
-          "published": "Sun, 18 Oct 2026 14:48:00 GMT",
+          "text": "Quinshon Judkins can’t get going, wide receiver reps change in Browns offense",
+          "url": "https://news.google.com/rss/articles/CBMi1AFBVV95cUxNQk4xRFBaV3AzODFnOTdxZlIzdVVzLUQtMGNacm5ERHRRUHk4RDN0Smd1WlZ6bHVfVlYyaUxicmpHNHZ5WWxtRFNtUlg0cFVwck9rUkkweUFWeXk1eFNGVW1uQmRQa2Z3ejcxLUVIVUFXTmhCU1NPdzNhLS1aQzFyX0l0VUw4OWJXeW8tbl94X1A4OFNoQ0wzbFFXVW9ZakpyZ0Y0ZUhkTWc4ejBDWU50OEhMOXZVTFB0bmxrN1ZGYXhkXzlZWFk1enFUV3N4OFMtX1liVw?oc=5",
+          "published": "Tue, 13 Oct 2026 14:33:34 GMT",
           "metrics": {}
         },
         {
           "source": "repository_trend_snapshot",
           "team": "cleveland-browns",
-          "text": "Are the Browns for Real? A 4-2 Start and First Place in the AFC North Say Maybe",
-          "url": "http://www.bing.com/news/apiclick.aspx?ref=FexRss&aid=&tid=6ad674facf46478190a45c95c77c639e&url=https%3a%2f%2fwww.msn.com%2fen-us%2fnews%2fother%2fare-the-browns-for-real-a-4-2-start-and-first-place-in-the-afc-north-say-maybe%2far-AA2fAYrD&c=11146195853808758497&mkt=en-us",
-          "published": "Mon, 19 Oct 2026 08:20:00 GMT",
+          "text": "The Cleveland Browns are the BEST SURPRISE STORY IN THE NFL after 6 weeks | 4-2 & tied for 1st",
+          "url": "https://news.google.com/rss/articles/CBMivwJBVV95cUxQeVJHMllXZVR3UmxObW90azlTUXNWQWJWaHU0ZmNUQnBfY29pcFhqQW5BellnNEo0WEFCbkxuQnJtNTFQSmNhMHp4R055NVBwT3I5R1BYVWhrMUl5eXpzcl95cFEyOFZIclhtZ3htd0JmcHR6Yk95Q1BxbkItdWRFRHVydDNyS3dnTlV6RmRxWkc0am1qRXd4UVZ3aWhhUEtuaTZGSWV6M1ZGS05iZF9XRTBKdXdUeWM4OGNkdTIzbjVGZ1IwZThwa1F2YTR6dnkyQ2ktZTN0OGdTOU5TaF9CRGZ3eDNpRkl4dk9nQVZaOVRCTkVDRGRpZVZTTTVyNWY2OXRvcFloV2NwUG5oT0JFQmpsbXlJcThNUDRrZklMbnpVanAtaGM5YjBsajdRVDc2Sng3TkU3dE9vRDNyRGJj?oc=5",
+          "published": "Mon, 19 Oct 2026 14:36:00 GMT",
           "metrics": {}
         },
         {
           "source": "repository_trend_snapshot",
           "team": "cleveland-browns",
-          "text": "How Deshaun Watson, Jerry Jeudy, and the rest of the Browns offense graded vs. the Ravens",
-          "url": "http://www.bing.com/news/apiclick.aspx?ref=FexRss&aid=&tid=6ad674facf46478190a45c95c77c639e&url=https%3a%2f%2fwww.msn.com%2fen-us%2fnews%2fother%2fhow-deshaun-watson-jerry-jeudy-and-the-rest-of-the-browns-offense-graded-vs-the-ravens%2far-AA2fAA1R&c=16122303477553169646&mkt=en-us",
-          "published": "Mon, 19 Oct 2026 11:29:00 GMT",
+          "text": "Browns sign RB Audric Estime",
+          "url": "https://news.google.com/rss/articles/CBMic0FVX3lxTE9zMVBFbTRscUZ2eDZld3plNGcxSDZQNlhySnNXd1RRRXRSd19uVmNNLUY2WFN3ZDNfRDQ4YTR4ZEdHZHppU2xyTEhubTJsRzUyb0tYYzBFLVpfSUdjMGR5RnU2eWRnQVN0b1llYk9oQk43dms?oc=5",
+          "published": "Tue, 13 Oct 2026 20:29:56 GMT",
           "metrics": {}
         },
         {
           "source": "repository_trend_snapshot",
           "team": "green-bay-packers",
-          "text": "Green Bay Packers Trade Pitch Lands $105.8 Million DT in Massive In-Season Move",
-          "url": "http://www.bing.com/news/apiclick.aspx?ref=FexRss&aid=&tid=6ad67522bed14fe1850320af892c42f6&url=https%3a%2f%2fsports.yahoo.com%2farticles%2fgreen-bay-packers-trade-pitch-162618182.html&c=17657256722980980533&mkt=en-us",
-          "published": "Mon, 19 Oct 2026 09:26:00 GMT",
+          "text": "Inbox: The Packers have been winning this way for decades",
+          "url": "https://news.google.com/rss/articles/CBMingFBVV95cUxQV3VlMzFVNldqNVE2N1lhZGVuNjdyWVVRa2ptaDU4dDM3Y1BjTjk2RUl6Sm9yU2l5UkYwZG45aEF4enVMQzY0UXlGbFoyU3BEU2tMenJ3VUpXamtqX1JtNDFuZUQ0eFRhdmZCUFdxM1lWb3ZuUkNEX0NjSmxQdVNLdThiZzlsRGFnZzgtWnU0eTBSZW5FYlNhZnJHejFPdw?oc=5",
+          "published": "Tue, 13 Oct 2026 13:33:22 GMT",
           "metrics": {}
         },
         {
           "source": "repository_trend_snapshot",
           "team": "green-bay-packers",
-          "text": "Packers reporter refuses to rule out blockbuster Eagles trade after Jalen Hurts setback",
-          "url": "https://www.aol.com/articles/packers-reporter-refuses-rule-blockbuster-191726000.html",
-          "published": "Mon, 19 Oct 2026 12:17:00 GMT",
+          "text": "Game Recap: Bears fall to Packers in Green Bay",
+          "url": "https://news.google.com/rss/articles/CBMilgFBVV95cUxQXzRDYmxkYXlkMTlSbXdMVTBOQm1XZG5iUkgzeW9SWXpXeUVGTU5oYkk2T3N3S2JlWElKZFk3eW1KSmlsVW1NWDZoZ0pXdU5iUzNXUU1BY2FmWVhEQWIySi1CXzUybzJnelkycnhYblhqZk93RUVIdWlhODZsMThHbURaWS1BdEtiMU5fV25lOGhTLVpWUVE?oc=5",
+          "published": "Sun, 11 Oct 2026 07:00:00 GMT",
+          "metrics": {}
+        },
+        {
+          "source": "repository_trend_snapshot",
+          "team": "green-bay-packers",
+          "text": "Love's 37-yard loft to Golden provides Packers with red-zone access vs. Cowboys",
+          "url": "https://news.google.com/rss/articles/CBMiqAFBVV95cUxQY2k5aERyNlFLdERfT0M5SEQxUUZWX2RWQVBwQ3c2WFpQZ3EtWnd3V1hKaXcwS3IzUmV0YVREM1FyQWRrWmFCaGNiZEtVcWhHc3loSFJvY0FfNUxBWVczaU1kQ2VmOGxJeE1DU21yZmg0TzVJc2FmbkU5cVdmUWwxZ3BkaWpYMk9LZG5yRFBqOVBsTWZ5bU10Mi1WTC1QcUdMTEUycS01QTk?oc=5",
+          "published": "Mon, 19 Oct 2026 00:46:16 GMT",
+          "metrics": {}
+        },
+        {
+          "source": "repository_trend_snapshot",
+          "team": "green-bay-packers",
+          "text": "Packers 31-7 Bears (Oct 11, 2026) Game Recap",
+          "url": "https://news.google.com/rss/articles/CBMiW0FVX3lxTE1McndXWmpndXA3THBiTXZ4bFZmUFg5blh2TXVRdlloR1FFbXlRT0RNYWczVnNpam4yT3REbFYzODJhcW9aTjJ1SENfeG92cllXMmpsVEF1MDhvUTA?oc=5",
+          "published": "Sun, 11 Oct 2026 23:31:45 GMT",
+          "metrics": {}
+        },
+        {
+          "source": "repository_trend_snapshot",
+          "team": "green-bay-packers",
+          "text": "⊕[ＷＡＴＣＨ ＬＩＶＥ]⊕Dallas Cowboys vs Green Bay Packers Ｌｉｖｅ ｓｔｒｅａｍ Ｆｒｅｅ",
+          "url": "https://news.google.com/rss/articles/CBMiwgJBVV95cUxON2Q1SmQ1ZEE2SDJBVi1GY2FaRkN3QmJ0VTBSSzRKLUl2MGpjLVg4bEdWb2NkZk9Jd3JxcGVHVXg4M3dMb1AwdHN2VGt2TlJpa19Ka19vTjh1cVk0QXFHNEtJMmdWQlFLbXRuS3lvRGZvZ3ZtdVhUSzUxOUpkMzVDXzlVM3hrUXN2YjJHeFhuRmJjczZTRktFTENOR3dvakdNQWdSekhjY2huUUtydXRUUHFsTzlSNm1QR0dXUmt1TzNlNzVQaERBTVVHRW51M0VDWGpKZFhvYTRDajNWTDdLUk54bEV0M2Z0YTBDai1hTmU3aVB6ZUhOdzQxSUdPR0duNzZpdlZsQ2RxMlU0a3h3UTNSXzdBSDA0NDB1aWtJLUpuNE55a3VhYmlnNkJlVUtWaWMyWFU1X2FxMkNIdHh5cm5n?oc=5",
+          "published": "Mon, 19 Oct 2026 04:18:58 GMT",
+          "metrics": {}
+        },
+        {
+          "source": "repository_trend_snapshot",
+          "team": "green-bay-packers",
+          "text": "Gut Feeling: Staff predictions for Cowboys-Packers",
+          "url": "https://news.google.com/rss/articles/CBMilAFBVV95cUxObXlGRTBnVGpoVUEtbE9FZDdmSkpBWmNCc25jeF9Vanc5TWNFdTdNSndNcC1CU0FfRW5YeVd3Vmp5VlVUMnAta09YQ3UxNFFOS1RUOHNkV1lqZTUtUERwQWxLSEVpOHdTemV3SjVwUm1VNFFkNmlrS0FVTFVtMFJoUEp3elZVRFVtaW5Va1BhMWN1MlJP?oc=5",
+          "published": "Fri, 16 Oct 2026 20:33:37 GMT",
+          "metrics": {}
+        },
+        {
+          "source": "repository_trend_snapshot",
+          "team": "green-bay-packers",
+          "text": "Green Bay Packers: Josh Jacobs will return as the starting running back immediately in Week 7",
+          "url": "https://news.google.com/rss/articles/CBMihAFBVV95cUxPc3pzMFNlM3hWOGxvVTlSekE2cGdhUGFxSVdYXzUwMElMNEh5dllMYVdaaUhwcWpqNWhLSjkzcWxKa2k5OEIwZHJEVUxyaVhhdWlyajNSYUVSODNLanVFSjhyQXh4Z2V1RjFMZ3pMSTY2aUplVExkaHZLakl4Ynd2QjZPMTY?oc=5",
+          "published": "Sat, 17 Oct 2026 13:14:14 GMT",
+          "metrics": {}
+        },
+        {
+          "source": "repository_trend_snapshot",
+          "team": "green-bay-packers",
+          "text": "Fans react to Green Bay Packers win over Dallas Cowboys",
+          "url": "https://news.google.com/rss/articles/CBMi2gFBVV95cUxNV2ZrSEFuMXQ5UkJOQWFSa1pia25tc0VNRXdqcjJDNWhnUHJMbnJUOVRTWWxIZ0NNRVNzZDJmTXo0TWZUUFd0NjB3S0hwUGhib25QblpvSWFuT2NlRVIwNDRGVnJuUEw5TEtlcTg5Q1dWWl9XM3pWNEVBTkxSNjBWTHN0VXJ6eHk2b0F6RHVmc3ZTTjN3UjJSTWlHR250OXJYaE9lVVU4RGNnSXdsZUNwcGF0UDJXU21OdGlEN1VuYU8wYUxVbk94RkxRQzdEU2JxQWxEeGxYSF9lQQ?oc=5",
+          "published": "Mon, 19 Oct 2026 04:46:46 GMT",
           "metrics": {}
         },
         {
           "source": "repository_trend_snapshot",
           "team": "dallas-cowboys",
-          "text": "Cowboys sideline exclusive: When Dallas should've known it'd be a tough night in Green Bay",
-          "url": "http://www.bing.com/news/apiclick.aspx?ref=FexRss&aid=&tid=6ad6754e0b3343f58002a5e8feccaf90&url=https%3a%2f%2fwww.msn.com%2fen-us%2fnews%2fother%2fcowboys-sideline-exclusive-when-dallas-shouldve-known-itd-be-a-tough-night-in-green-bay%2far-AA2fApQs&c=2100190840428134233&mkt=en-us",
-          "published": "Mon, 19 Oct 2026 10:58:20 GMT",
+          "text": "Game Recap: Cowboys lose to Packers, 23-13",
+          "url": "https://news.google.com/rss/articles/CBMigAFBVV95cUxPTEZqYlNvdXlDakNIb0tFNVRsRmZzWV9JQXA2MDA4QkdVckRQNkpfZFRCOTl0dldyWVd3NFVmemlBSXhid3dyLXhQNHNKX3RGbkkzRjliNWlMUlRaQ2MtZWRNY3BjQURSQUR5TlZycFZhYllyZ0NWaTU3QXVUdkdfZQ?oc=5",
+          "published": "Mon, 19 Oct 2026 04:03:11 GMT",
           "metrics": {}
         },
         {
           "source": "repository_trend_snapshot",
           "team": "dallas-cowboys",
-          "text": "Dallas Cowboys legend 'concerned' Jerry Jones will start firing coaches",
-          "url": "https://www.msn.com/en-us/sports/football/dallas-cowboys-legend-concerned-jerry-jones-will-start-firing-coaches/ar-AA2fAxef?ocid=BingNewsVerp",
-          "published": "Mon, 19 Oct 2026 09:36:48 GMT",
+          "text": "‍‍‍[!LIVE-NFL!] Dallas Cowboys Game Time",
+          "url": "https://news.google.com/rss/articles/CBMitAJBVV95cUxPRWNkWjNnS1BSdGpoYlBQVTFfdFNRWFF5UGNrMHBCaHRfT01uT29Lc0VDU2JlLURJbXhHdlpsejRYVU5QdlFtZlRtSXF1TjFFZTJ2OEVYWkZQczVBRkxqZVg3ajY1ejNaNEkxQk9Pd2FMOGJNQzRUZ2l3UTRaNE1IM3dQTXhYVi1FS1h0YzQyQXNFLUZXMzZjQkdWcU1PMlhDX0xJbWwya0JHNTROZnBHSXZmYTgwTVNvSnZra2FoN0FpUzJ5V3ZTSHFRdHBrYWJKME1vUTdqYUczWEV6bnMwV3lqM1dNWkd4ajUzeUEtTTVXQUpBYzBpVzc4aTBxRTM5cGF4NXZxYVhrcmxzSE9aV25iR3BudkYxV1Y3VG1VWWFsaUpzMFdnR1FnVE9NNUxZeERjTw?oc=5",
+          "published": "Mon, 19 Oct 2026 00:41:02 GMT",
+          "metrics": {}
+        },
+        {
+          "source": "repository_trend_snapshot",
+          "team": "dallas-cowboys",
+          "text": "Updates: Injury news on Turpin, Winters",
+          "url": "https://news.google.com/rss/articles/CBMiZkFVX3lxTE41U3JDcmpCb1YyZjBxRFNnV25kSktlMVJ5aEJsX1hhNTFTcHJWdWdTbjF5cFhvQ3ZKZGd4bEdfT0VtT1RobmJwd3ZSbnZzM0c3RnJiTS1kSG5fMUtJWW9qclRUWlZtQQ?oc=5",
+          "published": "Sun, 18 Oct 2026 07:00:00 GMT",
+          "metrics": {}
+        },
+        {
+          "source": "repository_trend_snapshot",
+          "team": "dallas-cowboys",
+          "text": "⊕[ＷＡＴＣＨ ＬＩＶＥ]⊕Dallas Cowboys vs Green Bay Packers Ｌｉｖｅ ｓｔｒｅａｍ Ｆｒｅｅ",
+          "url": "https://news.google.com/rss/articles/CBMiwgJBVV95cUxON2Q1SmQ1ZEE2SDJBVi1GY2FaRkN3QmJ0VTBSSzRKLUl2MGpjLVg4bEdWb2NkZk9Jd3JxcGVHVXg4M3dMb1AwdHN2VGt2TlJpa19Ka19vTjh1cVk0QXFHNEtJMmdWQlFLbXRuS3lvRGZvZ3ZtdVhUSzUxOUpkMzVDXzlVM3hrUXN2YjJHeFhuRmJjczZTRktFTENOR3dvakdNQWdSekhjY2huUUtydXRUUHFsTzlSNm1QR0dXUmt1TzNlNzVQaERBTVVHRW51M0VDWGpKZFhvYTRDajNWTDdLUk54bEV0M2Z0YTBDai1hTmU3aVB6ZUhOdzQxSUdPR0duNzZpdlZsQ2RxMlU0a3h3UTNSXzdBSDA0NDB1aWtJLUpuNE55a3VhYmlnNkJlVUtWaWMyWFU1X2FxMkNIdHh5cm5n?oc=5",
+          "published": "Mon, 19 Oct 2026 04:18:58 GMT",
+          "metrics": {}
+        },
+        {
+          "source": "repository_trend_snapshot",
+          "team": "dallas-cowboys",
+          "text": "Eatman: Finger-pointing now turning to offense",
+          "url": "https://news.google.com/rss/articles/CBMihwFBVV95cUxNY3RUMmhXaVcxR2JUTUZrTVZoa2Q0bnZPc3JXVGt6QW8ya0ZwZ0pCRlhHeXN4MkhueU9ielRMWVMtdVk0MUxWbHUyazNlV2NBdGxYMjJsejVoXzdLcW9UOXlTN0htVklJX1NuQkhHWWxpdWRqZ0ZnUGxWZ0hmY3RDVG1wYWthUm8?oc=5",
+          "published": "Mon, 19 Oct 2026 06:13:52 GMT",
+          "metrics": {}
+        },
+        {
+          "source": "repository_trend_snapshot",
+          "team": "dallas-cowboys",
+          "text": "Pic 6: Cowboys struggle vs. Green Bay's pressure, make multiple personnel changes",
+          "url": "https://news.google.com/rss/articles/CBMiswFBVV95cUxPWWE3VkRacVl5UEt1cFFfNnhaTnN3cnZJWUxlbEpqUVhlUXdtWTQzMGw0MXZPbTZjM2ZXclpXaWRRMmhJdld5cUV3R0NYejJOQ05UcUpQa2JtZ2szM21pdUNOQ3NaVndSOFhmb0QyR2g5anJQOXRJZDd1UG5ZZy11VHVNSHNrSVZBZ0dQbzRqMjhXbG1nZlRONmt3OHpoaTJ3QklhOWUtOW1meDA4VDNCMEI4RQ?oc=5",
+          "published": "Mon, 19 Oct 2026 15:19:53 GMT",
+          "metrics": {}
+        },
+        {
+          "source": "repository_trend_snapshot",
+          "team": "dallas-cowboys",
+          "text": "Mike Pettine looking to answer the call for Christian Parker, Cowboys defense",
+          "url": "https://news.google.com/rss/articles/CBMipgFBVV95cUxQUjNjajRXM21jTDRaNV9QNlpJektVclM2bXN0d0lTcmFUY2x3WnQ2SHNwdkQxOTBITmtBTVlsRVlkTEdpaHhIaUR0M2drUFBJYzRxUUNmUGNRaU5jRFVSODd5NkhoZGh0RENYV3Q1bDVUSDdNZ2FkZ3VtOFJsbkVyMTBXdUFxdk4xbXRnU2ItUEk0OTNsemItanpXeEJ6VWtBS1JoU2Jn?oc=5",
+          "published": "Fri, 16 Oct 2026 19:53:37 GMT",
+          "metrics": {}
+        },
+        {
+          "source": "repository_trend_snapshot",
+          "team": "dallas-cowboys",
+          "text": "Cowboys have a specific IR issue that threatens 2026",
+          "url": "https://news.google.com/rss/articles/CBMikAFBVV95cUxPbkpyVVdISXlvd0stRmRvOVpwdVFkRHZib1h6MlpmMEhRcTdkeFQ4ZHlSMGJ2d2t2MFpYQ3JWdHBGRThFQ2dPb0pEOVV0Tk92eFRVYmp0SUJFV0hIX2xsUlRPaUEydjBicHdWNXIxUVVZek9PMGQ0Q0Z3Q2FSMG84dXlpRlFTZEE1aktFcjRpWGM?oc=5",
+          "published": "Tue, 13 Oct 2026 15:36:55 GMT",
           "metrics": {}
         },
         {
           "source": "repository_trend_snapshot",
           "team": "michigan",
-          "text": "Michigan football an early one-score underdog vs. No. 6 Indiana",
-          "url": "http://www.bing.com/news/apiclick.aspx?ref=FexRss&aid=&tid=6ad67579835b41f2a32eacb0671a5467&url=https%3a%2f%2fwww.mlive.com%2fwolverines%2ffootball%2f2026%2f10%2fmichigan-football-an-early-one-score-underdog-vs-no-6-indiana.html&c=4431638407437755143&mkt=en-us",
-          "published": "Sun, 18 Oct 2026 23:08:00 GMT",
+          "text": "Michigan Monday: Game 6 vs. Penn State",
+          "url": "https://news.google.com/rss/articles/CBMif0FVX3lxTFB4bDlCMV9sQ2ZqRFVtMWluZVJYZWg1cjFDNlFRWkx2SV8xbUYyUFNMVXZoODl0a25fWEVUOFl6N1R0VnMtdFFrdXZOQXllMzgySG1wNkc0cXpxcmplMVVVT28zaE81c2xwajA0NkZNTkhJdU5ZSjRSTGtXUHZuRXM?oc=5",
+          "published": "Mon, 12 Oct 2026 15:39:47 GMT",
           "metrics": {}
         },
         {
           "source": "repository_trend_snapshot",
           "team": "michigan",
-          "text": "Indiana vs. Michigan Prediction, Odds and Key Players to Watch for College Football Week 8",
-          "url": "http://www.bing.com/news/apiclick.aspx?ref=FexRss&aid=&tid=6ad67579835b41f2a32eacb0671a5467&url=https%3a%2f%2fwww.si.com%2fbetting%2findiana-vs-michigan-prediction-odds-and-key-players-to-watch-for-college-football-week-8-2026&c=7292266509830702151&mkt=en-us",
-          "published": "Mon, 19 Oct 2026 07:40:00 GMT",
+          "text": "4 Instant Takeaways as Tommy Carr Propels Michigan Football Over Penn State",
+          "url": "https://news.google.com/rss/articles/CBMiwgFBVV95cUxPTFVIODJuVmg5Sk16NThRdk5LRXlKOENqYnROcHFLWkp3cUYyMUUybE42TmpSdExoRVVuNHJ4czd6a3Voc0NLcHFyRWVIdGhFUTNSVkpBMTFicFlnMVI1dDVtR0xHcHJoWkJTakpRVGwtRXpfbXRHY3JHVTUtVWFXREU0TVhVTnV5c2ZsM0I3VWt2R0Vla3Z3VGVTakthUjVzaUZsTGFydGRCQVh5SzgtSFk0RVFyME44eGJKY0JNYWtSdw?oc=5",
+          "published": "Sat, 17 Oct 2026 23:10:35 GMT",
           "metrics": {}
         },
         {
           "source": "repository_trend_snapshot",
           "team": "michigan",
-          "text": "Michigan football knows what Bryce Underwood is. It’s time to move on",
-          "url": "http://www.bing.com/news/apiclick.aspx?ref=FexRss&aid=&tid=6ad67579835b41f2a32eacb0671a5467&url=https%3a%2f%2fwww.usatoday.com%2fstory%2fsports%2fncaaf%2fbigten%2f2026%2f10%2f19%2fmichigan-football-should-bench-bryce-underwood-start-tommy-carr-vs-indiana%2f92329706007%2f&c=8079013258866064660&mkt=en-us",
-          "published": "Mon, 19 Oct 2026 09:36:00 GMT",
+          "text": "Michigan 21-18 Penn State (Oct 17, 2026) Game Recap",
+          "url": "https://news.google.com/rss/articles/CBMibEFVX3lxTE5tbFI4UkJlbC1JWHVaUWk1N0JSMGQzM09LbGVWdmJ1RUZNdzU1OWdqc2dzUFBDY3ZmcnBtVDlmRnB0VFAtNVFHcXQ4VXJuTWJWcm9xWUhoSzRBdkFFTjlIQWxuRHo2eDhIX2pwRA?oc=5",
+          "published": "Sat, 17 Oct 2026 23:46:28 GMT",
           "metrics": {}
         },
         {
           "source": "repository_trend_snapshot",
           "team": "michigan",
-          "text": "Michigan Football climbs ESPN FPI rankings after win vs Penn State",
-          "url": "http://www.bing.com/news/apiclick.aspx?ref=FexRss&aid=&tid=6ad67579835b41f2a32eacb0671a5467&url=https%3a%2f%2fsports.yahoo.com%2farticles%2fmichigan-football-climbs-espn-fpi-140000862.html&c=9455587324120640712&mkt=en-us",
-          "published": "Mon, 19 Oct 2026 07:01:00 GMT",
+          "text": "What channel is Michigan football vs Penn State? Week 7 time, TV channel",
+          "url": "https://news.google.com/rss/articles/CBMi4gFBVV95cUxNM0ZqVXQ3dW9lRlp5VVF3WU82ZHU3cE9TSUcxeTEzNVlvamFRV0R5Z2FDWGs0U3BjbWY5em1yTFJZc080UHFrLTRzb3AyTnlfT1FReVlDZzNHcmtQNnRXdmRwZ1VUc1NWTlh1b1hWU0l3UWRxUTJ4Z3pKbEgxdm1nSUh3UVNLLUVLMjN3TTdoMlFpSWJGWVRmUmtoYl9kTlBUSWNNSGMyZS1PVUduM09pWlNoLWhHck9uUWUzcFVOaE9qbnpIbnBwLVE5RC1SRUNwTEtoZlJRTWN1amtSOVV2N3pR?oc=5",
+          "published": "Sat, 17 Oct 2026 08:55:00 GMT",
           "metrics": {}
         },
         {
           "source": "repository_trend_snapshot",
           "team": "michigan",
-          "text": "Michigan football gets early kick time for Halloween matchup with Rutgers",
-          "url": "http://www.bing.com/news/apiclick.aspx?ref=FexRss&aid=&tid=6ad67579835b41f2a32eacb0671a5467&url=https%3a%2f%2fwww.usatoday.com%2fstory%2fsports%2fcollege%2funiversity-michigan%2fwolverines%2f2026%2f10%2f19%2fmichigan-football-kickoff-time-tv-channel-rutgers%2f92332488007%2f&c=6718195469604974364&mkt=en-us",
-          "published": "Mon, 19 Oct 2026 12:00:00 GMT",
+          "text": "5 takeaways from Michigan Football’s win vs Penn State",
+          "url": "https://news.google.com/rss/articles/CBMizAFBVV95cUxPNEQ1ZW5iQURKcmlJSzBwbzRWSklMNDhCRGNiZm1mMkRvT2FDNy1tUDZXbjZFRmZvc192WnRjZ2NaUGxfcElPbnpZZU9SdEZYRnYtaXgzZVBhZU9fWExrby04N3RZZTBLa3ViM3BaaXR6YnFtWU9idUdwVS1jQi13TUkxUHlSQWlJRnpvUjh4Wmc2TXczSm01RHUyRXMzR2g4RTNxdlotVWpBZEozWWszM0dTc2FkenlhTl9fbldxQ0FITnZIRTF2ZG9rWkM?oc=5",
+          "published": "Sun, 18 Oct 2026 00:00:00 GMT",
           "metrics": {}
         },
         {
           "source": "repository_trend_snapshot",
           "team": "michigan",
-          "text": "Tommy Carr earned Michigan football QB job, but he needs help to win",
-          "url": "http://www.bing.com/news/apiclick.aspx?ref=FexRss&aid=&tid=6ad67579835b41f2a32eacb0671a5467&url=https%3a%2f%2fsportsbookwire.usatoday.com%2fstory%2fsports%2fcollege%2funiversity-michigan%2fwolverines%2f2026%2f10%2f18%2ftommy-carr-michigan-football-quarterback%2f92302838007%2f&c=10029636336567376193&mkt=en-us",
-          "published": "Sun, 18 Oct 2026 11:19:00 GMT",
+          "text": "3 things we learned: Why Michigan looked better across the board with Tommy Carr",
+          "url": "https://news.google.com/rss/articles/CBMizwFBVV95cUxPZ0hFSGxBdjI5cVF6ZEhMeGR6V2tmVlZReEx1SktSSmZQaTFGcWphZldwYVlhRksxTEtNMVlqR3NDR0I1Y25BUU1aQnpZTlBTTjVlNndHaEZqOXJnZndJRUctSVFuU3A4MzBaam05UVVzYTFsMjc1WnprTFU3bnpKQkVwWVFfeHVockh3WDY5YXEwLVZWX09DTVpJX2RHaGMzNjhvZkMwem9hamc1d1FMVW9abHI4TmhZaS13R0llOE82cU1QajE3NHZPbUxOeG_SAeMBQVVfeXFMT3Z6SUFIeVlIZDZmTTFnWG5uSGNrTTlLMWNVVFBVelJnNnhvWGV3YnVzZXNocThfODVmdTZQbzlqWlVnZDBtdVZhcmU5b1d6d3FZMjVyaUNqREoybkdLSnUtcVRuQXVfbzd3ZVdFdm9KU0lzbFJFSVA1blVrakFTbG1VVFQ0dHRudklkSGVvNDJMVGQyak5UbHU1Ump0amtuZWg4RlNCa09PNVJmVVAxX3NnYXFHcFFxTnJjb1h1Tzg3bGhyZ2gtOXNhY1BCWE1MdjM0WS1NWFZrYzZqbGV2VEkwYlU?oc=5",
+          "published": "Mon, 19 Oct 2026 15:24:00 GMT",
           "metrics": {}
         },
         {
           "source": "repository_trend_snapshot",
           "team": "michigan",
-          "text": "Kyle Whittingham mum on Michigan's starting QB: 'Good plan in place'",
-          "url": "http://www.bing.com/news/apiclick.aspx?ref=FexRss&aid=&tid=6ad67579835b41f2a32eacb0671a5467&url=https%3a%2f%2fwww.msn.com%2fen-us%2fnews%2fother%2fkyle-whittingham-mum-on-michigans-starting-qb-good-plan-in-place%2far-AA2fA1kX&c=4909734761278931475&mkt=en-us",
-          "published": "Mon, 19 Oct 2026 11:11:06 GMT",
+          "text": "!+[𝐒𝐓ream]HERE'S*! Michigan Wolverines Football 𝐋𝐈𝐕𝐄 ＯＮ Ｔｖ Ｃｈａｎｎｅｌ 17 October 2026",
+          "url": "https://news.google.com/rss/articles/CBMiuwJBVV95cUxPSWgyWUtQWFU5aGdYNFp3LVNWTVJOV21WdGRhLWZicFk4dkNBZUZyZzZYNzJXRG1UUXZqLXpRX0JWcGN0R2U5ZHRZU2NKTm81VnlkSEhfWWd1eFkwMVVQZ09uQjQyYjdXdUpFbHRISXlCRVh1LUpNamJFek5uc0FrcWlnazRlbC16R3l1NXBOR3ZqeEZBTDJfa0J3eHhNRkdPcU5WdGJXUHh3OXd5cmtrZFJWMVZFOTJHeEtDRzU2a09XaWJScHFfX0UzeExZempEdGtINWtIbjgwRGlGdGhKMVE2UXJseXhGNmtQQ29leERmcEZpcWVrSmwtdDI1NDFYelZwTVNNT0hESzNLUGMwbVhpZU9hbG02X25JSWJkd0JMNEdHLW1GSnpqOHluaUtsT1Vmamh2anFGOWc?oc=5",
+          "published": "Sat, 17 Oct 2026 19:50:13 GMT",
           "metrics": {}
         },
         {
           "source": "repository_trend_snapshot",
           "team": "michigan",
-          "text": "Michigan Wolverines betting preview 2026-27: Odds, futures, win total prediction, sportsbook promos, more",
-          "url": "http://www.bing.com/news/apiclick.aspx?ref=FexRss&aid=&tid=6ad67579835b41f2a32eacb0671a5467&url=https%3a%2f%2fwww.sportingnews.com%2fus%2fbetting%2fnews%2fmichigan-wolverines-betting-preview-2026-27-odds-win-total%2ff3980d7370969d5e518b3f6a&c=16025434751430271721&mkt=en-us",
-          "published": "Mon, 19 Oct 2026 09:05:00 GMT",
+          "text": "Live stream Penn State vs Michigan for free: Watch College Football, NCAA, TV channel",
+          "url": "https://news.google.com/rss/articles/CBMif0FVX3lxTE9OcnJNeTE5WEdQTWR5NVkyaUMxY3RMMnk2OVcwMWl5Umk4aHJWSFp4SW5WTjk0SllhckRJZ2VadU4wSmRoc2lYd21UMklhY3dQTURBTGluMm8xZ2dmZ1NINmpFajFNUV9DaDdhMjh4dTduVU5wYnZJdlhySTUyaDA?oc=5",
+          "published": "Sat, 17 Oct 2026 17:30:00 GMT",
           "metrics": {}
         }
       ],
