@@ -468,6 +468,24 @@ class TeamCollectionPages(unittest.TestCase):
                                 os.path.isfile(os.path.join(SITE, rel)),
                                 f"{k}: missing mockup {img}")
 
+    def test_apparel_filter_removes_cards_instead_of_greying_them(self):
+        """A category shows only the designs sold in it.
+
+        The team-page buttons must take a design that has no listing for the
+        chosen garment out of the grid. Greying it and leaving it in place was
+        the earlier behaviour and reads as dead stock on the shelf."""
+        js = page("assets/app.js")
+        start = js.index("// ---------- team collection apparel buttons")
+        end = js.index("// ----------", start + 10)
+        team = js[start:end]
+        self.assertIn("card.hidden=true", team)
+        self.assertNotIn("is-muted", team, "team cards must not be greyed")
+        # the shelf count and the empty state follow the grid
+        self.assertIn("function refreshCount()", team)
+        self.assertIn("noresEl", team)
+        # and no rule greys a team card any more
+        self.assertNotIn(".card.is-muted", self.css)
+
     def test_apparel_payload_is_generated_not_hand_edited(self):
         """site/ is disposable: the buttons and the payload must come from
         src/build.py, otherwise the twice-daily rebuild silently reverts them."""

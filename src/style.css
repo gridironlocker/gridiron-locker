@@ -1762,8 +1762,5 @@ main.jlock-girly{padding:0 0 32px;overflow:hidden}
   .gstyle-row{gap:7px;margin-top:11px}
   .gstyle-chip{padding:8px 12px;font-size:.68rem}
 }
-/* designs that did not list the chosen style keep their own mockup, muted */
-.card.is-muted{background:#fbfaf7}
-.card.is-muted .ph img{filter:grayscale(1);opacity:.42}
-.card.is-muted .ph img.alt{filter:grayscale(1);opacity:.42}
+/* a design that does not list the chosen garment leaves the grid entirely */
 .card[hidden]{display:none}
