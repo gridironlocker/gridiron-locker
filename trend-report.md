@@ -1,6 +1,6 @@
 # Hunt Report - 2026-10-19
 
-Generated: 2026-10-19 20:12 UTC by src/hunter_intelligence.py
+Generated: 2026-10-19 20:32 UTC by src/hunter_intelligence.py
 
 Ladder: SIGNAL 1 · TREND 2 · OPPORTUNITY 1 · ACTION 0 · HEADLINE 3
 
@@ -21,7 +21,7 @@ Fan connectors: no fan posts observed - reddit error (HTTP Error 403: Blocked); 
 
 ### 1. Coaching: Monken's first season - Cleveland Browns
 - Level: OPPORTUNITY · Confidence: 66% · 🟢 READY (matched design, posting window open, evidence under 12 h)
-- Fan signal: "Browns coach Todd Monken recognizes need for offense to start faster" - USA Today (11 min ago)
+- Fan signal: "Browns coach Todd Monken recognizes need for offense to start faster" - USA Today (31 min ago)
 - Evidence: 3 reaction items (3.0 weighted) · 3 outlets · 0 utility listings excluded · 0 fan posts
 - Phrase velocity: new - 2 items in last 60 min, none in the window before
 - Sentiment: proud - 'proud' on 1/1 lexicon hits across 3 item(s)
@@ -33,9 +33,9 @@ Fan connectors: no fan posts observed - reddit error (HTTP Error 403: Blocked); 
 - Action: Threads - alternate angle (+20 min)
 - Action: Instagram - product creative after engagement confirms the angle (after the X post confirms the angle)
 - Action: Pinterest - keyword pin of the matched design (+2 h)
-  - Browns coach Todd Monken recognizes need for offense to start faster - USA Today - google_news (11 min ago) https://news.google.com/rss/articles/CBMi2gFBVV95cUxNU1RsZkpEUjVYTnBGSVQ3SWdaMjZjd1k0M1JGbEJMWElyZXdQZzkwLW5LS3RYamJaZl84dVJQMmowVUxSNS1tbDhMNTNOc1o0Z2ZycUpzUmp1T1MzRmJudVVTNFZHYVl3d29KTHgtRFAwWnh0RDc5WVVYdHRfbzJ5VXVrV204NVhCLUVZRERuODZvblZqRWJqdDhZZ2ZGcjFrcGxxdFNPdEpXLVk0VXJyZUV5WXFVTjRSYU11MUJ6ZnhtcENDZFhBVWFQTG8zT3RBQy1kakNFVXd2dw?oc=5
-  - Browns HC Todd Monken knows Cleveland has room to improve - Yahoo Sports - google_news (17 min ago) https://news.google.com/rss/articles/CBMiggFBVV95cUxPWm5UaW9RWXRWZWN5NDhFN1JONUxUdm1ULUpsVDgyNUxnZVlGSGZaOFFLbFBGNlhnSjRFWDNtYXNMWnVSU0lXb3NiRlFXaTlfYU0yaGFiU0NyZ0xXUU1ucU5seEZyTTdNMkFnLS1DZVN4d0hMUkZXRzlGSnZxVl8wMkxR?oc=5
-  - Todd Monken Describes Browns In One Telling Word - Browns Nation - google_news (24 h ago) https://news.google.com/rss/articles/CBMihAFBVV95cUxNZTZ5Y1p3Z2xSazY2NERDUmI5Z3E0YURROHNPaEVqUkZtc2pUYzdia2lsOGhyOHAxb0g3c1ZZbFlmVjg5TERERkhkS25RSFhnRHhmOWZldHhjVWhkczF1UGJsQXBObksxM1hGclpWeEtEVTI3TTJMRW5qclZ5dkRjSktyUnc?oc=5
+  - Browns coach Todd Monken recognizes need for offense to start faster - USA Today - google_news (31 min ago) https://news.google.com/rss/articles/CBMi2gFBVV95cUxNU1RsZkpEUjVYTnBGSVQ3SWdaMjZjd1k0M1JGbEJMWElyZXdQZzkwLW5LS3RYamJaZl84dVJQMmowVUxSNS1tbDhMNTNOc1o0Z2ZycUpzUmp1T1MzRmJudVVTNFZHYVl3d29KTHgtRFAwWnh0RDc5WVVYdHRfbzJ5VXVrV204NVhCLUVZRERuODZvblZqRWJqdDhZZ2ZGcjFrcGxxdFNPdEpXLVk0VXJyZUV5WXFVTjRSYU11MUJ6ZnhtcENDZFhBVWFQTG8zT3RBQy1kakNFVXd2dw?oc=5
+  - Browns HC Todd Monken knows Cleveland has room to improve - Yahoo Sports - google_news (37 min ago) https://news.google.com/rss/articles/CBMiggFBVV95cUxPWm5UaW9RWXRWZWN5NDhFN1JONUxUdm1ULUpsVDgyNUxnZVlGSGZaOFFLbFBGNlhnSjRFWDNtYXNMWnVSU0lXb3NiRlFXaTlfYU0yaGFiU0NyZ0xXUU1ucU5seEZyTTdNMkFnLS1DZVN4d0hMUkZXRzlGSnZxVl8wMkxR?oc=5
+  - Todd Monken Describes Browns In One Telling Word - Browns Nation - google_news (1 d ago) https://news.google.com/rss/articles/CBMihAFBVV95cUxNZTZ5Y1p3Z2xSazY2NERDUmI5Z3E0YURROHNPaEVqUkZtc2pUYzdia2lsOGhyOHAxb0g3c1ZZbFlmVjg5TERERkhkS25RSFhnRHhmOWZldHhjVWhkczF1UGJsQXBObksxM1hGclpWeEtEVTI3TTJMRW5qclZ5dkRjSktyUnc?oc=5
 
 ### 2. Doomsday memory: defence and the pass rush - Dallas Cowboys
 - Level: TREND · Confidence: 59% · ⚪ WATCH (fans are reacting but nothing on the shelf answers it yet)
@@ -52,15 +52,15 @@ Fan connectors: no fan posts observed - reddit error (HTTP Error 403: Blocked); 
 
 ### 3. Go Blue: The Big House identity - Michigan Wolverines
 - Level: TREND · Confidence: 58% · ⚪ WATCH (fans are reacting but nothing on the shelf answers it yet)
-- Fan signal: "Michigan football writer Tony Garcia assess the winners and losers for the Wolverines after their 21-18 victory over Penn State in Week 7. See link below ⬇️ 📸 Junfu Han,…" - Facebook (8 h ago)
+- Fan signal: "Michigan football writer Tony Garcia assess the winners and losers for the Wolverines after their 21-18 victory over Penn State in Week 7. See link below ⬇️ 📸 Junfu Han,…" - Facebook (9 h ago)
 - Evidence: 3 reaction items (3.0 weighted) · 2 outlets · 0 utility listings excluded · 0 fan posts
 - Phrase velocity: new - 2 items in last 1440 min, none in the window before
 - Sentiment: pride - 'pride' on 3/3 lexicon hits across 3 item(s)
 - Game state: next game in ~5 day(s)
 - Commercial: exact - M vs Everybody $21.00 (sellable) - M VS EVERYBODY — Go Blue
 - Why fans care: The evergreen identity buy - Michigan fans gift Go Blue apparel year round, and it does not depend on a result.
-  - Michigan football writer Tony Garcia assess the winners and losers for the Wolverines after their 21-18 victory over Penn State in Week 7. See link below ⬇️ 📸 Junfu Han, Detroit Free Press - Facebook - google_news (8 h ago) https://news.google.com/rss/articles/CBMi3wFBVV95cUxNT1JLNDNnbXdPbkNYa0VBMnVoTGFSVzVVZVpzc0FOT0lSaGhRUlp6ZDB1dVFldk1COENGeU90bjRZcXNoNnh1Qjl1RUltUU80RnBoOVpCcEdsQTdMb1h3YXpqbDVzYk5DekptSEE4RGtEUElCeHZaQ3dqRktyTzExamdiMTR5NHNOendhLXpnZmhZN2kxQXA0dWVsSEdOeW9oZ0s4Z3lQdkg0QVRubFFPT2JiNDRQMDZPbFF0MWd6SG1mT2ZlWkFrQkZrQ2Y2cnVTdjUzYVZ4ZWRvOGxTd0lR?oc=5
-  - Penn State Nittany Lions vs Michigan Wolverines football live: Penn State Nittany Lions vs Michigan Wolverines football look to seize control of thrilling Penn State Nittany Lions vs Michigan Wolverines football. Every team in the Penn State Nittany Lions vs Mic - Universidad de Córdoba (UCO) - google_news (17 h ago) https://news.google.com/rss/articles/CBMi4gJBVV95cUxOVHJHZjhTbE9CejlnR3R6VTlxeHVLSzhXVkttblEyV0dzSEpaMkZEdFB4MFA3MGg3TGdURFFYanFUX2EyYXVNckViUVBGTDNaazYtbThHaU5WSDBaWEkwRmlBSnFqclp0eWtnLUdrcmRiRTM1OV9nVnZ3VnctSC0ybDdWZ2F2VGFXTHdBSnlJU3VJNmNiR3hDUXR5UkJJb0VTbHBObi1HMEs4ZVRpYVlTb1lxZUJTeWNQekprUjZXNVdBRUl1MFNZaFJIclY0UWVaVjRVVFVaRUhxenN4SVE4NG0tQUVOUTJ0TVBHSHZ4WENpeklGRWhHcDh6bzJMdGR2eXNCV2RCVjdEQzg1cWxMVG53U1VjYnc5T1E3UGFrSWFWWk9Tc3d5R0RVNU5adENaN012cUg1cG9UYVRQeHdUMU9wTjFiekNRbHpTU1VKU0JJTG82RWJybG5rTTFrTlpfVkE?oc=5
+  - Michigan football writer Tony Garcia assess the winners and losers for the Wolverines after their 21-18 victory over Penn State in Week 7. See link below ⬇️ 📸 Junfu Han, Detroit Free Press - Facebook - google_news (9 h ago) https://news.google.com/rss/articles/CBMi3wFBVV95cUxNT1JLNDNnbXdPbkNYa0VBMnVoTGFSVzVVZVpzc0FOT0lSaGhRUlp6ZDB1dVFldk1COENGeU90bjRZcXNoNnh1Qjl1RUltUU80RnBoOVpCcEdsQTdMb1h3YXpqbDVzYk5DekptSEE4RGtEUElCeHZaQ3dqRktyTzExamdiMTR5NHNOendhLXpnZmhZN2kxQXA0dWVsSEdOeW9oZ0s4Z3lQdkg0QVRubFFPT2JiNDRQMDZPbFF0MWd6SG1mT2ZlWkFrQkZrQ2Y2cnVTdjUzYVZ4ZWRvOGxTd0lR?oc=5
+  - Penn State Nittany Lions vs Michigan Wolverines football live: Penn State Nittany Lions vs Michigan Wolverines football look to seize control of thrilling Penn State Nittany Lions vs Michigan Wolverines football. Every team in the Penn State Nittany Lions vs Mic - Universidad de Córdoba (UCO) - google_news (18 h ago) https://news.google.com/rss/articles/CBMi4gJBVV95cUxOVHJHZjhTbE9CejlnR3R6VTlxeHVLSzhXVkttblEyV0dzSEpaMkZEdFB4MFA3MGg3TGdURFFYanFUX2EyYXVNckViUVBGTDNaazYtbThHaU5WSDBaWEkwRmlBSnFqclp0eWtnLUdrcmRiRTM1OV9nVnZ3VnctSC0ybDdWZ2F2VGFXTHdBSnlJU3VJNmNiR3hDUXR5UkJJb0VTbHBObi1HMEs4ZVRpYVlTb1lxZUJTeWNQekprUjZXNVdBRUl1MFNZaFJIclY0UWVaVjRVVFVaRUhxenN4SVE4NG0tQUVOUTJ0TVBHSHZ4WENpeklGRWhHcDh6bzJMdGR2eXNCV2RCVjdEQzg1cWxMVG53U1VjYnc5T1E3UGFrSWFWWk9Tc3d5R0RVNU5adENaN012cUg1cG9UYVRQeHdUMU9wTjFiekNRbHpTU1VKU0JJTG82RWJybG5rTTFrTlpfVkE?oc=5
   - !+[𝐒𝐓ream]HERE'S*! Michigan Wolverines Football 𝐋𝐈𝐕𝐄 ＯＮ Ｔｖ Ｃｈａｎｎｅｌ 17 October 2026 - Universidad de Córdoba (UCO) (2 d ago) https://news.google.com/rss/articles/CBMiuwJBVV95cUxPSWgyWUtQWFU5aGdYNFp3LVNWTVJOV21WdGRhLWZicFk4dkNBZUZyZzZYNzJXRG1UUXZqLXpRX0JWcGN0R2U5ZHRZU2NKTm81VnlkSEhfWWd1eFkwMVVQZ09uQjQyYjdXdUpFbHRISXlCRVh1LUpNamJFek5uc0FrcWlnazRlbC16R3l1NXBOR3ZqeEZBTDJfa0J3eHhNRkdPcU5WdGJXUHh3OXd5cmtrZFJWMVZFOTJHeEtDRzU2a09XaWJScHFfX0UzeExZempEdGtINWtIbjgwRGlGdGhKMVE2UXJseXhGNmtQQ29leERmcEZpcWVrSmwtdDI1NDFYelZwTVNNT0hESzNLUGMwbVhpZU9hbG02X25JSWJkd0JMNEdHLW1GSnpqOHluaUtsT1Vmamh2anFGOWc?oc=5
 
 ### 4. QB room: who is QB1 in Cleveland - Cleveland Browns

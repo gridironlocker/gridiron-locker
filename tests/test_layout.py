@@ -2506,9 +2506,10 @@ class BellaLocker(unittest.TestCase):
 
         It must be readable at a glance (10% off + the exact code), land in the
         first viewport (a banner above the hero) and be restated where the
-        shopper picks designs and hands off to checkout. The banner keeps its
-        wording to "at checkout" with no store name; the pill above the grid
-        and the note under it still name Silent Touch - never this site.
+        shopper picks designs and hands off to checkout. Every promo placement
+        keeps its wording to "at checkout" with no store name (the owner asked
+        for no Silent Touch in the promo copy); the prose beside them still
+        names the store where checkout happens - never this site.
         """
         self.assertEqual(self.cre.get("promo"), {"code": "VIP10", "pct": 10})
         main = between(self.html, '<main id="main" class="jlock jlock-girly">', "</main>")
@@ -2526,14 +2527,23 @@ class BellaLocker(unittest.TestCase):
         # second placement: directly above the product grid
         head = between(main, '<div class="gcollection-head">', "</div>")
         self.assertIn('class="gcollection-promo"', head)
-        self.assertIn("10% off", head)
-        self.assertIn("<strong>VIP10</strong>", head)
+        pill = between(head, '<p class="gcollection-promo">', "</p>")
+        for bit in ("10% off", "with code", "<strong>VIP10</strong>",
+                    "at checkout"):
+            self.assertIn(bit, pill, bit)
+        self.assertNotIn("Silent Touch", pill)
 
         # and again beside the hand-off under the grid
         note = between(main, '<p class="gstore-note">', "</p>")
         self.assertIn('class="gstore-promo"', note)
-        self.assertIn("10% off your Silent Touch order", note)
-        self.assertIn("<strong>VIP10</strong>", note)
+        promo_span = between(note, '<span class="gstore-promo">', "</span>")
+        self.assertIn("10% off your order", promo_span)
+        self.assertIn("<strong>VIP10</strong>", promo_span)
+        self.assertIn("at checkout", promo_span)
+        self.assertNotIn("Silent Touch", promo_span)
+        # the prose beside the promo still names the store checkout happens on
+        self.assertIn("Each design opens on", note)
+        self.assertIn("Silent Touch", note)
 
         # the FAQ schema (this page has no visible FAQ block) answers it too
         faq = next(node for node in json_ld_nodes(self.html)
