@@ -40,7 +40,7 @@ Covered:
     the live store capture (data-apparel), with a design that did not list the
     style muted, badged and still linked to its own product page, and the
     campus hero banner, the #efefed canvas and the VIP10 promo banner (10% off
-    at Silent Touch checkout, with a copyable code).
+    at checkout, with a copyable code).
   * Preserved: team accents, hero images, product count, checkout links, SEO
     metadata, dynamic catalogue counts, no missing local references.
 """
@@ -2506,8 +2506,9 @@ class BellaLocker(unittest.TestCase):
 
         It must be readable at a glance (10% off + the exact code), land in the
         first viewport (a banner above the hero) and be restated where the
-        shopper picks designs and hands off to checkout. Checkout happens on
-        Silent Touch, so every mention names that store - never this site.
+        shopper picks designs and hands off to checkout. The banner keeps its
+        wording to "at checkout" with no store name; the pill above the grid
+        and the note under it still name Silent Touch - never this site.
         """
         self.assertEqual(self.cre.get("promo"), {"code": "VIP10", "pct": 10})
         main = between(self.html, '<main id="main" class="jlock jlock-girly">', "</main>")
@@ -2516,8 +2517,9 @@ class BellaLocker(unittest.TestCase):
         self.assertLess(main.index('class="gpromobar"'), main.index('class="gbanner"'))
         bar = between(main, '<aside class="gpromobar"', "</aside>")
         for bit in ("10% off", "your order", "Use code", "VIP10", "Copy",
-                    "at Silent Touch"):
+                    "at checkout"):
             self.assertIn(bit, bar, bit)
+        self.assertNotIn("Silent Touch", bar)
         self.assertIn('data-copy-code="VIP10"', bar)
         self.assertIn('aria-label="Copy promo code VIP10"', bar)
 

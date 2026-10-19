@@ -2755,13 +2755,15 @@ def _girly_body(cre, c, items, track):
     title = esc(g.get("hero_title", cre["page_name"]))
 
     # Creator promo code (data/creators.json ``promo``). Bella's whole
-    # collection checks out on Silent Touch, so every mention names that store
-    # rather than implying the code works on this site. The banner is the
-    # primary placement (it sits above the hero, in the first viewport), the
-    # collection reminder restates the offer at the top of the grid, and the
-    # store note repeats it beside the hand-off. The code itself is a real
-    # button that app.js makes copyable; without JS it stays visible and
-    # selectable, so the offer is never hidden behind behaviour.
+    # collection checks out on Silent Touch. The banner above the hero keeps
+    # its wording short ("at checkout"), while the collection reminder and the
+    # store note still name that store rather than implying the code works on
+    # this site. The banner is the primary placement (it sits above the hero,
+    # in the first viewport), the collection reminder restates the offer at
+    # the top of the grid, and the store note repeats it beside the hand-off.
+    # The code itself is a real button that app.js makes copyable; without JS
+    # it stays visible and selectable, so the offer is never hidden behind
+    # behaviour.
     promo = cre.get("promo") or {}
     promo_code = str(promo.get("code") or "")
     promo_pct = promo.get("pct")
@@ -2783,7 +2785,7 @@ def _girly_body(cre, c, items, track):
     <span class="gpromobar-code-value">{code}</span>
     <span class="gpromobar-copy" aria-hidden="true">Copy</span>
    </button>
-   at {store_name} checkout</span>
+   at checkout</span>
   <span class="gpromobar-status" role="status" aria-live="polite"></span>
  </div>
 </aside>"""
