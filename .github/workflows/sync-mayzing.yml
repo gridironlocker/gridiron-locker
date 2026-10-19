@@ -1,0 +1,72 @@
+name: Sync Mayzing apparel categories
+
+# Captures the garment category pages on the Mayzing team stores into
+# data/mayzing_apparel.json. The storefront cannot be reached from the build
+# environment, so this runs on a GitHub runner, which can. Refresh runs the
+# same script before building; this workflow exists for an on-demand capture
+# (a garment added mid-week) without waiting for the next scheduled refresh.
+#
+# Dispatch it on the branch you want the data committed to.
+
+on:
+  workflow_dispatch:
+
+permissions:
+  contents: write
+
+concurrency:
+  group: sync-mayzing-${{ github.ref }}
+  cancel-in-progress: true
+
+jobs:
+  sync:
+    runs-on: ubuntu-latest
+    steps:
+      - uses: actions/checkout@v4
+        with:
+          ref: ${{ github.ref_name }}
+
+      - uses: actions/setup-python@v5
+        with:
+          python-version: "3.12"
+
+      - name: Install dependencies
+        run: pip install --quiet beautifulsoup4 lxml
+
+      - name: Capture garment categories
+        id: scrape
+        run: |
+          set +e
+          python src/scrape_mayzing_apparel.py
+          echo "status=$?" >> "$GITHUB_OUTPUT"
+          exit 0
+
+      - name: Report counts
+        run: |
+          python - <<'PY'
+          import json, os
+          p = "data/mayzing_apparel.json"
+          if not os.path.exists(p):
+              print("no data file written")
+              raise SystemExit(0)
+          d = json.load(open(p))
+          for col, products in (d.get("collections") or {}).items():
+              cats = {}
+              for groups in products.values():
+                  for c, rows in groups.items():
+                      cats[c] = cats.get(c, 0) + len(rows)
+              print(f"{col}: {len(products)} designs {cats}")
+          print("captured", d.get("captured"))
+          PY
+
+      - name: Commit the capture
+        run: |
+          if git diff --quiet -- data/mayzing_apparel.json; then
+            echo "data/mayzing_apparel.json unchanged"
+            exit 0
+          fi
+          git config user.name  "gridiron-bot"
+          git config user.email "bot@gridironlocker.store"
+          git add data/mayzing_apparel.json
+          git commit -m "Sync Mayzing apparel categories $(date -u +%Y-%m-%d)"
+          git push origin "HEAD:${{ github.ref_name }}"

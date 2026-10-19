@@ -2527,20 +2527,26 @@ def page_search():
 # A mockup only swaps when that garment's render exists in site/img/p. A design
 # that lists a garment we hold no render for stays listed and linked but keeps
 # its own artwork - a t-shirt is never presented as a hoodie.
+#: The categories the supplier storefronts actually expose. Mayzing runs one
+#: filter page per category (/p/<store>?category=tshirt|hoodie|sweatshirt|
+#: tank_top|crop_tops) and Viralstyle lists the same garment families in each
+#: campaign's own style list. Caps & Hats and Long Sleeves are deliberately
+#: absent: no live store lists either, so a tile for them could only ever say
+#: "not listed yet".
 APPAREL_CATEGORIES = [
     ("t-shirts", "T-Shirts"),
     ("hoodies", "Hoodies"),
     ("sweatshirts", "Sweatshirts"),
-    ("long-sleeves", "Long Sleeves"),
     ("tank-tops", "Tank Tops"),
-    ("caps-hats", "Caps & Hats"),
+    ("crop-tops", "Crop Tops"),
 ]
-#: category -> the site/img/p suffix that holds that garment's mockup.
+#: category -> the site/img/p suffix that holds that garment's mockup. The
+#: Mayzing stores carry no local render, so their mockups are hot-linked from
+#: the capture; a Viralstyle campaign's render has to exist on disk.
 APPAREL_MOCKUP_SUFFIX = {
     "hoodies": "hoodie",
     "sweatshirts": "crewneck",
     "tank-tops": "tank-top",
-    "long-sleeves": "long-sleeve",
 }
 #: worn-garment icons. Caps get their own silhouette; everything else is the
 #: tee outline Bella's locker uses, because a single generic "apparel" glyph
@@ -2563,6 +2569,8 @@ def apparel_category(style):
         return "sweatshirts"
     if "tank" in s:
         return "tank-tops"
+    if "crop" in s:
+        return "crop-tops"
     if "long sleeve" in s or "long-sleeve" in s:
         return "long-sleeves"
     if "beanie" in s or "cap" in s or "hat" in s:
@@ -2627,6 +2635,21 @@ def _apparel_styles():
 APPAREL_MOCKUPS = _apparel_mockups()
 APPAREL_STYLES = _apparel_styles()
 
+# The Mayzing stores expose their garments as category filter pages rather
+# than as a style list on each record, so src/scrape_mayzing_apparel.py
+# captures every page into data/mayzing_apparel.json. That file is the
+# authority for a Mayzing collection's matrix: a design appears under a
+# category only because the store listed it there, with that listing's own
+# mockup and checkout URL. Absent file (offline build, first checkout) simply
+# falls back to each record's single captured garment.
+try:
+    _MAYZING_APPAREL = read_json("data", "mayzing_apparel.json")
+    MAYZING_APPAREL = _MAYZING_APPAREL.get("collections") or {}
+    MAYZING_APPAREL_CAPTURED = str(_MAYZING_APPAREL.get("captured") or "")
+except Exception:
+    MAYZING_APPAREL = {}
+    MAYZING_APPAREL_CAPTURED = ""
+
 
 def apparel_matrix(items):
     """Per design, per category, the listings that design genuinely has.
@@ -2639,6 +2662,22 @@ def apparel_matrix(items):
     for it in items:
         slug, garment = it["slug"], it.get("garment") or ""
         mockups = APPAREL_MOCKUPS.get(slug, {})
+        captured = (MAYZING_APPAREL.get(it.get("col") or "") or {}).get(slug)
+        if captured:
+            # The store's own category pages already say which garments this
+            # design is sold in, and carry the mockup and checkout URL for
+            # each. Nothing here is inferred.
+            groups = {}
+            for cat, rows in captured.items():
+                for row in rows:
+                    groups.setdefault(cat, []).append({
+                        "garment": row.get("garment") or "",
+                        "image": row.get("image") or "",
+                        "url": row.get("url") or "../shop/%s/" % slug,
+                    })
+            if groups:
+                matrix[slug] = groups
+            continue
         if it.get("partner") == "Mayzing":
             styles = [garment] if garment else []
         else:
@@ -5754,9 +5793,9 @@ document.querySelectorAll('a.custom-link').forEach(function(a){
 // #grid[data-apparel] grid of .card cards. Each click swaps, per design, the
 // mockup of a garment that design actually lists, and never invents stock:
 // a design with no listing for the chosen garment keeps its own artwork,
-// muted (Caps & Hats hides them instead, so the category never presents a
-// t-shirt as a cap). An entry with no image means we hold the listing but no
-// garment render, so the card stays visible and linked on its own mockup.
+// muted, so a garment category never presents a t-shirt as that garment. An
+// entry with no image means we hold the listing but no garment render, so the
+// card stays visible and linked on its own mockup.
 // Clicking the active button again clears the selection. Scoped to pages that
 // emit both the tiles and the payload; without them this block does nothing.
 (function(){
@@ -5818,7 +5857,7 @@ document.querySelectorAll('a.custom-link').forEach(function(a){
         card.classList.add('is-swapped'); card.classList.remove('is-muted'); return;
       }
       restore(card);
-      if(cat){ if(cat==='caps-hats')card.hidden=true; else card.classList.add('is-muted'); }
+      if(cat)card.classList.add('is-muted');
     });
     tiles.forEach(function(t){press(t,cat!==null&&t.getAttribute('data-gcat')===cat);});
     chips.forEach(function(c){press(c,garment!==null&&c.getAttribute('data-gstyle')===garment);});
