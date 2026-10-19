@@ -2753,6 +2753,44 @@ def _girly_body(cre, c, items, track):
     facts = str(g.get("hero_facts", "{n} designs")).replace("{n}", str(len(items)))
     script = esc(g.get("hero_script", first))
     title = esc(g.get("hero_title", cre["page_name"]))
+
+    # Creator promo code (data/creators.json ``promo``). Bella's whole
+    # collection checks out on Silent Touch, so every mention names that store
+    # rather than implying the code works on this site. The banner is the
+    # primary placement (it sits above the hero, in the first viewport), the
+    # collection reminder restates the offer at the top of the grid, and the
+    # store note repeats it beside the hand-off. The code itself is a real
+    # button that app.js makes copyable; without JS it stays visible and
+    # selectable, so the offer is never hidden behind behaviour.
+    promo = cre.get("promo") or {}
+    promo_code = str(promo.get("code") or "")
+    promo_pct = promo.get("pct")
+    promo_active = bool(promo_code and promo_pct)
+    promo_bar = promo_line = promo_note = ""
+    if promo_active:
+        code = esc(promo_code)
+        try:
+            pct = esc(f"{float(promo_pct):g}")   # 10.0 -> "10"
+        except (TypeError, ValueError):
+            pct = esc(str(promo_pct))
+        promo_bar = f"""
+<aside class="gpromobar" aria-label="Promo code {code}">
+ <div class="wrap gpromobar-in">
+  <span class="gpromobar-offer"><strong>{pct}% off</strong> your order</span>
+  <span class="gpromobar-rule" aria-hidden="true"></span>
+  <span class="gpromobar-use">Use code
+   <button class="gpromobar-code" type="button" data-copy-code="{code}" aria-label="Copy promo code {code}">
+    <span class="gpromobar-code-value">{code}</span>
+    <span class="gpromobar-copy" aria-hidden="true">Copy</span>
+   </button>
+   at {store_name} checkout</span>
+  <span class="gpromobar-status" role="status" aria-live="polite"></span>
+ </div>
+</aside>"""
+        promo_line = (f'<p class="gcollection-promo"><span>{pct}% off</span> with code '
+                      f'<strong>{code}</strong> at {store_name} checkout</p>')
+        promo_note = (f'<span class="gstore-promo">{pct}% off your {store_name} order with '
+                      f'code <strong>{code}</strong> at checkout.</span> ')
     def category_icon(label):
         if any(word in label.casefold() for word in ("cap", "hat")):
             path = '<path d="M3 15c1.8-4.4 5-7 9-7s7.2 2.6 9 7H3Z"/><path d="M3 15h12c0 3-3.4 4-7.3 4-2.8 0-4.7-1-4.7-2.5"/>'
@@ -2973,7 +3011,7 @@ def _girly_body(cre, c, items, track):
             f' rel="noopener noreferrer">Visit {store_name}'
             ' <span aria-hidden="true">↗</span></a>')
     return f"""
-<main id="main" class="jlock jlock-girly">
+<main id="main" class="jlock jlock-girly">{promo_bar}
 <section class="gbanner"><div class="wrap">
  <div class="gbanner-panel">
   <img class="gbanner-photo" src="{hero_image}" alt="{hero_alt}" width="{cre['hero_w']}" height="{cre['hero_h']}"
@@ -3001,9 +3039,10 @@ def _girly_body(cre, c, items, track):
   <p class="goverline">{esc(g.get('collection_overline', 'THE COLLECTION'))}</p>
   <h2>{esc(g.get('collection_heading', 'Bella’s Michigan Designs'))}</h2>
   <p>{esc(g.get('collection_desc', ''))}</p>
+  {promo_line}
  </div>
  <div class="ggrid" id="{grid_id}" data-apparel="{apparel_attr}">{"".join(cards)}</div>
- <p class="gstore-note">Each design opens on <a href="{store_url}" target="_blank" rel="noopener noreferrer">{store_name}</a>. Available apparel, colours, sizes and current prices are confirmed on its product page.</p>
+ <p class="gstore-note">{promo_note}Each design opens on <a href="{store_url}" target="_blank" rel="noopener noreferrer">{store_name}</a>. Available apparel, colours, sizes and current prices are confirmed on its product page.</p>
 </div></section>
 
 {custom_section}
@@ -3112,6 +3151,14 @@ def page_creator(ckey="joe"):
             (f"What is {cre['page_name']}?",
              f"A Gridiron Locker creator page featuring {len(items)} designs selected by "
              f"{display}. Each listing opens the matching product page on {store_name}."),
+        ]
+        if promo and promo_code:
+            faq.append((f"How do I use the {promo_code} promo code?",
+                        f"Enter {promo_code} in the promo code box at {store_name} "
+                        f"checkout to take {promo_pct}% off your order. The discount is "
+                        f"applied by {store_name}, and each design's product page confirms "
+                        f"the current styles, colours, sizes and prices."))
+        faq += [
             ("Which apparel styles are available?",
              f"Availability varies by design. {store_name} lists T-shirts, hoodies, "
              "sweatshirts, long sleeves, tank tops, caps and hats store-wide, and each "
@@ -6006,6 +6053,58 @@ document.querySelectorAll('a.custom-link').forEach(function(a){
   modal.querySelector('.qv-overlay').addEventListener('click',close);
   document.addEventListener('keydown',function(e){
     if(e.key==='Escape'&&!modal.hidden)close();
+  });
+})();
+
+// ---------- copyable promo code (.gpromobar-code) ----------
+// The code stays visible in the button whether or not this runs: the click
+// only copies it and flips the small "Copy" chip for a moment. A denied or
+// unavailable clipboard leaves the page untouched (and the code selectable).
+// .gpromobar-status is a visually hidden live region, so the confirmation is
+// announced without adding visible noise to the banner.
+(function(){
+  var buttons=[].slice.call(document.querySelectorAll('.gpromobar-code[data-copy-code]'));
+  if(!buttons.length)return;
+  var status=document.querySelector('.gpromobar-status');
+  function copied(btn,code,ok){
+    if(!ok)return;
+    var chip=btn.querySelector('.gpromobar-copy');
+    if(chip&&!btn.getAttribute('data-copy-label')){
+      btn.setAttribute('data-copy-label',chip.textContent);
+    }
+    btn.classList.add('is-copied');
+    if(chip)chip.textContent='Copied';
+    if(status)status.textContent='Promo code '+code+' copied.';
+    if(btn._copyTimer)clearTimeout(btn._copyTimer);
+    btn._copyTimer=setTimeout(function(){
+      btn.classList.remove('is-copied');
+      if(chip)chip.textContent=btn.getAttribute('data-copy-label')||'Copy';
+    },2200);
+  }
+  function fallback(btn,code){
+    var t=document.createElement('textarea');
+    t.value=code;
+    t.setAttribute('readonly','');
+    t.style.position='fixed';
+    t.style.left='-9999px';
+    document.body.appendChild(t);
+    t.select();
+    var ok=false;
+    try{ok=document.execCommand('copy');}catch(e){}
+    document.body.removeChild(t);
+    copied(btn,code,ok);
+  }
+  buttons.forEach(function(btn){
+    btn.addEventListener('click',function(){
+      var code=btn.getAttribute('data-copy-code')||'';
+      if(!code)return;
+      if(navigator.clipboard&&navigator.clipboard.writeText){
+        navigator.clipboard.writeText(code).then(function(){copied(btn,code,true);},
+                                                 function(){fallback(btn,code);});
+      }else{
+        fallback(btn,code);
+      }
+    });
   });
 })();
 

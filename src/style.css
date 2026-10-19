@@ -1477,6 +1477,35 @@ main.jlock-girly{padding:0 0 32px;overflow:hidden}
 .jlock-girly .gbanner-link{color:var(--g-ink);font-size:.78rem;font-weight:700;text-decoration:underline;
   text-decoration-color:rgba(24,45,77,.32);text-underline-offset:4px}
 .jlock-girly .gbanner-link:hover{color:#bd7181}
+/* The creator promo banner sits at the very top of <main>, above the hero, so
+   the offer is in the first viewport. The code is a real button: app.js copies
+   it on click/tap, while the code text itself stays visible and selectable
+   without JS. Every mention names the partner store the collection checks out
+   on, so the discount is never promised at a checkout this site does not run. */
+.jlock-girly .gpromobar{background:#182d4d;color:#fff;border-bottom:2px solid #e99aaa}
+.jlock-girly .gpromobar-in{display:flex;align-items:center;justify-content:center;
+  gap:7px 14px;flex-wrap:wrap;min-height:46px;padding:7px 16px;text-align:center}
+.jlock-girly .gpromobar-offer{margin:0;color:#fff;font-size:.79rem;font-weight:800;
+  letter-spacing:.1em;line-height:1.4;text-transform:uppercase}
+.jlock-girly .gpromobar-offer strong{color:#ffd9e0;font-weight:900}
+.jlock-girly .gpromobar-rule{width:1px;height:18px;background:rgba(255,255,255,.3)}
+.jlock-girly .gpromobar-use{display:inline-flex;align-items:center;justify-content:center;
+  flex-wrap:wrap;gap:7px;margin:0;color:#fff;font-size:.72rem;font-weight:700;
+  letter-spacing:.05em;line-height:1.4;text-transform:uppercase}
+.jlock-girly .gpromobar-code{display:inline-flex;min-height:30px;align-items:center;gap:8px;
+  padding:3px 5px 3px 10px;border:1px dashed rgba(255,255,255,.62);border-radius:7px;
+  background:rgba(255,255,255,.1);color:#fff;font-family:var(--font);font-size:.8rem;
+  font-weight:900;letter-spacing:.16em;line-height:1.2;cursor:pointer;
+  -webkit-appearance:none;appearance:none;transition:background .16s ease,border-color .16s ease}
+.jlock-girly .gpromobar-code:hover{border-color:#fff;background:rgba(255,255,255,.18)}
+.jlock-girly .gpromobar-code:focus-visible{outline:3px solid #ffd9e0;outline-offset:2px}
+.jlock-girly .gpromobar-code.is-copied{border-style:solid;border-color:#ffd9e0;
+  background:rgba(255,217,224,.16)}
+.jlock-girly .gpromobar-copy{padding:3px 6px;border-radius:4px;background:#fff;color:#182d4d;
+  font-size:.55rem;font-weight:800;letter-spacing:.08em;text-transform:uppercase}
+.jlock-girly .gpromobar-code.is-copied .gpromobar-copy{background:#ffd9e0}
+.jlock-girly .gpromobar-status{position:absolute;width:1px;height:1px;overflow:hidden;
+  clip:rect(0 0 0 0);clip-path:inset(50%);white-space:nowrap}
 .jlock-girly .gcategory-row{padding:12px 0 25px}
 .jlock-girly .gcategory-heading{margin:0 0 12px;color:#59606a;text-align:center;font-size:.61rem;
   font-weight:800;letter-spacing:.19em;line-height:1.4;text-transform:uppercase}
@@ -1525,6 +1554,19 @@ main.jlock-girly{padding:0 0 32px;overflow:hidden}
   font-size:clamp(1.8rem,3.4vw,2.55rem);font-weight:800;letter-spacing:-.025em;line-height:1.15}
 .jlock-girly .gcollection-head>p:not(.goverline){max-width:72ch;margin:12px auto 0;color:#565d62;
   font-size:.94rem;line-height:1.65}
+/* The banner above the hero is the primary promo placement; this quieter pill
+   restates the offer at the top of the grid, where the shopper starts picking
+   designs. The selector repeats .gcollection-head>p so it wins over the
+   collection description rule directly above. */
+.jlock-girly .gcollection-head>p.gcollection-promo{display:inline-flex;align-items:center;
+  flex-wrap:wrap;justify-content:center;gap:4px 7px;max-width:none;margin:16px auto 0;
+  padding:6px 14px;border:1px dashed #d9a2ae;border-radius:999px;background:#fff7f8;
+  color:#5c4a4e;font-size:.78rem;font-weight:700;line-height:1.4}
+.jlock-girly .gcollection-promo span{color:#a64f63;font-weight:900;letter-spacing:.08em;
+  text-transform:uppercase}
+.jlock-girly .gcollection-promo strong{display:inline-block;padding:1px 7px;border-radius:4px;
+  background:#182d4d;color:#fff;font-size:.75rem;font-weight:900;letter-spacing:.14em;
+  line-height:1.4}
 .jlock-girly .ggrid{display:grid;grid-template-columns:repeat(4,minmax(0,1fr));gap:18px;max-width:1180px;margin:0 auto;
   scroll-margin-top:96px}
 .jlock-girly .gproduct{display:flex;min-width:0;flex-direction:column;overflow:hidden;
@@ -1572,6 +1614,10 @@ main.jlock-girly{padding:0 0 32px;overflow:hidden}
 .jlock-girly .gstore-note{max-width:880px;margin:24px auto 0;padding-top:16px;border-top:1px solid #d9d9d5;
   color:#62676b;font-size:.79rem;line-height:1.6;text-align:center}
 .jlock-girly .gstore-note a{color:var(--g-ink);font-weight:800;text-decoration:underline;text-underline-offset:3px}
+.jlock-girly .gstore-promo{display:block;margin:0 0 7px;color:#8d4356;font-size:.84rem;
+  font-weight:800;line-height:1.5}
+.jlock-girly .gstore-promo strong{display:inline-block;padding:1px 7px;border-radius:4px;
+  background:#182d4d;color:#fff;letter-spacing:.14em}
 .jlock-girly .gcustom{padding:24px 0 42px}
 /* The custom tee photo beside the form - the same visual weight the main
    site's custom-design section gives its offer ("tell us about your idea"
@@ -1615,6 +1661,11 @@ main.jlock-girly{padding:0 0 32px;overflow:hidden}
   .jlock-girly .gcategory-tiles{grid-template-columns:repeat(3,minmax(0,1fr))}
 }
 @media(max-width:760px){
+  .jlock-girly .gpromobar-in{gap:3px 10px;padding:8px 12px}
+  .jlock-girly .gpromobar-offer{font-size:.72rem}
+  .jlock-girly .gpromobar-use{font-size:.66rem}
+  .jlock-girly .gpromobar-rule{display:none}
+  .jlock-girly .gcollection-head>p.gcollection-promo{font-size:.72rem}
   .jlock-girly .gbanner-panel{min-height:370px}
   .jlock-girly .gbanner-panel::after{background:linear-gradient(90deg,rgba(255,253,250,.97) 0%,rgba(255,253,250,.91) 45%,rgba(255,253,250,.4) 100%)}
   .jlock-girly .gbanner-photo{object-position:66% center}
@@ -1629,6 +1680,10 @@ main.jlock-girly{padding:0 0 32px;overflow:hidden}
   body[data-creator-page="BELLA"] .bellanav-links{gap:25px}
 }
 @media(max-width:430px){
+  .jlock-girly .gpromobar-offer{font-size:.68rem}
+  .jlock-girly .gpromobar-use{gap:5px;font-size:.61rem}
+  .jlock-girly .gpromobar-code{padding-left:8px;font-size:.72rem}
+  .jlock-girly .gcollection-head>p.gcollection-promo{padding:5px 10px;font-size:.66rem}
   .jlock-girly .gbanner-panel{min-height:390px;border-radius:16px}
   .jlock-girly .gbanner-panel::after{background:linear-gradient(90deg,rgba(255,253,250,.97) 0%,rgba(255,253,250,.91) 58%,rgba(255,253,250,.42) 100%)}
   .jlock-girly .gbanner-photo{object-position:67% center}

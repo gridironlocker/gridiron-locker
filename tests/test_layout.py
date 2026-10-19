@@ -39,7 +39,8 @@ Covered:
     second row of buttons for the five t-shirt listings - each swap drawn from
     the live store capture (data-apparel), with a design that did not list the
     style muted, badged and still linked to its own product page, and the
-    campus hero banner, the #efefed canvas and no discount promo code.
+    campus hero banner, the #efefed canvas and the VIP10 promo banner (10% off
+    at Silent Touch checkout, with a copyable code).
   * Preserved: team accents, hero images, product count, checkout links, SEO
     metadata, dynamic catalogue counts, no missing local references.
 """
@@ -2500,12 +2501,59 @@ class BellaLocker(unittest.TestCase):
         mobile = media_rules(self.css, 760)
         self.assertIn(".jlock-girly .gbanner-photo{object-position:66% center}", mobile)
 
-    def test_discount_promo_is_removed_but_the_custom_inquiry_form_remains(self):
-        low = self.html.lower()
-        self.assertNotIn("promo", self.cre)
-        for stale in ('class="promo"', 'class="goffer"', 'use code:',
-                      "discount code", "10% off your order"):
-            self.assertNotIn(stale, low, stale)
+    def test_vip10_promo_is_clear_well_placed_and_the_custom_inquiry_form_remains(self):
+        """VIP10 is the offer the owner asked for on Bella's page.
+
+        It must be readable at a glance (10% off + the exact code), land in the
+        first viewport (a banner above the hero) and be restated where the
+        shopper picks designs and hands off to checkout. Checkout happens on
+        Silent Touch, so every mention names that store - never this site.
+        """
+        self.assertEqual(self.cre.get("promo"), {"code": "VIP10", "pct": 10})
+        main = between(self.html, '<main id="main" class="jlock jlock-girly">', "</main>")
+
+        # primary placement: above the hero banner, not buried below the grid
+        self.assertLess(main.index('class="gpromobar"'), main.index('class="gbanner"'))
+        bar = between(main, '<aside class="gpromobar"', "</aside>")
+        for bit in ("10% off", "your order", "Use code", "VIP10", "Copy",
+                    "at Silent Touch"):
+            self.assertIn(bit, bar, bit)
+        self.assertIn('data-copy-code="VIP10"', bar)
+        self.assertIn('aria-label="Copy promo code VIP10"', bar)
+
+        # second placement: directly above the product grid
+        head = between(main, '<div class="gcollection-head">', "</div>")
+        self.assertIn('class="gcollection-promo"', head)
+        self.assertIn("10% off", head)
+        self.assertIn("<strong>VIP10</strong>", head)
+
+        # and again beside the hand-off under the grid
+        note = between(main, '<p class="gstore-note">', "</p>")
+        self.assertIn('class="gstore-promo"', note)
+        self.assertIn("10% off your Silent Touch order", note)
+        self.assertIn("<strong>VIP10</strong>", note)
+
+        # the FAQ schema (this page has no visible FAQ block) answers it too
+        faq = next(node for node in json_ld_nodes(self.html)
+                   if node.get("@type") == "FAQPage")
+        faq_text = json.dumps(faq)
+        self.assertIn("VIP10", faq_text)
+        self.assertIn("10% off", faq_text)
+
+        # copy control is wired; the code itself never depends on JavaScript
+        self.assertIn("gpromobar-code[data-copy-code]", page("assets/app.js"))
+        for selector in (".jlock-girly .gpromobar{", ".jlock-girly .gpromobar-code{",
+                         ".jlock-girly .gpromobar-copy{",
+                         ".jlock-girly .gcollection-head>p.gcollection-promo{",
+                         ".jlock-girly .gstore-promo{"):
+            self.assertIn(selector, self.css)
+        self.assertIn(".jlock-girly .gpromobar-rule{display:none}",
+                      media_rules(self.css, 760))
+        # the generic sitewide promo bar is still not revived on her page
+        self.assertNotIn('class="promo"', self.html.lower())
+        # and Bella's banner never leaks onto Joe's page (or vice versa)
+        self.assertNotIn("gpromobar", self.joe)
+
         self.assertNotIn("class=\"gcustom-note\"", self.html)
         self.assertIn('id="customForm"', self.html)
         self.assertIn('data-formsubmit="1"', self.html)
