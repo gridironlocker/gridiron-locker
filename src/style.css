@@ -1734,6 +1734,34 @@ main.jlock-girly{padding:0 0 32px;overflow:hidden}
   border-bottom-color:var(--ca,#999);background:#f5f0f7;
   box-shadow:0 0 0 2px rgba(217,137,154,.38) inset}
 .gcategory-tile[aria-pressed="true"] svg{color:var(--ca-ink,#1c3555)}
+/* second row: the individual garments inside a category (t-shirt cuts) */
+.gstyle-row{display:flex;flex-wrap:wrap;justify-content:center;gap:9px;
+  max-width:1180px;margin:14px auto 0}
+.gstyle-row[hidden]{display:none}
+.gstyle-chip{display:inline-flex;min-height:44px;align-items:center;gap:8px;
+  padding:9px 15px;border:1px solid #e2d3d6;border-radius:999px;background:#fff;
+  color:#22375a;cursor:pointer;font-family:inherit;font-size:.72rem;font-weight:800;
+  letter-spacing:.03em;box-shadow:0 2px 0 rgba(24,45,77,.06);
+  transition:transform .16s ease,box-shadow .16s ease}
+.gstyle-chip:hover{transform:translateY(-1px);border-color:#b8697c}
+.gstyle-chip:focus-visible{outline:3px solid var(--ca,#999);outline-offset:3px}
+.gstyle-chip[aria-pressed="true"]{border-color:#b8697c;background:#f5f0f7;
+  color:var(--ca-ink,#1c3555)}
+.gstyle-name{white-space:nowrap}
+.gstyle-count{display:inline-flex;min-width:19px;height:19px;align-items:center;
+  justify-content:center;border-radius:999px;background:#eef0f4;color:#4a5566;
+  font-size:.61rem;font-weight:800}
+.gstyle-chip[aria-pressed="true"] .gstyle-count{background:#1c3555;color:#fff}
+.gstyle-sr{position:absolute;width:1px;height:1px;overflow:hidden;clip:rect(0 0 0 0);
+  clip-path:inset(50%);white-space:nowrap}
+@media(max-width:760px){
+  .gcategory-tiles{grid-template-columns:repeat(3,minmax(0,1fr));gap:8px}
+  .gcategory-tile{min-height:74px;padding:9px 6px}
+  .gcategory-tile svg{width:22px;height:22px}
+  .gcategory-tile span{font-size:.56rem}
+  .gstyle-row{gap:7px;margin-top:11px}
+  .gstyle-chip{padding:8px 12px;font-size:.68rem}
+}
 /* designs that did not list the chosen style keep their own mockup, muted */
 .card.is-muted{background:#fbfaf7}
 .card.is-muted .ph img{filter:grayscale(1);opacity:.42}

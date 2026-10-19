@@ -213,6 +213,92 @@ document.querySelectorAll('a.custom-link').forEach(function(a){
   });
 })();
 
+// ---------- team collection apparel buttons (.gcategory-tile) ----------
+// Same garment-swap behaviour as Bella's locker, over a team page's
+// #grid[data-apparel] grid of .card cards. Each click swaps, per design, the
+// mockup of a garment that design actually lists, and never invents stock:
+// a design with no listing for the chosen garment keeps its own artwork,
+// muted (Caps & Hats hides them instead, so the category never presents a
+// t-shirt as a cap). An entry with no image means we hold the listing but no
+// garment render, so the card stays visible and linked on its own mockup.
+// Clicking the active button again clears the selection. Scoped to pages that
+// emit both the tiles and the payload; without them this block does nothing.
+(function(){
+  var row=document.querySelector('.gcategory-tiles'); if(!row)return;
+  var tiles=[].slice.call(row.querySelectorAll('.gcategory-tile[data-gcat]'));
+  if(!tiles.length)return;
+  var grid=document.querySelector('#grid[data-apparel]'); if(!grid)return;
+  var matrix; try{matrix=JSON.parse(grid.getAttribute('data-apparel')||'{}');}catch(e){return;}
+  var cards=[].slice.call(grid.querySelectorAll('.card[data-slug]'));
+  if(!cards.length)return;
+  var chips=[].slice.call(document.querySelectorAll('.gstyle-chip[data-gstyle]'));
+  var chipRow=document.getElementById('gstyleRow');
+  cards.forEach(function(card){
+    var styles={}, byCat={}, groups=matrix[card.getAttribute('data-slug')]||{};
+    Object.keys(groups).forEach(function(cat){
+      var list=(groups[cat]||[]).filter(function(e){return e&&e.garment;});
+      byCat[cat]=list;
+      list.forEach(function(entry){
+        if(!styles[entry.garment])styles[entry.garment]=entry;
+      });
+    });
+    var img=card.querySelector('.ph img');
+    card._styles=styles; card._byCat=byCat; card._img=img;
+    card._link=card.querySelector('a');
+    card._meta=card.querySelector('.meta');
+    card._name=(card.querySelector('h3')||{}).textContent||'';
+    card._src=img?img.getAttribute('src'):'';
+    card._alt=img?img.getAttribute('alt'):'';
+    card._href=card._link?card._link.getAttribute('href'):'';
+    card._label=card._meta?card._meta.textContent:'';
+  });
+  var cat=null, garment=null, loose=false;
+  function press(el,on){el.setAttribute('aria-pressed',on?'true':'false');}
+  // A category tile means "this garment class", so it resolves to whichever
+  // style (if any) the design actually listed there. A style chip is exact:
+  // a design that did not list that specific cut stays out of the swap.
+  function listed(card){
+    if(garment){
+      if(card._styles[garment])return card._styles[garment];
+      if(!loose)return null;
+    }
+    var list=cat?(card._byCat[cat]||[]):[];
+    return list.length?list[0]:null;
+  }
+  function restore(card){
+    if(card._img){if(card._src)card._img.src=card._src; if(card._alt)card._img.alt=card._alt;}
+    if(card._link&&card._href)card._link.href=card._href;
+    if(card._meta&&card._label)card._meta.textContent=card._label;
+    card.classList.remove('is-swapped'); card.classList.remove('is-muted'); card.hidden=false;
+  }
+  function apply(){
+    cards.forEach(function(card){
+      var entry=listed(card);
+      if(entry){
+        card.hidden=false;
+        if(card._img&&entry.image){card._img.src=entry.image; card._img.alt=card._name+' design on a '+entry.garment.toLowerCase();}
+        if(card._link&&entry.url)card._link.href=entry.url;
+        if(card._meta)card._meta.textContent=entry.garment;
+        card.classList.add('is-swapped'); card.classList.remove('is-muted'); return;
+      }
+      restore(card);
+      if(cat){ if(cat==='caps-hats')card.hidden=true; else card.classList.add('is-muted'); }
+    });
+    tiles.forEach(function(t){press(t,cat!==null&&t.getAttribute('data-gcat')===cat);});
+    chips.forEach(function(c){press(c,garment!==null&&c.getAttribute('data-gstyle')===garment);});
+    if(chipRow){ chipRow.hidden=!(cat&&chips.some(function(c){return c.getAttribute('data-gcat')===cat;})); }
+  }
+  function choose(nextCat,nextGarment,isTile){
+    if(cat===nextCat&&(isTile||garment===nextGarment)){cat=null;garment=null;loose=false;}
+    else{cat=nextCat;garment=nextGarment;loose=!!isTile;}
+    apply();
+    if(!cat)return;
+    try{var calm=window.matchMedia&&window.matchMedia('(prefers-reduced-motion: reduce)').matches; grid.scrollIntoView({behavior:calm?'auto':'smooth',block:'start'});}catch(e){}
+  }
+  tiles.forEach(function(t){t.addEventListener('click',function(){choose(t.getAttribute('data-gcat'),t.getAttribute('data-gstyle')||null,true);});});
+  chips.forEach(function(c){c.addEventListener('click',function(){choose(c.getAttribute('data-gcat'),c.getAttribute('data-gstyle'),false);});});
+})();
+
 // ---------- custom design form (FormSubmit, no backend needed) ----------
 // The <form> carries a real action= in the HTML, so with JavaScript disabled
 // the browser posts straight to FormSubmit and the request still arrives.
@@ -919,70 +1005,4 @@ document.querySelectorAll('a.custom-link').forEach(function(a){
       choose(c.getAttribute('data-gcat'),c.getAttribute('data-gstyle'));
     });
   });
-})();
-
-// ---------- team collection apparel buttons (.gcategory-tile) ----------
-// Same garment-swap behaviour as Bella's locker, over a team's #grid
-// [data-apparel] grid of .card cards. Each click swaps, per design, ONLY the
-// garments that design actually lists - its own mockup and product link - and
-// never invents stock. Scoped to pages that emit both the tiles and the
-// payload; without them this block does nothing.
-(function(){
-  var row=document.querySelector('.gcategory-tiles'); if(!row)return;
-  var tiles=[].slice.call(row.querySelectorAll('.gcategory-tile[data-gcat]'));
-  if(!tiles.length)return;
-  var grid=document.querySelector('#grid[data-apparel]'); if(!grid)return;
-  var matrix; try{matrix=JSON.parse(grid.getAttribute('data-apparel')||'{}');}catch(e){return;}
-  var cards=[].slice.call(grid.querySelectorAll('.card[data-slug]'));
-  if(!cards.length)return;
-  var chips=[].slice.call(document.querySelectorAll('.gstyle-chip[data-gstyle]'));
-  var chipRow=document.getElementById('gstyleRow');
-  function name(el){var s=el.querySelector('.gstyle-name')||el.querySelector('span');return s?s.textContent.trim():'';}
-  cards.forEach(function(card){
-    var styles={}, groups=matrix[card.getAttribute('data-slug')]||{};
-    Object.keys(groups).forEach(function(cat){
-      (groups[cat]||[]).forEach(function(entry){
-        if(entry&&entry.garment&&!styles[entry.garment])styles[entry.garment]=entry;
-      });
-    });
-    var img=card.querySelector('.ph img');
-    card._styles=styles; card._img=img;
-    card._link=card.querySelector('a');
-    card._name=(card.querySelector('h3')||{}).textContent||'';
-    card._src=img?img.getAttribute('src'):'';
-    card._alt=img?img.getAttribute('alt'):'';
-    card._href=card._link?card._link.getAttribute('href'):'';
-  });
-  var cat=null, garment=null;
-  function press(el,on){el.setAttribute('aria-pressed',on?'true':'false');}
-  function restore(card){
-    if(card._img){if(card._src)card._img.src=card._src; if(card._alt)card._img.alt=card._alt;}
-    if(card._link&&card._href)card._link.href=card._href;
-    card.classList.remove('is-swapped'); card.classList.remove('is-muted'); card.hidden=false;
-  }
-  function apply(){
-    cards.forEach(function(card){
-      var entry=garment?(card._styles[garment]||null):null;
-      if(entry){
-        card.hidden=false;
-        if(card._img){card._img.src=entry.image; card._img.alt=card._name+' design on a '+garment.toLowerCase();}
-        if(card._link&&entry.url)card._link.href=entry.url;
-        card.classList.add('is-swapped'); card.classList.remove('is-muted'); return;
-      }
-      restore(card);
-      if(cat){ if(cat==='caps-hats')card.hidden=true; else card.classList.add('is-muted'); }
-    });
-    tiles.forEach(function(t){press(t,cat!==null&&t.getAttribute('data-gcat')===cat);});
-    chips.forEach(function(c){press(c,garment!==null&&c.getAttribute('data-gstyle')===garment);});
-    if(chipRow){ chipRow.hidden=!(cat&&chips.some(function(c){return c.getAttribute('data-gcat')===cat;})); }
-  }
-  function choose(nextCat,nextGarment){
-    if(cat===nextCat&&garment===nextGarment){cat=null;garment=null;}
-    else{cat=nextCat;garment=nextGarment;}
-    apply();
-    if(!cat)return;
-    try{var calm=window.matchMedia&&window.matchMedia('(prefers-reduced-motion: reduce)').matches; grid.scrollIntoView({behavior:calm?'auto':'smooth',block:'start'});}catch(e){}
-  }
-  tiles.forEach(function(t){t.addEventListener('click',function(){choose(t.getAttribute('data-gcat'),t.getAttribute('data-gstyle')||null);});});
-  chips.forEach(function(c){c.addEventListener('click',function(){choose(c.getAttribute('data-gcat'),c.getAttribute('data-gstyle'));});});
 })();

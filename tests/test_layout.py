@@ -419,6 +419,59 @@ class TeamCollectionPages(unittest.TestCase):
             self.assertIn('id="nores"', html, k)
             self.assertIn("No designs match that search.", html, k)
 
+    def test_apparel_filter_buttons_never_hide_listed_garments(self):
+        """The team-page apparel buttons must ship every garment the collection
+        actually lists, with a real mockup, and only flag a category when no
+        design in the collection lists it. Regression guard: an earlier cut
+        emitted T-shirts only and every other tile said "not listed yet" while
+        the campaign records (and site/img/p) carried hoodie, crewneck and
+        tank-top listings."""
+        import build  # noqa: E402
+        for k, html in self.pages.items():
+            self.assertIn('<section id="apparel" class="gcategory-row"', html, k)
+            self.assertLess(html.index('<section id="apparel"'),
+                            html.index('<section id="grid"'), k)
+            self.assertIn('<div class="grid" id="pg">', html, k)
+            attr = re.search(r'<section id="grid" data-apparel="([^"]*)"', html)
+            self.assertIsNotNone(attr, k)
+            payload = json.loads(unescape(attr.group(1)))
+            items = build.MODEL[k]
+            self.assertTrue(payload, k)
+            # every design that lists a garment ships that garment
+            for it in items:
+                own = build.apparel_category(it["garment"])
+                if own and it["slug"] in payload:
+                    self.assertIn(own, payload[it["slug"]],
+                                  f"{k}/{it['slug']} lost its {own} listing")
+            # the flag is only allowed on a category nothing in the
+            # collection lists, and listed categories never carry it
+            listed = {cat for groups in payload.values() for cat in groups}
+            for m in re.finditer(r'<button class="gcategory-tile" type="button" '
+                                 r'data-gcat="([^"]+)"[^>]*>(.*?)</button>', html, re.S):
+                cat, inner = m.group(1), m.group(2)
+                flagged = 'gcategory-flag' in inner
+                self.assertEqual(flagged, cat not in listed,
+                                 f"{k}: {cat} flag disagrees with its listings")
+            # any mockup a swap points at must exist in site/img/p
+            for groups in payload.values():
+                for rows in groups.values():
+                    for row in rows:
+                        img = row["image"]
+                        if img and not img.startswith("http"):
+                            rel = img[3:] if img.startswith("../") else img.lstrip("/")
+                            self.assertTrue(
+                                os.path.isfile(os.path.join(SITE, rel)),
+                                f"{k}: missing mockup {img}")
+
+    def test_apparel_payload_is_generated_not_hand_edited(self):
+        """site/ is disposable: the buttons and the payload must come from
+        src/build.py, otherwise the twice-daily rebuild silently reverts them."""
+        with open(os.path.join(ROOT, "src", "build.py"), encoding="utf-8") as fh:
+            src = fh.read()
+        self.assertIn("def apparel_filter_html(", src)
+        self.assertIn("data-apparel=", src)
+        self.assertIn("team collection apparel buttons", src)
+
     def test_ticker_is_team_specific(self):
         markers = {
             "cleveland-browns": ["Dawg Pound", "Shedeur Sanders", "Brownies"],
