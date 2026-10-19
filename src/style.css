@@ -442,6 +442,10 @@ section{padding:clamp(30px,4.5vw,52px) 0}
 .card .ph img{position:absolute;inset:0;width:100%;height:100%;object-fit:contain;padding:0;
   filter:none;transition:opacity .2s}
 .card .ph img.alt{opacity:0}
+/* A card swapped to a garment the store has no back render for hides its
+   hover image (app.js sets [hidden]); the class rule keeps it hidden even if
+   a future rule gives .ph img an explicit display value. */
+.card .ph img.alt[hidden]{display:none}
 .card:hover .ph img.alt{opacity:1}
 .card .body{padding:11px 12px 13px;border-top:1px solid #f2f3f5;display:flex;flex-direction:column;
   gap:3px;flex:1}
