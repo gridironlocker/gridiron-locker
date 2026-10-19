@@ -2755,14 +2755,15 @@ def _girly_body(cre, c, items, track):
     title = esc(g.get("hero_title", cre["page_name"]))
 
     # Creator promo code (data/creators.json ``promo``). Bella's whole
-    # collection checks out on Silent Touch. The banner above the hero keeps
-    # its wording short ("at checkout"), while the collection reminder and the
-    # store note still name that store rather than implying the code works on
-    # this site. The banner is the primary placement (it sits above the hero,
-    # in the first viewport), the collection reminder restates the offer at
-    # the top of the grid, and the store note repeats it beside the hand-off.
-    # The code itself is a real button that app.js makes copyable; without JS
-    # it stays visible and selectable, so the offer is never hidden behind
+    # collection checks out on Silent Touch. All three placements keep their
+    # wording short ("at checkout") with no store name - the owner asked for
+    # no Silent Touch in the promo copy - while the prose beside them still
+    # names that store, so the page never implies the code works on this
+    # site. The banner is the primary placement (it sits above the hero, in
+    # the first viewport), the collection reminder restates the offer at the
+    # top of the grid, and the store note repeats it beside the hand-off. The
+    # code itself is a real button that app.js makes copyable; without JS it
+    # stays visible and selectable, so the offer is never hidden behind
     # behaviour.
     promo = cre.get("promo") or {}
     promo_code = str(promo.get("code") or "")
@@ -2790,8 +2791,8 @@ def _girly_body(cre, c, items, track):
  </div>
 </aside>"""
         promo_line = (f'<p class="gcollection-promo"><span>{pct}% off</span> with code '
-                      f'<strong>{code}</strong> at {store_name} checkout</p>')
-        promo_note = (f'<span class="gstore-promo">{pct}% off your {store_name} order with '
+                      f'<strong>{code}</strong> at checkout</p>')
+        promo_note = (f'<span class="gstore-promo">{pct}% off your order with '
                       f'code <strong>{code}</strong> at checkout.</span> ')
     def category_icon(label):
         if any(word in label.casefold() for word in ("cap", "hat")):
