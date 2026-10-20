@@ -2,7 +2,7 @@
  "generated": "2026-10-20",
  "window_days": 10,
  "fti_formula": "round(100 * entity_mentions / peak_mentions_in_window)",
- "peak_mentions": 18,
+ "peak_mentions": 23,
  "stats": {
   "products": 97,
   "collections": 4,
@@ -12,14 +12,14 @@
   "throwback": 0,
   "steady": 97,
   "gaps": 3,
-  "moments": 2,
+  "moments": 3,
   "tracked_names": 18,
   "dead_campaigns": 67
  },
  "fti_rows": [
   {
    "name": "bryce underwood",
-   "mentions": 18,
+   "mentions": 23,
    "index": 100,
    "status": "trending",
    "gap": false,
@@ -27,54 +27,54 @@
    "collection": "michigan"
   },
   {
+   "name": "josh jacobs",
+   "mentions": 8,
+   "index": 35,
+   "status": "trending",
+   "gap": true,
+   "shoppable": false,
+   "collection": "green-bay-packers"
+  },
+  {
    "name": "dak prescott",
-   "mentions": 9,
-   "index": 50,
+   "mentions": 6,
+   "index": 26,
    "status": "trending",
    "gap": true,
    "shoppable": false,
    "collection": "dallas-cowboys"
   },
   {
-   "name": "micah parsons",
-   "mentions": 6,
-   "index": 33,
-   "status": "trending",
-   "gap": false,
-   "shoppable": true,
-   "collection": "green-bay-packers"
-  },
-  {
-   "name": "josh jacobs",
-   "mentions": 5,
-   "index": 28,
-   "status": "trending",
-   "gap": true,
-   "shoppable": false,
-   "collection": "green-bay-packers"
-  },
-  {
    "name": "kyle whittingham",
-   "mentions": 5,
-   "index": 28,
+   "mentions": 6,
+   "index": 26,
    "status": "trending",
    "gap": true,
    "shoppable": false,
    "collection": "michigan"
   },
   {
-   "name": "ceedee lamb",
-   "mentions": 2,
-   "index": 11,
-   "status": "steady",
+   "name": "micah parsons",
+   "mentions": 4,
+   "index": 17,
+   "status": "trending",
    "gap": false,
-   "shoppable": false,
-   "collection": "dallas-cowboys"
+   "shoppable": true,
+   "collection": "green-bay-packers"
   },
   {
    "name": "denzel ward",
    "mentions": 2,
-   "index": 11,
+   "index": 9,
+   "status": "steady",
+   "gap": false,
+   "shoppable": true,
+   "collection": "cleveland-browns"
+  },
+  {
+   "name": "shedeur sanders",
+   "mentions": 2,
+   "index": 9,
    "status": "steady",
    "gap": false,
    "shoppable": true,
@@ -82,8 +82,8 @@
   },
   {
    "name": "jordan love",
-   "mentions": 2,
-   "index": 11,
+   "mentions": 1,
+   "index": 4,
    "status": "steady",
    "gap": false,
    "shoppable": true,
@@ -92,11 +92,20 @@
   {
    "name": "matt lafleur",
    "mentions": 1,
-   "index": 6,
+   "index": 4,
    "status": "steady",
    "gap": false,
    "shoppable": false,
    "collection": "green-bay-packers"
+  },
+  {
+   "name": "ceedee lamb",
+   "mentions": 0,
+   "index": 0,
+   "status": "quiet",
+   "gap": false,
+   "shoppable": false,
+   "collection": "dallas-cowboys"
   },
   {
    "name": "deshaun watson",
@@ -162,15 +171,6 @@
    "collection": "green-bay-packers"
   },
   {
-   "name": "shedeur sanders",
-   "mentions": 0,
-   "index": 0,
-   "status": "quiet",
-   "gap": false,
-   "shoppable": true,
-   "collection": "cleveland-browns"
-  },
-  {
    "name": "todd monken",
    "mentions": 0,
    "index": 0,
@@ -182,27 +182,27 @@
  ],
  "gaps": [
   {
-   "name": "dak prescott",
-   "mentions": 9,
-   "index": 50,
-   "status": "trending",
-   "gap": true,
-   "shoppable": false,
-   "collection": "dallas-cowboys"
-  },
-  {
    "name": "josh jacobs",
-   "mentions": 5,
-   "index": 28,
+   "mentions": 8,
+   "index": 35,
    "status": "trending",
    "gap": true,
    "shoppable": false,
    "collection": "green-bay-packers"
   },
   {
+   "name": "dak prescott",
+   "mentions": 6,
+   "index": 26,
+   "status": "trending",
+   "gap": true,
+   "shoppable": false,
+   "collection": "dallas-cowboys"
+  },
+  {
    "name": "kyle whittingham",
-   "mentions": 5,
-   "index": 28,
+   "mentions": 6,
+   "index": 26,
    "status": "trending",
    "gap": true,
    "shoppable": false,
@@ -246,22 +246,22 @@
      "pub": "Mon, 19 Oct 2026 15:14:39 GMT"
     },
     {
+     "title": "How Browns' past two draft classes are catching the NFL's attention",
+     "url": "https://news.google.com/rss/articles/CBMinwFBVV95cUxQOFFUeTJEdTExWXk1VkhaRTN3UTdLR2ZLVmx6NDdDYzRKbnFuMjFvOHg5Ukx6MmNPQU5tbThnTkhKTWRKVFdNSmhXS2drWmxYR0J3UHlSUEM0LXNVT2pvdDUtREI4OEVlSWhmaWMxd1I4bXpZdk9EaUV5bnZoM0FLYkNEX0N1MnRjWkg4WnJHbmFQX3NoNGYtWnpiOTV5LVk?oc=5",
+     "source": "ESPN",
+     "pub": "Tue, 20 Oct 2026 10:00:00 GMT"
+    },
+    {
      "title": "Audric Estim\u00e9 scores a TD in his first game as a Cleveland Brown",
      "url": "https://news.google.com/rss/articles/CBMilgFBVV95cUxNRUxmNm1TUUpaM3BVRUhYZmVDTXhnTzdCZ1dtRHVHZ1lnUm10RnMyUFBBZGs0emhCMDdDdTJNZFdhcG5hWmQ0cjdFM3Atck12LWRiVHA3OFd2bk4xTTFNY2xjT0N5YlVjYjd4ZkVjRzQxUHo0cFV5UUVDTTVDNTZ6cHFRUngwV1gxTW1SQXQxMnBoQTBYenc?oc=5",
      "source": "NFL.com",
      "pub": "Sun, 18 Oct 2026 19:46:41 GMT"
     },
     {
-     "title": "Cleveland Browns gets their close-up in first trailer for Hulu's 'The Land'",
-     "url": "https://news.google.com/rss/articles/CBMihgFBVV95cUxQdzFabjBXUXNlemdFM1NUMXgydUdmR0lLZUhvMTRDbmZRS3dVd3Fkb1VQc0pUT250aHFGeGI4REphMTViMEVoRlpCbmg1dDZYdE5wemtzTHdXYkM0SEJ3dEJ2MXlzbXRRTU4tRm9RN3pVcHVURkNER1pTVy0xb1RzaWVoRGtBQQ?oc=5",
-     "source": "ESPN",
-     "pub": "Wed, 14 Oct 2026 00:28:00 GMT"
-    },
-    {
-     "title": "\u2018One of those days!\u2019 What Jeremiah Owusu-Koramoah and others said after Browns beat Ravens",
-     "url": "https://news.google.com/rss/articles/CBMizgFBVV95cUxOYTFOT29YQzRROTZYdlUteEN0S0dORkM4OTNjYVR4SzlYVXJ1ZVZxQl9hV21CX0hMZ3N2LW90Wi1pMGZqTlo2ZkhnYTNreWJqbTVrZnFmWkJTYXFVcHplQzN5M2s1WDdhMS1CZnV4anpaRGU4c2FFUzg5UzJHc3ZaQm5sVkp2Z0txb19yLXVjSF9NZWVzdFFsbEdXcTRxZFlVbkZkVksxa1BlUzF0QlZnb0ZxNjFjMzhaRXcyWF82SjlqOU5TYl85QnQ3SFlEZw?oc=5",
-     "source": "Cleveland.com",
-     "pub": "Sun, 18 Oct 2026 21:26:00 GMT"
+     "title": "Cleveland Browns News and Rumors 10/20/26: Forget Them Picks",
+     "url": "https://news.google.com/rss/articles/CBMimAFBVV95cUxPUzZhLWlSRm5KXy10b2x2Q1B5a2l4WDZQUXdQOVVfcEVreHRMYnBqOE9nUnlpSjF4WmM4U3Q0X1NvTnN6UHRSZ0ZyM29ERnJpbEVoUlRudlNhZ3BvSk1PeEt1MWRPSG1lbXJ4azBRb1lLM3hhb1NmWTlXQUk1YlFBRmEzajZteDJFSkk4YkxzRy1OelRMQmpXaQ?oc=5",
+     "source": "Cleveland 19 News",
+     "pub": "Tue, 20 Oct 2026 11:41:00 GMT"
     }
    ],
    "fti_count": 7
@@ -279,8 +279,8 @@
    "gaps": [
     {
      "name": "dak prescott",
-     "mentions": 9,
-     "index": 50,
+     "mentions": 6,
+     "index": 26,
      "status": "trending",
      "gap": true,
      "shoppable": false,
@@ -293,9 +293,9 @@
     "dallas",
     "green",
     "live",
-    "streams",
-    "loss",
-    "defense"
+    "free",
+    "october",
+    "streams"
    ],
    "headline_count": 100,
    "headlines": [
@@ -304,6 +304,18 @@
      "url": "https://news.google.com/rss/articles/CBMihwFBVV95cUxNY3RUMmhXaVcxR2JUTUZrTVZoa2Q0bnZPc3JXVGt6QW8ya0ZwZ0pCRlhHeXN4MkhueU9ielRMWVMtdVk0MUxWbHUyazNlV2NBdGxYMjJsejVoXzdLcW9UOXlTN0htVklJX1NuQkhHWWxpdWRqZ0ZnUGxWZ0hmY3RDVG1wYWthUm8?oc=5",
      "source": "Dallas Cowboys | Official Site of the Dallas Cowboys",
      "pub": "Mon, 19 Oct 2026 06:13:52 GMT"
+    },
+    {
+     "title": "Impact: Jalen Hurts moved to IR by Eagles",
+     "url": "https://news.google.com/rss/articles/CBMiZ0FVX3lxTE56aGtoMDdKbXA2SGZ5WkdGYUVEUUV4cmNqOW0wN3MzS1FCVkdNYVBNR1A0QUJHWUNxLVZuOW9QMGdTZ2s2YkRMNXVmdnZSZWtfNnNnZTNzQnFSTF9NbnNiZXRhaFVkcTQ?oc=5",
+     "source": "Dallas Cowboys | Official Site of the Dallas Cowboys",
+     "pub": "Mon, 19 Oct 2026 07:00:00 GMT"
+    },
+    {
+     "title": "Pic 6: Cowboys struggle vs. Green Bay's pressure, make multiple personnel changes",
+     "url": "https://news.google.com/rss/articles/CBMiswFBVV95cUxPWWE3VkRacVl5UEt1cFFfNnhaTnN3cnZJWUxlbEpqUVhlUXdtWTQzMGw0MXZPbTZjM2ZXclpXaWRRMmhJdld5cUV3R0NYejJOQ05UcUpQa2JtZ2szM21pdUNOQ3NaVndSOFhmb0QyR2g5anJQOXRJZDd1UG5ZZy11VHVNSHNrSVZBZ0dQbzRqMjhXbG1nZlRONmt3OHpoaTJ3QklhOWUtOW1meDA4VDNCMEI4RQ?oc=5",
+     "source": "Dallas Cowboys | Official Site of the Dallas Cowboys",
+     "pub": "Mon, 19 Oct 2026 15:19:53 GMT"
     },
     {
      "title": "Game Recap: Cowboys lose to Packers, 23-13",
@@ -316,18 +328,6 @@
      "url": "https://news.google.com/rss/articles/CBMitgFBVV95cUxPQVJ2eUd2YnhaWnFNbHF0Y0FDZGpTUXV6azllaFh2SEdURFMyNVp5TzlKcFFuSXR1NXR0RnFsXzFDYTJIemVOZjJvMGFacEhEaW84N0xORTFES1g3Rm1pVTJIYkxNaXhQeUxnQ2NKSXU2cHRKcWg4Z3pOemo0OTB3ZmdoOGxaQ1R2NDYtZTRkOU5PTXIzWEQ4ZmI0VmNQQ1VVNlZoRDhrMC1FQ0FnYS16TkZsRGVLUQ?oc=5",
      "source": "Dallas Cowboys | Official Site of the Dallas Cowboys",
      "pub": "Mon, 19 Oct 2026 05:35:34 GMT"
-    },
-    {
-     "title": "Don\u2019t Forget These 5: Big mishaps before INTs",
-     "url": "https://news.google.com/rss/articles/CBMihgFBVV95cUxPS2gydDUxSTZra25RX1RrNWotTkpPdmVuNzN3ZzZwTHpvVjlrWW1TZ3J1VHpLWU5yNVptZnk4OFd3WlZTd2V6ZHRyNFc4ZDBSTzVrZ1FPOElmcEJoeGIyRkdjaWZQMVhBVlVQSVM3Rno1ZDR2Mzdyck50UUpGM3B5SlhhWEtQZw?oc=5",
-     "source": "Dallas Cowboys | Official Site of the Dallas Cowboys",
-     "pub": "Mon, 19 Oct 2026 04:35:11 GMT"
-    },
-    {
-     "title": "Updates: Latest on Cobie Durant's status",
-     "url": "https://news.google.com/rss/articles/CBMiZkFVX3lxTE41U3JDcmpCb1YyZjBxRFNnV25kSktlMVJ5aEJsX1hhNTFTcHJWdWdTbjF5cFhvQ3ZKZGd4bEdfT0VtT1RobmJwd3ZSbnZzM0c3RnJiTS1kSG5fMUtJWW9qclRUWlZtQQ?oc=5",
-     "source": "Dallas Cowboys | Official Site of the Dallas Cowboys",
-     "pub": "Tue, 20 Oct 2026 07:23:11 GMT"
     }
    ],
    "fti_count": 2
@@ -345,8 +345,8 @@
    "gaps": [
     {
      "name": "josh jacobs",
-     "mentions": 5,
-     "index": 28,
+     "mentions": 8,
+     "index": 35,
      "status": "trending",
      "gap": true,
      "shoppable": false,
@@ -361,7 +361,7 @@
     "live",
     "free",
     "football",
-    "streams"
+    "october"
    ],
    "headline_count": 100,
    "headlines": [
@@ -378,16 +378,16 @@
      "pub": "Sun, 11 Oct 2026 07:00:00 GMT"
     },
     {
-     "title": "Packers 23-13 Cowboys (Oct 18, 2026) Game Recap",
-     "url": "https://news.google.com/rss/articles/CBMiW0FVX3lxTE1TTy1sYVlEUnBPR3AzUFNqbFJ2bmUyOEQ4WnVrdms1VkExRklGbjNtYjQ5U1dOTU5vV21RVkNYejlQaFNmNWdCMVdzcktDY0Q1SElwdmNYdFcyLVE?oc=5",
-     "source": "ESPN",
-     "pub": "Mon, 19 Oct 2026 07:13:05 GMT"
-    },
-    {
      "title": "Love's 37-yard loft to Golden provides Packers with red-zone access vs. Cowboys",
      "url": "https://news.google.com/rss/articles/CBMiqAFBVV95cUxQY2k5aERyNlFLdERfT0M5SEQxUUZWX2RWQVBwQ3c2WFpQZ3EtWnd3V1hKaXcwS3IzUmV0YVREM1FyQWRrWmFCaGNiZEtVcWhHc3loSFJvY0FfNUxBWVczaU1kQ2VmOGxJeE1DU21yZmg0TzVJc2FmbkU5cVdmUWwxZ3BkaWpYMk9LZG5yRFBqOVBsTWZ5bU10Mi1WTC1QcUdMTEUycS01QTk?oc=5",
      "source": "NFL.com",
      "pub": "Mon, 19 Oct 2026 00:46:16 GMT"
+    },
+    {
+     "title": "Packers 23-13 Cowboys (Oct 18, 2026) Game Recap",
+     "url": "https://news.google.com/rss/articles/CBMiW0FVX3lxTE1TTy1sYVlEUnBPR3AzUFNqbFJ2bmUyOEQ4WnVrdms1VkExRklGbjNtYjQ5U1dOTU5vV21RVkNYejlQaFNmNWdCMVdzcktDY0Q1SElwdmNYdFcyLVE?oc=5",
+     "source": "ESPN",
+     "pub": "Mon, 19 Oct 2026 07:13:05 GMT"
     },
     {
      "title": "\u2295[\uff37\uff21\uff34\uff23\uff28 \uff2c\uff29\uff36\uff25]\u2295Dallas Cowboys vs Green Bay Packers \uff2c\uff49\uff56\uff45 \uff53\uff54\uff52\uff45\uff41\uff4d \uff26\uff52\uff45\uff45",
@@ -411,8 +411,8 @@
    "gaps": [
     {
      "name": "kyle whittingham",
-     "mentions": 5,
-     "index": 28,
+     "mentions": 6,
+     "index": 26,
      "status": "trending",
      "gap": true,
      "shoppable": false,
@@ -421,11 +421,11 @@
    ],
    "top_terms": [
     "michigan",
+    "state",
     "wolverines",
     "penn",
-    "state",
-    "football",
     "nittany",
+    "football",
     "live",
     "look"
    ],
@@ -435,7 +435,7 @@
      "title": "Michigan Monday: Game 6 vs. Penn State",
      "url": "https://news.google.com/rss/articles/CBMif0FVX3lxTFB4bDlCMV9sQ2ZqRFVtMWluZVJYZWg1cjFDNlFRWkx2SV8xbUYyUFNMVXZoODl0a25fWEVUOFl6N1R0VnMtdFFrdXZOQXllMzgySG1wNkc0cXpxcmplMVVVT28zaE81c2xwajA0NkZNTkhJdU5ZSjRSTGtXUHZuRXM?oc=5",
      "source": "University of Michigan Athletics",
-     "pub": "Mon, 12 Oct 2026 15:39:47 GMT"
+     "pub": "Mon, 12 Oct 2026 07:00:00 GMT"
     },
     {
      "title": "Wolverine Thoughts: Michigan Football Has One Clear Direction After Win Over Penn State",
@@ -821,6 +821,17 @@
    "collection": "dallas-cowboys",
    "entities": [
     "dak prescott"
+   ]
+  },
+  {
+   "title": "Michigan Wolverines HC Kyle Whittingham finally draws a line in the sand when it comes to QB Bryce Underwood",
+   "url": "https://news.google.com/rss/articles/CBMi6gFBVV95cUxNb3RXdXdNN0kyZ2NVdHhqTlN5S1RtTmx1TE81bUtQNlpxU0xkM1p6aVdyNS1vUi14SlpqaVVtX2hnYmh6dUhiQk9Fa3dRTlZxU3VxUlRVbFdaUHJuRlRrUU5qZlE3LU82eGU1SkdzMUxrOE5UMXJUZUdHUVh3VFBKbWhGZW0wMTVra2ZxUzA2bFF1UzUwSnJ0S0R4ODlmMHdhU3NGeGVpUjhyQnFMSHh2MERsai1ydEI3SmwwZ2h5dnNsSWJpYXkzNkY2SVJVUjJtSU1GcEtrejZOZ1RTeGtLWmphRm00ZEoxcFE?oc=5",
+   "source": "A to Z Sports",
+   "pub": "Sat, 17 Oct 2026 21:57:46 GMT",
+   "collection": "michigan",
+   "entities": [
+    "bryce underwood",
+    "kyle whittingham"
    ]
   }
  ]
