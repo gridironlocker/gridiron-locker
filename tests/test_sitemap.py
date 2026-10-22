@@ -110,7 +110,8 @@ class SitemapDates(unittest.TestCase):
         # 119 on disk at HEAD already sat one above the 118 sentinel (an
         # undocumented URL from the 2026-10-13 refresh); the +4 delta from
         # that on-disk count is exactly the four new product URLs.
-        self.assertEqual(len(self.rows), 123)
+        # 2026-10-22: 123 -> 122 - Viralstyle retired limited-edition-grb16 (-1).
+        self.assertEqual(len(self.rows), 122)
         self.assertEqual(len(self.rows), len(set(self.rows)))
         for url, lastmod in self.rows.items():
             self.assertTrue(url.startswith(build.DOMAIN + "/"), url)

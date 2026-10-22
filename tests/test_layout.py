@@ -497,6 +497,9 @@ class TeamCollectionPages(unittest.TestCase):
         start = js.index("// ---------- team collection apparel buttons")
         end = js.index("// ----------", start + 10)
         team = js[start:end]
+        # the hover image swaps to entry.back when provided and hides otherwise
+        self.assertIn("if(entry&&entry.back){", team)
+        self.assertIn("card._back.src=entry.back;", team)
         # the back view is captured and its garment class compared
         self.assertIn("querySelector('.ph img.alt')", team)
         self.assertIn("card._ownCat=categoryOf(card.getAttribute('data-type')", team)
@@ -3104,6 +3107,101 @@ class AuditFixes20260918(unittest.TestCase):
                 pads.append(rel)
         self.assertEqual(dupes, [], dupes[:5])
         self.assertEqual(pads, [], pads[:5])
+
+
+class BacksideHoverEveryCard(unittest.TestCase):
+    """Every product card across every public page - and every garment swap on
+    team and creator pages - must reveal a distinct backside image on hover."""
+
+    CARD_PATTERNS = (
+        ("card", re.compile(r'<article class="card[^"]*"[^>]*>(.*?)</article>', re.S)),
+        ("pcard", re.compile(r'<a class="pcard[^"]*"[^>]*>(.*?)</a>', re.S)),
+        ("gproduct", re.compile(r'<article class="gproduct"[^>]*>(.*?)</article>', re.S)),
+        ("jfeat", re.compile(r'<a class="jfeat"[^>]*>(.*?)</a>', re.S)),
+        ("jcard", re.compile(r'<a class="jcard"[^>]*>(.*?)</a>', re.S)),
+        ("drop-card", re.compile(r'<article class="drop-card[^"]*"[^>]*>(.*?)</article>', re.S)),
+    )
+
+    def test_every_public_product_card_has_distinct_backside_hover_image(self):
+        counts = {k: 0 for k, _ in self.CARD_PATTERNS}
+        for root, _, files in os.walk(SITE):
+            rel_dir = os.path.relpath(root, SITE).replace(os.sep, "/")
+            if rel_dir.startswith(("marketing", "ops")):
+                continue
+            for fname in files:
+                if not fname.endswith(".html"):
+                    continue
+                fp = os.path.join(root, fname)
+                html = read(fp)
+                for kind, pat in self.CARD_PATTERNS:
+                    for m in pat.finditer(html):
+                        counts[kind] += 1
+                        block = m.group(1)
+                        imgs = re.findall(r"<img\b[^>]*>", block)
+                        alt_m = re.search(
+                            r'<img[^>]*\bclass="[^"]*\balt\b[^"]*"[^>]*\bsrc="([^"]+)"',
+                            block,
+                        )
+                        self.assertIsNotNone(alt_m, f"{fp} [{kind}] missing img.alt")
+                        main_srcs = [
+                            re.search(r'\bsrc="([^"]+)"', tag).group(1)
+                            for tag in imgs
+                            if 'class="alt"' not in tag and re.search(r'\bsrc="([^"]+)"', tag)
+                        ]
+                        self.assertTrue(main_srcs, f"{fp} [{kind}] missing main img")
+                        msrc = unescape(main_srcs[0])
+                        asrc = unescape(alt_m.group(1))
+                        self.assertTrue(asrc, f"{fp} [{kind}] empty alt src")
+                        self.assertNotEqual(msrc, asrc,
+                                            f"{fp} [{kind}] hover equals front ({msrc})")
+                        for src in (msrc, asrc):
+                            if not src.startswith("http"):
+                                resolved = os.path.normpath(
+                                    os.path.join(os.path.dirname(fp), src.split("?")[0]))
+                                self.assertTrue(os.path.isfile(resolved),
+                                                f"{fp} [{kind}] missing {resolved}")
+        for kind, count in counts.items():
+            self.assertGreater(count, 0, f"expected {kind} cards in built site")
+
+    def test_every_apparel_swap_entry_carries_distinct_backside_image(self):
+        targets = [f"{COLLECTIONS[k]['slug']}/index.html" for k in ORDER] + [
+            "michigan/bella/index.html"
+        ]
+        for rel in targets:
+            fp = os.path.join(SITE, rel)
+            html = page(rel)
+            gm = re.search(r'data-apparel="([^"]*)"', html)
+            self.assertIsNotNone(gm, rel)
+            payload = json.loads(unescape(gm.group(1)))
+            self.assertTrue(payload, rel)
+            for slug, groups in payload.items():
+                for cat, rows in groups.items():
+                    for r in rows:
+                        im = r.get("image") or ""
+                        bk = r.get("back") or ""
+                        self.assertTrue(im, f"{rel} [{slug}/{cat}/{r.get('garment')}] missing image")
+                        self.assertTrue(bk, f"{rel} [{slug}/{cat}/{r.get('garment')}] missing back")
+                        self.assertNotEqual(im, bk, f"{rel} [{slug}/{cat}] front==back")
+                        for src in (im, bk):
+                            if not src.startswith("http"):
+                                resolved = os.path.normpath(
+                                    os.path.join(os.path.dirname(fp), src.split("?")[0]))
+                                self.assertTrue(os.path.isfile(resolved),
+                                                f"{rel} [{slug}/{cat}] missing {resolved}")
+
+    def test_hover_css_and_creator_swap_wiring_ship(self):
+        css = page("assets/style.css")
+        for rule in (".card:hover .ph img.alt{opacity:1}",
+                     ".pcard:hover .pc-ph img.alt",
+                     ".jlock .jcard:hover .jph img.alt",
+                     ".jlock-girly .gproduct:hover .gproduct-art img.alt"):
+            self.assertIn(rule, css)
+        drops = page("drops/index.html")
+        self.assertIn(".drop-card:hover .drop-img img.alt", drops)
+        js = page("assets/app.js")
+        bella_js = js[js.index("// ---------- creator apparel-style buttons"):]
+        self.assertIn("entry.back", bella_js)
+        self.assertIn("card._backSrc", bella_js)
 
 
 if __name__ == "__main__":
