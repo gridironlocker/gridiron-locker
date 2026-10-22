@@ -1010,13 +1010,20 @@ document.querySelectorAll('a.custom-link').forEach(function(a){
       });
     });
     var img=card.querySelector('.gproduct-art img');
+    var links=[].slice.call(card.querySelectorAll('a[href]'));
+    var metaLabel=card.querySelector('.gproduct-meta span');
+    var metaPrice=card.querySelector('.gproduct-meta b');
     card._styles=styles;
     card._img=img;
-    card._link=card.querySelector('a.gproduct-art');
+    card._links=links;
+    card._metaLabel=metaLabel;
+    card._metaPrice=metaPrice;
     card._name=(card.querySelector('h3')||{}).textContent||'';
     card._src=img?img.getAttribute('src'):'';
     card._alt=img?img.getAttribute('alt'):'';
-    card._href=card._link?card._link.getAttribute('href'):'';
+    card._href=links.length?links[0].getAttribute('href'):'';
+    card._garment=metaLabel?metaLabel.textContent:'';
+    card._price=metaPrice?metaPrice.textContent:'';
   });
   var cat=null, garment=null;
   function press(el,on){el.setAttribute('aria-pressed',on?'true':'false');}
@@ -1025,7 +1032,9 @@ document.querySelectorAll('a.custom-link').forEach(function(a){
       if(card._src)card._img.src=card._src;
       if(card._alt)card._img.alt=card._alt;
     }
-    if(card._link&&card._href)card._link.href=card._href;
+    if(card._href)card._links.forEach(function(a){a.href=card._href;});
+    if(card._metaLabel)card._metaLabel.textContent=card._garment;
+    if(card._metaPrice)card._metaPrice.textContent=card._price;
     card.classList.remove('is-swapped');
     card.classList.remove('is-muted');
     card.hidden=false;
@@ -1039,7 +1048,9 @@ document.querySelectorAll('a.custom-link').forEach(function(a){
           card._img.src=entry.image;
           card._img.alt=card._name+' design on a '+garment.toLowerCase();
         }
-        if(card._link&&entry.url)card._link.href=entry.url;
+        if(entry.url)card._links.forEach(function(a){a.href=entry.url;});
+        if(card._metaLabel)card._metaLabel.textContent=entry.garment;
+        if(card._metaPrice&&entry.price)card._metaPrice.textContent=entry.price;
         card.classList.add('is-swapped');
         card.classList.remove('is-muted');
         return;
