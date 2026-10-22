@@ -2226,7 +2226,11 @@ class BellaLocker(unittest.TestCase):
             self.assertIn('rel="noopener noreferrer"', card)
             self.assertIn(escape_html(product["image"]), card)
             self.assertIn("Explore available styles", card)
-            self.assertNotIn("$", card)  # price/currency is confirmed on the supplier page
+            expected_price = f"${float(product['price_usd']):.2f}"
+            self.assertIn(
+                f'<div class="gproduct-meta"><span>{escape_html(product["garment"])}</span>'
+                f'<b>{expected_price}</b></div>',
+                card)
 
     def test_page_loads_app_js_exactly_once(self):
         """The girly page drops the sitewide footer - and with it the only
@@ -2255,7 +2259,7 @@ class BellaLocker(unittest.TestCase):
             self.assertIn(kind, text)
         # the chips' screen-reader counts still date the check
         self.assertIn(self.catalog["apparel_captured"], text)
-        self.assertIn("listed by 7 of 7 designs in the 2026-10-12 check", text)
+        self.assertIn(f"listed by 7 of 7 designs in the {self.catalog['apparel_captured']} check", text)
         # ...but the wordy standing note, the live status line, the muted-card
         # badge and the per-card disclaimer are gone
         self.assertNotIn("gcategory-note", self.html)
@@ -2270,11 +2274,12 @@ class BellaLocker(unittest.TestCase):
         # every category lists real garments for at least one design, so the
         # empty-category flag ("not listed yet") does not render either
         self.assertNotIn("not listed yet", text)
-        # no price reaches the page - the current price lives on the listing
+        # apparel tiles carry no price; each card in the locker shows its USD price
         apparel = self.html[self.html.index('id="apparel"'):self.html.index('id="locker"')]
         locker = self.html[self.html.index('id="locker"'):self.html.index('id="about"')]
         self.assertNotIn("$", apparel)
-        self.assertNotIn("$", locker)
+        self.assertIn("$23.00", locker)
+        self.assertIn("$30.00", locker)
 
     def test_apparel_categories_are_buttons_that_swap_the_products(self):
         """The six store-wide categories are real buttons that change the
@@ -2326,7 +2331,7 @@ class BellaLocker(unittest.TestCase):
             self.assertIsNotNone(shown, style)
             self.assertEqual(int(shown.group(1)), counts[style], style)
             self.assertIn(f"listed by {counts[style]} of 7 designs in the "
-                          "2026-10-12 check", unescape(chip))
+                          f"{self.catalog['apparel_captured']} check", unescape(chip))
         row = re.search(r'<div class="gstyle-row"([^>]*)>', self.html)
         self.assertIsNotNone(row)
         self.assertIn('role="group"', row.group(1))
@@ -2369,10 +2374,13 @@ class BellaLocker(unittest.TestCase):
         self.assertNotIn("gproduct-gtag", self.css)
         self.assertIn("var row=document.querySelector('.gcategory-tiles'); if(!row)return;", js)
         self.assertIn("var grid=document.querySelector('.ggrid[data-apparel]'); if(!grid)return;", js)
-        # the swap never writes a price: the Bella block ships no price data
+        # the swap updates both card links, the garment label and the USD price,
+        # and restores all three when cleared
         bella_js = js[js.index("// ---------- creator apparel-style buttons"):]
-        self.assertNotIn("price", bella_js.lower())
-        self.assertNotIn("$", bella_js)
+        self.assertIn(".gproduct-meta span", bella_js)
+        self.assertIn(".gproduct-meta b", bella_js)
+        self.assertIn("entry.price", bella_js)
+        self.assertIn("card._price", bella_js)
 
         # Regression model for the partial category: derive the cards that the
         # Caps & Hats click is allowed to leave in the grid from the same JSON
@@ -2443,10 +2451,11 @@ class BellaLocker(unittest.TestCase):
                     artworks.setdefault(art.group(1), set()).add(row["garment"])
                     self.assertTrue(row["product_id"])
                     self.assertTrue(row["product_id"] in row["url"], row["url"])
-                    self.assertIs(row["price_seen"], True)   # audit record only
+                    self.assertTrue(float(row["price_usd"]) > 0, row)
+                    self.assertIs(row["price_seen"], True)
         self.assertEqual(counts, {
             "Women's Fitted Tee": 7, "Men's T-shirt": 7, "Premium T-Shirt": 6,
-            "Ladies Slim T-Shirt": 4, "Women's V-neck Tee": 3,
+            "Ladies Slim T-Shirt": 5, "Women's V-neck Tee": 4,
             "Essential Hoodie": 7, "Unisex Sweatshirt": 7,
             "Unisex Tank Top": 7, "Long Sleeve T-Shirt": 7,
             "Heavy Cotton Cap": 4})
@@ -2469,13 +2478,12 @@ class BellaLocker(unittest.TestCase):
         self.assertEqual(artworks["293b0ab4"],
                          {"Ladies Slim T-Shirt", "Unisex Tank Top", "Long Sleeve T-Shirt"})
 
-        # the page payload carries the captured matrix, the signed mockup and
-        # the attributed listing URL - and nothing else
+        # the page payload carries the captured matrix, the signed mockup,
+        # the attributed listing URL and the formatted USD price
         grid = re.search(r'<div class="ggrid" id="gcollectionGrid" data-apparel="([^"]*)">',
                          self.html, re.S)
         self.assertIsNotNone(grid)
         self.assertNotIn("price_seen", grid.group(1))
-        self.assertNotIn("$", grid.group(1))
         payload = json.loads(unescape(grid.group(1)))
         self.assertEqual(list(payload), self.cre["picks"])
         by_slug = {product["slug"]: product for product in self.catalog["products"]}
@@ -2487,6 +2495,7 @@ class BellaLocker(unittest.TestCase):
                 for entry, row in zip(payload[slug][cat], rows):
                     # the mockup URL is the signed one, copied verbatim
                     self.assertEqual(entry["image"], row["image"])
+                    self.assertEqual(entry["price"], f"${float(row['price_usd']):.2f}")
                     self.assertIn("sig:", entry["image"])
                     self.assertIn(",w:500/image.png", entry["image"])
                     parsed = urlsplit(unescape(entry["url"]))
