@@ -87,6 +87,7 @@ def build_drops_cards(drops, model_lookup, collections):
             "michigan": "#00274C",
         }.get(ckey, "#111")
         img = prod.get("front", d.get("image", ""))
+        back = prod.get("back") or img
         url = prod.get("url", f"/shop/{slug}/")
         garment = prod.get("garment", "Tee")
         price = f"${prod['price']:.2f}"
@@ -99,7 +100,8 @@ def build_drops_cards(drops, model_lookup, collections):
     {trend_chip}
   </div>
   <a href="{esc(url)}" class="drop-img">
-    <img src="{esc(img)}" alt="{esc(prod['name'])}" loading="lazy" width="300" height="360">
+    <img class="main" src="{esc(img)}" alt="{esc(prod['name'])}" loading="lazy" width="300" height="360">
+    <img class="alt" src="{esc(back)}" alt="" aria-hidden="true" loading="lazy" width="300" height="360">
   </a>
   <div class="drop-body">
     <span class="meta">{esc(garment)} &middot; {esc(price)}</span>
@@ -184,8 +186,11 @@ def page_drops_html(collections, order, model_lookup):
 .drop-team{{padding:3px 10px;border-radius:999px;font-weight:800;letter-spacing:.04em;font-size:.72rem}}
 .drop-trend{{margin-left:auto;padding:3px 10px;border-radius:999px;font-weight:800;letter-spacing:.04em;
   font-size:.72rem;background:#fff3e0;color:#b45309}}
-.drop-img{{display:block;aspect-ratio:4/5;background:#f6f6f6}}
-.drop-img img{{width:100%;height:100%;object-fit:cover}}
+.drop-img{{position:relative;display:block;aspect-ratio:4/5;background:#fff;overflow:hidden}}
+.drop-img img{{position:absolute;inset:0;width:100%;height:100%;object-fit:contain;transition:opacity .25s ease,transform .45s ease}}
+.drop-img img.alt{{opacity:0;background:#fff}}
+.drop-card:hover .drop-img img.alt,.drop-img:focus-visible img.alt{{opacity:1}}
+.drop-card:hover .drop-img img{{transform:scale(1.03)}}
 .drop-body{{padding:14px;display:flex;flex-direction:column;gap:8px;flex:1}}
 .drop-body h3{{font-size:1.02rem;margin:0;line-height:1.25}}
 .drop-body h3 a{{color:var(--ink);text-decoration:none}}

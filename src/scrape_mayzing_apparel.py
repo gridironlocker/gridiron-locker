@@ -150,11 +150,111 @@ def parse_page(html):
     return out
 
 
+PLAIN_BACKS = {
+    ("pdz0a9q97v0", "GILDAN-BLACK"): "https://buyer-experience-gateway.mayzing.com/stores/z2OF/mockups/id:miz0a9q97v21,sig:2Lgik9Vz_4_0RopU9R67tFqpv9M8tSAvsqzMPctAeak,c:GILDAN-BLACK,s:68cc43b4-f55a-46a0-9a99-5f88952ca97c,cpd:pdz0a9q97v0,w:500/image.png",
+    ("pdz0a9q97v0", "GILDAN-HEATHER_SPORT_GREY"): "https://buyer-experience-gateway.mayzing.com/stores/z2OF/mockups/id:miz0a9q97v81,sig:EaZcZPuXkXVaS_wvWp2XNOxPQiv-yd8NKRLekKJBwAo,c:GILDAN-HEATHER_SPORT_GREY,s:68cc43b4-f55a-46a0-9a99-5f88952ca97c,cpd:pdz0a9q97v0,w:500/image.png",
+    ("pdz0a9q97v0", "GILDAN-NAVY"): "https://buyer-experience-gateway.mayzing.com/stores/z2OF/mockups/id:miz0a9q97v21,sig:Eaux_ahKtj4-e8NGDHMQdiNJYPkLc1MLqngOMy4yCns,c:GILDAN-NAVY,s:68cc43b4-f55a-46a0-9a99-5f88952ca97c,cpd:pdz0a9q97v0,w:500/image.png",
+    ("pdz0accu8c0", "GILDAN-BLACK"): "https://buyer-experience-gateway.mayzing.com/stores/z2OF/mockups/id:miz0accu8c21,sig:bOphm_LJIVOqx_cyw1UPPdD372hmwPPz3IPKQGgaqo8,c:GILDAN-BLACK,s:68cc43b4-f55a-46a0-9a99-5f88952ca97c,cpd:pdz0accu8c0,w:500/image.png",
+    ("pdz0accu8c0", "GILDAN-DARK_CHOCOLATE"): "https://buyer-experience-gateway.mayzing.com/stores/z2OF/mockups/id:miz0accu8c21,sig:VsHV1zcG1wZp0R5XWw2CuNlo45N1w3k3Iy3xNp3ZCWA,c:GILDAN-DARK_CHOCOLATE,s:68cc43b4-f55a-46a0-9a99-5f88952ca97c,cpd:pdz0accu8c0,w:500/image.png",
+    ("pdz0accu8c0", "GILDAN-WHITE"): "https://buyer-experience-gateway.mayzing.com/stores/z2OF/mockups/id:miz0accu8c1,sig:iX9EJWIANaVbk4vsAkiS_GkGeUkQ9F1vtuK__YS-kPI,c:GILDAN-WHITE,s:68cc43b4-f55a-46a0-9a99-5f88952ca97c,cpd:pdz0accu8c0,w:500/image.png",
+    ("pddzz7dh5d0", "AWDIS-SOLID_BLACK"): "https://buyer-experience-gateway.mayzing.com/stores/z2OF/mockups/id:midzz7dh5d1,sig:RX1httFYNE93-b-6nR0euiQLFpzjrkLQ8zALNlxJelE,c:AWDIS-SOLID_BLACK,s:3895b8ae-4d06-4628-9167-a25f0e5c3c5f,cpd:pddzz7dh5d0,w:500/image.png",
+    ("pde8yxhkdb0", "STANLEY_STELLA-BLACK"): "https://buyer-experience-gateway.mayzing.com/stores/z2OF/mockups/id:mie8yxhkdb1,sig:1o5APBPhXpsjPwjtjrmnyynImRhGdLMXejsLx5ZgcO8,c:STANLEY_STELLA-BLACK,s:9ae14c27-d42c-438b-9476-7a657062e9a1,cpd:pde8yxhkdb0,w:500/image.png",
+    ("pdwcvaf2ma0", "GILDAN-BLACK"): "https://buyer-experience-gateway.mayzing.com/stores/z2OF/mockups/id:miwcvaf2ma7,sig:0OMruufZ5sz3BcQCTYAdyfzQhOKBsC7TDGRkoyKx8OM,c:GILDAN-BLACK,s:f0794bf7-6da1-49d6-bb52-d55fc35466fc,cpd:pdwcvaf2ma0,w:500/image.png",
+    ("pdwm5b3ykm0", "BELLA_CANVAS-BLACK"): "https://buyer-experience-gateway.mayzing.com/stores/z2OF/mockups/id:miwm5b3ykm11,sig:DuGJIEDKkblsRE1qDdnJjGBZyiU2nTJxDUddM4oFfRA,c:BELLA_CANVAS-BLACK,s:f0794bf7-6da1-49d6-bb52-d55fc35466fc,cpd:pdwm5b3ykm0,w:500/image.png",
+    ("pdrt4mrdqt0", "ARCTIC_WHITE"): "https://buyer-experience-gateway.mayzing.com/stores/z2OF/mockups/id:mirt4mrdqt1,sig:HvtyKqxGR-citcrNSlpdBPCkd_4hm_FWhzCgW1mI4R4,c:ARCTIC_WHITE,s:f0794bf7-6da1-49d6-bb52-d55fc35466fc,cpd:pdrt4mrdqt0,w:500/image.png",
+    ("pdrt4adgb80", "ARCTIC_WHITE"): "https://buyer-experience-gateway.mayzing.com/stores/z2OF/mockups/id:mirt4mrdqt1,sig:HvtyKqxGR-citcrNSlpdBPCkd_4hm_FWhzCgW1mI4R4,c:ARCTIC_WHITE,s:f0794bf7-6da1-49d6-bb52-d55fc35466fc,cpd:pdrt4mrdqt0,w:500/image.png",
+    ("pdrt4mrdqt0", "HEATHER_GREY"): "https://buyer-experience-gateway.mayzing.com/stores/z2OF/mockups/id:mirt4mrdqt3a,sig:AZcWl_64F0XdSDAqcI53UYtSDNhT8E4O2Tq0yrsiKbg,c:HEATHER_GREY,s:f0794bf7-6da1-49d6-bb52-d55fc35466fc,cpd:pdrt4mrdqt0,w:500/image.png",
+    ("pdrt4adgb80", "HEATHER_GREY"): "https://buyer-experience-gateway.mayzing.com/stores/z2OF/mockups/id:mirt4mrdqt3a,sig:AZcWl_64F0XdSDAqcI53UYtSDNhT8E4O2Tq0yrsiKbg,c:HEATHER_GREY,s:f0794bf7-6da1-49d6-bb52-d55fc35466fc,cpd:pdrt4mrdqt0,w:500/image.png",
+    ("pdrt4mrdqt0", "JET_BLACK"): "https://buyer-experience-gateway.mayzing.com/stores/z2OF/mockups/id:mirt4mrdqt27,sig:QyhEkz_TVUU-vgfP5WcwmsFXuPKssT0fkGWrPmyt_hs,c:JET_BLACK,s:f0794bf7-6da1-49d6-bb52-d55fc35466fc,cpd:pdrt4mrdqt0,w:500/image.png",
+    ("pdrt4adgb80", "OXFORD_NAVY"): "/img/p/gildan-hoodie-oxford-navy-back.webp",
+    ("pdv0v2h40x0", "GILDAN-ASH_GREY"): "https://buyer-experience-gateway.mayzing.com/stores/qMlK/mockups/id:miv0v2h40x2b,sig:ujimly5BN5jPyifSYDiF0YbQvGqDqHgLeuUUozJ-Fvw,c:GILDAN-ASH_GREY,s:ae78b3e5-0f96-4e61-9d14-0248ae90f6a8,cpd:pdv0v2h40x0,w:500/image.png",
+    ("pdv0v2h40x0", "GILDAN-BLACK"): "https://buyer-experience-gateway.mayzing.com/stores/qMlK/mockups/id:miv0v2h40x1d,sig:_BY2cEwwF9fZTqD71nrkpJ5xlA9LyZ5pnFqWORK1lEY,c:GILDAN-BLACK,s:ae78b3e5-0f96-4e61-9d14-0248ae90f6a8,cpd:pdv0v2h40x0,w:500/image.png",
+    ("pdv0v2h40x0", "GILDAN-WHITE"): "https://buyer-experience-gateway.mayzing.com/stores/qMlK/mockups/id:miv0v2h40xf,sig:Ma-373jdDZK_v9zjdWEZjCClpPHyBOxV5r2gJtvSNgA,c:GILDAN-WHITE,s:ae78b3e5-0f96-4e61-9d14-0248ae90f6a8,cpd:pdv0v2h40x0,w:500/image.png",
+    ("pdv0v2h40x0", "GILDAN-SAND"): "/img/p/gildan-hoodie-sand-back.webp",
+    ("pdv0v2h40x0", "GILDAN-DARK_CHOCOLATE"): "/img/p/gildan-hoodie-dark-chocolate-back.webp",
+    ("pdwxphbdeq0", "JET_BLACK"): "https://buyer-experience-gateway.mayzing.com/stores/z2OF/mockups/id:miwxphbdeqf,sig:r2lwBLx3K1xDgQWjRDA4jTA-Y9anYQ6gOTxiSrTmcDo,c:JET_BLACK,s:aaafe9cc-0830-4913-87cb-c55178f009b0,cpd:pdwxphbdeq0,w:500/image.png",
+    ("pdwxphbdeq0", "HEATHER_GREY"): "https://buyer-experience-gateway.mayzing.com/stores/z2OF/mockups/id:miwxphbdeq2b,sig:joUkmGtvL3JlTZJS1LgxtW84MwXWc9QAznh0FIV-cQ4,c:HEATHER_GREY,s:aaafe9cc-0830-4913-87cb-c55178f009b0,cpd:pdwxphbdeq0,w:500/image.png",
+    ("pdwxp323mt0", "HEATHER_GREY"): "https://buyer-experience-gateway.mayzing.com/stores/z2OF/mockups/id:miwxphbdeq2b,sig:joUkmGtvL3JlTZJS1LgxtW84MwXWc9QAznh0FIV-cQ4,c:HEATHER_GREY,s:aaafe9cc-0830-4913-87cb-c55178f009b0,cpd:pdwxphbdeq0,w:500/image.png",
+    ("pdwxp323mt0", "ARCTIC_WHITE"): "https://buyer-experience-gateway.mayzing.com/stores/qMlK/mockups/id:miwxp4hr5u1,sig:_Xcgezr4gS9gDPrseV6AR5fxEOnpWMg-8WVMueCoDPY,c:ARCTIC_WHITE,s:aaafe9cc-0830-4913-87cb-c55178f009b0,cpd:pdwxp4hr5u0,w:500/image.png",
+    ("pdwxp323mt0", "NEW_FRENCH_NAVY"): "https://buyer-experience-gateway.mayzing.com/stores/qMlK/mockups/id:miwxp4hr5uf,sig:f-_wIQSnTMQapjOBlCBesgIVELOXfTY7bm75zwkdIME,c:NEW_FRENCH_NAVY,s:aaafe9cc-0830-4913-87cb-c55178f009b0,cpd:pdwxp4hr5u0,w:500/image.png",
+    ("pd4buf6kzm0", "GILDAN-BLACK"): "https://buyer-experience-gateway.mayzing.com/stores/z2OF/mockups/id:miwxphbdeqf,sig:r2lwBLx3K1xDgQWjRDA4jTA-Y9anYQ6gOTxiSrTmcDo,c:JET_BLACK,s:aaafe9cc-0830-4913-87cb-c55178f009b0,cpd:pdwxphbdeq0,w:500/image.png",
+    ("pd4buf6kzm0", "GILDAN-WHITE"): "https://buyer-experience-gateway.mayzing.com/stores/qMlK/mockups/id:miwxp4hr5u1,sig:_Xcgezr4gS9gDPrseV6AR5fxEOnpWMg-8WVMueCoDPY,c:ARCTIC_WHITE,s:aaafe9cc-0830-4913-87cb-c55178f009b0,cpd:pdwxp4hr5u0,w:500/image.png",
+    ("pd4buf6kzm0", "GILDAN-SAND"): "/img/p/gildan-sweatshirt-sand-back.webp",
+}
+
+
+FRONT_ZOOM_SCENES = {
+    "3f0f4426-e12f-4fc6-93ba-b8d58dfaaf37",
+}
+
+
+def fetch_product_back(product_url, front_src):
+    """Fetch a Mayzing product page and return a distinct back mockup if published."""
+    parts = urlsplit(product_url or "")
+    pid = (parse_qs(parts.query).get("productId") or [""])[0]
+    candidates = []
+    if pid and parts.path:
+        candidates.append(f"https://gridironlocker.shop{parts.path}?productId={pid}")
+    if product_url and product_url not in candidates:
+        candidates.append(product_url)
+    for target in candidates:
+        try:
+            html = fetch(target, timeout=20)
+        except (urllib.error.URLError, OSError):
+            continue
+        found = re.findall(
+            r"https://buyer-experience-gateway\.mayzing\.com/stores/[^\"'&\s)]+/image\.png",
+            html,
+        )
+        seen_urls = []
+        for raw in found:
+            w500 = re.sub(r",w:\d+/image\.png$", ",w:500/image.png", raw)
+            if w500 not in seen_urls:
+                seen_urls.append(w500)
+        for cand in seen_urls:
+            if cand == front_src:
+                continue
+            sm = re.search(r",s:([^,]+),", cand)
+            if sm and sm.group(1) in FRONT_ZOOM_SCENES:
+                continue
+            return cand
+        if seen_urls:
+            break
+    return ""
+
+
+def resolve_back(prev_entry, src, product_url=""):
+    """Preserve a verified (image, back) pair, inspect the product page, or match PLAIN_BACKS."""
+    if prev_entry and prev_entry.get("back") and prev_entry.get("url"):
+        return prev_entry.get("image") or src, prev_entry["back"]
+    if product_url:
+        live_back = fetch_product_back(product_url, src)
+        if live_back:
+            return src, live_back
+    m = re.search(r",c:([^,]+),.*?,cpd:([^,]+),", src or "")
+    if m:
+        exact = PLAIN_BACKS.get((m.group(2), m.group(1)), "")
+        if exact:
+            return src, exact
+        for (cpd_k, _col_k), fallback_url in PLAIN_BACKS.items():
+            if cpd_k == m.group(2):
+                return src, fallback_url
+    return src, ""
+
+
 def scrape(dry_run=False):
+    existing = {}
+    if os.path.isfile(OUT):
+        try:
+            with open(OUT, encoding="utf-8") as fh:
+                existing = (json.load(fh).get("collections") or {})
+        except (OSError, ValueError):
+            existing = {}
     by_collection = {}
     summary = []
     for ckey, (store, _cid) in STORES.items():
         products = {}
+        prev_col = existing.get(ckey) or {}
         for cat_param, cat_key in CATEGORIES:
             url = ("https://gridironlocker.shop/p/%s?category=%s"
                    % (store, cat_param))
@@ -172,9 +272,14 @@ def scrape(dry_run=False):
                 if row["slug"] in seen:
                     continue
                 seen.add(row["slug"])
+                prev_rows = (prev_col.get(row["slug"]) or {}).get(cat_key) or []
+                prev_entry = prev_rows[0] if prev_rows else None
+                front_img, back_img = resolve_back(prev_entry, row["image"], row["url"])
                 entry = {"garment": row["garment"],
-                         "image": row["image"],
+                         "image": front_img,
                          "url": row["url"]}
+                if back_img:
+                    entry["back"] = back_img
                 products.setdefault(row["slug"], {}).setdefault(cat_key, []).append(entry)
                 kept += 1
             summary.append((ckey, cat_key, kept))

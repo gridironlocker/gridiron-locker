@@ -39,9 +39,12 @@ for slug,v in P.items():
     for i,u in enumerate(sw): urls.append((f'c{i}',u))
     local={}
     for tag,u in urls:
-        if not u: continue
         jpg=f'site/img/p/{slug}-{tag}.jpg'
         webp=jpg[:-4]+'.webp'
+        if not u:
+            if tag=='back' and os.path.exists(webp) and os.path.getsize(webp)>1000:
+                local[tag]=webp.replace('site/','/')
+            continue
         local[tag]=webp.replace('site/','/')
         # c* swatches: prefer the large mockup; fall back to the small one and
         # then to the bare -front variant so a renamed asset still downloads.

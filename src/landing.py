@@ -611,6 +611,7 @@ VALUE_MOMENT = {
         "Worn-in look, straight off the press.",
         "Throwback styling for people who remember the old way.",
         "The back-of-the-closet feel, without the cracked print.",
+        "Classic {short} lettering for fans who know the history.",
     ],
     "rivalry": [
         "A side, taken in public. {short} fans know exactly what it says.",

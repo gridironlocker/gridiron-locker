@@ -496,6 +496,9 @@ def creator_items(cre):
                 price = float(p["price_usd"])
             except (KeyError, TypeError, ValueError):
                 continue
+            back = p.get("back")
+            if not (isinstance(back, str) and back.startswith("https://")):
+                back = image
             by_slug[slug] = dict(
                 slug=slug, name=p.get("name") or slug.replace("-", " ").title(),
                 art=p.get("art") or p.get("name") or slug,
@@ -504,7 +507,8 @@ def creator_items(cre):
                 colours=1, styles=[p.get("garment") or "Apparel"],
                 sizes_avail=list(p.get("sizes") or []),
                 url=source_url, source_url=source_url, buy=source_url,
-                gallery=[image], front=image, back=image,
+                gallery=[image] + ([back] if back != image else []),
+                front=image, back=back,
                 partner=catalog.get("partner", "Mayzing"),
                 colour=p.get("colour"), colour_code=p.get("colour_code"),
                 kw=[], col=collection_key, external_store=True,
@@ -1847,8 +1851,10 @@ def product_card(it, eager=False):
     return (f'<a class="pcard reveal" href="{it["url"]}" style="{theme_vars(it["col"])}" '
             f'data-slug="{it["slug"]}">'
             f'<span class="pc-ph">{hot}'
-            f'<img src="{it["front"]}" alt="{card_alt(it)}" '
-            f'width="530" height="630"{lazy}></span>'
+            f'<img class="main" src="{it["front"]}" alt="{card_alt(it)}" '
+            f'width="530" height="630"{lazy}>'
+            f'<img class="alt" src="{it["back"]}" alt="" aria-hidden="true" '
+            f'width="530" height="630" loading="lazy" decoding="async"></span>'
             f'<span class="pc-body">'
             f'<span class="pc-meta">{esc(c["short"])} &middot; {esc(it["garment"])}</span>'
             f'<h3 class="pc-name">{esc(it["name"])}</h3>'
@@ -2676,17 +2682,30 @@ def apparel_matrix(items):
             groups = {}
             for cat, rows in (captured or {}).items():
                 for row in rows:
+                    img = row.get("image") or ""
+                    back = row.get("back") or ""
+                    if img.startswith("/"):
+                        img = ".." + img
+                    if back.startswith("/"):
+                        back = ".." + back
                     groups.setdefault(cat, []).append({
                         "garment": row.get("garment") or "",
-                        "image": row.get("image") or "",
+                        "image": img,
+                        "back": back,
                         "url": row.get("url") or "../shop/%s/" % slug,
                     })
             own = apparel_category(garment)
             if own and garment and own not in groups:
                 img = it.get("front") or ""
+                back = it.get("back") or ""
+                if img.startswith("/"):
+                    img = ".." + img
+                if back.startswith("/"):
+                    back = ".." + back
                 groups[own] = [{
                     "garment": garment,
                     "image": img,
+                    "back": back,
                     "url": it.get("buy") or "../shop/%s/" % slug,
                 }]
             groups = {c: rows for c, rows in groups.items()
@@ -2696,6 +2715,8 @@ def apparel_matrix(items):
             continue
         else:
             styles = list(APPAREL_STYLES.get(slug) or [])
+        style_fronts = dict((P.get(slug) or {}).get("apparel_fronts") or {})
+        style_backs = dict((P.get(slug) or {}).get("apparel_backs") or {})
         # The design's own garment is always available, even when the crawl
         # kept only the garment-variant tombstones and lost the style list.
         own = apparel_category(garment)
@@ -2715,15 +2736,29 @@ def apparel_matrix(items):
                 img = mockups.get(want, "") or mockups.get("front", "")
             else:  # caps-hats: the product photo IS the garment
                 img = mockups.get("front", "")
+            if not img:
+                img = style_fronts.get(style, "") or next(
+                    (v for k, v in style_fronts.items() if apparel_category(k) == cat),
+                    "",
+                )
             if not img and cat == apparel_category(garment):
                 # The design's own garment always has its own product mockup,
                 # even when the campaign has no dedicated garment render.
                 img = it.get("front") or ""
+            back = style_backs.get(style, "")
+            if not back:
+                back = next((v for k, v in style_backs.items()
+                             if apparel_category(k) == cat), "")
+            if not back and cat == apparel_category(garment):
+                back = mockups.get("back", "") or it.get("back") or ""
             if img.startswith("/"):
                 img = ".." + img
+            if back.startswith("/"):
+                back = ".." + back
             groups.setdefault(cat, []).append({
                 "garment": style,
                 "image": img,
+                "back": back,
                 "url": "../shop/%s/" % slug,
             })
         groups = {c: rows for c, rows in groups.items()
@@ -3175,6 +3210,7 @@ def _girly_body(cre, c, items, track):
     for idx, it in enumerate(items):
         href = esc(creator_item_href(it, track))
         image = esc(it["front"])
+        back_image = esc(it["back"])
         name = esc(it["name"])
         slug = esc(it["slug"])
         alt = esc(f'{it["name"]} design on a {it["garment"].lower()}')
@@ -3188,7 +3224,9 @@ def _girly_body(cre, c, items, track):
             f'data-gcat="{design_cats}">'
             f'<a class="gproduct-art" href="{href}" target="_blank" '
             f'rel="noopener noreferrer" aria-label="View {name} on {store_name} (opens in a new tab)">'
-            f'<img src="{image}" alt="{alt}" width="500" height="500" '
+            f'<img class="main" src="{image}" alt="{alt}" width="500" height="500" '
+            f'loading="lazy" decoding="async">'
+            f'<img class="alt" src="{back_image}" alt="" aria-hidden="true" width="500" height="500" '
             f'loading="lazy" decoding="async">'
             f'<span class="gproduct-art-cta">View design <span aria-hidden="true">↗</span></span>'
             f'</a>'
@@ -3205,9 +3243,10 @@ def _girly_body(cre, c, items, track):
     # data-apparel carries the captured matrix to the page: per design slug,
     # per category slug, the listings that design's product pages actually
     # showed. Each entry keeps the garment label, the signed w:500 mockup,
-    # the attributed URL and the formatted USD price of that listing. It is
-    # HTML-escaped exactly once: the browser decodes the attribute, JSON.parse
-    # reads it back and app.js never re-escapes a value.
+    # the signed w:500 back view, the attributed URL and the formatted USD
+    # price of that listing. It is HTML-escaped exactly once: the browser
+    # decodes the attribute, JSON.parse reads it back and app.js never
+    # re-escapes a value.
     apparel_payload = {}
     for product in catalog.get("products", []):
         slug = str(product.get("slug", ""))
@@ -3219,6 +3258,7 @@ def _girly_body(cre, c, items, track):
                 entries.append({
                     "garment": str(row.get("garment", "")),
                     "image": str(row.get("image", "")),
+                    "back": str(row.get("back", "")),
                     "url": creator_item_href({"source_url": source}, track) if source else "",
                     "price": f"${float(row['price_usd']):.2f}",
                 })
@@ -3423,9 +3463,11 @@ def page_creator(ckey="joe"):
         return (f'<a class="{cls}" href="{esc(jlink(it))}"{external_attrs} '
                 f'data-slug="{it["slug"]}" data-price="{it["price"]:.2f}" '
                 f'data-creator="{track}" data-collection="{ckey_col}">'
-                f'<span class="jph"><img src="{esc(it["front"])}" '
+                f'<span class="jph"><img class="main" src="{esc(it["front"])}" '
                 f'alt="{card_alt(it)}" '
-                f'width="530" height="630"{lazy}></span>'
+                f'width="530" height="630"{lazy}>'
+                f'<img class="alt" src="{esc(it["back"])}" alt="" aria-hidden="true" '
+                f'width="530" height="630" loading="lazy" decoding="async"></span>'
                 f'<span class="jb">'
                 f'<h3 class="jname">{esc(it["name"])}</h3>'
                 f'<span class="jmeta">{esc(it["garment"])} &middot; {esc(c["short"])}</span>'
@@ -5894,14 +5936,20 @@ document.querySelectorAll('a.custom-link').forEach(function(a){
     if(s.indexOf('tee')>-1||s.indexOf('shirt')>-1)return 't-shirts';
     return '';
   }
-  // The hover <img class="alt"> is a back view of the design on the garment
-  // the card was built from. That render is only correct while the card shows
-  // the same garment class; the store captures a back view per design, never
-  // per garment, so there is nothing to swap in for a hoodie/tank/crop. When
-  // the swap changes the class the back view is switched off - hovering a
-  // hoodie must never flash the t-shirt back the design was first shot on.
+  // The hover <img class="alt"> shows the backside of the selected garment.
+  // When the apparel matrix provides entry.back for that exact garment, swap
+  // it in directly so hovering a hoodie, sweatshirt, tank or crop top shows
+  // that garment's backside. If an entry ever lacks its own back render, keep
+  // the original back view only when the garment class matches and hide it
+  // otherwise - hovering a hoodie must never flash a t-shirt back.
   function setBack(card,entry){
     if(!card._back)return;
+    if(entry&&entry.back){
+      card._back.src=entry.back;
+      if(card._backAlt)card._back.alt=card._backAlt;
+      card._back.hidden=false;
+      return;
+    }
     var shown=entry?categoryOf(entry.garment):'';
     if(shown&&shown===card._ownCat){
       if(card._backSrc)card._back.src=card._backSrc;
@@ -6600,18 +6648,21 @@ document.querySelectorAll('a.custom-link').forEach(function(a){
         if(entry&&entry.garment&&!styles[entry.garment])styles[entry.garment]=entry;
       });
     });
-    var img=card.querySelector('.gproduct-art img');
+    var img=card.querySelector('.gproduct-art img.main')||card.querySelector('.gproduct-art img');
+    var back=card.querySelector('.gproduct-art img.alt');
     var links=[].slice.call(card.querySelectorAll('a[href]'));
     var metaLabel=card.querySelector('.gproduct-meta span');
     var metaPrice=card.querySelector('.gproduct-meta b');
     card._styles=styles;
     card._img=img;
+    card._back=back;
     card._links=links;
     card._metaLabel=metaLabel;
     card._metaPrice=metaPrice;
     card._name=(card.querySelector('h3')||{}).textContent||'';
     card._src=img?img.getAttribute('src'):'';
     card._alt=img?img.getAttribute('alt'):'';
+    card._backSrc=back?back.getAttribute('src'):'';
     card._href=links.length?links[0].getAttribute('href'):'';
     card._garment=metaLabel?metaLabel.textContent:'';
     card._price=metaPrice?metaPrice.textContent:'';
@@ -6622,6 +6673,10 @@ document.querySelectorAll('a.custom-link').forEach(function(a){
     if(card._img){
       if(card._src)card._img.src=card._src;
       if(card._alt)card._img.alt=card._alt;
+    }
+    if(card._back){
+      if(card._backSrc)card._back.src=card._backSrc;
+      card._back.hidden=false;
     }
     if(card._href)card._links.forEach(function(a){a.href=card._href;});
     if(card._metaLabel)card._metaLabel.textContent=card._garment;
@@ -6638,6 +6693,10 @@ document.querySelectorAll('a.custom-link').forEach(function(a){
         if(card._img){
           card._img.src=entry.image;
           card._img.alt=card._name+' design on a '+garment.toLowerCase();
+        }
+        if(card._back){
+          if(entry.back){card._back.src=entry.back;card._back.hidden=false;}
+          else{card._back.hidden=true;}
         }
         if(entry.url)card._links.forEach(function(a){a.href=entry.url;});
         if(card._metaLabel)card._metaLabel.textContent=entry.garment;
