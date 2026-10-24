@@ -523,6 +523,11 @@ def creator_items(cre):
     products live on the creator's own partner storefront; those records stay
     creator-scoped and never leak into the public Michigan catalogue. Missing
     or imageless records are skipped, and stale picks can never crash a build.
+
+    ``picks`` decide what a visitor sees first; ``order: newest`` drops that
+    and shows the catalogue in the collection page's own order instead (the
+    Mayzing capture is newest -> oldest). Either way a design that is no longer
+    live - delisted on request, retired with its player - simply is not there.
     """
     catalog = cre.get("store_catalogue")
     if isinstance(catalog, dict):
@@ -565,8 +570,17 @@ def creator_items(cre):
         return out
 
     by_slug = {x["slug"]: x for x in MODEL.get(cre.get("collection_key"), [])}
+    picks = [s for s in cre.get("picks", []) if s in by_slug]
+    # ``order: newest`` makes the locker read like the collection page: the
+    # catalogue order it is built in (newest capture first), not picks-first.
+    # A locker that is not the whole collection keeps only its picks, still in
+    # that catalogue order.
+    if str(cre.get("order") or "").strip().lower() == "newest":
+        keep = None if cre.get("include_collection") else set(picks)
+        return [item for slug, item in by_slug.items()
+                if keep is None or slug in keep]
     out, seen = [], set()
-    for slug in cre.get("picks", []):
+    for slug in picks:
         if slug in by_slug and slug not in seen:
             seen.add(slug)
             out.append(by_slug[slug])

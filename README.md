@@ -579,8 +579,9 @@ Preserved: every existing URL, product page and guardrail. Rebuild + test:
 
 Crystal Marie's locker is the creator programme's third page and the first one
 built from **this site's own catalogue**: it carries the whole live Cleveland
-Browns collection (every design that is sellable today, not a frozen list),
-opened by twelve curated picks. Her audience gets one permanent link —
+Browns collection (every design that is sellable today, not a frozen list) in
+the same order the Browns collection page shows it — newest capture first. Her
+audience gets one permanent link —
 **`/crystal/`** — that grows with the Browns collection. (The page was first
 published at `/browns/crystal-marie/`; that URL keeps a noindex redirect stub
 and a `_redirects` 301 so every shared link and sticker still lands here.)
@@ -598,9 +599,13 @@ What was built:
   button that works without JavaScript), a pill above the grid, and the
   hand-off note under the grid.
 - **The curation** — `data/creators.json` (`creators.crystal`): creator ID
-  `CRYSTAL`, twelve `picks` in display order, `include_collection: true` to
-  append the rest of the Browns collection in catalogue order, and four
-  `featured` slugs. Stale or retired slugs drop out silently.
+  `CRYSTAL`, `include_collection: true`, and `order: "newest"` so the grid
+  matches `/cleveland-browns-shirts/` (newest capture first) instead of a
+  picks-first order; `picks` still lists the membership and three `featured`
+  slugs feed the small strips. Stale, retired or hidden slugs drop out
+  silently — a design can be removed from every surface by adding it to
+  `data/delisted.json` (that is how `dawg-pound-cleveland-skyline` was hidden
+  on request; its URL keeps a redirect stub).
 - **The hand-off** — cards open the local product page with
   `?creator=CRYSTAL` (no partner-store detour), where the garment, size, price
   and Mayzing checkout live; the persistent `gl_creator` cookie and the
@@ -611,7 +616,8 @@ What was built:
   page is explicitly independent fan artwork: the disclaimer names the
   Cleveland Browns and the NFL, never Michigan.
 - **Art** — `artwork-source/crystal-marie-banner.png` is the master;
-  `site/img/hero-crystal.jpg` (1568×672, 108 KB) is what ships.
+  `site/img/hero-crystal.jpg` (1916×821) is what ships, cache-versioned as
+  `?v=<girly.hero_v>` so replacing the photo reaches returning visitors.
 
 Tests: `tests/test_layout.py::CrystalMarieLocker` pins the full-catalogue
 coverage, the three promo placements, the skin scoping and the disclaimer.

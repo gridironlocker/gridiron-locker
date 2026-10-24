@@ -73,9 +73,14 @@ class SitemapDates(unittest.TestCase):
         self.assertEqual(
             self.rows[build.DOMAIN + "/shop/cleveland-football-est-1946/"],
             "2026-09-29")
+        # 2026-10-24: dawg-pound-cleveland-skyline was hidden on owner
+        # request, so its URL is a redirect stub with no sitemap row; the
+        # newest live capture is used here instead.
         self.assertEqual(
-            self.rows[build.DOMAIN + "/shop/dawg-pound-cleveland-skyline/"],
-            "2026-09-30")
+            self.rows[build.DOMAIN + "/shop/cleveland-victory-monday/"],
+            "2026-10-14")
+        self.assertNotIn(
+            build.DOMAIN + "/shop/dawg-pound-cleveland-skyline/", self.rows)
         # 2026-10-06: Cleveland Skyline Dawg Pound was retired from the
         # collection (it now serves a redirect stub, so it has no sitemap row)
         # and six new Browns tees were captured.
@@ -113,7 +118,9 @@ class SitemapDates(unittest.TestCase):
         # 2026-10-22: 123 -> 122 - Viralstyle retired limited-edition-grb16 (-1).
         # 2026-10-24: 122 -> 123 - Crystal Marie's Browns collection page
         # (a creator page, not a product) joined the sitemap.
-        self.assertEqual(len(self.rows), 123)
+        # 2026-10-24: 123 -> 122 - dawg-pound-cleveland-skyline hidden on owner
+        # request: the product page retires to a redirect stub (-1).
+        self.assertEqual(len(self.rows), 122)
         self.assertEqual(len(self.rows), len(set(self.rows)))
         for url, lastmod in self.rows.items():
             self.assertTrue(url.startswith(build.DOMAIN + "/"), url)

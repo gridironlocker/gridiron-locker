@@ -3,9 +3,9 @@
   "generator": "src/catalogue_contract.py",
   "source": "src/build.py :: build.ALL - the merged master catalogue",
   "contract": "This is the ONLY authoritative list of sellable designs. Marketing must filter every queue, brief, drop and pin against it. Do not read data/products.json or data/products_live.json as a catalogue: both are stale crawl artefacts. Written by the storefront on every build; marketing reads it and never writes it.",
-  "count": 97,
+  "count": 96,
   "per_collection": {
-    "cleveland-browns": 34,
+    "cleveland-browns": 33,
     "dallas-cowboys": 10,
     "green-bay-packers": 36,
     "michigan": 17
@@ -237,18 +237,6 @@
       "price_usd": 23.0,
       "garment": "T-Shirt",
       "theme": "classic",
-      "site_published": true
-    },
-    {
-      "slug": "dawg-pound-cleveland-skyline",
-      "name": "Dawg Pound Cleveland Skyline Shirt",
-      "collection": "cleveland-browns",
-      "partner": "Mayzing",
-      "url": "https://gridironlocker.store/shop/dawg-pound-cleveland-skyline/",
-      "buy_url": "https://gridironlocker.shop/dawg-pound-cleveland-skyline?collectionId=P19bpeU2x_Ng&color=GILDAN-BLACK&productId=6abd8fd9f33b76ed082bebe1",
-      "price_usd": 23.0,
-      "garment": "T-Shirt",
-      "theme": "city",
       "site_published": true
     },
     {
@@ -1177,7 +1165,7 @@
     }
   ],
   "excluded": {
-    "delisted": 50,
+    "delisted": 51,
     "fulfillment_hold": 66,
     "stale_crawl_slugs": 114,
     "note": "stale_crawl_slugs is data/products.json - the raw Viralstyle crawl. It is NOT the catalogue and must never be used as one. count = stale_crawl_slugs + mayzing additions - delisted - hold - unpublished; reconcile via build.MODEL, not by arithmetic here."
