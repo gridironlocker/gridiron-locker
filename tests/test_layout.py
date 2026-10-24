@@ -2613,8 +2613,12 @@ class BellaLocker(unittest.TestCase):
         self.assertIn('class="logo glogo"', self.html)
         nav = re.search(r'<nav class="bellanav".*?</nav>', self.html, re.S)
         self.assertIsNotNone(nav)
-        for link in ('href="../../"', 'href="#locker"', 'href="#apparel"', 'href="#about"'):
+        for link in ('href="../../"', 'href="#locker"', 'href="#apparel"',
+                     'href="#about"', 'href="#custom-form"'):
             self.assertIn(link, nav.group(0))
+        # the inquiry form sits below the whole grid, so the menu carries the
+        # only shortcut to it - and the label says what it is
+        self.assertIn('href="#custom-form">Custom Design</a>', nav.group(0))
         self.assertLess(self.html.index('class="bellanav"'),
                         self.html.index('<main id="main" class="jlock jlock-girly">'))
         ids = re.findall(r'id="([^"]+)"', self.html)
@@ -2962,10 +2966,17 @@ class CrystalMarieLocker(unittest.TestCase):
         self.assertIn("the NFL", legal)
         # the hero is the browns banner, deployed as a JPG at its native size
         self.assertIn('src="../../img/hero-crystal.jpg"', self.html)
-        self.assertIn('width="1568" height="672"', self.html)
+        w, h = self.cre["hero_w"], self.cre["hero_h"]
+        self.assertIn(f'width="{w}" height="{h}"', self.html)
+        self.assertEqual((w, h), (1916, 821))   # the 2026-10-24 replacement
         self.assertTrue(os.path.isfile(os.path.join(SITE, "img/hero-crystal.jpg")))
+        # the banner describes what is actually in the photo
+        self.assertIn("Cleveland Browns tee on a lakefront boardwalk", self.html)
+        # PNG masters never ship
         self.assertFalse(os.path.isfile(os.path.join(SITE, "img",
                                                      "crystal-marie-banner.png")))
+        self.assertFalse(os.path.isfile(os.path.join(SITE, "img",
+                                                     "hero-crystal1.png")))
 
     def test_faq_schema_answers_the_discount_and_the_disclaimer(self):
         faq = next(node for node in json_ld_nodes(self.html)
@@ -2985,18 +2996,91 @@ class CrystalMarieLocker(unittest.TestCase):
         self.assertIsNotNone(nav)
         for link in ('href="../../"', 'href="#locker"', 'href="#about"'):
             self.assertIn(link, nav.group(0))
+        # "Custom Design" jumps straight to the inquiry form instead of making
+        # the visitor scroll the whole grid to find it
+        self.assertIn('href="#custom-form">Custom Design</a>', nav.group(0))
+        form = between(self.html, 'id="custom-form"', "</form>")
+        self.assertIn('id="customForm"', form)
+        self.assertIn('name="idea"', form)
+        self.assertIn(".jlock-girly #custom-form{scroll-margin-top:96px}", self.css)
         self.assertLess(self.html.index('class="bellanav"'),
                         self.html.index('<main id="main" class="jlock jlock-girly"'))
         ids = re.findall(r'id="([^"]+)"', self.html)
         self.assertEqual(len(ids), len(set(ids)))
         for anchor in re.findall(r'href="#([^"]+)"', self.html):
             self.assertIn(anchor, ids, f"missing anchor target #{anchor}")
-        # A locally curated locker has no captured garment matrix: it must ship
-        # neither empty category tiles nor the payload app.js would swap, and
-        # its nav must not link at the missing #apparel section.
-        self.assertNotIn("gcategory-tiles", self.html)
-        self.assertNotIn("data-apparel", self.html)
-        self.assertNotIn('href="#apparel"', self.html)
+        # A locally curated locker DOES have a garment matrix now - the same
+        # Mayzing category capture the Browns collection page swaps to - so the
+        # tile row, the payload and the #apparel nav entry must all be present.
+        self.assertIn("gcategory-tiles", self.html)
+        self.assertIn("data-apparel=", self.html)
+        self.assertIn('href="#apparel"', self.html)
+        self.assertLess(self.html.index('id="apparel"'),
+                        self.html.index('id="locker"'))
+
+    def test_apparel_filter_buttons_swap_every_design_to_real_listings(self):
+        """Crystal's locker carries the same garment filter as the collection.
+
+        The tiles come from data/mayzing_apparel.json - the Mayzing category
+        pages, which are the only authority on which garments a design is
+        actually sold in. Every tile, chip and payload entry therefore points at
+        a real listing with that listing's own mockup, checkout URL and price
+        (tee $23, hoodie $40, sweatshirt $36, tank $23, crop $24); nothing is
+        invented and no design loses its card.
+        """
+        from urllib.parse import parse_qs, urlsplit
+
+        matrix = self.build.apparel_matrix(self.build.creator_items(self.cre),
+                                           prefix="../../")
+        self.assertTrue(matrix)
+        payload = json.loads(unescape(
+            re.search(r'data-apparel="([^"]*)"', self.html).group(1)))
+        self.assertEqual(set(payload), set(matrix))
+        # every design in the locker is reachable through the filter
+        cards = re.findall(r'<article class="gproduct" data-slug="([^"]+)" '
+                           r'data-creator="CRYSTAL"(?: data-gcat="([^"]*)")?', self.html)
+        self.assertEqual(len(cards), len(self.build.creator_items(self.cre)))
+        cat_label = {"t-shirts": "T-Shirts", "hoodies": "Hoodies",
+                     "sweatshirts": "Sweatshirts", "tank-tops": "Tank Tops",
+                     "crop-tops": "Crop Tops"}
+        tiles = re.findall(r'<button class="gcategory-tile"[^>]*data-gcat="([^"]+)"'
+                           r'[^>]*data-gstyle="([^"]*)"[^>]*>.*?<span>([^<]+)</span>',
+                           self.html, re.S)
+        self.assertEqual([t[0] for t in tiles],
+                         ["t-shirts", "hoodies", "sweatshirts", "tank-tops",
+                          "crop-tops"])
+        self.assertEqual([t[2] for t in tiles], [cat_label[t[0]] for t in tiles])
+        for cat, style, _label in tiles:
+            style = unescape(style)          # the attribute is HTML-escaped once
+            garments = {row["garment"] for groups in matrix.values()
+                        for row in groups.get(cat, [])}
+            self.assertTrue(garments, cat)
+            # This locker filters by garment CLASS, so the tile carries the
+            # category's own label - the exact styles live on the chips below.
+            self.assertEqual(style, cat_label[cat])
+        # the tile row matches by garment CLASS on this locker (two tee styles)
+        self.assertIn('data-apparel-loose="1"', self.html)
+        # the second row of chips exposes the individual styles
+        chips = re.findall(r'<button class="gstyle-chip"[^>]*data-gcat="([^"]+)"'
+                           r'[^>]*data-gstyle="([^"]*)"', self.html)
+        self.assertTrue(chips)
+        for cat, style in chips:
+            self.assertIn(unescape(style),
+                          {r["garment"] for rows in matrix.values()
+                           for r in rows.get(cat, [])})
+        # payload entries: real mockups, real prices, creator attribution
+        for slug, groups in payload.items():
+            self.assertTrue(groups, slug)
+            for cat, rows in groups.items():
+                for row in rows:
+                    self.assertTrue(row["image"].startswith("https://")
+                                    or row["image"].startswith("../../"), row)
+                    self.assertTrue(row["price"].startswith("$"), row)
+                    self.assertNotEqual(row["image"], row["back"], row)
+                    query = parse_qs(urlsplit(row["url"]).query)
+                    self.assertEqual(query.get("creator"), ["CRYSTAL"], row["url"])
+        self.assertIn("$40.00", self.html)   # a hoodie keeps its own price
+        self.assertIn("$23.00", self.html)
 
     def test_local_asset_references_resolve(self):
         from urllib.parse import unquote

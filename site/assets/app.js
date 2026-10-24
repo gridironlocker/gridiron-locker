@@ -1013,12 +1013,22 @@ document.querySelectorAll('a.custom-link').forEach(function(a){
   if(!cards.length)return;
   var chips=[].slice.call(document.querySelectorAll('.gstyle-chip[data-gstyle]'));
   var chipRow=document.getElementById('gstyleRow');
+  // A category tile means "this garment class". A locker whose designs list
+  // SEVERAL styles inside one category (Crystal Marie's Browns locker: 24 tees
+  // listed as "T-Shirt", 10 as "Classic Unisex T-shirt") opts in with
+  // data-apparel-loose, so a tile swaps every design to whichever style that
+  // design actually lists in the category - the exact-style chips stay exact.
+  // A store-captured locker (Bella's Silent Touch) omits the flag and keeps
+  // its documented exact-match behaviour.
+  var loose=grid.getAttribute('data-apparel-loose')==='1';
   function name(el){var s=el.querySelector('.gstyle-name')||el.querySelector('span');return s?s.textContent.trim():'';}
   cards.forEach(function(card){
-    var styles={}, groups=matrix[card.getAttribute('data-slug')]||{};
+    var styles={}, byCat={}, groups=matrix[card.getAttribute('data-slug')]||{};
     Object.keys(groups).forEach(function(cat){
-      (groups[cat]||[]).forEach(function(entry){
-        if(entry&&entry.garment&&!styles[entry.garment])styles[entry.garment]=entry;
+      var list=(groups[cat]||[]).filter(function(e){return e&&e.garment;});
+      byCat[cat]=list;
+      list.forEach(function(entry){
+        if(!styles[entry.garment])styles[entry.garment]=entry;
       });
     });
     var img=card.querySelector('.gproduct-art img.main')||card.querySelector('.gproduct-art img');
@@ -1027,6 +1037,7 @@ document.querySelectorAll('a.custom-link').forEach(function(a){
     var metaLabel=card.querySelector('.gproduct-meta span');
     var metaPrice=card.querySelector('.gproduct-meta b');
     card._styles=styles;
+    card._byCat=byCat;
     card._img=img;
     card._back=back;
     card._links=links;
@@ -1061,6 +1072,12 @@ document.querySelectorAll('a.custom-link').forEach(function(a){
   function apply(){
     cards.forEach(function(card){
       var entry=garment?(card._styles[garment]||null):null;
+      // The category tile falls back to the design's own listing in that
+      // category when the tile's default style is not one this design lists.
+      if(!entry&&cat&&loose){
+        var list=card._byCat[cat]||[];
+        entry=list.length?list[0]:null;
+      }
       if(entry){
         card.hidden=false;
         if(card._img){
