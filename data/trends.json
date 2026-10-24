@@ -40,12 +40,6 @@
      "pub": "Thu, 22 Oct 2026 17:29:28 GMT"
     },
     {
-     "title": "Game Preview: Titans Host Cleveland Browns at Nissan Stadium",
-     "url": "https://news.google.com/rss/articles/CBMinAFBVV95cUxOcmxCYlJ4OUx3aGg3NG9hc1JucW9SX2RsMXQzTlF1V2ZfcWQzaDBkQnlTSWJ0amp0d1lWelVLSi1xUlpmMFl6UmpTZDJDellBVGlxc1IxOUwxLThtd05YVGVSbURSTVFNUHVpc3M3cjQxdXU3eEo1S3lOenZyZmhQdXNnOG5HX0hxaFVKenFVUVVybDNKdVRyUWRxZzY?oc=5",
-     "source": "Tennessee Titans",
-     "pub": "Tue, 20 Oct 2026 07:00:00 GMT"
-    },
-    {
      "title": "After knocking out KC Concepcion, Jets safety gets fine from NFL",
      "url": "https://news.google.com/rss/articles/CBMijwFBVV95cUxPcXV6TjBYS2FETUF6UmdTUVRGbUM0X2RoOEltRFhJVkc4N2FWckxjaXZId0VVbWNPdGNNa1V5di1rWEZIdWxWbVhLeEdnZVFNLUNISmphcDg3dFJ6TVF2eF9wNHJLbVFnVzBLclZVMTRKaHFkZzU3cE1IalVOZ29NMlZGYzBKWEpaNmo4ZExia9IBlAFBVV95cUxQaU5yM1hqRU0zUkx4OHo2WW9nQ0hjc3BwTEFvZFJSWnQwVjRBc3R1UVl6QWd5aEVHLWN1YXJYMlJ5TnEwNHZ4SGZXSHI2U08yb0E0Nnd1d0ZrekszOWdTOHFZQkN1TTJ0ZHo5R21BM0dKTmZTbDNEa2cxajNoY2dHR3BYczJGV3hvOG5rOGx3NGhickF0?oc=5",
      "source": "FOX 8 News",
@@ -56,10 +50,16 @@
      "url": "https://news.google.com/rss/articles/CBMinwJBVV95cUxPTWpFSGp4Y3MxSEMxelNNa19DdlhTaDE3MjZ5bWE0dEhYd1pndGVUUjhiMEMzdmhpNU16Nnlod1dOaTRIQ0wtM1JNVThRb1o5ZlRvZ040SVZnQXowZkwzRlJaTXVaTDZvMF8tdHhIcnNCSGp1ZWlVb0c2ZHlhSWFqeDNBcEdOblRkczFTMjFndTFtdm1VcjVzdHdCSlBBM09qR191UDJLcVhXLTB0NEs4UmtRTFhZNGFHSlREaEY1cHhuVFBONlIwR3hKYlZuQ08zLVdPTmhrdkNtalFwWFJpYjlYY21LOGI4dU5fbG85S2h1UlNfdHRQY2FBMUVmMXk5SFM0SWxfU0lkUHE0bDhrMjM0a3Y5WEhZNFFUZUw3NA?oc=5",
      "source": "WKYC",
      "pub": "Fri, 16 Oct 2026 07:00:00 GMT"
+    },
+    {
+     "title": "Game Preview: Titans Host Cleveland Browns at Nissan Stadium",
+     "url": "https://news.google.com/rss/articles/CBMinAFBVV95cUxOcmxCYlJ4OUx3aGg3NG9hc1JucW9SX2RsMXQzTlF1V2ZfcWQzaDBkQnlTSWJ0amp0d1lWelVLSi1xUlpmMFl6UmpTZDJDellBVGlxc1IxOUwxLThtd05YVGVSbURSTVFNUHVpc3M3cjQxdXU3eEo1S3lOenZyZmhQdXNnOG5HX0hxaFVKenFVUVVybDNKdVRyUWRxZzY?oc=5",
+     "source": "Tennessee Titans",
+     "pub": "Tue, 20 Oct 2026 07:00:00 GMT"
     }
    ],
    "entity_mentions": {
-    "shedeur sanders": 6,
+    "shedeur sanders": 4,
     "deshaun watson": 6,
     "joe flacco": 0,
     "myles garrett": 2,
@@ -70,16 +70,16 @@
    "top_terms": [
     "browns",
     "cleveland",
-    "injury",
     "watch",
+    "injury",
     "trade",
-    "preview",
     "gets",
-    "need",
+    "preview",
+    "place",
     "former",
     "score",
-    "baltimore",
-    "quinshon"
+    "video",
+    "three"
    ],
    "headline_count": 100,
    "moments": [],
@@ -87,15 +87,15 @@
     {
      "name": "deshaun watson",
      "mentions": 6,
-     "index": 33,
+     "index": 38,
      "status": "trending",
      "gap": true,
      "shoppable": false
     },
     {
      "name": "shedeur sanders",
-     "mentions": 6,
-     "index": 33,
+     "mentions": 4,
+     "index": 25,
      "status": "trending",
      "gap": false,
      "shoppable": true
@@ -103,7 +103,7 @@
     {
      "name": "todd monken",
      "mentions": 3,
-     "index": 17,
+     "index": 19,
      "status": "trending",
      "gap": true,
      "shoppable": false
@@ -111,7 +111,7 @@
     {
      "name": "myles garrett",
      "mentions": 2,
-     "index": 11,
+     "index": 12,
      "status": "steady",
      "gap": false,
      "shoppable": true
@@ -144,7 +144,8 @@
   },
   "green-bay-packers": {
    "gaps": [
-    "josh jacobs"
+    "josh jacobs",
+    "matt lafleur"
    ],
    "query": "Green Bay Packers",
    "headlines": [
@@ -167,22 +168,16 @@
      "pub": "Tue, 20 Oct 2026 14:15:06 GMT"
     },
     {
-     "title": "Packers 23-13 Cowboys (Oct 18, 2026) Game Recap",
-     "url": "https://news.google.com/rss/articles/CBMiW0FVX3lxTE1TTy1sYVlEUnBPR3AzUFNqbFJ2bmUyOEQ4WnVrdms1VkExRklGbjNtYjQ5U1dOTU5vV21RVkNYejlQaFNmNWdCMVdzcktDY0Q1SElwdmNYdFcyLVE?oc=5",
-     "source": "ESPN",
-     "pub": "Mon, 19 Oct 2026 07:13:05 GMT"
-    },
-    {
      "title": "Cowboys-Packers: How to Watch, Listen, Stream in Week 6",
      "url": "https://news.google.com/rss/articles/CBMikAFBVV95cUxOaUpGRzNBazViMmQzdktPdVA4b1o2bG8xV0ZPdWZ1MTVGOXZYMG8xejYzZFhXdlhiQTlfMHZnWXk5TTlwLTVWemYwNHQyWlZCbjNpXzRveUY5Q3Zhb0ZtSTVJOWg3U3pCanZ0V005ZFliYTV4b1BXNUNhWTFhaUF4ZzVnX3BHNWZhQUxnajVQRUk?oc=5",
      "source": "Dallas Cowboys | Official Site of the Dallas Cowboys",
      "pub": "Fri, 16 Oct 2026 07:00:00 GMT"
     },
     {
-     "title": "Green Bay Packers sign wide receiver to 53-man roster prior to Week Seven showdown with Detroit Lions",
-     "url": "https://news.google.com/rss/articles/CBMiggFBVV95cUxNekZnSlMtcHhmd3JxcHY3aV9TSFI1NExjX3U1N3Zhc2VTZUZZRGF5bWFKWXRiVXZjVEpmN2F3amRsZkh4UlV4dHdQc0pBVjl6LXZhQ0hSU0NVaXVyV3JqT3M1V1hlQTdzQXdoQjVvbHEyZjE2NTlyVzUzcWI1M2gzM0dB?oc=5",
+     "title": "Green Bay Packers: Matt LaFleur on roughing calls and Jordan Love",
+     "url": "https://news.google.com/rss/articles/CBMihgFBVV95cUxQM2VEeGJFWmFtQmhwenQ5MTdvc3lVY20yS2hobUFZbkp1T0FnbC1manB4My01dG9UNm0wYzc3emJQSlM4RXNSQ1U4cHZNZVI4RFlyREUyZ1djNjI1bEI3Y2JiM19aQm9mNVQ1emFVQ2Mxb2dIYW4yVmdRSzlEVS1hRlZENXVYdw?oc=5",
      "source": "Yahoo Sports",
-     "pub": "Sat, 24 Oct 2026 17:40:19 GMT"
+     "pub": "Tue, 20 Oct 2026 21:33:00 GMT"
     },
     {
      "title": "Packers injury report: Love, Golden, Watson added",
@@ -195,6 +190,12 @@
      "url": "https://news.google.com/rss/articles/CBMi4gFBVV95cUxPalpNajVjaklzcVRrLVRUd3lDTzBzVzY1WDFSY19Ua28tNnh1aUtFZlV2WTk5Zk02SnA3WThCajdHYVludXlFdnN5QTEzQlZXc1NOdUdwMzZjNXgzcjlMTk5UVU1YSkVVMnRHRHZVaDlVSmZObE1YemNENXdxNjlKb0hzMkhxUXcwUW9iOGxBNUxJLS1sbmdkeV9Ld3pvNFpIbkFkR1F4VUxhMjJ6Y3V2NVBBRDh1REtwbjNBSngyU25qT1RsOUFjNDFJSm5OaS1fMVA0Xzc5QzdEUV94YVY2OExn?oc=5",
      "source": "Packers Wire",
      "pub": "Wed, 21 Oct 2026 13:13:00 GMT"
+    },
+    {
+     "title": "Packers announce roster moves | Oct. 17, 2026",
+     "url": "https://news.google.com/rss/articles/CBMiekFVX3lxTE5NTmkyOVpKMkQ1SUFFNFNFdEtlSlhNMV9LcFhnQnV3dHlEUDhvTzZXOWJOT2lCbXF1ajdkUFVXamtnWmo2WnE3TVRjek9MYVJGSjJYOGp4SnJLLXVrN1NjcXpCT256YzdPNmtEMkw1c2VlQ2ZjVG8zampn?oc=5",
+     "source": "Green Bay Packers \u2013 packers.com",
+     "pub": "Sat, 17 Oct 2026 20:01:12 GMT"
     }
    ],
    "entity_mentions": {
@@ -202,7 +203,7 @@
     "micah parsons": 8,
     "robert tonyan": 0,
     "josh jacobs": 13,
-    "matt lafleur": 2
+    "matt lafleur": 3
    },
    "top_terms": [
     "packers",
@@ -210,21 +211,33 @@
     "cowboys",
     "josh",
     "jacobs",
-    "detroit",
-    "injury",
     "watch",
     "love",
-    "sunday",
-    "golden",
-    "return"
+    "injury",
+    "detroit",
+    "jordan",
+    "return",
+    "sunday"
    ],
    "headline_count": 100,
-   "moments": [],
+   "moments": [
+    {
+     "title": "Green Bay Packers: Matt LaFleur on roughing calls and Jordan Love",
+     "url": "https://news.google.com/rss/articles/CBMihgFBVV95cUxQM2VEeGJFWmFtQmhwenQ5MTdvc3lVY20yS2hobUFZbkp1T0FnbC1manB4My01dG9UNm0wYzc3emJQSlM4RXNSQ1U4cHZNZVI4RFlyREUyZ1djNjI1bEI3Y2JiM19aQm9mNVQ1emFVQ2Mxb2dIYW4yVmdRSzlEVS1hRlZENXVYdw?oc=5",
+     "source": "Yahoo Sports",
+     "pub": "Tue, 20 Oct 2026 21:33:00 GMT",
+     "entities": [
+      "jordan love",
+      "matt lafleur"
+     ],
+     "collection": "green-bay-packers"
+    }
+   ],
    "fan_trend_index": [
     {
      "name": "josh jacobs",
      "mentions": 13,
-     "index": 72,
+     "index": 81,
      "status": "trending",
      "gap": true,
      "shoppable": false
@@ -232,7 +245,7 @@
     {
      "name": "micah parsons",
      "mentions": 8,
-     "index": 44,
+     "index": 50,
      "status": "trending",
      "gap": false,
      "shoppable": true
@@ -240,17 +253,17 @@
     {
      "name": "jordan love",
      "mentions": 5,
-     "index": 28,
+     "index": 31,
      "status": "trending",
      "gap": false,
      "shoppable": true
     },
     {
      "name": "matt lafleur",
-     "mentions": 2,
-     "index": 11,
-     "status": "steady",
-     "gap": false,
+     "mentions": 3,
+     "index": 19,
+     "status": "trending",
+     "gap": true,
      "shoppable": false
     },
     {
@@ -271,28 +284,40 @@
    "query": "Dallas Cowboys",
    "headlines": [
     {
-     "title": "DaRon Bland speaks on biggest hurdle for Cowboys defense in 2026",
-     "url": "https://news.google.com/rss/articles/CBMioAFBVV95cUxPNWRGVFpTNkplSFlHY29sZU5LT05uLXpCRWRPZkZvRGhDMmsxNUI2akUxYXNtUlF3cHNQZlc4NFZILUZZNS1LTU1DTmlCMWp1ZjZvOFJBWEVmVTQ0RW5zZ3dNdEpLcHhaM0hNQ1ItdV9JQkZHVXJFUHFHMExPenVialZlRVAtUzZLckpsd2J2T2NFcTU1bWFYM0dCeW9YYTdU?oc=5",
+     "title": "Updates: 5 Cowboys become full participants",
+     "url": "https://news.google.com/rss/articles/CBMiZkFVX3lxTE41U3JDcmpCb1YyZjBxRFNnV25kSktlMVJ5aEJsX1hhNTFTcHJWdWdTbjF5cFhvQ3ZKZGd4bEdfT0VtT1RobmJwd3ZSbnZzM0c3RnJiTS1kSG5fMUtJWW9qclRUWlZtQQ?oc=5",
      "source": "Dallas Cowboys | Official Site of the Dallas Cowboys",
-     "pub": "Mon, 19 Oct 2026 05:33:11 GMT"
+     "pub": "Mon, 19 Oct 2026 07:00:00 GMT"
     },
     {
-     "title": "Packers 23-13 Cowboys (Oct 18, 2026) Game Recap",
-     "url": "https://news.google.com/rss/articles/CBMiW0FVX3lxTE1TTy1sYVlEUnBPR3AzUFNqbFJ2bmUyOEQ4WnVrdms1VkExRklGbjNtYjQ5U1dOTU5vV21RVkNYejlQaFNmNWdCMVdzcktDY0Q1SElwdmNYdFcyLVE?oc=5",
-     "source": "ESPN",
-     "pub": "Mon, 19 Oct 2026 07:13:05 GMT"
+     "title": "\u2295[\uff37\uff21\uff34\uff23\uff28 \uff2c\uff29\uff36\uff25]\u2295Dallas Cowboys vs Green Bay Packers \uff2c\uff49\uff56\uff45 \uff53\uff54\uff52\uff45\uff41\uff4d \uff26\uff52\uff45\uff45",
+     "url": "https://news.google.com/rss/articles/CBMiwgJBVV95cUxON2Q1SmQ1ZEE2SDJBVi1GY2FaRkN3QmJ0VTBSSzRKLUl2MGpjLVg4bEdWb2NkZk9Jd3JxcGVHVXg4M3dMb1AwdHN2VGt2TlJpa19Ka19vTjh1cVk0QXFHNEtJMmdWQlFLbXRuS3lvRGZvZ3ZtdVhUSzUxOUpkMzVDXzlVM3hrUXN2YjJHeFhuRmJjczZTRktFTENOR3dvakdNQWdSekhjY2huUUtydXRUUHFsTzlSNm1QR0dXUmt1TzNlNzVQaERBTVVHRW51M0VDWGpKZFhvYTRDajNWTDdLUk54bEV0M2Z0YTBDai1hTmU3aVB6ZUhOdzQxSUdPR0duNzZpdlZsQ2RxMlU0a3h3UTNSXzdBSDA0NDB1aWtJLUpuNE55a3VhYmlnNkJlVUtWaWMyWFU1X2FxMkNIdHh5cm5n?oc=5",
+     "source": "Universidad de C\u00f3rdoba (UCO)",
+     "pub": "Mon, 19 Oct 2026 04:18:58 GMT"
     },
     {
-     "title": "Biggest Takeaways From Cowboys' Latest Debacle Against Packers in Week 6",
-     "url": "https://news.google.com/rss/articles/CBMijAFBVV95cUxQTXNQaEpkV1RBTEVvdndRRENQQUdqLU51T2tCUVE0WW5hRUNIcXBNUWItclZQUmllcGhYTEpFbDJaRExIRC1pLWFtcnJEempTVy1XTlZTTTlGM3F0Z0ZiajkzaEd4bDNvbVYtSjRQdnNqX0gyY21DTEE2NDF0VC03ZUFNbFRKMy0zaXhnbw?oc=5",
-     "source": "Sports Illustrated",
-     "pub": "Mon, 19 Oct 2026 03:48:36 GMT"
+     "title": "Impact: Barkley expected to return vs. Cowboys",
+     "url": "https://news.google.com/rss/articles/CBMiZ0FVX3lxTE56aGtoMDdKbXA2SGZ5WkdGYUVEUUV4cmNqOW0wN3MzS1FCVkdNYVBNR1A0QUJHWUNxLVZuOW9QMGdTZ2s2YkRMNXVmdnZSZWtfNnNnZTNzQnFSTF9NbnNiZXRhaFVkcTQ?oc=5",
+     "source": "Dallas Cowboys | Official Site of the Dallas Cowboys",
+     "pub": "Mon, 19 Oct 2026 07:00:00 GMT"
     },
     {
-     "title": "Keys before kickoff: Cowboys at Packers Week 6",
-     "url": "https://news.google.com/rss/articles/CBMinwFBVV95cUxNR3pOS2FBVzJGLTNHMWhqMkxXdTh3SE8wdUxsR0t3OVBjSzdGQThEenJUTk1ybDVBNWp2RXVwNFRmbmc0NE9BNFpma05zZGxydzJuVHdYY2JTYThLZUhWWFcwZDFPbS1NaDR2NkF4NGtjVVB0LVFWdHo1bEJTWXZHaGF6d25NaHA0M053ZXhqc0cwMEMyM0lWOVc4T0MwUkU?oc=5",
-     "source": "Blogging The Boys",
-     "pub": "Sun, 18 Oct 2026 21:30:00 GMT"
+     "title": "Brian Schottenheimer says 'execution wasn't clean enough' in 23-13 loss to Packers",
+     "url": "https://news.google.com/rss/articles/CBMitgFBVV95cUxPQVJ2eUd2YnhaWnFNbHF0Y0FDZGpTUXV6azllaFh2SEdURFMyNVp5TzlKcFFuSXR1NXR0RnFsXzFDYTJIemVOZjJvMGFacEhEaW84N0xORTFES1g3Rm1pVTJIYkxNaXhQeUxnQ2NKSXU2cHRKcWg4Z3pOemo0OTB3ZmdoOGxaQ1R2NDYtZTRkOU5PTXIzWEQ4ZmI0VmNQQ1VVNlZoRDhrMC1FQ0FnYS16TkZsRGVLUQ?oc=5",
+     "source": "Dallas Cowboys | Official Site of the Dallas Cowboys",
+     "pub": "Mon, 19 Oct 2026 05:35:34 GMT"
+    },
+    {
+     "title": "Eatman: Finger-pointing now turning to offense",
+     "url": "https://news.google.com/rss/articles/CBMihwFBVV95cUxNY3RUMmhXaVcxR2JUTUZrTVZoa2Q0bnZPc3JXVGt6QW8ya0ZwZ0pCRlhHeXN4MkhueU9ielRMWVMtdVk0MUxWbHUyazNlV2NBdGxYMjJsejVoXzdLcW9UOXlTN0htVklJX1NuQkhHWWxpdWRqZ0ZnUGxWZ0hmY3RDVG1wYWthUm8?oc=5",
+     "source": "Dallas Cowboys | Official Site of the Dallas Cowboys",
+     "pub": "Mon, 19 Oct 2026 06:13:52 GMT"
+    },
+    {
+     "title": "Pic 6: Cowboys struggle vs. Green Bay's pressure, make multiple personnel changes",
+     "url": "https://news.google.com/rss/articles/CBMiswFBVV95cUxPWWE3VkRacVl5UEt1cFFfNnhaTnN3cnZJWUxlbEpqUVhlUXdtWTQzMGw0MXZPbTZjM2ZXclpXaWRRMmhJdld5cUV3R0NYejJOQ05UcUpQa2JtZ2szM21pdUNOQ3NaVndSOFhmb0QyR2g5anJQOXRJZDd1UG5ZZy11VHVNSHNrSVZBZ0dQbzRqMjhXbG1nZlRONmt3OHpoaTJ3QklhOWUtOW1meDA4VDNCMEI4RQ?oc=5",
+     "source": "Dallas Cowboys | Official Site of the Dallas Cowboys",
+     "pub": "Mon, 19 Oct 2026 15:19:53 GMT"
     },
     {
      "title": "Game Recap: Cowboys lose to Packers, 23-13",
@@ -301,57 +326,45 @@
      "pub": "Mon, 19 Oct 2026 04:03:11 GMT"
     },
     {
-     "title": "How to bet Cowboys-Packers: Analysis, tips and top prop plays",
-     "url": "https://news.google.com/rss/articles/CBMipwFBVV95cUxOSWNsNEhaT2RQeEFoN3VLeVdHa1JuNHJXWm1xSjdMZG5vRUk1VlhNZG1SUXZFVl90MkYzSDRjV2FoUzJrTVZKNi0zSVNSZkNscVZFSWxwNnh0THUxanJma0oxT2lVdFQ4Y1dnRl90bER5bUh4YUhld2s1Tjkyakk4Q3ZkZmNWUE9STUY2YWJWblV3eV9UbVQwQ01tV0hDWUwxTjBtbHFLTQ?oc=5",
-     "source": "ESPN",
-     "pub": "Sun, 18 Oct 2026 22:33:00 GMT"
-    },
-    {
      "title": "Mike Pettine looking to answer the call for Christian Parker, Cowboys defense",
      "url": "https://news.google.com/rss/articles/CBMipgFBVV95cUxQUjNjajRXM21jTDRaNV9QNlpJektVclM2bXN0d0lTcmFUY2x3WnQ2SHNwdkQxOTBITmtBTVlsRVlkTEdpaHhIaUR0M2drUFBJYzRxUUNmUGNRaU5jRFVSODd5NkhoZGh0RENYV3Q1bDVUSDdNZ2FkZ3VtOFJsbkVyMTBXdUFxdk4xbXRnU2ItUEk0OTNsemItanpXeEJ6VWtBS1JoU2Jn?oc=5",
      "source": "Dallas Cowboys | Official Site of the Dallas Cowboys",
      "pub": "Fri, 16 Oct 2026 07:00:00 GMT"
-    },
-    {
-     "title": "Updates: 5 Cowboys become full participants",
-     "url": "https://news.google.com/rss/articles/CBMiZkFVX3lxTE41U3JDcmpCb1YyZjBxRFNnV25kSktlMVJ5aEJsX1hhNTFTcHJWdWdTbjF5cFhvQ3ZKZGd4bEdfT0VtT1RobmJwd3ZSbnZzM0c3RnJiTS1kSG5fMUtJWW9qclRUWlZtQQ?oc=5",
-     "source": "Dallas Cowboys | Official Site of the Dallas Cowboys",
-     "pub": "Mon, 19 Oct 2026 07:00:00 GMT"
     }
    ],
    "entity_mentions": {
-    "dak prescott": 11,
-    "ceedee lamb": 5
+    "dak prescott": 13,
+    "ceedee lamb": 3
    },
    "top_terms": [
     "cowboys",
-    "packers",
     "dallas",
+    "packers",
     "green",
     "cheerleaders",
     "defense",
-    "prescott",
     "offense",
+    "prescott",
     "watch",
     "chemical",
     "romance",
-    "against"
+    "action"
    ],
    "headline_count": 100,
    "moments": [],
    "fan_trend_index": [
     {
      "name": "dak prescott",
-     "mentions": 11,
-     "index": 61,
+     "mentions": 13,
+     "index": 81,
      "status": "trending",
      "gap": true,
      "shoppable": false
     },
     {
      "name": "ceedee lamb",
-     "mentions": 5,
-     "index": 28,
+     "mentions": 3,
+     "index": 19,
      "status": "trending",
      "gap": true,
      "shoppable": false
@@ -365,10 +378,10 @@
    "query": "Michigan Wolverines football",
    "headlines": [
     {
-     "title": "Wolverine Thoughts: Michigan Football Has One Clear Direction After Win Over Penn State",
-     "url": "https://news.google.com/rss/articles/CBMi1AFBVV95cUxNdTVGbUNSb0IxOURlNm80S1dBSGs5QjFZTjhnX1BSREN2Z0FYbVo2Vk9fQnRucUdXMWtjRnduanhIRDNaaFNtQU5WU3VOSFhPOGwwQlp4SnN3ZVE1U0JfWVE1aktjdGhMSWJUZWM1VUJtREMycF91QV9zVnI2QXFBVTl1MmxKNWRuLU9iTlBpUmtheWI0YW9TVkhqUkgtcHRXVVJMZEpSa2ZFQ052dzVrU0VDY19XYWhJTDBQTGo2d2ZON3B6UFZwTXh3XzhDZHA1VHY0Wg?oc=5",
+     "title": "4 Instant Takeaways as Tommy Carr Propels Michigan Football Over Penn State",
+     "url": "https://news.google.com/rss/articles/CBMiwgFBVV95cUxPTFVIODJuVmg5Sk16NThRdk5LRXlKOENqYnROcHFLWkp3cUYyMUUybE42TmpSdExoRVVuNHJ4czd6a3Voc0NLcHFyRWVIdGhFUTNSVkpBMTFicFlnMVI1dDVtR0xHcHJoWkJTakpRVGwtRXpfbXRHY3JHVTUtVWFXREU0TVhVTnV5c2ZsM0I3VWt2R0Vla3Z3VGVTakthUjVzaUZsTGFydGRCQVh5SzgtSFk0RVFyME44eGJKY0JNYWtSdw?oc=5",
      "source": "Sports Illustrated",
-     "pub": "Sun, 18 Oct 2026 11:00:05 GMT"
+     "pub": "Sat, 17 Oct 2026 23:10:35 GMT"
     },
     {
      "title": "Rushing Attack, Turnovers Lead Michigan Past Penn State for First Big Ten Win",
@@ -414,7 +427,7 @@
     }
    ],
    "entity_mentions": {
-    "bryce underwood": 18,
+    "bryce underwood": 16,
     "jj mccarthy": 0,
     "kyle whittingham": 3,
     "jordan marshall": 0
@@ -438,7 +451,7 @@
    "fan_trend_index": [
     {
      "name": "bryce underwood",
-     "mentions": 18,
+     "mentions": 16,
      "index": 100,
      "status": "trending",
      "gap": false,
@@ -447,7 +460,7 @@
     {
      "name": "kyle whittingham",
      "mentions": 3,
-     "index": 17,
+     "index": 19,
      "status": "trending",
      "gap": true,
      "shoppable": false
@@ -473,13 +486,13 @@
  },
  "fan_trend_index": {
   "formula": "round(100 * entity_mentions / peak_mentions_in_window)",
-  "peak_mentions": 18,
+  "peak_mentions": 16,
   "window_days": 10,
   "generated": "2026-10-24",
   "rows": [
    {
     "name": "bryce underwood",
-    "mentions": 18,
+    "mentions": 16,
     "index": 100,
     "status": "trending",
     "gap": false,
@@ -487,27 +500,27 @@
     "collection": "michigan"
    },
    {
-    "name": "josh jacobs",
-    "mentions": 13,
-    "index": 72,
-    "status": "trending",
-    "gap": true,
-    "shoppable": false,
-    "collection": "green-bay-packers"
-   },
-   {
     "name": "dak prescott",
-    "mentions": 11,
-    "index": 61,
+    "mentions": 13,
+    "index": 81,
     "status": "trending",
     "gap": true,
     "shoppable": false,
     "collection": "dallas-cowboys"
    },
    {
+    "name": "josh jacobs",
+    "mentions": 13,
+    "index": 81,
+    "status": "trending",
+    "gap": true,
+    "shoppable": false,
+    "collection": "green-bay-packers"
+   },
+   {
     "name": "micah parsons",
     "mentions": 8,
-    "index": 44,
+    "index": 50,
     "status": "trending",
     "gap": false,
     "shoppable": true,
@@ -516,16 +529,25 @@
    {
     "name": "deshaun watson",
     "mentions": 6,
-    "index": 33,
+    "index": 38,
     "status": "trending",
     "gap": true,
     "shoppable": false,
     "collection": "cleveland-browns"
    },
    {
+    "name": "jordan love",
+    "mentions": 5,
+    "index": 31,
+    "status": "trending",
+    "gap": false,
+    "shoppable": true,
+    "collection": "green-bay-packers"
+   },
+   {
     "name": "shedeur sanders",
-    "mentions": 6,
-    "index": 33,
+    "mentions": 4,
+    "index": 25,
     "status": "trending",
     "gap": false,
     "shoppable": true,
@@ -533,53 +555,44 @@
    },
    {
     "name": "ceedee lamb",
-    "mentions": 5,
-    "index": 28,
+    "mentions": 3,
+    "index": 19,
     "status": "trending",
     "gap": true,
     "shoppable": false,
     "collection": "dallas-cowboys"
    },
    {
-    "name": "jordan love",
-    "mentions": 5,
-    "index": 28,
-    "status": "trending",
-    "gap": false,
-    "shoppable": true,
-    "collection": "green-bay-packers"
-   },
-   {
     "name": "kyle whittingham",
     "mentions": 3,
-    "index": 17,
+    "index": 19,
     "status": "trending",
     "gap": true,
     "shoppable": false,
     "collection": "michigan"
    },
    {
+    "name": "matt lafleur",
+    "mentions": 3,
+    "index": 19,
+    "status": "trending",
+    "gap": true,
+    "shoppable": false,
+    "collection": "green-bay-packers"
+   },
+   {
     "name": "todd monken",
     "mentions": 3,
-    "index": 17,
+    "index": 19,
     "status": "trending",
     "gap": true,
     "shoppable": false,
     "collection": "cleveland-browns"
    },
    {
-    "name": "matt lafleur",
-    "mentions": 2,
-    "index": 11,
-    "status": "steady",
-    "gap": false,
-    "shoppable": false,
-    "collection": "green-bay-packers"
-   },
-   {
     "name": "myles garrett",
     "mentions": 2,
-    "index": 11,
+    "index": 12,
     "status": "steady",
     "gap": false,
     "shoppable": true,
@@ -641,5 +654,17 @@
    }
   ]
  },
- "moments": []
+ "moments": [
+  {
+   "title": "Green Bay Packers: Matt LaFleur on roughing calls and Jordan Love",
+   "url": "https://news.google.com/rss/articles/CBMihgFBVV95cUxQM2VEeGJFWmFtQmhwenQ5MTdvc3lVY20yS2hobUFZbkp1T0FnbC1manB4My01dG9UNm0wYzc3emJQSlM4RXNSQ1U4cHZNZVI4RFlyREUyZ1djNjI1bEI3Y2JiM19aQm9mNVQ1emFVQ2Mxb2dIYW4yVmdRSzlEVS1hRlZENXVYdw?oc=5",
+   "source": "Yahoo Sports",
+   "pub": "Tue, 20 Oct 2026 21:33:00 GMT",
+   "entities": [
+    "jordan love",
+    "matt lafleur"
+   ],
+   "collection": "green-bay-packers"
+  }
+ ]
 }
