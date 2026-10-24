@@ -2966,10 +2966,17 @@ class CrystalMarieLocker(unittest.TestCase):
         self.assertIn("the NFL", legal)
         # the hero is the browns banner, deployed as a JPG at its native size
         self.assertIn('src="../../img/hero-crystal.jpg"', self.html)
-        self.assertIn('width="1568" height="672"', self.html)
+        w, h = self.cre["hero_w"], self.cre["hero_h"]
+        self.assertIn(f'width="{w}" height="{h}"', self.html)
+        self.assertEqual((w, h), (1916, 821))   # the 2026-10-24 replacement
         self.assertTrue(os.path.isfile(os.path.join(SITE, "img/hero-crystal.jpg")))
+        # the banner describes what is actually in the photo
+        self.assertIn("Cleveland Browns tee on a lakefront boardwalk", self.html)
+        # PNG masters never ship
         self.assertFalse(os.path.isfile(os.path.join(SITE, "img",
                                                      "crystal-marie-banner.png")))
+        self.assertFalse(os.path.isfile(os.path.join(SITE, "img",
+                                                     "hero-crystal1.png")))
 
     def test_faq_schema_answers_the_discount_and_the_disclaimer(self):
         faq = next(node for node in json_ld_nodes(self.html)

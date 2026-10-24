@@ -65,8 +65,9 @@ so the homepage shows the whole band and puts its copy underneath instead.
 ## Creator banners
 
 `crystal-marie-banner.png` is Crystal Marie's locker banner
-(`/browns/crystal-marie/`): a 1568x672 golden-hour lakefront portrait in the
-Browns palette. It is a **creator** banner, not one of the five 2048x768 team
+(`/browns/crystal-marie/`): a 1916x821 golden-hour lakefront portrait in the
+Browns palette (replaced 2026-10-24 with the owner's Browns-tee version; the
+previous 1568x672 master is archived as `crystal-marie-banner1.png`). It is a **creator** banner, not one of the five 2048x768 team
 band posters, so it does not join the `.cbanner .band` set and needs no
 `src/crop_art.py` team-card crop. It is exported at its native size the same
 way (strip, 4:2:0, progressive, quality 85-86, well under 750 KB):
@@ -78,7 +79,10 @@ convert artwork-source/crystal-marie-banner.png -strip -sampling-factor 4:2:0 \
 
 The girly creator banner crops with `object-fit:cover` and is declared with its
 own `hero_w`/`hero_h` in `data/creators.json`, so a replacement only has to
-update those two numbers next to the new master.
+update those two numbers (and `hero_alt`, so the alt text still describes the
+photo) next to the new master. The browns skin pins `object-position` to the
+subject at 760px and 430px; re-check those two values when the person in the
+art moves.
 
 `custom-tee1.png` is the master of the homepage custom-design photo
 (`site/img/custom-tee1.jpg`), archived here because `site/img/` ships JPG/WebP

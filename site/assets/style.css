@@ -1871,12 +1871,15 @@ body[data-creator-page="CRYSTAL"] .bellanav-links a:focus-visible{outline:2px so
   .jlock-girly[data-theme="browns"] .gcategory-tiles{grid-template-columns:repeat(3,minmax(0,1fr))}
 }
 @media(max-width:760px){
-  /* the copy column covers more of the photo on small screens - keep it warm */
+  /* the copy column covers more of the photo on small screens - keep it warm,
+     and hold the crop on the subject (she sits ~70% across the new banner) */
+  .jlock-girly[data-theme="browns"] .gbanner-photo{object-position:70% center}
   .jlock-girly[data-theme="browns"] .gbanner-panel::after{
     background:linear-gradient(90deg,rgba(250,242,229,.97) 0%,rgba(250,242,229,.92) 45%,rgba(250,242,229,.42) 100%)}
   body[data-creator-page="CRYSTAL"] .bellanav-links{gap:25px}
 }
 @media(max-width:430px){
+  .jlock-girly[data-theme="browns"] .gbanner-photo{object-position:71% center}
   .jlock-girly[data-theme="browns"] .gbanner-panel::after{
     background:linear-gradient(90deg,rgba(250,242,229,.97) 0%,rgba(250,242,229,.92) 58%,rgba(250,242,229,.44) 100%)}
   body[data-creator-page="CRYSTAL"] .bellanav-links{gap:22px}
