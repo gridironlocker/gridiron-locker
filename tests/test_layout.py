@@ -3488,15 +3488,36 @@ class LaqualaRoyalLocker(unittest.TestCase):
         self.assertNotIn("hero-amber", self.html)
         self.assertTrue(os.path.isfile(os.path.join(SITE, "img/hero-laquala.jpg")))
         text = unescape(self.html)
-        self.assertIn('<span class="gscript">Laquala’s</span>', text)
+        # the collection is branded with her full name in the hero and the
+        # masthead, while the address stays the short /laquala/
+        self.assertIn('<span class="gscript">Laquala Royal’s</span>', text)
+        self.assertIn('<span class="gtitle">Collection</span>', text)
         self.assertIn("Laquala Royal’s Browns Collection", text)
-        self.assertIn('aria-label="Laquala’s Collection home"', text)
+        self.assertIn('aria-label="Laquala Royal’s Collection home"', text)
+        self.assertIn('aria-label="Laquala Royal’s Collection"', text)
+        self.assertEqual(self.cre["page_slug"], "laquala")
         self.assertIn("New Custom Design Request from Laquala Royal's Browns Locker", text)
         # shared browns skin, not a third palette block
         self.assertEqual(self.cre.get("skin"), "browns")
         self.assertIn('data-creator-skin="browns"', self.html)
         self.assertEqual(page("assets/style.css").count(
             'body[data-creator-skin="browns"]{background:#f4ead9'), 1)
+
+    def test_a_long_name_keeps_the_address_and_the_other_lockers_untouched(self):
+        """Full-name branding is a label, not a route: /laquala/ must not move.
+
+        The nav bar label defaults to the first name; her record overrides it so
+        a screen reader hears the name she brands under, and the override must
+        not leak onto the other lockers.
+        """
+        self.assertIn("<loc>https://gridironlocker.store/laquala/</loc>",
+                      page("sitemap.xml"))
+        self.assertNotIn("laquala-royal", page("sitemap.xml"))
+        self.assertIn('aria-label="Amber’s Collection"', page("amber/index.html"))
+        self.assertIn('aria-label="Crystal’s Collection"',
+                      page("crystal/index.html"))
+        self.assertIn('aria-label="Bella’s Collection"',
+                      page("michigan/bella/index.html"))
 
     def test_three_browns_capsules_are_all_linked(self):
         for href in ('href="../crystal/"', 'href="../amber/"', 'href="../laquala/"'):
