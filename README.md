@@ -681,7 +681,7 @@ Tests: `tests/test_layout.py::LaqualaRoyalLocker` pins the bare `/laquala/`
 address, the grid, her attribution, her code and artwork, and that no other
 creator's name or code leaks onto her page.
 
-## des❤️🐞's Browns Collection — creator collaboration (`/des/`)
+## Elizabeth's Browns Collection — creator collaboration (`/des/`)
 
 Destiny Elizabeth's locker is the sixth creator page and the **fourth** on the
 Browns catalogue, at the bare short address **`/des/`**. It is built exactly
@@ -689,12 +689,13 @@ like Crystal Marie's: the whole live Browns collection newest → oldest, cards 
 the local product page, the browns skin, her own promo code **`DESTINY` (10%
 off)**.
 
-The brand is the emoji handle **des❤️🐞** and the address is the plain ASCII
-`des` — deliberately, and pinned by tests: the emoji lives in the `<title>`, the
-hero lockup, the `DES❤️🐞 PICK 01…33` kickers, the about copy, the custom-design
-subject and the screen-reader labels, and never in a path, query string or
-canonical (a percent-encoded emoji URL is share-hostile and would fork the
-page's identity). `page_slug` stays `des`; `display_name` stays
+The page launched branded with the emoji handle **des❤️🐞** and was renamed to
+**Elizabeth** on the owner's request. The address stayed `des`, and that split
+is pinned by tests: the brand lives in the `<title>`, the hero lockup
+(“Elizabeth Collection”), the `ELIZABETH PICK 01…33` kickers, the about copy,
+the custom-design subject and the screen-reader labels, while the path, the
+canonical, the sitemap row and every query string stay plain ASCII — and no
+emoji survives anywhere in the page or the record. `display_name` stays
 `Destiny Elizabeth`, which is what the collection-page cross-links and the
 schema use.
 
