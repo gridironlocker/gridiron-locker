@@ -3639,7 +3639,11 @@ class DesLocker(unittest.TestCase):
 
     def test_hero_is_her_own_artwork(self):
         self.assertEqual(self.cre["hero"], "/img/hero-des.jpg")
-        self.assertIn('src="../img/hero-des.jpg?v=1"', self.html)
+        # the banner was replaced in place, so the URL carries the bumped
+        # hero_v - a returning visitor would otherwise keep the old photo
+        hero_v = self.cre["girly"]["hero_v"]
+        self.assertIn(f'src="../img/hero-des.jpg?v={hero_v}"', self.html)
+        self.assertGreater(hero_v, 1)
         for other in ("hero-crystal", "hero-amber", "hero-laquala"):
             self.assertNotIn(other, self.html)
         self.assertTrue(os.path.isfile(os.path.join(SITE, "img/hero-des.jpg")))

@@ -705,9 +705,11 @@ both lines share by default, so every other locker is unchanged), so a 27 px
 signature does not have to carry the possessive.
 
 - **Art** — `artwork-source/des-banner.png` is the master (Crystal Marie's
-  lakefront frame, a different model, the same Browns tee);
-  `site/img/hero-des.jpg` (1916×821) ships, versioned `?v=1`.
+  lakefront frame, a blonde model — the banner was re-shot on request — and the
+  same Browns tee); `site/img/hero-des.jpg` (1916×821) ships, versioned
+  `?v=2` so returning visitors get the new model instead of the cached one.
 
 Tests: `tests/test_layout.py::DesLocker` pins the ASCII address, the grid, the
-`DESTINY` attribution and code, the emoji branding, her artwork, and that no
+`DESTINY` attribution and code, the Elizabeth branding, her artwork (including
+the bumped `hero_v`), and that no
 other creator's name or code leaks onto her page.
