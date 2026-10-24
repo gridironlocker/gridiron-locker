@@ -125,6 +125,24 @@ def json_ld_nodes(html):
 DELISTED = set(load_json("data/delisted.json").get("slugs", {}))
 MAYZING = {p["slug"]: p for p in load_json("data/mayzing_products.json")["products"]
            if p["slug"] not in DELISTED}
+
+# Prices are changed in Mayzing admin, so src/scrape_mayzing_prices.py captures
+# them and src/build.py prefers the capture over the curated record. Tests must
+# resolve the same way or they pin yesterday's price.
+try:
+    _PRICES = load_json("data/mayzing_prices.json")["collections"]
+except Exception:
+    _PRICES = {}
+
+
+def live_price(ckey, product):
+    """The price the built site should show for one Mayzing product."""
+    rec = (_PRICES.get(ckey) or {}).get(product["slug"]) or {}
+    try:
+        value = float(str(rec.get("price_usd") or ""))
+    except ValueError:
+        value = 0.0
+    return "%.2f" % (value if 0 < value < 1000 else float(product["price_usd"]))
 MICHIGAN = {p["slug"]: p for p in load_json("data/mayzing_michigan.json")["products"]
             if p["slug"] not in DELISTED}
 # Retired designs a Mayzing capture still lists (e.g. milf, retired 2026-09-19
@@ -1882,7 +1900,65 @@ class MayzingBrownsRebuild(unittest.TestCase):
             html = read(os.path.join(SITE, "shop", slug, "index.html"))
             self.assertIn(f"one colourway: {p['colour_name']}", html, slug)
             self.assertIn(f"{p['sizes'][0]} to {p['sizes'][-1]}", html, slug)
-            self.assertIn(f"This design is ${p['price_usd']} on Mayzing", html, slug)
+            self.assertIn(f"This design is ${live_price('cleveland-browns', p)} on Mayzing",
+                          html, slug)
+
+    def test_live_price_capture_reaches_every_page(self):
+        """A price changed in Mayzing admin must reach the site without a
+        hand edit, and the marketing contract must agree with it."""
+        prices = load_json("data/mayzing_prices.json")
+        self.assertEqual(prices.get("currency"), "USD")
+        catalogue = {p["slug"]: p for p in load_json("data/catalogue-live.json")["products"]}
+        checked = 0
+        for ckey, products in (("cleveland-browns", MAYZING),
+                               ("michigan", MICHIGAN)):
+            captured = (prices.get("collections") or {}).get(ckey) or {}
+            for slug, p in products.items():
+                rec = captured.get(slug)
+                if not rec:
+                    continue                       # record price is the fallback
+                want = "%.2f" % float(rec["price_usd"])
+                html = read(os.path.join(SITE, "shop", slug, "index.html"))
+                # The page states one flat price in prose, in the buy box and
+                # in the Product schema; all three must agree.
+                self.assertIn(f"This design is ${want} on Mayzing", html, slug)
+                self.assertIn(f'"price":"{want}"', html, slug)
+                self.assertIn(f"${want}", html, slug)
+                if slug in catalogue:
+                    self.assertAlmostEqual(float(catalogue[slug]["price_usd"]),
+                                           float(want), places=2, msg=slug)
+                checked += 1
+        self.assertGreaterEqual(checked, 40,
+                                "price capture must cover both team stores")
+
+    def test_swapped_cards_show_the_garment_price(self):
+        """The store prices each garment separately, so a card swapped to a
+        hoodie must not keep showing the design's t-shirt price."""
+        # every captured listing carries its own price...
+        apparel = load_json("data/mayzing_apparel.json")["collections"]
+        priced = [row for prods in apparel.values()
+                  for groups in prods.values()
+                  for rows in groups.values() for row in rows if row.get("price")]
+        self.assertGreaterEqual(len(priced), 100, "category capture lost its prices")
+        for row in priced:
+            self.assertRegex(row["price"], r"^[0-9]+\.[0-9]{2}$")
+        # ...and the team page payload carries it per garment
+        html = read(os.path.join(SITE, COLLECTIONS["cleveland-browns"]["slug"],
+                                 "index.html"))
+        blob = re.search(r'data-apparel="([^"]+)"', html).group(1)
+        payload = json.loads(unescape(blob))
+        hoodies = [e for groups in payload.values() for e in groups.get("hoodies", [])]
+        self.assertTrue(hoodies, "Browns hoodie listings missing from the payload")
+        for entry in hoodies:
+            self.assertIn("price", entry)
+            self.assertRegex(entry["price"], r"^[0-9]+\.[0-9]{2}$")
+        # the script swaps the price and puts the design's own price back
+        js = page("assets/app.js")
+        start = js.index("// ---------- team collection apparel buttons")
+        team = js[start:js.index("// ----------", start + 10)]
+        self.assertIn("card._priceEl=card.querySelector('.price')", team)
+        self.assertIn("card._priceEl.textContent='$'+entry.price", team)
+        self.assertIn("card._priceEl.textContent=card._priceTxt", team)
 
     def test_img_p_stays_webp_only(self):
         pdir = os.path.join(SITE, "img", "p")

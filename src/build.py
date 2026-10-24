@@ -387,6 +387,38 @@ for _ckey, _fname in MAYZING_FILES:
             record_content_date(_mj) or SITEMAP_DATE_FALLBACK
         )
 
+# Prices are set in Mayzing admin, not in this repo, so
+# src/scrape_mayzing_prices.py captures the live price of every Browns and
+# Michigan product from its own checkout page. The curated product files keep
+# the price they were hand-verified at; a captured price wins because it is the
+# one the customer is actually charged. Missing file / missing design falls
+# back to the record, so an offline build still prices everything.
+try:
+    _MAYZING_PRICES = read_json("data", "mayzing_prices.json")
+    MAYZING_PRICES = _MAYZING_PRICES.get("collections") or {}
+    MAYZING_PRICES_CAPTURED = str(_MAYZING_PRICES.get("captured") or "")
+except Exception:
+    MAYZING_PRICES = {}
+    MAYZING_PRICES_CAPTURED = ""
+
+
+def mayzing_price(ckey, slug, fallback):
+    """The live storefront price for one design, or the curated fallback.
+
+    Only a positive USD figure is accepted: a zero/blank capture is a parser
+    miss, not a free shirt."""
+    rec = (MAYZING_PRICES.get(ckey) or {}).get(slug) or {}
+    try:
+        value = float(str(rec.get("price_usd") or "").replace(",", ""))
+    except (TypeError, ValueError):
+        value = 0.0
+    if 0 < value < 1000:
+        return value
+    try:
+        return float(fallback)
+    except (TypeError, ValueError):
+        return 0.0
+
 
 def product_content_date(ckey, slug, record):
     """Resolve the stable source date for one published product URL.
@@ -871,7 +903,7 @@ def mayzing_item(m, ckey):
     raw_sizes = [s for s in (m.get("sizes") or SIZES)] or list(SIZES)
     sizes_avail = [] if garment in ("Mug", "Phone Case", "Beanie") else raw_sizes
     colours = max(1, sum(1 for k in img if k.startswith("c")))
-    price = float(m["price_usd"])
+    price = mayzing_price(ckey, m["slug"], m["price_usd"])
     gal = [img["front"]] + ([img["back"]] if "back" in img else [])
     gal += [v for k, v in img.items() if k.startswith("c")]
     blob = (name + " " + f["art"]).lower()
@@ -2676,11 +2708,17 @@ def apparel_matrix(items):
             groups = {}
             for cat, rows in (captured or {}).items():
                 for row in rows:
-                    groups.setdefault(cat, []).append({
+                    entry = {
                         "garment": row.get("garment") or "",
                         "image": row.get("image") or "",
                         "url": row.get("url") or "../shop/%s/" % slug,
-                    })
+                    }
+                    # The store prices each garment separately ($23 tee,
+                    # $40 hoodie), so a swapped card must carry the price of
+                    # the garment it is showing, not the design's own.
+                    if row.get("price"):
+                        entry["price"] = row["price"]
+                    groups.setdefault(cat, []).append(entry)
             own = apparel_category(garment)
             if own and garment and own not in groups:
                 img = it.get("front") or ""
@@ -2688,6 +2726,7 @@ def apparel_matrix(items):
                     "garment": garment,
                     "image": img,
                     "url": it.get("buy") or "../shop/%s/" % slug,
+                    "price": "%.2f" % it["price"],
                 }]
             groups = {c: rows for c, rows in groups.items()
                       if c in APPAREL_CATEGORY_KEYS}
@@ -5844,6 +5883,8 @@ document.querySelectorAll('a.custom-link').forEach(function(a){
     card._back=back;
     card._link=card.querySelector('a');
     card._meta=card.querySelector('.meta');
+    card._priceEl=card.querySelector('.price');
+    card._priceTxt=card._priceEl?card._priceEl.textContent:'';
     card._name=(card.querySelector('h3')||{}).textContent||'';
     card._src=img?img.getAttribute('src'):'';
     card._alt=img?img.getAttribute('alt'):'';
@@ -5920,6 +5961,7 @@ document.querySelectorAll('a.custom-link').forEach(function(a){
     }
     if(card._link&&card._href)card._link.href=card._href;
     if(card._meta&&card._label)card._meta.textContent=card._label;
+    if(card._priceEl&&card._priceTxt)card._priceEl.textContent=card._priceTxt;
     card.classList.remove('is-swapped'); card.hidden=false;
   }
   function apply(){
@@ -5931,6 +5973,9 @@ document.querySelectorAll('a.custom-link').forEach(function(a){
         setBack(card,entry);
         if(card._link&&entry.url)card._link.href=entry.url;
         if(card._meta)card._meta.textContent=entry.garment;
+        // A hoodie is $40 while the same design's tee is $23: show what the
+        // garment on screen costs, from the captured listing.
+        if(card._priceEl&&entry.price)card._priceEl.textContent='$'+entry.price;
         card.classList.add('is-swapped'); return;
       }
       restore(card);

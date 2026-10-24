@@ -253,6 +253,8 @@ document.querySelectorAll('a.custom-link').forEach(function(a){
     card._back=back;
     card._link=card.querySelector('a');
     card._meta=card.querySelector('.meta');
+    card._priceEl=card.querySelector('.price');
+    card._priceTxt=card._priceEl?card._priceEl.textContent:'';
     card._name=(card.querySelector('h3')||{}).textContent||'';
     card._src=img?img.getAttribute('src'):'';
     card._alt=img?img.getAttribute('alt'):'';
@@ -329,6 +331,7 @@ document.querySelectorAll('a.custom-link').forEach(function(a){
     }
     if(card._link&&card._href)card._link.href=card._href;
     if(card._meta&&card._label)card._meta.textContent=card._label;
+    if(card._priceEl&&card._priceTxt)card._priceEl.textContent=card._priceTxt;
     card.classList.remove('is-swapped'); card.hidden=false;
   }
   function apply(){
@@ -340,6 +343,9 @@ document.querySelectorAll('a.custom-link').forEach(function(a){
         setBack(card,entry);
         if(card._link&&entry.url)card._link.href=entry.url;
         if(card._meta)card._meta.textContent=entry.garment;
+        // A hoodie is $40 while the same design's tee is $23: show what the
+        // garment on screen costs, from the captured listing.
+        if(card._priceEl&&entry.price)card._priceEl.textContent='$'+entry.price;
         card.classList.add('is-swapped'); return;
       }
       restore(card);
