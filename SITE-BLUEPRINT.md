@@ -75,8 +75,13 @@ Slugs come straight from Viralstyle URLs, so one slug = one campaign.
 ```
 /<collection>/<creator>/        e.g. /michigan/joe/            (Joe's Michigan Locker)
                                      /michigan/bella/          (Bella's Michigan Collection)
-                                     /browns/crystal-marie/    (Crystal Marie's Browns Collection)
+                                     /browns/crystal-marie/    (Crystal Marie's Browns Collection - legacy, redirects)
+/crystal/                       (Crystal Marie's Browns Collection - current short address)
 ```
+A creator page may also live at the top level: Crystal Marie's locker moved from
+`/browns/crystal-marie/` to `/crystal/`, and the move is declared in
+`data/creators.json` (`page_slug_moved_from`), which makes `page_redirects()`
+publish a noindex redirect stub at the old path plus a `_redirects` 301.
 Creator pages are generated from `data/creators.json` (`page_creator()` in
 `src/build.py`): a permanent, addressable destination per creator, a curated
 `picks`/`featured` subset of that creator's collection, and the attribution

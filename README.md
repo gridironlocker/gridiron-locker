@@ -575,13 +575,15 @@ Preserved: every existing URL, product page and guardrail. Rebuild + test:
 
 ---
 
-## Crystal Marie's Browns Collection — creator collaboration (`/browns/crystal-marie/`)
+## Crystal Marie's Browns Collection — creator collaboration (`/crystal/`)
 
 Crystal Marie's locker is the creator programme's third page and the first one
 built from **this site's own catalogue**: it carries the whole live Cleveland
 Browns collection (every design that is sellable today, not a frozen list),
 opened by twelve curated picks. Her audience gets one permanent link —
-**`/browns/crystal-marie/`** — that grows with the Browns collection.
+**`/crystal/`** — that grows with the Browns collection. (The page was first
+published at `/browns/crystal-marie/`; that URL keeps a noindex redirect stub
+and a `_redirects` 301 so every shared link and sticker still lands here.)
 
 What was built:
 

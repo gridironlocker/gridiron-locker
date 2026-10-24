@@ -5246,11 +5246,13 @@ def redirect_target(slug, ckey):
 
 
 def page_redirects():
-    """Publish a redirect stub at every retired product URL.
+    """Publish a redirect stub at every retired product URL and moved page.
 
     Covers retired /shop/<slug>/ URLs (delisted designs, fulfillment holds,
-    the published-URL manifest) and the /shop/<slug>/<style>/ garment-variant
-    tombstones from the reverted 2026-09-05 scheme (data/retired-variants.json).
+    the published-URL manifest), the /shop/<slug>/<style>/ garment-variant
+    tombstones from the reverted 2026-09-05 scheme
+    (data/retired-variants.json) and any creator locker that has moved
+    (``page_slug_moved_from`` in data/creators.json).
 
     GitHub Pages has no server-side 301, so a retired /shop/<slug>/ URL used
     to fall through to 404.html - a dead end for an indexed, externally
@@ -5391,11 +5393,66 @@ sold on its own page. Taking you to the {esc(COLLECTIONS[ckey]['name'])} &mdash;
         write(f"shop/{vpath}/index.html", vdoc)
         lines.append(f"/shop/{vpath}/ {target} 301")
 
+    # ---- moved creator pages ----------------------------------------------
+    # A creator locker can move to a shorter address (Crystal Marie's page went
+    # from /browns/crystal-marie/ to /crystal/). The old URL is the one already
+    # printed on stickers, bios and shared links, and GitHub Pages has no 301,
+    # so it keeps a stub with the same single redirect signal as a retired
+    # product: meta refresh, noindex,follow, no canonical, self-referencing
+    # og:url. The move is declared in data/creators.json
+    # (``page_slug_moved_from``), so the next move needs no code change.
+    for cre in CREATORS.values():
+        old_slug = str(cre.get("page_slug_moved_from") or "").strip("/")
+        if not old_slug:
+            continue
+        target = f"/{cre['page_slug']}/"
+        turl = abs_url(target)
+        pname = esc(cre["page_name"])
+        moved_title = f"{pname} moved | {esc(BRAND)}"
+        moved_desc = (f"{pname} now lives at {DOMAIN}{target} - the same locker, "
+                      f"a shorter address.")
+        moved_doc = f"""<!DOCTYPE html>
+<html lang="en"><head>
+<meta charset="utf-8">
+<meta name="viewport" content="width=device-width, initial-scale=1">
+<title>{moved_title}</title>
+<meta name="description" content="{esc(moved_desc)}">
+<meta name="robots" content="noindex,follow">
+<meta http-equiv="refresh" content="0;url={turl}">
+<meta name="p:domain_verify" content="{esc(PINTEREST_VERIFY)}">
+<meta property="og:type" content="website">
+<meta property="og:title" content="{moved_title}">
+<meta property="og:description" content="{esc(moved_desc)}">
+<meta property="og:image" content="{abs_url(cre['hero'])}">
+<meta property="og:url" content="{abs_url('/' + old_slug + '/')}">
+<meta property="og:site_name" content="{esc(BRAND)}">
+<meta name="twitter:card" content="summary_large_image">
+<meta name="twitter:title" content="{moved_title}">
+<meta name="twitter:image" content="{abs_url(cre['hero'])}">
+<link rel="icon" href="/img/favicon.svg" type="image/svg+xml">
+<link rel="stylesheet" href="/assets/style.css?v={STYLE_VERSION}">
+<script>location.replace({json.dumps(turl)});</script>
+</head><body>
+<main data-gl-redirect="{target}"><section><div class="wrap center" style="padding:70px 0">
+<h1>This page moved</h1>
+<p class="muted" style="max-width:60ch;margin:0 auto 22px">{pname} now lives at
+<strong>{target}</strong> - the same locker, a shorter address. Taking you there now.</p>
+<div class="btnrow" style="justify-content:center">
+<a class="btn" href="{target}">Go to {pname}</a>
+<a class="btn ghost" href="/collections/">All collections</a></div>
+<p class="muted small" style="margin-top:26px">Not redirected automatically?
+<a href="{target}">Continue to {pname}</a>.</p>
+</div></section></main>
+</body></html>"""
+        write(f"{old_slug}/index.html", moved_doc)
+        lines.append(f"/{old_slug}/ {target} 301")
+
     # Netlify / Cloudflare Pages read this and answer with a real 301, which
     # is strictly better than a client-side redirect; GitHub Pages ignores it.
-    write("_redirects", "# Retired / migrated product URLs -> closest active page.\n"
-                        "# Covers delisted designs, the fulfillment hold list and the\n"
-                        "# garment-variant tombstones from the reverted 2026-09-05 scheme.\n"
+    write("_redirects", "# Retired / migrated URLs -> the current page.\n"
+                        "# Covers delisted designs, the fulfillment hold list, the\n"
+                        "# garment-variant tombstones from the reverted 2026-09-05 scheme\n"
+                        "# and the creator lockers that have moved address.\n"
                         "# Honoured as a true 301 by Netlify and Cloudflare Pages;\n"
                         "# GitHub Pages ignores this file and serves the noindex\n"
                         "# redirect stubs built at the same paths instead.\n"
