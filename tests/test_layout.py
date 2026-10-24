@@ -3418,6 +3418,95 @@ class AmberLocker(unittest.TestCase):
         self.assertIn("https://gridironlocker.store/amber/", page("feed.xml"))
 
 
+class LaqualaRoyalLocker(unittest.TestCase):
+    """Laquala Royal's Browns locker at /laquala/ - Crystal Marie's page again.
+
+    Third locker over the same collection, so the risk is no longer a copy-paste
+    mistake between two pages but a *generalisation* mistake: a shared helper
+    that quietly assumes two creators, or one creator's name, code or attribution
+    bleeding into the newest page. These tests pin her own address, code, artwork
+    and attribution, and keep the shared grid honest.
+    """
+
+    def setUp(self):
+        import build  # noqa: E402
+
+        self.build = build
+        self.html = page("laquala/index.html")
+        self.cre = load_json("data/creators.json")["creators"]["laquala"]
+        self.prefix = "../" * max(1, len([part for part
+                                          in self.cre["page_slug"].split("/") if part]))
+        self.team = page("cleveland-browns-shirts/index.html")
+
+    def test_she_lives_at_the_bare_short_url(self):
+        self.assertEqual(self.cre["page_slug"], "laquala")
+        self.assertFalse(self.cre.get("page_slug_moved_from"))
+        self.assertIn('<link rel="canonical" href="https://gridironlocker.store/laquala/">',
+                      self.html)
+        self.assertIn("<loc>https://gridironlocker.store/laquala/</loc>",
+                      page("sitemap.xml"))
+        self.assertIn('data-creator-page="LAQUALA"', self.html)
+        self.assertNotIn('name="robots" content="noindex', self.html)
+        self.assertTrue(self.html.endswith("</body></html>"))
+
+    def test_the_grid_is_the_whole_browns_collection_newest_first(self):
+        live = [item["slug"] for item in self.build.creator_items(self.cre)]
+        self.assertEqual(live, [item["slug"] for item in self.build.MODEL["cleveland-browns"]])
+        cards = re.findall(r'<article class="gproduct" data-slug="([^"]+)"', self.html)
+        self.assertEqual(cards, live)
+        self.assertEqual(cards, re.findall(r'class="card[^"]*"[^>]*data-slug="([^"]+)"',
+                                           self.team))
+        self.assertEqual(len(cards), 33)
+        self.assertIn('<p class="goverline">ALL 33 BROWNS DESIGNS</p>', unescape(self.html))
+        self.assertIn("LAQUALA’S PICK 01", unescape(self.html))
+        self.assertIn("LAQUALA’S PICK 33", unescape(self.html))
+
+    def test_every_card_forwards_her_own_attribution(self):
+        self.assertEqual(self.cre["attribution"]["creator_id"], "LAQUALA")
+        cards = re.findall(r'<article class="gproduct".*?</article>', self.html, re.S)
+        self.assertEqual(len(cards), 33)
+        for block in cards:
+            self.assertIn("?creator=LAQUALA", block, block[:90])
+            self.assertIn('data-creator="LAQUALA"', block)
+
+    def test_laquala_code_is_ten_percent_off_and_no_other_creator_leaks(self):
+        self.assertEqual(self.cre.get("promo"), {"code": "LAQUALA", "pct": 10})
+        self.assertIn('data-copy-code="LAQUALA"', self.html)          # promo bar
+        self.assertIn('<span>10% off</span> with code <strong>LAQUALA</strong>', self.html)
+        self.assertIn("with code <strong>LAQUALA</strong> at checkout", self.html)
+        text = unescape(self.html)
+        for other in ("Crystal", "Amber", "Bella", "Joe"):
+            self.assertNotIn(other, text)
+        self.assertNotIn("creator=CRYSTAL", self.html)
+        self.assertNotIn("creator=AMBER", self.html)
+
+    def test_hero_and_copy_are_hers(self):
+        self.assertEqual(self.cre["hero"], "/img/hero-laquala.jpg")
+        hero_v = self.cre["girly"]["hero_v"]
+        self.assertIn(f'src="{self.prefix}img/hero-laquala.jpg?v={hero_v}"', self.html)
+        self.assertNotIn("hero-crystal", self.html)
+        self.assertNotIn("hero-amber", self.html)
+        self.assertTrue(os.path.isfile(os.path.join(SITE, "img/hero-laquala.jpg")))
+        text = unescape(self.html)
+        self.assertIn('<span class="gscript">Laquala’s</span>', text)
+        self.assertIn("Laquala Royal’s Browns Collection", text)
+        self.assertIn('aria-label="Laquala’s Collection home"', text)
+        self.assertIn("New Custom Design Request from Laquala Royal's Browns Locker", text)
+        # shared browns skin, not a third palette block
+        self.assertEqual(self.cre.get("skin"), "browns")
+        self.assertIn('data-creator-skin="browns"', self.html)
+        self.assertEqual(page("assets/style.css").count(
+            'body[data-creator-skin="browns"]{background:#f4ead9'), 1)
+
+    def test_three_browns_capsules_are_all_linked(self):
+        for href in ('href="../crystal/"', 'href="../amber/"', 'href="../laquala/"'):
+            self.assertIn(href, self.team)
+            self.assertIn(href, page("collections/index.html"))
+        self.assertIn("Laquala Royal", self.team)
+        self.assertIn("https://gridironlocker.store/laquala/", page("llms.txt"))
+        self.assertIn("https://gridironlocker.store/laquala/", page("feed.xml"))
+
+
 class ConversionUpgrades(unittest.TestCase):
     """The conversion pass: truthful trust strip, faster PDP hand-off,
     visible custom-design service, completed funnel analytics.

@@ -122,7 +122,9 @@ class SitemapDates(unittest.TestCase):
         # request: the product page retires to a redirect stub (-1).
         # 2026-10-24: 122 -> 123 - Amber's Browns collection page (a creator
         # page, not a product) joined the sitemap.
-        self.assertEqual(len(self.rows), 123)
+        # 2026-10-24: 123 -> 124 - Laquala Royal's Browns collection page
+        # (/laquala/) joined the sitemap.
+        self.assertEqual(len(self.rows), 124)
         self.assertEqual(len(self.rows), len(set(self.rows)))
         for url, lastmod in self.rows.items():
             self.assertTrue(url.startswith(build.DOMAIN + "/"), url)
