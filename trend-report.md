@@ -1,8 +1,8 @@
 # Hunt Report - 2026-10-24
 
-Generated: 2026-10-24 21:18 UTC by src/hunter_intelligence.py
+Generated: 2026-10-24 21:28 UTC by src/hunter_intelligence.py
 
-Ladder: SIGNAL 0 · TREND 0 · OPPORTUNITY 4 · ACTION 0 · HEADLINE 3
+Ladder: SIGNAL 0 · TREND 0 · OPPORTUNITY 4 · ACTION 0 · HEADLINE 4
 
 Fan connectors: no fan posts observed - reddit error (HTTP Error 403: Blocked); x not_configured (Set X_BEARER_TOKEN to use the official X recent-search API.); facebook not_configured (Set META_PAGE_ID and META_PAGE_ACCESS_TOKEN for the official Meta Page feed API.)
 
@@ -37,23 +37,24 @@ Fan connectors: no fan posts observed - reddit error (HTTP Error 403: Blocked); 
   - Dallas Cowboys Cheerleaders Take Legal Action Against Band My Chemical Romance - TODAY.com - google_news (4 h ago) https://news.google.com/rss/articles/CBMiqAFBVV95cUxOaTlMTXJ4UndYcThnbG4tVzBUYUlrT0JkOE05OFJWSDVGMEdzTzVCVllxbmc4NE0tRzI2eUJtdHZQYlgzRjhlZzNGdjlMNGlkUEw1SlY5aUFOY3hObWROaldHcEpzNTJuU2kxaVhqQnJxekk4SS1ERzUzb0RpU3ZRT3hEWTBvSDV2cnUzMnV6RTlfc2xaNS1aTExCREd5ZDV2MU5ITGFfdkQ?oc=5
   - Dallas Cowboys Cheerleaders take legal action against My Chemical Romance over onstage costumes - NBC News - google_news (6 h ago) https://news.google.com/rss/articles/CBMirwFBVV95cUxNendiQ2JtamFQX01rYTlxbDRvUkNpVGNYREFoWC1tMWJ5MU9vX3VpVjJXMzBNclUwV0lRN1JQRGVkMXpEb0V3V05HN0tic3dNLUgxN0RpbEdWTE91b19FSzNicFdsSkVSTmVJTVhBaERXbWdFNlZWTnhUUUNvMVdNTTVxVWpBemFsMlZzQWVOSkNrY3ZKcTNLdDE3WHowTEpyUUh6Ukd1UGV0ZTZ2bjZn?oc=5
 
-### 2. Go Blue: The Big House identity - Michigan Wolverines
-- Level: OPPORTUNITY · Confidence: 69% · 🟢 READY (matched design, posting window open, evidence under 12 h)
-- Fan signal: "Indiana football sneaks by Michigan in overtime, notches first win in Ann Arbor since 1967" - Indiana Daily Student (2 h ago)
-- Evidence: 4 reaction items (5.0 weighted) · 3 outlets · 0 utility listings excluded · 0 fan posts
-- Phrase velocity: → 0% / 60 min (1 vs 1)
-- Sentiment: pride - 'pride' on 4/4 lexicon hits across 4 item(s)
-- Game state: result coverage in the last 30 h (3 item(s))
-- Commercial: exact - M vs Everybody $23.00 (sellable) - M VS EVERYBODY — Go Blue
-- Why fans care: The evergreen identity buy - Michigan fans gift Go Blue apparel year round, and it does not depend on a result.
+### 2. Josh Jacobs and the run game - Green Bay Packers
+- Level: OPPORTUNITY · Confidence: 65% · 🟢 READY (matched design, posting window open, evidence under 12 h)
+- Fan signal: "'I think he can provide a spark': Josh Jacobs added to Packers' 53-man roster" - Wisconsin State Journal (45 min ago)
+- Evidence: 4 reaction items (4.0 weighted) · 4 outlets · 0 utility listings excluded · 0 fan posts
+- Phrase velocity: ↓ 50% / 60 min (1 vs 2)
+- Sentiment: optimistic - 'optimistic' on 4/4 lexicon hits across 4 item(s)
+- Game state: result coverage in the last 30 h (1 item(s))
+- Commercial: exact - Green Bay Football Cheesehead Nation Shirt $24.99 (sellable) - GO PACK GO — identity over one back
+- Why fans care: Jacobs is the most-mentioned Packer in the window and every mention is about availability - that is a nervous fan, and nervous fans buy identity, not player tees.
+- Tracked names: josh jacobs (12 window mentions, FTI 75)
 - Action: X (@gridironlocker1 first) - conversation post now (now)
 - Action: Threads - alternate angle (+20 min)
 - Action: Instagram - product creative after engagement confirms the angle (after the X post confirms the angle)
 - Action: Pinterest - keyword pin of the matched design (+2 h)
-  - Indiana football sneaks by Michigan in overtime, notches first win in Ann Arbor since 1967 - Indiana Daily Student - google_news (2 h ago) https://news.google.com/rss/articles/CBMikgFBVV95cUxOY1pTQjRVYmlHUDNpSFZqTEJsenY1V0NPcjcta3NDNUViNWdpcU1EbTRkVDYwTXlERVh5QzZFTVJ2RXVOaXVBbVdqUDBWd0R6VkhhdkxydXlSaXRVTEZPNVAweFBtNXo1d2pGX1NOX1h4NFVZS0xpcTE3b1lJNlM0akh2OERSVHJsNzVFTHZsc0IxUQ?oc=5
-  - No. 6 Indiana Hoosiers vs Michigan Wolverines Highlights 🏈 FOX College Football - FOX Sports - google_news (55 min ago) https://news.google.com/rss/articles/CBMiYkFVX3lxTE9yVUtpaW0zVkpmRDBXLXk3UTVWUmRldFVSU0FsMVc0N0U1QnJLYUctbS1SZ0FtNm1lX2lrc3hrbnFnSFliLTNWOUxWX1c3WEhPSjlaMFEtVFNidkU3TFJZVUNR?oc=5
-  - CJ Carr watches brother Tommy's first Michigan start from Big House - ESPN - google_news (4 h ago) https://news.google.com/rss/articles/CBMipgFBVV95cUxOcGVYMGlDN3BVY1RKaHNMUGhtLTYzNU1hb0ZFZzlOWURYb1VjUXdEUS1VTVVHMGJtem41Q0kwNWprSUE5MGFwR01yV3o4a0hTUERKd29XMkdlaHBfcTBOUmRIRi00eEV4VU1TXzBOOWk3NjYwVkVQMVFoWFh6elJBMDZnQnBQRlVSaHR5UFlISkR4YU56ZWxVd2IxME9KQ2dSLTM4eHpR?oc=5
-  - Michigan Wolverines QB Tommy Carr has 'poise' that's 'second to none' - ESPN (1 d ago) https://news.google.com/rss/articles/CBMimgFBVV95cUxOQWlOQUVlZ2NCWnpmZlB6RjRST1daN2p4UDc2MFR4VmxIcnp1TG4ySHBOaHpLUmdkNWZQeHRnOVFfOW5WMGdWNEpXWVVMS2E4TGxjWmxVeHF6X1Jjdm5CaGVZZ1BhdkV0N3luZGVDV1JjdDBOUDJFdFhSSWd2SlR4NmtYeXNraGlDWmozUmlXWXBiYW5hS2liWEFB?oc=5
+  - 'I think he can provide a spark': Josh Jacobs added to Packers' 53-man roster - Wisconsin State Journal - google_news (45 min ago) https://news.google.com/rss/articles/CBMiowFBVV95cUxQYm9jLTY5aTBNckhqNkFuT09SYXBrc29KelJEUU54WFhmcWxjbkV0Z1NnbVNBSzIxdjRRMEo1ZWRaWHRuQ0lVVnJ4cHNKZzUtV3dfSTB2Y3BGRFg0SnhYa0FVNERLaDJlNEZqb2RQMXo0cVZ4dllHQ2ZPSFJ6Z3VRNTRyRU45cjRsbzlqWVliU1lSMVp3ZmsxM2FIRlBKeTVxWFlV?oc=5
+  - Packers activate RB Josh Jacobs from exempt list ahead of Sunday's game vs. Lions - NFL.com - google_news (1 h ago) https://news.google.com/rss/articles/CBMiqAFBVV95cUxOaGJ0NndMcmpjY0pweTBmbmx2WmN1cnhMZnVGdTdyYnJTa0k3V1BBdl9yZE5EQzJDdzlLT09La1MzclNNLXV1SWJWNjUxX2VkNjBoX2g5OS1rX3ljZkdIYjhmX2Zmb2lfVzViY0xVYzJDMzJiQnc0VUY3dlhnS3loeHo5Z2FCdEhKbjJpbzlJN1VfWEdGOThBaGpzSUFROWJSZ25yS0xyaWs?oc=5
+  - Packers activate RB Josh Jacobs for 2026 debut - ESPN - google_news (1 h ago) https://news.google.com/rss/articles/CBMikAFBVV95cUxOWGNPNXVXTERMNzBIS1RtYkw2Q2JVUlEtcnNZVVpOTDVZemo2YlBubG54b0hJakRGRThXYWUxY0pfT2hUSmQ4ZGw0V1AyVmtSRjJjUW1WTXFxajFMdTJwWXBoQU5ZaUlUUXAyeGhaakNQWllJWFZnc2x2YXBYV29WNzgzdnQzTXNlT1FKMTZ3clk?oc=5
+  - Green Bay Packers running back Josh Jacobs (8) catches a pass during practice on Tuesday, June 2, 2026, at Ray Nitschke Field in Ashwaubenon, Wis. Tork Mason/USA TODAY NETWORK-Wisconsin - The Daily News | Texas' Oldest Newspaper - google_news (3 h ago) https://news.google.com/rss/articles/CBMiiwJBVV95cUxNNDFyZ3o3Mk1xaGdxRWVHUDRhMVBoTjhVRG5fUENVSDJuTDltR0NBZTk1cGdoX0p3c0RYZFlVRFBuaW5jX1FKcjdSZU1tQ0NHT2RQemhmWVNkdWkxRTlZQ0dwTGs2TWdld29Dd25MNERsVllyOV9lY2tfRmNCaDZfMFBCa25NRHNGYm5YTWlQVkQ0cU5xTWpOVEdXNzF1bW1rUXloQVlzTjUyMGJ5em9DZ2hwQTFKZ25rM3NKaXVHdWd4WHo1ek9MTWR1WkJJVnFPMDNLNk1HOFREZDhsQjZyXzdRYmJRb1IzZXhHMlVqVFlqSHg4a29CVzBqc2NyMVJwazRVNi1mdGdETDQ?oc=5
 
 ### 3. QB room: who is QB1 in Cleveland - Cleveland Browns
 - Level: OPPORTUNITY · Confidence: 60% · 🟢 READY (matched design, posting window open, evidence under 12 h)
@@ -64,7 +65,7 @@ Fan connectors: no fan posts observed - reddit error (HTTP Error 403: Blocked); 
 - Game state: next game in ~1 day(s)
 - Commercial: campaign - Make Them Know Your Name $23.00 (sellable) - THEY FORGOT WHO I AM — QB1 belief
 - Why fans care: The whole fanbase is arguing one question: who starts. That is a belief argument, and belief is what a QB tee sells.
-- Tracked names: deshaun watson (6 window mentions, FTI 38)
+- Tracked names: deshaun watson (8 window mentions, FTI 50)
 - Action: X (@gridironlocker1 first) - conversation post now (now)
 - Action: Threads - alternate angle (+20 min)
 - Action: Instagram - product creative after engagement confirms the angle (after the X post confirms the angle)
@@ -91,10 +92,11 @@ Fan connectors: no fan posts observed - reddit error (HTTP Error 403: Blocked); 
   - Dallas Cowboys Quickly Emerging as Best Trade Fit for Pro Bowl Edge Rusher - Yahoo Sports - google_news (5 h ago) https://news.google.com/rss/articles/CBMijgFBVV95cUxPT1ktMGVXcjByaGtyTUtZTUFIRWxOQVNTMU1ONl93ZnlNbU9Wc3hhX2tPTWNwRkpUZ1RIelYtQ0l2QWNkNjQxZFFyUkVWN1I5d3IwN3Y5a2dDVkZtZUxhdWdBdi1TZDRhMlk1MTdBc2VfUk91Z0ZwSy1QY3pORWVOTWFMZWl0c0o5TERrelJR?oc=5
   - Mailbag: Does defense just need more time? - Dallas Cowboys | Official Site of the Dallas Cowboys - google_news (1 d ago) https://news.google.com/rss/articles/CBMigAFBVV95cUxNYnlndHFLYWRQeDhRUmdzV080N1l4ZC1ocjkyU2d2ZHkyVHB5RkJGT2s0RjI1WVVsdTRWeG5FWWVzdlB3N2RKUzF3U3U3Sm56MjRhMm5hS1pyOGs1RHYwRFVLY1NncGwxUW03NWxfdmNhZGloT01SX1lrYzZfSktJbg?oc=5
 
-## Filtered as HEADLINE (3)
+## Filtered as HEADLINE (4)
 
-- PACKERS - Josh Jacobs and the run game: 1 reaction item(s), 1 outlet(s), confidence 42% - not a reaction
+- PACKERS - Cheesehead Nation: Lambeau and the tundra: 1 reaction item(s), 1 outlet(s), confidence 42% - not a reaction
 - PACKERS - Jordan Love era: 10 is the number: 1 reaction item(s), 1 outlet(s), confidence 37% - not a reaction
+- MICHIGAN - Go Blue: The Big House identity: 2 reaction item(s), 2 outlet(s), confidence 57% - not a reaction
 - MICHIGAN - Underwood era: QB19 in Ann Arbor: 1 reaction item(s), 1 outlet(s), confidence 34% - not a reaction
 
 ## Article ideas (OPPORTUNITY+ only)
@@ -117,20 +119,20 @@ Fan connectors: no fan posts observed - reddit error (HTTP Error 403: Blocked); 
   - Link: profile link only, if asked
   - Image: None - text comment.
 
-- **[Medium] Michigan Wolverines: what the Go Blue faithful are actually saying about go blue: the big house identity**
-  - Where: Michigan football culture (Ann Arbor)
-  - Angle: Fan-demand piece built on the live signal (Indiana football sneaks by Michigan in overtime, notches first win in Ann Arbor since 1967), not on a headline recap.
-  - Link: https://gridironlocker.shop/m-vs-everybody?collectionId=YYMlCmwgKG__&color=GILDAN-NAVY&productId=6aa1e7c8047e2b3b0d59e904
-  - Image: M vs Everybody mockup next to the moment that started it.
+- **[Medium] Green Bay Packers: what the Cheesehead Nation are actually saying about josh jacobs and the run game**
+  - Where: Packers fan culture (Cheesehead Nation)
+  - Angle: Fan-demand piece built on the live signal ('I think he can provide a spark': Josh Jacobs added to Packers' 53-man roster), not on a headline recap.
+  - Link: https://viralstyle.com/kebystore/limited-edition-grb8
+  - Image: Green Bay Football Cheesehead Nation Shirt mockup next to the moment that started it.
 
-- **[Quora] Why are Michigan Wolverines fans so focused on go blue: the big house identity right now?**
-  - Where: Michigan football / college football recruiting
+- **[Quora] Why are Green Bay Packers fans so focused on josh jacobs and the run game right now?**
+  - Where: Green Bay Packers / NFC North
   - Angle: Answer the question a fan would actually type, then answer it properly.
-  - Link: https://gridironlocker.shop/m-vs-everybody?collectionId=YYMlCmwgKG__&color=GILDAN-NAVY&productId=6aa1e7c8047e2b3b0d59e904
+  - Link: https://viralstyle.com/kebystore/limited-edition-grb8
   - Image: Simple stat/quote graphic - no product shot.
 
-- **[Reddit] Go Blue: The Big House identity - be a fan first in r/MichiganWolverines**
-  - Where: r/MichiganWolverines / r/CFB / r/collegefootball
+- **[Reddit] Josh Jacobs and the run game - be a fan first in r/GreenBayPackers**
+  - Where: r/GreenBayPackers / r/nfl
   - Angle: Join the existing thread instead of starting a promo post.
   - Link: profile link only, if asked
   - Image: None - text comment.
