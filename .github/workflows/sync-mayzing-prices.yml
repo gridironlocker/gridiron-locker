@@ -1,0 +1,67 @@
+name: Sync Mayzing prices
+
+# Captures the live USD price of every Browns and Michigan product into
+# data/mayzing_prices.json. The storefront cannot be reached from the build
+# environment, so this runs on a GitHub runner, which can. The refresh workflow
+# runs the same script before building; this workflow exists for an on-demand
+# capture when a price has just been changed in Mayzing admin.
+#
+# Dispatch it on the branch you want the capture committed to. The capture's
+# own commit only touches data/mayzing_prices.json, which matches none of the
+# trigger paths, so there is no loop.
+
+on:
+  workflow_dispatch:
+  push:
+    paths:
+      - "src/scrape_mayzing_prices.py"
+      - ".github/workflows/sync-mayzing-prices.yml"
+
+permissions:
+  contents: write
+
+concurrency:
+  group: sync-mayzing-prices-${{ github.ref }}
+  cancel-in-progress: true
+
+jobs:
+  sync:
+    runs-on: ubuntu-latest
+    steps:
+      - uses: actions/checkout@v4
+        with:
+          ref: ${{ github.ref_name }}
+
+      - uses: actions/setup-python@v5
+        with:
+          python-version: "3.12"
+
+      - name: Capture storefront prices
+        # No bs4/requests: the script is stdlib-only, so it runs anywhere.
+        # The failure reason is echoed as an annotation as well as a log tail:
+        # the run log URL is not readable from every environment, and "which
+        # product had no USD price" is the only thing worth knowing when this
+        # step goes red.
+        run: |
+          set +e
+          python src/scrape_mayzing_prices.py > /tmp/prices.txt 2>&1
+          code=$?
+          tail -n 30 /tmp/prices.txt
+          if [ $code -ne 0 ]; then
+            msg="$(grep -E '^  ! ' /tmp/prices.txt | head -n 6 | tr '\n' ' | ')"
+            [ -z "$msg" ] && msg="$(tail -n 3 /tmp/prices.txt | tr '\n' ' | ')"
+            echo "::error::Mayzing price capture refused to write: ${msg}"
+          fi
+          exit $code
+
+      - name: Commit the capture
+        run: |
+          if [ -z "$(git status --porcelain -- data/mayzing_prices.json)" ]; then
+            echo "data/mayzing_prices.json unchanged"
+            exit 0
+          fi
+          git config user.name  "gridiron-bot"
+          git config user.email "bot@gridironlocker.store"
+          git add data/mayzing_prices.json
+          git commit -m "Sync Mayzing prices $(date -u +%Y-%m-%d)"
+          git push origin "HEAD:${{ github.ref_name }}"

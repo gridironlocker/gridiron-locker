@@ -5,7 +5,7 @@
   "collectionId": "P19bpeU2x_Ng",
   "partner": "Mayzing",
   "currency": "USD",
-  "currency_note": "Storefront product pages quote USD 20.00 for the 2026-10-06 additions (the older records were captured at 21.00) and USD 21.99 for the 2026-10-14 additions; some product pages render NOK 209.00 / NOK 229.00 respectively depending on session geo, which approximates the same USD prices. Price recorded here is the USD storefront price. Verify currency for US customers in Mayzing admin.",
+  "currency_note": "Storefront product pages quote USD 23.00 for the Browns tee range; some pages render NOK depending on session geo, which approximates the same USD price. The price recorded here is the hand-verified USD snapshot: data/mayzing_prices.json is the live capture (src/scrape_mayzing_prices.py) and src/build.py prefers it, so a price changed in Mayzing admin does not need a hand edit here.",
   "captured": "2026-09-12",
   "products": [
     {
@@ -13,7 +13,7 @@
       "name": "Cleveland Victory Monday",
       "garment": "Classic Unisex T-shirt",
       "blank": "Gildan 64000",
-      "price_usd": "21.99",
+      "price_usd": "23.00",
       "colour_code": "GILDAN-DARK_CHOCOLATE",
       "colour_name": "Dark Chocolate",
       "sizes": [
@@ -41,7 +41,7 @@
       "name": "Cleveland Football For Life",
       "garment": "Classic Unisex T-shirt",
       "blank": "Gildan 64000",
-      "price_usd": "21.99",
+      "price_usd": "23.00",
       "colour_code": "GILDAN-BLACK",
       "colour_name": "Black",
       "sizes": [
@@ -69,7 +69,7 @@
       "name": "Browns",
       "garment": "Classic Unisex T-shirt",
       "blank": "Gildan 64000",
-      "price_usd": "21.99",
+      "price_usd": "23.00",
       "colour_code": "GILDAN-DARK_CHOCOLATE",
       "colour_name": "Dark Chocolate",
       "sizes": [
@@ -97,7 +97,7 @@
       "name": "Cle Browns",
       "garment": "Classic Unisex T-shirt",
       "blank": "Gildan 64000",
-      "price_usd": "21.99",
+      "price_usd": "23.00",
       "colour_code": "GILDAN-DARK_CHOCOLATE",
       "colour_name": "Dark Chocolate",
       "sizes": [
@@ -125,7 +125,7 @@
       "name": "Cleveland Football Tshirt",
       "garment": "Men's T-Shirt",
       "blank": "Gildan 5000",
-      "price_usd": "20.00",
+      "price_usd": "23.00",
       "colour_code": "GILDAN-DARK_CHOCOLATE",
       "colour_name": "Dark Chocolate",
       "sizes": [
@@ -153,7 +153,7 @@
       "name": "Classic 1946 Tshirt",
       "garment": "Men's T-Shirt",
       "blank": "Gildan 5000",
-      "price_usd": "20.00",
+      "price_usd": "23.00",
       "colour_code": "GILDAN-DARK_CHOCOLATE",
       "colour_name": "Dark Chocolate",
       "sizes": [
@@ -181,7 +181,7 @@
       "name": "1946 Cleveland Tshirt",
       "garment": "Men's T-Shirt",
       "blank": "Gildan 5000",
-      "price_usd": "20.00",
+      "price_usd": "23.00",
       "colour_code": "GILDAN-DARK_CHOCOLATE",
       "colour_name": "Dark Chocolate",
       "sizes": [
@@ -209,7 +209,7 @@
       "name": "Cleveland Tshirt",
       "garment": "Men's T-Shirt",
       "blank": "Gildan 5000",
-      "price_usd": "20.00",
+      "price_usd": "23.00",
       "colour_code": "GILDAN-WHITE",
       "colour_name": "White",
       "sizes": [
@@ -237,7 +237,7 @@
       "name": "Sunday Funday Tshirt",
       "garment": "Men's T-Shirt",
       "blank": "Gildan 5000",
-      "price_usd": "20.00",
+      "price_usd": "23.00",
       "colour_code": "GILDAN-DARK_CHOCOLATE",
       "colour_name": "Dark Chocolate",
       "sizes": [
@@ -265,7 +265,7 @@
       "name": "Cleveland 1946 Tshirt",
       "garment": "Men's T-Shirt",
       "blank": "Gildan 5000",
-      "price_usd": "20.00",
+      "price_usd": "23.00",
       "colour_code": "GILDAN-WHITE",
       "colour_name": "White",
       "sizes": [
@@ -293,7 +293,7 @@
       "name": "Dawg Pound Cleveland Skyline",
       "garment": "Men's T-Shirt",
       "blank": "Gildan 5000",
-      "price_usd": "21.00",
+      "price_usd": "23.00",
       "colour_code": "GILDAN-BLACK",
       "colour_name": "Black",
       "sizes": [
@@ -321,7 +321,7 @@
       "name": "Cleveland Football Est. 1946",
       "garment": "Men's T-Shirt",
       "blank": "Gildan 5000",
-      "price_usd": "21.00",
+      "price_usd": "23.00",
       "colour_code": "GILDAN-NATURAL",
       "colour_name": "Natural",
       "sizes": [
@@ -403,7 +403,7 @@
       "name": "Limited Edition Cleveland Football",
       "garment": "Men's T-Shirt",
       "blank": "Gildan 5000",
-      "price_usd": "21.00",
+      "price_usd": "23.00",
       "colour_code": "GILDAN-ASH_GREY",
       "colour_name": "Ash Grey",
       "sizes": [
@@ -430,7 +430,7 @@
       "name": "Limited Edition No Fly Zone",
       "garment": "Men's T-Shirt",
       "blank": "Gildan 5000",
-      "price_usd": "21.00",
+      "price_usd": "23.00",
       "colour_code": "GILDAN-DARK_CHOCOLATE",
       "colour_name": "Dark Chocolate",
       "sizes": [
@@ -457,7 +457,7 @@
       "name": "The Wall",
       "garment": "Men's T-Shirt",
       "blank": "Gildan 5000",
-      "price_usd": "21.00",
+      "price_usd": "23.00",
       "colour_code": "GILDAN-DARK_CHOCOLATE",
       "colour_name": "Dark Chocolate",
       "sizes": [
@@ -484,7 +484,7 @@
       "name": "Denzel Rock Out",
       "garment": "Men's T-Shirt",
       "blank": "Gildan 5000",
-      "price_usd": "21.00",
+      "price_usd": "23.00",
       "colour_code": "GILDAN-DARK_CHOCOLATE",
       "colour_name": "Dark Chocolate",
       "sizes": [
@@ -511,7 +511,7 @@
       "name": "Cle Browns Orange",
       "garment": "Men's T-Shirt",
       "blank": "Gildan 5000",
-      "price_usd": "21.00",
+      "price_usd": "23.00",
       "colour_code": "GILDAN-NATURAL",
       "colour_name": "Natural",
       "sizes": [
@@ -538,7 +538,7 @@
       "name": "Cle Browns",
       "garment": "Men's T-Shirt",
       "blank": "Gildan 5000",
-      "price_usd": "21.00",
+      "price_usd": "23.00",
       "colour_code": "GILDAN-NATURAL",
       "colour_name": "Natural",
       "sizes": [
@@ -565,7 +565,7 @@
       "name": "Cle Browns",
       "garment": "Men's T-Shirt",
       "blank": "Gildan 5000",
-      "price_usd": "21.00",
+      "price_usd": "23.00",
       "colour_code": "GILDAN-SAND",
       "colour_name": "Sand",
       "sizes": [
@@ -592,7 +592,7 @@
       "name": "Be Awar of Dawg",
       "garment": "Men's T-Shirt",
       "blank": "Gildan 5000",
-      "price_usd": "21.00",
+      "price_usd": "23.00",
       "colour_code": "GILDAN-DARK_CHOCOLATE",
       "colour_name": "Dark Chocolate",
       "sizes": [
@@ -619,7 +619,7 @@
       "name": "Cleveland 1946",
       "garment": "Men's T-Shirt",
       "blank": "Gildan 5000",
-      "price_usd": "21.00",
+      "price_usd": "23.00",
       "colour_code": "GILDAN-ASH_GREY",
       "colour_name": "Ash Grey",
       "sizes": [
@@ -646,7 +646,7 @@
       "name": "Cle Browns Dawg",
       "garment": "Men's T-Shirt",
       "blank": "Gildan 5000",
-      "price_usd": "21.00",
+      "price_usd": "23.00",
       "colour_code": "GILDAN-DARK_CHOCOLATE",
       "colour_name": "Dark Chocolate",
       "sizes": [
@@ -673,7 +673,7 @@
       "name": "No Fly Zone",
       "garment": "Men's T-Shirt",
       "blank": "Gildan 5000",
-      "price_usd": "21.00",
+      "price_usd": "23.00",
       "colour_code": "GILDAN-DARK_CHOCOLATE",
       "colour_name": "Dark Chocolate",
       "sizes": [
@@ -700,7 +700,7 @@
       "name": "Cleveland",
       "garment": "Men's T-Shirt",
       "blank": "Gildan 5000",
-      "price_usd": "21.00",
+      "price_usd": "23.00",
       "colour_code": "GILDAN-SAND",
       "colour_name": "Sand",
       "sizes": [
@@ -727,7 +727,7 @@
       "name": "Dawg Life",
       "garment": "Men's T-Shirt",
       "blank": "Gildan 5000",
-      "price_usd": "21.00",
+      "price_usd": "23.00",
       "colour_code": "GILDAN-DARK_CHOCOLATE",
       "colour_name": "Dark Chocolate",
       "sizes": [
@@ -754,7 +754,7 @@
       "name": "Make Them Know Your Name",
       "garment": "Men's T-Shirt",
       "blank": "Gildan 5000",
-      "price_usd": "21.00",
+      "price_usd": "23.00",
       "colour_code": "GILDAN-DARK_CHOCOLATE",
       "colour_name": "Dark Chocolate",
       "sizes": [
@@ -781,7 +781,7 @@
       "name": "Browns Cle",
       "garment": "Men's T-Shirt",
       "blank": "Gildan 5000",
-      "price_usd": "21.00",
+      "price_usd": "23.00",
       "colour_code": "GILDAN-DARK_CHOCOLATE",
       "colour_name": "Dark Chocolate",
       "sizes": [
@@ -808,7 +808,7 @@
       "name": "DWAG",
       "garment": "Men's T-Shirt",
       "blank": "Gildan 5000",
-      "price_usd": "21.00",
+      "price_usd": "23.00",
       "colour_code": "GILDAN-OLD_GOLD",
       "colour_name": "Old Gold",
       "sizes": [
@@ -835,7 +835,7 @@
       "name": "Let's Go Cle Copy",
       "garment": "Men's T-Shirt",
       "blank": "Gildan 5000",
-      "price_usd": "21.00",
+      "price_usd": "23.00",
       "colour_code": "GILDAN-DARK_CHOCOLATE",
       "colour_name": "Dark Chocolate",
       "sizes": [
@@ -862,7 +862,7 @@
       "name": "Go Browns",
       "garment": "Men's T-Shirt",
       "blank": "Gildan 5000",
-      "price_usd": "21.00",
+      "price_usd": "23.00",
       "colour_code": "GILDAN-DARK_CHOCOLATE",
       "colour_name": "Dark Chocolate",
       "sizes": [
@@ -889,7 +889,7 @@
       "name": "Playoffs",
       "garment": "Men's T-Shirt",
       "blank": "Gildan 5000",
-      "price_usd": "21.00",
+      "price_usd": "23.00",
       "colour_code": "GILDAN-DARK_CHOCOLATE",
       "colour_name": "Dark Chocolate",
       "sizes": [
@@ -916,7 +916,7 @@
       "name": "Ohio Cle",
       "garment": "Men's T-Shirt",
       "blank": "Gildan 5000",
-      "price_usd": "21.00",
+      "price_usd": "23.00",
       "colour_code": "GILDAN-DARK_CHOCOLATE",
       "colour_name": "Dark Chocolate",
       "sizes": [
