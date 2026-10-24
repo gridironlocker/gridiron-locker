@@ -2,7 +2,7 @@
  "generated": "2026-10-24",
  "window_days": 10,
  "fti_formula": "round(100 * entity_mentions / peak_mentions_in_window)",
- "peak_mentions": 16,
+ "peak_mentions": 18,
  "stats": {
   "products": 96,
   "collections": 4,
@@ -11,15 +11,15 @@
   "hot": 11,
   "throwback": 0,
   "steady": 85,
-  "gaps": 6,
-  "moments": 0,
+  "gaps": 7,
+  "moments": 1,
   "tracked_names": 18,
   "dead_campaigns": 67
  },
  "fti_rows": [
   {
    "name": "bryce underwood",
-   "mentions": 16,
+   "mentions": 18,
    "index": 100,
    "status": "trending",
    "gap": false,
@@ -27,27 +27,27 @@
    "collection": "michigan"
   },
   {
-   "name": "dak prescott",
-   "mentions": 12,
-   "index": 75,
-   "status": "trending",
-   "gap": true,
-   "shoppable": false,
-   "collection": "dallas-cowboys"
-  },
-  {
    "name": "josh jacobs",
-   "mentions": 12,
-   "index": 75,
+   "mentions": 13,
+   "index": 72,
    "status": "trending",
    "gap": true,
    "shoppable": false,
    "collection": "green-bay-packers"
   },
   {
+   "name": "dak prescott",
+   "mentions": 12,
+   "index": 67,
+   "status": "trending",
+   "gap": true,
+   "shoppable": false,
+   "collection": "dallas-cowboys"
+  },
+  {
    "name": "micah parsons",
    "mentions": 10,
-   "index": 62,
+   "index": 56,
    "status": "trending",
    "gap": false,
    "shoppable": true,
@@ -56,7 +56,7 @@
   {
    "name": "deshaun watson",
    "mentions": 6,
-   "index": 38,
+   "index": 33,
    "status": "trending",
    "gap": true,
    "shoppable": false,
@@ -64,8 +64,8 @@
   },
   {
    "name": "jordan love",
-   "mentions": 4,
-   "index": 25,
+   "mentions": 5,
+   "index": 28,
    "status": "trending",
    "gap": false,
    "shoppable": true,
@@ -74,7 +74,7 @@
   {
    "name": "shedeur sanders",
    "mentions": 4,
-   "index": 25,
+   "index": 22,
    "status": "trending",
    "gap": false,
    "shoppable": true,
@@ -83,7 +83,7 @@
   {
    "name": "ceedee lamb",
    "mentions": 3,
-   "index": 19,
+   "index": 17,
    "status": "trending",
    "gap": true,
    "shoppable": false,
@@ -92,34 +92,34 @@
   {
    "name": "kyle whittingham",
    "mentions": 3,
-   "index": 19,
+   "index": 17,
    "status": "trending",
    "gap": true,
    "shoppable": false,
    "collection": "michigan"
   },
   {
+   "name": "matt lafleur",
+   "mentions": 3,
+   "index": 17,
+   "status": "trending",
+   "gap": true,
+   "shoppable": false,
+   "collection": "green-bay-packers"
+  },
+  {
    "name": "todd monken",
    "mentions": 3,
-   "index": 19,
+   "index": 17,
    "status": "trending",
    "gap": true,
    "shoppable": false,
    "collection": "cleveland-browns"
   },
   {
-   "name": "matt lafleur",
-   "mentions": 2,
-   "index": 12,
-   "status": "steady",
-   "gap": false,
-   "shoppable": false,
-   "collection": "green-bay-packers"
-  },
-  {
    "name": "myles garrett",
    "mentions": 2,
-   "index": 12,
+   "index": 11,
    "status": "steady",
    "gap": false,
    "shoppable": true,
@@ -182,27 +182,27 @@
  ],
  "gaps": [
   {
-   "name": "dak prescott",
-   "mentions": 12,
-   "index": 75,
-   "status": "trending",
-   "gap": true,
-   "shoppable": false,
-   "collection": "dallas-cowboys"
-  },
-  {
    "name": "josh jacobs",
-   "mentions": 12,
-   "index": 75,
+   "mentions": 13,
+   "index": 72,
    "status": "trending",
    "gap": true,
    "shoppable": false,
    "collection": "green-bay-packers"
   },
   {
+   "name": "dak prescott",
+   "mentions": 12,
+   "index": 67,
+   "status": "trending",
+   "gap": true,
+   "shoppable": false,
+   "collection": "dallas-cowboys"
+  },
+  {
    "name": "deshaun watson",
    "mentions": 6,
-   "index": 38,
+   "index": 33,
    "status": "trending",
    "gap": true,
    "shoppable": false,
@@ -211,7 +211,7 @@
   {
    "name": "ceedee lamb",
    "mentions": 3,
-   "index": 19,
+   "index": 17,
    "status": "trending",
    "gap": true,
    "shoppable": false,
@@ -220,16 +220,25 @@
   {
    "name": "kyle whittingham",
    "mentions": 3,
-   "index": 19,
+   "index": 17,
    "status": "trending",
    "gap": true,
    "shoppable": false,
    "collection": "michigan"
   },
   {
+   "name": "matt lafleur",
+   "mentions": 3,
+   "index": 17,
+   "status": "trending",
+   "gap": true,
+   "shoppable": false,
+   "collection": "green-bay-packers"
+  },
+  {
    "name": "todd monken",
    "mentions": 3,
-   "index": 19,
+   "index": 17,
    "status": "trending",
    "gap": true,
    "shoppable": false,
@@ -251,7 +260,7 @@
     {
      "name": "deshaun watson",
      "mentions": 6,
-     "index": 38,
+     "index": 33,
      "status": "trending",
      "gap": true,
      "shoppable": false,
@@ -260,7 +269,7 @@
     {
      "name": "todd monken",
      "mentions": 3,
-     "index": 19,
+     "index": 17,
      "status": "trending",
      "gap": true,
      "shoppable": false,
@@ -271,11 +280,11 @@
     "browns",
     "cleveland",
     "injury",
-    "watch",
     "trade",
+    "watch",
     "gets",
     "preview",
-    "place"
+    "deadline"
    ],
    "headline_count": 100,
    "headlines": [
@@ -326,7 +335,7 @@
     {
      "name": "dak prescott",
      "mentions": 12,
-     "index": 75,
+     "index": 67,
      "status": "trending",
      "gap": true,
      "shoppable": false,
@@ -335,7 +344,7 @@
     {
      "name": "ceedee lamb",
      "mentions": 3,
-     "index": 19,
+     "index": 17,
      "status": "trending",
      "gap": true,
      "shoppable": false,
@@ -400,8 +409,17 @@
    "gaps": [
     {
      "name": "josh jacobs",
-     "mentions": 12,
-     "index": 75,
+     "mentions": 13,
+     "index": 72,
+     "status": "trending",
+     "gap": true,
+     "shoppable": false,
+     "collection": "green-bay-packers"
+    },
+    {
+     "name": "matt lafleur",
+     "mentions": 3,
+     "index": 17,
      "status": "trending",
      "gap": true,
      "shoppable": false,
@@ -414,9 +432,9 @@
     "cowboys",
     "josh",
     "jacobs",
-    "injury",
+    "detroit",
     "watch",
-    "detroit"
+    "love"
    ],
    "headline_count": 100,
    "headlines": [
@@ -467,7 +485,7 @@
     {
      "name": "kyle whittingham",
      "mentions": 3,
-     "index": 19,
+     "index": 17,
      "status": "trending",
      "gap": true,
      "shoppable": false,
@@ -857,5 +875,17 @@
    "url": "https://viralstyle.com/kebystore/winter-hat-beanie-go-browns"
   }
  ],
- "moments": []
+ "moments": [
+  {
+   "title": "Green Bay Packers: Matt LaFleur on roughing calls and Jordan Love",
+   "url": "https://news.google.com/rss/articles/CBMihgFBVV95cUxQM2VEeGJFWmFtQmhwenQ5MTdvc3lVY20yS2hobUFZbkp1T0FnbC1manB4My01dG9UNm0wYzc3emJQSlM4RXNSQ1U4cHZNZVI4RFlyREUyZ1djNjI1bEI3Y2JiM19aQm9mNVQ1emFVQ2Mxb2dIYW4yVmdRSzlEVS1hRlZENXVYdw?oc=5",
+   "source": "Yahoo Sports",
+   "pub": "Tue, 20 Oct 2026 21:33:00 GMT",
+   "collection": "green-bay-packers",
+   "entities": [
+    "jordan love",
+    "matt lafleur"
+   ]
+  }
+ ]
 }
