@@ -3297,14 +3297,13 @@ def _girly_body(cre, c, items, track):
     # invent availability. Only the garments that were actually seen on the
     # store's own category filter pages ship (store_catalogue.products[]
     # .apparel, captured 2026-10-12); the payload below carries each listing's
-    # own signed mockup and product page. A click lands on every design: the
-    # designs that listed the style swap to that garment and are tagged
-    # "Showing <style>", and the designs that did not keep their own mockup,
-    # muted. Caps & Hats is the deliberate exception: its three designs without
-    # cap listings leave the grid, so the category lists the four real caps
-    # rather than presenting t-shirts as hats. The five t-shirt listings get
-    # their own second row of buttons, and a category with no listing anywhere
-    # says "not listed yet" on its tile instead of swapping anything.
+    # own signed mockup and product page. The designs that listed the style
+    # swap to that garment; the designs that did not leave the grid entirely,
+    # so a category lists exactly the designs sold in it (a t-shirt is never
+    # shown as a tank top and no greyed-out card dilutes the result). The five
+    # t-shirt listings get their own second row of buttons, and a category with
+    # no listing anywhere says "not listed yet" on its tile instead of
+    # swapping anything.
     grid_id = "gcollectionGrid"
     # One derivation for both locker flavours: a captured partner catalogue
     # (Bella) or this site's own collection matrix (Crystal Marie). See
@@ -6929,11 +6928,10 @@ document.querySelectorAll('a.custom-link').forEach(function(a){
 // therefore lands on all seven designs and never invents stock:
 //   * a design that listed the chosen style swaps its mockup and both links
 //     to that listing (attribution parameters included);
-//   * a design that did not keeps its own mockup, muted, still linking to
-//     its own product page so the visitor can check the styles that design
-//     offers today;
-//   * Caps & Hats is the deliberate product-list exception: its three designs
-//     without a cap listing are hidden, leaving exactly the four cap cards;
+//   * a design that did NOT is removed from the grid - not greyed out. A
+//     style filter shows exactly the designs sold in that style, so a t-shirt
+//     is never shown as a tank top and no dead card dilutes the result. This
+//     is the same rule the team collection pages already follow;
 //   * the five t-shirt listings get a second row of buttons, hidden until
 //     one of their styles is chosen.
 // There is deliberately no live status line and no per-card badge: the swap
@@ -6990,7 +6988,12 @@ document.querySelectorAll('a.custom-link').forEach(function(a){
     card._garment=metaLabel?metaLabel.textContent:'';
     card._price=metaPrice?metaPrice.textContent:'';
   });
-  var cat=null, garment=null;
+  // ``exact`` records how the current choice was made: a style chip names ONE
+  // garment ("Classic Unisex T-shirt"), so nothing else may fill its slot; a
+  // category tile names a garment CLASS ("T-Shirts"), so each design may fall
+  // back to whichever style it lists in that class. Without the distinction a
+  // chip labelled "listed by 24 of 34 designs" would show all 34.
+  var cat=null, garment=null, exact=false;
   function press(el,on){el.setAttribute('aria-pressed',on?'true':'false');}
   function restore(card){
     if(card._img){
@@ -7005,15 +7008,15 @@ document.querySelectorAll('a.custom-link').forEach(function(a){
     if(card._metaLabel)card._metaLabel.textContent=card._garment;
     if(card._metaPrice)card._metaPrice.textContent=card._price;
     card.classList.remove('is-swapped');
-    card.classList.remove('is-muted');
     card.hidden=false;
   }
   function apply(){
     cards.forEach(function(card){
       var entry=garment?(card._styles[garment]||null):null;
-      // The category tile falls back to the design's own listing in that
+      // A category tile falls back to the design's own listing in that
       // category when the tile's default style is not one this design lists.
-      if(!entry&&cat&&loose){
+      // A style chip is exact: a design that did not list that cut is out.
+      if(!entry&&cat&&loose&&!exact){
         var list=card._byCat[cat]||[];
         entry=list.length?list[0]:null;
       }
@@ -7031,14 +7034,12 @@ document.querySelectorAll('a.custom-link').forEach(function(a){
         if(card._metaLabel)card._metaLabel.textContent=entry.garment;
         if(card._metaPrice&&entry.price)card._metaPrice.textContent=entry.price;
         card.classList.add('is-swapped');
-        card.classList.remove('is-muted');
         return;
       }
+      // No listing in the chosen style: the card leaves the grid. Greying it
+      // out left the shopper looking at a design the filter cannot sell.
       restore(card);
-      if(cat){
-        if(cat==='caps-hats')card.hidden=true;
-        else card.classList.add('is-muted');
-      }
+      if(cat)card.hidden=true;
     });
     tiles.forEach(function(t){press(t,cat!==null&&t.getAttribute('data-gcat')===cat);});
     chips.forEach(function(c){press(c,garment!==null&&c.getAttribute('data-gstyle')===garment);});
@@ -7048,9 +7049,9 @@ document.querySelectorAll('a.custom-link').forEach(function(a){
       }));
     }
   }
-  function choose(nextCat,nextGarment){
-    if(cat===nextCat&&garment===nextGarment){cat=null;garment=null;}
-    else{cat=nextCat;garment=nextGarment;}
+  function choose(nextCat,nextGarment,nextExact){
+    if(cat===nextCat&&garment===nextGarment){cat=null;garment=null;exact=false;}
+    else{cat=nextCat;garment=nextGarment;exact=!!nextExact;}
     apply();
     if(!cat)return;
     try{
@@ -7060,12 +7061,12 @@ document.querySelectorAll('a.custom-link').forEach(function(a){
   }
   tiles.forEach(function(t){
     t.addEventListener('click',function(){
-      choose(t.getAttribute('data-gcat'),t.getAttribute('data-gstyle')||null);
+      choose(t.getAttribute('data-gcat'),t.getAttribute('data-gstyle')||null,false);
     });
   });
   chips.forEach(function(c){
     c.addEventListener('click',function(){
-      choose(c.getAttribute('data-gcat'),c.getAttribute('data-gstyle'));
+      choose(c.getAttribute('data-gcat'),c.getAttribute('data-gstyle'),true);
     });
   });
 })();

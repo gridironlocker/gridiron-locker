@@ -1610,15 +1610,12 @@ main.jlock-girly{padding:0 0 32px;overflow:hidden}
    request: the pressed category tile / style chip is what tells the shopper
    which garment is on screen, and the swapped mockup shows it. No markup and
    no rule for it ships any more. */
-/* a design that did not list the chosen style keeps its own mockup, muted -
-   the card never disappears and its link is never rewritten */
-.jlock-girly .gproduct.is-muted .gproduct-art img{filter:grayscale(1);opacity:.42}
-.jlock-girly .gproduct.is-muted{background:#fbfaf7}
-.jlock-girly .gproduct.is-muted .gproduct-art::after{position:absolute;inset:0;content:"";
-  background:rgba(255,255,255,.42);pointer-events:none}
-/* Caps & Hats is a real product list rather than a comparison. The native
-   hidden attribute removes designs without a cap; this explicit rule prevents
-   a future .gproduct display declaration from overriding the browser default. */
+/* A design that did not list the chosen style leaves the grid instead of
+   sitting there greyed out: a style filter lists exactly the designs sold in
+   it, so a t-shirt is never shown as a tank top and no dead card dilutes the
+   result. The native hidden attribute does the removal; this explicit rule
+   prevents a future .gproduct display declaration from overriding the browser
+   default. */
 .jlock-girly .gproduct[hidden]{display:none}
 /* the swapped card's View design chip goes navy, so its text must go white
    to stay readable (it was ink-on-ink and invisible) */
@@ -1835,8 +1832,6 @@ body[data-creator-page="CRYSTAL"] .bellanav-links a:focus-visible{outline:2px so
 .jlock-girly[data-theme="browns"] .gproduct-meta b{color:#2c1a0f}
 .jlock-girly[data-theme="browns"] .gproduct-link{background:#2c1a0f;color:#fff8ef}
 .jlock-girly[data-theme="browns"] .gproduct-link:hover{background:#4b2f1b}
-.jlock-girly[data-theme="browns"] .gproduct.is-muted{background:#f9f1e4}
-.jlock-girly[data-theme="browns"] .gproduct.is-muted .gproduct-art::after{background:rgba(250,242,229,.46)}
 .jlock-girly[data-theme="browns"] .gproduct-art:focus-visible,
 .jlock-girly[data-theme="browns"] .gproduct-link:focus-visible,
 .jlock-girly[data-theme="browns"] .gbanner-link:focus-visible,
