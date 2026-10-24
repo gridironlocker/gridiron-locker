@@ -2828,6 +2828,188 @@ class BellaLocker(unittest.TestCase):
             self.assertTrue(os.path.isfile(target), f"{fp}: {value}")
 
 
+class CrystalMarieLocker(unittest.TestCase):
+    """Crystal Marie's Browns collection - Bella's locker, Browns palette.
+
+    This is the first creator locker curated from THIS site's own catalogue
+    (the Cleveland Browns collection) instead of a captured partner store, so
+    it has to prove three things at once:
+
+    * the whole live Browns collection ships, curated picks first, and every
+      card opens the local product page with ``?creator=CRYSTAL``;
+    * the CRYSTAL discount (10% off) is stated clearly in the same three
+      placements as Bella's VIP10 offer and never promises a checkout this
+      site does not run;
+    * the browns skin is scoped - no Bella copy, no browns rule reaching her
+      page, and a disclaimer naming the Browns/NFL rather than Michigan.
+    """
+
+    def setUp(self):
+        import build  # noqa: E402
+
+        self.build = build
+        self.html = page("browns/crystal-marie/index.html")
+        self.cre = load_json("data/creators.json")["creators"]["crystal"]
+        self.bella = page("michigan/bella/index.html")
+        self.css = page("assets/style.css")
+
+    def test_page_is_indexable_sitemapped_and_closes_with_app_js(self):
+        self.assertIn('<link rel="canonical" '
+                      'href="https://gridironlocker.store/browns/crystal-marie/">',
+                      self.html)
+        self.assertIn("<loc>https://gridironlocker.store/browns/crystal-marie/</loc>",
+                      page("sitemap.xml"))
+        self.assertIn('data-creator-page="CRYSTAL"', self.html)
+        self.assertNotIn('name="robots" content="noindex', self.html)
+        self.assertTrue(self.html.endswith("</body></html>"))
+        loads = re.findall(r'<script src="[^"]*assets/app\.js"[^>]*></script>',
+                           self.html)
+        self.assertEqual(len(loads), 1)
+        self.assertIn("defer", loads[0])
+
+    def test_the_locker_carries_the_whole_live_browns_collection(self):
+        items = self.build.creator_items(self.cre)
+        live = [item["slug"] for item in self.build.MODEL["cleveland-browns"]]
+        picks = [slug for slug in self.cre["picks"] if slug in set(live)]
+        # curated order first, then the rest of the collection in catalogue order
+        self.assertEqual([item["slug"] for item in items],
+                         picks + [slug for slug in live if slug not in picks])
+        self.assertEqual(self.cre.get("include_collection"), True)
+        cards = re.findall(r'<article class="gproduct" data-slug="([^"]+)"',
+                           self.html)
+        self.assertEqual(cards, [item["slug"] for item in items])
+        self.assertEqual(len(set(cards)), len(cards))
+        # every design opens the local product page, still creator-tagged
+        for slug in cards:
+            block = re.search(r'<article class="gproduct" data-slug="%s".*?</article>'
+                              % re.escape(slug), self.html, re.S).group(0)
+            self.assertIn('href="../../shop/%s/?creator=CRYSTAL"' % slug, block)
+            self.assertIn('data-creator="CRYSTAL"', block)
+            # a local hand-off stays in this tab; the arrow says so too
+            self.assertNotIn('target="_blank"', block)
+            self.assertIn("See sizes &amp; price", block)
+        self.assertNotIn('href=""', self.html)
+        self.assertNotIn("silenttouch.store", self.html)
+        self.assertNotIn("Explore available styles", self.html)
+
+    def test_crystal_code_is_ten_percent_off_in_all_three_placements(self):
+        self.assertEqual(self.cre.get("promo"), {"code": "CRYSTAL", "pct": 10})
+        main = between(self.html,
+                       '<main id="main" class="jlock jlock-girly" data-theme="browns">',
+                       "</main>")
+        # primary placement: above the hero, in the first viewport
+        self.assertLess(main.index('class="gpromobar"'), main.index('class="gbanner"'))
+        bar = between(main, '<aside class="gpromobar"', "</aside>")
+        for bit in ("10% off", "your order", "Use code", "CRYSTAL", "Copy",
+                    "at checkout"):
+            self.assertIn(bit, bar, bit)
+        self.assertIn('data-copy-code="CRYSTAL"', bar)
+        self.assertIn('aria-label="Copy promo code CRYSTAL"', bar)
+        # second placement: directly above the product grid
+        head = between(main, '<div class="gcollection-head">', "</div>")
+        self.assertIn('<span>10% off</span> with code <strong>CRYSTAL</strong> '
+                      "at checkout", head)
+        # third: beside the hand-off under the grid
+        note = between(main, '<p class="gstore-note">', "</p>")
+        self.assertIn("10% off your order", note)
+        self.assertIn("<strong>CRYSTAL</strong>", note)
+        # no other creator's code or partner store leaked onto this page
+        for other in ("VIP10", "JOE10", "Silent Touch"):
+            self.assertNotIn(other, self.html, other)
+        # the code is copyable-but-visible, never dependent on JavaScript
+        self.assertIn('class="gpromobar-code-value">CRYSTAL', bar)
+        self.assertIn("gpromobar-code[data-copy-code]", page("assets/app.js"))
+
+    def test_browns_skin_is_scoped_and_leaves_bellas_page_alone(self):
+        self.assertEqual(self.cre.get("skin"), "browns")
+        self.assertIn('data-theme="browns"', self.html)
+        self.assertIn('body[data-creator-page="CRYSTAL"]{background:#f4ead9', self.css)
+        for selector in ('.jlock-girly[data-theme="browns"] .gbanner-panel{',
+                         '.jlock-girly[data-theme="browns"] .gbtn-maize{',
+                         '.jlock-girly[data-theme="browns"] .gpromobar{',
+                         '.jlock-girly[data-theme="browns"] .gscript{',
+                         '.jlock-girly[data-theme="browns"] .gproduct{',
+                         '.jlock-girly[data-theme="browns"] .gproduct-link{'):
+            self.assertIn(selector, self.css)
+        # the browns palette is unreachable from Bella's and Joe's pages, whose
+        # own skin blocks still ship untouched
+        self.assertNotIn('data-theme="browns"', self.bella)
+        self.assertNotIn('data-theme="browns"', page("michigan/joe/index.html"))
+        self.assertIn('body[data-creator-page="BELLA"]{background:#efefed', self.css)
+        self.assertIn(".jlock-girly .gbtn-maize{background:#e99aaa", self.css)
+
+    def test_copy_is_browns_first_and_never_claims_michigan(self):
+        text = unescape(self.html)
+        self.assertIn('<span class="gscript">Crystal’s</span>', text)
+        self.assertIn("<h2>Shop Crystal’s Picks</h2>", text)
+        self.assertIn("Crystal Marie’s Browns Collection", text)
+        self.assertIn('aria-label="Crystal’s Collection home"', text)
+        self.assertIn('aria-label="Crystal’s Collection"', text)
+        self.assertNotIn("Bella", text)
+        self.assertNotIn("Michigan", text)
+        legal = between(text, '<p class="glegal">', "</p>")
+        self.assertIn("Independent fan-made apparel.", legal)
+        self.assertIn("Cleveland Browns", legal)
+        self.assertIn("the NFL", legal)
+        # the hero is the browns banner, deployed as a JPG at its native size
+        self.assertIn('src="../../img/hero-crystal.jpg"', self.html)
+        self.assertIn('width="1568" height="672"', self.html)
+        self.assertTrue(os.path.isfile(os.path.join(SITE, "img/hero-crystal.jpg")))
+        self.assertFalse(os.path.isfile(os.path.join(SITE, "img",
+                                                     "crystal-marie-banner.png")))
+
+    def test_faq_schema_answers_the_discount_and_the_disclaimer(self):
+        faq = next(node for node in json_ld_nodes(self.html)
+                   if node.get("@type") == "FAQPage")
+        blob = json.dumps(faq)
+        self.assertIn("CRYSTAL", blob)
+        self.assertIn("10% off", blob)
+        self.assertIn("Cleveland Browns", blob)
+        self.assertNotIn("Michigan", blob)
+        collection = next(node for node in json_ld_nodes(self.html)
+                          if node.get("@type") == "CollectionPage")
+        self.assertEqual(collection["about"]["numberOfItems"],
+                         len(self.build.creator_items(self.cre)))
+
+    def test_anchors_resolve_and_no_empty_apparel_section_ships(self):
+        nav = re.search(r'<nav class="bellanav".*?</nav>', self.html, re.S)
+        self.assertIsNotNone(nav)
+        for link in ('href="../../"', 'href="#locker"', 'href="#about"'):
+            self.assertIn(link, nav.group(0))
+        self.assertLess(self.html.index('class="bellanav"'),
+                        self.html.index('<main id="main" class="jlock jlock-girly"'))
+        ids = re.findall(r'id="([^"]+)"', self.html)
+        self.assertEqual(len(ids), len(set(ids)))
+        for anchor in re.findall(r'href="#([^"]+)"', self.html):
+            self.assertIn(anchor, ids, f"missing anchor target #{anchor}")
+        # A locally curated locker has no captured garment matrix: it must ship
+        # neither empty category tiles nor the payload app.js would swap, and
+        # its nav must not link at the missing #apparel section.
+        self.assertNotIn("gcategory-tiles", self.html)
+        self.assertNotIn("data-apparel", self.html)
+        self.assertNotIn('href="#apparel"', self.html)
+
+    def test_local_asset_references_resolve(self):
+        from urllib.parse import unquote
+
+        fp = os.path.join(SITE, "browns/crystal-marie/index.html")
+        attr = re.compile(r'(?:src|data-src|href|content)="([^"]+)"')
+        for match in attr.finditer(self.html):
+            value = unescape(match.group(1).strip())
+            if not (value.startswith("/") or value.startswith("./")
+                    or value.startswith("../")):
+                continue
+            value = unquote(value.split("#")[0].split("?")[0])
+            if value in ("", "/", "./"):
+                continue
+            target = (os.path.join(SITE, value.lstrip("/")) if value.startswith("/")
+                      else os.path.join(os.path.dirname(fp), value))
+            target = os.path.normpath(target)
+            if os.path.isdir(target):
+                target = os.path.join(target, "index.html")
+            self.assertTrue(os.path.isfile(target), f"{fp}: {value}")
+
+
 class ConversionUpgrades(unittest.TestCase):
     """The conversion pass: truthful trust strip, faster PDP hand-off,
     visible custom-design service, completed funnel analytics.
