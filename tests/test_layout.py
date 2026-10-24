@@ -3597,7 +3597,8 @@ class DesLocker(unittest.TestCase):
         self.assertEqual(self.cre["display_name"], "Destiny Elizabeth")
         self.assertEqual(self.cre["page_name"], "Elizabeth Browns Collection")
         text = unescape(self.html)
-        self.assertIn('<span class="gscript">Elizabeth</span>', text)      # masthead + hero
+        self.assertIn('<span class="gscript">Elizabeth’s</span>', text)    # hero heading
+        self.assertIn('<span class="glogo-script">Elizabeth</span>', text)  # masthead
         self.assertIn("Elizabeth Collection home", text)                   # lockup label
         self.assertIn("Elizabeth Collection", text)                        # nav label
         self.assertIn("ELIZABETH PICK 01", text)
@@ -3611,6 +3612,30 @@ class DesLocker(unittest.TestCase):
         self.assertNotIn("❤️", json.dumps(self.cre, ensure_ascii=False))
         for rel in ("sitemap.xml", "feed.xml", "llms.txt"):
             self.assertNotIn("❤️", page(rel))
+
+    def test_the_masthead_keeps_the_short_signature(self):
+        """The hero reads "Elizabeth’s Collection"; the lockup reads "Elizabeth".
+
+        ``logo_script`` decouples the two lines, so the 27px masthead is not
+        forced to carry the possessive - and the creators whose records name
+        only ``hero_script`` keep drawing their lockup from it.
+        """
+        text = unescape(self.html)
+        self.assertIn('<span class="glogo-script">Elizabeth</span>', text)
+        self.assertNotIn('<span class="glogo-script">Elizabeth’s</span>', text)
+        self.assertIn('<span class="gscript">Elizabeth’s</span>', text)
+        self.assertEqual(self.cre["girly"].get("logo_script"), "Elizabeth")
+        # no other locker gained a logo_script: each still mirrors hero_script
+        for rel, script in (("crystal/index.html", "Crystal’s"),
+                            ("amber/index.html", "Amber’s"),
+                            ("laquala/index.html", "Laquala Royal’s"),
+                            ("michigan/bella/index.html", "Bella’s")):
+            self.assertIn(f'<span class="glogo-script">{script}</span>',
+                          unescape(page(rel)), rel)
+        # the title, kickers, about copy and labels are unchanged by the hero edit
+        self.assertIn("<title>Elizabeth Browns Collection | Gridiron Locker</title>", text)
+        self.assertIn("ELIZABETH PICK 01", text)
+        self.assertIn("Elizabeth Browns Collection</h2>", text)
 
     def test_hero_is_her_own_artwork(self):
         self.assertEqual(self.cre["hero"], "/img/hero-des.jpg")

@@ -3206,10 +3206,15 @@ def girly_logo(href, cre=None):
     override the mark with ``lockup_mark_html`` (Crystal Marie uses a small
     football instead of the heart), the serif line with ``lockup_serif`` and
     the screen-reader label with ``lockup_label``.
+
+    ``logo_script`` decouples the lockup from the hero: both lines default to
+    ``hero_script`` (one name, two places), but a creator whose hero reads
+    "Elizabeth’s Collection" can keep the tight "Elizabeth" signature in the
+    masthead without slipping a possessive into a 27px lockup.
     """
     g = (cre or {}).get("girly", {})
     first = (cre or {}).get("display_name", "Bella").split()[0]
-    script = str(g.get("hero_script") or first)
+    script = str(g.get("logo_script") or g.get("hero_script") or first)
     script = script[:1].upper() + script[1:]
     mark = g.get("lockup_mark_html") or "♡"
     serif = str(g.get("lockup_serif") or "COLLECTION")
