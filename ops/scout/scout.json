@@ -11,8 +11,8 @@
   "hot": 11,
   "throwback": 0,
   "steady": 85,
-  "gaps": 6,
-  "moments": 2,
+  "gaps": 5,
+  "moments": 0,
   "tracked_names": 18,
   "dead_campaigns": 67
  },
@@ -27,9 +27,18 @@
    "collection": "michigan"
   },
   {
+   "name": "deshaun watson",
+   "mentions": 15,
+   "index": 83,
+   "status": "trending",
+   "gap": true,
+   "shoppable": false,
+   "collection": "cleveland-browns"
+  },
+  {
    "name": "josh jacobs",
-   "mentions": 14,
-   "index": 78,
+   "mentions": 13,
+   "index": 72,
    "status": "trending",
    "gap": true,
    "shoppable": false,
@@ -45,13 +54,22 @@
    "collection": "dallas-cowboys"
   },
   {
-   "name": "deshaun watson",
-   "mentions": 6,
-   "index": 33,
+   "name": "shedeur sanders",
+   "mentions": 10,
+   "index": 56,
    "status": "trending",
-   "gap": true,
-   "shoppable": false,
+   "gap": false,
+   "shoppable": true,
    "collection": "cleveland-browns"
+  },
+  {
+   "name": "micah parsons",
+   "mentions": 8,
+   "index": 44,
+   "status": "trending",
+   "gap": false,
+   "shoppable": true,
+   "collection": "green-bay-packers"
   },
   {
    "name": "jordan love",
@@ -61,15 +79,6 @@
    "gap": false,
    "shoppable": true,
    "collection": "green-bay-packers"
-  },
-  {
-   "name": "shedeur sanders",
-   "mentions": 4,
-   "index": 22,
-   "status": "trending",
-   "gap": false,
-   "shoppable": true,
-   "collection": "cleveland-browns"
   },
   {
    "name": "ceedee lamb",
@@ -90,21 +99,21 @@
    "collection": "michigan"
   },
   {
-   "name": "todd monken",
-   "mentions": 3,
-   "index": 17,
-   "status": "trending",
-   "gap": true,
-   "shoppable": false,
-   "collection": "cleveland-browns"
-  },
-  {
-   "name": "micah parsons",
+   "name": "denzel ward",
    "mentions": 2,
    "index": 11,
    "status": "steady",
    "gap": false,
    "shoppable": true,
+   "collection": "cleveland-browns"
+  },
+  {
+   "name": "matt lafleur",
+   "mentions": 2,
+   "index": 11,
+   "status": "steady",
+   "gap": false,
+   "shoppable": false,
    "collection": "green-bay-packers"
   },
   {
@@ -117,22 +126,13 @@
    "collection": "cleveland-browns"
   },
   {
-   "name": "denzel ward",
-   "mentions": 1,
-   "index": 6,
-   "status": "steady",
-   "gap": false,
-   "shoppable": true,
-   "collection": "cleveland-browns"
-  },
-  {
-   "name": "matt lafleur",
-   "mentions": 1,
-   "index": 6,
+   "name": "todd monken",
+   "mentions": 2,
+   "index": 11,
    "status": "steady",
    "gap": false,
    "shoppable": false,
-   "collection": "green-bay-packers"
+   "collection": "cleveland-browns"
   },
   {
    "name": "jj mccarthy",
@@ -182,9 +182,18 @@
  ],
  "gaps": [
   {
+   "name": "deshaun watson",
+   "mentions": 15,
+   "index": 83,
+   "status": "trending",
+   "gap": true,
+   "shoppable": false,
+   "collection": "cleveland-browns"
+  },
+  {
    "name": "josh jacobs",
-   "mentions": 14,
-   "index": 78,
+   "mentions": 13,
+   "index": 72,
    "status": "trending",
    "gap": true,
    "shoppable": false,
@@ -198,15 +207,6 @@
    "gap": true,
    "shoppable": false,
    "collection": "dallas-cowboys"
-  },
-  {
-   "name": "deshaun watson",
-   "mentions": 6,
-   "index": 33,
-   "status": "trending",
-   "gap": true,
-   "shoppable": false,
-   "collection": "cleveland-browns"
   },
   {
    "name": "ceedee lamb",
@@ -225,15 +225,6 @@
    "gap": true,
    "shoppable": false,
    "collection": "michigan"
-  },
-  {
-   "name": "todd monken",
-   "mentions": 3,
-   "index": 17,
-   "status": "trending",
-   "gap": true,
-   "shoppable": false,
-   "collection": "cleveland-browns"
   }
  ],
  "collections": [
@@ -250,17 +241,8 @@
    "gaps": [
     {
      "name": "deshaun watson",
-     "mentions": 6,
-     "index": 33,
-     "status": "trending",
-     "gap": true,
-     "shoppable": false,
-     "collection": "cleveland-browns"
-    },
-    {
-     "name": "todd monken",
-     "mentions": 3,
-     "index": 17,
+     "mentions": 15,
+     "index": 83,
      "status": "trending",
      "gap": true,
      "shoppable": false,
@@ -270,12 +252,12 @@
    "top_terms": [
     "browns",
     "cleveland",
+    "baltimore",
+    "watson",
+    "live",
+    "deshaun",
     "injury",
-    "watch",
-    "trade",
-    "gets",
-    "preview",
-    "place"
+    "shedeur"
    ],
    "headline_count": 100,
    "headlines": [
@@ -292,22 +274,22 @@
      "pub": "Mon, 19 Oct 2026 15:14:39 GMT"
     },
     {
+     "title": "Game Highlights: Baltimore Ravens vs. Cleveland Browns | Week 6",
+     "url": "https://news.google.com/rss/articles/CBMidEFVX3lxTE4yM3hBS294MHVnelB6YkY4cEY0R1FlS25TUi1EXzE2MnV1UEFIWkNBVHUtc29ZSkZUdGJfd2VNSjI1VHN3S3dvQTdSVXVEZG56Z3pqdnJ6UGFMaXdoVjhfOWNabnNqVjRDcTFOZi11dmNMd1Fa?oc=5",
+     "source": "NFL.com",
+     "pub": "Sun, 18 Oct 2026 20:57:36 GMT"
+    },
+    {
      "title": "What I'm Buying and Selling About the Cleveland Browns After Week 6",
      "url": "https://news.google.com/rss/articles/CBMitgFBVV95cUxQRG5vS1RvdXJUQWhEcURtRW1KSWpiTW1GY0Z2UlQtbUdPck5LOWhZdWwxUHBBeUdpQ0hQX1BYTnk5N2dybk02MFVKcnhSV0Y3em4tYUo2ckVveTVEV3hYM21NNmtnQXhOV1hTNXQ1QlBtTGNuRzk5VFl6SzREZnI2Sm1ydGRtY3Jfcjk0RjdEOFZJelEtOXNvenFRaVU0ckpSb0c5UlRiMnFSQ0pvNjNLenQ4d180QQ?oc=5",
      "source": "Sports Illustrated",
      "pub": "Wed, 21 Oct 2026 11:00:02 GMT"
     },
     {
-     "title": "How to Watch, Listen, Live Stream Ravens vs. Browns, Week 6",
-     "url": "https://news.google.com/rss/articles/CBMilwFBVV95cUxPd214dElnSl9sSWNKelpTSXpfTzl3TmYtRVZWLTlNUXRfeVEwLS1panBUS0d4NFlFYTRldU8xbkhlQ2lOWGFySS0weGRfMXNpbEN6cHc3T0V4ZWhrME5YbjZkRUp3SnZmV0NCbFFuOXk4QU5lMTNkb3d4bHF6eWpjSzhMQ3VXRmI5LVJFMTR1a2MtNjdObU9z?oc=5",
-     "source": "Baltimore Ravens",
-     "pub": "Sun, 18 Oct 2026 07:00:00 GMT"
-    },
-    {
-     "title": "Cleveland Browns news: Some rough news on the injury front",
-     "url": "https://news.google.com/rss/articles/CBMiwgFBVV95cUxPNmc4U0F1QXFsbGVyb2UyeW1TWnAwQWdUYURZY0o4ZE52SWFuUmRTNjNGX0RqM2NSc3VTLWtBZ1BEbUdiYnJ3ZHFkNlpLdkxLSjdzcEdOSVdZbnVPQmgwR2xvXzlMbTFYOVVYYjFIc0VlclJ1NVQzZ2t1WVJSTWhhM2c0X0NwRnFMU21rR2t1ekNnNFZwUHUzV094LVJ6elY0Vk1IRUlrR3d2eE5ucW83aDFuQVVDaWdPWG9kdFlRVTBIUQ?oc=5",
-     "source": "Dawgs By Nature",
-     "pub": "Thu, 22 Oct 2026 17:29:28 GMT"
+     "title": "How to watch Cleveland Browns football game for free today",
+     "url": "https://news.google.com/rss/articles/CBMipAFBVV95cUxQS280Umg0UkhHTDhIc0p1dVhpT1lCalcwRlAweVJoVE1oNDNaUE5US1lfQUlBQ3J2M0M3WGtaVEpzNG9LYUFvLWUtMVlCd1p6aFgzNkFMQ1pITFRVcWFFNGxIZVlJYlFtNVY1blhrWEU3dnB6dnRmM3dCTzQtZ0x5S29SYUx5Ty1UY0wwNDdHV2hJZW5YdE5OQTloa1pZX0xCRUNZeA?oc=5",
+     "source": "Cleveland.com",
+     "pub": "Sun, 18 Oct 2026 15:30:00 GMT"
     }
    ],
    "fti_count": 7
@@ -400,8 +382,8 @@
    "gaps": [
     {
      "name": "josh jacobs",
-     "mentions": 14,
-     "index": 78,
+     "mentions": 13,
+     "index": 72,
      "status": "trending",
      "gap": true,
      "shoppable": false,
@@ -414,23 +396,23 @@
     "cowboys",
     "josh",
     "jacobs",
-    "dallas",
     "detroit",
-    "live"
+    "watch",
+    "injury"
    ],
    "headline_count": 100,
    "headlines": [
+    {
+     "title": "Inbox: This Packers defense hunts you from every direction",
+     "url": "https://news.google.com/rss/articles/CBMinwFBVV95cUxNNVZQUm5SYVZELTFaTkZGdU5Vd1lLdHZYSXE1ZXluQ0pjMW5GdGhONXZLWjNxVU5Pb2JRSXVVQTlvdExRNWxiZU9JU0NwRDlidU9NVENHb21MQXo3aV9NYWsyVWlPNjNzU2Yxc0hfWU5Dc0RXT252NlFhcFdVaXlpd1ZfRHhOajNTZ1Z6WjFXam5UNFJ0UTM2b0xkWUxUMUE?oc=5",
+     "source": "Green Bay Packers \u2013 packers.com",
+     "pub": "Tue, 20 Oct 2026 13:40:35 GMT"
+    },
     {
      "title": "Lions vs. Packers: How to watch, listen and follow",
      "url": "https://news.google.com/rss/articles/CBMiiAFBVV95cUxNemh4NmNkYmFweHpTNWRXUDhqQk9VYnh5N296cHJZMUJoVml2VGYzRERXX0hPNnE4UlN5TUlVX0Z1Sl85dkZzdHp3bXJ3eVBMV1duSVZPZlFFdmkySmtZN2NxVTNnMXZadFZPU0RETDZWQTJfUHJUcjJxUGlNRi1VWGFzeEhscVlq?oc=5",
      "source": "Detroit Lions",
      "pub": "Sat, 24 Oct 2026 15:04:11 GMT"
-    },
-    {
-     "title": "Packers activate RB Josh Jacobs, DT Jordon Riley",
-     "url": "https://news.google.com/rss/articles/CBMikgFBVV95cUxQWXVwVDdoZ01VRlVBbDJTNkstRXdZQkdHRjlZS1BURGtweko4SUtnQS0xSlNiYThQMU9tNzNvLWFWNHJMelloX25rY2ZYOWRHWkdZRTVCbzZ1SXp3LTVKM25zdUhlMDJ4cFd1YnBsZ2t6UTlrZG1fUU1RV2ZHVXRMRm1yU3FwcnhCek9HSEFPTkZIZw?oc=5",
-     "source": "Green Bay Packers \u2013 packers.com",
-     "pub": "Sat, 24 Oct 2026 20:06:45 GMT"
     },
     {
      "title": "Green Bay Packers News: Packers battling penalty onslaught",
@@ -439,16 +421,16 @@
      "pub": "Tue, 20 Oct 2026 14:15:06 GMT"
     },
     {
-     "title": "\u2295[\uff37\uff21\uff34\uff23\uff28 \uff2c\uff29\uff36\uff25]\u2295Dallas Cowboys vs Green Bay Packers \uff2c\uff49\uff56\uff45 \uff53\uff54\uff52\uff45\uff41\uff4d \uff26\uff52\uff45\uff45",
-     "url": "https://news.google.com/rss/articles/CBMiwgJBVV95cUxON2Q1SmQ1ZEE2SDJBVi1GY2FaRkN3QmJ0VTBSSzRKLUl2MGpjLVg4bEdWb2NkZk9Jd3JxcGVHVXg4M3dMb1AwdHN2VGt2TlJpa19Ka19vTjh1cVk0QXFHNEtJMmdWQlFLbXRuS3lvRGZvZ3ZtdVhUSzUxOUpkMzVDXzlVM3hrUXN2YjJHeFhuRmJjczZTRktFTENOR3dvakdNQWdSekhjY2huUUtydXRUUHFsTzlSNm1QR0dXUmt1TzNlNzVQaERBTVVHRW51M0VDWGpKZFhvYTRDajNWTDdLUk54bEV0M2Z0YTBDai1hTmU3aVB6ZUhOdzQxSUdPR0duNzZpdlZsQ2RxMlU0a3h3UTNSXzdBSDA0NDB1aWtJLUpuNE55a3VhYmlnNkJlVUtWaWMyWFU1X2FxMkNIdHh5cm5n?oc=5",
-     "source": "Universidad de C\u00f3rdoba (UCO)",
-     "pub": "Mon, 19 Oct 2026 04:18:58 GMT"
+     "title": "Packers 23-13 Cowboys (Oct 18, 2026) Game Recap",
+     "url": "https://news.google.com/rss/articles/CBMiW0FVX3lxTE1TTy1sYVlEUnBPR3AzUFNqbFJ2bmUyOEQ4WnVrdms1VkExRklGbjNtYjQ5U1dOTU5vV21RVkNYejlQaFNmNWdCMVdzcktDY0Q1SElwdmNYdFcyLVE?oc=5",
+     "source": "ESPN",
+     "pub": "Mon, 19 Oct 2026 07:13:05 GMT"
     },
     {
-     "title": "Jordan Love's scrambling dime to Golden gets Packers down to Cowboys' 2-yard line",
-     "url": "https://news.google.com/rss/articles/CBMiqwFBVV95cUxOa3BNdklLR1I0Wl9uNEZZMW9FRGdrUU9ZQ0tyU2xoS2piNnlfMU1uZ0N6SUc1STBnZjhCVm9wU2hOSkdwSVVVaExkNlduMHlpZGpYREJwQVVIdHZuZDM3WXotX0JkX1Fmb2hrZjZvLTJGNnZlMW9XWlkwU1ptcWREMnN0c2g1Z2MxSm9Ub0JDTEtBVXZMVktleUszZEtRSEk3UDBWTnNNMkVkT1U?oc=5",
-     "source": "NFL.com",
-     "pub": "Mon, 19 Oct 2026 02:00:06 GMT"
+     "title": "Cowboys-Packers: How to Watch, Listen, Stream in Week 6",
+     "url": "https://news.google.com/rss/articles/CBMikAFBVV95cUxOaUpGRzNBazViMmQzdktPdVA4b1o2bG8xV0ZPdWZ1MTVGOXZYMG8xejYzZFhXdlhiQTlfMHZnWXk5TTlwLTVWemYwNHQyWlZCbjNpXzRveUY5Q3Zhb0ZtSTVJOWg3U3pCanZ0V005ZFliYTV4b1BXNUNhWTFhaUF4ZzVnX3BHNWZhQUxnajVQRUk?oc=5",
+     "source": "Dallas Cowboys | Official Site of the Dallas Cowboys",
+     "pub": "Fri, 16 Oct 2026 07:00:00 GMT"
     }
    ],
    "fti_count": 5
@@ -857,26 +839,5 @@
    "url": "https://viralstyle.com/kebystore/winter-hat-beanie-go-browns"
   }
  ],
- "moments": [
-  {
-   "title": "Packers activate RB Josh Jacobs, DT Jordon Riley",
-   "url": "https://news.google.com/rss/articles/CBMikgFBVV95cUxQWXVwVDdoZ01VRlVBbDJTNkstRXdZQkdHRjlZS1BURGtweko4SUtnQS0xSlNiYThQMU9tNzNvLWFWNHJMelloX25rY2ZYOWRHWkdZRTVCbzZ1SXp3LTVKM25zdUhlMDJ4cFd1YnBsZ2t6UTlrZG1fUU1RV2ZHVXRMRm1yU3FwcnhCek9HSEFPTkZIZw?oc=5",
-   "source": "Green Bay Packers \u2013 packers.com",
-   "pub": "Sat, 24 Oct 2026 20:06:45 GMT",
-   "collection": "green-bay-packers",
-   "entities": [
-    "josh jacobs"
-   ]
-  },
-  {
-   "title": "Jordan Love's scrambling dime to Golden gets Packers down to Cowboys' 2-yard line",
-   "url": "https://news.google.com/rss/articles/CBMiqwFBVV95cUxOa3BNdklLR1I0Wl9uNEZZMW9FRGdrUU9ZQ0tyU2xoS2piNnlfMU1uZ0N6SUc1STBnZjhCVm9wU2hOSkdwSVVVaExkNlduMHlpZGpYREJwQVVIdHZuZDM3WXotX0JkX1Fmb2hrZjZvLTJGNnZlMW9XWlkwU1ptcWREMnN0c2g1Z2MxSm9Ub0JDTEtBVXZMVktleUszZEtRSEk3UDBWTnNNMkVkT1U?oc=5",
-   "source": "NFL.com",
-   "pub": "Mon, 19 Oct 2026 02:00:06 GMT",
-   "collection": "green-bay-packers",
-   "entities": [
-    "jordan love"
-   ]
-  }
- ]
+ "moments": []
 }
