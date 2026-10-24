@@ -38,7 +38,7 @@ Covered:
     apparel-category buttons that swap every design to that garment plus a
     second row of buttons for the five t-shirt listings - each swap drawn from
     the live store capture (data-apparel), with a design that did not list the
-    style muted, badged and still linked to its own product page, and the
+    style taken out of the grid (never greyed out), and the
     campus hero banner, the #efefed canvas and the VIP10 promo banner (10% off
     at checkout, with a copyable code).
   * Preserved: team accents, hero images, product count, checkout links, SEO
@@ -2440,11 +2440,15 @@ class BellaLocker(unittest.TestCase):
         js = page("assets/app.js")
         for term in (".gcategory-tile[data-gcat]", ".gstyle-chip[data-gstyle]",
                      "data-apparel", "card.hidden=false", "card.hidden=true",
-                     "aria-pressed", "is-muted", "is-swapped", "scrollIntoView",
+                     "aria-pressed", "is-swapped", "scrollIntoView",
                      "prefers-reduced-motion"):
             self.assertIn(term, js, term)
-        self.assertIn("if(cat==='caps-hats')card.hidden=true", js)
-        self.assertIn("else card.classList.add('is-muted')", js)
+        # a design with no listing in the chosen style leaves the grid; it is
+        # never left behind greyed out (the creator block now matches the rule
+        # the team pages already followed)
+        self.assertIn("if(cat)card.hidden=true", js)
+        self.assertNotIn("is-muted", js, "no creator card is greyed out any more")
+        self.assertNotIn("is-muted", self.css)
         self.assertNotIn("gproduct-badge", js)
         self.assertNotIn("gcatStatus", js)
         # the removed pink card badge stays removed: no markup on the page, no
@@ -2495,14 +2499,14 @@ class BellaLocker(unittest.TestCase):
         # The initial HTML remains complete and indexable: hiding is applied
         # only after an explicit click, and clearing that pressed choice must
         # restore all seven cards. The order below matters because restore()
-        # runs before the caps-only branch decides whether to hide the card.
+        # runs before the branch that takes a design out of the grid.
         self.assertNotIn('<article class="gproduct" hidden', self.html)
         bella_js = js[js.index("// ---------- creator apparel-style buttons"):]
         restore_at = bella_js.index("card.hidden=false")
-        caps_at = bella_js.index("if(cat==='caps-hats')card.hidden=true")
-        self.assertLess(restore_at, caps_at)
+        remove_at = bella_js.index("if(cat)card.hidden=true")
+        self.assertLess(restore_at, remove_at)
         self.assertIn("if(cat===nextCat&&garment===nextGarment)", bella_js)
-        self.assertIn("{cat=null;garment=null;}", bella_js)
+        self.assertIn("{cat=null;garment=null;exact=false;}", bella_js)
         self.assertIn("if(!cat)return;", bella_js)
 
     def test_swapped_garments_match_what_bellas_store_publishes(self):
@@ -2686,7 +2690,6 @@ class BellaLocker(unittest.TestCase):
                          '.jlock-girly .gstyle-chip:focus-visible{',
                          '.jlock-girly .gstyle-chip[aria-pressed="true"]{',
                          ".jlock-girly .gstyle-count{", ".jlock-girly .gstyle-sr{",
-                         ".jlock-girly .gproduct.is-muted .gproduct-art img{",
                          ".jlock-girly .gproduct[hidden]{display:none}",
                          ".jlock-girly .gcustom-grid{", ".jlock-girly .gcustom-img{"):
             self.assertIn(selector, self.css)
@@ -2984,6 +2987,27 @@ class CrystalMarieLocker(unittest.TestCase):
         self.assertFalse(os.path.isfile(os.path.join(SITE, "img",
                                                      "hero-crystal1.png")))
 
+    def test_a_style_filter_removes_designs_that_do_not_list_it(self):
+        """A style tile lists only the designs sold in that style.
+
+        Greying the rest out was the earlier behaviour: click "Tank Tops" and
+        thirty t-shirts stayed on the shelf, greyed like dead stock. The
+        creator block now takes them out of the grid - the same rule the team
+        collection pages already followed - and clearing the tile brings every
+        card back.
+        """
+        js = page("assets/app.js")
+        block = js[js.index("// ---------- creator apparel-style buttons"):]
+        self.assertIn("if(cat)card.hidden=true", block)
+        self.assertNotIn("is-muted", block)
+        # restore() runs first, so clearing the choice un-hides every card
+        self.assertLess(block.index("card.hidden=false"),
+                        block.index("if(cat)card.hidden=true"))
+        # nothing is hidden in the shipped HTML: the removal only happens on a
+        # click, so the page a crawler sees is still the whole collection
+        self.assertNotIn('<article class="gproduct" hidden', self.html)
+        self.assertNotIn("is-muted", self.css)
+
     def test_assets_are_cache_versioned_on_the_creator_page(self):
         """Pages caches /assets/* for 10 minutes, so the script URL is versioned.
 
@@ -3097,6 +3121,45 @@ class CrystalMarieLocker(unittest.TestCase):
                     self.assertEqual(query.get("creator"), ["CRYSTAL"], row["url"])
         self.assertIn("$40.00", self.html)   # a hoodie keeps its own price
         self.assertIn("$23.00", self.html)
+
+    def test_a_filter_leaves_exactly_the_designs_that_list_it(self):
+        """The chip numbers are the cards that stay on screen.
+
+        A filter may only ever show designs the store actually lists in that
+        style: the rest are removed from the grid (never greyed out, and never
+        pulled back in from another cut). The counts printed on the chips are
+        therefore the visible card count, and a chip is exact while a tile
+        filters by garment class.
+        """
+        matrix = self.build.apparel_matrix(self.build.creator_items(self.cre),
+                                           prefix="../../")
+        payload = json.loads(unescape(
+            re.search(r'data-apparel="([^"]*)"', self.html).group(1)))
+        chip_rows = re.findall(
+            r'<button class="gstyle-chip"[^>]*data-gcat="([^"]+)"[^>]*'
+            r'data-gstyle="([^"]*)"[^>]*>.*?'
+            r'<span class="gstyle-count"[^>]*>(\d+)<',
+            self.html, re.S)
+        counts = {(cat, unescape(style)): int(n) for cat, style, n in chip_rows}
+        self.assertTrue(counts)
+        for (cat, style), printed in counts.items():
+            listed = sum(1 for groups in payload.values()
+                         if any(row["garment"] == style
+                                for rows in groups.values() for row in rows))
+            self.assertEqual(printed, listed, style)
+            # the chip only ever offers a style the category really lists
+            self.assertIn(style, {row["garment"] for rows in matrix.values()
+                                  for row in rows.get(cat, [])})
+        # a tile is a garment class, so its coverage is the designs listing it
+        for cat in {c for c, _ in counts}:
+            listed = sum(1 for groups in payload.values() if groups.get(cat))
+            self.assertGreater(listed, 0, cat)
+        # and the block implements both rules: exact chips, class-wide tiles
+        js = page("assets/app.js")
+        block = js[js.index("// ---------- creator apparel-style buttons"):]
+        self.assertIn("if(!entry&&cat&&loose&&!exact)", block)
+        self.assertIn("false);", block)   # a tile click
+        self.assertIn(",true);", block)   # a chip click
 
     def test_local_asset_references_resolve(self):
         from urllib.parse import unquote
