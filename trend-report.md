@@ -1,18 +1,18 @@
 # Hunt Report - 2026-10-24
 
-Generated: 2026-10-24 20:42 UTC by src/hunter_intelligence.py
+Generated: 2026-10-24 20:50 UTC by src/hunter_intelligence.py
 
-Ladder: SIGNAL 0 · TREND 0 · OPPORTUNITY 5 · ACTION 0 · HEADLINE 4
+Ladder: SIGNAL 1 · TREND 0 · OPPORTUNITY 3 · ACTION 1 · HEADLINE 4
 
 Fan connectors: no fan posts observed - reddit error (HTTP Error 403: Blocked); x not_configured (Set X_BEARER_TOKEN to use the official X recent-search API.); facebook not_configured (Set META_PAGE_ID and META_PAGE_ACCESS_TOKEN for the official Meta Page feed API.)
 
 ## What to do right now
 
-**Post the Texas pride: flag, star and Est. 1841 angle for Dallas Cowboys on X (@gridironlocker1 first) now with This Girl Loves Cowboys Women's Shirt - 73% confidence, OPPORTUNITY.**
+**Post the Texas pride: flag, star and Est. 1841 angle for Dallas Cowboys on X (@gridironlocker1 first) now with This Girl Loves Cowboys Women's Shirt - 76% confidence, ACTION.**
 
 - Product: This Girl Loves Cowboys Women's Shirt https://viralstyle.com/kebystore/girly-vintage-texas-pride
 - Platform: X (@gridironlocker1 first) · Timing: now
-- Confidence: 73% (OPPORTUNITY) · 🟢 READY
+- Confidence: 76% (ACTION) · 🟢 READY
 - Campaign: VINTAGE TEXAS PRIDE
 - Creative: Flag + star creative with the women's 'This Girl Loves Cowboys' cut called out explicitly. Gifting copy, not gameday copy.
 - Why: Identity demand that does not care about the score - and the women's cut is the one design line this collection actually has.
@@ -20,10 +20,10 @@ Fan connectors: no fan posts observed - reddit error (HTTP Error 403: Blocked); 
 ## Opportunities (SIGNAL and above)
 
 ### 1. Texas pride: flag, star and Est. 1841 - Dallas Cowboys
-- Level: OPPORTUNITY · Confidence: 73% · 🟢 READY (matched design, posting window open, evidence under 12 h)
+- Level: ACTION · Confidence: 76% · 🟢 READY (matched design, posting window open, evidence under 12 h)
 - Fan signal: "Dallas Cowboys cheerleaders form union" - Washington Times (2 h ago)
 - Evidence: 7 reaction items (7.0 weighted) · 6 outlets · 0 utility listings excluded · 0 fan posts
-- Phrase velocity: ↑ 50% / 240 min (3 vs 2)
+- Phrase velocity: ↑ 200% / 240 min (3 vs 1)
 - Sentiment: proud - 'proud' on 7/7 lexicon hits across 7 item(s)
 - Game state: next game in ~1 day(s)
 - Commercial: campaign - This Girl Loves Cowboys Women's Shirt $21.99 (sellable) - VINTAGE TEXAS PRIDE
@@ -39,7 +39,7 @@ Fan connectors: no fan posts observed - reddit error (HTTP Error 403: Blocked); 
 
 ### 2. Josh Jacobs and the run game - Green Bay Packers
 - Level: OPPORTUNITY · Confidence: 72% · 🟢 READY (matched design, posting window open, evidence under 12 h)
-- Fan signal: "Packers activate RB Josh Jacobs from exempt list ahead of Sunday's game vs. Lions" - NFL.com (24 min ago)
+- Fan signal: "Packers activate RB Josh Jacobs from exempt list ahead of Sunday's game vs. Lions" - NFL.com (32 min ago)
 - Evidence: 3 reaction items (3.0 weighted) · 3 outlets · 0 utility listings excluded · 0 fan posts
 - Phrase velocity: new - 3 items in last 60 min, none in the window before
 - Sentiment: optimistic - 'optimistic' on 3/3 lexicon hits across 3 item(s)
@@ -51,47 +51,29 @@ Fan connectors: no fan posts observed - reddit error (HTTP Error 403: Blocked); 
 - Action: Threads - alternate angle (+20 min)
 - Action: Instagram - product creative after engagement confirms the angle (after the X post confirms the angle)
 - Action: Pinterest - keyword pin of the matched design (+2 h)
-  - Packers activate RB Josh Jacobs from exempt list ahead of Sunday's game vs. Lions - NFL.com - google_news (24 min ago) https://news.google.com/rss/articles/CBMiuwFBVV95cUxOZFAydUszV2ZhUXliaWJEdE92QUtrclk5S0F4bHBvWTZDMmlMbGQ3N3JVZGF1Y2RPM2lpSmNFOURFTUgzQThzSlhnV3pQaE9YSU9MSTVjNU1JS09QN3RVYnI0VzlkZmktTEtpdUNNcTlFQzNFQWQ4RnowX3pvUHZHVUZEcHJVLS1GZ3Q4SDBiSHZPTmlBaHlLbzd3ank2R0k0U0o4c2dYUTJBUHJkVERLRjctbEtJeHBzWGtv?oc=5
-  - Packers activate RB Josh Jacobs for 2026 debut - ESPN - google_news (28 min ago) https://news.google.com/rss/articles/CBMikAFBVV95cUxOWGNPNXVXTERMNzBIS1RtYkw2Q2JVUlEtcnNZVVpOTDVZemo2YlBubG54b0hJakRGRThXYWUxY0pfT2hUSmQ4ZGw0V1AyVmtSRjJjUW1WTXFxajFMdTJwWXBoQU5ZaUlUUXAyeGhaakNQWllJWFZnc2x2YXBYV29WNzgzdnQzTXNlT1FKMTZ3clk?oc=5
-  - Packers activate RB Josh Jacobs, DT Jordon Riley - Green Bay Packers – packers.com - google_news (39 min ago) https://news.google.com/rss/articles/CBMikgFBVV95cUxQWXVwVDdoZ01VRlVBbDJTNkstRXdZQkdHRjlZS1BURGtweko4SUtnQS0xSlNiYThQMU9tNzNvLWFWNHJMelloX25rY2ZYOWRHWkdZRTVCbzZ1SXp3LTVKM25zdUhlMDJ4cFd1YnBsZ2t6UTlrZG1fUU1RV2ZHVXRMRm1yU3FwcnhCek9HSEFPTkZIZw?oc=5
+  - Packers activate RB Josh Jacobs from exempt list ahead of Sunday's game vs. Lions - NFL.com - google_news (32 min ago) https://news.google.com/rss/articles/CBMiuwFBVV95cUxOZFAydUszV2ZhUXliaWJEdE92QUtrclk5S0F4bHBvWTZDMmlMbGQ3N3JVZGF1Y2RPM2lpSmNFOURFTUgzQThzSlhnV3pQaE9YSU9MSTVjNU1JS09QN3RVYnI0VzlkZmktTEtpdUNNcTlFQzNFQWQ4RnowX3pvUHZHVUZEcHJVLS1GZ3Q4SDBiSHZPTmlBaHlLbzd3ank2R0k0U0o4c2dYUTJBUHJkVERLRjctbEtJeHBzWGtv?oc=5
+  - Packers activate RB Josh Jacobs for 2026 debut - ESPN - google_news (36 min ago) https://news.google.com/rss/articles/CBMikAFBVV95cUxOWGNPNXVXTERMNzBIS1RtYkw2Q2JVUlEtcnNZVVpOTDVZemo2YlBubG54b0hJakRGRThXYWUxY0pfT2hUSmQ4ZGw0V1AyVmtSRjJjUW1WTXFxajFMdTJwWXBoQU5ZaUlUUXAyeGhaakNQWllJWFZnc2x2YXBYV29WNzgzdnQzTXNlT1FKMTZ3clk?oc=5
+  - Packers activate RB Josh Jacobs, DT Jordon Riley - Green Bay Packers – packers.com - google_news (47 min ago) https://news.google.com/rss/articles/CBMikgFBVV95cUxQWXVwVDdoZ01VRlVBbDJTNkstRXdZQkdHRjlZS1BURGtweko4SUtnQS0xSlNiYThQMU9tNzNvLWFWNHJMelloX25rY2ZYOWRHWkdZRTVCbzZ1SXp3LTVKM25zdUhlMDJ4cFd1YnBsZ2t6UTlrZG1fUU1RV2ZHVXRMRm1yU3FwcnhCek9HSEFPTkZIZw?oc=5
 
 ### 3. Go Blue: The Big House identity - Michigan Wolverines
-- Level: OPPORTUNITY · Confidence: 71% · 🟢 READY (matched design, posting window open, evidence under 12 h)
-- Fan signal: "!+[𝐒𝐓ream]HERE'S🏈*! Michigan Wolverines Football Game 𝐋𝐈𝐕𝐄 ＯＮ Ｔｖ Ｃｈａｎｎｅｌ 24 October 2026" - FC東京オフィシャルホームページ (5 h ago)
-- Evidence: 3 reaction items (3.0 weighted) · 3 outlets · 0 utility listings excluded · 0 fan posts
-- Phrase velocity: ↑ 100% / 1440 min (2 vs 1)
-- Sentiment: pride - 'pride' on 3/3 lexicon hits across 3 item(s)
-- Game state: result coverage in the last 30 h (3 item(s))
+- Level: OPPORTUNITY · Confidence: 63% · 🟢 READY (matched design, posting window open, evidence under 12 h)
+- Fan signal: "Indiana football sneaks by Michigan in overtime, notches first win in Ann Arbor since 1967" - Indiana Daily Student (1 h ago)
+- Evidence: 4 reaction items (5.0 weighted) · 4 outlets · 0 utility listings excluded · 0 fan posts
+- Phrase velocity: ↓ 50% / 240 min (1 vs 2)
+- Sentiment: pride - 'pride' on 4/4 lexicon hits across 4 item(s)
+- Game state: result coverage in the last 30 h (4 item(s))
 - Commercial: exact - M vs Everybody $23.00 (sellable) - M VS EVERYBODY — Go Blue
 - Why fans care: The evergreen identity buy - Michigan fans gift Go Blue apparel year round, and it does not depend on a result.
 - Action: X (@gridironlocker1 first) - conversation post now (now)
 - Action: Threads - alternate angle (+20 min)
 - Action: Instagram - product creative after engagement confirms the angle (after the X post confirms the angle)
 - Action: Pinterest - keyword pin of the matched design (+2 h)
+  - Indiana football sneaks by Michigan in overtime, notches first win in Ann Arbor since 1967 - Indiana Daily Student - google_news (1 h ago) https://news.google.com/rss/articles/CBMikgFBVV95cUxOY1pTQjRVYmlHUDNpSFZqTEJsenY1V0NPcjcta3NDNUViNWdpcU1EbTRkVDYwTXlERVh5QzZFTVJ2RXVOaXVBbVdqUDBWd0R6VkhhdkxydXlSaXRVTEZPNVAweFBtNXo1d2pGX1NOX1h4NFVZS0xpcTE3b1lJNlM0akh2OERSVHJsNzVFTHZsc0IxUQ?oc=5
   - !+[𝐒𝐓ream]HERE'S🏈*! Michigan Wolverines Football Game 𝐋𝐈𝐕𝐄 ＯＮ Ｔｖ Ｃｈａｎｎｅｌ 24 October 2026 - FC東京オフィシャルホームページ - google_news (5 h ago) https://news.google.com/rss/articles/CBMivAJBVV95cUxOR21YSGpka1VaVldwU0ljTmViVXRJTS0xZmxFQkhNaVVjSnV4ZElqcWlnelpfSklaM3JxNV9xcHFtemNiczU2ZFgyZnVVOEVSNG9GT1M4QlBSZUN6WVdodTA0bFF0RFJGWXpIVWZzMVNoTGFINVdmUjVLT2w1MTgtckc0ZEFZX2stQk1oYV9tT0pUVWR3Y1FMQ01lTUxIRHdQeGdraHVkcmJkeE1WZF9oREs3RGR6UnRTSzZjUVVMbWtnaFZjREdjeDdmWUxxeFJOR2NycXplTFpXSlM5VFozVXdETWs2UkFOWlc5MFJiT2tpOHZuSzhRWHVXdm55UFN3MFdobnNBb1F3UkFOaGJObHk5X25VLVktTVB6cS01MVhqN2ZEM1lldVFQWUFUQzh5VVlpY2dLV3VmektD?oc=5
   - Michigan Recruiting Intel: Wolverines hosting speedy flip target - On3 - google_news (6 h ago) https://news.google.com/rss/articles/CBMitgFBVV95cUxOckJGLWRCX0dzTV9YdFAyNC1BRnpTY2FILWU4N1p5TkdZb0hvYlhicW9uZ3RNeHBzQnJUanZ4SlpqQXg4c2ZOdVc3QXRibWl4dVRUUWJxV1ZkNS1WUXUxN002TDQ1X0wyU3RwSXhVc3VhQkFpNVVOUE1YMVl2WUoybjd3NmNVWTBYMjdUS20zMlFwZHhUeWtNTkV0MTg4TTNfUnlEU2pnQUUyOXVOMXM0YVhwZ0gtdw?oc=5
   - Michigan Wolverines QB Tommy Carr has 'poise' that's 'second to none' - ESPN (1 d ago) https://news.google.com/rss/articles/CBMimgFBVV95cUxOQWlOQUVlZ2NCWnpmZlB6RjRST1daN2p4UDc2MFR4VmxIcnp1TG4ySHBOaHpLUmdkNWZQeHRnOVFfOW5WMGdWNEpXWVVMS2E4TGxjWmxVeHF6X1Jjdm5CaGVZZ1BhdkV0N3luZGVDV1JjdDBOUDJFdFhSSWd2SlR4NmtYeXNraGlDWmozUmlXWXBiYW5hS2liWEFB?oc=5
 
-### 4. QB room: who is QB1 in Cleveland - Cleveland Browns
-- Level: OPPORTUNITY · Confidence: 66% · 🟢 READY (matched design, posting window open, evidence under 12 h)
-- Fan signal: "Browns QB Deshaun Watson’s Future Update Emerges Amid Shedeur Sanders Trade Rumors" - Yahoo Sports (6 h ago)
-- Evidence: 4 reaction items (4.0 weighted) · 3 outlets · 0 utility listings excluded · 0 fan posts
-- Phrase velocity: new - 4 items in last 1440 min, none in the window before
-- Sentiment: anxious - 'anxious' on 2/4 lexicon hits across 4 item(s)
-- Game state: next game in ~1 day(s)
-- Commercial: campaign - Make Them Know Your Name $23.00 (sellable) - THEY FORGOT WHO I AM — QB1 belief
-- Why fans care: The whole fanbase is arguing one question: who starts. That is a belief argument, and belief is what a QB tee sells.
-- Tracked names: deshaun watson (6 window mentions, FTI 38); shedeur sanders (6 window mentions, FTI 38)
-- Action: X (@gridironlocker1 first) - conversation post now (now)
-- Action: Threads - alternate angle (+20 min)
-- Action: Instagram - product creative after engagement confirms the angle (after the X post confirms the angle)
-- Action: Pinterest - keyword pin of the matched design (+2 h)
-  - Browns QB Deshaun Watson’s Future Update Emerges Amid Shedeur Sanders Trade Rumors - Yahoo Sports - google_news (6 h ago) https://news.google.com/rss/articles/CBMihwFBVV95cUxQdHBMY0wwckRpYjlPaVVxU2ZQbGxTQUd0TFc4Y2NqQXRKd3pxWjl0dUV2a2pBRVk3NnAtUkZkOEdTc2hlUVJlQlpEbmZjQWFlYzBkQ2hwSUFMTkYyU0swcDh3SXo2TlRST0ZCb1c3Q3RRNXoyR1BGNXBTN2JPaWdqVS1ET3VkMzA?oc=5
-  - Cleveland Browns: Is the 2027 QB plan going up in flames? - Dawgs By Nature - google_news (6 h ago) https://news.google.com/rss/articles/CBMisgFBVV95cUxOUTQxMEVlcThqZVdPZ3NtbU9zeWkwUmVxc0VCYnlObE95M194eG10RkxzWXk2b0dxQ3k1MXY1cGRoZDV3Qlp4VVJyX0U5el8zcWpJNHVTa0V5UW8zVjR4MVVWUDAxU0JBb2VwaEFjY0lPWlI4dlNCcmExV3p0Sl9vNkFxWnRCaWF5SS10T2NBLTNGR1AtYXZMUkptbldDejRmODdMTVQ2ZnF3YktpdzRCNGp3?oc=5
-  - What I’m Hearing: Deshaun Watson’s Cleveland future, Jonathan Taylor rumors, Lions’ LaPorta dilemma - The Athletic - The New York Times - google_news (14 h ago) https://news.google.com/rss/articles/CBMiwgFBVV95cUxOSTB5TEtFWE1kaDBzTVhIVkdPd0RqaDlXdUZBYzhYVXRIOHI0X3g4OEdpOW4wZExtaFAxVEotbFZDTHNRUzVHLXpKZHY5bW5Sb25IOUdfNDhGYTFxaVFlbVlYVFR5TjZHcTlMR1RjWnVwZlRCa1pkMkF1WEtxVmRpLUE1aUhCWkd2SFlBTjBMTHZrajJVMENSM05NSkRzWW1Eb0JpWWh3ZklWbjlEQ2tsa2VIejdBeE9UUmMyZEtjVGZWdw?oc=5
-  - Shedeur Sanders faces Browns demotion threat as Dillon Gabriel gets second-team reps - Yahoo Sports - google_news (16 h ago) https://news.google.com/rss/articles/CBMijwFBVV95cUxPUTNMdnZjTmFYaHhfOU93V1U5X3FfQlk4dzRTUkhPdGdOX2dBZExXMGEycDRTY2dRT0NqTm0wTkhQbzhGcmRwcVhWRF9tRWxVMlJlMGttNkFOamlJYjJRUkpwOFhIbEVpN0NQY2xsQktNWVJWRUJTdGdFX2VCVER4b3NWTVpsM0xMNTZCQmFIRQ?oc=5
-
-### 5. Doomsday memory: defence and the pass rush - Dallas Cowboys
+### 4. Doomsday memory: defence and the pass rush - Dallas Cowboys
 - Level: OPPORTUNITY · Confidence: 60% · 🟢 READY (matched design, posting window open, evidence under 12 h)
 - Fan signal: "Cowboys defense seeking consistency by turning process into wins: 'It's now or never'" - Dallas Cowboys | Official Site of the Dallas Cowboys (3 d ago)
 - Evidence: 3 reaction items (4.0 weighted) · 3 outlets · 0 utility listings excluded · 0 fan posts
@@ -108,10 +90,25 @@ Fan connectors: no fan posts observed - reddit error (HTTP Error 403: Blocked); 
   - Dallas Cowboys Quickly Emerging as Best Trade Fit for Pro Bowl Edge Rusher - Yahoo Sports - google_news (5 h ago) https://news.google.com/rss/articles/CBMijgFBVV95cUxPT1ktMGVXcjByaGtyTUtZTUFIRWxOQVNTMU1ONl93ZnlNbU9Wc3hhX2tPTWNwRkpUZ1RIelYtQ0l2QWNkNjQxZFFyUkVWN1I5d3IwN3Y5a2dDVkZtZUxhdWdBdi1TZDRhMlk1MTdBc2VfUk91Z0ZwSy1QY3pORWVOTWFMZWl0c0o5TERrelJR?oc=5
   - Mailbag: Does defense just need more time? - Dallas Cowboys | Official Site of the Dallas Cowboys - google_news (1 d ago) https://news.google.com/rss/articles/CBMigAFBVV95cUxNYnlndHFLYWRQeDhRUmdzV080N1l4ZC1ocjkyU2d2ZHkyVHB5RkJGT2s0RjI1WVVsdTRWeG5FWWVzdlB3N2RKUzF3U3U3Sm56MjRhMm5hS1pyOGs1RHYwRFVLY1NncGwxUW03NWxfdmNhZGloT01SX1lrYzZfSktJbg?oc=5
 
+### 5. QB room: who is QB1 in Cleveland - Cleveland Browns
+- Level: SIGNAL · Confidence: 58% · ⚪ WATCH (fans are reacting but nothing on the shelf answers it yet)
+- Fan signal: "Browns QB Deshaun Watson’s Future Update Emerges Amid Shedeur Sanders Trade Rumors" - Yahoo Sports (6 h ago)
+- Evidence: 5 reaction items (5.0 weighted) · 4 outlets · 0 utility listings excluded · 0 fan posts
+- Phrase velocity: ↓ 67% / 240 min (1 vs 3)
+- Sentiment: anxious - 'anxious' on 3/5 lexicon hits across 5 item(s)
+- Game state: next game in ~1 day(s)
+- Commercial: campaign - Make Them Know Your Name $23.00 (sellable) - THEY FORGOT WHO I AM — QB1 belief
+- Why fans care: The whole fanbase is arguing one question: who starts. That is a belief argument, and belief is what a QB tee sells.
+- Tracked names: deshaun watson (6 window mentions, FTI 38); shedeur sanders (6 window mentions, FTI 38)
+  - Shedeur Sanders’ Place on Browns Depth Chart Suddenly Looks Less Secure - Yahoo Sports - google_news (2 h ago) https://news.google.com/rss/articles/CBMiiwFBVV95cUxOZFdqZnV5dHRYNjdlWlFhV3lZRy1yLU40aHBMcnNnSDRHZ0VrbUh4RkdFMjE4TEJ6VmFkNFZ5QkZQd21KV1B2N0lsUTB6UUVERENBZ1RNTThoamlsTWdPUWFENVNZdjBPeXBsR1NfazBlNU5tdFJKX3pkTEJBUWZydXIxV3ZTdDJMTWQ0?oc=5
+  - Browns QB Deshaun Watson’s Future Update Emerges Amid Shedeur Sanders Trade Rumors - Yahoo Sports - google_news (6 h ago) https://news.google.com/rss/articles/CBMihwFBVV95cUxQdHBMY0wwckRpYjlPaVVxU2ZQbGxTQUd0TFc4Y2NqQXRKd3pxWjl0dUV2a2pBRVk3NnAtUkZkOEdTc2hlUVJlQlpEbmZjQWFlYzBkQ2hwSUFMTkYyU0swcDh3SXo2TlRST0ZCb1c3Q3RRNXoyR1BGNXBTN2JPaWdqVS1ET3VkMzA?oc=5
+  - Cleveland Browns: Is the 2027 QB plan going up in flames? - Dawgs By Nature - google_news (7 h ago) https://news.google.com/rss/articles/CBMisgFBVV95cUxOUTQxMEVlcThqZVdPZ3NtbU9zeWkwUmVxc0VCYnlObE95M194eG10RkxzWXk2b0dxQ3k1MXY1cGRoZDV3Qlp4VVJyX0U5el8zcWpJNHVTa0V5UW8zVjR4MVVWUDAxU0JBb2VwaEFjY0lPWlI4dlNCcmExV3p0Sl9vNkFxWnRCaWF5SS10T2NBLTNGR1AtYXZMUkptbldDejRmODdMTVQ2ZnF3YktpdzRCNGp3?oc=5
+  - How will the Browns pressure QB Cam Ward? | Burning Questions - Cleveland Browns - google_news (8 h ago) https://news.google.com/rss/articles/CBMiogFBVV95cUxQYk5HRTZhSHR6cGNXem1KRHYzRERNa2ZQZUZNOHhta2VDNGRaVDl5TmVnc0FiWWx5cXg2S19ZVm9sMTVWMzY1QVlJUnZZd1k5NldhZHV5b1JjV1RWZVdtTHhCZEpRcE9HSWJmMC1TRkdPQU9ibHJhbnZqWlJXN2wtcGE0MlAtclg0ek0xelplQnF4Ujdfa3A0LWJFSHllT3ZuOHc?oc=5
+
 ## Filtered as HEADLINE (4)
 
-- BROWNS - No Fly Zone: the secondary wins the argument: 1 reaction item(s), 1 outlet(s), confidence 29% - not a reaction
-- PACKERS - Jordan Love era: 10 is the number: 1 reaction item(s), 1 outlet(s), confidence 37% - not a reaction
+- BROWNS - Coaching: Monken's first season: 2 reaction item(s), 2 outlet(s), confidence 45% - not a reaction
+- PACKERS - Jordan Love era: 10 is the number: 2 reaction item(s), 2 outlet(s), confidence 48% - not a reaction
 - MICHIGAN - Recruiting: the class built around QB19: 1 reaction item(s), 1 outlet(s), confidence 35% - not a reaction
 - MICHIGAN - Underwood era: QB19 in Ann Arbor: 1 reaction item(s), 1 outlet(s), confidence 34% - not a reaction
 
@@ -155,7 +152,7 @@ Fan connectors: no fan posts observed - reddit error (HTTP Error 403: Blocked); 
 
 - **[Medium] Michigan Wolverines: what the Go Blue faithful are actually saying about go blue: the big house identity**
   - Where: Michigan football culture (Ann Arbor)
-  - Angle: Fan-demand piece built on the live signal (!+[𝐒𝐓ream]HERE'S🏈*! Michigan Wolverines Football Game 𝐋𝐈𝐕𝐄 ＯＮ Ｔｖ Ｃｈａｎｎｅｌ 24 October 2026), not on a headline recap.
+  - Angle: Fan-demand piece built on the live signal (Indiana football sneaks by Michigan in overtime, notches first win in Ann Arbor since 1967), not on a headline recap.
   - Link: https://gridironlocker.shop/m-vs-everybody?collectionId=YYMlCmwgKG__&color=GILDAN-NAVY&productId=6aa1e7c8047e2b3b0d59e904
   - Image: M vs Everybody mockup next to the moment that started it.
 
