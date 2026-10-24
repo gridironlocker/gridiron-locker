@@ -105,6 +105,14 @@ jobs:
         continue-on-error: true
         run: python src/scrape_mayzing_apparel.py
 
+      # Prices are changed in Mayzing admin, not in this repo. The capture
+      # reads each product's own checkout page and refuses to write anything
+      # unless every product rendered a USD price, so a geo-redirected runner
+      # keeps the last good file instead of publishing NOK as dollars.
+      - name: Capture Mayzing prices
+        continue-on-error: true
+        run: python src/scrape_mayzing_prices.py
+
       - name: Rebuild site
         run: python src/build.py
 
