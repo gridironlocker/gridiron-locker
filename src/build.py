@@ -613,12 +613,20 @@ def creator_item_href(it, track):
                        urlencode(query), parsed.fragment))
 
 
+def creators_by_collection(ckey):
+    """Every creator whose page belongs to this collection (cross-links).
+
+    A collection can host more than one collaboration (the Browns collection
+    carries Crystal Marie's locker and Amber's), so the collection page links
+    all of them - not just whichever happens to sit first in the data file.
+    """
+    return [cre for cre in CREATORS.values() if cre.get("collection_key") == ckey]
+
+
 def creator_by_collection(ckey):
-    """First creator whose page belongs to this collection (for cross-links)."""
-    for cre in CREATORS.values():
-        if cre.get("collection_key") == ckey:
-            return cre
-    return None
+    """First creator whose page belongs to this collection (single-link cases)."""
+    found = creators_by_collection(ckey)
+    return found[0] if found else None
 
 
 def creator_page_meta(cre):
@@ -2967,13 +2975,24 @@ def page_collection(k):
     # one-line pointer at the bottom of its collection page (data-driven -
     # a future creator page appears here automatically).
     cre_link = ""
-    cre = creator_by_collection(k)
-    if cre:
+    cres = creators_by_collection(k)
+    if len(cres) == 1:
+        cre = cres[0]
         cre_link = (f'<p><b>New &mdash; {esc(cre["page_name"])}:</b> a creator-curated '
                     f'capsule from this collection, built with {esc(cre["display_name"])}, '
                     f'a {esc(cre["role"])}. '
                     f'<a class="link" href="/{cre["page_slug"]}/">Visit '
                     f'{esc(cre["display_name"])}\'s locker &rarr;</a></p>')
+    elif cres:
+        # Two or more collaborations on one collection: one sentence, one link
+        # each, so neither creator is demoted to a footnote.
+        names = ", ".join(esc(cre["display_name"]) for cre in cres[:-1])
+        links = " ".join(f'<a class="link" href="/{cre["page_slug"]}/">Visit '
+                         f'{esc(cre["display_name"])}\'s locker &rarr;</a>'
+                         for cre in cres)
+        cre_link = (f'<p><b>New &mdash; creator capsules from this collection:</b> '
+                    f'curated with {names} and {esc(cres[-1]["display_name"])}. '
+                    f'{links}</p>')
     # Page order: compact hero -> this team's moving ticker -> the complete
     # searchable / filterable / sortable grid -> trust strip -> a short season
     # note and the collection description. No countdown here (the kickoff
@@ -3966,6 +3985,15 @@ def page_creator(ckey="joe"):
     girly = cre.get("theme") == "girly"
     if girly:
         body = _girly_body(cre, c, items, track)
+    # The palette a creator asks for (``skin``) is stamped on <body> as well as
+    # on the locker wrapper: the header, the search button and the creator nav
+    # bar render outside <main>, so the src/style.css skin rules for page
+    # chrome key off this attribute. It names the PALETTE, not the creator, so
+    # Crystal Marie and Amber share one block instead of one block each.
+    body_attrs = f' data-creator-page="{track}"'
+    _skin = cre.get("skin")
+    if _skin:
+        body_attrs += f' data-creator-skin="{esc(str(_skin))}"'
     hide_nav = bool(cre.get("hide_nav", False))
 
     URLS.append((DOMAIN + path, "0.9", "weekly"))
@@ -3977,7 +4005,7 @@ def page_creator(ckey="joe"):
         hero_meta += f"{'&' if '?' in hero_meta else '?'}v={_hero_v}"
     write(f"{cre['page_slug']}/index.html",
           head(f"{cre['page_name']} | {BRAND}", cre_page_desc, path, hero_meta,
-               schema, kw, col=ckey_col, body_attrs=f' data-creator-page="{track}"',
+               schema, kw, col=ckey_col, body_attrs=body_attrs,
                extra_head=GIRLY_FONTS if girly else "")
           + header(ckey_col, hide_nav=hide_nav, hide_promo=girly,
                    logo=girly_logo(path, cre) if girly else "")

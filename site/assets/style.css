@@ -1726,9 +1726,9 @@ main.jlock-girly{padding:0 0 32px;overflow:hidden}
 }
 
 /* =============================================================
-   CREATOR SKIN - CRYSTAL MARIE'S BROWNS COLLECTION
+   CREATOR SKIN - BROWNS PALETTE (Crystal Marie, Amber)
    -------------------------------------------------------------
-   The same girly layout (Crystal Marie's locker is built from
+   The same girly layout (the Browns lockers are built from
    Bella's page structure), re-skinned for Cleveland: espresso ink,
    burnt orange action, parchment surfaces and a warm cream banner
    wash. It is deliberately a PALETTE, not a rewrite - every rule
@@ -1736,30 +1736,32 @@ main.jlock-girly{padding:0 0 32px;overflow:hidden}
    so the shared layout, spacing and behaviour stay in one place
    and Bella's page (which ships no skin) is untouched.
 
-   Scoping is two-locked:
-     * body[data-creator-page="CRYSTAL"] for page chrome - the
+   Scoping is two-locked, and both locks key off the PALETTE rather
+   than one person, so every creator who asks for the browns skin
+   (``skin: "browns"`` in data/creators.json) gets the same chrome:
+     * body[data-creator-skin="browns"] for page chrome - the
        header, the search button and the creator nav bar, which
        render outside <main> and so cannot see --g-* tokens;
      * .jlock-girly[data-theme="browns"] for the locker itself.
    ============================================================= */
-body[data-creator-page="CRYSTAL"]{background:#f4ead9;color:#2c1a0f}
-body[data-creator-page="CRYSTAL"] header{background:#f4ead9;border-bottom:1px solid #dfcbb0}
-body[data-creator-page="CRYSTAL"] .logo.glogo{gap:0;color:#2c1a0f}
-body[data-creator-page="CRYSTAL"] .glogo-lockup{display:flex;flex-direction:column;align-items:flex-start;line-height:.9}
-body[data-creator-page="CRYSTAL"] .glogo-top{display:flex;align-items:center;gap:5px}
-body[data-creator-page="CRYSTAL"] .glogo-heart{display:inline-flex;color:#c85a1c;font-size:1rem;line-height:1}
-body[data-creator-page="CRYSTAL"] .glogo-script{font-family:'Caveat','Segoe Script','Brush Script MT',cursive;
+body[data-creator-skin="browns"]{background:#f4ead9;color:#2c1a0f}
+body[data-creator-skin="browns"] header{background:#f4ead9;border-bottom:1px solid #dfcbb0}
+body[data-creator-skin="browns"] .logo.glogo{gap:0;color:#2c1a0f}
+body[data-creator-skin="browns"] .glogo-lockup{display:flex;flex-direction:column;align-items:flex-start;line-height:.9}
+body[data-creator-skin="browns"] .glogo-top{display:flex;align-items:center;gap:5px}
+body[data-creator-skin="browns"] .glogo-heart{display:inline-flex;color:#c85a1c;font-size:1rem;line-height:1}
+body[data-creator-skin="browns"] .glogo-script{font-family:'Caveat','Segoe Script','Brush Script MT',cursive;
   font-size:1.68rem;font-weight:700;line-height:.95;letter-spacing:.01em;color:#2c1a0f}
-body[data-creator-page="CRYSTAL"] .glogo-serif{margin:3px 0 0 5px;color:#c85a1c;font-family:var(--font);
+body[data-creator-skin="browns"] .glogo-serif{margin:3px 0 0 5px;color:#c85a1c;font-family:var(--font);
   font-size:.53rem;font-weight:800;letter-spacing:.22em;line-height:1;text-transform:uppercase}
-body[data-creator-page="CRYSTAL"] .nav{height:68px}
-body[data-creator-page="CRYSTAL"] .searchbtn{color:#2c1a0f}
-body[data-creator-page="CRYSTAL"] .bellanav{position:relative;z-index:58;background:#f4ead9;border-bottom:1px solid #e0cdb3}
-body[data-creator-page="CRYSTAL"] .bellanav-links{display:flex;flex-wrap:wrap;align-items:center;
+body[data-creator-skin="browns"] .nav{height:68px}
+body[data-creator-skin="browns"] .searchbtn{color:#2c1a0f}
+body[data-creator-skin="browns"] .bellanav{position:relative;z-index:58;background:#f4ead9;border-bottom:1px solid #e0cdb3}
+body[data-creator-skin="browns"] .bellanav-links{display:flex;flex-wrap:wrap;align-items:center;
   justify-content:center;gap:2px clamp(24px,5vw,62px);padding:5px 14px;min-height:42px}
-body[data-creator-page="CRYSTAL"] .bellanav-links a{color:#4b3320;font-size:.78rem;font-weight:700;text-decoration:none}
-body[data-creator-page="CRYSTAL"] .bellanav-links a:hover{color:#b8480f}
-body[data-creator-page="CRYSTAL"] .bellanav-links a:focus-visible{outline:2px solid #c85a1c;outline-offset:4px}
+body[data-creator-skin="browns"] .bellanav-links a{color:#4b3320;font-size:.78rem;font-weight:700;text-decoration:none}
+body[data-creator-skin="browns"] .bellanav-links a:hover{color:#b8480f}
+body[data-creator-skin="browns"] .bellanav-links a:focus-visible{outline:2px solid #c85a1c;outline-offset:4px}
 
 .jlock-girly[data-theme="browns"]{--g-bg:#f4ead9;--g-surface:#fffaf2;--g-soft:#f8f1e5;
   --g-ink:#2c1a0f;--g-muted:#6f5c4a;--g-line:#e4d3b8;
@@ -1871,13 +1873,13 @@ body[data-creator-page="CRYSTAL"] .bellanav-links a:focus-visible{outline:2px so
   .jlock-girly[data-theme="browns"] .gbanner-photo{object-position:70% center}
   .jlock-girly[data-theme="browns"] .gbanner-panel::after{
     background:linear-gradient(90deg,rgba(250,242,229,.97) 0%,rgba(250,242,229,.92) 45%,rgba(250,242,229,.42) 100%)}
-  body[data-creator-page="CRYSTAL"] .bellanav-links{gap:25px}
+  body[data-creator-skin="browns"] .bellanav-links{gap:25px}
 }
 @media(max-width:430px){
   .jlock-girly[data-theme="browns"] .gbanner-photo{object-position:71% center}
   .jlock-girly[data-theme="browns"] .gbanner-panel::after{
     background:linear-gradient(90deg,rgba(250,242,229,.97) 0%,rgba(250,242,229,.92) 58%,rgba(250,242,229,.44) 100%)}
-  body[data-creator-page="CRYSTAL"] .bellanav-links{gap:22px}
+  body[data-creator-skin="browns"] .bellanav-links{gap:22px}
 }
 @media(prefers-reduced-motion:reduce){
   .jlock-girly[data-theme="browns"] .gproduct:hover{box-shadow:0 5px 20px rgba(60,35,18,.07)}
