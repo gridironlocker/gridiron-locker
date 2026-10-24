@@ -11,8 +11,8 @@
   "hot": 11,
   "throwback": 0,
   "steady": 85,
-  "gaps": 7,
-  "moments": 1,
+  "gaps": 6,
+  "moments": 0,
   "tracked_names": 18,
   "dead_campaigns": 67
  },
@@ -27,27 +27,27 @@
    "collection": "michigan"
   },
   {
-   "name": "dak prescott",
-   "mentions": 13,
-   "index": 81,
-   "status": "trending",
-   "gap": true,
-   "shoppable": false,
-   "collection": "dallas-cowboys"
-  },
-  {
    "name": "josh jacobs",
-   "mentions": 13,
-   "index": 81,
+   "mentions": 14,
+   "index": 88,
    "status": "trending",
    "gap": true,
    "shoppable": false,
    "collection": "green-bay-packers"
   },
   {
+   "name": "dak prescott",
+   "mentions": 12,
+   "index": 75,
+   "status": "trending",
+   "gap": true,
+   "shoppable": false,
+   "collection": "dallas-cowboys"
+  },
+  {
    "name": "micah parsons",
-   "mentions": 8,
-   "index": 50,
+   "mentions": 10,
+   "index": 62,
    "status": "trending",
    "gap": false,
    "shoppable": true,
@@ -64,8 +64,8 @@
   },
   {
    "name": "jordan love",
-   "mentions": 5,
-   "index": 31,
+   "mentions": 4,
+   "index": 25,
    "status": "trending",
    "gap": false,
    "shoppable": true,
@@ -99,15 +99,6 @@
    "collection": "michigan"
   },
   {
-   "name": "matt lafleur",
-   "mentions": 3,
-   "index": 19,
-   "status": "trending",
-   "gap": true,
-   "shoppable": false,
-   "collection": "green-bay-packers"
-  },
-  {
    "name": "todd monken",
    "mentions": 3,
    "index": 19,
@@ -115,6 +106,15 @@
    "gap": true,
    "shoppable": false,
    "collection": "cleveland-browns"
+  },
+  {
+   "name": "matt lafleur",
+   "mentions": 2,
+   "index": 12,
+   "status": "steady",
+   "gap": false,
+   "shoppable": false,
+   "collection": "green-bay-packers"
   },
   {
    "name": "myles garrett",
@@ -182,22 +182,22 @@
  ],
  "gaps": [
   {
-   "name": "dak prescott",
-   "mentions": 13,
-   "index": 81,
-   "status": "trending",
-   "gap": true,
-   "shoppable": false,
-   "collection": "dallas-cowboys"
-  },
-  {
    "name": "josh jacobs",
-   "mentions": 13,
-   "index": 81,
+   "mentions": 14,
+   "index": 88,
    "status": "trending",
    "gap": true,
    "shoppable": false,
    "collection": "green-bay-packers"
+  },
+  {
+   "name": "dak prescott",
+   "mentions": 12,
+   "index": 75,
+   "status": "trending",
+   "gap": true,
+   "shoppable": false,
+   "collection": "dallas-cowboys"
   },
   {
    "name": "deshaun watson",
@@ -225,15 +225,6 @@
    "gap": true,
    "shoppable": false,
    "collection": "michigan"
-  },
-  {
-   "name": "matt lafleur",
-   "mentions": 3,
-   "index": 19,
-   "status": "trending",
-   "gap": true,
-   "shoppable": false,
-   "collection": "green-bay-packers"
   },
   {
    "name": "todd monken",
@@ -279,8 +270,8 @@
    "top_terms": [
     "browns",
     "cleveland",
-    "watch",
     "injury",
+    "watch",
     "trade",
     "gets",
     "preview",
@@ -334,8 +325,8 @@
    "gaps": [
     {
      "name": "dak prescott",
-     "mentions": 13,
-     "index": 81,
+     "mentions": 12,
+     "index": 75,
      "status": "trending",
      "gap": true,
      "shoppable": false,
@@ -364,10 +355,10 @@
    "headline_count": 100,
    "headlines": [
     {
-     "title": "Updates: 5 Cowboys become full participants",
+     "title": "Updates: Durant, Overshown officially return for MNF",
      "url": "https://news.google.com/rss/articles/CBMiZkFVX3lxTE41U3JDcmpCb1YyZjBxRFNnV25kSktlMVJ5aEJsX1hhNTFTcHJWdWdTbjF5cFhvQ3ZKZGd4bEdfT0VtT1RobmJwd3ZSbnZzM0c3RnJiTS1kSG5fMUtJWW9qclRUWlZtQQ?oc=5",
      "source": "Dallas Cowboys | Official Site of the Dallas Cowboys",
-     "pub": "Mon, 19 Oct 2026 07:00:00 GMT"
+     "pub": "Sat, 24 Oct 2026 21:49:33 GMT"
     },
     {
      "title": "\u2295[\uff37\uff21\uff34\uff23\uff28 \uff2c\uff29\uff36\uff25]\u2295Dallas Cowboys vs Green Bay Packers \uff2c\uff49\uff56\uff45 \uff53\uff54\uff52\uff45\uff41\uff4d \uff26\uff52\uff45\uff45",
@@ -409,17 +400,8 @@
    "gaps": [
     {
      "name": "josh jacobs",
-     "mentions": 13,
-     "index": 81,
-     "status": "trending",
-     "gap": true,
-     "shoppable": false,
-     "collection": "green-bay-packers"
-    },
-    {
-     "name": "matt lafleur",
-     "mentions": 3,
-     "index": 19,
+     "mentions": 14,
+     "index": 88,
      "status": "trending",
      "gap": true,
      "shoppable": false,
@@ -433,8 +415,8 @@
     "josh",
     "jacobs",
     "watch",
-    "love",
-    "injury"
+    "injury",
+    "sunday"
    ],
    "headline_count": 100,
    "headlines": [
@@ -463,10 +445,10 @@
      "pub": "Fri, 16 Oct 2026 07:00:00 GMT"
     },
     {
-     "title": "Green Bay Packers: Matt LaFleur on roughing calls and Jordan Love",
-     "url": "https://news.google.com/rss/articles/CBMihgFBVV95cUxQM2VEeGJFWmFtQmhwenQ5MTdvc3lVY20yS2hobUFZbkp1T0FnbC1manB4My01dG9UNm0wYzc3emJQSlM4RXNSQ1U4cHZNZVI4RFlyREUyZ1djNjI1bEI3Y2JiM19aQm9mNVQ1emFVQ2Mxb2dIYW4yVmdRSzlEVS1hRlZENXVYdw?oc=5",
+     "title": "Green Bay Packers sign wide receiver to 53-man roster prior to Week Seven showdown with Detroit Lions",
+     "url": "https://news.google.com/rss/articles/CBMiggFBVV95cUxNekZnSlMtcHhmd3JxcHY3aV9TSFI1NExjX3U1N3Zhc2VTZUZZRGF5bWFKWXRiVXZjVEpmN2F3amRsZkh4UlV4dHdQc0pBVjl6LXZhQ0hSU0NVaXVyV3JqT3M1V1hlQTdzQXdoQjVvbHEyZjE2NTlyVzUzcWI1M2gzM0dB?oc=5",
      "source": "Yahoo Sports",
-     "pub": "Tue, 20 Oct 2026 21:33:00 GMT"
+     "pub": "Sat, 24 Oct 2026 17:40:19 GMT"
     }
    ],
    "fti_count": 5
@@ -511,16 +493,16 @@
      "pub": "Sat, 17 Oct 2026 23:10:35 GMT"
     },
     {
-     "title": "Rushing Attack, Turnovers Lead Michigan Past Penn State for First Big Ten Win",
-     "url": "https://news.google.com/rss/articles/CBMixgFBVV95cUxPd2dRN0tnMDY1U1V4ckVmbm1yUERzVkZldFhCdWYtWDM4THFGblVIc3FxaGtscFVxNTVXX1E4NnN2QUlGVlhYTUs5d3g0Y2ZMMkE4a0lYSFFFdkVGZ3MwNWNFYjVabG9xOVpqM1FETWk2bFBhUHhZWFpqdlp4Tm45NFBHcV9USlFqb0dWVHNZUU1aSlVxejJVc0V6NmtJV3YxMUdUZUNhSFNFdGM0V01sc2luMlNodW9aZlhtNDZBV1R3RHVkaUE?oc=5",
-     "source": "University of Michigan Athletics",
-     "pub": "Sat, 17 Oct 2026 23:56:07 GMT"
-    },
-    {
      "title": "How to Watch Indiana vs. Michigan: TV Channel, Live Stream, Time - October 24, 2026",
      "url": "https://news.google.com/rss/articles/CBMisAFBVV95cUxQYllWa3RJWFktSFFYOFMtaDVXbC1ndU1qdWhSd194Mnd6cm40WGEwVlhIMlNyN0dtWjJma19kU09xeXFSVGJZZS1pVTJXWUxyNkdFTmc0M1hIeklENEY3aURvdHA0eDd0Vjhha3ZRUlVKM2FwSnFjVl9RYzNiNEdXTFRPV2lPNzJqVlM3Z1NHdjJ1RHU2Ri1uQWZEVm1TcWpfM3JkZDY3MGxwU1MwWWZWdA?oc=5",
      "source": "FOX Sports",
      "pub": "Sat, 24 Oct 2026 12:00:38 GMT"
+    },
+    {
+     "title": "Rushing Attack, Turnovers Lead Michigan Past Penn State for First Big Ten Win",
+     "url": "https://news.google.com/rss/articles/CBMixgFBVV95cUxPd2dRN0tnMDY1U1V4ckVmbm1yUERzVkZldFhCdWYtWDM4THFGblVIc3FxaGtscFVxNTVXX1E4NnN2QUlGVlhYTUs5d3g0Y2ZMMkE4a0lYSFFFdkVGZ3MwNWNFYjVabG9xOVpqM1FETWk2bFBhUHhZWFpqdlp4Tm45NFBHcV9USlFqb0dWVHNZUU1aSlVxejJVc0V6NmtJV3YxMUdUZUNhSFNFdGM0V01sc2luMlNodW9aZlhtNDZBV1R3RHVkaUE?oc=5",
+     "source": "University of Michigan Athletics",
+     "pub": "Sat, 17 Oct 2026 23:56:07 GMT"
     },
     {
      "title": "Indiana vs. Michigan: How to watch today's NCAA college football game, where to stream and more",
@@ -875,17 +857,5 @@
    "url": "https://viralstyle.com/kebystore/winter-hat-beanie-go-browns"
   }
  ],
- "moments": [
-  {
-   "title": "Green Bay Packers: Matt LaFleur on roughing calls and Jordan Love",
-   "url": "https://news.google.com/rss/articles/CBMihgFBVV95cUxQM2VEeGJFWmFtQmhwenQ5MTdvc3lVY20yS2hobUFZbkp1T0FnbC1manB4My01dG9UNm0wYzc3emJQSlM4RXNSQ1U4cHZNZVI4RFlyREUyZ1djNjI1bEI3Y2JiM19aQm9mNVQ1emFVQ2Mxb2dIYW4yVmdRSzlEVS1hRlZENXVYdw?oc=5",
-   "source": "Yahoo Sports",
-   "pub": "Tue, 20 Oct 2026 21:33:00 GMT",
-   "collection": "green-bay-packers",
-   "entities": [
-    "jordan love",
-    "matt lafleur"
-   ]
-  }
- ]
+ "moments": []
 }
