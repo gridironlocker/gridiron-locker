@@ -3529,16 +3529,18 @@ class LaqualaRoyalLocker(unittest.TestCase):
 
 
 class DesLocker(unittest.TestCase):
-    """des❤️🐞's Browns locker at /des/ - Crystal Marie's page with emoji branding.
+    """Elizabeth's Browns locker at /des/ - Crystal Marie's page, plain brand.
 
-    The brand is an emoji handle ("des❤️🐞") while the address is the plain
-    ASCII "des". That split is the thing worth pinning: the emoji lives in the
-    copy, the title and the labels, and never in a path, a query string or a
-    canonical - a percent-encoded emoji URL is share-hostile and would fork the
-    page's identity the first time someone copied it out of a browser bar.
+    The page launched under the emoji handle "des❤️🐞" and was renamed to
+    "Elizabeth" on request, so the brand and the address deliberately no longer
+    match: the address is the thing that was already shared, and it is not
+    derived from the display name at all. These tests pin that split - the brand
+    in the copy, the title, the kickers and the form subject; the plain ASCII
+    address in the path, the canonical and every query string; and no emoji
+    anywhere on the page or in the record.
     """
 
-    BRAND = "des\u2764\ufe0f\U0001f41e"
+    BRAND = "Elizabeth"
 
     def setUp(self):
         import build  # noqa: E402
@@ -3590,17 +3592,25 @@ class DesLocker(unittest.TestCase):
         for other in ("CRYSTAL", "AMBER", "LAQUALA"):
             self.assertNotIn(f"creator={other}", self.html)
 
-    def test_the_emoji_brand_ships_in_the_copy_and_the_labels(self):
+    def test_the_brand_is_elizabeth_and_the_emoji_is_gone(self):
+        """Renamed from the "des❤️🐞" handle: no surface may still carry it."""
         self.assertEqual(self.cre["display_name"], "Destiny Elizabeth")
+        self.assertEqual(self.cre["page_name"], "Elizabeth Browns Collection")
         text = unescape(self.html)
-        self.assertIn(f'<span class="gscript">Des{self.BRAND[3:]}</span>', text)
-        self.assertIn(f"Des{self.BRAND[3:]} Collection home", text)
-        self.assertIn(f"Des{self.BRAND[3:]} Collection", text)
-        self.assertIn(f"{self.BRAND.upper()} PICK 01", text)
-        self.assertIn(f"{self.BRAND.upper()} PICK 33", text)
-        self.assertIn(f"{self.BRAND} Browns Collection", text)
-        self.assertIn("Destiny Elizabeth", text)
-        self.assertIn("New Custom Design Request from " + self.BRAND, text)
+        self.assertIn('<span class="gscript">Elizabeth</span>', text)      # masthead + hero
+        self.assertIn("Elizabeth Collection home", text)                   # lockup label
+        self.assertIn("Elizabeth Collection", text)                        # nav label
+        self.assertIn("ELIZABETH PICK 01", text)
+        self.assertIn("ELIZABETH PICK 33", text)
+        self.assertIn("Elizabeth Browns Collection", text)                 # about heading
+        self.assertIn("Destiny Elizabeth", text)                           # the person
+        self.assertIn("New Custom Design Request from Elizabeth's Browns Locker", text)
+        # the old handle is gone from the page, the record and the index files
+        for gone in ("❤️", "🐞", "Des❤", "DES❤"):
+            self.assertNotIn(gone, text)
+        self.assertNotIn("❤️", json.dumps(self.cre, ensure_ascii=False))
+        for rel in ("sitemap.xml", "feed.xml", "llms.txt"):
+            self.assertNotIn("❤️", page(rel))
 
     def test_hero_is_her_own_artwork(self):
         self.assertEqual(self.cre["hero"], "/img/hero-des.jpg")
