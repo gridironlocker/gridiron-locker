@@ -2613,8 +2613,12 @@ class BellaLocker(unittest.TestCase):
         self.assertIn('class="logo glogo"', self.html)
         nav = re.search(r'<nav class="bellanav".*?</nav>', self.html, re.S)
         self.assertIsNotNone(nav)
-        for link in ('href="../../"', 'href="#locker"', 'href="#apparel"', 'href="#about"'):
+        for link in ('href="../../"', 'href="#locker"', 'href="#apparel"',
+                     'href="#about"', 'href="#custom-form"'):
             self.assertIn(link, nav.group(0))
+        # the inquiry form sits below the whole grid, so the menu carries the
+        # only shortcut to it - and the label says what it is
+        self.assertIn('href="#custom-form">Custom Design</a>', nav.group(0))
         self.assertLess(self.html.index('class="bellanav"'),
                         self.html.index('<main id="main" class="jlock jlock-girly">'))
         ids = re.findall(r'id="([^"]+)"', self.html)
@@ -2985,6 +2989,13 @@ class CrystalMarieLocker(unittest.TestCase):
         self.assertIsNotNone(nav)
         for link in ('href="../../"', 'href="#locker"', 'href="#about"'):
             self.assertIn(link, nav.group(0))
+        # "Custom Design" jumps straight to the inquiry form instead of making
+        # the visitor scroll the whole grid to find it
+        self.assertIn('href="#custom-form">Custom Design</a>', nav.group(0))
+        form = between(self.html, 'id="custom-form"', "</form>")
+        self.assertIn('id="customForm"', form)
+        self.assertIn('name="idea"', form)
+        self.assertIn(".jlock-girly #custom-form{scroll-margin-top:96px}", self.css)
         self.assertLess(self.html.index('class="bellanav"'),
                         self.html.index('<main id="main" class="jlock jlock-girly"'))
         ids = re.findall(r'id="([^"]+)"', self.html)

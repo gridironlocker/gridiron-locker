@@ -3118,16 +3118,33 @@ def girly_logo(href, cre=None):
     )
 
 
-def girly_nav(cre, has_apparel=True):
-    """The girly pages' local nav. ``#apparel`` only ships when the page has
-    an apparel-category section (a store-captured locker). A locker curated
-    from this site's own catalogue has no store-wide garment tiles, so linking
-    "Collections" at an anchor that does not exist would be a dead link."""
+def girly_nav(cre, has_apparel=True, has_custom=True):
+    """The girly pages' local nav.
+
+    Both optional entries point at a section that only some lockers carry, so
+    each one is emitted only when the page it is being drawn for really has the
+    target:
+
+    * ``#apparel`` - the apparel-category tiles, which exist only when a
+      captured partner catalogue says which garments each design listed. A
+      locker curated from this site's own catalogue has no such matrix, so the
+      link would be a dead anchor.
+    * ``#custom-form`` - the custom-design inquiry form, which ships whenever
+      the creator record carries a ``custom`` block. It sits at the very bottom
+      of the page, so the menu is the only way to reach it without scrolling
+      the whole grid.
+
+    A creator can also drop either entry by naming it in ``girly.nav_hide``
+    (e.g. ``["custom"]``) without any code change.
+    """
     first = cre["display_name"].split()[0]
+    hide = {str(v) for v in ((cre.get("girly") or {}).get("nav_hide") or [])}
     links = ['<a href="/">Home</a>', '<a href="#locker">Shop</a>']
-    if has_apparel:
+    if has_apparel and "apparel" not in hide:
         links.append('<a href="#apparel">Collections</a>')
     links.append('<a href="#about">About</a>')
+    if has_custom and "custom" not in hide:
+        links.append('<a href="#custom-form">Custom Design</a>')
     return (f'<nav class="bellanav" aria-label="{esc(first)}’s Collection">'
             '<div class="wrap bellanav-links">' + "".join(links) + '</div></nav>')
 
@@ -3814,8 +3831,11 @@ def page_creator(ckey="joe"):
                extra_head=GIRLY_FONTS if girly else "")
           + header(ckey_col, hide_nav=hide_nav, hide_promo=girly,
                    logo=girly_logo(path, cre) if girly else "")
-          + (girly_nav(cre, bool((cre.get("store_catalogue") or {})
-                                 .get("categories"))) if girly else "")
+          + (girly_nav(cre,
+                       has_apparel=bool((cre.get("store_catalogue") or {})
+                                        .get("categories")),
+                       has_custom=bool((cre.get("girly") or {}).get("custom")))
+             if girly else "")
           + body + (APP_JS_TAG if girly else footer(collection=ckey_col)))
 
 

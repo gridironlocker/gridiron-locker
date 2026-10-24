@@ -1448,7 +1448,8 @@ body[data-creator-page="BELLA"] .glogo-serif{margin:3px 0 0 5px;color:#d9899a;fo
 body[data-creator-page="BELLA"] .nav{height:68px}
 body[data-creator-page="BELLA"] .searchbtn{color:#182d4d}
 body[data-creator-page="BELLA"] .bellanav{position:relative;z-index:58;background:#efefed;border-bottom:1px solid #deded9}
-body[data-creator-page="BELLA"] .bellanav-links{display:flex;align-items:center;justify-content:center;gap:clamp(24px,5vw,62px);min-height:42px}
+body[data-creator-page="BELLA"] .bellanav-links{display:flex;flex-wrap:wrap;align-items:center;
+  justify-content:center;gap:2px clamp(24px,5vw,62px);padding:5px 14px;min-height:42px}
 body[data-creator-page="BELLA"] .bellanav-links a{color:#303b4a;font-size:.78rem;font-weight:700;text-decoration:none}
 body[data-creator-page="BELLA"] .bellanav-links a:hover{color:#bd7181}
 body[data-creator-page="BELLA"] .bellanav-links a:focus-visible{outline:2px solid #d9899a;outline-offset:4px}
@@ -1647,6 +1648,10 @@ main.jlock-girly{padding:0 0 32px;overflow:hidden}
 .jlock-girly .gcustom-img{border-radius:16px;overflow:hidden;border:1px solid var(--g-line);
   background:#fff;box-shadow:0 10px 26px rgba(24,45,77,.09)}
 .jlock-girly .gcustom-img img{display:block;width:100%;height:auto;object-fit:contain}
+/* The menu's "Custom Design" link jumps to the inquiry form, which sits at the
+   bottom of the page: clear the 68px sticky header so the form's heading is not
+   hidden underneath it when the anchor lands. */
+.jlock-girly #custom-form{scroll-margin-top:96px}
 .jlock-girly .gcustom-formwrap{margin:0}
 .jlock-girly .gcustom-form{display:flex;flex-direction:column;gap:12px;margin:0;padding:28px;
   border:1px solid var(--g-line);border-radius:16px;background:#fff;box-shadow:0 8px 24px rgba(24,45,77,.07)}
@@ -1753,8 +1758,8 @@ body[data-creator-page="CRYSTAL"] .glogo-serif{margin:3px 0 0 5px;color:#c85a1c;
 body[data-creator-page="CRYSTAL"] .nav{height:68px}
 body[data-creator-page="CRYSTAL"] .searchbtn{color:#2c1a0f}
 body[data-creator-page="CRYSTAL"] .bellanav{position:relative;z-index:58;background:#f4ead9;border-bottom:1px solid #e0cdb3}
-body[data-creator-page="CRYSTAL"] .bellanav-links{display:flex;align-items:center;justify-content:center;
-  gap:clamp(24px,5vw,62px);min-height:42px}
+body[data-creator-page="CRYSTAL"] .bellanav-links{display:flex;flex-wrap:wrap;align-items:center;
+  justify-content:center;gap:2px clamp(24px,5vw,62px);padding:5px 14px;min-height:42px}
 body[data-creator-page="CRYSTAL"] .bellanav-links a{color:#4b3320;font-size:.78rem;font-weight:700;text-decoration:none}
 body[data-creator-page="CRYSTAL"] .bellanav-links a:hover{color:#b8480f}
 body[data-creator-page="CRYSTAL"] .bellanav-links a:focus-visible{outline:2px solid #c85a1c;outline-offset:4px}
