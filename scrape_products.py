@@ -26,10 +26,23 @@ def parse(slug):
     swatch=sorted(set(i for i in imgs if '-front-small' in i))
     # styles
     styles=[]
-    m=re.search(r'SELECT STYLE (.*?) SELECT COLOR',txt)
+    m=re.search(r'SELECT STYLE (.*?) SELECT (?:COLOR|SIZE|QUANTITY)',txt)
     if m:
         for part in re.findall(r'([A-Za-z0-9\'\-\. ]+?) - (?:Rs|\$)[\d,\.]+',m.group(1)):
             styles.append(part.strip())
+    thumbs=[i.get('src') for i in s.find_all('img', alt='product design thumbnail')
+            if i.get('src') and '-front-small.jpg' in i.get('src')]
+    prev=OLD.get(slug) or {}
+    apparel_fronts=(
+        {st: th.replace('-front-small.jpg','-front-large.jpg') for st,th in zip(styles,thumbs)}
+        if styles and len(styles)==len(thumbs)
+        else (prev.get('apparel_fronts') or {})
+    )
+    apparel_backs=(
+        {st: th.replace('-front-small.jpg','-back-large.jpg') for st,th in zip(styles,thumbs)}
+        if styles and len(styles)==len(thumbs)
+        else (prev.get('apparel_backs') or {})
+    )
     # description block
     d=re.search(r'About Product (.*?)(?: MEASUREMENT NOTES| KEY FEATURES| Recommended Products)',txt)
     desc=d.group(1).strip() if d else ''
@@ -41,12 +54,16 @@ def parse(slug):
       'brand':meta.get('product:brand'),
       'url':f'https://viralstyle.com/kebystore/{slug}',
       'front':front[0] if front else None,
-      'back':back[0] if back else None,
+      'back':(back[0] if back else None) or prev.get('back'),
       'swatches':swatch[:12],
       'styles':styles,
+      'apparel_fronts':apparel_fronts,
+      'apparel_backs':apparel_backs,
       'desc':desc[:600],
       'features':(feat.group(1)[:800] if feat else ''),
     }
+
+OLD=json.load(open('data/products.json')) if os.path.exists('data/products.json') else {}
 
 allp=[]
 for k,c in cols.items():

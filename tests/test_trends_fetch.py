@@ -120,7 +120,7 @@ class FetchTests(unittest.TestCase):
     def fetch_with(self, plan, ckey="cleveland-browns"):
         fake = FakeSession(plan)
         trends.SESSION = fake
-        return trends.fetch(ckey), fake.urls
+        return trends.fetch(ckey, now=NOW), fake.urls
 
     def test_google_healthy_short_circuits(self):
         items, urls = self.fetch_with([FakeResp(200, GOOGLE_RSS)])

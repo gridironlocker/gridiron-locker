@@ -398,7 +398,7 @@ def parse_bing_items(root, now=None):
     return out
 
 
-def fetch(ckey):
+def fetch(ckey, now=None):
     """Headlines for one collection: Google News first, Bing News fallback.
 
     A provider "fails" on transport errors, retryable HTTP statuses that
@@ -408,7 +408,8 @@ def fetch(ckey):
     when all four collections come back empty.
     """
     providers = [("Google News", google_feed_url(ckey), parse_google_items),
-                 ("Bing News", bing_feed_url(ckey), parse_bing_items)]
+                 ("Bing News", bing_feed_url(ckey),
+                  lambda r: parse_bing_items(r, now=now))]
     for name, url, parse in providers:
         try:
             items = parse(_get_rss(url))

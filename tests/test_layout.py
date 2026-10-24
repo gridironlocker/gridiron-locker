@@ -515,6 +515,9 @@ class TeamCollectionPages(unittest.TestCase):
         start = js.index("// ---------- team collection apparel buttons")
         end = js.index("// ----------", start + 10)
         team = js[start:end]
+        # the hover image swaps to entry.back when provided and hides otherwise
+        self.assertIn("if(entry&&entry.back){", team)
+        self.assertIn("card._back.src=entry.back;", team)
         # the back view is captured and its garment class compared
         self.assertIn("querySelector('.ph img.alt')", team)
         self.assertIn("card._ownCat=categoryOf(card.getAttribute('data-type')", team)
@@ -2302,7 +2305,11 @@ class BellaLocker(unittest.TestCase):
             self.assertIn('rel="noopener noreferrer"', card)
             self.assertIn(escape_html(product["image"]), card)
             self.assertIn("Explore available styles", card)
-            self.assertNotIn("$", card)  # price/currency is confirmed on the supplier page
+            expected_price = f"${float(product['price_usd']):.2f}"
+            self.assertIn(
+                f'<div class="gproduct-meta"><span>{escape_html(product["garment"])}</span>'
+                f'<b>{expected_price}</b></div>',
+                card)
 
     def test_page_loads_app_js_exactly_once(self):
         """The girly page drops the sitewide footer - and with it the only
@@ -2331,7 +2338,7 @@ class BellaLocker(unittest.TestCase):
             self.assertIn(kind, text)
         # the chips' screen-reader counts still date the check
         self.assertIn(self.catalog["apparel_captured"], text)
-        self.assertIn("listed by 7 of 7 designs in the 2026-10-12 check", text)
+        self.assertIn(f"listed by 7 of 7 designs in the {self.catalog['apparel_captured']} check", text)
         # ...but the wordy standing note, the live status line, the muted-card
         # badge and the per-card disclaimer are gone
         self.assertNotIn("gcategory-note", self.html)
@@ -2346,11 +2353,12 @@ class BellaLocker(unittest.TestCase):
         # every category lists real garments for at least one design, so the
         # empty-category flag ("not listed yet") does not render either
         self.assertNotIn("not listed yet", text)
-        # no price reaches the page - the current price lives on the listing
+        # apparel tiles carry no price; each card in the locker shows its USD price
         apparel = self.html[self.html.index('id="apparel"'):self.html.index('id="locker"')]
         locker = self.html[self.html.index('id="locker"'):self.html.index('id="about"')]
         self.assertNotIn("$", apparel)
-        self.assertNotIn("$", locker)
+        self.assertIn("$23.00", locker)
+        self.assertIn("$30.00", locker)
 
     def test_apparel_categories_are_buttons_that_swap_the_products(self):
         """The six store-wide categories are real buttons that change the
@@ -2402,7 +2410,7 @@ class BellaLocker(unittest.TestCase):
             self.assertIsNotNone(shown, style)
             self.assertEqual(int(shown.group(1)), counts[style], style)
             self.assertIn(f"listed by {counts[style]} of 7 designs in the "
-                          "2026-10-12 check", unescape(chip))
+                          f"{self.catalog['apparel_captured']} check", unescape(chip))
         row = re.search(r'<div class="gstyle-row"([^>]*)>', self.html)
         self.assertIsNotNone(row)
         self.assertIn('role="group"', row.group(1))
@@ -2445,10 +2453,13 @@ class BellaLocker(unittest.TestCase):
         self.assertNotIn("gproduct-gtag", self.css)
         self.assertIn("var row=document.querySelector('.gcategory-tiles'); if(!row)return;", js)
         self.assertIn("var grid=document.querySelector('.ggrid[data-apparel]'); if(!grid)return;", js)
-        # the swap never writes a price: the Bella block ships no price data
+        # the swap updates both card links, the garment label and the USD price,
+        # and restores all three when cleared
         bella_js = js[js.index("// ---------- creator apparel-style buttons"):]
-        self.assertNotIn("price", bella_js.lower())
-        self.assertNotIn("$", bella_js)
+        self.assertIn(".gproduct-meta span", bella_js)
+        self.assertIn(".gproduct-meta b", bella_js)
+        self.assertIn("entry.price", bella_js)
+        self.assertIn("card._price", bella_js)
 
         # Regression model for the partial category: derive the cards that the
         # Caps & Hats click is allowed to leave in the grid from the same JSON
@@ -2519,10 +2530,11 @@ class BellaLocker(unittest.TestCase):
                     artworks.setdefault(art.group(1), set()).add(row["garment"])
                     self.assertTrue(row["product_id"])
                     self.assertTrue(row["product_id"] in row["url"], row["url"])
-                    self.assertIs(row["price_seen"], True)   # audit record only
+                    self.assertTrue(float(row["price_usd"]) > 0, row)
+                    self.assertIs(row["price_seen"], True)
         self.assertEqual(counts, {
             "Women's Fitted Tee": 7, "Men's T-shirt": 7, "Premium T-Shirt": 6,
-            "Ladies Slim T-Shirt": 4, "Women's V-neck Tee": 3,
+            "Ladies Slim T-Shirt": 5, "Women's V-neck Tee": 4,
             "Essential Hoodie": 7, "Unisex Sweatshirt": 7,
             "Unisex Tank Top": 7, "Long Sleeve T-Shirt": 7,
             "Heavy Cotton Cap": 4})
@@ -2545,13 +2557,12 @@ class BellaLocker(unittest.TestCase):
         self.assertEqual(artworks["293b0ab4"],
                          {"Ladies Slim T-Shirt", "Unisex Tank Top", "Long Sleeve T-Shirt"})
 
-        # the page payload carries the captured matrix, the signed mockup and
-        # the attributed listing URL - and nothing else
+        # the page payload carries the captured matrix, the signed mockup,
+        # the attributed listing URL and the formatted USD price
         grid = re.search(r'<div class="ggrid" id="gcollectionGrid" data-apparel="([^"]*)">',
                          self.html, re.S)
         self.assertIsNotNone(grid)
         self.assertNotIn("price_seen", grid.group(1))
-        self.assertNotIn("$", grid.group(1))
         payload = json.loads(unescape(grid.group(1)))
         self.assertEqual(list(payload), self.cre["picks"])
         by_slug = {product["slug"]: product for product in self.catalog["products"]}
@@ -2563,6 +2574,7 @@ class BellaLocker(unittest.TestCase):
                 for entry, row in zip(payload[slug][cat], rows):
                     # the mockup URL is the signed one, copied verbatim
                     self.assertEqual(entry["image"], row["image"])
+                    self.assertEqual(entry["price"], f"${float(row['price_usd']):.2f}")
                     self.assertIn("sig:", entry["image"])
                     self.assertIn(",w:500/image.png", entry["image"])
                     parsed = urlsplit(unescape(entry["url"]))
@@ -3171,6 +3183,101 @@ class AuditFixes20260918(unittest.TestCase):
                 pads.append(rel)
         self.assertEqual(dupes, [], dupes[:5])
         self.assertEqual(pads, [], pads[:5])
+
+
+class BacksideHoverEveryCard(unittest.TestCase):
+    """Every product card across every public page - and every garment swap on
+    team and creator pages - must reveal a distinct backside image on hover."""
+
+    CARD_PATTERNS = (
+        ("card", re.compile(r'<article class="card[^"]*"[^>]*>(.*?)</article>', re.S)),
+        ("pcard", re.compile(r'<a class="pcard[^"]*"[^>]*>(.*?)</a>', re.S)),
+        ("gproduct", re.compile(r'<article class="gproduct"[^>]*>(.*?)</article>', re.S)),
+        ("jfeat", re.compile(r'<a class="jfeat"[^>]*>(.*?)</a>', re.S)),
+        ("jcard", re.compile(r'<a class="jcard"[^>]*>(.*?)</a>', re.S)),
+        ("drop-card", re.compile(r'<article class="drop-card[^"]*"[^>]*>(.*?)</article>', re.S)),
+    )
+
+    def test_every_public_product_card_has_distinct_backside_hover_image(self):
+        counts = {k: 0 for k, _ in self.CARD_PATTERNS}
+        for root, _, files in os.walk(SITE):
+            rel_dir = os.path.relpath(root, SITE).replace(os.sep, "/")
+            if rel_dir.startswith(("marketing", "ops")):
+                continue
+            for fname in files:
+                if not fname.endswith(".html"):
+                    continue
+                fp = os.path.join(root, fname)
+                html = read(fp)
+                for kind, pat in self.CARD_PATTERNS:
+                    for m in pat.finditer(html):
+                        counts[kind] += 1
+                        block = m.group(1)
+                        imgs = re.findall(r"<img\b[^>]*>", block)
+                        alt_m = re.search(
+                            r'<img[^>]*\bclass="[^"]*\balt\b[^"]*"[^>]*\bsrc="([^"]+)"',
+                            block,
+                        )
+                        self.assertIsNotNone(alt_m, f"{fp} [{kind}] missing img.alt")
+                        main_srcs = [
+                            re.search(r'\bsrc="([^"]+)"', tag).group(1)
+                            for tag in imgs
+                            if 'class="alt"' not in tag and re.search(r'\bsrc="([^"]+)"', tag)
+                        ]
+                        self.assertTrue(main_srcs, f"{fp} [{kind}] missing main img")
+                        msrc = unescape(main_srcs[0])
+                        asrc = unescape(alt_m.group(1))
+                        self.assertTrue(asrc, f"{fp} [{kind}] empty alt src")
+                        self.assertNotEqual(msrc, asrc,
+                                            f"{fp} [{kind}] hover equals front ({msrc})")
+                        for src in (msrc, asrc):
+                            if not src.startswith("http"):
+                                resolved = os.path.normpath(
+                                    os.path.join(os.path.dirname(fp), src.split("?")[0]))
+                                self.assertTrue(os.path.isfile(resolved),
+                                                f"{fp} [{kind}] missing {resolved}")
+        for kind, count in counts.items():
+            self.assertGreater(count, 0, f"expected {kind} cards in built site")
+
+    def test_every_apparel_swap_entry_carries_distinct_backside_image(self):
+        targets = [f"{COLLECTIONS[k]['slug']}/index.html" for k in ORDER] + [
+            "michigan/bella/index.html"
+        ]
+        for rel in targets:
+            fp = os.path.join(SITE, rel)
+            html = page(rel)
+            gm = re.search(r'data-apparel="([^"]*)"', html)
+            self.assertIsNotNone(gm, rel)
+            payload = json.loads(unescape(gm.group(1)))
+            self.assertTrue(payload, rel)
+            for slug, groups in payload.items():
+                for cat, rows in groups.items():
+                    for r in rows:
+                        im = r.get("image") or ""
+                        bk = r.get("back") or ""
+                        self.assertTrue(im, f"{rel} [{slug}/{cat}/{r.get('garment')}] missing image")
+                        self.assertTrue(bk, f"{rel} [{slug}/{cat}/{r.get('garment')}] missing back")
+                        self.assertNotEqual(im, bk, f"{rel} [{slug}/{cat}] front==back")
+                        for src in (im, bk):
+                            if not src.startswith("http"):
+                                resolved = os.path.normpath(
+                                    os.path.join(os.path.dirname(fp), src.split("?")[0]))
+                                self.assertTrue(os.path.isfile(resolved),
+                                                f"{rel} [{slug}/{cat}] missing {resolved}")
+
+    def test_hover_css_and_creator_swap_wiring_ship(self):
+        css = page("assets/style.css")
+        for rule in (".card:hover .ph img.alt{opacity:1}",
+                     ".pcard:hover .pc-ph img.alt",
+                     ".jlock .jcard:hover .jph img.alt",
+                     ".jlock-girly .gproduct:hover .gproduct-art img.alt"):
+            self.assertIn(rule, css)
+        drops = page("drops/index.html")
+        self.assertIn(".drop-card:hover .drop-img img.alt", drops)
+        js = page("assets/app.js")
+        bella_js = js[js.index("// ---------- creator apparel-style buttons"):]
+        self.assertIn("entry.back", bella_js)
+        self.assertIn("card._backSrc", bella_js)
 
 
 if __name__ == "__main__":

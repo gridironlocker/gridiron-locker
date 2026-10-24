@@ -305,14 +305,20 @@ document.querySelectorAll('a.custom-link').forEach(function(a){
     if(s.indexOf('tee')>-1||s.indexOf('shirt')>-1)return 't-shirts';
     return '';
   }
-  // The hover <img class="alt"> is a back view of the design on the garment
-  // the card was built from. That render is only correct while the card shows
-  // the same garment class; the store captures a back view per design, never
-  // per garment, so there is nothing to swap in for a hoodie/tank/crop. When
-  // the swap changes the class the back view is switched off - hovering a
-  // hoodie must never flash the t-shirt back the design was first shot on.
+  // The hover <img class="alt"> shows the backside of the selected garment.
+  // When the apparel matrix provides entry.back for that exact garment, swap
+  // it in directly so hovering a hoodie, sweatshirt, tank or crop top shows
+  // that garment's backside. If an entry ever lacks its own back render, keep
+  // the original back view only when the garment class matches and hide it
+  // otherwise - hovering a hoodie must never flash a t-shirt back.
   function setBack(card,entry){
     if(!card._back)return;
+    if(entry&&entry.back){
+      card._back.src=entry.back;
+      if(card._backAlt)card._back.alt=card._backAlt;
+      card._back.hidden=false;
+      return;
+    }
     var shown=entry?categoryOf(entry.garment):'';
     if(shown&&shown===card._ownCat){
       if(card._backSrc)card._back.src=card._backSrc;
@@ -1015,14 +1021,24 @@ document.querySelectorAll('a.custom-link').forEach(function(a){
         if(entry&&entry.garment&&!styles[entry.garment])styles[entry.garment]=entry;
       });
     });
-    var img=card.querySelector('.gproduct-art img');
+    var img=card.querySelector('.gproduct-art img.main')||card.querySelector('.gproduct-art img');
+    var back=card.querySelector('.gproduct-art img.alt');
+    var links=[].slice.call(card.querySelectorAll('a[href]'));
+    var metaLabel=card.querySelector('.gproduct-meta span');
+    var metaPrice=card.querySelector('.gproduct-meta b');
     card._styles=styles;
     card._img=img;
-    card._link=card.querySelector('a.gproduct-art');
+    card._back=back;
+    card._links=links;
+    card._metaLabel=metaLabel;
+    card._metaPrice=metaPrice;
     card._name=(card.querySelector('h3')||{}).textContent||'';
     card._src=img?img.getAttribute('src'):'';
     card._alt=img?img.getAttribute('alt'):'';
-    card._href=card._link?card._link.getAttribute('href'):'';
+    card._backSrc=back?back.getAttribute('src'):'';
+    card._href=links.length?links[0].getAttribute('href'):'';
+    card._garment=metaLabel?metaLabel.textContent:'';
+    card._price=metaPrice?metaPrice.textContent:'';
   });
   var cat=null, garment=null;
   function press(el,on){el.setAttribute('aria-pressed',on?'true':'false');}
@@ -1031,7 +1047,13 @@ document.querySelectorAll('a.custom-link').forEach(function(a){
       if(card._src)card._img.src=card._src;
       if(card._alt)card._img.alt=card._alt;
     }
-    if(card._link&&card._href)card._link.href=card._href;
+    if(card._back){
+      if(card._backSrc)card._back.src=card._backSrc;
+      card._back.hidden=false;
+    }
+    if(card._href)card._links.forEach(function(a){a.href=card._href;});
+    if(card._metaLabel)card._metaLabel.textContent=card._garment;
+    if(card._metaPrice)card._metaPrice.textContent=card._price;
     card.classList.remove('is-swapped');
     card.classList.remove('is-muted');
     card.hidden=false;
@@ -1045,7 +1067,13 @@ document.querySelectorAll('a.custom-link').forEach(function(a){
           card._img.src=entry.image;
           card._img.alt=card._name+' design on a '+garment.toLowerCase();
         }
-        if(card._link&&entry.url)card._link.href=entry.url;
+        if(card._back){
+          if(entry.back){card._back.src=entry.back;card._back.hidden=false;}
+          else{card._back.hidden=true;}
+        }
+        if(entry.url)card._links.forEach(function(a){a.href=entry.url;});
+        if(card._metaLabel)card._metaLabel.textContent=entry.garment;
+        if(card._metaPrice&&entry.price)card._metaPrice.textContent=entry.price;
         card.classList.add('is-swapped');
         card.classList.remove('is-muted');
         return;
