@@ -1,0 +1,324 @@
+{
+ "_doc": "Live Mayzing storefront prices for the Browns and Michigan collections, captured from each product's own checkout page by src/scrape_mayzing_prices.py. This file is machine-written: it exists so a price changed in Mayzing admin reaches the site without hand-editing data/mayzing_products.json or data/mayzing_michigan.json. src/build.py prefers a price here and falls back to the curated product record when a design is missing. Only dollar prices are recorded - the storefront quotes NOK depending on session geo, and a run that cannot read a USD price on every product refuses to write at all.",
+ "captured": "2026-10-24",
+ "collections": {
+  "cleveland-browns": {
+   "1946-cleveland": {
+    "garment": "Men's T-Shirt",
+    "price_usd": "23.00",
+    "product_id": "6ac441eda581314ed10d7d3e",
+    "source": "json-ld"
+   },
+   "be-awar-of-dawg": {
+    "garment": "Men's T-Shirt",
+    "price_usd": "23.00",
+    "product_id": "6aa548c6f475ab73b096ff20",
+    "source": "json-ld"
+   },
+   "browns": {
+    "garment": "Classic Unisex T-shirt",
+    "price_usd": "23.00",
+    "product_id": "6acebd562672bd64f2427058",
+    "source": "json-ld"
+   },
+   "browns-cle": {
+    "garment": "Men's T-Shirt",
+    "price_usd": "23.00",
+    "product_id": "6aa33ae12ee22daf5e7d3cc0",
+    "source": "json-ld"
+   },
+   "classic-1946": {
+    "garment": "Men's T-Shirt",
+    "price_usd": "23.00",
+    "product_id": "6ac4437ea581314ed10e1e7a",
+    "source": "json-ld"
+   },
+   "cle-browns": {
+    "garment": "Men's T-Shirt",
+    "price_usd": "23.00",
+    "product_id": "6aa54afdc846cb394c4e6967",
+    "source": "json-ld"
+   },
+   "cle-browns-dawg": {
+    "garment": "Men's T-Shirt",
+    "price_usd": "23.00",
+    "product_id": "6aa54337f07fcd0322081164",
+    "source": "json-ld"
+   },
+   "cle-browns-light": {
+    "garment": "Men's T-Shirt",
+    "price_usd": "23.00",
+    "product_id": "6aa54cf2f475ab73b098049f",
+    "source": "json-ld"
+   },
+   "cle-browns-orange": {
+    "garment": "Men's T-Shirt",
+    "price_usd": "23.00",
+    "product_id": "6aa54eba0dd668eb256323a8",
+    "source": "json-ld"
+   },
+   "cle-browns2": {
+    "garment": "Classic Unisex T-shirt",
+    "price_usd": "23.00",
+    "product_id": "6aceb7f126cbec379b282833",
+    "source": "json-ld"
+   },
+   "cleveland": {
+    "garment": "Men's T-Shirt",
+    "price_usd": "23.00",
+    "product_id": "6aa3b22569a11b176709b278",
+    "source": "json-ld"
+   },
+   "cleveland-1946": {
+    "garment": "Men's T-Shirt",
+    "price_usd": "23.00",
+    "product_id": "6aa54591ec52fa428dbc1a0b",
+    "source": "json-ld"
+   },
+   "cleveland-1946-tshirt": {
+    "garment": "Men's T-Shirt",
+    "price_usd": "23.00",
+    "product_id": "6ac43e22913cb3999f50c1f5",
+    "source": "json-ld"
+   },
+   "cleveland-football": {
+    "garment": "Men's T-Shirt",
+    "price_usd": "23.00",
+    "product_id": "6ac4461e2753510a596d602d",
+    "source": "json-ld"
+   },
+   "cleveland-football-est-1946": {
+    "garment": "Men's T-Shirt",
+    "price_usd": "23.00",
+    "product_id": "6abc2326d038dff39dbe8803",
+    "source": "json-ld"
+   },
+   "cleveland-football-for-life": {
+    "garment": "Classic Unisex T-shirt",
+    "price_usd": "23.00",
+    "product_id": "6acec02c2672bd64f2428d7f",
+    "source": "json-ld"
+   },
+   "cleveland-tshirt": {
+    "garment": "Men's T-Shirt",
+    "price_usd": "23.00",
+    "product_id": "6ac43fe6a581314ed10d6915",
+    "source": "json-ld"
+   },
+   "cleveland-victory-monday": {
+    "garment": "Classic Unisex T-shirt",
+    "price_usd": "23.00",
+    "product_id": "6acec9e32baf05e953d51933",
+    "source": "json-ld"
+   },
+   "dawg-life": {
+    "garment": "Men's T-Shirt",
+    "price_usd": "23.00",
+    "product_id": "6aa3ae586e5cb9fd50dc4834",
+    "source": "json-ld"
+   },
+   "dawg-pound-cleveland-skyline": {
+    "garment": "Men's T-Shirt",
+    "price_usd": "23.00",
+    "product_id": "6abd8fd9f33b76ed082bebe1",
+    "source": "json-ld"
+   },
+   "denzel-rock-out": {
+    "garment": "Men's T-Shirt",
+    "price_usd": "23.00",
+    "product_id": "6aa55017f475ab73b09f6a72",
+    "source": "json-ld"
+   },
+   "dwag": {
+    "garment": "Men's T-Shirt",
+    "price_usd": "23.00",
+    "product_id": "6aa337dfdb76056cb9b29f0c",
+    "source": "json-ld"
+   },
+   "go-browns": {
+    "garment": "Men's T-Shirt",
+    "price_usd": "23.00",
+    "product_id": "6aa331965520ba111a54a781",
+    "source": "json-ld"
+   },
+   "lets-go-cle-copy": {
+    "garment": "Men's T-Shirt",
+    "price_usd": "23.00",
+    "product_id": "6aa3366e5520ba111a558fb1",
+    "source": "json-ld"
+   },
+   "limited-edition-cleveland-football": {
+    "garment": "Men's T-Shirt",
+    "price_usd": "23.00",
+    "product_id": "6ab9971999c373baef106efd",
+    "source": "json-ld"
+   },
+   "limited-edition-cleveland-football-beware-of-the-dawgs": {
+    "garment": "Men's T-Shirt",
+    "price_usd": "28.00",
+    "product_id": "6ab99c6399c373baef10aadb",
+    "source": "json-ld"
+   },
+   "limited-edition-cleveland-football-copy": {
+    "garment": "Men's T-Shirt",
+    "price_usd": "28.00",
+    "product_id": "6ab999a399c373baef109030",
+    "source": "json-ld"
+   },
+   "limited-edition-no-fly-zone": {
+    "garment": "Men's T-Shirt",
+    "price_usd": "23.00",
+    "product_id": "6aa5530bf41af57368c6feb3",
+    "source": "json-ld"
+   },
+   "make-them-know-your-name": {
+    "garment": "Men's T-Shirt",
+    "price_usd": "23.00",
+    "product_id": "6aa33fa01cdc8689e252dab3",
+    "source": "json-ld"
+   },
+   "no-fly-zone": {
+    "garment": "Men's T-Shirt",
+    "price_usd": "23.00",
+    "product_id": "6aa3b80e2e9926a202f04f64",
+    "source": "json-ld"
+   },
+   "ohio-cle": {
+    "garment": "Men's T-Shirt",
+    "price_usd": "23.00",
+    "product_id": "6aa3306bd0d1f69a5d797993",
+    "source": "json-ld"
+   },
+   "playoffs": {
+    "garment": "Men's T-Shirt",
+    "price_usd": "23.00",
+    "product_id": "6aa330865520ba111a548f86",
+    "source": "json-ld"
+   },
+   "sunday-funday": {
+    "garment": "Men's T-Shirt",
+    "price_usd": "23.00",
+    "product_id": "6ac43e54b42e7be7216d7ac8",
+    "source": "json-ld"
+   },
+   "the-wall": {
+    "garment": "Men's T-Shirt",
+    "price_usd": "23.00",
+    "product_id": "6aa551a00aa8cbf430ccb038",
+    "source": "json-ld"
+   }
+  },
+  "michigan": {
+   "bet-m": {
+    "garment": "Classic Unisex T-shirt",
+    "price_usd": "23.00",
+    "product_id": "6aa1b73fec16917b7f63d118",
+    "source": "json-ld"
+   },
+   "bryce-19": {
+    "garment": "Classic Unisex T-shirt",
+    "price_usd": "23.00",
+    "product_id": "6aa597fd3919e1b7067eeddf",
+    "source": "json-ld"
+   },
+   "legacy": {
+    "garment": "Classic Unisex T-shirt",
+    "price_usd": "23.00",
+    "product_id": "6aa56bce466e7000eaf44fac",
+    "source": "json-ld"
+   },
+   "limited-edition-go-blue": {
+    "garment": "Classic Unisex T-shirt",
+    "price_usd": "23.00",
+    "product_id": "6aa1d621454c0ee365c9edc5",
+    "source": "json-ld"
+   },
+   "limited-edition-h-a-i-l-mary": {
+    "garment": "Classic Unisex T-shirt",
+    "price_usd": "23.00",
+    "product_id": "6aa1f0b9534eadb8cbb5a139",
+    "source": "json-ld"
+   },
+   "m-vs-everybody": {
+    "garment": "Classic Unisex T-shirt",
+    "price_usd": "23.00",
+    "product_id": "6aa1e7c8047e2b3b0d59e904",
+    "source": "json-ld"
+   },
+   "maize-out": {
+    "garment": "Classic Unisex T-shirt",
+    "price_usd": "23.00",
+    "product_id": "6aa56e416dc678f014370608",
+    "source": "json-ld"
+   },
+   "michigan": {
+    "garment": "Classic Unisex T-shirt",
+    "price_usd": "23.00",
+    "product_id": "6aa56daaad2201c1e08af3f8",
+    "source": "json-ld"
+   },
+   "michigan-bet": {
+    "garment": "Classic Unisex T-shirt",
+    "price_usd": "23.00",
+    "product_id": "6aa1b1f759ee834ea2120a3f",
+    "source": "json-ld"
+   },
+   "michigan-bet-vintage": {
+    "garment": "Classic Unisex T-shirt",
+    "price_usd": "23.00",
+    "product_id": "6aa1b73ff7b554e33d7d9453",
+    "source": "json-ld"
+   },
+   "michigan-revenge-tour": {
+    "garment": "Classic Unisex T-shirt",
+    "price_usd": "23.00",
+    "product_id": "6aa1b3141e2a91b12ce7bb6a",
+    "source": "json-ld"
+   },
+   "michigan-v-everybody": {
+    "garment": "Classic Unisex T-shirt",
+    "price_usd": "23.00",
+    "product_id": "6aa1d2d97e9d71e4274ce029",
+    "source": "json-ld"
+   },
+   "milf": {
+    "garment": "Classic Unisex T-shirt",
+    "price_usd": "23.00",
+    "product_id": "6aa1c4502b4261ca56ecce11",
+    "source": "json-ld"
+   },
+   "one-second": {
+    "garment": "Classic Unisex T-shirt",
+    "price_usd": "23.00",
+    "product_id": "6aa1ee07ad108e6fc6bd7ce6",
+    "source": "json-ld"
+   },
+   "respond-nothing-given-everything-earned": {
+    "garment": "Classic Unisex T-shirt",
+    "price_usd": "23.00",
+    "product_id": "6aa595875d8a068c28832777",
+    "source": "json-ld"
+   },
+   "respond-nothing-given-everything-earned-tee": {
+    "garment": "Classic Unisex T-shirt",
+    "price_usd": "23.00",
+    "product_id": "6aa5a037d36087dc4a8b023a",
+    "source": "json-ld"
+   },
+   "second-act": {
+    "garment": "Classic Unisex T-shirt",
+    "price_usd": "23.00",
+    "product_id": "6aa55e1e32b128dbbe980778",
+    "source": "json-ld"
+   },
+   "second-act-qb19-vintage-football": {
+    "garment": "Classic Unisex T-shirt",
+    "price_usd": "23.00",
+    "product_id": "6aa1db87f1c6bb96a2648225",
+    "source": "json-ld"
+   }
+  }
+ },
+ "currency": "USD",
+ "source": "https://gridironlocker.shop/<handle>?collectionId=...&productId=..."
+}
