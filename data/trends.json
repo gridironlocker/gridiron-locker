@@ -71,15 +71,15 @@
     "browns",
     "cleveland",
     "injury",
-    "trade",
     "watch",
+    "trade",
     "gets",
     "preview",
-    "deadline",
-    "quinshon",
-    "judkins",
     "place",
-    "former"
+    "former",
+    "score",
+    "three",
+    "practice"
    ],
    "headline_count": 100,
    "moments": [],
@@ -200,7 +200,7 @@
    ],
    "entity_mentions": {
     "jordan love": 5,
-    "micah parsons": 10,
+    "micah parsons": 8,
     "robert tonyan": 0,
     "josh jacobs": 13,
     "matt lafleur": 3
@@ -211,13 +211,13 @@
     "cowboys",
     "josh",
     "jacobs",
-    "detroit",
     "watch",
     "love",
     "injury",
-    "sunday",
+    "detroit",
     "jordan",
-    "roster"
+    "return",
+    "sunday"
    ],
    "headline_count": 100,
    "moments": [
@@ -244,8 +244,8 @@
     },
     {
      "name": "micah parsons",
-     "mentions": 10,
-     "index": 56,
+     "mentions": 8,
+     "index": 44,
      "status": "trending",
      "gap": false,
      "shoppable": true
@@ -278,8 +278,7 @@
   },
   "dallas-cowboys": {
    "gaps": [
-    "dak prescott",
-    "ceedee lamb"
+    "dak prescott"
    ],
    "query": "Dallas Cowboys",
    "headlines": [
@@ -296,77 +295,77 @@
      "pub": "Mon, 19 Oct 2026 04:18:58 GMT"
     },
     {
+     "title": "Cowboys recognize Dallas Cowboys Cheerleaders union in collective bargaining",
+     "url": "https://news.google.com/rss/articles/CBMijwFBVV95cUxPcmtqb2c1V2QtbWg1aXl6dzZIb21fcmQya0Z5dTZBQjE4SksxVWw2UTlOeFNXWklSV2dIZGwwMFF3S1BaUW95cllzdU1BbDl3RlNKbXNQY0F1ZUx2QWpZclJPWXhWcm1OWG10dnMzeG1lQ2NNb0Q4WVpuNm9XUmw2eS16NEFzRkQ0dEhqVjJFTQ?oc=5",
+     "source": "The New York Times",
+     "pub": "Fri, 23 Oct 2026 20:57:00 GMT"
+    },
+    {
+     "title": "Dallas Cowboys cheerleaders unionize after years of fighting for fair pay",
+     "url": "https://news.google.com/rss/articles/CBMiigFBVV95cUxOSHdVN0w1eEE5X01DWjg4a2lBSzd3dXlrM3RkTDRleEkwbERfME93VDV4ckVkNGJ0OG1qLTAyXzFMTmt3R2RRWmJTdmhvSVFiNW1yeVhUYmpqOHZKZmtyQW0teHZMU1lHYzlEMXJpa1VTWUJnc01hUjVlMVpiUkJyVWVMMHlsRVF4ckE?oc=5",
+     "source": "The Guardian",
+     "pub": "Fri, 23 Oct 2026 21:22:00 GMT"
+    },
+    {
+     "title": "The Dallas Cowboys cheerleaders are unionizing",
+     "url": "https://news.google.com/rss/articles/CBMimAFBVV95cUxPdU41ZUIyLUhoSDFtOWplMFdmNmFhZ2VXZHhDX3JOZVJjc3d4QnljNjNyM3hJaHFWOEFLckFiV2xuVkNWRGlLRGNodWlUN2dSOFIwUHJ6S2dDVFRCVV9fNDQyeHNiT2JSLUFnNE1BQ3lfYUpKQlgtdmNlV3h2WlJIbzFNZGZDUTFZMmU3NW9IU3ZuXzhibFpRTA?oc=5",
+     "source": "NBC News",
+     "pub": "Fri, 23 Oct 2026 20:50:52 GMT"
+    },
+    {
+     "title": "Dallas Cowboys cheerleaders unionize, will begin collective bargaining",
+     "url": "https://news.google.com/rss/articles/CBMilwFBVV95cUxOV2d5dXczdlBYanhGbXc2RC1GUHlOUVUzSFdRTkpzaUluTFJKb0hLNFdCbzhjeXR5LUIwUU96SnRXT3dZTmNReTlSbWZyRDR5bnhYMDhLWDlJdnFUZTdlWGczZFhiTEp1T2R2Y0VvR0xqMS1CRFJZZWVoZ1hBY0tieElkc3JPWDluX1hQUlFRNDNjSEtNeTFJ?oc=5",
+     "source": "ESPN",
+     "pub": "Fri, 23 Oct 2026 22:46:00 GMT"
+    },
+    {
      "title": "Impact: Barkley expected to return vs. Cowboys",
      "url": "https://news.google.com/rss/articles/CBMiZ0FVX3lxTE56aGtoMDdKbXA2SGZ5WkdGYUVEUUV4cmNqOW0wN3MzS1FCVkdNYVBNR1A0QUJHWUNxLVZuOW9QMGdTZ2s2YkRMNXVmdnZSZWtfNnNnZTNzQnFSTF9NbnNiZXRhaFVkcTQ?oc=5",
      "source": "Dallas Cowboys | Official Site of the Dallas Cowboys",
      "pub": "Mon, 19 Oct 2026 07:00:00 GMT"
     },
     {
-     "title": "Brian Schottenheimer says 'execution wasn't clean enough' in 23-13 loss to Packers",
-     "url": "https://news.google.com/rss/articles/CBMitgFBVV95cUxPQVJ2eUd2YnhaWnFNbHF0Y0FDZGpTUXV6azllaFh2SEdURFMyNVp5TzlKcFFuSXR1NXR0RnFsXzFDYTJIemVOZjJvMGFacEhEaW84N0xORTFES1g3Rm1pVTJIYkxNaXhQeUxnQ2NKSXU2cHRKcWg4Z3pOemo0OTB3ZmdoOGxaQ1R2NDYtZTRkOU5PTXIzWEQ4ZmI0VmNQQ1VVNlZoRDhrMC1FQ0FnYS16TkZsRGVLUQ?oc=5",
-     "source": "Dallas Cowboys | Official Site of the Dallas Cowboys",
-     "pub": "Mon, 19 Oct 2026 05:35:34 GMT"
-    },
-    {
-     "title": "Eatman: Finger-pointing now turning to offense",
-     "url": "https://news.google.com/rss/articles/CBMihwFBVV95cUxNY3RUMmhXaVcxR2JUTUZrTVZoa2Q0bnZPc3JXVGt6QW8ya0ZwZ0pCRlhHeXN4MkhueU9ielRMWVMtdVk0MUxWbHUyazNlV2NBdGxYMjJsejVoXzdLcW9UOXlTN0htVklJX1NuQkhHWWxpdWRqZ0ZnUGxWZ0hmY3RDVG1wYWthUm8?oc=5",
-     "source": "Dallas Cowboys | Official Site of the Dallas Cowboys",
-     "pub": "Mon, 19 Oct 2026 06:13:52 GMT"
-    },
-    {
-     "title": "Pic 6: Cowboys struggle vs. Green Bay's pressure, make multiple personnel changes",
-     "url": "https://news.google.com/rss/articles/CBMiswFBVV95cUxPWWE3VkRacVl5UEt1cFFfNnhaTnN3cnZJWUxlbEpqUVhlUXdtWTQzMGw0MXZPbTZjM2ZXclpXaWRRMmhJdld5cUV3R0NYejJOQ05UcUpQa2JtZ2szM21pdUNOQ3NaVndSOFhmb0QyR2g5anJQOXRJZDd1UG5ZZy11VHVNSHNrSVZBZ0dQbzRqMjhXbG1nZlRONmt3OHpoaTJ3QklhOWUtOW1meDA4VDNCMEI4RQ?oc=5",
-     "source": "Dallas Cowboys | Official Site of the Dallas Cowboys",
-     "pub": "Mon, 19 Oct 2026 15:19:53 GMT"
-    },
-    {
-     "title": "Game Recap: Cowboys lose to Packers, 23-13",
-     "url": "https://news.google.com/rss/articles/CBMigAFBVV95cUxPTEZqYlNvdXlDakNIb0tFNVRsRmZzWV9JQXA2MDA4QkdVckRQNkpfZFRCOTl0dldyWVd3NFVmemlBSXhid3dyLXhQNHNKX3RGbkkzRjliNWlMUlRaQ2MtZWRNY3BjQURSQUR5TlZycFZhYllyZ0NWaTU3QXVUdkdfZQ?oc=5",
-     "source": "Dallas Cowboys | Official Site of the Dallas Cowboys",
-     "pub": "Mon, 19 Oct 2026 04:03:11 GMT"
-    },
-    {
-     "title": "Cowboys defense seeking consistency by turning process into wins: 'It's now or never'",
-     "url": "https://news.google.com/rss/articles/CBMiuAFBVV95cUxNeWZTY1E0MjJXRjNPSXl3RTl3YnNueExZOGxIaTNwWG5tZU5aNzJ2aU9ZaGNFQTNUZUVNZWdLM2k4czFTMTdkN000YXVjR2xLdnpsNU9uWEMtN0ZFMkNGMTJqVzlpd19Ea1JPd2F0bHRobkxyR0pKdFdPanNZRmFFM3NTTVVaV3FMSzdidnBVYUNma1lHVVJXTjFDcEVIeTJpUEx2SXEyc0tPTzktTk5RdXM2bTU5djND?oc=5",
-     "source": "Dallas Cowboys | Official Site of the Dallas Cowboys",
-     "pub": "Wed, 21 Oct 2026 15:12:22 GMT"
+     "title": "Thanks to familiar miscues, the Dallas Cowboys are off to their worst start in years",
+     "url": "https://news.google.com/rss/articles/CBMipgFBVV95cUxQbncyeXNzczVCN2VfSENXaUlWdzBpNHZsR3V1ZmdGZkwyb0JNZlFvNHFUZzlGOFJiNlB3S1UxZER5NEVqaTVxUG5CNWtrLWpKNk1QbFB4eFdHei1XNDE2Y1dXM05rc0RXaHhOcjlKS1VuYWFZOTczRkhxY0hqWUVZQXNiYUE0UHR0MmpoZ2RXY3hTWVlNRnpZbDlJcTcybjg0VmdhclBB?oc=5",
+     "source": "NBC News",
+     "pub": "Mon, 19 Oct 2026 05:22:00 GMT"
     }
    ],
    "entity_mentions": {
-    "dak prescott": 12,
-    "ceedee lamb": 3
+    "dak prescott": 11,
+    "ceedee lamb": 2
    },
    "top_terms": [
     "cowboys",
     "dallas",
-    "packers",
-    "green",
     "cheerleaders",
-    "defense",
-    "offense",
-    "prescott",
-    "watch",
+    "packers",
+    "unionize",
     "chemical",
     "romance",
-    "brian"
+    "years",
+    "legal",
+    "union",
+    "prescott",
+    "collective"
    ],
    "headline_count": 100,
    "moments": [],
    "fan_trend_index": [
     {
      "name": "dak prescott",
-     "mentions": 12,
-     "index": 67,
+     "mentions": 11,
+     "index": 61,
      "status": "trending",
      "gap": true,
      "shoppable": false
     },
     {
      "name": "ceedee lamb",
-     "mentions": 3,
-     "index": 17,
-     "status": "trending",
-     "gap": true,
+     "mentions": 2,
+     "index": 11,
+     "status": "steady",
+     "gap": false,
      "shoppable": false
     }
    ]
@@ -420,10 +419,10 @@
      "pub": "Mon, 19 Oct 2026 15:24:00 GMT"
     },
     {
-     "title": "How to watch No. 6 Indiana vs. Michigan: TV channel and streaming options for October 24",
-     "url": "https://news.google.com/rss/articles/CBMioAFBVV95cUxOUlYzQUNHcFVvVDhnNS1ucUFTQk90WUpMWGpISW9tNXo4Q3JVOUhEeUxxdU40WlRycmUtWUZoaE1OVUtlaE14RFdnbkJXMWtJRWhnblo1a2lSTlBwd3Bqa0pCMUhhVHJ6SDRwbzVMTlgwZ1lqamhnSFE1ZXp4Z2JpZHlzclhNT1Bob0x4WmZpRXp2Yi1DcFM3NW9KREtYdzIt?oc=5",
-     "source": "The New York Times",
-     "pub": "Thu, 22 Oct 2026 16:10:41 GMT"
+     "title": "Michigan football loses to No. 6-ranked Indiana in overtime after late rally falls short",
+     "url": "https://news.google.com/rss/articles/CBMitwFBVV95cUxNS1lSaG9IeGhzTFpUWDRKNkpCN1h5UndKNGV4QjhDNHZCNGJWTXBLbDdSZ1AwU2ZCSEdBWXVscnB3cFQ5TmpRMExxbl9rWE9FTTIxRFByVUI5T1RZVUgtTTFUZlJyR0VlVnczNTY5a3IxcFdweGJRREhqNmdsZ3A0OFlKR2h0LU5IRTZ1UFhkX3RKbUc2N0x1YWVDQ283czc1dUhoeDJVcFEwTFBDZUl2ejY4VF9HVE0?oc=5",
+     "source": "ClickOnDetroit | WDIV Local 4",
+     "pub": "Sat, 24 Oct 2026 19:35:36 GMT"
     }
    ],
    "entity_mentions": {
@@ -510,8 +509,8 @@
    },
    {
     "name": "dak prescott",
-    "mentions": 12,
-    "index": 67,
+    "mentions": 11,
+    "index": 61,
     "status": "trending",
     "gap": true,
     "shoppable": false,
@@ -519,8 +518,8 @@
    },
    {
     "name": "micah parsons",
-    "mentions": 10,
-    "index": 56,
+    "mentions": 8,
+    "index": 44,
     "status": "trending",
     "gap": false,
     "shoppable": true,
@@ -554,15 +553,6 @@
     "collection": "cleveland-browns"
    },
    {
-    "name": "ceedee lamb",
-    "mentions": 3,
-    "index": 17,
-    "status": "trending",
-    "gap": true,
-    "shoppable": false,
-    "collection": "dallas-cowboys"
-   },
-   {
     "name": "kyle whittingham",
     "mentions": 3,
     "index": 17,
@@ -588,6 +578,15 @@
     "gap": true,
     "shoppable": false,
     "collection": "cleveland-browns"
+   },
+   {
+    "name": "ceedee lamb",
+    "mentions": 2,
+    "index": 11,
+    "status": "steady",
+    "gap": false,
+    "shoppable": false,
+    "collection": "dallas-cowboys"
    },
    {
     "name": "myles garrett",
