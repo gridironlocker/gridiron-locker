@@ -653,12 +653,17 @@ and grid, and pins the shared skin as shared.
 ## Laquala Royal's Browns Collection — creator collaboration (`/laquala/`)
 
 Laquala Royal's locker is the fifth creator page and the **third** on the Browns
-catalogue. It is the same page as Crystal Marie's and Amber's, at the bare short
-address **`/laquala/`**.
+catalogue: the same page as Crystal Marie's and Amber's, at the bare short
+address **`/laquala/`** — branded with her full name (“Laquala Royal’s
+Collection” in the masthead and in the hero) while the route stays the short
+slug. `girly.hero_script` carries the hero/masthead name, `girly.lockup_label`
+and `girly.nav_label` carry the screen-reader labels, and none of them feed the
+address.
 
-This one is entirely a `data/creators.json` entry — no build code, no CSS and no
-template changed:
+So this one is a record plus one label hook — no CSS, no template, no route:
 
+- `girly_nav()` reads an optional `girly.nav_label` (the default stays the
+  first name, so Bella, Joe, Crystal Marie and Amber are untouched).
 - `creators.laquala`: ID `LAQUALA`, `page_slug: "laquala"`,
   `collection_key: "cleveland-browns"`, `include_collection: true`,
   `order: "newest"`, `skin: "browns"`, `picks` = the 33 live Browns slugs

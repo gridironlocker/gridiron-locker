@@ -3240,9 +3240,14 @@ def girly_nav(cre, has_apparel=True, has_custom=True):
       the whole grid.
 
     A creator can also drop either entry by naming it in ``girly.nav_hide``
-    (e.g. ``["custom"]``) without any code change.
+    (e.g. ``["custom"]``) without any code change, and rename the bar for screen
+    readers with ``girly.nav_label`` - the default uses the first name only,
+    which is too informal for a creator who brands herself by her full name
+    (Laquala Royal's "Laquala Royal’s Collection").
     """
     first = cre["display_name"].split()[0]
+    nav_label = str((cre.get("girly") or {}).get("nav_label")
+                    or f"{first}’s Collection")
     hide = {str(v) for v in ((cre.get("girly") or {}).get("nav_hide") or [])}
     links = ['<a href="/">Home</a>', '<a href="#locker">Shop</a>']
     if has_apparel and "apparel" not in hide:
@@ -3250,7 +3255,7 @@ def girly_nav(cre, has_apparel=True, has_custom=True):
     links.append('<a href="#about">About</a>')
     if has_custom and "custom" not in hide:
         links.append('<a href="#custom-form">Custom Design</a>')
-    return (f'<nav class="bellanav" aria-label="{esc(first)}’s Collection">'
+    return (f'<nav class="bellanav" aria-label="{esc(nav_label)}">'
             '<div class="wrap bellanav-links">' + "".join(links) + '</div></nav>')
 
 def _girly_body(cre, c, items, track):
