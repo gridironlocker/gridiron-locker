@@ -2859,7 +2859,8 @@ class CrystalMarieLocker(unittest.TestCase):
     (the Cleveland Browns collection) instead of a captured partner store, so
     it has to prove three things at once:
 
-    * the whole live Browns collection ships, curated picks first, and every
+    * the whole live Browns collection ships in the collection page's own
+      order (newest -> oldest), minus designs hidden on request, and every
       card opens the local product page with ``?creator=CRYSTAL``;
     * the CRYSTAL discount (10% off) is stated clearly in the same three
       placements as Bella's VIP10 offer and never promises a checkout this
@@ -2898,10 +2899,10 @@ class CrystalMarieLocker(unittest.TestCase):
     def test_the_locker_carries_the_whole_live_browns_collection(self):
         items = self.build.creator_items(self.cre)
         live = [item["slug"] for item in self.build.MODEL["cleveland-browns"]]
-        picks = [slug for slug in self.cre["picks"] if slug in set(live)]
-        # curated order first, then the rest of the collection in catalogue order
-        self.assertEqual([item["slug"] for item in items],
-                         picks + [slug for slug in live if slug not in picks])
+        # the locker reads like the collection page: the catalogue order it is
+        # built in (newest capture first), not her picks-first order
+        self.assertEqual(self.cre.get("order"), "newest")
+        self.assertEqual([item["slug"] for item in items], live)
         self.assertEqual(self.cre.get("include_collection"), True)
         # Her record lists every Browns design explicitly today. The equality
         # is not pinned: include_collection stays on, so a design the Mayzing
@@ -3006,6 +3007,47 @@ class CrystalMarieLocker(unittest.TestCase):
                                                      "crystal-marie-banner.png")))
         self.assertFalse(os.path.isfile(os.path.join(SITE, "img",
                                                      "hero-crystal1.png")))
+
+    def test_grid_order_matches_the_collection_page(self):
+        """"from new to old, as the order on gridironlocker".
+
+        Her grid reads exactly like /cleveland-browns-shirts/: the catalogue
+        order the build captures (newest -> oldest), so a visitor who knows the
+        store sees the same designs in the same sequence.
+        """
+        collection = page("cleveland-browns-shirts/index.html")
+        team_order = re.findall(r'class="card[^"]*"[^>]*data-slug="([^"]+)"',
+                                collection)
+        her_order = re.findall(r'<article class="gproduct" data-slug="([^"]+)"',
+                               self.html)
+        self.assertTrue(team_order)
+        self.assertEqual(her_order, team_order)
+        # newest capture first: the 2026-10-14 wave leads, the older single-tee
+        # designs trail
+        self.assertEqual(her_order[0], "cleveland-victory-monday")
+        self.assertEqual(her_order[-1], "ohio-cle")
+
+    def test_the_hidden_design_is_gone_and_its_url_forwards(self):
+        """One design was hidden on request: it leaves every surface.
+
+        No card on her page, nothing on the Browns collection page, nothing in
+        the search index, the feed or the sitemap - and its product URL answers
+        with the same noindex redirect stub the retired designs use, so an old
+        link lands on the collection instead of a 404.
+        """
+        slug = "dawg-pound-cleveland-skyline"
+        self.assertNotIn(f'data-slug="{slug}"', self.html)
+        self.assertNotIn(slug, page("cleveland-browns-shirts/index.html"))
+        self.assertNotIn(slug, page("sitemap.xml"))
+        self.assertNotIn(slug, page("assets/search-index.json"))
+        self.assertNotIn(slug, page("feed.xml"))
+        self.assertNotIn(slug, self.cre["picks"])
+        stub = page(f"shop/{slug}/index.html")
+        self.assertIn('<meta name="robots" content="noindex,follow">', stub)
+        self.assertIn('<meta http-equiv="refresh" '
+                      'content="0;url=https://gridironlocker.store/cleveland-browns-shirts/">',
+                      stub)
+        self.assertNotIn('rel="canonical"', stub)
 
     def test_the_short_url_is_the_page_and_the_old_one_forwards(self):
         """Her locker lives at /crystal/; /browns/crystal-marie/ forwards to it.
