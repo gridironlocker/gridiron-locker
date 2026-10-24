@@ -691,13 +691,18 @@ off)**.
 
 The page launched branded with the emoji handle **des❤️🐞** and was renamed to
 **Elizabeth** on the owner's request. The address stayed `des`, and that split
-is pinned by tests: the brand lives in the `<title>`, the hero lockup
-(“Elizabeth Collection”), the `ELIZABETH PICK 01…33` kickers, the about copy,
-the custom-design subject and the screen-reader labels, while the path, the
-canonical, the sitemap row and every query string stay plain ASCII — and no
-emoji survives anywhere in the page or the record. `display_name` stays
-`Destiny Elizabeth`, which is what the collection-page cross-links and the
-schema use.
+is pinned by tests: the brand lives in the `<title>`, the hero lockup, the
+`ELIZABETH PICK 01…33` kickers, the about copy, the custom-design subject and
+the screen-reader labels, while the path, the canonical, the sitemap row and
+every query string stay plain ASCII — and no emoji survives anywhere in the page
+or the record. `display_name` stays `Destiny Elizabeth`, which is what the
+collection-page cross-links and the schema use.
+
+The hero reads “Elizabeth’s Collection” while the masthead, the browser title,
+the kickers, the about heading and the labels stay “Elizabeth…”. That is
+`girly.logo_script`: it decouples the masthead line from `hero_script` (which
+both lines share by default, so every other locker is unchanged), so a 27 px
+signature does not have to carry the possessive.
 
 - **Art** — `artwork-source/des-banner.png` is the master (Crystal Marie's
   lakefront frame, a different model, the same Browns tee);
