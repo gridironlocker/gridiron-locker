@@ -649,3 +649,29 @@ same `_girly_body()` renderer reading `data/creators.json`.
 
 Tests: `tests/test_layout.py::AmberLocker` pins her code, artwork, attribution
 and grid, and pins the shared skin as shared.
+
+## Laquala Royal's Browns Collection — creator collaboration (`/laquala/`)
+
+Laquala Royal's locker is the fifth creator page and the **third** on the Browns
+catalogue. It is the same page as Crystal Marie's and Amber's, at the bare short
+address **`/laquala/`**.
+
+This one is entirely a `data/creators.json` entry — no build code, no CSS and no
+template changed:
+
+- `creators.laquala`: ID `LAQUALA`, `page_slug: "laquala"`,
+  `collection_key: "cleveland-browns"`, `include_collection: true`,
+  `order: "newest"`, `skin: "browns"`, `picks` = the 33 live Browns slugs
+  (renumbered `LAQUALA'S PICK 01…33`), three `featured`, promo
+  **`LAQUALA`, 10% off**, her own copy, keywords and custom-design subject.
+- The browns palette, the promo placements, the apparel matrix and the
+  collection-page cross-links already generalised in the Amber change
+  (`body[data-creator-skin="browns"]`, `creators_by_collection()`), so a fourth
+  locker is a record plus artwork.
+- **Art** — `artwork-source/laquala-banner.png` is the master (Crystal Marie's
+  lakefront frame, a different model, the same Browns tee);
+  `site/img/hero-laquala.jpg` (1916×821) ships, versioned `?v=1`.
+
+Tests: `tests/test_layout.py::LaqualaRoyalLocker` pins the bare `/laquala/`
+address, the grid, her attribution, her code and artwork, and that no other
+creator's name or code leaks onto her page.
