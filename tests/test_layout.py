@@ -2311,6 +2311,21 @@ class BellaLocker(unittest.TestCase):
                 f'<b>{expected_price}</b></div>',
                 card)
 
+    def test_logo_lockup_starts_with_a_capital(self):
+        """The lockup is her signature, not a label: "Bella’s", not "bella’s".
+
+        The script line used to be lower-cased on the way out, so a record
+        that authored "Bella’s" rendered "bella’s" in the handwriting face.
+        Only the first letter is touched; the rest is the record's own casing.
+        """
+        script = re.search(r'<span class="glogo-script">([^<]*)</span>', self.html)
+        self.assertIsNotNone(script)
+        value = script.group(1)
+        self.assertTrue(value[0].isupper(), value)
+        self.assertEqual(value[0], "B")
+        serif = re.search(r'<span class="glogo-serif">([^<]*)</span>', self.html)
+        self.assertEqual(serif.group(1), "COLLECTION")
+
     def test_page_loads_app_js_exactly_once(self):
         """The girly page drops the sitewide footer - and with it the only
         place the page shell emitted a script - so /michigan/bella/ shipped
@@ -2986,6 +3001,19 @@ class CrystalMarieLocker(unittest.TestCase):
                                                      "crystal-marie-banner.png")))
         self.assertFalse(os.path.isfile(os.path.join(SITE, "img",
                                                      "hero-crystal1.png")))
+
+    def test_logo_lockup_starts_with_a_capital(self):
+        """Crystal's lockup opens "Crystal’s" in the script face.
+
+        The first letter is upper-cased from the creator record; everything
+        after it keeps the record's own casing.
+        """
+        script = re.search(r'<span class="glogo-script">([^<]*)</span>', self.html)
+        self.assertIsNotNone(script)
+        value = script.group(1)
+        self.assertEqual(value[0], "C")
+        self.assertEqual(value, self.cre["girly"]["hero_script"])
+        self.assertIn('aria-label="Crystal’s Collection home"', self.html)
 
     def test_a_style_filter_removes_designs_that_do_not_list_it(self):
         """A style tile lists only the designs sold in that style.

@@ -3165,15 +3165,19 @@ def creator_apparel(cre, items, prefix="../../"):
 def girly_logo(href, cre=None):
     """The creator's own script lockup, drawn from ``cre['girly']``.
 
-    Bella's record only names ``hero_script``, so her lockup keeps reading
-    "bella’s ♡ COLLECTION" (lower-cased script, heart mark). A creator can
+    Bella's record only names ``hero_script``, so her lockup reads
+    "Bella’s ♡ COLLECTION" (heart mark). The script line is the creator's name,
+    so its first letter is upper-cased - a lockup that opened "bella’s" read
+    like a label rather than a signature - and the rest stays exactly as the
+    record authors it. A creator can
     override the mark with ``lockup_mark_html`` (Crystal Marie uses a small
     football instead of the heart), the serif line with ``lockup_serif`` and
     the screen-reader label with ``lockup_label``.
     """
     g = (cre or {}).get("girly", {})
     first = (cre or {}).get("display_name", "Bella").split()[0]
-    script = str(g.get("hero_script") or first).lower()
+    script = str(g.get("hero_script") or first)
+    script = script[:1].upper() + script[1:]
     mark = g.get("lockup_mark_html") or "♡"
     serif = str(g.get("lockup_serif") or "COLLECTION")
     label = str(g.get("lockup_label") or f"{first}’s Collection home")
