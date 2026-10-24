@@ -38,7 +38,21 @@ jobs:
 
       - name: Capture storefront prices
         # No bs4/requests: the script is stdlib-only, so it runs anywhere.
-        run: python src/scrape_mayzing_prices.py
+        # The failure reason is echoed as an annotation as well as a log tail:
+        # the run log URL is not readable from every environment, and "which
+        # product had no USD price" is the only thing worth knowing when this
+        # step goes red.
+        run: |
+          set +e
+          python src/scrape_mayzing_prices.py > /tmp/prices.txt 2>&1
+          code=$?
+          tail -n 30 /tmp/prices.txt
+          if [ $code -ne 0 ]; then
+            msg="$(grep -E '^  ! ' /tmp/prices.txt | head -n 6 | tr '\n' ' | ')"
+            [ -z "$msg" ] && msg="$(tail -n 3 /tmp/prices.txt | tr '\n' ' | ')"
+            echo "::error::Mayzing price capture refused to write: ${msg}"
+          fi
+          exit $code
 
       - name: Commit the capture
         run: |
