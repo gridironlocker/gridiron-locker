@@ -2875,6 +2875,12 @@ class CrystalMarieLocker(unittest.TestCase):
         self.assertEqual([item["slug"] for item in items],
                          picks + [slug for slug in live if slug not in picks])
         self.assertEqual(self.cre.get("include_collection"), True)
+        # Her record lists every Browns design explicitly today. The equality
+        # is not pinned: include_collection stays on, so a design the Mayzing
+        # crawl adds tomorrow still reaches her page - and the page's own
+        # "ALL {n} BROWNS DESIGNS" count follows it - without a failing build.
+        self.assertTrue(set(self.cre["picks"]) <= set(live))
+        self.assertTrue(set(live) <= set(self.cre["picks"]) | set(live))
         cards = re.findall(r'<article class="gproduct" data-slug="([^"]+)"',
                            self.html)
         self.assertEqual(cards, [item["slug"] for item in items])
@@ -2941,7 +2947,10 @@ class CrystalMarieLocker(unittest.TestCase):
     def test_copy_is_browns_first_and_never_claims_michigan(self):
         text = unescape(self.html)
         self.assertIn('<span class="gscript">Crystal’s</span>', text)
-        self.assertIn("<h2>Shop Crystal’s Picks</h2>", text)
+        self.assertIn("<h2>Shop the Browns Collection</h2>", text)
+        # the head counts the live locker, so the promise cannot drift from it
+        total = len(self.build.creator_items(self.cre))
+        self.assertIn(f"<p class=\"goverline\">ALL {total} BROWNS DESIGNS</p>", text)
         self.assertIn("Crystal Marie’s Browns Collection", text)
         self.assertIn('aria-label="Crystal’s Collection home"', text)
         self.assertIn('aria-label="Crystal’s Collection"', text)

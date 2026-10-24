@@ -3458,7 +3458,16 @@ def _girly_body(cre, c, items, track):
         store_note = promo_note + esc(str(g.get("store_note",
             "Each design opens its own product page, where the sizes, the current "
             "price and checkout are confirmed.")))
-    about_heading = str(g.get("about_heading", "Bella’s Michigan Collection"))
+    # The collection head may count itself: ``{n}`` is the number of designs
+    # actually in this locker, so "ALL 34 BROWNS DESIGNS" stays true as the
+    # catalogue grows or a design is retired.
+    def counted(key, default):
+        return str(g.get(key, default)).replace("{n}", str(len(items)))
+
+    collection_overline = counted("collection_overline", "THE COLLECTION")
+    collection_heading = counted("collection_heading", "Bella’s Michigan Designs")
+    collection_desc = counted("collection_desc", "")
+    about_heading = counted("about_heading", "Bella’s Michigan Collection")
     # The ``<strong>`` lead-in is markup; ``legal`` is the sentence that
     # follows it, so a creator only supplies the rights-holder clause.
     legal = str(g.get("legal",
@@ -3508,9 +3517,9 @@ def _girly_body(cre, c, items, track):
 {apparel_section}
 <section id="locker" class="gcollection"><div class="wrap">
  <div class="gcollection-head">
-  <p class="goverline">{esc(g.get('collection_overline', 'THE COLLECTION'))}</p>
-  <h2>{esc(g.get('collection_heading', 'Bella’s Michigan Designs'))}</h2>
-  <p>{esc(g.get('collection_desc', ''))}</p>
+  <p class="goverline">{esc(collection_overline)}</p>
+  <h2>{esc(collection_heading)}</h2>
+  <p>{esc(collection_desc)}</p>
   {promo_line}
  </div>
  <div class="ggrid" id="{grid_id}"{grid_attrs}>{"".join(cards)}</div>
