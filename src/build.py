@@ -172,6 +172,16 @@ YEAR = utc_today().year
 STYLE_PATH = os.path.join(ROOT, "src/style.css")
 with open(STYLE_PATH, "rb") as _style_fh:
     STYLE_VERSION = hashlib.sha256(_style_fh.read()).hexdigest()[:8]
+
+#: app.js keeps a fixed path, and GitHub Pages answers /assets/* with
+#: ``cache-control: max-age=600`` - so for ten minutes after a deploy a
+#: returning visitor still runs the PREVIOUS build's JavaScript against the NEW
+#: HTML. That is the "the buttons are there but clicking them does nothing"
+#: report: the filter markup ships, the behaviour behind it does not. Version
+#: the script URL exactly like style.css above. The literal only changes when
+#: this file changes, which is the only way app.js can change.
+with open(os.path.abspath(__file__), "rb") as _self_fh:
+    APP_JS_VERSION = hashlib.sha256(_self_fh.read()).hexdigest()[:8]
 CTA = "#49a59c"
 CTA_HOVER = "#3a847d"
 
@@ -1725,8 +1735,8 @@ def trust(heading=False):
 #: consent banner were inert, and the document never even closed. The girly
 #: branch in page_creator() therefore appends this same constant, so app.js
 #: loads exactly once on every page and </body></html> is always written.
-APP_JS_TAG = ('\n<script src="/assets/app.js" defer></script>\n'
-              '</body></html>')
+APP_JS_TAG = (f'\n<script src="/assets/app.js?v={APP_JS_VERSION}"'
+              ' defer></script>\n</body></html>')
 
 
 def footer(popup=True, collection=None):
@@ -3607,7 +3617,15 @@ def _girly_body(cre, c, items, track):
     skin = cre.get("skin")
     theme_attr = f' data-theme="{esc(str(skin))}"' if skin else ""
 
-    hero_image = esc(url_safe(g.get("hero_image", cre.get("hero", ""))))
+    # Banner art is replaced in place (same filename), so the URL carries the
+    # creator's ``hero_v`` cache version exactly like the team banners' ?v=N.
+    # Without it a visitor who saw the previous banner keeps the old photo from
+    # their browser/CDN cache - the HTML updates, the artwork does not.
+    hero_path = url_safe(g.get("hero_image", cre.get("hero", "")))
+    hero_v = g.get("hero_v")
+    if hero_v not in (None, ""):
+        hero_path += f"{'&' if '?' in hero_path else '?'}v={hero_v}"
+    hero_image = esc(hero_path)
     hero_alt = esc(g.get("hero_alt", cre.get("hero_alt", "")))
     # The banner's store link is optional. It points at the same storefront the
     # design cards and the note under the grid already open, so a creator can
@@ -3934,8 +3952,14 @@ def page_creator(ckey="joe"):
     hide_nav = bool(cre.get("hide_nav", False))
 
     URLS.append((DOMAIN + path, "0.9", "weekly"))
+    # The social card points at the same artwork, so it needs the same cache
+    # version as the banner (a re-shared link must unfurl the current photo).
+    hero_meta = cre["hero"]
+    _hero_v = (cre.get("girly") or {}).get("hero_v")
+    if _hero_v not in (None, ""):
+        hero_meta += f"{'&' if '?' in hero_meta else '?'}v={_hero_v}"
     write(f"{cre['page_slug']}/index.html",
-          head(f"{cre['page_name']} | {BRAND}", cre_page_desc, path, cre["hero"],
+          head(f"{cre['page_name']} | {BRAND}", cre_page_desc, path, hero_meta,
                schema, kw, col=ckey_col, body_attrs=f' data-creator-page="{track}"',
                extra_head=GIRLY_FONTS if girly else "")
           + header(ckey_col, hide_nav=hide_nav, hide_promo=girly,

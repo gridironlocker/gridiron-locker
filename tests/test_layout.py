@@ -2317,14 +2317,16 @@ class BellaLocker(unittest.TestCase):
         no JavaScript at all and every button on it was inert. The page now
         closes with the same load the footer gives every other page: app.js
         exactly once, deferred, and the document properly closed."""
-        loads = re.findall(r'<script src="[^"]*assets/app\.js"[^>]*></script>',
+        loads = re.findall(r'<script src="[^"]*assets/app\.js(?:\?v=[0-9a-f]{8})?"[^>]*></script>',
                            self.html)
         self.assertEqual(len(loads), 1)
         self.assertIn("defer", loads[0])
         self.assertTrue(self.html.endswith("</body></html>"))
         # the shell page (footer included) still loads it exactly once too
         self.assertEqual(
-            len(re.findall(r'src="[^"]*assets/app\.js"', self.joe)), 1)
+            len(re.findall(r'src="[^"]*assets/app\.js(?:\?v=[0-9a-f]{8})?"',
+                           self.joe)), 1)
+
     def test_storewide_apparel_options_are_named_without_promising_per_design_stock(self):
         """The category tiles name the styles her store showed and the page
         stays light on words: no standing caveat paragraph, no live status
@@ -2866,7 +2868,7 @@ class CrystalMarieLocker(unittest.TestCase):
         self.assertIn('data-creator-page="CRYSTAL"', self.html)
         self.assertNotIn('name="robots" content="noindex', self.html)
         self.assertTrue(self.html.endswith("</body></html>"))
-        loads = re.findall(r'<script src="[^"]*assets/app\.js"[^>]*></script>',
+        loads = re.findall(r'<script src="[^"]*assets/app\.js(?:\?v=[0-9a-f]{8})?"[^>]*></script>',
                            self.html)
         self.assertEqual(len(loads), 1)
         self.assertIn("defer", loads[0])
@@ -2965,7 +2967,11 @@ class CrystalMarieLocker(unittest.TestCase):
         self.assertIn("Cleveland Browns", legal)
         self.assertIn("the NFL", legal)
         # the hero is the browns banner, deployed as a JPG at its native size
-        self.assertIn('src="../../img/hero-crystal.jpg"', self.html)
+        # the filename is reused when the art is replaced, so the banner URL
+        # carries the creator's cache version - a returning visitor must not
+        # keep the old photo out of their browser/CDN cache
+        hero_v = self.cre["girly"]["hero_v"]
+        self.assertIn(f'src="../../img/hero-crystal.jpg?v={hero_v}"', self.html)
         w, h = self.cre["hero_w"], self.cre["hero_h"]
         self.assertIn(f'width="{w}" height="{h}"', self.html)
         self.assertEqual((w, h), (1916, 821))   # the 2026-10-24 replacement
@@ -2977,6 +2983,16 @@ class CrystalMarieLocker(unittest.TestCase):
                                                      "crystal-marie-banner.png")))
         self.assertFalse(os.path.isfile(os.path.join(SITE, "img",
                                                      "hero-crystal1.png")))
+
+    def test_assets_are_cache_versioned_on_the_creator_page(self):
+        """Pages caches /assets/* for 10 minutes, so the script URL is versioned.
+
+        app.js is what moves the apparel tiles and the filter chips. Shipping
+        new markup with an unversioned script URL hands a returning visitor the
+        previous build's JavaScript - the buttons render and do nothing.
+        """
+        self.assertRegex(self.html, r'app\.js\?v=[0-9a-f]{8}"')
+        self.assertRegex(self.html, r'style\.css\?v=[0-9a-f]{8}"')
 
     def test_faq_schema_answers_the_discount_and_the_disclaimer(self):
         faq = next(node for node in json_ld_nodes(self.html)
