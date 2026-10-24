@@ -3528,6 +3528,97 @@ class LaqualaRoyalLocker(unittest.TestCase):
         self.assertIn("https://gridironlocker.store/laquala/", page("feed.xml"))
 
 
+class DesLocker(unittest.TestCase):
+    """des❤️🐞's Browns locker at /des/ - Crystal Marie's page with emoji branding.
+
+    The brand is an emoji handle ("des❤️🐞") while the address is the plain
+    ASCII "des". That split is the thing worth pinning: the emoji lives in the
+    copy, the title and the labels, and never in a path, a query string or a
+    canonical - a percent-encoded emoji URL is share-hostile and would fork the
+    page's identity the first time someone copied it out of a browser bar.
+    """
+
+    BRAND = "des\u2764\ufe0f\U0001f41e"
+
+    def setUp(self):
+        import build  # noqa: E402
+
+        self.build = build
+        self.html = page("des/index.html")
+        self.cre = load_json("data/creators.json")["creators"]["des"]
+        self.team = page("cleveland-browns-shirts/index.html")
+
+    def test_the_address_is_plain_ascii_des(self):
+        self.assertEqual(self.cre["page_slug"], "des")
+        self.assertTrue(self.cre["page_slug"].isascii())
+        self.assertIn('<link rel="canonical" href="https://gridironlocker.store/des/">',
+                      self.html)
+        self.assertIn("<loc>https://gridironlocker.store/des/</loc>", page("sitemap.xml"))
+        self.assertTrue(os.path.isdir(os.path.join(SITE, "des")))
+        # the brand never leaks into a path or a query string
+        for bad in ("%EF%B8%8F", "%F0%9F%90%9E", "/des❤", "creator=DES❤"):
+            self.assertNotIn(bad, self.html)
+            self.assertNotIn(bad, page("sitemap.xml"))
+
+    def test_the_grid_is_the_whole_browns_collection_newest_first(self):
+        live = [item["slug"] for item in self.build.creator_items(self.cre)]
+        self.assertEqual(live, [item["slug"] for item in self.build.MODEL["cleveland-browns"]])
+        cards = re.findall(r'<article class="gproduct" data-slug="([^"]+)"', self.html)
+        self.assertEqual(cards, live)
+        self.assertEqual(cards, re.findall(r'class="card[^"]*"[^>]*data-slug="([^"]+)"',
+                                           self.team))
+        self.assertEqual(len(cards), 33)
+        self.assertNotIn("dawg-pound-cleveland-skyline", cards)
+
+    def test_every_card_forwards_the_destiny_attribution(self):
+        self.assertEqual(self.cre["attribution"]["creator_id"], "DESTINY")
+        cards = re.findall(r'<article class="gproduct".*?</article>', self.html, re.S)
+        self.assertEqual(len(cards), 33)
+        for block in cards:
+            self.assertIn("?creator=DESTINY", block, block[:90])
+            self.assertIn('data-creator="DESTINY"', block)
+
+    def test_destiny_code_is_ten_percent_off_and_nothing_else_leaks(self):
+        self.assertEqual(self.cre.get("promo"), {"code": "DESTINY", "pct": 10})
+        self.assertIn('data-copy-code="DESTINY"', self.html)
+        self.assertIn("<strong>10% off</strong> your order", self.html)
+        self.assertIn('<span>10% off</span> with code <strong>DESTINY</strong>', self.html)
+        self.assertIn("with code <strong>DESTINY</strong> at checkout", self.html)
+        text = unescape(self.html)
+        for other in ("Crystal", "Amber", "Laquala", "Bella", "Joe"):
+            self.assertNotIn(other, text)
+        for other in ("CRYSTAL", "AMBER", "LAQUALA"):
+            self.assertNotIn(f"creator={other}", self.html)
+
+    def test_the_emoji_brand_ships_in_the_copy_and_the_labels(self):
+        self.assertEqual(self.cre["display_name"], "Destiny Elizabeth")
+        text = unescape(self.html)
+        self.assertIn(f'<span class="gscript">Des{self.BRAND[3:]}</span>', text)
+        self.assertIn(f"Des{self.BRAND[3:]} Collection home", text)
+        self.assertIn(f"Des{self.BRAND[3:]} Collection", text)
+        self.assertIn(f"{self.BRAND.upper()} PICK 01", text)
+        self.assertIn(f"{self.BRAND.upper()} PICK 33", text)
+        self.assertIn(f"{self.BRAND} Browns Collection", text)
+        self.assertIn("Destiny Elizabeth", text)
+        self.assertIn("New Custom Design Request from " + self.BRAND, text)
+
+    def test_hero_is_her_own_artwork(self):
+        self.assertEqual(self.cre["hero"], "/img/hero-des.jpg")
+        self.assertIn('src="../img/hero-des.jpg?v=1"', self.html)
+        for other in ("hero-crystal", "hero-amber", "hero-laquala"):
+            self.assertNotIn(other, self.html)
+        self.assertTrue(os.path.isfile(os.path.join(SITE, "img/hero-des.jpg")))
+        self.assertIn('data-creator-skin="browns"', self.html)
+
+    def test_all_four_browns_capsules_are_linked(self):
+        for href in ('href="../crystal/"', 'href="../amber/"',
+                     'href="../laquala/"', 'href="../des/"'):
+            self.assertIn(href, self.team)
+            self.assertIn(href, page("collections/index.html"))
+        self.assertIn("https://gridironlocker.store/des/", page("llms.txt"))
+        self.assertIn("https://gridironlocker.store/des/", page("feed.xml"))
+
+
 class ConversionUpgrades(unittest.TestCase):
     """The conversion pass: truthful trust strip, faster PDP hand-off,
     visible custom-design service, completed funnel analytics.

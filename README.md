@@ -680,3 +680,28 @@ So this one is a record plus one label hook — no CSS, no template, no route:
 Tests: `tests/test_layout.py::LaqualaRoyalLocker` pins the bare `/laquala/`
 address, the grid, her attribution, her code and artwork, and that no other
 creator's name or code leaks onto her page.
+
+## des❤️🐞's Browns Collection — creator collaboration (`/des/`)
+
+Destiny Elizabeth's locker is the sixth creator page and the **fourth** on the
+Browns catalogue, at the bare short address **`/des/`**. It is built exactly
+like Crystal Marie's: the whole live Browns collection newest → oldest, cards on
+the local product page, the browns skin, her own promo code **`DESTINY` (10%
+off)**.
+
+The brand is the emoji handle **des❤️🐞** and the address is the plain ASCII
+`des` — deliberately, and pinned by tests: the emoji lives in the `<title>`, the
+hero lockup, the `DES❤️🐞 PICK 01…33` kickers, the about copy, the custom-design
+subject and the screen-reader labels, and never in a path, query string or
+canonical (a percent-encoded emoji URL is share-hostile and would fork the
+page's identity). `page_slug` stays `des`; `display_name` stays
+`Destiny Elizabeth`, which is what the collection-page cross-links and the
+schema use.
+
+- **Art** — `artwork-source/des-banner.png` is the master (Crystal Marie's
+  lakefront frame, a different model, the same Browns tee);
+  `site/img/hero-des.jpg` (1916×821) ships, versioned `?v=1`.
+
+Tests: `tests/test_layout.py::DesLocker` pins the ASCII address, the grid, the
+`DESTINY` attribution and code, the emoji branding, her artwork, and that no
+other creator's name or code leaks onto her page.
