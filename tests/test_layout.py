@@ -2872,16 +2872,20 @@ class CrystalMarieLocker(unittest.TestCase):
         import build  # noqa: E402
 
         self.build = build
-        self.html = page("browns/crystal-marie/index.html")
+        self.html = page("crystal/index.html")
         self.cre = load_json("data/creators.json")["creators"]["crystal"]
+        # the page's own depth ("../" at /crystal/, "../../" at a nested slug),
+        # so a future move does not need every path assertion rewritten
+        self.prefix = "../" * max(1, len([part for part
+                                          in self.cre["page_slug"].split("/") if part]))
         self.bella = page("michigan/bella/index.html")
         self.css = page("assets/style.css")
 
     def test_page_is_indexable_sitemapped_and_closes_with_app_js(self):
         self.assertIn('<link rel="canonical" '
-                      'href="https://gridironlocker.store/browns/crystal-marie/">',
+                      'href="https://gridironlocker.store/crystal/">',
                       self.html)
-        self.assertIn("<loc>https://gridironlocker.store/browns/crystal-marie/</loc>",
+        self.assertIn("<loc>https://gridironlocker.store/crystal/</loc>",
                       page("sitemap.xml"))
         self.assertIn('data-creator-page="CRYSTAL"', self.html)
         self.assertNotIn('name="robots" content="noindex', self.html)
@@ -2913,7 +2917,7 @@ class CrystalMarieLocker(unittest.TestCase):
         for slug in cards:
             block = re.search(r'<article class="gproduct" data-slug="%s".*?</article>'
                               % re.escape(slug), self.html, re.S).group(0)
-            self.assertIn('href="../../shop/%s/?creator=CRYSTAL"' % slug, block)
+            self.assertIn(f'href="{self.prefix}shop/{slug}/?creator=CRYSTAL"', block)
             self.assertIn('data-creator="CRYSTAL"', block)
             # a local hand-off stays in this tab; the arrow says so too
             self.assertNotIn('target="_blank"', block)
@@ -2989,7 +2993,8 @@ class CrystalMarieLocker(unittest.TestCase):
         # carries the creator's cache version - a returning visitor must not
         # keep the old photo out of their browser/CDN cache
         hero_v = self.cre["girly"]["hero_v"]
-        self.assertIn(f'src="../../img/hero-crystal.jpg?v={hero_v}"', self.html)
+        self.assertIn(f'src="{self.prefix}img/hero-crystal.jpg?v={hero_v}"',
+                      self.html)
         w, h = self.cre["hero_w"], self.cre["hero_h"]
         self.assertIn(f'width="{w}" height="{h}"', self.html)
         self.assertEqual((w, h), (1916, 821))   # the 2026-10-24 replacement
@@ -3001,6 +3006,43 @@ class CrystalMarieLocker(unittest.TestCase):
                                                      "crystal-marie-banner.png")))
         self.assertFalse(os.path.isfile(os.path.join(SITE, "img",
                                                      "hero-crystal1.png")))
+
+    def test_the_short_url_is_the_page_and_the_old_one_forwards(self):
+        """Her locker lives at /crystal/; /browns/crystal-marie/ forwards to it.
+
+        The old address is already on shared links and stickers, and GitHub
+        Pages has no server-side 301 - so the old path keeps a stub with the
+        same single signal the retired product pages use: an instant meta
+        refresh, noindex,follow, no canonical (a redirect stub and the page it
+        forwards to are not duplicates), and a self-referencing og:url.
+        """
+        # the live page, its canonical and its sitemap entry
+        self.assertTrue(self.html)
+        self.assertIn('<link rel="canonical" href="https://gridironlocker.store/crystal/">',
+                      self.html)
+        sitemap = page("sitemap.xml")
+        self.assertIn("<loc>https://gridironlocker.store/crystal/</loc>", sitemap)
+        self.assertNotIn("browns/crystal-marie", sitemap)
+
+        # the old address is a stub that forwards, never a second live page
+        old = page("browns/crystal-marie/index.html")
+        self.assertIn('<meta http-equiv="refresh" '
+                      'content="0;url=https://gridironlocker.store/crystal/">', old)
+        self.assertIn('<meta name="robots" content="noindex,follow">', old)
+        self.assertIn('data-gl-redirect="/crystal/"', old)
+        self.assertIn('content="https://gridironlocker.store/browns/crystal-marie/"', old)
+        self.assertNotIn('rel="canonical"', old)
+        self.assertNotIn("gcategory-tiles", old)      # no second copy of the page
+        self.assertNotIn("gproduct", old)
+
+        # hosts that read _redirects answer with a real 301
+        self.assertIn("/browns/crystal-marie/ /crystal/ 301",
+                      page("_redirects"))
+
+        # every internal route to her locker uses the short URL
+        self.assertIn('href="./crystal/"', page("index.html"))
+        self.assertIn(f'href="../crystal/"',
+                      page("cleveland-browns-shirts/index.html"))
 
     def test_logo_lockup_starts_with_a_capital(self):
         """Crystal's lockup opens "Crystal’s" in the script face.
@@ -3062,7 +3104,7 @@ class CrystalMarieLocker(unittest.TestCase):
     def test_anchors_resolve_and_no_empty_apparel_section_ships(self):
         nav = re.search(r'<nav class="bellanav".*?</nav>', self.html, re.S)
         self.assertIsNotNone(nav)
-        for link in ('href="../../"', 'href="#locker"', 'href="#about"'):
+        for link in (f'href="{self.prefix}"', 'href="#locker"', 'href="#about"'):
             self.assertIn(link, nav.group(0))
         # "Custom Design" jumps straight to the inquiry form instead of making
         # the visitor scroll the whole grid to find it
@@ -3099,7 +3141,7 @@ class CrystalMarieLocker(unittest.TestCase):
         from urllib.parse import parse_qs, urlsplit
 
         matrix = self.build.apparel_matrix(self.build.creator_items(self.cre),
-                                           prefix="../../")
+                                           prefix=self.prefix)
         self.assertTrue(matrix)
         payload = json.loads(unescape(
             re.search(r'data-apparel="([^"]*)"', self.html).group(1)))
@@ -3142,7 +3184,7 @@ class CrystalMarieLocker(unittest.TestCase):
             for cat, rows in groups.items():
                 for row in rows:
                     self.assertTrue(row["image"].startswith("https://")
-                                    or row["image"].startswith("../../"), row)
+                                    or row["image"].startswith(self.prefix), row)
                     self.assertTrue(row["price"].startswith("$"), row)
                     self.assertNotEqual(row["image"], row["back"], row)
                     query = parse_qs(urlsplit(row["url"]).query)
@@ -3160,7 +3202,7 @@ class CrystalMarieLocker(unittest.TestCase):
         filters by garment class.
         """
         matrix = self.build.apparel_matrix(self.build.creator_items(self.cre),
-                                           prefix="../../")
+                                           prefix=self.prefix)
         payload = json.loads(unescape(
             re.search(r'data-apparel="([^"]*)"', self.html).group(1)))
         chip_rows = re.findall(
@@ -3192,7 +3234,7 @@ class CrystalMarieLocker(unittest.TestCase):
     def test_local_asset_references_resolve(self):
         from urllib.parse import unquote
 
-        fp = os.path.join(SITE, "browns/crystal-marie/index.html")
+        fp = os.path.join(SITE, "crystal/index.html")
         attr = re.compile(r'(?:src|data-src|href|content)="([^"]+)"')
         for match in attr.finditer(self.html):
             value = unescape(match.group(1).strip())

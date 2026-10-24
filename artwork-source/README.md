@@ -65,7 +65,7 @@ so the homepage shows the whole band and puts its copy underneath instead.
 ## Creator banners
 
 `crystal-marie-banner.png` is Crystal Marie's locker banner
-(`/browns/crystal-marie/`): a 1916x821 golden-hour lakefront portrait in the
+(`/crystal/`): a 1916x821 golden-hour lakefront portrait in the
 Browns palette (replaced 2026-10-24 with the owner's Browns-tee version; the
 previous 1568x672 master is archived as `crystal-marie-banner1.png`). It is a **creator** banner, not one of the five 2048x768 team
 band posters, so it does not join the `.cbanner .band` set and needs no
