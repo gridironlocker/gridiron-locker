@@ -1,12 +1,653 @@
 {
-  "generated_at": "2026-10-23T19:21:24+00:00",
+  "generated_at": "2026-10-24T10:55:51+00:00",
   "window": "current public signals; source-specific lookback",
   "privacy": "Public discovery signals only. No direct messages or private account data are collected.",
   "sources": {
     "google_news": {
-      "status": "error",
-      "items": [],
-      "reason": "HTTP Error 503: Service Unavailable"
+      "status": "connected",
+      "items": [
+        {
+          "source": "google_news",
+          "team": "cleveland-browns",
+          "text": "Cleveland Browns news: Some rough news on the injury front - Dawgs By Nature",
+          "url": "https://news.google.com/rss/articles/CBMiwgFBVV95cUxPNmc4U0F1QXFsbGVyb2UyeW1TWnAwQWdUYURZY0o4ZE52SWFuUmRTNjNGX0RqM2NSc3VTLWtBZ1BEbUdiYnJ3ZHFkNlpLdkxLSjdzcEdOSVdZbnVPQmgwR2xvXzlMbTFYOVVYYjFIc0VlclJ1NVQzZ2t1WVJSTWhhM2c0X0NwRnFMU21rR2t1ekNnNFZwUHUzV094LVJ6elY0Vk1IRUlrR3d2eE5ucW83aDFuQVVDaWdPWG9kdFlRVTBIUQ?oc=5",
+          "published": "Thu, 22 Oct 2026 17:29:28 GMT",
+          "metrics": {}
+        },
+        {
+          "source": "google_news",
+          "team": "cleveland-browns",
+          "text": "Dare we say it? The Browns are ... watchable? – Terry Pluto - Cleveland.com",
+          "url": "https://news.google.com/rss/articles/CBMingFBVV95cUxQMnVqTDU3UGlHQnFVTmV1Z2x0UmotYmUwT013ZjdlSENiS01IZUlWeU5BOGhkWV83d3p6NGhueldKNGtaX0V4SVVHOU0wVWMzbXQxTlg1Nmh4UV9HUDNNM2RYdFAtMkRBLTV4ZU5FQmhOX3l5TVZMMnVfTW85UHNwanl4cDdwdHdVbWZjazFmaTJpdFFMTXVtaTI2UTd5dw?oc=5",
+          "published": "Sat, 24 Oct 2026 10:00:00 GMT",
+          "metrics": {}
+        },
+        {
+          "source": "google_news",
+          "team": "cleveland-browns",
+          "text": "What I’m Hearing: Deshaun Watson’s Cleveland future, Jonathan Taylor rumors, Lions’ LaPorta dilemma - The New York Times",
+          "url": "https://news.google.com/rss/articles/CBMiwgFBVV95cUxOSTB5TEtFWE1kaDBzTVhIVkdPd0RqaDlXdUZBYzhYVXRIOHI0X3g4OEdpOW4wZExtaFAxVEotbFZDTHNRUzVHLXpKZHY5bW5Sb25IOUdfNDhGYTFxaVFlbVlYVFR5TjZHcTlMR1RjWnVwZlRCa1pkMkF1WEtxVmRpLUE1aUhCWkd2SFlBTjBMTHZrajJVMENSM05NSkRzWW1Eb0JpWWh3ZklWbjlEQ2tsa2VIejdBeE9UUmMyZEtjVGZWdw?oc=5",
+          "published": "Sat, 24 Oct 2026 07:00:27 GMT",
+          "metrics": {}
+        },
+        {
+          "source": "google_news",
+          "team": "cleveland-browns",
+          "text": "How Browns offensive line may face stiffest test yet from Titans - Yahoo Sports",
+          "url": "https://news.google.com/rss/articles/CBMihgFBVV95cUxNaDctcE1GdDFXeVR1RnNPbkNBNUhIWmtjNG9RNXN6RDk3TWpQeGFXU0l4N3NMVlJFbEViREhuc0FzdGpJWVAzYkRCa0ZQSDMtWXE1MldzcV9nZXlCMVJGbmRxV2NYcHJLR2d3Uk4yNTBueFJJUkJrUy1kNVJnR2lRNWo5QUdDQQ?oc=5",
+          "published": "Sat, 24 Oct 2026 10:05:38 GMT",
+          "metrics": {}
+        },
+        {
+          "source": "google_news",
+          "team": "cleveland-browns",
+          "text": "Browns vs. Titans Week 7 picks: Cleveland favored, but some still see Tennessee winning - Dawgs By Nature",
+          "url": "https://news.google.com/rss/articles/CBMi8gFBVV95cUxQaEhiVnhGNWo3LU5Xelc5clFwVkF5OUt3U3RIS3ZvY0ZRSHlSRmEzdzFtN0h1WEdpQk81ZTBGaFBULWNyUG5ZaTVGRUpwaXQwbThRS2N4MmZEM2dGYTYxWnN2RDhYakRUQzJUR2VZemk0R09LZzNuYW0temdNSHh0RGNFZ0M1SGcyV1ZuTmlJQ3lNZEcxNktLRUwwN0ZyblBmS1ZrQTZpeTBldGhFYy1tY3FqWjZqOVZZWVc1Ni1tMm1mQU5UM1Zua0F3V3Q1Ml9hRFh0Yk1kU3N4eWNfd1pnajNtMjZ3Wmk3eUxBTG5TZWxRUQ?oc=5",
+          "published": "Thu, 22 Oct 2026 20:12:56 GMT",
+          "metrics": {}
+        },
+        {
+          "source": "google_news",
+          "team": "cleveland-browns",
+          "text": "Browns face Titans with a point to prove - Cleveland.com",
+          "url": "https://news.google.com/rss/articles/CBMi7wFBVV95cUxNVGpGX3REeVRTT2NLUlRid284LUx0czVIQV9XRGRSU1Vzek9IQXk5Zm11amRjdEUtbEZsVVFNQklSZGo3b2hIYXV3aDR0dWlRaFlUeTZLVURQWV9jaUNoalZ5RDd2ZWwzQUFCQWxNUnhHSXB2N0tCZW1WRDVfQ3pxc2JhMmJGY2FuMUxLOFVsc0JuNDlQY210b3A5VU5uanRiSlpJWFcxanVDOGJmNW9uVjdOWDJKVEE4Y0dOd0VGNU9GVTlOd0xBTXRLSHRFNEJWX3RKQjFCZnIwUHYxNlliNTlFeXNheFM5bE9HUUtlNA?oc=5",
+          "published": "Sat, 24 Oct 2026 09:01:00 GMT",
+          "metrics": {}
+        },
+        {
+          "source": "google_news",
+          "team": "cleveland-browns",
+          "text": "Are the Browns for real? Trade deadline plans for the Steelers, Ravens, Bengals - The New York Times",
+          "url": "https://news.google.com/rss/articles/CBMijAFBVV95cUxNSjZhenpmdW9qeVhXenVVbUVISi1JVi1Cb3k5eTN4TkVCZzlFOUFKbzJmSUxZYUdkY1dkSUM0RDIxcFZJVjU0UUdrWF9qLW04ZkJ2WTc3djlQYjZqc1pKOXU2NEJCWS1Qdk1xc2lFbElQVk5NSHR0dWFuMHNyaTh2V3RsVGVWdEYwMlVxZQ?oc=5",
+          "published": "Fri, 23 Oct 2026 09:30:15 GMT",
+          "metrics": {}
+        },
+        {
+          "source": "google_news",
+          "team": "cleveland-browns",
+          "text": "NFL trade deadline: Browns connected to a whole lot of edge defenders as targets - Dawgs By Nature",
+          "url": "https://news.google.com/rss/articles/CBMiowFBVV95cUxNLUtrWUNWUmRzdUNjMGphWWlIbWVqVnBRTlF4WWtScEhKcXp5bEpCb3c1LXVYb1dBUEgzR01PNjJ1Wi1zRXFCc19PWERYQTFZU2ZOaWFqdVpUVFhmSk5GQVQwampRSHpaWTM1ZnZEOVlsQ0ZlblE0Qk9GRTdwVDhzNy05LTJsRXVrQ29peEdSdUJocmdNMHl5RHZsSDkxNEZIeEhR?oc=5",
+          "published": "Thu, 22 Oct 2026 17:52:45 GMT",
+          "metrics": {}
+        },
+        {
+          "source": "google_news",
+          "team": "cleveland-browns",
+          "text": "Bold Predictions for Cleveland Browns at 2026 NFL Trade Deadline - Bleacher Report",
+          "url": "https://news.google.com/rss/articles/CBMipAFBVV95cUxOLTVTYVNrdUVGeUhwWXhyS0NSYVVxLUNLSHNILWgyc25EYWJlMVRfalBkdzEzUnBDWkV2Q3pIVUw3TmtzZFRfSEExUU9tSDlvbnhSRkJaZE1nSW1BRXEwYnVNeEpCa0JQVGlraXlRaTdGSXNFcjNZZnBBaGdhNmpBWHVKT0FoNHc5dDh5T09mWlhJX3NneXJTcFlONE9iTW10eDByWQ?oc=5",
+          "published": "Fri, 23 Oct 2026 11:37:02 GMT",
+          "metrics": {}
+        },
+        {
+          "source": "google_news",
+          "team": "cleveland-browns",
+          "text": "Browns 13-10 Ravens (Oct 18, 2026) Final Score - ESPN",
+          "url": "https://news.google.com/rss/articles/CBMib0FVX3lxTE9sbHROVE1aTXdpb1dHQW5TcV90cVFqdUFsdmdVcnV2WHpxNm5CbXAwMjFXMGM3S28wMld5ZmdXUThWZlo1M0V4TzZOZDhkNWUwdmdqWHZGYkVJM3BTV3FPWXMweXdGcHVQTFpjM29CYw?oc=5",
+          "published": "Fri, 15 May 2026 01:41:08 GMT",
+          "metrics": {}
+        },
+        {
+          "source": "google_news",
+          "team": "cleveland-browns",
+          "text": "Browns Host Eight Players For Tryouts - NFLTradeRumors.co",
+          "url": "https://news.google.com/rss/articles/CBMickFVX3lxTE1rbVVuVHUxQnRYaHp3QlB3U0JpS1Zfa0hYOGEtWDE1VG5PWVVrNDY4N1ZpM19zeW80dGYwV2gtdTRyVnZuZll0Tkw5NEdXcGZBZTU0Q0V1MFRPaVgtY3hCb3VGbmRNX1NlVnpoSHYtWGxvUQ?oc=5",
+          "published": "Fri, 23 Oct 2026 21:02:02 GMT",
+          "metrics": {}
+        },
+        {
+          "source": "google_news",
+          "team": "cleveland-browns",
+          "text": "Denzel Ward questionable for Week 7 vs. the Titans | Injury Report - Cleveland Browns",
+          "url": "https://news.google.com/rss/articles/CBMiogFBVV95cUxNVXhVTVFSVWlZTkMwOE5Wc29ZSVdCbGFSeHZuQ2ZiSmdoY2RWOF80cm02bFZ6VnJ1aERoUzEySXM1UlVYUVMyMVY1VTUtaV9JLTJJYWlNZDFYTU1ZWF93WEVTN0oxVlJINnBDbjdUMVFOMDBoWlNjWDkzby1XTW1jUWd1c3JUeDZpRGRQOXVKeFkzZUZKaVFCUEFzSFlBUW1WRFE?oc=5",
+          "published": "Fri, 23 Oct 2026 20:06:22 GMT",
+          "metrics": {}
+        },
+        {
+          "source": "google_news",
+          "team": "cleveland-browns",
+          "text": "Browns Mock Draft: Is a New QB1 on the Way? - 247Sports",
+          "url": "https://news.google.com/rss/articles/CBMiowFBVV95cUxNX3c4WHQyNW1NazcxM3VFVkdXbGZxeWlMcUZYWl9EeUpKd1RpQ0NXT1VfaU9YOHlvYkdTRnRXeXc3d2pDMU4wd2wxaEJjcWw5UGZfeEhsaE94cUk1X1JGdGRCVU9ZT3FUdVV6UnVZRHozSVhUQk5QMVktU1BjSHBoUThTcWt5QXNBTksxdzRld0VuaHpNdkxWNngzUjc2R0swUE93?oc=5",
+          "published": "Fri, 23 Oct 2026 15:03:34 GMT",
+          "metrics": {}
+        },
+        {
+          "source": "google_news",
+          "team": "cleveland-browns",
+          "text": "Quick Hits on the Titans From Friday of Browns Week - Tennessee Titans",
+          "url": "https://news.google.com/rss/articles/CBMikgFBVV95cUxNRGlyRkdqaHpIYkl6ZEQ4bkJOeFZvaVdOUXRBWHlqczlaUS1fZVhoY3lxWWZWQjRsanpXZEZKbjc0UWRSclEwTzRicmhiM2JiNXMtd2l3ZnRoZFVSTFJqNm9QdjN5Ny1yUGV5SmF6ZldYMGwtMVpsNFRtellnTzNENDVuWFBHb00zTVhqTzB3aHVXUQ?oc=5",
+          "published": "Fri, 23 Oct 2026 21:53:45 GMT",
+          "metrics": {}
+        },
+        {
+          "source": "google_news",
+          "team": "cleveland-browns",
+          "text": "Browns Make Dillon Gabriel Decision for Titans Game - Heavy.com",
+          "url": "https://news.google.com/rss/articles/CBMikAFBVV95cUxPVDlydTJITGtDWGE0N2pLSE1GejM3TkVqWjZqb1dYS2VWUy0zeERWOUpKVHdTbVVmalhheDd2dU1ocldqcUNBLTYxeFBsOV8tWmttVUV4bjZiSGxhUTFyYWVxdHhveEQ1TnpNbHpjSC1NTlg1cVNsTWw1QXY3QjBpdTZQaWhYN1Jza1RqVWQxbUE?oc=5",
+          "published": "Fri, 23 Oct 2026 19:11:56 GMT",
+          "metrics": {}
+        },
+        {
+          "source": "google_news",
+          "team": "cleveland-browns",
+          "text": "Browns' rebuilt offensive line is quietly fixing its most frustrating problem - Dawg Pound Daily",
+          "url": "https://news.google.com/rss/articles/CBMitwFBVV95cUxQWEF2QUJwcnM4dFFBVEhzUjRjQnZMZGNmdG9jUEIxcWQ4VU9RVHJSM0JCWFBzVDdWbS1TT1FuN2RvVWdvQlRBcVhuZVFwcjV3WnJTcDRzWDVYTHBpVEdPZVQyOUZERkU1dkRsMzJoNy1sTWV0WTJua0Y0WDJQYVBIdnFmUVFYU2liUGRTNGMwQTR4bzM4WkRTSXY1Wm1XR1pySW1DRUpmSS1aUzhJNGFVSkEybl9jd00?oc=5",
+          "published": "Fri, 23 Oct 2026 15:00:01 GMT",
+          "metrics": {}
+        },
+        {
+          "source": "google_news",
+          "team": "cleveland-browns",
+          "text": "Tennessee Titans vs. Cleveland Browns: Week 7 staff picks and predictions - Titans Wire",
+          "url": "https://news.google.com/rss/articles/CBMi3AFBVV95cUxPWTllTlA2c2Y1WUpVdi1CTjk4WDV3U2VORVl6dGtvcHkxSWtsUElTTEdVbmFmYlRpa0dtSlB1aDB1b2VIbk9WbGw1OHJWS1JjX2FOdW0tQ0FDTUdiS3ZyYkxJTnBHQnZXT1NnX2NERDdzaENabTg1S1F6UjY4NXBaTm5CVWpZdFV2dVhpMmQtN090cnJUUDNHZTlRek5vcHJ4WHN1Qjl3VTdSNnJoWk1VUVFPbmhGQl8yUkJBTDB4Vlc4QlVmaHAzcXVZck5rQ3FTcWtwZmVZSG1CX2lk?oc=5",
+          "published": "Sat, 24 Oct 2026 10:51:00 GMT",
+          "metrics": {}
+        },
+        {
+          "source": "google_news",
+          "team": "cleveland-browns",
+          "text": "Titans vs Browns picks as Tennessee aims for 2 wins in a row - The Tennessean",
+          "url": "https://news.google.com/rss/articles/CBMiwgFBVV95cUxPSWo2SXRpOFNRWlpIcm9qSC1NYmdtMFdvVHFZQ0EwNjJxUHo4VzZDZE8yNnM5anpscE5oOUt2MFR4WEZhMVdLRlpYS3VfbEhFNW5PXzhxalMyYTExb21SZFFQWWhJWmtmT2VRTFhMWVN0X0RBZ0hpRGVxS0c5VldCLUpvTzU4aGdpU1o2R3N2SkVCUE9vZHNZRmNaajJvdEd4Mjc1eEQyd0ZxMEF5ZjZRQzg0bDlzOFFsZks0d1hNMGNNdw?oc=5",
+          "published": "Sat, 24 Oct 2026 10:04:00 GMT",
+          "metrics": {}
+        },
+        {
+          "source": "google_news",
+          "team": "cleveland-browns",
+          "text": "Where the Cleveland Browns Need Help the Most Ahead of the NFL Trade Deadline - Sports Illustrated",
+          "url": "https://news.google.com/rss/articles/CBMiwwFBVV95cUxQVFRQeU1YdmQ1cVBJbm55NzUtUGp3djY0VzMzSm5SRTJYVTBCOEEzaF9Icm1VNVFlRGVGeF9HR1lrSjNqdTBtQVFNdldxZjgyQWdicWl3ci10alJtd251SlRyakNmMnZ1WmZRLW45Q2RsZlFoMEt5S2dtMUVnV1pYamhLUTRycV9oc19BTHUtOG9fdUVYS2pqc3VtSEFyNTVjNXpsaW1GUEpDT0NpbVZzNTU3M05UeV95WWcwYmlKRml3Slk?oc=5",
+          "published": "Thu, 22 Oct 2026 21:00:00 GMT",
+          "metrics": {}
+        },
+        {
+          "source": "google_news",
+          "team": "cleveland-browns",
+          "text": "Cleveland Browns vs. New York Jets Live Score and Stats - October 11, 2026 Gametracker - CBS Sports",
+          "url": "https://news.google.com/rss/articles/CBMieEFVX3lxTE9GVzNRaFdnNlVpcS1CS09wU1NQcGFrRFl2T3hxTlQ3eW1vZl9XenQ2MVpSS05tc1V1MW82Z3BvV09URmFOaGtzcmpiZ2tjSHFaQThzNFhLckt6RlpYMXlNQVFHVVhZcmhFQ0wwSG1rMVRCQmdiWkhaSg?oc=5",
+          "published": "Sun, 11 Oct 2026 07:00:00 GMT",
+          "metrics": {}
+        },
+        {
+          "source": "google_news",
+          "team": "green-bay-packers",
+          "text": "Final Dan Campbell takeaways before Lions vs. Packers - Pride Of Detroit",
+          "url": "https://news.google.com/rss/articles/CBMivgFBVV95cUxNUzctbmRiaXRwaGVobG5raXF4T2FvNGtvUG5FR1dfMTZTTkRrcVdHZEFzSnJyRXJoN1JFeFpReUhKTFI5aG44Q19INGo5MkNrSElKZlNFc0RTa1dfS0QwM0FGemNEaXpNUFpHQktNSTBIUW1QYVpKNG1CSGxWZ3dyVXFVd2dKU3VDVjFaSVo4X0RBeU1MZGJZSG50cjRPdWhDSjdGVnZyWWFOd0xnTlVxejFRcTc0SERCUlV6cDh3?oc=5",
+          "published": "Fri, 23 Oct 2026 17:48:04 GMT",
+          "metrics": {}
+        },
+        {
+          "source": "google_news",
+          "team": "green-bay-packers",
+          "text": "Packers rule out Zaire Franklin, list four questionable vs. Lions | Week 7 Injury Report - Green Bay Packers – packers.com",
+          "url": "https://news.google.com/rss/articles/CBMiswFBVV95cUxOR0dMY1J4QXNvalZ1OTJlQV91Tm85Y2pSWE05VnZLNW9VTkJwZFlBZW1CLWxaM2MyMXpjaDFUcU1vd2plZm5LTC1SYVJKVzRRaFkzQXRGU1J4WnhHNXI0QUZYX2tuZEdBZ1JUZ0pXMGtSbUxkQWR4dWFFUWxUWkYwU1l4MTd0ZUtUUVVDaF9UTVVNVmdGcHB3bWxSLVRwRUM0VXEtQUx2YnkxcFFvN0YtVmR6TQ?oc=5",
+          "published": "Fri, 23 Oct 2026 20:18:40 GMT",
+          "metrics": {}
+        },
+        {
+          "source": "google_news",
+          "team": "green-bay-packers",
+          "text": "Packers linebacker Zaire Franklin ruled out for Sunday - Acme Packing Company",
+          "url": "https://news.google.com/rss/articles/CBMivwFBVV95cUxQRzFxX1BCYkhJenBvR2dQaVJLOVBNaTVFTGxFZFRoV2s1SVdCd3VLc2pWOUpQYnc0NWxSR2FDSEVhRGVDTjh3cGpFanRxTHgxb09vejdYbEFKMGliVlpkNFJYRjV1dnF3ZUJ4YnpxMVZReWVjWG8tMURzcVVsamltcC1Na1hBVmZzOG5zdmdLZVpaVU5BeWp4aEZXOTVQMFdBbkhFUVBFejF6Z01pZUp6ZWxqRGViWE1jVFU5dzlSZw?oc=5",
+          "published": "Fri, 23 Oct 2026 16:17:32 GMT",
+          "metrics": {}
+        },
+        {
+          "source": "google_news",
+          "team": "green-bay-packers",
+          "text": "Packers linebacker Zaire Franklin out Sunday with shin injury - ESPN",
+          "url": "https://news.google.com/rss/articles/CBMingFBVV95cUxOdTU3MGI5Rld0azhaRW1WWGNHNzNWVTJwbXk5anpoRkt2WURDMWRjOGpIQ3R0WTd5UVc5VTZ0OFJQSEtQdVFZejhfVExCVG9mWUhZdjg5bDJqOGJocjluMExqZWRCa2hTMWRTTTFqOUM5cThsNmltWjFnM0Y1SE1OWmwySkkxX2pnU2pZcF83M3IzclBxRnZOM0thUEIwQQ?oc=5",
+          "published": "Fri, 23 Oct 2026 16:27:00 GMT",
+          "metrics": {}
+        },
+        {
+          "source": "google_news",
+          "team": "green-bay-packers",
+          "text": "Packers Draft: College Football Discussion, Week 8 - Acme Packing Company",
+          "url": "https://news.google.com/rss/articles/CBMiswFBVV95cUxOLTZLV2xUU0taZXVVRXpFZDJMQTNTTmR4V0VReG1oaml5enpGSVdJV092M2VTd3RJTmRYSWZ1TWZMcHJVdXViSXE2ekVadC01R0ZJQ3g5UHplY3hFTkFKcDI0bzZGeUZtaE1RSDQxMU53SDRQY1FuY19TOFBKMXFLTU96SDlJb01pYm9oZ3BIejhBQk43WUlWRk1HOFFBcEI2V2hfdkxHMlpsT3AyS1MyTzFtbw?oc=5",
+          "published": "Sat, 24 Oct 2026 10:25:00 GMT",
+          "metrics": {}
+        },
+        {
+          "source": "google_news",
+          "team": "green-bay-packers",
+          "text": "Packers 23-13 Cowboys (Oct 18, 2026) Final Score - ESPN",
+          "url": "https://news.google.com/rss/articles/CBMickFVX3lxTFBpN1dUUWlTX0c1bko5UzhuN2pCaDJaSFNINUZ2alktSEhfZUhNNEJnTW5MeFE1X0UwWnV3UXRPOW85dVBTR0ZkNXh6ZE9CemU0VG9DRDRQOEdWWXR4Yk1jb2NLOHgzOGg3ZTBpX2RIZXBPdw?oc=5",
+          "published": "Fri, 15 May 2026 00:16:53 GMT",
+          "metrics": {}
+        },
+        {
+          "source": "google_news",
+          "team": "green-bay-packers",
+          "text": "Practice Photos: Thursday, Oct. 22, 2026 - Green Bay Packers – packers.com",
+          "url": "https://news.google.com/rss/articles/CBMidkFVX3lxTFBxbHBJcERSYjVJYWVZT2hVV3dERmxFSzBkaGdiRUM1SG5wT0tfVUc4NGRoRkYweTRxNzFtNjEtTFB0YmY0c1RidEp3a1diQnYwM250YTVfNTlrcWJERjNlWWJaTHNGblFtUktoSHpYTHZLdkdLYmc?oc=5",
+          "published": "Thu, 22 Oct 2026 07:00:00 GMT",
+          "metrics": {}
+        },
+        {
+          "source": "google_news",
+          "team": "green-bay-packers",
+          "text": "Jordan Love, Christian Watson among Packers off injury report and set to play vs. Lions - NBC Sports",
+          "url": "https://news.google.com/rss/articles/CBMi4AFBVV95cUxQR1ZkQUV3UHlLcTVEZk4zeGlKYVFwaHhuem9DRVVpNzdfT1NqUTBsTF9zMWhlUF95bENqcUcwTk1fRE9WOGhmaHF2S0wyNWRIRHRXcGgtTDJlUWtMbFRUZ280YmFjSUplbGtya1lDTndxZzB1dW9iOWdXWEdWN3dTS1R1VTM1aGZ6Ul9kTldMeWoxOEZXUEJVVU50cUxhVVV3T2cxV2FoYUViNVM0RWQ2anB1WFB0V2NhZHRZU3FxTjFyS29kZEhydl91MVFMT21sTmF6RHc5TDBVQ3UzaFNLcg?oc=5",
+          "published": "Fri, 23 Oct 2026 22:38:01 GMT",
+          "metrics": {}
+        },
+        {
+          "source": "google_news",
+          "team": "green-bay-packers",
+          "text": "Packers Get Bad News on Potential Trades for 2 Colts Veterans - Heavy.com",
+          "url": "https://news.google.com/rss/articles/CBMilwFBVV95cUxNS2N1VkRQS3BvNXRoeTVkMm8xR2x3ZVRPS1dpcUhVVmM2YzBFMmFHUWxwRWdPVFFrU0ZvMGtPb3d1VUFWbUFDX2tmZjcxRzRVeGJoZjNVZDM0U1k1V21UcWZEb1ZMSmtOSzNWS1FFcmp5VXVFanFkQWpCQnVLVUxZR1g3d0dJYTNrejBFeDZjWkZLaThTQlhR?oc=5",
+          "published": "Thu, 22 Oct 2026 21:40:00 GMT",
+          "metrics": {}
+        },
+        {
+          "source": "google_news",
+          "team": "green-bay-packers",
+          "text": "Packers' Josh Jacobs says he is trying to learn from 'mistake,' move forward - ESPN",
+          "url": "https://news.google.com/rss/articles/CBMinAFBVV95cUxOOEItSWVGY2F4VXNlTGo1QWU2ZF9TTTVyclVGSG84NWYyRXpXdW9QS1lnS2t0Z2dKMHFGck0tRVpDM3hzWXljRVJCSXEyVWlRMWhYUzRkdTBYQjZZclFNNVBZa05jbUdzWXVRNlM4SDJ0SVlPeTVxakRKdklVOFB6ZDNSSWc3Q05JdlpOU3FlSlpmUUVqaUpqTXQwNGs?oc=5",
+          "published": "Wed, 21 Oct 2026 23:30:00 GMT",
+          "metrics": {}
+        },
+        {
+          "source": "google_news",
+          "team": "green-bay-packers",
+          "text": "Packers announce update on Josh Jacobs’ status for Lions game - Yahoo Sports",
+          "url": "https://news.google.com/rss/articles/CBMijAFBVV95cUxPNUhCdWZkT2xEc3dBaHFVLVZHbm9RX05jTXVjc08zd1NUeTJZNDktNEUtN1ZsVFhHbEt6bzNUUXlOd0JQT2daSDFuYjc4S1lyc29MMzl4bUhTb1RCb2E5YW8xU3RDNFo1WlBvN2kzVEJuS0FURWhSaE1xajNGajVtbjFpTmd2dndNS3JfRg?oc=5",
+          "published": "Fri, 23 Oct 2026 16:29:17 GMT",
+          "metrics": {}
+        },
+        {
+          "source": "google_news",
+          "team": "green-bay-packers",
+          "text": "Packers HC Matt LaFleur Issues Major Josh Jacobs Update Ahead of Week 7 - Heavy.com",
+          "url": "https://news.google.com/rss/articles/CBMijwFBVV95cUxOenZuaXdYbmFZVTNLbzh4Y0txdXNNOGdXemNvNmczSjFTNVBZUkJ0MW0tZkdyc0ZTYXBMa3hsMk1qQloxWEZPcUlBSEd6SDNKSHRoT29ONWtVVUx6ZmVsM3pJYlY2TmtKSWlBLUVwY0pXdExuNno3VFRubWJWLTZaMEJWb2hnOWh2Y2JnR2FuUQ?oc=5",
+          "published": "Fri, 23 Oct 2026 17:53:54 GMT",
+          "metrics": {}
+        },
+        {
+          "source": "google_news",
+          "team": "green-bay-packers",
+          "text": "Packers injury report: Love, Golden, Watson added - WLUK",
+          "url": "https://news.google.com/rss/articles/CBMijwFBVV95cUxQM2dwU1FLam8tcGppRzgyNFJxdmZESk96WF9GeDhKR1RsdzN5dkxKdlhHVW1TTk15bjhmb2kyLW94dHR2MXVIbERrWVdsOF90WGRzUWJhNlNoUWxfNHZJeUFORmtRbGhoZk01eWlPa0dxaDg2NDlLTTNZXzJhVk96VmZKYk9KajRhbzE0bm9KNA?oc=5",
+          "published": "Wed, 21 Oct 2026 23:11:18 GMT",
+          "metrics": {}
+        },
+        {
+          "source": "google_news",
+          "team": "green-bay-packers",
+          "text": "Matthew Golden is outpacing other 2025 first round picks - Acme Packing Company",
+          "url": "https://news.google.com/rss/articles/CBMiwgFBVV95cUxNTXdRQnhGc01kTk4yZ2ZzN2RNZTZBT3UxZWNmSWllRVlKYlZfMUZmNUNPZ0FBZ1VVNExwTHYyaGFHRGVnbWw3bzlra2dJVUhXYTN1aDl1RUE5RGZMQzduU1k5NExMakh5Y1l6ODZIaEstMDZvZ3haNXRQelBLRHd5WTdoOGNKd2FQTTFzWmgzNVYwUk1FNVBTQ0h4Rm1iLWZ0ZzRFd2hzanpXb2dwWUhSMC1rVnFpZ25pYXJwNWE5aU0yUQ?oc=5",
+          "published": "Fri, 23 Oct 2026 14:02:57 GMT",
+          "metrics": {}
+        },
+        {
+          "source": "google_news",
+          "team": "green-bay-packers",
+          "text": "Christian Watson and Matthew Golden already look like the next all-time Packers WR duo - Lombardi Ave",
+          "url": "https://news.google.com/rss/articles/CBMiqgFBVV95cUxOSjdtOVdLZ0JPMXdOX25Vc1pFUmdVRW9ZdWNKZ21FVGszRE1yZVRlejNFaTVkdGl3OEZVMGRKbHlFSUMxNG1XQ2liZWl1S0hLeXNqVEJpd0Foa1pfZ1dDOC1rYUNTbVRGNUZYUjlIMzQxZ3VRWGpwcTZ6TVowem1qSGZic3RRdXZZTXN1VnZTSkdVTmZNVk9Cd194cURIZF9Rd1ZGOURueTFRdw?oc=5",
+          "published": "Fri, 23 Oct 2026 15:59:43 GMT",
+          "metrics": {}
+        },
+        {
+          "source": "google_news",
+          "team": "green-bay-packers",
+          "text": "Wait Continues as Packers G Kevin Zeitler Gets Ready to Face Former Team - Sports Illustrated",
+          "url": "https://news.google.com/rss/articles/CBMirAFBVV95cUxNbHdIR3lPSWpFeldLWGNoNDMyMEhZUVpURVUyaTBSdnJ5MjFUVUtGWEs3N21WTFQ2TkREcFNNN3hnWkMyMlA5UFQzTmNTb2NZaWVBMGdmVDNqSFFEQ3ZwWGR1UE4xb2RtamlHMnM4OEFaSjdHYXNBOUx4R1NGTF9UeEFTYkdJV2JBeU84VFBrQXl5b3VlWVVsclF0dFBkVkJpLUJzY0l1VlR0SUY2?oc=5",
+          "published": "Fri, 23 Oct 2026 16:01:45 GMT",
+          "metrics": {}
+        },
+        {
+          "source": "google_news",
+          "team": "green-bay-packers",
+          "text": "Predictions: Lions vs. Green Bay Packers - The Detroit News",
+          "url": "https://news.google.com/rss/articles/CBMiswFBVV95cUxOMW5Xcm5xcXZubTdsNW5oeXJVX0FybHYwVWFBeGZMOXNDTFVvN21fUm1TYWxKMV8xdmw5Qk8wNUYwSTgxSGxQQ3ZNcGJFeHlaeExNN1dDenpnOVdkai12TUhmb0swNFhBZGlyUVFUSFkwOUozY3lkbVlibVJYQkRxdWpEQk1xeHoyNGQyUFhpVU5WMGo2QkhsdFl0WXFxckZxSUpiZDZjVjdYVFhmTlA4NzBXNA?oc=5",
+          "published": "Sat, 24 Oct 2026 04:01:00 GMT",
+          "metrics": {}
+        },
+        {
+          "source": "google_news",
+          "team": "green-bay-packers",
+          "text": "Packers Hit With Brutal Injury News Ahead of Massive Showdown Against Lions - Yahoo Sports",
+          "url": "https://news.google.com/rss/articles/CBMihgFBVV95cUxQc1hKYjh6ZGdSLVJ6NV9yUklueGlBV2xyRTFXMmQxUFN4WVB5dm15LVNJRWFYQUY3R05ZUGJfY2xZQmxUbTZuUU84RUpBd0dsRTRja29oS2tXMWZoaWtrWGlSR1FBODVndzFFWDlwX21jNURua1JnbTlOVWdaaHpOZXJaMENtZw?oc=5",
+          "published": "Fri, 23 Oct 2026 21:56:02 GMT",
+          "metrics": {}
+        },
+        {
+          "source": "google_news",
+          "team": "green-bay-packers",
+          "text": "Green Bay's reported interest in DeForest Buckner signals the Packers are hungry for a Super Bowl run - Dairyland Express",
+          "url": "https://news.google.com/rss/articles/CBMi2wFBVV95cUxQMGRYM0FKMUlFYkd3TXdFeWxQV1lQQmZ3WERlT20wQU12SC0wN2Z0U0NDbXJ4U1daVm9OUldMTExJYTlTZXNXbkhfY1F5UWlUR3l2a0JvRlFQbWJaSTJQNWNkMXlVbE1XWm5HX0Z4cm8tSlFQRjRKZEs3NmFjQWZ0UUV5TEVJMkVDLUU1M1puU3RlcTVfZXRHRExPQnpUc1VlX3RTbVFyXzkyQUlIRU9hNVYxV0l1WXlvYlBIMWhlaWZFeV9RTmJhOWIxNjdUZGd2T3E2SWVFWFhsLVk?oc=5",
+          "published": "Fri, 23 Oct 2026 16:00:01 GMT",
+          "metrics": {}
+        },
+        {
+          "source": "google_news",
+          "team": "green-bay-packers",
+          "text": "Packers face a major depth test against Lions after losing a veteran defender for the rivalry game - A to Z Sports",
+          "url": "https://news.google.com/rss/articles/CBMilwFBVV95cUxPUmtFRGZIOTg3SU40S1M1cENwQTFBZzF2RmRneHFucnRmal9BVHVuYnpieW5PRjFZR1BoZVdjQks1blJrSzZSamhmVzJaWDlvT2FVNUFadjNSRlZGRmVDcERSM1YtWDVzRmoyRmFqQmZnTldBNjVRaUE3NTRseVZxRUlieXhtdkdGOThqVkw3Q0lwMVE0Q3Fz?oc=5",
+          "published": "Fri, 23 Oct 2026 16:14:09 GMT",
+          "metrics": {}
+        },
+        {
+          "source": "google_news",
+          "team": "dallas-cowboys",
+          "text": "Dallas Cowboys cheerleaders unionize after years of fighting for fair pay - The Guardian",
+          "url": "https://news.google.com/rss/articles/CBMiigFBVV95cUxOSHdVN0w1eEE5X01DWjg4a2lBSzd3dXlrM3RkTDRleEkwbERfME93VDV4ckVkNGJ0OG1qLTAyXzFMTmt3R2RRWmJTdmhvSVFiNW1yeVhUYmpqOHZKZmtyQW0teHZMU1lHYzlEMXJpa1VTWUJnc01hUjVlMVpiUkJyVWVMMHlsRVF4ckE?oc=5",
+          "published": "Fri, 23 Oct 2026 21:22:00 GMT",
+          "metrics": {}
+        },
+        {
+          "source": "google_news",
+          "team": "dallas-cowboys",
+          "text": "Cobie Durant aiming to do his part for Cowboys secondary, help create turnovers - Dallas Cowboys | Official Site of the Dallas Cowboys",
+          "url": "https://news.google.com/rss/articles/CBMiswFBVV95cUxNQmdoM0NZai1wTXNJMTg5S1RMalhwcV9obHBwWEt4YWh1RmtNZmhmd0FReEVCR0lNWkhpXzdkQWdyMFBiSl9weF9NYUtoV1N4ekxDZGJzbE80aXVncnY2VWtCY1pqRVZ2Q29JT2hQamtqWkNqdUlHZWtuV3pCTUZBM0xCWnAwNDRMdWNzaTJGWUVxQ1JpOF9XMjZUQVpwNll2VjNBTWtFUXEzM2VrajZxNGZiQQ?oc=5",
+          "published": "Thu, 22 Oct 2026 21:58:02 GMT",
+          "metrics": {}
+        },
+        {
+          "source": "google_news",
+          "team": "dallas-cowboys",
+          "text": "Cowboys' Preseason Superstar Could Make NFL Debut Thanks to KaVontae Turpin Injury - Sports Illustrated",
+          "url": "https://news.google.com/rss/articles/CBMinAFBVV95cUxNVDA4TVdRdGdBd0VXQ3RXcjJLRk1kTTlCUzIzeDVFR2hxRmFmNHZVZ3B1MXB2aGUzWUQyc3FfTTZRQm5hRnp3V0N5NG1rSFh1RUZzSVlHR3RHQ2ROMlB1Q2xjWWh3TkxldnE4Q2VBRWZrc3E5dW85Tm5vVW9yZWROdGZ2ZHh3RFBiSkhZb1BwUU5uMEJxN2tBak5Gd3E?oc=5",
+          "published": "Fri, 23 Oct 2026 12:24:00 GMT",
+          "metrics": {}
+        },
+        {
+          "source": "google_news",
+          "team": "dallas-cowboys",
+          "text": "Cowboys 2nd Philly visit under Schottenheimer is a sad reality check - Blogging The Boys",
+          "url": "https://news.google.com/rss/articles/CBMiygFBVV95cUxPeTdVbHhscTZIVnZQUnBma0lvbTUzcTl1UG9IYVpzVkJhWDJmaXNvclZtMkwzbXZ0eHZJNDZ2LS1QVVhrZGhzbGUzOXVWNDVrSDhLUjVleVdUZy1iU3dULTdSSkE2UmdkcmdIRzRWbUdOZUZUUGNYajJITkxDOVpOUHRHZHBscDJKSXRqbmJsX3d0c1B0UTZBSGwta1VOYWlaTTh2c2JWVEQxdXNUa1YxUnFIbUhNYzJsM3AtOGVtRzRoSkhQaVF3SkV3?oc=5",
+          "published": "Thu, 22 Oct 2026 17:00:00 GMT",
+          "metrics": {}
+        },
+        {
+          "source": "google_news",
+          "team": "dallas-cowboys",
+          "text": "ESPN Floats George Pickens Trade From Dallas Cowboys To Chiefs, Rams Before NFL Deadline - Dallas Hoops Journal",
+          "url": "https://news.google.com/rss/articles/CBMiiwFBVV95cUxOZ1hTcjlJMVd1UzVEYzdVaDY3TXUtRUVwUmZxZ1Bpemk2SEU3RWk3UVpJdm5DZk5DMHJ2SHhLZDNpdzY1OXY4b2VSejNXU3FwRDNtSVBYN1ZQSFl0TTVvTVdCd01DWXR5QmU4YXV4cnBJUjZwV0Uzaks2SUxRU1QyczY3RlgtZldkRUxJ?oc=5",
+          "published": "Wed, 21 Oct 2026 05:17:25 GMT",
+          "metrics": {}
+        },
+        {
+          "source": "google_news",
+          "team": "dallas-cowboys",
+          "text": "Quinnen Williams: Cowboys can still 'achieve all our goals' in 2026 - Dallas Cowboys | Official Site of the Dallas Cowboys",
+          "url": "https://news.google.com/rss/articles/CBMioAFBVV95cUxQQW41SU5oSTFiTENSaFFGMWx3d0ltOUhTbU12ZlJESlFIc24yX2RyY0pmUkpFRkVHT3N0VmlfRm1OaUJ6TlZuVGZaRi1YSmczM2wtVWVPQS1NbU1CM2ptMUFpNHhyYThVVjVIUGlLR0tDcW9ua3NHcWlnYWpYekxCNjBmSFNNeGdITzJ1MlVwTlNMcWNhWFNub0xmdzhSeFRS?oc=5",
+          "published": "Thu, 22 Oct 2026 23:36:45 GMT",
+          "metrics": {}
+        },
+        {
+          "source": "google_news",
+          "team": "dallas-cowboys",
+          "text": "Zero to 100: CeeDee making the grade vs. old & new - Dallas Cowboys | Official Site of the Dallas Cowboys",
+          "url": "https://news.google.com/rss/articles/CBMigAFBVV95cUxPYWlRMG42OHktdTlLUWExak9XR3VEWTlycTJPUnpZUktLcVZOaUZ0Q3FReXpmNHVvVlpjSl90dGpONkVacWV2dU1vOUxnajBXTGNNbEM2dGtwcHhKZ0JBbU9KbEVmLUl6VFYtSkdjZWU4UXNUa0RmZkVQcmpVdDJ5eg?oc=5",
+          "published": "Thu, 22 Oct 2026 20:54:02 GMT",
+          "metrics": {}
+        },
+        {
+          "source": "google_news",
+          "team": "dallas-cowboys",
+          "text": "Mailbag: Does defense just need more time? - Dallas Cowboys | Official Site of the Dallas Cowboys",
+          "url": "https://news.google.com/rss/articles/CBMigAFBVV95cUxNYnlndHFLYWRQeDhRUmdzV080N1l4ZC1ocjkyU2d2ZHkyVHB5RkJGT2s0RjI1WVVsdTRWeG5FWWVzdlB3N2RKUzF3U3U3Sm56MjRhMm5hS1pyOGs1RHYwRFVLY1NncGwxUW03NWxfdmNhZGloT01SX1lrYzZfSktJbg?oc=5",
+          "published": "Fri, 23 Oct 2026 14:03:26 GMT",
+          "metrics": {}
+        },
+        {
+          "source": "google_news",
+          "team": "dallas-cowboys",
+          "text": "Dak Prescott details how finding rhythm in run game can help spark Cowboys offense - Dallas Cowboys | Official Site of the Dallas Cowboys",
+          "url": "https://news.google.com/rss/articles/CBMiuAFBVV95cUxNN2l1V3ZTMDZWNWQxalpSTjJVS3dJZU1aaW9FazJiVW1sRzBScWVENEttSUJPelZxQWhTMkstSFJSb0NWQ3ZKdkwzQ0h2T1N3dEFXYmp5cU1aelpUSUFCM2tzSEZPNFoxVko2VDlTNXZxRzlvSzJYYkZCeldMclhld25BTmtDZF9rN1dPdkpsZ2ctM0daOFR3Zy10VFppaXRmX2E3bk1VMzJKM1dxQVVEcy1hdkI5eUFk?oc=5",
+          "published": "Fri, 23 Oct 2026 22:09:10 GMT",
+          "metrics": {}
+        },
+        {
+          "source": "google_news",
+          "team": "dallas-cowboys",
+          "text": "Jerry Jones says Cowboys' offense is in 'good shape' to correct struggles - Dallas Cowboys | Official Site of the Dallas Cowboys",
+          "url": "https://news.google.com/rss/articles/CBMiqAFBVV95cUxNUlJPRU1tNXZyQ1gzMWdBLWNZeWQ3MmFpcEVZekh0dlBuNmVxb2hGZDVqVkNEY1NTNmZ6eGpFSVVyUFVSQ1VXWGQ0X0ZfYm5ySU10TC1jOHY4dmViaWo2U1NhWm4wNUh1Q29FQnNxeHZHZFM3djN2WFdXNGFBVVMydGNIOE1ySE1zazdVTDYtZmw2SWdoanEyeS1DdVVHdHZqcmw4R1hmb3c?oc=5",
+          "published": "Fri, 23 Oct 2026 16:36:25 GMT",
+          "metrics": {}
+        },
+        {
+          "source": "google_news",
+          "team": "dallas-cowboys",
+          "text": "The Dallas Cowboys cheerleaders are unionizing - NBC News",
+          "url": "https://news.google.com/rss/articles/CBMimAFBVV95cUxPdU41ZUIyLUhoSDFtOWplMFdmNmFhZ2VXZHhDX3JOZVJjc3d4QnljNjNyM3hJaHFWOEFLckFiV2xuVkNWRGlLRGNodWlUN2dSOFIwUHJ6S2dDVFRCVV9fNDQyeHNiT2JSLUFnNE1BQ3lfYUpKQlgtdmNlV3h2WlJIbzFNZGZDUTFZMmU3NW9IU3ZuXzhibFpRTA?oc=5",
+          "published": "Fri, 23 Oct 2026 20:50:52 GMT",
+          "metrics": {}
+        },
+        {
+          "source": "google_news",
+          "team": "dallas-cowboys",
+          "text": "Troy Aikman says he would be open to potential position in Cowboys' front office - Dallas News",
+          "url": "https://news.google.com/rss/articles/CBMiqwFBVV95cUxNa09HaV9MLURJT1p2WUpJY0hraUV2U3Mwc0VhTGE0MDl5dFFWb3BTclNtbW1GQUJWUkJvdzBjSFByTll0YWw4WDczblFFUFZKM3FwcWlZdEpQYUlmODZ5UEl6XzVFUDVMdnRoeDE2VkF2QmVHa2ozWnJjOGxaRmE4RUlNdkdlM2NXaG9zMDVqc182TWpqYTFkTTBBRlE4MFk0RHFuclM2QzJqX0E?oc=5",
+          "published": "Sat, 24 Oct 2026 02:10:37 GMT",
+          "metrics": {}
+        },
+        {
+          "source": "google_news",
+          "team": "dallas-cowboys",
+          "text": "Cowboys vs. Eagles Injury Report - Philadelphia Eagles",
+          "url": "https://news.google.com/rss/articles/CBMiswFBVV95cUxOX1o5NHpTOGFhbmppc0pYTHBUekNQRFNXb21vb202MHEyRDBuMGVEb01DWE5WZ3Jtd2w5TnBPeEpzNzJueGRkZWx4a1VFY090MUYtNjZfTDZST0ZobUh0REtaMXpUM3hMMUlsRzc2aGYzRjNLZGxJUWZNUE1JMWlBSVdWRE5xR1c4M052TDYtWGpobC1oZ2pUV2dLaHlkVm45TGs1M2pXaU9RX2ktZVBlMUdLQQ?oc=5",
+          "published": "Fri, 23 Oct 2026 18:18:54 GMT",
+          "metrics": {}
+        },
+        {
+          "source": "google_news",
+          "team": "dallas-cowboys",
+          "text": "Give them a C-O-N-T-R-A-C-T: The Dallas Cowboys Cheerleaders are unionizing - The 19th News",
+          "url": "https://news.google.com/rss/articles/CBMifEFVX3lxTE5PREt0YjdrdWY2Wm1DR2JFTEFxXzQ1bjhZRzlPUVhYMW5xRTNXWmF6ZDBScUp0X2YtbnpzUUpnWkw1ZkkxbVlGSlVTenUyT1RERnR6dXE3QkRuYVZoSU9MWDB0SUN4cENHdUZqOS1DSm44VDVWUjd5U29UeUE?oc=5",
+          "published": "Fri, 23 Oct 2026 21:19:50 GMT",
+          "metrics": {}
+        },
+        {
+          "source": "google_news",
+          "team": "dallas-cowboys",
+          "text": "Cowboys recognize Dallas Cowboys Cheerleaders union in collective bargaining - The New York Times",
+          "url": "https://news.google.com/rss/articles/CBMijwFBVV95cUxPcmtqb2c1V2QtbWg1aXl6dzZIb21fcmQya0Z5dTZBQjE4SksxVWw2UTlOeFNXWklSV2dIZGwwMFF3S1BaUW95cllzdU1BbDl3RlNKbXNQY0F1ZUx2QWpZclJPWXhWcm1OWG10dnMzeG1lQ2NNb0Q4WVpuNm9XUmw2eS16NEFzRkQ0dEhqVjJFTQ?oc=5",
+          "published": "Fri, 23 Oct 2026 20:57:00 GMT",
+          "metrics": {}
+        },
+        {
+          "source": "google_news",
+          "team": "dallas-cowboys",
+          "text": "Ex-Dallas Cowboys' $97 Million All-Pro Released by Seahawks - Heavy.com",
+          "url": "https://news.google.com/rss/articles/CBMiiAFBVV95cUxOWnZvLXNzR19RandFOHVpWFVoUGYzZ1J6Z3Q4ZjBwOXZ2T2lBUU9hNWxYWW82TUt0NF81Qi0wb2ZwX201OElvY1hxQzRqUkRvdVdMMzE1QUdzbm1hS0JRbDRBMFZjUjYtbUZTZ1hTWW9QQzdObWxwRWY2ODNsc09nOTF1dDFPZVBW?oc=5",
+          "published": "Sat, 24 Oct 2026 02:40:00 GMT",
+          "metrics": {}
+        },
+        {
+          "source": "google_news",
+          "team": "dallas-cowboys",
+          "text": "Dallas Cowboys Cheerleaders Form Union in Historic Move, NFL Team Agrees to Recognize DCCA - Bleacher Report",
+          "url": "https://news.google.com/rss/articles/CBMixwFBVV95cUxNaTlkQjBvSjRoQS1QaGtiMzYtUjdBanQ2SU51eDZwdjc2NjRMVHZ1RXZrWHlxRHNwSTJ4UGNmeWlESnNBRjVlSjczNGRtRG9SRGhENGRBMXRsSWlYUjV5Umx6NHZ2UTZkUlVUR1RBaVg0NGVqWEVKeDFvalhWU3VaMnpid0plR1g1YUxhR3pNM1QyU01fTFlqaUp1TXljMk11REJOaDlhejIySWZTa1liQnZybXptbUhLd3VoQzlpazdMQzNPRWJR?oc=5",
+          "published": "Fri, 23 Oct 2026 21:25:05 GMT",
+          "metrics": {}
+        },
+        {
+          "source": "google_news",
+          "team": "dallas-cowboys",
+          "text": "Dallas Cowboys cheerleaders unionize after years-long fight for pay increases - FOX 4 News Dallas-Fort Worth",
+          "url": "https://news.google.com/rss/articles/CBMiqAFBVV95cUxOR24xRHd0clA4dTU5MGpYVzFXTDRWbUFzRjR0bzA0R0JpLTAyakZWMnFjQm1QeU1EblZvTWktajlDOHV2aDV2N2NzOUU5WXNCWWlqd2NWOTdPYzJwWlFIdFZRSHBTYnNJVXpmVm1EXy03SU93UnRRRS1FWkNfVUZ6MkxmODNDUWlfb2w0X1RVTkJZaXFMdzJaM2lxVDFKNkhWaVAzeUFOTnc?oc=5",
+          "published": "Sat, 24 Oct 2026 01:13:31 GMT",
+          "metrics": {}
+        },
+        {
+          "source": "google_news",
+          "team": "dallas-cowboys",
+          "text": "Cowboys Recognize Dallas Cowboys Cheerleaders' New Union - RG.org",
+          "url": "https://news.google.com/rss/articles/CBMiiwFBVV95cUxQd3V1Y1NCXzdyMHR4c19TZGQ3NUFhR0tZNW1SOGFhMUFCQ1VtQkw1eGRocERyQ3N5aTF2dk5xa3g3aW5xNUVLVy1OODNGMVJYd0tadktZVzJuU2RTRWNuTVYyV3NoMndfbjV4R2d6QjVfVklobTE5dF9rMnYzcy1ORjJpY05ESUR4VDhz?oc=5",
+          "published": "Sat, 24 Oct 2026 06:35:09 GMT",
+          "metrics": {}
+        },
+        {
+          "source": "google_news",
+          "team": "dallas-cowboys",
+          "text": "Dallas Cowboys Cheerleaders unionize, will begin collective bargaining - Dallas News",
+          "url": "https://news.google.com/rss/articles/CBMinAFBVV95cUxQdFltRGUzdXdxZGVIdzVSQ3hfQlFodnhHNDVXRkJZMl92cmJON2dtOG12enZuTkR5VDZ3SWR2ckFWWGRSU0w2Skg1cWh6Um1TWTFUeTdjWk5qSFRJeXFSRHNkZVk5Tl9Eb2FRanNLMjBtVXRwUkxycUJzNk1VeUhOTEVWRk53YWNGcVV5VG5ub0dMVHdaUVVpenFVSl8?oc=5",
+          "published": "Fri, 23 Oct 2026 18:33:19 GMT",
+          "metrics": {}
+        },
+        {
+          "source": "google_news",
+          "team": "michigan",
+          "text": "Predictions: Michigan football vs. Indiana - The Detroit News",
+          "url": "https://news.google.com/rss/articles/CBMi6AFBVV95cUxOcENJckREZXZDMVBUQXBLempmdGVBQXdJLW81MV9jUExZdXpwZGtvS0dKc1otcFJ3MWluRlNTdm16QUpXSURmVV9mRTRVZFQxVUZka0hPcklLRDV6RzlBMlNqX2hyaVdxZFNpcXRKaktydEV0RkpyVTROZXRZUVB4SEgwMktFejRGZlA2SDRzUU1SeXdtckExUFV0ckhFeXY1STB2dWdJSWN3TG9kVmZ5YzlWek5EcXUxYS1GQ1g5WEd5ZTRsWUEwTlFVSnJHWUhZUllKQTBZR0szNEFMUG1PMnlCQ202QTZm?oc=5",
+          "published": "Fri, 23 Oct 2026 14:35:00 GMT",
+          "metrics": {}
+        },
+        {
+          "source": "google_news",
+          "team": "michigan",
+          "text": "Michigan Wolverines QB Tommy Carr has 'poise' that's 'second to none' - ESPN",
+          "url": "https://news.google.com/rss/articles/CBMimgFBVV95cUxOQWlOQUVlZ2NCWnpmZlB6RjRST1daN2p4UDc2MFR4VmxIcnp1TG4ySHBOaHpLUmdkNWZQeHRnOVFfOW5WMGdWNEpXWVVMS2E4TGxjWmxVeHF6X1Jjdm5CaGVZZ1BhdkV0N3luZGVDV1JjdDBOUDJFdFhSSWd2SlR4NmtYeXNraGlDWmozUmlXWXBiYW5hS2liWEFB?oc=5",
+          "published": "Fri, 23 Oct 2026 10:15:00 GMT",
+          "metrics": {}
+        },
+        {
+          "source": "google_news",
+          "team": "michigan",
+          "text": "Michigan 21-18 Penn State (Oct 17, 2026) Final Score - ESPN",
+          "url": "https://news.google.com/rss/articles/CBMiiAFBVV95cUxON3RRWEtmZWFqVGVHN19HTFVSWDVOb0k5NXRueGJkR2JaZ0xJc09rOVpWUF9zdU91X1kyWk1La0VYTnhrbURvZGtXVnFKX1QyYXlsUE1KVm85NlV1M0ZuN21zUFNBZENGbEFLQUs4ZjRQQlBRNjhpODNGTmxTc3hCUk1JNVZCaHV0?oc=5",
+          "published": "Wed, 28 Jan 2026 01:36:53 GMT",
+          "metrics": {}
+        },
+        {
+          "source": "google_news",
+          "team": "michigan",
+          "text": "INSIDE THE FORT: New life for Michigan? Practice reports, Tommy Carr and more - On3",
+          "url": "https://news.google.com/rss/articles/CBMixAFBVV95cUxQSjJDdFJzQTIyejRYbncxazRZOTZSR2N1dXE3YkpGaDhYY0VtbUlrTUNnX3JldjFCbDk0YmN2WG1OQ0RRc0hPQXFEaGY3SUdwQVpSejlLTGVnSFNIWng4NExMZkJmNE1DbmdUWTBwcFVVSW50bEIycDRXOTFpanB2dU9ZMi1Ybk9BSVFOMDBQTU1xX2h4MDNFWkxCdHU2eWQ5emdLcVRSUWtuUVBhRmRNMEFtMjBGVUhDdUdaUkhYT21jbEFy?oc=5",
+          "published": "Fri, 23 Oct 2026 15:17:09 GMT",
+          "metrics": {}
+        },
+        {
+          "source": "google_news",
+          "team": "michigan",
+          "text": "Michigan Reveals New Football Helmet Popcorn Bucket in Photos Ahead of Indiana Game - Bleacher Report",
+          "url": "https://news.google.com/rss/articles/CBMivwFBVV95cUxQVW1raXlKdXQtMm5XZkhkWFVmRWh5R01DWFA3YW1QYWZVMWJ1U2lCNldoMGNtWm11cmF6MEJIaGJGaW9SeXliU3I0cDlrcFdBR0VZM0hBZ1RkUDFlY0FhakhaelJaczlFbFc3Vlp4X0VuZUV4djNod29fWWw2RUpzOXZad3N4YjR5dVdfaVFEU0V1N3B5NnRsdmhlWjVzOElQZTE1TUZTSnJQWGpUVlozSjdRNUlIU1lHQnQxcWVhTQ?oc=5",
+          "published": "Fri, 23 Oct 2026 23:17:58 GMT",
+          "metrics": {}
+        },
+        {
+          "source": "google_news",
+          "team": "michigan",
+          "text": "Indiana Hoosiers at Michigan Wolverines odds, picks and predictions - Tallahassee Democrat",
+          "url": "https://news.google.com/rss/articles/CBMiuAFBVV95cUxPSnFDb1ZtRHR2T1FqSmNBRElBZ0tKXzlmZEl0Q2tyU0lXaVM4RjAwSEZtd0lTMThfNXgxMlFtNmlkYV9DWGhpZWFsTUFhU04taDlDczh6aXR3ck9zclVKaEZ1NHEtblhNZGZjekhZMGlEZTFqSjJESlFOVWxIUVB1UHU5LXlQSzVzSE8zVXR5a3kwZW1jUmQ4eDJ4ZTVQTXZMZkN3eFdLN18tU29wRUdxeGkwQlFrbXVr?oc=5",
+          "published": "Fri, 23 Oct 2026 22:20:00 GMT",
+          "metrics": {}
+        },
+        {
+          "source": "google_news",
+          "team": "michigan",
+          "text": "Indiana vs Michigan Prediction, Pick, College Football Odds for Saturday, October 24 - Action Network",
+          "url": "https://news.google.com/rss/articles/CBMizgFBVV95cUxQNXBpSVliQ1o4c0tGWkIxUDdXeXJxNC1yN0pRWUtLVGpMUzFuMUZBd00zRHFfNE43UmNRV1UwdXlCX0xQMmgza0tBWWRJZ0J2eTVtTjFlbHJlSmlLVnhTZWREUGpJY1I3cGt1ZlJWVlQxUkY2N3BZUmJrcUxoNjFzdGdCeTdwZVFlZ2RqcEZZWlFtMHJCaW4zRzlTVDQwclh1VmFIWFBZR2lpYXA3SUFuZDh5cktQbmIzVWNKZlR6RTJZM3NlNlk2Y0RtV29XZw?oc=5",
+          "published": "Sat, 24 Oct 2026 09:03:00 GMT",
+          "metrics": {}
+        },
+        {
+          "source": "google_news",
+          "team": "michigan",
+          "text": "Minnesota 20-14 Michigan (Oct 3, 2026) Final Score - ESPN",
+          "url": "https://news.google.com/rss/articles/CBMihwFBVV95cUxOd0NvaGUxb21ldUg1ZDNhYnJLVnFiMVdhd2taYnkyTHdUSUc1dHZWV3Y2TFpna0EzUjVFRXJITHliMmM4aHpkYW10aEQ4MkZOVi1qYmdDMmtRdm9QMnRjdEhYVDRWSmJIUlVkUVdqdjYzblJyU1Z0aGdKRDlKcmhLcnVtUVRQSlU?oc=5",
+          "published": "Wed, 28 Jan 2026 01:36:53 GMT",
+          "metrics": {}
+        },
+        {
+          "source": "google_news",
+          "team": "michigan",
+          "text": "CFB Pick 'Em: Top Week 8 Games, Including Michigan-Indiana, Texas-Ole Miss - FOX Sports",
+          "url": "https://news.google.com/rss/articles/CBMirwFBVV95cUxQTUxON3NSa2hKdERuZkJjbUFYOHdXc0pROTZnempIV1lkM3dkdG5sbktJVlBQU2hxVmZOUV9mdHdYWnF2VTNxWVZiX2pFbzF4MnM3REREd0pHc3B5QTU4dGtsOHB0eTNySzhIY0lydmh4TDlCemRmS1VadGE0RDJzdEJlQ1FaZndrY1c4MndNeURkWGJsZ1JreGM3OXgwMUdHUGZJaVlpWm4zX0FGNzAw?oc=5",
+          "published": "Fri, 23 Oct 2026 16:24:00 GMT",
+          "metrics": {}
+        },
+        {
+          "source": "google_news",
+          "team": "michigan",
+          "text": "Michigan hockey beats Western Michigan in final second: Echoes of football in improbable win - 247Sports",
+          "url": "https://news.google.com/rss/articles/CBMi4wFBVV95cUxPaGpjRnhEZVJKbUtzQ0pkQUZ5VmFQX2piUGZFR0hNMVlhOC1RMGoxVnJURlBTWllyMjJUV3BhR04xb2FSRE1pdURMX0pBR2t3U2F4cTNOR0ZVa1VrbzdCTXZ5U2pwLUJEZkw2MDgyckhKZWtHM2ZvLV9SejVIdDRNQlpmcEVpLVJ6R3Zia01HdGJkaDFiakp3TVp1OTZ4WGRjcDc1eDhDRTRJbGZTZVNIZ21pN3hWREhjYlc1WTRUTXBVWVItYUtoM09HemVNbVMxT3NwNEV0WHkybGJDZEpSSVdoYw?oc=5",
+          "published": "Sat, 24 Oct 2026 02:41:23 GMT",
+          "metrics": {}
+        },
+        {
+          "source": "google_news",
+          "team": "michigan",
+          "text": "Fans predict Michigan Football win total with Tommy Carr as QB1 - Maize n Brew",
+          "url": "https://news.google.com/rss/articles/CBMinAFBVV95cUxPR2dHMUEzcWRiNV9IdkNfYmFrYkd0blZmT2Q2Q3NqbnZsaTVUM0FlSDUwb3QxRG9iMlNwMXg1Nm84TjhuQmtoU1Q4X3FCSm1oNXg3MjdXYzdDRzd0cXIwWUdXc3pPbjZYNmM4QzNmNEtQejRqczVUa2hTVmlPeTV0T0ktdFpxQ2xmS3AyV0dXblFBb2NTQWNWYjVXbU0?oc=5",
+          "published": "Fri, 23 Oct 2026 23:58:56 GMT",
+          "metrics": {}
+        },
+        {
+          "source": "google_news",
+          "team": "michigan",
+          "text": "How To Watch Indiana at Michigan: TV Channel, Kickoff Time, Odds - Sports Illustrated",
+          "url": "https://news.google.com/rss/articles/CBMiqAFBVV95cUxQaWJiQ0g5VzdsRUxDQXRkRzF4c0Z2V2hhaGItWE9qeE8yc0h4QkF6OGladno5NmRqMG9oamtuVkkxRFJleGlRZFJRV0tEamM4VjZmeGM4UmtjRm9OczQyWE0tUkMxNEhrb3FjV1l0WGdOS2lYNmdJY1Rlanh5Y3hKcmwwRE5lNENtdFpuc19ZUWZGWlptMm5jaDlNREFqRm5lbHlDRkgtRms?oc=5",
+          "published": "Fri, 23 Oct 2026 19:24:26 GMT",
+          "metrics": {}
+        },
+        {
+          "source": "google_news",
+          "team": "michigan",
+          "text": "Indiana-Michigan football predictions: Can Tommy Carr spring Wolverines upset? - USA Today",
+          "url": "https://news.google.com/rss/articles/CBMi9wFBVV95cUxQM0dzYVFJWkFRR25YTU55enhtOVg1TjMzZFk2Y0dUMXp5SHp1WmJ5UFlhOE1sc0IwR1NhZDU3WU9ZdjExdllJcGJ3MUhYd3dEdmFseG4tVHRwLWdPVm9BOXA0aFBxekxWMm9DV2RVaHF0dkk3cm5yRUtMdDZ1b1VaQnBUTmxPbFBYUEctQWRpMmlialRoaWNRVWtvV0MyQ0paT3Z2SlhfUmZfTFJWVXg4azhVNTUxVDhhTGJiRDVIWVJtTE8tZXRUUmVXY2hzZ1o2djlXajJvV1dqbm5SRVNJRUFUOG1HQVdNUjZTU1hLXzVkanFUNVlB?oc=5",
+          "published": "Fri, 23 Oct 2026 19:27:00 GMT",
+          "metrics": {}
+        },
+        {
+          "source": "google_news",
+          "team": "michigan",
+          "text": "Michigan football vs Indiana predictions, picks in Big Ten game - Detroit Free Press",
+          "url": "https://news.google.com/rss/articles/CBMi1wFBVV95cUxOamt4Z3NwSzVEQUtNeDJUY1dBeHM5UHRfa1FLRHJOdENRd09qdG5jMTNRcENPMkp2eVhLR0dmSDRuampRTE9TZmU5TTVHNXlRbGJDVzhoZEdGTnVtdWR3eXE0SXNWOTBJaFE0QkN2WGNyOFNseXhOeDFLeG9MMUtuUWlOS3JOYjgyc0d6blJvUVJuQXFDR1JkZGVlZTJWSWU0TC1yM1FmR3B2ZmZVSHJEbHlmTzFycjlwUFhQa3VzQUR0c2Y4dnZYNnVORHV6Y25WQi1pSldmTQ?oc=5",
+          "published": "Sat, 24 Oct 2026 09:01:00 GMT",
+          "metrics": {}
+        },
+        {
+          "source": "google_news",
+          "team": "michigan",
+          "text": "What channel is Michigan vs Indiana on today? Time, TV, streaming - The Detroit News",
+          "url": "https://news.google.com/rss/articles/CBMi_AFBVV95cUxPd1F2Um1WcnFwX3BvemhZN3NtU2w3NTJIWFdJS3JhMWJZQkw5MFlWcU80T3NOR29SZ1NrQmNpSzdLUXpFZW9ZeEtObEh2TTl6QXdGQWFpV0FjMEdMWnItRjV1N2NPbkEyN2oxQUpkM1lweThFYk5taWJRVXJCNjk4NnljRnBTXzQwT05XVGJUUEhGNWNBeTA0dHJ0NHI2V3dkZEdLbldHOFh5cFhsMVY0ODNYdE5IYkRxMkFRenNaaUQzeVZTOUptQUpBN2oxbEZwZlRlSkNxaFk0QjdHeUwwaWtadlRpaFRILUtsUGpPUzJKSFN0WXY3MXQtWHU?oc=5",
+          "published": "Sat, 24 Oct 2026 04:41:00 GMT",
+          "metrics": {}
+        },
+        {
+          "source": "google_news",
+          "team": "michigan",
+          "text": "How to watch No. 6 Indiana vs. Michigan: TV channel and streaming options for October 24 - The New York Times",
+          "url": "https://news.google.com/rss/articles/CBMioAFBVV95cUxOUlYzQUNHcFVvVDhnNS1ucUFTQk90WUpMWGpISW9tNXo4Q3JVOUhEeUxxdU40WlRycmUtWUZoaE1OVUtlaE14RFdnbkJXMWtJRWhnblo1a2lSTlBwd3Bqa0pCMUhhVHJ6SDRwbzVMTlgwZ1lqamhnSFE1ZXp4Z2JpZHlzclhNT1Bob0x4WmZpRXp2Yi1DcFM3NW9KREtYdzIt?oc=5",
+          "published": "Thu, 22 Oct 2026 16:10:41 GMT",
+          "metrics": {}
+        },
+        {
+          "source": "google_news",
+          "team": "michigan",
+          "text": "Michigan football's secret plan at quarterback is seemingly no longer very secret: Tommy Carr is expected to start vs Indiana. See link below ⬇️ 📸 Junfu Han, Detroit Free Press - Facebook",
+          "url": "https://news.google.com/rss/articles/CBMi3wFBVV95cUxNTFo1eWFXUGZTUlZsdjd3LTNFcGR3d1VPa1pFdkFiZU5kWi0wQzhPVVQ2MFpsWTNEMkNQODVVNDkwWmlWVkxzY0d6Y3VpS1FPUWtDLWpZcGpGNG50Ml9uODlWSUhIRGlMVW5HRlU1RmJrSlo4WDltVUhhSktUNDB5Y2JYVXFBaW9ubkIxY2VMS3R0QjZ2NVVtMzNxYmd2aHFDX2RfYkxndk1iSjg2Y29oVF82T2hRUG0tSUNqYm9uZWU3bGpuUDdoOHIxZUFKZDlGQU5ZUVhPdExJVi1DV2pB?oc=5",
+          "published": "Wed, 21 Oct 2026 20:30:13 GMT",
+          "metrics": {}
+        },
+        {
+          "source": "google_news",
+          "team": "michigan",
+          "text": "Indiana vs Michigan Prediction, Pick, College Football Odds for Saturday, October 24 - Yahoo Sports",
+          "url": "https://news.google.com/rss/articles/CBMijAFBVV95cUxPRHJhczBmMnBBWDZrcDZXRFc1TG5ZTTRqSy14ekNxdDlMS2s5X094c0E2dFVHenU4UTdfcy14Z2dGYzdzU1djU1AteGVhUlJtTDZ3YXNPRUl4eTVOa0Y1MXRXajNvOUJham5NbWdWWDJHd0RoR2FHYmdTS3NxaFk0Z1dKamZBbVpsUkxOUg?oc=5",
+          "published": "Sat, 24 Oct 2026 09:03:22 GMT",
+          "metrics": {}
+        },
+        {
+          "source": "google_news",
+          "team": "michigan",
+          "text": "How to Watch: Michigan Football vs Indiana, other top games of Week 8 - Maize n Brew",
+          "url": "https://news.google.com/rss/articles/CBMixwFBVV95cUxQYlhmamtkejFrdU9hWEx0VEYzZ2NWMGhSeXZ3UDZEYVZEUzFnbHI1Wi13eXNnRFI0YTA2NEhSU2FXaUlrc1ZWRC1KcHg5em1uZjRiMzRWdXJyU09SVWdhcTRoWFFrQ0xoODllTUNrRUpfWXhHb2hycm0yOGFhZldsd3JCWUtDdUtLUGhNU0xoXzhLd0pjdWZnd19XdDBMeFVmZnR5bXhnN1pWVlBoMUlyX3Q4X0hwekQ5OF96X1JlTWloVjVnUWdF?oc=5",
+          "published": "Thu, 22 Oct 2026 20:00:00 GMT",
+          "metrics": {}
+        },
+        {
+          "source": "google_news",
+          "team": "michigan",
+          "text": "Where to watch Michigan football vs Indiana, Week 8 time, TV channel - Detroit Free Press",
+          "url": "https://news.google.com/rss/articles/CBMizAFBVV95cUxPLUpqOXdnM0JKc2g2NGx0TDhma0FDbXBuZTE1TjVvWTVINjRsSHljUFpLay1pUmNwNi1FV2c3d1IyUTdZSXVhSUxuMmZVVWdRNGI4N0t4QWZmNVNqbW0zdXZDNWVNaG1DV3l6dXpoa3g0TVNxdXpvU2hyajhsa2pRQnRDQ0NFYTNJUnBKb2FsRWJISXZkNzJsUGdPSEdaWEdlN19hZGlWbTlDdDFhQWZJT3FfT1RFRVByQXk0UGpuNEJWNDF6bnVMYmkxcWc?oc=5",
+          "published": "Sat, 24 Oct 2026 08:55:00 GMT",
+          "metrics": {}
+        }
+      ],
+      "reason": null
     },
     "reddit": {
       "status": "error",
@@ -45,214 +686,262 @@
     },
     "repository_trend_snapshot": {
       "status": "snapshot",
-      "generated": "2026-10-23",
+      "generated": "2026-10-24",
       "items": [
         {
           "source": "repository_trend_snapshot",
           "team": "cleveland-browns",
-          "text": "Browns defenders Denzel Ward, Quincy Williams and Grant Delpit all questionable for the Titans game",
-          "url": "http://www.bing.com/news/apiclick.aspx?ref=FexRss&aid=&tid=6adbb32662094e2f98ad7e5cd6f85736&url=https%3a%2f%2fwww.cleveland.com%2fbrowns%2f2026%2f10%2fbrowns-defenders-denzel-ward-quincy-williams-and-grant-delpit-all-questionable-for-the-titans-game.html&c=7572027314629266541&mkt=en-us",
-          "published": "Fri, 23 Oct 2026 06:38:00 GMT",
+          "text": "Browns 13, Ravens 10 | Final Score, Stats & Game Recap",
+          "url": "https://news.google.com/rss/articles/CBMijgFBVV95cUxPMlpfZjFPQTFPT1lFcFhVWlhDemcyU2xYVzRzM1lkQmNOcDNOQzJzMnFlVDloNUdqMmZaNzd2NHBZcC1YOE5YdG5UM2tITHVJTmZZRF9PRmlZNjBqRkVBSVBuTzBsNVFBOENEVjRhQWVWU3NOa0o3dlJfbXpULXI2ajBYWjU5ZjlQNzZic1hB?oc=5",
+          "published": "Sun, 18 Oct 2026 20:15:16 GMT",
           "metrics": {}
         },
         {
           "source": "repository_trend_snapshot",
           "team": "cleveland-browns",
-          "text": "Browns 3-round 2027 NFL Mock Draft lands franchise quarterback, elite run-stuffer",
-          "url": "https://sports.yahoo.com/articles/browns-3-round-2027-nfl-130007845.html",
-          "published": "Fri, 23 Oct 2026 06:00:00 GMT",
+          "text": "The Cleveland Browns are good. What do we all do now?",
+          "url": "https://news.google.com/rss/articles/CBMipgFBVV95cUxNUjNJaU0zVWdTaUtGSEdyamZTalJkSzkyQXhqcXN2OWo1OG5QVS04UzUwaFJPNnRKQW1XY0pFX0NFa09HUEJkX3RvUlpDLWV5UFp2WExRZFlpcEFpTTFEVFFxX3U2RWpSMk9GTTNDaDZCc1NWRHRqQ2dvdDNEdHB2WFozY3gtVGpsSVZXYUdEbllhSURBS0ljZ3pIS3FrYjVWdDdZRWpR?oc=5",
+          "published": "Mon, 19 Oct 2026 15:14:39 GMT",
+          "metrics": {}
+        },
+        {
+          "source": "repository_trend_snapshot",
+          "team": "cleveland-browns",
+          "text": "What I'm Buying and Selling About the Cleveland Browns After Week 6",
+          "url": "https://news.google.com/rss/articles/CBMitgFBVV95cUxQRG5vS1RvdXJUQWhEcURtRW1KSWpiTW1GY0Z2UlQtbUdPck5LOWhZdWwxUHBBeUdpQ0hQX1BYTnk5N2dybk02MFVKcnhSV0Y3em4tYUo2ckVveTVEV3hYM21NNmtnQXhOV1hTNXQ1QlBtTGNuRzk5VFl6SzREZnI2Sm1ydGRtY3Jfcjk0RjdEOFZJelEtOXNvenFRaVU0ckpSb0c5UlRiMnFSQ0pvNjNLenQ4d180QQ?oc=5",
+          "published": "Wed, 21 Oct 2026 11:00:02 GMT",
+          "metrics": {}
+        },
+        {
+          "source": "repository_trend_snapshot",
+          "team": "cleveland-browns",
+          "text": "How Browns' past two draft classes are catching the NFL's attention",
+          "url": "https://news.google.com/rss/articles/CBMinwFBVV95cUxQOFFUeTJEdTExWXk1VkhaRTN3UTdLR2ZLVmx6NDdDYzRKbnFuMjFvOHg5Ukx6MmNPQU5tbThnTkhKTWRKVFdNSmhXS2drWmxYR0J3UHlSUEM0LXNVT2pvdDUtREI4OEVlSWhmaWMxd1I4bXpZdk9EaUV5bnZoM0FLYkNEX0N1MnRjWkg4WnJHbmFQX3NoNGYtWnpiOTV5LVk?oc=5",
+          "published": "Tue, 20 Oct 2026 10:00:00 GMT",
+          "metrics": {}
+        },
+        {
+          "source": "repository_trend_snapshot",
+          "team": "cleveland-browns",
+          "text": "How to Watch, Listen, Live Stream Ravens vs. Browns, Week 6",
+          "url": "https://news.google.com/rss/articles/CBMilwFBVV95cUxPd214dElnSl9sSWNKelpTSXpfTzl3TmYtRVZWLTlNUXRfeVEwLS1panBUS0d4NFlFYTRldU8xbkhlQ2lOWGFySS0weGRfMXNpbEN6cHc3T0V4ZWhrME5YbjZkRUp3SnZmV0NCbFFuOXk4QU5lMTNkb3d4bHF6eWpjSzhMQ3VXRmI5LVJFMTR1a2MtNjdObU9z?oc=5",
+          "published": "Sun, 18 Oct 2026 07:00:00 GMT",
+          "metrics": {}
+        },
+        {
+          "source": "repository_trend_snapshot",
+          "team": "cleveland-browns",
+          "text": "Cleveland Browns news: Some rough news on the injury front",
+          "url": "https://news.google.com/rss/articles/CBMiwgFBVV95cUxPNmc4U0F1QXFsbGVyb2UyeW1TWnAwQWdUYURZY0o4ZE52SWFuUmRTNjNGX0RqM2NSc3VTLWtBZ1BEbUdiYnJ3ZHFkNlpLdkxLSjdzcEdOSVdZbnVPQmgwR2xvXzlMbTFYOVVYYjFIc0VlclJ1NVQzZ2t1WVJSTWhhM2c0X0NwRnFMU21rR2t1ekNnNFZwUHUzV094LVJ6elY0Vk1IRUlrR3d2eE5ucW83aDFuQVVDaWdPWG9kdFlRVTBIUQ?oc=5",
+          "published": "Thu, 22 Oct 2026 17:29:28 GMT",
+          "metrics": {}
+        },
+        {
+          "source": "repository_trend_snapshot",
+          "team": "cleveland-browns",
+          "text": "Cleveland Browns News and Rumors 10/20/26: Forget Them Picks",
+          "url": "https://news.google.com/rss/articles/CBMimAFBVV95cUxPUzZhLWlSRm5KXy10b2x2Q1B5a2l4WDZQUXdQOVVfcEVreHRMYnBqOE9nUnlpSjF4WmM4U3Q0X1NvTnN6UHRSZ0ZyM29ERnJpbEVoUlRudlNhZ3BvSk1PeEt1MWRPSG1lbXJ4azBRb1lLM3hhb1NmWTlXQUk1YlFBRmEzajZteDJFSkk4YkxzRy1OelRMQmpXaQ?oc=5",
+          "published": "Tue, 20 Oct 2026 11:41:00 GMT",
+          "metrics": {}
+        },
+        {
+          "source": "repository_trend_snapshot",
+          "team": "cleveland-browns",
+          "text": "After knocking out KC Concepcion, Jets safety gets fine from NFL",
+          "url": "https://news.google.com/rss/articles/CBMijwFBVV95cUxPcXV6TjBYS2FETUF6UmdTUVRGbUM0X2RoOEltRFhJVkc4N2FWckxjaXZId0VVbWNPdGNNa1V5di1rWEZIdWxWbVhLeEdnZVFNLUNISmphcDg3dFJ6TVF2eF9wNHJLbVFnVzBLclZVMTRKaHFkZzU3cE1IalVOZ29NMlZGYzBKWEpaNmo4ZExia9IBlAFBVV95cUxQaU5yM1hqRU0zUkx4OHo2WW9nQ0hjc3BwTEFvZFJSWnQwVjRBc3R1UVl6QWd5aEVHLWN1YXJYMlJ5TnEwNHZ4SGZXSHI2U08yb0E0Nnd1d0ZrekszOWdTOHFZQkN1TTJ0ZHo5R21BM0dKTmZTbDNEa2cxajNoY2dHR3BYczJGV3hvOG5rOGx3NGhickF0?oc=5",
+          "published": "Sat, 17 Oct 2026 20:53:00 GMT",
           "metrics": {}
         },
         {
           "source": "repository_trend_snapshot",
           "team": "green-bay-packers",
-          "text": "4 Bold Predictions for Green Bay Packers vs Detroit Lions Matchup at Ford Field",
-          "url": "http://www.bing.com/news/apiclick.aspx?ref=FexRss&aid=&tid=6adbb3538eab48e78ca80d619f5c9fff&url=https%3a%2f%2fsports.yahoo.com%2farticles%2f4-bold-predictions-green-bay-145706202.html&c=17355961585278223314&mkt=en-us",
-          "published": "Fri, 23 Oct 2026 07:57:00 GMT",
+          "text": "Inbox: This Packers defense hunts you from every direction",
+          "url": "https://news.google.com/rss/articles/CBMinwFBVV95cUxNNVZQUm5SYVZELTFaTkZGdU5Vd1lLdHZYSXE1ZXluQ0pjMW5GdGhONXZLWjNxVU5Pb2JRSXVVQTlvdExRNWxiZU9JU0NwRDlidU9NVENHb21MQXo3aV9NYWsyVWlPNjNzU2Yxc0hfWU5Dc0RXT252NlFhcFdVaXlpd1ZfRHhOajNTZ1Z6WjFXam5UNFJ0UTM2b0xkWUxUMUE?oc=5",
+          "published": "Tue, 20 Oct 2026 13:40:35 GMT",
           "metrics": {}
         },
         {
           "source": "repository_trend_snapshot",
           "team": "green-bay-packers",
-          "text": "Spot the Ball: 10 Thoughts Ahead of Lions Matchup With Packers",
-          "url": "http://www.bing.com/news/apiclick.aspx?ref=FexRss&aid=&tid=6adbb3538eab48e78ca80d619f5c9fff&url=https%3a%2f%2fwww.si.com%2fnfl%2flions%2fonsi%2ften-thoughts-ahead-of-lions-matchup-with-packers-week-seven&c=7139631422949559099&mkt=en-us",
-          "published": "Fri, 23 Oct 2026 08:03:00 GMT",
+          "text": "Green Bay Packers News: Packers battling penalty onslaught",
+          "url": "https://news.google.com/rss/articles/CBMiwwFBVV95cUxQdy1ZeUl0N1B0RXVYMi1xSzFTTUtBWHYySmxnR0VuWFAweFNBX0NDdGRoUFlWcGdyWko0YzZMWWIyNGxWcmdLdEFpUUNDMTlENnhsbEJ2NmpNYTBkNno4Y1BLaU5kTzgyUnVqWk9MOGRubGJBVmhiaU5xakRCTmk4djZXOWZJLU5Pc1E2VXl1TUgtMm5yLUNTNnFPUzNzbHFYd3A2cFM4SXNWbDFieDF4Tkp5NXl5T2hqR1ZXR2NDMUZncWs?oc=5",
+          "published": "Tue, 20 Oct 2026 14:15:06 GMT",
           "metrics": {}
         },
         {
           "source": "repository_trend_snapshot",
           "team": "green-bay-packers",
-          "text": "Predictions for Green Bay Packers Week 7 game vs Detroit Lions",
-          "url": "http://www.bing.com/news/apiclick.aspx?ref=FexRss&aid=&tid=6adbb3538eab48e78ca80d619f5c9fff&url=https%3a%2f%2fwww.usatoday.com%2fstory%2fsports%2fnfl%2fpackers%2f2026%2f10%2f23%2fpredictions-for-green-bay-packers-vs-detroit-lions-nfl-week-7%2f92377476007%2f&c=16478099625241788791&mkt=en-us",
-          "published": "Fri, 23 Oct 2026 04:28:00 GMT",
+          "text": "Packers 23-13 Cowboys (Oct 18, 2026) Game Recap",
+          "url": "https://news.google.com/rss/articles/CBMiW0FVX3lxTE1TTy1sYVlEUnBPR3AzUFNqbFJ2bmUyOEQ4WnVrdms1VkExRklGbjNtYjQ5U1dOTU5vV21RVkNYejlQaFNmNWdCMVdzcktDY0Q1SElwdmNYdFcyLVE?oc=5",
+          "published": "Mon, 19 Oct 2026 07:13:05 GMT",
           "metrics": {}
         },
         {
           "source": "repository_trend_snapshot",
           "team": "green-bay-packers",
-          "text": "Jahmyr Gibbs Makes Harsh Admission on Packers Coordinator",
-          "url": "http://www.bing.com/news/apiclick.aspx?ref=FexRss&aid=&tid=6adbb3538eab48e78ca80d619f5c9fff&url=https%3a%2f%2fsports.yahoo.com%2farticles%2fjahmyr-gibbs-makes-harsh-admission-185646080.html&c=467272827143700910&mkt=en-us",
-          "published": "Fri, 23 Oct 2026 11:56:00 GMT",
+          "text": "Cowboys-Packers: How to Watch, Listen, Stream in Week 6",
+          "url": "https://news.google.com/rss/articles/CBMikAFBVV95cUxOaUpGRzNBazViMmQzdktPdVA4b1o2bG8xV0ZPdWZ1MTVGOXZYMG8xejYzZFhXdlhiQTlfMHZnWXk5TTlwLTVWemYwNHQyWlZCbjNpXzRveUY5Q3Zhb0ZtSTVJOWg3U3pCanZ0V005ZFliYTV4b1BXNUNhWTFhaUF4ZzVnX3BHNWZhQUxnajVQRUk?oc=5",
+          "published": "Fri, 16 Oct 2026 15:47:37 GMT",
           "metrics": {}
         },
         {
           "source": "repository_trend_snapshot",
           "team": "green-bay-packers",
-          "text": "Odds Detroit Lions Beat Green Bay Packers in Week 7",
-          "url": "http://www.bing.com/news/apiclick.aspx?ref=FexRss&aid=&tid=6adbb3538eab48e78ca80d619f5c9fff&url=https%3a%2f%2fwww.si.com%2fnfl%2flions%2fonsi%2fodds-detroit-lions-beat-green-bay-packers-week-seven-2026&c=15963287916715514320&mkt=en-us",
-          "published": "Thu, 22 Oct 2026 15:41:00 GMT",
+          "text": "Green Bay Packers: Matt LaFleur on roughing calls and Jordan Love",
+          "url": "https://news.google.com/rss/articles/CBMihgFBVV95cUxQM2VEeGJFWmFtQmhwenQ5MTdvc3lVY20yS2hobUFZbkp1T0FnbC1manB4My01dG9UNm0wYzc3emJQSlM4RXNSQ1U4cHZNZVI4RFlyREUyZ1djNjI1bEI3Y2JiM19aQm9mNVQ1emFVQ2Mxb2dIYW4yVmdRSzlEVS1hRlZENXVYdw?oc=5",
+          "published": "Tue, 20 Oct 2026 21:33:00 GMT",
           "metrics": {}
         },
         {
           "source": "repository_trend_snapshot",
           "team": "green-bay-packers",
-          "text": "Packers' Second-Leading Tackler Ruled Out vs. Lions",
-          "url": "http://www.bing.com/news/apiclick.aspx?ref=FexRss&aid=&tid=6adbb3538eab48e78ca80d619f5c9fff&url=https%3a%2f%2fijr.com%2fdiscover%2fpackers-second-leading-tackler-ruled-out-vs-lions-a5d121f3&c=5338558015264354173&mkt=en-us",
-          "published": "Fri, 23 Oct 2026 11:44:00 GMT",
+          "text": "Packers injury report: Love, Golden, Watson added",
+          "url": "https://news.google.com/rss/articles/CBMijwFBVV95cUxQM2dwU1FLam8tcGppRzgyNFJxdmZESk96WF9GeDhKR1RsdzN5dkxKdlhHVW1TTk15bjhmb2kyLW94dHR2MXVIbERrWVdsOF90WGRzUWJhNlNoUWxfNHZJeUFORmtRbGhoZk01eWlPa0dxaDg2NDlLTTNZXzJhVk96VmZKYk9KajRhbzE0bm9KNA?oc=5",
+          "published": "Wed, 21 Oct 2026 23:11:18 GMT",
           "metrics": {}
         },
         {
           "source": "repository_trend_snapshot",
           "team": "green-bay-packers",
           "text": "Packers vs. Lions: 5 things to know about Green Bay's Week 7 opponent",
-          "url": "http://www.bing.com/news/apiclick.aspx?ref=FexRss&aid=&tid=6adbb3538eab48e78ca80d619f5c9fff&url=https%3a%2f%2fwww.msn.com%2fen-us%2fnews%2fother%2fpackers-vs-lions-5-things-to-know-about-green-bays-week-7-opponent%2far-AA2fJQxj&c=795488809500760389&mkt=en-us",
-          "published": "Wed, 21 Oct 2026 06:13:48 GMT",
+          "url": "https://news.google.com/rss/articles/CBMi4gFBVV95cUxPalpNajVjaklzcVRrLVRUd3lDTzBzVzY1WDFSY19Ua28tNnh1aUtFZlV2WTk5Zk02SnA3WThCajdHYVludXlFdnN5QTEzQlZXc1NOdUdwMzZjNXgzcjlMTk5UVU1YSkVVMnRHRHZVaDlVSmZObE1YemNENXdxNjlKb0hzMkhxUXcwUW9iOGxBNUxJLS1sbmdkeV9Ld3pvNFpIbkFkR1F4VUxhMjJ6Y3V2NVBBRDh1REtwbjNBSngyU25qT1RsOUFjNDFJSm5OaS1fMVA0Xzc5QzdEUV94YVY2OExn?oc=5",
+          "published": "Wed, 21 Oct 2026 13:13:00 GMT",
           "metrics": {}
         },
         {
           "source": "repository_trend_snapshot",
           "team": "green-bay-packers",
-          "text": "Why Detroit Lions' D-Line is the key to beating Green Bay Packers",
-          "url": "http://www.bing.com/news/apiclick.aspx?ref=FexRss&aid=&tid=6adbb3538eab48e78ca80d619f5c9fff&url=https%3a%2f%2fwww.indystar.com%2fstory%2fsports%2fnfl%2flions%2f2026%2f10%2f22%2fdetroit-lions-d-line-sacks-leader-green-bay-packers%2f92371586007%2f&c=12044392530278103803&mkt=en-us",
-          "published": "Thu, 22 Oct 2026 03:11:00 GMT",
+          "text": "Week 7 opponent: What the Packers are saying",
+          "url": "https://news.google.com/rss/articles/CBMinwFBVV95cUxOYkhlaFhBTFNiV3FDN1BBNFFza19aNGdvRnpuTnl2V0NTZUN4ODJmN1dUYkxsNkk1QWlYMUV2TEJiUDdjdzNXYTNZekZ1MzJlM2d6M3JKWHJqTDRnS2NqQk44cTEycEZhaW9rMXd2QkZaTDh3bjEtcThpR05CYU1uc2hTbUZmNTE2Q1NQRXduRHdhdEZJdlNHMVFHWVZuSFk?oc=5",
+          "published": "Thu, 22 Oct 2026 11:01:35 GMT",
           "metrics": {}
         },
         {
           "source": "repository_trend_snapshot",
           "team": "dallas-cowboys",
-          "text": "Dallas Cowboys Urged to Swing Trade for 9X Pro Bowler in Blockbuster Move",
-          "url": "http://www.bing.com/news/apiclick.aspx?ref=FexRss&aid=&tid=6adbb387d3f84ed1b38b43566383f9ab&url=https%3a%2f%2fsports.yahoo.com%2farticles%2fdallas-cowboys-urged-swing-trade-172829272.html&c=1828279108539547600&mkt=en-us",
-          "published": "Fri, 23 Oct 2026 10:29:00 GMT",
+          "text": "Updates: 5 Cowboys become full participants",
+          "url": "https://news.google.com/rss/articles/CBMiZkFVX3lxTE41U3JDcmpCb1YyZjBxRFNnV25kSktlMVJ5aEJsX1hhNTFTcHJWdWdTbjF5cFhvQ3ZKZGd4bEdfT0VtT1RobmJwd3ZSbnZzM0c3RnJiTS1kSG5fMUtJWW9qclRUWlZtQQ?oc=5",
+          "published": "Mon, 19 Oct 2026 07:00:00 GMT",
           "metrics": {}
         },
         {
           "source": "repository_trend_snapshot",
           "team": "dallas-cowboys",
-          "text": "Brian Schottenheimer Reveals Future of Play-Calling Duties Amid Cowboys Struggles",
-          "url": "http://www.bing.com/news/apiclick.aspx?ref=FexRss&aid=&tid=6adbb387d3f84ed1b38b43566383f9ab&url=https%3a%2f%2fwww.si.com%2fnfl%2fcowboys%2fonsi%2fbrian-schottenheimer-reveals-future-play-calling-duties-amid-cowboys-struggles&c=1318943022346666554&mkt=en-us",
-          "published": "Fri, 23 Oct 2026 07:27:00 GMT",
+          "text": "Impact: Barkley expected to return vs. Cowboys",
+          "url": "https://news.google.com/rss/articles/CBMiZ0FVX3lxTE56aGtoMDdKbXA2SGZ5WkdGYUVEUUV4cmNqOW0wN3MzS1FCVkdNYVBNR1A0QUJHWUNxLVZuOW9QMGdTZ2s2YkRMNXVmdnZSZWtfNnNnZTNzQnFSTF9NbnNiZXRhaFVkcTQ?oc=5",
+          "published": "Mon, 19 Oct 2026 07:00:00 GMT",
           "metrics": {}
         },
         {
           "source": "repository_trend_snapshot",
           "team": "dallas-cowboys",
-          "text": "Dallas Cowboys Cheerleaders unionize, will begin collective bargaining",
-          "url": "http://www.bing.com/news/apiclick.aspx?ref=FexRss&aid=&tid=6adbb387d3f84ed1b38b43566383f9ab&url=https%3a%2f%2fwww.dallasnews.com%2fsports%2fcowboys%2farticle%2fdallas-cowboys-cheerleaders-union-22491317.php&c=10975333088780066659&mkt=en-us",
-          "published": "Fri, 23 Oct 2026 11:32:00 GMT",
+          "text": "Brian Schottenheimer says 'execution wasn't clean enough' in 23-13 loss to Packers",
+          "url": "https://news.google.com/rss/articles/CBMitgFBVV95cUxPQVJ2eUd2YnhaWnFNbHF0Y0FDZGpTUXV6azllaFh2SEdURFMyNVp5TzlKcFFuSXR1NXR0RnFsXzFDYTJIemVOZjJvMGFacEhEaW84N0xORTFES1g3Rm1pVTJIYkxNaXhQeUxnQ2NKSXU2cHRKcWg4Z3pOemo0OTB3ZmdoOGxaQ1R2NDYtZTRkOU5PTXIzWEQ4ZmI0VmNQQ1VVNlZoRDhrMC1FQ0FnYS16TkZsRGVLUQ?oc=5",
+          "published": "Mon, 19 Oct 2026 05:35:34 GMT",
           "metrics": {}
         },
         {
           "source": "repository_trend_snapshot",
           "team": "dallas-cowboys",
-          "text": "Why Cowboys great DeMarcus Ware says Monday night vs. Eagles is a 'must-win' for Dallas",
-          "url": "http://www.bing.com/news/apiclick.aspx?ref=FexRss&aid=&tid=6adbb387d3f84ed1b38b43566383f9ab&url=https%3a%2f%2fwww.msn.com%2fen-us%2fsports%2ffootball%2fwhy-cowboys-great-demarcus-ware-says-monday-night-vs-eagles-is-a-must-win-for-dallas%2far-AA2fVY6x&c=10444968346711607313&mkt=en-us",
-          "published": "Fri, 23 Oct 2026 11:30:03 GMT",
+          "text": "Eatman: Finger-pointing now turning to offense",
+          "url": "https://news.google.com/rss/articles/CBMihwFBVV95cUxNY3RUMmhXaVcxR2JUTUZrTVZoa2Q0bnZPc3JXVGt6QW8ya0ZwZ0pCRlhHeXN4MkhueU9ielRMWVMtdVk0MUxWbHUyazNlV2NBdGxYMjJsejVoXzdLcW9UOXlTN0htVklJX1NuQkhHWWxpdWRqZ0ZnUGxWZ0hmY3RDVG1wYWthUm8?oc=5",
+          "published": "Mon, 19 Oct 2026 06:13:52 GMT",
           "metrics": {}
         },
         {
           "source": "repository_trend_snapshot",
           "team": "dallas-cowboys",
-          "text": "Cowboys & Jets Paired as Logical Trade Partners With Dallas' Need For Pass-Rush Juice",
-          "url": "http://www.bing.com/news/apiclick.aspx?ref=FexRss&aid=&tid=6adbb387d3f84ed1b38b43566383f9ab&url=https%3a%2f%2fwww.msn.com%2fen-us%2fnews%2fother%2fcowboys-jets-paired-as-logical-trade-partners-with-dallas-need-for-pass-rush-juice%2far-AA2fUIUa&c=10112723782475927091&mkt=en-us",
-          "published": "Fri, 23 Oct 2026 06:33:00 GMT",
+          "text": "Pic 6: Cowboys struggle vs. Green Bay's pressure, make multiple personnel changes",
+          "url": "https://news.google.com/rss/articles/CBMiswFBVV95cUxPWWE3VkRacVl5UEt1cFFfNnhaTnN3cnZJWUxlbEpqUVhlUXdtWTQzMGw0MXZPbTZjM2ZXclpXaWRRMmhJdld5cUV3R0NYejJOQ05UcUpQa2JtZ2szM21pdUNOQ3NaVndSOFhmb0QyR2g5anJQOXRJZDd1UG5ZZy11VHVNSHNrSVZBZ0dQbzRqMjhXbG1nZlRONmt3OHpoaTJ3QklhOWUtOW1meDA4VDNCMEI4RQ?oc=5",
+          "published": "Mon, 19 Oct 2026 15:19:53 GMT",
           "metrics": {}
         },
         {
           "source": "repository_trend_snapshot",
           "team": "dallas-cowboys",
-          "text": "Embattled Brian Schottenheimer calls himself great coach, still believes in his Dallas Cowboys",
-          "url": "http://www.bing.com/news/apiclick.aspx?ref=FexRss&aid=&tid=6adbb387d3f84ed1b38b43566383f9ab&url=https%3a%2f%2fsports.yahoo.com%2farticles%2fembattled-brian-schottenheimer-remains-angry-192451073.html&c=9083702972015400104&mkt=en-us",
-          "published": "Thu, 22 Oct 2026 12:24:00 GMT",
+          "text": "Game Recap: Cowboys lose to Packers, 23-13",
+          "url": "https://news.google.com/rss/articles/CBMigAFBVV95cUxPTEZqYlNvdXlDakNIb0tFNVRsRmZzWV9JQXA2MDA4QkdVckRQNkpfZFRCOTl0dldyWVd3NFVmemlBSXhid3dyLXhQNHNKX3RGbkkzRjliNWlMUlRaQ2MtZWRNY3BjQURSQUR5TlZycFZhYllyZ0NWaTU3QXVUdkdfZQ?oc=5",
+          "published": "Mon, 19 Oct 2026 04:03:11 GMT",
           "metrics": {}
         },
         {
           "source": "repository_trend_snapshot",
           "team": "dallas-cowboys",
-          "text": "Cowboys' Jerry Jones seems to agree with Brian Schottenheimer 'elite' label",
-          "url": "http://www.bing.com/news/apiclick.aspx?ref=FexRss&aid=&tid=6adbb387d3f84ed1b38b43566383f9ab&url=https%3a%2f%2fwww.msn.com%2fen-us%2fnews%2fother%2fcowboys-jerry-jones-seems-to-agree-with-brian-schottenheimer-elite-label%2far-AA2fVG8x&c=9484617363422025199&mkt=en-us",
-          "published": "Fri, 23 Oct 2026 10:00:52 GMT",
+          "text": "Cowboys defense seeking consistency by turning process into wins: 'It's now or never'",
+          "url": "https://news.google.com/rss/articles/CBMiuAFBVV95cUxNeWZTY1E0MjJXRjNPSXl3RTl3YnNueExZOGxIaTNwWG5tZU5aNzJ2aU9ZaGNFQTNUZUVNZWdLM2k4czFTMTdkN000YXVjR2xLdnpsNU9uWEMtN0ZFMkNGMTJqVzlpd19Ea1JPd2F0bHRobkxyR0pKdFdPanNZRmFFM3NTTVVaV3FMSzdidnBVYUNma1lHVVJXTjFDcEVIeTJpUEx2SXEyc0tPTzktTk5RdXM2bTU5djND?oc=5",
+          "published": "Wed, 21 Oct 2026 15:12:22 GMT",
           "metrics": {}
         },
         {
           "source": "repository_trend_snapshot",
           "team": "dallas-cowboys",
-          "text": "Jerry Jones Confident Cowboys Can Fix Offensive Struggles Before Eagles Game",
-          "url": "http://www.bing.com/news/apiclick.aspx?ref=FexRss&aid=&tid=6adbb387d3f84ed1b38b43566383f9ab&url=https%3a%2f%2fathlonsports.com%2fnfl%2fdallas-cowboys%2fjerry-jones-confident-cowboys-can-fix-offensive-struggles-before-eagles-game&c=17454138859817459654&mkt=en-us",
-          "published": "Fri, 23 Oct 2026 12:07:00 GMT",
+          "text": "Mike Pettine looking to answer the call for Christian Parker, Cowboys defense",
+          "url": "https://news.google.com/rss/articles/CBMipgFBVV95cUxQUjNjajRXM21jTDRaNV9QNlpJektVclM2bXN0d0lTcmFUY2x3WnQ2SHNwdkQxOTBITmtBTVlsRVlkTEdpaHhIaUR0M2drUFBJYzRxUUNmUGNRaU5jRFVSODd5NkhoZGh0RENYV3Q1bDVUSDdNZ2FkZ3VtOFJsbkVyMTBXdUFxdk4xbXRnU2ItUEk0OTNsemItanpXeEJ6VWtBS1JoU2Jn?oc=5",
+          "published": "Fri, 16 Oct 2026 07:00:00 GMT",
           "metrics": {}
         },
         {
           "source": "repository_trend_snapshot",
           "team": "michigan",
-          "text": "Predicting Final Score of Michigan Football vs. Indiana With Tommy Carr Under Center",
-          "url": "http://www.bing.com/news/apiclick.aspx?ref=FexRss&aid=&tid=6adbb3b3fa544fc5b1da3d02c77e8662&url=https%3a%2f%2fwww.msn.com%2fen-us%2fnews%2fother%2fpredicting-final-score-of-michigan-football-vs-indiana-with-tommy-carr-under-center%2far-AA2fUlm3&c=4030424086996196823&mkt=en-us",
-          "published": "Fri, 23 Oct 2026 04:13:00 GMT",
+          "text": "Michigan Monday: Game 7 vs. No. 6 Indiana",
+          "url": "https://news.google.com/rss/articles/CBMie0FVX3lxTFAzTThUaUFQX1R2RnFnaFJ6Q1Rickw0YzdtNDJIRm5EYlRQUWhyS2JMQkxMeHZYM3psM2ZHRmc3Rm9ISURFU3RiaHpVT2JBOGRBM0tlc2pyaExBeEJIRHl6VWxOVVF6WlZMRHppRGVTTHVUdGsxVUF4S2VNOA?oc=5",
+          "published": "Mon, 19 Oct 2026 18:57:41 GMT",
           "metrics": {}
         },
         {
           "source": "repository_trend_snapshot",
           "team": "michigan",
-          "text": "Indiana-Michigan predictions: Can switch to Tommy Carr spring Wolverines upset?",
-          "url": "http://www.bing.com/news/apiclick.aspx?ref=FexRss&aid=&tid=6adbb3b3fa544fc5b1da3d02c77e8662&url=https%3a%2f%2fwww.usatoday.com%2fstory%2fsports%2fncaaf%2fbigten%2f2026%2f10%2f23%2findiana-vs-michigan-predictions-odds-spread-tommy-carr-josh-hoover-college-football-picks%2f92389819007%2f&c=9247112622853258661&mkt=en-us",
-          "published": "Fri, 23 Oct 2026 09:35:00 GMT",
+          "text": "Wolverine Thoughts: Michigan Football Has One Clear Direction After Win Over Penn State",
+          "url": "https://news.google.com/rss/articles/CBMi1AFBVV95cUxNdTVGbUNSb0IxOURlNm80S1dBSGs5QjFZTjhnX1BSREN2Z0FYbVo2Vk9fQnRucUdXMWtjRnduanhIRDNaaFNtQU5WU3VOSFhPOGwwQlp4SnN3ZVE1U0JfWVE1aktjdGhMSWJUZWM1VUJtREMycF91QV9zVnI2QXFBVTl1MmxKNWRuLU9iTlBpUmtheWI0YW9TVkhqUkgtcHRXVVJMZEpSa2ZFQ052dzVrU0VDY19XYWhJTDBQTGo2d2ZON3B6UFZwTXh3XzhDZHA1VHY0Wg?oc=5",
+          "published": "Sun, 18 Oct 2026 11:00:05 GMT",
           "metrics": {}
         },
         {
           "source": "repository_trend_snapshot",
           "team": "michigan",
-          "text": "Michigan vs. No. 6 Indiana score predictions from MLive’s beat writers",
-          "url": "http://www.bing.com/news/apiclick.aspx?ref=FexRss&aid=&tid=6adbb3b3fa544fc5b1da3d02c77e8662&url=https%3a%2f%2fwww.msn.com%2fen-us%2fsports%2fcollege-sports%2fmichigan-vs-no-6-indiana-score-predictions-from-mlive-s-beat-writers%2far-AA2fWsBG&c=2260359061970734847&mkt=en-us",
-          "published": "Fri, 23 Oct 2026 10:44:00 GMT",
+          "text": "Michigan Wolverines QB Tommy Carr has 'poise' that's 'second to none'",
+          "url": "https://news.google.com/rss/articles/CBMimgFBVV95cUxOQWlOQUVlZ2NCWnpmZlB6RjRST1daN2p4UDc2MFR4VmxIcnp1TG4ySHBOaHpLUmdkNWZQeHRnOVFfOW5WMGdWNEpXWVVMS2E4TGxjWmxVeHF6X1Jjdm5CaGVZZ1BhdkV0N3luZGVDV1JjdDBOUDJFdFhSSWd2SlR4NmtYeXNraGlDWmozUmlXWXBiYW5hS2liWEFB?oc=5",
+          "published": "Fri, 23 Oct 2026 10:15:00 GMT",
           "metrics": {}
         },
         {
           "source": "repository_trend_snapshot",
           "team": "michigan",
-          "text": "CBS Sports puts Indiana on upset alert against Michigan football",
-          "url": "http://www.bing.com/news/apiclick.aspx?ref=FexRss&aid=&tid=6adbb3b3fa544fc5b1da3d02c77e8662&url=https%3a%2f%2fwww.msn.com%2fen-us%2fsports%2fcollege-sports%2fcbs-sports-puts-indiana-on-upset-alert-against-michigan-football%2far-AA2fVawk&c=386965086953169419&mkt=en-us",
-          "published": "Fri, 23 Oct 2026 06:10:53 GMT",
+          "text": "5 takeaways from Michigan Football’s win vs Penn State",
+          "url": "https://news.google.com/rss/articles/CBMizAFBVV95cUxPNEQ1ZW5iQURKcmlJSzBwbzRWSklMNDhCRGNiZm1mMkRvT2FDNy1tUDZXbjZFRmZvc192WnRjZ2NaUGxfcElPbnpZZU9SdEZYRnYtaXgzZVBhZU9fWExrby04N3RZZTBLa3ViM3BaaXR6YnFtWU9idUdwVS1jQi13TUkxUHlSQWlJRnpvUjh4Wmc2TXczSm01RHUyRXMzR2g4RTNxdlotVWpBZEozWWszM0dTc2FkenlhTl9fbldxQ0FITnZIRTF2ZG9rWkM?oc=5",
+          "published": "Sun, 18 Oct 2026 00:00:00 GMT",
           "metrics": {}
         },
         {
           "source": "repository_trend_snapshot",
           "team": "michigan",
-          "text": "Predictions: Michigan football vs. Indiana",
-          "url": "http://www.bing.com/news/apiclick.aspx?ref=FexRss&aid=&tid=6adbb3b3fa544fc5b1da3d02c77e8662&url=https%3a%2f%2fwww.detroitnews.com%2fstory%2fsports%2fcollege%2funiversity-michigan%2f2026%2f10%2f23%2fpredictions-michigan-wolverines-football-vs-indiana-hoosiers%2f92342685007%2f&c=17856258209916118100&mkt=en-us",
-          "published": "Fri, 23 Oct 2026 08:35:00 GMT",
+          "text": "3 things we learned: Why Michigan looked better across the board with Tommy Carr",
+          "url": "https://news.google.com/rss/articles/CBMizwFBVV95cUxPZ0hFSGxBdjI5cVF6ZEhMeGR6V2tmVlZReEx1SktSSmZQaTFGcWphZldwYVlhRksxTEtNMVlqR3NDR0I1Y25BUU1aQnpZTlBTTjVlNndHaEZqOXJnZndJRUctSVFuU3A4MzBaam05UVVzYTFsMjc1WnprTFU3bnpKQkVwWVFfeHVockh3WDY5YXEwLVZWX09DTVpJX2RHaGMzNjhvZkMwem9hamc1d1FMVW9abHI4TmhZaS13R0llOE82cU1QajE3NHZPbUxOeG_SAeMBQVVfeXFMT3Z6SUFIeVlIZDZmTTFnWG5uSGNrTTlLMWNVVFBVelJnNnhvWGV3YnVzZXNocThfODVmdTZQbzlqWlVnZDBtdVZhcmU5b1d6d3FZMjVyaUNqREoybkdLSnUtcVRuQXVfbzd3ZVdFdm9KU0lzbFJFSVA1blVrakFTbG1VVFQ0dHRudklkSGVvNDJMVGQyak5UbHU1Ump0amtuZWg4RlNCa09PNVJmVVAxX3NnYXFHcFFxTnJjb1h1Tzg3bGhyZ2gtOXNhY1BCWE1MdjM0WS1NWFZrYzZqbGV2VEkwYlU?oc=5",
+          "published": "Mon, 19 Oct 2026 15:24:00 GMT",
           "metrics": {}
         },
         {
           "source": "repository_trend_snapshot",
           "team": "michigan",
-          "text": "Indiana vs. Michigan odds: 2026 college football picks, Week 8 predictions from proven model",
-          "url": "http://www.bing.com/news/apiclick.aspx?ref=FexRss&aid=&tid=6adbb3b3fa544fc5b1da3d02c77e8662&url=https%3a%2f%2fwww.sportsline.com%2finsiders%2findiana-vs-michigan-odds-2026-college-football-picks-week-8-predictions-from-proven-model%2f&c=7400147958546861601&mkt=en-us",
-          "published": "Thu, 22 Oct 2026 23:11:00 GMT",
+          "text": "Michigan football's secret plan at quarterback is seemingly no longer very secret: Tommy Carr is expected to start vs Indiana. See link below ⬇️ 📸 Junfu Han, Detroit Free Press",
+          "url": "https://news.google.com/rss/articles/CBMi3wFBVV95cUxNTFo1eWFXUGZTUlZsdjd3LTNFcGR3d1VPa1pFdkFiZU5kWi0wQzhPVVQ2MFpsWTNEMkNQODVVNDkwWmlWVkxzY0d6Y3VpS1FPUWtDLWpZcGpGNG50Ml9uODlWSUhIRGlMVW5HRlU1RmJrSlo4WDltVUhhSktUNDB5Y2JYVXFBaW9ubkIxY2VMS3R0QjZ2NVVtMzNxYmd2aHFDX2RfYkxndk1iSjg2Y29oVF82T2hRUG0tSUNqYm9uZWU3bGpuUDdoOHIxZUFKZDlGQU5ZUVhPdExJVi1DV2pB?oc=5",
+          "published": "Wed, 21 Oct 2026 20:30:13 GMT",
           "metrics": {}
         },
         {
           "source": "repository_trend_snapshot",
           "team": "michigan",
-          "text": "Michigan-Indiana scouting report and pick: Can Wolverines pick up season-defining win?",
-          "url": "http://www.bing.com/news/apiclick.aspx?ref=FexRss&aid=&tid=6adbb3b3fa544fc5b1da3d02c77e8662&url=https%3a%2f%2ftheeagleswire.usatoday.com%2fstory%2fsports%2fcollege%2funiversity-michigan%2fwolverines%2f2026%2f10%2f23%2fmichigan-indiana-scouting-report-prediction%2f92386884007%2f&c=7673347341766252519&mkt=en-us",
-          "published": "Fri, 23 Oct 2026 07:44:00 GMT",
+          "text": "How to watch No. 6 Indiana vs. Michigan: TV channel and streaming options for October 24",
+          "url": "https://news.google.com/rss/articles/CBMioAFBVV95cUxOUlYzQUNHcFVvVDhnNS1ucUFTQk90WUpMWGpISW9tNXo4Q3JVOUhEeUxxdU40WlRycmUtWUZoaE1OVUtlaE14RFdnbkJXMWtJRWhnblo1a2lSTlBwd3Bqa0pCMUhhVHJ6SDRwbzVMTlgwZ1lqamhnSFE1ZXp4Z2JpZHlzclhNT1Bob0x4WmZpRXp2Yi1DcFM3NW9KREtYdzIt?oc=5",
+          "published": "Thu, 22 Oct 2026 16:10:41 GMT",
           "metrics": {}
         },
         {
           "source": "repository_trend_snapshot",
           "team": "michigan",
-          "text": "Michigan football finally found rushing success. Is it repeatable?",
-          "url": "http://www.bing.com/news/apiclick.aspx?ref=FexRss&aid=&tid=6adbb3b3fa544fc5b1da3d02c77e8662&url=https%3a%2f%2fwww.msn.com%2fen-us%2fnews%2fother%2fmichigan-football-finally-found-rushing-success-is-it-repeatable%2far-AA2fNKt4&c=15369073397489612901&mkt=en-us",
-          "published": "Thu, 22 Oct 2026 03:04:00 GMT",
+          "text": "Report: Michigan Football QB Tommy Carr to make first career start vs Indiana",
+          "url": "https://news.google.com/rss/articles/CBMiigFBVV95cUxNdmRqdEhRVThZRXBha3RDblpvem4yYkEzY1BkS05pTnFwdzB3eGNfNmItX1c2Z3F1Y1FxN0k5RG1SbU5TUFJnaFZveFpkUjVNNVFfRzdhSmhnXzUtdmE1QjN5OHlRbGluSVlEY2NXY0x6Yko2XzJPN0hkQXRTVTMtcF9PR1hjYkNmcEE?oc=5",
+          "published": "Wed, 21 Oct 2026 00:32:00 GMT",
           "metrics": {}
         }
       ],
@@ -261,216 +950,906 @@
   },
   "items": [
     {
+      "source": "google_news",
+      "team": "cleveland-browns",
+      "text": "Cleveland Browns news: Some rough news on the injury front - Dawgs By Nature",
+      "url": "https://news.google.com/rss/articles/CBMiwgFBVV95cUxPNmc4U0F1QXFsbGVyb2UyeW1TWnAwQWdUYURZY0o4ZE52SWFuUmRTNjNGX0RqM2NSc3VTLWtBZ1BEbUdiYnJ3ZHFkNlpLdkxLSjdzcEdOSVdZbnVPQmgwR2xvXzlMbTFYOVVYYjFIc0VlclJ1NVQzZ2t1WVJSTWhhM2c0X0NwRnFMU21rR2t1ekNnNFZwUHUzV094LVJ6elY0Vk1IRUlrR3d2eE5ucW83aDFuQVVDaWdPWG9kdFlRVTBIUQ?oc=5",
+      "published": "Thu, 22 Oct 2026 17:29:28 GMT",
+      "metrics": {}
+    },
+    {
+      "source": "google_news",
+      "team": "cleveland-browns",
+      "text": "Dare we say it? The Browns are ... watchable? – Terry Pluto - Cleveland.com",
+      "url": "https://news.google.com/rss/articles/CBMingFBVV95cUxQMnVqTDU3UGlHQnFVTmV1Z2x0UmotYmUwT013ZjdlSENiS01IZUlWeU5BOGhkWV83d3p6NGhueldKNGtaX0V4SVVHOU0wVWMzbXQxTlg1Nmh4UV9HUDNNM2RYdFAtMkRBLTV4ZU5FQmhOX3l5TVZMMnVfTW85UHNwanl4cDdwdHdVbWZjazFmaTJpdFFMTXVtaTI2UTd5dw?oc=5",
+      "published": "Sat, 24 Oct 2026 10:00:00 GMT",
+      "metrics": {}
+    },
+    {
+      "source": "google_news",
+      "team": "cleveland-browns",
+      "text": "What I’m Hearing: Deshaun Watson’s Cleveland future, Jonathan Taylor rumors, Lions’ LaPorta dilemma - The New York Times",
+      "url": "https://news.google.com/rss/articles/CBMiwgFBVV95cUxOSTB5TEtFWE1kaDBzTVhIVkdPd0RqaDlXdUZBYzhYVXRIOHI0X3g4OEdpOW4wZExtaFAxVEotbFZDTHNRUzVHLXpKZHY5bW5Sb25IOUdfNDhGYTFxaVFlbVlYVFR5TjZHcTlMR1RjWnVwZlRCa1pkMkF1WEtxVmRpLUE1aUhCWkd2SFlBTjBMTHZrajJVMENSM05NSkRzWW1Eb0JpWWh3ZklWbjlEQ2tsa2VIejdBeE9UUmMyZEtjVGZWdw?oc=5",
+      "published": "Sat, 24 Oct 2026 07:00:27 GMT",
+      "metrics": {}
+    },
+    {
+      "source": "google_news",
+      "team": "cleveland-browns",
+      "text": "How Browns offensive line may face stiffest test yet from Titans - Yahoo Sports",
+      "url": "https://news.google.com/rss/articles/CBMihgFBVV95cUxNaDctcE1GdDFXeVR1RnNPbkNBNUhIWmtjNG9RNXN6RDk3TWpQeGFXU0l4N3NMVlJFbEViREhuc0FzdGpJWVAzYkRCa0ZQSDMtWXE1MldzcV9nZXlCMVJGbmRxV2NYcHJLR2d3Uk4yNTBueFJJUkJrUy1kNVJnR2lRNWo5QUdDQQ?oc=5",
+      "published": "Sat, 24 Oct 2026 10:05:38 GMT",
+      "metrics": {}
+    },
+    {
+      "source": "google_news",
+      "team": "cleveland-browns",
+      "text": "Browns vs. Titans Week 7 picks: Cleveland favored, but some still see Tennessee winning - Dawgs By Nature",
+      "url": "https://news.google.com/rss/articles/CBMi8gFBVV95cUxQaEhiVnhGNWo3LU5Xelc5clFwVkF5OUt3U3RIS3ZvY0ZRSHlSRmEzdzFtN0h1WEdpQk81ZTBGaFBULWNyUG5ZaTVGRUpwaXQwbThRS2N4MmZEM2dGYTYxWnN2RDhYakRUQzJUR2VZemk0R09LZzNuYW0temdNSHh0RGNFZ0M1SGcyV1ZuTmlJQ3lNZEcxNktLRUwwN0ZyblBmS1ZrQTZpeTBldGhFYy1tY3FqWjZqOVZZWVc1Ni1tMm1mQU5UM1Zua0F3V3Q1Ml9hRFh0Yk1kU3N4eWNfd1pnajNtMjZ3Wmk3eUxBTG5TZWxRUQ?oc=5",
+      "published": "Thu, 22 Oct 2026 20:12:56 GMT",
+      "metrics": {}
+    },
+    {
+      "source": "google_news",
+      "team": "cleveland-browns",
+      "text": "Browns face Titans with a point to prove - Cleveland.com",
+      "url": "https://news.google.com/rss/articles/CBMi7wFBVV95cUxNVGpGX3REeVRTT2NLUlRid284LUx0czVIQV9XRGRSU1Vzek9IQXk5Zm11amRjdEUtbEZsVVFNQklSZGo3b2hIYXV3aDR0dWlRaFlUeTZLVURQWV9jaUNoalZ5RDd2ZWwzQUFCQWxNUnhHSXB2N0tCZW1WRDVfQ3pxc2JhMmJGY2FuMUxLOFVsc0JuNDlQY210b3A5VU5uanRiSlpJWFcxanVDOGJmNW9uVjdOWDJKVEE4Y0dOd0VGNU9GVTlOd0xBTXRLSHRFNEJWX3RKQjFCZnIwUHYxNlliNTlFeXNheFM5bE9HUUtlNA?oc=5",
+      "published": "Sat, 24 Oct 2026 09:01:00 GMT",
+      "metrics": {}
+    },
+    {
+      "source": "google_news",
+      "team": "cleveland-browns",
+      "text": "Are the Browns for real? Trade deadline plans for the Steelers, Ravens, Bengals - The New York Times",
+      "url": "https://news.google.com/rss/articles/CBMijAFBVV95cUxNSjZhenpmdW9qeVhXenVVbUVISi1JVi1Cb3k5eTN4TkVCZzlFOUFKbzJmSUxZYUdkY1dkSUM0RDIxcFZJVjU0UUdrWF9qLW04ZkJ2WTc3djlQYjZqc1pKOXU2NEJCWS1Qdk1xc2lFbElQVk5NSHR0dWFuMHNyaTh2V3RsVGVWdEYwMlVxZQ?oc=5",
+      "published": "Fri, 23 Oct 2026 09:30:15 GMT",
+      "metrics": {}
+    },
+    {
+      "source": "google_news",
+      "team": "cleveland-browns",
+      "text": "NFL trade deadline: Browns connected to a whole lot of edge defenders as targets - Dawgs By Nature",
+      "url": "https://news.google.com/rss/articles/CBMiowFBVV95cUxNLUtrWUNWUmRzdUNjMGphWWlIbWVqVnBRTlF4WWtScEhKcXp5bEpCb3c1LXVYb1dBUEgzR01PNjJ1Wi1zRXFCc19PWERYQTFZU2ZOaWFqdVpUVFhmSk5GQVQwampRSHpaWTM1ZnZEOVlsQ0ZlblE0Qk9GRTdwVDhzNy05LTJsRXVrQ29peEdSdUJocmdNMHl5RHZsSDkxNEZIeEhR?oc=5",
+      "published": "Thu, 22 Oct 2026 17:52:45 GMT",
+      "metrics": {}
+    },
+    {
+      "source": "google_news",
+      "team": "cleveland-browns",
+      "text": "Bold Predictions for Cleveland Browns at 2026 NFL Trade Deadline - Bleacher Report",
+      "url": "https://news.google.com/rss/articles/CBMipAFBVV95cUxOLTVTYVNrdUVGeUhwWXhyS0NSYVVxLUNLSHNILWgyc25EYWJlMVRfalBkdzEzUnBDWkV2Q3pIVUw3TmtzZFRfSEExUU9tSDlvbnhSRkJaZE1nSW1BRXEwYnVNeEpCa0JQVGlraXlRaTdGSXNFcjNZZnBBaGdhNmpBWHVKT0FoNHc5dDh5T09mWlhJX3NneXJTcFlONE9iTW10eDByWQ?oc=5",
+      "published": "Fri, 23 Oct 2026 11:37:02 GMT",
+      "metrics": {}
+    },
+    {
+      "source": "google_news",
+      "team": "cleveland-browns",
+      "text": "Browns 13-10 Ravens (Oct 18, 2026) Final Score - ESPN",
+      "url": "https://news.google.com/rss/articles/CBMib0FVX3lxTE9sbHROVE1aTXdpb1dHQW5TcV90cVFqdUFsdmdVcnV2WHpxNm5CbXAwMjFXMGM3S28wMld5ZmdXUThWZlo1M0V4TzZOZDhkNWUwdmdqWHZGYkVJM3BTV3FPWXMweXdGcHVQTFpjM29CYw?oc=5",
+      "published": "Fri, 15 May 2026 01:41:08 GMT",
+      "metrics": {}
+    },
+    {
+      "source": "google_news",
+      "team": "cleveland-browns",
+      "text": "Browns Host Eight Players For Tryouts - NFLTradeRumors.co",
+      "url": "https://news.google.com/rss/articles/CBMickFVX3lxTE1rbVVuVHUxQnRYaHp3QlB3U0JpS1Zfa0hYOGEtWDE1VG5PWVVrNDY4N1ZpM19zeW80dGYwV2gtdTRyVnZuZll0Tkw5NEdXcGZBZTU0Q0V1MFRPaVgtY3hCb3VGbmRNX1NlVnpoSHYtWGxvUQ?oc=5",
+      "published": "Fri, 23 Oct 2026 21:02:02 GMT",
+      "metrics": {}
+    },
+    {
+      "source": "google_news",
+      "team": "cleveland-browns",
+      "text": "Denzel Ward questionable for Week 7 vs. the Titans | Injury Report - Cleveland Browns",
+      "url": "https://news.google.com/rss/articles/CBMiogFBVV95cUxNVXhVTVFSVWlZTkMwOE5Wc29ZSVdCbGFSeHZuQ2ZiSmdoY2RWOF80cm02bFZ6VnJ1aERoUzEySXM1UlVYUVMyMVY1VTUtaV9JLTJJYWlNZDFYTU1ZWF93WEVTN0oxVlJINnBDbjdUMVFOMDBoWlNjWDkzby1XTW1jUWd1c3JUeDZpRGRQOXVKeFkzZUZKaVFCUEFzSFlBUW1WRFE?oc=5",
+      "published": "Fri, 23 Oct 2026 20:06:22 GMT",
+      "metrics": {}
+    },
+    {
+      "source": "google_news",
+      "team": "cleveland-browns",
+      "text": "Browns Mock Draft: Is a New QB1 on the Way? - 247Sports",
+      "url": "https://news.google.com/rss/articles/CBMiowFBVV95cUxNX3c4WHQyNW1NazcxM3VFVkdXbGZxeWlMcUZYWl9EeUpKd1RpQ0NXT1VfaU9YOHlvYkdTRnRXeXc3d2pDMU4wd2wxaEJjcWw5UGZfeEhsaE94cUk1X1JGdGRCVU9ZT3FUdVV6UnVZRHozSVhUQk5QMVktU1BjSHBoUThTcWt5QXNBTksxdzRld0VuaHpNdkxWNngzUjc2R0swUE93?oc=5",
+      "published": "Fri, 23 Oct 2026 15:03:34 GMT",
+      "metrics": {}
+    },
+    {
+      "source": "google_news",
+      "team": "cleveland-browns",
+      "text": "Quick Hits on the Titans From Friday of Browns Week - Tennessee Titans",
+      "url": "https://news.google.com/rss/articles/CBMikgFBVV95cUxNRGlyRkdqaHpIYkl6ZEQ4bkJOeFZvaVdOUXRBWHlqczlaUS1fZVhoY3lxWWZWQjRsanpXZEZKbjc0UWRSclEwTzRicmhiM2JiNXMtd2l3ZnRoZFVSTFJqNm9QdjN5Ny1yUGV5SmF6ZldYMGwtMVpsNFRtellnTzNENDVuWFBHb00zTVhqTzB3aHVXUQ?oc=5",
+      "published": "Fri, 23 Oct 2026 21:53:45 GMT",
+      "metrics": {}
+    },
+    {
+      "source": "google_news",
+      "team": "cleveland-browns",
+      "text": "Browns Make Dillon Gabriel Decision for Titans Game - Heavy.com",
+      "url": "https://news.google.com/rss/articles/CBMikAFBVV95cUxPVDlydTJITGtDWGE0N2pLSE1GejM3TkVqWjZqb1dYS2VWUy0zeERWOUpKVHdTbVVmalhheDd2dU1ocldqcUNBLTYxeFBsOV8tWmttVUV4bjZiSGxhUTFyYWVxdHhveEQ1TnpNbHpjSC1NTlg1cVNsTWw1QXY3QjBpdTZQaWhYN1Jza1RqVWQxbUE?oc=5",
+      "published": "Fri, 23 Oct 2026 19:11:56 GMT",
+      "metrics": {}
+    },
+    {
+      "source": "google_news",
+      "team": "cleveland-browns",
+      "text": "Browns' rebuilt offensive line is quietly fixing its most frustrating problem - Dawg Pound Daily",
+      "url": "https://news.google.com/rss/articles/CBMitwFBVV95cUxQWEF2QUJwcnM4dFFBVEhzUjRjQnZMZGNmdG9jUEIxcWQ4VU9RVHJSM0JCWFBzVDdWbS1TT1FuN2RvVWdvQlRBcVhuZVFwcjV3WnJTcDRzWDVYTHBpVEdPZVQyOUZERkU1dkRsMzJoNy1sTWV0WTJua0Y0WDJQYVBIdnFmUVFYU2liUGRTNGMwQTR4bzM4WkRTSXY1Wm1XR1pySW1DRUpmSS1aUzhJNGFVSkEybl9jd00?oc=5",
+      "published": "Fri, 23 Oct 2026 15:00:01 GMT",
+      "metrics": {}
+    },
+    {
+      "source": "google_news",
+      "team": "cleveland-browns",
+      "text": "Tennessee Titans vs. Cleveland Browns: Week 7 staff picks and predictions - Titans Wire",
+      "url": "https://news.google.com/rss/articles/CBMi3AFBVV95cUxPWTllTlA2c2Y1WUpVdi1CTjk4WDV3U2VORVl6dGtvcHkxSWtsUElTTEdVbmFmYlRpa0dtSlB1aDB1b2VIbk9WbGw1OHJWS1JjX2FOdW0tQ0FDTUdiS3ZyYkxJTnBHQnZXT1NnX2NERDdzaENabTg1S1F6UjY4NXBaTm5CVWpZdFV2dVhpMmQtN090cnJUUDNHZTlRek5vcHJ4WHN1Qjl3VTdSNnJoWk1VUVFPbmhGQl8yUkJBTDB4Vlc4QlVmaHAzcXVZck5rQ3FTcWtwZmVZSG1CX2lk?oc=5",
+      "published": "Sat, 24 Oct 2026 10:51:00 GMT",
+      "metrics": {}
+    },
+    {
+      "source": "google_news",
+      "team": "cleveland-browns",
+      "text": "Titans vs Browns picks as Tennessee aims for 2 wins in a row - The Tennessean",
+      "url": "https://news.google.com/rss/articles/CBMiwgFBVV95cUxPSWo2SXRpOFNRWlpIcm9qSC1NYmdtMFdvVHFZQ0EwNjJxUHo4VzZDZE8yNnM5anpscE5oOUt2MFR4WEZhMVdLRlpYS3VfbEhFNW5PXzhxalMyYTExb21SZFFQWWhJWmtmT2VRTFhMWVN0X0RBZ0hpRGVxS0c5VldCLUpvTzU4aGdpU1o2R3N2SkVCUE9vZHNZRmNaajJvdEd4Mjc1eEQyd0ZxMEF5ZjZRQzg0bDlzOFFsZks0d1hNMGNNdw?oc=5",
+      "published": "Sat, 24 Oct 2026 10:04:00 GMT",
+      "metrics": {}
+    },
+    {
+      "source": "google_news",
+      "team": "cleveland-browns",
+      "text": "Where the Cleveland Browns Need Help the Most Ahead of the NFL Trade Deadline - Sports Illustrated",
+      "url": "https://news.google.com/rss/articles/CBMiwwFBVV95cUxQVFRQeU1YdmQ1cVBJbm55NzUtUGp3djY0VzMzSm5SRTJYVTBCOEEzaF9Icm1VNVFlRGVGeF9HR1lrSjNqdTBtQVFNdldxZjgyQWdicWl3ci10alJtd251SlRyakNmMnZ1WmZRLW45Q2RsZlFoMEt5S2dtMUVnV1pYamhLUTRycV9oc19BTHUtOG9fdUVYS2pqc3VtSEFyNTVjNXpsaW1GUEpDT0NpbVZzNTU3M05UeV95WWcwYmlKRml3Slk?oc=5",
+      "published": "Thu, 22 Oct 2026 21:00:00 GMT",
+      "metrics": {}
+    },
+    {
+      "source": "google_news",
+      "team": "cleveland-browns",
+      "text": "Cleveland Browns vs. New York Jets Live Score and Stats - October 11, 2026 Gametracker - CBS Sports",
+      "url": "https://news.google.com/rss/articles/CBMieEFVX3lxTE9GVzNRaFdnNlVpcS1CS09wU1NQcGFrRFl2T3hxTlQ3eW1vZl9XenQ2MVpSS05tc1V1MW82Z3BvV09URmFOaGtzcmpiZ2tjSHFaQThzNFhLckt6RlpYMXlNQVFHVVhZcmhFQ0wwSG1rMVRCQmdiWkhaSg?oc=5",
+      "published": "Sun, 11 Oct 2026 07:00:00 GMT",
+      "metrics": {}
+    },
+    {
+      "source": "google_news",
+      "team": "green-bay-packers",
+      "text": "Final Dan Campbell takeaways before Lions vs. Packers - Pride Of Detroit",
+      "url": "https://news.google.com/rss/articles/CBMivgFBVV95cUxNUzctbmRiaXRwaGVobG5raXF4T2FvNGtvUG5FR1dfMTZTTkRrcVdHZEFzSnJyRXJoN1JFeFpReUhKTFI5aG44Q19INGo5MkNrSElKZlNFc0RTa1dfS0QwM0FGemNEaXpNUFpHQktNSTBIUW1QYVpKNG1CSGxWZ3dyVXFVd2dKU3VDVjFaSVo4X0RBeU1MZGJZSG50cjRPdWhDSjdGVnZyWWFOd0xnTlVxejFRcTc0SERCUlV6cDh3?oc=5",
+      "published": "Fri, 23 Oct 2026 17:48:04 GMT",
+      "metrics": {}
+    },
+    {
+      "source": "google_news",
+      "team": "green-bay-packers",
+      "text": "Packers rule out Zaire Franklin, list four questionable vs. Lions | Week 7 Injury Report - Green Bay Packers – packers.com",
+      "url": "https://news.google.com/rss/articles/CBMiswFBVV95cUxOR0dMY1J4QXNvalZ1OTJlQV91Tm85Y2pSWE05VnZLNW9VTkJwZFlBZW1CLWxaM2MyMXpjaDFUcU1vd2plZm5LTC1SYVJKVzRRaFkzQXRGU1J4WnhHNXI0QUZYX2tuZEdBZ1JUZ0pXMGtSbUxkQWR4dWFFUWxUWkYwU1l4MTd0ZUtUUVVDaF9UTVVNVmdGcHB3bWxSLVRwRUM0VXEtQUx2YnkxcFFvN0YtVmR6TQ?oc=5",
+      "published": "Fri, 23 Oct 2026 20:18:40 GMT",
+      "metrics": {}
+    },
+    {
+      "source": "google_news",
+      "team": "green-bay-packers",
+      "text": "Packers linebacker Zaire Franklin ruled out for Sunday - Acme Packing Company",
+      "url": "https://news.google.com/rss/articles/CBMivwFBVV95cUxQRzFxX1BCYkhJenBvR2dQaVJLOVBNaTVFTGxFZFRoV2s1SVdCd3VLc2pWOUpQYnc0NWxSR2FDSEVhRGVDTjh3cGpFanRxTHgxb09vejdYbEFKMGliVlpkNFJYRjV1dnF3ZUJ4YnpxMVZReWVjWG8tMURzcVVsamltcC1Na1hBVmZzOG5zdmdLZVpaVU5BeWp4aEZXOTVQMFdBbkhFUVBFejF6Z01pZUp6ZWxqRGViWE1jVFU5dzlSZw?oc=5",
+      "published": "Fri, 23 Oct 2026 16:17:32 GMT",
+      "metrics": {}
+    },
+    {
+      "source": "google_news",
+      "team": "green-bay-packers",
+      "text": "Packers linebacker Zaire Franklin out Sunday with shin injury - ESPN",
+      "url": "https://news.google.com/rss/articles/CBMingFBVV95cUxOdTU3MGI5Rld0azhaRW1WWGNHNzNWVTJwbXk5anpoRkt2WURDMWRjOGpIQ3R0WTd5UVc5VTZ0OFJQSEtQdVFZejhfVExCVG9mWUhZdjg5bDJqOGJocjluMExqZWRCa2hTMWRTTTFqOUM5cThsNmltWjFnM0Y1SE1OWmwySkkxX2pnU2pZcF83M3IzclBxRnZOM0thUEIwQQ?oc=5",
+      "published": "Fri, 23 Oct 2026 16:27:00 GMT",
+      "metrics": {}
+    },
+    {
+      "source": "google_news",
+      "team": "green-bay-packers",
+      "text": "Packers Draft: College Football Discussion, Week 8 - Acme Packing Company",
+      "url": "https://news.google.com/rss/articles/CBMiswFBVV95cUxOLTZLV2xUU0taZXVVRXpFZDJMQTNTTmR4V0VReG1oaml5enpGSVdJV092M2VTd3RJTmRYSWZ1TWZMcHJVdXViSXE2ekVadC01R0ZJQ3g5UHplY3hFTkFKcDI0bzZGeUZtaE1RSDQxMU53SDRQY1FuY19TOFBKMXFLTU96SDlJb01pYm9oZ3BIejhBQk43WUlWRk1HOFFBcEI2V2hfdkxHMlpsT3AyS1MyTzFtbw?oc=5",
+      "published": "Sat, 24 Oct 2026 10:25:00 GMT",
+      "metrics": {}
+    },
+    {
+      "source": "google_news",
+      "team": "green-bay-packers",
+      "text": "Packers 23-13 Cowboys (Oct 18, 2026) Final Score - ESPN",
+      "url": "https://news.google.com/rss/articles/CBMickFVX3lxTFBpN1dUUWlTX0c1bko5UzhuN2pCaDJaSFNINUZ2alktSEhfZUhNNEJnTW5MeFE1X0UwWnV3UXRPOW85dVBTR0ZkNXh6ZE9CemU0VG9DRDRQOEdWWXR4Yk1jb2NLOHgzOGg3ZTBpX2RIZXBPdw?oc=5",
+      "published": "Fri, 15 May 2026 00:16:53 GMT",
+      "metrics": {}
+    },
+    {
+      "source": "google_news",
+      "team": "green-bay-packers",
+      "text": "Practice Photos: Thursday, Oct. 22, 2026 - Green Bay Packers – packers.com",
+      "url": "https://news.google.com/rss/articles/CBMidkFVX3lxTFBxbHBJcERSYjVJYWVZT2hVV3dERmxFSzBkaGdiRUM1SG5wT0tfVUc4NGRoRkYweTRxNzFtNjEtTFB0YmY0c1RidEp3a1diQnYwM250YTVfNTlrcWJERjNlWWJaTHNGblFtUktoSHpYTHZLdkdLYmc?oc=5",
+      "published": "Thu, 22 Oct 2026 07:00:00 GMT",
+      "metrics": {}
+    },
+    {
+      "source": "google_news",
+      "team": "green-bay-packers",
+      "text": "Jordan Love, Christian Watson among Packers off injury report and set to play vs. Lions - NBC Sports",
+      "url": "https://news.google.com/rss/articles/CBMi4AFBVV95cUxQR1ZkQUV3UHlLcTVEZk4zeGlKYVFwaHhuem9DRVVpNzdfT1NqUTBsTF9zMWhlUF95bENqcUcwTk1fRE9WOGhmaHF2S0wyNWRIRHRXcGgtTDJlUWtMbFRUZ280YmFjSUplbGtya1lDTndxZzB1dW9iOWdXWEdWN3dTS1R1VTM1aGZ6Ul9kTldMeWoxOEZXUEJVVU50cUxhVVV3T2cxV2FoYUViNVM0RWQ2anB1WFB0V2NhZHRZU3FxTjFyS29kZEhydl91MVFMT21sTmF6RHc5TDBVQ3UzaFNLcg?oc=5",
+      "published": "Fri, 23 Oct 2026 22:38:01 GMT",
+      "metrics": {}
+    },
+    {
+      "source": "google_news",
+      "team": "green-bay-packers",
+      "text": "Packers Get Bad News on Potential Trades for 2 Colts Veterans - Heavy.com",
+      "url": "https://news.google.com/rss/articles/CBMilwFBVV95cUxNS2N1VkRQS3BvNXRoeTVkMm8xR2x3ZVRPS1dpcUhVVmM2YzBFMmFHUWxwRWdPVFFrU0ZvMGtPb3d1VUFWbUFDX2tmZjcxRzRVeGJoZjNVZDM0U1k1V21UcWZEb1ZMSmtOSzNWS1FFcmp5VXVFanFkQWpCQnVLVUxZR1g3d0dJYTNrejBFeDZjWkZLaThTQlhR?oc=5",
+      "published": "Thu, 22 Oct 2026 21:40:00 GMT",
+      "metrics": {}
+    },
+    {
+      "source": "google_news",
+      "team": "green-bay-packers",
+      "text": "Packers' Josh Jacobs says he is trying to learn from 'mistake,' move forward - ESPN",
+      "url": "https://news.google.com/rss/articles/CBMinAFBVV95cUxOOEItSWVGY2F4VXNlTGo1QWU2ZF9TTTVyclVGSG84NWYyRXpXdW9QS1lnS2t0Z2dKMHFGck0tRVpDM3hzWXljRVJCSXEyVWlRMWhYUzRkdTBYQjZZclFNNVBZa05jbUdzWXVRNlM4SDJ0SVlPeTVxakRKdklVOFB6ZDNSSWc3Q05JdlpOU3FlSlpmUUVqaUpqTXQwNGs?oc=5",
+      "published": "Wed, 21 Oct 2026 23:30:00 GMT",
+      "metrics": {}
+    },
+    {
+      "source": "google_news",
+      "team": "green-bay-packers",
+      "text": "Packers announce update on Josh Jacobs’ status for Lions game - Yahoo Sports",
+      "url": "https://news.google.com/rss/articles/CBMijAFBVV95cUxPNUhCdWZkT2xEc3dBaHFVLVZHbm9RX05jTXVjc08zd1NUeTJZNDktNEUtN1ZsVFhHbEt6bzNUUXlOd0JQT2daSDFuYjc4S1lyc29MMzl4bUhTb1RCb2E5YW8xU3RDNFo1WlBvN2kzVEJuS0FURWhSaE1xajNGajVtbjFpTmd2dndNS3JfRg?oc=5",
+      "published": "Fri, 23 Oct 2026 16:29:17 GMT",
+      "metrics": {}
+    },
+    {
+      "source": "google_news",
+      "team": "green-bay-packers",
+      "text": "Packers HC Matt LaFleur Issues Major Josh Jacobs Update Ahead of Week 7 - Heavy.com",
+      "url": "https://news.google.com/rss/articles/CBMijwFBVV95cUxOenZuaXdYbmFZVTNLbzh4Y0txdXNNOGdXemNvNmczSjFTNVBZUkJ0MW0tZkdyc0ZTYXBMa3hsMk1qQloxWEZPcUlBSEd6SDNKSHRoT29ONWtVVUx6ZmVsM3pJYlY2TmtKSWlBLUVwY0pXdExuNno3VFRubWJWLTZaMEJWb2hnOWh2Y2JnR2FuUQ?oc=5",
+      "published": "Fri, 23 Oct 2026 17:53:54 GMT",
+      "metrics": {}
+    },
+    {
+      "source": "google_news",
+      "team": "green-bay-packers",
+      "text": "Packers injury report: Love, Golden, Watson added - WLUK",
+      "url": "https://news.google.com/rss/articles/CBMijwFBVV95cUxQM2dwU1FLam8tcGppRzgyNFJxdmZESk96WF9GeDhKR1RsdzN5dkxKdlhHVW1TTk15bjhmb2kyLW94dHR2MXVIbERrWVdsOF90WGRzUWJhNlNoUWxfNHZJeUFORmtRbGhoZk01eWlPa0dxaDg2NDlLTTNZXzJhVk96VmZKYk9KajRhbzE0bm9KNA?oc=5",
+      "published": "Wed, 21 Oct 2026 23:11:18 GMT",
+      "metrics": {}
+    },
+    {
+      "source": "google_news",
+      "team": "green-bay-packers",
+      "text": "Matthew Golden is outpacing other 2025 first round picks - Acme Packing Company",
+      "url": "https://news.google.com/rss/articles/CBMiwgFBVV95cUxNTXdRQnhGc01kTk4yZ2ZzN2RNZTZBT3UxZWNmSWllRVlKYlZfMUZmNUNPZ0FBZ1VVNExwTHYyaGFHRGVnbWw3bzlra2dJVUhXYTN1aDl1RUE5RGZMQzduU1k5NExMakh5Y1l6ODZIaEstMDZvZ3haNXRQelBLRHd5WTdoOGNKd2FQTTFzWmgzNVYwUk1FNVBTQ0h4Rm1iLWZ0ZzRFd2hzanpXb2dwWUhSMC1rVnFpZ25pYXJwNWE5aU0yUQ?oc=5",
+      "published": "Fri, 23 Oct 2026 14:02:57 GMT",
+      "metrics": {}
+    },
+    {
+      "source": "google_news",
+      "team": "green-bay-packers",
+      "text": "Christian Watson and Matthew Golden already look like the next all-time Packers WR duo - Lombardi Ave",
+      "url": "https://news.google.com/rss/articles/CBMiqgFBVV95cUxOSjdtOVdLZ0JPMXdOX25Vc1pFUmdVRW9ZdWNKZ21FVGszRE1yZVRlejNFaTVkdGl3OEZVMGRKbHlFSUMxNG1XQ2liZWl1S0hLeXNqVEJpd0Foa1pfZ1dDOC1rYUNTbVRGNUZYUjlIMzQxZ3VRWGpwcTZ6TVowem1qSGZic3RRdXZZTXN1VnZTSkdVTmZNVk9Cd194cURIZF9Rd1ZGOURueTFRdw?oc=5",
+      "published": "Fri, 23 Oct 2026 15:59:43 GMT",
+      "metrics": {}
+    },
+    {
+      "source": "google_news",
+      "team": "green-bay-packers",
+      "text": "Wait Continues as Packers G Kevin Zeitler Gets Ready to Face Former Team - Sports Illustrated",
+      "url": "https://news.google.com/rss/articles/CBMirAFBVV95cUxNbHdIR3lPSWpFeldLWGNoNDMyMEhZUVpURVUyaTBSdnJ5MjFUVUtGWEs3N21WTFQ2TkREcFNNN3hnWkMyMlA5UFQzTmNTb2NZaWVBMGdmVDNqSFFEQ3ZwWGR1UE4xb2RtamlHMnM4OEFaSjdHYXNBOUx4R1NGTF9UeEFTYkdJV2JBeU84VFBrQXl5b3VlWVVsclF0dFBkVkJpLUJzY0l1VlR0SUY2?oc=5",
+      "published": "Fri, 23 Oct 2026 16:01:45 GMT",
+      "metrics": {}
+    },
+    {
+      "source": "google_news",
+      "team": "green-bay-packers",
+      "text": "Predictions: Lions vs. Green Bay Packers - The Detroit News",
+      "url": "https://news.google.com/rss/articles/CBMiswFBVV95cUxOMW5Xcm5xcXZubTdsNW5oeXJVX0FybHYwVWFBeGZMOXNDTFVvN21fUm1TYWxKMV8xdmw5Qk8wNUYwSTgxSGxQQ3ZNcGJFeHlaeExNN1dDenpnOVdkai12TUhmb0swNFhBZGlyUVFUSFkwOUozY3lkbVlibVJYQkRxdWpEQk1xeHoyNGQyUFhpVU5WMGo2QkhsdFl0WXFxckZxSUpiZDZjVjdYVFhmTlA4NzBXNA?oc=5",
+      "published": "Sat, 24 Oct 2026 04:01:00 GMT",
+      "metrics": {}
+    },
+    {
+      "source": "google_news",
+      "team": "green-bay-packers",
+      "text": "Packers Hit With Brutal Injury News Ahead of Massive Showdown Against Lions - Yahoo Sports",
+      "url": "https://news.google.com/rss/articles/CBMihgFBVV95cUxQc1hKYjh6ZGdSLVJ6NV9yUklueGlBV2xyRTFXMmQxUFN4WVB5dm15LVNJRWFYQUY3R05ZUGJfY2xZQmxUbTZuUU84RUpBd0dsRTRja29oS2tXMWZoaWtrWGlSR1FBODVndzFFWDlwX21jNURua1JnbTlOVWdaaHpOZXJaMENtZw?oc=5",
+      "published": "Fri, 23 Oct 2026 21:56:02 GMT",
+      "metrics": {}
+    },
+    {
+      "source": "google_news",
+      "team": "green-bay-packers",
+      "text": "Green Bay's reported interest in DeForest Buckner signals the Packers are hungry for a Super Bowl run - Dairyland Express",
+      "url": "https://news.google.com/rss/articles/CBMi2wFBVV95cUxQMGRYM0FKMUlFYkd3TXdFeWxQV1lQQmZ3WERlT20wQU12SC0wN2Z0U0NDbXJ4U1daVm9OUldMTExJYTlTZXNXbkhfY1F5UWlUR3l2a0JvRlFQbWJaSTJQNWNkMXlVbE1XWm5HX0Z4cm8tSlFQRjRKZEs3NmFjQWZ0UUV5TEVJMkVDLUU1M1puU3RlcTVfZXRHRExPQnpUc1VlX3RTbVFyXzkyQUlIRU9hNVYxV0l1WXlvYlBIMWhlaWZFeV9RTmJhOWIxNjdUZGd2T3E2SWVFWFhsLVk?oc=5",
+      "published": "Fri, 23 Oct 2026 16:00:01 GMT",
+      "metrics": {}
+    },
+    {
+      "source": "google_news",
+      "team": "green-bay-packers",
+      "text": "Packers face a major depth test against Lions after losing a veteran defender for the rivalry game - A to Z Sports",
+      "url": "https://news.google.com/rss/articles/CBMilwFBVV95cUxPUmtFRGZIOTg3SU40S1M1cENwQTFBZzF2RmRneHFucnRmal9BVHVuYnpieW5PRjFZR1BoZVdjQks1blJrSzZSamhmVzJaWDlvT2FVNUFadjNSRlZGRmVDcERSM1YtWDVzRmoyRmFqQmZnTldBNjVRaUE3NTRseVZxRUlieXhtdkdGOThqVkw3Q0lwMVE0Q3Fz?oc=5",
+      "published": "Fri, 23 Oct 2026 16:14:09 GMT",
+      "metrics": {}
+    },
+    {
+      "source": "google_news",
+      "team": "dallas-cowboys",
+      "text": "Dallas Cowboys cheerleaders unionize after years of fighting for fair pay - The Guardian",
+      "url": "https://news.google.com/rss/articles/CBMiigFBVV95cUxOSHdVN0w1eEE5X01DWjg4a2lBSzd3dXlrM3RkTDRleEkwbERfME93VDV4ckVkNGJ0OG1qLTAyXzFMTmt3R2RRWmJTdmhvSVFiNW1yeVhUYmpqOHZKZmtyQW0teHZMU1lHYzlEMXJpa1VTWUJnc01hUjVlMVpiUkJyVWVMMHlsRVF4ckE?oc=5",
+      "published": "Fri, 23 Oct 2026 21:22:00 GMT",
+      "metrics": {}
+    },
+    {
+      "source": "google_news",
+      "team": "dallas-cowboys",
+      "text": "Cobie Durant aiming to do his part for Cowboys secondary, help create turnovers - Dallas Cowboys | Official Site of the Dallas Cowboys",
+      "url": "https://news.google.com/rss/articles/CBMiswFBVV95cUxNQmdoM0NZai1wTXNJMTg5S1RMalhwcV9obHBwWEt4YWh1RmtNZmhmd0FReEVCR0lNWkhpXzdkQWdyMFBiSl9weF9NYUtoV1N4ekxDZGJzbE80aXVncnY2VWtCY1pqRVZ2Q29JT2hQamtqWkNqdUlHZWtuV3pCTUZBM0xCWnAwNDRMdWNzaTJGWUVxQ1JpOF9XMjZUQVpwNll2VjNBTWtFUXEzM2VrajZxNGZiQQ?oc=5",
+      "published": "Thu, 22 Oct 2026 21:58:02 GMT",
+      "metrics": {}
+    },
+    {
+      "source": "google_news",
+      "team": "dallas-cowboys",
+      "text": "Cowboys' Preseason Superstar Could Make NFL Debut Thanks to KaVontae Turpin Injury - Sports Illustrated",
+      "url": "https://news.google.com/rss/articles/CBMinAFBVV95cUxNVDA4TVdRdGdBd0VXQ3RXcjJLRk1kTTlCUzIzeDVFR2hxRmFmNHZVZ3B1MXB2aGUzWUQyc3FfTTZRQm5hRnp3V0N5NG1rSFh1RUZzSVlHR3RHQ2ROMlB1Q2xjWWh3TkxldnE4Q2VBRWZrc3E5dW85Tm5vVW9yZWROdGZ2ZHh3RFBiSkhZb1BwUU5uMEJxN2tBak5Gd3E?oc=5",
+      "published": "Fri, 23 Oct 2026 12:24:00 GMT",
+      "metrics": {}
+    },
+    {
+      "source": "google_news",
+      "team": "dallas-cowboys",
+      "text": "Cowboys 2nd Philly visit under Schottenheimer is a sad reality check - Blogging The Boys",
+      "url": "https://news.google.com/rss/articles/CBMiygFBVV95cUxPeTdVbHhscTZIVnZQUnBma0lvbTUzcTl1UG9IYVpzVkJhWDJmaXNvclZtMkwzbXZ0eHZJNDZ2LS1QVVhrZGhzbGUzOXVWNDVrSDhLUjVleVdUZy1iU3dULTdSSkE2UmdkcmdIRzRWbUdOZUZUUGNYajJITkxDOVpOUHRHZHBscDJKSXRqbmJsX3d0c1B0UTZBSGwta1VOYWlaTTh2c2JWVEQxdXNUa1YxUnFIbUhNYzJsM3AtOGVtRzRoSkhQaVF3SkV3?oc=5",
+      "published": "Thu, 22 Oct 2026 17:00:00 GMT",
+      "metrics": {}
+    },
+    {
+      "source": "google_news",
+      "team": "dallas-cowboys",
+      "text": "ESPN Floats George Pickens Trade From Dallas Cowboys To Chiefs, Rams Before NFL Deadline - Dallas Hoops Journal",
+      "url": "https://news.google.com/rss/articles/CBMiiwFBVV95cUxOZ1hTcjlJMVd1UzVEYzdVaDY3TXUtRUVwUmZxZ1Bpemk2SEU3RWk3UVpJdm5DZk5DMHJ2SHhLZDNpdzY1OXY4b2VSejNXU3FwRDNtSVBYN1ZQSFl0TTVvTVdCd01DWXR5QmU4YXV4cnBJUjZwV0Uzaks2SUxRU1QyczY3RlgtZldkRUxJ?oc=5",
+      "published": "Wed, 21 Oct 2026 05:17:25 GMT",
+      "metrics": {}
+    },
+    {
+      "source": "google_news",
+      "team": "dallas-cowboys",
+      "text": "Quinnen Williams: Cowboys can still 'achieve all our goals' in 2026 - Dallas Cowboys | Official Site of the Dallas Cowboys",
+      "url": "https://news.google.com/rss/articles/CBMioAFBVV95cUxQQW41SU5oSTFiTENSaFFGMWx3d0ltOUhTbU12ZlJESlFIc24yX2RyY0pmUkpFRkVHT3N0VmlfRm1OaUJ6TlZuVGZaRi1YSmczM2wtVWVPQS1NbU1CM2ptMUFpNHhyYThVVjVIUGlLR0tDcW9ua3NHcWlnYWpYekxCNjBmSFNNeGdITzJ1MlVwTlNMcWNhWFNub0xmdzhSeFRS?oc=5",
+      "published": "Thu, 22 Oct 2026 23:36:45 GMT",
+      "metrics": {}
+    },
+    {
+      "source": "google_news",
+      "team": "dallas-cowboys",
+      "text": "Zero to 100: CeeDee making the grade vs. old & new - Dallas Cowboys | Official Site of the Dallas Cowboys",
+      "url": "https://news.google.com/rss/articles/CBMigAFBVV95cUxPYWlRMG42OHktdTlLUWExak9XR3VEWTlycTJPUnpZUktLcVZOaUZ0Q3FReXpmNHVvVlpjSl90dGpONkVacWV2dU1vOUxnajBXTGNNbEM2dGtwcHhKZ0JBbU9KbEVmLUl6VFYtSkdjZWU4UXNUa0RmZkVQcmpVdDJ5eg?oc=5",
+      "published": "Thu, 22 Oct 2026 20:54:02 GMT",
+      "metrics": {}
+    },
+    {
+      "source": "google_news",
+      "team": "dallas-cowboys",
+      "text": "Mailbag: Does defense just need more time? - Dallas Cowboys | Official Site of the Dallas Cowboys",
+      "url": "https://news.google.com/rss/articles/CBMigAFBVV95cUxNYnlndHFLYWRQeDhRUmdzV080N1l4ZC1ocjkyU2d2ZHkyVHB5RkJGT2s0RjI1WVVsdTRWeG5FWWVzdlB3N2RKUzF3U3U3Sm56MjRhMm5hS1pyOGs1RHYwRFVLY1NncGwxUW03NWxfdmNhZGloT01SX1lrYzZfSktJbg?oc=5",
+      "published": "Fri, 23 Oct 2026 14:03:26 GMT",
+      "metrics": {}
+    },
+    {
+      "source": "google_news",
+      "team": "dallas-cowboys",
+      "text": "Dak Prescott details how finding rhythm in run game can help spark Cowboys offense - Dallas Cowboys | Official Site of the Dallas Cowboys",
+      "url": "https://news.google.com/rss/articles/CBMiuAFBVV95cUxNN2l1V3ZTMDZWNWQxalpSTjJVS3dJZU1aaW9FazJiVW1sRzBScWVENEttSUJPelZxQWhTMkstSFJSb0NWQ3ZKdkwzQ0h2T1N3dEFXYmp5cU1aelpUSUFCM2tzSEZPNFoxVko2VDlTNXZxRzlvSzJYYkZCeldMclhld25BTmtDZF9rN1dPdkpsZ2ctM0daOFR3Zy10VFppaXRmX2E3bk1VMzJKM1dxQVVEcy1hdkI5eUFk?oc=5",
+      "published": "Fri, 23 Oct 2026 22:09:10 GMT",
+      "metrics": {}
+    },
+    {
+      "source": "google_news",
+      "team": "dallas-cowboys",
+      "text": "Jerry Jones says Cowboys' offense is in 'good shape' to correct struggles - Dallas Cowboys | Official Site of the Dallas Cowboys",
+      "url": "https://news.google.com/rss/articles/CBMiqAFBVV95cUxNUlJPRU1tNXZyQ1gzMWdBLWNZeWQ3MmFpcEVZekh0dlBuNmVxb2hGZDVqVkNEY1NTNmZ6eGpFSVVyUFVSQ1VXWGQ0X0ZfYm5ySU10TC1jOHY4dmViaWo2U1NhWm4wNUh1Q29FQnNxeHZHZFM3djN2WFdXNGFBVVMydGNIOE1ySE1zazdVTDYtZmw2SWdoanEyeS1DdVVHdHZqcmw4R1hmb3c?oc=5",
+      "published": "Fri, 23 Oct 2026 16:36:25 GMT",
+      "metrics": {}
+    },
+    {
+      "source": "google_news",
+      "team": "dallas-cowboys",
+      "text": "The Dallas Cowboys cheerleaders are unionizing - NBC News",
+      "url": "https://news.google.com/rss/articles/CBMimAFBVV95cUxPdU41ZUIyLUhoSDFtOWplMFdmNmFhZ2VXZHhDX3JOZVJjc3d4QnljNjNyM3hJaHFWOEFLckFiV2xuVkNWRGlLRGNodWlUN2dSOFIwUHJ6S2dDVFRCVV9fNDQyeHNiT2JSLUFnNE1BQ3lfYUpKQlgtdmNlV3h2WlJIbzFNZGZDUTFZMmU3NW9IU3ZuXzhibFpRTA?oc=5",
+      "published": "Fri, 23 Oct 2026 20:50:52 GMT",
+      "metrics": {}
+    },
+    {
+      "source": "google_news",
+      "team": "dallas-cowboys",
+      "text": "Troy Aikman says he would be open to potential position in Cowboys' front office - Dallas News",
+      "url": "https://news.google.com/rss/articles/CBMiqwFBVV95cUxNa09HaV9MLURJT1p2WUpJY0hraUV2U3Mwc0VhTGE0MDl5dFFWb3BTclNtbW1GQUJWUkJvdzBjSFByTll0YWw4WDczblFFUFZKM3FwcWlZdEpQYUlmODZ5UEl6XzVFUDVMdnRoeDE2VkF2QmVHa2ozWnJjOGxaRmE4RUlNdkdlM2NXaG9zMDVqc182TWpqYTFkTTBBRlE4MFk0RHFuclM2QzJqX0E?oc=5",
+      "published": "Sat, 24 Oct 2026 02:10:37 GMT",
+      "metrics": {}
+    },
+    {
+      "source": "google_news",
+      "team": "dallas-cowboys",
+      "text": "Cowboys vs. Eagles Injury Report - Philadelphia Eagles",
+      "url": "https://news.google.com/rss/articles/CBMiswFBVV95cUxOX1o5NHpTOGFhbmppc0pYTHBUekNQRFNXb21vb202MHEyRDBuMGVEb01DWE5WZ3Jtd2w5TnBPeEpzNzJueGRkZWx4a1VFY090MUYtNjZfTDZST0ZobUh0REtaMXpUM3hMMUlsRzc2aGYzRjNLZGxJUWZNUE1JMWlBSVdWRE5xR1c4M052TDYtWGpobC1oZ2pUV2dLaHlkVm45TGs1M2pXaU9RX2ktZVBlMUdLQQ?oc=5",
+      "published": "Fri, 23 Oct 2026 18:18:54 GMT",
+      "metrics": {}
+    },
+    {
+      "source": "google_news",
+      "team": "dallas-cowboys",
+      "text": "Give them a C-O-N-T-R-A-C-T: The Dallas Cowboys Cheerleaders are unionizing - The 19th News",
+      "url": "https://news.google.com/rss/articles/CBMifEFVX3lxTE5PREt0YjdrdWY2Wm1DR2JFTEFxXzQ1bjhZRzlPUVhYMW5xRTNXWmF6ZDBScUp0X2YtbnpzUUpnWkw1ZkkxbVlGSlVTenUyT1RERnR6dXE3QkRuYVZoSU9MWDB0SUN4cENHdUZqOS1DSm44VDVWUjd5U29UeUE?oc=5",
+      "published": "Fri, 23 Oct 2026 21:19:50 GMT",
+      "metrics": {}
+    },
+    {
+      "source": "google_news",
+      "team": "dallas-cowboys",
+      "text": "Cowboys recognize Dallas Cowboys Cheerleaders union in collective bargaining - The New York Times",
+      "url": "https://news.google.com/rss/articles/CBMijwFBVV95cUxPcmtqb2c1V2QtbWg1aXl6dzZIb21fcmQya0Z5dTZBQjE4SksxVWw2UTlOeFNXWklSV2dIZGwwMFF3S1BaUW95cllzdU1BbDl3RlNKbXNQY0F1ZUx2QWpZclJPWXhWcm1OWG10dnMzeG1lQ2NNb0Q4WVpuNm9XUmw2eS16NEFzRkQ0dEhqVjJFTQ?oc=5",
+      "published": "Fri, 23 Oct 2026 20:57:00 GMT",
+      "metrics": {}
+    },
+    {
+      "source": "google_news",
+      "team": "dallas-cowboys",
+      "text": "Ex-Dallas Cowboys' $97 Million All-Pro Released by Seahawks - Heavy.com",
+      "url": "https://news.google.com/rss/articles/CBMiiAFBVV95cUxOWnZvLXNzR19RandFOHVpWFVoUGYzZ1J6Z3Q4ZjBwOXZ2T2lBUU9hNWxYWW82TUt0NF81Qi0wb2ZwX201OElvY1hxQzRqUkRvdVdMMzE1QUdzbm1hS0JRbDRBMFZjUjYtbUZTZ1hTWW9QQzdObWxwRWY2ODNsc09nOTF1dDFPZVBW?oc=5",
+      "published": "Sat, 24 Oct 2026 02:40:00 GMT",
+      "metrics": {}
+    },
+    {
+      "source": "google_news",
+      "team": "dallas-cowboys",
+      "text": "Dallas Cowboys Cheerleaders Form Union in Historic Move, NFL Team Agrees to Recognize DCCA - Bleacher Report",
+      "url": "https://news.google.com/rss/articles/CBMixwFBVV95cUxNaTlkQjBvSjRoQS1QaGtiMzYtUjdBanQ2SU51eDZwdjc2NjRMVHZ1RXZrWHlxRHNwSTJ4UGNmeWlESnNBRjVlSjczNGRtRG9SRGhENGRBMXRsSWlYUjV5Umx6NHZ2UTZkUlVUR1RBaVg0NGVqWEVKeDFvalhWU3VaMnpid0plR1g1YUxhR3pNM1QyU01fTFlqaUp1TXljMk11REJOaDlhejIySWZTa1liQnZybXptbUhLd3VoQzlpazdMQzNPRWJR?oc=5",
+      "published": "Fri, 23 Oct 2026 21:25:05 GMT",
+      "metrics": {}
+    },
+    {
+      "source": "google_news",
+      "team": "dallas-cowboys",
+      "text": "Dallas Cowboys cheerleaders unionize after years-long fight for pay increases - FOX 4 News Dallas-Fort Worth",
+      "url": "https://news.google.com/rss/articles/CBMiqAFBVV95cUxOR24xRHd0clA4dTU5MGpYVzFXTDRWbUFzRjR0bzA0R0JpLTAyakZWMnFjQm1QeU1EblZvTWktajlDOHV2aDV2N2NzOUU5WXNCWWlqd2NWOTdPYzJwWlFIdFZRSHBTYnNJVXpmVm1EXy03SU93UnRRRS1FWkNfVUZ6MkxmODNDUWlfb2w0X1RVTkJZaXFMdzJaM2lxVDFKNkhWaVAzeUFOTnc?oc=5",
+      "published": "Sat, 24 Oct 2026 01:13:31 GMT",
+      "metrics": {}
+    },
+    {
+      "source": "google_news",
+      "team": "dallas-cowboys",
+      "text": "Cowboys Recognize Dallas Cowboys Cheerleaders' New Union - RG.org",
+      "url": "https://news.google.com/rss/articles/CBMiiwFBVV95cUxQd3V1Y1NCXzdyMHR4c19TZGQ3NUFhR0tZNW1SOGFhMUFCQ1VtQkw1eGRocERyQ3N5aTF2dk5xa3g3aW5xNUVLVy1OODNGMVJYd0tadktZVzJuU2RTRWNuTVYyV3NoMndfbjV4R2d6QjVfVklobTE5dF9rMnYzcy1ORjJpY05ESUR4VDhz?oc=5",
+      "published": "Sat, 24 Oct 2026 06:35:09 GMT",
+      "metrics": {}
+    },
+    {
+      "source": "google_news",
+      "team": "dallas-cowboys",
+      "text": "Dallas Cowboys Cheerleaders unionize, will begin collective bargaining - Dallas News",
+      "url": "https://news.google.com/rss/articles/CBMinAFBVV95cUxQdFltRGUzdXdxZGVIdzVSQ3hfQlFodnhHNDVXRkJZMl92cmJON2dtOG12enZuTkR5VDZ3SWR2ckFWWGRSU0w2Skg1cWh6Um1TWTFUeTdjWk5qSFRJeXFSRHNkZVk5Tl9Eb2FRanNLMjBtVXRwUkxycUJzNk1VeUhOTEVWRk53YWNGcVV5VG5ub0dMVHdaUVVpenFVSl8?oc=5",
+      "published": "Fri, 23 Oct 2026 18:33:19 GMT",
+      "metrics": {}
+    },
+    {
+      "source": "google_news",
+      "team": "michigan",
+      "text": "Predictions: Michigan football vs. Indiana - The Detroit News",
+      "url": "https://news.google.com/rss/articles/CBMi6AFBVV95cUxOcENJckREZXZDMVBUQXBLempmdGVBQXdJLW81MV9jUExZdXpwZGtvS0dKc1otcFJ3MWluRlNTdm16QUpXSURmVV9mRTRVZFQxVUZka0hPcklLRDV6RzlBMlNqX2hyaVdxZFNpcXRKaktydEV0RkpyVTROZXRZUVB4SEgwMktFejRGZlA2SDRzUU1SeXdtckExUFV0ckhFeXY1STB2dWdJSWN3TG9kVmZ5YzlWek5EcXUxYS1GQ1g5WEd5ZTRsWUEwTlFVSnJHWUhZUllKQTBZR0szNEFMUG1PMnlCQ202QTZm?oc=5",
+      "published": "Fri, 23 Oct 2026 14:35:00 GMT",
+      "metrics": {}
+    },
+    {
+      "source": "google_news",
+      "team": "michigan",
+      "text": "Michigan Wolverines QB Tommy Carr has 'poise' that's 'second to none' - ESPN",
+      "url": "https://news.google.com/rss/articles/CBMimgFBVV95cUxOQWlOQUVlZ2NCWnpmZlB6RjRST1daN2p4UDc2MFR4VmxIcnp1TG4ySHBOaHpLUmdkNWZQeHRnOVFfOW5WMGdWNEpXWVVMS2E4TGxjWmxVeHF6X1Jjdm5CaGVZZ1BhdkV0N3luZGVDV1JjdDBOUDJFdFhSSWd2SlR4NmtYeXNraGlDWmozUmlXWXBiYW5hS2liWEFB?oc=5",
+      "published": "Fri, 23 Oct 2026 10:15:00 GMT",
+      "metrics": {}
+    },
+    {
+      "source": "google_news",
+      "team": "michigan",
+      "text": "Michigan 21-18 Penn State (Oct 17, 2026) Final Score - ESPN",
+      "url": "https://news.google.com/rss/articles/CBMiiAFBVV95cUxON3RRWEtmZWFqVGVHN19HTFVSWDVOb0k5NXRueGJkR2JaZ0xJc09rOVpWUF9zdU91X1kyWk1La0VYTnhrbURvZGtXVnFKX1QyYXlsUE1KVm85NlV1M0ZuN21zUFNBZENGbEFLQUs4ZjRQQlBRNjhpODNGTmxTc3hCUk1JNVZCaHV0?oc=5",
+      "published": "Wed, 28 Jan 2026 01:36:53 GMT",
+      "metrics": {}
+    },
+    {
+      "source": "google_news",
+      "team": "michigan",
+      "text": "INSIDE THE FORT: New life for Michigan? Practice reports, Tommy Carr and more - On3",
+      "url": "https://news.google.com/rss/articles/CBMixAFBVV95cUxQSjJDdFJzQTIyejRYbncxazRZOTZSR2N1dXE3YkpGaDhYY0VtbUlrTUNnX3JldjFCbDk0YmN2WG1OQ0RRc0hPQXFEaGY3SUdwQVpSejlLTGVnSFNIWng4NExMZkJmNE1DbmdUWTBwcFVVSW50bEIycDRXOTFpanB2dU9ZMi1Ybk9BSVFOMDBQTU1xX2h4MDNFWkxCdHU2eWQ5emdLcVRSUWtuUVBhRmRNMEFtMjBGVUhDdUdaUkhYT21jbEFy?oc=5",
+      "published": "Fri, 23 Oct 2026 15:17:09 GMT",
+      "metrics": {}
+    },
+    {
+      "source": "google_news",
+      "team": "michigan",
+      "text": "Michigan Reveals New Football Helmet Popcorn Bucket in Photos Ahead of Indiana Game - Bleacher Report",
+      "url": "https://news.google.com/rss/articles/CBMivwFBVV95cUxQVW1raXlKdXQtMm5XZkhkWFVmRWh5R01DWFA3YW1QYWZVMWJ1U2lCNldoMGNtWm11cmF6MEJIaGJGaW9SeXliU3I0cDlrcFdBR0VZM0hBZ1RkUDFlY0FhakhaelJaczlFbFc3Vlp4X0VuZUV4djNod29fWWw2RUpzOXZad3N4YjR5dVdfaVFEU0V1N3B5NnRsdmhlWjVzOElQZTE1TUZTSnJQWGpUVlozSjdRNUlIU1lHQnQxcWVhTQ?oc=5",
+      "published": "Fri, 23 Oct 2026 23:17:58 GMT",
+      "metrics": {}
+    },
+    {
+      "source": "google_news",
+      "team": "michigan",
+      "text": "Indiana Hoosiers at Michigan Wolverines odds, picks and predictions - Tallahassee Democrat",
+      "url": "https://news.google.com/rss/articles/CBMiuAFBVV95cUxPSnFDb1ZtRHR2T1FqSmNBRElBZ0tKXzlmZEl0Q2tyU0lXaVM4RjAwSEZtd0lTMThfNXgxMlFtNmlkYV9DWGhpZWFsTUFhU04taDlDczh6aXR3ck9zclVKaEZ1NHEtblhNZGZjekhZMGlEZTFqSjJESlFOVWxIUVB1UHU5LXlQSzVzSE8zVXR5a3kwZW1jUmQ4eDJ4ZTVQTXZMZkN3eFdLN18tU29wRUdxeGkwQlFrbXVr?oc=5",
+      "published": "Fri, 23 Oct 2026 22:20:00 GMT",
+      "metrics": {}
+    },
+    {
+      "source": "google_news",
+      "team": "michigan",
+      "text": "Indiana vs Michigan Prediction, Pick, College Football Odds for Saturday, October 24 - Action Network",
+      "url": "https://news.google.com/rss/articles/CBMizgFBVV95cUxQNXBpSVliQ1o4c0tGWkIxUDdXeXJxNC1yN0pRWUtLVGpMUzFuMUZBd00zRHFfNE43UmNRV1UwdXlCX0xQMmgza0tBWWRJZ0J2eTVtTjFlbHJlSmlLVnhTZWREUGpJY1I3cGt1ZlJWVlQxUkY2N3BZUmJrcUxoNjFzdGdCeTdwZVFlZ2RqcEZZWlFtMHJCaW4zRzlTVDQwclh1VmFIWFBZR2lpYXA3SUFuZDh5cktQbmIzVWNKZlR6RTJZM3NlNlk2Y0RtV29XZw?oc=5",
+      "published": "Sat, 24 Oct 2026 09:03:00 GMT",
+      "metrics": {}
+    },
+    {
+      "source": "google_news",
+      "team": "michigan",
+      "text": "Minnesota 20-14 Michigan (Oct 3, 2026) Final Score - ESPN",
+      "url": "https://news.google.com/rss/articles/CBMihwFBVV95cUxOd0NvaGUxb21ldUg1ZDNhYnJLVnFiMVdhd2taYnkyTHdUSUc1dHZWV3Y2TFpna0EzUjVFRXJITHliMmM4aHpkYW10aEQ4MkZOVi1qYmdDMmtRdm9QMnRjdEhYVDRWSmJIUlVkUVdqdjYzblJyU1Z0aGdKRDlKcmhLcnVtUVRQSlU?oc=5",
+      "published": "Wed, 28 Jan 2026 01:36:53 GMT",
+      "metrics": {}
+    },
+    {
+      "source": "google_news",
+      "team": "michigan",
+      "text": "CFB Pick 'Em: Top Week 8 Games, Including Michigan-Indiana, Texas-Ole Miss - FOX Sports",
+      "url": "https://news.google.com/rss/articles/CBMirwFBVV95cUxQTUxON3NSa2hKdERuZkJjbUFYOHdXc0pROTZnempIV1lkM3dkdG5sbktJVlBQU2hxVmZOUV9mdHdYWnF2VTNxWVZiX2pFbzF4MnM3REREd0pHc3B5QTU4dGtsOHB0eTNySzhIY0lydmh4TDlCemRmS1VadGE0RDJzdEJlQ1FaZndrY1c4MndNeURkWGJsZ1JreGM3OXgwMUdHUGZJaVlpWm4zX0FGNzAw?oc=5",
+      "published": "Fri, 23 Oct 2026 16:24:00 GMT",
+      "metrics": {}
+    },
+    {
+      "source": "google_news",
+      "team": "michigan",
+      "text": "Michigan hockey beats Western Michigan in final second: Echoes of football in improbable win - 247Sports",
+      "url": "https://news.google.com/rss/articles/CBMi4wFBVV95cUxPaGpjRnhEZVJKbUtzQ0pkQUZ5VmFQX2piUGZFR0hNMVlhOC1RMGoxVnJURlBTWllyMjJUV3BhR04xb2FSRE1pdURMX0pBR2t3U2F4cTNOR0ZVa1VrbzdCTXZ5U2pwLUJEZkw2MDgyckhKZWtHM2ZvLV9SejVIdDRNQlpmcEVpLVJ6R3Zia01HdGJkaDFiakp3TVp1OTZ4WGRjcDc1eDhDRTRJbGZTZVNIZ21pN3hWREhjYlc1WTRUTXBVWVItYUtoM09HemVNbVMxT3NwNEV0WHkybGJDZEpSSVdoYw?oc=5",
+      "published": "Sat, 24 Oct 2026 02:41:23 GMT",
+      "metrics": {}
+    },
+    {
+      "source": "google_news",
+      "team": "michigan",
+      "text": "Fans predict Michigan Football win total with Tommy Carr as QB1 - Maize n Brew",
+      "url": "https://news.google.com/rss/articles/CBMinAFBVV95cUxPR2dHMUEzcWRiNV9IdkNfYmFrYkd0blZmT2Q2Q3NqbnZsaTVUM0FlSDUwb3QxRG9iMlNwMXg1Nm84TjhuQmtoU1Q4X3FCSm1oNXg3MjdXYzdDRzd0cXIwWUdXc3pPbjZYNmM4QzNmNEtQejRqczVUa2hTVmlPeTV0T0ktdFpxQ2xmS3AyV0dXblFBb2NTQWNWYjVXbU0?oc=5",
+      "published": "Fri, 23 Oct 2026 23:58:56 GMT",
+      "metrics": {}
+    },
+    {
+      "source": "google_news",
+      "team": "michigan",
+      "text": "How To Watch Indiana at Michigan: TV Channel, Kickoff Time, Odds - Sports Illustrated",
+      "url": "https://news.google.com/rss/articles/CBMiqAFBVV95cUxQaWJiQ0g5VzdsRUxDQXRkRzF4c0Z2V2hhaGItWE9qeE8yc0h4QkF6OGladno5NmRqMG9oamtuVkkxRFJleGlRZFJRV0tEamM4VjZmeGM4UmtjRm9OczQyWE0tUkMxNEhrb3FjV1l0WGdOS2lYNmdJY1Rlanh5Y3hKcmwwRE5lNENtdFpuc19ZUWZGWlptMm5jaDlNREFqRm5lbHlDRkgtRms?oc=5",
+      "published": "Fri, 23 Oct 2026 19:24:26 GMT",
+      "metrics": {}
+    },
+    {
+      "source": "google_news",
+      "team": "michigan",
+      "text": "Indiana-Michigan football predictions: Can Tommy Carr spring Wolverines upset? - USA Today",
+      "url": "https://news.google.com/rss/articles/CBMi9wFBVV95cUxQM0dzYVFJWkFRR25YTU55enhtOVg1TjMzZFk2Y0dUMXp5SHp1WmJ5UFlhOE1sc0IwR1NhZDU3WU9ZdjExdllJcGJ3MUhYd3dEdmFseG4tVHRwLWdPVm9BOXA0aFBxekxWMm9DV2RVaHF0dkk3cm5yRUtMdDZ1b1VaQnBUTmxPbFBYUEctQWRpMmlialRoaWNRVWtvV0MyQ0paT3Z2SlhfUmZfTFJWVXg4azhVNTUxVDhhTGJiRDVIWVJtTE8tZXRUUmVXY2hzZ1o2djlXajJvV1dqbm5SRVNJRUFUOG1HQVdNUjZTU1hLXzVkanFUNVlB?oc=5",
+      "published": "Fri, 23 Oct 2026 19:27:00 GMT",
+      "metrics": {}
+    },
+    {
+      "source": "google_news",
+      "team": "michigan",
+      "text": "Michigan football vs Indiana predictions, picks in Big Ten game - Detroit Free Press",
+      "url": "https://news.google.com/rss/articles/CBMi1wFBVV95cUxOamt4Z3NwSzVEQUtNeDJUY1dBeHM5UHRfa1FLRHJOdENRd09qdG5jMTNRcENPMkp2eVhLR0dmSDRuampRTE9TZmU5TTVHNXlRbGJDVzhoZEdGTnVtdWR3eXE0SXNWOTBJaFE0QkN2WGNyOFNseXhOeDFLeG9MMUtuUWlOS3JOYjgyc0d6blJvUVJuQXFDR1JkZGVlZTJWSWU0TC1yM1FmR3B2ZmZVSHJEbHlmTzFycjlwUFhQa3VzQUR0c2Y4dnZYNnVORHV6Y25WQi1pSldmTQ?oc=5",
+      "published": "Sat, 24 Oct 2026 09:01:00 GMT",
+      "metrics": {}
+    },
+    {
+      "source": "google_news",
+      "team": "michigan",
+      "text": "What channel is Michigan vs Indiana on today? Time, TV, streaming - The Detroit News",
+      "url": "https://news.google.com/rss/articles/CBMi_AFBVV95cUxPd1F2Um1WcnFwX3BvemhZN3NtU2w3NTJIWFdJS3JhMWJZQkw5MFlWcU80T3NOR29SZ1NrQmNpSzdLUXpFZW9ZeEtObEh2TTl6QXdGQWFpV0FjMEdMWnItRjV1N2NPbkEyN2oxQUpkM1lweThFYk5taWJRVXJCNjk4NnljRnBTXzQwT05XVGJUUEhGNWNBeTA0dHJ0NHI2V3dkZEdLbldHOFh5cFhsMVY0ODNYdE5IYkRxMkFRenNaaUQzeVZTOUptQUpBN2oxbEZwZlRlSkNxaFk0QjdHeUwwaWtadlRpaFRILUtsUGpPUzJKSFN0WXY3MXQtWHU?oc=5",
+      "published": "Sat, 24 Oct 2026 04:41:00 GMT",
+      "metrics": {}
+    },
+    {
+      "source": "google_news",
+      "team": "michigan",
+      "text": "How to watch No. 6 Indiana vs. Michigan: TV channel and streaming options for October 24 - The New York Times",
+      "url": "https://news.google.com/rss/articles/CBMioAFBVV95cUxOUlYzQUNHcFVvVDhnNS1ucUFTQk90WUpMWGpISW9tNXo4Q3JVOUhEeUxxdU40WlRycmUtWUZoaE1OVUtlaE14RFdnbkJXMWtJRWhnblo1a2lSTlBwd3Bqa0pCMUhhVHJ6SDRwbzVMTlgwZ1lqamhnSFE1ZXp4Z2JpZHlzclhNT1Bob0x4WmZpRXp2Yi1DcFM3NW9KREtYdzIt?oc=5",
+      "published": "Thu, 22 Oct 2026 16:10:41 GMT",
+      "metrics": {}
+    },
+    {
+      "source": "google_news",
+      "team": "michigan",
+      "text": "Michigan football's secret plan at quarterback is seemingly no longer very secret: Tommy Carr is expected to start vs Indiana. See link below ⬇️ 📸 Junfu Han, Detroit Free Press - Facebook",
+      "url": "https://news.google.com/rss/articles/CBMi3wFBVV95cUxNTFo1eWFXUGZTUlZsdjd3LTNFcGR3d1VPa1pFdkFiZU5kWi0wQzhPVVQ2MFpsWTNEMkNQODVVNDkwWmlWVkxzY0d6Y3VpS1FPUWtDLWpZcGpGNG50Ml9uODlWSUhIRGlMVW5HRlU1RmJrSlo4WDltVUhhSktUNDB5Y2JYVXFBaW9ubkIxY2VMS3R0QjZ2NVVtMzNxYmd2aHFDX2RfYkxndk1iSjg2Y29oVF82T2hRUG0tSUNqYm9uZWU3bGpuUDdoOHIxZUFKZDlGQU5ZUVhPdExJVi1DV2pB?oc=5",
+      "published": "Wed, 21 Oct 2026 20:30:13 GMT",
+      "metrics": {}
+    },
+    {
+      "source": "google_news",
+      "team": "michigan",
+      "text": "Indiana vs Michigan Prediction, Pick, College Football Odds for Saturday, October 24 - Yahoo Sports",
+      "url": "https://news.google.com/rss/articles/CBMijAFBVV95cUxPRHJhczBmMnBBWDZrcDZXRFc1TG5ZTTRqSy14ekNxdDlMS2s5X094c0E2dFVHenU4UTdfcy14Z2dGYzdzU1djU1AteGVhUlJtTDZ3YXNPRUl4eTVOa0Y1MXRXajNvOUJham5NbWdWWDJHd0RoR2FHYmdTS3NxaFk0Z1dKamZBbVpsUkxOUg?oc=5",
+      "published": "Sat, 24 Oct 2026 09:03:22 GMT",
+      "metrics": {}
+    },
+    {
+      "source": "google_news",
+      "team": "michigan",
+      "text": "How to Watch: Michigan Football vs Indiana, other top games of Week 8 - Maize n Brew",
+      "url": "https://news.google.com/rss/articles/CBMixwFBVV95cUxQYlhmamtkejFrdU9hWEx0VEYzZ2NWMGhSeXZ3UDZEYVZEUzFnbHI1Wi13eXNnRFI0YTA2NEhSU2FXaUlrc1ZWRC1KcHg5em1uZjRiMzRWdXJyU09SVWdhcTRoWFFrQ0xoODllTUNrRUpfWXhHb2hycm0yOGFhZldsd3JCWUtDdUtLUGhNU0xoXzhLd0pjdWZnd19XdDBMeFVmZnR5bXhnN1pWVlBoMUlyX3Q4X0hwekQ5OF96X1JlTWloVjVnUWdF?oc=5",
+      "published": "Thu, 22 Oct 2026 20:00:00 GMT",
+      "metrics": {}
+    },
+    {
+      "source": "google_news",
+      "team": "michigan",
+      "text": "Where to watch Michigan football vs Indiana, Week 8 time, TV channel - Detroit Free Press",
+      "url": "https://news.google.com/rss/articles/CBMizAFBVV95cUxPLUpqOXdnM0JKc2g2NGx0TDhma0FDbXBuZTE1TjVvWTVINjRsSHljUFpLay1pUmNwNi1FV2c3d1IyUTdZSXVhSUxuMmZVVWdRNGI4N0t4QWZmNVNqbW0zdXZDNWVNaG1DV3l6dXpoa3g0TVNxdXpvU2hyajhsa2pRQnRDQ0NFYTNJUnBKb2FsRWJISXZkNzJsUGdPSEdaWEdlN19hZGlWbTlDdDFhQWZJT3FfT1RFRVByQXk0UGpuNEJWNDF6bnVMYmkxcWc?oc=5",
+      "published": "Sat, 24 Oct 2026 08:55:00 GMT",
+      "metrics": {}
+    },
+    {
       "source": "repository_trend_snapshot",
       "team": "cleveland-browns",
-      "text": "Browns defenders Denzel Ward, Quincy Williams and Grant Delpit all questionable for the Titans game",
-      "url": "http://www.bing.com/news/apiclick.aspx?ref=FexRss&aid=&tid=6adbb32662094e2f98ad7e5cd6f85736&url=https%3a%2f%2fwww.cleveland.com%2fbrowns%2f2026%2f10%2fbrowns-defenders-denzel-ward-quincy-williams-and-grant-delpit-all-questionable-for-the-titans-game.html&c=7572027314629266541&mkt=en-us",
-      "published": "Fri, 23 Oct 2026 06:38:00 GMT",
+      "text": "Browns 13, Ravens 10 | Final Score, Stats & Game Recap",
+      "url": "https://news.google.com/rss/articles/CBMijgFBVV95cUxPMlpfZjFPQTFPT1lFcFhVWlhDemcyU2xYVzRzM1lkQmNOcDNOQzJzMnFlVDloNUdqMmZaNzd2NHBZcC1YOE5YdG5UM2tITHVJTmZZRF9PRmlZNjBqRkVBSVBuTzBsNVFBOENEVjRhQWVWU3NOa0o3dlJfbXpULXI2ajBYWjU5ZjlQNzZic1hB?oc=5",
+      "published": "Sun, 18 Oct 2026 20:15:16 GMT",
       "metrics": {}
     },
     {
       "source": "repository_trend_snapshot",
       "team": "cleveland-browns",
-      "text": "Browns 3-round 2027 NFL Mock Draft lands franchise quarterback, elite run-stuffer",
-      "url": "https://sports.yahoo.com/articles/browns-3-round-2027-nfl-130007845.html",
-      "published": "Fri, 23 Oct 2026 06:00:00 GMT",
+      "text": "The Cleveland Browns are good. What do we all do now?",
+      "url": "https://news.google.com/rss/articles/CBMipgFBVV95cUxNUjNJaU0zVWdTaUtGSEdyamZTalJkSzkyQXhqcXN2OWo1OG5QVS04UzUwaFJPNnRKQW1XY0pFX0NFa09HUEJkX3RvUlpDLWV5UFp2WExRZFlpcEFpTTFEVFFxX3U2RWpSMk9GTTNDaDZCc1NWRHRqQ2dvdDNEdHB2WFozY3gtVGpsSVZXYUdEbllhSURBS0ljZ3pIS3FrYjVWdDdZRWpR?oc=5",
+      "published": "Mon, 19 Oct 2026 15:14:39 GMT",
+      "metrics": {}
+    },
+    {
+      "source": "repository_trend_snapshot",
+      "team": "cleveland-browns",
+      "text": "What I'm Buying and Selling About the Cleveland Browns After Week 6",
+      "url": "https://news.google.com/rss/articles/CBMitgFBVV95cUxQRG5vS1RvdXJUQWhEcURtRW1KSWpiTW1GY0Z2UlQtbUdPck5LOWhZdWwxUHBBeUdpQ0hQX1BYTnk5N2dybk02MFVKcnhSV0Y3em4tYUo2ckVveTVEV3hYM21NNmtnQXhOV1hTNXQ1QlBtTGNuRzk5VFl6SzREZnI2Sm1ydGRtY3Jfcjk0RjdEOFZJelEtOXNvenFRaVU0ckpSb0c5UlRiMnFSQ0pvNjNLenQ4d180QQ?oc=5",
+      "published": "Wed, 21 Oct 2026 11:00:02 GMT",
+      "metrics": {}
+    },
+    {
+      "source": "repository_trend_snapshot",
+      "team": "cleveland-browns",
+      "text": "How Browns' past two draft classes are catching the NFL's attention",
+      "url": "https://news.google.com/rss/articles/CBMinwFBVV95cUxQOFFUeTJEdTExWXk1VkhaRTN3UTdLR2ZLVmx6NDdDYzRKbnFuMjFvOHg5Ukx6MmNPQU5tbThnTkhKTWRKVFdNSmhXS2drWmxYR0J3UHlSUEM0LXNVT2pvdDUtREI4OEVlSWhmaWMxd1I4bXpZdk9EaUV5bnZoM0FLYkNEX0N1MnRjWkg4WnJHbmFQX3NoNGYtWnpiOTV5LVk?oc=5",
+      "published": "Tue, 20 Oct 2026 10:00:00 GMT",
+      "metrics": {}
+    },
+    {
+      "source": "repository_trend_snapshot",
+      "team": "cleveland-browns",
+      "text": "How to Watch, Listen, Live Stream Ravens vs. Browns, Week 6",
+      "url": "https://news.google.com/rss/articles/CBMilwFBVV95cUxPd214dElnSl9sSWNKelpTSXpfTzl3TmYtRVZWLTlNUXRfeVEwLS1panBUS0d4NFlFYTRldU8xbkhlQ2lOWGFySS0weGRfMXNpbEN6cHc3T0V4ZWhrME5YbjZkRUp3SnZmV0NCbFFuOXk4QU5lMTNkb3d4bHF6eWpjSzhMQ3VXRmI5LVJFMTR1a2MtNjdObU9z?oc=5",
+      "published": "Sun, 18 Oct 2026 07:00:00 GMT",
+      "metrics": {}
+    },
+    {
+      "source": "repository_trend_snapshot",
+      "team": "cleveland-browns",
+      "text": "Cleveland Browns news: Some rough news on the injury front",
+      "url": "https://news.google.com/rss/articles/CBMiwgFBVV95cUxPNmc4U0F1QXFsbGVyb2UyeW1TWnAwQWdUYURZY0o4ZE52SWFuUmRTNjNGX0RqM2NSc3VTLWtBZ1BEbUdiYnJ3ZHFkNlpLdkxLSjdzcEdOSVdZbnVPQmgwR2xvXzlMbTFYOVVYYjFIc0VlclJ1NVQzZ2t1WVJSTWhhM2c0X0NwRnFMU21rR2t1ekNnNFZwUHUzV094LVJ6elY0Vk1IRUlrR3d2eE5ucW83aDFuQVVDaWdPWG9kdFlRVTBIUQ?oc=5",
+      "published": "Thu, 22 Oct 2026 17:29:28 GMT",
+      "metrics": {}
+    },
+    {
+      "source": "repository_trend_snapshot",
+      "team": "cleveland-browns",
+      "text": "Cleveland Browns News and Rumors 10/20/26: Forget Them Picks",
+      "url": "https://news.google.com/rss/articles/CBMimAFBVV95cUxPUzZhLWlSRm5KXy10b2x2Q1B5a2l4WDZQUXdQOVVfcEVreHRMYnBqOE9nUnlpSjF4WmM4U3Q0X1NvTnN6UHRSZ0ZyM29ERnJpbEVoUlRudlNhZ3BvSk1PeEt1MWRPSG1lbXJ4azBRb1lLM3hhb1NmWTlXQUk1YlFBRmEzajZteDJFSkk4YkxzRy1OelRMQmpXaQ?oc=5",
+      "published": "Tue, 20 Oct 2026 11:41:00 GMT",
+      "metrics": {}
+    },
+    {
+      "source": "repository_trend_snapshot",
+      "team": "cleveland-browns",
+      "text": "After knocking out KC Concepcion, Jets safety gets fine from NFL",
+      "url": "https://news.google.com/rss/articles/CBMijwFBVV95cUxPcXV6TjBYS2FETUF6UmdTUVRGbUM0X2RoOEltRFhJVkc4N2FWckxjaXZId0VVbWNPdGNNa1V5di1rWEZIdWxWbVhLeEdnZVFNLUNISmphcDg3dFJ6TVF2eF9wNHJLbVFnVzBLclZVMTRKaHFkZzU3cE1IalVOZ29NMlZGYzBKWEpaNmo4ZExia9IBlAFBVV95cUxQaU5yM1hqRU0zUkx4OHo2WW9nQ0hjc3BwTEFvZFJSWnQwVjRBc3R1UVl6QWd5aEVHLWN1YXJYMlJ5TnEwNHZ4SGZXSHI2U08yb0E0Nnd1d0ZrekszOWdTOHFZQkN1TTJ0ZHo5R21BM0dKTmZTbDNEa2cxajNoY2dHR3BYczJGV3hvOG5rOGx3NGhickF0?oc=5",
+      "published": "Sat, 17 Oct 2026 20:53:00 GMT",
       "metrics": {}
     },
     {
       "source": "repository_trend_snapshot",
       "team": "green-bay-packers",
-      "text": "4 Bold Predictions for Green Bay Packers vs Detroit Lions Matchup at Ford Field",
-      "url": "http://www.bing.com/news/apiclick.aspx?ref=FexRss&aid=&tid=6adbb3538eab48e78ca80d619f5c9fff&url=https%3a%2f%2fsports.yahoo.com%2farticles%2f4-bold-predictions-green-bay-145706202.html&c=17355961585278223314&mkt=en-us",
-      "published": "Fri, 23 Oct 2026 07:57:00 GMT",
+      "text": "Inbox: This Packers defense hunts you from every direction",
+      "url": "https://news.google.com/rss/articles/CBMinwFBVV95cUxNNVZQUm5SYVZELTFaTkZGdU5Vd1lLdHZYSXE1ZXluQ0pjMW5GdGhONXZLWjNxVU5Pb2JRSXVVQTlvdExRNWxiZU9JU0NwRDlidU9NVENHb21MQXo3aV9NYWsyVWlPNjNzU2Yxc0hfWU5Dc0RXT252NlFhcFdVaXlpd1ZfRHhOajNTZ1Z6WjFXam5UNFJ0UTM2b0xkWUxUMUE?oc=5",
+      "published": "Tue, 20 Oct 2026 13:40:35 GMT",
       "metrics": {}
     },
     {
       "source": "repository_trend_snapshot",
       "team": "green-bay-packers",
-      "text": "Spot the Ball: 10 Thoughts Ahead of Lions Matchup With Packers",
-      "url": "http://www.bing.com/news/apiclick.aspx?ref=FexRss&aid=&tid=6adbb3538eab48e78ca80d619f5c9fff&url=https%3a%2f%2fwww.si.com%2fnfl%2flions%2fonsi%2ften-thoughts-ahead-of-lions-matchup-with-packers-week-seven&c=7139631422949559099&mkt=en-us",
-      "published": "Fri, 23 Oct 2026 08:03:00 GMT",
+      "text": "Green Bay Packers News: Packers battling penalty onslaught",
+      "url": "https://news.google.com/rss/articles/CBMiwwFBVV95cUxQdy1ZeUl0N1B0RXVYMi1xSzFTTUtBWHYySmxnR0VuWFAweFNBX0NDdGRoUFlWcGdyWko0YzZMWWIyNGxWcmdLdEFpUUNDMTlENnhsbEJ2NmpNYTBkNno4Y1BLaU5kTzgyUnVqWk9MOGRubGJBVmhiaU5xakRCTmk4djZXOWZJLU5Pc1E2VXl1TUgtMm5yLUNTNnFPUzNzbHFYd3A2cFM4SXNWbDFieDF4Tkp5NXl5T2hqR1ZXR2NDMUZncWs?oc=5",
+      "published": "Tue, 20 Oct 2026 14:15:06 GMT",
       "metrics": {}
     },
     {
       "source": "repository_trend_snapshot",
       "team": "green-bay-packers",
-      "text": "Predictions for Green Bay Packers Week 7 game vs Detroit Lions",
-      "url": "http://www.bing.com/news/apiclick.aspx?ref=FexRss&aid=&tid=6adbb3538eab48e78ca80d619f5c9fff&url=https%3a%2f%2fwww.usatoday.com%2fstory%2fsports%2fnfl%2fpackers%2f2026%2f10%2f23%2fpredictions-for-green-bay-packers-vs-detroit-lions-nfl-week-7%2f92377476007%2f&c=16478099625241788791&mkt=en-us",
-      "published": "Fri, 23 Oct 2026 04:28:00 GMT",
+      "text": "Packers 23-13 Cowboys (Oct 18, 2026) Game Recap",
+      "url": "https://news.google.com/rss/articles/CBMiW0FVX3lxTE1TTy1sYVlEUnBPR3AzUFNqbFJ2bmUyOEQ4WnVrdms1VkExRklGbjNtYjQ5U1dOTU5vV21RVkNYejlQaFNmNWdCMVdzcktDY0Q1SElwdmNYdFcyLVE?oc=5",
+      "published": "Mon, 19 Oct 2026 07:13:05 GMT",
       "metrics": {}
     },
     {
       "source": "repository_trend_snapshot",
       "team": "green-bay-packers",
-      "text": "Jahmyr Gibbs Makes Harsh Admission on Packers Coordinator",
-      "url": "http://www.bing.com/news/apiclick.aspx?ref=FexRss&aid=&tid=6adbb3538eab48e78ca80d619f5c9fff&url=https%3a%2f%2fsports.yahoo.com%2farticles%2fjahmyr-gibbs-makes-harsh-admission-185646080.html&c=467272827143700910&mkt=en-us",
-      "published": "Fri, 23 Oct 2026 11:56:00 GMT",
+      "text": "Cowboys-Packers: How to Watch, Listen, Stream in Week 6",
+      "url": "https://news.google.com/rss/articles/CBMikAFBVV95cUxOaUpGRzNBazViMmQzdktPdVA4b1o2bG8xV0ZPdWZ1MTVGOXZYMG8xejYzZFhXdlhiQTlfMHZnWXk5TTlwLTVWemYwNHQyWlZCbjNpXzRveUY5Q3Zhb0ZtSTVJOWg3U3pCanZ0V005ZFliYTV4b1BXNUNhWTFhaUF4ZzVnX3BHNWZhQUxnajVQRUk?oc=5",
+      "published": "Fri, 16 Oct 2026 15:47:37 GMT",
       "metrics": {}
     },
     {
       "source": "repository_trend_snapshot",
       "team": "green-bay-packers",
-      "text": "Odds Detroit Lions Beat Green Bay Packers in Week 7",
-      "url": "http://www.bing.com/news/apiclick.aspx?ref=FexRss&aid=&tid=6adbb3538eab48e78ca80d619f5c9fff&url=https%3a%2f%2fwww.si.com%2fnfl%2flions%2fonsi%2fodds-detroit-lions-beat-green-bay-packers-week-seven-2026&c=15963287916715514320&mkt=en-us",
-      "published": "Thu, 22 Oct 2026 15:41:00 GMT",
+      "text": "Green Bay Packers: Matt LaFleur on roughing calls and Jordan Love",
+      "url": "https://news.google.com/rss/articles/CBMihgFBVV95cUxQM2VEeGJFWmFtQmhwenQ5MTdvc3lVY20yS2hobUFZbkp1T0FnbC1manB4My01dG9UNm0wYzc3emJQSlM4RXNSQ1U4cHZNZVI4RFlyREUyZ1djNjI1bEI3Y2JiM19aQm9mNVQ1emFVQ2Mxb2dIYW4yVmdRSzlEVS1hRlZENXVYdw?oc=5",
+      "published": "Tue, 20 Oct 2026 21:33:00 GMT",
       "metrics": {}
     },
     {
       "source": "repository_trend_snapshot",
       "team": "green-bay-packers",
-      "text": "Packers' Second-Leading Tackler Ruled Out vs. Lions",
-      "url": "http://www.bing.com/news/apiclick.aspx?ref=FexRss&aid=&tid=6adbb3538eab48e78ca80d619f5c9fff&url=https%3a%2f%2fijr.com%2fdiscover%2fpackers-second-leading-tackler-ruled-out-vs-lions-a5d121f3&c=5338558015264354173&mkt=en-us",
-      "published": "Fri, 23 Oct 2026 11:44:00 GMT",
+      "text": "Packers injury report: Love, Golden, Watson added",
+      "url": "https://news.google.com/rss/articles/CBMijwFBVV95cUxQM2dwU1FLam8tcGppRzgyNFJxdmZESk96WF9GeDhKR1RsdzN5dkxKdlhHVW1TTk15bjhmb2kyLW94dHR2MXVIbERrWVdsOF90WGRzUWJhNlNoUWxfNHZJeUFORmtRbGhoZk01eWlPa0dxaDg2NDlLTTNZXzJhVk96VmZKYk9KajRhbzE0bm9KNA?oc=5",
+      "published": "Wed, 21 Oct 2026 23:11:18 GMT",
       "metrics": {}
     },
     {
       "source": "repository_trend_snapshot",
       "team": "green-bay-packers",
       "text": "Packers vs. Lions: 5 things to know about Green Bay's Week 7 opponent",
-      "url": "http://www.bing.com/news/apiclick.aspx?ref=FexRss&aid=&tid=6adbb3538eab48e78ca80d619f5c9fff&url=https%3a%2f%2fwww.msn.com%2fen-us%2fnews%2fother%2fpackers-vs-lions-5-things-to-know-about-green-bays-week-7-opponent%2far-AA2fJQxj&c=795488809500760389&mkt=en-us",
-      "published": "Wed, 21 Oct 2026 06:13:48 GMT",
+      "url": "https://news.google.com/rss/articles/CBMi4gFBVV95cUxPalpNajVjaklzcVRrLVRUd3lDTzBzVzY1WDFSY19Ua28tNnh1aUtFZlV2WTk5Zk02SnA3WThCajdHYVludXlFdnN5QTEzQlZXc1NOdUdwMzZjNXgzcjlMTk5UVU1YSkVVMnRHRHZVaDlVSmZObE1YemNENXdxNjlKb0hzMkhxUXcwUW9iOGxBNUxJLS1sbmdkeV9Ld3pvNFpIbkFkR1F4VUxhMjJ6Y3V2NVBBRDh1REtwbjNBSngyU25qT1RsOUFjNDFJSm5OaS1fMVA0Xzc5QzdEUV94YVY2OExn?oc=5",
+      "published": "Wed, 21 Oct 2026 13:13:00 GMT",
       "metrics": {}
     },
     {
       "source": "repository_trend_snapshot",
       "team": "green-bay-packers",
-      "text": "Why Detroit Lions' D-Line is the key to beating Green Bay Packers",
-      "url": "http://www.bing.com/news/apiclick.aspx?ref=FexRss&aid=&tid=6adbb3538eab48e78ca80d619f5c9fff&url=https%3a%2f%2fwww.indystar.com%2fstory%2fsports%2fnfl%2flions%2f2026%2f10%2f22%2fdetroit-lions-d-line-sacks-leader-green-bay-packers%2f92371586007%2f&c=12044392530278103803&mkt=en-us",
-      "published": "Thu, 22 Oct 2026 03:11:00 GMT",
+      "text": "Week 7 opponent: What the Packers are saying",
+      "url": "https://news.google.com/rss/articles/CBMinwFBVV95cUxOYkhlaFhBTFNiV3FDN1BBNFFza19aNGdvRnpuTnl2V0NTZUN4ODJmN1dUYkxsNkk1QWlYMUV2TEJiUDdjdzNXYTNZekZ1MzJlM2d6M3JKWHJqTDRnS2NqQk44cTEycEZhaW9rMXd2QkZaTDh3bjEtcThpR05CYU1uc2hTbUZmNTE2Q1NQRXduRHdhdEZJdlNHMVFHWVZuSFk?oc=5",
+      "published": "Thu, 22 Oct 2026 11:01:35 GMT",
       "metrics": {}
     },
     {
       "source": "repository_trend_snapshot",
       "team": "dallas-cowboys",
-      "text": "Dallas Cowboys Urged to Swing Trade for 9X Pro Bowler in Blockbuster Move",
-      "url": "http://www.bing.com/news/apiclick.aspx?ref=FexRss&aid=&tid=6adbb387d3f84ed1b38b43566383f9ab&url=https%3a%2f%2fsports.yahoo.com%2farticles%2fdallas-cowboys-urged-swing-trade-172829272.html&c=1828279108539547600&mkt=en-us",
-      "published": "Fri, 23 Oct 2026 10:29:00 GMT",
+      "text": "Updates: 5 Cowboys become full participants",
+      "url": "https://news.google.com/rss/articles/CBMiZkFVX3lxTE41U3JDcmpCb1YyZjBxRFNnV25kSktlMVJ5aEJsX1hhNTFTcHJWdWdTbjF5cFhvQ3ZKZGd4bEdfT0VtT1RobmJwd3ZSbnZzM0c3RnJiTS1kSG5fMUtJWW9qclRUWlZtQQ?oc=5",
+      "published": "Mon, 19 Oct 2026 07:00:00 GMT",
       "metrics": {}
     },
     {
       "source": "repository_trend_snapshot",
       "team": "dallas-cowboys",
-      "text": "Brian Schottenheimer Reveals Future of Play-Calling Duties Amid Cowboys Struggles",
-      "url": "http://www.bing.com/news/apiclick.aspx?ref=FexRss&aid=&tid=6adbb387d3f84ed1b38b43566383f9ab&url=https%3a%2f%2fwww.si.com%2fnfl%2fcowboys%2fonsi%2fbrian-schottenheimer-reveals-future-play-calling-duties-amid-cowboys-struggles&c=1318943022346666554&mkt=en-us",
-      "published": "Fri, 23 Oct 2026 07:27:00 GMT",
+      "text": "Impact: Barkley expected to return vs. Cowboys",
+      "url": "https://news.google.com/rss/articles/CBMiZ0FVX3lxTE56aGtoMDdKbXA2SGZ5WkdGYUVEUUV4cmNqOW0wN3MzS1FCVkdNYVBNR1A0QUJHWUNxLVZuOW9QMGdTZ2s2YkRMNXVmdnZSZWtfNnNnZTNzQnFSTF9NbnNiZXRhaFVkcTQ?oc=5",
+      "published": "Mon, 19 Oct 2026 07:00:00 GMT",
       "metrics": {}
     },
     {
       "source": "repository_trend_snapshot",
       "team": "dallas-cowboys",
-      "text": "Dallas Cowboys Cheerleaders unionize, will begin collective bargaining",
-      "url": "http://www.bing.com/news/apiclick.aspx?ref=FexRss&aid=&tid=6adbb387d3f84ed1b38b43566383f9ab&url=https%3a%2f%2fwww.dallasnews.com%2fsports%2fcowboys%2farticle%2fdallas-cowboys-cheerleaders-union-22491317.php&c=10975333088780066659&mkt=en-us",
-      "published": "Fri, 23 Oct 2026 11:32:00 GMT",
+      "text": "Brian Schottenheimer says 'execution wasn't clean enough' in 23-13 loss to Packers",
+      "url": "https://news.google.com/rss/articles/CBMitgFBVV95cUxPQVJ2eUd2YnhaWnFNbHF0Y0FDZGpTUXV6azllaFh2SEdURFMyNVp5TzlKcFFuSXR1NXR0RnFsXzFDYTJIemVOZjJvMGFacEhEaW84N0xORTFES1g3Rm1pVTJIYkxNaXhQeUxnQ2NKSXU2cHRKcWg4Z3pOemo0OTB3ZmdoOGxaQ1R2NDYtZTRkOU5PTXIzWEQ4ZmI0VmNQQ1VVNlZoRDhrMC1FQ0FnYS16TkZsRGVLUQ?oc=5",
+      "published": "Mon, 19 Oct 2026 05:35:34 GMT",
       "metrics": {}
     },
     {
       "source": "repository_trend_snapshot",
       "team": "dallas-cowboys",
-      "text": "Why Cowboys great DeMarcus Ware says Monday night vs. Eagles is a 'must-win' for Dallas",
-      "url": "http://www.bing.com/news/apiclick.aspx?ref=FexRss&aid=&tid=6adbb387d3f84ed1b38b43566383f9ab&url=https%3a%2f%2fwww.msn.com%2fen-us%2fsports%2ffootball%2fwhy-cowboys-great-demarcus-ware-says-monday-night-vs-eagles-is-a-must-win-for-dallas%2far-AA2fVY6x&c=10444968346711607313&mkt=en-us",
-      "published": "Fri, 23 Oct 2026 11:30:03 GMT",
+      "text": "Eatman: Finger-pointing now turning to offense",
+      "url": "https://news.google.com/rss/articles/CBMihwFBVV95cUxNY3RUMmhXaVcxR2JUTUZrTVZoa2Q0bnZPc3JXVGt6QW8ya0ZwZ0pCRlhHeXN4MkhueU9ielRMWVMtdVk0MUxWbHUyazNlV2NBdGxYMjJsejVoXzdLcW9UOXlTN0htVklJX1NuQkhHWWxpdWRqZ0ZnUGxWZ0hmY3RDVG1wYWthUm8?oc=5",
+      "published": "Mon, 19 Oct 2026 06:13:52 GMT",
       "metrics": {}
     },
     {
       "source": "repository_trend_snapshot",
       "team": "dallas-cowboys",
-      "text": "Cowboys & Jets Paired as Logical Trade Partners With Dallas' Need For Pass-Rush Juice",
-      "url": "http://www.bing.com/news/apiclick.aspx?ref=FexRss&aid=&tid=6adbb387d3f84ed1b38b43566383f9ab&url=https%3a%2f%2fwww.msn.com%2fen-us%2fnews%2fother%2fcowboys-jets-paired-as-logical-trade-partners-with-dallas-need-for-pass-rush-juice%2far-AA2fUIUa&c=10112723782475927091&mkt=en-us",
-      "published": "Fri, 23 Oct 2026 06:33:00 GMT",
+      "text": "Pic 6: Cowboys struggle vs. Green Bay's pressure, make multiple personnel changes",
+      "url": "https://news.google.com/rss/articles/CBMiswFBVV95cUxPWWE3VkRacVl5UEt1cFFfNnhaTnN3cnZJWUxlbEpqUVhlUXdtWTQzMGw0MXZPbTZjM2ZXclpXaWRRMmhJdld5cUV3R0NYejJOQ05UcUpQa2JtZ2szM21pdUNOQ3NaVndSOFhmb0QyR2g5anJQOXRJZDd1UG5ZZy11VHVNSHNrSVZBZ0dQbzRqMjhXbG1nZlRONmt3OHpoaTJ3QklhOWUtOW1meDA4VDNCMEI4RQ?oc=5",
+      "published": "Mon, 19 Oct 2026 15:19:53 GMT",
       "metrics": {}
     },
     {
       "source": "repository_trend_snapshot",
       "team": "dallas-cowboys",
-      "text": "Embattled Brian Schottenheimer calls himself great coach, still believes in his Dallas Cowboys",
-      "url": "http://www.bing.com/news/apiclick.aspx?ref=FexRss&aid=&tid=6adbb387d3f84ed1b38b43566383f9ab&url=https%3a%2f%2fsports.yahoo.com%2farticles%2fembattled-brian-schottenheimer-remains-angry-192451073.html&c=9083702972015400104&mkt=en-us",
-      "published": "Thu, 22 Oct 2026 12:24:00 GMT",
+      "text": "Game Recap: Cowboys lose to Packers, 23-13",
+      "url": "https://news.google.com/rss/articles/CBMigAFBVV95cUxPTEZqYlNvdXlDakNIb0tFNVRsRmZzWV9JQXA2MDA4QkdVckRQNkpfZFRCOTl0dldyWVd3NFVmemlBSXhid3dyLXhQNHNKX3RGbkkzRjliNWlMUlRaQ2MtZWRNY3BjQURSQUR5TlZycFZhYllyZ0NWaTU3QXVUdkdfZQ?oc=5",
+      "published": "Mon, 19 Oct 2026 04:03:11 GMT",
       "metrics": {}
     },
     {
       "source": "repository_trend_snapshot",
       "team": "dallas-cowboys",
-      "text": "Cowboys' Jerry Jones seems to agree with Brian Schottenheimer 'elite' label",
-      "url": "http://www.bing.com/news/apiclick.aspx?ref=FexRss&aid=&tid=6adbb387d3f84ed1b38b43566383f9ab&url=https%3a%2f%2fwww.msn.com%2fen-us%2fnews%2fother%2fcowboys-jerry-jones-seems-to-agree-with-brian-schottenheimer-elite-label%2far-AA2fVG8x&c=9484617363422025199&mkt=en-us",
-      "published": "Fri, 23 Oct 2026 10:00:52 GMT",
+      "text": "Cowboys defense seeking consistency by turning process into wins: 'It's now or never'",
+      "url": "https://news.google.com/rss/articles/CBMiuAFBVV95cUxNeWZTY1E0MjJXRjNPSXl3RTl3YnNueExZOGxIaTNwWG5tZU5aNzJ2aU9ZaGNFQTNUZUVNZWdLM2k4czFTMTdkN000YXVjR2xLdnpsNU9uWEMtN0ZFMkNGMTJqVzlpd19Ea1JPd2F0bHRobkxyR0pKdFdPanNZRmFFM3NTTVVaV3FMSzdidnBVYUNma1lHVVJXTjFDcEVIeTJpUEx2SXEyc0tPTzktTk5RdXM2bTU5djND?oc=5",
+      "published": "Wed, 21 Oct 2026 15:12:22 GMT",
       "metrics": {}
     },
     {
       "source": "repository_trend_snapshot",
       "team": "dallas-cowboys",
-      "text": "Jerry Jones Confident Cowboys Can Fix Offensive Struggles Before Eagles Game",
-      "url": "http://www.bing.com/news/apiclick.aspx?ref=FexRss&aid=&tid=6adbb387d3f84ed1b38b43566383f9ab&url=https%3a%2f%2fathlonsports.com%2fnfl%2fdallas-cowboys%2fjerry-jones-confident-cowboys-can-fix-offensive-struggles-before-eagles-game&c=17454138859817459654&mkt=en-us",
-      "published": "Fri, 23 Oct 2026 12:07:00 GMT",
+      "text": "Mike Pettine looking to answer the call for Christian Parker, Cowboys defense",
+      "url": "https://news.google.com/rss/articles/CBMipgFBVV95cUxQUjNjajRXM21jTDRaNV9QNlpJektVclM2bXN0d0lTcmFUY2x3WnQ2SHNwdkQxOTBITmtBTVlsRVlkTEdpaHhIaUR0M2drUFBJYzRxUUNmUGNRaU5jRFVSODd5NkhoZGh0RENYV3Q1bDVUSDdNZ2FkZ3VtOFJsbkVyMTBXdUFxdk4xbXRnU2ItUEk0OTNsemItanpXeEJ6VWtBS1JoU2Jn?oc=5",
+      "published": "Fri, 16 Oct 2026 07:00:00 GMT",
       "metrics": {}
     },
     {
       "source": "repository_trend_snapshot",
       "team": "michigan",
-      "text": "Predicting Final Score of Michigan Football vs. Indiana With Tommy Carr Under Center",
-      "url": "http://www.bing.com/news/apiclick.aspx?ref=FexRss&aid=&tid=6adbb3b3fa544fc5b1da3d02c77e8662&url=https%3a%2f%2fwww.msn.com%2fen-us%2fnews%2fother%2fpredicting-final-score-of-michigan-football-vs-indiana-with-tommy-carr-under-center%2far-AA2fUlm3&c=4030424086996196823&mkt=en-us",
-      "published": "Fri, 23 Oct 2026 04:13:00 GMT",
+      "text": "Michigan Monday: Game 7 vs. No. 6 Indiana",
+      "url": "https://news.google.com/rss/articles/CBMie0FVX3lxTFAzTThUaUFQX1R2RnFnaFJ6Q1Rickw0YzdtNDJIRm5EYlRQUWhyS2JMQkxMeHZYM3psM2ZHRmc3Rm9ISURFU3RiaHpVT2JBOGRBM0tlc2pyaExBeEJIRHl6VWxOVVF6WlZMRHppRGVTTHVUdGsxVUF4S2VNOA?oc=5",
+      "published": "Mon, 19 Oct 2026 18:57:41 GMT",
       "metrics": {}
     },
     {
       "source": "repository_trend_snapshot",
       "team": "michigan",
-      "text": "Indiana-Michigan predictions: Can switch to Tommy Carr spring Wolverines upset?",
-      "url": "http://www.bing.com/news/apiclick.aspx?ref=FexRss&aid=&tid=6adbb3b3fa544fc5b1da3d02c77e8662&url=https%3a%2f%2fwww.usatoday.com%2fstory%2fsports%2fncaaf%2fbigten%2f2026%2f10%2f23%2findiana-vs-michigan-predictions-odds-spread-tommy-carr-josh-hoover-college-football-picks%2f92389819007%2f&c=9247112622853258661&mkt=en-us",
-      "published": "Fri, 23 Oct 2026 09:35:00 GMT",
+      "text": "Wolverine Thoughts: Michigan Football Has One Clear Direction After Win Over Penn State",
+      "url": "https://news.google.com/rss/articles/CBMi1AFBVV95cUxNdTVGbUNSb0IxOURlNm80S1dBSGs5QjFZTjhnX1BSREN2Z0FYbVo2Vk9fQnRucUdXMWtjRnduanhIRDNaaFNtQU5WU3VOSFhPOGwwQlp4SnN3ZVE1U0JfWVE1aktjdGhMSWJUZWM1VUJtREMycF91QV9zVnI2QXFBVTl1MmxKNWRuLU9iTlBpUmtheWI0YW9TVkhqUkgtcHRXVVJMZEpSa2ZFQ052dzVrU0VDY19XYWhJTDBQTGo2d2ZON3B6UFZwTXh3XzhDZHA1VHY0Wg?oc=5",
+      "published": "Sun, 18 Oct 2026 11:00:05 GMT",
       "metrics": {}
     },
     {
       "source": "repository_trend_snapshot",
       "team": "michigan",
-      "text": "Michigan vs. No. 6 Indiana score predictions from MLive’s beat writers",
-      "url": "http://www.bing.com/news/apiclick.aspx?ref=FexRss&aid=&tid=6adbb3b3fa544fc5b1da3d02c77e8662&url=https%3a%2f%2fwww.msn.com%2fen-us%2fsports%2fcollege-sports%2fmichigan-vs-no-6-indiana-score-predictions-from-mlive-s-beat-writers%2far-AA2fWsBG&c=2260359061970734847&mkt=en-us",
-      "published": "Fri, 23 Oct 2026 10:44:00 GMT",
+      "text": "Michigan Wolverines QB Tommy Carr has 'poise' that's 'second to none'",
+      "url": "https://news.google.com/rss/articles/CBMimgFBVV95cUxOQWlOQUVlZ2NCWnpmZlB6RjRST1daN2p4UDc2MFR4VmxIcnp1TG4ySHBOaHpLUmdkNWZQeHRnOVFfOW5WMGdWNEpXWVVMS2E4TGxjWmxVeHF6X1Jjdm5CaGVZZ1BhdkV0N3luZGVDV1JjdDBOUDJFdFhSSWd2SlR4NmtYeXNraGlDWmozUmlXWXBiYW5hS2liWEFB?oc=5",
+      "published": "Fri, 23 Oct 2026 10:15:00 GMT",
       "metrics": {}
     },
     {
       "source": "repository_trend_snapshot",
       "team": "michigan",
-      "text": "CBS Sports puts Indiana on upset alert against Michigan football",
-      "url": "http://www.bing.com/news/apiclick.aspx?ref=FexRss&aid=&tid=6adbb3b3fa544fc5b1da3d02c77e8662&url=https%3a%2f%2fwww.msn.com%2fen-us%2fsports%2fcollege-sports%2fcbs-sports-puts-indiana-on-upset-alert-against-michigan-football%2far-AA2fVawk&c=386965086953169419&mkt=en-us",
-      "published": "Fri, 23 Oct 2026 06:10:53 GMT",
+      "text": "5 takeaways from Michigan Football’s win vs Penn State",
+      "url": "https://news.google.com/rss/articles/CBMizAFBVV95cUxPNEQ1ZW5iQURKcmlJSzBwbzRWSklMNDhCRGNiZm1mMkRvT2FDNy1tUDZXbjZFRmZvc192WnRjZ2NaUGxfcElPbnpZZU9SdEZYRnYtaXgzZVBhZU9fWExrby04N3RZZTBLa3ViM3BaaXR6YnFtWU9idUdwVS1jQi13TUkxUHlSQWlJRnpvUjh4Wmc2TXczSm01RHUyRXMzR2g4RTNxdlotVWpBZEozWWszM0dTc2FkenlhTl9fbldxQ0FITnZIRTF2ZG9rWkM?oc=5",
+      "published": "Sun, 18 Oct 2026 00:00:00 GMT",
       "metrics": {}
     },
     {
       "source": "repository_trend_snapshot",
       "team": "michigan",
-      "text": "Predictions: Michigan football vs. Indiana",
-      "url": "http://www.bing.com/news/apiclick.aspx?ref=FexRss&aid=&tid=6adbb3b3fa544fc5b1da3d02c77e8662&url=https%3a%2f%2fwww.detroitnews.com%2fstory%2fsports%2fcollege%2funiversity-michigan%2f2026%2f10%2f23%2fpredictions-michigan-wolverines-football-vs-indiana-hoosiers%2f92342685007%2f&c=17856258209916118100&mkt=en-us",
-      "published": "Fri, 23 Oct 2026 08:35:00 GMT",
+      "text": "3 things we learned: Why Michigan looked better across the board with Tommy Carr",
+      "url": "https://news.google.com/rss/articles/CBMizwFBVV95cUxPZ0hFSGxBdjI5cVF6ZEhMeGR6V2tmVlZReEx1SktSSmZQaTFGcWphZldwYVlhRksxTEtNMVlqR3NDR0I1Y25BUU1aQnpZTlBTTjVlNndHaEZqOXJnZndJRUctSVFuU3A4MzBaam05UVVzYTFsMjc1WnprTFU3bnpKQkVwWVFfeHVockh3WDY5YXEwLVZWX09DTVpJX2RHaGMzNjhvZkMwem9hamc1d1FMVW9abHI4TmhZaS13R0llOE82cU1QajE3NHZPbUxOeG_SAeMBQVVfeXFMT3Z6SUFIeVlIZDZmTTFnWG5uSGNrTTlLMWNVVFBVelJnNnhvWGV3YnVzZXNocThfODVmdTZQbzlqWlVnZDBtdVZhcmU5b1d6d3FZMjVyaUNqREoybkdLSnUtcVRuQXVfbzd3ZVdFdm9KU0lzbFJFSVA1blVrakFTbG1VVFQ0dHRudklkSGVvNDJMVGQyak5UbHU1Ump0amtuZWg4RlNCa09PNVJmVVAxX3NnYXFHcFFxTnJjb1h1Tzg3bGhyZ2gtOXNhY1BCWE1MdjM0WS1NWFZrYzZqbGV2VEkwYlU?oc=5",
+      "published": "Mon, 19 Oct 2026 15:24:00 GMT",
       "metrics": {}
     },
     {
       "source": "repository_trend_snapshot",
       "team": "michigan",
-      "text": "Indiana vs. Michigan odds: 2026 college football picks, Week 8 predictions from proven model",
-      "url": "http://www.bing.com/news/apiclick.aspx?ref=FexRss&aid=&tid=6adbb3b3fa544fc5b1da3d02c77e8662&url=https%3a%2f%2fwww.sportsline.com%2finsiders%2findiana-vs-michigan-odds-2026-college-football-picks-week-8-predictions-from-proven-model%2f&c=7400147958546861601&mkt=en-us",
-      "published": "Thu, 22 Oct 2026 23:11:00 GMT",
+      "text": "Michigan football's secret plan at quarterback is seemingly no longer very secret: Tommy Carr is expected to start vs Indiana. See link below ⬇️ 📸 Junfu Han, Detroit Free Press",
+      "url": "https://news.google.com/rss/articles/CBMi3wFBVV95cUxNTFo1eWFXUGZTUlZsdjd3LTNFcGR3d1VPa1pFdkFiZU5kWi0wQzhPVVQ2MFpsWTNEMkNQODVVNDkwWmlWVkxzY0d6Y3VpS1FPUWtDLWpZcGpGNG50Ml9uODlWSUhIRGlMVW5HRlU1RmJrSlo4WDltVUhhSktUNDB5Y2JYVXFBaW9ubkIxY2VMS3R0QjZ2NVVtMzNxYmd2aHFDX2RfYkxndk1iSjg2Y29oVF82T2hRUG0tSUNqYm9uZWU3bGpuUDdoOHIxZUFKZDlGQU5ZUVhPdExJVi1DV2pB?oc=5",
+      "published": "Wed, 21 Oct 2026 20:30:13 GMT",
       "metrics": {}
     },
     {
       "source": "repository_trend_snapshot",
       "team": "michigan",
-      "text": "Michigan-Indiana scouting report and pick: Can Wolverines pick up season-defining win?",
-      "url": "http://www.bing.com/news/apiclick.aspx?ref=FexRss&aid=&tid=6adbb3b3fa544fc5b1da3d02c77e8662&url=https%3a%2f%2ftheeagleswire.usatoday.com%2fstory%2fsports%2fcollege%2funiversity-michigan%2fwolverines%2f2026%2f10%2f23%2fmichigan-indiana-scouting-report-prediction%2f92386884007%2f&c=7673347341766252519&mkt=en-us",
-      "published": "Fri, 23 Oct 2026 07:44:00 GMT",
+      "text": "How to watch No. 6 Indiana vs. Michigan: TV channel and streaming options for October 24",
+      "url": "https://news.google.com/rss/articles/CBMioAFBVV95cUxOUlYzQUNHcFVvVDhnNS1ucUFTQk90WUpMWGpISW9tNXo4Q3JVOUhEeUxxdU40WlRycmUtWUZoaE1OVUtlaE14RFdnbkJXMWtJRWhnblo1a2lSTlBwd3Bqa0pCMUhhVHJ6SDRwbzVMTlgwZ1lqamhnSFE1ZXp4Z2JpZHlzclhNT1Bob0x4WmZpRXp2Yi1DcFM3NW9KREtYdzIt?oc=5",
+      "published": "Thu, 22 Oct 2026 16:10:41 GMT",
       "metrics": {}
     },
     {
       "source": "repository_trend_snapshot",
       "team": "michigan",
-      "text": "Michigan football finally found rushing success. Is it repeatable?",
-      "url": "http://www.bing.com/news/apiclick.aspx?ref=FexRss&aid=&tid=6adbb3b3fa544fc5b1da3d02c77e8662&url=https%3a%2f%2fwww.msn.com%2fen-us%2fnews%2fother%2fmichigan-football-finally-found-rushing-success-is-it-repeatable%2far-AA2fNKt4&c=15369073397489612901&mkt=en-us",
-      "published": "Thu, 22 Oct 2026 03:04:00 GMT",
+      "text": "Report: Michigan Football QB Tommy Carr to make first career start vs Indiana",
+      "url": "https://news.google.com/rss/articles/CBMiigFBVV95cUxNdmRqdEhRVThZRXBha3RDblpvem4yYkEzY1BkS05pTnFwdzB3eGNfNmItX1c2Z3F1Y1FxN0k5RG1SbU5TUFJnaFZveFpkUjVNNVFfRzdhSmhnXzUtdmE1QjN5OHlRbGluSVlEY2NXY0x6Yko2XzJPN0hkQXRTVTMtcF9PR1hjYkNmcEE?oc=5",
+      "published": "Wed, 21 Oct 2026 00:32:00 GMT",
       "metrics": {}
     }
   ],
   "summary": {
-    "connected_sources": [],
-    "item_count": 26
+    "connected_sources": [
+      "google_news"
+    ],
+    "item_count": 112
   }
 }
