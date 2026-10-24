@@ -591,9 +591,10 @@ What was built:
 - **The page** — Bella's boutique layout (`_girly_body()` in `src/build.py`),
   re-skinned for Cleveland: a warm parchment canvas, espresso type, burnt-orange
   action and a golden-hour lakefront banner. The skin is a palette only —
-  `body[data-creator-page="CRYSTAL"]` for the header/nav and
+  `body[data-creator-skin="browns"]` for the header/nav and
   `.jlock-girly[data-theme="browns"]` for the body — so the shared layout stays
-  in one place and Bella's page is byte-identical.
+  in one place and Bella's page is byte-identical. The palette is keyed by the
+  record's `skin`, not by the creator, so any later browns locker inherits it.
 - **The offer** — **CRYSTAL takes 10% off at checkout**, in the same three
   placements as Bella's VIP10: the promo bar above the hero (with a copy
   button that works without JavaScript), a pill above the grid, and the
@@ -621,3 +622,30 @@ What was built:
 
 Tests: `tests/test_layout.py::CrystalMarieLocker` pins the full-catalogue
 coverage, the three promo placements, the skin scoping and the disclaimer.
+
+## Amber's Browns Collection — creator collaboration (`/amber/`)
+
+Amber's locker is the fourth creator page and the second one curated from the
+Browns catalogue: **the same page Crystal Marie has** — girly layout, browns
+skin, the whole live Browns collection in newest → oldest order, cards on the
+local product page — with her own code (**AMBER, 10% off**), copy, hero photo
+and address. Nothing about it is a copy of Crystal's HTML: both pages are the
+same `_girly_body()` renderer reading `data/creators.json`.
+
+- **The record** — `creators.amber`: ID `AMBER`, `page_slug: "amber"`,
+  `collection_key: "cleveland-browns"`, `include_collection: true`,
+  `order: "newest"`, `skin: "browns"`, `picks` = the 33 live Browns slugs (the
+  membership list, renumbered `AMBER'S PICK 01…33`) and three `featured`.
+  Commission mirrors Crystal Marie's; correct it here if the deal differs —
+  the number is internal and never renders.
+- **The offer** — **AMBER takes 10% off at checkout**, in the same three
+  placements (promo bar with copy button, pill above the grid, hand-off note).
+- **Art** — `artwork-source/amber-banner.png` is the master (Crystal Marie's
+  lakefront frame with a different model in the same Browns tee);
+  `site/img/hero-amber.jpg` (1916×821) is what ships, versioned `?v=1`.
+- **Two lockers, one collection** — the Browns collection page and the footer
+  now list **both** capsules (`creators_by_collection()`), so neither creator
+  is demoted to whichever record happens to sit first in the file.
+
+Tests: `tests/test_layout.py::AmberLocker` pins her code, artwork, attribution
+and grid, and pins the shared skin as shared.

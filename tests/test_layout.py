@@ -2958,7 +2958,11 @@ class CrystalMarieLocker(unittest.TestCase):
     def test_browns_skin_is_scoped_and_leaves_bellas_page_alone(self):
         self.assertEqual(self.cre.get("skin"), "browns")
         self.assertIn('data-theme="browns"', self.html)
-        self.assertIn('body[data-creator-page="CRYSTAL"]{background:#f4ead9', self.css)
+        # the page-chrome palette keys off the SKIN, not off one creator, so
+        # every browns locker (Crystal Marie's, Amber's) gets it for free
+        self.assertIn('data-creator-skin="browns"', self.html)
+        self.assertIn('body[data-creator-skin="browns"]{background:#f4ead9', self.css)
+        self.assertNotIn('body[data-creator-page="CRYSTAL"]', self.css)
         for selector in ('.jlock-girly[data-theme="browns"] .gbanner-panel{',
                          '.jlock-girly[data-theme="browns"] .gbtn-maize{',
                          '.jlock-girly[data-theme="browns"] .gpromobar{',
@@ -3292,6 +3296,126 @@ class CrystalMarieLocker(unittest.TestCase):
             if os.path.isdir(target):
                 target = os.path.join(target, "index.html")
             self.assertTrue(os.path.isfile(target), f"{fp}: {value}")
+
+
+class AmberLocker(unittest.TestCase):
+    """Amber's Browns collection - the second locker on the Browns catalogue.
+
+    Same contract as Crystal Marie's: the girly layout, the browns skin, the
+    whole live Browns collection in the collection page's own order (newest ->
+    oldest), every card on the local product page with ``?creator=AMBER``.
+
+    Two lockers over ONE collection is exactly where a copy-paste would leak:
+    one page's promo code, hero photo or attribution could end up on the
+    other. These tests pin Amber's own code, artwork and attribution, and pin
+    the shared parts (the skin, the collection page's cross-links) as shared.
+    """
+
+    def setUp(self):
+        import build  # noqa: E402
+
+        self.build = build
+        self.html = page("amber/index.html")
+        self.cre = load_json("data/creators.json")["creators"]["amber"]
+        self.prefix = "../" * max(1, len([part for part
+                                          in self.cre["page_slug"].split("/") if part]))
+        self.css = page("assets/style.css")
+        self.team = page("cleveland-browns-shirts/index.html")
+
+    def test_page_is_indexable_sitemapped_and_closes_with_app_js(self):
+        self.assertIn('<link rel="canonical" href="https://gridironlocker.store/amber/">',
+                      self.html)
+        self.assertIn("<loc>https://gridironlocker.store/amber/</loc>",
+                      page("sitemap.xml"))
+        self.assertIn('data-creator-page="AMBER"', self.html)
+        self.assertNotIn('name="robots" content="noindex', self.html)
+        self.assertTrue(self.html.endswith("</body></html>"))
+        loads = re.findall(r'<script src="[^"]*assets/app\.js(?:\?v=[0-9a-f]{8})?"[^>]*></script>',
+                           self.html)
+        self.assertEqual(len(loads), 1)
+        self.assertIn("defer", loads[0])
+
+    def test_the_grid_is_the_whole_browns_collection_in_catalogue_order(self):
+        """"Same as Crystal's one" includes the order: newest -> oldest."""
+        self.assertEqual(self.cre.get("order"), "newest")
+        self.assertTrue(self.cre.get("include_collection"))
+        live = self.build.creator_items(self.cre)
+        self.assertEqual([item["slug"] for item in live],
+                         [item["slug"] for item in self.build.MODEL["cleveland-browns"]])
+        cards = re.findall(r'<article class="gproduct" data-slug="([^"]+)"', self.html)
+        self.assertEqual(cards, [item["slug"] for item in live])
+        team_cards = re.findall(r'class="card[^"]*"[^>]*data-slug="([^"]+)"', self.team)
+        self.assertEqual(cards, team_cards)
+        self.assertEqual(cards[0], "cleveland-victory-monday")
+        self.assertEqual(cards[-1], "ohio-cle")
+        self.assertIn(f'<p class="goverline">ALL {len(cards)} BROWNS DESIGNS</p>',
+                      unescape(self.html))
+        self.assertEqual(cards.count("dawg-pound-cleveland-skyline"), 0)
+
+    def test_every_card_forwards_amber_attribution(self):
+        self.assertEqual(self.cre["attribution"]["creator_id"], "AMBER")
+        cards = re.findall(r'<article class="gproduct".*?</article>', self.html, re.S)
+        self.assertEqual(len(cards), 33)
+        for block in cards:
+            self.assertIn("?creator=AMBER", block, block[:90])
+            self.assertIn('data-creator="AMBER"', block)
+            self.assertNotIn("creator=CRYSTAL", block)
+
+    def test_amber_code_is_ten_percent_off_in_all_three_placements(self):
+        self.assertEqual(self.cre.get("promo"), {"code": "AMBER", "pct": 10})
+        bar = self.html[self.html.find('class="gpromobar"'):]
+        bar = bar[:bar.find("</div>", bar.find("</div>") + 1)]
+        self.assertIn("<strong>10% off</strong> your order", bar)
+        self.assertIn("Use code", bar)
+        self.assertIn('data-copy-code="AMBER"', bar)
+        self.assertIn('aria-label="Copy promo code AMBER"', bar)
+        self.assertIn('class="gpromobar-code-value">AMBER', bar)
+        self.assertIn('<span>10% off</span> with code <strong>AMBER</strong>',
+                      self.html)                                     # pill above the grid
+        self.assertIn("with code <strong>AMBER</strong> at checkout", self.html)
+        self.assertNotIn("CRYSTAL", self.html)
+        self.assertNotIn("Crystal", unescape(self.html))
+
+    def test_hero_and_copy_are_ambers_not_crystals(self):
+        self.assertEqual(self.cre["hero"], "/img/hero-amber.jpg")
+        hero_v = self.cre["girly"]["hero_v"]
+        self.assertIn(f'src="{self.prefix}img/hero-amber.jpg?v={hero_v}"', self.html)
+        self.assertNotIn("hero-crystal", self.html)
+        self.assertTrue(os.path.isfile(os.path.join(SITE, "img/hero-amber.jpg")))
+        text = unescape(self.html)
+        self.assertIn('<span class="gscript">Amber’s</span>', text)
+        self.assertIn("Amber’s Browns Collection", text)
+        self.assertIn('aria-label="Amber’s Collection home"', text)
+        self.assertIn("AMBER’S PICK 01", text)
+        self.assertIn("AMBER’S PICK 33", text)
+        self.assertIn("use code amber", text.lower())
+        # her own custom-design inquiry, not a copy of Crystal's subject line
+        self.assertIn('id="custom-form"', self.html)
+        self.assertIn("New Custom Design Request from Amber's Browns Locker", text)
+
+    def test_browns_skin_is_shared_not_copied(self):
+        """One palette block serves both lockers: the skin is keyed by name."""
+        self.assertEqual(self.cre.get("skin"), "browns")
+        self.assertIn('data-creator-skin="browns"', self.html)
+        self.assertIn('data-creator-skin="browns"', page("crystal/index.html"))
+        self.assertIn('data-theme="browns"', self.html)
+        self.assertEqual(self.css.count('body[data-creator-skin="browns"]{background:#f4ead9'), 1)
+        self.assertNotIn('body[data-creator-page="AMBER"]', self.css)
+        self.assertNotIn('body[data-creator-page="CRYSTAL"]', self.css)
+        # and the disclaimer names the Browns/NFL, never Michigan
+        self.assertIn("Cleveland Browns, the NFL or any player", unescape(self.html))
+        self.assertNotIn("Michigan", unescape(self.html))
+
+    def test_the_collection_page_and_navigation_link_both_lockers(self):
+        """A Browns collection with two capsules must not hide one of them."""
+        for href in ('href="../crystal/"', 'href="../amber/"'):
+            self.assertIn(href, self.team)
+            self.assertIn(href, page("collections/index.html"))
+        self.assertIn("Crystal Marie", self.team)
+        self.assertIn("Amber", self.team)
+        llms = page("llms.txt")
+        self.assertIn("https://gridironlocker.store/amber/", llms)
+        self.assertIn("https://gridironlocker.store/amber/", page("feed.xml"))
 
 
 class ConversionUpgrades(unittest.TestCase):
