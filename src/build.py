@@ -2701,12 +2701,14 @@ except Exception:
     MAYZING_APPAREL_CAPTURED = ""
 
 
-def apparel_matrix(items):
+def apparel_matrix(items, prefix=".."):
     """Per design, per category, the listings that design genuinely has.
 
-    The collection pages sit one directory deep (/<collection>/), so the
-    payload carries ../ paths - data-apparel is a JSON attribute, not an
-    href/src, so the build's relativiser never sees it.
+    The collection pages sit one directory deep (/<collection>/) and the
+    creator lockers two (``/<collection>/<creator>/``), so ``prefix`` is the
+    root-relative hop those local /img paths need. ``data-apparel`` is a JSON
+    attribute, not an href/src, so the build's relativiser never sees it and
+    the caller has to get this right.
     """
     matrix = {}
     for it in items:
@@ -2726,9 +2728,9 @@ def apparel_matrix(items):
                     img = row.get("image") or ""
                     back = row.get("back") or ""
                     if img.startswith("/"):
-                        img = ".." + img
+                        img = prefix + img
                     if back.startswith("/"):
-                        back = ".." + back
+                        back = prefix + back
                     entry = {
                         "garment": row.get("garment") or "",
                         "image": img,
@@ -2746,14 +2748,14 @@ def apparel_matrix(items):
                 img = it.get("front") or ""
                 back = it.get("back") or ""
                 if img.startswith("/"):
-                    img = ".." + img
+                    img = prefix + img
                 if back.startswith("/"):
-                    back = ".." + back
+                    back = prefix + back
                 groups[own] = [{
                     "garment": garment,
                     "image": img,
                     "back": back,
-                    "url": it.get("buy") or "../shop/%s/" % slug,
+                    "url": it.get("buy") or "%s/shop/%s/" % (prefix, slug),
                     "price": "%.2f" % it["price"],
                 }]
             groups = {c: rows for c, rows in groups.items()
@@ -2800,9 +2802,9 @@ def apparel_matrix(items):
             if not back and cat == apparel_category(garment):
                 back = mockups.get("back", "") or it.get("back") or ""
             if img.startswith("/"):
-                img = ".." + img
+                img = prefix + img
             if back.startswith("/"):
-                back = ".." + back
+                back = prefix + back
             groups.setdefault(cat, []).append({
                 "garment": style,
                 "image": img,
@@ -3094,6 +3096,62 @@ GIRLY_FONTS = (
 #: ``path``. As a "/" link it sent her followers out of her locker and onto
 #: the Gridiron Locker homepage, mid-browse, which is the one exit the page
 #: is built to avoid.
+def creator_apparel(cre, items, prefix="../../"):
+    """The apparel matrix, categories and capture date for a creator locker.
+
+    Two sources, one shape, so the girly renderer never has to know which it
+    got:
+
+    * ``store_catalogue`` - the creator's own partner storefront (Bella's
+      Silent Touch capture). Categories and per-design listings come straight
+      from that record.
+    * the site's own catalogue - a locker curated from one Gridiron Locker
+      collection (Crystal Marie's Browns collection). The listings are the same
+      ones the collection page swaps to (``apparel_matrix``: the Mayzing
+      category-page capture - tees $23, hoodies $40, sweatshirts $36, tanks $23,
+      crop tops $24), so a creator locker can never advertise a garment the
+      store does not sell.
+
+    Returns dict(categories, styles_by_cat, apparel_by_slug, captured, counts).
+    Empty when neither source knows any garment, and the caller then omits the
+    whole section (an empty tile row is worse than no tile row).
+    """
+    catalog = cre.get("store_catalogue") or {}
+    if catalog:
+        categories = [str(label) for label in catalog.get("categories", [])]
+        styles_by_cat = {str(k): [str(style) for style in v]
+                         for k, v in (catalog.get("apparel_styles") or {}).items()}
+        apparel_by_slug = {str(product.get("slug", "")): (product.get("apparel") or {})
+                           for product in catalog.get("products", [])}
+        captured = str(catalog.get("apparel_captured") or catalog.get("captured", ""))
+    else:
+        apparel_by_slug = apparel_matrix(items, prefix=prefix)
+        # Categories in the storefront's own order, only those at least one
+        # design in THIS locker actually listed.
+        categories = [label for cat, label in APPAREL_CATEGORIES
+                      if any(apparel_by_slug.get(it["slug"], {}).get(cat)
+                             for it in items)]
+        counts = {}
+        for groups in apparel_by_slug.values():
+            for cat, rows in groups.items():
+                for row in rows:
+                    key = (cat, str(row.get("garment", "")))
+                    counts[key] = counts.get(key, 0) + 1
+        styles_by_cat = {}
+        for (cat, style), _n in sorted(counts.items(), key=lambda kv: (-kv[1], kv[0][1])):
+            styles_by_cat.setdefault(cat, []).append(style)
+        captured = MAYZING_APPAREL_CAPTURED
+    counts = {}
+    for groups in apparel_by_slug.values():
+        for cat, rows in groups.items():
+            for row in rows:
+                key = (str(cat), str(row.get("garment", "")))
+                counts[key] = counts.get(key, 0) + 1
+    return {"categories": categories, "styles_by_cat": styles_by_cat,
+            "apparel_by_slug": apparel_by_slug, "captured": captured,
+            "counts": counts}
+
+
 def girly_logo(href, cre=None):
     """The creator's own script lockup, drawn from ``cre['girly']``.
 
@@ -3238,20 +3296,20 @@ def _girly_body(cre, c, items, track):
     # their own second row of buttons, and a category with no listing anywhere
     # says "not listed yet" on its tile instead of swapping anything.
     grid_id = "gcollectionGrid"
-    categories = [str(label) for label in catalog.get("categories", [])]
+    # One derivation for both locker flavours: a captured partner catalogue
+    # (Bella) or this site's own collection matrix (Crystal Marie). See
+    # creator_apparel() - a category only appears when a real listing backs it.
+    # A creator page sits at /<collection>/<creator>/ - two hops from the site
+    # root today, but the depth is derived so a shallower page still resolves.
+    root = "../" * max(1, len([p for p in str(cre.get("page_slug", "")).split("/") if p]))
+    apparel = creator_apparel(cre, items, prefix=root)
+    categories = apparel["categories"]
     cat_slug = {label: slugify(label) for label in categories}
-    styles_by_cat = {str(k): [str(style) for style in v]
-                     for k, v in (catalog.get("apparel_styles") or {}).items()}
-    apparel_by_slug = {str(product.get("slug", "")): (product.get("apparel") or {})
-                       for product in catalog.get("products", [])}
-    captured = str(catalog.get("apparel_captured") or catalog.get("captured", ""))
+    styles_by_cat = apparel["styles_by_cat"]
+    apparel_by_slug = apparel["apparel_by_slug"]
+    captured = apparel["captured"]
     total_designs = len(items)
-    style_counts = {}
-    for product in catalog.get("products", []):
-        for cat, rows in (product.get("apparel") or {}).items():
-            for row in rows:
-                key = (str(cat), str(row.get("garment", "")))
-                style_counts[key] = style_counts.get(key, 0) + 1
+    style_counts = apparel["counts"]
 
     def count_label(garment, cat):
         tpl = str(g.get("garment_count_label",
@@ -3265,7 +3323,17 @@ def _girly_body(cre, c, items, track):
         return esc(str(g.get("category_flag_none", "not listed yet")))
     def cat_default(cat):
         styles = styles_by_cat.get(cat) or []
-        return styles[0] if styles else ""
+        if not styles:
+            return ""
+        # A collection-backed locker matches its tiles by category (app.js,
+        # data-apparel-loose), so a single design's label is not a filter value:
+        # prefer the category's own name ("Hoodies" -> "Hoodies") and fall back
+        # to the most-listed style.
+        loose_name = next((label for label in categories
+                           if cat_slug.get(label) == cat), cat)
+        if not catalog:
+            return loose_name          # the tile filters by category, not style
+        return styles[0]
     def category_tile(label):
         cat = cat_slug[label]
         flag = ""
@@ -3356,25 +3424,60 @@ def _girly_body(cre, c, items, track):
     # price of that listing. It is HTML-escaped exactly once: the browser
     # decodes the attribute, JSON.parse reads it back and app.js never
     # re-escapes a value.
+    def row_price(row):
+        """The listing's own price, in the "$12.34" form the cards print.
+
+        A captured partner catalogue stores ``price_usd``; the collection
+        matrix stores the price the Mayzing category page rendered.
+        """
+        if row.get("price_usd") not in (None, ""):
+            try:
+                return f"${float(row['price_usd']):.2f}"
+            except (TypeError, ValueError):
+                pass
+        raw = str(row.get("price") or "")
+        if not raw:
+            return ""
+        try:
+            return f"${float(raw):.2f}"
+        except ValueError:
+            return raw if raw.startswith("$") else f"${raw}"
+
+    def row_url(row):
+        """Where that exact garment is bought, still attributed to the creator.
+
+        A supplier URL is tagged with ?creator= + UTM by creator_item_href; a
+        local /shop/ path is hopped to this page's depth and gains the same
+        creator parameter, so the swap never loses attribution.
+        """
+        source = str(row.get("url") or "")
+        if not source:
+            return ""
+        if source.startswith(("http://", "https://")):
+            return creator_item_href({"source_url": source}, track)
+        if source.startswith("/"):
+            source = root + source.lstrip("/")
+        sep = "&" if "?" in source else "?"
+        return f"{source}{sep}creator={track}"
+
     apparel_payload = {}
-    for product in catalog.get("products", []):
-        slug = str(product.get("slug", ""))
-        groups = {}
-        for cat, rows in (product.get("apparel") or {}).items():
+    for slug, groups in apparel_by_slug.items():
+        entries_by_cat = {}
+        for cat, rows in (groups or {}).items():
             entries = []
             for row in rows:
-                source = str(row.get("url", ""))
                 entries.append({
                     "garment": str(row.get("garment", "")),
                     "image": str(row.get("image", "")),
                     "back": str(row.get("back", "")),
-                    "url": creator_item_href({"source_url": source}, track) if source else "",
-                    "price": f"${float(row['price_usd']):.2f}",
+                    "url": row_url(row),
+                    "price": row_price(row),
                 })
+            entries = [e for e in entries if e["image"]]
             if entries:
-                groups[str(cat)] = entries
-        if groups:
-            apparel_payload[slug] = groups
+                entries_by_cat[str(cat)] = entries
+        if entries_by_cat:
+            apparel_payload[str(slug)] = entries_by_cat
     apparel_attr = esc(json.dumps(apparel_payload, ensure_ascii=False,
                                   separators=(",", ":")))
 
@@ -3453,14 +3556,20 @@ def _girly_body(cre, c, items, track):
     apparel_section = ""
     if categories:
         apparel_heading = str(g.get("apparel_heading",
-                                    "APPAREL OPTIONS ON SILENT TOUCH"))
+                                    "APPAREL OPTIONS ON SILENT TOUCH" if catalog
+                                    else "APPAREL OPTIONS ON GRIDIRON LOCKER"))
         apparel_section = f"""<section id="apparel" class="gcategory-row" aria-label="Shop by apparel style"><div class="wrap">
  <p class="gcategory-heading" id="gcatHeading">{esc(apparel_heading)}</p>
  <div class="gcategory-tiles" role="group" aria-labelledby="gcatHeading">{category_buttons}</div>
  {style_row}
 </div></section>
 """
-    grid_attrs = f' data-apparel="{apparel_attr}"' if apparel_payload else ""
+    # A locker fed by the collection matrix has several styles per category, so
+    # its tiles match by category (see the app.js block); a store-captured
+    # locker keeps exact-style matching.
+    loose_attr = "" if catalog else ' data-apparel-loose="1"'
+    grid_attrs = (f' data-apparel="{apparel_attr}"{loose_attr}'
+                  if apparel_payload else "")
 
     # Where a design opens is stated once, under the grid. A partner-store
     # locker names that store (Bella's cards leave this site); a locally
@@ -3832,8 +3941,8 @@ def page_creator(ckey="joe"):
           + header(ckey_col, hide_nav=hide_nav, hide_promo=girly,
                    logo=girly_logo(path, cre) if girly else "")
           + (girly_nav(cre,
-                       has_apparel=bool((cre.get("store_catalogue") or {})
-                                        .get("categories")),
+                       has_apparel=bool(creator_apparel(
+                           cre, creator_items(cre))["categories"]),
                        has_custom=bool((cre.get("girly") or {}).get("custom")))
              if girly else "")
           + body + (APP_JS_TAG if girly else footer(collection=ckey_col)))
@@ -6819,12 +6928,22 @@ document.querySelectorAll('a.custom-link').forEach(function(a){
   if(!cards.length)return;
   var chips=[].slice.call(document.querySelectorAll('.gstyle-chip[data-gstyle]'));
   var chipRow=document.getElementById('gstyleRow');
+  // A category tile means "this garment class". A locker whose designs list
+  // SEVERAL styles inside one category (Crystal Marie's Browns locker: 24 tees
+  // listed as "T-Shirt", 10 as "Classic Unisex T-shirt") opts in with
+  // data-apparel-loose, so a tile swaps every design to whichever style that
+  // design actually lists in the category - the exact-style chips stay exact.
+  // A store-captured locker (Bella's Silent Touch) omits the flag and keeps
+  // its documented exact-match behaviour.
+  var loose=grid.getAttribute('data-apparel-loose')==='1';
   function name(el){var s=el.querySelector('.gstyle-name')||el.querySelector('span');return s?s.textContent.trim():'';}
   cards.forEach(function(card){
-    var styles={}, groups=matrix[card.getAttribute('data-slug')]||{};
+    var styles={}, byCat={}, groups=matrix[card.getAttribute('data-slug')]||{};
     Object.keys(groups).forEach(function(cat){
-      (groups[cat]||[]).forEach(function(entry){
-        if(entry&&entry.garment&&!styles[entry.garment])styles[entry.garment]=entry;
+      var list=(groups[cat]||[]).filter(function(e){return e&&e.garment;});
+      byCat[cat]=list;
+      list.forEach(function(entry){
+        if(!styles[entry.garment])styles[entry.garment]=entry;
       });
     });
     var img=card.querySelector('.gproduct-art img.main')||card.querySelector('.gproduct-art img');
@@ -6833,6 +6952,7 @@ document.querySelectorAll('a.custom-link').forEach(function(a){
     var metaLabel=card.querySelector('.gproduct-meta span');
     var metaPrice=card.querySelector('.gproduct-meta b');
     card._styles=styles;
+    card._byCat=byCat;
     card._img=img;
     card._back=back;
     card._links=links;
@@ -6867,6 +6987,12 @@ document.querySelectorAll('a.custom-link').forEach(function(a){
   function apply(){
     cards.forEach(function(card){
       var entry=garment?(card._styles[garment]||null):null;
+      // The category tile falls back to the design's own listing in that
+      // category when the tile's default style is not one this design lists.
+      if(!entry&&cat&&loose){
+        var list=card._byCat[cat]||[];
+        entry=list.length?list[0]:null;
+      }
       if(entry){
         card.hidden=false;
         if(card._img){
