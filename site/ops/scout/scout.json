@@ -2,24 +2,24 @@
  "generated": "2026-10-24",
  "window_days": 10,
  "fti_formula": "round(100 * entity_mentions / peak_mentions_in_window)",
- "peak_mentions": 16,
+ "peak_mentions": 18,
  "stats": {
-  "products": 97,
+  "products": 96,
   "collections": 4,
-  "images": 461,
-  "avg_price": 23.81,
+  "images": 459,
+  "avg_price": 23.82,
   "hot": 11,
   "throwback": 0,
-  "steady": 86,
-  "gaps": 6,
-  "moments": 0,
+  "steady": 85,
+  "gaps": 7,
+  "moments": 1,
   "tracked_names": 18,
   "dead_campaigns": 67
  },
  "fti_rows": [
   {
    "name": "bryce underwood",
-   "mentions": 16,
+   "mentions": 18,
    "index": 100,
    "status": "trending",
    "gap": false,
@@ -29,7 +29,7 @@
   {
    "name": "dak prescott",
    "mentions": 12,
-   "index": 75,
+   "index": 67,
    "status": "trending",
    "gap": true,
    "shoppable": false,
@@ -38,25 +38,34 @@
   {
    "name": "josh jacobs",
    "mentions": 12,
-   "index": 75,
+   "index": 67,
    "status": "trending",
    "gap": true,
    "shoppable": false,
    "collection": "green-bay-packers"
   },
   {
+   "name": "micah parsons",
+   "mentions": 10,
+   "index": 56,
+   "status": "trending",
+   "gap": false,
+   "shoppable": true,
+   "collection": "green-bay-packers"
+  },
+  {
    "name": "deshaun watson",
-   "mentions": 8,
-   "index": 50,
+   "mentions": 6,
+   "index": 33,
    "status": "trending",
    "gap": true,
    "shoppable": false,
    "collection": "cleveland-browns"
   },
   {
-   "name": "micah parsons",
-   "mentions": 8,
-   "index": 50,
+   "name": "jordan love",
+   "mentions": 5,
+   "index": 28,
    "status": "trending",
    "gap": false,
    "shoppable": true,
@@ -64,26 +73,17 @@
   },
   {
    "name": "shedeur sanders",
-   "mentions": 6,
-   "index": 38,
+   "mentions": 4,
+   "index": 22,
    "status": "trending",
    "gap": false,
    "shoppable": true,
    "collection": "cleveland-browns"
   },
   {
-   "name": "jordan love",
-   "mentions": 4,
-   "index": 25,
-   "status": "trending",
-   "gap": false,
-   "shoppable": true,
-   "collection": "green-bay-packers"
-  },
-  {
    "name": "ceedee lamb",
    "mentions": 3,
-   "index": 19,
+   "index": 17,
    "status": "trending",
    "gap": true,
    "shoppable": false,
@@ -92,34 +92,34 @@
   {
    "name": "kyle whittingham",
    "mentions": 3,
-   "index": 19,
+   "index": 17,
    "status": "trending",
    "gap": true,
    "shoppable": false,
    "collection": "michigan"
   },
   {
+   "name": "matt lafleur",
+   "mentions": 3,
+   "index": 17,
+   "status": "trending",
+   "gap": true,
+   "shoppable": false,
+   "collection": "green-bay-packers"
+  },
+  {
    "name": "todd monken",
    "mentions": 3,
-   "index": 19,
+   "index": 17,
    "status": "trending",
    "gap": true,
    "shoppable": false,
    "collection": "cleveland-browns"
   },
   {
-   "name": "matt lafleur",
-   "mentions": 2,
-   "index": 12,
-   "status": "steady",
-   "gap": false,
-   "shoppable": false,
-   "collection": "green-bay-packers"
-  },
-  {
    "name": "myles garrett",
    "mentions": 2,
-   "index": 12,
+   "index": 11,
    "status": "steady",
    "gap": false,
    "shoppable": true,
@@ -184,7 +184,7 @@
   {
    "name": "dak prescott",
    "mentions": 12,
-   "index": 75,
+   "index": 67,
    "status": "trending",
    "gap": true,
    "shoppable": false,
@@ -193,7 +193,7 @@
   {
    "name": "josh jacobs",
    "mentions": 12,
-   "index": 75,
+   "index": 67,
    "status": "trending",
    "gap": true,
    "shoppable": false,
@@ -201,8 +201,8 @@
   },
   {
    "name": "deshaun watson",
-   "mentions": 8,
-   "index": 50,
+   "mentions": 6,
+   "index": 33,
    "status": "trending",
    "gap": true,
    "shoppable": false,
@@ -211,7 +211,7 @@
   {
    "name": "ceedee lamb",
    "mentions": 3,
-   "index": 19,
+   "index": 17,
    "status": "trending",
    "gap": true,
    "shoppable": false,
@@ -220,16 +220,25 @@
   {
    "name": "kyle whittingham",
    "mentions": 3,
-   "index": 19,
+   "index": 17,
    "status": "trending",
    "gap": true,
    "shoppable": false,
    "collection": "michigan"
   },
   {
+   "name": "matt lafleur",
+   "mentions": 3,
+   "index": 17,
+   "status": "trending",
+   "gap": true,
+   "shoppable": false,
+   "collection": "green-bay-packers"
+  },
+  {
    "name": "todd monken",
    "mentions": 3,
-   "index": 19,
+   "index": 17,
    "status": "trending",
    "gap": true,
    "shoppable": false,
@@ -243,15 +252,15 @@
    "name": "Cleveland Browns Fan Shirts",
    "slug": "cleveland-browns-shirts",
    "store": "https://gridironlocker.shop/p/browns",
-   "products": 34,
-   "avg_price": 23.29,
+   "products": 33,
+   "avg_price": 23.3,
    "hot": 0,
    "throwback": 0,
    "gaps": [
     {
      "name": "deshaun watson",
-     "mentions": 8,
-     "index": 50,
+     "mentions": 6,
+     "index": 33,
      "status": "trending",
      "gap": true,
      "shoppable": false,
@@ -260,7 +269,7 @@
     {
      "name": "todd monken",
      "mentions": 3,
-     "index": 19,
+     "index": 17,
      "status": "trending",
      "gap": true,
      "shoppable": false,
@@ -271,19 +280,19 @@
     "browns",
     "cleveland",
     "injury",
-    "trade",
     "watch",
-    "preview",
+    "trade",
     "gets",
-    "deadline"
+    "preview",
+    "quinshon"
    ],
    "headline_count": 100,
    "headlines": [
     {
-     "title": "How will the Browns contain RB Derrick Henry? | Burning Questions",
-     "url": "https://news.google.com/rss/articles/CBMioAFBVV95cUxNemtBRE03MjJSTHEyQWFGNHFZNFBrYmp0U3RfSkFmNW1xVWU4VWVCbU9QZTNtSmdZNnBiOTludFJObTZjUVVOdmRaNmtfaDhudGtERDBPb0lqN2NFYXlta01VT3gxdlFKNTJGNmxNbVB1WDN2TjJpMEQtUmVpbXp0NVVtYTFaOGpLNnA1VlhBaXZxb05Pbjd1bkVOSHdXbURJ?oc=5",
+     "title": "Browns 13, Ravens 10 | Final Score, Stats & Game Recap",
+     "url": "https://news.google.com/rss/articles/CBMijgFBVV95cUxPMlpfZjFPQTFPT1lFcFhVWlhDemcyU2xYVzRzM1lkQmNOcDNOQzJzMnFlVDloNUdqMmZaNzd2NHBZcC1YOE5YdG5UM2tITHVJTmZZRF9PRmlZNjBqRkVBSVBuTzBsNVFBOENEVjRhQWVWU3NOa0o3dlJfbXpULXI2ajBYWjU5ZjlQNzZic1hB?oc=5",
      "source": "Cleveland Browns",
-     "pub": "Sat, 17 Oct 2026 13:06:32 GMT"
+     "pub": "Sun, 18 Oct 2026 20:15:16 GMT"
     },
     {
      "title": "The Cleveland Browns are good. What do we all do now?",
@@ -326,7 +335,7 @@
     {
      "name": "dak prescott",
      "mentions": 12,
-     "index": 75,
+     "index": 67,
      "status": "trending",
      "gap": true,
      "shoppable": false,
@@ -335,7 +344,7 @@
     {
      "name": "ceedee lamb",
      "mentions": 3,
-     "index": 19,
+     "index": 17,
      "status": "trending",
      "gap": true,
      "shoppable": false,
@@ -401,7 +410,16 @@
     {
      "name": "josh jacobs",
      "mentions": 12,
-     "index": 75,
+     "index": 67,
+     "status": "trending",
+     "gap": true,
+     "shoppable": false,
+     "collection": "green-bay-packers"
+    },
+    {
+     "name": "matt lafleur",
+     "mentions": 3,
+     "index": 17,
      "status": "trending",
      "gap": true,
      "shoppable": false,
@@ -416,7 +434,7 @@
     "jacobs",
     "injury",
     "watch",
-    "detroit"
+    "love"
    ],
    "headline_count": 100,
    "headlines": [
@@ -467,7 +485,7 @@
     {
      "name": "kyle whittingham",
      "mentions": 3,
-     "index": 19,
+     "index": 17,
      "status": "trending",
      "gap": true,
      "shoppable": false,
@@ -487,16 +505,16 @@
    "headline_count": 100,
    "headlines": [
     {
+     "title": "Michigan Monday: Game 7 vs. No. 6 Indiana",
+     "url": "https://news.google.com/rss/articles/CBMie0FVX3lxTFAzTThUaUFQX1R2RnFnaFJ6Q1Rickw0YzdtNDJIRm5EYlRQUWhyS2JMQkxMeHZYM3psM2ZHRmc3Rm9ISURFU3RiaHpVT2JBOGRBM0tlc2pyaExBeEJIRHl6VWxOVVF6WlZMRHppRGVTTHVUdGsxVUF4S2VNOA?oc=5",
+     "source": "University of Michigan Athletics",
+     "pub": "Mon, 19 Oct 2026 07:00:00 GMT"
+    },
+    {
      "title": "Wolverine Thoughts: Michigan Football Has One Clear Direction After Win Over Penn State",
      "url": "https://news.google.com/rss/articles/CBMi1AFBVV95cUxNdTVGbUNSb0IxOURlNm80S1dBSGs5QjFZTjhnX1BSREN2Z0FYbVo2Vk9fQnRucUdXMWtjRnduanhIRDNaaFNtQU5WU3VOSFhPOGwwQlp4SnN3ZVE1U0JfWVE1aktjdGhMSWJUZWM1VUJtREMycF91QV9zVnI2QXFBVTl1MmxKNWRuLU9iTlBpUmtheWI0YW9TVkhqUkgtcHRXVVJMZEpSa2ZFQ052dzVrU0VDY19XYWhJTDBQTGo2d2ZON3B6UFZwTXh3XzhDZHA1VHY0Wg?oc=5",
      "source": "Sports Illustrated",
      "pub": "Sun, 18 Oct 2026 11:00:05 GMT"
-    },
-    {
-     "title": "Rushing Attack, Turnovers Lead Michigan Past Penn State for First Big Ten Win",
-     "url": "https://news.google.com/rss/articles/CBMixgFBVV95cUxPd2dRN0tnMDY1U1V4ckVmbm1yUERzVkZldFhCdWYtWDM4THFGblVIc3FxaGtscFVxNTVXX1E4NnN2QUlGVlhYTUs5d3g0Y2ZMMkE4a0lYSFFFdkVGZ3MwNWNFYjVabG9xOVpqM1FETWk2bFBhUHhZWFpqdlp4Tm45NFBHcV9USlFqb0dWVHNZUU1aSlVxejJVc0V6NmtJV3YxMUdUZUNhSFNFdGM0V01sc2luMlNodW9aZlhtNDZBV1R3RHVkaUE?oc=5",
-     "source": "University of Michigan Athletics",
-     "pub": "Sat, 17 Oct 2026 23:56:07 GMT"
     },
     {
      "title": "How to Watch Indiana vs. Michigan: TV Channel, Live Stream, Time - October 24, 2026",
@@ -857,5 +875,17 @@
    "url": "https://viralstyle.com/kebystore/winter-hat-beanie-go-browns"
   }
  ],
- "moments": []
+ "moments": [
+  {
+   "title": "Green Bay Packers: Matt LaFleur on roughing calls and Jordan Love",
+   "url": "https://news.google.com/rss/articles/CBMihgFBVV95cUxQM2VEeGJFWmFtQmhwenQ5MTdvc3lVY20yS2hobUFZbkp1T0FnbC1manB4My01dG9UNm0wYzc3emJQSlM4RXNSQ1U4cHZNZVI4RFlyREUyZ1djNjI1bEI3Y2JiM19aQm9mNVQ1emFVQ2Mxb2dIYW4yVmdRSzlEVS1hRlZENXVYdw?oc=5",
+   "source": "Yahoo Sports",
+   "pub": "Tue, 20 Oct 2026 21:33:00 GMT",
+   "collection": "green-bay-packers",
+   "entities": [
+    "jordan love",
+    "matt lafleur"
+   ]
+  }
+ ]
 }
