@@ -560,6 +560,15 @@ def creator_items(cre):
         if slug in by_slug and slug not in seen:
             seen.add(slug)
             out.append(by_slug[slug])
+    # ``include_collection`` appends the rest of the collection after the
+    # curated picks, in catalogue order. A locker that says it holds the whole
+    # team collection then keeps doing so as designs are added or retired - the
+    # picks only decide what a visitor sees first, never what exists.
+    if cre.get("include_collection"):
+        for slug, item in by_slug.items():
+            if slug not in seen:
+                seen.add(slug)
+                out.append(item)
     return out
 
 
@@ -3085,36 +3094,66 @@ GIRLY_FONTS = (
 #: ``path``. As a "/" link it sent her followers out of her locker and onto
 #: the Gridiron Locker homepage, mid-browse, which is the one exit the page
 #: is built to avoid.
-def girly_logo(href):
+def girly_logo(href, cre=None):
+    """The creator's own script lockup, drawn from ``cre['girly']``.
+
+    Bella's record only names ``hero_script``, so her lockup keeps reading
+    "bella’s ♡ COLLECTION" (lower-cased script, heart mark). A creator can
+    override the mark with ``lockup_mark_html`` (Crystal Marie uses a small
+    football instead of the heart), the serif line with ``lockup_serif`` and
+    the screen-reader label with ``lockup_label``.
+    """
+    g = (cre or {}).get("girly", {})
+    first = (cre or {}).get("display_name", "Bella").split()[0]
+    script = str(g.get("hero_script") or first).lower()
+    mark = g.get("lockup_mark_html") or "♡"
+    serif = str(g.get("lockup_serif") or "COLLECTION")
+    label = str(g.get("lockup_label") or f"{first}’s Collection home")
     return (
-        f'<a class="logo glogo" href="{href}" aria-label="Bella’s Collection home">'
+        f'<a class="logo glogo" href="{href}" aria-label="{esc(label)}">'
         '<span class="glogo-lockup"><span class="glogo-top">'
-        '<span class="glogo-script">bella’s</span>'
-        '<span class="glogo-heart" aria-hidden="true">♡</span></span>'
-        '<span class="glogo-serif">COLLECTION</span></span></a>'
+        f'<span class="glogo-script">{esc(script)}</span>'
+        f'<span class="glogo-heart" aria-hidden="true">{mark}</span></span>'
+        f'<span class="glogo-serif">{esc(serif)}</span></span></a>'
     )
 
-GIRLY_NAV = (
-    '<nav class="bellanav" aria-label="Bella’s Collection">'
-    '<div class="wrap bellanav-links">'
-    '<a href="/">Home</a><a href="#locker">Shop</a>'
-    '<a href="#apparel">Collections</a><a href="#about">About</a>'
-    '</div></nav>'
-)
+
+def girly_nav(cre, has_apparel=True):
+    """The girly pages' local nav. ``#apparel`` only ships when the page has
+    an apparel-category section (a store-captured locker). A locker curated
+    from this site's own catalogue has no store-wide garment tiles, so linking
+    "Collections" at an anchor that does not exist would be a dead link."""
+    first = cre["display_name"].split()[0]
+    links = ['<a href="/">Home</a>', '<a href="#locker">Shop</a>']
+    if has_apparel:
+        links.append('<a href="#apparel">Collections</a>')
+    links.append('<a href="#about">About</a>')
+    return (f'<nav class="bellanav" aria-label="{esc(first)}’s Collection">'
+            '<div class="wrap bellanav-links">' + "".join(links) + '</div></nav>')
 
 def _girly_body(cre, c, items, track):
-    """Render Bella's clean, source-linked apparel locker.
+    """Render the clean, product-first creator locker (Bella's layout).
 
-    Product records are scoped to Bella's creator entry rather than added to
-    Michigan's canonical Gridiron Locker catalogue. Each design card links to
-    its matching Silent Touch page, where the fulfilment partner publishes
-    current apparel styles, colours, sizes and prices.
+    Two catalogue shapes feed it, and both end on a real product page:
+
+    * ``store_catalogue`` - the creator's own partner storefront (Bella on
+      Silent Touch). Records stay scoped to the creator entry, and every card
+      hands off to that store's listing with attribution.
+    * the site's own model catalogue - a locker curated from one Gridiron
+      Locker collection (Crystal Marie's Browns collection). Cards open the
+      local product page, so the visitor keeps the store's own checkout and the
+      discount is redeemed where the order is actually placed.
+
+    Copy, palette and lockup all come from the record (``girly`` / ``skin``),
+    so nothing here assumes the Michigan collection or a partner store.
     """
     g = cre.get("girly", {})
     catalog = cre.get("store_catalogue") or {}
     first = cre["display_name"].split()[0]
-    store_name = esc(catalog.get("name", "Bella's store"))
-    store_url = esc(catalog.get("url", "https://silenttouch.store/"))
+    # A card hands off to a partner store only when its item carries one.
+    external = any(bool(it.get("external_store")) for it in items)
+    store_name = esc(catalog.get("name", "the store")) if catalog else ""
+    store_url = esc(catalog.get("url", "")) if catalog else ""
     facts = str(g.get("hero_facts", "{n} designs")).replace("{n}", str(len(items)))
     script = esc(g.get("hero_script", first))
     title = esc(g.get("hero_title", cre["page_name"]))
@@ -3245,6 +3284,10 @@ def _girly_body(cre, c, items, track):
             f'aria-label="{esc(garment_row_heading)}" '
             f'hidden>{style_chips}</div>')
 
+    # Card copy is data-driven: Bella's default kicker/label wording is kept so
+    # her page renders byte-identically, while a locker curated from this
+    # site's own catalogue can name its own creator and its own hand-off.
+    card_kicker_tpl = str(g.get("card_kicker", "BELLA’S PICK {n}"))
     cards = []
     for idx, it in enumerate(items):
         href = esc(creator_item_href(it, track))
@@ -3253,28 +3296,38 @@ def _girly_body(cre, c, items, track):
         name = esc(it["name"])
         slug = esc(it["slug"])
         alt = esc(f'{it["name"]} design on a {it["garment"].lower()}')
+        item_external = bool(it.get("external_store"))
+        link_attrs = (' target="_blank" rel="noopener noreferrer"'
+                      if item_external else "")
+        view_where = ((f"on {store_name or 'the store'} (opens in a new tab)")
+                      if item_external else "on its product page")
+        view_icon = "↗" if item_external else "→"
+        link_label = str(g.get("card_link_label")
+                         or ("Explore available styles" if item_external
+                             else "See sizes & price"))
         # data-gcat lists only the categories this design actually listed when
         # the store was captured, so the ids on the card never overstate it.
         design_cats = " ".join(
             cat_slug[label] for label in categories
             if apparel_by_slug.get(str(it["slug"]), {}).get(cat_slug[label]))
+        gcat_attr = f' data-gcat="{design_cats}"' if design_cats else ""
         cards.append(
-            f'<article class="gproduct" data-slug="{slug}" data-creator="{track}" '
-            f'data-gcat="{design_cats}">'
-            f'<a class="gproduct-art" href="{href}" target="_blank" '
-            f'rel="noopener noreferrer" aria-label="View {name} on {store_name} (opens in a new tab)">'
+            f'<article class="gproduct" data-slug="{slug}" data-creator="{track}"'
+            f'{gcat_attr}>'
+            f'<a class="gproduct-art" href="{href}"{link_attrs} '
+            f'aria-label="View {name} {view_where}">'
             f'<img class="main" src="{image}" alt="{alt}" width="500" height="500" '
             f'loading="lazy" decoding="async">'
             f'<img class="alt" src="{back_image}" alt="" aria-hidden="true" width="500" height="500" '
             f'loading="lazy" decoding="async">'
-            f'<span class="gproduct-art-cta">View design <span aria-hidden="true">↗</span></span>'
+            f'<span class="gproduct-art-cta">View design <span aria-hidden="true">{view_icon}</span></span>'
             f'</a>'
             f'<div class="gproduct-body">'
-            f'<p class="gproduct-kicker">BELLA’S PICK {idx + 1:02d}</p>'
+            f'<p class="gproduct-kicker">{esc(card_kicker_tpl.replace("{n}", f"{idx + 1:02d}"))}</p>'
             f'<h3>{name}</h3>'
             f'<div class="gproduct-meta"><span>{esc(it["garment"])}</span><b>${it["price"]:.2f}</b></div>'
-            f'<a class="gproduct-link" href="{href}" target="_blank" rel="noopener noreferrer">'
-            f'Explore available styles <span aria-hidden="true">&rarr;</span></a>'
+            f'<a class="gproduct-link" href="{href}"{link_attrs}>'
+            f'{esc(link_label)} <span aria-hidden="true">&rarr;</span></a>'
             f'</div></article>'
         )
 
@@ -3327,6 +3380,11 @@ def _girly_body(cre, c, items, track):
   <a class="gbtn gbtn-maize custom-link" data-placement="girly_band" href="#custom-form">{esc(custom.get("cta", ""))} <span aria-hidden="true">&rarr;</span></a>
  </div>
 """)
+        custom_subject = str(custom.get(
+            "subject", "New Custom Design Request from Bella's Michigan Locker"))
+        team_choices = [str(t) for t in (custom.get("team_options") or [c["short"]])]
+        team_options_html = "".join(
+            f"<option>{esc(t)}</option>" for t in team_choices)
         custom_section = (f"""<section id="custom" class="gcustom"><div class="wrap">
 {note_html} <div class="gcustom-grid">
   <div class="gcustom-img">
@@ -3339,7 +3397,7 @@ def _girly_body(cre, c, items, track):
    data-formsubmit="1" aria-label="Custom design request form">
    <div class="gform-head">{esc(custom.get("form_head", ""))}</div>
    <p class="gform-free">{esc(custom.get("free_note", ""))}</p>
-   <input type="hidden" name="_subject" value="New Custom Design Request from Bella's Michigan Locker">
+   <input type="hidden" name="_subject" value="{custom_subject.replace('"', "&quot;")}">
    <input type="hidden" name="_template" value="table">
    <input type="hidden" name="_captcha" value="false">
    <input type="text" name="_honey" style="display:none" tabindex="-1" autocomplete="off">
@@ -3353,7 +3411,7 @@ def _girly_body(cre, c, items, track):
     placeholder="{esc(custom.get("ph_idea", ""))}"></textarea></label>
    <div class="gform-row">
     <label><span>{esc(custom.get("field_team", "team / theme"))} <span class="greq">*</span></span><select name="team" required>
-     <option value="">Choose</option><option>Michigan</option></select></label>
+     <option value="">Choose</option>{team_options_html}</select></label>
     <label>{esc(custom.get("field_garment", "product type"))}<select name="garment">
      <option value="">pick one</option><option>T-Shirt</option><option>Hoodie</option>
      <option>Sweatshirt</option><option>Long Sleeve</option><option>Tank Top</option>
@@ -3370,13 +3428,68 @@ def _girly_body(cre, c, items, track):
  </div>
 </div></section>""")
 
+    # The apparel tiles only exist when a captured partner catalogue says which
+    # garments each design listed. A locker curated from this site's own
+    # collection has no such matrix (Mayzing sells one garment per design and
+    # the product page is where that is confirmed), so the whole section - and
+    # the nav anchor that points at it - is omitted rather than shipped empty.
+    apparel_section = ""
+    if categories:
+        apparel_heading = str(g.get("apparel_heading",
+                                    "APPAREL OPTIONS ON SILENT TOUCH"))
+        apparel_section = f"""<section id="apparel" class="gcategory-row" aria-label="Shop by apparel style"><div class="wrap">
+ <p class="gcategory-heading" id="gcatHeading">{esc(apparel_heading)}</p>
+ <div class="gcategory-tiles" role="group" aria-labelledby="gcatHeading">{category_buttons}</div>
+ {style_row}
+</div></section>
+"""
+    grid_attrs = f' data-apparel="{apparel_attr}"' if apparel_payload else ""
+
+    # Where a design opens is stated once, under the grid. A partner-store
+    # locker names that store (Bella's cards leave this site); a locally
+    # curated locker keeps the visitor on the product page, so it must not
+    # promise a hand-off that does not happen.
+    if external:
+        store_note = (f'{promo_note}Each design opens on <a href="{store_url}" '
+                      f'target="_blank" rel="noopener noreferrer">{store_name}</a>. '
+                      'Available apparel, colours, sizes and current prices are '
+                      'confirmed on its product page.')
+    else:
+        store_note = promo_note + esc(str(g.get("store_note",
+            "Each design opens its own product page, where the sizes, the current "
+            "price and checkout are confirmed.")))
+    # The collection head may count itself: ``{n}`` is the number of designs
+    # actually in this locker, so "ALL 34 BROWNS DESIGNS" stays true as the
+    # catalogue grows or a design is retired.
+    def counted(key, default):
+        return str(g.get(key, default)).replace("{n}", str(len(items)))
+
+    collection_overline = counted("collection_overline", "THE COLLECTION")
+    collection_heading = counted("collection_heading", "Bella’s Michigan Designs")
+    collection_desc = counted("collection_desc", "")
+    about_heading = counted("about_heading", "Bella’s Michigan Collection")
+    # The ``<strong>`` lead-in is markup; ``legal`` is the sentence that
+    # follows it, so a creator only supplies the rights-holder clause.
+    legal = str(g.get("legal",
+        "Gridiron Locker is not affiliated with, endorsed by or licensed by the "
+        "University of Michigan, the NCAA or any player. All trademarks belong "
+        "to their respective owners."))
+
+    # ``skin`` selects a palette for the shared girly skin (src/style.css):
+    # Bella ships no skin and keeps her cream/pink default, Crystal Marie's
+    # Browns locker asks for data-theme="browns" and gets the browns palette.
+    skin = cre.get("skin")
+    theme_attr = f' data-theme="{esc(str(skin))}"' if skin else ""
+
     hero_image = esc(url_safe(g.get("hero_image", cre.get("hero", ""))))
     hero_alt = esc(g.get("hero_alt", cre.get("hero_alt", "")))
     # The banner's store link is optional. It points at the same storefront the
     # design cards and the note under the grid already open, so a creator can
     # hide it with ``hide_banner_store_link`` and keep the anchor CTA beside it;
     # the store notes elsewhere on the page are deliberately unaffected.
-    if g.get("hide_banner_store_link", False):
+    # Only a partner-store locker has somewhere to send this link; a locally
+    # curated one would render an empty href, so it is suppressed outright.
+    if g.get("hide_banner_store_link", False) or not external:
         banner_store_link = ""
     else:
         banner_store_link = (
@@ -3384,7 +3497,7 @@ def _girly_body(cre, c, items, track):
             f' rel="noopener noreferrer">Visit {store_name}'
             ' <span aria-hidden="true">↗</span></a>')
     return f"""
-<main id="main" class="jlock jlock-girly">{promo_bar}
+<main id="main" class="jlock jlock-girly"{theme_attr}>{promo_bar}
 <section class="gbanner"><div class="wrap">
  <div class="gbanner-panel">
   <img class="gbanner-photo" src="{hero_image}" alt="{hero_alt}" width="{cre['hero_w']}" height="{cre['hero_h']}"
@@ -3401,21 +3514,16 @@ def _girly_body(cre, c, items, track):
  </div>
 </div></section>
 
-<section id="apparel" class="gcategory-row" aria-label="Shop by apparel style"><div class="wrap">
- <p class="gcategory-heading" id="gcatHeading">APPAREL OPTIONS ON SILENT TOUCH</p>
- <div class="gcategory-tiles" role="group" aria-labelledby="gcatHeading">{category_buttons}</div>
- {style_row}
-</div></section>
-
+{apparel_section}
 <section id="locker" class="gcollection"><div class="wrap">
  <div class="gcollection-head">
-  <p class="goverline">{esc(g.get('collection_overline', 'THE COLLECTION'))}</p>
-  <h2>{esc(g.get('collection_heading', 'Bella’s Michigan Designs'))}</h2>
-  <p>{esc(g.get('collection_desc', ''))}</p>
+  <p class="goverline">{esc(collection_overline)}</p>
+  <h2>{esc(collection_heading)}</h2>
+  <p>{esc(collection_desc)}</p>
   {promo_line}
  </div>
- <div class="ggrid" id="{grid_id}" data-apparel="{apparel_attr}">{"".join(cards)}</div>
- <p class="gstore-note">{promo_note}Each design opens on <a href="{store_url}" target="_blank" rel="noopener noreferrer">{store_name}</a>. Available apparel, colours, sizes and current prices are confirmed on its product page.</p>
+ <div class="ggrid" id="{grid_id}"{grid_attrs}>{"".join(cards)}</div>
+ <p class="gstore-note">{store_note}</p>
 </div></section>
 
 {custom_section}
@@ -3423,10 +3531,10 @@ def _girly_body(cre, c, items, track):
 <section id="about" class="gdisclosure"><div class="wrap">
  <div class="gabout-copy">
   <p class="goverline">ABOUT THE COLLECTION</p>
-  <h2>Bella’s Michigan Collection</h2>
+  <h2>{esc(about_heading)}</h2>
   <p>{esc(cre.get('collab_note', ''))}</p>
  </div>
- <p class="glegal"><strong>Independent fan-made apparel.</strong> Gridiron Locker is not affiliated with, endorsed by or licensed by the University of Michigan, the NCAA or any player. All trademarks belong to their respective owners.</p>
+ <p class="glegal"><strong>Independent fan-made apparel.</strong> {esc(legal)}</p>
 </div></section>
 </main>"""
 
@@ -3556,12 +3664,17 @@ def page_creator(ckey="joe"):
             faq.append((f"How do I use {first}'s discount code?",
                         f"Enter the code {promo_code} at checkout for {promo_pct}% off "
                         f"your order. It applies to the designs in this locker."))
+        # The disclaimer names the rights holders this locker belongs to: a
+        # Browns locker must never inherit the Michigan affiliation story.
+        # Records without ``rights_holder`` keep the Michigan clause (Joe's
+        # page renders byte-identically).
+        rights_holder = (cre.get("rights_holder")
+                         or "the University of Michigan, the NCAA or any player")
         faq += [
-            ("Are these officially licensed Michigan products?",
+            (f"Are these officially licensed {c['short']} products?",
              "No. Everything here is independent, fan-made artwork. Gridiron Locker "
-             "is not affiliated with, endorsed by or licensed by the University of "
-             "Michigan, the NCAA or any player. All trademarks are the property of "
-             "their respective owners."),
+             f"is not affiliated with, endorsed by or licensed by {rights_holder}. "
+             "All trademarks are the property of their respective owners."),
             ("How does ordering work?",
              "Tap any design to see the full story, garment styles, colours and "
              "sizing. Then Shop Now opens the checkout page for that exact design, "
@@ -3569,7 +3682,7 @@ def page_creator(ckey="joe"):
              "demand and shipped worldwide with tracking."),
         ]
 
-    cb, cbs = crumbs([("Home", "/"), ("Michigan", f"/{c['slug']}/"),
+    cb, cbs = crumbs([("Home", "/"), (c["short"], f"/{c['slug']}/"),
                       (cre["page_name"], None)], path)
     schema = [cbs,
               {"@context": "https://schema.org", "@type": "CollectionPage",
@@ -3700,8 +3813,9 @@ def page_creator(ckey="joe"):
                schema, kw, col=ckey_col, body_attrs=f' data-creator-page="{track}"',
                extra_head=GIRLY_FONTS if girly else "")
           + header(ckey_col, hide_nav=hide_nav, hide_promo=girly,
-                   logo=girly_logo(path) if girly else "")
-          + (GIRLY_NAV if girly else "")
+                   logo=girly_logo(path, cre) if girly else "")
+          + (girly_nav(cre, bool((cre.get("store_catalogue") or {})
+                                 .get("categories"))) if girly else "")
           + body + (APP_JS_TAG if girly else footer(collection=ckey_col)))
 
 

@@ -572,3 +572,44 @@ What was built:
 
 Preserved: every existing URL, product page and guardrail. Rebuild + test:
 `python3 src/build.py && python3 -m unittest discover -s tests`.
+
+---
+
+## Crystal Marie's Browns Collection — creator collaboration (`/browns/crystal-marie/`)
+
+Crystal Marie's locker is the creator programme's third page and the first one
+built from **this site's own catalogue**: it carries the whole live Cleveland
+Browns collection (every design that is sellable today, not a frozen list),
+opened by twelve curated picks. Her audience gets one permanent link —
+**`/browns/crystal-marie/`** — that grows with the Browns collection.
+
+What was built:
+
+- **The page** — Bella's boutique layout (`_girly_body()` in `src/build.py`),
+  re-skinned for Cleveland: a warm parchment canvas, espresso type, burnt-orange
+  action and a golden-hour lakefront banner. The skin is a palette only —
+  `body[data-creator-page="CRYSTAL"]` for the header/nav and
+  `.jlock-girly[data-theme="browns"]` for the body — so the shared layout stays
+  in one place and Bella's page is byte-identical.
+- **The offer** — **CRYSTAL takes 10% off at checkout**, in the same three
+  placements as Bella's VIP10: the promo bar above the hero (with a copy
+  button that works without JavaScript), a pill above the grid, and the
+  hand-off note under the grid.
+- **The curation** — `data/creators.json` (`creators.crystal`): creator ID
+  `CRYSTAL`, twelve `picks` in display order, `include_collection: true` to
+  append the rest of the Browns collection in catalogue order, and four
+  `featured` slugs. Stale or retired slugs drop out silently.
+- **The hand-off** — cards open the local product page with
+  `?creator=CRYSTAL` (no partner-store detour), where the garment, size, price
+  and Mayzing checkout live; the persistent `gl_creator` cookie and the
+  outbound tagging in `assets/app.js` do the attribution exactly as they do for
+  Joe and Bella.
+- **Discovery** — the Browns collection page footer, the homepage creator row,
+  `/collections/`, the sitemap, the RSS feed and `llms.txt` all carry it. The
+  page is explicitly independent fan artwork: the disclaimer names the
+  Cleveland Browns and the NFL, never Michigan.
+- **Art** — `artwork-source/crystal-marie-banner.png` is the master;
+  `site/img/hero-crystal.jpg` (1568×672, 108 KB) is what ships.
+
+Tests: `tests/test_layout.py::CrystalMarieLocker` pins the full-catalogue
+coverage, the three promo placements, the skin scoping and the disclaimer.

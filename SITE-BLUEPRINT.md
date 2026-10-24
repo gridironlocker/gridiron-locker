@@ -73,7 +73,9 @@ Slugs come straight from Viralstyle URLs, so one slug = one campaign.
 
 ### URL convention (creator collaboration)
 ```
-/<collection>/<creator>/        e.g. /michigan/joe/   (Joe's Michigan Locker)
+/<collection>/<creator>/        e.g. /michigan/joe/            (Joe's Michigan Locker)
+                                     /michigan/bella/          (Bella's Michigan Collection)
+                                     /browns/crystal-marie/    (Crystal Marie's Browns Collection)
 ```
 Creator pages are generated from `data/creators.json` (`page_creator()` in
 `src/build.py`): a permanent, addressable destination per creator, a curated
@@ -83,6 +85,14 @@ root of the collaboration — internal links carry `?creator=<ID>`, a persistent
 outbound Viralstyle hand-off (creator + UTM) while the cookie lives, so orders
 stay attributed to the creator. Commission terms in the same JSON record are
 internal (ops/creators) and never render on the public page.
+
+A creator page has two catalogue shapes. A `store_catalogue` record (Bella)
+keeps its products scoped to the creator's own partner storefront; a locker with
+`include_collection: true` (Crystal Marie) curates `picks` from one Gridiron
+Locker collection and then carries the rest of that collection as it grows, so
+every card opens the local product page. `theme: "girly"` selects Bella's
+boutique layout and `skin: "browns"` selects the Browns palette for it
+(`.jlock-girly[data-theme="browns"]` in `src/style.css`).
 
 ---
 

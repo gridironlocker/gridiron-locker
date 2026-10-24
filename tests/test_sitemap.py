@@ -111,7 +111,9 @@ class SitemapDates(unittest.TestCase):
         # undocumented URL from the 2026-10-13 refresh); the +4 delta from
         # that on-disk count is exactly the four new product URLs.
         # 2026-10-22: 123 -> 122 - Viralstyle retired limited-edition-grb16 (-1).
-        self.assertEqual(len(self.rows), 122)
+        # 2026-10-24: 122 -> 123 - Crystal Marie's Browns collection page
+        # (a creator page, not a product) joined the sitemap.
+        self.assertEqual(len(self.rows), 123)
         self.assertEqual(len(self.rows), len(set(self.rows)))
         for url, lastmod in self.rows.items():
             self.assertTrue(url.startswith(build.DOMAIN + "/"), url)
