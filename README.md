@@ -549,7 +549,8 @@ What was built:
   featured top picks (`featured`). Stale / delisted slugs skip silently.
   Future creators get their own record + page from the same code path.
 - **Attribution (how orders become Joe-attributed)** —
-  1. every product link on the page carries `?creator=JOE`;
+  1. every card opens that design's product page on the shop that fulfils the
+     order, carrying `?creator=JOE`;
   2. `assets/app.js` sets a persistent `gl_creator=JOE` cookie (90-day
      sliding TTL) on first touch;
   3. while that cookie is present, the outbound Viralstyle hand-off on ANY
@@ -607,11 +608,13 @@ What was built:
   silently — a design can be removed from every surface by adding it to
   `data/delisted.json` (that is how `dawg-pound-cleveland-skyline` was hidden
   on request; its URL keeps a redirect stub).
-- **The hand-off** — cards open the local product page with
-  `?creator=CRYSTAL` (no partner-store detour), where the garment, size, price
-  and Mayzing checkout live; the persistent `gl_creator` cookie and the
-  outbound tagging in `assets/app.js` do the attribution exactly as they do for
-  Joe and Bella.
+- **The hand-off** — a card sends the shopper straight to the **Mayzing
+  product page** for that design (`gridironlocker.shop/<design>`), never to this
+  site's own `/shop/` page: one tap from the design to the garment, the colour,
+  the size chart and the checkout. The link carries `?creator=CRYSTAL` + UTM
+  and opens in a new tab, so the locker stays behind it and the order stays
+  attributed; the persistent `gl_creator` cookie and the outbound tagging in
+  `assets/app.js` back that up exactly as they do for Joe and Bella.
 - **Discovery** — the Browns collection page footer, the homepage creator row,
   `/collections/`, the sitemap, the RSS feed and `llms.txt` all carry it. The
   page is explicitly independent fan artwork: the disclaimer names the
@@ -627,8 +630,8 @@ coverage, the three promo placements, the skin scoping and the disclaimer.
 
 Amber's locker is the fourth creator page and the second one curated from the
 Browns catalogue: **the same page Crystal Marie has** — girly layout, browns
-skin, the whole live Browns collection in newest → oldest order, cards on the
-local product page — with her own code (**AMBER, 10% off**), copy, hero photo
+skin, the whole live Browns collection in newest → oldest order, cards that
+open the Mayzing product page — with her own code (**AMBER, 10% off**), copy, hero photo
 and address. Nothing about it is a copy of Crystal's HTML: both pages are the
 same `_girly_body()` renderer reading `data/creators.json`.
 
@@ -685,9 +688,9 @@ creator's name or code leaks onto her page.
 
 Destiny Elizabeth's locker is the sixth creator page and the **fourth** on the
 Browns catalogue, at the bare short address **`/des/`**. It is built exactly
-like Crystal Marie's: the whole live Browns collection newest → oldest, cards on
-the local product page, the browns skin, her own promo code **`DESTINY` (10%
-off)**.
+like Crystal Marie's: the whole live Browns collection newest → oldest, cards
+that open the Mayzing product page, the browns skin, her own promo code
+**`DESTINY` (10% off)**.
 
 The page launched branded with the emoji handle **des❤️🐞** and was renamed to
 **Elizabeth** on the owner's request. The address stayed `des`, and that split
@@ -718,8 +721,8 @@ other creator's name or code leaks onto her page.
 
 Yvette — the woman behind **Bougie Sports** — gets the sixth Browns locker, at
 the bare address **`/yvette/`**, built exactly like Crystal Marie's: the whole
-live Browns collection newest → oldest, local product pages, the browns skin,
-promo code **`BOUGIESPORTS` (10% off)**.
+live Browns collection newest → oldest, cards that open the Mayzing product
+page, the browns skin, promo code **`BOUGIESPORTS` (10% off)**.
 
 What she adds to the template:
 
@@ -747,3 +750,42 @@ Tests: `tests/test_layout.py::YvetteLocker` pins the address, the grid, the
 `rel`, emoji, Person schema), that it sits in the header *before* the search and
 no longer in the hero, that it is opt-in for the other lockers, and
 that no other creator's name or code leaks onto her page.
+
+## Where a creator card sends the shopper
+
+Every collaboration page - Joe, Bella, Crystal Marie, Amber, Laquala Royal,
+Elizabeth and Yvette - hands a chosen design **straight to the store's own
+product page**. The local `/shop/<slug>/` page is not part of the creator
+funnel: one tap goes from the card to the page where the garment, the colour,
+the size chart and the checkout actually live.
+
+- **Which page** — `creator_item_href()` in `src/build.py` reads the design's
+  supplier link first (`buy`, else `source_url`): the Mayzing storefront
+  (`gridironlocker.shop/<design>?collectionId=…&color=…&productId=…`) for the
+  lockers curated from this catalogue, the creator's own partner store for a
+  `store_catalogue` locker such as Bella's. Only a record with no supplier link
+  at all falls back to the local page, so a card is never a dead end.
+- **Attribution survives the detour** — the link is tagged with
+  `?creator=<ID>` + `utm_source=creator` / `utm_medium=referral` /
+  `utm_campaign=creator-<ID>` (server-side, so it works with JavaScript off);
+  `assets/app.js` keeps the `gl_creator` cookie and tags any further outbound
+  hand-off. The shop's own query parameters are preserved, never replaced.
+- **It opens in a new tab** — cards carry `target="_blank"
+  rel="noopener noreferrer"`, the overlay says "View design ↗" and every
+  `aria-label` ends "(opens in a new tab)", so the locker stays behind the
+  shopper and nobody loses their place.
+- **The copy matches** — the note under the grid names the shop that prints and
+  ships the order ("…on gridironlocker.shop, the shop that prints and ships
+  every order"), Joe's FAQ answers ordering the same way, and the page's
+  `ItemList` structured data points at the same product pages. No creator page
+  contains a `gridironlocker.store/shop/` product link any more.
+- **The header search follows the same rule** — `assets/search-index.json`
+  carries each design's shop URL (`b`); on a creator page the live suggestions
+  open that page (creator-tagged, new tab), while every other page keeps its
+  local catalogue links.
+- **The local pages stay** — `/shop/<slug>/` is still built, sitemapped and
+  indexed for organic visitors; only the collaboration pages skip it.
+
+Tests: `tests/test_layout.py::CreatorShopHandoff` runs the rule over all seven
+creator pages (host, creator tag, UTM, new tab, no local `/shop/` link, the
+store note, and the local-page fallback for a record with no supplier link).

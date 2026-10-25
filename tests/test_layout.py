@@ -2170,7 +2170,8 @@ class CreatorCollab(unittest.TestCase):
         live = {it["slug"] for it in build.ALL}   # master catalogue, both partners
         row = self.html[self.html.index('id="picks"'):
                         self.html.index('id="locker"')]
-        slugs = re.findall(r'<a class="jfeat[^"]*" href="[^"]*?/shop/([a-z0-9-]+)/\?creator=JOE"',
+        slugs = re.findall(r'<a class="jfeat[^"]*" '
+                           r'href="https://gridironlocker\.shop/([^"?]+)\?[^"]*creator=JOE',
                            row)
         self.assertEqual(len(slugs), 4, slugs)
         self.assertEqual(slugs, self.creators["featured"])
@@ -2182,7 +2183,8 @@ class CreatorCollab(unittest.TestCase):
         live = {it["slug"] for it in build.ALL}   # master catalogue, both partners
         sec = self.html[self.html.index('id="locker"'):
                         self.html.index('class="jfaq"')]
-        slugs = re.findall(r'<a class="jcard[^"]*" href="[^"]*?/shop/([a-z0-9-]+)/\?creator=JOE"',
+        slugs = re.findall(r'<a class="jcard[^"]*" '
+                           r'href="https://gridironlocker\.shop/([^"?]+)\?[^"]*creator=JOE',
                            sec)
         self.assertEqual(slugs, self.creators["picks"])
         for s in slugs:
@@ -2192,7 +2194,9 @@ class CreatorCollab(unittest.TestCase):
         for m in re.finditer(r'<a class="j(?:feat|card)"(.*?)(?=<a class="j(?:feat|card)|</section>)',
                              self.html, re.S):
             block = m.group(1)
-            self.assertIn("?creator=JOE", block, block[:80])
+            self.assertIn("creator=JOE", block, block[:80])
+            self.assertIn('href="https://gridironlocker.shop/', block)
+            self.assertIn('target="_blank" rel="noopener noreferrer"', block)
             self.assertIn("$", block)
             self.assertIn('class="jshop"', block)
             self.assertIn("width=\"530\" height=\"630\"", block)  # no layout shift
@@ -2914,15 +2918,21 @@ class CrystalMarieLocker(unittest.TestCase):
                            self.html)
         self.assertEqual(cards, [item["slug"] for item in items])
         self.assertEqual(len(set(cards)), len(cards))
-        # every design opens the local product page, still creator-tagged
+        # every design opens its product page on the shop that prints and
+        # ships the order - never a page on this site - still creator-tagged
         for slug in cards:
             block = re.search(r'<article class="gproduct" data-slug="%s".*?</article>'
                               % re.escape(slug), self.html, re.S).group(0)
-            self.assertIn(f'href="{self.prefix}shop/{slug}/?creator=CRYSTAL"', block)
+            # the shop's own path does not always spell the slug the same way
+            # (Browns-Cle vs browns-cle), so the host + the tag are what matter
+            self.assertRegex(block, r'href="https://gridironlocker\.shop/[^"]+?')
+            self.assertIn("creator=CRYSTAL", block)
+            self.assertIn("creator=CRYSTAL", block)
             self.assertIn('data-creator="CRYSTAL"', block)
-            # a local hand-off stays in this tab; the arrow says so too
-            self.assertNotIn('target="_blank"', block)
+            # the hand-off leaves the site, so it opens in a new tab
+            self.assertIn('target="_blank" rel="noopener noreferrer"', block)
             self.assertIn("See sizes &amp; price", block)
+        self.assertNotIn(f'href="{self.prefix}shop/', self.html)
         self.assertNotIn('href=""', self.html)
         self.assertNotIn("silenttouch.store", self.html)
         self.assertNotIn("Explore available styles", self.html)
@@ -3357,7 +3367,9 @@ class AmberLocker(unittest.TestCase):
         cards = re.findall(r'<article class="gproduct".*?</article>', self.html, re.S)
         self.assertEqual(len(cards), 33)
         for block in cards:
-            self.assertIn("?creator=AMBER", block, block[:90])
+            self.assertIn("creator=AMBER", block, block[:90])
+            self.assertIn('href="https://gridironlocker.shop/', block)
+            self.assertIn('target="_blank" rel="noopener noreferrer"', block)
             self.assertIn('data-creator="AMBER"', block)
             self.assertNotIn("creator=CRYSTAL", block)
 
@@ -3466,7 +3478,9 @@ class LaqualaRoyalLocker(unittest.TestCase):
         cards = re.findall(r'<article class="gproduct".*?</article>', self.html, re.S)
         self.assertEqual(len(cards), 33)
         for block in cards:
-            self.assertIn("?creator=LAQUALA", block, block[:90])
+            self.assertIn("creator=LAQUALA", block, block[:90])
+            self.assertIn('href="https://gridironlocker.shop/', block)
+            self.assertIn('target="_blank" rel="noopener noreferrer"', block)
             self.assertIn('data-creator="LAQUALA"', block)
 
     def test_laquala_code_is_ten_percent_off_and_no_other_creator_leaks(self):
@@ -3577,7 +3591,9 @@ class DesLocker(unittest.TestCase):
         cards = re.findall(r'<article class="gproduct".*?</article>', self.html, re.S)
         self.assertEqual(len(cards), 33)
         for block in cards:
-            self.assertIn("?creator=DESTINY", block, block[:90])
+            self.assertIn("creator=DESTINY", block, block[:90])
+            self.assertIn('href="https://gridironlocker.shop/', block)
+            self.assertIn('target="_blank" rel="noopener noreferrer"', block)
             self.assertIn('data-creator="DESTINY"', block)
 
     def test_destiny_code_is_ten_percent_off_and_nothing_else_leaks(self):
@@ -3700,7 +3716,9 @@ class YvetteLocker(unittest.TestCase):
         cards = re.findall(r'<article class="gproduct".*?</article>', self.html, re.S)
         self.assertEqual(len(cards), 33)
         for block in cards:
-            self.assertIn("?creator=YVETTE", block, block[:90])
+            self.assertIn("creator=YVETTE", block, block[:90])
+            self.assertIn('href="https://gridironlocker.shop/', block)
+            self.assertIn('target="_blank" rel="noopener noreferrer"', block)
             self.assertIn('data-creator="YVETTE"', block)
 
     def test_bougiesports_code_is_ten_percent_off_and_nothing_else_leaks(self):
@@ -3786,6 +3804,103 @@ class YvetteLocker(unittest.TestCase):
             self.assertIn(href, self.team)
         self.assertIn("https://gridironlocker.store/yvette/", page("llms.txt"))
         self.assertIn("https://gridironlocker.store/yvette/", page("feed.xml"))
+
+
+class CreatorShopHandoff(unittest.TestCase):
+    """Every creator locker sends the shopper to the shop's product page.
+
+    A card on a collaboration page must never hand the visitor to this site's
+    own /shop/ page. One tap opens the product page of the store that prints
+    and ships the order - the Mayzing storefront (gridironlocker.shop) for the
+    lockers curated from this catalogue, Silent Touch for Bella's - still
+    carrying ``creator=<ID>`` + UTM so the order stays attributed. It opens in
+    a new tab, so the locker stays behind it.
+    """
+
+    PAGES = {
+        "crystal/index.html": ("CRYSTAL", "gridironlocker.shop"),
+        "amber/index.html": ("AMBER", "gridironlocker.shop"),
+        "laquala/index.html": ("LAQUALA", "gridironlocker.shop"),
+        "des/index.html": ("DESTINY", "gridironlocker.shop"),
+        "yvette/index.html": ("YVETTE", "gridironlocker.shop"),
+        "michigan/joe/index.html": ("JOE", "gridironlocker.shop"),
+        "michigan/bella/index.html": ("BELLA", "silenttouch.store"),
+    }
+
+    def test_no_local_product_page_is_linked_from_a_creator_page(self):
+        for rel in self.PAGES:
+            html = page(rel)
+            for bad in (r'href="(?:\.\./)+shop/', r'href="/shop/',
+                        "gridironlocker.store/shop/"):
+                self.assertIsNone(re.search(bad, html), f"{rel}: {bad}")
+
+    def test_every_card_opens_the_store_product_page_in_a_new_tab(self):
+        for rel, (track, host) in self.PAGES.items():
+            html = page(rel)
+            cards = re.findall(r'<article class="gproduct".*?</article>|'
+                               r'<a class="jfeat[^"]*".*?</a>|<a class="jcard[^"]*".*?</a>',
+                               html, re.S)
+            self.assertTrue(cards, rel)
+            for block in cards:
+                href = re.search(r'href="([^"]+)"', block).group(1)
+                self.assertTrue(href.startswith(f"https://{host}/"),
+                                f"{rel}: {href[:80]}")
+                self.assertIn(f"creator={track}", block, rel)
+                self.assertIn("utm_campaign=creator-" + track, block, rel)
+                self.assertIn('target="_blank" rel="noopener noreferrer"', block, rel)
+
+    def test_the_store_note_names_the_shop_that_fulfils_the_order(self):
+        """The copy under the grid describes the hand-off that really happens."""
+        for rel, (track, host) in self.PAGES.items():
+            html = page(rel)
+            if rel.startswith("michigan/joe/"):
+                # Joe's template answers it in the FAQ rather than a store note
+                self.assertIn(f"open its product page on {host}", unescape(html), rel)
+                continue
+            note = between(html, '<p class="gstore-note">', "</p>")
+            self.assertIn("Each design opens", note, rel)
+            if host == "silenttouch.store":
+                # Bella's record names her store; it is linked, not spelled
+                self.assertIn(">Silent Touch</a>", note, rel)
+            else:
+                self.assertIn(f">{host}</a>", note, rel)
+                self.assertIn("the shop that prints and ships every order", note, rel)
+
+    def test_a_record_without_a_supplier_link_still_gets_a_card(self):
+        import build  # noqa: E402
+        self.assertEqual(build.creator_item_href({"slug": "plain"}, "X"),
+                         "/shop/plain/?creator=X")
+        href = build.creator_item_href(
+            {"slug": "plain", "buy": "https://gridironlocker.shop/plain?color=RED"},
+            "X")
+        self.assertIn("creator=X", href)
+        self.assertIn("utm_campaign=creator-X", href)
+        self.assertIn("color=RED", href)          # the shop's own params survive
+        self.assertTrue(href.startswith("https://gridironlocker.shop/plain?"))
+
+    def test_the_header_search_also_opens_the_shop_product_page(self):
+        """Searching from a creator page must not land on this site either.
+
+        The shared index carries each design's shop URL (``b``); the header
+        search uses it - creator-tagged and in a new tab - only when the page
+        is a creator page, and keeps the local catalogue everywhere else.
+        """
+        rows = json.loads(page("assets/search-index.json"))
+        self.assertTrue(rows)
+        for row in rows:
+            self.assertTrue(row.get("b", "").startswith(("http://", "https://")),
+                            row.get("u"))
+        js = page("assets/app.js")
+        self.assertIn("function shopHref", js)
+        self.assertIn("data-creator-page", js)
+        # the escape hatch stays local for every other page
+        self.assertIn("if(!CRE||!it.b)return '';", js)
+
+    def test_the_creator_schema_lists_the_shop_pages(self):
+        for rel, (track, host) in self.PAGES.items():
+            html = page(rel)
+            self.assertNotIn("gridironlocker.store/shop/", html, rel)
+            self.assertIn(f'"url":"https://{host}/', html, rel)
 
 
 class ConversionUpgrades(unittest.TestCase):
