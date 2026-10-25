@@ -605,6 +605,38 @@ def supplier_host(items):
     return ""
 
 
+def store_href(it, track="", medium="product_card"):
+    """Where a product card opens: the shop that actually takes the order.
+
+    A card is a shop window, not a detour. A tap goes straight to the product
+    page that sells the piece - the Mayzing storefront for the Browns and
+    Michigan campaigns, the partner shop for the older ones - carrying the
+    attribution so the visit is counted. The local ``/shop/<slug>/`` record
+    stays online as the design's reference page (structured data, sitemap,
+    links that already point at it), but no grid, rail, guide or search result
+    routes a shopper through it any more.
+
+    Falls back to the local record only when a design carries no supplier link
+    at all: a card is never a dead end.
+    """
+    src = str(it.get("buy") or it.get("source_url") or "")
+    if not src.startswith(("http://", "https://")):
+        return it.get("url") or ""
+    parsed = urlsplit(src)
+    query = dict(parse_qsl(parsed.query, keep_blank_values=True))
+    query.setdefault("utm_medium", medium)
+    if track:
+        query.setdefault("creator", track)
+        query.setdefault("utm_source", "creator")
+        query.setdefault("utm_campaign", f"creator-{track}")
+    else:
+        query.setdefault("utm_source", "site")
+        if it.get("col"):
+            query.setdefault("utm_campaign", str(it["col"]))
+    return urlunsplit((parsed.scheme, parsed.netloc, parsed.path,
+                       urlencode(query), parsed.fragment))
+
+
 def creator_item_href(it, track):
     """Where a creator's card opens: the shop's product page, creator-tagged.
 
@@ -619,19 +651,9 @@ def creator_item_href(it, track):
     Falls back to the record's own supplier URL, and to the local PDP only when
     a record carries no supplier link at all: a card is never a dead end.
     """
-    source = it.get("buy") or it.get("source_url")
-    if not source:
+    if not (it.get("buy") or it.get("source_url")):
         return f"/shop/{it['slug']}/?creator={track}"
-    parsed = urlsplit(source)
-    query = dict(parse_qsl(parsed.query, keep_blank_values=True))
-    query.update({
-        "creator": track,
-        "utm_source": "creator",
-        "utm_medium": "referral",
-        "utm_campaign": f"creator-{track}",
-    })
-    return urlunsplit((parsed.scheme, parsed.netloc, parsed.path,
-                       urlencode(query), parsed.fragment))
+    return store_href(it, track, medium="referral")
 
 
 def creators_by_collection(ckey):
@@ -855,7 +877,7 @@ def moments_block(ckey=None, entity=None, limit=5):
             seen.add(e)
             picks = products_for_entity(m.get("collection") or ckey, e, 1)
             if picks:
-                shop_html += (f'<a class="moment-shop" href="{picks[0]["url"]}">Shop '
+                shop_html += (f'<a class="moment-shop" href="{esc(store_href(picks[0]))}">Shop '
                               f'{esc(pretty_name(e))} &rarr;</a>')
             elif e:
                 shop_html += '<span class="fti-gap">no design in the locker yet</span>'
@@ -1074,6 +1096,12 @@ def build_model():
 
 MODEL = build_model()
 ALL = [x for v in MODEL.values() for x in v]
+# Every design carries the address its CARDS use (the store's product page)
+# next to the address its own record uses (``url``, the /shop/ page that stays
+# online for search and structured data). Two addresses, one decision point.
+for _list in MODEL.values():
+    for _it in _list:
+        _it["card_url"] = store_href(_it)
 # Canonical product-path -> source date.  This map is deliberately independent
 # of URLS: it lets the sitemap writer emit the exact same value for a product
 # even when page generation order changes.
@@ -1880,7 +1908,7 @@ def card(it, eager=False):
     # <a> is invalid HTML) and opens the shared quick-view modal. .fav is a
     # device-side favourite toggle (localStorage, no backend).
     return f"""<article class="card reveal" data-slug="{it['slug']}" data-type="{esc(it['garment'])}" data-team="{it['col']}" data-theme="{it['theme']}" style="{tv}">
- <a href="{it['url']}" aria-label="{esc(it['name'])}">
+ <a href="{esc(store_href(it))}" aria-label="{esc(it['name'])}">
   <div class="ph"><span class="{cls}">{tag}</span><span class="glow"></span><span class="sweep"></span>
    <img src="{it['front']}" alt="{card_alt(it)}" width="530" height="630"{lazy}>
    <img class="alt" src="{it['back']}" alt="{esc(it['name'])} back view" width="530" height="630" loading="lazy" decoding="async">
@@ -1933,7 +1961,7 @@ def product_card(it, eager=False):
     lazy = hint(eager)
     hot = '<span class="pc-hot">Trending</span>' if it.get("trend") == "hot" else ""
     c = COLLECTIONS[it["col"]]
-    return (f'<a class="pcard reveal" href="{it["url"]}" style="{theme_vars(it["col"])}" '
+    return (f'<a class="pcard reveal" href="{esc(store_href(it))}" style="{theme_vars(it["col"])}" '
             f'data-slug="{it["slug"]}">'
             f'<span class="pc-ph">{hot}'
             f'<img class="main" src="{it["front"]}" alt="{card_alt(it)}" '
@@ -3275,6 +3303,37 @@ def girly_nav(cre, has_apparel=True, has_custom=True):
     return (f'<nav class="bellanav" aria-label="{esc(nav_label)}">'
             '<div class="wrap bellanav-links">' + "".join(links) + '</div></nav>')
 
+LOCK_ICON = ('<svg class="ghandoff-ico" viewBox="0 0 24 24" fill="none" '
+             'stroke="currentColor" stroke-width="1.8" stroke-linecap="round" '
+             'stroke-linejoin="round" aria-hidden="true">'
+             '<rect x="4.5" y="10.5" width="15" height="9.5" rx="2"/>'
+             '<path d="M8 10.5V8a4 4 0 0 1 8 0v2.5"/></svg>')
+
+
+def handoff_note(store_name, store_url):
+    """One line that announces the hand-off before a card is tapped.
+
+    A creator locker's cards open the shop that prints and ships the order
+    (``creator_item_href``), so the page names that shop in its own voice
+    *above* the grid. A visitor who knows where a tap leads does not read the
+    next page as a different store - the jump is announced instead of
+    discovered. The line is the one thing that makes the storefront's own
+    header and palette read as "the same order", not a drop-off.
+
+    Scope: only the destination and that its checkout is secure. Sizing,
+    stock and delivery stay with the shop's product page, and no currency is
+    named - the store renders prices in the visitor's/its own currency on the
+    collection listing, so promising one would be a claim we cannot keep.
+    """
+    name = str(store_name or "").strip()
+    url = str(store_url or "").strip()
+    if not url:
+        return ""
+    label = (f'<a href="{esc(url)}" target="_blank" rel="noopener noreferrer">'
+             f'{esc(name or url)}</a>')
+    return (f'<p class="ghandoff">{LOCK_ICON}Secure checkout on {label}</p>')
+
+
 def girly_socials(cre, top=False):
     """The creator's own social accounts, as an emoji-led row of pills.
 
@@ -3350,15 +3409,17 @@ def _girly_body(cre, c, items, track):
     first = cre["display_name"].split()[0]
     # A card hands off to a partner store only when its item carries one.
     external = any(bool(it.get("external_store")) for it in items)
-    store_name = esc(catalog.get("name", "the store")) if catalog else ""
-    store_url = esc(catalog.get("url", "")) if catalog else ""
+    store_name_raw = (catalog.get("name") or "the store") if catalog else ""
+    store_url_raw = (catalog.get("url") or "") if catalog else ""
     # A locker curated from this site's own catalogue carries no store record,
     # but its cards still hand off to the shop that fulfils the order - so the
     # shop host is read from the supplier links themselves.
-    if not store_url:
+    if not store_url_raw:
         host = supplier_host(items)
-        store_name = esc(host)
-        store_url = esc(f"https://{host}") if host else ""
+        store_name_raw = host
+        store_url_raw = f"https://{host}" if host else ""
+    store_name = esc(store_name_raw)
+    store_url = esc(store_url_raw)
     facts = str(g.get("hero_facts", "{n} designs")).replace("{n}", str(len(items)))
     script = esc(g.get("hero_script", first))
     title = esc(g.get("hero_title", cre["page_name"]))
@@ -3545,7 +3606,7 @@ def _girly_body(cre, c, items, track):
             f'<h3>{name}</h3>'
             f'<div class="gproduct-meta"><span>{esc(it["garment"])}</span><b>${it["price"]:.2f}</b></div>'
             f'<a class="gproduct-link" href="{href}"{link_attrs}>'
-            f'{esc(link_label)} <span aria-hidden="true">&rarr;</span></a>'
+            f'{esc(link_label)} <span aria-hidden="true">{view_icon}</span></a>'
             f'</div></article>'
         )
 
@@ -3708,6 +3769,7 @@ def _girly_body(cre, c, items, track):
     # locker names that store (Bella's cards leave this site); a locally
     # curated locker keeps the visitor on the product page, so it must not
     # promise a hand-off that does not happen.
+    handoff_line = handoff_note(store_name_raw, store_url_raw)
     note_override = str(g.get("store_note") or "")
     if note_override:
         store_note = promo_note + esc(note_override)
@@ -3797,6 +3859,7 @@ def _girly_body(cre, c, items, track):
   <h2>{esc(collection_heading)}</h2>
   <p>{esc(collection_desc)}</p>
   {promo_line}
+  {handoff_line}
  </div>
  <div class="ggrid" id="{grid_id}"{grid_attrs}>{"".join(cards)}</div>
  <p class="gstore-note">{store_note}</p>
@@ -3901,6 +3964,11 @@ def page_creator(ckey="joe"):
                 f'</span>'
                 f'<span class="jshop" aria-hidden="true">Shop <i>&rarr;</i></span>'
                 f'</a>')
+
+    _store = cre.get("store_catalogue") or {}
+    _host = supplier_host(items)
+    joe_handoff = handoff_note(_store.get("name") or _host,
+                               _store.get("url") or (f"https://{_host}" if _host else ""))
 
     feat_cards = "".join(jcard(it, "jfeat", eager=(n < 2)) for n, it in enumerate(feat))
     grid_cards = "".join(jcard(it, "jcard", eager=(n < 2)) for n, it in enumerate(items))
@@ -4052,6 +4120,7 @@ def page_creator(ckey="joe"):
    No official logos, no licensed assets: just {c['short']} football culture.</p>
   </div>
   <div class="jtrustwrap">{trust()}</div>
+  <div class="jhandoffwrap">{joe_handoff}</div>
   <div class="jgrid">{grid_cards}</div>
  </div>
 </section>
@@ -5018,7 +5087,7 @@ people buying gifts.</p>
                         "family": "Gift designs for family and partners",
                         "halloween": "All-over print statement designs"}
         for t, lst in sorted(by_theme.items(), key=lambda x: -len(x[1])):
-            links = "".join(f'<li><a href="{i["url"]}">{esc(i["name"])}</a> - {esc(i["art"][:90])} '
+            links = "".join(f'<li><a href="{esc(store_href(i))}">{esc(i["name"])}</a> - {esc(i["art"][:90])} '
                             f'(${i["price"]:.2f})</li>' for i in lst[:8])
             secs += f"<h2>{theme_titles.get(t, t.title())}</h2><ul>{links}</ul>"
         path = f"/guides/{c['slug']}-buying-guide/"
@@ -5151,7 +5220,7 @@ def page_fti():
         picks = products_for_entity(ckey, r["name"], 2)
         if picks:
             shop = "".join(
-                f'<a class="moment-shop" href="{p["url"]}">{esc(p["name"])} · ${p["price"]:.2f}</a>'
+                f'<a class="moment-shop" href="{esc(store_href(p))}">{esc(p["name"])} · ${p["price"]:.2f}</a>'
                 for p in picks)
         elif r.get("gap"):
             shop = ('<span class="fti-gap">Trending — no design in the locker yet. '
@@ -5942,6 +6011,7 @@ def assets():
         blob = " ".join([it["name"], it["art"], " ".join(it["kw"] or []),
                          c["name"], c["short"], c["city"], it["garment"], it["theme"]])
         srows.append({"n": it["name"], "u": it["url"], "i": it["front"],
+                      "s": store_href(it),
                       "b": it.get("buy") or it.get("source_url") or "",
                       "t": it["col"], "ts": c["short"], "g": it["garment"],
                       "p": it["price"], "h": 1 if it.get("trend") == "hot" else 0,
@@ -6954,9 +7024,13 @@ document.querySelectorAll('a.custom-link').forEach(function(a){
   var TAG=CRE?('creator='+encodeURIComponent(CRE)+'&utm_source=creator'
               +'&utm_medium=referral&utm_campaign=creator-'+encodeURIComponent(CRE))
              :'';
+  // A search result is a product card, so it opens the product page that
+  // takes the order (row.s, built by store_href in src/build.py) rather than
+  // this site's own /shop/ record. A creator locker keeps its own tag so the
+  // order stays attributed to that creator.
   function shopHref(it){
-    if(!CRE||!it.b)return '';
-    return it.b+(it.b.indexOf('?')<0?'?':'&')+TAG;
+    if(CRE&&it.b)return it.b+(it.b.indexOf('?')<0?'?':'&')+TAG;
+    return it.s||it.b||'';
   }
   function matches(term){
     if(!DATA)return [];

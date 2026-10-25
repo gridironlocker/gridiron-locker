@@ -88,7 +88,10 @@ def build_drops_cards(drops, model_lookup, collections):
         }.get(ckey, "#111")
         img = prod.get("front", d.get("image", ""))
         back = prod.get("back") or img
-        url = prod.get("url", f"/shop/{slug}/")
+        # A drop card is a product card: it opens the store's product page
+        # (``card_url``, stamped in src/build.py) rather than this site's
+        # own /shop/ record.
+        url = prod.get("card_url") or prod.get("url") or f"/shop/{slug}/"
         garment = prod.get("garment", "Tee")
         price = f"${prod['price']:.2f}"
         trend_chip = ('<span class="drop-trend">Trending</span>'
