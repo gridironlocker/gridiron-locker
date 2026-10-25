@@ -10,12 +10,9 @@ This file is the exact spec to type into the Mayzing dashboard. Everything below
 is a **dashboard setting**, not a code change: no URL parameter can carry a palette,
 and a Mayzing store has one theme for every creator.
 
-Two things are already handled on our side and need no action:
-
-- every product card opens the store's own product page, tagged (`?creator=…&utm_…`),
-  so attribution survives the jump (`store_href()` in `src/build.py`);
-- every creator grid says where the checkout happens before a card is tapped
-  ("Secure checkout on gridironlocker.shop").
+One thing is already handled on our side and needs no action: every product card
+opens the store's own product page, tagged (`?creator=…&utm_…`), so attribution
+survives the jump (`store_href()` in `src/build.py`).
 
 ---
 
