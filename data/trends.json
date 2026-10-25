@@ -76,10 +76,10 @@
     "rumors",
     "gets",
     "deadline",
-    "quinshon",
-    "judkins",
-    "questionable",
-    "preview"
+    "preview",
+    "score",
+    "live",
+    "stream"
    ],
    "headline_count": 100,
    "moments": [],
@@ -87,7 +87,7 @@
     {
      "name": "deshaun watson",
      "mentions": 6,
-     "index": 60,
+     "index": 38,
      "status": "trending",
      "gap": true,
      "shoppable": false
@@ -95,7 +95,7 @@
     {
      "name": "shedeur sanders",
      "mentions": 4,
-     "index": 40,
+     "index": 25,
      "status": "trending",
      "gap": false,
      "shoppable": true
@@ -103,7 +103,7 @@
     {
      "name": "todd monken",
      "mentions": 3,
-     "index": 30,
+     "index": 19,
      "status": "trending",
      "gap": true,
      "shoppable": false
@@ -111,7 +111,7 @@
     {
      "name": "denzel ward",
      "mentions": 2,
-     "index": 20,
+     "index": 12,
      "status": "steady",
      "gap": false,
      "shoppable": true
@@ -119,7 +119,7 @@
     {
      "name": "myles garrett",
      "mentions": 2,
-     "index": 20,
+     "index": 12,
      "status": "steady",
      "gap": false,
      "shoppable": true
@@ -185,16 +185,16 @@
      "pub": "Sat, 24 Oct 2026 14:30:00 GMT"
     },
     {
-     "title": "Packers injury report: Love, Golden, Watson added",
-     "url": "https://news.google.com/rss/articles/CBMijwFBVV95cUxQM2dwU1FLam8tcGppRzgyNFJxdmZESk96WF9GeDhKR1RsdzN5dkxKdlhHVW1TTk15bjhmb2kyLW94dHR2MXVIbERrWVdsOF90WGRzUWJhNlNoUWxfNHZJeUFORmtRbGhoZk01eWlPa0dxaDg2NDlLTTNZXzJhVk96VmZKYk9KajRhbzE0bm9KNA?oc=5",
-     "source": "WLUK",
-     "pub": "Wed, 21 Oct 2026 23:11:18 GMT"
-    },
-    {
      "title": "Packers announce roster moves | Oct. 17, 2026",
      "url": "https://news.google.com/rss/articles/CBMiekFVX3lxTE5NTmkyOVpKMkQ1SUFFNFNFdEtlSlhNMV9LcFhnQnV3dHlEUDhvTzZXOWJOT2lCbXF1ajdkUFVXamtnWmo2WnE3TVRjek9MYVJGSjJYOGp4SnJLLXVrN1NjcXpCT256YzdPNmtEMkw1c2VlQ2ZjVG8zampn?oc=5",
      "source": "Green Bay Packers \u2013 packers.com",
      "pub": "Sat, 17 Oct 2026 20:01:12 GMT"
+    },
+    {
+     "title": "Green Bay Packers News: The Packers\u2019 path is getting steeper",
+     "url": "https://news.google.com/rss/articles/CBMixAFBVV95cUxPQVlkbFZYZm81V0ZEN2MxTkhBZm5ES1Z5OXExdC1nR0ZmclpTdjhZbnRjQUN1bzZjUXFyVWRtdFhfNmdtbmhUMTRpbHlJN3ZITFV0a2hCN09VZ2Y3NUczRWx5eXFaQUdzMnA1Mlk2el83MEFTVXViUVZFN281ZE8yMXFCVzRqa3NuNXZnX2xDd0FmY1Iwb2JXN1d3Yy1EMzVXaFRRQXBfcTNFcmdvTlZYdVhuaGxyMnhMdDctYkM4ZlpzbTk1?oc=5",
+     "source": "Acme Packing Company",
+     "pub": "Thu, 22 Oct 2026 16:56:29 GMT"
     }
    ],
    "entity_mentions": {
@@ -208,15 +208,15 @@
     "packers",
     "green",
     "cowboys",
+    "watch",
     "josh",
     "jacobs",
-    "watch",
     "detroit",
     "injury",
     "odds",
-    "sunday",
     "victory",
-    "love"
+    "love",
+    "sunday"
    ],
    "headline_count": 100,
    "moments": [
@@ -235,7 +235,7 @@
     {
      "name": "josh jacobs",
      "mentions": 9,
-     "index": 90,
+     "index": 56,
      "status": "trending",
      "gap": true,
      "shoppable": false
@@ -243,7 +243,7 @@
     {
      "name": "micah parsons",
      "mentions": 6,
-     "index": 60,
+     "index": 38,
      "status": "trending",
      "gap": false,
      "shoppable": true
@@ -251,7 +251,7 @@
     {
      "name": "jordan love",
      "mentions": 4,
-     "index": 40,
+     "index": 25,
      "status": "trending",
      "gap": false,
      "shoppable": true
@@ -259,7 +259,7 @@
     {
      "name": "matt lafleur",
      "mentions": 1,
-     "index": 10,
+     "index": 6,
      "status": "steady",
      "gap": false,
      "shoppable": false
@@ -353,7 +353,7 @@
     {
      "name": "dak prescott",
      "mentions": 10,
-     "index": 100,
+     "index": 62,
      "status": "trending",
      "gap": true,
      "shoppable": false
@@ -361,7 +361,7 @@
     {
      "name": "ceedee lamb",
      "mentions": 2,
-     "index": 20,
+     "index": 12,
      "status": "steady",
      "gap": false,
      "shoppable": false
@@ -375,10 +375,22 @@
    "query": "Michigan Wolverines football",
    "headlines": [
     {
+     "title": "Wolverine Thoughts: Michigan Football Has One Clear Direction After Win Over Penn State",
+     "url": "https://news.google.com/rss/articles/CBMi1AFBVV95cUxNdTVGbUNSb0IxOURlNm80S1dBSGs5QjFZTjhnX1BSREN2Z0FYbVo2Vk9fQnRucUdXMWtjRnduanhIRDNaaFNtQU5WU3VOSFhPOGwwQlp4SnN3ZVE1U0JfWVE1aktjdGhMSWJUZWM1VUJtREMycF91QV9zVnI2QXFBVTl1MmxKNWRuLU9iTlBpUmtheWI0YW9TVkhqUkgtcHRXVVJMZEpSa2ZFQ052dzVrU0VDY19XYWhJTDBQTGo2d2ZON3B6UFZwTXh3XzhDZHA1VHY0Wg?oc=5",
+     "source": "Sports Illustrated",
+     "pub": "Sun, 18 Oct 2026 11:00:05 GMT"
+    },
+    {
      "title": "How to Watch Indiana vs. Michigan: TV Channel, Live Stream, Time - October 24, 2026",
      "url": "https://news.google.com/rss/articles/CBMisAFBVV95cUxQYllWa3RJWFktSFFYOFMtaDVXbC1ndU1qdWhSd194Mnd6cm40WGEwVlhIMlNyN0dtWjJma19kU09xeXFSVGJZZS1pVTJXWUxyNkdFTmc0M1hIeklENEY3aURvdHA0eDd0Vjhha3ZRUlVKM2FwSnFjVl9RYzNiNEdXTFRPV2lPNzJqVlM3Z1NHdjJ1RHU2Ri1uQWZEVm1TcWpfM3JkZDY3MGxwU1MwWWZWdA?oc=5",
      "source": "FOX Sports",
      "pub": "Sat, 24 Oct 2026 12:00:38 GMT"
+    },
+    {
+     "title": "Rushing Attack, Turnovers Lead Michigan Past Penn State for First Big Ten Win",
+     "url": "https://news.google.com/rss/articles/CBMixgFBVV95cUxPd2dRN0tnMDY1U1V4ckVmbm1yUERzVkZldFhCdWYtWDM4THFGblVIc3FxaGtscFVxNTVXX1E4NnN2QUlGVlhYTUs5d3g0Y2ZMMkE4a0lYSFFFdkVGZ3MwNWNFYjVabG9xOVpqM1FETWk2bFBhUHhZWFpqdlp4Tm45NFBHcV9USlFqb0dWVHNZUU1aSlVxejJVc0V6NmtJV3YxMUdUZUNhSFNFdGM0V01sc2luMlNodW9aZlhtNDZBV1R3RHVkaUE?oc=5",
+     "source": "University of Michigan Athletics",
+     "pub": "Sat, 17 Oct 2026 07:00:00 GMT"
     },
     {
      "title": "Indiana vs. Michigan: How to watch today's NCAA college football game, where to stream and more",
@@ -387,16 +399,16 @@
      "pub": "Sat, 24 Oct 2026 10:10:00 GMT"
     },
     {
-     "title": "3 Instant Takeaways From Michigan's Disheartening Overtime Loss to Indiana",
-     "url": "https://news.google.com/rss/articles/CBMiyAFBVV95cUxNWFkxZlhWUGczN2ROa3ZWX25PcXAya3FKQzNveTFTMlVuUkpQUC1ZWjQzd3RnV3Z3NFBNWDN2b3VrUFVOa1N0eE90RERMWmhpYlRWRjctX3pROW5SWjNTMnQ1QWFHcHlLV203Ti1kNk5qS3RVUHVpM3diVHVyamdqLVdhbmMycHNhalhIeWZlczd0QkEydG5LUmxJblk4dmhBN0o1bGNsNVJWdUZzLWdjY1BEWXRJUUs3M1Q1TEt4XzFGcXk1U0xKbA?oc=5",
-     "source": "Sports Illustrated",
-     "pub": "Sat, 24 Oct 2026 19:32:41 GMT"
+     "title": "5 takeaways from Michigan Football\u2019s win vs Penn State",
+     "url": "https://news.google.com/rss/articles/CBMizAFBVV95cUxPNEQ1ZW5iQURKcmlJSzBwbzRWSklMNDhCRGNiZm1mMkRvT2FDNy1tUDZXbjZFRmZvc192WnRjZ2NaUGxfcElPbnpZZU9SdEZYRnYtaXgzZVBhZU9fWExrby04N3RZZTBLa3ViM3BaaXR6YnFtWU9idUdwVS1jQi13TUkxUHlSQWlJRnpvUjh4Wmc2TXczSm01RHUyRXMzR2g4RTNxdlotVWpBZEozWWszM0dTc2FkenlhTl9fbldxQ0FITnZIRTF2ZG9rWkM?oc=5",
+     "source": "Maize n Brew",
+     "pub": "Sat, 17 Oct 2026 07:00:00 GMT"
     },
     {
-     "title": "Michigan Wolverines QB Tommy Carr has 'poise' that's 'second to none'",
-     "url": "https://news.google.com/rss/articles/CBMimgFBVV95cUxOQWlOQUVlZ2NCWnpmZlB6RjRST1daN2p4UDc2MFR4VmxIcnp1TG4ySHBOaHpLUmdkNWZQeHRnOVFfOW5WMGdWNEpXWVVMS2E4TGxjWmxVeHF6X1Jjdm5CaGVZZ1BhdkV0N3luZGVDV1JjdDBOUDJFdFhSSWd2SlR4NmtYeXNraGlDWmozUmlXWXBiYW5hS2liWEFB?oc=5",
+     "title": "Michigan 21-18 Penn State (Oct 17, 2026) Game Recap",
+     "url": "https://news.google.com/rss/articles/CBMibEFVX3lxTE5tbFI4UkJlbC1JWHVaUWk1N0JSMGQzM09LbGVWdmJ1RUZNdzU1OWdqc2dzUFBDY3ZmcnBtVDlmRnB0VFAtNVFHcXQ4VXJuTWJWcm9xWUhoSzRBdkFFTjlIQWxuRHo2eDhIX2pwRA?oc=5",
      "source": "ESPN",
-     "pub": "Fri, 23 Oct 2026 10:15:00 GMT"
+     "pub": "Sat, 17 Oct 2026 07:00:00 GMT"
     },
     {
      "title": "Where to watch Michigan football vs Indiana, Week 8 time, TV channel",
@@ -405,28 +417,16 @@
      "pub": "Sat, 24 Oct 2026 16:18:00 GMT"
     },
     {
-     "title": "!+[\ud835\udc12\ud835\udc13ream]HERE'S*! Michigan Wolverines Football \ud835\udc0b\ud835\udc08\ud835\udc15\ud835\udc04 \uff2f\uff2e \uff34\uff56 \uff23\uff48\uff41\uff4e\uff4e\uff45\uff4c 17 October 2026",
-     "url": "https://news.google.com/rss/articles/CBMiuwJBVV95cUxPSWgyWUtQWFU5aGdYNFp3LVNWTVJOV21WdGRhLWZicFk4dkNBZUZyZzZYNzJXRG1UUXZqLXpRX0JWcGN0R2U5ZHRZU2NKTm81VnlkSEhfWWd1eFkwMVVQZ09uQjQyYjdXdUpFbHRISXlCRVh1LUpNamJFek5uc0FrcWlnazRlbC16R3l1NXBOR3ZqeEZBTDJfa0J3eHhNRkdPcU5WdGJXUHh3OXd5cmtrZFJWMVZFOTJHeEtDRzU2a09XaWJScHFfX0UzeExZempEdGtINWtIbjgwRGlGdGhKMVE2UXJseXhGNmtQQ29leERmcEZpcWVrSmwtdDI1NDFYelZwTVNNT0hESzNLUGMwbVhpZU9hbG02X25JSWJkd0JMNEdHLW1GSnpqOHluaUtsT1Vmamh2anFGOWc?oc=5",
-     "source": "Universidad de C\u00f3rdoba (UCO)",
-     "pub": "Sat, 17 Oct 2026 19:50:13 GMT"
-    },
-    {
-     "title": "How to watch Indiana vs Michigan: Live stream College Football, NCAA, TV channel",
-     "url": "https://news.google.com/rss/articles/CBMihgFBVV95cUxOQno3ZHVwdGM0eWV4TThqSDdQdUV5azdBbjJlUVFONEFjUUNyZDlFai1Zb0FDV1k2R2JPeWgzZ2hxTlppS1oxdWVZdkZDMmljWGVWcG9GY0Z3OGRfN29TRlZoYU1CU2g4SVNfUHlWakRqZEtFdklIRHZZVl8yTFd1cjVXN01sdw?oc=5",
-     "source": "Yahoo Sports",
-     "pub": "Sat, 24 Oct 2026 15:00:00 GMT"
-    },
-    {
-     "title": "No. 6 Indiana Hoosiers vs Michigan Wolverines Highlights | FOX College Football",
-     "url": "https://news.google.com/rss/articles/CBMiYkFVX3lxTE9yVUtpaW0zVkpmRDBXLXk3UTVWUmRldFVSU0FsMVc0N0U1QnJLYUctbS1SZ0FtNm1lX2lrc3hrbnFnSFliLTNWOUxWX1c3WEhPSjlaMFEtVFNidkU3TFJZVUNR?oc=5",
-     "source": "FOX Sports",
-     "pub": "Sat, 24 Oct 2026 20:23:22 GMT"
+     "title": "3 things we learned: Why Michigan looked better across the board with Tommy Carr",
+     "url": "https://news.google.com/rss/articles/CBMizwFBVV95cUxPZ0hFSGxBdjI5cVF6ZEhMeGR6V2tmVlZReEx1SktSSmZQaTFGcWphZldwYVlhRksxTEtNMVlqR3NDR0I1Y25BUU1aQnpZTlBTTjVlNndHaEZqOXJnZndJRUctSVFuU3A4MzBaam05UVVzYTFsMjc1WnprTFU3bnpKQkVwWVFfeHVockh3WDY5YXEwLVZWX09DTVpJX2RHaGMzNjhvZkMwem9hamc1d1FMVW9abHI4TmhZaS13R0llOE82cU1QajE3NHZPbUxOeG_SAeMBQVVfeXFMT3Z6SUFIeVlIZDZmTTFnWG5uSGNrTTlLMWNVVFBVelJnNnhvWGV3YnVzZXNocThfODVmdTZQbzlqWlVnZDBtdVZhcmU5b1d6d3FZMjVyaUNqREoybkdLSnUtcVRuQXVfbzd3ZVdFdm9KU0lzbFJFSVA1blVrakFTbG1VVFQ0dHRudklkSGVvNDJMVGQyak5UbHU1Ump0amtuZWg4RlNCa09PNVJmVVAxX3NnYXFHcFFxTnJjb1h1Tzg3bGhyZ2gtOXNhY1BCWE1MdjM0WS1NWFZrYzZqbGV2VEkwYlU?oc=5",
+     "source": "MLive.com",
+     "pub": "Mon, 19 Oct 2026 15:24:00 GMT"
     }
    ],
    "entity_mentions": {
-    "bryce underwood": 6,
+    "bryce underwood": 16,
     "jj mccarthy": 0,
-    "kyle whittingham": 5,
+    "kyle whittingham": 6,
     "jordan marshall": 0
    },
    "top_terms": [
@@ -434,30 +434,30 @@
     "football",
     "indiana",
     "wolverines",
-    "live",
-    "october",
     "hoosiers",
-    "free",
-    "loss",
     "carr",
     "tommy",
-    "watch"
+    "state",
+    "penn",
+    "live",
+    "watch",
+    "underwood"
    ],
    "headline_count": 100,
    "moments": [],
    "fan_trend_index": [
     {
      "name": "bryce underwood",
-     "mentions": 6,
-     "index": 60,
+     "mentions": 16,
+     "index": 100,
      "status": "trending",
      "gap": false,
      "shoppable": true
     },
     {
      "name": "kyle whittingham",
-     "mentions": 5,
-     "index": 50,
+     "mentions": 6,
+     "index": 38,
      "status": "trending",
      "gap": true,
      "shoppable": false
@@ -483,14 +483,23 @@
  },
  "fan_trend_index": {
   "formula": "round(100 * entity_mentions / peak_mentions_in_window)",
-  "peak_mentions": 10,
+  "peak_mentions": 16,
   "window_days": 10,
   "generated": "2026-10-25",
   "rows": [
    {
+    "name": "bryce underwood",
+    "mentions": 16,
+    "index": 100,
+    "status": "trending",
+    "gap": false,
+    "shoppable": true,
+    "collection": "michigan"
+   },
+   {
     "name": "dak prescott",
     "mentions": 10,
-    "index": 100,
+    "index": 62,
     "status": "trending",
     "gap": true,
     "shoppable": false,
@@ -499,52 +508,43 @@
    {
     "name": "josh jacobs",
     "mentions": 9,
-    "index": 90,
+    "index": 56,
     "status": "trending",
     "gap": true,
     "shoppable": false,
     "collection": "green-bay-packers"
    },
    {
-    "name": "bryce underwood",
-    "mentions": 6,
-    "index": 60,
-    "status": "trending",
-    "gap": false,
-    "shoppable": true,
-    "collection": "michigan"
-   },
-   {
     "name": "deshaun watson",
     "mentions": 6,
-    "index": 60,
+    "index": 38,
     "status": "trending",
     "gap": true,
     "shoppable": false,
     "collection": "cleveland-browns"
    },
    {
-    "name": "micah parsons",
-    "mentions": 6,
-    "index": 60,
-    "status": "trending",
-    "gap": false,
-    "shoppable": true,
-    "collection": "green-bay-packers"
-   },
-   {
     "name": "kyle whittingham",
-    "mentions": 5,
-    "index": 50,
+    "mentions": 6,
+    "index": 38,
     "status": "trending",
     "gap": true,
     "shoppable": false,
     "collection": "michigan"
    },
    {
+    "name": "micah parsons",
+    "mentions": 6,
+    "index": 38,
+    "status": "trending",
+    "gap": false,
+    "shoppable": true,
+    "collection": "green-bay-packers"
+   },
+   {
     "name": "jordan love",
     "mentions": 4,
-    "index": 40,
+    "index": 25,
     "status": "trending",
     "gap": false,
     "shoppable": true,
@@ -553,7 +553,7 @@
    {
     "name": "shedeur sanders",
     "mentions": 4,
-    "index": 40,
+    "index": 25,
     "status": "trending",
     "gap": false,
     "shoppable": true,
@@ -562,7 +562,7 @@
    {
     "name": "todd monken",
     "mentions": 3,
-    "index": 30,
+    "index": 19,
     "status": "trending",
     "gap": true,
     "shoppable": false,
@@ -571,7 +571,7 @@
    {
     "name": "ceedee lamb",
     "mentions": 2,
-    "index": 20,
+    "index": 12,
     "status": "steady",
     "gap": false,
     "shoppable": false,
@@ -580,7 +580,7 @@
    {
     "name": "denzel ward",
     "mentions": 2,
-    "index": 20,
+    "index": 12,
     "status": "steady",
     "gap": false,
     "shoppable": true,
@@ -589,7 +589,7 @@
    {
     "name": "myles garrett",
     "mentions": 2,
-    "index": 20,
+    "index": 12,
     "status": "steady",
     "gap": false,
     "shoppable": true,
@@ -598,7 +598,7 @@
    {
     "name": "matt lafleur",
     "mentions": 1,
-    "index": 10,
+    "index": 6,
     "status": "steady",
     "gap": false,
     "shoppable": false,
