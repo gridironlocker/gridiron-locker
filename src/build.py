@@ -3864,7 +3864,7 @@ def _girly_body(cre, c, items, track):
  <div class="gcollection-head">
   <p class="goverline">{esc(collection_overline)}</p>
   <h2>{esc(collection_heading)}</h2>
-  <p>{esc(collection_desc)}</p>
+  {("  <p>" + esc(collection_desc) + "</p>") if collection_desc else ""}
   {promo_line}
  </div>
  <div class="ggrid" id="{grid_id}"{grid_attrs}>{"".join(cards)}</div>
