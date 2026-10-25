@@ -1834,6 +1834,9 @@ body[data-creator-page="TYPICALBROWNS"] .jlock-girly .gbanner-facts{color:#cbb49
 body[data-creator-page="TYPICALBROWNS"] .jlock-girly .gbanner-link{color:#f6ead9;
   text-decoration-color:rgba(246,234,217,.38)}
 body[data-creator-page="TYPICALBROWNS"] .jlock-girly .gbanner-link:hover{color:#ff8f45}
+/* Keep his hat clear of the top edge: the panel crops ~100px of the photo's
+   height at desktop widths, and the photo is framed tight. */
+body[data-creator-page="TYPICALBROWNS"] .jlock-girly .gbanner-photo{object-position:100% 12%}
 /* The social pills carry their emoji alone (girly.social_text is False on this
    page), so they need the square tap target the label used to give them. */
 body[data-creator-page="TYPICALBROWNS"] .gsocial-top .gsocial-link{justify-content:center;
