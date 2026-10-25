@@ -1428,6 +1428,50 @@ footer .logo{color:var(--ink)}
   main.jlock{padding-bottom:82px}
 }
 
+/* ============ CREATOR LOCKUP ============
+   The masthead a collaboration page carries in place of the storefront
+   wordmark (src/build.py :: girly_logo()): a monogram seal, her name in the
+   display serif with its emblem, and a tracked small-caps line under a
+   hairline rule. The SHAPE lives here once, so all seven lockers stay
+   identical; the skin blocks further down only set --glogo-ink,
+   --glogo-accent, --glogo-rule and the seal's paper. */
+.logo.glogo{--glogo-ink:var(--ink);--glogo-accent:var(--ca);--glogo-rule:#c9a24a;
+  gap:0;color:var(--glogo-ink);text-decoration:none}
+.glogo-lockup{display:flex;align-items:center;gap:11px;line-height:1}
+/* The seal: two concentric hairlines around the monogram - the ring is the
+   whole "premium" cue, so it stays a hairline and never a heavy border. */
+.glogo-seal{position:relative;flex:none;display:grid;place-items:center;width:38px;height:38px;
+  border:1px solid var(--glogo-rule);border-radius:50%;
+  background:linear-gradient(160deg,#fffdf9,#f2e7d5)}
+.glogo-seal::before{content:"";position:absolute;inset:3px;border:1px solid var(--glogo-rule);
+  border-radius:50%;opacity:.45}
+.glogo-mono{font-family:'Playfair Display',Georgia,'Times New Roman',serif;font-size:1.02rem;
+  font-weight:600;line-height:1;letter-spacing:.03em;color:var(--glogo-ink)}
+.glogo-word{display:flex;flex-direction:column;align-items:flex-start;gap:4px}
+.glogo-top{display:flex;align-items:center;gap:5px}
+.glogo-name{font-family:'Playfair Display',Georgia,'Times New Roman',serif;font-size:1.19rem;
+  font-weight:600;line-height:1;letter-spacing:.004em;color:var(--glogo-ink)}
+.glogo-mark{display:inline-flex;align-items:center;color:var(--glogo-accent);
+  font-size:.72rem;line-height:1}
+.glogo-mark svg{display:block;width:11px;height:11px}
+.glogo-sub{position:relative;padding-top:5px;font-family:var(--font);font-size:.55rem;
+  font-weight:800;letter-spacing:.3em;line-height:1;text-transform:uppercase;
+  color:var(--glogo-accent)}
+.glogo-sub::before{content:"";position:absolute;top:0;left:0;right:.3em;height:1px;
+  background:var(--glogo-rule);opacity:.55}
+.logo.glogo:hover .glogo-name{color:var(--glogo-accent)}
+.logo.glogo:focus-visible{outline:2px solid var(--glogo-rule);outline-offset:6px;
+  border-radius:999px}
+/* Phones: the seal and the name step down so the search control (and, on
+   Yvette's locker, her two account pills) still fit in the 64px row. */
+@media(max-width:430px){
+  .glogo-lockup{gap:8px}
+  .glogo-seal{width:32px;height:32px}
+  .glogo-mono{font-size:.9rem}
+  .glogo-name{font-size:1.04rem}
+  .glogo-sub{font-size:.5rem;letter-spacing:.24em}
+}
+
 /* =============================================================
    CREATOR COLLABORATION - BELLA'S CLEAN APPAREL LOCKER
    -------------------------------------------------------------
@@ -1435,16 +1479,16 @@ footer .logo{color:var(--ink)}
    Every selector is scoped to Bella's page; Joe and the main store
    keep their existing colours and typography.
    ============================================================= */
+/* Joe's locker keeps the storefront header, but its masthead is his own:
+   navy ink, an antique-gold ring and the maize accent on the emblem. */
+body[data-creator-page="JOE"] .logo.glogo{--glogo-ink:#14233d;--glogo-accent:#a8873c;
+  --glogo-rule:#a8873c;color:#14233d}
+body[data-creator-page="JOE"] .glogo-seal{background:linear-gradient(160deg,#fff,#eef1f6)}
 body[data-creator-page="BELLA"]{background:#efefed;color:#182d4d}
 body[data-creator-page="BELLA"] header{background:#efefed;border-bottom:1px solid #d9d9d5}
-body[data-creator-page="BELLA"] .logo.glogo{gap:0;color:#182d4d}
-body[data-creator-page="BELLA"] .glogo-lockup{display:flex;flex-direction:column;align-items:flex-start;line-height:.9}
-body[data-creator-page="BELLA"] .glogo-top{display:flex;align-items:center;gap:4px}
-body[data-creator-page="BELLA"] .glogo-heart{color:#e99aaa;font-size:1rem;line-height:1}
-body[data-creator-page="BELLA"] .glogo-script{font-family:'Caveat','Segoe Script','Brush Script MT',cursive;
-  font-size:1.68rem;font-weight:700;line-height:.95;letter-spacing:.01em;color:#182d4d}
-body[data-creator-page="BELLA"] .glogo-serif{margin:3px 0 0 5px;color:#d9899a;font-family:var(--font);
-  font-size:.53rem;font-weight:800;letter-spacing:.22em;line-height:1;text-transform:uppercase}
+body[data-creator-page="BELLA"] .logo.glogo{--glogo-ink:#182d4d;--glogo-accent:#bd7181;
+  --glogo-rule:#d8b48c;color:#182d4d}
+body[data-creator-page="BELLA"] .glogo-seal{background:linear-gradient(160deg,#fff,#f3ebe6)}
 body[data-creator-page="BELLA"] .nav{height:68px}
 body[data-creator-page="BELLA"] .searchbtn{color:#182d4d}
 body[data-creator-page="BELLA"] .bellanav{position:relative;z-index:58;background:#efefed;border-bottom:1px solid #deded9}
@@ -1787,14 +1831,9 @@ main.jlock-girly{padding:0 0 32px;overflow:hidden}
    ============================================================= */
 body[data-creator-skin="browns"]{background:#f4ead9;color:#2c1a0f}
 body[data-creator-skin="browns"] header{background:#f4ead9;border-bottom:1px solid #dfcbb0}
-body[data-creator-skin="browns"] .logo.glogo{gap:0;color:#2c1a0f}
-body[data-creator-skin="browns"] .glogo-lockup{display:flex;flex-direction:column;align-items:flex-start;line-height:.9}
-body[data-creator-skin="browns"] .glogo-top{display:flex;align-items:center;gap:5px}
-body[data-creator-skin="browns"] .glogo-heart{display:inline-flex;color:#c85a1c;font-size:1rem;line-height:1}
-body[data-creator-skin="browns"] .glogo-script{font-family:'Caveat','Segoe Script','Brush Script MT',cursive;
-  font-size:1.68rem;font-weight:700;line-height:.95;letter-spacing:.01em;color:#2c1a0f}
-body[data-creator-skin="browns"] .glogo-serif{margin:3px 0 0 5px;color:#c85a1c;font-family:var(--font);
-  font-size:.53rem;font-weight:800;letter-spacing:.22em;line-height:1;text-transform:uppercase}
+body[data-creator-skin="browns"] .logo.glogo{--glogo-ink:#2c1a0f;--glogo-accent:#c85a1c;
+  --glogo-rule:#c8a24a;color:#2c1a0f}
+body[data-creator-skin="browns"] .glogo-seal{background:linear-gradient(160deg,#fffaf2,#f0e2cb)}
 body[data-creator-skin="browns"] .nav{height:68px}
 body[data-creator-skin="browns"] .searchbtn{color:#2c1a0f}
 body[data-creator-skin="browns"] .bellanav{position:relative;z-index:58;background:#f4ead9;border-bottom:1px solid #e0cdb3}

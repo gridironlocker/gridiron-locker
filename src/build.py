@@ -1412,9 +1412,10 @@ def header(active="", hide_nav=False, logo="", hide_promo=False, social=""):
     promised state this site does not own, in the two slots a visitor's eye
     goes to first. The header's only job is product discovery.
 
-    ``logo`` is raw markup for the ONE page that carries its own masthead in
-    the logo row instead of the storefront wordmark (a girly creator page).
-    It defaults to "" so every other page's header - Joe's included - renders
+    ``logo`` is raw markup for the pages that carry their own masthead in the
+    logo row instead of the storefront wordmark: every creator collaboration
+    page (``girly_logo()``). It defaults to "" so every other page - the
+    storefront, the collection pages, the product pages - renders
     byte-identically.
 
     ``social`` is the same kind of opt-in: a creator locker that lists her own
@@ -3149,7 +3150,16 @@ def page_collection(k):
 GIRLY_FONTS = (
     '<link rel="stylesheet" href="https://fonts.googleapis.com/css2'
     "?family=Caveat:wght@400;600;700"
-    "&amp;family=Playfair+Display:ital,wght@0,500;0,700;0,800;1,500"
+    "&amp;family=Playfair+Display:ital,wght@0,500;0,600;0,700;0,800;1,500"
+    '&amp;display=swap">\n'
+)
+
+#: The creator lockup is set in Playfair Display (the seal's monogram, the
+#: name), so every page that carries it needs that face - and only that face:
+#: Joe's locker keeps the storefront layout, so Caveat would be dead weight.
+LOCKUP_FONTS = (
+    '<link rel="stylesheet" href="https://fonts.googleapis.com/css2'
+    "?family=Playfair+Display:wght@500;600;700"
     '&amp;display=swap">\n'
 )
 
@@ -3222,36 +3232,60 @@ def creator_apparel(cre, items, prefix="../../"):
             "counts": counts}
 
 
-def girly_logo(href, cre=None):
-    """The creator's own script lockup, drawn from ``cre['girly']``.
+def lockup_monogram(name):
+    """"Yvette" -> "Y", "Laquala Royal’s" -> "LR".
 
-    Bella's record only names ``hero_script``, so her lockup reads
-    "Bella’s ♡ COLLECTION" (heart mark). The script line is the creator's name,
-    so its first letter is upper-cased - a lockup that opened "bella’s" read
-    like a label rather than a signature - and the rest stays exactly as the
-    record authors it. A creator can
-    override the mark with ``lockup_mark_html`` (Crystal Marie uses a small
-    football instead of the heart), the serif line with ``lockup_serif`` and
-    the screen-reader label with ``lockup_label``.
-
-    ``logo_script`` decouples the lockup from the hero: both lines default to
-    ``hero_script`` (one name, two places), but a creator whose hero reads
-    "Elizabeth’s Collection" can keep the tight "Elizabeth" signature in the
-    masthead without slipping a possessive into a 27px lockup.
+    The monogram is the seal's lettering, so it reads the personal name and
+    drops the possessive the hero may carry: two initials at most, which is
+    as many as a 38px ring can hold without turning into a word.
     """
-    g = (cre or {}).get("girly", {})
+    clean = re.sub(r"(?:’|')s$", "", str(name).strip())
+    words = [w for w in re.split(r"\s+", clean) if w]
+    letters = "".join(w[0] for w in words[:2])
+    return (letters or str(name)[:1] or "G").upper()
+
+
+def girly_logo(href, cre=None):
+    """The creator's premium masthead lockup.
+
+    A collaboration page carries the creator's own masthead instead of the
+    storefront wordmark, and it is dressed like a label, not a sticker:
+
+    * a **seal** - a double hairline ring holding her monogram, drawn in the
+      page's display serif on a warm paper fill;
+    * her **name** in that same serif, with the small emblem the record already
+      ships (a football for the Browns lockers, a heart for Bella) beside it;
+    * a **tracked small-caps line** under a hairline rule ("COLLECTION"), the
+      one place the accent colour is allowed to speak twice.
+
+    Record keys are unchanged, so every locker keeps authoring its own copy:
+    ``logo_script`` (the name, defaulting to ``hero_script`` then the first
+    name), ``lockup_serif`` (the small-caps line), ``lockup_mark_html`` (the
+    emblem) and ``lockup_label`` (the screen-reader label). Shape and colours
+    live in ``src/style.css`` (``.glogo-*`` plus the per-skin ``--glogo-*``
+    values), so a new locker inherits the whole treatment.
+
+    The lockup is a link like the storefront one it replaces, and its label
+    names the destination: a screen reader hears "Yvette’s Collection home",
+    not a decorated word.
+    """
+    g = (cre or {}).get("girly") or (cre or {}).get("lockup") or {}
     first = (cre or {}).get("display_name", "Bella").split()[0]
-    script = str(g.get("logo_script") or g.get("hero_script") or first)
-    script = script[:1].upper() + script[1:]
+    name = str(g.get("logo_script") or g.get("hero_script") or first)
+    name = name[:1].upper() + name[1:]
     mark = g.get("lockup_mark_html") or "♡"
     serif = str(g.get("lockup_serif") or "COLLECTION")
     label = str(g.get("lockup_label") or f"{first}’s Collection home")
+    mono = lockup_monogram(name)
     return (
         f'<a class="logo glogo" href="{href}" aria-label="{esc(label)}">'
-        '<span class="glogo-lockup"><span class="glogo-top">'
-        f'<span class="glogo-script">{esc(script)}</span>'
-        f'<span class="glogo-heart" aria-hidden="true">{mark}</span></span>'
-        f'<span class="glogo-serif">{esc(serif)}</span></span></a>'
+        '<span class="glogo-lockup">'
+        '<span class="glogo-seal" aria-hidden="true">'
+        f'<span class="glogo-mono">{esc(mono)}</span></span>'
+        '<span class="glogo-word"><span class="glogo-top">'
+        f'<span class="glogo-name">{esc(name)}</span>'
+        f'<span class="glogo-mark" aria-hidden="true">{mark}</span></span>'
+        f'<span class="glogo-sub">{esc(serif)}</span></span></span></a>'
     )
 
 
@@ -4134,9 +4168,9 @@ def page_creator(ckey="joe"):
     write(f"{cre['page_slug']}/index.html",
           head(f"{cre['page_name']} | {BRAND}", cre_page_desc, path, hero_meta,
                schema, kw, col=ckey_col, body_attrs=body_attrs,
-               extra_head=GIRLY_FONTS if girly else "")
+               extra_head=GIRLY_FONTS if girly else LOCKUP_FONTS)
           + header(ckey_col, hide_nav=hide_nav, hide_promo=girly,
-                   logo=girly_logo(path, cre) if girly else "",
+                   logo=girly_logo(path, cre),
                    social=girly_socials(cre, top=True) if girly else "")
           + (girly_nav(cre,
                        has_apparel=bool(creator_apparel(
