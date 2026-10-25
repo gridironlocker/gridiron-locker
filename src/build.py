@@ -521,7 +521,10 @@ def creator_items(cre):
     Most creator lockers curate the live Gridiron Locker model. A locker may
     instead declare a small, source-backed ``store_catalogue`` when its
     products live on the creator's own partner storefront; those records stay
-    creator-scoped and never leak into the public Michigan catalogue. Missing
+    creator-scoped and never leak into the public catalogue. A creator can also
+    declare ``creator_additions``: a listing-scoped extra that reuses the
+    metadata of a live model item but carries its own supplier URL, slug and
+    product ID. Those additions appear only in that creator's locker. Missing
     or imageless records are skipped, and stale picks can never crash a build.
 
     ``picks`` decide what a visitor sees first; ``order: newest`` drops that
@@ -567,7 +570,7 @@ def creator_items(cre):
             if slug in by_slug and slug not in seen:
                 seen.add(slug)
                 out.append(by_slug[slug])
-        return out
+        return _with_creator_additions(cre, out, by_slug)
 
     by_slug = {x["slug"]: x for x in MODEL.get(cre.get("collection_key"), [])}
     picks = [s for s in cre.get("picks", []) if s in by_slug]
@@ -577,8 +580,9 @@ def creator_items(cre):
     # that catalogue order.
     if str(cre.get("order") or "").strip().lower() == "newest":
         keep = None if cre.get("include_collection") else set(picks)
-        return [item for slug, item in by_slug.items()
-                if keep is None or slug in keep]
+        out = [item for slug, item in by_slug.items()
+               if keep is None or slug in keep]
+        return _with_creator_additions(cre, out, by_slug)
     out, seen = [], set()
     for slug in picks:
         if slug in by_slug and slug not in seen:
@@ -593,6 +597,54 @@ def creator_items(cre):
             if slug not in seen:
                 seen.add(slug)
                 out.append(item)
+    return _with_creator_additions(cre, out, by_slug)
+
+
+def _with_creator_additions(cre, items, by_slug):
+    """Insert creator-scoped supplier listings beside their source design.
+
+    ``creator_additions`` does not add a product to the shared catalogue: each
+    row clones display details from an existing live item and overrides only
+    the public slug, supplier URL and product ID. A source item must exist and
+    the URL must point to the same supplier with the supplied product ID, so a
+    stale or malformed entry is safely ignored rather than becoming a dead
+    card.
+    """
+    additions = {}
+    used = {str(item.get("slug") or "") for item in items}
+    for row in cre.get("creator_additions", []) or []:
+        if not isinstance(row, dict):
+            continue
+        slug = str(row.get("slug") or "").strip()
+        source_slug = str(row.get("source_slug") or "").strip()
+        product_id = str(row.get("product_id") or "").strip()
+        buy_url = str(row.get("buy_url") or "").strip()
+        source = by_slug.get(source_slug)
+        if not slug or slug in used or not source or not product_id or not buy_url:
+            continue
+        parsed = urlsplit(buy_url)
+        source_url = str(source.get("buy") or source.get("source_url") or "")
+        source_host = urlsplit(source_url).netloc
+        query = dict(parse_qsl(parsed.query, keep_blank_values=True))
+        if (parsed.scheme != "https" or not source_host or parsed.netloc != source_host
+                or parsed.path.rstrip("/").rsplit("/", 1)[-1] != slug
+                or query.get("productId") != product_id):
+            continue
+        item = dict(source)
+        item.update(slug=slug, url=f"/shop/{slug}/", buy=buy_url,
+                    source_url=buy_url, product_id=product_id)
+        after_slug = str(row.get("after_slug") or source_slug)
+        additions.setdefault(after_slug, []).append(item)
+        used.add(slug)
+
+    if not additions:
+        return items
+    out = []
+    for item in items:
+        out.append(item)
+        out.extend(additions.pop(str(item.get("slug") or ""), []))
+    for remaining in additions.values():
+        out.extend(remaining)
     return out
 
 
