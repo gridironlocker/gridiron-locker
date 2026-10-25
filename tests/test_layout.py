@@ -3802,7 +3802,7 @@ class YvetteLocker(unittest.TestCase):
         self.assertIn("Bougie Sports", text)                              # the brand she runs
         self.assertIn("New Custom Design Request from Yvette's Browns Locker", text)
 
-    def test_her_accounts_are_linked_with_emoji_and_a_spoken_label(self):
+    def test_her_accounts_are_linked_with_brand_marks_and_a_spoken_label(self):
         # the row sits at the very top of the page: inside <header>, immediately
         # before the search field, and nowhere near the hero/
         start = self.html.find('class="gsocial gsocial-top"')
@@ -3825,14 +3825,20 @@ class YvetteLocker(unittest.TestCase):
         for block in links:
             self.assertIn('target="_blank"', block)
             self.assertIn('rel="noopener noreferrer"', block)
-            self.assertIn('class="gsocial-emoji" aria-hidden="true"', block)
+            # the platform's own mark, drawn inline - never an emoji
+            self.assertIn('class="gsocial-icon" aria-hidden="true"', block)
+            self.assertIn('<svg viewBox="0 0 24 24"', block)
+            self.assertNotIn("gsocial-emoji", block)
             self.assertIn('aria-label="Yvette on ', block)
             self.assertIn("(opens in a new tab)", block)
             # the pill shows the glyph alone; the handle moves to title
             self.assertIn('title="Yvette on ', block)
             self.assertIn("@bougiesports", block)
-        self.assertIn("🐦", unescape(x))
-        self.assertIn("🎵", unescape(tiktok))  # the standard music note
+        # the X logo and the TikTok mark, not the bird/note stand-ins
+        self.assertIn(self.build._SOCIAL_ICONS["x"], x)
+        self.assertIn(self.build._SOCIAL_ICONS["tiktok"], tiktok)
+        for emoji in ("🐦", "🎵"):
+            self.assertNotIn(emoji, unescape(row))
         # the accounts are in the structured data too, on a Person node
         nodes = [json.loads(b) for b in
                  re.findall(r'<script type="application/ld\+json">(.*?)</script>',

@@ -1,6 +1,6 @@
 # Hunt Report - 2026-10-25
 
-Generated: 2026-10-25 18:27 UTC by src/hunter_intelligence.py
+Generated: 2026-10-25 18:35 UTC by src/hunter_intelligence.py
 
 Ladder: SIGNAL 2 · TREND 0 · OPPORTUNITY 1 · ACTION 0 · HEADLINE 5
 
@@ -47,7 +47,7 @@ Fan connectors: no fan posts observed - reddit error (HTTP Error 403: Blocked); 
 - Commercial: campaign - Make Them Know Your Name $23.00 (sellable) - THEY FORGOT WHO I AM — QB1 belief
 - Why fans care: The whole fanbase is arguing one question: who starts. That is a belief argument, and belief is what a QB tee sells.
 - Tracked names: shedeur sanders (6 window mentions, FTI 33); deshaun watson (4 window mentions, FTI 22); todd monken (2 window mentions, FTI 11)
-  - Their team is winning. Their QB is a pariah. What’s a Browns fan to do? - The Washington Post - google_news (2 h ago) https://news.google.com/rss/articles/CBMipAFBVV95cUxPdGNISHJZbF9uRDdjM3ZuQ1h2V0tIc1hKV2RBN044ZUVLT29MMFBETDZJcFZTT3VqcVdha3NDbzRQYTZrcVZoOVU2SUN2OGFTVUc5MzRvX3BEZTJTMXpITDFCS2JpMWt5aV9zMDdyWWwwZDltZjM3TWdDcTVqLTVaNnZjNDI3YWIwWVZrTDg4WUdtMVhjRG9LNk9jU05KOG41Zm9raw?oc=5
+  - Their team is winning. Their QB is a pariah. What’s a Browns fan to do? - The Washington Post - google_news (3 h ago) https://news.google.com/rss/articles/CBMipAFBVV95cUxPdGNISHJZbF9uRDdjM3ZuQ1h2V0tIc1hKV2RBN044ZUVLT29MMFBETDZJcFZTT3VqcVdha3NDbzRQYTZrcVZoOVU2SUN2OGFTVUc5MzRvX3BEZTJTMXpITDFCS2JpMWt5aV9zMDdyWWwwZDltZjM3TWdDcTVqLTVaNnZjNDI3YWIwWVZrTDg4WUdtMVhjRG9LNk9jU05KOG41Zm9raw?oc=5
   - Todd Monken, Browns Make QB Move After Shedeur Sanders News - Athlon Sports - google_news (6 h ago) https://news.google.com/rss/articles/CBMinAFBVV95cUxNcllkQWk2eGhfWEpna3oyTXlrX1N6aTkzU0h6MmhsLWRiN0xwcGJHNHFZQk5YTkd3NjNZYXBqTmF5ZDBDX0kzbWVvQ1NTM0ZhYWhZdFF6TWdmZXdVS3NfZTlJbE42V0oweW1tdlFLdGpiSXlUR3VuSXFnVm5NbE9ZbVVCRFNueW1uQUh6Y1VLbjJ2TE1YZndxRWJsY2E?oc=5
   - Browns QB Shedeur Sanders Pegged for Deadline Exit - Heavy.com - google_news (9 h ago) https://news.google.com/rss/articles/CBMikgFBVV95cUxNM1dJZVdsSDFxUEx1ZnRRM0dVeVVleW5NM0tkWHU0Sno5QWhIVVJjelVzd2UxQWxEMXFvZ29yellOcEdYanZMWWJ2Vzl4SFJtLVRRYXJqdVF0T3F3QTAtWmo1SWoxUlRlOHZ3eGtLclZHdE5wc0FKencwV1FQd2JSbkFScy1OcUh1MnBXT1I1emFzdw?oc=5
   - What I’m Hearing: Deshaun Watson’s Cleveland future, Jonathan Taylor rumors, Lions’ LaPorta dilemma - The Athletic - The New York Times - google_news (1 d ago) https://news.google.com/rss/articles/CBMiwgFBVV95cUxOSTB5TEtFWE1kaDBzTVhIVkdPd0RqaDlXdUZBYzhYVXRIOHI0X3g4OEdpOW4wZExtaFAxVEotbFZDTHNRUzVHLXpKZHY5bW5Sb25IOUdfNDhGYTFxaVFlbVlYVFR5TjZHcTlMR1RjWnVwZlRCa1pkMkF1WEtxVmRpLUE1aUhCWkd2SFlBTjBMTHZrajJVMENSM05NSkRzWW1Eb0JpWWh3ZklWbjlEQ2tsa2VIejdBeE9UUmMyZEtjVGZWdw?oc=5
