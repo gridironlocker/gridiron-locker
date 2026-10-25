@@ -128,7 +128,9 @@ class SitemapDates(unittest.TestCase):
         # joined the sitemap (the page name carries emoji, the URL does not).
         # 2026-10-25: 125 -> 126 - Yvette's Browns collection page (/yvette/)
         # joined the sitemap.
-        self.assertEqual(len(self.rows), 126)
+        # 2026-10-25: 126 -> 127 - The Typical Browns Fan Show's collection page
+        # (/thetypicalbrownsfanshow) joined the sitemap.
+        self.assertEqual(len(self.rows), 127)
         self.assertEqual(len(self.rows), len(set(self.rows)))
         for url, lastmod in self.rows.items():
             self.assertTrue(url.startswith(build.DOMAIN + "/"), url)

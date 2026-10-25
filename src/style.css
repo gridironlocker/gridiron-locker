@@ -1818,6 +1818,12 @@ body[data-creator-skin="browns"] .bellanav-links a:focus-visible{outline:2px sol
 .jlock-girly[data-theme="browns"] .gbtn-maize:hover{background:#ad4a12}
 .jlock-girly[data-theme="browns"] .gbanner-link{color:#2c1a0f;text-decoration-color:rgba(44,26,15,.3)}
 .jlock-girly[data-theme="browns"] .gbanner-link:hover{color:#b8480f}
+/* The show host stands flush right in his photo, so the narrow-screen crop is
+   nudged right to keep his face inside the frame. Scoped to this one page: the
+   shared 66%/67% values stay put for every other creator hero. */
+@media(max-width:760px){
+  body[data-creator-page="TYPICALBROWNS"] .jlock-girly .gbanner-photo{object-position:78% center}
+}
 /* the promo bar: espresso plate, burnt-orange rule, warm cream code chip */
 .jlock-girly[data-theme="browns"] .gpromobar{background:#2c1a0f;color:#fff8ef;
   border-bottom:2px solid #c85a1c}
