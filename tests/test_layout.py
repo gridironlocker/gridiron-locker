@@ -2322,12 +2322,12 @@ class BellaLocker(unittest.TestCase):
         that authored "Bella’s" rendered "bella’s" in the handwriting face.
         Only the first letter is touched; the rest is the record's own casing.
         """
-        script = re.search(r'<span class="glogo-script">([^<]*)</span>', self.html)
+        script = re.search(r'<span class="glogo-name">([^<]*)</span>', self.html)
         self.assertIsNotNone(script)
         value = script.group(1)
         self.assertTrue(value[0].isupper(), value)
         self.assertEqual(value[0], "B")
-        serif = re.search(r'<span class="glogo-serif">([^<]*)</span>', self.html)
+        serif = re.search(r'<span class="glogo-sub">([^<]*)</span>', self.html)
         self.assertEqual(serif.group(1), "COLLECTION")
 
     def test_page_loads_app_js_exactly_once(self):
@@ -2664,8 +2664,9 @@ class BellaLocker(unittest.TestCase):
 
         The link now carries the creator's own canonical path (the same
         ``path`` page_creator canonicalises and sitemaps), so a future girly
-        creator page cannot inherit Bella's URL by accident. Every other page
-        - Joe's included - still renders the storefront wordmark -> homepage.
+        creator page cannot inherit Bella's URL by accident. Every creator
+        locker does the same - Joe's included, now that his page carries the
+        lockup - while the storefront pages keep the site wordmark -> homepage.
         """
         logo = re.search(r'<a class="logo glogo" href="([^"]+)"', self.html)
         self.assertIsNotNone(logo, "Bella's masthead lockup is missing")
@@ -2677,8 +2678,13 @@ class BellaLocker(unittest.TestCase):
         self.assertEqual(landing, os.path.join(SITE, "michigan", "bella"))
         self.assertTrue(os.path.isfile(os.path.join(landing, "index.html")))
         self.assertNotIn('class="logo glogo" href="../../"', self.html)
-        # Joe's page keeps the storefront wordmark, pointed at the homepage
-        self.assertIn('class="logo" href="../../"', self.joe)
+        # Joe's locker carries its own masthead too, pointed at his own page
+        joe = re.search(r'<a class="logo glogo" href="([^"]+)"', self.joe)
+        self.assertIsNotNone(joe, "Joe's locker carries its own lockup")
+        self.assertEqual(joe.group(1), "../../michigan/joe/")
+        # the storefront pages keep the site wordmark -> homepage
+        self.assertIn('<a class="logo" href="../">',
+                      page("michigan-wolverines-shirts/index.html"))
 
     def test_banner_store_link_is_hidden_when_the_creator_asks(self):
         """Bella's banner offers one action, not two: ``hide_banner_store_link``
@@ -3106,7 +3112,7 @@ class CrystalMarieLocker(unittest.TestCase):
         The first letter is upper-cased from the creator record; everything
         after it keeps the record's own casing.
         """
-        script = re.search(r'<span class="glogo-script">([^<]*)</span>', self.html)
+        script = re.search(r'<span class="glogo-name">([^<]*)</span>', self.html)
         self.assertIsNotNone(script)
         value = script.group(1)
         self.assertEqual(value[0], "C")
@@ -3614,7 +3620,7 @@ class DesLocker(unittest.TestCase):
         self.assertEqual(self.cre["page_name"], "Elizabeth Browns Collection")
         text = unescape(self.html)
         self.assertIn('<span class="gscript">Elizabeth’s</span>', text)    # hero heading
-        self.assertIn('<span class="glogo-script">Elizabeth</span>', text)  # masthead
+        self.assertIn('<span class="glogo-name">Elizabeth</span>', text)  # masthead
         self.assertIn("Elizabeth Collection home", text)                   # lockup label
         self.assertIn("Elizabeth Collection", text)                        # nav label
         self.assertIn("ELIZABETH PICK 01", text)
@@ -3637,8 +3643,8 @@ class DesLocker(unittest.TestCase):
         only ``hero_script`` keep drawing their lockup from it.
         """
         text = unescape(self.html)
-        self.assertIn('<span class="glogo-script">Elizabeth</span>', text)
-        self.assertNotIn('<span class="glogo-script">Elizabeth’s</span>', text)
+        self.assertIn('<span class="glogo-name">Elizabeth</span>', text)
+        self.assertNotIn('<span class="glogo-name">Elizabeth’s</span>', text)
         self.assertIn('<span class="gscript">Elizabeth’s</span>', text)
         self.assertEqual(self.cre["girly"].get("logo_script"), "Elizabeth")
         # no other locker gained a logo_script: each still mirrors hero_script
@@ -3646,7 +3652,7 @@ class DesLocker(unittest.TestCase):
                             ("amber/index.html", "Amber’s"),
                             ("laquala/index.html", "Laquala Royal’s"),
                             ("michigan/bella/index.html", "Bella’s")):
-            self.assertIn(f'<span class="glogo-script">{script}</span>',
+            self.assertIn(f'<span class="glogo-name">{script}</span>',
                           unescape(page(rel)), rel)
         # the title, kickers, about copy and labels are unchanged by the hero edit
         self.assertIn("<title>Elizabeth Browns Collection | Gridiron Locker</title>", text)
@@ -3735,7 +3741,7 @@ class YvetteLocker(unittest.TestCase):
 
     def test_the_copy_and_branding_are_hers(self):
         text = unescape(self.html)
-        self.assertIn('<span class="glogo-script">Yvette</span>', text)   # masthead
+        self.assertIn('<span class="glogo-name">Yvette</span>', text)   # masthead
         self.assertIn('<span class="gscript">Yvette’s</span>', text)      # hero
         self.assertIn("Yvette’s Browns Collection</h2>", text)            # about heading
         self.assertIn("Yvette’s Collection home", text)
@@ -3901,6 +3907,90 @@ class CreatorShopHandoff(unittest.TestCase):
             html = page(rel)
             self.assertNotIn("gridironlocker.store/shop/", html, rel)
             self.assertIn(f'"url":"https://{host}/', html, rel)
+
+
+class CreatorLockup(unittest.TestCase):
+    """The premium masthead every collaboration page carries.
+
+    The old lockup was a handwritten first name with a heart (or a football)
+    beside it and a tiny tracked "COLLECTION" under - charming, but it read
+    like a sticker on the page. The replacement is a label: a double-hairline
+    seal holding her monogram, her name set in Playfair Display with the same
+    emblem, and a small-caps line under a hairline rule, all ruled in the
+    page's own accent. One shape, seven lockers.
+    """
+
+    PAGES = {
+        "crystal/index.html": ("Crystal’s", "C"),
+        "amber/index.html": ("Amber’s", "A"),
+        "laquala/index.html": ("Laquala Royal’s", "LR"),
+        "des/index.html": ("Elizabeth", "E"),
+        "yvette/index.html": ("Yvette", "Y"),
+        "michigan/bella/index.html": ("Bella’s", "B"),
+        "michigan/joe/index.html": ("Joe", "J"),
+    }
+
+    def test_every_creator_page_carries_the_seal_lockup(self):
+        for rel, (name, mono) in self.PAGES.items():
+            html = page(rel)
+            logo = re.search(r'<a class="logo glogo" href="[^"]+"[^>]*>(.*?)</a>',
+                             html, re.S)
+            self.assertIsNotNone(logo, rel)
+            lockup = unescape(logo.group(1))
+            for part in ('class="glogo-lockup"', 'class="glogo-seal"',
+                         'class="glogo-word"', 'class="glogo-mark"'):
+                self.assertIn(part, lockup, rel)
+            self.assertIn(f'<span class="glogo-mono">{mono}</span>', lockup, rel)
+            self.assertIn(f'<span class="glogo-name">{name}</span>', lockup, rel)
+            self.assertIn('<span class="glogo-sub">COLLECTION</span>', lockup, rel)
+
+    def test_the_label_names_the_destination_not_the_decoration(self):
+        for rel in self.PAGES:
+            logo = re.search(r'<a class="logo glogo" href="[^"]+" aria-label="([^"]*)"',
+                             page(rel))
+            self.assertIsNotNone(logo, rel)
+            self.assertTrue(logo.group(1).endswith("Collection home"), rel)
+        # the emblem stays decoration in the accessibility tree
+        for rel in self.PAGES:
+            self.assertIn('<span class="glogo-mark" aria-hidden="true"', page(rel), rel)
+
+    def test_the_monogram_reads_the_personal_name(self):
+        import build  # noqa: E402
+        self.assertEqual(build.lockup_monogram("Yvette"), "Y")
+        self.assertEqual(build.lockup_monogram("Bella’s"), "B")
+        self.assertEqual(build.lockup_monogram("Laquala Royal’s"), "LR")
+        self.assertEqual(build.lockup_monogram("Elizabeth"), "E")
+        # never empty, never longer than a ring can hold
+        self.assertEqual(build.lockup_monogram(""), "G")
+        self.assertEqual(build.lockup_monogram("A B C"), "AB")
+
+    def test_the_handwritten_markup_is_gone(self):
+        for rel in self.PAGES:
+            html = page(rel)
+            for stale in ('glogo-script', 'glogo-serif', 'glogo-heart'):
+                self.assertNotIn(stale, html, f"{rel}: {stale}")
+
+    def test_one_shape_and_per_skin_colours_only(self):
+        css = page("assets/style.css")
+        for rule in (".glogo-lockup{", ".glogo-seal{", ".glogo-seal::before{",
+                     ".glogo-mono{", ".glogo-name{", ".glogo-sub{",
+                     ".glogo-sub::before{"):
+            self.assertIn(rule, css, rule)
+        self.assertIn("@media(max-width:430px){", css)
+        for skin in ('body[data-creator-skin="browns"] .logo.glogo{',
+                     'body[data-creator-page="BELLA"] .logo.glogo{',
+                     'body[data-creator-page="JOE"] .logo.glogo{'):
+            block = between(css, skin, "}")
+            for token in ("--glogo-ink", "--glogo-accent", "--glogo-rule"):
+                self.assertIn(token, block, f"{skin} {token}")
+            # a skin colours the lockup; it never re-shapes it
+            self.assertNotIn("font-family", block, skin)
+
+    def test_the_serif_is_loaded_where_the_lockup_renders(self):
+        for rel in self.PAGES:
+            self.assertIn("Playfair+Display", page(rel), rel)
+        # Caveat stays a girly-page face - Joe's storefront header needs none
+        self.assertNotIn("Caveat", page("michigan/joe/index.html"))
 
 
 class ConversionUpgrades(unittest.TestCase):
