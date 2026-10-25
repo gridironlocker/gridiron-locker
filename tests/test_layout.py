@@ -3727,9 +3727,20 @@ class YvetteLocker(unittest.TestCase):
         self.assertIn("New Custom Design Request from Yvette's Browns Locker", text)
 
     def test_her_accounts_are_linked_with_emoji_and_a_spoken_label(self):
-        row = self.html[self.html.find('class="gsocial"'):]
+        # the row sits at the very top of the page: inside <header>, immediately
+        # before the search field, and nowhere near the hero/
+        start = self.html.find('class="gsocial gsocial-top"')
+        self.assertNotEqual(start, -1)
+        row = self.html[start:]
         row = row[:row.find("</ul>")]
         self.assertIn("FOLLOW YVETTE", row)
+        header = self.html.index("<header>")
+        search = self.html.index('role="search"')
+        self.assertTrue(header < start < search,
+                        "the social row should be in the header, before the search")
+        hero = self.html[self.html.index('class="gbanner'):self.html.index("<main")]
+        self.assertNotIn("gsocial", hero, "the hero keeps no social row of its own")
+        self.assertEqual(self.html.count('class="gsocial gsocial-top"'), 1)
         links = re.findall(r'<li><a class="gsocial-link".*?</a></li>', row, re.S)
         self.assertEqual(len(links), 2)
         x, tiktok = links

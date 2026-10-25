@@ -723,14 +723,18 @@ promo code **`BOUGIESPORTS` (10% off)**.
 
 What she adds to the template:
 
-- **Her accounts, as an emoji-led row** under the hero CTA (`girly.social` +
-  `girly_socials()` in `src/build.py`): 🐦 **X** and 🎬 **TikTok**, both
-  `@bougiesports`, opening in a new tab. Each pill carries a decorative emoji
-  (`aria-hidden`), the platform name, the handle and a spoken label ("Yvette on
-  X, @bougiesports (opens in a new tab)"). The row is opt-in — a creator without
-  a `social` block renders nothing — and only `http(s)` URLs are accepted. A
-  `Person` node with `sameAs` joins the page's structured data, so a search or
-  answer engine can tie the page to her accounts.
+- **Her accounts, as an emoji-led row at the very top of the page** — inside the
+  masthead, immediately before the search field (`girly.social` +
+  `girly_socials(..., top=True)` in `src/build.py`): 🐦 **X** and 🎬 **TikTok**,
+  both `@bougiesports`, opening in a new tab. Each pill carries a decorative
+  emoji (`aria-hidden`), the platform name, the handle and a spoken label
+  ("Yvette on X, @bougiesports (opens in a new tab)"). In the 64px header row the
+  strip is compact (`gsocial-top` CSS): the `FOLLOW YVETTE` heading drops below
+  1180px, the handle below 980px, and on phones the pills keep only the emoji so
+  the logo and the search button still fit. The row is opt-in — a creator
+  without a `social` block renders nothing — and only `http(s)` URLs are
+  accepted. A `Person` node with `sameAs` joins the page's structured data, so a
+  search or answer engine can tie the page to her accounts.
 - **Copy drawn from what she publishes**, not invented: Browns takes, fantasy
   football, pop culture and "cool mom energy" (the Bougie Sports brand line),
   Cleveland forever.
@@ -740,5 +744,6 @@ What she adds to the template:
 
 Tests: `tests/test_layout.py::YvetteLocker` pins the address, the grid, the
 `YVETTE` attribution, the `BOUGIESPORTS` code, the social row (links, labels,
-`rel`, emoji, Person schema), that the row is opt-in for the other lockers, and
+`rel`, emoji, Person schema), that it sits in the header *before* the search and
+no longer in the hero, that it is opt-in for the other lockers, and
 that no other creator's name or code leaks onto her page.

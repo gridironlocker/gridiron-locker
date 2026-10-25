@@ -1366,7 +1366,7 @@ def season_promo():
     return f"2026 season kicks off {month} {d.day}"
 
 
-def header(active="", hide_nav=False, logo="", hide_promo=False):
+def header(active="", hide_nav=False, logo="", hide_promo=False, social=""):
     """Site header, shared by every page.
 
     Two rows: the logo row (logo + search), then a FULL-WIDTH menu bar that
@@ -1395,6 +1395,12 @@ def header(active="", hide_nav=False, logo="", hide_promo=False):
     the logo row instead of the storefront wordmark (a girly creator page).
     It defaults to "" so every other page's header - Joe's included - renders
     byte-identically.
+
+    ``social`` is the same kind of opt-in: a creator locker that lists her own
+    accounts puts them in the logo row, immediately BEFORE the search, because
+    that is the one strip of the page a visitor's eye crosses first - under the
+    hero the pills sat below the fold on a phone. Defaults to "" so no other
+    page changes.
 
     Still the only sane way to make a nav change: edit it here, never in the
     built site/*.html files, because the daily refresh workflow re-runs this
@@ -1437,7 +1443,7 @@ def header(active="", hide_nav=False, logo="", hide_promo=False):
 <header>
  <div class="wrap nav">
   {logo_html}
-  <div class="navtools">
+  <div class="navtools">{social}
    <span class="navsearch" role="search">
     <input class="gsearch" type="search" placeholder="Search designs..." aria-label="Search all designs" autocomplete="off">
     <span class="gs-ico" aria-hidden="true">{search_ico}</span>
@@ -3263,7 +3269,7 @@ def girly_nav(cre, has_apparel=True, has_custom=True):
     return (f'<nav class="bellanav" aria-label="{esc(nav_label)}">'
             '<div class="wrap bellanav-links">' + "".join(links) + '</div></nav>')
 
-def girly_socials(cre):
+def girly_socials(cre, top=False):
     """The creator's own social accounts, as an emoji-led row of pills.
 
     A creator locker drops the sitewide footer, so a visitor who likes what
@@ -3276,6 +3282,11 @@ def girly_socials(cre):
     in text, so the row is usable with a screen reader and readable when a
     platform's emoji font is missing. Only http(s) URLs are accepted; anything
     else is skipped rather than rendered as a broken link.
+
+    ``top=True`` renders the compact variant that lives in the header row,
+    before the search (``gsocial-top``): same links, same labels, smaller
+    pills, and the heading/handle drop out on narrow viewports where the logo
+    and the search button need the width.
     """
     records = ((cre or {}).get("girly") or {}).get("social") or []
     links = []
@@ -3301,6 +3312,11 @@ def girly_socials(cre):
         return ""
     heading = str(((cre or {}).get("girly") or {}).get("social_heading")
                   or "Follow along")
+    if top:
+        return (f'\n   <div class="gsocial gsocial-top">\n'
+                f'    <p class="gsocial-head">{esc(heading)}</p>\n'
+                f'    <ul class="gsocial-list">{"".join(links)}\n    </ul>\n'
+                '   </div>')
     return (f'\n   <div class="gsocial">\n'
             f'    <p class="gsocial-head">{esc(heading)}</p>\n'
             f'    <ul class="gsocial-list">{"".join(links)}\n    </ul>\n'
@@ -3730,9 +3746,6 @@ def _girly_body(cre, c, items, track):
             f'\n    <a class="gbanner-link" href="{store_url}" target="_blank"'
             f' rel="noopener noreferrer">Visit {store_name}'
             ' <span aria-hidden="true">↗</span></a>')
-    # Her own accounts (``girly.social``) ride under the hero CTA: the one
-    # place a visitor who just arrived can follow the person behind the page.
-    social_html = girly_socials(cre)
     return f"""
 <main id="main" class="jlock jlock-girly"{theme_attr}>{promo_bar}
 <section class="gbanner"><div class="wrap">
@@ -3746,7 +3759,7 @@ def _girly_body(cre, c, items, track):
    <p class="gbanner-facts">{esc(facts)}</p>
    <div class="gbanner-actions">
     <a class="gbtn gbtn-maize" href="#locker">{esc(g.get('hero_cta', 'Shop the collection'))}</a>{banner_store_link}
-   </div>{social_html}
+   </div>
   </div>
  </div>
 </div></section>
@@ -4076,7 +4089,8 @@ def page_creator(ckey="joe"):
                schema, kw, col=ckey_col, body_attrs=body_attrs,
                extra_head=GIRLY_FONTS if girly else "")
           + header(ckey_col, hide_nav=hide_nav, hide_promo=girly,
-                   logo=girly_logo(path, cre) if girly else "")
+                   logo=girly_logo(path, cre) if girly else "",
+                   social=girly_socials(cre, top=True) if girly else "")
           + (girly_nav(cre,
                        has_apparel=bool(creator_apparel(
                            cre, creator_items(cre))["categories"]),
