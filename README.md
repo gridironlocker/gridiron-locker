@@ -574,6 +574,24 @@ What was built:
 Preserved: every existing URL, product page and guardrail. Rebuild + test:
 `python3 src/build.py && python3 -m unittest discover -s tests`.
 
+## Store hand-off and theme (`gridironlocker.shop`)
+
+Product cards are shop windows. Every grid, rail, guide list, drop card and
+search result opens the product page that takes the order - the Mayzing
+storefront for the Browns/Michigan campaigns, Viralstyle for the older ones -
+via `store_href()` in `src/build.py`, tagged `utm_source=site` +
+`utm_campaign=<collection>`. Creator lockers keep their own `creator=<ID>` and
+`utm_medium=referral`. A record with no supplier link still falls back to its
+local `/shop/` page, so a card is never a dead end; those pages stay online for
+structured data, the sitemap and inbound links, but no card routes a click
+through them.
+
+The storefront itself is a Mayzing dashboard setting (one theme for every
+creator), so `MAYZING-STORE-THEME.md` carries the exact palette, type pairing,
+asset sizes and the settings checklist - currency, the 33-design Browns
+collection, and the creator coupon codes - that make the store look and behave
+like the locker that sent the visitor.
+
 ---
 
 ## Crystal Marie's Browns Collection — creator collaboration (`/crystal/`)
