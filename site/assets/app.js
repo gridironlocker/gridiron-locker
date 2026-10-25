@@ -798,9 +798,13 @@ document.querySelectorAll('a.custom-link').forEach(function(a){
   var TAG=CRE?('creator='+encodeURIComponent(CRE)+'&utm_source=creator'
               +'&utm_medium=referral&utm_campaign=creator-'+encodeURIComponent(CRE))
              :'';
+  // A search result is a product card, so it opens the product page that
+  // takes the order (row.s, built by store_href in src/build.py) rather than
+  // this site's own /shop/ record. A creator locker keeps its own tag so the
+  // order stays attributed to that creator.
   function shopHref(it){
-    if(!CRE||!it.b)return '';
-    return it.b+(it.b.indexOf('?')<0?'?':'&')+TAG;
+    if(CRE&&it.b)return it.b+(it.b.indexOf('?')<0?'?':'&')+TAG;
+    return it.s||it.b||'';
   }
   function matches(term){
     if(!DATA)return [];

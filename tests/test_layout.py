@@ -44,6 +44,7 @@ Covered:
   * Preserved: team accents, hero images, product count, checkout links, SEO
     metadata, dynamic catalogue counts, no missing local references.
 """
+import glob
 import json
 import os
 import re
@@ -51,6 +52,7 @@ import sys
 import datetime
 import unittest
 from html import unescape, escape as escape_html
+from urllib.parse import urlsplit
 
 ROOT = os.path.dirname(os.path.dirname(os.path.abspath(__file__)))
 SITE = os.path.join(ROOT, "site")
@@ -758,9 +760,17 @@ class ProductPages(unittest.TestCase):
             # every CTA points at this product's own Viralstyle campaign
             for href in hrefs:
                 self.assertEqual(href, live[slug]["url"], slug)
-            # and no other outbound purchase link sneaks onto the page
+            # Cards on the page hand off to the store as well, so the guard is
+            # no longer "one outbound link": every outbound purchase link must
+            # belong to a live campaign and carry this site's attribution.
+            own = urlsplit(live[slug]["url"]).path
+            campaigns = {urlsplit(v["url"]).path for v in live.values()}
             for href in re.findall(r'href="(https://viralstyle\.com[^"]*)"', html):
-                self.assertEqual(href, live[slug]["url"], slug)
+                parts = urlsplit(unescape(href))
+                self.assertIn(parts.path, campaigns, slug)
+                if parts.path == own:
+                    continue        # this product's own CTA, pinned above
+                self.assertIn("utm_source=site", parts.query, slug)
 
     def test_cta_explains_the_handoff(self):
         for slug, html in self.pages.items():
@@ -1433,9 +1443,18 @@ class Homepage(unittest.TestCase):
             self.assertNotIn(banned, low, banned)
 
     def test_every_homepage_product_link_is_a_real_product_page(self):
-        slugs = set(re.findall(r'<a class="pcard[^"]*" href="\./shop/([^/]+)/"', self.html))
-        self.assertGreaterEqual(len(slugs), 20)
-        for slug in slugs:
+        """A homepage card is a shop window, so it opens the product page that
+        takes the order - the partner store's, tagged for the campaign - and
+        never routes the shopper through this site's own /shop/ record. Every
+        card still names a design whose local record exists (structured data,
+        sitemap and existing inbound links keep needing a page to land on)."""
+        cards = re.findall(r'<a class="pcard[^"]*" href="([^"]+)"[^>]*data-slug="([^"]+)"',
+                           self.html)
+        self.assertGreaterEqual(len(cards), 20)
+        for href, slug in cards:
+            self.assertRegex(href, r"^https://(gridironlocker\.shop|viralstyle\.com)/", slug)
+            self.assertIn("utm_source=site", href, slug)
+            self.assertNotIn("/shop/", href, slug)
             self.assertTrue(os.path.isfile(os.path.join(SITE, "shop", slug, "index.html")), slug)
 
     # -------------------------------------------------------------- trending
@@ -3929,17 +3948,94 @@ class CreatorShopHandoff(unittest.TestCase):
         for row in rows:
             self.assertTrue(row.get("b", "").startswith(("http://", "https://")),
                             row.get("u"))
+            # ...and the tagged address every result opens: a search result is
+            # a product card, so it leaves for the store on any page.
+            self.assertTrue(row.get("s", "").startswith(("http://", "https://")),
+                            row.get("u"))
+            self.assertIn("utm_source=site", row["s"], row.get("u"))
+            self.assertTrue(row.get("u", "").startswith("/shop/"), row.get("u"))
         js = page("assets/app.js")
         self.assertIn("function shopHref", js)
         self.assertIn("data-creator-page", js)
-        # the escape hatch stays local for every other page
-        self.assertIn("if(!CRE||!it.b)return '';", js)
+        self.assertIn("return it.s||it.b||'';", js)
 
     def test_the_creator_schema_lists_the_shop_pages(self):
         for rel, (track, host) in self.PAGES.items():
             html = page(rel)
             self.assertNotIn("gridironlocker.store/shop/", html, rel)
             self.assertIn(f'"url":"https://{host}/', html, rel)
+
+
+class ProductCardsRouteToTheStore(unittest.TestCase):
+    """Every product card on the site opens the store's product page.
+
+    Reported from a collaboration locker: tapping a design landed on this
+    site's own /shop/ record instead of the product page that takes the order.
+    The rule lives in one place - ``store_href()`` in src/build.py - and every
+    grid, rail, guide list, drop card and search result follows it: the store
+    product page, tagged for the campaign. The local record stays online for
+    structured data, the sitemap and inbound links that already point at it.
+    """
+
+    #: article wrappers whose first link is the card's product link
+    CARD_ARTICLE = r'<article class="(?:card|gproduct)[^"]*".*?</article>'
+    #: card-shaped anchors that wrap their own product link
+    CARD_ANCHORS = re.compile(r"\b(pcard|gproduct-art|gproduct-link|drop-img|jcard|jfeat)\b")
+
+    @classmethod
+    def cards(cls, html):
+        """The href of every anchor that renders a product card."""
+        for block in re.findall(cls.CARD_ARTICLE, html, re.S):
+            href = re.search(r'href="([^"]+)"', block)
+            if href:
+                yield unescape(href.group(1))
+        for tag in re.findall(r"<a\b[^>]*>", html):
+            klass = re.search(r'class="([^"]*)"', tag)
+            if not klass or not cls.CARD_ANCHORS.search(klass.group(1)):
+                continue
+            href = re.search(r'href="([^"]+)"', tag)
+            if href:
+                yield unescape(href.group(1))
+
+    def test_no_card_anywhere_routes_through_the_local_product_record(self):
+        checked = 0
+        for path in sorted(glob.glob(os.path.join(SITE, "**", "index.html"), recursive=True)):
+            rel = os.path.relpath(path, SITE)
+            with open(path, encoding="utf-8") as fh:
+                for href in self.cards(fh.read()):
+                    if href.startswith("#"):
+                        continue
+                    checked += 1
+                    self.assertNotIn("/shop/", href, f"{rel}: {href[:90]}")
+        self.assertGreater(checked, 200)
+
+    def test_product_grids_open_the_storefront(self):
+        for rel in ("cleveland-browns-shirts/index.html",
+                    "michigan-wolverines-shirts/index.html",
+                    "dallas-cowboys-shirts/index.html",
+                    "green-bay-packers-shirts/index.html",
+                    "drops/index.html", "search/index.html"):
+            hrefs = [h for h in self.cards(page(rel)) if not h.startswith("#")]
+            self.assertTrue(hrefs, rel)
+            for href in hrefs:
+                self.assertTrue(href.startswith("https://"), f"{rel}: {href[:90]}")
+
+    def test_homepage_product_rails_open_the_storefront(self):
+        hrefs = re.findall(r'<a class="pcard[^"]*" href="([^"]+)"', page("index.html"))
+        self.assertGreaterEqual(len(hrefs), 20)
+        for href in hrefs:
+            self.assertTrue(unescape(href).startswith("https://"), href[:90])
+
+    def test_the_handoff_carries_attribution(self):
+        grids = list(self.cards(page("cleveland-browns-shirts/index.html")))
+        self.assertTrue(grids)
+        for href in grids:
+            self.assertIn("utm_source=site", href)
+            self.assertIn("utm_medium=product_card", href)
+        # a collab locker keeps its own tag on top of the store product page
+        for href in self.cards(page("yvette/index.html")):
+            self.assertIn("creator=YVETTE", href)
+            self.assertIn("utm_source=creator", href)
 
 
 class ConversionUpgrades(unittest.TestCase):

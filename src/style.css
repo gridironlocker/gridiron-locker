@@ -1623,6 +1623,26 @@ main.jlock-girly{padding:0 0 32px;overflow:hidden}
 .jlock-girly .gproduct-art:focus-visible,.jlock-girly .gproduct-link:focus-visible,
 .jlock-girly .gbanner-link:focus-visible,.jlock-girly .gbtn:focus-visible{
   outline:3px solid var(--g-pink);outline-offset:3px}
+/* The hand-off line (src/build.py :: handoff_note()). It sits ABOVE the grid,
+   in the page's own voice, and names the shop that runs the secure checkout.
+   Announcing the jump is what stops the next page reading as "a different
+   store"; the claims it makes are the ones the shop actually honours.
+   The girly selector repeats .gcollection-head>p so it outranks the collection
+   description rule above, which styles every other <p> in that head. */
+.ghandoff{display:flex;align-items:center;gap:7px;margin:14px 0 0;color:#6a6f73;
+  font-family:inherit;font-size:.78rem;font-weight:600;line-height:1.35;letter-spacing:.01em}
+.ghandoff a{color:inherit;text-decoration:underline;text-underline-offset:2px}
+.ghandoff a:hover{color:var(--ink)}
+.ghandoff-ico{flex:none;width:13px;height:13px;opacity:.7}
+.jlock-girly .gcollection-head>p.ghandoff{justify-content:center;max-width:none;
+  margin:16px 0 0;color:#6b5a49;font-size:.78rem;font-weight:600;line-height:1.35}
+body[data-creator-page="BELLA"] .gcollection-head>p.ghandoff{color:#5f6875}
+/* Joe's locker keeps the storefront header, so its hand-off line sits with
+   the trust strip above the grid rather than inside a creator grid head. */
+.jhandoffwrap{display:flex;justify-content:center;margin:2px 0 20px}
+.jhandoffwrap .ghandoff{margin:0;color:#5b6472}
+.jhandoffwrap .ghandoff a:hover{color:#14233d}
+
 .jlock-girly .gstore-note{max-width:880px;margin:24px auto 0;padding-top:16px;border-top:1px solid #d9d9d5;
   color:#62676b;font-size:.79rem;line-height:1.6;text-align:center}
 /* The creator's own accounts, under the hero CTA. Emoji-led pills, sized for a
