@@ -107,7 +107,11 @@ N_ALL = len(ALL)
 CATALOG_COUNTS = {k: len(v) for k, v in MODEL.items()}
 MAYZING = [i for i in ALL if i["partner"] == "Mayzing"]
 VIRAL = [i for i in ALL if i["partner"] == "Viralstyle"]
-CREATOR_PATHS = {f"/{cre['page_slug']}/" for cre in build.CREATORS.values()}
+CREATOR_ITEM_COUNTS = {
+    f"/{cre['page_slug']}/": len(build.creator_items(cre))
+    for cre in build.CREATORS.values()
+}
+CREATOR_PATHS = set(CREATOR_ITEM_COUNTS)
 
 print(f"catalogue: {N_ALL} products across {len(MODEL)} collections")
 for k, n in CATALOG_COUNTS.items():
@@ -130,7 +134,13 @@ for path, d in DOCS.items():
         before = body[max(0, m.start() - 12):m.start()]
         if re.search(r"\b(week|day|game|round|phase)\s+$", before, re.I):
             continue
-        # A creator locker legitimately shows its own curated pick count
+        # Creator lockers show the size of their own resolved item list, which
+        # can differ from the shared catalogue when a locker has a
+        # creator-scoped addition.
+        if path in CREATOR_ITEM_COUNTS and n == CREATOR_ITEM_COUNTS[path]:
+            continue
+        # Small curated sets can also be mentioned without being a full
+        # catalogue count.
         if path in CREATOR_PATHS and n != N_ALL and n <= 12:
             continue
         if n in CATALOG_COUNTS.values() or n == N_ALL or n == len(ORDER := build.ORDER):

@@ -2365,6 +2365,83 @@ class CreatorCustomDesignNote(unittest.TestCase):
         self.assertIn("line-height:1.25", subheading)
 
 
+class TypicalBrownsFanShowLocker(unittest.TestCase):
+    """A new supplier listing can be scoped to the show locker only."""
+
+    PRODUCT = "cleveland-victory-monday-copy"
+    PRODUCT_ID = "6ade77933d9e7e208932b0bd"
+    CREATOR_ID = "TYPICALBROWNS"
+
+    def setUp(self):
+        import build  # noqa: E402
+
+        self.build = build
+        self.html = page("thetypicalbrownsfanshow/index.html")
+        creators = load_json("data/creators.json")["creators"]
+        self.cre = creators["thetypicalbrownsfanshow"]
+        self.creators = creators
+
+    def test_copy_listing_is_added_after_its_source_and_keeps_creator_attribution(self):
+        from urllib.parse import parse_qs, urlsplit
+
+        items = self.build.creator_items(self.cre)
+        slugs = [item["slug"] for item in items]
+        original = next(item for item in items if item["slug"] == "cleveland-victory-monday")
+        copy = next(item for item in items if item["slug"] == self.PRODUCT)
+        self.assertEqual(slugs.index(self.PRODUCT), slugs.index(original["slug"]) + 1)
+        self.assertNotIn(self.PRODUCT, {item["slug"] for item in self.build.ALL})
+        self.assertEqual(copy["name"], original["name"])
+        self.assertEqual(copy["front"], original["front"])
+        self.assertEqual(copy["back"], original["back"])
+        self.assertEqual(copy["price"], original["price"])
+        self.assertEqual(copy["garment"], original["garment"])
+        self.assertEqual(copy["colour"], original["colour"])
+        self.assertEqual(copy["sizes_avail"], original["sizes_avail"])
+        self.assertEqual(copy["product_id"], self.PRODUCT_ID)
+        self.assertEqual(copy["buy"], self.cre["creator_additions"][0]["buy_url"])
+        self.assertEqual(copy["source_url"], copy["buy"])
+
+        card_match = re.search(
+            rf'<article class="gproduct" data-slug="{self.PRODUCT}".*?</article>',
+            self.html, re.S)
+        self.assertIsNotNone(card_match)
+        card = card_match.group(0)
+        self.assertIn("<h3>Cleveland Victory Monday</h3>", card)
+        self.assertIn('<span>T-Shirt</span><b>$23.00</b>', card)
+        self.assertIn('data-gcat="t-shirts"', card)
+        self.assertIn(f'src="{escape_html(original["front"])}"', card)
+        links = re.findall(r'href="(https://gridironlocker\.shop/[^"]+)"', card)
+        self.assertEqual(len(links), 2)
+        for escaped_href in links:
+            parsed = urlsplit(unescape(escaped_href))
+            query = parse_qs(parsed.query)
+            self.assertEqual(parsed.path, f"/{self.PRODUCT}")
+            self.assertEqual(query.get("productId"), [self.PRODUCT_ID])
+            self.assertEqual(query.get("color"), ["GILDAN-DARK_CHOCOLATE"])
+            self.assertEqual(query.get("creator"), [self.CREATOR_ID])
+            self.assertEqual(query.get("utm_source"), ["creator"])
+            self.assertEqual(query.get("utm_medium"), ["referral"])
+            self.assertEqual(query.get("utm_campaign"), ["creator-TYPICALBROWNS"])
+
+        collection = next(node for node in json_ld_nodes(self.html)
+                          if node.get("@type") == "CollectionPage")
+        item_list = collection["about"]
+        self.assertEqual(item_list["numberOfItems"], len(items))
+        self.assertIn(self.PRODUCT, json.dumps(item_list))
+
+    def test_copy_listing_does_not_enter_the_shared_browns_catalogue(self):
+        self.assertNotIn(self.PRODUCT, {item["slug"] for item in self.build.ALL})
+        self.assertNotIn(f'data-slug="{self.PRODUCT}"',
+                         page("cleveland-browns-shirts/index.html"))
+        for key in ("crystal", "amber", "laquala", "des", "yvette"):
+            creator = self.creators[key]
+            with self.subTest(creator=key):
+                self.assertNotIn(self.PRODUCT,
+                                 [item["slug"] for item in self.build.creator_items(creator)])
+                self.assertNotIn(f'data-slug="{self.PRODUCT}"',
+                                 page(f"{creator['page_slug']}/index.html"))
+
+
 class BellaLocker(unittest.TestCase):
     """Bella's supplier-linked collection and boutique-style landing page."""
 
