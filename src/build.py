@@ -3303,6 +3303,33 @@ def girly_nav(cre, has_apparel=True, has_custom=True):
     return (f'<nav class="bellanav" aria-label="{esc(nav_label)}">'
             '<div class="wrap bellanav-links">' + "".join(links) + '</div></nav>')
 
+# The platforms' own marks, for a creator who wants logos in the social row
+# instead of the standard emoji (``girly.social_icons``). Drawn inline: no icon
+# font, no network request, and they inherit the link's colour.
+_SOCIAL_ICONS = {
+    "facebook": (
+        '<path d="M15.6 21.3v-7.2h2.4l.4-2.9h-2.8V9.3c0-.8.2-1.4 1.4-1.4h1.5V5.3'
+        'c-.3 0-1.2-.1-2.2-.1-2.2 0-3.7 1.3-3.7 3.8v2.2h-2.5v2.9h2.5v7.2z"/>'),
+    "instagram": (
+        '<rect x="3.2" y="3.2" width="17.6" height="17.6" rx="5.1"/>'
+        '<circle cx="12" cy="12" r="4.1"/>'
+        '<circle cx="17.2" cy="6.9" r="1.15" fill="currentColor" stroke="none"/>'),
+    "tiktok": (
+        '<path d="M16.6 3h-2.9v11.5a2.6 2.6 0 1 1-2-2.5V9.1a5.6 5.6 0 1 0 4.9 5.6V8.5'
+        'a6.4 6.4 0 0 0 3.5 1.1V6.7a3.6 3.6 0 0 1-3.5-3.7z"/>'),
+}
+
+
+def _social_icon(name):
+    """One brand mark, or "" when the name has no drawing (emoji is used then)."""
+    body = _SOCIAL_ICONS.get(str(name or "").strip().lower())
+    if not body:
+        return ""
+    stroke = ' stroke="currentColor" stroke-width="1.75" fill="none"' if name == "instagram" else ""
+    return (f'<span class="gsocial-icon" aria-hidden="true"><svg viewBox="0 0 24 24"'
+            f' width="17" height="17" role="presentation"{stroke}>{body}</svg></span>')
+
+
 def girly_socials(cre, top=False):
     """The creator's own social accounts, as an emoji-led row of pills.
 
@@ -3328,6 +3355,9 @@ def girly_socials(cre, top=False):
     # The spoken label stays either way, and it moves to ``title`` so a mouse
     # or long-press still names the platform.
     social_text = bool(((cre or {}).get("girly") or {}).get("social_text", True))
+    # ``social_icons: True`` swaps the standard emoji for the platform's own
+    # mark (see _SOCIAL_ICONS). Records without a known ``icon`` keep the emoji.
+    social_icons = bool(((cre or {}).get("girly") or {}).get("social_icons", False))
     links = []
     for rec in records:
         url = str((rec or {}).get("url") or "").strip()
@@ -3335,6 +3365,7 @@ def girly_socials(cre, top=False):
         if not name or not url.lower().startswith(("http://", "https://")):
             continue
         emoji = str(rec.get("emoji") or "")
+        icon = _social_icon(rec.get("icon")) if social_icons else ""
         handle = str(rec.get("handle") or "")
         label = str(rec.get("label") or f"{cre.get('display_name', name)} on {name}")
         if handle:
@@ -3345,7 +3376,7 @@ def girly_socials(cre, top=False):
             f' aria-label="{esc(label)} (opens in a new tab)"'
             + ("" if social_text else f' title="{esc(label)}"')
             + '>'
-            f'<span class="gsocial-emoji" aria-hidden="true">{esc(emoji)}</span>'
+            + (icon or f'<span class="gsocial-emoji" aria-hidden="true">{esc(emoji)}</span>')
             + (f'<span class="gsocial-name">{esc(name)}</span>'
                + (f'<span class="gsocial-handle">{esc(handle)}</span>' if handle else "")
                if social_text else "")
