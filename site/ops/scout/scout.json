@@ -8,11 +8,11 @@
   "collections": 4,
   "images": 459,
   "avg_price": 23.82,
-  "hot": 11,
+  "hot": 0,
   "throwback": 0,
-  "steady": 85,
+  "steady": 96,
   "gaps": 5,
-  "moments": 1,
+  "moments": 3,
   "tracked_names": 18,
   "dead_campaigns": 67
  },
@@ -28,8 +28,8 @@
   },
   {
    "name": "josh jacobs",
-   "mentions": 10,
-   "index": 56,
+   "mentions": 12,
+   "index": 67,
    "status": "trending",
    "gap": true,
    "shoppable": false,
@@ -72,24 +72,6 @@
    "collection": "cleveland-browns"
   },
   {
-   "name": "jordan love",
-   "mentions": 4,
-   "index": 22,
-   "status": "trending",
-   "gap": false,
-   "shoppable": true,
-   "collection": "green-bay-packers"
-  },
-  {
-   "name": "micah parsons",
-   "mentions": 4,
-   "index": 22,
-   "status": "trending",
-   "gap": false,
-   "shoppable": true,
-   "collection": "green-bay-packers"
-  },
-  {
    "name": "ceedee lamb",
    "mentions": 3,
    "index": 17,
@@ -97,6 +79,15 @@
    "gap": true,
    "shoppable": false,
    "collection": "dallas-cowboys"
+  },
+  {
+   "name": "jordan love",
+   "mentions": 2,
+   "index": 11,
+   "status": "steady",
+   "gap": false,
+   "shoppable": true,
+   "collection": "green-bay-packers"
   },
   {
    "name": "myles garrett",
@@ -124,15 +115,6 @@
    "gap": false,
    "shoppable": true,
    "collection": "cleveland-browns"
-  },
-  {
-   "name": "matt lafleur",
-   "mentions": 1,
-   "index": 6,
-   "status": "steady",
-   "gap": false,
-   "shoppable": false,
-   "collection": "green-bay-packers"
   },
   {
    "name": "jj mccarthy",
@@ -171,6 +153,24 @@
    "collection": "cleveland-browns"
   },
   {
+   "name": "matt lafleur",
+   "mentions": 0,
+   "index": 0,
+   "status": "quiet",
+   "gap": false,
+   "shoppable": false,
+   "collection": "green-bay-packers"
+  },
+  {
+   "name": "micah parsons",
+   "mentions": 0,
+   "index": 0,
+   "status": "quiet",
+   "gap": false,
+   "shoppable": true,
+   "collection": "green-bay-packers"
+  },
+  {
    "name": "robert tonyan",
    "mentions": 0,
    "index": 0,
@@ -183,8 +183,8 @@
  "gaps": [
   {
    "name": "josh jacobs",
-   "mentions": 10,
-   "index": 56,
+   "mentions": 12,
+   "index": 67,
    "status": "trending",
    "gap": true,
    "shoppable": false,
@@ -255,8 +255,8 @@
     "watch",
     "live",
     "october",
-    "injury",
     "stream",
+    "injury",
     "preview"
    ],
    "headline_count": 100,
@@ -377,13 +377,13 @@
    "store": "https://viralstyle.com/store/kebystore/Packss/1",
    "products": 36,
    "avg_price": 25.18,
-   "hot": 11,
+   "hot": 0,
    "throwback": 0,
    "gaps": [
     {
      "name": "josh jacobs",
-     "mentions": 10,
-     "index": 56,
+     "mentions": 12,
+     "index": 67,
      "status": "trending",
      "gap": true,
      "shoppable": false,
@@ -393,26 +393,26 @@
    "top_terms": [
     "packers",
     "green",
+    "detroit",
     "cowboys",
     "watch",
-    "josh",
-    "jacobs",
-    "detroit",
-    "time"
+    "dallas",
+    "live",
+    "josh"
    ],
    "headline_count": 100,
    "headlines": [
-    {
-     "title": "Inbox: This Packers defense hunts you from every direction",
-     "url": "https://news.google.com/rss/articles/CBMinwFBVV95cUxNNVZQUm5SYVZELTFaTkZGdU5Vd1lLdHZYSXE1ZXluQ0pjMW5GdGhONXZLWjNxVU5Pb2JRSXVVQTlvdExRNWxiZU9JU0NwRDlidU9NVENHb21MQXo3aV9NYWsyVWlPNjNzU2Yxc0hfWU5Dc0RXT252NlFhcFdVaXlpd1ZfRHhOajNTZ1Z6WjFXam5UNFJ0UTM2b0xkWUxUMUE?oc=5",
-     "source": "Green Bay Packers \u2013 packers.com",
-     "pub": "Tue, 20 Oct 2026 13:40:35 GMT"
-    },
     {
      "title": "Lions vs. Packers: How to watch, listen and follow",
      "url": "https://news.google.com/rss/articles/CBMiiAFBVV95cUxNemh4NmNkYmFweHpTNWRXUDhqQk9VYnh5N296cHJZMUJoVml2VGYzRERXX0hPNnE4UlN5TUlVX0Z1Sl85dkZzdHp3bXJ3eVBMV1duSVZPZlFFdmkySmtZN2NxVTNnMXZadFZPU0RETDZWQTJfUHJUcjJxUGlNRi1VWGFzeEhscVlq?oc=5",
      "source": "Detroit Lions",
      "pub": "Sat, 24 Oct 2026 15:04:11 GMT"
+    },
+    {
+     "title": "Packers activate RB Josh Jacobs, DT Jordon Riley",
+     "url": "https://news.google.com/rss/articles/CBMikgFBVV95cUxQWXVwVDdoZ01VRlVBbDJTNkstRXdZQkdHRjlZS1BURGtweko4SUtnQS0xSlNiYThQMU9tNzNvLWFWNHJMelloX25rY2ZYOWRHWkdZRTVCbzZ1SXp3LTVKM25zdUhlMDJ4cFd1YnBsZ2t6UTlrZG1fUU1RV2ZHVXRMRm1yU3FwcnhCek9HSEFPTkZIZw?oc=5",
+     "source": "Packers.com",
+     "pub": "Sat, 24 Oct 2026 20:06:45 GMT"
     },
     {
      "title": "Green Bay Packers News: Packers battling penalty onslaught",
@@ -421,10 +421,10 @@
      "pub": "Tue, 20 Oct 2026 14:15:06 GMT"
     },
     {
-     "title": "Cowboys-Packers: How to Watch, Listen, Stream in Week 6",
-     "url": "https://news.google.com/rss/articles/CBMikAFBVV95cUxOaUpGRzNBazViMmQzdktPdVA4b1o2bG8xV0ZPdWZ1MTVGOXZYMG8xejYzZFhXdlhiQTlfMHZnWXk5TTlwLTVWemYwNHQyWlZCbjNpXzRveUY5Q3Zhb0ZtSTVJOWg3U3pCanZ0V005ZFliYTV4b1BXNUNhWTFhaUF4ZzVnX3BHNWZhQUxnajVQRUk?oc=5",
-     "source": "Dallas Cowboys | Official Site of the Dallas Cowboys",
-     "pub": "Fri, 16 Oct 2026 07:00:00 GMT"
+     "title": "Jordan Love's scrambling dime to Golden gets Packers down to Cowboys' 2-yard line",
+     "url": "https://news.google.com/rss/articles/CBMiqwFBVV95cUxOa3BNdklLR1I0Wl9uNEZZMW9FRGdrUU9ZQ0tyU2xoS2piNnlfMU1uZ0N6SUc1STBnZjhCVm9wU2hOSkdwSVVVaExkNlduMHlpZGpYREJwQVVIdHZuZDM3WXotX0JkX1Fmb2hrZjZvLTJGNnZlMW9XWlkwU1ptcWREMnN0c2g1Z2MxSm9Ub0JDTEtBVXZMVktleUszZEtRSEk3UDBWTnNNMkVkT1U?oc=5",
+     "source": "NFL.com",
+     "pub": "Mon, 19 Oct 2026 02:00:06 GMT"
     },
     {
      "title": "Green Bay Packers vs. Detroit Lions preview: 5 key stats",
@@ -840,6 +840,26 @@
   }
  ],
  "moments": [
+  {
+   "title": "Packers activate RB Josh Jacobs, DT Jordon Riley",
+   "url": "https://news.google.com/rss/articles/CBMikgFBVV95cUxQWXVwVDdoZ01VRlVBbDJTNkstRXdZQkdHRjlZS1BURGtweko4SUtnQS0xSlNiYThQMU9tNzNvLWFWNHJMelloX25rY2ZYOWRHWkdZRTVCbzZ1SXp3LTVKM25zdUhlMDJ4cFd1YnBsZ2t6UTlrZG1fUU1RV2ZHVXRMRm1yU3FwcnhCek9HSEFPTkZIZw?oc=5",
+   "source": "Packers.com",
+   "pub": "Sat, 24 Oct 2026 20:06:45 GMT",
+   "collection": "green-bay-packers",
+   "entities": [
+    "josh jacobs"
+   ]
+  },
+  {
+   "title": "Jordan Love's scrambling dime to Golden gets Packers down to Cowboys' 2-yard line",
+   "url": "https://news.google.com/rss/articles/CBMiqwFBVV95cUxOa3BNdklLR1I0Wl9uNEZZMW9FRGdrUU9ZQ0tyU2xoS2piNnlfMU1uZ0N6SUc1STBnZjhCVm9wU2hOSkdwSVVVaExkNlduMHlpZGpYREJwQVVIdHZuZDM3WXotX0JkX1Fmb2hrZjZvLTJGNnZlMW9XWlkwU1ptcWREMnN0c2g1Z2MxSm9Ub0JDTEtBVXZMVktleUszZEtRSEk3UDBWTnNNMkVkT1U?oc=5",
+   "source": "NFL.com",
+   "pub": "Mon, 19 Oct 2026 02:00:06 GMT",
+   "collection": "green-bay-packers",
+   "entities": [
+    "jordan love"
+   ]
+  },
   {
    "title": "Green Bay Packers: Josh Jacobs will return as the starting running back immediately in Week 7",
    "url": "https://news.google.com/rss/articles/CBMihAFBVV95cUxPc3pzMFNlM3hWOGxvVTlSekE2cGdhUGFxSVdYXzUwMElMNEh5dllMYVdaaUhwcWpqNWhLSjkzcWxKa2k5OEIwZHJEVUxyaVhhdWlyajNSYUVSODNLanVFSjhyQXh4Z2V1RjFMZ3pMSTY2aUplVExkaHZLakl4Ynd2QjZPMTY?oc=5",
