@@ -59,7 +59,7 @@
     }
    ],
    "entity_mentions": {
-    "shedeur sanders": 4,
+    "shedeur sanders": 6,
     "deshaun watson": 6,
     "joe flacco": 0,
     "myles garrett": 2,
@@ -94,8 +94,8 @@
     },
     {
      "name": "shedeur sanders",
-     "mentions": 4,
-     "index": 22,
+     "mentions": 6,
+     "index": 33,
      "status": "trending",
      "gap": false,
      "shoppable": true
@@ -199,7 +199,7 @@
    ],
    "entity_mentions": {
     "jordan love": 4,
-    "micah parsons": 6,
+    "micah parsons": 8,
     "robert tonyan": 0,
     "josh jacobs": 9,
     "matt lafleur": 1
@@ -208,15 +208,15 @@
     "packers",
     "green",
     "cowboys",
-    "watch",
     "josh",
     "jacobs",
+    "watch",
     "detroit",
     "injury",
     "odds",
+    "sunday",
     "victory",
-    "love",
-    "sunday"
+    "roster"
    ],
    "headline_count": 100,
    "moments": [
@@ -242,8 +242,8 @@
     },
     {
      "name": "micah parsons",
-     "mentions": 6,
-     "index": 33,
+     "mentions": 8,
+     "index": 44,
      "status": "trending",
      "gap": false,
      "shoppable": true
@@ -515,6 +515,15 @@
     "collection": "green-bay-packers"
    },
    {
+    "name": "micah parsons",
+    "mentions": 8,
+    "index": 44,
+    "status": "trending",
+    "gap": false,
+    "shoppable": true,
+    "collection": "green-bay-packers"
+   },
+   {
     "name": "deshaun watson",
     "mentions": 6,
     "index": 33,
@@ -533,13 +542,13 @@
     "collection": "michigan"
    },
    {
-    "name": "micah parsons",
+    "name": "shedeur sanders",
     "mentions": 6,
     "index": 33,
     "status": "trending",
     "gap": false,
     "shoppable": true,
-    "collection": "green-bay-packers"
+    "collection": "cleveland-browns"
    },
    {
     "name": "jordan love",
@@ -549,15 +558,6 @@
     "gap": false,
     "shoppable": true,
     "collection": "green-bay-packers"
-   },
-   {
-    "name": "shedeur sanders",
-    "mentions": 4,
-    "index": 22,
-    "status": "trending",
-    "gap": false,
-    "shoppable": true,
-    "collection": "cleveland-browns"
    },
    {
     "name": "todd monken",
