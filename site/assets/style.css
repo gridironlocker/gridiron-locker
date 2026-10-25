@@ -1818,11 +1818,34 @@ body[data-creator-skin="browns"] .bellanav-links a:focus-visible{outline:2px sol
 .jlock-girly[data-theme="browns"] .gbtn-maize:hover{background:#ad4a12}
 .jlock-girly[data-theme="browns"] .gbanner-link{color:#2c1a0f;text-decoration-color:rgba(44,26,15,.3)}
 .jlock-girly[data-theme="browns"] .gbanner-link:hover{color:#b8480f}
-/* The show host stands flush right in his photo, so the narrow-screen crop is
-   nudged right to keep his face inside the frame. Scoped to this one page: the
-   shared 66%/67% values stay put for every other creator hero. */
+/* The show's hero is a dark room: the host stands sharp on a warm-brown field,
+   a burnt-orange rule between the type and the photo. The photo is baked into
+   the image (never tinted or faded), so the panel wash is switched off here and
+   the copy turns cream. Scoped to this one page - every other creator keeps the
+   parchment banner and its dark ink. */
+body[data-creator-page="TYPICALBROWNS"] .jlock-girly .gbanner-panel{background:#170f09;
+  border-color:rgba(255,255,255,.09);box-shadow:0 14px 36px rgba(20,12,7,.3)}
+body[data-creator-page="TYPICALBROWNS"] .jlock-girly .gbanner-panel::after{background:none}
+body[data-creator-page="TYPICALBROWNS"] .jlock-girly .gbanner-kicker{color:#e3a273}
+body[data-creator-page="TYPICALBROWNS"] .jlock-girly .gscript{color:#fbf3e9}
+body[data-creator-page="TYPICALBROWNS"] .jlock-girly .gtitle{color:#ff8f45}
+body[data-creator-page="TYPICALBROWNS"] .jlock-girly .gbanner-sub{color:#f3e7da}
+body[data-creator-page="TYPICALBROWNS"] .jlock-girly .gbanner-facts{color:#cbb49f}
+body[data-creator-page="TYPICALBROWNS"] .jlock-girly .gbanner-link{color:#f6ead9;
+  text-decoration-color:rgba(246,234,217,.38)}
+body[data-creator-page="TYPICALBROWNS"] .jlock-girly .gbanner-link:hover{color:#ff8f45}
+/* The social pills carry their emoji alone (girly.social_text is False on this
+   page), so they need the square tap target the label used to give them. */
+body[data-creator-page="TYPICALBROWNS"] .gsocial-top .gsocial-link{justify-content:center;
+  min-width:38px;padding:7px 10px}
+body[data-creator-page="TYPICALBROWNS"] .gsocial-top .gsocial-emoji{font-size:1.05rem}
+/* Narrow screens crop to the photo (the copy sits over it at full width), so
+   the wash returns as a dark scrim: cream type needs it, and the hairline
+   between field and photo is off to the far left where the text covers it. */
 @media(max-width:760px){
-  body[data-creator-page="TYPICALBROWNS"] .jlock-girly .gbanner-photo{object-position:78% center}
+  body[data-creator-page="TYPICALBROWNS"] .jlock-girly .gbanner-photo{object-position:96% center}
+  body[data-creator-page="TYPICALBROWNS"] .jlock-girly .gbanner-panel::after{
+    background:linear-gradient(90deg,rgba(15,10,6,.95) 0%,rgba(15,10,6,.9) 55%,rgba(15,10,6,.52) 100%)}
 }
 /* the promo bar: espresso plate, burnt-orange rule, warm cream code chip */
 .jlock-girly[data-theme="browns"] .gpromobar{background:#2c1a0f;color:#fff8ef;

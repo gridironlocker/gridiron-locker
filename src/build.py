@@ -3323,6 +3323,11 @@ def girly_socials(cre, top=False):
     and the search button need the width.
     """
     records = ((cre or {}).get("girly") or {}).get("social") or []
+    # ``social_text: False`` keeps the pill to its emoji - the owner of one
+    # locker wants the row to read as three glyphs, not three labelled links.
+    # The spoken label stays either way, and it moves to ``title`` so a mouse
+    # or long-press still names the platform.
+    social_text = bool(((cre or {}).get("girly") or {}).get("social_text", True))
     links = []
     for rec in records:
         url = str((rec or {}).get("url") or "").strip()
@@ -3337,10 +3342,13 @@ def girly_socials(cre, top=False):
         links.append(
             f'\n    <li><a class="gsocial-link" href="{esc(url)}"'
             ' target="_blank" rel="noopener noreferrer"'
-            f' aria-label="{esc(label)} (opens in a new tab)">'
+            f' aria-label="{esc(label)} (opens in a new tab)"'
+            + ("" if social_text else f' title="{esc(label)}"')
+            + '>'
             f'<span class="gsocial-emoji" aria-hidden="true">{esc(emoji)}</span>'
-            f'<span class="gsocial-name">{esc(name)}</span>'
-            + (f'<span class="gsocial-handle">{esc(handle)}</span>' if handle else "")
+            + (f'<span class="gsocial-name">{esc(name)}</span>'
+               + (f'<span class="gsocial-handle">{esc(handle)}</span>' if handle else "")
+               if social_text else "")
             + '</a></li>')
     if not links:
         return ""
