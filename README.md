@@ -713,3 +713,32 @@ Tests: `tests/test_layout.py::DesLocker` pins the ASCII address, the grid, the
 `DESTINY` attribution and code, the Elizabeth branding, her artwork (including
 the bumped `hero_v`), and that no
 other creator's name or code leaks onto her page.
+
+## Yvette's Browns Collection — creator collaboration (`/yvette/`)
+
+Yvette — the woman behind **Bougie Sports** — gets the sixth Browns locker, at
+the bare address **`/yvette/`**, built exactly like Crystal Marie's: the whole
+live Browns collection newest → oldest, local product pages, the browns skin,
+promo code **`BOUGIESPORTS` (10% off)**.
+
+What she adds to the template:
+
+- **Her accounts, as an emoji-led row** under the hero CTA (`girly.social` +
+  `girly_socials()` in `src/build.py`): 🐦 **X** and 🎬 **TikTok**, both
+  `@bougiesports`, opening in a new tab. Each pill carries a decorative emoji
+  (`aria-hidden`), the platform name, the handle and a spoken label ("Yvette on
+  X, @bougiesports (opens in a new tab)"). The row is opt-in — a creator without
+  a `social` block renders nothing — and only `http(s)` URLs are accepted. A
+  `Person` node with `sameAs` joins the page's structured data, so a search or
+  answer engine can tie the page to her accounts.
+- **Copy drawn from what she publishes**, not invented: Browns takes, fantasy
+  football, pop culture and "cool mom energy" (the Bougie Sports brand line),
+  Cleveland forever.
+- **Art** — `artwork-source/yvette-banner.png` is the master (Crystal Marie's
+  lakefront frame, a different model, the same Browns tee);
+  `site/img/hero-yvette.jpg` (1916×821) ships, versioned `?v=1`.
+
+Tests: `tests/test_layout.py::YvetteLocker` pins the address, the grid, the
+`YVETTE` attribution, the `BOUGIESPORTS` code, the social row (links, labels,
+`rel`, emoji, Person schema), that the row is opt-in for the other lockers, and
+that no other creator's name or code leaks onto her page.

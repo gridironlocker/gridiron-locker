@@ -3658,6 +3658,125 @@ class DesLocker(unittest.TestCase):
         self.assertIn("https://gridironlocker.store/des/", page("feed.xml"))
 
 
+class YvetteLocker(unittest.TestCase):
+    """Yvette's Browns locker at /yvette/ - Crystal Marie's page plus her accounts.
+
+    The new surface here is the creator's own social row (``girly.social``), so
+    these tests pin three things a link list can get wrong: the links go to the
+    accounts the owner named, they are usable without sight (spoken labels, a
+    real handle, ``rel="noopener"``), and the row is OPT-IN - a creator without
+    a ``social`` block must not grow an empty "follow" heading.
+    """
+
+    def setUp(self):
+        import build  # noqa: E402
+
+        self.build = build
+        self.html = page("yvette/index.html")
+        self.cre = load_json("data/creators.json")["creators"]["yvette"]
+        self.team = page("cleveland-browns-shirts/index.html")
+
+    def test_she_lives_at_the_bare_short_url(self):
+        self.assertEqual(self.cre["page_slug"], "yvette")
+        self.assertIn('<link rel="canonical" href="https://gridironlocker.store/yvette/">',
+                      self.html)
+        self.assertIn("<loc>https://gridironlocker.store/yvette/</loc>", page("sitemap.xml"))
+        self.assertIn('data-creator-page="YVETTE"', self.html)
+        self.assertNotIn('name="robots" content="noindex', self.html)
+        self.assertTrue(self.html.endswith("</body></html>"))
+
+    def test_the_grid_is_the_whole_browns_collection_newest_first(self):
+        live = [item["slug"] for item in self.build.creator_items(self.cre)]
+        self.assertEqual(live, [item["slug"] for item in self.build.MODEL["cleveland-browns"]])
+        cards = re.findall(r'<article class="gproduct" data-slug="([^"]+)"', self.html)
+        self.assertEqual(cards, live)
+        self.assertEqual(cards, re.findall(r'class="card[^"]*"[^>]*data-slug="([^"]+)"',
+                                           self.team))
+        self.assertEqual(len(cards), 33)
+        self.assertNotIn("dawg-pound-cleveland-skyline", cards)
+
+    def test_every_card_forwards_her_own_attribution(self):
+        self.assertEqual(self.cre["attribution"]["creator_id"], "YVETTE")
+        cards = re.findall(r'<article class="gproduct".*?</article>', self.html, re.S)
+        self.assertEqual(len(cards), 33)
+        for block in cards:
+            self.assertIn("?creator=YVETTE", block, block[:90])
+            self.assertIn('data-creator="YVETTE"', block)
+
+    def test_bougiesports_code_is_ten_percent_off_and_nothing_else_leaks(self):
+        self.assertEqual(self.cre.get("promo"), {"code": "BOUGIESPORTS", "pct": 10})
+        self.assertIn('data-copy-code="BOUGIESPORTS"', self.html)
+        self.assertIn("<strong>10% off</strong> your order", self.html)
+        self.assertIn('<span>10% off</span> with code <strong>BOUGIESPORTS</strong>', self.html)
+        self.assertIn("with code <strong>BOUGIESPORTS</strong> at checkout", self.html)
+        text = unescape(self.html)
+        for other in ("Crystal", "Amber", "Laquala", "Elizabeth", "Bella", "Joe"):
+            self.assertNotIn(other, text)
+        for other in ("CRYSTAL", "AMBER", "LAQUALA", "DESTINY"):
+            self.assertNotIn(f"creator={other}", self.html)
+
+    def test_the_copy_and_branding_are_hers(self):
+        text = unescape(self.html)
+        self.assertIn('<span class="glogo-script">Yvette</span>', text)   # masthead
+        self.assertIn('<span class="gscript">Yvette’s</span>', text)      # hero
+        self.assertIn("Yvette’s Browns Collection</h2>", text)            # about heading
+        self.assertIn("Yvette’s Collection home", text)
+        self.assertIn("YVETTE’S PICK 01", text)
+        self.assertIn("YVETTE’S PICK 33", text)
+        self.assertIn("Bougie Sports", text)                              # the brand she runs
+        self.assertIn("New Custom Design Request from Yvette's Browns Locker", text)
+
+    def test_her_accounts_are_linked_with_emoji_and_a_spoken_label(self):
+        row = self.html[self.html.find('class="gsocial"'):]
+        row = row[:row.find("</ul>")]
+        self.assertIn("FOLLOW YVETTE", row)
+        links = re.findall(r'<li><a class="gsocial-link".*?</a></li>', row, re.S)
+        self.assertEqual(len(links), 2)
+        x, tiktok = links
+        self.assertIn('href="https://x.com/bougiesports"', x)
+        self.assertIn('href="https://www.tiktok.com/@bougiesports"', tiktok)
+        for block in links:
+            self.assertIn('target="_blank"', block)
+            self.assertIn('rel="noopener noreferrer"', block)
+            self.assertIn('class="gsocial-emoji" aria-hidden="true"', block)
+            self.assertIn('aria-label="Yvette on ', block)
+            self.assertIn("(opens in a new tab)", block)
+            self.assertIn('class="gsocial-handle">@bougiesports', block)
+        self.assertIn("🐦", unescape(x))
+        self.assertIn("🎬", unescape(tiktok))
+        # the accounts are in the structured data too, on a Person node
+        nodes = [json.loads(b) for b in
+                 re.findall(r'<script type="application/ld\+json">(.*?)</script>',
+                            self.html, re.S)]
+        person = [n for n in nodes if n.get("@type") == "Person"]
+        self.assertEqual(len(person), 1)
+        self.assertEqual(person[0]["name"], "Yvette")
+        self.assertEqual(sorted(person[0]["sameAs"]),
+                         ["https://www.tiktok.com/@bougiesports",
+                          "https://x.com/bougiesports"])
+
+    def test_the_social_row_is_opt_in(self):
+        """No ``social`` block, no row: the other lockers are unchanged."""
+        self.assertEqual(len(self.cre["girly"]["social"]), 2)
+        for rel in ("crystal/index.html", "amber/index.html",
+                    "laquala/index.html", "des/index.html",
+                    "michigan/bella/index.html", "michigan/joe/index.html"):
+            self.assertNotIn('class="gsocial"', page(rel), rel)
+        # and a record without accounts renders nothing at all
+        self.assertEqual(self.build.girly_socials({"girly": {}}), "")
+        # a non-http URL is dropped rather than rendered as a broken link
+        self.assertEqual(self.build.girly_socials(
+            {"display_name": "X", "girly": {"social": [
+                {"name": "Bad", "emoji": "!", "url": "javascript:alert(1)"}]}}), "")
+
+    def test_all_five_browns_capsules_are_linked(self):
+        for href in ('href="../crystal/"', 'href="../amber/"', 'href="../laquala/"',
+                     'href="../des/"', 'href="../yvette/"'):
+            self.assertIn(href, self.team)
+        self.assertIn("https://gridironlocker.store/yvette/", page("llms.txt"))
+        self.assertIn("https://gridironlocker.store/yvette/", page("feed.xml"))
+
+
 class ConversionUpgrades(unittest.TestCase):
     """The conversion pass: truthful trust strip, faster PDP hand-off,
     visible custom-design service, completed funnel analytics.

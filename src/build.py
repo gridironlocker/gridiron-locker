@@ -3263,6 +3263,50 @@ def girly_nav(cre, has_apparel=True, has_custom=True):
     return (f'<nav class="bellanav" aria-label="{esc(nav_label)}">'
             '<div class="wrap bellanav-links">' + "".join(links) + '</div></nav>')
 
+def girly_socials(cre):
+    """The creator's own social accounts, as an emoji-led row of pills.
+
+    A creator locker drops the sitewide footer, so a visitor who likes what
+    they see has nowhere to follow the person behind it. ``girly.social`` is a
+    list of records - ``name``, ``emoji``, ``url``, ``handle`` and an optional
+    ``label`` - and each one renders as a link that opens in a new tab.
+
+    The emoji is decoration, not the label: it is ``aria-hidden`` and every
+    link carries a spoken label ("Yvette on X, @bougiesports") plus the handle
+    in text, so the row is usable with a screen reader and readable when a
+    platform's emoji font is missing. Only http(s) URLs are accepted; anything
+    else is skipped rather than rendered as a broken link.
+    """
+    records = ((cre or {}).get("girly") or {}).get("social") or []
+    links = []
+    for rec in records:
+        url = str((rec or {}).get("url") or "").strip()
+        name = str((rec or {}).get("name") or "").strip()
+        if not name or not url.lower().startswith(("http://", "https://")):
+            continue
+        emoji = str(rec.get("emoji") or "")
+        handle = str(rec.get("handle") or "")
+        label = str(rec.get("label") or f"{cre.get('display_name', name)} on {name}")
+        if handle:
+            label = f"{label}, {handle}"
+        links.append(
+            f'\n    <li><a class="gsocial-link" href="{esc(url)}"'
+            ' target="_blank" rel="noopener noreferrer"'
+            f' aria-label="{esc(label)} (opens in a new tab)">'
+            f'<span class="gsocial-emoji" aria-hidden="true">{esc(emoji)}</span>'
+            f'<span class="gsocial-name">{esc(name)}</span>'
+            + (f'<span class="gsocial-handle">{esc(handle)}</span>' if handle else "")
+            + '</a></li>')
+    if not links:
+        return ""
+    heading = str(((cre or {}).get("girly") or {}).get("social_heading")
+                  or "Follow along")
+    return (f'\n   <div class="gsocial">\n'
+            f'    <p class="gsocial-head">{esc(heading)}</p>\n'
+            f'    <ul class="gsocial-list">{"".join(links)}\n    </ul>\n'
+            '   </div>')
+
+
 def _girly_body(cre, c, items, track):
     """Render the clean, product-first creator locker (Bella's layout).
 
@@ -3686,6 +3730,9 @@ def _girly_body(cre, c, items, track):
             f'\n    <a class="gbanner-link" href="{store_url}" target="_blank"'
             f' rel="noopener noreferrer">Visit {store_name}'
             ' <span aria-hidden="true">↗</span></a>')
+    # Her own accounts (``girly.social``) ride under the hero CTA: the one
+    # place a visitor who just arrived can follow the person behind the page.
+    social_html = girly_socials(cre)
     return f"""
 <main id="main" class="jlock jlock-girly"{theme_attr}>{promo_bar}
 <section class="gbanner"><div class="wrap">
@@ -3699,7 +3746,7 @@ def _girly_body(cre, c, items, track):
    <p class="gbanner-facts">{esc(facts)}</p>
    <div class="gbanner-actions">
     <a class="gbtn gbtn-maize" href="#locker">{esc(g.get('hero_cta', 'Shop the collection'))}</a>{banner_store_link}
-   </div>
+   </div>{social_html}
   </div>
  </div>
 </div></section>
@@ -3890,6 +3937,17 @@ def page_creator(ckey="joe"):
                    {"@type": "Question", "name": q,
                     "acceptedAnswer": {"@type": "Answer", "text": a}}
                    for q, a in faq]}]
+    # When the creator shares her own accounts, say so in structured data too:
+    # a Person node with sameAs is how a search engine (or an AI answer engine)
+    # ties this page to the person it is built with, instead of guessing from
+    # her name alone.
+    cre_socials = [str(rec.get("url") or "").strip()
+                   for rec in ((cre.get("girly") or {}).get("social") or [])
+                   if str((rec or {}).get("url") or "").lower().startswith("https://")]
+    if cre_socials:
+        schema.append({"@context": "https://schema.org", "@type": "Person",
+                       "name": display, "url": DOMAIN + path,
+                       "sameAs": cre_socials})
 
     desc_bits = f"{len(items)} hand-picked designs &middot; from ${minp:.2f} &middot; " \
                 f"{', '.join(types[:3])} &middot; printed on demand &middot; ships worldwide"

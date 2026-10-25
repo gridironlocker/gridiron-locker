@@ -1629,6 +1629,22 @@ main.jlock-girly{padding:0 0 32px;overflow:hidden}
   outline:3px solid var(--g-pink);outline-offset:3px}
 .jlock-girly .gstore-note{max-width:880px;margin:24px auto 0;padding-top:16px;border-top:1px solid #d9d9d5;
   color:#62676b;font-size:.79rem;line-height:1.6;text-align:center}
+/* The creator's own accounts, under the hero CTA. Emoji-led pills, sized for a
+   thumb on mobile and a click on desktop; the emoji is decoration only, so the
+   label and handle carry the meaning. */
+.jlock-girly .gsocial{margin:18px 0 0}
+.jlock-girly .gsocial-head{margin:0 0 9px;color:#806d4a;font-size:.6rem;font-weight:800;
+  letter-spacing:.16em;line-height:1.4;text-transform:uppercase}
+.jlock-girly .gsocial-list{display:flex;flex-wrap:wrap;gap:9px;margin:0;padding:0;list-style:none}
+.jlock-girly .gsocial-link{display:inline-flex;align-items:center;gap:8px;min-height:38px;
+  padding:9px 15px;border:1px solid #dcd6d0;border-radius:999px;background:#fff;color:var(--g-ink);
+  font-size:.8rem;font-weight:800;letter-spacing:.01em;line-height:1;text-decoration:none}
+.jlock-girly .gsocial-link:hover{border-color:var(--g-pink);color:var(--g-pink)}
+.jlock-girly .gsocial-link:focus-visible{outline:2px solid var(--g-pink);outline-offset:3px}
+.jlock-girly .gsocial-emoji{font-size:1.02rem;line-height:1}
+.jlock-girly .gsocial-handle{font-size:.74rem;font-weight:700;color:#6a6f73;letter-spacing:0}
+.jlock-girly .gsocial-link:hover .gsocial-handle{color:inherit}
+
 .jlock-girly .gstore-note a{color:var(--g-ink);font-weight:800;text-decoration:underline;text-underline-offset:3px}
 .jlock-girly .gstore-promo{display:block;margin:0 0 7px;color:#8d4356;font-size:.84rem;
   font-weight:800;line-height:1.5}
@@ -1841,6 +1857,10 @@ body[data-creator-skin="browns"] .bellanav-links a:focus-visible{outline:2px sol
 /* the hand-off note under the grid */
 .jlock-girly[data-theme="browns"] .gstore-note{border-top-color:#dfcbb0;color:#6b5a49}
 .jlock-girly[data-theme="browns"] .gstore-note a{color:#2c1a0f}
+.jlock-girly[data-theme="browns"] .gsocial-head{color:#8a5326}
+.jlock-girly[data-theme="browns"] .gsocial-link{background:#fffaf2;border-color:#e6d3b6;color:#2c1a0f}
+.jlock-girly[data-theme="browns"] .gsocial-link:hover{border-color:#c85a1c;color:#b8480f}
+.jlock-girly[data-theme="browns"] .gsocial-handle{color:#6b5a49}
 .jlock-girly[data-theme="browns"] .gstore-promo{color:#a8410f}
 .jlock-girly[data-theme="browns"] .gstore-promo strong{background:#2c1a0f;color:#fff8ef}
 /* custom-design section */
