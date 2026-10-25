@@ -704,8 +704,8 @@ collection-page cross-links and the schema use.
 The hero reads “Elizabeth’s Collection” while the masthead, the browser title,
 the kickers, the about heading and the labels stay “Elizabeth…”. That is
 `girly.logo_script`: it decouples the masthead line from `hero_script` (which
-both lines share by default, so every other locker is unchanged), so the
-masthead does not have to carry the possessive the hero needs.
+both lines share by default, so every other locker is unchanged), so a 27 px
+signature does not have to carry the possessive.
 
 - **Art** — `artwork-source/des-banner.png` is the master (Crystal Marie's
   lakefront frame, a blonde model — the banner was re-shot on request — and the
@@ -789,39 +789,3 @@ the size chart and the checkout actually live.
 Tests: `tests/test_layout.py::CreatorShopHandoff` runs the rule over all seven
 creator pages (host, creator tag, UTM, new tab, no local `/shop/` link, the
 store note, and the local-page fallback for a record with no supplier link).
-
-## The creator lockup — one masthead, seven lockers
-
-Every collaboration page wears its own masthead in the logo row instead of the
-storefront wordmark (`girly_logo()` in `src/build.py`). It replaced the
-handwritten script signature with a stray heart beside it — charming, but it
-read like a sticker — with a lockup that reads like a label:
-
-- **The seal** — a double hairline ring on a warm paper fill, holding her
-  monogram in Playfair Display: one initial, two when the name has two parts
-  (`Laquala Royal’s` → **LR**, `Yvette` → **Y**). The possessive is dropped
-  before the initials are taken.
-- **The name** — Playfair Display at 19px, with the emblem the record already
-  ships beside it (a football for the Browns lockers and Joe, a heart for
-  Bella).
-- **The label line** — `COLLECTION` in tracked small caps under a hairline
-  rule, set in the page's accent colour.
-- **The shape is shared, the colour is per skin** — `.glogo-*` in
-  `src/style.css` draws the lockup once; the skin blocks only set
-  `--glogo-ink`, `--glogo-accent`, `--glogo-rule` and the seal's paper
-  (browns: espresso / burnt orange / gold · Bella: navy / rose / champagne ·
-  Joe: navy / antique gold). A new locker inherits the whole treatment.
-- **The contract is unchanged** — the emblems stay `aria-hidden`, the link's
-  label still names the destination ("Yvette’s Collection home"), and
-  `logo_script`, `lockup_serif`, `lockup_mark_html` and `lockup_label` keep
-  driving the copy. Playfair Display is loaded on every page that renders the
-  lockup (`GIRLY_FONTS` for the six boutique lockers, `LOCKUP_FONTS` for Joe's
-  storefront header); Caveat stays a girly-only face.
-- **Phones** — under 430px the seal steps to 32px and the type drops a notch,
-  so the search control — and, on Yvette's locker, her two account pills —
-  still fit the 64px row.
-
-Tests: `tests/test_layout.py::CreatorLockup` pins the seal, the monogram, the
-name, the label line, the screen-reader label, that the old
-`glogo-script`/`glogo-heart` markup is gone, that the skins colour the lockup
-without re-shaping it, and that the serif is loaded wherever it renders.
