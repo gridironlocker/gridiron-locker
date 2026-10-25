@@ -596,9 +596,30 @@ def creator_items(cre):
     return out
 
 
+def supplier_host(items):
+    """The shop host a locker's cards hand off to (the Mayzing storefront)."""
+    for it in items:
+        source = it.get("buy") or it.get("source_url") or ""
+        if isinstance(source, str) and source.startswith(("http://", "https://")):
+            return urlsplit(source).netloc
+    return ""
+
+
 def creator_item_href(it, track):
-    """Creator-tag a direct supplier link, or keep the local PDP hand-off."""
-    source = it.get("source_url")
+    """Where a creator's card opens: the shop's product page, creator-tagged.
+
+    A creator locker never hands the visitor to this site's own /shop/ page.
+    It goes straight to the product page of the shop that prints and ships the
+    order - the Mayzing storefront, the same destination the local product
+    page's own Shop Now button uses - so choosing a design is one tap from the
+    size chart, the colour and the checkout.
+
+    The link carries ?creator=<ID> + UTM so the order stays attributed to the
+    creator, and the card opens it in a new tab so the locker stays behind it.
+    Falls back to the record's own supplier URL, and to the local PDP only when
+    a record carries no supplier link at all: a card is never a dead end.
+    """
+    source = it.get("buy") or it.get("source_url")
     if not source:
         return f"/shop/{it['slug']}/?creator={track}"
     parsed = urlsplit(source)
@@ -3346,6 +3367,13 @@ def _girly_body(cre, c, items, track):
     external = any(bool(it.get("external_store")) for it in items)
     store_name = esc(catalog.get("name", "the store")) if catalog else ""
     store_url = esc(catalog.get("url", "")) if catalog else ""
+    # A locker curated from this site's own catalogue carries no store record,
+    # but its cards still hand off to the shop that fulfils the order - so the
+    # shop host is read from the supplier links themselves.
+    if not store_url:
+        host = supplier_host(items)
+        store_name = esc(host)
+        store_url = esc(f"https://{host}") if host else ""
     facts = str(g.get("hero_facts", "{n} designs")).replace("{n}", str(len(items)))
     script = esc(g.get("hero_script", first))
     title = esc(g.get("hero_title", cre["page_name"]))
@@ -3497,7 +3525,11 @@ def _girly_body(cre, c, items, track):
         name = esc(it["name"])
         slug = esc(it["slug"])
         alt = esc(f'{it["name"]} design on a {it["garment"].lower()}')
-        item_external = bool(it.get("external_store"))
+        # A card leaves this site (it opens the shop's own product page), so
+        # the hand-off attributes come from the href itself, not the record
+        # shape: a new tab, a spoken warning, and the outward arrow.
+        item_external = (bool(it.get("external_store"))
+                         or href.startswith(("http://", "https://")))
         link_attrs = (' target="_blank" rel="noopener noreferrer"'
                       if item_external else "")
         view_where = ((f"on {store_name or 'the store'} (opens in a new tab)")
@@ -3691,15 +3723,24 @@ def _girly_body(cre, c, items, track):
     # locker names that store (Bella's cards leave this site); a locally
     # curated locker keeps the visitor on the product page, so it must not
     # promise a hand-off that does not happen.
-    if external:
+    note_override = str(g.get("store_note") or "")
+    if note_override:
+        store_note = promo_note + esc(note_override)
+    elif external:
         store_note = (f'{promo_note}Each design opens on <a href="{store_url}" '
                       f'target="_blank" rel="noopener noreferrer">{store_name}</a>. '
                       'Available apparel, colours, sizes and current prices are '
                       'confirmed on its product page.')
+    elif store_url:
+        store_note = (f'{promo_note}Each design opens its product page on '
+                      f'<a href="{store_url}" target="_blank" '
+                      f'rel="noopener noreferrer">{store_name}</a>, the shop that '
+                      'prints and ships every order. Sizes, the current price and '
+                      'checkout are confirmed there.')
     else:
-        store_note = promo_note + esc(str(g.get("store_note",
-            "Each design opens its own product page, where the sizes, the current "
-            "price and checkout are confirmed.")))
+        store_note = promo_note + esc("Each design opens its own product page, "
+                                      "where the sizes, the current price and "
+                                      "checkout are confirmed.")
     # The collection head may count itself: ``{n}`` is the number of designs
     # actually in this locker, so "ALL 34 BROWNS DESIGNS" stays true as the
     # catalogue grows or a design is retired.
@@ -3855,9 +3896,11 @@ def page_creator(ckey="joe"):
     def jcard(it, cls, eager=False):
         lazy = hint(eager)
         tag = {"player": "Player Story", "retro": "Vintage", "funny": "Culture"}.get(it["theme"], "Game Day")
+        href = jlink(it)
         external_attrs = (' target="_blank" rel="noopener noreferrer"'
-                          if it.get("external_store") else "")
-        return (f'<a class="{cls}" href="{esc(jlink(it))}"{external_attrs} '
+                          if it.get("external_store")
+                          or href.startswith(("http://", "https://")) else "")
+        return (f'<a class="{cls}" href="{esc(href)}"{external_attrs} '
                 f'data-slug="{it["slug"]}" data-price="{it["price"]:.2f}" '
                 f'data-creator="{track}" data-collection="{ckey_col}">'
                 f'<span class="jph"><img class="main" src="{esc(it["front"])}" '
@@ -3902,6 +3945,9 @@ def page_creator(ckey="joe"):
              "available apparel, colour and size are confirmed there before checkout."),
         ]
     else:
+        # No store record: the cards still hand off to the shop that fulfils
+        # the order, so the FAQ names that shop instead of a local page.
+        order_store = supplier_host(items) or "the shop"
         faq = [
             (f"What is {cre['page_name']}?",
              f"A creator collaboration: {display}, a {cre.get('role', 'Michigan creator')}, "
@@ -3926,10 +3972,10 @@ def page_creator(ckey="joe"):
              f"is not affiliated with, endorsed by or licensed by {rights_holder}. "
              "All trademarks are the property of their respective owners."),
             ("How does ordering work?",
-             "Tap any design to see the full story, garment styles, colours and "
-             "sizing. Then Shop Now opens the checkout page for that exact design, "
-             "where the available garment option, colour and size are confirmed. Items are printed on "
-             "demand and shipped worldwide with tracking."),
+             f"Tap any design to open its product page on {order_store}, where the "
+             "garment styles, colours, size and current price are confirmed before "
+             "checkout. Items are printed on demand and shipped worldwide with "
+             "tracking."),
         ]
 
     cb, cbs = crumbs([("Home", "/"), (c["short"], f"/{c['slug']}/"),
@@ -3942,7 +3988,8 @@ def page_creator(ckey="joe"):
                "about": {"@type": "ItemList", "numberOfItems": len(items),
                          "itemListElement": [
                              {"@type": "ListItem", "position": n + 1,
-                              "url": x.get("source_url") or DOMAIN + f"/shop/{x['slug']}/",
+                              "url": (x.get("buy") or x.get("source_url")
+                                      or DOMAIN + f"/shop/{x['slug']}/"),
                               "name": x["name"]}
                              for n, x in enumerate(items)]}},
               {"@context": "https://schema.org", "@type": "FAQPage",
@@ -5910,6 +5957,7 @@ def assets():
         blob = " ".join([it["name"], it["art"], " ".join(it["kw"] or []),
                          c["name"], c["short"], c["city"], it["garment"], it["theme"]])
         srows.append({"n": it["name"], "u": it["url"], "i": it["front"],
+                      "b": it.get("buy") or it.get("source_url") or "",
                       "t": it["col"], "ts": c["short"], "g": it["garment"],
                       "p": it["price"], "h": 1 if it.get("trend") == "hot" else 0,
                       "k": blob.lower()})
@@ -6914,6 +6962,17 @@ document.querySelectorAll('a.custom-link').forEach(function(a){
   function esc(s){return String(s).replace(/&/g,'&amp;').replace(/</g,'&lt;').replace(/"/g,'&quot;');}
   function imgFor(i){return /^https?:/.test(i)?i:ROOT+i;}
   function allUrl(term){return ROOT+'search/?q='+encodeURIComponent(term);}
+  // A creator page never sends its own shopper to a product page on this site.
+  // Its search suggestions open the shop's product page for that design -
+  // creator-tagged, in a new tab - exactly like the design cards do.
+  var CRE=document.body.getAttribute('data-creator-page')||'';
+  var TAG=CRE?('creator='+encodeURIComponent(CRE)+'&utm_source=creator'
+              +'&utm_medium=referral&utm_campaign=creator-'+encodeURIComponent(CRE))
+             :'';
+  function shopHref(it){
+    if(!CRE||!it.b)return '';
+    return it.b+(it.b.indexOf('?')<0?'?':'&')+TAG;
+  }
   function matches(term){
     if(!DATA)return [];
     term=term.toLowerCase();
@@ -6932,8 +6991,9 @@ document.querySelectorAll('a.custom-link').forEach(function(a){
     var list=matches(term);
     var html='';
     for(var i=0;i<list.length;i++){
-      var it=list[i];
-      html+='<a class="gs-item" href="'+ROOT+it.u+'" data-i="'+i+'">'
+      var it=list[i], ext=shopHref(it);
+      html+='<a class="gs-item" href="'+(ext||ROOT+it.u)+'" data-i="'+i+'"'
+           +(ext?' target="_blank" rel="noopener noreferrer"':'')+'>'
            +'<img src="'+imgFor(it.i)+'" alt="" width="40" height="48" loading="lazy">'
            +'<span class="gs-txt"><span class="gs-n">'+esc(it.n)
            +(it.h?' <span class="gs-hot">Trending</span>':'')

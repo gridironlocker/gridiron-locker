@@ -791,6 +791,17 @@ document.querySelectorAll('a.custom-link').forEach(function(a){
   function esc(s){return String(s).replace(/&/g,'&amp;').replace(/</g,'&lt;').replace(/"/g,'&quot;');}
   function imgFor(i){return /^https?:/.test(i)?i:ROOT+i;}
   function allUrl(term){return ROOT+'search/?q='+encodeURIComponent(term);}
+  // A creator page never sends its own shopper to a product page on this site.
+  // Its search suggestions open the shop's product page for that design -
+  // creator-tagged, in a new tab - exactly like the design cards do.
+  var CRE=document.body.getAttribute('data-creator-page')||'';
+  var TAG=CRE?('creator='+encodeURIComponent(CRE)+'&utm_source=creator'
+              +'&utm_medium=referral&utm_campaign=creator-'+encodeURIComponent(CRE))
+             :'';
+  function shopHref(it){
+    if(!CRE||!it.b)return '';
+    return it.b+(it.b.indexOf('?')<0?'?':'&')+TAG;
+  }
   function matches(term){
     if(!DATA)return [];
     term=term.toLowerCase();
@@ -809,8 +820,9 @@ document.querySelectorAll('a.custom-link').forEach(function(a){
     var list=matches(term);
     var html='';
     for(var i=0;i<list.length;i++){
-      var it=list[i];
-      html+='<a class="gs-item" href="'+ROOT+it.u+'" data-i="'+i+'">'
+      var it=list[i], ext=shopHref(it);
+      html+='<a class="gs-item" href="'+(ext||ROOT+it.u)+'" data-i="'+i+'"'
+           +(ext?' target="_blank" rel="noopener noreferrer"':'')+'>'
            +'<img src="'+imgFor(it.i)+'" alt="" width="40" height="48" loading="lazy">'
            +'<span class="gs-txt"><span class="gs-n">'+esc(it.n)
            +(it.h?' <span class="gs-hot">Trending</span>':'')
