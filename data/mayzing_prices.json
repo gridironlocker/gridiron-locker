@@ -1,6 +1,6 @@
 {
  "_doc": "Live Mayzing storefront prices for the Browns and Michigan collections, captured from each product's own checkout page by src/scrape_mayzing_prices.py. This file is machine-written: it exists so a price changed in Mayzing admin reaches the site without hand-editing data/mayzing_products.json or data/mayzing_michigan.json. src/build.py prefers a price here and falls back to the curated product record when a design is missing. Only dollar prices are recorded - the storefront quotes NOK depending on session geo, and a run that cannot read a USD price on every product refuses to write at all.",
- "captured": "2026-10-24",
+ "captured": "2026-10-25",
  "collections": {
   "cleveland-browns": {
    "1946-cleveland": {
