@@ -1818,37 +1818,55 @@ body[data-creator-skin="browns"] .bellanav-links a:focus-visible{outline:2px sol
 .jlock-girly[data-theme="browns"] .gbtn-maize:hover{background:#ad4a12}
 .jlock-girly[data-theme="browns"] .gbanner-link{color:#2c1a0f;text-decoration-color:rgba(44,26,15,.3)}
 .jlock-girly[data-theme="browns"] .gbanner-link:hover{color:#b8480f}
-/* The show's hero is a dark room: the host stands sharp on a warm-brown field,
-   a burnt-orange rule between the type and the photo. The photo is baked into
-   the image (never tinted or faded), so the panel wash is switched off here and
-   the copy turns cream. Scoped to this one page - every other creator keeps the
-   parchment banner and its dark ink. */
-body[data-creator-page="TYPICALBROWNS"] .jlock-girly .gbanner-panel{background:#170f09;
-  border-color:rgba(255,255,255,.09);box-shadow:0 14px 36px rgba(20,12,7,.3)}
+/* The show's hero is the show's own poster: the artwork they sent us, edge to
+   edge and uncropped (its 2048x768 shape matches the panel almost exactly), so
+   nothing of it - and nothing of his face - is ever cut. The panel wash is off,
+   the headline moves into a caption bar under the art (the poster already sets
+   the name in type), and the copy turns cream. Scoped to this one page: every
+   other creator keeps the parchment banner and its dark ink. */
+body[data-creator-page="TYPICALBROWNS"] .jlock-girly .gbanner-panel{display:block;
+  min-height:0;background:#140d08;border-color:rgba(255,255,255,.09);
+  border-radius:20px;box-shadow:0 16px 40px rgba(28,16,9,.26)}
 body[data-creator-page="TYPICALBROWNS"] .jlock-girly .gbanner-panel::after{background:none}
-body[data-creator-page="TYPICALBROWNS"] .jlock-girly .gbanner-kicker{color:#e3a273}
-body[data-creator-page="TYPICALBROWNS"] .jlock-girly .gscript{color:#fbf3e9}
-body[data-creator-page="TYPICALBROWNS"] .jlock-girly .gtitle{color:#ff8f45}
-body[data-creator-page="TYPICALBROWNS"] .jlock-girly .gbanner-sub{color:#f3e7da}
-body[data-creator-page="TYPICALBROWNS"] .jlock-girly .gbanner-facts{color:#cbb49f}
+body[data-creator-page="TYPICALBROWNS"] .jlock-girly .gbanner-photo{position:static;
+  display:block;width:100%;height:auto;aspect-ratio:2048/768;object-fit:cover;
+  object-position:center}
+/* the caption: his name over the line he asked for, with the CTA on the right */
+body[data-creator-page="TYPICALBROWNS"] .jlock-girly .gbanner-copy{display:flex;
+  flex-wrap:wrap;align-items:center;gap:10px 28px;width:auto;max-width:none;
+  padding:17px clamp(20px,3.4vw,34px) 19px;border-top:3px solid #c85a1c;
+  background:#140d08;color:#f3e7da}
+body[data-creator-page="TYPICALBROWNS"] .jlock-girly .gbanner-kicker{flex:1 0 100%;
+  margin:0;color:#e3a273}
+/* The poster carries the title in type, so the <h1> is kept for search engines
+   and screen readers but taken out of the visual flow - one name, not two. */
+body[data-creator-page="TYPICALBROWNS"] .jlock-girly .gbanner-title{position:absolute;
+  width:1px;height:1px;margin:-1px;padding:0;border:0;overflow:hidden;
+  clip:rect(0 0 0 0);clip-path:inset(50%);white-space:nowrap}
+body[data-creator-page="TYPICALBROWNS"] .jlock-girly .gbanner-sub{flex:1 1 340px;
+  max-width:52ch;margin:0;color:#f3e7da;font-size:.8rem;letter-spacing:.05em;
+  line-height:1.55}
+body[data-creator-page="TYPICALBROWNS"] .jlock-girly .gbanner-facts{margin:0;
+  color:#c0a48c;font-size:.72rem}
+body[data-creator-page="TYPICALBROWNS"] .jlock-girly .gbanner-actions{margin:0;
+  gap:15px}
 body[data-creator-page="TYPICALBROWNS"] .jlock-girly .gbanner-link{color:#f6ead9;
   text-decoration-color:rgba(246,234,217,.38)}
 body[data-creator-page="TYPICALBROWNS"] .jlock-girly .gbanner-link:hover{color:#ff8f45}
-/* Keep his hat clear of the top edge: the panel crops ~100px of the photo's
-   height at desktop widths, and the photo is framed tight. */
-body[data-creator-page="TYPICALBROWNS"] .jlock-girly .gbanner-photo{object-position:100% 12%}
 /* The social pills carry their emoji alone (girly.social_text is False on this
    page), so they need the square tap target the label used to give them. */
 body[data-creator-page="TYPICALBROWNS"] .gsocial-top .gsocial-link{justify-content:center;
   min-width:38px;padding:7px 10px}
 body[data-creator-page="TYPICALBROWNS"] .gsocial-top .gsocial-emoji{font-size:1.05rem}
-/* Narrow screens crop to the photo (the copy sits over it at full width), so
-   the wash returns as a dark scrim: cream type needs it, and the hairline
-   between field and photo is off to the far left where the text covers it. */
-@media(max-width:760px){
-  body[data-creator-page="TYPICALBROWNS"] .jlock-girly .gbanner-photo{object-position:96% center}
-  body[data-creator-page="TYPICALBROWNS"] .jlock-girly .gbanner-panel::after{
-    background:linear-gradient(90deg,rgba(15,10,6,.95) 0%,rgba(15,10,6,.9) 55%,rgba(15,10,6,.52) 100%)}
+/* ...or the platform's own mark, which is a drawing rather than a glyph. */
+.gsocial-icon{display:inline-flex;align-items:center;justify-content:center;line-height:0}
+.gsocial-icon svg{width:17px;height:17px;display:block;fill:currentColor}
+.gsocial-icon svg[fill="none"]{fill:none}
+@media(max-width:600px){
+  body[data-creator-page="TYPICALBROWNS"] .jlock-girly .gbanner-copy{gap:9px 18px;
+    padding:15px 18px 17px}
+  body[data-creator-page="TYPICALBROWNS"] .jlock-girly .gbanner-sub{font-size:.75rem}
+  body[data-creator-page="TYPICALBROWNS"] .jlock-girly .gbanner-actions{width:100%}
 }
 /* the promo bar: espresso plate, burnt-orange rule, warm cream code chip */
 .jlock-girly[data-theme="browns"] .gpromobar{background:#2c1a0f;color:#fff8ef;
