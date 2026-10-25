@@ -1671,6 +1671,14 @@ main.jlock-girly{padding:0 0 32px;overflow:hidden}
   font-weight:800;line-height:1.5}
 .jlock-girly .gstore-promo strong{display:inline-block;padding:1px 7px;border-radius:4px;
   background:#182d4d;color:#fff;letter-spacing:.14em}
+.jlock-girly .gcustom-note{max-width:850px;margin:0 auto 28px;text-align:center}
+.jlock-girly .gkicker{display:block;margin:0;color:var(--g-ink);font-family:var(--g-serif);
+  font-size:clamp(1.8rem,3.4vw,2.55rem);font-weight:800;letter-spacing:-.025em;line-height:1.15}
+.jlock-girly .gcustom-title{margin:9px 0 0;color:var(--g-ink);font-family:var(--g-serif);
+  font-size:clamp(1.1rem,2vw,1.5rem);font-weight:700;letter-spacing:-.02em;line-height:1.25}
+.jlock-girly .gcustom-pitch{max-width:72ch;margin:12px auto 0;color:#565d62;font-size:.94rem;line-height:1.65}
+.jlock-girly .gcustom-dream{margin:9px 0 0;color:var(--g-ink);font-size:.88rem;font-weight:700;line-height:1.5}
+.jlock-girly .gcustom-note .custom-link{margin-top:16px}
 .jlock-girly .gcustom{padding:24px 0 42px}
 /* The custom tee photo beside the form - the same visual weight the main
    site's custom-design section gives its offer ("tell us about your idea"
