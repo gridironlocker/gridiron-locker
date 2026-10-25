@@ -107,10 +107,6 @@ code{font-size:.85em;background:var(--bg3);padding:1px 6px;border-radius:5px;col
   .reveal,.js .reveal.pre{opacity:1;transform:none}
 }
 
-/* ============ PROMO BAR ============ */
-.promo{background:var(--bg3);color:#4b5158;font-size:.72rem;letter-spacing:.01em;
-  text-align:center;padding:8px 12px;border-bottom:1px solid var(--line)}
-
 /* ============ HEADER ============ */
 header{position:sticky;top:0;z-index:60;background:#fff;border-bottom:1px solid var(--line)}
 .nav{display:flex;align-items:center;gap:18px;height:64px}

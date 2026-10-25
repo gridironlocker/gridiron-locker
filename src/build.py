@@ -1370,24 +1370,7 @@ def pinterest_tag_snippet():
 """
 
 
-def season_promo():
-    """Sitewide promo clause, derived from SEASON (never a hardcoded date).
-
-    The hardcoded "2026 season kicks off Sept 9" sat on every page while the
-    homepage put Michigan first for a Sept 5 game, so the banner contradicted
-    the page underneath it. This reads the earliest 2026 opener instead: once
-    that date has arrived the season is live, so the line can never go stale
-    again and never needs a manual edit per fixture.
-    """
-    first = min(SEASON[k]["kickoff"][:10] for k in ORDER)
-    if first <= TODAY:
-        return "2026 season is live"
-    d = datetime.date.fromisoformat(first)
-    month = "Sept" if d.month == 9 else d.strftime("%b")   # house style: "Sept 5"
-    return f"2026 season kicks off {month} {d.day}"
-
-
-def header(active="", hide_nav=False, logo="", hide_promo=False, social=""):
+def header(active="", hide_nav=False, logo="", social=""):
     """Site header, shared by every page.
 
     Two rows: the logo row (logo + search), then a FULL-WIDTH menu bar that
@@ -1432,19 +1415,21 @@ def header(active="", hide_nav=False, logo="", hide_promo=False, social=""):
         f'{esc(COLLECTIONS[k].get("menu", COLLECTIONS[k]["short"]))}</a>'
         for k in ORDER)
     search_ico = '<svg width="17" height="17" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.8" aria-hidden="true"><circle cx="11" cy="11" r="6.2"/><path d="M20 20l-4.3-4.3"/></svg>'
-    # The announcement bar sits on every page that keeps the storefront chrome,
-    # production or shipping fact that is only true for one fulfillment
-    # partner. On a page that belongs to exactly one collection it can name
-    # that collection's partner; anywhere else it stays partner-neutral.
-    partner = partner_of(active) if active in COLLECTIONS else ""
-    promo_fact = (f"Printed on demand by {partner}" if partner
-                  else "Printed on demand &middot; No warehouse stock")
+    # There is deliberately NO sitewide announcement bar above the header. It
+    # used to read "2026 season is live · Printed on demand by <partner>" and
+    # sat on every page that kept the storefront chrome, which meant the one
+    # strip a visitor read first was a production fact about a supplier they
+    # had never heard of - and it repeated itself on all 600-odd pages while
+    # saying nothing about the design they came for. The partner that prints
+    # an item is still named where it matters: on the product page beside the
+    # buy button and in the offer schema. Do not re-add a bar here; if a
+    # seasonal announcement is ever needed it belongs in the page body of the
+    # pages it is true for, not in shared chrome.
     # A locker page that curates its own picks (e.g. a girly creator page) can
     # drop the nine-destination menu bar - it only cross-sells away from the
-    # collection. The logo row, promo bar and search stay; the sitewide footer
-    # is page chrome the caller assembles (see page_creator), and a girly page
-    # ends on its own sign-off instead.
-    promo_bar = "" if hide_promo else '\n<div class="promo">' + season_promo() + ' &middot; ' + promo_fact + '</div>'
+    # collection. The logo row and search stay; the sitewide footer is page
+    # chrome the caller assembles (see page_creator), and a girly page ends on
+    # its own sign-off instead.
     menubar = "" if hide_nav else f"""
  <nav class="menubar" aria-label="Shop">
   <div class="mb-track">
@@ -1460,7 +1445,7 @@ def header(active="", hide_nav=False, logo="", hide_promo=False, social=""):
         '<a class="logo" href="/"><span class="mark">GL</span>'
         f'<span class="wordmark">{esc(BRAND)}</span></a>')
     return f"""\
-<a class="skip" href="#main">Skip to content</a>{promo_bar}
+<a class="skip" href="#main">Skip to content</a>
 <header>
  <div class="wrap nav">
   {logo_html}
@@ -4135,7 +4120,7 @@ def page_creator(ckey="joe"):
           head(f"{cre['page_name']} | {BRAND}", cre_page_desc, path, hero_meta,
                schema, kw, col=ckey_col, body_attrs=body_attrs,
                extra_head=GIRLY_FONTS if girly else "")
-          + header(ckey_col, hide_nav=hide_nav, hide_promo=girly,
+          + header(ckey_col, hide_nav=hide_nav,
                    logo=girly_logo(path, cre) if girly else "",
                    social=girly_socials(cre, top=True) if girly else "")
           + (girly_nav(cre,
