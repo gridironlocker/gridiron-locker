@@ -12,7 +12,7 @@
   "throwback": 0,
   "steady": 85,
   "gaps": 6,
-  "moments": 1,
+  "moments": 0,
   "tracked_names": 18,
   "dead_campaigns": 67
  },
@@ -28,8 +28,8 @@
   },
   {
    "name": "dak prescott",
-   "mentions": 10,
-   "index": 56,
+   "mentions": 11,
+   "index": 61,
    "status": "trending",
    "gap": true,
    "shoppable": false,
@@ -72,15 +72,6 @@
    "collection": "cleveland-browns"
   },
   {
-   "name": "jordan love",
-   "mentions": 5,
-   "index": 28,
-   "status": "trending",
-   "gap": false,
-   "shoppable": true,
-   "collection": "green-bay-packers"
-  },
-  {
    "name": "deshaun watson",
    "mentions": 4,
    "index": 22,
@@ -88,6 +79,15 @@
    "gap": true,
    "shoppable": false,
    "collection": "cleveland-browns"
+  },
+  {
+   "name": "jordan love",
+   "mentions": 4,
+   "index": 22,
+   "status": "trending",
+   "gap": false,
+   "shoppable": true,
+   "collection": "green-bay-packers"
   },
   {
    "name": "ceedee lamb",
@@ -108,15 +108,6 @@
    "collection": "cleveland-browns"
   },
   {
-   "name": "matt lafleur",
-   "mentions": 2,
-   "index": 11,
-   "status": "steady",
-   "gap": false,
-   "shoppable": false,
-   "collection": "green-bay-packers"
-  },
-  {
    "name": "myles garrett",
    "mentions": 2,
    "index": 11,
@@ -133,6 +124,15 @@
    "gap": false,
    "shoppable": true,
    "collection": "cleveland-browns"
+  },
+  {
+   "name": "matt lafleur",
+   "mentions": 1,
+   "index": 6,
+   "status": "steady",
+   "gap": false,
+   "shoppable": false,
+   "collection": "green-bay-packers"
   },
   {
    "name": "jj mccarthy",
@@ -183,8 +183,8 @@
  "gaps": [
   {
    "name": "dak prescott",
-   "mentions": 10,
-   "index": 56,
+   "mentions": 11,
+   "index": 61,
    "status": "trending",
    "gap": true,
    "shoppable": false,
@@ -271,11 +271,11 @@
     "browns",
     "cleveland",
     "watch",
-    "injury",
     "live",
-    "trade",
+    "injury",
     "stream",
-    "channel"
+    "october",
+    "trade"
    ],
    "headline_count": 100,
    "headlines": [
@@ -325,8 +325,8 @@
    "gaps": [
     {
      "name": "dak prescott",
-     "mentions": 10,
-     "index": 56,
+     "mentions": 11,
+     "index": 61,
      "status": "trending",
      "gap": true,
      "shoppable": false,
@@ -445,10 +445,10 @@
      "pub": "Fri, 16 Oct 2026 07:00:00 GMT"
     },
     {
-     "title": "Green Bay Packers: Matt LaFleur on roughing calls and Jordan Love",
-     "url": "https://news.google.com/rss/articles/CBMihgFBVV95cUxQM2VEeGJFWmFtQmhwenQ5MTdvc3lVY20yS2hobUFZbkp1T0FnbC1manB4My01dG9UNm0wYzc3emJQSlM4RXNSQ1U4cHZNZVI4RFlyREUyZ1djNjI1bEI3Y2JiM19aQm9mNVQ1emFVQ2Mxb2dIYW4yVmdRSzlEVS1hRlZENXVYdw?oc=5",
+     "title": "Green Bay Packers vs. Detroit Lions: How to watch the NFL Week 7 game, channel, streaming info and more",
+     "url": "https://news.google.com/rss/articles/CBMi5gFBVV95cUxOMlFJbmJhT3g1RFRQQ1ctZDZXYW9DMThPNUJHZVBMWnJlaE5WVUU5YzN6bVlCb18wQ2xLQ0F1eGVZNW9TVU5pTE1hMFlXaEJBei1ubXEzZzMxY011MDZHRno5dldTRE11WEMtYkdyWTYyVkswbGF5d2ZIeVdsOUFWVjNCQmF5RjVsOVgwNkJaMU5lOHJfR3dLc0w5c3ZjR2RrcE5CTWh3OVhqOTlYOGxNd2M3VHdFSjk3VWFDazNEUXFPZi1JZ1hxQ2JZVk1BNFhtNkczSVE5YnZJcko1aUF5dHM0eHdlZw?oc=5",
      "source": "Yahoo Sports",
-     "pub": "Tue, 20 Oct 2026 21:33:00 GMT"
+     "pub": "Sun, 25 Oct 2026 10:55:00 GMT"
     }
    ],
    "fti_count": 5
@@ -857,17 +857,5 @@
    "url": "https://viralstyle.com/kebystore/winter-hat-beanie-go-browns"
   }
  ],
- "moments": [
-  {
-   "title": "Green Bay Packers: Matt LaFleur on roughing calls and Jordan Love",
-   "url": "https://news.google.com/rss/articles/CBMihgFBVV95cUxQM2VEeGJFWmFtQmhwenQ5MTdvc3lVY20yS2hobUFZbkp1T0FnbC1manB4My01dG9UNm0wYzc3emJQSlM4RXNSQ1U4cHZNZVI4RFlyREUyZ1djNjI1bEI3Y2JiM19aQm9mNVQ1emFVQ2Mxb2dIYW4yVmdRSzlEVS1hRlZENXVYdw?oc=5",
-   "source": "Yahoo Sports",
-   "pub": "Tue, 20 Oct 2026 21:33:00 GMT",
-   "collection": "green-bay-packers",
-   "entities": [
-    "jordan love",
-    "matt lafleur"
-   ]
-  }
- ]
+ "moments": []
 }
