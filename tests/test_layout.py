@@ -648,6 +648,38 @@ class NoCountdownAnywhere(unittest.TestCase):
         self.assertNotIn(".cd b", css)
 
 
+class NoAnnouncementBarAnywhere(unittest.TestCase):
+    """The sitewide "2026 season is live · Printed on demand by X" bar was
+    retired. It sat above the sticky header on every page, so nothing may
+    bring it back on one page only: no .promo markup, no .promo styles, and no
+    generator branch that can re-emit it (``header(hide_promo=...)`` is gone,
+    so there is no per-page opt-out left to flip back on).
+    """
+
+    def test_no_page_carries_the_bar(self):
+        seen = 0
+        for dirpath, _dirs, files in os.walk(SITE):
+            if os.sep + "ops" in dirpath or os.sep + "marketing" in dirpath:
+                continue
+            for f in files:
+                if not f.endswith(".html"):
+                    continue
+                rel = os.path.relpath(os.path.join(dirpath, f), SITE)
+                html = read(os.path.join(dirpath, f))
+                seen += 1
+                self.assertNotIn('class="promo"', html, rel)
+                self.assertNotIn("season is live", html, rel)
+        self.assertGreater(seen, 500, seen)     # really did walk the whole site
+
+    def test_styles_and_generator_branch_removed(self):
+        self.assertNotIn(".promo{", page("assets/style.css"))
+        self.assertNotIn("PROMO BAR", page("assets/style.css"))
+        src = read(os.path.join(SRC, "build.py"))
+        self.assertNotIn('class="promo"', src)
+        self.assertNotIn("hide_promo", src)
+        self.assertNotIn("def season_promo", src)
+
+
 class ProductPages(unittest.TestCase):
     """Conversion + merchant schema on every built product page."""
 
@@ -1048,14 +1080,21 @@ class ProductPages(unittest.TestCase):
         self.assertGreater(v, 0)
         self.assertGreater(m, 0)
 
-    def test_no_global_printed_in_usa_claim(self):
-        """The sitewide announcement bar appears on every page, so it may not
-        state a production location only one partner can support."""
-        import build  # noqa: E402
+    def test_no_sitewide_announcement_bar(self):
+        """The sitewide announcement bar is gone from every page.
+
+        It read "2026 season is live · Printed on demand by <partner>" above
+        the header of every page that kept the storefront chrome, so the one
+        strip a visitor read first named a fulfilment supplier instead of the
+        design they came for - and it stated a production fact that is only
+        true for one partner at a time. The partner that prints a design is
+        still named where the shopper needs it (the product page beside the
+        buy button, and the offer schema); what is retired is the shared bar.
+        """
         for slug, html in self.pages.items():
-            promo = re.search(r'<div class="promo">(.*?)</div>', html, re.S)
-            self.assertIsNotNone(promo, slug)
-            self.assertNotIn("in the USA", promo.group(1), slug)
+            self.assertNotIn('class="promo"', html, slug)
+            self.assertNotIn("season is live", html, slug)
+            self.assertNotIn("Printed on demand by", html.split("<header>", 1)[0], slug)
 
 
 class ArtworkHygiene(unittest.TestCase):

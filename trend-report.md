@@ -1,6 +1,6 @@
 # Hunt Report - 2026-10-25
 
-Generated: 2026-10-25 15:14 UTC by src/hunter_intelligence.py
+Generated: 2026-10-25 15:20 UTC by src/hunter_intelligence.py
 
 Ladder: SIGNAL 3 · TREND 0 · OPPORTUNITY 2 · ACTION 0 · HEADLINE 2
 
@@ -33,7 +33,7 @@ Fan connectors: no fan posts observed - reddit error (HTTP Error 403: Blocked); 
 - Action: Threads - alternate angle (+20 min)
 - Action: Instagram - product creative after engagement confirms the angle (after the X post confirms the angle)
 - Action: Pinterest - keyword pin of the matched design (+2 h)
-  - Their team is winning. Their QB is a pariah. What’s a Browns fan to do? - The Washington Post - google_news (12 min ago) https://news.google.com/rss/articles/CBMipAFBVV95cUxPdGNISHJZbF9uRDdjM3ZuQ1h2V0tIc1hKV2RBN044ZUVLT29MMFBETDZJcFZTT3VqcVdha3NDbzRQYTZrcVZoOVU2SUN2OGFTVUc5MzRvX3BEZTJTMXpITDFCS2JpMWt5aV9zMDdyWWwwZDltZjM3TWdDcTVqLTVaNnZjNDI3YWIwWVZrTDg4WUdtMVhjRG9LNk9jU05KOG41Zm9raw?oc=5
+  - Their team is winning. Their QB is a pariah. What’s a Browns fan to do? - The Washington Post - google_news (19 min ago) https://news.google.com/rss/articles/CBMipAFBVV95cUxPdGNISHJZbF9uRDdjM3ZuQ1h2V0tIc1hKV2RBN044ZUVLT29MMFBETDZJcFZTT3VqcVdha3NDbzRQYTZrcVZoOVU2SUN2OGFTVUc5MzRvX3BEZTJTMXpITDFCS2JpMWt5aV9zMDdyWWwwZDltZjM3TWdDcTVqLTVaNnZjNDI3YWIwWVZrTDg4WUdtMVhjRG9LNk9jU05KOG41Zm9raw?oc=5
   - Why Deshaun Watson must start faster; Shedeur Sanders will still be No. 2 when Dillon Gabriel is back: Browns Insider - Cleveland.com - google_news (18 h ago) https://news.google.com/rss/articles/CBMimgJBVV95cUxOV1RoSURqdnExQU43Z3R2WWRETjNkeXNmcS03T084cGJGekZpTkNBRTFzTmR4MHhLVHFfeDdNQkZzMUgzT3VlR2w4bjY2SHBYRy1DbndTS0o4anlhUWk2WEZfQXIzTlNEVDJlei1Gby1FNDVaMTNDTVZrLWJzaFJnMEYxbEVkYUw1aTN2b1hVNUthLTIyUy1BeXUzY1AyNDQtX3hzMFo0cmdZY1VXaXlKNTAwY2hmVUUzVXpMcHRMNHl2UEtkNGQzVUhGVDc5alJyaUU0VVhyR1FGalBhRVZmV2M3SDNKMWNNbE5JbjN5S2ZrT2xnazg0WnZKSnBmak1JdF9mWWlYRTZza3B3ZmhnVmljQ0xvRDlrM2c?oc=5
   - Deshaun Watson's Contract Addressed by Jimmy Haslam as Browns Lead AFC North in NFL Standings - Bleacher Report - google_news (21 h ago) https://news.google.com/rss/articles/CBMixwFBVV95cUxOY0Fab2Ixd0plYmR6bmF0bVBKOWhPWTNYWXlnRWxsVmVtVUt2X3BTV1RobEVpejRrN1RNNS14ZW9LTUxZX1RSYlZXZGIxdUxnWlhQbEhIaUduYmQyU1F1N1hqdG5sSmtzWnBYc0tfekJRTFFvaXhwZDRMUG43Y3V1ZDRyZk9aQkI5cTM2UUJzMkV1cjVSVG1Cb2hFdTM1emhid2I1aUsyU29pZnhSUkFyTmp5djhVaGNkazhGV0JPcTJBZkE4TEZj?oc=5
   - What I’m Hearing: Deshaun Watson’s Cleveland future, Jonathan Taylor rumors, Lions’ LaPorta dilemma - The Athletic - The New York Times - google_news (1 d ago) https://news.google.com/rss/articles/CBMiwgFBVV95cUxOSTB5TEtFWE1kaDBzTVhIVkdPd0RqaDlXdUZBYzhYVXRIOHI0X3g4OEdpOW4wZExtaFAxVEotbFZDTHNRUzVHLXpKZHY5bW5Sb25IOUdfNDhGYTFxaVFlbVlYVFR5TjZHcTlMR1RjWnVwZlRCa1pkMkF1WEtxVmRpLUE1aUhCWkd2SFlBTjBMTHZrajJVMENSM05NSkRzWW1Eb0JpWWh3ZklWbjlEQ2tsa2VIejdBeE9UUmMyZEtjVGZWdw?oc=5
