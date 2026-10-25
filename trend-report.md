@@ -1,6 +1,6 @@
 # Hunt Report - 2026-10-25
 
-Generated: 2026-10-25 18:32 UTC by src/hunter_intelligence.py
+Generated: 2026-10-25 18:35 UTC by src/hunter_intelligence.py
 
 Ladder: SIGNAL 2 · TREND 0 · OPPORTUNITY 1 · ACTION 0 · HEADLINE 5
 

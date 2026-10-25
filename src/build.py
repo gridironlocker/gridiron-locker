@@ -3432,7 +3432,10 @@ def _girly_body(cre, c, items, track):
         store_url_raw = f"https://{host}" if host else ""
     store_name = esc(store_name_raw)
     store_url = esc(store_url_raw)
-    facts = str(g.get("hero_facts", "{n} designs")).replace("{n}", str(len(items)))
+    # An empty ``hero_facts`` drops the line entirely - the markup follows, so
+    # a locker that carries nothing there does not ship an empty paragraph.
+    facts = str(g.get("hero_facts", "{n} designs")).replace("{n}", str(len(items))).strip()
+    facts_line = f'<p class="gbanner-facts">{esc(facts)}</p>' if facts else ""
     script = esc(g.get("hero_script", first))
     title = esc(g.get("hero_title", cre["page_name"]))
 
@@ -3864,7 +3867,7 @@ def _girly_body(cre, c, items, track):
    {kicker_line}
    <h1 class="gbanner-title"><span class="gscript">{script}</span><span class="gtitle">{title}</span></h1>
    {sub_line}
-   <p class="gbanner-facts">{esc(facts)}</p>
+   {facts_line}
    <div class="gbanner-actions">
     <a class="gbtn gbtn-maize" href="#locker">{esc(g.get('hero_cta', 'Shop the collection'))}</a>{banner_store_link}
    </div>
