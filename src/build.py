@@ -3841,6 +3841,14 @@ def _girly_body(cre, c, items, track):
             f'\n    <a class="gbanner-link" href="{store_url}" target="_blank"'
             f' rel="noopener noreferrer">Visit {store_name}'
             ' <span aria-hidden="true">↗</span></a>')
+    # A creator can drop the kicker or the standfirst entirely (empty string);
+    # the markup then disappears rather than leaving an empty paragraph. The
+    # <h1> always stays: it is the page's only heading.
+    _kick = str(g.get("hero_kicker") or "").strip()
+    _sub = str(g.get("hero_sub", cre.get("sub", "")) or "").strip()
+    kicker_line = f'<p class="gbanner-kicker">{esc(_kick)}</p>' if _kick else ""
+    sub_line = f'<p class="gbanner-sub">{esc(_sub)}</p>' if _sub else ""
+
     return f"""
 <main id="main" class="jlock jlock-girly"{theme_attr}>{promo_bar}
 <section class="gbanner"><div class="wrap">
@@ -3848,12 +3856,14 @@ def _girly_body(cre, c, items, track):
   <img class="gbanner-photo" src="{hero_image}" alt="{hero_alt}" width="{cre['hero_w']}" height="{cre['hero_h']}"
    fetchpriority="high" decoding="async">
   <div class="gbanner-copy">
-   <p class="gbanner-kicker">{esc(g.get('hero_kicker', ''))}</p>
+   <div class="gbanner-copy-inner">
+   {kicker_line}
    <h1 class="gbanner-title"><span class="gscript">{script}</span><span class="gtitle">{title}</span></h1>
-   <p class="gbanner-sub">{esc(g.get('hero_sub', cre.get('sub', '')))}</p>
+   {sub_line}
    <p class="gbanner-facts">{esc(facts)}</p>
    <div class="gbanner-actions">
     <a class="gbtn gbtn-maize" href="#locker">{esc(g.get('hero_cta', 'Shop the collection'))}</a>{banner_store_link}
+   </div>
    </div>
   </div>
  </div>

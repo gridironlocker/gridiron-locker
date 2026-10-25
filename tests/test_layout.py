@@ -3828,9 +3828,11 @@ class YvetteLocker(unittest.TestCase):
             self.assertIn('class="gsocial-emoji" aria-hidden="true"', block)
             self.assertIn('aria-label="Yvette on ', block)
             self.assertIn("(opens in a new tab)", block)
-            self.assertIn('class="gsocial-handle">@bougiesports', block)
+            # the pill shows the glyph alone; the handle moves to title
+            self.assertIn('title="Yvette on ', block)
+            self.assertIn("@bougiesports", block)
         self.assertIn("🐦", unescape(x))
-        self.assertIn("🎬", unescape(tiktok))
+        self.assertIn("🎵", unescape(tiktok))  # the standard music note
         # the accounts are in the structured data too, on a Person node
         nodes = [json.loads(b) for b in
                  re.findall(r'<script type="application/ld\+json">(.*?)</script>',
