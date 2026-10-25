@@ -2316,6 +2316,55 @@ class CreatorCollab(unittest.TestCase):
         self.assertIn('"@type":"BreadcrumbList"', self.html)
 
 
+class CreatorCustomDesignNote(unittest.TestCase):
+    """The custom-design offer uses one centered, editorial heading treatment."""
+
+    PAGES = (
+        ("Crystal", "crystal/index.html", "Custom Browns Designs"),
+        ("Amber", "amber/index.html", "Custom Browns Designs"),
+        ("Laquala", "laquala/index.html", "Custom Browns Designs"),
+        ("Des", "des/index.html", "Custom Browns Designs"),
+        ("Yvette", "yvette/index.html", "Custom Browns Designs"),
+        ("The Typical Browns Fan Show", "thetypicalbrownsfanshow/index.html",
+         "Custom Browns Designs"),
+        ("Bella", "michigan/bella/index.html", "Custom Football Designs"),
+    )
+
+    def setUp(self):
+        self.css = page("assets/style.css")
+
+    def test_every_creator_locker_renders_the_title_cased_overline(self):
+        kicker_start = '<span class="gkicker">'
+        heading = '<h2 class="gcustom-title">have an idea of your own?</h2>'
+        for creator, path, overline in self.PAGES:
+            with self.subTest(creator=creator):
+                html = page(path)
+                self.assertIn('<div class="gcustom-note">', html)
+                note = between(html, '<div class="gcustom-note">', "</div>")
+                kicker = f'{kicker_start}{overline}</span>'
+                self.assertIn(kicker, note)
+                self.assertIn(heading, note)
+                self.assertLess(note.index(kicker), note.index(heading))
+
+    def test_overline_matches_collection_heading_and_subheading_is_smaller(self):
+        note = css_block(self.css, ".jlock-girly .gcustom-note")
+        kicker = css_block(self.css, ".jlock-girly .gkicker")
+        subheading = css_block(self.css, ".jlock-girly .gcustom-title")
+
+        self.assertIn("max-width:850px", note)
+        self.assertIn("text-align:center", note)
+        for declaration in (
+                "display:block", "color:var(--g-ink)",
+                "font-family:var(--g-serif)",
+                "font-size:clamp(1.8rem,3.4vw,2.55rem)",
+                "font-weight:800", "letter-spacing:-.025em", "line-height:1.15"):
+            self.assertIn(declaration, kicker)
+        self.assertIn("font-family:var(--g-serif)", subheading)
+        self.assertIn("font-size:clamp(1.1rem,2vw,1.5rem)", subheading)
+        self.assertIn("margin:9px 0 0", subheading)
+        self.assertIn("line-height:1.25", subheading)
+
+
 class BellaLocker(unittest.TestCase):
     """Bella's supplier-linked collection and boutique-style landing page."""
 
@@ -2842,7 +2891,8 @@ class BellaLocker(unittest.TestCase):
         # and Bella's banner never leaks onto Joe's page (or vice versa)
         self.assertNotIn("gpromobar", self.joe)
 
-        self.assertNotIn("class=\"gcustom-note\"", self.html)
+        self.assertIn('<span class="gkicker">Custom Football Designs</span>', self.html)
+        self.assertIn('<h2 class="gcustom-title">have an idea of your own?</h2>', self.html)
         self.assertIn('id="customForm"', self.html)
         self.assertIn('data-formsubmit="1"', self.html)
         self.assertIn('name="idea"', self.html)
