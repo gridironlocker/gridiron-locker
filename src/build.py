@@ -3303,37 +3303,6 @@ def girly_nav(cre, has_apparel=True, has_custom=True):
     return (f'<nav class="bellanav" aria-label="{esc(nav_label)}">'
             '<div class="wrap bellanav-links">' + "".join(links) + '</div></nav>')
 
-LOCK_ICON = ('<svg class="ghandoff-ico" viewBox="0 0 24 24" fill="none" '
-             'stroke="currentColor" stroke-width="1.8" stroke-linecap="round" '
-             'stroke-linejoin="round" aria-hidden="true">'
-             '<rect x="4.5" y="10.5" width="15" height="9.5" rx="2"/>'
-             '<path d="M8 10.5V8a4 4 0 0 1 8 0v2.5"/></svg>')
-
-
-def handoff_note(store_name, store_url):
-    """One line that announces the hand-off before a card is tapped.
-
-    A creator locker's cards open the shop that prints and ships the order
-    (``creator_item_href``), so the page names that shop in its own voice
-    *above* the grid. A visitor who knows where a tap leads does not read the
-    next page as a different store - the jump is announced instead of
-    discovered. The line is the one thing that makes the storefront's own
-    header and palette read as "the same order", not a drop-off.
-
-    Scope: only the destination and that its checkout is secure. Sizing,
-    stock and delivery stay with the shop's product page, and no currency is
-    named - the store renders prices in the visitor's/its own currency on the
-    collection listing, so promising one would be a claim we cannot keep.
-    """
-    name = str(store_name or "").strip()
-    url = str(store_url or "").strip()
-    if not url:
-        return ""
-    label = (f'<a href="{esc(url)}" target="_blank" rel="noopener noreferrer">'
-             f'{esc(name or url)}</a>')
-    return (f'<p class="ghandoff">{LOCK_ICON}Secure checkout on {label}</p>')
-
-
 def girly_socials(cre, top=False):
     """The creator's own social accounts, as an emoji-led row of pills.
 
@@ -3769,7 +3738,6 @@ def _girly_body(cre, c, items, track):
     # locker names that store (Bella's cards leave this site); a locally
     # curated locker keeps the visitor on the product page, so it must not
     # promise a hand-off that does not happen.
-    handoff_line = handoff_note(store_name_raw, store_url_raw)
     note_override = str(g.get("store_note") or "")
     if note_override:
         store_note = promo_note + esc(note_override)
@@ -3859,7 +3827,6 @@ def _girly_body(cre, c, items, track):
   <h2>{esc(collection_heading)}</h2>
   <p>{esc(collection_desc)}</p>
   {promo_line}
-  {handoff_line}
  </div>
  <div class="ggrid" id="{grid_id}"{grid_attrs}>{"".join(cards)}</div>
  <p class="gstore-note">{store_note}</p>
@@ -3964,11 +3931,6 @@ def page_creator(ckey="joe"):
                 f'</span>'
                 f'<span class="jshop" aria-hidden="true">Shop <i>&rarr;</i></span>'
                 f'</a>')
-
-    _store = cre.get("store_catalogue") or {}
-    _host = supplier_host(items)
-    joe_handoff = handoff_note(_store.get("name") or _host,
-                               _store.get("url") or (f"https://{_host}" if _host else ""))
 
     feat_cards = "".join(jcard(it, "jfeat", eager=(n < 2)) for n, it in enumerate(feat))
     grid_cards = "".join(jcard(it, "jcard", eager=(n < 2)) for n, it in enumerate(items))
@@ -4120,7 +4082,6 @@ def page_creator(ckey="joe"):
    No official logos, no licensed assets: just {c['short']} football culture.</p>
   </div>
   <div class="jtrustwrap">{trust()}</div>
-  <div class="jhandoffwrap">{joe_handoff}</div>
   <div class="jgrid">{grid_cards}</div>
  </div>
 </section>
