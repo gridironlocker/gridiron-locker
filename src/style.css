@@ -1826,23 +1826,23 @@ body[data-creator-skin="browns"] .bellanav-links a:focus-visible{outline:2px sol
 .jlock-girly[data-theme="browns"] .gbtn-maize:hover{background:#ad4a12}
 .jlock-girly[data-theme="browns"] .gbanner-link{color:#2c1a0f;text-decoration-color:rgba(44,26,15,.3)}
 .jlock-girly[data-theme="browns"] .gbanner-link:hover{color:#b8480f}
-/* The show's hero IS the poster. Their artwork runs edge to edge at its own
-   ratio, uncropped and unretouched, with one control on it: the shop button,
-   sitting on the empty crowd under FAN SHOW. It is a cream pill rather than the
-   usual orange one so it reads against the busy photo, and it lives on the art
-   itself - no bar, no strip, no rule underneath. Scoped to this one page. */
+/* The show's hero IS the poster, and now it is the poster ONLY: the frame,
+   the rounding and the shadow belong to the artwork itself, so no panel, no
+   strip and no background box is ever stacked under it at any width. The shop
+   button sits outside that frame, centred on the page under the art - its own
+   row, not part of the hero. Scoped to this one page. */
 body[data-creator-page="TYPICALBROWNS"] .jlock-girly .gbanner-panel{display:block;
-  min-height:0;background:#f6ecdc;border-color:rgba(44,26,15,.12);
-  border-radius:20px;overflow:hidden;box-shadow:0 16px 40px rgba(28,16,9,.26)}
+  min-height:0;background:none;border:0;box-shadow:none;border-radius:0;
+  overflow:visible}
 body[data-creator-page="TYPICALBROWNS"] .jlock-girly .gbanner-panel::after{background:none}
 body[data-creator-page="TYPICALBROWNS"] .jlock-girly .gbanner-photo{position:static;
   display:block;width:100%;height:auto;aspect-ratio:2043/740;object-fit:cover;
-  object-position:center}
-/* 77.5% of the panel height lands just under the poster's FAN SHOW line, in the
-   blurred crowd - clear of the wordmark above and his arms to the right */
-body[data-creator-page="TYPICALBROWNS"] .jlock-girly .gbanner-copy{position:absolute;
-  z-index:1;left:0;right:0;top:77.5%;display:flex;justify-content:center;
-  width:auto;max-width:none;padding:0 16px;background:none}
+  object-position:center;border-radius:20px;
+  box-shadow:0 16px 40px rgba(28,16,9,.26)}
+/* the button row: centred on the page, spaced off the art, nothing behind it */
+body[data-creator-page="TYPICALBROWNS"] .jlock-girly .gbanner-copy{position:static;
+  display:flex;justify-content:center;width:auto;max-width:none;
+  margin-top:clamp(16px,2.2vw,24px);padding:0;background:none}
 body[data-creator-page="TYPICALBROWNS"] .jlock-girly .gbanner-copy-inner{display:flex;
   justify-content:center;padding:0;background:none}
 /* The poster sets the title in type, so the <h1> stays in the DOM for search
@@ -1852,29 +1852,26 @@ body[data-creator-page="TYPICALBROWNS"] .jlock-girly .gbanner-title{position:abs
   clip:rect(0 0 0 0);clip-path:inset(50%);white-space:nowrap}
 body[data-creator-page="TYPICALBROWNS"] .jlock-girly .gbanner-actions{margin:0;gap:0}
 body[data-creator-page="TYPICALBROWNS"] .jlock-girly .gbanner-actions .gbtn{
-  min-height:42px;padding:0 clamp(18px,2.2vw,26px);border:1px solid rgba(43,22,8,.5);
-  border-radius:999px;background:#fdf3e6;color:#2c1a0f;font-size:.72rem;
-  letter-spacing:.1em;box-shadow:0 6px 18px rgba(18,9,4,.4)}
+  min-height:46px;padding:0 clamp(24px,3vw,34px);border:1px solid rgba(43,22,8,.18);
+  border-radius:999px;background:#c85a1c;color:#fff8ef;font-size:.74rem;
+  letter-spacing:.1em;box-shadow:0 4px 12px rgba(28,16,9,.18)}
 body[data-creator-page="TYPICALBROWNS"] .jlock-girly .gbanner-actions .gbtn:hover{
-  background:#fffdf9;color:#2c1a0f;transform:translateY(-1px);
-  box-shadow:0 8px 22px rgba(18,9,4,.45)}
+  background:#ad4a12;color:#fff8ef;transform:translateY(-1px);
+  box-shadow:0 6px 16px rgba(28,16,9,.24)}
 body[data-creator-page="TYPICALBROWNS"] .jlock-girly .gbanner-actions .gbtn:focus-visible{
-  outline:2px solid #fdf3e6;outline-offset:3px}
-body[data-creator-page="TYPICALBROWNS"] .jlock-girly .gbanner-link{color:#f6ead9;
-  text-decoration-color:rgba(246,234,217,.38)}
-body[data-creator-page="TYPICALBROWNS"] .jlock-girly .gbanner-link:hover{color:#ff8f45}
-/* On a phone the poster scales to a short strip, too small to hold the button
-   without covering the wordmark, so the button steps below the art instead -
-   still no bar behind it, just the pill on the page. */
+  outline:2px solid #c85a1c;outline-offset:3px}
+body[data-creator-page="TYPICALBROWNS"] .jlock-girly .gbanner-link{color:#2c1a0f;
+  text-decoration-color:rgba(44,26,15,.3)}
+body[data-creator-page="TYPICALBROWNS"] .jlock-girly .gbanner-link:hover{color:#b8480f}
+/* the hero section ends with the button row, so the apparel block keeps its own
+   top spacing instead of doubling the gap */
+body[data-creator-page="TYPICALBROWNS"] .jlock-girly section.gbanner{padding-bottom:0}
 @media(max-width:700px){
-  body[data-creator-page="TYPICALBROWNS"] .jlock-girly .gbanner-panel{overflow:visible;
-    border-radius:16px}
-  body[data-creator-page="TYPICALBROWNS"] .jlock-girly .gbanner-photo{border-radius:14px}
-  body[data-creator-page="TYPICALBROWNS"] .jlock-girly .gbanner-copy{position:static;
-    padding:14px 0 0}
+  body[data-creator-page="TYPICALBROWNS"] .jlock-girly .gbanner-photo{border-radius:14px;
+    box-shadow:0 8px 22px rgba(28,16,9,.2)}
+  body[data-creator-page="TYPICALBROWNS"] .jlock-girly .gbanner-copy{margin-top:14px}
   body[data-creator-page="TYPICALBROWNS"] .jlock-girly .gbanner-actions .gbtn{
-    border-color:rgba(43,22,8,.22);box-shadow:0 3px 10px rgba(18,9,4,.14);
-    color:#2c1a0f;background:#fffaf2;min-height:46px;padding:0 26px}
+    min-height:48px;font-size:.7rem;padding:0 26px}
 }
 /* A locker whose social pills carry the glyph alone (girly.social_text is
    False) needs the square tap target the label used to give them. */
