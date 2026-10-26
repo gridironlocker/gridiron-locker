@@ -1911,7 +1911,7 @@
         ]
       },
       "featured": [
-        "cleveland-victory-monday",
+        "cleveland-victory-monday-copy",
         "cleveland-football-for-life",
         "browns"
       ],
@@ -1950,12 +1950,16 @@
         "playoffs",
         "ohio-cle"
       ],
+      "exclude_slugs": [
+        "cleveland-victory-monday"
+      ],
       "creator_additions": [
         {
           "slug": "cleveland-victory-monday-copy",
           "source_slug": "cleveland-victory-monday",
           "product_id": "6ade77933d9e7e208932b0bd",
-          "buy_url": "https://gridironlocker.shop/cleveland-victory-monday-copy?color=GILDAN-DARK_CHOCOLATE&productId=6ade77933d9e7e208932b0bd",
+          "buy_url": "https://gridironlocker.shop/the-typical-browns-fans-show?color=GILDAN-DARK_CHOCOLATE",
+          "url_path": "the-typical-browns-fans-show",
           "after_slug": "cleveland-victory-monday"
         },
         {
@@ -1963,6 +1967,7 @@
           "source_slug": "cleveland-victory-monday",
           "product_id": "6ade9b79fe0af7ce4dfde681",
           "buy_url": "https://gridironlocker.shop/the-typical-browns-fans-show-tee?color=GILDAN-DARK_CHOCOLATE",
+          "url_path": "the-typical-browns-fans-show-tee",
           "after_slug": "cleveland-victory-monday",
           "item": {
             "name": "The Typical Browns Fans Show Tee",

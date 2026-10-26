@@ -2366,40 +2366,113 @@ class CreatorCustomDesignNote(unittest.TestCase):
 
 
 class TypicalBrownsFanShowLocker(unittest.TestCase):
-    """A new supplier listing can be scoped to the show locker only."""
+    """The show's own refreshed Victory Monday listing and new apparel card.
+
+    The copy listing, exclusion and separate tee are all locker-scoped.
+
+    The listing ``cleveland-victory-monday-copy`` shipped with a listing-scoped
+    supplier URL (``/cleveland-victory-monday-copy?color=...&productId=...``);
+    the supplier refreshed it to the show's own storefront page, which takes the
+    colour and deliberately carries no ``productId``. Only the URL moved: the
+    listing slug, its product ID metadata, its Dark Chocolate colourway, its $23
+    price, its sizes and its artwork are all as they were.
+
+    Because that listing clones the catalogue's ``cleveland-victory-monday``,
+    the locker also declares ``exclude_slugs`` for the catalogue card, so the
+    page shows one Victory Monday tee instead of two identical ones - the
+    listing inherits the slot the exclusion frees and leads the grid. The
+    excluded design stays a live, sellable design everywhere else: the shared
+    catalogue, its own product page, the Browns collection page, the sitemap and
+    every other creator's locker.
+    """
 
     PRODUCT = "cleveland-victory-monday-copy"
     PRODUCT_ID = "6ade77933d9e7e208932b0bd"
+    TEE = "the-typical-browns-fans-show-tee"
+    TEE_PRODUCT_ID = "6ade9b79fe0af7ce4dfde681"
+    TEE_BUY_URL = ("https://gridironlocker.shop/the-typical-browns-fans-show-tee"
+                   "?color=GILDAN-DARK_CHOCOLATE")
+    TEE_VARIANTS = (
+        ("t-shirts", "Classic Unisex T-shirt", "30.00"),
+        ("t-shirts", "Men's T-shirt", "30.00"),
+        ("hoodies", "Unisex Hoodie", "44.00"),
+    )
+    #: the catalogue design the listing clones, and the card this locker drops
+    SOURCE = "cleveland-victory-monday"
     CREATOR_ID = "TYPICALBROWNS"
+    PAGE = "thetypicalbrownsfanshow/index.html"
+    BROWNS_PAGE = "cleveland-browns-shirts/index.html"
+    #: the other Browns lockers, which all keep the catalogue card
+    BROWNS_CREATORS = ("crystal", "amber", "laquala", "des", "yvette")
+    # the replacement supplier URL, exactly as supplied
+    STOREFRONT_PATH = "/the-typical-browns-fans-show"
+    TEE_STOREFRONT_PATH = "/the-typical-browns-fans-show-tee"
+    BUY_URL = ("https://gridironlocker.shop/the-typical-browns-fans-show"
+               "?color=GILDAN-DARK_CHOCOLATE")
+    # the retired listing-scoped URL: it must survive in neither the config nor
+    # any generated page, in its raw (JSON-LD) or its escaped (href) form
+    RETIRED_BUY_URL = ("https://gridironlocker.shop/cleveland-victory-monday-copy"
+                       "?color=GILDAN-DARK_CHOCOLATE"
+                       f"&productId={PRODUCT_ID}")
+    RETIRED_PATH_QUERY = "/cleveland-victory-monday-copy?color=GILDAN-DARK_CHOCOLATE"
+    OTHER_CREATORS = ("crystal", "amber", "laquala", "des", "yvette", "joe", "bella")
 
     def setUp(self):
         import build  # noqa: E402
 
         self.build = build
-        self.html = page("thetypicalbrownsfanshow/index.html")
+        self.html = page(self.PAGE)
         creators = load_json("data/creators.json")["creators"]
         self.cre = creators["thetypicalbrownsfanshow"]
         self.creators = creators
 
-    def test_copy_listing_is_added_after_its_source_and_keeps_creator_attribution(self):
+    def site_pages(self):
+        """Every generated page, as (site-relative path, html)."""
+        for path in sorted(glob.glob(os.path.join(SITE, "**", "*.html"), recursive=True)):
+            with open(path, encoding="utf-8") as fh:
+                yield os.path.relpath(path, SITE), fh.read()
+
+    def catalogue_source(self):
+        """The live catalogue design the listing clones - not a locker item."""
+        return next(item for item in self.build.MODEL["cleveland-browns"]
+                    if item["slug"] == self.SOURCE)
+
+    def test_the_listing_is_the_lockers_only_victory_monday_card(self):
         from urllib.parse import parse_qs, urlsplit
 
         items = self.build.creator_items(self.cre)
         slugs = [item["slug"] for item in items]
-        original = next(item for item in items if item["slug"] == "cleveland-victory-monday")
+        source = self.catalogue_source()
         copy = next(item for item in items if item["slug"] == self.PRODUCT)
-        self.assertEqual(slugs.index(self.PRODUCT), slugs.index(original["slug"]) + 1)
+
+        # the excluded catalogue card is gone and the listing that clones it
+        # inherited its slot: one Victory Monday tee, still leading the grid
+        self.assertEqual(self.cre["exclude_slugs"], [self.SOURCE])
+        self.assertNotIn(self.SOURCE, slugs)
+        self.assertEqual(slugs[:2], [self.PRODUCT, self.TEE])
+        # One live card is excluded and these two creator-only listings replace
+        # it; neither listing changes the shared catalogue.
+        self.assertEqual(len(items), len(self.build.MODEL["cleveland-browns"]) + 1)
         self.assertNotIn(self.PRODUCT, {item["slug"] for item in self.build.ALL})
-        self.assertEqual(copy["name"], original["name"])
-        self.assertEqual(copy["front"], original["front"])
-        self.assertEqual(copy["back"], original["back"])
-        self.assertEqual(copy["price"], original["price"])
-        self.assertEqual(copy["garment"], original["garment"])
-        self.assertEqual(copy["colour"], original["colour"])
-        self.assertEqual(copy["sizes_avail"], original["sizes_avail"])
+        self.assertNotIn(self.TEE, {item["slug"] for item in self.build.ALL})
+
+        # neither the URL refresh nor the exclusion changes what the card shows:
+        # it still clones the catalogue design's own display details
+        for field in ("name", "front", "back", "price", "garment", "colour",
+                      "sizes_avail"):
+            self.assertEqual(copy[field], source[field], field)
+        # the product ID stays the listing's metadata even though the supplier
+        # URL no longer carries it as a query parameter
         self.assertEqual(copy["product_id"], self.PRODUCT_ID)
-        self.assertEqual(copy["buy"], self.cre["creator_additions"][0]["buy_url"])
+        self.assertEqual(self.cre["creator_additions"][0]["buy_url"], self.BUY_URL)
+        self.assertEqual(self.cre["creator_additions"][0]["product_id"], self.PRODUCT_ID)
+        self.assertEqual(copy["buy"], self.BUY_URL)
         self.assertEqual(copy["source_url"], copy["buy"])
+
+        cards = re.findall(r'<article class="gproduct" data-slug="([^"]+)"', self.html)
+        self.assertEqual(cards, slugs)
+        self.assertEqual(cards[0], self.PRODUCT)
+        self.assertNotIn(self.SOURCE, cards)
 
         card_match = re.search(
             rf'<article class="gproduct" data-slug="{self.PRODUCT}".*?</article>',
@@ -2409,15 +2482,20 @@ class TypicalBrownsFanShowLocker(unittest.TestCase):
         self.assertIn("<h3>Cleveland Victory Monday</h3>", card)
         self.assertIn('<span>T-Shirt</span><b>$23.00</b>', card)
         self.assertIn('data-gcat="t-shirts"', card)
-        self.assertIn(f'src="{escape_html(original["front"])}"', card)
+        self.assertIn('<p class="gproduct-kicker">FAN SHOW PICK 01</p>', card)
+        self.assertIn(f'src="{escape_html(source["front"])}"', card)
         links = re.findall(r'href="(https://gridironlocker\.shop/[^"]+)"', card)
         self.assertEqual(len(links), 2)
         for escaped_href in links:
             parsed = urlsplit(unescape(escaped_href))
             query = parse_qs(parsed.query)
-            self.assertEqual(parsed.path, f"/{self.PRODUCT}")
-            self.assertEqual(query.get("productId"), [self.PRODUCT_ID])
+            self.assertEqual(parsed.path, self.STOREFRONT_PATH)
+            # the replacement URL intentionally omits productId - it is never
+            # added back on the way out
+            self.assertNotIn("productId", query)
+            self.assertNotIn("productId", escaped_href)
             self.assertEqual(query.get("color"), ["GILDAN-DARK_CHOCOLATE"])
+            # normal Typical creator attribution on the rendered links
             self.assertEqual(query.get("creator"), [self.CREATOR_ID])
             self.assertEqual(query.get("utm_source"), ["creator"])
             self.assertEqual(query.get("utm_medium"), ["referral"])
@@ -2427,62 +2505,75 @@ class TypicalBrownsFanShowLocker(unittest.TestCase):
                           if node.get("@type") == "CollectionPage")
         item_list = collection["about"]
         self.assertEqual(item_list["numberOfItems"], len(items))
-        self.assertIn(self.PRODUCT, json.dumps(item_list))
+        listed = item_list["itemListElement"][0]
+        self.assertEqual(listed["position"], 1)
+        self.assertEqual(listed["url"], self.BUY_URL)
+        self.assertEqual(listed["name"], source["name"])
+        # the excluded design is not linked from this page in any form: neither
+        # its own supplier listing nor its local product record
+        self.assertNotIn(f"/{self.SOURCE}?", self.html)
+        self.assertNotIn(f"/shop/{self.SOURCE}/", self.html)
 
-    def test_new_show_tee_has_its_three_mockup_variants(self):
-        from urllib.parse import parse_qs, urlsplit
-
-        slug = "the-typical-browns-fans-show-tee"
+    def test_the_separate_tee_has_three_captured_variants(self):
         items = self.build.creator_items(self.cre)
-        slugs = [item["slug"] for item in items]
-        old_copy = slugs.index(self.PRODUCT)
-        self.assertEqual(slugs.index(slug), old_copy + 1)
-        item = next(item for item in items if item["slug"] == slug)
-        self.assertEqual(item["name"], "The Typical Browns Fans Show Tee")
-        self.assertEqual(item["garment"], "Classic Unisex T-shirt")
-        self.assertEqual(item["price"], 30.0)
-        self.assertEqual(item["colour"], "Dark Chocolate")
-        self.assertEqual(item["sizes_avail"], ["S", "M", "L", "XL", "2XL", "3XL", "4XL", "5XL"])
+        tee = next(item for item in items if item["slug"] == self.TEE)
+        source = self.catalogue_source()
 
-        card_match = re.search(
-            rf'<article class="gproduct" data-slug="{slug}".*?</article>',
-            self.html, re.S)
-        self.assertIsNotNone(card_match)
-        card = card_match.group(0)
-        self.assertIn('<h3>The Typical Browns Fans Show Tee</h3>', card)
-        self.assertIn('<span>Classic Unisex T-shirt</span><b>$30.00</b>', card)
-        gcat = re.search(r'data-gcat="([^"]+)"', card)
-        self.assertIsNotNone(gcat)
-        self.assertEqual(set(gcat.group(1).split()), {"t-shirts", "hoodies"})
+        self.assertEqual(tee["product_id"], self.TEE_PRODUCT_ID)
+        self.assertEqual(tee["name"], "The Typical Browns Fans Show Tee")
+        self.assertEqual(tee["art"], "The Typical Browns Fans Show")
+        self.assertEqual(tee["garment"], "Classic Unisex T-shirt")
+        self.assertEqual(tee["price"], 30.0)
+        self.assertEqual(tee["colour"], "Dark Chocolate")
+        self.assertEqual(tee["colour_code"], "GILDAN-DARK_CHOCOLATE")
+        self.assertNotEqual(tee["name"], source["name"])
+        self.assertNotEqual(tee["front"], source["front"])
+        self.assertNotEqual(tee["back"], source["back"])
+
+        apparel = self.build.creator_apparel(self.cre, items)["apparel_by_slug"][self.TEE]
+        variants = [(cat, row["garment"], row["price"])
+                    for cat, rows in apparel.items() for row in rows]
+        self.assertEqual(variants, list(self.TEE_VARIANTS))
+        by_garment = {row["garment"]: row
+                      for rows in apparel.values() for row in rows}
+        self.assertEqual(by_garment["Classic Unisex T-shirt"]["url"], self.TEE_BUY_URL)
+        self.assertNotIn("productId", self.TEE_BUY_URL)
+        self.assertIn("productId=6ade9b7a7650d4c779b80fb6",
+                      by_garment["Men's T-shirt"]["url"])
+        self.assertIn("productId=6ade9b7aa2c7c670ac3ec98a",
+                      by_garment["Unisex Hoodie"]["url"])
+        for variant in by_garment.values():
+            self.assertTrue(variant["image"].startswith("https://"))
+            self.assertTrue(variant["back"].startswith("https://"))
+
+        # Verify the page's actual swap payload as well as the resolved source
+        # data: each variant keeps its captured mockup, price, URL and attribution.
+        from urllib.parse import parse_qs, urlsplit
 
         payload_match = re.search(r'data-apparel="([^"]+)"', self.html)
         self.assertIsNotNone(payload_match)
         payload = json.loads(unescape(payload_match.group(1)))
-        groups = payload[slug]
-        self.assertEqual(set(groups), {"t-shirts", "hoodies"})
-        variants = {
-            row["garment"]: row
-            for category in groups.values()
-            for row in category
-        }
-        self.assertEqual(set(variants), {
-            "Classic Unisex T-shirt", "Men's T-shirt", "Unisex Hoodie"})
+        page_groups = payload[self.TEE]
+        self.assertEqual(set(page_groups), {"t-shirts", "hoodies"})
+        page_variants = {row["garment"]: row
+                         for rows in page_groups.values() for row in rows}
         expected = {
             "Classic Unisex T-shirt": ("$30.00", "GILDAN-DARK_CHOCOLATE", None),
             "Men's T-shirt": ("$30.00", "GILDAN-DARK_CHOCOLATE",
                               "6ade9b7a7650d4c779b80fb6"),
-            "Unisex Hoodie": ("$44.00", "CHARCOAL",
-                              "6ade9b7aa2c7c670ac3ec98a"),
+            "Unisex Hoodie": ("$44.00", "CHARCOAL", "6ade9b7aa2c7c670ac3ec98a"),
         }
         for garment, (price, colour, product_id) in expected.items():
             with self.subTest(garment=garment):
-                row = variants[garment]
+                row = page_variants[garment]
                 self.assertEqual(row["price"], price)
-                self.assertTrue(row["image"].startswith("https://buyer-experience-gateway.mayzing.com/"))
-                self.assertTrue(row["back"].startswith("https://buyer-experience-gateway.mayzing.com/"))
+                self.assertTrue(row["image"].startswith(
+                    "https://buyer-experience-gateway.mayzing.com/"))
+                self.assertTrue(row["back"].startswith(
+                    "https://buyer-experience-gateway.mayzing.com/"))
                 parsed = urlsplit(row["url"])
                 query = parse_qs(parsed.query)
-                self.assertEqual(parsed.path, f"/{slug}")
+                self.assertEqual(parsed.path, f"/{self.TEE}")
                 self.assertEqual(query.get("color"), [colour])
                 self.assertEqual(query.get("productId"), [product_id] if product_id else None)
                 self.assertEqual(query.get("creator"), [self.CREATOR_ID])
@@ -2490,22 +2581,149 @@ class TypicalBrownsFanShowLocker(unittest.TestCase):
                 self.assertEqual(query.get("utm_medium"), ["referral"])
                 self.assertEqual(query.get("utm_campaign"), ["creator-TYPICALBROWNS"])
 
-    def test_copy_and_new_listing_do_not_enter_the_shared_browns_catalogue(self):
-        products = (self.PRODUCT, "the-typical-browns-fans-show-tee")
-        shared = {item["slug"] for item in self.build.ALL}
-        self.assertTrue(set(products).isdisjoint(shared))
-        shared_page = page("cleveland-browns-shirts/index.html")
-        for product in products:
-            with self.subTest(product=product):
-                self.assertNotIn(f'data-slug="{product}"', shared_page)
-        for key in ("crystal", "amber", "laquala", "des", "yvette"):
+        cards = re.findall(r'<article class="gproduct" data-slug="([^"]+)"', self.html)
+        self.assertEqual(cards.count(self.TEE), 1)
+        match = re.search(
+            rf'<article class="gproduct" data-slug="{self.TEE}".*?</article>',
+            self.html, re.S)
+        self.assertIsNotNone(match)
+        card = match.group(0)
+        self.assertIn("<h3>The Typical Browns Fans Show Tee</h3>", card)
+        self.assertIn("$30.00", card)
+        self.assertIn('<p class="gproduct-kicker">FAN SHOW PICK 02</p>', card)
+
+    def test_the_excluded_design_leaves_this_locker_and_nothing_else(self):
+        self.assertNotIn(self.SOURCE,
+                         [item["slug"] for item in self.build.creator_items(self.cre)])
+        self.assertNotIn(f'data-slug="{self.SOURCE}"', self.html)
+
+        # everywhere the locker does not reach, it is still a live design
+        self.assertIn(self.SOURCE, {item["slug"] for item in self.build.ALL})
+        self.assertIn(self.SOURCE,
+                      {item["slug"] for item in self.build.MODEL["cleveland-browns"]})
+        self.assertIn(self.SOURCE, MAYZING)
+        self.assertIn(self.SOURCE,
+                      [p["slug"] for p in load_json("data/catalogue-live.json")["products"]])
+        pdp = page(f"shop/{self.SOURCE}/index.html")
+        self.assertNotIn("data-gl-redirect", pdp)          # a live page, not a stub
+        self.assertIn(MAYZING[self.SOURCE]["checkout_url"], pdp)
+        self.assertIn(f"/shop/{self.SOURCE}/", read(os.path.join(SITE, "sitemap.xml")))
+        self.assertIn(f'data-slug="{self.SOURCE}"', page(self.BROWNS_PAGE))
+        for key in self.BROWNS_CREATORS:
             creator = self.creators[key]
             with self.subTest(creator=key):
-                other_slugs = [item["slug"] for item in self.build.creator_items(creator)]
-                other_page = page(f"{creator['page_slug']}/index.html")
-                for product in products:
-                    self.assertNotIn(product, other_slugs)
-                    self.assertNotIn(f'data-slug="{product}"', other_page)
+                self.assertNotIn("exclude_slugs", creator)
+                self.assertIn(self.SOURCE,
+                              [item["slug"] for item in self.build.creator_items(creator)])
+                other = page(f"{creator['page_slug']}/index.html")
+                self.assertIn(f'data-slug="{self.SOURCE}"', other)
+                # and the show's own listings stay out of their lockers
+                self.assertNotIn(f'data-slug="{self.PRODUCT}"', other)
+                self.assertNotIn(f'data-slug="{self.TEE}"', other)
+
+    def test_the_retired_supplier_url_is_gone_from_the_config_and_the_built_site(self):
+        self.assertNotIn(self.RETIRED_BUY_URL, read(os.path.join(ROOT, "data/creators.json")))
+        self.assertNotIn(self.RETIRED_PATH_QUERY, self.html)
+        self.assertNotIn(f"productId={self.PRODUCT_ID}", self.html)
+        self.assertIn(self.BUY_URL, self.html)
+        for rel, html in self.site_pages():
+            with self.subTest(page=rel):
+                self.assertNotIn(self.RETIRED_BUY_URL, html)
+                self.assertNotIn(self.RETIRED_PATH_QUERY, html)
+                self.assertNotIn(f"productId={self.PRODUCT_ID}", html)
+
+    def test_creator_only_listings_do_not_enter_the_shared_browns_catalogue(self):
+        creator_only = {self.PRODUCT, self.TEE}
+        self.assertTrue(creator_only.isdisjoint(item["slug"] for item in self.build.ALL))
+        self.assertTrue(creator_only.isdisjoint(
+            p["slug"] for p in load_json("data/mayzing_products.json")["products"]))
+        self.assertTrue(creator_only.isdisjoint(load_json("data/products_live.json")))
+        # the published catalogue contract marketing reads stays free of it too
+        contract = load_json("data/catalogue-live.json")["products"]
+        self.assertTrue(creator_only.isdisjoint(p["slug"] for p in contract))
+        contract_json = json.dumps(contract)
+        self.assertNotIn(self.STOREFRONT_PATH, contract_json)
+        self.assertNotIn(self.TEE_STOREFRONT_PATH, contract_json)
+        browns = page("cleveland-browns-shirts/index.html")
+        for slug in creator_only:
+            self.assertNotIn(f'data-slug="{slug}"', browns)
+        self.assertNotIn(self.STOREFRONT_PATH, browns)
+        self.assertNotIn(self.TEE_STOREFRONT_PATH, browns)
+        for key in self.OTHER_CREATORS:
+            creator = self.creators[key]
+            with self.subTest(creator=key):
+                items = self.build.creator_items(creator)
+                slugs = {item["slug"] for item in items}
+                self.assertTrue(creator_only.isdisjoint(slugs))
+                creator_json = json.dumps(creator)
+                for slug in creator_only:
+                    self.assertNotIn(slug, creator_json)
+                other = page(f"{creator['page_slug']}/index.html")
+                for slug in creator_only:
+                    self.assertNotIn(f'data-slug="{slug}"', other)
+                self.assertNotIn(self.STOREFRONT_PATH, other)
+                self.assertNotIn(self.TEE_STOREFRONT_PATH, other)
+        # each creator-only supplier URL is rendered by exactly one page: this locker
+        for buy_url in (self.BUY_URL, self.TEE_BUY_URL):
+            carrying = [rel for rel, html in self.site_pages() if buy_url in html]
+            self.assertEqual(carrying, [self.PAGE])
+
+    def test_only_the_declared_storefront_url_is_accepted(self):
+        """The relaxed check is per-row: an undeclared URL is still ignored."""
+        row = dict(self.cre["creator_additions"][0])
+        self.assertEqual(row["url_path"], "the-typical-browns-fans-show")
+
+        def slugs_for(**overrides):
+            cre = dict(self.cre)
+            cre["creator_additions"] = [dict(row, **overrides)]
+            return [item["slug"] for item in self.build.creator_items(cre)]
+
+        self.assertIn(self.PRODUCT, slugs_for())
+        rejected = {
+            # no declared path -> the URL must be listing-scoped again
+            "undeclared path": {"url_path": "", "buy_url": self.BUY_URL},
+            "path is not the declared one": {
+                "buy_url": "https://gridironlocker.shop/some-other-page"
+                           "?color=GILDAN-DARK_CHOCOLATE"},
+            "declared path is not the URL's": {"url_path": "cleveland-victory-monday-copy"},
+            "wrong host": {"buy_url": "https://example.com/the-typical-browns-fans-show"
+                                      "?color=GILDAN-DARK_CHOCOLATE"},
+            "not https": {"buy_url": "http://gridironlocker.shop/the-typical-browns-fans-show"
+                                     "?color=GILDAN-DARK_CHOCOLATE"},
+            # a listing-scoped URL still has to carry the row's product ID
+            "listing-scoped without productId": {
+                "url_path": "",
+                "buy_url": f"https://gridironlocker.shop/{self.PRODUCT}"
+                           "?color=GILDAN-DARK_CHOCOLATE"},
+            "listing-scoped with another productId": {
+                "url_path": "",
+                "buy_url": f"https://gridironlocker.shop/{self.PRODUCT}"
+                           "?color=GILDAN-DARK_CHOCOLATE&productId=000000000000000000000000"},
+            "unknown source design": {"source_slug": "not-a-live-design"},
+            "no product ID metadata": {"product_id": ""},
+        }
+        for reason, overrides in rejected.items():
+            with self.subTest(reason=reason):
+                self.assertNotIn(self.PRODUCT, slugs_for(**overrides))
+
+    def test_new_tee_declares_its_same_as_slug_path_without_product_id(self):
+        row = next(row for row in self.cre["creator_additions"]
+                   if row["slug"] == self.TEE)
+        self.assertEqual(row["url_path"], self.TEE)
+        self.assertEqual(row["buy_url"], self.TEE_BUY_URL)
+        self.assertNotIn("productId", row["buy_url"])
+
+        def slugs_for_row(addition):
+            cre = dict(self.cre)
+            cre["creator_additions"] = [dict(addition)]
+            return [item["slug"] for item in self.build.creator_items(cre)]
+
+        self.assertIn(self.TEE, slugs_for_row(row))
+        # The explicit declaration is what allows the product's own slug path
+        # to omit productId; without it, the default listing-scoped check applies.
+        self.assertNotIn(self.TEE, slugs_for_row({k: v for k, v in row.items()
+                                                  if k != "url_path"}))
+        self.assertNotIn(self.TEE, slugs_for_row(dict(row, url_path="wrong-path")))
 
 
 class BellaLocker(unittest.TestCase):
