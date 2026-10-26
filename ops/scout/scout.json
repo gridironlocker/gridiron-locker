@@ -27,9 +27,18 @@
    "collection": "michigan"
   },
   {
+   "name": "deshaun watson",
+   "mentions": 11,
+   "index": 65,
+   "status": "trending",
+   "gap": true,
+   "shoppable": false,
+   "collection": "cleveland-browns"
+  },
+  {
    "name": "josh jacobs",
-   "mentions": 9,
-   "index": 53,
+   "mentions": 10,
+   "index": 59,
    "status": "trending",
    "gap": true,
    "shoppable": false,
@@ -45,24 +54,6 @@
    "collection": "dallas-cowboys"
   },
   {
-   "name": "deshaun watson",
-   "mentions": 7,
-   "index": 41,
-   "status": "trending",
-   "gap": true,
-   "shoppable": false,
-   "collection": "cleveland-browns"
-  },
-  {
-   "name": "jordan love",
-   "mentions": 6,
-   "index": 35,
-   "status": "trending",
-   "gap": false,
-   "shoppable": true,
-   "collection": "green-bay-packers"
-  },
-  {
    "name": "kyle whittingham",
    "mentions": 6,
    "index": 35,
@@ -70,6 +61,15 @@
    "gap": true,
    "shoppable": false,
    "collection": "michigan"
+  },
+  {
+   "name": "jordan love",
+   "mentions": 4,
+   "index": 24,
+   "status": "trending",
+   "gap": false,
+   "shoppable": true,
+   "collection": "green-bay-packers"
   },
   {
    "name": "micah parsons",
@@ -81,15 +81,6 @@
    "collection": "green-bay-packers"
   },
   {
-   "name": "shedeur sanders",
-   "mentions": 4,
-   "index": 24,
-   "status": "trending",
-   "gap": false,
-   "shoppable": true,
-   "collection": "cleveland-browns"
-  },
-  {
    "name": "ceedee lamb",
    "mentions": 3,
    "index": 18,
@@ -99,7 +90,7 @@
    "collection": "dallas-cowboys"
   },
   {
-   "name": "myles garrett",
+   "name": "denzel ward",
    "mentions": 2,
    "index": 12,
    "status": "steady",
@@ -108,22 +99,22 @@
    "collection": "cleveland-browns"
   },
   {
-   "name": "denzel ward",
-   "mentions": 1,
-   "index": 6,
-   "status": "steady",
-   "gap": false,
-   "shoppable": true,
-   "collection": "cleveland-browns"
-  },
-  {
    "name": "matt lafleur",
-   "mentions": 1,
-   "index": 6,
+   "mentions": 2,
+   "index": 12,
    "status": "steady",
    "gap": false,
    "shoppable": false,
    "collection": "green-bay-packers"
+  },
+  {
+   "name": "shedeur sanders",
+   "mentions": 2,
+   "index": 12,
+   "status": "steady",
+   "gap": false,
+   "shoppable": true,
+   "collection": "cleveland-browns"
   },
   {
    "name": "jj mccarthy",
@@ -162,6 +153,15 @@
    "collection": "cleveland-browns"
   },
   {
+   "name": "myles garrett",
+   "mentions": 0,
+   "index": 0,
+   "status": "quiet",
+   "gap": false,
+   "shoppable": true,
+   "collection": "cleveland-browns"
+  },
+  {
    "name": "robert tonyan",
    "mentions": 0,
    "index": 0,
@@ -182,9 +182,18 @@
  ],
  "gaps": [
   {
+   "name": "deshaun watson",
+   "mentions": 11,
+   "index": 65,
+   "status": "trending",
+   "gap": true,
+   "shoppable": false,
+   "collection": "cleveland-browns"
+  },
+  {
    "name": "josh jacobs",
-   "mentions": 9,
-   "index": 53,
+   "mentions": 10,
+   "index": 59,
    "status": "trending",
    "gap": true,
    "shoppable": false,
@@ -198,15 +207,6 @@
    "gap": true,
    "shoppable": false,
    "collection": "dallas-cowboys"
-  },
-  {
-   "name": "deshaun watson",
-   "mentions": 7,
-   "index": 41,
-   "status": "trending",
-   "gap": true,
-   "shoppable": false,
-   "collection": "cleveland-browns"
   },
   {
    "name": "kyle whittingham",
@@ -241,8 +241,8 @@
    "gaps": [
     {
      "name": "deshaun watson",
-     "mentions": 7,
-     "index": 41,
+     "mentions": 11,
+     "index": 65,
      "status": "trending",
      "gap": true,
      "shoppable": false,
@@ -252,12 +252,12 @@
    "top_terms": [
     "browns",
     "cleveland",
-    "watch",
-    "live",
-    "yard",
+    "baltimore",
     "winning",
-    "stream",
-    "quinshon"
+    "recap",
+    "live",
+    "quinshon",
+    "judkins"
    ],
    "headline_count": 100,
    "headlines": [
@@ -266,6 +266,12 @@
      "url": "https://news.google.com/rss/articles/CBMijgFBVV95cUxPMlpfZjFPQTFPT1lFcFhVWlhDemcyU2xYVzRzM1lkQmNOcDNOQzJzMnFlVDloNUdqMmZaNzd2NHBZcC1YOE5YdG5UM2tITHVJTmZZRF9PRmlZNjBqRkVBSVBuTzBsNVFBOENEVjRhQWVWU3NOa0o3dlJfbXpULXI2ajBYWjU5ZjlQNzZic1hB?oc=5",
      "source": "Cleveland Browns",
      "pub": "Sun, 18 Oct 2026 20:15:16 GMT"
+    },
+    {
+     "title": "Game Highlights: Baltimore Ravens vs. Cleveland Browns | Week 6",
+     "url": "https://news.google.com/rss/articles/CBMidEFVX3lxTE4yM3hBS294MHVnelB6YkY4cEY0R1FlS25TUi1EXzE2MnV1UEFIWkNBVHUtc29ZSkZUdGJfd2VNSjI1VHN3S3dvQTdSVXVEZG56Z3pqdnJ6UGFMaXdoVjhfOWNabnNqVjRDcTFOZi11dmNMd1Fa?oc=5",
+     "source": "NFL.com",
+     "pub": "Sun, 18 Oct 2026 20:57:36 GMT"
     },
     {
      "title": "Cleveland Browns vs. Tennessee Titans: How to Watch, Listen and Live Stream",
@@ -284,12 +290,6 @@
      "url": "https://news.google.com/rss/articles/CBMi2AJBVV95cUxQMEM3OXVxQUwzRFlYZ1BnSW9QbXlZZkpZbTNhZzlHSFQwRndkLTBXUWRDNnpQdVdTN2VLeUVlM1NLVm1NY21MNFVwMnZSSXdZd0N6WjFwNU15blJneWVwWk45OFJ1YTBRODg5RExUN1h1REJRbDBGRjdBa0ZUbUJiYzZXZUY3c2dPQ2ZmSnBCZUlpZ0dlQXAydF9sekswMmJaUzZmaHZPbndyeXUxVXg1dktWSlZCREsxNW40dDhYS2loTHBMT253NnV0aXNhNUdaTnR5ajRpa3JGZ1NUNTFoNEk0VHV2QmRKMkxLWVI3T0owMDZHdEcxQTNvLWRsZ0p0TjJYZ1AwRUhRZ0hpT3RBSlF1NzJpN29LeldKS0cwX2JtTHdvMWk3T1hIVUd1RDhHNk1BTzdXTHpTb2tNQUFiVHRwWlVxZ0ZOejdfbVlXdzFoLUNiNHJFNw?oc=5",
      "source": "Jackson County Pilot",
      "pub": "Sun, 25 Oct 2026 16:47:11 GMT"
-    },
-    {
-     "title": "What I'm Buying and Selling About the Cleveland Browns After Week 6",
-     "url": "https://news.google.com/rss/articles/CBMitgFBVV95cUxQRG5vS1RvdXJUQWhEcURtRW1KSWpiTW1GY0Z2UlQtbUdPck5LOWhZdWwxUHBBeUdpQ0hQX1BYTnk5N2dybk02MFVKcnhSV0Y3em4tYUo2ckVveTVEV3hYM21NNmtnQXhOV1hTNXQ1QlBtTGNuRzk5VFl6SzREZnI2Sm1ydGRtY3Jfcjk0RjdEOFZJelEtOXNvenFRaVU0ckpSb0c5UlRiMnFSQ0pvNjNLenQ4d180QQ?oc=5",
-     "source": "Sports Illustrated",
-     "pub": "Wed, 21 Oct 2026 11:00:02 GMT"
     }
    ],
    "fti_count": 7
@@ -382,8 +382,8 @@
    "gaps": [
     {
      "name": "josh jacobs",
-     "mentions": 9,
-     "index": 53,
+     "mentions": 10,
+     "index": 59,
      "status": "trending",
      "gap": true,
      "shoppable": false,
@@ -398,7 +398,7 @@
     "watch",
     "josh",
     "jacobs",
-    "love"
+    "channel"
    ],
    "headline_count": 100,
    "headlines": [
@@ -411,7 +411,7 @@
     {
      "title": "Inbox: This Packers defense hunts you from every direction",
      "url": "https://news.google.com/rss/articles/CBMinwFBVV95cUxNNVZQUm5SYVZELTFaTkZGdU5Vd1lLdHZYSXE1ZXluQ0pjMW5GdGhONXZLWjNxVU5Pb2JRSXVVQTlvdExRNWxiZU9JU0NwRDlidU9NVENHb21MQXo3aV9NYWsyVWlPNjNzU2Yxc0hfWU5Dc0RXT252NlFhcFdVaXlpd1ZfRHhOajNTZ1Z6WjFXam5UNFJ0UTM2b0xkWUxUMUE?oc=5",
-     "source": "Green Bay Packers \u2013 packers.com",
+     "source": "Packers.com",
      "pub": "Tue, 20 Oct 2026 13:40:35 GMT"
     },
     {
