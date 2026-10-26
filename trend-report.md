@@ -1,6 +1,6 @@
 # Hunt Report - 2026-10-26
 
-Generated: 2026-10-26 03:14 UTC by src/hunter_intelligence.py
+Generated: 2026-10-26 03:24 UTC by src/hunter_intelligence.py
 
 Ladder: SIGNAL 2 · TREND 0 · OPPORTUNITY 2 · ACTION 0 · HEADLINE 3
 
@@ -8,11 +8,11 @@ Fan connectors: no fan posts observed - reddit error (HTTP Error 403: Blocked); 
 
 ## What to do right now
 
-**Post the Josh Jacobs and the run game angle for Green Bay Packers on X (@gridironlocker1 first) now with Green Bay Football Cheesehead Nation Shirt - 71% confidence, OPPORTUNITY.**
+**Post the Josh Jacobs and the run game angle for Green Bay Packers on X (@gridironlocker1 first) now with Green Bay Football Cheesehead Nation Shirt - 68% confidence, OPPORTUNITY.**
 
 - Product: Green Bay Football Cheesehead Nation Shirt https://viralstyle.com/kebystore/limited-edition-grb8
 - Platform: X (@gridironlocker1 first) · Timing: now
-- Confidence: 71% (OPPORTUNITY) · 🟢 READY
+- Confidence: 68% (OPPORTUNITY) · 🟢 READY
 - Campaign: GO PACK GO — identity over one back
 - Creative: Do not print a Jacobs shirt on suspension news. Post the identity design with a 'the run game is deeper than one name' line.
 - Why: Jacobs is the most-mentioned Packer in the window and every mention is about availability - that is a nervous fan, and nervous fans buy identity, not player tees.
@@ -20,23 +20,23 @@ Fan connectors: no fan posts observed - reddit error (HTTP Error 403: Blocked); 
 ## Opportunities (SIGNAL and above)
 
 ### 1. Josh Jacobs and the run game - Green Bay Packers
-- Level: OPPORTUNITY · Confidence: 71% · 🟢 READY (matched design, posting window open, evidence under 12 h)
-- Fan signal: "Packers' Josh Jacobs has 91 combined yards, TD catch in return after domestic violence case" - SFGATE (2 h ago)
-- Evidence: 5 reaction items (5.0 weighted) · 5 outlets · 0 utility listings excluded · 0 fan posts
-- Phrase velocity: → 0% / 60 min (1 vs 1)
-- Sentiment: optimistic - 'optimistic' on 4/4 lexicon hits across 5 item(s)
+- Level: OPPORTUNITY · Confidence: 68% · 🟢 READY (matched design, posting window open, evidence under 12 h)
+- Fan signal: "Packers' Josh Jacobs has 91 combined yards, TD catch in return after domestic violence case" - LancasterOnline (3 h ago)
+- Evidence: 4 reaction items (4.0 weighted) · 4 outlets · 0 utility listings excluded · 0 fan posts
+- Phrase velocity: new - 1 item in last 60 min, none in the window before
+- Sentiment: optimistic - 'optimistic' on 3/3 lexicon hits across 4 item(s)
 - Game state: result coverage in the last 30 h (1 item(s))
 - Commercial: exact - Green Bay Football Cheesehead Nation Shirt $24.99 (sellable) - GO PACK GO — identity over one back
 - Why fans care: Jacobs is the most-mentioned Packer in the window and every mention is about availability - that is a nervous fan, and nervous fans buy identity, not player tees.
-- Tracked names: josh jacobs (10 window mentions, FTI 59)
+- Tracked names: josh jacobs (7 window mentions, FTI 41)
 - Action: X (@gridironlocker1 first) - conversation post now (now)
 - Action: Threads - alternate angle (+20 min)
 - Action: Instagram - product creative after engagement confirms the angle (after the X post confirms the angle)
 - Action: Pinterest - keyword pin of the matched design (+2 h)
-  - Detroit Lions running back Jahmyr Gibbs (0) runs against Green Bay Packers cornerback Keisean Nixon (25) during the second half - Wisconsin State Journal - google_news (30 min ago) https://news.google.com/rss/articles/CBMidkFVX3lxTE1uYkM0RDdwbTd0NWNvb0dXdDJjQVBhVl9TNFkwMzVEQnhtdXJ4NWxoT1JfRnZvSi1xVk9JTmY1cy1WSHZyVm96amMwRXpfbXhENTdnREV5SzYzNlBQZXkxNlBNNGRsa1A3NFpISHdFYjlLZTVRbEE?oc=5
-  - Packers' Josh Jacobs has 91 combined yards, TD catch in return after domestic violence case - SFGATE - google_news (2 h ago) https://news.google.com/rss/articles/CBMimwFBVV95cUxQd2pqeUdsbmNfMW85eS1teGZ3c1M2MkFTRHlENy1qQ0RmSDNhWS1mSm5IelpXZ1A0Nkh4Uk1pZlU2WEhoNENYZW9vQkdSQzNlOXlnYXh5STBYT082SFEzUm1lVExaUU12b1VQektoRGU0ckdjUHFLNTBQb2V5Wlk0aVhIYWNpak9EWVo1ZEhCUlhGWnFpQzlvNmVqaw?oc=5
+  - Detroit Lions running back Jahmyr Gibbs (0) runs against Green Bay Packers cornerback Keisean Nixon (25) during the second half - Wisconsin State Journal - google_news (39 min ago) https://news.google.com/rss/articles/CBMidkFVX3lxTE1uYkM0RDdwbTd0NWNvb0dXdDJjQVBhVl9TNFkwMzVEQnhtdXJ4NWxoT1JfRnZvSi1xVk9JTmY1cy1WSHZyVm96amMwRXpfbXhENTdnREV5SzYzNlBQZXkxNlBNNGRsa1A3NFpISHdFYjlLZTVRbEE?oc=5
+  - Packers' Josh Jacobs has 91 combined yards, TD catch in return after domestic violence case - LancasterOnline - google_news (3 h ago) https://news.google.com/rss/articles/CBMilgJBVV95cUxOa01UM2hNQkRsZU52SHdOOHdmN2wtSTYwMGNrOGt4VEl1QmRUNXJQRlNaUUR3cS1MdS04T0lRdjkxQ3NrX0JGRFNLUm9hY21kZTNKVTIwaEQ1M2dLaTNpVlFQYVZCTExZa2hPc3ZPNkJDMDc4b2ZGWHBGZ294OXFNbHg3Tmw2Tk1CT0JtbEVNUGQ5eC1mSXRSZkZqQ0lYbnhoTGpXdlNleDRITGJUc1Q1NTZzSG56bmQ1Znl2UDh6cnpOQURGbzJYWmxwN0VGNF9nY2FpVmdWOWs0VGFPTFl3SzFUOWlZT0NVNGlWY2h0WEs0TFpJT2ZJMkJJNUhTUW94SWN5bFFGcDM0QTkxcEUzMkxkd0k5Zw?oc=5
   - Josh Jacobs stays in bounds to put Packers in lead with 25-yard TD - NFL.com (5 h ago) https://news.google.com/rss/articles/CBMimAFBVV95cUxQX2ZpT3d1MGxjc1hFYVhwV0d3emc5X3E2NjFnT3Rod3BnNHNxWEVfMUhlWXZ2MU9QTEtGZmo3S004T3ZsbXExdDFLblRhNFZ4a2ZldllkaFpmS0hDY09uTF9BSlh2bkVfVldEV19veU8xZHJlNnJqRkxqT1FuZjEwb1dkVFNuOUdMUXdESWhFUEEtd2toSjhLNg?oc=5
-  - Packers activate Josh Jacobs, make 4 moves ahead of Lions matchup - Acme Packing Company - google_news (1 d ago) https://news.google.com/rss/articles/CBMixwFBVV95cUxPN1FfY0hqWTgzbTh5eDNRWlpveVNOWGJfQjRVVll1NzZkTUpubHRPNVEyYlloRzZJLTQtbGp4Z0xGVktWQ1JVWTF4VEtYbFFJbl8yRVhtcTVXZ2lQMEs4dFROa3NCT1A1ckxtaWcwT1hwSWdSdnhWUjZ0bU96cTVwWFliTFI1LVg5Mkx5TmNQQUlVUTlOTlJLTG54MG9CZVdnWXpZajdMSW9jY2NBS3ZCMkNBN0tQUW5lMExBLUZNbktuNUlYNFFz?oc=5
+  - Packers activate RB Josh Jacobs, DT Jordon Riley - Green Bay Packers – packers.com - google_news (1 d ago) https://news.google.com/rss/articles/CBMikgFBVV95cUxQWXVwVDdoZ01VRlVBbDJTNkstRXdZQkdHRjlZS1BURGtweko4SUtnQS0xSlNiYThQMU9tNzNvLWFWNHJMelloX25rY2ZYOWRHWkdZRTVCbzZ1SXp3LTVKM25zdUhlMDJ4cFd1YnBsZ2t6UTlrZG1fUU1RV2ZHVXRMRm1yU3FwcnhCek9HSEFPTkZIZw?oc=5
 
 ### 2. Go Blue: The Big House identity - Michigan Wolverines
 - Level: OPPORTUNITY · Confidence: 61% · 🟢 READY (matched design, posting window open, evidence under 12 h)
@@ -84,8 +84,8 @@ Fan connectors: no fan posts observed - reddit error (HTTP Error 403: Blocked); 
 
 ## Filtered as HEADLINE (3)
 
-- BROWNS - Coaching: Monken's first season: 2 reaction item(s), 2 outlet(s), confidence 48% - not a reaction
 - BROWNS - QB room: who is QB1 in Cleveland: 2 reaction item(s), 2 outlet(s), confidence 47% - not a reaction
+- BROWNS - Coaching: Monken's first season: 1 reaction item(s), 1 outlet(s), confidence 38% - not a reaction
 - MICHIGAN - Underwood era: QB19 in Ann Arbor: 1 reaction item(s), 1 outlet(s), confidence 29% - not a reaction
 
 ## Article ideas (OPPORTUNITY+ only)
