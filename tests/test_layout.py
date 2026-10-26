@@ -2377,13 +2377,12 @@ class TypicalBrownsFanShowLocker(unittest.TestCase):
     listing slug, its product ID metadata, its Dark Chocolate colourway, its $23
     price, its sizes and its artwork are all as they were.
 
-    Because that listing clones the catalogue's ``cleveland-victory-monday``,
-    the locker also declares ``exclude_slugs`` for the catalogue card, so the
-    page shows one Victory Monday tee instead of two identical ones - the
-    listing inherits the slot the exclusion frees and leads the grid. The
-    excluded design stays a live, sellable design everywhere else: the shared
-    catalogue, its own product page, the Browns collection page, the sitemap and
-    every other creator's locker.
+    Both creator-only listings clone the catalogue's
+    ``cleveland-victory-monday``. The locker excludes that catalogue card, so
+    the new show tee leads the grid and the Victory Monday copy follows it in
+    the slot the exclusion frees. The excluded design stays live everywhere
+    else: the shared catalogue, its product page, the Browns collection page,
+    the sitemap and every other creator's locker.
     """
 
     PRODUCT = "cleveland-victory-monday-copy"
@@ -2445,11 +2444,11 @@ class TypicalBrownsFanShowLocker(unittest.TestCase):
         source = self.catalogue_source()
         copy = next(item for item in items if item["slug"] == self.PRODUCT)
 
-        # the excluded catalogue card is gone and the listing that clones it
-        # inherited its slot: one Victory Monday tee, still leading the grid
+        # The excluded catalogue card is gone; the separate show tee now leads,
+        # followed by the Victory Monday copy in the source design's slot.
         self.assertEqual(self.cre["exclude_slugs"], [self.SOURCE])
         self.assertNotIn(self.SOURCE, slugs)
-        self.assertEqual(slugs[:2], [self.PRODUCT, self.TEE])
+        self.assertEqual(slugs[:2], [self.TEE, self.PRODUCT])
         # One live card is excluded and these two creator-only listings replace
         # it; neither listing changes the shared catalogue.
         self.assertEqual(len(items), len(self.build.MODEL["cleveland-browns"]) + 1)
@@ -2464,14 +2463,16 @@ class TypicalBrownsFanShowLocker(unittest.TestCase):
         # the product ID stays the listing's metadata even though the supplier
         # URL no longer carries it as a query parameter
         self.assertEqual(copy["product_id"], self.PRODUCT_ID)
-        self.assertEqual(self.cre["creator_additions"][0]["buy_url"], self.BUY_URL)
-        self.assertEqual(self.cre["creator_additions"][0]["product_id"], self.PRODUCT_ID)
+        copy_row = next(row for row in self.cre["creator_additions"]
+                        if row["slug"] == self.PRODUCT)
+        self.assertEqual(copy_row["buy_url"], self.BUY_URL)
+        self.assertEqual(copy_row["product_id"], self.PRODUCT_ID)
         self.assertEqual(copy["buy"], self.BUY_URL)
         self.assertEqual(copy["source_url"], copy["buy"])
 
         cards = re.findall(r'<article class="gproduct" data-slug="([^"]+)"', self.html)
         self.assertEqual(cards, slugs)
-        self.assertEqual(cards[0], self.PRODUCT)
+        self.assertEqual(cards[:2], [self.TEE, self.PRODUCT])
         self.assertNotIn(self.SOURCE, cards)
 
         card_match = re.search(
@@ -2482,7 +2483,7 @@ class TypicalBrownsFanShowLocker(unittest.TestCase):
         self.assertIn("<h3>Cleveland Victory Monday</h3>", card)
         self.assertIn('<span>T-Shirt</span><b>$23.00</b>', card)
         self.assertIn('data-gcat="t-shirts"', card)
-        self.assertIn('<p class="gproduct-kicker">FAN SHOW PICK 01</p>', card)
+        self.assertIn('<p class="gproduct-kicker">FAN SHOW PICK 02</p>', card)
         self.assertIn(f'src="{escape_html(source["front"])}"', card)
         links = re.findall(r'href="(https://gridironlocker\.shop/[^"]+)"', card)
         self.assertEqual(len(links), 2)
@@ -2507,8 +2508,8 @@ class TypicalBrownsFanShowLocker(unittest.TestCase):
         self.assertEqual(item_list["numberOfItems"], len(items))
         listed = item_list["itemListElement"][0]
         self.assertEqual(listed["position"], 1)
-        self.assertEqual(listed["url"], self.BUY_URL)
-        self.assertEqual(listed["name"], source["name"])
+        self.assertEqual(listed["url"], self.TEE_BUY_URL)
+        self.assertEqual(listed["name"], "The Typical Browns Fans Show Tee")
         # the excluded design is not linked from this page in any form: neither
         # its own supplier listing nor its local product record
         self.assertNotIn(f"/{self.SOURCE}?", self.html)
@@ -2590,7 +2591,7 @@ class TypicalBrownsFanShowLocker(unittest.TestCase):
         card = match.group(0)
         self.assertIn("<h3>The Typical Browns Fans Show Tee</h3>", card)
         self.assertIn("$30.00", card)
-        self.assertIn('<p class="gproduct-kicker">FAN SHOW PICK 02</p>', card)
+        self.assertIn('<p class="gproduct-kicker">FAN SHOW PICK 01</p>', card)
 
     def test_the_excluded_design_leaves_this_locker_and_nothing_else(self):
         self.assertNotIn(self.SOURCE,
@@ -2670,7 +2671,8 @@ class TypicalBrownsFanShowLocker(unittest.TestCase):
 
     def test_only_the_declared_storefront_url_is_accepted(self):
         """The relaxed check is per-row: an undeclared URL is still ignored."""
-        row = dict(self.cre["creator_additions"][0])
+        row = dict(next(row for row in self.cre["creator_additions"]
+                        if row["slug"] == self.PRODUCT))
         self.assertEqual(row["url_path"], "the-typical-browns-fans-show")
 
         def slugs_for(**overrides):
