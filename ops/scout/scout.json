@@ -2,7 +2,7 @@
  "generated": "2026-10-26",
  "window_days": 10,
  "fti_formula": "round(100 * entity_mentions / peak_mentions_in_window)",
- "peak_mentions": 16,
+ "peak_mentions": 15,
  "stats": {
   "products": 96,
   "collections": 4,
@@ -19,7 +19,7 @@
  "fti_rows": [
   {
    "name": "bryce underwood",
-   "mentions": 16,
+   "mentions": 15,
    "index": 100,
    "status": "trending",
    "gap": false,
@@ -29,7 +29,7 @@
   {
    "name": "deshaun watson",
    "mentions": 11,
-   "index": 69,
+   "index": 73,
    "status": "trending",
    "gap": true,
    "shoppable": false,
@@ -37,8 +37,8 @@
   },
   {
    "name": "josh jacobs",
-   "mentions": 11,
-   "index": 69,
+   "mentions": 10,
+   "index": 67,
    "status": "trending",
    "gap": true,
    "shoppable": false,
@@ -47,7 +47,7 @@
   {
    "name": "dak prescott",
    "mentions": 8,
-   "index": 50,
+   "index": 53,
    "status": "trending",
    "gap": true,
    "shoppable": false,
@@ -56,7 +56,7 @@
   {
    "name": "kyle whittingham",
    "mentions": 6,
-   "index": 38,
+   "index": 40,
    "status": "trending",
    "gap": true,
    "shoppable": false,
@@ -65,7 +65,7 @@
   {
    "name": "jordan love",
    "mentions": 5,
-   "index": 31,
+   "index": 33,
    "status": "trending",
    "gap": false,
    "shoppable": true,
@@ -74,7 +74,7 @@
   {
    "name": "myles garrett",
    "mentions": 4,
-   "index": 25,
+   "index": 27,
    "status": "trending",
    "gap": false,
    "shoppable": true,
@@ -83,7 +83,7 @@
   {
    "name": "shedeur sanders",
    "mentions": 4,
-   "index": 25,
+   "index": 27,
    "status": "trending",
    "gap": false,
    "shoppable": true,
@@ -92,11 +92,29 @@
   {
    "name": "ceedee lamb",
    "mentions": 3,
-   "index": 19,
+   "index": 20,
    "status": "trending",
    "gap": true,
    "shoppable": false,
    "collection": "dallas-cowboys"
+  },
+  {
+   "name": "micah parsons",
+   "mentions": 2,
+   "index": 13,
+   "status": "steady",
+   "gap": false,
+   "shoppable": true,
+   "collection": "green-bay-packers"
+  },
+  {
+   "name": "matt lafleur",
+   "mentions": 1,
+   "index": 7,
+   "status": "steady",
+   "gap": false,
+   "shoppable": false,
+   "collection": "green-bay-packers"
   },
   {
    "name": "denzel ward",
@@ -144,24 +162,6 @@
    "collection": "cleveland-browns"
   },
   {
-   "name": "matt lafleur",
-   "mentions": 0,
-   "index": 0,
-   "status": "quiet",
-   "gap": false,
-   "shoppable": false,
-   "collection": "green-bay-packers"
-  },
-  {
-   "name": "micah parsons",
-   "mentions": 0,
-   "index": 0,
-   "status": "quiet",
-   "gap": false,
-   "shoppable": true,
-   "collection": "green-bay-packers"
-  },
-  {
    "name": "robert tonyan",
    "mentions": 0,
    "index": 0,
@@ -184,7 +184,7 @@
   {
    "name": "deshaun watson",
    "mentions": 11,
-   "index": 69,
+   "index": 73,
    "status": "trending",
    "gap": true,
    "shoppable": false,
@@ -192,8 +192,8 @@
   },
   {
    "name": "josh jacobs",
-   "mentions": 11,
-   "index": 69,
+   "mentions": 10,
+   "index": 67,
    "status": "trending",
    "gap": true,
    "shoppable": false,
@@ -202,7 +202,7 @@
   {
    "name": "dak prescott",
    "mentions": 8,
-   "index": 50,
+   "index": 53,
    "status": "trending",
    "gap": true,
    "shoppable": false,
@@ -211,7 +211,7 @@
   {
    "name": "kyle whittingham",
    "mentions": 6,
-   "index": 38,
+   "index": 40,
    "status": "trending",
    "gap": true,
    "shoppable": false,
@@ -220,7 +220,7 @@
   {
    "name": "ceedee lamb",
    "mentions": 3,
-   "index": 19,
+   "index": 20,
    "status": "trending",
    "gap": true,
    "shoppable": false,
@@ -242,7 +242,7 @@
     {
      "name": "deshaun watson",
      "mentions": 11,
-     "index": 69,
+     "index": 73,
      "status": "trending",
      "gap": true,
      "shoppable": false,
@@ -252,11 +252,11 @@
    "top_terms": [
     "browns",
     "cleveland",
-    "watson",
-    "yard",
-    "winning",
     "watch",
+    "watson",
+    "winning",
     "live",
+    "stream",
     "deshaun"
    ],
    "headline_count": 100,
@@ -308,7 +308,7 @@
     {
      "name": "dak prescott",
      "mentions": 8,
-     "index": 50,
+     "index": 53,
      "status": "trending",
      "gap": true,
      "shoppable": false,
@@ -317,7 +317,7 @@
     {
      "name": "ceedee lamb",
      "mentions": 3,
-     "index": 19,
+     "index": 20,
      "status": "trending",
      "gap": true,
      "shoppable": false,
@@ -329,10 +329,10 @@
     "dallas",
     "packers",
     "cheerleaders",
-    "chemical",
-    "romance",
     "offense",
-    "brian"
+    "green",
+    "chemical",
+    "romance"
    ],
    "headline_count": 100,
    "headlines": [
@@ -382,8 +382,8 @@
    "gaps": [
     {
      "name": "josh jacobs",
-     "mentions": 11,
-     "index": 69,
+     "mentions": 10,
+     "index": 67,
      "status": "trending",
      "gap": true,
      "shoppable": false,
@@ -398,7 +398,7 @@
     "watch",
     "josh",
     "jacobs",
-    "time"
+    "channel"
    ],
    "headline_count": 100,
    "headlines": [
@@ -421,16 +421,16 @@
      "pub": "Tue, 20 Oct 2026 14:15:06 GMT"
     },
     {
+     "title": "Packers 23-13 Cowboys (Oct 18, 2026) Game Recap",
+     "url": "https://news.google.com/rss/articles/CBMiW0FVX3lxTE1TTy1sYVlEUnBPR3AzUFNqbFJ2bmUyOEQ4WnVrdms1VkExRklGbjNtYjQ5U1dOTU5vV21RVkNYejlQaFNmNWdCMVdzcktDY0Q1SElwdmNYdFcyLVE?oc=5",
+     "source": "ESPN",
+     "pub": "Mon, 19 Oct 2026 07:13:05 GMT"
+    },
+    {
      "title": "Josh Jacobs stays in bounds to put Packers in lead with 25-yard TD",
      "url": "https://news.google.com/rss/articles/CBMimAFBVV95cUxQX2ZpT3d1MGxjc1hFYVhwV0d3emc5X3E2NjFnT3Rod3BnNHNxWEVfMUhlWXZ2MU9QTEtGZmo3S004T3ZsbXExdDFLblRhNFZ4a2ZldllkaFpmS0hDY09uTF9BSlh2bkVfVldEV19veU8xZHJlNnJqRkxqT1FuZjEwb1dkVFNuOUdMUXdESWhFUEEtd2toSjhLNg?oc=5",
      "source": "NFL.com",
      "pub": "Sun, 25 Oct 2026 22:39:49 GMT"
-    },
-    {
-     "title": "Green Bay Packers vs. Detroit Lions preview: 5 key stats",
-     "url": "https://news.google.com/rss/articles/CBMitgFBVV95cUxOX2NtVkNPUFc1NkhqaHdRbUVZS1hqMk12Z2lKMzFCQnVfbW9FZU5uZHYwV3laS1cwRHBxTjR4d1NES0ZBOUNTY1BfWlYyd2ZpS0dSU1MtQXQ3bS1UYnZOYnpQMXNwSU1mcFFCMWp3amc5VlJvOVBzSGp1emtTaXhnRjVCYnN3VEJlX005dzFjbmhXal9QVkFoWTd0QWJBTmxhZERyMUNEN3l6LVdYMXQ3OWVWd0VRUQ?oc=5",
-     "source": "Pride Of Detroit",
-     "pub": "Sat, 24 Oct 2026 14:30:00 GMT"
     }
    ],
    "fti_count": 5
@@ -449,7 +449,7 @@
     {
      "name": "kyle whittingham",
      "mentions": 6,
-     "index": 38,
+     "index": 40,
      "status": "trending",
      "gap": true,
      "shoppable": false,
