@@ -2382,10 +2382,11 @@ class TypicalBrownsFanShowLocker(unittest.TestCase):
     $44 in Charcoal. Every mockup in the record is a signature that page
     currently issues - a stale or forged signature answers 403, not an image.
 
-    Both creator-only listings clone the catalogue's
+    The creator-only listings clone the catalogue's
     ``cleveland-victory-monday``. The locker excludes that catalogue card, so
-    the show tee leads the grid and the Victory Monday copy follows it in the
-    slot the exclusion frees. The excluded design stays live everywhere else:
+    the show tee and Victory Monday copy retain their existing leading slots;
+    the separate cap card follows them. All three additions stay creator-scoped.
+    The excluded design stays live everywhere else:
     the shared catalogue, its product page, the Browns collection page, the
     sitemap and every other creator's locker.
     """
@@ -2401,6 +2402,20 @@ class TypicalBrownsFanShowLocker(unittest.TestCase):
         ("t-shirts", "Classic Unisex T-shirt", "30.00"),
         ("t-shirts", "Men's T-shirt", "30.00"),
         ("hoodies", "Unisex Hoodie", "44.00"),
+    )
+    CAP = "the-typical-browns-fans-show-cap"
+    CAP_PRODUCT_ID = "6adebf9b6ae88462a328b362"
+    CAP_BUY_URL = ("https://gridironlocker.shop/the-typical-browns-fans-show-cap"
+                   "?color=PACIFIC_HEADWEAR-BLACK_WHITE"
+                   f"&productId={CAP_PRODUCT_ID}&size=ADULT")
+    CAP_STOREFRONT_PATH = "/the-typical-browns-fans-show-cap"
+    CAP_VARIANTS = (
+        ("Skater Snapback", "PACIFIC_HEADWEAR-BLACK_WHITE",
+         "6adebf9b6ae88462a328b362", "miyw075cfq6", "miyw075cfq7"),
+        ("Perforated Cap", "PACIFIC_HEADWEAR-BLACK",
+         "6adebf9bc16ffed08e107095", "miucdkfb9k0", "miucdkfb9k1"),
+        ("Weekender Trucker Cap", "PACIFIC_HEADWEAR-BLACK_WHITE",
+         "6adebf9bc16ffed08e1070b0", "mibmvwap8b8", "mibmvwap8b9"),
     )
     #: the catalogue design the listing clones, and the card this locker drops
     SOURCE = "cleveland-victory-monday"
@@ -2455,12 +2470,13 @@ class TypicalBrownsFanShowLocker(unittest.TestCase):
         self.assertEqual(self.cre["exclude_slugs"], [self.SOURCE])
         self.assertNotIn(self.SOURCE, slugs)
         self.assertEqual(slugs[:2], [self.TEE, self.PRODUCT])
-        # One live card is excluded and two creator-only listings replace it.
-        self.assertEqual(len(items), len(self.build.MODEL["cleveland-browns"]) + 1)
+        # One live card is excluded and three creator-only listings replace it.
+        self.assertEqual(len(items), len(self.build.MODEL["cleveland-browns"]) + 2)
         self.assertNotIn(self.PRODUCT, {item["slug"] for item in self.build.ALL})
         self.assertNotIn(self.TEE, {item["slug"] for item in self.build.ALL})
+        self.assertNotIn(self.CAP, {item["slug"] for item in self.build.ALL})
         self.assertEqual([row["slug"] for row in self.cre["creator_additions"]],
-                         [self.TEE, self.PRODUCT])
+                         [self.TEE, self.PRODUCT, self.CAP])
 
         # neither the URL refresh nor the exclusion changes what the card shows:
         # it still clones the catalogue design's own display details
@@ -2523,6 +2539,9 @@ class TypicalBrownsFanShowLocker(unittest.TestCase):
         self.assertEqual(copy_listed["position"], 2)
         self.assertEqual(copy_listed["url"], self.BUY_URL)
         self.assertEqual(copy_listed["name"], source["name"])
+        cap_listed = item_list["itemListElement"][2]
+        self.assertEqual(cap_listed["position"], 3)
+        self.assertEqual(cap_listed["name"], "The Typical Browns Fans Show Cap")
         # the excluded design is not linked from this page in any form: neither
         # its own supplier listing nor its local product record
         self.assertNotIn(f"/{self.SOURCE}?", self.html)
@@ -2609,6 +2628,94 @@ class TypicalBrownsFanShowLocker(unittest.TestCase):
         self.assertIn("$30.00", card)
         self.assertIn('<p class="gproduct-kicker">FAN SHOW PICK 01</p>', card)
 
+    def test_caps_filter_has_three_captured_styles_only_in_this_locker(self):
+        from urllib.parse import parse_qs, urlsplit
+
+        items = self.build.creator_items(self.cre)
+        cap = next(item for item in items if item["slug"] == self.CAP)
+        addition = next(row for row in self.cre["creator_additions"]
+                        if row["slug"] == self.CAP)
+        self.assertEqual(cap["name"], "The Typical Browns Fans Show Cap")
+        self.assertEqual(cap["product_id"], self.CAP_PRODUCT_ID)
+        self.assertEqual(cap["price"], 29.0)
+        self.assertEqual(cap["garment"], "Skater Snapback")
+        self.assertEqual(cap["colour"], "Black / White")
+        self.assertEqual(cap["colour_code"], "PACIFIC_HEADWEAR-BLACK_WHITE")
+        self.assertEqual(cap["sizes_avail"], ["Adult"])
+        self.assertEqual(addition["buy_url"], self.CAP_BUY_URL)
+        self.assertNotIn("url_path", addition)  # listing-scoped URL + productId
+
+        apparel = self.build.creator_apparel(self.cre, items)
+        self.assertIn("Caps & Hats", apparel["categories"])
+        self.assertNotIn("caps-hats", self.build.APPAREL_CATEGORY_KEYS)
+        self.assertEqual(set(apparel["styles_by_cat"]["caps-hats"]),
+                         {style for style, *_ in self.CAP_VARIANTS})
+        variants = {row["garment"]: row
+                    for row in apparel["apparel_by_slug"][self.CAP]["caps-hats"]}
+        self.assertEqual(set(variants), {style for style, *_ in self.CAP_VARIANTS})
+
+        for style, colour, product_id, front_id, back_id in self.CAP_VARIANTS:
+            with self.subTest(style=style):
+                variant = variants[style]
+                self.assertEqual(variant["price"], "29.00")
+                parsed = urlsplit(variant["url"])
+                query = parse_qs(parsed.query)
+                self.assertEqual(parsed.path, self.CAP_STOREFRONT_PATH)
+                self.assertEqual(query.get("color"), [colour])
+                self.assertEqual(query.get("productId"), [product_id])
+                self.assertEqual(query.get("size"), ["ADULT"])
+                self.assertTrue(variant["image"].startswith(
+                    "https://buyer-experience-gateway.mayzing.com/"))
+                self.assertTrue(variant["back"].startswith(
+                    "https://buyer-experience-gateway.mayzing.com/"))
+                self.assertIn(f"id:{front_id},", variant["image"])
+                self.assertIn(f"id:{back_id},", variant["back"])
+                self.assertIn(f",c:{colour},", variant["image"])
+                self.assertIn(f",c:{colour},", variant["back"])
+
+        # The Cap filter and its three style chips render on the show locker;
+        # the new card carries no shirt/hoodie category.
+        tile = re.search(
+            r'<button class="gcategory-tile" type="button" data-gcat="caps-hats".*?</button>',
+            self.html, re.S)
+        self.assertIsNotNone(tile)
+        self.assertIn("Caps &amp; Hats", tile.group(0))
+        for style, *_ in self.CAP_VARIANTS:
+            self.assertIn(f'data-gstyle="{style}"', self.html)
+        card_match = re.search(
+            rf'<article class="gproduct" data-slug="{self.CAP}".*?</article>',
+            self.html, re.S)
+        self.assertIsNotNone(card_match)
+        card = card_match.group(0)
+        self.assertIn('data-gcat="caps-hats"', card)
+        self.assertIn("<h3>The Typical Browns Fans Show Cap</h3>", card)
+        self.assertIn('<span>Skater Snapback</span><b>$29.00</b>', card)
+        self.assertIn('<p class="gproduct-kicker">FAN SHOW PICK 03</p>', card)
+        self.assertIn(f'src="{escape_html(cap["front"])}"', card)
+
+        payload_match = re.search(r'data-apparel="([^"]+)"', self.html)
+        self.assertIsNotNone(payload_match)
+        payload = json.loads(unescape(payload_match.group(1)))
+        page_groups = payload[self.CAP]
+        self.assertEqual(set(page_groups), {"caps-hats"})
+        page_variants = {row["garment"]: row for row in page_groups["caps-hats"]}
+        for style, colour, product_id, front_id, back_id in self.CAP_VARIANTS:
+            with self.subTest(page_style=style):
+                row = page_variants[style]
+                self.assertEqual(row["price"], "$29.00")
+                self.assertIn(f"id:{front_id},", row["image"])
+                self.assertIn(f"id:{back_id},", row["back"])
+                parsed = urlsplit(row["url"])
+                query = parse_qs(parsed.query)
+                self.assertEqual(parsed.path, self.CAP_STOREFRONT_PATH)
+                self.assertEqual(query.get("color"), [colour])
+                self.assertEqual(query.get("productId"), [product_id])
+                self.assertEqual(query.get("size"), ["ADULT"])
+                self.assertEqual(query.get("creator"), [self.CREATOR_ID])
+                self.assertEqual(query.get("utm_source"), ["creator"])
+                self.assertEqual(query.get("utm_medium"), ["referral"])
+                self.assertEqual(query.get("utm_campaign"), ["creator-TYPICALBROWNS"])
+
     def test_new_tee_declares_the_storefront_page_and_its_product_id(self):
         """The row points at the store's own page for the show's three tees.
 
@@ -2678,7 +2785,7 @@ class TypicalBrownsFanShowLocker(unittest.TestCase):
                 self.assertNotIn(f"productId={self.PRODUCT_ID}", html)
 
     def test_creator_only_listings_do_not_enter_the_shared_browns_catalogue(self):
-        creator_only = {self.PRODUCT, self.TEE}
+        creator_only = {self.PRODUCT, self.TEE, self.CAP}
         self.assertTrue(creator_only.isdisjoint(item["slug"] for item in self.build.ALL))
         self.assertTrue(creator_only.isdisjoint(
             p["slug"] for p in load_json("data/mayzing_products.json")["products"]))
@@ -2689,11 +2796,13 @@ class TypicalBrownsFanShowLocker(unittest.TestCase):
         contract_json = json.dumps(contract)
         self.assertNotIn(self.STOREFRONT_PATH, contract_json)
         self.assertNotIn(self.TEE_STOREFRONT_PATH, contract_json)
+        self.assertNotIn(self.CAP_STOREFRONT_PATH, contract_json)
         browns = page("cleveland-browns-shirts/index.html")
         for slug in creator_only:
             self.assertNotIn(f'data-slug="{slug}"', browns)
         self.assertNotIn(self.STOREFRONT_PATH, browns)
         self.assertNotIn(self.TEE_STOREFRONT_PATH, browns)
+        self.assertNotIn(self.CAP_STOREFRONT_PATH, browns)
         for key in self.OTHER_CREATORS:
             creator = self.creators[key]
             with self.subTest(creator=key):
@@ -2708,8 +2817,9 @@ class TypicalBrownsFanShowLocker(unittest.TestCase):
                     self.assertNotIn(f'data-slug="{slug}"', other)
                 self.assertNotIn(self.STOREFRONT_PATH, other)
                 self.assertNotIn(self.TEE_STOREFRONT_PATH, other)
+                self.assertNotIn(self.CAP_STOREFRONT_PATH, other)
         # each creator-only supplier URL is rendered by exactly one page: this locker
-        for buy_url in (self.BUY_URL, self.TEE_BUY_URL):
+        for buy_url in (self.BUY_URL, self.TEE_BUY_URL, self.CAP_BUY_URL):
             carrying = [rel for rel, html in self.site_pages() if buy_url in html]
             self.assertEqual(carrying, [self.PAGE])
 
