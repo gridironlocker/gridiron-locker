@@ -524,8 +524,11 @@ def creator_items(cre):
     creator-scoped and never leak into the public catalogue. A creator can also
     declare ``creator_additions``: a listing-scoped extra that reuses the
     metadata of a live model item but carries its own supplier URL, slug and
-    product ID. Those additions appear only in that creator's locker. Missing
-    or imageless records are skipped, and stale picks can never crash a build.
+    product ID. Those additions appear only in that creator's locker. A locker
+    can likewise declare ``exclude_slugs`` to drop a live design from its own
+    grid; the design stays in the catalogue, keeps its page and still shows on
+    its collection page and in every other locker. Missing or imageless records
+    are skipped, and stale picks can never crash a build.
 
     ``picks`` decide what a visitor sees first; ``order: newest`` drops that
     and shows the catalogue in the collection page's own order instead (the
@@ -570,7 +573,7 @@ def creator_items(cre):
             if slug in by_slug and slug not in seen:
                 seen.add(slug)
                 out.append(by_slug[slug])
-        return _with_creator_additions(cre, out, by_slug)
+        return _locker_list(cre, out, by_slug)
 
     by_slug = {x["slug"]: x for x in MODEL.get(cre.get("collection_key"), [])}
     picks = [s for s in cre.get("picks", []) if s in by_slug]
@@ -582,7 +585,7 @@ def creator_items(cre):
         keep = None if cre.get("include_collection") else set(picks)
         out = [item for slug, item in by_slug.items()
                if keep is None or slug in keep]
-        return _with_creator_additions(cre, out, by_slug)
+        return _locker_list(cre, out, by_slug)
     out, seen = [], set()
     for slug in picks:
         if slug in by_slug and slug not in seen:
@@ -597,7 +600,39 @@ def creator_items(cre):
             if slug not in seen:
                 seen.add(slug)
                 out.append(item)
-    return _with_creator_additions(cre, out, by_slug)
+    return _locker_list(cre, out, by_slug)
+
+
+def _locker_list(cre, items, by_slug):
+    """A locker's final card list: its own listings in, excluded designs out.
+
+    The order of those two steps is the point. ``creator_additions`` are placed
+    beside the design each one clones FIRST and ``exclude_slugs`` is applied to
+    the result, so a listing that clones a design this locker no longer shows
+    inherits the slot the exclusion frees: the show's Victory Monday listing
+    renders exactly where the original Victory Monday card sat, rather than
+    falling to the end of the grid.
+    """
+    return _without_excluded(cre, _with_creator_additions(cre, items, by_slug))
+
+
+def _without_excluded(cre, items):
+    """Drop the live designs a locker declares it does not show.
+
+    ``exclude_slugs`` is locker-scoped in exactly the same way
+    ``creator_additions`` is: it changes what THIS creator's page renders and
+    nothing else. An excluded design stays in ``build.ALL``, keeps its own
+    ``/shop/<slug>/`` page, its sitemap entry and its collection-page card, and
+    still appears in every other creator's locker. Two cards for one artwork in
+    one locker is a merchandising choice rather than a catalogue fact, so the
+    choice belongs in that locker's own record.
+    """
+    excluded = {str(s).strip() for s in cre.get("exclude_slugs", []) or []}
+    excluded.discard("")
+    if not excluded:
+        return items
+    return [item for item in items
+            if str(item.get("slug") or "") not in excluded]
 
 
 def _with_creator_additions(cre, items, by_slug):

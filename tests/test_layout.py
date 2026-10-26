@@ -2366,21 +2366,35 @@ class CreatorCustomDesignNote(unittest.TestCase):
 
 
 class TypicalBrownsFanShowLocker(unittest.TestCase):
-    """A supplier listing scoped to the show locker only, on a refreshed URL.
+    """The show's own supplier listing, and the duplicate card it replaced.
 
-    The listing shipped with a listing-scoped supplier URL
-    (``/cleveland-victory-monday-copy?color=...&productId=...``). The supplier
-    refreshed it to the show's own storefront page, which takes the colour and
-    deliberately carries no ``productId``. Only the URL moved: the listing slug,
-    its product ID metadata, its Dark Chocolate colourway, its $23 price, its
-    sizes and its artwork all stay as they were, and the listing still renders
-    on The Typical Browns Fan Show page and nowhere else.
+    Two decisions about one design live here, and both are locker-scoped.
+
+    The listing ``cleveland-victory-monday-copy`` shipped with a listing-scoped
+    supplier URL (``/cleveland-victory-monday-copy?color=...&productId=...``);
+    the supplier refreshed it to the show's own storefront page, which takes the
+    colour and deliberately carries no ``productId``. Only the URL moved: the
+    listing slug, its product ID metadata, its Dark Chocolate colourway, its $23
+    price, its sizes and its artwork are all as they were.
+
+    Because that listing clones the catalogue's ``cleveland-victory-monday``,
+    the locker also declares ``exclude_slugs`` for the catalogue card, so the
+    page shows one Victory Monday tee instead of two identical ones - the
+    listing inherits the slot the exclusion frees and leads the grid. The
+    excluded design stays a live, sellable design everywhere else: the shared
+    catalogue, its own product page, the Browns collection page, the sitemap and
+    every other creator's locker.
     """
 
     PRODUCT = "cleveland-victory-monday-copy"
     PRODUCT_ID = "6ade77933d9e7e208932b0bd"
+    #: the catalogue design the listing clones, and the card this locker drops
+    SOURCE = "cleveland-victory-monday"
     CREATOR_ID = "TYPICALBROWNS"
     PAGE = "thetypicalbrownsfanshow/index.html"
+    BROWNS_PAGE = "cleveland-browns-shirts/index.html"
+    #: the other Browns lockers, which all keep the catalogue card
+    BROWNS_CREATORS = ("crystal", "amber", "laquala", "des", "yvette")
     # the replacement supplier URL, exactly as supplied
     STOREFRONT_PATH = "/the-typical-browns-fans-show"
     BUY_URL = ("https://gridironlocker.shop/the-typical-browns-fans-show"
@@ -2408,23 +2422,32 @@ class TypicalBrownsFanShowLocker(unittest.TestCase):
             with open(path, encoding="utf-8") as fh:
                 yield os.path.relpath(path, SITE), fh.read()
 
-    def test_copy_listing_is_added_after_its_source_and_keeps_creator_attribution(self):
+    def catalogue_source(self):
+        """The live catalogue design the listing clones - not a locker item."""
+        return next(item for item in self.build.MODEL["cleveland-browns"]
+                    if item["slug"] == self.SOURCE)
+
+    def test_the_listing_is_the_lockers_only_victory_monday_card(self):
         from urllib.parse import parse_qs, urlsplit
 
         items = self.build.creator_items(self.cre)
         slugs = [item["slug"] for item in items]
-        original = next(item for item in items if item["slug"] == "cleveland-victory-monday")
+        source = self.catalogue_source()
         copy = next(item for item in items if item["slug"] == self.PRODUCT)
-        self.assertEqual(slugs.index(self.PRODUCT), slugs.index(original["slug"]) + 1)
+
+        # the excluded catalogue card is gone and the listing that clones it
+        # inherited its slot: one Victory Monday tee, still leading the grid
+        self.assertEqual(self.cre["exclude_slugs"], [self.SOURCE])
+        self.assertNotIn(self.SOURCE, slugs)
+        self.assertEqual(slugs[0], self.PRODUCT)
+        self.assertEqual(len(items), len(self.build.MODEL["cleveland-browns"]))
         self.assertNotIn(self.PRODUCT, {item["slug"] for item in self.build.ALL})
-        # a URL refresh changes nothing about how the listing is displayed
-        self.assertEqual(copy["name"], original["name"])
-        self.assertEqual(copy["front"], original["front"])
-        self.assertEqual(copy["back"], original["back"])
-        self.assertEqual(copy["price"], original["price"])
-        self.assertEqual(copy["garment"], original["garment"])
-        self.assertEqual(copy["colour"], original["colour"])
-        self.assertEqual(copy["sizes_avail"], original["sizes_avail"])
+
+        # neither the URL refresh nor the exclusion changes what the card shows:
+        # it still clones the catalogue design's own display details
+        for field in ("name", "front", "back", "price", "garment", "colour",
+                      "sizes_avail"):
+            self.assertEqual(copy[field], source[field], field)
         # the product ID stays the listing's metadata even though the supplier
         # URL no longer carries it as a query parameter
         self.assertEqual(copy["product_id"], self.PRODUCT_ID)
@@ -2432,6 +2455,11 @@ class TypicalBrownsFanShowLocker(unittest.TestCase):
         self.assertEqual(self.cre["creator_additions"][0]["product_id"], self.PRODUCT_ID)
         self.assertEqual(copy["buy"], self.BUY_URL)
         self.assertEqual(copy["source_url"], copy["buy"])
+
+        cards = re.findall(r'<article class="gproduct" data-slug="([^"]+)"', self.html)
+        self.assertEqual(cards, slugs)
+        self.assertEqual(cards[0], self.PRODUCT)
+        self.assertNotIn(self.SOURCE, cards)
 
         card_match = re.search(
             rf'<article class="gproduct" data-slug="{self.PRODUCT}".*?</article>',
@@ -2441,7 +2469,8 @@ class TypicalBrownsFanShowLocker(unittest.TestCase):
         self.assertIn("<h3>Cleveland Victory Monday</h3>", card)
         self.assertIn('<span>T-Shirt</span><b>$23.00</b>', card)
         self.assertIn('data-gcat="t-shirts"', card)
-        self.assertIn(f'src="{escape_html(original["front"])}"', card)
+        self.assertIn('<p class="gproduct-kicker">FAN SHOW PICK 01</p>', card)
+        self.assertIn(f'src="{escape_html(source["front"])}"', card)
         links = re.findall(r'href="(https://gridironlocker\.shop/[^"]+)"', card)
         self.assertEqual(len(links), 2)
         for escaped_href in links:
@@ -2463,10 +2492,42 @@ class TypicalBrownsFanShowLocker(unittest.TestCase):
                           if node.get("@type") == "CollectionPage")
         item_list = collection["about"]
         self.assertEqual(item_list["numberOfItems"], len(items))
-        listed = next(entry for entry in item_list["itemListElement"]
-                      if entry["position"] == slugs.index(self.PRODUCT) + 1)
+        listed = item_list["itemListElement"][0]
+        self.assertEqual(listed["position"], 1)
         self.assertEqual(listed["url"], self.BUY_URL)
-        self.assertEqual(listed["name"], original["name"])
+        self.assertEqual(listed["name"], source["name"])
+        # the excluded design is not linked from this page in any form: neither
+        # its own supplier listing nor its local product record
+        self.assertNotIn(f"/{self.SOURCE}?", self.html)
+        self.assertNotIn(f"/shop/{self.SOURCE}/", self.html)
+
+    def test_the_excluded_design_leaves_this_locker_and_nothing_else(self):
+        self.assertNotIn(self.SOURCE,
+                         [item["slug"] for item in self.build.creator_items(self.cre)])
+        self.assertNotIn(f'data-slug="{self.SOURCE}"', self.html)
+
+        # everywhere the locker does not reach, it is still a live design
+        self.assertIn(self.SOURCE, {item["slug"] for item in self.build.ALL})
+        self.assertIn(self.SOURCE,
+                      {item["slug"] for item in self.build.MODEL["cleveland-browns"]})
+        self.assertIn(self.SOURCE, MAYZING)
+        self.assertIn(self.SOURCE,
+                      [p["slug"] for p in load_json("data/catalogue-live.json")["products"]])
+        pdp = page(f"shop/{self.SOURCE}/index.html")
+        self.assertNotIn("data-gl-redirect", pdp)          # a live page, not a stub
+        self.assertIn(MAYZING[self.SOURCE]["checkout_url"], pdp)
+        self.assertIn(f"/shop/{self.SOURCE}/", read(os.path.join(SITE, "sitemap.xml")))
+        self.assertIn(f'data-slug="{self.SOURCE}"', page(self.BROWNS_PAGE))
+        for key in self.BROWNS_CREATORS:
+            creator = self.creators[key]
+            with self.subTest(creator=key):
+                self.assertNotIn("exclude_slugs", creator)
+                self.assertIn(self.SOURCE,
+                              [item["slug"] for item in self.build.creator_items(creator)])
+                other = page(f"{creator['page_slug']}/index.html")
+                self.assertIn(f'data-slug="{self.SOURCE}"', other)
+                # and the show's own listing stays out of their lockers
+                self.assertNotIn(f'data-slug="{self.PRODUCT}"', other)
 
     def test_the_retired_supplier_url_is_gone_from_the_config_and_the_built_site(self):
         self.assertNotIn(self.RETIRED_BUY_URL, read(os.path.join(ROOT, "data/creators.json")))
