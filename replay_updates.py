@@ -275,14 +275,47 @@ def inject_data():
     live = load(os.path.join(ROOT, "data/products_live.json"))
     cols = load(os.path.join(ROOT, "data/collections.json"))
 
+    # Collections whose catalogue now lives on the Mayzing storefront. A
+    # Viralstyle campaign for one of these must not be injected here: the
+    # slug would land in data/collections.json, which tests/test_layout.py
+    # pins as the retired Viralstyle list with zero overlap with the Mayzing
+    # catalogue (a dual-listed slug is one design sold on two partner
+    # storefronts). scrape_list.py never crawls these keys either.
+    mayzing = {}
+    for fname in ("mayzing_products.json", "mayzing_michigan.json"):
+        try:
+            for p in load(os.path.join(ROOT, "data", fname)).get("products", []):
+                mayzing[p["slug"]] = fname
+        except Exception:
+            pass
+    try:
+        for s in load(os.path.join(ROOT, "data", "delisted.json")).get("slugs", {}):
+            mayzing.pop(s, None)
+    except Exception:
+        pass
+
+    n = 0
     for slug, c in CAMPAIGNS.items():
+        if slug in mayzing:
+            print("inject skipped, design lives on Mayzing:", slug)
+            continue
+        col = cols.get(c["collection"])
+        if col is None:
+            # Never create the key: collections that migrated to Mayzing are
+            # deliberately absent from collections.json (a re-crawl must not
+            # resurrect a Viralstyle listing for them), and raising here used
+            # to abort the whole injection - a silent no-op masked by
+            # refresh.yml's "replay injection failed" fallback. A skipped
+            # campaign is skipped everywhere, products/live included: those
+            # feeds only build pages for collections that still crawl
+            # Viralstyle.
+            print("inject skipped, collection not in collections.json:",
+                  slug, c["collection"])
+            continue
         entry = scrape_entry(slug, c)
         products[slug] = entry                    # idempotent overwrite
         live[slug] = with_img_map(dict(entry))    # same data + img map
 
-        col = cols.get(c["collection"])
-        if col is None:
-            raise SystemExit(f"missing collection: {c['collection']}")
         col_products = col.setdefault("products", [])
         # Move the campaign to the front so it is visible on the homepage
         # (homepage shows the first 4 designs per team) and at the top of the
@@ -293,11 +326,12 @@ def inject_data():
             "thumb": PLACEHOLDER_THUMB,
             "title": f"{c['title']} {c['list_price_inr']}",
         })
+        n += 1
 
     save(os.path.join(ROOT, "data/products.json"), products)
     save(os.path.join(ROOT, "data/products_live.json"), live)
     save(os.path.join(ROOT, "data/collections.json"), cols)
-    print("data: injected", len(CAMPAIGNS), "campaigns")
+    print(f"data: injected {n} of {len(CAMPAIGNS)} campaigns")
 
 
 def inject_config():
