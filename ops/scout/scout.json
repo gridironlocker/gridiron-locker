@@ -2,7 +2,7 @@
  "generated": "2026-10-26",
  "window_days": 10,
  "fti_formula": "round(100 * entity_mentions / peak_mentions_in_window)",
- "peak_mentions": 15,
+ "peak_mentions": 17,
  "stats": {
   "products": 96,
   "collections": 4,
@@ -12,14 +12,14 @@
   "throwback": 0,
   "steady": 85,
   "gaps": 5,
-  "moments": 2,
+  "moments": 1,
   "tracked_names": 18,
   "dead_campaigns": 67
  },
  "fti_rows": [
   {
    "name": "bryce underwood",
-   "mentions": 15,
+   "mentions": 17,
    "index": 100,
    "status": "trending",
    "gap": false,
@@ -27,26 +27,8 @@
    "collection": "michigan"
   },
   {
-   "name": "deshaun watson",
-   "mentions": 9,
-   "index": 60,
-   "status": "trending",
-   "gap": true,
-   "shoppable": false,
-   "collection": "cleveland-browns"
-  },
-  {
-   "name": "dak prescott",
-   "mentions": 8,
-   "index": 53,
-   "status": "trending",
-   "gap": true,
-   "shoppable": false,
-   "collection": "dallas-cowboys"
-  },
-  {
    "name": "josh jacobs",
-   "mentions": 8,
+   "mentions": 9,
    "index": 53,
    "status": "trending",
    "gap": true,
@@ -54,9 +36,27 @@
    "collection": "green-bay-packers"
   },
   {
+   "name": "dak prescott",
+   "mentions": 8,
+   "index": 47,
+   "status": "trending",
+   "gap": true,
+   "shoppable": false,
+   "collection": "dallas-cowboys"
+  },
+  {
+   "name": "deshaun watson",
+   "mentions": 7,
+   "index": 41,
+   "status": "trending",
+   "gap": true,
+   "shoppable": false,
+   "collection": "cleveland-browns"
+  },
+  {
    "name": "jordan love",
    "mentions": 6,
-   "index": 40,
+   "index": 35,
    "status": "trending",
    "gap": false,
    "shoppable": true,
@@ -65,7 +65,7 @@
   {
    "name": "kyle whittingham",
    "mentions": 6,
-   "index": 40,
+   "index": 35,
    "status": "trending",
    "gap": true,
    "shoppable": false,
@@ -74,7 +74,7 @@
   {
    "name": "micah parsons",
    "mentions": 4,
-   "index": 27,
+   "index": 24,
    "status": "trending",
    "gap": false,
    "shoppable": true,
@@ -83,7 +83,7 @@
   {
    "name": "shedeur sanders",
    "mentions": 4,
-   "index": 27,
+   "index": 24,
    "status": "trending",
    "gap": false,
    "shoppable": true,
@@ -92,7 +92,7 @@
   {
    "name": "ceedee lamb",
    "mentions": 3,
-   "index": 20,
+   "index": 18,
    "status": "trending",
    "gap": true,
    "shoppable": false,
@@ -101,7 +101,7 @@
   {
    "name": "myles garrett",
    "mentions": 2,
-   "index": 13,
+   "index": 12,
    "status": "steady",
    "gap": false,
    "shoppable": true,
@@ -110,7 +110,7 @@
   {
    "name": "denzel ward",
    "mentions": 1,
-   "index": 7,
+   "index": 6,
    "status": "steady",
    "gap": false,
    "shoppable": true,
@@ -119,7 +119,7 @@
   {
    "name": "matt lafleur",
    "mentions": 1,
-   "index": 7,
+   "index": 6,
    "status": "steady",
    "gap": false,
    "shoppable": false,
@@ -182,26 +182,8 @@
  ],
  "gaps": [
   {
-   "name": "deshaun watson",
-   "mentions": 9,
-   "index": 60,
-   "status": "trending",
-   "gap": true,
-   "shoppable": false,
-   "collection": "cleveland-browns"
-  },
-  {
-   "name": "dak prescott",
-   "mentions": 8,
-   "index": 53,
-   "status": "trending",
-   "gap": true,
-   "shoppable": false,
-   "collection": "dallas-cowboys"
-  },
-  {
    "name": "josh jacobs",
-   "mentions": 8,
+   "mentions": 9,
    "index": 53,
    "status": "trending",
    "gap": true,
@@ -209,9 +191,27 @@
    "collection": "green-bay-packers"
   },
   {
+   "name": "dak prescott",
+   "mentions": 8,
+   "index": 47,
+   "status": "trending",
+   "gap": true,
+   "shoppable": false,
+   "collection": "dallas-cowboys"
+  },
+  {
+   "name": "deshaun watson",
+   "mentions": 7,
+   "index": 41,
+   "status": "trending",
+   "gap": true,
+   "shoppable": false,
+   "collection": "cleveland-browns"
+  },
+  {
    "name": "kyle whittingham",
    "mentions": 6,
-   "index": 40,
+   "index": 35,
    "status": "trending",
    "gap": true,
    "shoppable": false,
@@ -220,7 +220,7 @@
   {
    "name": "ceedee lamb",
    "mentions": 3,
-   "index": 20,
+   "index": 18,
    "status": "trending",
    "gap": true,
    "shoppable": false,
@@ -241,8 +241,8 @@
    "gaps": [
     {
      "name": "deshaun watson",
-     "mentions": 9,
-     "index": 60,
+     "mentions": 7,
+     "index": 41,
      "status": "trending",
      "gap": true,
      "shoppable": false,
@@ -257,7 +257,7 @@
     "yard",
     "winning",
     "stream",
-    "watson"
+    "quinshon"
    ],
    "headline_count": 100,
    "headlines": [
@@ -308,7 +308,7 @@
     {
      "name": "dak prescott",
      "mentions": 8,
-     "index": 53,
+     "index": 47,
      "status": "trending",
      "gap": true,
      "shoppable": false,
@@ -317,7 +317,7 @@
     {
      "name": "ceedee lamb",
      "mentions": 3,
-     "index": 20,
+     "index": 18,
      "status": "trending",
      "gap": true,
      "shoppable": false,
@@ -331,8 +331,8 @@
     "cheerleaders",
     "offense",
     "green",
-    "chemical",
-    "romance"
+    "brian",
+    "schottenheimer"
    ],
    "headline_count": 100,
    "headlines": [
@@ -382,7 +382,7 @@
    "gaps": [
     {
      "name": "josh jacobs",
-     "mentions": 8,
+     "mentions": 9,
      "index": 53,
      "status": "trending",
      "gap": true,
@@ -411,7 +411,7 @@
     {
      "title": "Inbox: This Packers defense hunts you from every direction",
      "url": "https://news.google.com/rss/articles/CBMinwFBVV95cUxNNVZQUm5SYVZELTFaTkZGdU5Vd1lLdHZYSXE1ZXluQ0pjMW5GdGhONXZLWjNxVU5Pb2JRSXVVQTlvdExRNWxiZU9JU0NwRDlidU9NVENHb21MQXo3aV9NYWsyVWlPNjNzU2Yxc0hfWU5Dc0RXT252NlFhcFdVaXlpd1ZfRHhOajNTZ1Z6WjFXam5UNFJ0UTM2b0xkWUxUMUE?oc=5",
-     "source": "Packers.com",
+     "source": "Green Bay Packers \u2013 packers.com",
      "pub": "Tue, 20 Oct 2026 13:40:35 GMT"
     },
     {
@@ -421,16 +421,16 @@
      "pub": "Tue, 20 Oct 2026 14:15:06 GMT"
     },
     {
-     "title": "Keys before kickoff: Cowboys at Packers Week 6",
-     "url": "https://news.google.com/rss/articles/CBMinwFBVV95cUxNR3pOS2FBVzJGLTNHMWhqMkxXdTh3SE8wdUxsR0t3OVBjSzdGQThEenJUTk1ybDVBNWp2RXVwNFRmbmc0NE9BNFpma05zZGxydzJuVHdYY2JTYThLZUhWWFcwZDFPbS1NaDR2NkF4NGtjVVB0LVFWdHo1bEJTWXZHaGF6d25NaHA0M053ZXhqc0cwMEMyM0lWOVc4T0MwUkU?oc=5",
-     "source": "Blogging The Boys",
-     "pub": "Sun, 18 Oct 2026 21:30:00 GMT"
-    },
-    {
      "title": "Josh Jacobs stays in bounds to put Packers in lead with 25-yard TD",
      "url": "https://news.google.com/rss/articles/CBMimAFBVV95cUxQX2ZpT3d1MGxjc1hFYVhwV0d3emc5X3E2NjFnT3Rod3BnNHNxWEVfMUhlWXZ2MU9QTEtGZmo3S004T3ZsbXExdDFLblRhNFZ4a2ZldllkaFpmS0hDY09uTF9BSlh2bkVfVldEV19veU8xZHJlNnJqRkxqT1FuZjEwb1dkVFNuOUdMUXdESWhFUEEtd2toSjhLNg?oc=5",
      "source": "NFL.com",
      "pub": "Sun, 25 Oct 2026 22:39:49 GMT"
+    },
+    {
+     "title": "Green Bay Packers vs. Detroit Lions preview: 5 key stats",
+     "url": "https://news.google.com/rss/articles/CBMitgFBVV95cUxOX2NtVkNPUFc1NkhqaHdRbUVZS1hqMk12Z2lKMzFCQnVfbW9FZU5uZHYwV3laS1cwRHBxTjR4d1NES0ZBOUNTY1BfWlYyd2ZpS0dSU1MtQXQ3bS1UYnZOYnpQMXNwSU1mcFFCMWp3amc5VlJvOVBzSGp1emtTaXhnRjVCYnN3VEJlX005dzFjbmhXal9QVkFoWTd0QWJBTmxhZERyMUNEN3l6LVdYMXQ3OWVWd0VRUQ?oc=5",
+     "source": "Pride Of Detroit",
+     "pub": "Sat, 24 Oct 2026 14:30:00 GMT"
     }
    ],
    "fti_count": 5
@@ -449,7 +449,7 @@
     {
      "name": "kyle whittingham",
      "mentions": 6,
-     "index": 40,
+     "index": 35,
      "status": "trending",
      "gap": true,
      "shoppable": false,
@@ -840,16 +840,6 @@
   }
  ],
  "moments": [
-  {
-   "title": "Deshaun Watson's rushing TD gives Browns the lead vs. Titans with under five minutes left in regulation",
-   "url": "https://news.google.com/rss/articles/CBMiyAFBVV95cUxPUF9uUGpkVFV3UTUxclAzRWl3WEF4b05ORS04WnFqcTBpaHBITDFha1UtNU80Tko1YmwySFEwTzFHWm5OUWVCd0J0STN6Q3F4d3NuazFJTmVJcXZqTjlwTFdNNkctUEYxV3MyeF91d3BkUjRoMXlBdFFVMGZ0ZlFpWXd3anBsbFdMRThkdEpQa3NORHJtaW9hLVZmQy1FSGJtZUVsMjQxUWNmd00zdkprVnQ2V1JuSWEzTVVFUUFFcktfTmRGcW15MA?oc=5",
-   "source": "NFL.com",
-   "pub": "Sun, 25 Oct 2026 20:08:40 GMT",
-   "collection": "cleveland-browns",
-   "entities": [
-    "deshaun watson"
-   ]
-  },
   {
    "title": "Josh Jacobs stays in bounds to put Packers in lead with 25-yard TD",
    "url": "https://news.google.com/rss/articles/CBMimAFBVV95cUxQX2ZpT3d1MGxjc1hFYVhwV0d3emc5X3E2NjFnT3Rod3BnNHNxWEVfMUhlWXZ2MU9QTEtGZmo3S004T3ZsbXExdDFLblRhNFZ4a2ZldllkaFpmS0hDY09uTF9BSlh2bkVfVldEV19veU8xZHJlNnJqRkxqT1FuZjEwb1dkVFNuOUdMUXdESWhFUEEtd2toSjhLNg?oc=5",
