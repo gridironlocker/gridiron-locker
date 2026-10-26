@@ -9,10 +9,10 @@
   "images": 459,
   "avg_price": 23.82,
   "hot": 11,
-  "throwback": 1,
-  "steady": 84,
+  "throwback": 0,
+  "steady": 85,
   "gaps": 5,
-  "moments": 1,
+  "moments": 2,
   "tracked_names": 18,
   "dead_campaigns": 67
  },
@@ -28,21 +28,12 @@
   },
   {
    "name": "deshaun watson",
-   "mentions": 11,
-   "index": 73,
-   "status": "trending",
-   "gap": true,
-   "shoppable": false,
-   "collection": "cleveland-browns"
-  },
-  {
-   "name": "josh jacobs",
    "mentions": 9,
    "index": 60,
    "status": "trending",
    "gap": true,
    "shoppable": false,
-   "collection": "green-bay-packers"
+   "collection": "cleveland-browns"
   },
   {
    "name": "dak prescott",
@@ -52,6 +43,15 @@
    "gap": true,
    "shoppable": false,
    "collection": "dallas-cowboys"
+  },
+  {
+   "name": "josh jacobs",
+   "mentions": 8,
+   "index": 53,
+   "status": "trending",
+   "gap": true,
+   "shoppable": false,
+   "collection": "green-bay-packers"
   },
   {
    "name": "jordan love",
@@ -81,6 +81,15 @@
    "collection": "green-bay-packers"
   },
   {
+   "name": "shedeur sanders",
+   "mentions": 4,
+   "index": 27,
+   "status": "trending",
+   "gap": false,
+   "shoppable": true,
+   "collection": "cleveland-browns"
+  },
+  {
    "name": "ceedee lamb",
    "mentions": 3,
    "index": 20,
@@ -90,9 +99,18 @@
    "collection": "dallas-cowboys"
   },
   {
-   "name": "shedeur sanders",
+   "name": "myles garrett",
    "mentions": 2,
    "index": 13,
+   "status": "steady",
+   "gap": false,
+   "shoppable": true,
+   "collection": "cleveland-browns"
+  },
+  {
+   "name": "denzel ward",
+   "mentions": 1,
+   "index": 7,
    "status": "steady",
    "gap": false,
    "shoppable": true,
@@ -106,15 +124,6 @@
    "gap": false,
    "shoppable": false,
    "collection": "green-bay-packers"
-  },
-  {
-   "name": "denzel ward",
-   "mentions": 0,
-   "index": 0,
-   "status": "quiet",
-   "gap": false,
-   "shoppable": true,
-   "collection": "cleveland-browns"
   },
   {
    "name": "jj mccarthy",
@@ -153,15 +162,6 @@
    "collection": "cleveland-browns"
   },
   {
-   "name": "myles garrett",
-   "mentions": 0,
-   "index": 0,
-   "status": "quiet",
-   "gap": false,
-   "shoppable": true,
-   "collection": "cleveland-browns"
-  },
-  {
    "name": "robert tonyan",
    "mentions": 0,
    "index": 0,
@@ -183,21 +183,12 @@
  "gaps": [
   {
    "name": "deshaun watson",
-   "mentions": 11,
-   "index": 73,
-   "status": "trending",
-   "gap": true,
-   "shoppable": false,
-   "collection": "cleveland-browns"
-  },
-  {
-   "name": "josh jacobs",
    "mentions": 9,
    "index": 60,
    "status": "trending",
    "gap": true,
    "shoppable": false,
-   "collection": "green-bay-packers"
+   "collection": "cleveland-browns"
   },
   {
    "name": "dak prescott",
@@ -207,6 +198,15 @@
    "gap": true,
    "shoppable": false,
    "collection": "dallas-cowboys"
+  },
+  {
+   "name": "josh jacobs",
+   "mentions": 8,
+   "index": 53,
+   "status": "trending",
+   "gap": true,
+   "shoppable": false,
+   "collection": "green-bay-packers"
   },
   {
    "name": "kyle whittingham",
@@ -237,12 +237,12 @@
    "products": 33,
    "avg_price": 23.3,
    "hot": 0,
-   "throwback": 1,
+   "throwback": 0,
    "gaps": [
     {
      "name": "deshaun watson",
-     "mentions": 11,
-     "index": 73,
+     "mentions": 9,
+     "index": 60,
      "status": "trending",
      "gap": true,
      "shoppable": false,
@@ -252,11 +252,11 @@
    "top_terms": [
     "browns",
     "cleveland",
-    "baltimore",
-    "winning",
-    "recap",
+    "watch",
     "live",
-    "score",
+    "yard",
+    "winning",
+    "stream",
     "watson"
    ],
    "headline_count": 100,
@@ -266,12 +266,6 @@
      "url": "https://news.google.com/rss/articles/CBMijgFBVV95cUxPMlpfZjFPQTFPT1lFcFhVWlhDemcyU2xYVzRzM1lkQmNOcDNOQzJzMnFlVDloNUdqMmZaNzd2NHBZcC1YOE5YdG5UM2tITHVJTmZZRF9PRmlZNjBqRkVBSVBuTzBsNVFBOENEVjRhQWVWU3NOa0o3dlJfbXpULXI2ajBYWjU5ZjlQNzZic1hB?oc=5",
      "source": "Cleveland Browns",
      "pub": "Sun, 18 Oct 2026 20:15:16 GMT"
-    },
-    {
-     "title": "Game Highlights: Baltimore Ravens vs. Cleveland Browns | Week 6",
-     "url": "https://news.google.com/rss/articles/CBMidEFVX3lxTE4yM3hBS294MHVnelB6YkY4cEY0R1FlS25TUi1EXzE2MnV1UEFIWkNBVHUtc29ZSkZUdGJfd2VNSjI1VHN3S3dvQTdSVXVEZG56Z3pqdnJ6UGFMaXdoVjhfOWNabnNqVjRDcTFOZi11dmNMd1Fa?oc=5",
-     "source": "NFL.com",
-     "pub": "Sun, 18 Oct 2026 20:57:36 GMT"
     },
     {
      "title": "Cleveland Browns vs. Tennessee Titans: How to Watch, Listen and Live Stream",
@@ -290,6 +284,12 @@
      "url": "https://news.google.com/rss/articles/CBMi2AJBVV95cUxQMEM3OXVxQUwzRFlYZ1BnSW9QbXlZZkpZbTNhZzlHSFQwRndkLTBXUWRDNnpQdVdTN2VLeUVlM1NLVm1NY21MNFVwMnZSSXdZd0N6WjFwNU15blJneWVwWk45OFJ1YTBRODg5RExUN1h1REJRbDBGRjdBa0ZUbUJiYzZXZUY3c2dPQ2ZmSnBCZUlpZ0dlQXAydF9sekswMmJaUzZmaHZPbndyeXUxVXg1dktWSlZCREsxNW40dDhYS2loTHBMT253NnV0aXNhNUdaTnR5ajRpa3JGZ1NUNTFoNEk0VHV2QmRKMkxLWVI3T0owMDZHdEcxQTNvLWRsZ0p0TjJYZ1AwRUhRZ0hpT3RBSlF1NzJpN29LeldKS0cwX2JtTHdvMWk3T1hIVUd1RDhHNk1BTzdXTHpTb2tNQUFiVHRwWlVxZ0ZOejdfbVlXdzFoLUNiNHJFNw?oc=5",
      "source": "Jackson County Pilot",
      "pub": "Sun, 25 Oct 2026 16:47:11 GMT"
+    },
+    {
+     "title": "What I'm Buying and Selling About the Cleveland Browns After Week 6",
+     "url": "https://news.google.com/rss/articles/CBMitgFBVV95cUxQRG5vS1RvdXJUQWhEcURtRW1KSWpiTW1GY0Z2UlQtbUdPck5LOWhZdWwxUHBBeUdpQ0hQX1BYTnk5N2dybk02MFVKcnhSV0Y3em4tYUo2ckVveTVEV3hYM21NNmtnQXhOV1hTNXQ1QlBtTGNuRzk5VFl6SzREZnI2Sm1ydGRtY3Jfcjk0RjdEOFZJelEtOXNvenFRaVU0ckpSb0c5UlRiMnFSQ0pvNjNLenQ4d180QQ?oc=5",
+     "source": "Sports Illustrated",
+     "pub": "Wed, 21 Oct 2026 11:00:02 GMT"
     }
    ],
    "fti_count": 7
@@ -340,7 +340,7 @@
      "title": "Updates: Liufau, Locke ruled out for Monday",
      "url": "https://news.google.com/rss/articles/CBMiZkFVX3lxTE41U3JDcmpCb1YyZjBxRFNnV25kSktlMVJ5aEJsX1hhNTFTcHJWdWdTbjF5cFhvQ3ZKZGd4bEdfT0VtT1RobmJwd3ZSbnZzM0c3RnJiTS1kSG5fMUtJWW9qclRUWlZtQQ?oc=5",
      "source": "Dallas Cowboys | Official Site of the Dallas Cowboys",
-     "pub": "Sun, 25 Oct 2026 21:58:01 GMT"
+     "pub": "Mon, 26 Oct 2026 00:59:12 GMT"
     },
     {
      "title": "Impact: Barkley expected to return vs. Cowboys",
@@ -382,8 +382,8 @@
    "gaps": [
     {
      "name": "josh jacobs",
-     "mentions": 9,
-     "index": 60,
+     "mentions": 8,
+     "index": 53,
      "status": "trending",
      "gap": true,
      "shoppable": false,
@@ -394,8 +394,8 @@
     "packers",
     "green",
     "cowboys",
-    "watch",
     "detroit",
+    "watch",
     "josh",
     "jacobs",
     "love"
@@ -403,16 +403,16 @@
    "headline_count": 100,
    "headlines": [
     {
-     "title": "Inbox: This Packers defense hunts you from every direction",
-     "url": "https://news.google.com/rss/articles/CBMinwFBVV95cUxNNVZQUm5SYVZELTFaTkZGdU5Vd1lLdHZYSXE1ZXluQ0pjMW5GdGhONXZLWjNxVU5Pb2JRSXVVQTlvdExRNWxiZU9JU0NwRDlidU9NVENHb21MQXo3aV9NYWsyVWlPNjNzU2Yxc0hfWU5Dc0RXT252NlFhcFdVaXlpd1ZfRHhOajNTZ1Z6WjFXam5UNFJ0UTM2b0xkWUxUMUE?oc=5",
-     "source": "Packers.com",
-     "pub": "Tue, 20 Oct 2026 13:40:35 GMT"
-    },
-    {
      "title": "Lions vs. Packers: How to watch, listen and follow",
      "url": "https://news.google.com/rss/articles/CBMiiAFBVV95cUxNemh4NmNkYmFweHpTNWRXUDhqQk9VYnh5N296cHJZMUJoVml2VGYzRERXX0hPNnE4UlN5TUlVX0Z1Sl85dkZzdHp3bXJ3eVBMV1duSVZPZlFFdmkySmtZN2NxVTNnMXZadFZPU0RETDZWQTJfUHJUcjJxUGlNRi1VWGFzeEhscVlq?oc=5",
      "source": "Detroit Lions",
      "pub": "Sat, 24 Oct 2026 15:04:11 GMT"
+    },
+    {
+     "title": "Inbox: This Packers defense hunts you from every direction",
+     "url": "https://news.google.com/rss/articles/CBMinwFBVV95cUxNNVZQUm5SYVZELTFaTkZGdU5Vd1lLdHZYSXE1ZXluQ0pjMW5GdGhONXZLWjNxVU5Pb2JRSXVVQTlvdExRNWxiZU9JU0NwRDlidU9NVENHb21MQXo3aV9NYWsyVWlPNjNzU2Yxc0hfWU5Dc0RXT252NlFhcFdVaXlpd1ZfRHhOajNTZ1Z6WjFXam5UNFJ0UTM2b0xkWUxUMUE?oc=5",
+     "source": "Packers.com",
+     "pub": "Tue, 20 Oct 2026 13:40:35 GMT"
     },
     {
      "title": "Green Bay Packers News: Packers battling penalty onslaught",
@@ -421,16 +421,16 @@
      "pub": "Tue, 20 Oct 2026 14:15:06 GMT"
     },
     {
+     "title": "Keys before kickoff: Cowboys at Packers Week 6",
+     "url": "https://news.google.com/rss/articles/CBMinwFBVV95cUxNR3pOS2FBVzJGLTNHMWhqMkxXdTh3SE8wdUxsR0t3OVBjSzdGQThEenJUTk1ybDVBNWp2RXVwNFRmbmc0NE9BNFpma05zZGxydzJuVHdYY2JTYThLZUhWWFcwZDFPbS1NaDR2NkF4NGtjVVB0LVFWdHo1bEJTWXZHaGF6d25NaHA0M053ZXhqc0cwMEMyM0lWOVc4T0MwUkU?oc=5",
+     "source": "Blogging The Boys",
+     "pub": "Sun, 18 Oct 2026 21:30:00 GMT"
+    },
+    {
      "title": "Josh Jacobs stays in bounds to put Packers in lead with 25-yard TD",
      "url": "https://news.google.com/rss/articles/CBMimAFBVV95cUxQX2ZpT3d1MGxjc1hFYVhwV0d3emc5X3E2NjFnT3Rod3BnNHNxWEVfMUhlWXZ2MU9QTEtGZmo3S004T3ZsbXExdDFLblRhNFZ4a2ZldllkaFpmS0hDY09uTF9BSlh2bkVfVldEV19veU8xZHJlNnJqRkxqT1FuZjEwb1dkVFNuOUdMUXdESWhFUEEtd2toSjhLNg?oc=5",
      "source": "NFL.com",
      "pub": "Sun, 25 Oct 2026 22:39:49 GMT"
-    },
-    {
-     "title": "Green Bay Packers vs. Detroit Lions preview: 5 key stats",
-     "url": "https://news.google.com/rss/articles/CBMitgFBVV95cUxOX2NtVkNPUFc1NkhqaHdRbUVZS1hqMk12Z2lKMzFCQnVfbW9FZU5uZHYwV3laS1cwRHBxTjR4d1NES0ZBOUNTY1BfWlYyd2ZpS0dSU1MtQXQ3bS1UYnZOYnpQMXNwSU1mcFFCMWp3amc5VlJvOVBzSGp1emtTaXhnRjVCYnN3VEJlX005dzFjbmhXal9QVkFoWTd0QWJBTmxhZERyMUNEN3l6LVdYMXQ3OWVWd0VRUQ?oc=5",
-     "source": "Pride Of Detroit",
-     "pub": "Sat, 24 Oct 2026 14:30:00 GMT"
     }
    ],
    "fti_count": 5
@@ -840,6 +840,16 @@
   }
  ],
  "moments": [
+  {
+   "title": "Deshaun Watson's rushing TD gives Browns the lead vs. Titans with under five minutes left in regulation",
+   "url": "https://news.google.com/rss/articles/CBMiyAFBVV95cUxPUF9uUGpkVFV3UTUxclAzRWl3WEF4b05ORS04WnFqcTBpaHBITDFha1UtNU80Tko1YmwySFEwTzFHWm5OUWVCd0J0STN6Q3F4d3NuazFJTmVJcXZqTjlwTFdNNkctUEYxV3MyeF91d3BkUjRoMXlBdFFVMGZ0ZlFpWXd3anBsbFdMRThkdEpQa3NORHJtaW9hLVZmQy1FSGJtZUVsMjQxUWNmd00zdkprVnQ2V1JuSWEzTVVFUUFFcktfTmRGcW15MA?oc=5",
+   "source": "NFL.com",
+   "pub": "Sun, 25 Oct 2026 20:08:40 GMT",
+   "collection": "cleveland-browns",
+   "entities": [
+    "deshaun watson"
+   ]
+  },
   {
    "title": "Josh Jacobs stays in bounds to put Packers in lead with 25-yard TD",
    "url": "https://news.google.com/rss/articles/CBMimAFBVV95cUxQX2ZpT3d1MGxjc1hFYVhwV0d3emc5X3E2NjFnT3Rod3BnNHNxWEVfMUhlWXZ2MU9QTEtGZmo3S004T3ZsbXExdDFLblRhNFZ4a2ZldllkaFpmS0hDY09uTF9BSlh2bkVfVldEV19veU8xZHJlNnJqRkxqT1FuZjEwb1dkVFNuOUdMUXdESWhFUEEtd2toSjhLNg?oc=5",
