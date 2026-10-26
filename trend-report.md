@@ -1,6 +1,6 @@
 # Hunt Report - 2026-10-26
 
-Generated: 2026-10-26 00:44 UTC by src/hunter_intelligence.py
+Generated: 2026-10-26 01:11 UTC by src/hunter_intelligence.py
 
 Ladder: SIGNAL 3 · TREND 0 · OPPORTUNITY 0 · ACTION 0 · HEADLINE 5
 
@@ -21,7 +21,7 @@ Fan connectors: no fan posts observed - reddit error (HTTP Error 403: Blocked); 
 
 ### 1. QB room: who is QB1 in Cleveland - Cleveland Browns
 - Level: SIGNAL · Confidence: 59% · ⚪ WATCH (fans are reacting but nothing on the shelf answers it yet)
-- Fan signal: "How Deshaun Watson must be in the convo for NFL Comeback Player of the Year after his 5th fourth-quarter game-winning drive: Mary Kay Cabot" - Cleveland.com (1 h ago)
+- Fan signal: "How Deshaun Watson must be in the convo for NFL Comeback Player of the Year after his 5th fourth-quarter game-winning drive: Mary Kay Cabot" - Cleveland.com (2 h ago)
 - Evidence: 3 reaction items (3.0 weighted) · 3 outlets · 0 utility listings excluded · 0 fan posts
 - Phrase velocity: → 0% / 240 min (1 vs 1)
 - Sentiment: anxious - 'anxious' on 2/2 lexicon hits across 3 item(s)
@@ -29,20 +29,20 @@ Fan connectors: no fan posts observed - reddit error (HTTP Error 403: Blocked); 
 - Commercial: campaign - Make Them Know Your Name $23.00 (sellable) - THEY FORGOT WHO I AM — QB1 belief
 - Why fans care: The whole fanbase is arguing one question: who starts. That is a belief argument, and belief is what a QB tee sells.
 - Tracked names: deshaun watson (11 window mentions, FTI 73)
-  - How Deshaun Watson must be in the convo for NFL Comeback Player of the Year after his 5th fourth-quarter game-winning drive: Mary Kay Cabot - Cleveland.com - google_news (1 h ago) https://news.google.com/rss/articles/CBMikgJBVV95cUxONXhtV3dWX0NyMmpGcVJERkJwNkdLZkJ0Yllhb3htWWZLWFptbFdjZmtGbEswS0x3N0tlZEpmbGM1RV8tSGhudG95ZFpkSEl6ZGpyLXVFanVYazNyc0NSZHE5bFZYQUdobjVaZ1dHVXNRYXEzYXZCcFhvRDkyZ2MzeFBrMUVPT3ZZZ3pVS2phN2pwU09LUmRGazhhVElpWmN4YURZUlNiaDdtNnFtZXVBS19PQ2hwRC1yRS1OX1lqNEFYajlOa2NwTnFocWtWOExVbFRzNmdXaWxUYjlBeE5fNTZqVkpKcHIyOUU4bXprM0NaYTIwTkpRenNtNENVaXEwb25VUzNyWHhiVm1OWjc2cFJR?oc=5
+  - How Deshaun Watson must be in the convo for NFL Comeback Player of the Year after his 5th fourth-quarter game-winning drive: Mary Kay Cabot - Cleveland.com - google_news (2 h ago) https://news.google.com/rss/articles/CBMikgJBVV95cUxONXhtV3dWX0NyMmpGcVJERkJwNkdLZkJ0Yllhb3htWWZLWFptbFdjZmtGbEswS0x3N0tlZEpmbGM1RV8tSGhudG95ZFpkSEl6ZGpyLXVFanVYazNyc0NSZHE5bFZYQUdobjVaZ1dHVXNRYXEzYXZCcFhvRDkyZ2MzeFBrMUVPT3ZZZ3pVS2phN2pwU09LUmRGazhhVElpWmN4YURZUlNiaDdtNnFtZXVBS19PQ2hwRC1yRS1OX1lqNEFYajlOa2NwTnFocWtWOExVbFRzNmdXaWxUYjlBeE5fNTZqVkpKcHIyOUU4bXprM0NaYTIwTkpRenNtNENVaXEwb25VUzNyWHhiVm1OWjc2cFJR?oc=5
   - Deshaun Watson's rushing TD gives Browns the lead vs. Titans with under five minutes left in regulation - NFL.com (5 h ago) https://news.google.com/rss/articles/CBMiyAFBVV95cUxPUF9uUGpkVFV3UTUxclAzRWl3WEF4b05ORS04WnFqcTBpaHBITDFha1UtNU80Tko1YmwySFEwTzFHWm5OUWVCd0J0STN6Q3F4d3NuazFJTmVJcXZqTjlwTFdNNkctUEYxV3MyeF91d3BkUjRoMXlBdFFVMGZ0ZlFpWXd3anBsbFdMRThkdEpQa3NORHJtaW9hLVZmQy1FSGJtZUVsMjQxUWNmd00zdkprVnQ2V1JuSWEzTVVFUUFFcktfTmRGcW15MA?oc=5
   - Their team is winning. Their QB is a pariah. What’s a Browns fan to do? - The Washington Post - google_news (9 h ago) https://news.google.com/rss/articles/CBMipAFBVV95cUxPdGNISHJZbF9uRDdjM3ZuQ1h2V0tIc1hKV2RBN044ZUVLT29MMFBETDZJcFZTT3VqcVdha3NDbzRQYTZrcVZoOVU2SUN2OGFTVUc5MzRvX3BEZTJTMXpITDFCS2JpMWt5aV9zMDdyWWwwZDltZjM3TWdDcTVqLTVaNnZjNDI3YWIwWVZrTDg4WUdtMVhjRG9LNk9jU05KOG41Zm9raw?oc=5
 
 ### 2. Texas pride: flag, star and Est. 1841 - Dallas Cowboys
 - Level: SIGNAL · Confidence: 54% · ⚪ WATCH (fans are reacting but nothing on the shelf answers it yet)
-- Fan signal: "Dallas Cowboys Cheerleaders sue My Chemical Romance" - FOX 4 News Dallas-Fort Worth (9 h ago)
+- Fan signal: "Dallas Cowboys Cheerleaders sue My Chemical Romance" - FOX 4 News Dallas-Fort Worth (10 h ago)
 - Evidence: 3 reaction items (3.0 weighted) · 3 outlets · 0 utility listings excluded · 0 fan posts
 - Phrase velocity: → 0% / 1440 min (1 vs 1)
 - Sentiment: proud - 'proud' on 3/3 lexicon hits across 3 item(s)
 - Game state: result coverage in the last 30 h (1 item(s))
 - Commercial: campaign - This Girl Loves Cowboys Women's Shirt $21.99 (sellable) - VINTAGE TEXAS PRIDE
 - Why fans care: Identity demand that does not care about the score - and the women's cut is the one design line this collection actually has.
-  - Dallas Cowboys Cheerleaders sue My Chemical Romance - FOX 4 News Dallas-Fort Worth - google_news (9 h ago) https://news.google.com/rss/articles/CBMivgFBVV95cUxNZ0pfUUphVDNVMVlERGc4elpfWW1SRTlnT3I3ZUliM25peldnNkZPc0NYR3hCWjFzc1g4VzNYdUFET0RRdDZlR3pSbXU4YkFLWXlLQkNnOURzU0VBaktWd0dQTmxDS29kalBPVTNTbXFhNktSRUVXQkdqZERldnA0LUZ6RmJETWNhX2g4ajhZNWxlYlBoWjhSa2Z2YjBOaG93dXI0N3owTDBZbGt6cDlFOTVELURSV0o1V1VTelNR0gHDAUFVX3lxTE9Wc190MktweVpOelA5NE9acHBYN1JVbHhQT1IzSzZ2NWhZR1RKQzc2QzlpS21tVHphUGZsRHVZYzl5bnhpX1hRWXRhSVhCNUdublY0Sl9ld3IyTVo4SXIwTXUyWjZERC1vaGtVREZTbFVHZDNYWEQxVVZ5N1g1cmZSVm1SV2ozWllDcWhJaHpnUFVzVXByZ2xfLWtrX2ZyRUpyRzlpaEphTmF5ZzJTc2VDVTNiYWRSd3RTY190TGFVQnlyQQ?oc=5
+  - Dallas Cowboys Cheerleaders sue My Chemical Romance - FOX 4 News Dallas-Fort Worth - google_news (10 h ago) https://news.google.com/rss/articles/CBMivgFBVV95cUxNZ0pfUUphVDNVMVlERGc4elpfWW1SRTlnT3I3ZUliM25peldnNkZPc0NYR3hCWjFzc1g4VzNYdUFET0RRdDZlR3pSbXU4YkFLWXlLQkNnOURzU0VBaktWd0dQTmxDS29kalBPVTNTbXFhNktSRUVXQkdqZERldnA0LUZ6RmJETWNhX2g4ajhZNWxlYlBoWjhSa2Z2YjBOaG93dXI0N3owTDBZbGt6cDlFOTVELURSV0o1V1VTelNR0gHDAUFVX3lxTE9Wc190MktweVpOelA5NE9acHBYN1JVbHhQT1IzSzZ2NWhZR1RKQzc2QzlpS21tVHphUGZsRHVZYzl5bnhpX1hRWXRhSVhCNUdublY0Sl9ld3IyTVo4SXIwTXUyWjZERC1vaGtVREZTbFVHZDNYWEQxVVZ5N1g1cmZSVm1SV2ozWllDcWhJaHpnUFVzVXByZ2xfLWtrX2ZyRUpyRzlpaEphTmF5ZzJTc2VDVTNiYWRSd3RTY190TGFVQnlyQQ?oc=5
   - Dallas Cowboys Cheerleaders Take Legal Action Against Band My Chemical Romance - TODAY.com - google_news (1 d ago) https://news.google.com/rss/articles/CBMiqAFBVV95cUxOaTlMTXJ4UndYcThnbG4tVzBUYUlrT0JkOE05OFJWSDVGMEdzTzVCVllxbmc4NE0tRzI2eUJtdHZQYlgzRjhlZzNGdjlMNGlkUEw1SlY5aUFOY3hObWROaldHcEpzNTJuU2kxaVhqQnJxekk4SS1ERzUzb0RpU3ZRT3hEWTBvSDV2cnUzMnV6RTlfc2xaNS1aTExCREd5ZDV2MU5ITGFfdkQ?oc=5
   - Dallas Cowboys cheerleaders unionize after years of fighting for fair pay - The Guardian - google_news (2 d ago) https://news.google.com/rss/articles/CBMiigFBVV95cUxOSHdVN0w1eEE5X01DWjg4a2lBSzd3dXlrM3RkTDRleEkwbERfME93VDV4ckVkNGJ0OG1qLTAyXzFMTmt3R2RRWmJTdmhvSVFiNW1yeVhUYmpqOHZKZmtyQW0teHZMU1lHYzlEMXJpa1VTWUJnc01hUjVlMVpiUkJyVWVMMHlsRVF4ckE?oc=5
 

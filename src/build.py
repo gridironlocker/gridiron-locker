@@ -638,21 +638,16 @@ def _without_excluded(cre, items):
 def _with_creator_additions(cre, items, by_slug):
     """Insert creator-scoped supplier listings beside their source design.
 
-    ``creator_additions`` does not add a product to the shared catalogue: each
-    row clones display details from an existing live item and overrides only
-    the public slug, supplier URL and product ID. A source item must exist and
-    the URL must point to the same supplier, so a stale or malformed entry is
-    safely ignored rather than becoming a dead card.
+    ``creator_additions`` does not add a product to the shared catalogue: a
+    row clones display details from a live item and can override listing
+    metadata and apparel variants. A source item must exist and the URL must
+    stay on the same supplier, so stale or malformed entries are ignored.
 
-    A row's supplier URL is listing-scoped by default: its path is the row's
-    own slug and it carries the row's ``product_id`` as ``productId``. A row
-    that is sold from the creator's own storefront page instead declares that
-    page's path in ``url_path``; the path is then matched exactly against the
-    declaration and the URL carries no ``productId`` (the show's
-    ``/the-typical-browns-fans-show`` takes the colour only). Either way
-    ``product_id`` stays the listing's metadata - the relaxation is about where
-    the supplier URL points, never about dropping the ID from the record, and
-    an undeclared path is still rejected.
+    Supplier URLs are listing-scoped by default: the path must match the row's
+    slug and carry the row's ``product_id`` as ``productId``. A row can declare
+    ``url_path`` when its supplier link uses a different path or intentionally
+    omits ``productId``; that path is matched exactly, while the product ID
+    remains in the row's metadata. An undeclared or misspelt path is rejected.
     """
     additions = {}
     used = {str(item.get("slug") or "") for item in items}
@@ -671,19 +666,30 @@ def _with_creator_additions(cre, items, by_slug):
         source_host = urlsplit(source_url).netloc
         query = dict(parse_qsl(parsed.query, keep_blank_values=True))
         # Listing-scoped by default: the URL path is this row's own slug and it
-        # carries the row's product ID. A row that declares ``url_path`` is sold
-        # from the creator's storefront page instead, which the supplier links
-        # without a productId - that declared path is matched exactly, so the
-        # one relaxed row cannot let an undeclared or misspelt URL through.
-        url_path = str(row.get("url_path") or "").strip() or slug
-        listing_scoped = url_path == slug
+        # carries the row's product ID. An explicit ``url_path`` opts out of that
+        # default for a supplier storefront route or a product link that omits
+        # productId; the path is still matched exactly, so the declaration cannot
+        # let an undeclared or misspelt URL through.
+        declared_url_path = str(row.get("url_path") or "").strip()
+        url_path = declared_url_path or slug
+        listing_scoped = not bool(declared_url_path)
         if (parsed.scheme != "https" or not source_host or parsed.netloc != source_host
                 or parsed.path.rstrip("/").rsplit("/", 1)[-1] != url_path
                 or (listing_scoped and query.get("productId") != product_id)):
             continue
         item = dict(source)
+        overrides = row.get("item")
+        if isinstance(overrides, dict):
+            for key in ("name", "art", "theme", "garment", "price", "colours",
+                        "styles", "sizes_avail", "colour", "colour_code", "front",
+                        "back", "gallery", "kw", "features", "trend"):
+                if key in overrides:
+                    item[key] = overrides[key]
         item.update(slug=slug, url=f"/shop/{slug}/", buy=buy_url,
                     source_url=buy_url, product_id=product_id)
+        apparel = row.get("apparel")
+        if isinstance(apparel, dict):
+            item["creator_apparel"] = apparel
         after_slug = str(row.get("after_slug") or source_slug)
         additions.setdefault(after_slug, []).append(item)
         used.add(slug)
@@ -2888,6 +2894,36 @@ def apparel_matrix(items, prefix=".."):
     matrix = {}
     for it in items:
         slug, garment = it["slug"], it.get("garment") or ""
+        supplied = it.get("creator_apparel")
+        if isinstance(supplied, dict):
+            groups = {}
+            for cat, rows in supplied.items():
+                if cat not in APPAREL_CATEGORY_KEYS or not isinstance(rows, list):
+                    continue
+                entries = []
+                for row in rows:
+                    if not isinstance(row, dict) or not row.get("image"):
+                        continue
+                    image = str(row.get("image") or "")
+                    back = str(row.get("back") or "")
+                    if image.startswith("/"):
+                        image = prefix + image
+                    if back.startswith("/"):
+                        back = prefix + back
+                    entry = {
+                        "garment": str(row.get("garment") or ""),
+                        "image": image,
+                        "back": back,
+                        "url": str(row.get("url") or f"../shop/{slug}/"),
+                    }
+                    if row.get("price") not in (None, ""):
+                        entry["price"] = str(row["price"])
+                    entries.append(entry)
+                if entries:
+                    groups[str(cat)] = entries
+            if groups:
+                matrix[slug] = groups
+                continue
         mockups = APPAREL_MOCKUPS.get(slug, {})
         captured = (MAYZING_APPAREL.get(it.get("col") or "") or {}).get(slug)
         if captured or it.get("partner") == "Mayzing":
@@ -5271,9 +5307,9 @@ def page_season():
  {status_line}
  {note}
  <p class="muted" style="font-size:.85rem">Searched this week: {", ".join(esc(x) for x in se['hot'])}</p>
- {fti_block(k, 5)}
- {moments_block(k, limit=4)}
- {headline_block(k, 3)}
+{fti_block(k, 5)}
+{moments_block(k, limit=4)}
+{headline_block(k, 3)}
  <div class="grid" style="margin-top:14px">{''.join(card(i) for i in picks)}</div>
  <p style="margin-top:16px"><a class="link" href="/{c['slug']}/">All {len(MODEL[k])} {esc(c['short'])} designs &rarr;</a></p>
 </div>"""
