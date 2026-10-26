@@ -1,8 +1,67 @@
 {
-  "schema_version": 1,
-  "updated": null,
-  "generator": "seo_engine.apply",
   "contract": "Page-level SEO overrides consumed by src/build.py. Keys under pages are URL paths ('/shop/slug/', '/michigan-wolverines-shirts/'). Supported fields: title, meta_description, og_title, og_description. Never hand-edit site/; change overrides and rebuild.",
-  "pages": {},
-  "history": []
+  "generator": "seo_engine.apply",
+  "history": [
+    {
+      "after": {
+        "meta_description": "Fan-made football tees, hoodies and gear across 4 team collections: Cleveland, Green Bay, Dallas and Michigan. 96 original designs, sizes S-5XL, printed..."
+      },
+      "at": "2026-10-26T20:17:46Z",
+      "before": {
+        "meta_description": null
+      },
+      "id": "seo-b952d16676",
+      "path": "/",
+      "type": "description_too_long"
+    },
+    {
+      "after": {
+        "meta_description": "2026 football season hub: Week 1 dates, what changed on each roster, and the fan shirts trending right now for Cleveland, Green Bay, Dallas and Michigan..."
+      },
+      "at": "2026-10-26T20:17:46Z",
+      "before": {
+        "meta_description": null
+      },
+      "id": "seo-80ad788982",
+      "path": "/2026-season/",
+      "type": "description_too_long"
+    },
+    {
+      "after": {
+        "meta_description": "Gridiron Locker is an independent fan-apparel studio making original football graphics for Cleveland, Green Bay, Dallas and Michigan supporters. Here is..."
+      },
+      "at": "2026-10-26T20:17:46Z",
+      "before": {
+        "meta_description": null
+      },
+      "id": "seo-24e7ced964",
+      "path": "/about/",
+      "type": "description_too_long"
+    }
+  ],
+  "pages": {
+    "/": {
+      "change_id": "seo-b952d16676",
+      "meta_description": "Fan-made football tees, hoodies and gear across 4 team collections: Cleveland, Green Bay, Dallas and Michigan. 96 original designs, sizes S-5XL, printed...",
+      "reason": "Descriptions past ~158 chars are truncated in SERPs.",
+      "type": "description_too_long",
+      "updated_at": "2026-10-26T20:17:46Z"
+    },
+    "/2026-season/": {
+      "change_id": "seo-80ad788982",
+      "meta_description": "2026 football season hub: Week 1 dates, what changed on each roster, and the fan shirts trending right now for Cleveland, Green Bay, Dallas and Michigan...",
+      "reason": "Descriptions past ~158 chars are truncated in SERPs.",
+      "type": "description_too_long",
+      "updated_at": "2026-10-26T20:17:46Z"
+    },
+    "/about/": {
+      "change_id": "seo-24e7ced964",
+      "meta_description": "Gridiron Locker is an independent fan-apparel studio making original football graphics for Cleveland, Green Bay, Dallas and Michigan supporters. Here is...",
+      "reason": "Descriptions past ~158 chars are truncated in SERPs.",
+      "type": "description_too_long",
+      "updated_at": "2026-10-26T20:17:46Z"
+    }
+  },
+  "schema_version": 1,
+  "updated": "2026-10-26"
 }
