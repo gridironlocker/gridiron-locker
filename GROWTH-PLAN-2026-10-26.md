@@ -68,32 +68,89 @@ is half-switched-off (details below), the store has been flying blind while the 
 
 ## 3. The quick solution — sequenced by speed-to-revenue
 
+**Revision 2026-10-26 (operator constraint):** Etsy and Merch-by-Amazon accounts are closed —
+marketplace re-entry is off the table. The plan below is the marketplace-free version.
+The diagnosis in §2 does not change: the store needs demand it does not have to generate itself.
+
+### The IP pivot (this is the unlock, read it twice)
+
+The two closed marketplace accounts and the 14 player-identifying designs in the site audit are the
+same problem: **platform IP enforcement**. Any new channel (TikTok Shop, eBay, ads) will treat
+league marks and player names the same way — that is what gets accounts closed. Meanwhile, the
+**best-selling fan-tee category is phrase/joke designs with zero logos and zero player names**
+("Rebuilding Since 1964", "There's Always Next Year", "Sorry I Can't I Have Plans With The Dawg
+Pound" — hundreds to 3.5k sales each on Etsy). `DESIGN-BLUEPRINT.md` §2 already demands exactly
+this. So the commercial move and the legal move are the same: **lean the catalogue and every
+campaign into the phrase-comedy lane** (the audit-clean designs), and treat logo/photo designs as
+what they are — account-killers.
+
 ### This week (do in this order)
 
-1. **Sell where the buyers already are: list the catalogue on Etsy.** This is the fastest honest
-   path to the first sale. The SERP evidence is unambiguous — Etsy owns "funny browns shirt",
-   "dawg pound shirt", "michigan bet shirt" with built-in search demand and buyer trust. Start
-   with the 10 best-selling-silhouette designs, free shipping baked into the price ($24.99–27.99),
-   real mockups you already have. eBay is the same play for vintage-flavored designs. (TeePublic/
-   Redbubble are the zero-inventory alternative.)
-2. **Switch measurement on** (§2.2, 30 minutes) — so every later decision has data.
-3. **Micro paid tests: $10–20/day for 7 days** on Pinterest Ads (catalog feed is built) and Meta/
-   TikTok, 2–3 designs, creative tied to this week's games. Two goals: first sales, and a
-   retargeting audience of store visitors. At $0.30–0.80 CPC this buys 300–1,000 real visits —
-   more qualified traffic than SEO currently produces in a month. Kill what doesn't convert;
-   scale what does.
-4. **Activate the creator lockers.** Joe, Bella and The Typical Browns Fan Show already have pages.
-   Brief them to post game-day content linking their locker every game week; offer a simple
-   affiliate cut (Mayzing supports creator-attributed links — the UTM plumbing is already in).
+1. **Go TikTok-first — discovery commerce is the one channel that works from zero.** TikTok Shop
+   US: 6% referral fee, no monthly fee, POD explicitly allowed (Seller Shipping + the 2026
+   "Made-to-Order" listing type gives 3–14 business days handling — designed for POD). New shops
+   start in a probation tier (50 orders/day, 100 listings) which is fine at this stage. TikTok's
+   algorithm distributes by watch-time, not follower count — zero-follower accounts sell. Plan:
+   a TikTok Shop with the **top 20 phrase-clean designs**, plus 1–2 organic videos/day (design
+   reveals, game-day reactions, try-ons, comment replies as videos). TikTok LIVE on game days
+   (live-sellers with 1,200 followers have pulled $47k in one session; realistic early conversion
+   4–8%).
+2. **Switch measurement on** (§2.2, 30 minutes) — GSC export, Pinterest Tag ID, Merchant Center.
+3. **Micro paid tests: $10–20/day for 7 days** — Spark Ads boosting whichever organic TikToks get
+   traction (no minimum above $20/day at ad-set level), plus Pinterest Ads on the catalog feed.
+   Kill what doesn't convert; scale what does.
+4. **Seed 10–15 micro creators (product-for-post).** Team-fan TikTok/IG accounts, 5k–50k
+   followers: free shirt for an honest try-on/duet. Nano/micro creators routinely outperform
+   paid endorsements (70% of shoppers say small creators change their style choices).
+5. **Activate the creator lockers** (Joe, Bella, The Typical Browns Fan Show) — game-day posts
+   linking their locker, affiliate cut via the already-built UTM attribution.
+6. **eBay, if the account is clean** — vintage-flavored phrase tees sell there without any
+   discovery algorithm; list 10 designs as Buy-It-Now with the mockups you already have.
 
 ### This month
 
-5. **Newsjack with the trend engine you already built** (`/drops/`, `radar/`) — the
-   trade deadline (Nov 4), rivalry week, Michigan–Ohio State (Nov 28) are all buying moments.
-   Ship a design within 24h of each storyline and push it through Pinterest + creators.
-6. **Bing Webmaster + IndexNow** — free, five minutes, non-Google surface area.
-7. **Real limited drops** ("this design retires Sunday") — real urgency converts and is legal
-   when it's true.
+7. **Newsjack with the trend engine you already built** (`/drops/`, `radar/`) — trade deadline
+   (Nov 4), rivalry week, Michigan–Ohio State (Nov 28) are all buying moments. Ship a phrase
+   design within 24h of each storyline; push it through TikTok + creators + Pinterest.
+8. **Attention-hacking content (aggressive, legal):** deliberately polarizing rivalry takes
+   ("the Dawg Pound is a personality type"), Browns-vs-Packers design battles with fan votes,
+   "comment and I'll design the winner" contests (real UGC, real engagement), reaction videos to
+   fan-tweet screenshots, tailgate POV content. The playbook is engagement bait with a product
+   attached — not deception.
+9. **Paid meme-page shoutouts** on fan IG/TikTok accounts (50–200k followers, $20–50/post):
+   the cheapest real-reach buy in the sports niche. Track with per-page UTM links.
+10. **Local presence where the fans physically are:** tailgate-lot QR cards outside the stadium
+    on game days, bar partnerships in Cleveland/Ann Arbor (raffle a design, collect emails),
+    campus ambassadors at Michigan.
+11. **Owned audience from day one:** free Beehiiv/Substack "Gridiron Drop List" (new designs +
+    game-day picks) — the only asset no platform can take away. Link it in every bio.
+12. **Bing Webmaster + IndexNow** — free, five minutes, non-Google surface area.
+
+### The attention tier — what "aggressive" looks like without torching the business
+
+| Move | Why it works | Why it's safe |
+|---|---|---|
+| Polarizing rivalry content, hot takes | Algorithms reward engagement | Opinions aren't fraud |
+| Live selling during games | Real-time urgency, 4–8% live conversion | Real inventory, real countdowns |
+| Limited drops with real retire dates | FOMO that's true | Legal when the scarcity is real |
+| Design contests, fan votes | UGC + community ownership | Nothing fabricated |
+| Meme-page shoutouts, micro-seeding | Cheap reach in-niche | Real people, real posts |
+| Spark Ads on proven organic posts | Boost only what already works | Platform's own ad system |
+
+What stays off the table (and why it's not "all I can do" — it's what keeps you in business):
+fake reviews, bot traffic, astroturf accounts, link schemes, impersonating official stores.
+Every one of those is how marketplace accounts get closed *permanently* — you already know what
+that feels like. The table above is the version that grows the store while keeping every account
+alive.
+
+## 3b. What I can execute from this repo vs. what needs your hands
+
+**From here (code/automation):** measurement wiring once IDs exist, game-day campaign packs from
+the trend engine, UTM/affiliate link generation, the GSC importer for the SEO engine, performance
+and SEO fixes that don't touch frozen content.
+
+**Your hands:** TikTok Shop seller account (ID verification + tax), TikTok/IG/X/Pinterest logins,
+creator outreach, ad budget, local partnerships, the GSC export.
 
 ### Next (needs a content unfreeze — propose, don't apply)
 
@@ -148,9 +205,10 @@ applied, per your instruction.
 
 ## 6. What I need from you
 
-1. **GSC export** pasted into `data/seo/gsc_export.json` (or give the go-ahead for me to add a CSV
-   importer to the SEO engine).
-2. **Pinterest Tag ID** created and pasted (I'll wire the config value in).
-3. **Decision: which demand channel first** — Etsy/eBay listings, paid micro-tests, or creator
-   activation. All three are ready to execute; they need your accounts and a small budget.
-4. **A date for the IP/legal decision** on player-named designs — it caps everything above.
+1. **TikTok Shop seller signup** (ID + tax verification) — and the handles for any TikTok/IG/X/
+   Pinterest accounts you already have, so the content plan targets the right logins.
+2. **GSC export** pasted into `data/seo/gsc_export.json` (or the go-ahead for a CSV importer).
+3. **Pinterest Tag ID** created and pasted (I'll wire the config value in).
+4. **Confirm eBay is usable** and whether the old closures were IP strikes or something else —
+   that decides how hard the phrase-clean pivot has to be.
+5. **A budget number** for the 7-day test ($70–150 total is enough to learn something).
