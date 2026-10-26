@@ -2366,20 +2366,47 @@ class CreatorCustomDesignNote(unittest.TestCase):
 
 
 class TypicalBrownsFanShowLocker(unittest.TestCase):
-    """A new supplier listing can be scoped to the show locker only."""
+    """A supplier listing scoped to the show locker only, on a refreshed URL.
+
+    The listing shipped with a listing-scoped supplier URL
+    (``/cleveland-victory-monday-copy?color=...&productId=...``). The supplier
+    refreshed it to the show's own storefront page, which takes the colour and
+    deliberately carries no ``productId``. Only the URL moved: the listing slug,
+    its product ID metadata, its Dark Chocolate colourway, its $23 price, its
+    sizes and its artwork all stay as they were, and the listing still renders
+    on The Typical Browns Fan Show page and nowhere else.
+    """
 
     PRODUCT = "cleveland-victory-monday-copy"
     PRODUCT_ID = "6ade77933d9e7e208932b0bd"
     CREATOR_ID = "TYPICALBROWNS"
+    PAGE = "thetypicalbrownsfanshow/index.html"
+    # the replacement supplier URL, exactly as supplied
+    STOREFRONT_PATH = "/the-typical-browns-fans-show"
+    BUY_URL = ("https://gridironlocker.shop/the-typical-browns-fans-show"
+               "?color=GILDAN-DARK_CHOCOLATE")
+    # the retired listing-scoped URL: it must survive in neither the config nor
+    # any generated page, in its raw (JSON-LD) or its escaped (href) form
+    RETIRED_BUY_URL = ("https://gridironlocker.shop/cleveland-victory-monday-copy"
+                       "?color=GILDAN-DARK_CHOCOLATE"
+                       f"&productId={PRODUCT_ID}")
+    RETIRED_PATH_QUERY = "/cleveland-victory-monday-copy?color=GILDAN-DARK_CHOCOLATE"
+    OTHER_CREATORS = ("crystal", "amber", "laquala", "des", "yvette", "joe", "bella")
 
     def setUp(self):
         import build  # noqa: E402
 
         self.build = build
-        self.html = page("thetypicalbrownsfanshow/index.html")
+        self.html = page(self.PAGE)
         creators = load_json("data/creators.json")["creators"]
         self.cre = creators["thetypicalbrownsfanshow"]
         self.creators = creators
+
+    def site_pages(self):
+        """Every generated page, as (site-relative path, html)."""
+        for path in sorted(glob.glob(os.path.join(SITE, "**", "*.html"), recursive=True)):
+            with open(path, encoding="utf-8") as fh:
+                yield os.path.relpath(path, SITE), fh.read()
 
     def test_copy_listing_is_added_after_its_source_and_keeps_creator_attribution(self):
         from urllib.parse import parse_qs, urlsplit
@@ -2390,6 +2417,7 @@ class TypicalBrownsFanShowLocker(unittest.TestCase):
         copy = next(item for item in items if item["slug"] == self.PRODUCT)
         self.assertEqual(slugs.index(self.PRODUCT), slugs.index(original["slug"]) + 1)
         self.assertNotIn(self.PRODUCT, {item["slug"] for item in self.build.ALL})
+        # a URL refresh changes nothing about how the listing is displayed
         self.assertEqual(copy["name"], original["name"])
         self.assertEqual(copy["front"], original["front"])
         self.assertEqual(copy["back"], original["back"])
@@ -2397,8 +2425,12 @@ class TypicalBrownsFanShowLocker(unittest.TestCase):
         self.assertEqual(copy["garment"], original["garment"])
         self.assertEqual(copy["colour"], original["colour"])
         self.assertEqual(copy["sizes_avail"], original["sizes_avail"])
+        # the product ID stays the listing's metadata even though the supplier
+        # URL no longer carries it as a query parameter
         self.assertEqual(copy["product_id"], self.PRODUCT_ID)
-        self.assertEqual(copy["buy"], self.cre["creator_additions"][0]["buy_url"])
+        self.assertEqual(self.cre["creator_additions"][0]["buy_url"], self.BUY_URL)
+        self.assertEqual(self.cre["creator_additions"][0]["product_id"], self.PRODUCT_ID)
+        self.assertEqual(copy["buy"], self.BUY_URL)
         self.assertEqual(copy["source_url"], copy["buy"])
 
         card_match = re.search(
@@ -2415,9 +2447,13 @@ class TypicalBrownsFanShowLocker(unittest.TestCase):
         for escaped_href in links:
             parsed = urlsplit(unescape(escaped_href))
             query = parse_qs(parsed.query)
-            self.assertEqual(parsed.path, f"/{self.PRODUCT}")
-            self.assertEqual(query.get("productId"), [self.PRODUCT_ID])
+            self.assertEqual(parsed.path, self.STOREFRONT_PATH)
+            # the replacement URL intentionally omits productId - it is never
+            # added back on the way out
+            self.assertNotIn("productId", query)
+            self.assertNotIn("productId", escaped_href)
             self.assertEqual(query.get("color"), ["GILDAN-DARK_CHOCOLATE"])
+            # normal Typical creator attribution on the rendered links
             self.assertEqual(query.get("creator"), [self.CREATOR_ID])
             self.assertEqual(query.get("utm_source"), ["creator"])
             self.assertEqual(query.get("utm_medium"), ["referral"])
@@ -2427,19 +2463,84 @@ class TypicalBrownsFanShowLocker(unittest.TestCase):
                           if node.get("@type") == "CollectionPage")
         item_list = collection["about"]
         self.assertEqual(item_list["numberOfItems"], len(items))
-        self.assertIn(self.PRODUCT, json.dumps(item_list))
+        listed = next(entry for entry in item_list["itemListElement"]
+                      if entry["position"] == slugs.index(self.PRODUCT) + 1)
+        self.assertEqual(listed["url"], self.BUY_URL)
+        self.assertEqual(listed["name"], original["name"])
+
+    def test_the_retired_supplier_url_is_gone_from_the_config_and_the_built_site(self):
+        self.assertNotIn(self.RETIRED_BUY_URL, read(os.path.join(ROOT, "data/creators.json")))
+        self.assertNotIn(self.RETIRED_PATH_QUERY, self.html)
+        self.assertNotIn(f"productId={self.PRODUCT_ID}", self.html)
+        self.assertIn(self.BUY_URL, self.html)
+        for rel, html in self.site_pages():
+            with self.subTest(page=rel):
+                self.assertNotIn(self.RETIRED_BUY_URL, html)
+                self.assertNotIn(self.RETIRED_PATH_QUERY, html)
+                self.assertNotIn(f"productId={self.PRODUCT_ID}", html)
 
     def test_copy_listing_does_not_enter_the_shared_browns_catalogue(self):
         self.assertNotIn(self.PRODUCT, {item["slug"] for item in self.build.ALL})
-        self.assertNotIn(f'data-slug="{self.PRODUCT}"',
-                         page("cleveland-browns-shirts/index.html"))
-        for key in ("crystal", "amber", "laquala", "des", "yvette"):
+        self.assertNotIn(self.PRODUCT,
+                         [p["slug"] for p in load_json("data/mayzing_products.json")["products"]])
+        self.assertNotIn(self.PRODUCT, list(load_json("data/products_live.json")))
+        # the published catalogue contract marketing reads stays free of it too
+        contract = load_json("data/catalogue-live.json")["products"]
+        self.assertNotIn(self.PRODUCT, [p["slug"] for p in contract])
+        self.assertNotIn(self.STOREFRONT_PATH, json.dumps(contract))
+        browns = page("cleveland-browns-shirts/index.html")
+        self.assertNotIn(f'data-slug="{self.PRODUCT}"', browns)
+        self.assertNotIn(self.STOREFRONT_PATH, browns)
+        for key in self.OTHER_CREATORS:
             creator = self.creators[key]
             with self.subTest(creator=key):
                 self.assertNotIn(self.PRODUCT,
                                  [item["slug"] for item in self.build.creator_items(creator)])
-                self.assertNotIn(f'data-slug="{self.PRODUCT}"',
-                                 page(f"{creator['page_slug']}/index.html"))
+                self.assertNotIn(self.PRODUCT, json.dumps(creator))
+                other = page(f"{creator['page_slug']}/index.html")
+                self.assertNotIn(f'data-slug="{self.PRODUCT}"', other)
+                self.assertNotIn(self.STOREFRONT_PATH, other)
+        # the refreshed URL is rendered by exactly one page: the show's locker
+        carrying = [rel for rel, html in self.site_pages() if self.BUY_URL in html]
+        self.assertEqual(carrying, [self.PAGE])
+
+    def test_only_the_declared_storefront_url_is_accepted(self):
+        """The relaxed check is per-row: an undeclared URL is still ignored."""
+        row = dict(self.cre["creator_additions"][0])
+        self.assertEqual(row["url_path"], "the-typical-browns-fans-show")
+
+        def slugs_for(**overrides):
+            cre = dict(self.cre)
+            cre["creator_additions"] = [dict(row, **overrides)]
+            return [item["slug"] for item in self.build.creator_items(cre)]
+
+        self.assertIn(self.PRODUCT, slugs_for())
+        rejected = {
+            # no declared path -> the URL must be listing-scoped again
+            "undeclared path": {"url_path": "", "buy_url": self.BUY_URL},
+            "path is not the declared one": {
+                "buy_url": "https://gridironlocker.shop/some-other-page"
+                           "?color=GILDAN-DARK_CHOCOLATE"},
+            "declared path is not the URL's": {"url_path": "cleveland-victory-monday-copy"},
+            "wrong host": {"buy_url": "https://example.com/the-typical-browns-fans-show"
+                                      "?color=GILDAN-DARK_CHOCOLATE"},
+            "not https": {"buy_url": "http://gridironlocker.shop/the-typical-browns-fans-show"
+                                     "?color=GILDAN-DARK_CHOCOLATE"},
+            # a listing-scoped URL still has to carry the row's product ID
+            "listing-scoped without productId": {
+                "url_path": "",
+                "buy_url": f"https://gridironlocker.shop/{self.PRODUCT}"
+                           "?color=GILDAN-DARK_CHOCOLATE"},
+            "listing-scoped with another productId": {
+                "url_path": "",
+                "buy_url": f"https://gridironlocker.shop/{self.PRODUCT}"
+                           "?color=GILDAN-DARK_CHOCOLATE&productId=000000000000000000000000"},
+            "unknown source design": {"source_slug": "not-a-live-design"},
+            "no product ID metadata": {"product_id": ""},
+        }
+        for reason, overrides in rejected.items():
+            with self.subTest(reason=reason):
+                self.assertNotIn(self.PRODUCT, slugs_for(**overrides))
 
 
 class BellaLocker(unittest.TestCase):

@@ -606,9 +606,18 @@ def _with_creator_additions(cre, items, by_slug):
     ``creator_additions`` does not add a product to the shared catalogue: each
     row clones display details from an existing live item and overrides only
     the public slug, supplier URL and product ID. A source item must exist and
-    the URL must point to the same supplier with the supplied product ID, so a
-    stale or malformed entry is safely ignored rather than becoming a dead
-    card.
+    the URL must point to the same supplier, so a stale or malformed entry is
+    safely ignored rather than becoming a dead card.
+
+    A row's supplier URL is listing-scoped by default: its path is the row's
+    own slug and it carries the row's ``product_id`` as ``productId``. A row
+    that is sold from the creator's own storefront page instead declares that
+    page's path in ``url_path``; the path is then matched exactly against the
+    declaration and the URL carries no ``productId`` (the show's
+    ``/the-typical-browns-fans-show`` takes the colour only). Either way
+    ``product_id`` stays the listing's metadata - the relaxation is about where
+    the supplier URL points, never about dropping the ID from the record, and
+    an undeclared path is still rejected.
     """
     additions = {}
     used = {str(item.get("slug") or "") for item in items}
@@ -626,9 +635,16 @@ def _with_creator_additions(cre, items, by_slug):
         source_url = str(source.get("buy") or source.get("source_url") or "")
         source_host = urlsplit(source_url).netloc
         query = dict(parse_qsl(parsed.query, keep_blank_values=True))
+        # Listing-scoped by default: the URL path is this row's own slug and it
+        # carries the row's product ID. A row that declares ``url_path`` is sold
+        # from the creator's storefront page instead, which the supplier links
+        # without a productId - that declared path is matched exactly, so the
+        # one relaxed row cannot let an undeclared or misspelt URL through.
+        url_path = str(row.get("url_path") or "").strip() or slug
+        listing_scoped = url_path == slug
         if (parsed.scheme != "https" or not source_host or parsed.netloc != source_host
-                or parsed.path.rstrip("/").rsplit("/", 1)[-1] != slug
-                or query.get("productId") != product_id):
+                or parsed.path.rstrip("/").rsplit("/", 1)[-1] != url_path
+                or (listing_scoped and query.get("productId") != product_id)):
             continue
         item = dict(source)
         item.update(slug=slug, url=f"/shop/{slug}/", buy=buy_url,
