@@ -603,12 +603,13 @@ def creator_items(cre):
 def _with_creator_additions(cre, items, by_slug):
     """Insert creator-scoped supplier listings beside their source design.
 
-    ``creator_additions`` does not add a product to the shared catalogue: each
-    row clones display details from an existing live item and overrides only
-    the public slug, supplier URL and product ID. A source item must exist and
-    the URL must point to the same supplier with the supplied product ID, so a
-    stale or malformed entry is safely ignored rather than becoming a dead
-    card.
+    ``creator_additions`` does not add a product to the shared catalogue. A
+    row can clone a live item and override its listing details, or supply its
+    own item metadata and apparel variants. The source item must exist and the
+    supplier URL must stay on the same shop and use the declared listing path;
+    when a product ID is present in the URL it must match the supplied ID, so
+    stale or malformed entries are safely ignored rather than becoming dead
+    cards.
     """
     additions = {}
     used = {str(item.get("slug") or "") for item in items}
@@ -626,13 +627,24 @@ def _with_creator_additions(cre, items, by_slug):
         source_url = str(source.get("buy") or source.get("source_url") or "")
         source_host = urlsplit(source_url).netloc
         query = dict(parse_qsl(parsed.query, keep_blank_values=True))
+        url_product_id = query.get("productId")
         if (parsed.scheme != "https" or not source_host or parsed.netloc != source_host
                 or parsed.path.rstrip("/").rsplit("/", 1)[-1] != slug
-                or query.get("productId") != product_id):
+                or (url_product_id and url_product_id != product_id)):
             continue
         item = dict(source)
+        overrides = row.get("item")
+        if isinstance(overrides, dict):
+            for key in ("name", "art", "theme", "garment", "price", "colours",
+                        "styles", "sizes_avail", "colour", "colour_code", "front",
+                        "back", "gallery", "kw", "features", "trend"):
+                if key in overrides:
+                    item[key] = overrides[key]
         item.update(slug=slug, url=f"/shop/{slug}/", buy=buy_url,
                     source_url=buy_url, product_id=product_id)
+        apparel = row.get("apparel")
+        if isinstance(apparel, dict):
+            item["creator_apparel"] = apparel
         after_slug = str(row.get("after_slug") or source_slug)
         additions.setdefault(after_slug, []).append(item)
         used.add(slug)
@@ -2837,6 +2849,36 @@ def apparel_matrix(items, prefix=".."):
     matrix = {}
     for it in items:
         slug, garment = it["slug"], it.get("garment") or ""
+        supplied = it.get("creator_apparel")
+        if isinstance(supplied, dict):
+            groups = {}
+            for cat, rows in supplied.items():
+                if cat not in APPAREL_CATEGORY_KEYS or not isinstance(rows, list):
+                    continue
+                entries = []
+                for row in rows:
+                    if not isinstance(row, dict) or not row.get("image"):
+                        continue
+                    image = str(row.get("image") or "")
+                    back = str(row.get("back") or "")
+                    if image.startswith("/"):
+                        image = prefix + image
+                    if back.startswith("/"):
+                        back = prefix + back
+                    entry = {
+                        "garment": str(row.get("garment") or ""),
+                        "image": image,
+                        "back": back,
+                        "url": str(row.get("url") or f"../shop/{slug}/"),
+                    }
+                    if row.get("price") not in (None, ""):
+                        entry["price"] = str(row["price"])
+                    entries.append(entry)
+                if entries:
+                    groups[str(cat)] = entries
+            if groups:
+                matrix[slug] = groups
+                continue
         mockups = APPAREL_MOCKUPS.get(slug, {})
         captured = (MAYZING_APPAREL.get(it.get("col") or "") or {}).get(slug)
         if captured or it.get("partner") == "Mayzing":

@@ -2429,17 +2429,83 @@ class TypicalBrownsFanShowLocker(unittest.TestCase):
         self.assertEqual(item_list["numberOfItems"], len(items))
         self.assertIn(self.PRODUCT, json.dumps(item_list))
 
-    def test_copy_listing_does_not_enter_the_shared_browns_catalogue(self):
-        self.assertNotIn(self.PRODUCT, {item["slug"] for item in self.build.ALL})
-        self.assertNotIn(f'data-slug="{self.PRODUCT}"',
-                         page("cleveland-browns-shirts/index.html"))
+    def test_new_show_tee_has_its_three_mockup_variants(self):
+        from urllib.parse import parse_qs, urlsplit
+
+        slug = "the-typical-browns-fans-show-tee"
+        items = self.build.creator_items(self.cre)
+        slugs = [item["slug"] for item in items]
+        old_copy = slugs.index(self.PRODUCT)
+        self.assertEqual(slugs.index(slug), old_copy + 1)
+        item = next(item for item in items if item["slug"] == slug)
+        self.assertEqual(item["name"], "The Typical Browns Fans Show Tee")
+        self.assertEqual(item["garment"], "Classic Unisex T-shirt")
+        self.assertEqual(item["price"], 30.0)
+        self.assertEqual(item["colour"], "Dark Chocolate")
+        self.assertEqual(item["sizes_avail"], ["S", "M", "L", "XL", "2XL", "3XL", "4XL", "5XL"])
+
+        card_match = re.search(
+            rf'<article class="gproduct" data-slug="{slug}".*?</article>',
+            self.html, re.S)
+        self.assertIsNotNone(card_match)
+        card = card_match.group(0)
+        self.assertIn('<h3>The Typical Browns Fans Show Tee</h3>', card)
+        self.assertIn('<span>Classic Unisex T-shirt</span><b>$30.00</b>', card)
+        gcat = re.search(r'data-gcat="([^"]+)"', card)
+        self.assertIsNotNone(gcat)
+        self.assertEqual(set(gcat.group(1).split()), {"t-shirts", "hoodies"})
+
+        payload_match = re.search(r'data-apparel="([^"]+)"', self.html)
+        self.assertIsNotNone(payload_match)
+        payload = json.loads(unescape(payload_match.group(1)))
+        groups = payload[slug]
+        self.assertEqual(set(groups), {"t-shirts", "hoodies"})
+        variants = {
+            row["garment"]: row
+            for category in groups.values()
+            for row in category
+        }
+        self.assertEqual(set(variants), {
+            "Classic Unisex T-shirt", "Men's T-shirt", "Unisex Hoodie"})
+        expected = {
+            "Classic Unisex T-shirt": ("$30.00", "GILDAN-DARK_CHOCOLATE", None),
+            "Men's T-shirt": ("$30.00", "GILDAN-DARK_CHOCOLATE",
+                              "6ade9b7a7650d4c779b80fb6"),
+            "Unisex Hoodie": ("$44.00", "CHARCOAL",
+                              "6ade9b7aa2c7c670ac3ec98a"),
+        }
+        for garment, (price, colour, product_id) in expected.items():
+            with self.subTest(garment=garment):
+                row = variants[garment]
+                self.assertEqual(row["price"], price)
+                self.assertTrue(row["image"].startswith("https://buyer-experience-gateway.mayzing.com/"))
+                self.assertTrue(row["back"].startswith("https://buyer-experience-gateway.mayzing.com/"))
+                parsed = urlsplit(row["url"])
+                query = parse_qs(parsed.query)
+                self.assertEqual(parsed.path, f"/{slug}")
+                self.assertEqual(query.get("color"), [colour])
+                self.assertEqual(query.get("productId"), [product_id] if product_id else None)
+                self.assertEqual(query.get("creator"), [self.CREATOR_ID])
+                self.assertEqual(query.get("utm_source"), ["creator"])
+                self.assertEqual(query.get("utm_medium"), ["referral"])
+                self.assertEqual(query.get("utm_campaign"), ["creator-TYPICALBROWNS"])
+
+    def test_copy_and_new_listing_do_not_enter_the_shared_browns_catalogue(self):
+        products = (self.PRODUCT, "the-typical-browns-fans-show-tee")
+        shared = {item["slug"] for item in self.build.ALL}
+        self.assertTrue(set(products).isdisjoint(shared))
+        shared_page = page("cleveland-browns-shirts/index.html")
+        for product in products:
+            with self.subTest(product=product):
+                self.assertNotIn(f'data-slug="{product}"', shared_page)
         for key in ("crystal", "amber", "laquala", "des", "yvette"):
             creator = self.creators[key]
             with self.subTest(creator=key):
-                self.assertNotIn(self.PRODUCT,
-                                 [item["slug"] for item in self.build.creator_items(creator)])
-                self.assertNotIn(f'data-slug="{self.PRODUCT}"',
-                                 page(f"{creator['page_slug']}/index.html"))
+                other_slugs = [item["slug"] for item in self.build.creator_items(creator)]
+                other_page = page(f"{creator['page_slug']}/index.html")
+                for product in products:
+                    self.assertNotIn(product, other_slugs)
+                    self.assertNotIn(f'data-slug="{product}"', other_page)
 
 
 class BellaLocker(unittest.TestCase):
