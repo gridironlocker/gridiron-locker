@@ -2755,12 +2755,13 @@ def page_search():
 # A mockup only swaps when that garment's render exists in site/img/p. A design
 # that lists a garment we hold no render for stays listed and linked but keeps
 # its own artwork - a t-shirt is never presented as a hoodie.
-#: The categories the supplier storefronts actually expose. Mayzing runs one
-#: filter page per category (/p/<store>?category=tshirt|hoodie|sweatshirt|
-#: tank_top|crop_tops) and Viralstyle lists the same garment families in each
-#: campaign's own style list. Caps & Hats and Long Sleeves are deliberately
-#: absent: no live store lists either, so a tile for them could only ever say
-#: "not listed yet".
+#: The shared/collection categories the supplier storefronts expose. Mayzing
+#: runs one filter page per category (/p/<store>?category=tshirt|hoodie|
+#: sweatshirt|tank_top|crop_tops) and Viralstyle lists the same garment
+#: families in each campaign's own style list. Caps & Hats and Long Sleeves
+#: remain out of the shared category filter because there is no captured
+#: store-wide category listing for either; an explicitly captured,
+#: creator-scoped cap listing may still opt into caps-hats below.
 APPAREL_CATEGORIES = [
     ("t-shirts", "T-Shirts"),
     ("hoodies", "Hoodies"),
@@ -2768,8 +2769,11 @@ APPAREL_CATEGORIES = [
     ("tank-tops", "Tank Tops"),
     ("crop-tops", "Crop Tops"),
 ]
-#: the categories that actually get a tile
+#: the shared storefront categories that actually get a tile
 APPAREL_CATEGORY_KEYS = {c for c, _label in APPAREL_CATEGORIES}
+#: Creator additions can ship their own captured cap listing without adding
+#: Caps & Hats to the shared category set or to any other locker.
+CREATOR_APPAREL_CATEGORY_KEYS = APPAREL_CATEGORY_KEYS | {"caps-hats"}
 
 #: category -> the site/img/p suffix that holds that garment's mockup. The
 #: Mayzing stores carry no local render, so their mockups are hot-linked from
@@ -2898,7 +2902,7 @@ def apparel_matrix(items, prefix=".."):
         if isinstance(supplied, dict):
             groups = {}
             for cat, rows in supplied.items():
-                if cat not in APPAREL_CATEGORY_KEYS or not isinstance(rows, list):
+                if cat not in CREATOR_APPAREL_CATEGORY_KEYS or not isinstance(rows, list):
                     continue
                 entries = []
                 for row in rows:
@@ -3331,8 +3335,8 @@ def creator_apparel(cre, items, prefix="../../"):
       collection (Crystal Marie's Browns collection). The listings are the same
       ones the collection page swaps to (``apparel_matrix``: the Mayzing
       category-page capture - tees $23, hoodies $40, sweatshirts $36, tanks $23,
-      crop tops $24), so a creator locker can never advertise a garment the
-      store does not sell.
+      crop tops $24). A creator-scoped addition may also carry its own explicitly
+      captured category, such as Caps & Hats, without changing shared filters.
 
     Returns dict(categories, styles_by_cat, apparel_by_slug, captured, counts).
     Empty when neither source knows any garment, and the caller then omits the
@@ -3349,8 +3353,14 @@ def creator_apparel(cre, items, prefix="../../"):
     else:
         apparel_by_slug = apparel_matrix(items, prefix=prefix)
         # Categories in the storefront's own order, only those at least one
-        # design in THIS locker actually listed.
-        categories = [label for cat, label in APPAREL_CATEGORIES
+        # design in THIS locker actually listed. Creator-scoped cap listings
+        # are an explicit exception to the shared storefront set above: show
+        # Caps & Hats on this locker only when its own captured matrix has it.
+        category_order = list(APPAREL_CATEGORIES)
+        if any(apparel_by_slug.get(it["slug"], {}).get("caps-hats")
+               for it in items):
+            category_order.append(("caps-hats", "Caps & Hats"))
+        categories = [label for cat, label in category_order
                       if any(apparel_by_slug.get(it["slug"], {}).get(cat)
                              for it in items)]
         counts = {}
@@ -3627,18 +3637,15 @@ def _girly_body(cre, c, items, track):
                 f'stroke-width="1.5" stroke-linecap="round" stroke-linejoin="round" '
                 f'aria-hidden="true">{path}</svg>')
 
-    # The store-wide apparel categories are real BUTTONS that change the
-    # displayed garment (app.js, the .gcategory-tile handler) - and they never
-    # invent availability. Only the garments that were actually seen on the
-    # store's own category filter pages ship (store_catalogue.products[]
-    # .apparel, captured 2026-10-12); the payload below carries each listing's
-    # own signed mockup and product page. The designs that listed the style
-    # swap to that garment; the designs that did not leave the grid entirely,
-    # so a category lists exactly the designs sold in it (a t-shirt is never
-    # shown as a tank top and no greyed-out card dilutes the result). The five
-    # t-shirt listings get their own second row of buttons, and a category with
-    # no listing anywhere says "not listed yet" on its tile instead of
-    # swapping anything.
+    # Apparel categories are real BUTTONS that change the displayed garment
+    # (app.js, the .gcategory-tile handler) - and they never invent availability.
+    # Only captured store-catalogue listings or explicit creator-scoped
+    # listings ship; the payload below carries each listing's own signed
+    # mockup and product page. Designs without a listing leave the grid entirely,
+    # so a category shows exactly what that locker can sell (a t-shirt is never
+    # shown as a tank top and no greyed-out card dilutes the result). Any
+    # category with multiple styles gets its own second row of buttons, and a
+    # category with no listing says "not listed yet" instead of swapping.
     grid_id = "gcollectionGrid"
     # One derivation for both locker flavours: a captured partner catalogue
     # (Bella) or this site's own collection matrix (Crystal Marie). See
