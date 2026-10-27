@@ -2,7 +2,7 @@
  "generated": "2026-10-27",
  "window_days": 10,
  "fti_formula": "round(100 * entity_mentions / peak_mentions_in_window)",
- "peak_mentions": 8,
+ "peak_mentions": 24,
  "stats": {
   "products": 96,
   "collections": 4,
@@ -18,9 +18,18 @@
  },
  "fti_rows": [
   {
-   "name": "dak prescott",
-   "mentions": 8,
+   "name": "kyle whittingham",
+   "mentions": 24,
    "index": 100,
+   "status": "trending",
+   "gap": true,
+   "shoppable": false,
+   "collection": "michigan"
+  },
+  {
+   "name": "dak prescott",
+   "mentions": 12,
+   "index": 50,
    "status": "trending",
    "gap": true,
    "shoppable": false,
@@ -28,102 +37,84 @@
   },
   {
    "name": "deshaun watson",
-   "mentions": 8,
-   "index": 100,
+   "mentions": 7,
+   "index": 29,
    "status": "trending",
    "gap": true,
    "shoppable": false,
    "collection": "cleveland-browns"
-  },
-  {
-   "name": "josh jacobs",
-   "mentions": 7,
-   "index": 88,
-   "status": "trending",
-   "gap": true,
-   "shoppable": false,
-   "collection": "green-bay-packers"
-  },
-  {
-   "name": "kyle whittingham",
-   "mentions": 7,
-   "index": 88,
-   "status": "trending",
-   "gap": true,
-   "shoppable": false,
-   "collection": "michigan"
-  },
-  {
-   "name": "micah parsons",
-   "mentions": 6,
-   "index": 75,
-   "status": "trending",
-   "gap": false,
-   "shoppable": true,
-   "collection": "green-bay-packers"
   },
   {
    "name": "shedeur sanders",
-   "mentions": 4,
-   "index": 50,
+   "mentions": 6,
+   "index": 25,
    "status": "trending",
    "gap": false,
    "shoppable": true,
    "collection": "cleveland-browns"
   },
   {
-   "name": "jordan love",
-   "mentions": 3,
-   "index": 38,
-   "status": "trending",
-   "gap": false,
-   "shoppable": true,
-   "collection": "green-bay-packers"
-  },
-  {
-   "name": "bryce underwood",
-   "mentions": 2,
-   "index": 25,
-   "status": "steady",
-   "gap": false,
-   "shoppable": true,
-   "collection": "michigan"
-  },
-  {
    "name": "ceedee lamb",
-   "mentions": 2,
-   "index": 25,
-   "status": "steady",
-   "gap": false,
+   "mentions": 4,
+   "index": 17,
+   "status": "trending",
+   "gap": true,
    "shoppable": false,
    "collection": "dallas-cowboys"
   },
   {
-   "name": "denzel ward",
-   "mentions": 2,
-   "index": 25,
-   "status": "steady",
-   "gap": false,
-   "shoppable": true,
-   "collection": "cleveland-browns"
-  },
-  {
-   "name": "myles garrett",
-   "mentions": 2,
-   "index": 25,
-   "status": "steady",
-   "gap": false,
-   "shoppable": true,
-   "collection": "cleveland-browns"
-  },
-  {
-   "name": "matt lafleur",
-   "mentions": 1,
+   "name": "bryce underwood",
+   "mentions": 3,
    "index": 12,
+   "status": "trending",
+   "gap": false,
+   "shoppable": true,
+   "collection": "michigan"
+  },
+  {
+   "name": "jordan love",
+   "mentions": 3,
+   "index": 12,
+   "status": "trending",
+   "gap": false,
+   "shoppable": true,
+   "collection": "green-bay-packers"
+  },
+  {
+   "name": "josh jacobs",
+   "mentions": 2,
+   "index": 8,
    "status": "steady",
    "gap": false,
    "shoppable": false,
    "collection": "green-bay-packers"
+  },
+  {
+   "name": "matt lafleur",
+   "mentions": 2,
+   "index": 8,
+   "status": "steady",
+   "gap": false,
+   "shoppable": false,
+   "collection": "green-bay-packers"
+  },
+  {
+   "name": "myles garrett",
+   "mentions": 2,
+   "index": 8,
+   "status": "steady",
+   "gap": false,
+   "shoppable": true,
+   "collection": "cleveland-browns"
+  },
+  {
+   "name": "denzel ward",
+   "mentions": 1,
+   "index": 4,
+   "status": "steady",
+   "gap": false,
+   "shoppable": true,
+   "collection": "cleveland-browns"
   },
   {
    "name": "jj mccarthy",
@@ -162,6 +153,15 @@
    "collection": "cleveland-browns"
   },
   {
+   "name": "micah parsons",
+   "mentions": 0,
+   "index": 0,
+   "status": "quiet",
+   "gap": false,
+   "shoppable": true,
+   "collection": "green-bay-packers"
+  },
+  {
    "name": "robert tonyan",
    "mentions": 0,
    "index": 0,
@@ -182,9 +182,18 @@
  ],
  "gaps": [
   {
-   "name": "dak prescott",
-   "mentions": 8,
+   "name": "kyle whittingham",
+   "mentions": 24,
    "index": 100,
+   "status": "trending",
+   "gap": true,
+   "shoppable": false,
+   "collection": "michigan"
+  },
+  {
+   "name": "dak prescott",
+   "mentions": 12,
+   "index": 50,
    "status": "trending",
    "gap": true,
    "shoppable": false,
@@ -192,30 +201,21 @@
   },
   {
    "name": "deshaun watson",
-   "mentions": 8,
-   "index": 100,
+   "mentions": 7,
+   "index": 29,
    "status": "trending",
    "gap": true,
    "shoppable": false,
    "collection": "cleveland-browns"
   },
   {
-   "name": "josh jacobs",
-   "mentions": 7,
-   "index": 88,
+   "name": "ceedee lamb",
+   "mentions": 4,
+   "index": 17,
    "status": "trending",
    "gap": true,
    "shoppable": false,
-   "collection": "green-bay-packers"
-  },
-  {
-   "name": "kyle whittingham",
-   "mentions": 7,
-   "index": 88,
-   "status": "trending",
-   "gap": true,
-   "shoppable": false,
-   "collection": "michigan"
+   "collection": "dallas-cowboys"
   }
  ],
  "collections": [
@@ -232,8 +232,8 @@
    "gaps": [
     {
      "name": "deshaun watson",
-     "mentions": 8,
-     "index": 100,
+     "mentions": 7,
+     "index": 29,
      "status": "trending",
      "gap": true,
      "shoppable": false,
@@ -243,12 +243,12 @@
    "top_terms": [
     "browns",
     "cleveland",
+    "watch",
+    "trade",
+    "recap",
     "watson",
     "lead",
-    "yard",
-    "winning",
-    "against",
-    "recap"
+    "yard"
    ],
    "headline_count": 100,
    "headlines": [
@@ -256,7 +256,7 @@
      "title": "Browns 13, Ravens 10 | Final Score, Stats & Game Recap",
      "url": "https://news.google.com/rss/articles/CBMijgFBVV95cUxPMlpfZjFPQTFPT1lFcFhVWlhDemcyU2xYVzRzM1lkQmNOcDNOQzJzMnFlVDloNUdqMmZaNzd2NHBZcC1YOE5YdG5UM2tITHVJTmZZRF9PRmlZNjBqRkVBSVBuTzBsNVFBOENEVjRhQWVWU3NOa0o3dlJfbXpULXI2ajBYWjU5ZjlQNzZic1hB?oc=5",
      "source": "Cleveland Browns",
-     "pub": "Sun, 18 Oct 2026 20:15:16 GMT"
+     "pub": "Sun, 18 Oct 2026 07:00:00 GMT"
     },
     {
      "title": "Cleveland Browns vs. Tennessee Titans: How to Watch, Listen and Live Stream",
@@ -268,19 +268,19 @@
      "title": "The Cleveland Browns are good. What do we all do now?",
      "url": "https://news.google.com/rss/articles/CBMipgFBVV95cUxNUjNJaU0zVWdTaUtGSEdyamZTalJkSzkyQXhqcXN2OWo1OG5QVS04UzUwaFJPNnRKQW1XY0pFX0NFa09HUEJkX3RvUlpDLWV5UFp2WExRZFlpcEFpTTFEVFFxX3U2RWpSMk9GTTNDaDZCc1NWRHRqQ2dvdDNEdHB2WFozY3gtVGpsSVZXYUdEbllhSURBS0ljZ3pIS3FrYjVWdDdZRWpR?oc=5",
      "source": "Yahoo Sports",
-     "pub": "Mon, 19 Oct 2026 15:14:39 GMT"
-    },
-    {
-     "title": "\ud835\ude86\ud835\ude70\ud835\ude83\ud835\ude72\ud835\ude77 Cleveland Browns vs. Tennessee Titans \ud835\udc0b\ud835\udc08\ud835\udc15\ud835\udc04 \uff33\uff54\uff52\uff45\uff41\uff4d \uff26\uff52\uff45\uff45 \uff2f\uff2e \uff34\uff56 \uff23\uff48\uff41\uff4e\uff4e\uff45\uff4c!NFL\u2122",
-     "url": "https://news.google.com/rss/articles/CBMi2AJBVV95cUxQMEM3OXVxQUwzRFlYZ1BnSW9QbXlZZkpZbTNhZzlHSFQwRndkLTBXUWRDNnpQdVdTN2VLeUVlM1NLVm1NY21MNFVwMnZSSXdZd0N6WjFwNU15blJneWVwWk45OFJ1YTBRODg5RExUN1h1REJRbDBGRjdBa0ZUbUJiYzZXZUY3c2dPQ2ZmSnBCZUlpZ0dlQXAydF9sekswMmJaUzZmaHZPbndyeXUxVXg1dktWSlZCREsxNW40dDhYS2loTHBMT253NnV0aXNhNUdaTnR5ajRpa3JGZ1NUNTFoNEk0VHV2QmRKMkxLWVI3T0owMDZHdEcxQTNvLWRsZ0p0TjJYZ1AwRUhRZ0hpT3RBSlF1NzJpN29LeldKS0cwX2JtTHdvMWk3T1hIVUd1RDhHNk1BTzdXTHpTb2tNQUFiVHRwWlVxZ0ZOejdfbVlXdzFoLUNiNHJFNw?oc=5",
-     "source": "Jackson County Pilot",
-     "pub": "Sun, 25 Oct 2026 16:47:11 GMT"
+     "pub": "Mon, 19 Oct 2026 07:00:00 GMT"
     },
     {
      "title": "Leave It To The Browns To Ruin The Post-Win Locker Room Video",
      "url": "https://news.google.com/rss/articles/CBMiigFBVV95cUxPNEhPMHIyWFc1ZEpyNzJpMmRRQURlZFJ5YzR2cW8yTThaSmxvV1E2UXUwMzhaR1pVanA0d3FCMHJ1eVBFb1UwWVFma3hUbE5lVURMQmYtLUxKSlk1WklsSzJXbUxnWnM5SFZlNWtkbHpIb1o4MmJXb3R0QVVTSmhKZ2dWZlhSZjJrbVE?oc=5",
      "source": "Defector",
      "pub": "Mon, 26 Oct 2026 13:27:00 GMT"
+    },
+    {
+     "title": "What I'm Buying and Selling About the Cleveland Browns After Week 6",
+     "url": "https://news.google.com/rss/articles/CBMitgFBVV95cUxQRG5vS1RvdXJUQWhEcURtRW1KSWpiTW1GY0Z2UlQtbUdPck5LOWhZdWwxUHBBeUdpQ0hQX1BYTnk5N2dybk02MFVKcnhSV0Y3em4tYUo2ckVveTVEV3hYM21NNmtnQXhOV1hTNXQ1QlBtTGNuRzk5VFl6SzREZnI2Sm1ydGRtY3Jfcjk0RjdEOFZJelEtOXNvenFRaVU0ckpSb0c5UlRiMnFSQ0pvNjNLenQ4d180QQ?oc=5",
+     "source": "Sports Illustrated",
+     "pub": "Wed, 21 Oct 2026 11:00:02 GMT"
     }
    ],
    "fti_count": 7
@@ -298,8 +298,17 @@
    "gaps": [
     {
      "name": "dak prescott",
-     "mentions": 8,
-     "index": 100,
+     "mentions": 12,
+     "index": 50,
+     "status": "trending",
+     "gap": true,
+     "shoppable": false,
+     "collection": "dallas-cowboys"
+    },
+    {
+     "name": "ceedee lamb",
+     "mentions": 4,
+     "index": 17,
      "status": "trending",
      "gap": true,
      "shoppable": false,
@@ -309,12 +318,12 @@
    "top_terms": [
     "cowboys",
     "dallas",
+    "philadelphia",
     "cheerleaders",
     "packers",
-    "philadelphia",
+    "live",
     "chemical",
-    "romance",
-    "watch"
+    "romance"
    ],
    "headline_count": 100,
    "headlines": [
@@ -322,7 +331,7 @@
      "title": "Updates: Record-setting day for Dak",
      "url": "https://news.google.com/rss/articles/CBMiZkFVX3lxTE41U3JDcmpCb1YyZjBxRFNnV25kSktlMVJ5aEJsX1hhNTFTcHJWdWdTbjF5cFhvQ3ZKZGd4bEdfT0VtT1RobmJwd3ZSbnZzM0c3RnJiTS1kSG5fMUtJWW9qclRUWlZtQQ?oc=5",
      "source": "Dallas Cowboys | Official Site of the Dallas Cowboys",
-     "pub": "Tue, 27 Oct 2026 10:14:12 GMT"
+     "pub": "Mon, 26 Oct 2026 07:00:00 GMT"
     },
     {
      "title": "Impact: Barkley expected to return vs. Cowboys",
@@ -337,16 +346,16 @@
      "pub": "Fri, 23 Oct 2026 14:03:26 GMT"
     },
     {
+     "title": "Game Recap: Cowboys run over Eagles, 38-21",
+     "url": "https://news.google.com/rss/articles/CBMigAFBVV95cUxQU3NTREdocWtUdEh3QjNaa1hPalA4c1BtUnRiQkpUX0JiM1cwYXRDN3VuX0RzbmdmT1JUTXFGNFFQdi1WMk5wSXUyUmljemNaN0EzMGV2NWF4ak5vZEVJNG1HTTBmMG1NcG4zWlV1aU5iZFQ0RjRCSm1OV3JhVDNDUA?oc=5",
+     "source": "Dallas Cowboys | Official Site of the Dallas Cowboys",
+     "pub": "Tue, 27 Oct 2026 03:35:06 GMT"
+    },
+    {
      "title": "Cowboys-Eagles: How to Watch, Listen, Stream in Week 7",
      "url": "https://news.google.com/rss/articles/CBMijwFBVV95cUxPVklWcEdvS2p4OGt0UXRZYzMwRmwydjN2aU1KRU1rOUQ1SmRGRVJ3MnVlMDNIUDh2ejA1WEljVWhKd3VJS2pSY2poVnpLbWlGeFFzQ1U4TnZGaTVfSEk3MEdSRWduMWJtTkpOeEdBNGVlUUtGTWlZSjNBTFgweHFqYnJqTmNENkNQLXdzLXZEdw?oc=5",
      "source": "Dallas Cowboys | Official Site of the Dallas Cowboys",
      "pub": "Sat, 24 Oct 2026 14:21:50 GMT"
-    },
-    {
-     "title": "Game Recap: Cowboys lose to Packers, 23-13",
-     "url": "https://news.google.com/rss/articles/CBMigAFBVV95cUxPTEZqYlNvdXlDakNIb0tFNVRsRmZzWV9JQXA2MDA4QkdVckRQNkpfZFRCOTl0dldyWVd3NFVmemlBSXhid3dyLXhQNHNKX3RGbkkzRjliNWlMUlRaQ2MtZWRNY3BjQURSQUR5TlZycFZhYllyZ0NWaTU3QXVUdkdfZQ?oc=5",
-     "source": "Dallas Cowboys | Official Site of the Dallas Cowboys",
-     "pub": "Sun, 18 Oct 2026 07:00:00 GMT"
     }
    ],
    "fti_count": 2
@@ -361,40 +370,30 @@
    "avg_price": 25.18,
    "hot": 11,
    "throwback": 0,
-   "gaps": [
-    {
-     "name": "josh jacobs",
-     "mentions": 7,
-     "index": 88,
-     "status": "trending",
-     "gap": true,
-     "shoppable": false,
-     "collection": "green-bay-packers"
-    }
-   ],
+   "gaps": [],
    "top_terms": [
     "packers",
     "green",
     "detroit",
     "loss",
-    "cowboys",
     "watch",
-    "josh",
-    "jacobs"
+    "cowboys",
+    "recap",
+    "injury"
    ],
    "headline_count": 100,
    "headlines": [
     {
-     "title": "RECAP: Lions vs. Packers",
-     "url": "https://news.google.com/rss/articles/CBMijgFBVV95cUxPOHFDVVNHMWNnN0hzZWJxbHgxeDFQcF9KaEItZUJmTmpLREVCVmJYZXI1Rl9NTmFVdzJWR0VhNk5BWkZucU04YTg2dE9XaHJVT003OUN4M3pSOWxITnB2VFJDbHNBUVJYeG1nYnctcEJQWVM1bkI4SGtlXy1ITml4ZWRraV83SG1PMEluSldB?oc=5",
+     "title": "Lions vs. Packers: How to watch, listen and follow",
+     "url": "https://news.google.com/rss/articles/CBMiiAFBVV95cUxNemh4NmNkYmFweHpTNWRXUDhqQk9VYnh5N296cHJZMUJoVml2VGYzRERXX0hPNnE4UlN5TUlVX0Z1Sl85dkZzdHp3bXJ3eVBMV1duSVZPZlFFdmkySmtZN2NxVTNnMXZadFZPU0RETDZWQTJfUHJUcjJxUGlNRi1VWGFzeEhscVlq?oc=5",
      "source": "Detroit Lions",
-     "pub": "Mon, 26 Oct 2026 00:05:38 GMT"
+     "pub": "Sat, 24 Oct 2026 15:04:11 GMT"
     },
     {
-     "title": "Inbox: This Packers defense hunts you from every direction",
-     "url": "https://news.google.com/rss/articles/CBMinwFBVV95cUxNNVZQUm5SYVZELTFaTkZGdU5Vd1lLdHZYSXE1ZXluQ0pjMW5GdGhONXZLWjNxVU5Pb2JRSXVVQTlvdExRNWxiZU9JU0NwRDlidU9NVENHb21MQXo3aV9NYWsyVWlPNjNzU2Yxc0hfWU5Dc0RXT252NlFhcFdVaXlpd1ZfRHhOajNTZ1Z6WjFXam5UNFJ0UTM2b0xkWUxUMUE?oc=5",
+     "title": "Packers fall to Lions, 20-17",
+     "url": "https://news.google.com/rss/articles/CBMib0FVX3lxTFBkUjJLSlBDUDg5b2xBbnhjVk9jMEpoRlNzNm16YThhcUg3Q3Y1ZHE1S1RpdUhfRldmLUNEdUxlaTVsRVBscGF3aXFBUmZqQ0x4Zkc5VVZBbXc4T0U3M0l3eFVuSkFzRk1oOXRFWTFQcw?oc=5",
      "source": "Green Bay Packers \u2013 packers.com",
-     "pub": "Tue, 20 Oct 2026 13:40:35 GMT"
+     "pub": "Mon, 26 Oct 2026 00:47:11 GMT"
     },
     {
      "title": "Green Bay Packers News: Packers battling penalty onslaught",
@@ -403,16 +402,16 @@
      "pub": "Tue, 20 Oct 2026 14:15:06 GMT"
     },
     {
-     "title": "Green Bay Packers Sports News & Analysis",
-     "url": "https://news.google.com/rss/articles/CBMiY0FVX3lxTE9VV0FRMVY1YUJicWpFU01WQnE3cjQyZE1WWjJZUkNpcTVIMDJ1elQ3T2xydGQzd2JocC14ME5wMG9yNkJ6YktQVEk1bWdDOUZmQllSVmpHUkhDbE5Gc25TUl9BRQ?oc=5",
-     "source": "USA Today",
-     "pub": "Tue, 27 Oct 2026 08:21:18 GMT"
+     "title": "Jordan Love's scrambling dime to Golden gets Packers down to Cowboys' 2-yard line",
+     "url": "https://news.google.com/rss/articles/CBMiqwFBVV95cUxOa3BNdklLR1I0Wl9uNEZZMW9FRGdrUU9ZQ0tyU2xoS2piNnlfMU1uZ0N6SUc1STBnZjhCVm9wU2hOSkdwSVVVaExkNlduMHlpZGpYREJwQVVIdHZuZDM3WXotX0JkX1Fmb2hrZjZvLTJGNnZlMW9XWlkwU1ptcWREMnN0c2g1Z2MxSm9Ub0JDTEtBVXZMVktleUszZEtRSEk3UDBWTnNNMkVkT1U?oc=5",
+     "source": "NFL.com",
+     "pub": "Mon, 19 Oct 2026 02:00:06 GMT"
     },
     {
-     "title": "Green Bay Packers vs. Detroit Lions: How to watch the NFL Week 7 game, channel, streaming info and more",
-     "url": "https://news.google.com/rss/articles/CBMi5gFBVV95cUxOMlFJbmJhT3g1RFRQQ1ctZDZXYW9DMThPNUJHZVBMWnJlaE5WVUU5YzN6bVlCb18wQ2xLQ0F1eGVZNW9TVU5pTE1hMFlXaEJBei1ubXEzZzMxY011MDZHRno5dldTRE11WEMtYkdyWTYyVkswbGF5d2ZIeVdsOUFWVjNCQmF5RjVsOVgwNkJaMU5lOHJfR3dLc0w5c3ZjR2RrcE5CTWh3OVhqOTlYOGxNd2M3VHdFSjk3VWFDazNEUXFPZi1JZ1hxQ2JZVk1BNFhtNkczSVE5YnZJcko1aUF5dHM0eHdlZw?oc=5",
-     "source": "Yahoo Sports",
-     "pub": "Sun, 25 Oct 2026 18:40:28 GMT"
+     "title": "Green Bay Packers vs. Detroit Lions preview: 5 key stats",
+     "url": "https://news.google.com/rss/articles/CBMitgFBVV95cUxOX2NtVkNPUFc1NkhqaHdRbUVZS1hqMk12Z2lKMzFCQnVfbW9FZU5uZHYwV3laS1cwRHBxTjR4d1NES0ZBOUNTY1BfWlYyd2ZpS0dSU1MtQXQ3bS1UYnZOYnpQMXNwSU1mcFFCMWp3amc5VlJvOVBzSGp1emtTaXhnRjVCYnN3VEJlX005dzFjbmhXal9QVkFoWTd0QWJBTmxhZERyMUNEN3l6LVdYMXQ3OWVWd0VRUQ?oc=5",
+     "source": "Pride Of Detroit",
+     "pub": "Sat, 24 Oct 2026 14:30:00 GMT"
     }
    ],
    "fti_count": 5
@@ -430,8 +429,8 @@
    "gaps": [
     {
      "name": "kyle whittingham",
-     "mentions": 7,
-     "index": 88,
+     "mentions": 24,
+     "index": 100,
      "status": "trending",
      "gap": true,
      "shoppable": false,
@@ -442,11 +441,11 @@
     "michigan",
     "football",
     "indiana",
+    "whittingham",
+    "kyle",
     "wolverines",
     "loss",
-    "october",
-    "live",
-    "state"
+    "beck"
    ],
    "headline_count": 100,
    "headlines": [
@@ -457,28 +456,28 @@
      "pub": "Mon, 19 Oct 2026 17:51:18 GMT"
     },
     {
-     "title": "Indiana 13-6 Michigan (Oct 24, 2026) Game Recap",
-     "url": "https://news.google.com/rss/articles/CBMibEFVX3lxTE1JWmRpek1tcnNIcVB1Q2xYQVBuSVA5OGFnOVFyc0NJZXpXd05rR0YtQzd2MWRvMi1FVUFCTXhTeHlEQVRPeGlFVmp2d2ZINVVDUXVSa1JQWkpiN0hzRVVkSGplcnBwa1Q2Q0piQg?oc=5",
-     "source": "ESPN",
-     "pub": "Sat, 24 Oct 2026 20:01:06 GMT"
-    },
-    {
-     "title": "How to Watch Indiana vs. Michigan: TV Channel, Live Stream, Time - October 24, 2026",
-     "url": "https://news.google.com/rss/articles/CBMisAFBVV95cUxQYllWa3RJWFktSFFYOFMtaDVXbC1ndU1qdWhSd194Mnd6cm40WGEwVlhIMlNyN0dtWjJma19kU09xeXFSVGJZZS1pVTJXWUxyNkdFTmc0M1hIeklENEY3aURvdHA0eDd0Vjhha3ZRUlVKM2FwSnFjVl9RYzNiNEdXTFRPV2lPNzJqVlM3Z1NHdjJ1RHU2Ri1uQWZEVm1TcWpfM3JkZDY3MGxwU1MwWWZWdA?oc=5",
-     "source": "FOX Sports",
-     "pub": "Mon, 26 Oct 2026 15:38:00 GMT"
-    },
-    {
      "title": "Michigan football writer Tony Garcia identifies three things the Wolverines learned in a 13-6 OT loss to Indiana ahead of a road game at Rutgers. See link below \u2b07\ufe0f \ud83d\udcf8 Junfu Han, Detroit Free Press",
      "url": "https://news.google.com/rss/articles/CBMi3wFBVV95cUxPbXdxNWVXTmdBWnV4cnRxYVFDcEt5eVZ3RnN1VWxFNEstQ0M4SkY2RnlaQjNWQzl0YVZUdk81TFUzWHR5RUVaaWE2RmdSaEN1bDhVcWNUS05uN3dxNHdUMnE4V29mbUJ6N1dUUEljTjA2bDVub3BEcGxtUzVKVWlLRUNQblM1dW5fc3BoamNCTnpDZ1ZuME9oYmpyWEZIeTRJSEFwd3hqZnBacXlKWmx2OTgtVTJzd0dfcm5LUW5RbE5SLWNvU3hPNkdQZDlSdThIM180QlhZNS1Id0NKYUdB?oc=5",
      "source": "Facebook",
      "pub": "Sun, 25 Oct 2026 22:00:15 GMT"
     },
     {
-     "title": "How to watch Indiana vs Michigan: Live stream College Football, NCAA, TV channel",
-     "url": "https://news.google.com/rss/articles/CBMihgFBVV95cUxOQno3ZHVwdGM0eWV4TThqSDdQdUV5azdBbjJlUVFONEFjUUNyZDlFai1Zb0FDV1k2R2JPeWgzZ2hxTlppS1oxdWVZdkZDMmljWGVWcG9GY0Z3OGRfN29TRlZoYU1CU2g4SVNfUHlWakRqZEtFdklIRHZZVl8yTFd1cjVXN01sdw?oc=5",
-     "source": "Yahoo Sports",
-     "pub": "Sat, 24 Oct 2026 15:00:00 GMT"
+     "title": "Michigan Wolverines Could Lose Up to 60 Football Players Ahead of 2027 Season",
+     "url": "https://news.google.com/rss/articles/CBMivwFBVV95cUxQQnF5NTgxZklhdzNscW0zdTgtSm01VXhrOTlsdlVnNU1lR1BZc0JJZUdXNE1PRVNVNWw4bF9RSWR1QlRmSlBhOEFXZXA4TnRsMnBLb25PZ3ltaXJLUFJhdHNNbV9YTjlwMHpETXQzRUN1aENHYkdYS00zb2lkRmQ0eDZQemN1ckdNZGtQbWpWdklTWnBDNkZlX0NxV0FpTFExZTlablQ0QVM2MElEenZ0TnNpS0lPOU1FVXZ6WnZ4SQ?oc=5",
+     "source": "Sports Illustrated",
+     "pub": "Tue, 27 Oct 2026 17:52:18 GMT"
+    },
+    {
+     "title": "No. 6 Indiana Hoosiers vs Michigan Wolverines Highlights | FOX College Football",
+     "url": "https://news.google.com/rss/articles/CBMiYkFVX3lxTE9yVUtpaW0zVkpmRDBXLXk3UTVWUmRldFVSU0FsMVc0N0U1QnJLYUctbS1SZ0FtNm1lX2lrc3hrbnFnSFliLTNWOUxWX1c3WEhPSjlaMFEtVFNidkU3TFJZVUNR?oc=5",
+     "source": "FOX Sports",
+     "pub": "Sat, 24 Oct 2026 20:23:22 GMT"
+    },
+    {
+     "title": "4 things we learned from Michigan Football\u2019s loss to Indiana",
+     "url": "https://news.google.com/rss/articles/CBMi2AFBVV95cUxOd0g4Z0N2WWdUYzdRMGRfM1N1aW0wYy1IY2dCbnVaSnQzMGx4M3hFOWt0NWdmejhUSkFZZ1ZQRHd5VkpRQXFnSmwzX2ZOLUxYaU5nZ2RCOXpNSXhrVy1rQ0JpYUoybmZESS1XcU9XSGE5blJtbnRtMkhSVnBKY3k2UW5NZWl2ak53VXdtVkFfQW5ucEdSdXZPTDlMZ1ZoVEo2UC14QlpEUHc3LWZ4bXFibWFNNU1BS3lRNmw0NXdfZF9iY3I2MGJVQnZtWFJEbDEtTlFFQ1VnaEo?oc=5",
+     "source": "Maize n Brew",
+     "pub": "Mon, 26 Oct 2026 16:00:00 GMT"
     }
    ],
    "fti_count": 4
@@ -833,13 +832,13 @@
    ]
   },
   {
-   "title": "Josh Jacobs stays in bounds to put Packers in lead with 25-yard TD",
-   "url": "https://news.google.com/rss/articles/CBMimAFBVV95cUxQX2ZpT3d1MGxjc1hFYVhwV0d3emc5X3E2NjFnT3Rod3BnNHNxWEVfMUhlWXZ2MU9QTEtGZmo3S004T3ZsbXExdDFLblRhNFZ4a2ZldllkaFpmS0hDY09uTF9BSlh2bkVfVldEV19veU8xZHJlNnJqRkxqT1FuZjEwb1dkVFNuOUdMUXdESWhFUEEtd2toSjhLNg?oc=5",
+   "title": "Jordan Love's scrambling dime to Golden gets Packers down to Cowboys' 2-yard line",
+   "url": "https://news.google.com/rss/articles/CBMiqwFBVV95cUxOa3BNdklLR1I0Wl9uNEZZMW9FRGdrUU9ZQ0tyU2xoS2piNnlfMU1uZ0N6SUc1STBnZjhCVm9wU2hOSkdwSVVVaExkNlduMHlpZGpYREJwQVVIdHZuZDM3WXotX0JkX1Fmb2hrZjZvLTJGNnZlMW9XWlkwU1ptcWREMnN0c2g1Z2MxSm9Ub0JDTEtBVXZMVktleUszZEtRSEk3UDBWTnNNMkVkT1U?oc=5",
    "source": "NFL.com",
-   "pub": "Sun, 25 Oct 2026 22:39:49 GMT",
+   "pub": "Mon, 19 Oct 2026 02:00:06 GMT",
    "collection": "green-bay-packers",
    "entities": [
-    "josh jacobs"
+    "jordan love"
    ]
   }
  ]
