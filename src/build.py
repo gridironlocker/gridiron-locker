@@ -133,6 +133,34 @@ def abs_url(path):
     if path.startswith("http://") or path.startswith("https://"):
         return path
     return DOMAIN + url_safe(path)
+
+
+def img_srcset(path):
+    """srcset/sizes markup for a hero image with offline-generated variants.
+
+    make_hero_variants.py writes <name>-960.jpg / <name>-1440.jpg siblings for
+    the big masters; when they exist a phone fetches the 960w file (~70-130 KB)
+    instead of the 2048w master (370-430 KB). The master URL always stays in
+    src, so nothing that pins hero URLs changes, and a missing variant simply
+    falls back to the single master. Same ?v= cache-buster as the master.
+    """
+    if not path:
+        return ""
+    base, _sep, ver = path.partition("?")
+    q = f"?{ver}" if _sep else ""
+    stem, dot, ext = base.rpartition(".")
+    if not stem:
+        return ""
+    cands = []
+    for w in (960, 1440):
+        rel = f"{stem}-{w}{dot}{ext}"
+        if os.path.isfile(os.path.join(SITE, rel.lstrip("/"))):
+            cands.append(f"{rel}{q} {w}w")
+    if not cands:
+        return ""
+    return f' srcset="{", ".join(cands)}" sizes="100vw"'
+
+
 BRAND = CFG["site_name"]
 
 
@@ -287,8 +315,10 @@ def partner_ship_badges(partner):
         badges.append("30-day misprint replacement")
     else:
         badges.append("Delivery times shown at checkout")
+        badges.append("Returns &amp; misprints via the fulfilment partner")
     badges.append("Worldwide delivery")
-    return "".join(f'<span class="badge">{b}</span>' for b in badges)
+    ship = '<a class="badge badge-link" href="/shipping/">Shipping &amp; returns policy</a>'
+    return "".join(f'<span class="badge">{b}</span>' for b in badges) + ship
 
 # ------------------------------------------------------------------- socials
 # Every live brand profile, verified 2026-09-05. The footer used to link a
@@ -1438,6 +1468,7 @@ def head(title, desc, path, image=None, schema=None, keywords=None, col=None,
 <link rel="icon" href="/img/favicon.svg" type="image/svg+xml">
 <link rel="preconnect" href="https://fonts.googleapis.com">
 <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+<link rel="stylesheet" href="https://fonts.googleapis.com/css2?family=Bebas+Neue&amp;family=Permanent+Marker&amp;family=Inter:wght@400;600;700;800&amp;display=swap">
 <link rel="stylesheet" href="/assets/style.css?v={STYLE_VERSION}">
 {extra_head}<script>document.documentElement.className+=" js"</script>
 {acc}
@@ -2075,7 +2106,7 @@ def product_card(it, eager=False):
             f'<span class="pc-ph">{hot}'
             f'<img class="main" src="{it["front"]}" alt="{card_alt(it)}" '
             f'width="530" height="630"{lazy}>'
-            f'<img class="alt" src="{it["back"]}" alt="" aria-hidden="true" '
+            f'<img class="alt" src="{it["back"]}" alt="" role="presentation" aria-hidden="true" '
             f'width="530" height="630" loading="lazy" decoding="async"></span>'
             f'<span class="pc-body">'
             f'<span class="pc-meta">{esc(c["short"])} &middot; {esc(it["garment"])}</span>'
@@ -2303,7 +2334,7 @@ def home_banner():
     # the custom form). The poster above keeps the painted brand story; this
     # block never restates it and never adds a second headline voice.
     return f"""<section class="cbanner home" id="hero" style="padding:0">
- <div class="band"><img src="{HOME_HERO}"
+ <div class="band"><img src="{HOME_HERO}"{img_srcset(HOME_HERO)}
   alt="{esc(BRAND)} fan gear for Cleveland, Green Bay, Dallas and Michigan fans - fan-made tees, hoodies and crewnecks"
   width="2048" height="768" fetchpriority="high" decoding="async"></div>
  <div class="wrap cb-in">
@@ -2382,7 +2413,7 @@ def custom_design():
     return f"""<section class="customsec" id="custom-design"><div class="wrap">
  <div class="customrow reveal">
   <div class="customimg">
-   <img src="/img/custom-tee1.jpg" alt="Custom t-shirt design - make your own fan apparel"
+   <img src="/img/custom-tee1.jpg"{img_srcset("/img/custom-tee1.jpg")} alt="Custom t-shirt design - make your own fan apparel"
     loading="lazy" decoding="async" width="1024" height="1536">
   </div>
   <div class="customform">
@@ -3210,7 +3241,7 @@ def page_collection(k):
     apparel_section, apparel_attr = apparel_filter_html(items)
     body = f"""
 <main id="main"><section class="cbanner compact" style="padding:0">
- <div class="band"><img src="{c['hero']}" alt="{esc(c['name'])} banner" width="2048" height="768" fetchpriority="high"></div>
+ <div class="band"><img src="{c['hero']}"{img_srcset(c['hero'])} alt="{esc(c['name'])} banner" width="2048" height="768" fetchpriority="high"></div>
  <div class="cb-in">
   <span class="eyebrow"><span class="dot"></span> {len(items)} designs &middot; from ${prices[0]:.2f}</span>
   <p class="posline">{esc(c['position'])}</p>
@@ -3758,7 +3789,7 @@ def _girly_body(cre, c, items, track):
             f'aria-label="View {name} {view_where}">'
             f'<img class="main" src="{image}" alt="{alt}" width="500" height="500" '
             f'loading="lazy" decoding="async">'
-            f'<img class="alt" src="{back_image}" alt="" aria-hidden="true" width="500" height="500" '
+            f'<img class="alt" src="{back_image}" alt="" role="presentation" aria-hidden="true" width="500" height="500" '
             f'loading="lazy" decoding="async">'
             f'<span class="gproduct-art-cta">View design <span aria-hidden="true">{view_icon}</span></span>'
             f'</a>'
@@ -3863,7 +3894,7 @@ def _girly_body(cre, c, items, track):
         custom_section = (f"""<section id="custom" class="gcustom"><div class="wrap">
 {note_html} <div class="gcustom-grid">
   <div class="gcustom-img">
-   <img src="/img/custom-tee1.jpg" alt="Custom t-shirt design - make your own fan apparel"
+   <img src="/img/custom-tee1.jpg"{img_srcset("/img/custom-tee1.jpg")} alt="Custom t-shirt design - make your own fan apparel"
     loading="lazy" decoding="async" width="1024" height="1536">
   </div>
   <div class="gcustom-formwrap" id="custom-form">
@@ -4123,7 +4154,7 @@ def page_creator(ckey="joe"):
                 f'<span class="jph"><img class="main" src="{esc(it["front"])}" '
                 f'alt="{card_alt(it)}" '
                 f'width="530" height="630"{lazy}>'
-                f'<img class="alt" src="{esc(it["back"])}" alt="" aria-hidden="true" '
+                f'<img class="alt" src="{esc(it["back"])}" alt="" role="presentation" aria-hidden="true" '
                 f'width="530" height="630" loading="lazy" decoding="async"></span>'
                 f'<span class="jb">'
                 f'<h3 class="jname">{esc(it["name"])}</h3>'
@@ -7216,7 +7247,7 @@ document.querySelectorAll('a.custom-link').forEach(function(a){
       var it=list[i], ext=shopHref(it);
       html+='<a class="gs-item" href="'+(ext||ROOT+it.u)+'" data-i="'+i+'"'
            +(ext?' target="_blank" rel="noopener noreferrer"':'')+'>'
-           +'<img src="'+imgFor(it.i)+'" alt="" width="40" height="48" loading="lazy">'
+           +'<img src="'+imgFor(it.i)+'" alt="" role="presentation" width="40" height="48" loading="lazy">'
            +'<span class="gs-txt"><span class="gs-n">'+esc(it.n)
            +(it.h?' <span class="gs-hot">Trending</span>':'')
            +'</span><span class="gs-m">'+esc(it.ts)+' \u00b7 '+esc(it.g)+' \u00b7 $'+it.p.toFixed(2)+'</span></span></a>';
@@ -7288,8 +7319,8 @@ document.querySelectorAll('a.custom-link').forEach(function(a){
   modal.innerHTML='<div class="qv-overlay"></div>'
     +'<div class="qv-box" role="dialog" aria-modal="true" aria-label="Quick view">'
     +'<button class="qv-close" type="button" aria-label="Close quick view">&#10005;</button>'
-    +'<div class="qv-imgs"><img class="qv-front" alt="" width="150" height="178">'
-    +'<img class="qv-back" alt="" width="150" height="178"></div>'
+    +'<div class="qv-imgs"><img class="qv-front" alt="" role="presentation" width="150" height="178">'
+    +'<img class="qv-back" alt="" role="presentation" width="150" height="178"></div>'
     +'<div class="qv-info"><span class="qv-team"></span><h3 class="qv-name"></h3>'
     +'<span class="qv-meta"></span><span class="qv-price"></span>'
     +'<a class="btn block qv-cta" href="#">See the full design &rarr;</a>'
