@@ -104,7 +104,7 @@ def build_drops_cards(drops, model_lookup, collections):
   </div>
   <a href="{esc(url)}" class="drop-img">
     <img class="main" src="{esc(img)}" alt="{esc(prod['name'])}" loading="lazy" width="300" height="360">
-    <img class="alt" src="{esc(back)}" alt="" aria-hidden="true" loading="lazy" width="300" height="360">
+    <img class="alt" src="{esc(back)}" alt="" role="presentation" aria-hidden="true" loading="lazy" width="300" height="360">
   </a>
   <div class="drop-body">
     <span class="meta">{esc(garment)} &middot; {esc(price)}</span>

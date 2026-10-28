@@ -827,7 +827,7 @@ document.querySelectorAll('a.custom-link').forEach(function(a){
       var it=list[i], ext=shopHref(it);
       html+='<a class="gs-item" href="'+(ext||ROOT+it.u)+'" data-i="'+i+'"'
            +(ext?' target="_blank" rel="noopener noreferrer"':'')+'>'
-           +'<img src="'+imgFor(it.i)+'" alt="" width="40" height="48" loading="lazy">'
+           +'<img src="'+imgFor(it.i)+'" alt="" role="presentation" width="40" height="48" loading="lazy">'
            +'<span class="gs-txt"><span class="gs-n">'+esc(it.n)
            +(it.h?' <span class="gs-hot">Trending</span>':'')
            +'</span><span class="gs-m">'+esc(it.ts)+' · '+esc(it.g)+' · $'+it.p.toFixed(2)+'</span></span></a>';
@@ -899,8 +899,8 @@ document.querySelectorAll('a.custom-link').forEach(function(a){
   modal.innerHTML='<div class="qv-overlay"></div>'
     +'<div class="qv-box" role="dialog" aria-modal="true" aria-label="Quick view">'
     +'<button class="qv-close" type="button" aria-label="Close quick view">&#10005;</button>'
-    +'<div class="qv-imgs"><img class="qv-front" alt="" width="150" height="178">'
-    +'<img class="qv-back" alt="" width="150" height="178"></div>'
+    +'<div class="qv-imgs"><img class="qv-front" alt="" role="presentation" width="150" height="178">'
+    +'<img class="qv-back" alt="" role="presentation" width="150" height="178"></div>'
     +'<div class="qv-info"><span class="qv-team"></span><h3 class="qv-name"></h3>'
     +'<span class="qv-meta"></span><span class="qv-price"></span>'
     +'<a class="btn block qv-cta" href="#">See the full design &rarr;</a>'

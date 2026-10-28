@@ -1,4 +1,7 @@
-@import url('https://fonts.googleapis.com/css2?family=Bebas+Neue&family=Permanent+Marker&family=Inter:wght@400;600;700;800&display=swap');
+/* Main typefaces (Bebas Neue, Permanent Marker, Inter) load from a direct
+   <link> in <head> (see head() in build.py), in parallel with this file.
+   Never reintroduce an @import here: it serialises font discovery behind the
+   whole stylesheet and blocks first paint on every page. */
 
 /* =============================================================
    Gridiron Locker - neutral storefront theme
@@ -2056,3 +2059,7 @@ body[data-creator-skin="browns"] .gsocial-top .gsocial-handle{color:#6b5a49}
 }
 /* a design that does not list the chosen garment leaves the grid entirely */
 .card[hidden]{display:none}
+
+/* --- trust-strip policy link (partner_ship_badges) --- */
+.badge-link{color:inherit;text-decoration:underline;text-underline-offset:2px}
+.badge-link:hover,.badge-link:focus{text-decoration-thickness:2px}
