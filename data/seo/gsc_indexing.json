@@ -1,0 +1,353 @@
+{
+  "schema_version": 1,
+  "updated": "2026-10-28T22:47:13Z",
+  "source": "Imported by seo_engine.import_gsc from a Search Console Page Indexing (coverage) CSV export. All numbers copied verbatim; blank chart cells stay null. issue counts are Google's page counts at export time.",
+  "property": "All known pages",
+  "issues": [
+    {
+      "reason": "Alternate page with proper canonical tag",
+      "source": "Website",
+      "validation": "Failed",
+      "pages": 17
+    },
+    {
+      "reason": "Crawled - currently not indexed",
+      "source": "Google systems",
+      "validation": "Failed",
+      "pages": 2
+    },
+    {
+      "reason": "Not found (404)",
+      "source": "Website",
+      "validation": "Not Started",
+      "pages": 2
+    },
+    {
+      "reason": "Discovered - currently not indexed",
+      "source": "Google systems",
+      "validation": "Started",
+      "pages": 73
+    },
+    {
+      "reason": "Duplicate, Google chose different canonical than user",
+      "source": "Google systems",
+      "validation": "Passed",
+      "pages": 0
+    }
+  ],
+  "non_critical_issues": [],
+  "daily": [
+    {
+      "date": "2026-09-02",
+      "not_indexed": null,
+      "indexed": null,
+      "impressions": 0
+    },
+    {
+      "date": "2026-09-03",
+      "not_indexed": null,
+      "indexed": null,
+      "impressions": 0
+    },
+    {
+      "date": "2026-09-04",
+      "not_indexed": 132,
+      "indexed": 12,
+      "impressions": 3
+    },
+    {
+      "date": "2026-09-05",
+      "not_indexed": 82,
+      "indexed": 61,
+      "impressions": 25
+    },
+    {
+      "date": "2026-09-06",
+      "not_indexed": 82,
+      "indexed": 61,
+      "impressions": 54
+    },
+    {
+      "date": "2026-09-07",
+      "not_indexed": 82,
+      "indexed": 61,
+      "impressions": 23
+    },
+    {
+      "date": "2026-09-08",
+      "not_indexed": 82,
+      "indexed": 61,
+      "impressions": 9
+    },
+    {
+      "date": "2026-09-09",
+      "not_indexed": 82,
+      "indexed": 61,
+      "impressions": 8
+    },
+    {
+      "date": "2026-09-10",
+      "not_indexed": 82,
+      "indexed": 61,
+      "impressions": 4
+    },
+    {
+      "date": "2026-09-11",
+      "not_indexed": 82,
+      "indexed": 61,
+      "impressions": 4
+    },
+    {
+      "date": "2026-09-12",
+      "not_indexed": 82,
+      "indexed": 61,
+      "impressions": 7
+    },
+    {
+      "date": "2026-09-13",
+      "not_indexed": 82,
+      "indexed": 61,
+      "impressions": 10
+    },
+    {
+      "date": "2026-09-14",
+      "not_indexed": 82,
+      "indexed": 61,
+      "impressions": 10
+    },
+    {
+      "date": "2026-09-15",
+      "not_indexed": 78,
+      "indexed": 67,
+      "impressions": 3
+    },
+    {
+      "date": "2026-09-16",
+      "not_indexed": 78,
+      "indexed": 67,
+      "impressions": 2
+    },
+    {
+      "date": "2026-09-17",
+      "not_indexed": 78,
+      "indexed": 67,
+      "impressions": 8
+    },
+    {
+      "date": "2026-09-18",
+      "not_indexed": 78,
+      "indexed": 67,
+      "impressions": 4
+    },
+    {
+      "date": "2026-09-19",
+      "not_indexed": 75,
+      "indexed": 70,
+      "impressions": 8
+    },
+    {
+      "date": "2026-09-20",
+      "not_indexed": 75,
+      "indexed": 70,
+      "impressions": 13
+    },
+    {
+      "date": "2026-09-21",
+      "not_indexed": 75,
+      "indexed": 70,
+      "impressions": 6
+    },
+    {
+      "date": "2026-09-22",
+      "not_indexed": 79,
+      "indexed": 78,
+      "impressions": 8
+    },
+    {
+      "date": "2026-09-23",
+      "not_indexed": 79,
+      "indexed": 78,
+      "impressions": 13
+    },
+    {
+      "date": "2026-09-24",
+      "not_indexed": 79,
+      "indexed": 78,
+      "impressions": 8
+    },
+    {
+      "date": "2026-09-25",
+      "not_indexed": 79,
+      "indexed": 78,
+      "impressions": 9
+    },
+    {
+      "date": "2026-09-26",
+      "not_indexed": 79,
+      "indexed": 78,
+      "impressions": 14
+    },
+    {
+      "date": "2026-09-27",
+      "not_indexed": 79,
+      "indexed": 78,
+      "impressions": 14
+    },
+    {
+      "date": "2026-09-28",
+      "not_indexed": 79,
+      "indexed": 78,
+      "impressions": 6
+    },
+    {
+      "date": "2026-09-29",
+      "not_indexed": 79,
+      "indexed": 78,
+      "impressions": 8
+    },
+    {
+      "date": "2026-09-30",
+      "not_indexed": 79,
+      "indexed": 78,
+      "impressions": 12
+    },
+    {
+      "date": "2026-10-01",
+      "not_indexed": 79,
+      "indexed": 78,
+      "impressions": 61
+    },
+    {
+      "date": "2026-10-02",
+      "not_indexed": 79,
+      "indexed": 78,
+      "impressions": 16
+    },
+    {
+      "date": "2026-10-03",
+      "not_indexed": 79,
+      "indexed": 78,
+      "impressions": 12
+    },
+    {
+      "date": "2026-10-04",
+      "not_indexed": 79,
+      "indexed": 78,
+      "impressions": 19
+    },
+    {
+      "date": "2026-10-05",
+      "not_indexed": 88,
+      "indexed": 79,
+      "impressions": 9
+    },
+    {
+      "date": "2026-10-06",
+      "not_indexed": 88,
+      "indexed": 79,
+      "impressions": 10
+    },
+    {
+      "date": "2026-10-07",
+      "not_indexed": 88,
+      "indexed": 79,
+      "impressions": 19
+    },
+    {
+      "date": "2026-10-08",
+      "not_indexed": 88,
+      "indexed": 79,
+      "impressions": 13
+    },
+    {
+      "date": "2026-10-09",
+      "not_indexed": 88,
+      "indexed": 79,
+      "impressions": 15
+    },
+    {
+      "date": "2026-10-10",
+      "not_indexed": 89,
+      "indexed": 79,
+      "impressions": 13
+    },
+    {
+      "date": "2026-10-11",
+      "not_indexed": 89,
+      "indexed": 79,
+      "impressions": 38
+    },
+    {
+      "date": "2026-10-12",
+      "not_indexed": 89,
+      "indexed": 79,
+      "impressions": 13
+    },
+    {
+      "date": "2026-10-13",
+      "not_indexed": 90,
+      "indexed": 78,
+      "impressions": 19
+    },
+    {
+      "date": "2026-10-14",
+      "not_indexed": 90,
+      "indexed": 78,
+      "impressions": 12
+    },
+    {
+      "date": "2026-10-15",
+      "not_indexed": 90,
+      "indexed": 78,
+      "impressions": 53
+    },
+    {
+      "date": "2026-10-16",
+      "not_indexed": 90,
+      "indexed": 78,
+      "impressions": 47
+    },
+    {
+      "date": "2026-10-17",
+      "not_indexed": 94,
+      "indexed": 78,
+      "impressions": 19
+    },
+    {
+      "date": "2026-10-18",
+      "not_indexed": 94,
+      "indexed": 78,
+      "impressions": 31
+    },
+    {
+      "date": "2026-10-19",
+      "not_indexed": 94,
+      "indexed": 78,
+      "impressions": 34
+    },
+    {
+      "date": "2026-10-20",
+      "not_indexed": 94,
+      "indexed": 78,
+      "impressions": 26
+    },
+    {
+      "date": "2026-10-21",
+      "not_indexed": 94,
+      "indexed": 78,
+      "impressions": 17
+    },
+    {
+      "date": "2026-10-22",
+      "not_indexed": 94,
+      "indexed": 78,
+      "impressions": 12
+    },
+    {
+      "date": "2026-10-23",
+      "not_indexed": 94,
+      "indexed": 78,
+      "impressions": 20
+    }
+  ]
+}

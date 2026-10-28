@@ -5749,7 +5749,7 @@ sold on its own page. Taking you to the {esc(COLLECTIONS[ckey]['name'])} &mdash;
 </div></section></main>
 </body></html>"""
         write(f"shop/{slug}/index.html", doc)
-        lines.append(f"/shop/{slug}/ {target} 301")
+        lines.append(f"/shop/{slug}/ {target} 301!")
 
     # ---- garment-variant tombstones -------------------------------------
     # /shop/<slug>/<style>/ URLs from the reverted variant scheme. A variant
@@ -5810,7 +5810,7 @@ sold on its own page. Taking you to the {esc(COLLECTIONS[ckey]['name'])} &mdash;
 </div></section></main>
 </body></html>"""
         write(f"shop/{vpath}/index.html", vdoc)
-        lines.append(f"/shop/{vpath}/ {target} 301")
+        lines.append(f"/shop/{vpath}/ {target} 301!")
 
     # ---- moved creator pages ----------------------------------------------
     # A creator locker can move to a shorter address (Crystal Marie's page went
@@ -5864,10 +5864,13 @@ sold on its own page. Taking you to the {esc(COLLECTIONS[ckey]['name'])} &mdash;
 </div></section></main>
 </body></html>"""
         write(f"{old_slug}/index.html", moved_doc)
-        lines.append(f"/{old_slug}/ {target} 301")
+        lines.append(f"/{old_slug}/ {target} 301!")
 
     # Netlify / Cloudflare Pages read this and answer with a real 301, which
     # is strictly better than a client-side redirect; GitHub Pages ignores it.
+    # The '!' force flag is required: without it both hosts skip the rule
+    # whenever a file exists at the source path - and the noindex stub
+    # built at that very path would shadow every rule in this file.
     write("_redirects", "# Retired / migrated URLs -> the current page.\n"
                         "# Covers delisted designs, the fulfillment hold list, the\n"
                         "# garment-variant tombstones from the reverted 2026-09-05 scheme\n"

@@ -3737,8 +3737,10 @@ class CrystalMarieLocker(unittest.TestCase):
         self.assertNotIn("gcategory-tiles", old)      # no second copy of the page
         self.assertNotIn("gproduct", old)
 
-        # hosts that read _redirects answer with a real 301
-        self.assertIn("/browns/crystal-marie/ /crystal/ 301",
+        # hosts that read _redirects answer with a real 301; '!' forces it
+        # past the stub file that exists at the same path (Netlify/Cloudflare
+        # shadow non-forced rules with matching static files)
+        self.assertIn("/browns/crystal-marie/ /crystal/ 301!",
                       page("_redirects"))
 
         # every internal route to her locker uses the short URL

@@ -207,6 +207,57 @@ class ImportGsc(unittest.TestCase):
             with self.assertRaises(FileNotFoundError):
                 import_build(Path(tmp))
 
+    def test_chart_dispatch_and_preserve(self):
+        # Chart.csv exists in both export flavours: header decides routing,
+        # and a missing performance chart must not wipe a previous import.
+        from seo_engine.import_gsc import build_indexing
+
+        with tempfile.TemporaryDirectory() as tmp:
+            self._write(tmp, "Pages.csv",
+                        "Top pages,Clicks,Impressions,CTR,Position\n"
+                        "https://gridironlocker.store/,12,54,22.22%,5.44\n")
+            self._write(tmp, "Chart.csv",
+                        "Date,Not indexed,Indexed,Impressions\n"
+                        "2026-10-23,94,78,20\n")
+            self._write(tmp, "Critical issues.csv",
+                        "Reason,Source,Validation,Pages\n"
+                        "Not found (404),Website,Not Started,2\n")
+            self._write(tmp, "Non-critical issues.csv",
+                        "Reason,Source,Validation,Pages\n")
+            self._write(tmp, "Metadata.csv", "Property,Value\nSitemap,All known pages\n")
+            previous = {"daily": [{"date": "2026-09-29", "clicks": 0,
+                                   "impressions": 8, "ctr": 0.0, "position": 21.4}]}
+            perf = import_build(Path(tmp), previous=previous)
+            indexing = build_indexing(Path(tmp))
+
+        # indexing chart never lands in the performance daily table
+        self.assertEqual(perf["daily"][0]["date"], "2026-09-29")
+        # indexing tables land in the indexing export
+        self.assertEqual(indexing["property"], "All known pages")
+        self.assertEqual(indexing["daily"][0]["not_indexed"], 94)
+        self.assertEqual(indexing["daily"][0]["indexed"], 78)
+        self.assertEqual(indexing["issues"][0]["pages"], 2)
+        self.assertEqual(indexing["non_critical_issues"], [])
+
+    def test_indexing_blank_cells_stay_null(self):
+        from seo_engine.import_gsc import build_indexing
+
+        with tempfile.TemporaryDirectory() as tmp:
+            self._write(tmp, "Chart.csv",
+                        "Date,Not indexed,Indexed,Impressions\n"
+                        "2026-09-02,,,0\n")
+            indexing = build_indexing(Path(tmp))
+        self.assertIsNone(indexing["daily"][0]["not_indexed"])
+        self.assertIsNone(indexing["daily"][0]["indexed"])
+        self.assertEqual(indexing["daily"][0]["impressions"], 0)
+
+    def test_indexing_requires_some_csv(self):
+        from seo_engine.import_gsc import build_indexing
+
+        with tempfile.TemporaryDirectory() as tmp:
+            with self.assertRaises(FileNotFoundError):
+                build_indexing(Path(tmp))
+
 
 class Decide(unittest.TestCase):
     def test_modes_partition(self):

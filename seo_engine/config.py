@@ -15,6 +15,7 @@ DECISIONS_PATH = SEO_DATA / "last_decisions.json"
 PROPOSALS_DIR = SEO_DATA / "proposals"
 MEMORY_PATH = SEO_DATA / "learning_memory.json"
 GSC_EXPORT_PATH = SEO_DATA / "gsc_export.json"
+GSC_INDEXING_PATH = SEO_DATA / "gsc_indexing.json"
 CATALOGUE_PATH = DATA / "catalogue-live.json"
 CONFIG_PATH = ROOT / "src" / "config.json"
 

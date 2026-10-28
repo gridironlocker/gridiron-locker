@@ -1,6 +1,6 @@
 # Hunt Report - 2026-10-28
 
-Generated: 2026-10-28 22:38 UTC by src/hunter_intelligence.py
+Generated: 2026-10-28 22:55 UTC by src/hunter_intelligence.py
 
 Ladder: SIGNAL 3 · TREND 0 · OPPORTUNITY 3 · ACTION 0 · HEADLINE 3
 
@@ -39,7 +39,7 @@ Fan connectors: no fan posts observed - reddit error (HTTP Error 403: Blocked); 
 
 ### 2. QB room: who is QB1 in Cleveland - Cleveland Browns
 - Level: OPPORTUNITY · Confidence: 63% · 🟢 READY (matched design, posting window open, evidence under 12 h)
-- Fan signal: "Browns have no plans to trade Shedeur Sanders with QB stuck to bench" - New York Post (5 h ago)
+- Fan signal: "Browns have no plans to trade Shedeur Sanders with QB stuck to bench" - New York Post (6 h ago)
 - Evidence: 5 reaction items (6.0 weighted) · 4 outlets · 0 utility listings excluded · 0 fan posts
 - Phrase velocity: → 0% / 1440 min (2 vs 2)
 - Sentiment: anxious - 'anxious' on 1/2 lexicon hits across 5 item(s)
@@ -53,7 +53,7 @@ Fan connectors: no fan posts observed - reddit error (HTTP Error 403: Blocked); 
 - Action: Pinterest - keyword pin of the matched design (+2 h)
   - Browns have apparently made their final Shedeur Sanders trade decision - Yahoo Sports - google_news (1 d ago) https://news.google.com/rss/articles/CBMijgFBVV95cUxPUGMwNGNnVUJlVWw4ZEVELUVqUGQzbW1OVDlHZWRRY1lKS2VTWkYxb0ZkN0dsZFlkekowWEM0eVIyT21GX3gtd2wyeGxvRThqRGxtWFpEUFRXc1ZaekFfbTdJOGI0UnJoMDlvUnRvZXRvcHN5MWx6ZDlhQ0RxeFhEblcyVjI4ZTJSVVZzWkpR?oc=5
   - Browns HC Todd Monken noncommittal on QB plan for Week 8 vs. the Steelers - Dawgs By Nature - google_news (5 h ago) https://news.google.com/rss/articles/CBMiwAFBVV95cUxOdm05LURsTUR0ci1aZG1GaktuOGFiQTdWWVZ5ZjJrN1doVnpPX0dPU3FQa0doZ2ViQzZIazdKb2pNVlVwU0xTVFFQbXNzVlU4R1RyUjBjd0lnYmJLZEowVFBzZW5nbW9pUUlJN2VsWE80UlI3TG9QaDNtMFk3UHplNHlXNkJmd200dmtGRXJYWklqcld4VTdJWEZkUjBqLU1zZWFSc0hwb0hwUXhMN0ZPaWVyQ21US3FEeWFKdVo0OGc?oc=5
-  - Browns have no plans to trade Shedeur Sanders with QB stuck to bench - New York Post - google_news (5 h ago) https://news.google.com/rss/articles/CBMiqgFBVV95cUxNUVVDRGNnLWZ2azYwZVVlZnJhR3pjcXkxQnNiNEVWMi1IYV9QR1RkcFA1c0FZM1ptdVlZOHd4YTUyTDNrejdGaERnRzNVckk2NzcySmR6djQwcmk4TE1IZ1RKWl9JckVxMjduM3IwSmp1NGJ3V3RrN1AwX0xkQUpid3hIemNLNVhrQ21mUUdkbzR6ZU1vSjRPZDBFNGZBbVNrZEFweldaWE5SUQ?oc=5
+  - Browns have no plans to trade Shedeur Sanders with QB stuck to bench - New York Post - google_news (6 h ago) https://news.google.com/rss/articles/CBMiqgFBVV95cUxNUVVDRGNnLWZ2azYwZVVlZnJhR3pjcXkxQnNiNEVWMi1IYV9QR1RkcFA1c0FZM1ptdVlZOHd4YTUyTDNrejdGaERnRzNVckk2NzcySmR6djQwcmk4TE1IZ1RKWl9JckVxMjduM3IwSmp1NGJ3V3RrN1AwX0xkQUpid3hIemNLNVhrQ21mUUdkbzR6ZU1vSjRPZDBFNGZBbVNrZEFweldaWE5SUQ?oc=5
   - Browns aren't shopping Shedeur Sanders but are reportedly open to trade offers for QBs - Yardbarker - google_news (1 d ago) https://news.google.com/rss/articles/CBMi2wFBVV95cUxPX2NLNnVNNzlRNG56TGRkSG81b3NhcmdhZlE5LVdzMERKeHlqRnozQjBTTmIwaHNuckw3RVdfRllDdGhBaERrc2k3UjV3a1FSY1RMdkhpTjdWRE1mLXBlZUhuX2FDRlY5RmdVSndXZU56bDFJS1VXYXAyanpOcWtlTktFdDM1dTBuNUU2VElSUEN1NFlMbl9QLUJ4ZEZnUUJ5cWx6eS0wdks4b0Rwak83c1pzN3JFaEp6QVY1bmVlSUJndnRFVjF4OU55SmdkeURNUE1oYWw5ZnZTZ28?oc=5
 
 ### 3. Doomsday memory: defence and the pass rush - Dallas Cowboys

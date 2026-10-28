@@ -40,6 +40,7 @@ try:
         AUDIT_PATH,
         DECISIONS_PATH,
         GSC_EXPORT_PATH,
+        GSC_INDEXING_PATH,
         MEMORY_PATH,
         OVERRIDES_PATH,
         read_json,
@@ -51,6 +52,7 @@ except (ImportError, ValueError):
         AUDIT_PATH,
         DECISIONS_PATH,
         GSC_EXPORT_PATH,
+        GSC_INDEXING_PATH,
         MEMORY_PATH,
         OVERRIDES_PATH,
         read_json,
@@ -71,6 +73,7 @@ def _load_all() -> Dict[str, Any]:
     decisions = read_json(DECISIONS_PATH, default={}) or {}
     overrides = read_json(OVERRIDES_PATH, default={}) or {}
     gsc = read_json(GSC_EXPORT_PATH, default={}) or {}
+    indexing = read_json(GSC_INDEXING_PATH, default={}) or {}
     memory = read_json(MEMORY_PATH, default={}) or {}
     # opportunities are PR-only and depend on crawl + catalogue — guard heavily.
     try:
@@ -94,6 +97,7 @@ def _load_all() -> Dict[str, Any]:
         "decisions": decisions,
         "overrides": overrides,
         "gsc": gsc,
+        "indexing": indexing,
         "memory": memory,
         "opportunities": opps,
         "generated_at": _now(),
@@ -174,6 +178,7 @@ def _render(data: Dict[str, Any]) -> str:
     decisions: Dict[str, Any] = data.get("decisions") or {}
     overrides: Dict[str, Any] = data.get("overrides") or {}
     gsc: Dict[str, Any] = data.get("gsc") or {}
+    indexing: Dict[str, Any] = data.get("indexing") or {}
     memory: Dict[str, Any] = data.get("memory") or {}
     opps: Dict[str, Any] = data.get("opportunities") or {}
     gen_at: str = data.get("generated_at") or _now()
@@ -367,6 +372,55 @@ def _render(data: Dict[str, Any]) -> str:
     else:
         gsc_note = "No <code>gsc_export.json</code> — technical audit only (still useful)."
 
+    # page-indexing card (GSC "Page indexing" export — gsc_indexing.json)
+    idx_daily = [d for d in (indexing.get("daily") or []) if d.get("indexed") is not None]
+    if indexing:
+        latest = idx_daily[-1] if idx_daily else None
+        first = idx_daily[0] if idx_daily else None
+        trend = ""
+        if latest and first and latest is not first:
+            trend = (f" (from {esc(first['indexed'])} indexed / {esc(first['not_indexed'])} "
+                     f"not indexed on {esc(first['date'])})")
+        idx_rows = ""
+        for r in (indexing.get("issues") or []):
+            idx_rows += (
+                f'<tr><td class="small">{esc(r.get("reason"))}</td>'
+                f'<td class="small muted">{esc(r.get("source"))}</td>'
+                f'<td class="small">{esc(r.get("validation"))}</td>'
+                f'<td class="num">{esc(r.get("pages"))}</td></tr>'
+            )
+        if not idx_rows:
+            idx_rows = '<tr><td colspan="4" class="muted small">No issues in this export.</td></tr>'
+        if latest:
+            latest_line = (f"Latest ({esc(latest['date'])}): "
+                           f"<strong>{esc(latest['indexed'])}</strong> indexed / "
+                           f"<strong>{esc(latest['not_indexed'])}</strong> not indexed{trend}.")
+        else:
+            latest_line = "No dated counts in this export."
+        noncrit = indexing.get("non_critical_issues") or []
+        noncrit_line = (f"{len(noncrit)} non-critical issue row(s)."
+                        if noncrit else "No non-critical issues.")
+        indexing_card = (
+            '<div class="card" style="margin-top:0">'
+            '<h2>Page indexing</h2>'
+            f'<p class="small">{latest_line}</p>'
+            '<table><tr><th>Reason</th><th>Source</th><th>Validation</th>'
+            f'<th class="num">Pages</th></tr>{idx_rows}</table>'
+            f'<p class="small muted">{esc(noncrit_line)} File: '
+            '<code>data/seo/gsc_indexing.json</code> — Search Console "Page indexing" '
+            'export, copied verbatim by <code>seo_engine.import_gsc</code>.</p>'
+            '</div>'
+        )
+    else:
+        indexing_card = (
+            '<div class="card" style="margin-top:0">'
+            '<h2>Page indexing</h2>'
+            '<p class="small muted">No <code>data/seo/gsc_indexing.json</code>. Export '
+            '"Page indexing" from Search Console and run '
+            '<code>python3 -m seo_engine.import_gsc &lt;dir&gt;</code> to see coverage here.</p>'
+            '</div>'
+        )
+
     # historic overrides history
     hist_note = ""
     if history:
@@ -525,6 +579,7 @@ def _render(data: Dict[str, Any]) -> str:
    <pre style="margin-top:8px">{esc(json.dumps(gsc if len(json.dumps(gsc, ensure_ascii=False)) < 4000 else dict(rows=(gsc.get("rows") or [])[:6], _truncated=f"... +{max(0, len(gsc.get('rows') or [])-6)} rows", **{k:v for k,v in gsc.items() if k!='rows'}), indent=2, ensure_ascii=False)[:3800])}</pre>
    <p class="small muted">Real CTR / impressions are only shown when this file has rows. Without it the engine still audits titles / descriptions / canonical / OG.</p>
   </div>
+  {indexing_card}
   <div class="card" style="margin-top:0">
    <h2>Learning loop</h2>
    <p class="small">Verifications recorded after each <code>apply --commit</code> + rebuild via <code>verify --record</code>. Compounds over time; without real GSC it stays small on purpose. Outcomes are operator-supplied GSC before/after rows keyed by change.</p>
