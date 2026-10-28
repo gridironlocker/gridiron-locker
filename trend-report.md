@@ -1,6 +1,6 @@
 # Hunt Report - 2026-10-28
 
-Generated: 2026-10-28 22:55 UTC by src/hunter_intelligence.py
+Generated: 2026-10-28 23:22 UTC by src/hunter_intelligence.py
 
 Ladder: SIGNAL 3 · TREND 0 · OPPORTUNITY 3 · ACTION 0 · HEADLINE 3
 
@@ -32,7 +32,7 @@ Fan connectors: no fan posts observed - reddit error (HTTP Error 403: Blocked); 
 - Action: Threads - alternate angle (+20 min)
 - Action: Instagram - product creative after engagement confirms the angle (after the X post confirms the angle)
 - Action: Pinterest - keyword pin of the matched design (+2 h)
-  - The Michigan Wolverines’ football moment on roller skates - Yardbarker - google_news (3 h ago) https://news.google.com/rss/articles/CBMixgFBVV95cUxQZ3oxbkUwZ1ZqQVlGcUtIaUd2YVR3UWo0LXZITDRLUlpKLWNEZVcwWWlTVE1LVy02RkFhbVBSaXRFSGVHalFQTWRrUXhtMWNNZXpkRjdVWFFoVU81YTZxbHBZb3lWZkdpbHktLXhoaDRIc1IxdGZ2cXlkODFaRkZSN1pKNkZuSGoxZ1oxZmpMeXk4TUk4UVdJYjA4LXhDeXE3c3lzYXc3YmV6Y041Q1pzRFNuX09UZU5pM1lkb3hJeFR4SnRCakE?oc=5
+  - The Michigan Wolverines’ football moment on roller skates - Yardbarker - google_news (4 h ago) https://news.google.com/rss/articles/CBMixgFBVV95cUxQZ3oxbkUwZ1ZqQVlGcUtIaUd2YVR3UWo0LXZITDRLUlpKLWNEZVcwWWlTVE1LVy02RkFhbVBSaXRFSGVHalFQTWRrUXhtMWNNZXpkRjdVWFFoVU81YTZxbHBZb3lWZkdpbHktLXhoaDRIc1IxdGZ2cXlkODFaRkZSN1pKNkZuSGoxZ1oxZmpMeXk4TUk4UVdJYjA4LXhDeXE3c3lzYXc3YmV6Y041Q1pzRFNuX09UZU5pM1lkb3hJeFR4SnRCakE?oc=5
   - Michigan Wolverines Could Lose Up to 60 Football Players Ahead of 2027 Season - Sports Illustrated (1 d ago) https://news.google.com/rss/articles/CBMivwFBVV95cUxQQnF5NTgxZklhdzNscW0zdTgtSm01VXhrOTlsdlVnNU1lR1BZc0JJZUdXNE1PRVNVNWw4bF9RSWR1QlRmSlBhOEFXZXA4TnRsMnBLb25PZ3ltaXJLUFJhdHNNbV9YTjlwMHpETXQzRUN1aENHYkdYS00zb2lkRmQ0eDZQemN1ckdNZGtQbWpWdklTWnBDNkZlX0NxV0FpTFExZTlablQ0QVM2MElEenZ0TnNpS0lPOU1FVXZ6WnZ4SQ?oc=5
   - Michigan Wolverines QB Tommy Carr has 'poise' that's 'second to none' - ESPN (6 d ago) https://news.google.com/rss/articles/CBMimgFBVV95cUxOQWlOQUVlZ2NCWnpmZlB6RjRST1daN2p4UDc2MFR4VmxIcnp1TG4ySHBOaHpLUmdkNWZQeHRnOVFfOW5WMGdWNEpXWVVMS2E4TGxjWmxVeHF6X1Jjdm5CaGVZZ1BhdkV0N3luZGVDV1JjdDBOUDJFdFhSSWd2SlR4NmtYeXNraGlDWmozUmlXWXBiYW5hS2liWEFB?oc=5
   - Ten unfiltered Michigan takes: Wolverines would be undefeated and ranked top five with a decent offense - On3 (6 d ago) https://news.google.com/rss/articles/CBMiyAFBVV95cUxQZGk1N0xrNU1vTkJxWEk1TEVfTTZpRG5SSkZjaV9vVTc2bHk2YU5DZzBNR1FsWFFiWkUzZUt3TkFWMDlmN3hnSi1MQzh3T3VUX1M1WXNZSVBZQmFBZkF0b0FKMHFuUU9MNko0MWxWZHVidGRZUDhBQjRZSzcyM3pycDM4TW9Xc011UEJNdTdYR2lXSDlEdXVlOWhZNDhaRGlvT1FLRm1QU0VsMEdlRVZMb2tuemtzQkpsTXhyc25xbFJLbzhROHFiVw?oc=5
@@ -52,13 +52,13 @@ Fan connectors: no fan posts observed - reddit error (HTTP Error 403: Blocked); 
 - Action: Instagram - product creative after engagement confirms the angle (after the X post confirms the angle)
 - Action: Pinterest - keyword pin of the matched design (+2 h)
   - Browns have apparently made their final Shedeur Sanders trade decision - Yahoo Sports - google_news (1 d ago) https://news.google.com/rss/articles/CBMijgFBVV95cUxPUGMwNGNnVUJlVWw4ZEVELUVqUGQzbW1OVDlHZWRRY1lKS2VTWkYxb0ZkN0dsZFlkekowWEM0eVIyT21GX3gtd2wyeGxvRThqRGxtWFpEUFRXc1ZaekFfbTdJOGI0UnJoMDlvUnRvZXRvcHN5MWx6ZDlhQ0RxeFhEblcyVjI4ZTJSVVZzWkpR?oc=5
-  - Browns HC Todd Monken noncommittal on QB plan for Week 8 vs. the Steelers - Dawgs By Nature - google_news (5 h ago) https://news.google.com/rss/articles/CBMiwAFBVV95cUxOdm05LURsTUR0ci1aZG1GaktuOGFiQTdWWVZ5ZjJrN1doVnpPX0dPU3FQa0doZ2ViQzZIazdKb2pNVlVwU0xTVFFQbXNzVlU4R1RyUjBjd0lnYmJLZEowVFBzZW5nbW9pUUlJN2VsWE80UlI3TG9QaDNtMFk3UHplNHlXNkJmd200dmtGRXJYWklqcld4VTdJWEZkUjBqLU1zZWFSc0hwb0hwUXhMN0ZPaWVyQ21US3FEeWFKdVo0OGc?oc=5
+  - Browns HC Todd Monken noncommittal on QB plan for Week 8 vs. the Steelers - Dawgs By Nature - google_news (6 h ago) https://news.google.com/rss/articles/CBMiwAFBVV95cUxOdm05LURsTUR0ci1aZG1GaktuOGFiQTdWWVZ5ZjJrN1doVnpPX0dPU3FQa0doZ2ViQzZIazdKb2pNVlVwU0xTVFFQbXNzVlU4R1RyUjBjd0lnYmJLZEowVFBzZW5nbW9pUUlJN2VsWE80UlI3TG9QaDNtMFk3UHplNHlXNkJmd200dmtGRXJYWklqcld4VTdJWEZkUjBqLU1zZWFSc0hwb0hwUXhMN0ZPaWVyQ21US3FEeWFKdVo0OGc?oc=5
   - Browns have no plans to trade Shedeur Sanders with QB stuck to bench - New York Post - google_news (6 h ago) https://news.google.com/rss/articles/CBMiqgFBVV95cUxNUVVDRGNnLWZ2azYwZVVlZnJhR3pjcXkxQnNiNEVWMi1IYV9QR1RkcFA1c0FZM1ptdVlZOHd4YTUyTDNrejdGaERnRzNVckk2NzcySmR6djQwcmk4TE1IZ1RKWl9JckVxMjduM3IwSmp1NGJ3V3RrN1AwX0xkQUpid3hIemNLNVhrQ21mUUdkbzR6ZU1vSjRPZDBFNGZBbVNrZEFweldaWE5SUQ?oc=5
   - Browns aren't shopping Shedeur Sanders but are reportedly open to trade offers for QBs - Yardbarker - google_news (1 d ago) https://news.google.com/rss/articles/CBMi2wFBVV95cUxPX2NLNnVNNzlRNG56TGRkSG81b3NhcmdhZlE5LVdzMERKeHlqRnozQjBTTmIwaHNuckw3RVdfRllDdGhBaERrc2k3UjV3a1FSY1RMdkhpTjdWRE1mLXBlZUhuX2FDRlY5RmdVSndXZU56bDFJS1VXYXAyanpOcWtlTktFdDM1dTBuNUU2VElSUEN1NFlMbl9QLUJ4ZEZnUUJ5cWx6eS0wdks4b0Rwak83c1pzN3JFaEp6QVY1bmVlSUJndnRFVjF4OU55SmdkeURNUE1oYWw5ZnZTZ28?oc=5
 
 ### 3. Doomsday memory: defence and the pass rush - Dallas Cowboys
 - Level: OPPORTUNITY · Confidence: 62% · 🟢 READY (matched design, posting window open, evidence under 12 h)
-- Fan signal: "Dallas Cowboys Trade Rumor Tracker: Latest News & Buzz Entering NFL Trade Deadline" - Yahoo Sports (9 h ago)
+- Fan signal: "Dallas Cowboys Trade Rumor Tracker: Latest News & Buzz Entering NFL Trade Deadline" - Yahoo Sports (10 h ago)
 - Evidence: 4 reaction items (4.0 weighted) · 4 outlets · 0 utility listings excluded · 0 fan posts
 - Phrase velocity: → 0% / 240 min (1 vs 1)
 - Sentiment: proud - 'proud' on 2/3 lexicon hits across 4 item(s)
@@ -69,9 +69,9 @@ Fan connectors: no fan posts observed - reddit error (HTTP Error 403: Blocked); 
 - Action: Threads - alternate angle (+20 min)
 - Action: Instagram - product creative after engagement confirms the angle (after the X post confirms the angle)
 - Action: Pinterest - keyword pin of the matched design (+2 h)
-  - Run defense alarm: 121 yards allowed against Eagles (Video) - Fort Worth Star-Telegram - google_news (3 h ago) https://news.google.com/rss/articles/CBMigwFBVV95cUxQbEhmQWZ6cV9pcWFkaEZsVW5aa0RwYjRCRU5qdG04aEF3MktLaVJpX1Y0SFFrQkZUSjhYN2pWN19xWllxMUtRMVFCVE1yMVYxWmI2NElQdmRjZDlVMXNEYmJlN1hSRXhvNDd2V25LQm45dGNNSHhWLTFoWHNxd3JFdWM0VQ?oc=5
-  - Tape Talk: Cowboys offense finds their rhythm, defense takes away big plays vs. Eagles - Dallas Cowboys | Official Site of the Dallas Cowboys - google_news (4 h ago) https://news.google.com/rss/articles/CBMiugFBVV95cUxOMGJuUVVaU1cta293SklTSHFVUGl0cFAtSzF5NXNZNWRnV2pGXzRzTlpLNFZqbXl0ZGZBbzJ0VjY3M0dXaGdxcUtmU0xDWU5HZmdtYzZ0QlhFN2h5cloybDg1RmlJaHZfNnpTSXI0Y1gxQmt3aDN5ZExBZkNyWnl1YTZaR1lfUF9ZSWdnWFMzaEllTThaX3RnY3JaTDdZYmlLaGxkWFVqdkhwNGRKbkV2UEFTbWwyNnNqbWc?oc=5
-  - Dallas Cowboys Trade Rumor Tracker: Latest News & Buzz Entering NFL Trade Deadline - Yahoo Sports - google_news (9 h ago) https://news.google.com/rss/articles/CBMiiwFBVV95cUxPa2ZiUjFpNUVacl8wUWh2UmFILTNWekJ0dko5anp1cHpzc3BYUmhoc3NnZlpEYXF0UXZxLVY4Qzl6ZlpkNHdMSXhGRnRSZjJGVHI1Ulp2aHdvSU1BMmozVmJhV1BxRTRmRjZOaG1YOFZkaklRSmEtTzVNajBaQVQtUHgtZTlqM0RFYmow?oc=5
+  - Run defense alarm: 121 yards allowed against Eagles (Video) - Fort Worth Star-Telegram - google_news (4 h ago) https://news.google.com/rss/articles/CBMigwFBVV95cUxQbEhmQWZ6cV9pcWFkaEZsVW5aa0RwYjRCRU5qdG04aEF3MktLaVJpX1Y0SFFrQkZUSjhYN2pWN19xWllxMUtRMVFCVE1yMVYxWmI2NElQdmRjZDlVMXNEYmJlN1hSRXhvNDd2V25LQm45dGNNSHhWLTFoWHNxd3JFdWM0VQ?oc=5
+  - Tape Talk: Cowboys offense finds their rhythm, defense takes away big plays vs. Eagles - Dallas Cowboys | Official Site of the Dallas Cowboys - google_news (5 h ago) https://news.google.com/rss/articles/CBMiugFBVV95cUxOMGJuUVVaU1cta293SklTSHFVUGl0cFAtSzF5NXNZNWRnV2pGXzRzTlpLNFZqbXl0ZGZBbzJ0VjY3M0dXaGdxcUtmU0xDWU5HZmdtYzZ0QlhFN2h5cloybDg1RmlJaHZfNnpTSXI0Y1gxQmt3aDN5ZExBZkNyWnl1YTZaR1lfUF9ZSWdnWFMzaEllTThaX3RnY3JaTDdZYmlLaGxkWFVqdkhwNGRKbkV2UEFTbWwyNnNqbWc?oc=5
+  - Dallas Cowboys Trade Rumor Tracker: Latest News & Buzz Entering NFL Trade Deadline - Yahoo Sports - google_news (10 h ago) https://news.google.com/rss/articles/CBMiiwFBVV95cUxPa2ZiUjFpNUVacl8wUWh2UmFILTNWekJ0dko5anp1cHpzc3BYUmhoc3NnZlpEYXF0UXZxLVY4Qzl6ZlpkNHdMSXhGRnRSZjJGVHI1Ulp2aHdvSU1BMmozVmJhV1BxRTRmRjZOaG1YOFZkaklRSmEtTzVNajBaQVQtUHgtZTlqM0RFYmow?oc=5
   - Mailbag: Does defense just need more time? - Dallas Cowboys | Official Site of the Dallas Cowboys (5 d ago) https://news.google.com/rss/articles/CBMigAFBVV95cUxNYnlndHFLYWRQeDhRUmdzV080N1l4ZC1ocjkyU2d2ZHkyVHB5RkJGT2s0RjI1WVVsdTRWeG5FWWVzdlB3N2RKUzF3U3U3Sm56MjRhMm5hS1pyOGs1RHYwRFVLY1NncGwxUW03NWxfdmNhZGloT01SX1lrYzZfSktJbg?oc=5
 
 ### 4. Texas pride: flag, star and Est. 1841 - Dallas Cowboys
@@ -117,7 +117,7 @@ Fan connectors: no fan posts observed - reddit error (HTTP Error 403: Blocked); 
 
 ## Filtered as HEADLINE (3)
 
-- BROWNS - Coaching: Monken's first season: 2 reaction item(s), 2 outlet(s), confidence 48% - not a reaction
+- BROWNS - Coaching: Monken's first season: 2 reaction item(s), 2 outlet(s), confidence 56% - not a reaction
 - MICHIGAN - Late-game heroics: the Hail Mary folklore: 1 reaction item(s), 1 outlet(s), confidence 46% - not a reaction
 - MICHIGAN - Recruiting: the class built around QB19: 2 reaction item(s), 2 outlet(s), confidence 44% - not a reaction
 
