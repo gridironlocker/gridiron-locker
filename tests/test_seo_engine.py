@@ -8,6 +8,7 @@ from __future__ import annotations
 
 import json
 import os
+import re
 import sys
 import tempfile
 import unittest
@@ -257,6 +258,28 @@ class ImportGsc(unittest.TestCase):
         with tempfile.TemporaryDirectory() as tmp:
             with self.assertRaises(FileNotFoundError):
                 build_indexing(Path(tmp))
+
+
+class IssueUrls(unittest.TestCase):
+    """data/seo/gsc_issue_urls.json - the operator-pasted URL-level
+    drill-down behind the aggregate indexing counts. Verbatim data: the
+    only rule is that it must never drift from gsc_indexing.json."""
+
+    def test_shape_and_counts_match_indexing_export(self):
+        urls = json.loads((ROOT / "data" / "seo" / "gsc_issue_urls.json").read_text())
+        idx = json.loads((ROOT / "data" / "seo" / "gsc_indexing.json").read_text())
+        # zero-page rows (e.g. the Passed duplicate-canonical check) have no
+        # URLs to drill into and stay out of the URL file
+        expect_reasons = {r["reason"] for r in idx["issues"] if r["pages"]}
+        self.assertEqual(set(urls["issues"]), expect_reasons)
+        for reason, rows in urls["issues"].items():
+            expect = next(r["pages"] for r in idx["issues"] if r["reason"] == reason)
+            self.assertEqual(len(rows), expect, reason)
+            for row in rows:
+                self.assertTrue(row["url"].startswith("https://gridironlocker.store/"), row)
+                self.assertIn("last_crawled", row)
+                lc = row["last_crawled"]
+                self.assertTrue(lc is None or re.fullmatch(r"\d{4}-\d{2}-\d{2}", lc), row)
 
 
 class Decide(unittest.TestCase):
