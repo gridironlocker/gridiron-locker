@@ -77,8 +77,8 @@ pre{overflow:auto;max-height:420px;font-size:.70rem;color:var(--mut2);white-spac
 <body>
 <div class="topbar"><div class="topbar-inner">
  <div class="brand"><span class="mark">SEO</span><span>SEO Engine <small>Gridiron Locker · ops / seo · noindex</small></span></div>
- <span class="pill"><span class="dot"></span>Audit 2026-10-28T22:13:27Z</span>
- <span class="pill">Decisions 2026-10-28T22:13:27Z</span>
+ <span class="pill"><span class="dot"></span>Audit 2026-10-28T22:38:51Z</span>
+ <span class="pill">Decisions 2026-10-28T22:38:51Z</span>
  <span class="pill">https://gridironlocker.store</span>
  <span class="pill"><a href="../index.html">← Ops index</a></span>
 </div></div>
@@ -101,52 +101,72 @@ pre{overflow:auto;max-height:420px;font-size:.70rem;color:var(--mut2);white-spac
  <!-- KPI strip -->
  <div class="kpis">
   <div class="kpi"><b>617</b><span>Pages crawled</span><br><em class="small">127 indexable · stubs excluded</em></div>
-  <div class="kpi"><b>0</b><span>Findings</span><br><em class="small"><span class="badge s-high" style="font-size:.62rem">high 0</span> <span class="badge s-medium" style="font-size:.62rem">med 0</span> <span class="badge s-low" style="font-size:.62rem">low 0</span></em></div>
+  <div class="kpi"><b>1</b><span>Findings</span><br><em class="small"><span class="badge s-high" style="font-size:.62rem">high 0</span> <span class="badge s-medium" style="font-size:.62rem">med 1</span> <span class="badge s-low" style="font-size:.62rem">low 0</span></em></div>
   <div class="kpi"><b style="color:var(--green)">0</b><span>AUTO ready</span><br><em class="small">→ data/seo/overrides.json</em></div>
   <div class="kpi"><b>0</b><span>PR proposals</span><br><em class="small">needs human review</em></div>
   <div class="kpi"><b>0</b><span>HUMAN flags</span><br><em class="small">URL / delete / merge</em></div>
   <div class="kpi"><b>3</b><span>Active overrides</span><br><em class="small">3 change(s) in history (last: 2026-10-26T20:17:46Z)</em></div>
-  <div class="kpi"><b>0</b><span>GSC rows</span><br><em class="small">0 pages covered</em></div>
+  <div class="kpi"><b>48</b><span>GSC rows</span><br><em class="small">48 pages covered</em></div>
   <div class="kpi"><b>0</b><span>Verifications</span><br><em class="small">0 measured GSC outcomes</em></div>
  </div>
 
  <div class="grid2">
   <div class="card">
    <h2>Audit snapshot</h2>
-   <p class="muted small">From <code>data/seo/last_audit.json</code> @ <span class="mono">2026-10-28T22:13:27Z</span> · domain https://gridironlocker.store · engine seo_engine.audit</p>
-   <p class="small muted">By type: <span class="muted">no findings — clean audit</span></p>
-   <p class="small muted">By severity: <span class="badge s-high">high 0</span> <span class="badge s-medium">medium 0</span> <span class="badge s-low">low 0</span> · GSC rows 0, pages 0 · Page count 617, indexable 127</p>
-   <p class="small">Empty — paste a Search Console export into &lt;code&gt;data/seo/gsc_export.json&lt;/code&gt; to enable CTR-aware titles and GSC content gaps. See &lt;code&gt;seo_engine/README.md&lt;/code&gt;. Numbers are never invented.</p>
+   <p class="muted small">From <code>data/seo/last_audit.json</code> @ <span class="mono">2026-10-28T22:38:51Z</span> · domain https://gridironlocker.store · engine seo_engine.audit</p>
+   <p class="small muted">By type: <span class="kbd">weak_ctr_title</span> <span class="muted">1</span> &nbsp;</p>
+   <p class="small muted">By severity: <span class="badge s-high">high 0</span> <span class="badge s-medium">medium 1</span> <span class="badge s-low">low 0</span> · GSC rows 48, pages 48 · Page count 617, indexable 127</p>
+   <p class="small">48 row(s) present — engine uses them for &lt;span class=kbd&gt;weak_ctr_title&lt;/span&gt; detection.</p>
   </div>
   <div class="card">
    <h2>Contract</h2>
    <p class="small" style="margin-top:6px"><b>AUTO</b> writes <code>data/seo/overrides.json</code> fields: <code>title</code> · <code>meta_description</code> · <code>og_title</code> · <code>og_description</code>. Rebuild required before <code>verify</code> can pass. <b>PR</b> proposals land under <code>data/seo/proposals/</code> · <b>HUMAN</b> never auto-applies.</p>
    <p class="small muted">Still forbidden: fabricated trust signals, thin fan-intent pages at scale, meta-keywords stuffing, player-likeness / team-logo suggestions. <code>site/</code> is never hand-edited — see AGENTS.md §3.3.</p>
    <p class="small">Runbook: <code class="kbd">python3 -m seo_engine run</code> (dry-run) · <code class="kbd">python3 -m seo_engine apply --commit</code> then <code class="kbd">python3 src/build.py</code> then <code class="kbd">python3 -m seo_engine verify --record</code></p>
-   <p class="small muted">Generated 2026-10-28T22:13:27Z · <span class="kbd">seo_engine/dashboard.py</span> → <span class="kbd">ops/seo/index.html</span> → <span class="kbd">site/ops/seo/</span></p>
+   <p class="small muted">Generated 2026-10-28T22:38:51Z · <span class="kbd">seo_engine/dashboard.py</span> → <span class="kbd">ops/seo/index.html</span> → <span class="kbd">site/ops/seo/</span></p>
   </div>
  </div>
 
  <section id="audit">
   <div class="card">
-   <h2>Audit findings <span class="muted" style="font-weight:600">· 0 total</span></h2>
+   <h2>Audit findings <span class="muted" style="font-weight:600">· 1 total</span></h2>
    <p class="muted small">Crawl of <code>site/</code> (indexable pages only — redirect stubs & noindex pages excluded). Full list also in <code>data/seo/last_audit.json</code>.</p>
    <div style="overflow:auto">
    <table>
     <thead><tr><th>Path</th><th>Severity</th><th>Type</th><th>Detail</th></tr></thead>
-    <tbody><tr><td colspan="4" class="muted small">No findings — the site is clean against the audited rules (title / description budgets, canonical, OG, H1, duplicate titles, GSC CTR when data is present).</td></tr></tbody>
+    <tbody><tr><td><code class="small">/green-bay-packers-shirts/</code></td><td><span class="badge s-medium">medium</span></td><td><span class="kbd">weak_ctr_title</span></td><td class="small" style="max-width:38ch">GSC: 114 impressions, CTR 0.0%, pos 34.06. Top query: None.</td></tr></tbody>
    </table>
    </div>
    <details><summary>Raw audit JSON (first 40 findings)</summary><pre>{
-  &quot;by_severity&quot;: {},
-  &quot;by_type&quot;: {},
+  &quot;by_severity&quot;: {
+    &quot;medium&quot;: 1
+  },
+  &quot;by_type&quot;: {
+    &quot;weak_ctr_title&quot;: 1
+  },
   &quot;domain&quot;: &quot;https://gridironlocker.store&quot;,
   &quot;engine&quot;: &quot;seo_engine.audit&quot;,
-  &quot;finding_count&quot;: 0,
-  &quot;findings&quot;: [],
-  &quot;generated_at&quot;: &quot;2026-10-28T22:13:27Z&quot;,
-  &quot;gsc_pages&quot;: 0,
-  &quot;gsc_rows&quot;: 0,
+  &quot;finding_count&quot;: 1,
+  &quot;findings&quot;: [
+    {
+      &quot;detail&quot;: &quot;GSC: 114 impressions, CTR 0.0%, pos 34.06. Top query: None.&quot;,
+      &quot;evidence&quot;: {
+        &quot;clicks&quot;: 0.0,
+        &quot;ctr&quot;: 0.0,
+        &quot;current_title&quot;: &quot;Green Bay Packers Fan Shirts | Gridiron Locker&quot;,
+        &quot;impressions&quot;: 114.0,
+        &quot;position&quot;: 34.06,
+        &quot;top_query&quot;: null
+      },
+      &quot;path&quot;: &quot;/green-bay-packers-shirts/&quot;,
+      &quot;severity&quot;: &quot;medium&quot;,
+      &quot;suggested&quot;: {},
+      &quot;type&quot;: &quot;weak_ctr_title&quot;
+    }
+  ],
+  &quot;generated_at&quot;: &quot;2026-10-28T22:38:51Z&quot;,
+  &quot;gsc_pages&quot;: 48,
+  &quot;gsc_rows&quot;: 48,
   &quot;indexable_count&quot;: 127,
   &quot;page_count&quot;: 617
 }</pre></details>
@@ -155,8 +175,8 @@ pre{overflow:auto;max-height:420px;font-size:.70rem;color:var(--mut2);white-spac
 
  <section id="actions">
   <div class="card">
-   <h2>AUTO / PR / HUMAN actions <span class="muted" style="font-weight:600">· 0 total</span></h2>
-   <p class="muted small">From <code>data/seo/last_decisions.json</code> @ <span class="mono">2026-10-28T22:13:27Z</span> · AUTO <span class="badge m-auto">0</span> · PR <span class="badge m-pr">0</span> · HUMAN <span class="badge m-human">0</span> · observe 0</p>
+   <h2>AUTO / PR / HUMAN actions <span class="muted" style="font-weight:600">· 1 total</span></h2>
+   <p class="muted small">From <code>data/seo/last_decisions.json</code> @ <span class="mono">2026-10-28T22:38:51Z</span> · AUTO <span class="badge m-auto">0</span> · PR <span class="badge m-pr">0</span> · HUMAN <span class="badge m-human">0</span> · observe 1</p>
 
    <h3 style="color:var(--green)">AUTO · ready to apply</h3>
    <p class="small muted">Low-risk metadata/OG trims that <code>apply --commit</code> writes to <code>data/seo/overrides.json</code>. Rebuild to land in live HTML; <code>verify</code> confirms.</p>
@@ -164,7 +184,7 @@ pre{overflow:auto;max-height:420px;font-size:.70rem;color:var(--mut2);white-spac
    <table>
     <thead><tr><th>Path</th><th>Type</th><th>Score</th><th>Changes</th><th>Detail · reason</th><th>Status</th></tr></thead>
     <tbody>
-     <tr><td colspan="6" class="muted small">No AUTO-ready actions. Audit is clean or suggestions are already overridden. (observe-only rows still appear in raw decisions JSON.)</td></tr>
+     <tr><td><code class="small">/green-bay-packers-shirts/</code></td><td><span class="kbd">weak_ctr_title</span><br><span class="badge s-medium" style="margin-top:4px;display:inline-block">medium</span></td><td class="num">52.14</td><td class="changes"><span class="muted">—</span></td><td class="small" style="max-width:30ch">GSC: 114 impressions, CTR 0.0%, pos 34.06. Top query: None.<br><span class="muted">No safe auto-fix payload; flagged for observation only.</span></td><td><span class="badge st-observe">observe</span></td></tr>
     </tbody>
    </table>
    </div>
@@ -192,10 +212,31 @@ pre{overflow:auto;max-height:420px;font-size:.70rem;color:var(--mut2);white-spac
    </table>
    </div>
    <details><summary>Raw decisions JSON</summary><pre>{
-  &quot;action_count&quot;: 0,
-  &quot;actions&quot;: [],
+  &quot;action_count&quot;: 1,
+  &quot;actions&quot;: [
+    {
+      &quot;changes&quot;: {},
+      &quot;detail&quot;: &quot;GSC: 114 impressions, CTR 0.0%, pos 34.06. Top query: None.&quot;,
+      &quot;evidence&quot;: {
+        &quot;clicks&quot;: 0.0,
+        &quot;ctr&quot;: 0.0,
+        &quot;current_title&quot;: &quot;Green Bay Packers Fan Shirts | Gridiron Locker&quot;,
+        &quot;impressions&quot;: 114.0,
+        &quot;position&quot;: 34.06,
+        &quot;top_query&quot;: null
+      },
+      &quot;id&quot;: &quot;seo-c00c9b85f5&quot;,
+      &quot;mode&quot;: &quot;AUTO&quot;,
+      &quot;path&quot;: &quot;/green-bay-packers-shirts/&quot;,
+      &quot;reason&quot;: &quot;No safe auto-fix payload; flagged for observation only.&quot;,
+      &quot;score&quot;: 52.14,
+      &quot;severity&quot;: &quot;medium&quot;,
+      &quot;status&quot;: &quot;observe&quot;,
+      &quot;type&quot;: &quot;weak_ctr_title&quot;
+    }
+  ],
   &quot;engine&quot;: &quot;seo_engine.decide&quot;,
-  &quot;generated_at&quot;: &quot;2026-10-28T22:13:27Z&quot;,
+  &quot;generated_at&quot;: &quot;2026-10-28T22:38:51Z&quot;,
   &quot;policy&quot;: {
     &quot;auto&quot;: [
       &quot;description_too_long&quot;,
@@ -228,12 +269,12 @@ pre{overflow:auto;max-height:420px;font-size:.70rem;color:var(--mut2);white-spac
       &quot;schema_enrichment&quot;
     ]
   },
-  &quot;source_audit_at&quot;: &quot;2026-10-28T22:13:27Z&quot;,
+  &quot;source_audit_at&quot;: &quot;2026-10-28T22:38:51Z&quot;,
   &quot;summary&quot;: {
     &quot;AUTO&quot;: 0,
     &quot;HUMAN&quot;: 0,
     &quot;PR&quot;: 0,
-    &quot;observe&quot;: 0
+    &quot;observe&quot;: 1
   }
 }</pre></details>
   </div>
@@ -322,15 +363,168 @@ pre{overflow:auto;max-height:420px;font-size:.70rem;color:var(--mut2);white-spac
  <section id="gsc" style="display:grid;grid-template-columns:1fr 1fr;gap:16px">
   <div class="card" style="margin-top:0">
    <h2>GSC export</h2>
-   <p class="small">Empty — paste a Search Console export into &lt;code&gt;data/seo/gsc_export.json&lt;/code&gt; to enable CTR-aware titles and GSC content gaps. See &lt;code&gt;seo_engine/README.md&lt;/code&gt;. Numbers are never invented.</p>
-   <p class="muted small">File: <code>data/seo/gsc_export.json</code> · rows 0</p>
+   <p class="small">48 row(s) present — engine uses them for &lt;span class=kbd&gt;weak_ctr_title&lt;/span&gt; detection.</p>
+   <p class="muted small">File: <code>data/seo/gsc_export.json</code> · rows 48</p>
    <pre style="margin-top:8px">{
+  &quot;rows&quot;: [
+    {
+      &quot;page&quot;: &quot;https://gridironlocker.store/&quot;,
+      &quot;clicks&quot;: 12,
+      &quot;impressions&quot;: 54,
+      &quot;ctr&quot;: 0.2222,
+      &quot;position&quot;: 5.44
+    },
+    {
+      &quot;page&quot;: &quot;https://gridironlocker.store/collections/&quot;,
+      &quot;clicks&quot;: 1,
+      &quot;impressions&quot;: 16,
+      &quot;ctr&quot;: 0.0625,
+      &quot;position&quot;: 12.31
+    },
+    {
+      &quot;page&quot;: &quot;https://gridironlocker.store/shop/cleveland-football-est-1946/&quot;,
+      &quot;clicks&quot;: 1,
+      &quot;impressions&quot;: 13,
+      &quot;ctr&quot;: 0.0769,
+      &quot;position&quot;: 6.85
+    },
+    {
+      &quot;page&quot;: &quot;https://gridironlocker.store/cleveland-browns-shirts/&quot;,
+      &quot;clicks&quot;: 1,
+      &quot;impressions&quot;: 7,
+      &quot;ctr&quot;: 0.1429,
+      &quot;position&quot;: 9.43
+    },
+    {
+      &quot;page&quot;: &quot;https://gridironlocker.store/shipping/&quot;,
+      &quot;clicks&quot;: 1,
+      &quot;impressions&quot;: 6,
+      &quot;ctr&quot;: 0.1667,
+      &quot;position&quot;: 3.67
+    },
+    {
+      &quot;page&quot;: &quot;https://gridironlocker.store/size-guide/&quot;,
+      &quot;clicks&quot;: 1,
+      &quot;impressions&quot;: 5,
+      &quot;ctr&quot;: 0.2,
+      &quot;position&quot;: 5.2
+    }
+  ],
+  &quot;_truncated&quot;: &quot;... +42 rows&quot;,
   &quot;schema_version&quot;: 1,
-  &quot;updated&quot;: null,
-  &quot;source&quot;: &quot;Paste a Search Console export here (or write one via a future importer). rows[] only — never invent numbers.&quot;,
+  &quot;updated&quot;: &quot;2026-10-28T22:35:12Z&quot;,
+  &quot;source&quot;: &quot;Imported by seo_engine.import_gsc from a Search Console Performance CSV export. rows[] are page-level aggregates (clicks, impressions, ctr as decimal fraction, position). The export&#x27;s &#x27;Top queries&#x27; table has no page attribution, so query-level aggregates live under &#x27;queries&#x27; and are never attached to a page. All numbers are copied verbatim.&quot;,
   &quot;contract&quot;: &quot;Each row: page (absolute URL), optional query, clicks, impressions, ctr, position. Used by seo_engine.audit for weak-CTR detection and by seo_engine.content for content-gap proposals.&quot;,
-  &quot;rows&quot;: []
-}</pre>
+  &quot;queries&quot;: [
+    {
+      &quot;query&quot;: &quot;gridiron cap locker&quot;,
+      &quot;clicks&quot;: 6,
+      &quot;impressions&quot;: 13,
+      &quot;ctr&quot;: 0.4615,
+      &quot;position&quot;: 3.46
+    },
+    {
+      &quot;query&quot;: &quot;green bay packers shirt&quot;,
+      &quot;clicks&quot;: 0,
+      &quot;impressions&quot;: 41,
+      &quot;ctr&quot;: 0.0,
+      &quot;position&quot;: 39.68
+    },
+    {
+      &quot;query&quot;: &quot;michigan shirts&quot;,
+      &quot;clicks&quot;: 0,
+      &quot;impressions&quot;: 25,
+      &quot;ctr&quot;: 0.0,
+      &quot;position&quot;: 44.56
+    },
+    {
+      &quot;query&quot;: &quot;packers shirt&quot;,
+      &quot;clicks&quot;: 0,
+      &quot;impressions&quot;: 15,
+      &quot;ctr&quot;: 0.0,
+      &quot;position&quot;: 37.07
+    },
+    {
+      &quot;query&quot;: &quot;dearborn michigan t-shirts&quot;,
+      &quot;clicks&quot;: 0,
+      &quot;impressions&quot;: 13,
+      &quot;ctr&quot;: 0.0,
+      &quot;position&quot;: 55.38
+    },
+    {
+      &quot;query&quot;: &quot;gridiron fan gear&quot;,
+      &quot;clicks&quot;: 0,
+      &quot;impressions&quot;: 11,
+      &quot;ctr&quot;: 0.0,
+      &quot;position&quot;: 11.0
+    },
+    {
+      &quot;query&quot;: &quot;dearborn michigan apparel&quot;,
+      &quot;clicks&quot;: 0,
+      &quot;impressions&quot;: 9,
+      &quot;ctr&quot;: 0.0,
+      &quot;position&quot;: 59.33
+    },
+    {
+      &quot;query&quot;: &quot;michigan t shirts&quot;,
+      &quot;clicks&quot;: 0,
+      &quot;impressions&quot;: 8,
+      &quot;ctr&quot;: 0.0,
+      &quot;position&quot;: 50.62
+    },
+    {
+      &quot;query&quot;: &quot;michigan t shirt&quot;,
+      &quot;clicks&quot;: 0,
+      &quot;impressions&quot;: 7,
+      &quot;ctr&quot;: 0.0,
+      &quot;position&quot;: 37.86
+    },
+    {
+      &quot;query&quot;: &quot;michigan shirt&quot;,
+      &quot;clicks&quot;: 0,
+      &quot;impressions&quot;: 5,
+      &quot;ctr&quot;: 0.0,
+      &quot;position&quot;: 43.8
+    },
+    {
+      &quot;query&quot;: &quot;michigan football shirt&quot;,
+      &quot;clicks&quot;: 0,
+      &quot;impressions&quot;: 4,
+      &quot;ctr&quot;: 0.0,
+      &quot;position&quot;: 34.5
+    },
+    {
+      &quot;query&quot;: &quot;michigan wolverines shirt&quot;,
+      &quot;clicks&quot;: 0,
+      &quot;impressions&quot;: 4,
+      &quot;ctr&quot;: 0.0,
+      &quot;position&quot;: 37.25
+    },
+    {
+      &quot;query&quot;: &quot;michigan tshirt&quot;,
+      &quot;clicks&quot;: 0,
+      &quot;impressions&quot;: 4,
+      &quot;ctr&quot;: 0.0,
+      &quot;position&quot;: 44.5
+    },
+    {
+      &quot;query&quot;: &quot;beware of dawgs&quot;,
+      &quot;clicks&quot;: 0,
+      &quot;impressions&quot;: 3,
+      &quot;ctr&quot;: 0.0,
+      &quot;position&quot;: 8.67
+    },
+    {
+      &quot;query&quot;: &quot;michigan vs everyone shirt&quot;,
+      &quot;clicks&quot;: 0,
+      &quot;impressions&quot;: 3,
+      &quot;ctr&quot;: 0.0,
+      &quot;position&quot;: 43.33
+    },
+    {
+      &quot;query&quot;: &quot;green bay packers flannel shirt&quot;,
+      &quot;clicks&quot;: 0,
+      &quot;impressions&quot;: 2</pre>
    <p class="small muted">Real CTR / impressions are only shown when this file has rows. Without it the engine still audits titles / descriptions / canonical / OG.</p>
   </div>
   <div class="card" style="margin-top:0">
@@ -366,7 +560,7 @@ pre{overflow:auto;max-height:420px;font-size:.70rem;color:var(--mut2);white-spac
    <details><summary>Full policy notes + raw opportunities</summary>
     <ul><li class='small'><code class='muted'>No mass fan-intent pages. /search/ already consolidates ?q/?t/?g/?st=.</code></li><li class='small'><code class='muted'>No new product URL for a slug that already has one.</code></li><li class='small'><code class='muted'>No player-face / surname-on-chest / jersey-number / team-logo suggestions.</code></li><li class='small'><code class='muted'>Articles land via src/ guides after approval — never hand-copied into site/.</code></li><li class='small'><code class='muted'>Live catalogue slugs available for product links: 96.</code></li><li class='small'><code class='muted'>Existing guides: [&#x27;/guides/&#x27;, &#x27;/guides/2026-week-1-shirts/&#x27;, &#x27;/guides/cleveland-browns-shirts-buying-guide/&#x27;, &#x27;/guides/dallas-cowboys-shirts-buying-guide/&#x27;, &#x27;/guides/green-bay-packers-shirts-buying-guide/&#x27;, &#x27;/guides/michigan-wolverines-shirts-buying-guide/&#x27;].</code></li></ul>
     <pre>{
-  &quot;generated_at&quot;: &quot;2026-10-28T22:13:27Z&quot;,
+  &quot;generated_at&quot;: &quot;2026-10-28T22:38:51Z&quot;,
   &quot;engine&quot;: &quot;seo_engine.content&quot;,
   &quot;domain&quot;: &quot;https://gridironlocker.store&quot;,
   &quot;opportunity_count&quot;: 3,
@@ -453,8 +647,8 @@ pre{overflow:auto;max-height:420px;font-size:.70rem;color:var(--mut2);white-spac
 </main>
 
 <footer class="foot"><div class="wrap">
-  <span>SEO Engine dashboard · ops/seo · noindex · robots Disallow: /ops/ · <span class="mono">2026-10-28T22:13:27Z</span> · <a href="../index.html">Ops Index</a></span>
-  <span class="muted">Audit verdict: <b style="color:var(--green)">0 finding(s)</b> · AUTO 0 · PR 0 · HUMAN 0 · <a href="https://github.com/gridironlocker/gridiron-locker/blob/main/seo_engine/README.md">README</a></span>
+  <span>SEO Engine dashboard · ops/seo · noindex · robots Disallow: /ops/ · <span class="mono">2026-10-28T22:38:51Z</span> · <a href="../index.html">Ops Index</a></span>
+  <span class="muted">Audit verdict: <b style="color:var(--orange)">1 finding(s)</b> · AUTO 0 · PR 0 · HUMAN 0 · <a href="https://github.com/gridironlocker/gridiron-locker/blob/main/seo_engine/README.md">README</a></span>
 </div></footer>
 </body>
 </html>

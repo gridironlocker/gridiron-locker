@@ -1,7 +1,1351 @@
 {
   "schema_version": 1,
-  "updated": null,
-  "source": "Paste a Search Console export here (or write one via a future importer). rows[] only — never invent numbers.",
+  "updated": "2026-10-28T22:35:12Z",
+  "source": "Imported by seo_engine.import_gsc from a Search Console Performance CSV export. rows[] are page-level aggregates (clicks, impressions, ctr as decimal fraction, position). The export's 'Top queries' table has no page attribution, so query-level aggregates live under 'queries' and are never attached to a page. All numbers are copied verbatim.",
   "contract": "Each row: page (absolute URL), optional query, clicks, impressions, ctr, position. Used by seo_engine.audit for weak-CTR detection and by seo_engine.content for content-gap proposals.",
-  "rows": []
+  "rows": [
+    {
+      "page": "https://gridironlocker.store/",
+      "clicks": 12,
+      "impressions": 54,
+      "ctr": 0.2222,
+      "position": 5.44
+    },
+    {
+      "page": "https://gridironlocker.store/collections/",
+      "clicks": 1,
+      "impressions": 16,
+      "ctr": 0.0625,
+      "position": 12.31
+    },
+    {
+      "page": "https://gridironlocker.store/shop/cleveland-football-est-1946/",
+      "clicks": 1,
+      "impressions": 13,
+      "ctr": 0.0769,
+      "position": 6.85
+    },
+    {
+      "page": "https://gridironlocker.store/cleveland-browns-shirts/",
+      "clicks": 1,
+      "impressions": 7,
+      "ctr": 0.1429,
+      "position": 9.43
+    },
+    {
+      "page": "https://gridironlocker.store/shipping/",
+      "clicks": 1,
+      "impressions": 6,
+      "ctr": 0.1667,
+      "position": 3.67
+    },
+    {
+      "page": "https://gridironlocker.store/size-guide/",
+      "clicks": 1,
+      "impressions": 5,
+      "ctr": 0.2,
+      "position": 5.2
+    },
+    {
+      "page": "https://gridironlocker.store/shop/limited-edition-go-b-r-o-w-n-s/",
+      "clicks": 1,
+      "impressions": 1,
+      "ctr": 1.0,
+      "position": 6.0
+    },
+    {
+      "page": "https://gridironlocker.store/michigan-wolverines-shirts/index.html",
+      "clicks": 0,
+      "impressions": 195,
+      "ctr": 0.0,
+      "position": 40.76
+    },
+    {
+      "page": "https://gridironlocker.store/green-bay-packers-shirts/",
+      "clicks": 0,
+      "impressions": 114,
+      "ctr": 0.0,
+      "position": 34.06
+    },
+    {
+      "page": "https://gridironlocker.store/shop/limited-edition-cleveland-football-beware-of-the-dawgs/",
+      "clicks": 0,
+      "impressions": 58,
+      "ctr": 0.0,
+      "position": 6.38
+    },
+    {
+      "page": "https://gridironlocker.store/shop/limited-edition-cleveland-football-copy/",
+      "clicks": 0,
+      "impressions": 31,
+      "ctr": 0.0,
+      "position": 13.39
+    },
+    {
+      "page": "https://gridironlocker.store/shop/limited-edition-grb2/",
+      "clicks": 0,
+      "impressions": 19,
+      "ctr": 0.0,
+      "position": 5.95
+    },
+    {
+      "page": "https://gridironlocker.store/shop/dallas-football-vintage-style-tee/",
+      "clicks": 0,
+      "impressions": 12,
+      "ctr": 0.0,
+      "position": 5.08
+    },
+    {
+      "page": "https://gridironlocker.store/2026-season/",
+      "clicks": 0,
+      "impressions": 12,
+      "ctr": 0.0,
+      "position": 7.83
+    },
+    {
+      "page": "https://gridironlocker.store/shop/limited-edition-grb30/",
+      "clicks": 0,
+      "impressions": 10,
+      "ctr": 0.0,
+      "position": 27.3
+    },
+    {
+      "page": "https://gridironlocker.store/shop/dallas-football-vintage-athletic-style-f/",
+      "clicks": 0,
+      "impressions": 9,
+      "ctr": 0.0,
+      "position": 5.0
+    },
+    {
+      "page": "https://gridironlocker.store/shop/limited-edition-grb36/",
+      "clicks": 0,
+      "impressions": 9,
+      "ctr": 0.0,
+      "position": 6.44
+    },
+    {
+      "page": "https://gridironlocker.store/shop/limited-edition-grb33/",
+      "clicks": 0,
+      "impressions": 9,
+      "ctr": 0.0,
+      "position": 17.22
+    },
+    {
+      "page": "https://gridironlocker.store/shop/limited-edition-cleveland-football/",
+      "clicks": 0,
+      "impressions": 6,
+      "ctr": 0.0,
+      "position": 6.5
+    },
+    {
+      "page": "https://gridironlocker.store/shop/limited-edition-grb20/",
+      "clicks": 0,
+      "impressions": 5,
+      "ctr": 0.0,
+      "position": 3.8
+    },
+    {
+      "page": "https://gridironlocker.store/fan-trend-index/",
+      "clicks": 0,
+      "impressions": 5,
+      "ctr": 0.0,
+      "position": 6.6
+    },
+    {
+      "page": "https://gridironlocker.store/shop/limited-edition-m-vs-all/",
+      "clicks": 0,
+      "impressions": 5,
+      "ctr": 0.0,
+      "position": 6.8
+    },
+    {
+      "page": "https://gridironlocker.store/shop/limited-edition-grb23/",
+      "clicks": 0,
+      "impressions": 5,
+      "ctr": 0.0,
+      "position": 8.2
+    },
+    {
+      "page": "https://gridironlocker.store/shop/limited-edition-m-fans-n30/index.html",
+      "clicks": 0,
+      "impressions": 4,
+      "ctr": 0.0,
+      "position": 6.25
+    },
+    {
+      "page": "https://gridironlocker.store/shop/limited-edition-tee-0-01-1/",
+      "clicks": 0,
+      "impressions": 4,
+      "ctr": 0.0,
+      "position": 8.5
+    },
+    {
+      "page": "https://gridironlocker.store/shop/doomsday-defense-tee/",
+      "clicks": 0,
+      "impressions": 3,
+      "ctr": 0.0,
+      "position": 1.33
+    },
+    {
+      "page": "https://gridironlocker.store/shop/dawg-life/",
+      "clicks": 0,
+      "impressions": 3,
+      "ctr": 0.0,
+      "position": 4.67
+    },
+    {
+      "page": "https://gridironlocker.store/about/",
+      "clicks": 0,
+      "impressions": 3,
+      "ctr": 0.0,
+      "position": 6.33
+    },
+    {
+      "page": "https://gridironlocker.store/index.html",
+      "clicks": 0,
+      "impressions": 3,
+      "ctr": 0.0,
+      "position": 34.33
+    },
+    {
+      "page": "https://gridironlocker.store/shop/valentine-v2/",
+      "clicks": 0,
+      "impressions": 2,
+      "ctr": 0.0,
+      "position": 3.5
+    },
+    {
+      "page": "https://gridironlocker.store/shop/girly-vintage-texas-pride/",
+      "clicks": 0,
+      "impressions": 2,
+      "ctr": 0.0,
+      "position": 7.5
+    },
+    {
+      "page": "https://gridironlocker.store/shop/vintage-country/",
+      "clicks": 0,
+      "impressions": 2,
+      "ctr": 0.0,
+      "position": 8.5
+    },
+    {
+      "page": "https://gridironlocker.store/shop/limited-edition-grb1-1/",
+      "clicks": 0,
+      "impressions": 2,
+      "ctr": 0.0,
+      "position": 9.0
+    },
+    {
+      "page": "https://gridironlocker.store/guides/michigan-wolverines-shirts-buying-guide/",
+      "clicks": 0,
+      "impressions": 2,
+      "ctr": 0.0,
+      "position": 11.0
+    },
+    {
+      "page": "https://gridironlocker.store/shop/cle-browns-orange/",
+      "clicks": 0,
+      "impressions": 2,
+      "ctr": 0.0,
+      "position": 14.0
+    },
+    {
+      "page": "https://gridironlocker.store/guides/dallas-cowboys-shirts-buying-guide/",
+      "clicks": 0,
+      "impressions": 1,
+      "ctr": 0.0,
+      "position": 2.0
+    },
+    {
+      "page": "https://gridironlocker.store/shop/cle-browns-dawg/",
+      "clicks": 0,
+      "impressions": 1,
+      "ctr": 0.0,
+      "position": 2.0
+    },
+    {
+      "page": "https://gridironlocker.store/shop/dallas-texas-vintage-athletic-style-t-sh/",
+      "clicks": 0,
+      "impressions": 1,
+      "ctr": 0.0,
+      "position": 2.0
+    },
+    {
+      "page": "https://gridironlocker.store/shop/limited-edition-lfg/",
+      "clicks": 0,
+      "impressions": 1,
+      "ctr": 0.0,
+      "position": 3.0
+    },
+    {
+      "page": "https://gridironlocker.store/guides/cleveland-browns-shirts-buying-guide/",
+      "clicks": 0,
+      "impressions": 1,
+      "ctr": 0.0,
+      "position": 4.0
+    },
+    {
+      "page": "https://gridironlocker.store/shop/limited-edition-grb27/",
+      "clicks": 0,
+      "impressions": 1,
+      "ctr": 0.0,
+      "position": 5.0
+    },
+    {
+      "page": "https://gridironlocker.store/shop/limited-edition-qb19/index.html",
+      "clicks": 0,
+      "impressions": 1,
+      "ctr": 0.0,
+      "position": 5.0
+    },
+    {
+      "page": "https://gridironlocker.store/drops/",
+      "clicks": 0,
+      "impressions": 1,
+      "ctr": 0.0,
+      "position": 7.0
+    },
+    {
+      "page": "https://gridironlocker.store/michigan/joe/",
+      "clicks": 0,
+      "impressions": 1,
+      "ctr": 0.0,
+      "position": 8.0
+    },
+    {
+      "page": "https://gridironlocker.store/shop/limited-edition-m-fans/index.html",
+      "clicks": 0,
+      "impressions": 1,
+      "ctr": 0.0,
+      "position": 9.0
+    },
+    {
+      "page": "https://gridironlocker.store/search/",
+      "clicks": 0,
+      "impressions": 1,
+      "ctr": 0.0,
+      "position": 10.0
+    },
+    {
+      "page": "https://gridironlocker.store/shop/limited-edition-no-fly-zone-denzel/index.html",
+      "clicks": 0,
+      "impressions": 1,
+      "ctr": 0.0,
+      "position": 10.0
+    },
+    {
+      "page": "https://gridironlocker.store/shop/limited-edition-m-fans-n26/",
+      "clicks": 0,
+      "impressions": 1,
+      "ctr": 0.0,
+      "position": 11.0
+    }
+  ],
+  "queries": [
+    {
+      "query": "gridiron cap locker",
+      "clicks": 6,
+      "impressions": 13,
+      "ctr": 0.4615,
+      "position": 3.46
+    },
+    {
+      "query": "green bay packers shirt",
+      "clicks": 0,
+      "impressions": 41,
+      "ctr": 0.0,
+      "position": 39.68
+    },
+    {
+      "query": "michigan shirts",
+      "clicks": 0,
+      "impressions": 25,
+      "ctr": 0.0,
+      "position": 44.56
+    },
+    {
+      "query": "packers shirt",
+      "clicks": 0,
+      "impressions": 15,
+      "ctr": 0.0,
+      "position": 37.07
+    },
+    {
+      "query": "dearborn michigan t-shirts",
+      "clicks": 0,
+      "impressions": 13,
+      "ctr": 0.0,
+      "position": 55.38
+    },
+    {
+      "query": "gridiron fan gear",
+      "clicks": 0,
+      "impressions": 11,
+      "ctr": 0.0,
+      "position": 11.0
+    },
+    {
+      "query": "dearborn michigan apparel",
+      "clicks": 0,
+      "impressions": 9,
+      "ctr": 0.0,
+      "position": 59.33
+    },
+    {
+      "query": "michigan t shirts",
+      "clicks": 0,
+      "impressions": 8,
+      "ctr": 0.0,
+      "position": 50.62
+    },
+    {
+      "query": "michigan t shirt",
+      "clicks": 0,
+      "impressions": 7,
+      "ctr": 0.0,
+      "position": 37.86
+    },
+    {
+      "query": "michigan shirt",
+      "clicks": 0,
+      "impressions": 5,
+      "ctr": 0.0,
+      "position": 43.8
+    },
+    {
+      "query": "michigan football shirt",
+      "clicks": 0,
+      "impressions": 4,
+      "ctr": 0.0,
+      "position": 34.5
+    },
+    {
+      "query": "michigan wolverines shirt",
+      "clicks": 0,
+      "impressions": 4,
+      "ctr": 0.0,
+      "position": 37.25
+    },
+    {
+      "query": "michigan tshirt",
+      "clicks": 0,
+      "impressions": 4,
+      "ctr": 0.0,
+      "position": 44.5
+    },
+    {
+      "query": "beware of dawgs",
+      "clicks": 0,
+      "impressions": 3,
+      "ctr": 0.0,
+      "position": 8.67
+    },
+    {
+      "query": "michigan vs everyone shirt",
+      "clicks": 0,
+      "impressions": 3,
+      "ctr": 0.0,
+      "position": 43.33
+    },
+    {
+      "query": "green bay packers flannel shirt",
+      "clicks": 0,
+      "impressions": 2,
+      "ctr": 0.0,
+      "position": 29.5
+    },
+    {
+      "query": "funny green bay packers shirts",
+      "clicks": 0,
+      "impressions": 2,
+      "ctr": 0.0,
+      "position": 36.5
+    },
+    {
+      "query": "retro green bay packers shirt",
+      "clicks": 0,
+      "impressions": 2,
+      "ctr": 0.0,
+      "position": 38.5
+    },
+    {
+      "query": "michigan wolverines shirts",
+      "clicks": 0,
+      "impressions": 2,
+      "ctr": 0.0,
+      "position": 39.0
+    },
+    {
+      "query": "packers dad shirt",
+      "clicks": 0,
+      "impressions": 2,
+      "ctr": 0.0,
+      "position": 39.5
+    },
+    {
+      "query": "michigan dad shirt",
+      "clicks": 0,
+      "impressions": 2,
+      "ctr": 0.0,
+      "position": 42.0
+    },
+    {
+      "query": "go blue shirt",
+      "clicks": 0,
+      "impressions": 2,
+      "ctr": 0.0,
+      "position": 46.0
+    },
+    {
+      "query": "dearborn michigan sweatshirts",
+      "clicks": 0,
+      "impressions": 2,
+      "ctr": 0.0,
+      "position": 46.5
+    },
+    {
+      "query": "michigan vs everybody shirt",
+      "clicks": 0,
+      "impressions": 2,
+      "ctr": 0.0,
+      "position": 47.5
+    },
+    {
+      "query": "michigan t-shirts",
+      "clicks": 0,
+      "impressions": 2,
+      "ctr": 0.0,
+      "position": 48.0
+    },
+    {
+      "query": "michigan football team store",
+      "clicks": 0,
+      "impressions": 2,
+      "ctr": 0.0,
+      "position": 49.5
+    },
+    {
+      "query": "business is finished michigan shirt",
+      "clicks": 0,
+      "impressions": 2,
+      "ctr": 0.0,
+      "position": 56.0
+    },
+    {
+      "query": "sunday gridiron clothing reviews",
+      "clicks": 0,
+      "impressions": 1,
+      "ctr": 0.0,
+      "position": 1.0
+    },
+    {
+      "query": "sunday gridiron clothing",
+      "clicks": 0,
+      "impressions": 1,
+      "ctr": 0.0,
+      "position": 2.0
+    },
+    {
+      "query": "find where i can buy this shirt",
+      "clicks": 0,
+      "impressions": 1,
+      "ctr": 0.0,
+      "position": 3.0
+    },
+    {
+      "query": "kyle whittingham retire",
+      "clicks": 0,
+      "impressions": 1,
+      "ctr": 0.0,
+      "position": 8.0
+    },
+    {
+      "query": "all you need is love packers shirt",
+      "clicks": 0,
+      "impressions": 1,
+      "ctr": 0.0,
+      "position": 10.0
+    },
+    {
+      "query": "where is it",
+      "clicks": 0,
+      "impressions": 1,
+      "ctr": 0.0,
+      "position": 12.0
+    },
+    {
+      "query": "buy",
+      "clicks": 0,
+      "impressions": 1,
+      "ctr": 0.0,
+      "position": 15.0
+    },
+    {
+      "query": "ebay",
+      "clicks": 0,
+      "impressions": 1,
+      "ctr": 0.0,
+      "position": 16.0
+    },
+    {
+      "query": "buy one",
+      "clicks": 0,
+      "impressions": 1,
+      "ctr": 0.0,
+      "position": 17.0
+    },
+    {
+      "query": "green bay packers button down shirt",
+      "clicks": 0,
+      "impressions": 1,
+      "ctr": 0.0,
+      "position": 28.0
+    },
+    {
+      "query": "packers button down shirt",
+      "clicks": 0,
+      "impressions": 1,
+      "ctr": 0.0,
+      "position": 28.0
+    },
+    {
+      "query": "green bay packers button up shirt",
+      "clicks": 0,
+      "impressions": 1,
+      "ctr": 0.0,
+      "position": 29.0
+    },
+    {
+      "query": "green bay packer flannel shirt",
+      "clicks": 0,
+      "impressions": 1,
+      "ctr": 0.0,
+      "position": 30.0
+    },
+    {
+      "query": "michigan vs everybody gear",
+      "clicks": 0,
+      "impressions": 1,
+      "ctr": 0.0,
+      "position": 33.0
+    },
+    {
+      "query": "jordan love shirt",
+      "clicks": 0,
+      "impressions": 1,
+      "ctr": 0.0,
+      "position": 34.0
+    },
+    {
+      "query": "michigan football pullover",
+      "clicks": 0,
+      "impressions": 1,
+      "ctr": 0.0,
+      "position": 34.0
+    },
+    {
+      "query": "michigan football tee shirts",
+      "clicks": 0,
+      "impressions": 1,
+      "ctr": 0.0,
+      "position": 34.0
+    },
+    {
+      "query": "green bay shirt",
+      "clicks": 0,
+      "impressions": 1,
+      "ctr": 0.0,
+      "position": 35.0
+    },
+    {
+      "query": "greenbay shirt",
+      "clicks": 0,
+      "impressions": 1,
+      "ctr": 0.0,
+      "position": 35.0
+    },
+    {
+      "query": "michigan against everybody shirt",
+      "clicks": 0,
+      "impressions": 1,
+      "ctr": 0.0,
+      "position": 35.0
+    },
+    {
+      "query": "funny packers shirts",
+      "clicks": 0,
+      "impressions": 1,
+      "ctr": 0.0,
+      "position": 36.0
+    },
+    {
+      "query": "michigan football shirts",
+      "clicks": 0,
+      "impressions": 1,
+      "ctr": 0.0,
+      "position": 36.0
+    },
+    {
+      "query": "greenbay shirts",
+      "clicks": 0,
+      "impressions": 1,
+      "ctr": 0.0,
+      "position": 37.0
+    },
+    {
+      "query": "michigan wolverines football shirts",
+      "clicks": 0,
+      "impressions": 1,
+      "ctr": 0.0,
+      "position": 37.0
+    },
+    {
+      "query": "university of michigan football shirts",
+      "clicks": 0,
+      "impressions": 1,
+      "ctr": 0.0,
+      "position": 37.0
+    },
+    {
+      "query": "cleveland browns tie dye shirt",
+      "clicks": 0,
+      "impressions": 1,
+      "ctr": 0.0,
+      "position": 38.0
+    },
+    {
+      "query": "michigan football t shirts",
+      "clicks": 0,
+      "impressions": 1,
+      "ctr": 0.0,
+      "position": 38.0
+    },
+    {
+      "query": "michigan football t shirt",
+      "clicks": 0,
+      "impressions": 1,
+      "ctr": 0.0,
+      "position": 39.0
+    },
+    {
+      "query": "michigan t-shirt",
+      "clicks": 0,
+      "impressions": 1,
+      "ctr": 0.0,
+      "position": 39.0
+    },
+    {
+      "query": "maize michigan shirt",
+      "clicks": 0,
+      "impressions": 1,
+      "ctr": 0.0,
+      "position": 40.0
+    },
+    {
+      "query": "michigan lock it in shirt",
+      "clicks": 0,
+      "impressions": 1,
+      "ctr": 0.0,
+      "position": 40.0
+    },
+    {
+      "query": "wolverines shirts",
+      "clicks": 0,
+      "impressions": 1,
+      "ctr": 0.0,
+      "position": 40.0
+    },
+    {
+      "query": "michigan tee shirt",
+      "clicks": 0,
+      "impressions": 1,
+      "ctr": 0.0,
+      "position": 41.0
+    },
+    {
+      "query": "green bay shirts",
+      "clicks": 0,
+      "impressions": 1,
+      "ctr": 0.0,
+      "position": 42.0
+    },
+    {
+      "query": "michigan rose bowl sweatshirt",
+      "clicks": 0,
+      "impressions": 1,
+      "ctr": 0.0,
+      "position": 42.0
+    },
+    {
+      "query": "michigan university shirt",
+      "clicks": 0,
+      "impressions": 1,
+      "ctr": 0.0,
+      "position": 42.0
+    },
+    {
+      "query": "green bay packers throwback shirt",
+      "clicks": 0,
+      "impressions": 1,
+      "ctr": 0.0,
+      "position": 44.0
+    },
+    {
+      "query": "homefield michigan",
+      "clicks": 0,
+      "impressions": 1,
+      "ctr": 0.0,
+      "position": 44.0
+    },
+    {
+      "query": "michigan dress shirt",
+      "clicks": 0,
+      "impressions": 1,
+      "ctr": 0.0,
+      "position": 47.0
+    },
+    {
+      "query": "michigan football tee",
+      "clicks": 0,
+      "impressions": 1,
+      "ctr": 0.0,
+      "position": 47.0
+    },
+    {
+      "query": "michigan rose bowl shirt",
+      "clicks": 0,
+      "impressions": 1,
+      "ctr": 0.0,
+      "position": 48.0
+    },
+    {
+      "query": "michigan vs everybody sweatshirt",
+      "clicks": 0,
+      "impressions": 1,
+      "ctr": 0.0,
+      "position": 48.0
+    },
+    {
+      "query": "sunday funday football shirt",
+      "clicks": 0,
+      "impressions": 1,
+      "ctr": 0.0,
+      "position": 48.0
+    },
+    {
+      "query": "detroit michigan shirt",
+      "clicks": 0,
+      "impressions": 1,
+      "ctr": 0.0,
+      "position": 50.0
+    },
+    {
+      "query": "green bay packer shirt",
+      "clicks": 0,
+      "impressions": 1,
+      "ctr": 0.0,
+      "position": 50.0
+    },
+    {
+      "query": "state of michigan t shirts",
+      "clicks": 0,
+      "impressions": 1,
+      "ctr": 0.0,
+      "position": 50.0
+    },
+    {
+      "query": "michigan football long sleeve shirt",
+      "clicks": 0,
+      "impressions": 1,
+      "ctr": 0.0,
+      "position": 51.0
+    },
+    {
+      "query": "state of michigan shirts",
+      "clicks": 0,
+      "impressions": 1,
+      "ctr": 0.0,
+      "position": 53.0
+    },
+    {
+      "query": "michigan vs the world shirt",
+      "clicks": 0,
+      "impressions": 1,
+      "ctr": 0.0,
+      "position": 56.0
+    },
+    {
+      "query": "michigan vs everybody crewneck",
+      "clicks": 0,
+      "impressions": 1,
+      "ctr": 0.0,
+      "position": 59.0
+    },
+    {
+      "query": "michigan rose bowl shirts 2024",
+      "clicks": 0,
+      "impressions": 1,
+      "ctr": 0.0,
+      "position": 60.0
+    },
+    {
+      "query": "state of michigan shirt",
+      "clicks": 0,
+      "impressions": 1,
+      "ctr": 0.0,
+      "position": 61.0
+    },
+    {
+      "query": "michigan tie",
+      "clicks": 0,
+      "impressions": 1,
+      "ctr": 0.0,
+      "position": 71.0
+    },
+    {
+      "query": "michigan maize out shirt",
+      "clicks": 0,
+      "impressions": 1,
+      "ctr": 0.0,
+      "position": 73.0
+    },
+    {
+      "query": "michigan flannel shirt",
+      "clicks": 0,
+      "impressions": 1,
+      "ctr": 0.0,
+      "position": 87.0
+    },
+    {
+      "query": "michigan flannel",
+      "clicks": 0,
+      "impressions": 1,
+      "ctr": 0.0,
+      "position": 89.0
+    },
+    {
+      "query": "michigan dog shirt",
+      "clicks": 0,
+      "impressions": 1,
+      "ctr": 0.0,
+      "position": 94.0
+    }
+  ],
+  "daily": [
+    {
+      "date": "2026-09-29",
+      "clicks": 0,
+      "impressions": 8,
+      "ctr": 0.0,
+      "position": 21.4
+    },
+    {
+      "date": "2026-09-30",
+      "clicks": 0,
+      "impressions": 12,
+      "ctr": 0.0,
+      "position": 16.3
+    },
+    {
+      "date": "2026-10-01",
+      "clicks": 0,
+      "impressions": 61,
+      "ctr": 0.0,
+      "position": 28.7
+    },
+    {
+      "date": "2026-10-02",
+      "clicks": 1,
+      "impressions": 16,
+      "ctr": 0.0625,
+      "position": 21.0
+    },
+    {
+      "date": "2026-10-03",
+      "clicks": 0,
+      "impressions": 12,
+      "ctr": 0.0,
+      "position": 15.3
+    },
+    {
+      "date": "2026-10-04",
+      "clicks": 0,
+      "impressions": 19,
+      "ctr": 0.0,
+      "position": 11.4
+    },
+    {
+      "date": "2026-10-05",
+      "clicks": 1,
+      "impressions": 9,
+      "ctr": 0.1111,
+      "position": 19.1
+    },
+    {
+      "date": "2026-10-06",
+      "clicks": 0,
+      "impressions": 10,
+      "ctr": 0.0,
+      "position": 30.6
+    },
+    {
+      "date": "2026-10-07",
+      "clicks": 0,
+      "impressions": 19,
+      "ctr": 0.0,
+      "position": 24.2
+    },
+    {
+      "date": "2026-10-08",
+      "clicks": 0,
+      "impressions": 13,
+      "ctr": 0.0,
+      "position": 18.5
+    },
+    {
+      "date": "2026-10-09",
+      "clicks": 1,
+      "impressions": 15,
+      "ctr": 0.0667,
+      "position": 15.5
+    },
+    {
+      "date": "2026-10-10",
+      "clicks": 1,
+      "impressions": 13,
+      "ctr": 0.0769,
+      "position": 14.5
+    },
+    {
+      "date": "2026-10-11",
+      "clicks": 2,
+      "impressions": 38,
+      "ctr": 0.0526,
+      "position": 17.6
+    },
+    {
+      "date": "2026-10-12",
+      "clicks": 0,
+      "impressions": 13,
+      "ctr": 0.0,
+      "position": 16.5
+    },
+    {
+      "date": "2026-10-13",
+      "clicks": 0,
+      "impressions": 19,
+      "ctr": 0.0,
+      "position": 16.4
+    },
+    {
+      "date": "2026-10-14",
+      "clicks": 0,
+      "impressions": 12,
+      "ctr": 0.0,
+      "position": 39.6
+    },
+    {
+      "date": "2026-10-15",
+      "clicks": 1,
+      "impressions": 53,
+      "ctr": 0.0189,
+      "position": 29.1
+    },
+    {
+      "date": "2026-10-16",
+      "clicks": 0,
+      "impressions": 47,
+      "ctr": 0.0,
+      "position": 43.4
+    },
+    {
+      "date": "2026-10-17",
+      "clicks": 0,
+      "impressions": 19,
+      "ctr": 0.0,
+      "position": 28.3
+    },
+    {
+      "date": "2026-10-18",
+      "clicks": 2,
+      "impressions": 31,
+      "ctr": 0.0645,
+      "position": 19.8
+    },
+    {
+      "date": "2026-10-19",
+      "clicks": 2,
+      "impressions": 34,
+      "ctr": 0.0588,
+      "position": 32.5
+    },
+    {
+      "date": "2026-10-20",
+      "clicks": 1,
+      "impressions": 26,
+      "ctr": 0.0385,
+      "position": 26.7
+    },
+    {
+      "date": "2026-10-21",
+      "clicks": 1,
+      "impressions": 17,
+      "ctr": 0.0588,
+      "position": 23.7
+    },
+    {
+      "date": "2026-10-22",
+      "clicks": 2,
+      "impressions": 12,
+      "ctr": 0.1667,
+      "position": 20.7
+    },
+    {
+      "date": "2026-10-23",
+      "clicks": 1,
+      "impressions": 20,
+      "ctr": 0.05,
+      "position": 21.4
+    },
+    {
+      "date": "2026-10-24",
+      "clicks": 1,
+      "impressions": 12,
+      "ctr": 0.0833,
+      "position": 22.1
+    },
+    {
+      "date": "2026-10-25",
+      "clicks": 0,
+      "impressions": 25,
+      "ctr": 0.0,
+      "position": 8.0
+    },
+    {
+      "date": "2026-10-26",
+      "clicks": 1,
+      "impressions": 15,
+      "ctr": 0.0667,
+      "position": 5.1
+    }
+  ],
+  "devices": [
+    {
+      "device": "Mobile",
+      "clicks": 13,
+      "impressions": 315,
+      "ctr": 0.0413,
+      "position": 14.45
+    },
+    {
+      "device": "Desktop",
+      "clicks": 4,
+      "impressions": 281,
+      "ctr": 0.0142,
+      "position": 34.53
+    },
+    {
+      "device": "Tablet",
+      "clicks": 1,
+      "impressions": 4,
+      "ctr": 0.25,
+      "position": 4.75
+    }
+  ],
+  "countries": [
+    {
+      "country": "United States",
+      "clicks": 15,
+      "impressions": 547,
+      "ctr": 0.0274,
+      "position": 24.51
+    },
+    {
+      "country": "Spain",
+      "clicks": 1,
+      "impressions": 1,
+      "ctr": 1.0,
+      "position": 1.0
+    },
+    {
+      "country": "Pakistan",
+      "clicks": 1,
+      "impressions": 1,
+      "ctr": 1.0,
+      "position": 1.0
+    },
+    {
+      "country": "Morocco",
+      "clicks": 1,
+      "impressions": 1,
+      "ctr": 1.0,
+      "position": 2.0
+    },
+    {
+      "country": "Canada",
+      "clicks": 0,
+      "impressions": 12,
+      "ctr": 0.0,
+      "position": 10.0
+    },
+    {
+      "country": "United Kingdom",
+      "clicks": 0,
+      "impressions": 5,
+      "ctr": 0.0,
+      "position": 5.0
+    },
+    {
+      "country": "Russia",
+      "clicks": 0,
+      "impressions": 5,
+      "ctr": 0.0,
+      "position": 32.0
+    },
+    {
+      "country": "Germany",
+      "clicks": 0,
+      "impressions": 4,
+      "ctr": 0.0,
+      "position": 3.25
+    },
+    {
+      "country": "Brazil",
+      "clicks": 0,
+      "impressions": 3,
+      "ctr": 0.0,
+      "position": 14.33
+    },
+    {
+      "country": "Mexico",
+      "clicks": 0,
+      "impressions": 2,
+      "ctr": 0.0,
+      "position": 6.0
+    },
+    {
+      "country": "China",
+      "clicks": 0,
+      "impressions": 2,
+      "ctr": 0.0,
+      "position": 6.5
+    },
+    {
+      "country": "Italy",
+      "clicks": 0,
+      "impressions": 2,
+      "ctr": 0.0,
+      "position": 13.5
+    },
+    {
+      "country": "Bangladesh",
+      "clicks": 0,
+      "impressions": 2,
+      "ctr": 0.0,
+      "position": 45.0
+    },
+    {
+      "country": "Nigeria",
+      "clicks": 0,
+      "impressions": 2,
+      "ctr": 0.0,
+      "position": 60.0
+    },
+    {
+      "country": "Macau",
+      "clicks": 0,
+      "impressions": 1,
+      "ctr": 0.0,
+      "position": 2.0
+    },
+    {
+      "country": "Honduras",
+      "clicks": 0,
+      "impressions": 1,
+      "ctr": 0.0,
+      "position": 3.0
+    },
+    {
+      "country": "Australia",
+      "clicks": 0,
+      "impressions": 1,
+      "ctr": 0.0,
+      "position": 6.0
+    },
+    {
+      "country": "France",
+      "clicks": 0,
+      "impressions": 1,
+      "ctr": 0.0,
+      "position": 6.0
+    },
+    {
+      "country": "Hong Kong",
+      "clicks": 0,
+      "impressions": 1,
+      "ctr": 0.0,
+      "position": 6.0
+    },
+    {
+      "country": "Venezuela",
+      "clicks": 0,
+      "impressions": 1,
+      "ctr": 0.0,
+      "position": 7.0
+    },
+    {
+      "country": "Burkina Faso",
+      "clicks": 0,
+      "impressions": 1,
+      "ctr": 0.0,
+      "position": 27.0
+    },
+    {
+      "country": "Poland",
+      "clicks": 0,
+      "impressions": 1,
+      "ctr": 0.0,
+      "position": 30.0
+    },
+    {
+      "country": "Argentina",
+      "clicks": 0,
+      "impressions": 1,
+      "ctr": 0.0,
+      "position": 36.0
+    },
+    {
+      "country": "Thailand",
+      "clicks": 0,
+      "impressions": 1,
+      "ctr": 0.0,
+      "position": 36.0
+    },
+    {
+      "country": "India",
+      "clicks": 0,
+      "impressions": 1,
+      "ctr": 0.0,
+      "position": 80.0
+    }
+  ],
+  "search_appearance": [
+    {
+      "search_appearance": "Product snippets",
+      "clicks": 1,
+      "impressions": 272,
+      "ctr": 0.0037,
+      "position": 27.68
+    }
+  ],
+  "filters": [
+    {
+      "filter": "Search type",
+      "value": "Web (text-based)"
+    },
+    {
+      "filter": "Date",
+      "value": "Last 28 days"
+    }
+  ]
 }

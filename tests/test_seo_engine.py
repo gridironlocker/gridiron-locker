@@ -35,6 +35,8 @@ from seo_engine.crawler import Page, crawl, parse_page  # noqa: E402
 from seo_engine.decide import decide  # noqa: E402
 from seo_engine import apply as apply_mod  # noqa: E402
 from seo_engine import verify as verify_mod  # noqa: E402
+from seo_engine.import_gsc import build_export as import_build  # noqa: E402
+from seo_engine.import_gsc import pct as import_pct  # noqa: E402
 
 
 class Version(unittest.TestCase):
@@ -84,9 +86,23 @@ class Audit(unittest.TestCase):
         self.assertGreater(report["page_count"], 50)
         self.assertEqual(report["engine"], "seo_engine.audit")
 
-    def test_gsc_empty_by_default(self):
-        rows = load_gsc_export()
+    def test_gsc_absent_file_is_empty(self):
+        with tempfile.TemporaryDirectory() as tmp:
+            rows = load_gsc_export(Path(tmp) / "nope.json")
         self.assertEqual(rows, [])
+
+    def test_gsc_export_live_rows_schema(self):
+        # The live export is operator-supplied data: whatever is present
+        # must match the row contract (numbers never invented, types right).
+        for row in load_gsc_export():
+            self.assertTrue(str(row.get("page", "")).startswith("http"), row)
+            self.assertIsInstance(row.get("clicks"), (int, float))
+            self.assertIsInstance(row.get("impressions"), (int, float))
+            ctr = row.get("ctr")
+            self.assertIsInstance(ctr, (int, float))
+            self.assertGreaterEqual(ctr, 0.0)
+            self.assertLessEqual(ctr, 1.0)
+            self.assertIsInstance(row.get("position"), (int, float))
 
     def test_gsc_aggregation(self):
         rows = [
@@ -142,6 +158,54 @@ class Audit(unittest.TestCase):
         weak = [f for f in findings if f["type"] == "weak_ctr_title"]
         self.assertEqual(len(weak), 1)
         self.assertIn("title", weak[0].get("suggested") or {})
+
+
+class ImportGsc(unittest.TestCase):
+    def _write(self, tmp, name, text):
+        (Path(tmp) / name).write_text(text, encoding="utf-8")
+
+    def test_pct_conversion(self):
+        self.assertEqual(import_pct("22.22%"), 0.2222)
+        self.assertEqual(import_pct("0%"), 0.0)
+        self.assertEqual(import_pct("100%"), 1.0)
+
+    def test_import_is_faithful(self):
+        with tempfile.TemporaryDirectory() as tmp:
+            self._write(tmp, "Pages.csv",
+                        "Top pages,Clicks,Impressions,CTR,Position\n"
+                        "https://gridironlocker.store/,12,54,22.22%,5.44\n"
+                        "https://gridironlocker.store/shop/x/,0,7,0%,41\n")
+            self._write(tmp, "Queries.csv",
+                        "Top queries,Clicks,Impressions,CTR,Position\n"
+                        "gridiron cap locker,6,13,46.15%,3.46\n")
+            self._write(tmp, "Devices.csv",
+                        "Device,Clicks,Impressions,CTR,Position\n"
+                        "Mobile,13,315,4.13%,14.45\n")
+            self._write(tmp, "Filters.csv",
+                        "Filter,Value\nSearch type,Web (text-based)\n")
+            data = import_build(Path(tmp))
+
+        self.assertEqual(len(data["rows"]), 2)
+        top = data["rows"][0]
+        self.assertEqual(top["page"], "https://gridironlocker.store/")
+        self.assertEqual(top["clicks"], 12)
+        self.assertEqual(top["impressions"], 54)
+        self.assertEqual(top["ctr"], 0.2222)
+        self.assertEqual(top["position"], 5.44)
+        # query table preserved separately, never attached to a page
+        self.assertEqual(data["queries"][0]["query"], "gridiron cap locker")
+        self.assertNotIn("page", data["queries"][0])
+        # labels survive for every table
+        self.assertEqual(data["devices"][0]["device"], "Mobile")
+        self.assertEqual(data["filters"][0]["value"], "Web (text-based)")
+        # totals never drift from the export
+        self.assertEqual(sum(r["clicks"] for r in data["rows"]), 12)
+        self.assertEqual(sum(r["impressions"] for r in data["rows"]), 61)
+
+    def test_requires_pages_csv(self):
+        with tempfile.TemporaryDirectory() as tmp:
+            with self.assertRaises(FileNotFoundError):
+                import_build(Path(tmp))
 
 
 class Decide(unittest.TestCase):
