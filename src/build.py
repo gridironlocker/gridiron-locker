@@ -4,7 +4,8 @@ import json, os, re, shutil, html, sys, datetime, hashlib
 sys.path.insert(0, os.path.dirname(__file__))
 from collections import OrderedDict
 from urllib.parse import parse_qsl, urlencode, urlsplit, urlunsplit
-from collections_data import COLLECTIONS, ORDER, SEASON, NEXT_GAME, partner_of
+from collections_data import (COLLECTIONS, ORDER, SEASON, NEXT_GAME, partner_of,
+                             PRIORITY_TEAMS, merch_order)
 from collections_data import season_recap_long, season_recap_short, season_slate_sentence
 from collections_data import week1_dates_line
 import seocopy as _c
@@ -1299,12 +1300,16 @@ from collections import Counter as _Counter
 _name_counts = _Counter(it["name"] for it in ALL)
 _DUP_NAMES = {name for name, c in _name_counts.items() if c > 1}
 
-# Homepage per-team section order ONLY: the collection that kicks off next
-# (NEXT_GAME, computed at import) goes first, original ORDER breaks ties.
-# Everything else - hero slider, "Shop By Team" grid, schema, nav, footer,
-# /collections/ index, sitemap, data files, product cross-links - keeps the
-# fixed ORDER above untouched.
-HOMEPAGE_ORDER = sorted(ORDER, key=lambda k: (NEXT_GAME.get(k) or "9999", ORDER.index(k)))
+# Homepage per-team section order ONLY: the priority teams (Cleveland, then
+# Michigan) lead every homepage rail - Shop The Locker's round-robin lanes and
+# the per-team sections both read this. The remaining collections follow by
+# next kickoff (NEXT_GAME, computed at import), ORDER breaking ties. Everything
+# else - hero slider, "Shop By Team" grid, schema, nav, footer, /collections/
+# index, sitemap, data files, product cross-links - follows the fixed ORDER in
+# collections_data.py.
+HOMEPAGE_ORDER = [k for k in ORDER if k in PRIORITY_TEAMS] + sorted(
+    (k for k in ORDER if k not in PRIORITY_TEAMS),
+    key=lambda k: (NEXT_GAME.get(k) or "9999", ORDER.index(k)))
 
 # ---------------------------------------------------------------- SEO Engine overrides
 # data/seo/overrides.json is written by `python3 -m seo_engine apply --commit`.
@@ -2140,7 +2145,7 @@ def product_rail(items, rail_id, cta_href, cta_label):
 
 def locker_picks(limit=10):
     """Products for the "Shop The Locker" rail: a round-robin across the four
-    collections (next kickoff first), each lane led by its headline-hot
+    collections in HOMEPAGE_ORDER (Browns and Michigan first), each lane led by its headline-hot
     designs. Every fanbase is represented in the first four tiles, and no
     slug is hard-coded, so a re-crawl re-balances the rail automatically."""
     lanes = []
@@ -2188,15 +2193,20 @@ def trending_now(limit=8, exclude=()):
     `exclude` holds the slugs a previous section already showed, so the
     homepage spends its cards on as much of the catalogue as it can instead
     of printing the same four designs three times.
+
+    Display order is merchandising, not measurement: the priority teams
+    (Browns, Michigan) head a round-robin across team lanes - see
+    collections_data.merch_order - and each team's own headline-hot designs
+    still lead that team's lane. The hot badges on the cards stay literal.
     """
     fresh = [x for x in ALL if x["slug"] not in exclude]
-    picks = [x for x in fresh if x.get("trend") == "hot"][:limit]
-    have = {x["slug"] for x in picks}
-    if len(picks) < limit:
-        picks += [x for x in fresh if x["slug"] not in have][:limit - len(picks)]
+    hot = [x for x in fresh if x.get("trend") == "hot"]
+    rest = [x for x in fresh if x.get("trend") != "hot"]
+    picks = merch_order(hot + rest, lambda x: x["col"], limit=limit)
     have = {x["slug"] for x in picks}
     if len(picks) < limit:   # tiny catalogue: repeats beat an empty shelf
-        picks += [x for x in ALL if x["slug"] not in have][:limit - len(picks)]
+        picks += merch_order([x for x in ALL if x["slug"] not in have],
+                             lambda x: x["col"], limit=limit - len(picks))
     if len(picks) < 4:
         return ""
     tiles = "".join(product_card(i) for i in picks)
@@ -2651,8 +2661,11 @@ def page_collections_index():
     # choosing a side; they are replaced by one store-wide trending row.
     cards = "".join(team_circle_card(k) for k in ORDER)
     hot = [x for x in ALL if x.get("trend") == "hot"]
-    have = {x["slug"] for x in hot}
-    trending = (hot + [x for x in ALL if x["slug"] not in have])[:8]
+    rest = [x for x in ALL if x.get("trend") != "hot"]
+    # Merchandising order: Browns and Michigan lead a round-robin across team
+    # lanes (collections_data.merch_order), each lane keeping its hot-first
+    # source order.
+    trending = merch_order(hot + rest, lambda x: x["col"], limit=8)
     trend_cards = "".join(card(i, eager=(n < 4)) for n, i in enumerate(trending))
     cb, cbs = crumbs([("Home", "/"), ("Collections", None)], path)
     schema = [cbs, {"@context": "https://schema.org", "@type": "CollectionPage",
@@ -5749,7 +5762,7 @@ sold on its own page. Taking you to the {esc(COLLECTIONS[ckey]['name'])} &mdash;
 </div></section></main>
 </body></html>"""
         write(f"shop/{slug}/index.html", doc)
-        lines.append(f"/shop/{slug}/ {target} 301")
+        lines.append(f"/shop/{slug}/ {target} 301!")
 
     # ---- garment-variant tombstones -------------------------------------
     # /shop/<slug>/<style>/ URLs from the reverted variant scheme. A variant
@@ -5810,7 +5823,7 @@ sold on its own page. Taking you to the {esc(COLLECTIONS[ckey]['name'])} &mdash;
 </div></section></main>
 </body></html>"""
         write(f"shop/{vpath}/index.html", vdoc)
-        lines.append(f"/shop/{vpath}/ {target} 301")
+        lines.append(f"/shop/{vpath}/ {target} 301!")
 
     # ---- moved creator pages ----------------------------------------------
     # A creator locker can move to a shorter address (Crystal Marie's page went
@@ -5864,10 +5877,13 @@ sold on its own page. Taking you to the {esc(COLLECTIONS[ckey]['name'])} &mdash;
 </div></section></main>
 </body></html>"""
         write(f"{old_slug}/index.html", moved_doc)
-        lines.append(f"/{old_slug}/ {target} 301")
+        lines.append(f"/{old_slug}/ {target} 301!")
 
     # Netlify / Cloudflare Pages read this and answer with a real 301, which
     # is strictly better than a client-side redirect; GitHub Pages ignores it.
+    # The '!' force flag is required: without it both hosts skip the rule
+    # whenever a file exists at the source path - and the noindex stub
+    # built at that very path would shadow every rule in this file.
     write("_redirects", "# Retired / migrated URLs -> the current page.\n"
                         "# Covers delisted designs, the fulfillment hold list, the\n"
                         "# garment-variant tombstones from the reverted 2026-09-05 scheme\n"
@@ -7849,7 +7865,7 @@ def main():
     sync_marketing()
     sync_ops()
     n = relativise()
-    print(f"homepage team order (next kickoff first): {', '.join(HOMEPAGE_ORDER)}")
+    print(f"homepage team order (priority teams first): {', '.join(HOMEPAGE_ORDER)}")
     print(f"relative-linked {n} pages for GitHub Pages / offline")
     print(f"redirect stubs: {nr} retired product URLs -> closest active page")
     print(f"published manifest: {np_} product URLs remembered (live pages + stubs)")

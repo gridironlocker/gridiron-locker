@@ -8,6 +8,7 @@ from __future__ import annotations
 
 import json
 import os
+import re
 import sys
 import tempfile
 import unittest
@@ -35,6 +36,8 @@ from seo_engine.crawler import Page, crawl, parse_page  # noqa: E402
 from seo_engine.decide import decide  # noqa: E402
 from seo_engine import apply as apply_mod  # noqa: E402
 from seo_engine import verify as verify_mod  # noqa: E402
+from seo_engine.import_gsc import build_export as import_build  # noqa: E402
+from seo_engine.import_gsc import pct as import_pct  # noqa: E402
 
 
 class Version(unittest.TestCase):
@@ -84,9 +87,23 @@ class Audit(unittest.TestCase):
         self.assertGreater(report["page_count"], 50)
         self.assertEqual(report["engine"], "seo_engine.audit")
 
-    def test_gsc_empty_by_default(self):
-        rows = load_gsc_export()
+    def test_gsc_absent_file_is_empty(self):
+        with tempfile.TemporaryDirectory() as tmp:
+            rows = load_gsc_export(Path(tmp) / "nope.json")
         self.assertEqual(rows, [])
+
+    def test_gsc_export_live_rows_schema(self):
+        # The live export is operator-supplied data: whatever is present
+        # must match the row contract (numbers never invented, types right).
+        for row in load_gsc_export():
+            self.assertTrue(str(row.get("page", "")).startswith("http"), row)
+            self.assertIsInstance(row.get("clicks"), (int, float))
+            self.assertIsInstance(row.get("impressions"), (int, float))
+            ctr = row.get("ctr")
+            self.assertIsInstance(ctr, (int, float))
+            self.assertGreaterEqual(ctr, 0.0)
+            self.assertLessEqual(ctr, 1.0)
+            self.assertIsInstance(row.get("position"), (int, float))
 
     def test_gsc_aggregation(self):
         rows = [
@@ -142,6 +159,127 @@ class Audit(unittest.TestCase):
         weak = [f for f in findings if f["type"] == "weak_ctr_title"]
         self.assertEqual(len(weak), 1)
         self.assertIn("title", weak[0].get("suggested") or {})
+
+
+class ImportGsc(unittest.TestCase):
+    def _write(self, tmp, name, text):
+        (Path(tmp) / name).write_text(text, encoding="utf-8")
+
+    def test_pct_conversion(self):
+        self.assertEqual(import_pct("22.22%"), 0.2222)
+        self.assertEqual(import_pct("0%"), 0.0)
+        self.assertEqual(import_pct("100%"), 1.0)
+
+    def test_import_is_faithful(self):
+        with tempfile.TemporaryDirectory() as tmp:
+            self._write(tmp, "Pages.csv",
+                        "Top pages,Clicks,Impressions,CTR,Position\n"
+                        "https://gridironlocker.store/,12,54,22.22%,5.44\n"
+                        "https://gridironlocker.store/shop/x/,0,7,0%,41\n")
+            self._write(tmp, "Queries.csv",
+                        "Top queries,Clicks,Impressions,CTR,Position\n"
+                        "gridiron cap locker,6,13,46.15%,3.46\n")
+            self._write(tmp, "Devices.csv",
+                        "Device,Clicks,Impressions,CTR,Position\n"
+                        "Mobile,13,315,4.13%,14.45\n")
+            self._write(tmp, "Filters.csv",
+                        "Filter,Value\nSearch type,Web (text-based)\n")
+            data = import_build(Path(tmp))
+
+        self.assertEqual(len(data["rows"]), 2)
+        top = data["rows"][0]
+        self.assertEqual(top["page"], "https://gridironlocker.store/")
+        self.assertEqual(top["clicks"], 12)
+        self.assertEqual(top["impressions"], 54)
+        self.assertEqual(top["ctr"], 0.2222)
+        self.assertEqual(top["position"], 5.44)
+        # query table preserved separately, never attached to a page
+        self.assertEqual(data["queries"][0]["query"], "gridiron cap locker")
+        self.assertNotIn("page", data["queries"][0])
+        # labels survive for every table
+        self.assertEqual(data["devices"][0]["device"], "Mobile")
+        self.assertEqual(data["filters"][0]["value"], "Web (text-based)")
+        # totals never drift from the export
+        self.assertEqual(sum(r["clicks"] for r in data["rows"]), 12)
+        self.assertEqual(sum(r["impressions"] for r in data["rows"]), 61)
+
+    def test_requires_pages_csv(self):
+        with tempfile.TemporaryDirectory() as tmp:
+            with self.assertRaises(FileNotFoundError):
+                import_build(Path(tmp))
+
+    def test_chart_dispatch_and_preserve(self):
+        # Chart.csv exists in both export flavours: header decides routing,
+        # and a missing performance chart must not wipe a previous import.
+        from seo_engine.import_gsc import build_indexing
+
+        with tempfile.TemporaryDirectory() as tmp:
+            self._write(tmp, "Pages.csv",
+                        "Top pages,Clicks,Impressions,CTR,Position\n"
+                        "https://gridironlocker.store/,12,54,22.22%,5.44\n")
+            self._write(tmp, "Chart.csv",
+                        "Date,Not indexed,Indexed,Impressions\n"
+                        "2026-10-23,94,78,20\n")
+            self._write(tmp, "Critical issues.csv",
+                        "Reason,Source,Validation,Pages\n"
+                        "Not found (404),Website,Not Started,2\n")
+            self._write(tmp, "Non-critical issues.csv",
+                        "Reason,Source,Validation,Pages\n")
+            self._write(tmp, "Metadata.csv", "Property,Value\nSitemap,All known pages\n")
+            previous = {"daily": [{"date": "2026-09-29", "clicks": 0,
+                                   "impressions": 8, "ctr": 0.0, "position": 21.4}]}
+            perf = import_build(Path(tmp), previous=previous)
+            indexing = build_indexing(Path(tmp))
+
+        # indexing chart never lands in the performance daily table
+        self.assertEqual(perf["daily"][0]["date"], "2026-09-29")
+        # indexing tables land in the indexing export
+        self.assertEqual(indexing["property"], "All known pages")
+        self.assertEqual(indexing["daily"][0]["not_indexed"], 94)
+        self.assertEqual(indexing["daily"][0]["indexed"], 78)
+        self.assertEqual(indexing["issues"][0]["pages"], 2)
+        self.assertEqual(indexing["non_critical_issues"], [])
+
+    def test_indexing_blank_cells_stay_null(self):
+        from seo_engine.import_gsc import build_indexing
+
+        with tempfile.TemporaryDirectory() as tmp:
+            self._write(tmp, "Chart.csv",
+                        "Date,Not indexed,Indexed,Impressions\n"
+                        "2026-09-02,,,0\n")
+            indexing = build_indexing(Path(tmp))
+        self.assertIsNone(indexing["daily"][0]["not_indexed"])
+        self.assertIsNone(indexing["daily"][0]["indexed"])
+        self.assertEqual(indexing["daily"][0]["impressions"], 0)
+
+    def test_indexing_requires_some_csv(self):
+        from seo_engine.import_gsc import build_indexing
+
+        with tempfile.TemporaryDirectory() as tmp:
+            with self.assertRaises(FileNotFoundError):
+                build_indexing(Path(tmp))
+
+
+class IssueUrls(unittest.TestCase):
+    """data/seo/gsc_issue_urls.json - the operator-pasted URL-level
+    drill-down behind the aggregate indexing counts. Verbatim data: the
+    only rule is that it must never drift from gsc_indexing.json."""
+
+    def test_shape_and_counts_match_indexing_export(self):
+        urls = json.loads((ROOT / "data" / "seo" / "gsc_issue_urls.json").read_text())
+        idx = json.loads((ROOT / "data" / "seo" / "gsc_indexing.json").read_text())
+        # zero-page rows (e.g. the Passed duplicate-canonical check) have no
+        # URLs to drill into and stay out of the URL file
+        expect_reasons = {r["reason"] for r in idx["issues"] if r["pages"]}
+        self.assertEqual(set(urls["issues"]), expect_reasons)
+        for reason, rows in urls["issues"].items():
+            expect = next(r["pages"] for r in idx["issues"] if r["reason"] == reason)
+            self.assertEqual(len(rows), expect, reason)
+            for row in rows:
+                self.assertTrue(row["url"].startswith("https://gridironlocker.store/"), row)
+                self.assertIn("last_crawled", row)
+                lc = row["last_crawled"]
+                self.assertTrue(lc is None or re.fullmatch(r"\d{4}-\d{2}-\d{2}", lc), row)
 
 
 class Decide(unittest.TestCase):

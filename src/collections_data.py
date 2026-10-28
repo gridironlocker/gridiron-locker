@@ -256,7 +256,41 @@ COLLECTIONS = {
     ),
 }
 
-ORDER = ["cleveland-browns", "green-bay-packers", "dallas-cowboys", "michigan"]
+# Display order for every team list (nav, "Shop By Team", /collections/ circles,
+# hero slider, schema, cross-links). The operator's priority teams come first -
+# Cleveland, then Michigan - and the remaining collections follow. Ordering
+# only: no team's content, titles or imagery change with it.
+ORDER = ["cleveland-browns", "michigan", "green-bay-packers", "dallas-cowboys"]
+
+# The merchandised teams: their products lead every mixed-team "top list"
+# (trending grids, Shop The Locker, the drops page). See merch_order().
+PRIORITY_TEAMS = ("cleveland-browns", "michigan")
+
+
+def merch_order(items, team_of, limit=None):
+    """Merchandising order for a mixed-team product list (a "top list").
+
+    The priority teams (Browns first, Michigan second) lead a round-robin
+    across team lanes; the remaining teams follow in ORDER sequence. Stable
+    within each team, so whatever order the source data carries (headline-hot
+    first, catalogue order) is preserved per lane. This function ORDERS only -
+    what a list selects (trend hot lists, drop liveness) stays upstream, so a
+    "Trending" claim is never stretched to cover a merchandising pick.
+    """
+    lanes = {}
+    for it in items:
+        lanes.setdefault(team_of(it) or "", []).append(it)
+    teams = [t for t in PRIORITY_TEAMS if t in lanes]
+    teams += [t for t in ORDER if t in lanes and t not in teams]
+    teams += [t for t in lanes if t not in teams]
+    out = []
+    i = 0
+    while (limit is None or len(out) < limit) and any(i < len(lanes[t]) for t in teams):
+        for t in teams:
+            if i < len(lanes[t]) and (limit is None or len(out) < limit):
+                out.append(lanes[t][i])
+        i += 1
+    return out
 
 # 2026 season context. `kickoff` is each collection's 2026 opener; `opener`,
 # `headline` and `status` are written in the tense that is correct TODAY (a

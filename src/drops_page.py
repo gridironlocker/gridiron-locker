@@ -13,6 +13,8 @@ no revenue strategy. Those live in the marketing/ workspace, not on the page.
 import json, os, html
 from pathlib import Path
 
+from collections_data import merch_order
+
 ROOT = Path(__file__).resolve().parent.parent
 
 try:
@@ -123,7 +125,13 @@ def page_drops_html(collections, order, model_lookup):
     # Dead-link guard: only drops whose product page the build actually
     # published may render a card (a stale live_drops.json must never ship a
     # "Shop This Drop" link that 404s).
-    drops = [d for d in drops_data.get("drops", []) if d.get("slug") in model_lookup][:24]
+    drops = [d for d in drops_data.get("drops", []) if d.get("slug") in model_lookup]
+    # Merchandising order for the card grid: the priority teams (Browns,
+    # Michigan) lead a round-robin across team lanes (collections_data.
+    # merch_order). Selection above is untouched - only display order moves.
+    drops = merch_order(drops,
+                        lambda d: (model_lookup.get(d.get("slug")) or {}).get("col", ""),
+                        limit=24)
     generated = drops_data.get("generated", "today")
     trends_date = drops_data.get("trends_date", trends.get("generated", "today"))
 

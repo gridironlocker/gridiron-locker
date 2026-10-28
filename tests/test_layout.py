@@ -60,7 +60,11 @@ SRC = os.path.join(ROOT, "src")
 IMG = os.path.join(SITE, "img")
 sys.path.insert(0, SRC)
 
-from collections_data import COLLECTIONS, ORDER  # noqa: E402
+from collections_data import COLLECTIONS, ORDER, PRIORITY_TEAMS, merch_order  # noqa: E402
+
+# Team order in which mixed-team "top lists" must show their first cards:
+# the merchandised teams first, the rest in the fixed collection order.
+PRIORITY_FIRST = list(PRIORITY_TEAMS) + [k for k in ORDER if k not in PRIORITY_TEAMS]
 import landing  # noqa: E402
 
 CTA, CTA_HOVER = "#49a59c", "#3a847d"
@@ -283,6 +287,34 @@ class CTAColours(unittest.TestCase):
         self.assertEqual(read(os.path.join(SRC, "style.css")), page("assets/style.css"))
 
 
+class MerchOrderUnit(unittest.TestCase):
+    """collections_data.merch_order - the shared ordering for mixed-team
+    'top lists'. Operator direction 2026-10-28: Browns and Michigan lead."""
+
+    @staticmethod
+    def _items():
+        out = []
+        for team in ("dallas-cowboys", "green-bay-packers", "michigan", "cleveland-browns"):
+            for i in range(2):
+                out.append({"col": team, "slug": f"{team}-{i}"})
+        return out
+
+    def test_priority_teams_lead_the_round_robin(self):
+        out = merch_order(self._items(), lambda x: x["col"])
+        self.assertEqual(
+            [x["slug"] for x in out],
+            [f"{t}-{i}" for i in (0, 1) for t in PRIORITY_FIRST])
+
+    def test_stable_within_team_missing_teams_and_limit(self):
+        out = merch_order(self._items(), lambda x: x["col"], limit=3)
+        self.assertEqual([x["slug"] for x in out],
+                         ["cleveland-browns-0", "michigan-0", "green-bay-packers-0"])
+        # teams absent from the list are skipped, present ones keep their lane
+        only = [{"col": "michigan", "slug": "m1"}, {"col": "dallas-cowboys", "slug": "d1"}]
+        self.assertEqual([x["slug"] for x in merch_order(only, lambda x: x["col"])],
+                         ["m1", "d1"])
+
+
 class CollectionsIndex(unittest.TestCase):
     def setUp(self):
         self.html = page("collections/index.html")
@@ -335,6 +367,20 @@ class CollectionsIndex(unittest.TestCase):
         self.assertEqual(len(re.findall(r'<article class="card', self.html)), 8)
         self.assertIn('./drops/', self.html)
 
+
+    def test_priority_teams_lead_the_trending_row(self):
+        # The mixed-team trending row follows the merchandising rule: the
+        # order in which teams first appear is priority-first (Browns,
+        # Michigan, then the rest in collection order).
+        teams = re.findall(r'data-team="([^"]+)"', self.html)
+        seen, firsts = set(), []
+        for t in teams:
+            if t not in seen:
+                seen.add(t)
+                firsts.append(t)
+        self.assertTrue(firsts)
+        self.assertEqual(firsts, [t for t in PRIORITY_FIRST if t in seen])
+        self.assertEqual(firsts[:2], ["cleveland-browns", "michigan"])
 
     def test_counts_are_dynamic(self):
         live = load_json("data/products_live.json")
@@ -1469,6 +1515,32 @@ class Homepage(unittest.TestCase):
         self.assertIn(".pgrid.four{grid-template-columns:repeat(2,minmax(0,1fr))",
                       media_rules(self.css, 700))
 
+    def test_priority_teams_lead_the_homepage_lists(self):
+        # Operator direction (2026-10-28): Browns and Michigan products lead
+        # the storefront's top lists. The per-team sections render in
+        # HOMEPAGE_ORDER, and Shop The Locker / Trending Now round-robin team
+        # lanes via collections_data.merch_order - so in both rails the order
+        # in which teams first appear is priority-first.
+        secs = re.findall(r'<section class="teamsec"(.*?)</section>', self.html, re.S)
+        self.assertEqual(len(secs), 4)
+        self.assertIn(COLLECTIONS["cleveland-browns"]["position"], secs[0])
+        self.assertIn(COLLECTIONS["michigan"]["position"], secs[1])
+
+        shorts = {v["short"]: k for k, v in COLLECTIONS.items()}
+        for start in ('<section class="lockersec" id="shop-the-locker">',
+                      '<section class="trendsec" id="trending">'):
+            sec = between(self.html, start, "</section>")
+            metas = re.findall(r'<span class="pc-meta">([^<]+)</span>', sec)
+            teams = [shorts.get(m.split(" &middot; ")[0].strip(), "?") for m in metas]
+            self.assertTrue(teams, start)
+            seen, firsts = set(), []
+            for t in teams:
+                if t not in seen:
+                    seen.add(t)
+                    firsts.append(t)
+            self.assertEqual(firsts, [t for t in PRIORITY_FIRST if t in seen], start)
+            self.assertEqual(firsts[:2], ["cleveland-browns", "michigan"], start)
+
     # ---------------------------------------------------------------- season
     def test_season_block_is_editorial_and_data_driven(self):
         sec = between(self.html, '<section class="wksec" id="season">', "</section>")
@@ -1661,6 +1733,16 @@ class SearchCatalogue(unittest.TestCase):
     def test_quick_view_modal_wired(self):
         for marker in ("qvmodal", "qv-overlay", "qv-cta", "Quick view"):
             self.assertIn(marker, self.js, marker)
+
+    def test_default_order_is_priority_first_blocks(self):
+        # The DOM order is the default "Featured" sort: one contiguous block
+        # per team, in ORDER - the Cleveland block leads, Michigan follows.
+        teams = re.findall(r'data-team="([^"]+)"', self.html)
+        blocks = []
+        for t in teams:
+            if not blocks or blocks[-1] != t:
+                blocks.append(t)
+        self.assertEqual(blocks, list(ORDER))
 
     def test_style_filter_reads_theme_attribute(self):
         self.assertIn("styleOf", self.js)
@@ -3737,8 +3819,10 @@ class CrystalMarieLocker(unittest.TestCase):
         self.assertNotIn("gcategory-tiles", old)      # no second copy of the page
         self.assertNotIn("gproduct", old)
 
-        # hosts that read _redirects answer with a real 301
-        self.assertIn("/browns/crystal-marie/ /crystal/ 301",
+        # hosts that read _redirects answer with a real 301; '!' forces it
+        # past the stub file that exists at the same path (Netlify/Cloudflare
+        # shadow non-forced rules with matching static files)
+        self.assertIn("/browns/crystal-marie/ /crystal/ 301!",
                       page("_redirects"))
 
         # every internal route to her locker uses the short URL

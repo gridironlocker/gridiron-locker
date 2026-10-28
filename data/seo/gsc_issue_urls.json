@@ -1,0 +1,392 @@
+{
+  "_doc": "URL-level drill-down behind data/seo/gsc_indexing.json's issue counts, pasted by the operator from Search Console (Page indexing -> issue detail) on 2026-10-28. Copied verbatim; last_crawled is GSC's 'Last crawled' column (null = never crawled). Bucket counts must match gsc_indexing.json issues[] (17 / 2 / 2 / 73 at import time).",
+  "source": "Google Search Console, Page indexing issue drill-down (the CSV export carries counts only)",
+  "snapshot_date": "2026-10-23",
+  "imported": "2026-10-28",
+  "issues": {
+    "Alternate page with proper canonical tag": [
+      {
+        "url": "https://gridironlocker.store/index.html",
+        "last_crawled": "2026-10-20"
+      },
+      {
+        "url": "https://gridironlocker.store/search/?st=family",
+        "last_crawled": "2026-10-11"
+      },
+      {
+        "url": "https://gridironlocker.store/search/?g=Mug",
+        "last_crawled": "2026-10-08"
+      },
+      {
+        "url": "https://gridironlocker.store/search/?st=retro",
+        "last_crawled": "2026-10-07"
+      },
+      {
+        "url": "https://gridironlocker.store/search/?st=funny",
+        "last_crawled": "2026-10-07"
+      },
+      {
+        "url": "https://gridironlocker.store/search/?st=player",
+        "last_crawled": "2026-10-07"
+      },
+      {
+        "url": "https://gridironlocker.store/search/?t=cleveland-browns",
+        "last_crawled": "2026-09-28"
+      },
+      {
+        "url": "https://gridironlocker.store/search/?t=green-bay-packers",
+        "last_crawled": "2026-09-28"
+      },
+      {
+        "url": "https://gridironlocker.store/search/?g=T-Shirt",
+        "last_crawled": "2026-09-28"
+      },
+      {
+        "url": "https://gridironlocker.store/search/?t=michigan",
+        "last_crawled": "2026-09-28"
+      },
+      {
+        "url": "https://gridironlocker.store/search/?q=jordan love",
+        "last_crawled": "2026-09-28"
+      },
+      {
+        "url": "https://gridironlocker.store/search/?t=dallas-cowboys",
+        "last_crawled": "2026-09-28"
+      },
+      {
+        "url": "https://gridironlocker.store/2026-season/index.html",
+        "last_crawled": "2026-09-20"
+      },
+      {
+        "url": "https://gridironlocker.store/cleveland-browns-shirts/index.html",
+        "last_crawled": "2026-09-15"
+      },
+      {
+        "url": "https://gridironlocker.store/collections/?q={search_term_string}",
+        "last_crawled": "2026-09-08"
+      },
+      {
+        "url": "https://gridironlocker.store/shipping/index.html",
+        "last_crawled": "2026-09-07"
+      },
+      {
+        "url": "https://gridironlocker.store/size-guide/index.html",
+        "last_crawled": "2026-09-07"
+      }
+    ],
+    "Crawled - currently not indexed": [
+      {
+        "url": "https://gridironlocker.store/sitemap.xml",
+        "last_crawled": "2026-09-29"
+      },
+      {
+        "url": "https://gridironlocker.store/dallas-cowboys-shirts/",
+        "last_crawled": "2026-09-28"
+      }
+    ],
+    "Not found (404)": [
+      {
+        "url": "https://gridironlocker.store/shop/limited-edition-second-act-qb19",
+        "last_crawled": "2026-09-28"
+      },
+      {
+        "url": "https://gridironlocker.store/shop/second-act-qb19-limited-edition/",
+        "last_crawled": "2026-09-28"
+      }
+    ],
+    "Discovered - currently not indexed": [
+      {
+        "url": "https://gridironlocker.store/guides/2026-week-1-shirts/",
+        "last_crawled": null
+      },
+      {
+        "url": "https://gridironlocker.store/michigan-wolverines-shirts/",
+        "last_crawled": null
+      },
+      {
+        "url": "https://gridironlocker.store/michigan/bella/",
+        "last_crawled": null
+      },
+      {
+        "url": "https://gridironlocker.store/shop/1946-cleveland/",
+        "last_crawled": null
+      },
+      {
+        "url": "https://gridironlocker.store/shop/be-awar-of-dawg/",
+        "last_crawled": null
+      },
+      {
+        "url": "https://gridironlocker.store/shop/bet-m/",
+        "last_crawled": null
+      },
+      {
+        "url": "https://gridironlocker.store/shop/browns-cle/",
+        "last_crawled": null
+      },
+      {
+        "url": "https://gridironlocker.store/shop/browns/",
+        "last_crawled": null
+      },
+      {
+        "url": "https://gridironlocker.store/shop/bryce-19/",
+        "last_crawled": null
+      },
+      {
+        "url": "https://gridironlocker.store/shop/classic-1946/",
+        "last_crawled": null
+      },
+      {
+        "url": "https://gridironlocker.store/shop/cle-browns-light/",
+        "last_crawled": null
+      },
+      {
+        "url": "https://gridironlocker.store/shop/cle-browns/",
+        "last_crawled": null
+      },
+      {
+        "url": "https://gridironlocker.store/shop/cle-browns2/",
+        "last_crawled": null
+      },
+      {
+        "url": "https://gridironlocker.store/shop/cleveland-1946-tshirt/",
+        "last_crawled": null
+      },
+      {
+        "url": "https://gridironlocker.store/shop/cleveland-1946/",
+        "last_crawled": null
+      },
+      {
+        "url": "https://gridironlocker.store/shop/cleveland-football-for-life/",
+        "last_crawled": null
+      },
+      {
+        "url": "https://gridironlocker.store/shop/cleveland-football/",
+        "last_crawled": null
+      },
+      {
+        "url": "https://gridironlocker.store/shop/cleveland-tshirt/",
+        "last_crawled": null
+      },
+      {
+        "url": "https://gridironlocker.store/shop/cleveland-victory-monday/",
+        "last_crawled": null
+      },
+      {
+        "url": "https://gridironlocker.store/shop/cleveland/",
+        "last_crawled": null
+      },
+      {
+        "url": "https://gridironlocker.store/shop/dallas-flag-tee/",
+        "last_crawled": null
+      },
+      {
+        "url": "https://gridironlocker.store/shop/dallas-texas-vintage-athletic-sports-sty/",
+        "last_crawled": null
+      },
+      {
+        "url": "https://gridironlocker.store/shop/dallas-texas-vintage-athletic-sports/",
+        "last_crawled": null
+      },
+      {
+        "url": "https://gridironlocker.store/shop/dawg-pound-cleveland-skyline/",
+        "last_crawled": null
+      },
+      {
+        "url": "https://gridironlocker.store/shop/denzel-rock-out/",
+        "last_crawled": null
+      },
+      {
+        "url": "https://gridironlocker.store/shop/dwag/",
+        "last_crawled": null
+      },
+      {
+        "url": "https://gridironlocker.store/shop/go-browns/",
+        "last_crawled": null
+      },
+      {
+        "url": "https://gridironlocker.store/shop/legacy/",
+        "last_crawled": null
+      },
+      {
+        "url": "https://gridironlocker.store/shop/lets-go-cle-copy/",
+        "last_crawled": null
+      },
+      {
+        "url": "https://gridironlocker.store/shop/limited-edition-go-blue/",
+        "last_crawled": null
+      },
+      {
+        "url": "https://gridironlocker.store/shop/limited-edition-grb10/",
+        "last_crawled": null
+      },
+      {
+        "url": "https://gridironlocker.store/shop/limited-edition-grb11/",
+        "last_crawled": null
+      },
+      {
+        "url": "https://gridironlocker.store/shop/limited-edition-grb12/",
+        "last_crawled": null
+      },
+      {
+        "url": "https://gridironlocker.store/shop/limited-edition-grb13/",
+        "last_crawled": null
+      },
+      {
+        "url": "https://gridironlocker.store/shop/limited-edition-grb14/",
+        "last_crawled": null
+      },
+      {
+        "url": "https://gridironlocker.store/shop/limited-edition-grb15/",
+        "last_crawled": null
+      },
+      {
+        "url": "https://gridironlocker.store/shop/limited-edition-grb17/",
+        "last_crawled": null
+      },
+      {
+        "url": "https://gridironlocker.store/shop/limited-edition-grb21/",
+        "last_crawled": null
+      },
+      {
+        "url": "https://gridironlocker.store/shop/limited-edition-grb22/",
+        "last_crawled": null
+      },
+      {
+        "url": "https://gridironlocker.store/shop/limited-edition-grb24/",
+        "last_crawled": null
+      },
+      {
+        "url": "https://gridironlocker.store/shop/limited-edition-grb25/",
+        "last_crawled": null
+      },
+      {
+        "url": "https://gridironlocker.store/shop/limited-edition-grb26/",
+        "last_crawled": null
+      },
+      {
+        "url": "https://gridironlocker.store/shop/limited-edition-grb28/",
+        "last_crawled": null
+      },
+      {
+        "url": "https://gridironlocker.store/shop/limited-edition-grb29/",
+        "last_crawled": null
+      },
+      {
+        "url": "https://gridironlocker.store/shop/limited-edition-grb31/",
+        "last_crawled": null
+      },
+      {
+        "url": "https://gridironlocker.store/shop/limited-edition-grb32/",
+        "last_crawled": null
+      },
+      {
+        "url": "https://gridironlocker.store/shop/limited-edition-grb34-1/",
+        "last_crawled": null
+      },
+      {
+        "url": "https://gridironlocker.store/shop/limited-edition-grb4/",
+        "last_crawled": null
+      },
+      {
+        "url": "https://gridironlocker.store/shop/limited-edition-grb41/",
+        "last_crawled": null
+      },
+      {
+        "url": "https://gridironlocker.store/shop/limited-edition-grb5/",
+        "last_crawled": null
+      },
+      {
+        "url": "https://gridironlocker.store/shop/limited-edition-grb7/",
+        "last_crawled": null
+      },
+      {
+        "url": "https://gridironlocker.store/shop/limited-edition-grb8/",
+        "last_crawled": null
+      },
+      {
+        "url": "https://gridironlocker.store/shop/limited-edition-grb9/",
+        "last_crawled": null
+      },
+      {
+        "url": "https://gridironlocker.store/shop/limited-edition-h-a-i-l-mary/",
+        "last_crawled": null
+      },
+      {
+        "url": "https://gridironlocker.store/shop/limited-edition-no-fly-zone/",
+        "last_crawled": null
+      },
+      {
+        "url": "https://gridironlocker.store/shop/m-vs-everybody/",
+        "last_crawled": null
+      },
+      {
+        "url": "https://gridironlocker.store/shop/maize-out/",
+        "last_crawled": null
+      },
+      {
+        "url": "https://gridironlocker.store/shop/make-them-know-your-name/",
+        "last_crawled": null
+      },
+      {
+        "url": "https://gridironlocker.store/shop/michigan-bet-vintage/",
+        "last_crawled": null
+      },
+      {
+        "url": "https://gridironlocker.store/shop/michigan-bet/",
+        "last_crawled": null
+      },
+      {
+        "url": "https://gridironlocker.store/shop/michigan-revenge-tour/",
+        "last_crawled": null
+      },
+      {
+        "url": "https://gridironlocker.store/shop/michigan-v-everybody/",
+        "last_crawled": null
+      },
+      {
+        "url": "https://gridironlocker.store/shop/michigan/",
+        "last_crawled": null
+      },
+      {
+        "url": "https://gridironlocker.store/shop/no-fly-zone/",
+        "last_crawled": null
+      },
+      {
+        "url": "https://gridironlocker.store/shop/ohio-cle/",
+        "last_crawled": null
+      },
+      {
+        "url": "https://gridironlocker.store/shop/one-second/",
+        "last_crawled": null
+      },
+      {
+        "url": "https://gridironlocker.store/shop/playoffs/",
+        "last_crawled": null
+      },
+      {
+        "url": "https://gridironlocker.store/shop/respond-nothing-given-everything-earned-tee/",
+        "last_crawled": null
+      },
+      {
+        "url": "https://gridironlocker.store/shop/respond-nothing-given-everything-earned/",
+        "last_crawled": null
+      },
+      {
+        "url": "https://gridironlocker.store/shop/second-act-qb19-vintage-football/",
+        "last_crawled": null
+      },
+      {
+        "url": "https://gridironlocker.store/shop/second-act/",
+        "last_crawled": null
+      },
+      {
+        "url": "https://gridironlocker.store/shop/sunday-funday/",
+        "last_crawled": null
+      },
+      {
+        "url": "https://gridironlocker.store/shop/the-wall/",
+        "last_crawled": null
+      }
+    ]
+  }
+}
