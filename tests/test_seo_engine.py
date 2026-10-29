@@ -565,3 +565,74 @@ class Cli(unittest.TestCase):
 
 if __name__ == "__main__":
     unittest.main()
+
+
+class Backlinks(unittest.TestCase):
+    """data/seo/backlinks.json - faithful copy of the 2026-10-29 site-explorer
+    URL export. Verbatim rule: values match the CSV, totals are computed, and
+    no vendor attribution is invented."""
+
+    @classmethod
+    def setUpClass(cls):
+        cls.doc = json.loads(Path("data/seo/backlinks.json").read_text(encoding="utf-8"))
+
+    def test_rows_match_export(self):
+        rows = self.doc["rows"]
+        self.assertEqual(len(rows), 6)
+        self.assertEqual([c for c in self.doc["columns"]],
+                         ["URL", "Impressions", "Clicks", "Last crawled",
+                          "Discovered on", "HTTP code", "Document size", "Backlinks"])
+        by = {r["url"]: r for r in rows}
+        self.assertEqual(by["https://gridironlocker.store"]["backlinks"], 0)
+        self.assertEqual(by["http://gridironlocker.store"]["backlinks"], 1)
+        cle = by["https://gridironlocker.store/cleveland-browns-shirts"]
+        self.assertEqual(cle["backlinks"], 6)
+        self.assertEqual(cle["last_crawled"], "2026-10-09")
+        self.assertEqual(cle["document_size"], 74191)
+
+    def test_totals_computed_not_stated(self):
+        self.assertEqual(self.doc["totals"]["backlinks"],
+                         sum(r["backlinks"] for r in self.doc["rows"]))
+        self.assertEqual(self.doc["totals"]["backlinks"], 7)
+        self.assertEqual(self.doc["totals"]["urls"], 6)
+
+    def test_host_scope_and_types(self):
+        for r in self.doc["rows"]:
+            self.assertTrue(r["url"].startswith(("http://gridironlocker.store",
+                                                 "https://gridironlocker.store")), r["url"])
+            self.assertIsInstance(r["backlinks"], int)
+            self.assertIsInstance(r["impressions"], int)
+
+
+class WeakCtrDescription(unittest.TestCase):
+    """weak_ctr_description: page-1 weak CTR rule. Descriptions are the only
+    writable field - titles stay observe-only per the standing content freeze."""
+
+    def setUp(self):
+        import seo_engine.audit as audit
+        audit._DESC_OVERRIDE_CACHE = None  # isolate the override guard per test
+
+    def test_suggestion_shape_cap_and_no_title(self):
+        from seo_engine.audit import _weak_ctr_description_suggestion
+        class P:  # minimal page stand-in
+            h1 = ["Beware Of Dawg"]
+            title = "Beware Of Dawg | Gridiron Locker"
+            meta_description = "old"
+            kind = "product"
+        sugg = _weak_ctr_description_suggestion(P(), "beware of dawgs")
+        self.assertEqual(set(sugg) - {"query"}, {"meta_description"})
+        self.assertLessEqual(len(sugg["meta_description"]), 158)
+        self.assertIn("beware of dawgs", sugg["meta_description"])
+        self.assertIn("Printed after you order", sugg["meta_description"])
+
+    def test_mode_is_auto_but_title_freeze_holds(self):
+        from seo_engine.config import SAFE_TYPES, MODE_AUTO
+        from seo_engine.decide import _mode_for
+        self.assertIn("weak_ctr_description", SAFE_TYPES)
+        self.assertEqual(_mode_for("weak_ctr_description"), MODE_AUTO)
+
+    def test_approved_overrides_are_never_reproposed(self):
+        from seo_engine.audit import _has_description_override
+        # '/' carries an approved description trim (seo-engine apply history).
+        self.assertTrue(_has_description_override("/"))
+        self.assertFalse(_has_description_override("/shop/nonexistent/"))

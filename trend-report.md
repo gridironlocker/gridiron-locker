@@ -1,6 +1,6 @@
 # Hunt Report - 2026-10-29
 
-Generated: 2026-10-29 21:20 UTC by src/hunter_intelligence.py
+Generated: 2026-10-29 21:51 UTC by src/hunter_intelligence.py
 
 Ladder: SIGNAL 3 · TREND 0 · OPPORTUNITY 2 · ACTION 0 · HEADLINE 4
 
@@ -39,7 +39,7 @@ Fan connectors: no fan posts observed - reddit error (HTTP Error 403: Blocked); 
 
 ### 2. QB room: who is QB1 in Cleveland - Cleveland Browns
 - Level: OPPORTUNITY · Confidence: 60% · 🟢 READY (matched design, posting window open, evidence under 12 h)
-- Fan signal: "Deshaun Watson was supposed to be benched. Browns are in first place instead | Opinion" - USA Today (7 h ago)
+- Fan signal: "Deshaun Watson was supposed to be benched. Browns are in first place instead | Opinion" - USA Today (8 h ago)
 - Evidence: 3 reaction items (3.0 weighted) · 3 outlets · 0 utility listings excluded · 0 fan posts
 - Phrase velocity: ↑ 100% / 1440 min (2 vs 1)
 - Sentiment: anxious - 'anxious' on 2/2 lexicon hits across 3 item(s)
@@ -51,7 +51,7 @@ Fan connectors: no fan posts observed - reddit error (HTTP Error 403: Blocked); 
 - Action: Threads - alternate angle (+20 min)
 - Action: Instagram - product creative after engagement confirms the angle (after the X post confirms the angle)
 - Action: Pinterest - keyword pin of the matched design (+2 h)
-  - Deshaun Watson was supposed to be benched. Browns are in first place instead | Opinion - USA Today - google_news (7 h ago) https://news.google.com/rss/articles/CBMi8AFBVV95cUxNZm9fZk5LNFViNkc3ajZHNzdOQVREZ0ROanhRYXFxRUQ4SWNEc3ZsdEVKdGlSTTA2VzExMkYtdGNFMmtYa0RGb180QVJOa0tKZmkyQlZBZUZoQmRNR1RaZTlZUDJQRm1QT3JOVUdXaW5nRk9OQVB6WkRSTmlyb0FYNFJBMnVtejloWnBaMFNZWkxkcHBtZmZtZ1g2TGpteFFDSHNGRDhZZ3RWMi1OYkh6UVRNMzdELWdpc195NmNqb3NRWkttRWxXcEJ2RFdxNFJYXzFmbFhBM2NGWGpHTk11SWU5cE5uNlQ1ZHRjTmJmRWo?oc=5
+  - Deshaun Watson was supposed to be benched. Browns are in first place instead | Opinion - USA Today - google_news (8 h ago) https://news.google.com/rss/articles/CBMi8AFBVV95cUxNZm9fZk5LNFViNkc3ajZHNzdOQVREZ0ROanhRYXFxRUQ4SWNEc3ZsdEVKdGlSTTA2VzExMkYtdGNFMmtYa0RGb180QVJOa0tKZmkyQlZBZUZoQmRNR1RaZTlZUDJQRm1QT3JOVUdXaW5nRk9OQVB6WkRSTmlyb0FYNFJBMnVtejloWnBaMFNZWkxkcHBtZmZtZ1g2TGpteFFDSHNGRDhZZ3RWMi1OYkh6UVRNMzdELWdpc195NmNqb3NRWkttRWxXcEJ2RFdxNFJYXzFmbFhBM2NGWGpHTk11SWU5cE5uNlQ1ZHRjTmJmRWo?oc=5
   - Major outlet floats QB trade Browns could shock the NFL with at the trade deadline - Yahoo Sports - google_news (8 h ago) https://news.google.com/rss/articles/CBMigwFBVV95cUxOMWNlUGRrM1J4N21yaDVSQVdpbE10WmtFdlQwTVdqR2xILVhjM01wTmFSTUlQUUdHenlyaVN4c2NBUXhLUFBldWktMi1oMVlrYWRiSjlZcnJ0M0pyUnVkMDhQSHpIeXVIXzVjWUx0Y0ZIbHdrcmU2TnhUSzA2V0RtV2FwRQ?oc=5
   - Browns have no plans to trade Shedeur Sanders with QB stuck to bench - New York Post - google_news (1 d ago) https://news.google.com/rss/articles/CBMiqgFBVV95cUxNUVVDRGNnLWZ2azYwZVVlZnJhR3pjcXkxQnNiNEVWMi1IYV9QR1RkcFA1c0FZM1ptdVlZOHd4YTUyTDNrejdGaERnRzNVckk2NzcySmR6djQwcmk4TE1IZ1RKWl9JckVxMjduM3IwSmp1NGJ3V3RrN1AwX0xkQUpid3hIemNLNVhrQ21mUUdkbzR6ZU1vSjRPZDBFNGZBbVNrZEFweldaWE5SUQ?oc=5
 
@@ -71,14 +71,14 @@ Fan connectors: no fan posts observed - reddit error (HTTP Error 403: Blocked); 
 
 ### 4. Texas pride: flag, star and Est. 1841 - Dallas Cowboys
 - Level: SIGNAL · Confidence: 49% · ⚪ WATCH (fans are reacting but nothing on the shelf answers it yet)
-- Fan signal: "My Chemical Romance Waves White Flag in Dallas Cowboys Cheerleader Flap: 'Agreement Reached'" - Rolling Stone (22 h ago)
+- Fan signal: "My Chemical Romance Waves White Flag in Dallas Cowboys Cheerleader Flap: 'Agreement Reached'" - Rolling Stone (23 h ago)
 - Evidence: 3 reaction items (3.0 weighted) · 3 outlets · 0 utility listings excluded · 0 fan posts
 - Phrase velocity: new - 1 item in last 1440 min, none in the window before
 - Sentiment: proud - 'proud' on 4/4 lexicon hits across 3 item(s)
 - Game state: next game in ~3 day(s)
 - Commercial: campaign - This Girl Loves Cowboys Women's Shirt $21.99 (sellable) - VINTAGE TEXAS PRIDE
 - Why fans care: Identity demand that does not care about the score - and the women's cut is the one design line this collection actually has.
-  - My Chemical Romance Waves White Flag in Dallas Cowboys Cheerleader Flap: 'Agreement Reached' - Rolling Stone - google_news (22 h ago) https://news.google.com/rss/articles/CBMiswFBVV95cUxOYldMNVhQaXVxRjRuOHdzN2JTR0tkeXZCdlh6ZUEzODJxZGZwSEV6UDV1S1JzRVUyNmhVOHgzc25kNm1GZHA0T1Y5UDZFTTkyUTRVUW4xbml3cXpIS3UwckwwZUpXeDlTOUZuSmtqNkVaMlpXdW02SC1HLV9BY241ckdyRTdLOHN3Z044d0t3aDZSMnE3V3hZcTd0bE5tRGdfYmxqRnVUTVpUYzdQZGljNG1JMA?oc=5
+  - My Chemical Romance Waves White Flag in Dallas Cowboys Cheerleader Flap: 'Agreement Reached' - Rolling Stone - google_news (23 h ago) https://news.google.com/rss/articles/CBMiswFBVV95cUxOYldMNVhQaXVxRjRuOHdzN2JTR0tkeXZCdlh6ZUEzODJxZGZwSEV6UDV1S1JzRVUyNmhVOHgzc25kNm1GZHA0T1Y5UDZFTTkyUTRVUW4xbml3cXpIS3UwckwwZUpXeDlTOUZuSmtqNkVaMlpXdW02SC1HLV9BY241ckdyRTdLOHN3Z044d0t3aDZSMnE3V3hZcTd0bE5tRGdfYmxqRnVUTVpUYzdQZGljNG1JMA?oc=5
   - Cowboys recognize Dallas Cowboys Cheerleaders union in collective bargaining - The Athletic - The New York Times (3 d ago) https://news.google.com/rss/articles/CBMijwFBVV95cUxPcmtqb2c1V2QtbWg1aXl6dzZIb21fcmQya0Z5dTZBQjE4SksxVWw2UTlOeFNXWklSV2dIZGwwMFF3S1BaUW95cllzdU1BbDl3RlNKbXNQY0F1ZUx2QWpZclJPWXhWcm1OWG10dnMzeG1lQ2NNb0Q4WVpuNm9XUmw2eS16NEFzRkQ0dEhqVjJFTQ?oc=5
   - Dallas Cowboys cheerleaders unionize, will begin collective bargaining - ESPN (6 d ago) https://news.google.com/rss/articles/CBMilwFBVV95cUxOV2d5dXczdlBYanhGbXc2RC1GUHlOUVUzSFdRTkpzaUluTFJKb0hLNFdCbzhjeXR5LUIwUU96SnRXT3dZTmNReTlSbWZyRDR5bnhYMDhLWDlJdnFUZTdlWGczZFhiTEp1T2R2Y0VvR0xqMS1CRFJZZWVoZ1hBY0tieElkc3JPWDluX1hQUlFRNDNjSEtNeTFJ?oc=5
 
@@ -100,7 +100,7 @@ Fan connectors: no fan posts observed - reddit error (HTTP Error 403: Blocked); 
 
 - BROWNS - No Fly Zone: the secondary wins the argument: 1 reaction item(s), 1 outlet(s), confidence 37% - not a reaction
 - COWBOYS - Sunday night at the Giants: prime-time opener: 1 reaction item(s), 1 outlet(s), confidence 34% - not a reaction
-- PACKERS - Josh Jacobs and the run game: 1 reaction item(s), 1 outlet(s), confidence 39% - not a reaction
+- PACKERS - Josh Jacobs and the run game: 1 reaction item(s), 1 outlet(s), confidence 34% - not a reaction
 - MICHIGAN - Recruiting: the class built around QB19: 2 reaction item(s), 2 outlet(s), confidence 41% - not a reaction
 
 ## Article ideas (OPPORTUNITY+ only)

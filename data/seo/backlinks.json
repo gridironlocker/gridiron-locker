@@ -1,0 +1,82 @@
+{
+  "_doc": "Per-URL backlink snapshot pasted by the operator from a site-explorer URL export (gridironlocker.store_SiteExplorerUrls_10_29_2026.csv) on 2026-10-29. Copied verbatim; the exporting tool is not named inside the file, so no vendor attribution is made. Blank cells would be null (none in this export). backlinks is the export's per-URL count - it counts links, not referring domains.",
+  "source": "site-explorer URL export: gridironlocker.store_SiteExplorerUrls_10_29_2026.csv",
+  "snapshot_date": "2026-10-29",
+  "imported": "2026-10-29",
+  "columns": [
+    "URL",
+    "Impressions",
+    "Clicks",
+    "Last crawled",
+    "Discovered on",
+    "HTTP code",
+    "Document size",
+    "Backlinks"
+  ],
+  "rows": [
+    {
+      "url": "https://gridironlocker.store",
+      "impressions": 4,
+      "clicks": 2,
+      "last_crawled": "2026-10-20",
+      "discovered_on": "2026-10-07",
+      "http_code": 200,
+      "document_size": 63177,
+      "backlinks": 0
+    },
+    {
+      "url": "http://gridironlocker.store",
+      "impressions": 1,
+      "clicks": 0,
+      "last_crawled": "2026-09-27",
+      "discovered_on": "2026-09-05",
+      "http_code": 200,
+      "document_size": 62088,
+      "backlinks": 1
+    },
+    {
+      "url": "https://gridironlocker.store/about",
+      "impressions": 2,
+      "clicks": 0,
+      "last_crawled": "2026-10-16",
+      "discovered_on": "2026-09-28",
+      "http_code": 200,
+      "document_size": 11625,
+      "backlinks": 0
+    },
+    {
+      "url": "https://gridironlocker.store/cleveland-browns-shirts",
+      "impressions": 0,
+      "clicks": 0,
+      "last_crawled": "2026-10-09",
+      "discovered_on": "2026-10-10",
+      "http_code": 200,
+      "document_size": 74191,
+      "backlinks": 6
+    },
+    {
+      "url": "https://gridironlocker.store/size-guide",
+      "impressions": 0,
+      "clicks": 0,
+      "last_crawled": "2026-10-07",
+      "discovered_on": "2026-10-08",
+      "http_code": 200,
+      "document_size": 12326,
+      "backlinks": 0
+    },
+    {
+      "url": "https://gridironlocker.store/fan-trend-index",
+      "impressions": 0,
+      "clicks": 0,
+      "last_crawled": "2026-10-04",
+      "discovered_on": "2026-10-04",
+      "http_code": 200,
+      "document_size": 24687,
+      "backlinks": 0
+    }
+  ],
+  "totals": {
+    "urls": 6,
+    "backlinks": 7
+  }
+}

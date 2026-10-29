@@ -11,6 +11,7 @@ from typing import Dict, List, Optional
 
 from .config import (
     DESC_MAX,
+    OVERRIDES_PATH,
     DESC_MIN,
     GSC_EXPORT_PATH,
     TITLE_MAX,
@@ -256,6 +257,32 @@ def audit_pages(pages: List[Page], gsc: Optional[Dict[str, dict]] = None) -> Lis
                 suggested=_ctr_title_suggestion(p, top_q.get("query")),
             ))
 
+        # --- GSC-backed weak CTR where the meta description is the safe lever ---
+        # Page-1 impressions with zero clicks: the snippet underperforms. Titles
+        # stay observe-only (standing content freeze); descriptions are the
+        # approved metadata field (PR #226 precedent). Pages that already carry
+        # an approved description override are never re-proposed.
+        if (perf and perf.get("impressions", 0) >= 3 and perf.get("clicks", 1) == 0
+                and (perf.get("position") or 99) <= 8.5
+                and not _has_description_override(p.path)):
+            top_q = (perf.get("queries") or [{}])[0]
+            sugg = _weak_ctr_description_suggestion(p, top_q.get("query"))
+            if sugg:
+                findings.append(_finding(
+                    "weak_ctr_description", p.path, "medium",
+                    (f"GSC: {int(perf['impressions'])} impressions at pos "
+                     f"{perf.get('position')} with 0 clicks - the snippet is the lever. "
+                     f"Top query: {top_q.get('query')!r}."),
+                    evidence={
+                        "impressions": perf["impressions"],
+                        "clicks": perf["clicks"],
+                        "position": perf.get("position"),
+                        "top_query": top_q.get("query"),
+                        "current_description": p.meta_description,
+                    },
+                    suggested=sugg,
+                ))
+
     # --- duplicates across the indexable set ---
     for title, owners in title_owners.items():
         if len(owners) > 1 and title:
@@ -343,6 +370,44 @@ def _ctr_title_suggestion(p: Page, query: Optional[str]) -> dict:
     if len(candidate) > TITLE_MAX:
         candidate = name
     return {"title": candidate[:TITLE_MAX], "query": q}
+
+
+#: One audit run reads the overrides file once. Approved meta_description
+#: overrides are never re-proposed by a later rule: the operator approved THAT
+#: text (seo_engine.apply history carries the approval trail).
+_DESC_OVERRIDE_CACHE = None
+
+
+def _has_description_override(path: str) -> bool:
+    global _DESC_OVERRIDE_CACHE
+    if _DESC_OVERRIDE_CACHE is None:
+        doc = read_json(OVERRIDES_PATH, default=None) or {}
+        _DESC_OVERRIDE_CACHE = doc.get("pages") or {}
+    entry = _DESC_OVERRIDE_CACHE.get(path) or {}
+    return bool(entry.get("meta_description"))
+
+
+def _weak_ctr_description_suggestion(p: Page, query: Optional[str]) -> dict:
+    """Propose a meta description for a page-1 page with impressions and no clicks.
+
+    Conservative, shopper-facing: page identity first, then the query the page
+    already surfaces for, then house facts only (printed after ordering, shipped
+    worldwide). Never touches titles (standing content freeze) and never invents
+    brand claims, prices or guarantees. Capped at the SERP budget.
+    """
+    name = (p.h1[0] if p.h1 else (p.title or "").split("|")[0]).strip()
+    if not name:
+        return {}
+    label = {"product": "fan-made football design",
+             "collection": "fan-made football collection",
+             "hub": "football fan guide"}.get(p.kind, "football fan page")
+    q = (query or "").strip()
+    if q:
+        body = (f"{name}: {label}. If you came here for {q!r}, this is the one. "
+                "Printed after you order, shipped worldwide.")
+    else:
+        body = f"{name}: {label}. Printed after you order, shipped worldwide."
+    return {"meta_description": body[:DESC_MAX].rstrip(), "query": q}
 
 
 def run_audit(site=None, gsc_path=None) -> dict:
