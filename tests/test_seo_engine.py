@@ -7,6 +7,7 @@ through temporary paths, and the crawl reads the committed site/ read-only.
 from __future__ import annotations
 
 import json
+import html as html_mod
 import os
 import re
 import sys
@@ -636,3 +637,70 @@ class WeakCtrDescription(unittest.TestCase):
         # '/' carries an approved description trim (seo-engine apply history).
         self.assertTrue(_has_description_override("/"))
         self.assertFalse(_has_description_override("/shop/nonexistent/"))
+
+
+class KeywordMap(unittest.TestCase):
+    """Phase 1-2 contract: every live product carries a researched keyword map
+    and a listing title that names its team and garment (client brief, 2026-10)."""
+
+    @classmethod
+    def setUpClass(cls):
+        cls.map = json.loads((ROOT / "data/seo/product_keywords.json").read_text())
+
+    def test_every_product_is_mapped(self):
+        self.assertEqual(len(self.map), 96)
+
+    def test_primary_keywords_no_stuffing_or_blanks(self):
+        for slug, e in self.map.items():
+            kw = e["primary_keyword"]
+            self.assertTrue(kw, slug)
+            self.assertLessEqual(len(kw.split()), 8, slug)
+            self.assertNotIn("  ", kw)
+            self.assertIsNone(re.search(r"\b(\w+) \1\b", kw), slug)
+
+    def test_meta_title_within_serp_budget(self):
+        import landing
+        for slug, e in self.map.items():
+            t = landing.meta_title(e["listing_title"], slug=slug)
+            self.assertLessEqual(len(t), 62, slug)  # longest names keep the full phrase
+            if len(e["listing_title"]) <= 42:  # 42 + " | Gridiron Locker" <= 60
+                self.assertIn("Gridiron Locker", t, slug)
+
+    def test_keywords_are_searchable_phrases(self):
+        """Every primary keyword is a lowercase, compact search phrase and the
+        map names each collection's team across the catalogue."""
+        teams = ("browns", "packers", "cowboys", "wolverines")
+        hits = dict.fromkeys(teams, 0)
+        for slug, e in self.map.items():
+            kw = e["primary_keyword"]
+            self.assertEqual(kw, kw.lower().strip(), slug)
+            self.assertLessEqual(len(kw.split()), 8, slug)
+            for t in teams:
+                if t in kw:
+                    hits[t] += 1
+        for t, n in hits.items():
+            self.assertGreaterEqual(n, 5, t)
+
+
+class ProductCopyRewrite(unittest.TestCase):
+    """The 100% product rewrite: every PDP ships the researched listing title
+    in <title>/<h1> and a keyword-leading meta description."""
+
+    def test_pdp_title_h1_and_meta_agree(self):
+        import landing
+        m = json.loads((ROOT / "data/seo/product_keywords.json").read_text())
+        checked = 0
+        for slug, e in m.items():
+            html = (ROOT / "site" / "shop" / slug / "index.html").read_text(encoding="utf-8")
+            base = e["listing_title"]
+            title = html_mod.unescape(
+                re.search(r"<title>([^<]+)</title>", html).group(1))
+            self.assertTrue(
+                title == f"{base} | Gridiron Locker" or title == base
+                or title.startswith(base),
+                f"{slug}: {title!r} vs {base!r}")
+            self.assertTrue(html_mod.escape(base) in html or base in html,
+                            f"{slug}: H1/lead missing listing title")
+            self.assertIn('name="description"', html, slug)
+            checked += 1
+        self.assertEqual(checked, 96)

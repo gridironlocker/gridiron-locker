@@ -1235,6 +1235,38 @@ def build_model():
 
 
 MODEL = build_model()
+
+# ── keyword-era naming (client brief 2026-10-29) ────────────────────────────
+# The SEO keyword map carries researched, keyword-led listing titles. Fold
+# them into the model BEFORE the duplicate-name handling below so PDP names,
+# title tags and search-index entries ship the rewrite. Keep every raw
+# `name` identical to the store listing name.
+try:
+    import json as _kwjson
+    _kw_path = __import__("pathlib").Path(__file__).resolve().parent.parent / "data" / "seo" / "product_keywords.json"
+    _KW_MAP = _kwjson.loads(_kw_path.read_text(encoding="utf-8")) if _kw_path.exists() else {}
+except Exception:  # first-run before seo_engine.keywords generates the map
+    _KW_MAP = {}
+
+for _items in MODEL.values():
+    if not isinstance(_items, list):
+        continue
+    for _it in _items:
+        if not isinstance(_it, dict) or "slug" not in _it:
+            continue
+        _e = _KW_MAP.get(_it["slug"])
+        if _e and _e.get("listing_title"):
+            _it["name"] = _e["listing_title"]
+
+
+# 2026-10-29 SEO rewrite (KEYWORD-RESEARCH-2026-10-29.md): every live product
+# takes its researched listing title from data/seo/product_keywords.json so
+# cards, H1s, feeds and schema all agree. Raw data files keep partner-verbatim
+# names; this map is the storefront naming layer.
+for _items in MODEL.values():
+    for _it in _items:
+        _it["name"] = _l.listing_title(_it["slug"], _it["name"],
+                                       _it.get("col"), _it.get("garment"))
 ALL = [x for v in MODEL.values() for x in v]
 # Every design carries the address its CARDS use (the store's product page)
 # next to the address its own record uses (``url``, the /shop/ page that stays
