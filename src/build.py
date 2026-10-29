@@ -5259,13 +5259,134 @@ fan-created work.</p>
           + header() + body + footer())
 
 
+SECOND_ACT_PATH = "/guides/michigan-second-act-shirts/"
+
+
+def page_second_act_guide():
+    """Editorial guide for the Michigan "Second Act" line (seo_engine seed
+    opportunity SECOND ACT, 2026-10-28): what the slogan means to fans and
+    which live designs carry it. Slogan-first copy - player references stay
+    text-only (DESIGN-BLUEPRINT.md SS1) - and every design claim reads the
+    live catalogue, so a delisting retires the card automatically. The seed
+    is explicit that the page exists only while the catalogue carries a
+    matching design, hence the empty-picks guard."""
+    path = SECOND_ACT_PATH
+    by_slug = {x["slug"]: x for x in MODEL["michigan"]}
+    picks = [by_slug[s] for s in ("second-act", "second-act-qb19-vintage-football")
+             if s in by_slug]
+    if not picks:
+        return
+    cb, cbs = crumbs([("Home", "/"), ("Guides", "/guides/"),
+                      ("Michigan Second Act Shirts", None)], path)
+    sayings = {
+        "second-act": "The phrase alone, set in type - a next chapter in two words.",
+        "second-act-qb19-vintage-football": ("The same phrase in vintage athletic lettering - "
+                                             "washed and retro, built like a 1970s programme cover."),
+    }
+    prices = sorted(x["price"] for x in picks)
+    notes = "".join(
+        f'<li><strong><a href="{esc(store_href(i))}">{esc(i["name"])}</a></strong> '
+        f'(${i["price"]:.2f}, {esc(i["garment"])}) - {esc(sayings.get(i["slug"], i["art"]))}</li>'
+        for i in picks)
+    grid = "".join(card(i) for i in picks)
+    faqs = [
+        ("What does Second Act mean to Michigan fans?",
+         "It is the phrase fans use for a next chapter - a program, a season or a player moving "
+         "into the part of the story people will remember. In 2026 it maps to the year-two story "
+         "under center: Bryce Underwood, the current quarterback and a 2026 team captain, after a "
+         "season that opened with a last-second Hail Mary win over Western Michigan and a 17-10 "
+         "win over No. 11 Oklahoma. On a shirt it stays broader than any one season - every "
+         "program is always in the middle of a second act."),
+        ("Are these shirts officially licensed?",
+         "No. Gridiron Locker is an independent, fan-made store. Designs are original artwork that "
+         "uses team and city words descriptively to say who a design is for. We are not affiliated "
+         "with, endorsed by or licensed by any league, club or university."),
+        ("Do the Second Act designs use player names, faces or numbers?",
+         "The designs are lettering, not portraits: no faces and no likenesses. One of the two "
+         "designs carries a number in its vintage-style name. If you want the version that is "
+         "pure phrase, the plain Second Act design is it."),
+        ("What sizes do the Second Act shirts come in?",
+         f"Apparel size ranges vary by design ({SIZE_RANGE_TO} overall) and each product page lists "
+         "its exact sizes. Measure a shirt you own flat across the chest and match the number on "
+         "the size guide; between sizes, go up one."),
+        ("How long does a Second Act shirt take to arrive?",
+         "Everything is printed after you order it. Delivery is an estimate: 5-12 business days in "
+         "the US, with longer international transit possible; arrival before a specific game is "
+         "not guaranteed."),
+    ]
+    faq_html = "".join(f"<h3>{esc(q)}</h3><p>{esc(a)}</p>" for q, a in faqs)
+    faq_schema = {"@context": "https://schema.org", "@type": "FAQPage",
+                  "mainEntity": [{"@type": "Question", "name": q,
+                                  "acceptedAnswer": {"@type": "Answer", "text": a}}
+                                 for q, a in faqs]}
+    title = "Michigan Second Act Shirts: The Slogan Explained"
+    desc = ("What Second Act means to Michigan fans and the slogan shirts that carry it: the "
+            "live designs, sizing, garment styles and print-on-demand lead times.")
+    art = {"@context": "https://schema.org", "@type": "Article",
+           "headline": title, "description": desc,
+           "datePublished": TODAY, "dateModified": DATA_DATE,
+           "author": {"@type": "Organization", "name": BRAND},
+           "publisher": {"@type": "Organization", "name": BRAND},
+           "mainEntityOfPage": DOMAIN + path,
+           "image": DOMAIN + "/img/hero-michigan.jpg?v=4"}
+    body = f"""{cb}<section style="padding-top:6px"><div class="wrap prose">
+<h1>{esc(title)}</h1>
+<p class="muted">Updated {TODAY} &middot; {len(picks)} live designs &middot; from ${prices[0]:.2f}</p>
+<p>Some slogans are chants and some are arguments. Second Act is the second kind. This is what
+fans mean when they say it, and the designs in the Michigan locker that carry it.</p>
+<h2>What fans mean when they say Second Act</h2>
+<p>In Ann Arbor the phrase names the next chapter - the part of the story people will remember.
+The 2026 version has a specific shape: a year-two story under center, with Bryce Underwood the
+current quarterback and a 2026 team captain, after a season that opened with a last-second Hail
+Mary win over Western Michigan and a 17-10 win over No. 11 Oklahoma.</p>
+<p>What makes the phrase work on a shirt is that it never finishes. A chant celebrates what
+happened; Second Act promises what is next. That is also why it survives a roster: a second act
+is always coming, in Ann Arbor and everywhere else.</p>
+<h2>The designs in the locker</h2>
+<ul>{notes}</ul>
+<div class="grid" style="margin:16px 0">{grid}</div>
+<h2>Sizing, garments and lead times</h2>
+<p>Both designs run on the standard fan-apparel sizing; apparel size ranges vary by design
+({SIZE_RANGE_TO} overall) and each product page lists its exact sizes - see the
+<a href="/size-guide/">size guide</a> before you order. Everything is printed after you order it:
+allow a few business days for production plus shipping, and treat delivery as an estimate rather
+than a guarantee for a specific game date.</p>
+<h2>Where it fits in the Michigan locker</h2>
+<p>The locker carries {len(MODEL['michigan'])} Michigan designs in total - slogans, vintage cuts and
+city pride. For gift picks and garment comparisons read the
+<a href="/guides/michigan-wolverines-shirts-buying-guide/">Michigan buying guide</a>, and for what
+is trending across the roster right now see the
+<a href="/2026-season/">2026 season hub</a>.</p>
+<p><a class="btn" href="/michigan-wolverines-shirts/">All Michigan designs &rarr;</a></p>
+<h2>Second Act shirts FAQ</h2>
+{faq_html}
+<p class="muted" style="font-size:.82rem">Independent fan store. Gridiron Locker is not affiliated
+with, endorsed by, sponsored by or licensed by the National Football League, any NFL club, the NCAA,
+any university or any player. Team and city names are used descriptively. All artwork is original,
+fan-created work.</p>
+</div></section>"""
+    URLS.append((DOMAIN + path, "0.7", "monthly"))
+    write("guides/michigan-second-act-shirts/index.html",
+          head(f"{title} | {BRAND}", desc, path, "/img/hero-michigan.jpg?v=4",
+               [cbs, art, faq_schema],
+               ["second act shirt", "michigan second act apparel", "michigan slogan tee",
+                "bryce underwood second act tee", "michigan football shirt", "go blue t-shirt",
+                "ann arbor apparel", "michigan 2026 shirt"], col="michigan")
+          + header("michigan") + body + footer(collection="michigan"))
+
+
 def page_guides():
     week1_card = ('<div class="panel" style="margin-bottom:14px;border-top:3px solid var(--ink)">'
                   '<h3><a href="/guides/2026-week-1-shirts/">2026 Week 1 Fan Shirts: '
                   'Kickoff Fits &amp; Slogan Tees</a></h3>'
                   '<p class="muted" style="margin:0">Every Week 1 kickoff date, the slogan direction '
                   f'for each team and the graphics to order now &mdash; {esc(season_recap_short())}</p></div>')
-    cards = week1_card
+    second_act_card = ('<div class="panel" style="margin-bottom:14px;border-top:3px solid var(--ink)">'
+                       '<h3><a href="/guides/michigan-second-act-shirts/">'
+                       'Michigan Second Act Shirts: The Slogan Explained</a></h3>'
+                       '<p class="muted" style="margin:0">What fans mean when they say "Second Act", '
+                       'the live designs that carry it, sizing and lead times.</p></div>')
+    cards = week1_card + second_act_card
     for k in ORDER:
         c = COLLECTIONS[k]
         cards += (f'<div class="panel" style="margin-bottom:14px"><h3><a href="/guides/{c["slug"]}-buying-guide/">'
@@ -5297,6 +5418,43 @@ people buying gifts.</p>
             links = "".join(f'<li><a href="{esc(store_href(i))}">{esc(i["name"])}</a> - {esc(i["art"][:90])} '
                             f'(${i["price"]:.2f})</li>' for i in lst[:8])
             secs += f"<h2>{theme_titles.get(t, t.title())}</h2><ul>{links}</ul>"
+        qb1_sec = ""
+        related_sec = ""
+        if k == "cleveland-browns":
+            # seo_engine seed opportunity QB1 BATTLE (2026-10-28): guide
+            # addendum, slogan-only. The player-specific designs are retired,
+            # so the section maps the QB1 search to slogans that outlast a
+            # depth chart (house rule: no player-number art, DESIGN-BLUEPRINT
+            # SS1). Picks read the live catalogue; nothing is hard-coded.
+            qb_names = {"playoffs": "The expectation, in one word - the fan conversation about a "
+                                    "quarterback always ends here.",
+                        "make-them-know-your-name": "The other side of the QB1 argument: the job is "
+                                                    "earned, not announced.",
+                        "no-fly-zone": "The defense's answer to whatever the offense is doing.",
+                        "dawg-life": "The culture around the team, not any single player in it.",
+                        "lets-go-cle-copy": "The chant - game day, any score, any quarterback.",
+                        "go-browns": "Two words that have survived every roster in the stadium's "
+                                     "lifetime."}
+            qb_items = [next((x for x in items if x["slug"] == sl), None)
+                        for sl in qb_names]
+            qb_items = [i for i in qb_items if i is not None]
+            qb_li = "".join(
+                f'<li><a href="{esc(store_href(i))}"><strong>{esc(i["name"])}</strong></a> '
+                f'- {esc(qb_names[i["slug"]])} (${i["price"]:.2f})</li>'
+                for i in qb_items)
+            qb1_sec = f"""<h2>Browns QB1 shirts: what fans are searching for</h2>
+<p>"Browns QB1 shirt" spikes with every depth-chart story, and it is the fastest phrase in this
+fanbase to go out of date - a shirt that names a quarterback ages with the room. The designs here
+take the other road: the words fans say in the stands, set in type, with no name, face or number
+on them. They mean the same thing in September and in January, whoever takes the snap.</p>
+<ul>{qb_li}</ul>
+<p>Buying for someone who follows the QB story week to week? A slogan tee is the version that is
+still wearable after the story changes - and the <a href="/2026-season/">2026 season hub</a>
+tracks what is changing on the roster right now.</p>"""
+        if k == "michigan":
+            related_sec = ('<p>Looking for the "Second Act" line specifically? Read what the '
+                           'slogan means in the <a href="/guides/michigan-second-act-shirts/">'
+                           'Michigan Second Act shirts guide</a>.</p>')
         path = f"/guides/{c['slug']}-buying-guide/"
         cb, cbs = crumbs([("Home", "/"), ("Guides", "/guides/"), (c["short"], None)], path)
         title = f"{c['short']} Fan Apparel Buying Guide {YEAR}"
@@ -5311,7 +5469,7 @@ people buying gifts.</p>
 <h1>{esc(title)}</h1>
 <p class="muted">Updated {TODAY} &middot; {len(items)} designs reviewed &middot; from ${prices[0]:.2f}</p>
 <img src="{c['hero']}" alt="{esc(c['name'])}" style="border-radius:14px;margin:18px 0" loading="lazy" width="1200" height="500">
-<p>{esc(c['intro'].format(**c))}</p>
+<p>{esc(c['intro'].format(**c))}</p>{related_sec}
 <h2>Start with the garment, not the graphic</h2>
 <p>The single most common mistake is falling for a design and then picking the wrong garment. If you
 will wear it into a stadium in December, buy the crewneck or hoodie. If it is a September opener or
@@ -5322,7 +5480,7 @@ gifts because sizing cannot go wrong.</p>
 lists its exact sizes. Measure a shirt you already own flat across the chest and match the number - see
 the full <a href="/size-guide/">size guide</a>. Between sizes? Go up, especially on fleece.</p>
 {secs}
-<h2>Price range</h2>
+{qb1_sec}<h2>Price range</h2>
 <p>This collection runs from <strong>${prices[0]:.2f}</strong> to <strong>${prices[-1]:.2f}</strong>.
 Tees sit at the low end, hoodies and all-over prints at the top. Everything is printed after you
 order, so there is no clearance rack and no sold-out sizes.</p>
@@ -7853,6 +8011,7 @@ def main():
         page_product(it)
     page_guides()
     page_week1_graphics()
+    page_second_act_guide()
     page_season()
     page_fti()
     page_drops()
