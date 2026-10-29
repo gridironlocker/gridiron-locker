@@ -5177,7 +5177,7 @@ if __name__ == "__main__":
 def _has_link(html, path):
     """Site renders root-relative hrefs rewritten per page depth
     (../ or ../../); match the target path at any prefix."""
-    return re.search(rf'href="(?:\.\./)*{re.escape(path.lstrip("/"))}"', html) is not None
+    return re.search(rf'href="(?:(?:\./)|(?:\.\./))*{re.escape(path.lstrip("/"))}"', html) is not None
 
 
 class SecondActGuide(unittest.TestCase):
@@ -5231,3 +5231,50 @@ class Qb1GuideAddendum(unittest.TestCase):
         # Michigan guide reciprocates the editorial link instead.
         html = page("guides/michigan-wolverines-shirts-buying-guide/index.html")
         self.assertTrue(_has_link(html, "guides/michigan-second-act-shirts/"))
+
+
+class HowOrderingPage(unittest.TestCase):
+    """Canonical trust page - the answer to 'what happens when I tap Shop Now'.
+    Linked from the trust strip, every PDP hand-off note, every collection
+    block and the footer, so it must stay link-complete and honest."""
+
+    def test_page_substantial_with_full_link_set(self):
+        html = page("how-ordering-works/index.html")
+        self.assertIn("<h1>", html)
+        self.assertGreater(len(html.split()), 900)
+        for href in ("shipping/", "size-guide/", "contact/"):
+            self.assertTrue(_has_link(html, href), href)
+        self.assertIn("FAQPage", html)
+        self.assertIn("not affiliated", html.lower())
+        # The partner split must be stated, not hidden.
+        self.assertTrue("Mayzing" in html or "Viralstyle" in html)
+        self.assertIn("Shop Now", html)
+
+    def test_reachable_from_trust_strip_pdp_and_footer(self):
+        home = page("index.html")
+        self.assertTrue(_has_link(home, "how-ordering-works/"))
+        pdp = page("shop/playoffs/index.html")
+        self.assertTrue(_has_link(pdp, "how-ordering-works/"))
+        col = page("cleveland-browns-shirts/index.html")
+        self.assertTrue(_has_link(col, "how-ordering-works/"))
+
+
+class GiftGuidePage(unittest.TestCase):
+    """Seasonal gift landing (Q4) - budget bands and team picks read the live
+    catalogue at build time."""
+
+    def test_guide_links_everything_a_gift_buyer_needs(self):
+        html = page("guides/football-fan-gift-guide-2026/index.html")
+        self.assertIn("<h1>", html)
+        self.assertGreater(len(html.split()), 900)
+        for href in ("cleveland-browns-shirts/", "michigan-wolverines-shirts/",
+                     "green-bay-packers-shirts/", "dallas-cowboys-shirts/",
+                     "size-guide/", "how-ordering-works/", "shipping/"):
+            self.assertTrue(_has_link(html, href), href)
+        self.assertIn("FAQPage", html)
+        self.assertIn("not affiliated", html.lower())
+        self.assertIn("Stocking stuffers", html)  # budget band
+
+    def test_gift_guide_listed_on_guides_index(self):
+        html = page("guides/index.html")
+        self.assertTrue(_has_link(html, "guides/football-fan-gift-guide-2026/"))

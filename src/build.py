@@ -1931,7 +1931,8 @@ def trust(heading=False):
  <div><b>Made To Order</b>Printed after you order</div>
  <div><b>Worldwide Shipping</b>Tracked to your door</div>
  <div><b>Secure Checkout</b>Card &amp; PayPal</div>
-</div>"""
+</div>
+<p class="trust-more muted small">New here? <a href="/how-ordering-works/">How ordering works</a> - who prints your order, who charges you, how returns work.</p>"""
 
 
 #: The sitewide behaviour script (search, filters, favourite toasts, consent
@@ -1999,7 +2000,7 @@ def footer(popup=True, collection=None):
    <div><h2>Shop</h2><a href="/collections/">All Collections</a>{cl}{cl_creators}
     <a href="/drops/">Trending</a><a href="/search/">All Designs</a></div>
    <div><h2>Help</h2><a href="/faq/">FAQ</a><a href="/shipping/">Shipping</a>
-    <a href="/shipping/">Returns</a><a href="/size-guide/">Size Guide</a>
+    <a href="/shipping/">Returns</a><a href="/how-ordering-works/">How It Works</a><a href="/size-guide/">Size Guide</a>
     <a href="/contact/">Contact</a></div>
    <div><h2>Brand</h2><a href="/about/">About</a><a class="custom-link" data-placement="footer" href="/#custom-design">Custom Design</a>
     <a href="/guides/">Buying Guides</a><a href="/2026-season/">2026 Season</a>
@@ -3328,6 +3329,7 @@ def page_collection(k):
  Now</strong> and you land on the {partner_of(c['key'])} product page for that exact campaign, where you
  choose garment style, colour and size and complete the order. Items are printed after the order
  is placed and shipped worldwide with tracking.</p>
+ <p><a class="link" href="/how-ordering-works/">The full ordering explainer &rarr;</a></p>
  <p><a class="link" href="/guides/{c['slug']}-buying-guide/">Read the {esc(c['short'])} buying guide &rarr;</a></p>
  {cre_link}
 </div></section>
@@ -4656,6 +4658,7 @@ def page_product(it):
   {trendhtml}
   {shop_now_cta(it, "hero")}
   <p class="handoff-note">{handoff_note}</p>
+  <p class="muted small"><a href="/how-ordering-works/">How ordering works</a> - who prints, ships and takes payment.</p>
   <ul class="atglance">
    <li><b>Design</b>{esc(_l.title_case_art(it['art']))}</li>
    <li><b>Apparel</b>{style_badge}</li>
@@ -5375,6 +5378,262 @@ fan-created work.</p>
           + header("michigan") + body + footer(collection="michigan"))
 
 
+HOW_ORDERING_PATH = "/how-ordering-works/"
+
+
+def page_how_ordering():
+    """The canonical trust page: what this store is, who charges you, who
+    prints and ships, and how returns work. Every other surface (PDP hand-off
+    notes, collection 'How ordering works' blocks, the trust strip) links here
+    so a suspicious shopper can always reach the full story in one click.
+    Copy states only what the code and data already prove - the partner split,
+    the print-after-order model and the estimate-only delivery language."""
+    path = HOW_ORDERING_PATH
+    cb, cbs = crumbs([("Home", "/"), ("How Ordering Works", None)], path)
+    partners = sorted({i["partner"] for items in MODEL.values() for i in items})
+    partner_names = " and ".join(f"{esc(x)}" for x in partners)
+    faqs = [
+        ("Does Gridiron Locker print and ship my order?",
+         f"No. Gridiron Locker is the design library and this storefront. Printing, fulfilment and "
+         f"checkout are handled by our print-on-demand partners ({partner_names}), and the partner "
+         "for each design is named on its product page. Items are printed after the order is placed "
+         "and shipped worldwide with tracking."),
+        ("Who charges me, and where do I pay?",
+         "The print partner charges you. Tap Shop Now on a product page and you land on that "
+         "partner's page for the exact campaign, where you choose garment style, colour and size "
+         "and complete the order. Gridiron Locker never takes payment - final product price, "
+         "shipping and applicable taxes are confirmed at the partner's checkout."),
+        ("Are the prices on this site final?",
+         "The prices shown are listed in USD as a guide. The partner's checkout shows the final "
+         "price in its own currency, plus shipping and any taxes. If a partner is running a "
+         "promotion, any discount appears there - we do not invent sales or countdown timers here."),
+        ("How long does delivery take?",
+         "Everything is printed after you order it, so allow production plus shipping time. The "
+         "working estimate is 5-12 business days for US delivery with longer international transit "
+         "possible; the partner's checkout shows the current estimate for your address. Delivery is "
+         "an estimate, not a guaranteed date."),
+        ("How do returns, exchanges and misprints work?",
+         "Because each item is made to order, returns and exchanges are handled by the partner that "
+         "printed it, under the policy shown at its checkout. If something arrives misprinted, "
+         "damaged or wrong, send a photo and your order number via the contact form and we will "
+         "raise it with the partner for you."),
+    ]
+    faq_html = "".join(f"<h3>{esc(q)}</h3><p>{esc(a)}</p>" for q, a in faqs)
+    faq_schema = {"@context": "https://schema.org", "@type": "FAQPage",
+                  "mainEntity": [{"@type": "Question", "name": q,
+                                  "acceptedAnswer": {"@type": "Answer", "text": a}}
+                                 for q, a in faqs]}
+    title = "How Ordering Works"
+    desc = ("How ordering at Gridiron Locker works: who prints and ships, who charges you, delivery "
+            "estimates, returns and order help. The full, honest explainer.")
+    art = {"@context": "https://schema.org", "@type": "Article",
+           "headline": title, "description": desc,
+           "datePublished": TODAY, "dateModified": DATA_DATE,
+           "author": {"@type": "Organization", "name": BRAND},
+           "publisher": {"@type": "Organization", "name": BRAND},
+           "mainEntityOfPage": DOMAIN + path}
+    body = f"""{cb}<section style="padding-top:6px"><div class="wrap prose">
+<h1>{esc(title)}</h1>
+<p>Gridiron Locker is an independent, fan-made design store. We make the original artwork and this
+website; our print-on-demand partners make the physical product, charge for it and ship it. If you
+have ever wondered exactly what happens when you tap <strong>Shop Now</strong>, this page is the
+whole story - no small print.</p>
+<h2>The three steps</h2>
+<ol>
+<li><strong>Pick a design here.</strong> Every product page lists the design, garment styles,
+colourways, sizes, price guide and the name of the partner that prints it.</li>
+<li><strong>Tap Shop Now.</strong> You land on the partner's page for that exact campaign, where you
+choose garment style, colour and size and pay at their secure checkout. That is the only place an
+order is placed.</li>
+<li><strong>They print and ship.</strong> The item is printed after the order and dispatched with
+tracking.</li>
+</ol>
+<h2>Who does what</h2>
+<ul>
+<li><strong>Gridiron Locker:</strong> original designs, this website, buying guides, and order
+support - if anything goes wrong we chase the partner with you.</li>
+<li><strong>{partner_names}:</strong> garment stock, printing, the checkout, payment, shipping
+rates and the return policy shown at their checkout.</li>
+</ul>
+<h2>Prices, shipping costs and discounts</h2>
+<p>Prices on this site are listed in USD as a guide. The final product price, shipping cost and
+applicable taxes are confirmed at the partner's checkout, in its own currency. Any discount or
+promotion is whatever the partner is actually running - we do not fabricate sales, countdowns or
+coupon codes.</p>
+<h2>Delivery expectations</h2>
+<p>Nothing here is pre-printed. The working estimate is 5-12 business days for US delivery after
+the order, with longer international transit possible; the current estimate for your address is
+shown at checkout. Treat delivery as an estimate, not a guarantee for a specific game date - and if
+you are buying a gift, order as early as you can. Full detail is on the
+<a href="/shipping/">shipping &amp; returns page</a>.</p>
+<h2>Returns, misprints and order help</h2>
+<p>Returns and exchanges are handled by the printing partner under the policy at its checkout. If
+an item arrives misprinted, damaged, or the wrong size was sent, send a photo and your order number
+via the <a href="/contact/">contact form</a> and we will raise it with the partner for you. For
+sizing - the biggest cause of avoidable exchanges - use the <a href="/size-guide/">size guide</a>
+and size up if you are between sizes.</p>
+<h2>Where is my order?</h2>
+<p>The partner's confirmation email has your order number and, once dispatched, your tracking link.
+If it is late or something looks wrong, <a href="/contact/">contact us with the order number</a> -
+chasing it is part of our job.</p>
+<h2>Ordering FAQ</h2>
+{faq_html}
+<p class="muted" style="font-size:.82rem">Independent fan store. Gridiron Locker is not affiliated
+with, endorsed by, sponsored by or licensed by the National Football League, any NFL club, the NCAA,
+any university or any player. Team and city names are used descriptively. All artwork is original,
+fan-created work.</p>
+</div></section>"""
+    URLS.append((DOMAIN + path, "0.8", "monthly"))
+    write("how-ordering-works/index.html",
+          head(f"{title} | {BRAND}", desc, path, "/img/hero-home.jpg?v=5", [cbs, art, faq_schema],
+               ["how does gridiron locker work", "gridiron locker shipping",
+                "gridiron locker returns", "where is my order", "print on demand order help",
+                "gridiron locker order help"])
+          + header() + body + footer())
+
+
+GIFT_GUIDE_PATH = "/guides/football-fan-gift-guide-2026/"
+
+
+def page_gift_guide():
+    """Seasonal gift landing (Q4): budget bands and team picks computed from
+    the live catalogue at build time, so nothing here can go stale against a
+    delisting. Delivery language stays estimate-only (qa shipping-claims) and
+    no wrap, no guaranteed dates and no invented stock claims."""
+    path = GIFT_GUIDE_PATH
+    cb, cbs = crumbs([("Home", "/"), ("Guides", "/guides/"),
+                      ("Football Fan Gift Guide 2026", None)], path)
+
+    def pick(team, slugs):
+        by = {x["slug"]: x for x in MODEL[team]}
+        return [by[s] for s in slugs if s in by]
+
+    sayings = {
+        "playoffs": "The fan conversation in one word - the gift for the eternal optimist.",
+        "dawg-life": "Funny, loud and unmistakably Cleveland.",
+        "cleveland-victory-monday": "For the Monday-after ritual.",
+        "classic-1946": "Vintage heritage lettering for the fan who likes the history.",
+        "second-act": "The phrase of the moment - the next chapter, in two words.",
+        "legacy": "One word that works on any Michigan fan.",
+        "maize-out": "Game-day colour-out energy, wearable anywhere.",
+        "m-vs-everybody": "Us-against-the-world, set in type.",
+        "limited-edition-grb29": "Two words, gold stripes - the safe win for any Pack fan.",
+        "limited-edition-grb22": "The Monday-after ritual, in green and gold.",
+        "limited-edition-grb32": "A cheese wedge shaped like a heart. That is the gift.",
+        "limited-edition-grb15": "Retro property-of lettering - the heritage pick.",
+        "limited-edition-grb35": "A mug, not a shirt - the size-proof gift.",
+        "doomsday-defense-tee": "Retro skull lettering for the defence nerd.",
+        "vintage-country": "The funny one. Texas energy in four words.",
+        "dallas-flag-tee": "Distressed flag styling - the understated pick.",
+        "vintage-texas-pride": "State-flag pride for the fan who wears it everywhere.",
+    }
+    groups = [
+        ("Cleveland fans", "cleveland-browns", "Cleveland",
+         ("playoffs", "dawg-life", "cleveland-victory-monday", "classic-1946"),
+         "/cleveland-browns-shirts/", "/guides/cleveland-browns-shirts-buying-guide/"),
+        ("Michigan fans", "michigan", "Michigan",
+         ("second-act", "legacy", "maize-out", "m-vs-everybody"),
+         "/michigan-wolverines-shirts/", "/guides/michigan-wolverines-shirts-buying-guide/"),
+        ("Green Bay fans", "green-bay-packers", "Green Bay",
+         ("limited-edition-grb29", "limited-edition-grb22", "limited-edition-grb32",
+          "limited-edition-grb15", "limited-edition-grb35"),
+         "/green-bay-packers-shirts/", "/guides/green-bay-packers-shirts-buying-guide/"),
+        ("Dallas fans", "dallas-cowboys", "Dallas",
+         ("doomsday-defense-tee", "vintage-country", "dallas-flag-tee", "vintage-texas-pride"),
+         "/dallas-cowboys-shirts/", "/guides/dallas-cowboys-shirts-buying-guide/"),
+    ]
+    blocks = []
+    for heading, team, col_name, slugs, col_url, guide_url in groups:
+        items = pick(team, slugs)
+        lis = "".join(
+            f'<li><strong><a href="{esc(store_href(i))}">{esc(i["name"])}</a></strong> '
+            f'(${i["price"]:.2f}) - {esc(sayings.get(i["slug"], "What it says on the shirt: " + i["art"]))}</li>'
+            for i in items)
+        blocks.append(
+            f'<h2>Gifts for {esc(heading)}</h2><ul>{lis}</ul>'
+            f'<p><a class="link" href="{esc(col_url)}">All {esc(col_name)} designs</a> &middot; '
+            f'<a class="link" href="{esc(guide_url)}">full buying guide</a></p>')
+    team_blocks = "".join(blocks)
+    cheap = sorted((x for items in MODEL.values() for x in items
+                    if x["price"] <= 21.99 and x["theme"] != "player"),
+                   key=lambda x: x["price"])[:4]
+    cheap_grid = "".join(card(i) for i in cheap)
+    prices = sorted({x["price"] for items in MODEL.values() for x in items})
+    faqs = [
+        ("What is a good football fan gift under $25?",
+         f"Most of the locker lands under $25: slogan tees at ${prices[1]:.2f}-${prices[3]:.2f} and "
+         f"mugs from ${prices[0]:.2f}. The budget row above is picked from the live catalogue, and "
+         "every product page shows its own price guide."),
+        ("How do I pick a size for a gift?",
+         "Measure a shirt the person already owns flat across the chest and match the numbers on "
+         "the size guide - or use the hoodie hint: fleece styles run roomier than tees. If you are "
+         "between sizes or unsure, order one size up."),
+        ("Will a gift arrive in time?",
+         "Everything is printed after the order is placed. The working estimate is 5-12 business "
+         "days for US delivery plus any international transit, shown at checkout - that is an "
+         "estimate, not a guaranteed date. For gifting, order as early as you can."),
+        ("Can I return a gift that is the wrong size?",
+         "Returns and exchanges are handled by the print partner under the policy at its checkout. "
+         "If something goes wrong, send the order number and a photo via the contact form and we "
+         "will raise it with the partner for you."),
+        ("Are these officially licensed products?",
+         "No. Every design is independent fan art made by an independent designer. We are not "
+         "affiliated with, endorsed by or licensed by any league, club or university."),
+    ]
+    faq_html = "".join(f"<h3>{esc(q)}</h3><p>{esc(a)}</p>" for q, a in faqs)
+    faq_schema = {"@context": "https://schema.org", "@type": "FAQPage",
+                  "mainEntity": [{"@type": "Question", "name": q,
+                                  "acceptedAnswer": {"@type": "Answer", "text": a}}
+                                 for q, a in faqs]}
+    title = "Football Fan Gift Guide 2026"
+    desc = ("Gifts for football fans by budget and team: slogan tees and mugs from "
+            f"${prices[0]:.2f}, sizing help for gifting, and honest delivery estimates.")
+    art = {"@context": "https://schema.org", "@type": "Article",
+           "headline": title, "description": desc,
+           "datePublished": TODAY, "dateModified": DATA_DATE,
+           "author": {"@type": "Organization", "name": BRAND},
+           "publisher": {"@type": "Organization", "name": BRAND},
+           "mainEntityOfPage": DOMAIN + path,
+           "image": DOMAIN + "/img/hero-home.jpg?v=5"}
+    body = f"""{cb}<section style="padding-top:6px"><div class="wrap prose">
+<h1>{esc(title)}</h1>
+<p class="muted">Updated {TODAY} &middot; {N_DESIGNS} designs &middot; 4 teams &middot; from
+${prices[0]:.2f}</p>
+<p>Buying for a football fan beats buying for a fashion fan: the rules are simple, the phrases are
+known, and nobody has ever been upset about a game-day tee. Everything here is picked from the live
+catalogue - original, fan-made designs, printed after the order and shipped worldwide.</p>
+<h2>Stocking stuffers under $22</h2>
+<p>Small budget, real gift: mugs and tees from the value end of the locker.</p>
+<div class="grid" style="margin:16px 0">{cheap_grid}</div>
+{team_blocks}
+<h2>Gifting without knowing their size</h2>
+<p>The single best trick: measure a shirt they already like flat across the chest and match the
+numbers on the <a href="/size-guide/">size guide</a>. Fleece (hoodies, crewnecks) runs roomier than
+tees; if you are unsure or between sizes, order one size up. Every product page lists the exact
+sizes that design offers.</p>
+<h2>Order early - the honest version</h2>
+<p>Everything is printed after the order is placed: the working estimate is 5-12 business days for
+US delivery plus any international transit, and the current estimate for the address is shown at
+the partner's checkout. That is an estimate, not a guaranteed date - so for gifting, order as early
+as you can. How the whole flow works is explained on the
+<a href="/how-ordering-works/">how ordering works</a> page, and returns are covered on
+<a href="/shipping/">shipping &amp; returns</a>.</p>
+<h2>Gift guide FAQ</h2>
+{faq_html}
+<p><a class="btn" href="/collections/">Browse all collections &rarr;</a></p>
+<p class="muted" style="font-size:.82rem">Independent fan store. Gridiron Locker is not affiliated
+with, endorsed by, sponsored by or licensed by the National Football League, any NFL club, the NCAA,
+any university or any player. Team and city names are used descriptively. All artwork is original,
+fan-created work.</p>
+</div></section>"""
+    URLS.append((DOMAIN + path, "0.7", "monthly"))
+    write("guides/football-fan-gift-guide-2026/index.html",
+          head(f"{title} | {BRAND}", desc, path, "/img/hero-home.jpg?v=5", [cbs, art, faq_schema],
+               ["football fan gifts", "gifts for football fans", "nfl fan gifts",
+                "football shirt gift", "football gifts under 25", "sports fan gifts 2026"])
+          + header() + body + footer())
+
+
 def page_guides():
     week1_card = ('<div class="panel" style="margin-bottom:14px;border-top:3px solid var(--ink)">'
                   '<h3><a href="/guides/2026-week-1-shirts/">2026 Week 1 Fan Shirts: '
@@ -5386,7 +5645,13 @@ def page_guides():
                        'Michigan Second Act Shirts: The Slogan Explained</a></h3>'
                        '<p class="muted" style="margin:0">What fans mean when they say "Second Act", '
                        'the live designs that carry it, sizing and lead times.</p></div>')
-    cards = week1_card + second_act_card
+    gift_card = ('<div class="panel" style="margin-bottom:14px;border-top:3px solid var(--ink)">'
+                 '<h3><a href="/guides/football-fan-gift-guide-2026/">'
+                 'Football Fan Gift Guide 2026</a></h3>'
+                 '<p class="muted" style="margin:0">Gifts by budget and team: stocking stuffers, '
+                 'slogan picks for all four collections, sizing help and honest delivery '
+                 'estimates.</p></div>')
+    cards = week1_card + second_act_card + gift_card
     for k in ORDER:
         c = COLLECTIONS[k]
         cards += (f'<div class="panel" style="margin-bottom:14px"><h3><a href="/guides/{c["slug"]}-buying-guide/">'
@@ -8012,6 +8277,8 @@ def main():
     page_guides()
     page_week1_graphics()
     page_second_act_guide()
+    page_gift_guide()
+    page_how_ordering()
     page_season()
     page_fti()
     page_drops()
