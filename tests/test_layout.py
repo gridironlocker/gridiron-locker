@@ -5172,3 +5172,62 @@ class BacksideHoverEveryCard(unittest.TestCase):
 
 if __name__ == "__main__":
     unittest.main(verbosity=2)
+
+
+def _has_link(html, path):
+    """Site renders root-relative hrefs rewritten per page depth
+    (../ or ../../); match the target path at any prefix."""
+    return re.search(rf'href="(?:\.\./)*{re.escape(path.lstrip("/"))}"', html) is not None
+
+
+class SecondActGuide(unittest.TestCase):
+    """Editorial seed page - seo_engine opportunity SECOND ACT (2026-10-28)."""
+
+    def test_guide_page_is_substantial_and_cross_linked(self):
+        html = page("guides/michigan-second-act-shirts/index.html")
+        # Slogan-first editorial: the buying-guide + collection + season + size
+        # guide all get reciprocated links.
+        self.assertIn("<h1>", html)
+        self.assertGreater(len(html.split()), 1200)  # not a thin page
+        for href in ("michigan-wolverines-shirts/", "size-guide/", "2026-season/",
+                     "guides/michigan-wolverines-shirts-buying-guide/"):
+            self.assertTrue(_has_link(html, href), href)
+        # Live catalogue only - both Second Act designs are cards/links.
+        self.assertIn("second-act", html)
+        self.assertIn("Second Act QB19 Vintage Football", html)
+        # Independent-store disclaimer + FAQ schema must ship.
+        self.assertIn("not affiliated", html.lower())
+        self.assertIn("FAQPage", html)
+
+    def test_guide_listed_on_guides_index(self):
+        html = page("guides/index.html")
+        self.assertTrue(_has_link(html, "guides/michigan-second-act-shirts/"))
+
+
+class Qb1GuideAddendum(unittest.TestCase):
+    """Slogan-only QB1 section in the Cleveland buying guide (seo_engine seed
+    opportunity QB1 BATTLE): no player names, faces or numbers in the section."""
+
+    def test_cleveland_guide_has_qb1_section_with_slogans(self):
+        html = page("guides/cleveland-browns-shirts-buying-guide/index.html")
+        i = html.find("Browns QB1 shirts")
+        self.assertGreater(i, -1)
+        sec = html[i:html.find("<h2>Price range</h2>")]
+        for slogan in ("Playoffs", "Make Them Know Your Name", "Dawg Life", "Go Browns"):
+            self.assertIn(slogan, sec)
+        self.assertTrue(_has_link(sec, "2026-season/"))
+
+    def test_qb1_section_stays_slogan_only(self):
+        html = page("guides/cleveland-browns-shirts-buying-guide/index.html")
+        i = html.find("Browns QB1 shirts")
+        sec = html[i:html.find("<h2>Price range</h2>")]
+        low = sec.lower()
+        for banned in ("watson", "sanders", "flacco", "stefanski", "quarterback1", "#12", "#13"):
+            self.assertNotIn(banned, low)
+
+    def test_other_guides_get_no_qb1_section(self):
+        html = page("guides/green-bay-packers-shirts-buying-guide/index.html")
+        self.assertNotIn("Browns QB1 shirts", html)
+        # Michigan guide reciprocates the editorial link instead.
+        html = page("guides/michigan-wolverines-shirts-buying-guide/index.html")
+        self.assertTrue(_has_link(html, "guides/michigan-second-act-shirts/"))
