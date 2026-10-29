@@ -9,6 +9,7 @@ garment, collection) plus verified campaign facts. Colour names are never
 invented. No player quotes, statistics, records or historical claims.
 """
 import hashlib
+import os
 import re
 
 from collections_data import partner_of
@@ -503,9 +504,54 @@ def search_intent(p):
     return pick(clean, p["slug"], "intent")
 
 
+#: Product keyword map (data/seo/product_keywords.json, seo_engine/keywords.py)
+#: - the 2026-10-29 SEO rewrite layer. Every live slug carries a researched
+#: listing title, primary keyword and description hook; the copy generators
+#: below read it so titles and descriptions follow the research, not guesses.
+_KW_MAP = None
+
+
+def keyword_map():
+    global _KW_MAP
+    if _KW_MAP is None:
+        import json as _json
+        path = os.path.join(os.path.dirname(os.path.dirname(
+            os.path.abspath(__file__))), "data", "seo", "product_keywords.json")
+        try:
+            with open(path, encoding="utf-8") as fh:
+                _data = _json.load(fh)
+                _KW_MAP = _data.get("products") or _data  # flat slug->entry map
+        except OSError:
+            _KW_MAP = {}
+    return _KW_MAP
+
+
+def listing_title(slug, name, col=None, garment="T-Shirt"):
+    """SEO listing title for one product (H1, cards, feeds, schema).
+
+    Falls back to the raw catalogue name when the map has no entry."""
+    entry = keyword_map().get(slug) or {}
+    return entry.get("listing_title") or name
+
+
+def kw_entry(slug, name="", garment="T-Shirt"):
+    entry = keyword_map().get(slug) or {}
+    if entry:
+        return entry
+    return {"listing_title": name, "primary_keyword": "", "secondary_keywords": [],
+            "description_hook": "", "intent": ""}
+
+
 def meta_title(name, brand="Gridiron Locker", slug="", col=None, garment="T-Shirt",
                theme="classic", art=""):
-    """[Product] | [search intent] | Gridiron Locker - shortened to the SERP budget."""
+    """SERP title: the listing title (which carries the researched primary
+    keyword) plus the brand inside the 60-char budget. The intent-phrase
+    ladder remains for pages without a keyword-map entry."""
+    if keyword_map().get(slug):
+        full = f"{name} | {brand}"
+        if len(full) <= 60:
+            return full
+        return name  # longest names keep the full keyword phrase (unique)
     if col:
         p = profile(slug or name, name, art or name, col, garment, theme)
         intent = search_intent(p)
@@ -554,37 +600,45 @@ def meta_description(slug, name, col, garment, price, styles, colours, sizes, ar
     art_bit = title_case_art(art or name)
     if len(art_bit) > 42:
         art_bit = art_bit[:40].rsplit(" ", 1)[0]
-    variants = [
-        (f"{name} - fan-made {g} for {team} fans, built around {art_bit}. "
-         f"Printed on demand, {price_phrase}"
-         f"{f', on {stylecount} garment styles' if stylecount > 1 else ''}, {size_phrase}. "
-         f"Shop the design on {P}."),
-        (f"Fan-made {g} for {city} football supporters: {name}. Artwork: {art_bit}. "
-         f"{price_phrase.capitalize()}, {size_phrase}"
-         f"{f', {colours} garment colourways in the campaign mockups' if colours > 1 else ''}. "
-         f"Story on Gridiron Locker; checkout on {P}."),
-        (f"{name} from Gridiron Locker - unofficial, fan-made {team} football {g} "
-         f"featuring {art_bit}. {price_phrase.capitalize()}, {size_phrase}, printed after you order. "
-         f"{option_phrase}."),
-        (f"The {name}: independent {team} fan apparel printed on demand. {g.capitalize()} "
-         f"{price_phrase}, {size_phrase}, artwork {art_bit}. Design story here, checkout on {P}."),
+    hook = kw_entry(slug, name).get("description_hook") or "original fan artwork"
+    # Assemble to the 140-158 char SERP window: pick a phrasing per slug,
+    # then trim trailing facts (never the name or the hook lead) to fit.
+    hook = hook.strip(" ,-")
+    lead = name if name.lower().startswith("the ") else f"The {name}"
+    made_for = f"made for {team} fans"
+    phrasings = [
+        (f"{name} - {hook}, {made_for}. Printed on demand, "
+         f"{price_phrase}, {size_phrase}.",
+         f" Shop on {P}."),
+        (f"{hook.title()}: {name} - {g} for {team} fans. "
+         f"{price_phrase.capitalize()}, {size_phrase}.",
+         f" Design story on Gridiron Locker; checkout on {P}."),
+        (f"{name} from Gridiron Locker - unofficial, fan-made {team} football "
+         f"{g} with {hook}. {price_phrase.capitalize()}, {size_phrase}.",
+         f" {option_phrase}."),
+        (f"{lead}: independent {team} fan apparel, {hook}. Printed on "
+         f"demand, {price_phrase}, {size_phrase}.",
+         f" {option_phrase}."),
     ]
-    out = sentence(pick(variants, slug, "meta"))
+    core, cta = pick(phrasings, slug, "meta")
+    out = sentence(core + cta)
     if len(out) > 158:
-        fallbacks = [
-            f"{name} - fan-made {g} for {team} fans, {price_phrase}, {size_phrase}. "
-            f"Printed on demand; {option_phrase.lower()}.",
-            f"{name}: independent {city} football apparel {price_phrase}, {size_phrase}. "
-            f"Printed to order, shipped worldwide. Shop the design on {P}.",
-            f"Fan-made {team} {g}: {name}. {price_phrase.capitalize()} in {size_phrase}, printed on demand "
-            f"and shipped worldwide. Design story on Gridiron Locker.",
-        ]
-        out = sentence(pick(fallbacks, slug, "metafb"))
+        out = sentence(core)
     if len(out) > 158:
-        out = sentence(f"{name} - independent fan-made {g}, {price_phrase}, {size_phrase}. "
-                       f"Printed on demand and shipped worldwide.")
+        out = sentence(core.replace(f", {size_phrase}", ""))
+    if len(out) > 158:
+        out = sentence(f"{name} - {hook}, {made_for}. Printed on demand, "
+                       f"{price_phrase}.")
     if len(out) > 158:
         out = out[:155].rsplit(" ", 1)[0].rstrip(" ,.-") + "..."
+    fillers = (core + cta, f"{out} {option_phrase}.",
+               f"{out} Printed on demand and shipped worldwide.")
+    for cand in fillers:
+        if len(out) >= 140:
+            break
+        grown = sentence(cand)
+        if 140 <= len(grown) <= 158 and grown != out:
+            out = grown
     return out
 
 

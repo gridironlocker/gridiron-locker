@@ -2602,7 +2602,7 @@ class TypicalBrownsFanShowLocker(unittest.TestCase):
             self.html, re.S)
         self.assertIsNotNone(card_match)
         card = card_match.group(0)
-        self.assertIn("<h3>Cleveland Victory Monday</h3>", card)
+        self.assertIn("<h3>Victory Monday Cleveland Browns Shirt</h3>", card)
         self.assertIn('<span>T-Shirt</span><b>$23.00</b>', card)
         self.assertIn('data-gcat="t-shirts"', card)
         # the show tee takes pick 01, so its Victory Monday copy is pick 02
@@ -5194,7 +5194,7 @@ class SecondActGuide(unittest.TestCase):
             self.assertTrue(_has_link(html, href), href)
         # Live catalogue only - both Second Act designs are cards/links.
         self.assertIn("second-act", html)
-        self.assertIn("Second Act QB19 Vintage Football", html)
+        self.assertIn("Second Act QB19 Vintage Michigan", html)
         # Independent-store disclaimer + FAQ schema must ship.
         self.assertIn("not affiliated", html.lower())
         self.assertIn("FAQPage", html)

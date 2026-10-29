@@ -169,6 +169,31 @@
       "id": "seo-b0410bb0e6",
       "path": "/shop/doomsday-defense-tee/",
       "type": "weak_ctr_description"
+    },
+    {
+      "at": "2026-10-29T22:30:00Z",
+      "type": "weak_ctr_description_retired",
+      "path": "*",
+      "before": {
+        "pages": [
+          "/fan-trend-index/",
+          "/shop/dallas-football-vintage-athletic-style-f/",
+          "/shop/dallas-football-vintage-style-tee/",
+          "/shop/dawg-life/",
+          "/shop/doomsday-defense-tee/",
+          "/shop/limited-edition-cleveland-football-beware-of-the-dawgs/",
+          "/shop/limited-edition-cleveland-football/",
+          "/shop/limited-edition-grb2/",
+          "/shop/limited-edition-grb20/",
+          "/shop/limited-edition-grb23/",
+          "/shop/limited-edition-grb36/"
+        ]
+      },
+      "after": {
+        "pages": "generator-owned (full-catalogue keyword rewrite)"
+      },
+      "id": "seo-kwrewrite-20261029",
+      "note": "Product meta descriptions now come from the keyword-map generator (src/landing.py + data/seo/product_keywords.json) after the 100% catalogue rewrite; the 11 auto weak_ctr_description overrides carried pre-rewrite copy. Approved description_too_long trims (/, /2026-season/, /about/) kept verbatim."
     }
   ],
   "pages": {
@@ -192,83 +217,6 @@
       "reason": "Descriptions past ~158 chars are truncated in SERPs.",
       "type": "description_too_long",
       "updated_at": "2026-10-26T20:17:46Z"
-    },
-    "/fan-trend-index/": {
-      "change_id": "seo-33575ff17b",
-      "meta_description": "Fan Trend Index: football fan page. Printed after you order, shipped worldwide.",
-      "reason": "Search Console shows page-1 impressions with zero clicks — the meta description is the safe lever.",
-      "type": "weak_ctr_description",
-      "updated_at": "2026-10-29T21:47:59Z"
-    },
-    "/shop/dallas-football-vintage-athletic-style-f/": {
-      "change_id": "seo-87f3056a5e",
-      "meta_description": "Dallas Football 1960 Helmet Vintage Shirt: fan-made football design. Printed after you order, shipped worldwide.",
-      "reason": "Search Console shows page-1 impressions with zero clicks — the meta description is the safe lever.",
-      "type": "weak_ctr_description",
-      "updated_at": "2026-10-29T21:47:59Z"
-    },
-    "/shop/dallas-football-vintage-style-tee/": {
-      "change_id": "seo-352282ae72",
-      "meta_description": "Dallas Football Star Lightning Vintage Shirt: fan-made football design. Printed after you order, shipped worldwide.",
-      "reason": "Search Console shows page-1 impressions with zero clicks — the meta description is the safe lever.",
-      "type": "weak_ctr_description",
-      "updated_at": "2026-10-29T21:47:59Z"
-    },
-    "/shop/dawg-life/": {
-      "change_id": "seo-01b883bc65",
-      "meta_description": "Dawg Life: fan-made football design. Printed after you order, shipped worldwide.",
-      "reason": "Search Console shows page-1 impressions with zero clicks — the meta description is the safe lever.",
-      "type": "weak_ctr_description",
-      "updated_at": "2026-10-29T21:47:59Z"
-    },
-    "/shop/doomsday-defense-tee/": {
-      "change_id": "seo-b0410bb0e6",
-      "meta_description": "Doomsday Defense Dallas Football Shirt: fan-made football design. Printed after you order, shipped worldwide.",
-      "reason": "Search Console shows page-1 impressions with zero clicks — the meta description is the safe lever.",
-      "type": "weak_ctr_description",
-      "updated_at": "2026-10-29T21:47:59Z"
-    },
-    "/shop/limited-edition-cleveland-football-beware-of-the-dawgs/": {
-      "change_id": "seo-1775ef650b",
-      "meta_description": "Limited Edition Cleveland Football Beware of the Dawgs Shirt: fan-made football design. Printed after you order, shipped worldwide.",
-      "reason": "Search Console shows page-1 impressions with zero clicks — the meta description is the safe lever.",
-      "type": "weak_ctr_description",
-      "updated_at": "2026-10-29T21:47:59Z"
-    },
-    "/shop/limited-edition-cleveland-football/": {
-      "change_id": "seo-077fc7c537",
-      "meta_description": "Limited Edition Cleveland Football: fan-made football design. Printed after you order, shipped worldwide.",
-      "reason": "Search Console shows page-1 impressions with zero clicks — the meta description is the safe lever.",
-      "type": "weak_ctr_description",
-      "updated_at": "2026-10-29T21:47:59Z"
-    },
-    "/shop/limited-edition-grb2/": {
-      "change_id": "seo-7af0ee7ab7",
-      "meta_description": "The Packers Make Me Drink Shirt: fan-made football design. Printed after you order, shipped worldwide.",
-      "reason": "Search Console shows page-1 impressions with zero clicks — the meta description is the safe lever.",
-      "type": "weak_ctr_description",
-      "updated_at": "2026-10-29T21:47:59Z"
-    },
-    "/shop/limited-edition-grb20/": {
-      "change_id": "seo-2ac0d8913d",
-      "meta_description": "Sunday Funday Green Bay Bars Shirt: fan-made football design. Printed after you order, shipped worldwide.",
-      "reason": "Search Console shows page-1 impressions with zero clicks — the meta description is the safe lever.",
-      "type": "weak_ctr_description",
-      "updated_at": "2026-10-29T21:47:59Z"
-    },
-    "/shop/limited-edition-grb23/": {
-      "change_id": "seo-0d94e1e1b7",
-      "meta_description": "Packers Victory Monday Green Shirt: fan-made football design. Printed after you order, shipped worldwide.",
-      "reason": "Search Console shows page-1 impressions with zero clicks — the meta description is the safe lever.",
-      "type": "weak_ctr_description",
-      "updated_at": "2026-10-29T21:47:59Z"
-    },
-    "/shop/limited-edition-grb36/": {
-      "change_id": "seo-1d024b5545",
-      "meta_description": "Jordan Love 10 Flag Number Shirt: fan-made football design. Printed after you order, shipped worldwide.",
-      "reason": "Search Console shows page-1 impressions with zero clicks — the meta description is the safe lever.",
-      "type": "weak_ctr_description",
-      "updated_at": "2026-10-29T21:47:59Z"
     }
   },
   "schema_version": 1,

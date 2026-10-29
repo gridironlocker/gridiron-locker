@@ -77,8 +77,8 @@ pre{overflow:auto;max-height:420px;font-size:.70rem;color:var(--mut2);white-spac
 <body>
 <div class="topbar"><div class="topbar-inner">
  <div class="brand"><span class="mark">SEO</span><span>SEO Engine <small>Gridiron Locker · ops / seo · noindex</small></span></div>
- <span class="pill"><span class="dot"></span>Audit 2026-10-29T21:56:18Z</span>
- <span class="pill">Decisions 2026-10-29T21:56:18Z</span>
+ <span class="pill"><span class="dot"></span>Audit 2026-10-29T23:21:08Z</span>
+ <span class="pill">Decisions 2026-10-29T23:21:08Z</span>
  <span class="pill">https://gridironlocker.store</span>
  <span class="pill"><a href="../index.html">← Ops index</a></span>
 </div></div>
@@ -101,11 +101,11 @@ pre{overflow:auto;max-height:420px;font-size:.70rem;color:var(--mut2);white-spac
  <!-- KPI strip -->
  <div class="kpis">
   <div class="kpi"><b>621</b><span>Pages crawled</span><br><em class="small">131 indexable · stubs excluded</em></div>
-  <div class="kpi"><b>1</b><span>Findings</span><br><em class="small"><span class="badge s-high" style="font-size:.62rem">high 0</span> <span class="badge s-medium" style="font-size:.62rem">med 1</span> <span class="badge s-low" style="font-size:.62rem">low 0</span></em></div>
-  <div class="kpi"><b style="color:var(--green)">0</b><span>AUTO ready</span><br><em class="small">→ data/seo/overrides.json</em></div>
+  <div class="kpi"><b>15</b><span>Findings</span><br><em class="small"><span class="badge s-high" style="font-size:.62rem">high 2</span> <span class="badge s-medium" style="font-size:.62rem">med 13</span> <span class="badge s-low" style="font-size:.62rem">low 0</span></em></div>
+  <div class="kpi"><b style="color:var(--green)">12</b><span>AUTO ready</span><br><em class="small">→ data/seo/overrides.json</em></div>
   <div class="kpi"><b>0</b><span>PR proposals</span><br><em class="small">needs human review</em></div>
   <div class="kpi"><b>0</b><span>HUMAN flags</span><br><em class="small">URL / delete / merge</em></div>
-  <div class="kpi"><b>14</b><span>Active overrides</span><br><em class="small">14 change(s) in history (last: 2026-10-29T21:47:59Z)</em></div>
+  <div class="kpi"><b>3</b><span>Active overrides</span><br><em class="small">15 change(s) in history (last: 2026-10-29T22:30:00Z)</em></div>
   <div class="kpi"><b>48</b><span>GSC rows</span><br><em class="small">48 pages covered</em></div>
   <div class="kpi"><b>0</b><span>Verifications</span><br><em class="small">0 measured GSC outcomes</em></div>
  </div>
@@ -113,9 +113,9 @@ pre{overflow:auto;max-height:420px;font-size:.70rem;color:var(--mut2);white-spac
  <div class="grid2">
   <div class="card">
    <h2>Audit snapshot</h2>
-   <p class="muted small">From <code>data/seo/last_audit.json</code> @ <span class="mono">2026-10-29T21:56:18Z</span> · domain https://gridironlocker.store · engine seo_engine.audit</p>
-   <p class="small muted">By type: <span class="kbd">weak_ctr_title</span> <span class="muted">1</span> &nbsp;</p>
-   <p class="small muted">By severity: <span class="badge s-high">high 0</span> <span class="badge s-medium">medium 1</span> <span class="badge s-low">low 0</span> · GSC rows 48, pages 48 · Page count 621, indexable 131</p>
+   <p class="muted small">From <code>data/seo/last_audit.json</code> @ <span class="mono">2026-10-29T23:21:08Z</span> · domain https://gridironlocker.store · engine seo_engine.audit</p>
+   <p class="small muted">By type: <span class="kbd">weak_ctr_description</span> <span class="muted">11</span> &nbsp; <span class="kbd">duplicate_title</span> <span class="muted">2</span> &nbsp; <span class="kbd">description_too_long</span> <span class="muted">1</span> &nbsp; <span class="kbd">weak_ctr_title</span> <span class="muted">1</span> &nbsp;</p>
+   <p class="small muted">By severity: <span class="badge s-high">high 2</span> <span class="badge s-medium">medium 13</span> <span class="badge s-low">low 0</span> · GSC rows 48, pages 48 · Page count 621, indexable 131</p>
    <p class="small">48 row(s) present — engine uses them for &lt;span class=kbd&gt;weak_ctr_title&lt;/span&gt; detection.</p>
   </div>
   <div class="card">
@@ -123,31 +123,94 @@ pre{overflow:auto;max-height:420px;font-size:.70rem;color:var(--mut2);white-spac
    <p class="small" style="margin-top:6px"><b>AUTO</b> writes <code>data/seo/overrides.json</code> fields: <code>title</code> · <code>meta_description</code> · <code>og_title</code> · <code>og_description</code>. Rebuild required before <code>verify</code> can pass. <b>PR</b> proposals land under <code>data/seo/proposals/</code> · <b>HUMAN</b> never auto-applies.</p>
    <p class="small muted">Still forbidden: fabricated trust signals, thin fan-intent pages at scale, meta-keywords stuffing, player-likeness / team-logo suggestions. <code>site/</code> is never hand-edited — see AGENTS.md §3.3.</p>
    <p class="small">Runbook: <code class="kbd">python3 -m seo_engine run</code> (dry-run) · <code class="kbd">python3 -m seo_engine apply --commit</code> then <code class="kbd">python3 src/build.py</code> then <code class="kbd">python3 -m seo_engine verify --record</code></p>
-   <p class="small muted">Generated 2026-10-29T21:56:18Z · <span class="kbd">seo_engine/dashboard.py</span> → <span class="kbd">ops/seo/index.html</span> → <span class="kbd">site/ops/seo/</span></p>
+   <p class="small muted">Generated 2026-10-29T23:21:09Z · <span class="kbd">seo_engine/dashboard.py</span> → <span class="kbd">ops/seo/index.html</span> → <span class="kbd">site/ops/seo/</span></p>
   </div>
  </div>
 
  <section id="audit">
   <div class="card">
-   <h2>Audit findings <span class="muted" style="font-weight:600">· 1 total</span></h2>
+   <h2>Audit findings <span class="muted" style="font-weight:600">· 15 total</span></h2>
    <p class="muted small">Crawl of <code>site/</code> (indexable pages only — redirect stubs & noindex pages excluded). Full list also in <code>data/seo/last_audit.json</code>.</p>
    <div style="overflow:auto">
    <table>
     <thead><tr><th>Path</th><th>Severity</th><th>Type</th><th>Detail</th></tr></thead>
-    <tbody><tr><td><code class="small">/green-bay-packers-shirts/</code></td><td><span class="badge s-medium">medium</span></td><td><span class="kbd">weak_ctr_title</span></td><td class="small" style="max-width:38ch">GSC: 114 impressions, CTR 0.0%, pos 34.06. Top query: None.</td></tr></tbody>
+    <tbody><tr><td><code class="small">/shop/browns-cle/</code></td><td><span class="badge s-high">high</span></td><td><span class="kbd">duplicate_title</span></td><td class="small" style="max-width:38ch">Title shared with 1 other page(s).</td></tr>
+<tr><td><code class="small">/shop/cle-browns/</code></td><td><span class="badge s-high">high</span></td><td><span class="kbd">duplicate_title</span></td><td class="small" style="max-width:38ch">Title shared with 1 other page(s).</td></tr>
+<tr><td><code class="small">/fan-trend-index/</code></td><td><span class="badge s-medium">medium</span></td><td><span class="kbd">weak_ctr_description</span></td><td class="small" style="max-width:38ch">GSC: 5 impressions at pos 6.6 with 0 clicks - the snippet is the lever. Top query: None.</td></tr>
+<tr><td><code class="small">/green-bay-packers-shirts/</code></td><td><span class="badge s-medium">medium</span></td><td><span class="kbd">weak_ctr_title</span></td><td class="small" style="max-width:38ch">GSC: 114 impressions, CTR 0.0%, pos 34.06. Top query: None.</td></tr>
+<tr><td><code class="small">/shop/dallas-football-vintage-athletic-style-f/</code></td><td><span class="badge s-medium">medium</span></td><td><span class="kbd">weak_ctr_description</span></td><td class="small" style="max-width:38ch">GSC: 9 impressions at pos 5.0 with 0 clicks - the snippet is the lever. Top query: None.</td></tr>
+<tr><td><code class="small">/shop/dallas-football-vintage-style-tee/</code></td><td><span class="badge s-medium">medium</span></td><td><span class="kbd">weak_ctr_description</span></td><td class="small" style="max-width:38ch">GSC: 12 impressions at pos 5.08 with 0 clicks - the snippet is the lever. Top query: None.</td></tr>
+<tr><td><code class="small">/shop/dawg-life/</code></td><td><span class="badge s-medium">medium</span></td><td><span class="kbd">weak_ctr_description</span></td><td class="small" style="max-width:38ch">GSC: 3 impressions at pos 4.67 with 0 clicks - the snippet is the lever. Top query: None.</td></tr>
+<tr><td><code class="small">/shop/doomsday-defense-tee/</code></td><td><span class="badge s-medium">medium</span></td><td><span class="kbd">weak_ctr_description</span></td><td class="small" style="max-width:38ch">GSC: 3 impressions at pos 1.33 with 0 clicks - the snippet is the lever. Top query: None.</td></tr>
+<tr><td><code class="small">/shop/limited-edition-cleveland-football-beware-of-the-dawgs/</code></td><td><span class="badge s-medium">medium</span></td><td><span class="kbd">weak_ctr_description</span></td><td class="small" style="max-width:38ch">GSC: 58 impressions at pos 6.380000000000001 with 0 clicks - the snippet is the lever. Top query: None.</td></tr>
+<tr><td><code class="small">/shop/limited-edition-cleveland-football/</code></td><td><span class="badge s-medium">medium</span></td><td><span class="kbd">weak_ctr_description</span></td><td class="small" style="max-width:38ch">GSC: 6 impressions at pos 6.5 with 0 clicks - the snippet is the lever. Top query: None.</td></tr>
+<tr><td><code class="small">/shop/limited-edition-grb2/</code></td><td><span class="badge s-medium">medium</span></td><td><span class="kbd">weak_ctr_description</span></td><td class="small" style="max-width:38ch">GSC: 19 impressions at pos 5.95 with 0 clicks - the snippet is the lever. Top query: None.</td></tr>
+<tr><td><code class="small">/shop/limited-edition-grb20/</code></td><td><span class="badge s-medium">medium</span></td><td><span class="kbd">weak_ctr_description</span></td><td class="small" style="max-width:38ch">GSC: 5 impressions at pos 3.8 with 0 clicks - the snippet is the lever. Top query: None.</td></tr>
+<tr><td><code class="small">/shop/limited-edition-grb23/</code></td><td><span class="badge s-medium">medium</span></td><td><span class="kbd">weak_ctr_description</span></td><td class="small" style="max-width:38ch">GSC: 5 impressions at pos 8.2 with 0 clicks - the snippet is the lever. Top query: None.</td></tr>
+<tr><td><code class="small">/shop/limited-edition-grb36/</code></td><td><span class="badge s-medium">medium</span></td><td><span class="kbd">weak_ctr_description</span></td><td class="small" style="max-width:38ch">GSC: 9 impressions at pos 6.44 with 0 clicks - the snippet is the lever. Top query: None.</td></tr>
+<tr><td colspan="4" class="muted small">… 1 more findings in raw JSON</td></tr></tbody>
    </table>
    </div>
    <details><summary>Raw audit JSON (first 40 findings)</summary><pre>{
   &quot;by_severity&quot;: {
-    &quot;medium&quot;: 1
+    &quot;high&quot;: 2,
+    &quot;medium&quot;: 13
   },
   &quot;by_type&quot;: {
+    &quot;description_too_long&quot;: 1,
+    &quot;duplicate_title&quot;: 2,
+    &quot;weak_ctr_description&quot;: 11,
     &quot;weak_ctr_title&quot;: 1
   },
   &quot;domain&quot;: &quot;https://gridironlocker.store&quot;,
   &quot;engine&quot;: &quot;seo_engine.audit&quot;,
-  &quot;finding_count&quot;: 1,
+  &quot;finding_count&quot;: 15,
   &quot;findings&quot;: [
+    {
+      &quot;detail&quot;: &quot;Title shared with 1 other page(s).&quot;,
+      &quot;evidence&quot;: {
+        &quot;owners&quot;: [
+          &quot;/shop/browns-cle/&quot;,
+          &quot;/shop/cle-browns/&quot;
+        ],
+        &quot;title&quot;: &quot;cle cleveland browns shirt | gridiron locker&quot;
+      },
+      &quot;path&quot;: &quot;/shop/browns-cle/&quot;,
+      &quot;severity&quot;: &quot;high&quot;,
+      &quot;suggested&quot;: {},
+      &quot;type&quot;: &quot;duplicate_title&quot;
+    },
+    {
+      &quot;detail&quot;: &quot;Title shared with 1 other page(s).&quot;,
+      &quot;evidence&quot;: {
+        &quot;owners&quot;: [
+          &quot;/shop/browns-cle/&quot;,
+          &quot;/shop/cle-browns/&quot;
+        ],
+        &quot;title&quot;: &quot;cle cleveland browns shirt | gridiron locker&quot;
+      },
+      &quot;path&quot;: &quot;/shop/cle-browns/&quot;,
+      &quot;severity&quot;: &quot;high&quot;,
+      &quot;suggested&quot;: {},
+      &quot;type&quot;: &quot;duplicate_title&quot;
+    },
+    {
+      &quot;detail&quot;: &quot;GSC: 5 impressions at pos 6.6 with 0 clicks - the snippet is the lever. Top query: None.&quot;,
+      &quot;evidence&quot;: {
+        &quot;clicks&quot;: 0.0,
+        &quot;current_description&quot;: &quot;Fan Trend Index for Cleveland, Green Bay, Dallas and Michigan: a 0-100 score of who the last 10 days of headlines are about, plus shoppable player moments.&quot;,
+        &quot;impressions&quot;: 5.0,
+        &quot;position&quot;: 6.6,
+        &quot;top_query&quot;: null
+      },
+      &quot;path&quot;: &quot;/fan-trend-index/&quot;,
+      &quot;severity&quot;: &quot;medium&quot;,
+      &quot;suggested&quot;: {
+        &quot;meta_description&quot;: &quot;Fan Trend Index: football fan page. Printed after you order, shipped worldwide.&quot;,
+        &quot;query&quot;: &quot;&quot;
+      },
+      &quot;type&quot;: &quot;weak_ctr_description&quot;
+    },
     {
       &quot;detail&quot;: &quot;GSC: 114 impressions, CTR 0.0%, pos 34.06. Top query: None.&quot;,
       &quot;evidence&quot;: {
@@ -162,21 +225,121 @@ pre{overflow:auto;max-height:420px;font-size:.70rem;color:var(--mut2);white-spac
       &quot;severity&quot;: &quot;medium&quot;,
       &quot;suggested&quot;: {},
       &quot;type&quot;: &quot;weak_ctr_title&quot;
-    }
-  ],
-  &quot;generated_at&quot;: &quot;2026-10-29T21:56:18Z&quot;,
-  &quot;gsc_pages&quot;: 48,
-  &quot;gsc_rows&quot;: 48,
-  &quot;indexable_count&quot;: 131,
-  &quot;page_count&quot;: 621
-}</pre></details>
+    },
+    {
+      &quot;detail&quot;: &quot;GSC: 9 impressions at pos 5.0 with 0 clicks - the snippet is the lever. Top query: None.&quot;,
+      &quot;evidence&quot;: {
+        &quot;clicks&quot;: 0.0,
+        &quot;current_description&quot;: &quot;1960 Helmet Vintage Dallas Cowboys Shirt - 1960 Helmet Vintage, made for Dallas fans. Printed on demand, from $21.99, sizes S-3XL. Shop on Viralstyle.&quot;,
+        &quot;impressions&quot;: 9.0,
+        &quot;position&quot;: 5.0,
+        &quot;top_query&quot;: null
+      },
+      &quot;path&quot;: &quot;/shop/dallas-football-vintage-athletic-style-f/&quot;,
+      &quot;severity&quot;: &quot;medium&quot;,
+      &quot;suggested&quot;: {
+        &quot;meta_description&quot;: &quot;1960 Helmet Vintage Dallas Cowboys Shirt: fan-made football design. Printed after you order, shipped worldwide.&quot;,
+        &quot;query&quot;: &quot;&quot;
+      },
+      &quot;type&quot;: &quot;weak_ctr_description&quot;
+    },
+    {
+      &quot;detail&quot;: &quot;GSC: 12 impressions at pos 5.08 with 0 clicks - the snippet is the lever. Top query: None.&quot;,
+      &quot;evidence&quot;: {
+        &quot;clicks&quot;: 0.0,
+        &quot;current_description&quot;: &quot;Star Lightning Vintage: Star Lightning Vintage Dallas Cowboys Shirt - t-shirt for Dallas fans. From $21.99, sizes S-3XL.&quot;,
+        &quot;impressions&quot;: 12.0,
+        &quot;position&quot;: 5.08,
+        &quot;top_query&quot;: null
+      },
+      &quot;path&quot;: &quot;/shop/dallas-football-vintage-style-tee/&quot;,
+      &quot;severity&quot;: &quot;medium&quot;,
+      &quot;suggested&quot;: {
+        &quot;meta_description&quot;: &quot;Star Lightning Vintage Dallas Cowboys Shirt: fan-made football design. Printed after you order, shipped worldwide.&quot;,
+        &quot;query&quot;: &quot;&quot;
+      },
+      &quot;type&quot;: &quot;weak_ctr_description&quot;
+    },
+    {
+      &quot;detail&quot;: &quot;GSC: 3 impressions at pos 4.67 with 0 clicks - the snippet is the lever. Top query: None.&quot;,
+      &quot;evidence&quot;: {
+        &quot;clicks&quot;: 0.0,
+        &quot;current_description&quot;: &quot;Dawg Life Cleveland Browns Shirt from Gridiron Locker - unofficial, fan-made Browns football t-shirt with dawg life. Priced at $23.00, sizes S-5XL.&quot;,
+        &quot;impressions&quot;: 3.0,
+        &quot;position&quot;: 4.67,
+        &quot;top_query&quot;: null
+      },
+      &quot;path&quot;: &quot;/shop/dawg-life/&quot;,
+      &quot;severity&quot;: &quot;medium&quot;,
+      &quot;suggested&quot;: {
+        &quot;meta_description&quot;: &quot;Dawg Life Cleveland Browns Shirt: fan-made football design. Printed after you order, shipped worldwide.&quot;,
+        &quot;query&quot;: &quot;&quot;
+      },
+      &quot;type&quot;: &quot;weak_ctr_description&quot;
+    },
+    {
+      &quot;detail&quot;: &quot;GSC: 3 impressions at pos 1.33 with 0 clicks - the snippet is the lever. Top query: None.&quot;,
+      &quot;evidence&quot;: {
+        &quot;clicks&quot;: 0.0,
+        &quot;current_description&quot;: &quot;Doomsday Defense: Doomsday Defense Dallas Cowboys Shirt - t-shirt for Dallas fans. From $21.99, sizes S-3XL. Style, colour and size are chosen on Viralstyle.&quot;,
+        &quot;impressions&quot;: 3.0,
+        &quot;position&quot;: 1.33,
+        &quot;top_query&quot;: null
+      },
+      &quot;path&quot;: &quot;/shop/doomsday-defense-tee/&quot;,
+      &quot;severity&quot;: &quot;medium&quot;,
+      &quot;suggested&quot;: {
+        &quot;meta_description&quot;: &quot;Doomsday Defense Dallas Cowboys Shirt: fan-made football design. Printed after you order, shipped worldwide.&quot;,
+        &quot;query&quot;: &quot;&quot;
+      },
+      &quot;type&quot;: &quot;weak_ctr_description&quot;
+    },
+    {
+      &quot;detail&quot;: &quot;GSC: 58 impressions at pos 6.380000000000001 with 0 clicks - the snippet is the lever. Top query: None.&quot;,
+      &quot;evidence&quot;: {
+        &quot;clicks&quot;: 0.0,
+        &quot;current_description&quot;: &quot;Beware Dawgs Cleveland Browns Shirt from Gridiron Locker - unofficial, fan-made Browns football t-shirt with Beware Dawgs. Priced at $28.00, sizes S-5XL.&quot;,
+        &quot;impressions&quot;: 58.0,
+        &quot;position&quot;: 6.380000000000001,
+        &quot;top_query&quot;: null
+      },
+      &quot;path&quot;: &quot;/shop/limited-edition-cleveland-football-beware-of-the-dawgs/&quot;,
+      &quot;severity&quot;: &quot;medium&quot;,
+      &quot;suggested&quot;: {
+        &quot;meta_description&quot;: &quot;Beware Dawgs Cleveland Browns Shirt: fan-made football design. Printed after you order, shipped worldwide.&quot;,
+        &quot;query&quot;: &quot;&quot;
+      },
+      &quot;type&quot;: &quot;weak_ctr_description&quot;
+    },
+    {
+      &quot;detail&quot;: &quot;GSC: 6 impressions at pos 6.5 with 0 clicks - the snippet is the lever. Top query: None.&quot;,
+      &quot;evidence&quot;: {
+        &quot;clicks&quot;: 0.0,
+        &quot;current_description&quot;: &quot;The Cleveland Browns Shirt Design: independent Browns fan apparel, cleveland browns shirt. Printed on demand, priced at $23.00, sizes S-5XL.&quot;,
+        &quot;impressions&quot;: 6.0,
+        &quot;position&quot;: 6.5,
+        &quot;top_query&quot;: null
+      },
+      &quot;path&quot;: &quot;/shop/limited-edition-cleveland-football/&quot;,
+      &quot;severity&quot;: &quot;medium&quot;,
+      &quot;suggested&quot;: {
+        &quot;meta_description&quot;: &quot;Cleveland Browns Shirt Design: fan-made football design. Printed after you order, shipped worldwide.&quot;,
+        &quot;query&quot;: &quot;&quot;
+      },
+      &quot;type&quot;: &quot;weak_ctr_description&quot;
+    },
+    {
+      &quot;detail&quot;: &quot;GSC: 19 impressions at pos 5.95 with 0 clicks - the snippet is the lever. Top query: None.&quot;,
+      &quot;evidence&quot;: {
+        &quot;clicks&quot;: 0.0,
+        &quot;current_description&quot;: &quot;Make Me Drink Green Bay Packers Shirt - Make Me Drink, made for Packers fans. Printed on demand, from $24.99, sizes S-3XL. Sh</pre></details>
   </div>
  </section>
 
  <section id="actions">
   <div class="card">
-   <h2>AUTO / PR / HUMAN actions <span class="muted" style="font-weight:600">· 1 total</span></h2>
-   <p class="muted small">From <code>data/seo/last_decisions.json</code> @ <span class="mono">2026-10-29T21:56:18Z</span> · AUTO <span class="badge m-auto">0</span> · PR <span class="badge m-pr">0</span> · HUMAN <span class="badge m-human">0</span> · observe 1</p>
+   <h2>AUTO / PR / HUMAN actions <span class="muted" style="font-weight:600">· 15 total</span></h2>
+   <p class="muted small">From <code>data/seo/last_decisions.json</code> @ <span class="mono">2026-10-29T23:21:08Z</span> · AUTO <span class="badge m-auto">12</span> · PR <span class="badge m-pr">0</span> · HUMAN <span class="badge m-human">0</span> · observe 3</p>
 
    <h3 style="color:var(--green)">AUTO · ready to apply</h3>
    <p class="small muted">Low-risk metadata/OG trims that <code>apply --commit</code> writes to <code>data/seo/overrides.json</code>. Rebuild to land in live HTML; <code>verify</code> confirms.</p>
@@ -184,7 +347,7 @@ pre{overflow:auto;max-height:420px;font-size:.70rem;color:var(--mut2);white-spac
    <table>
     <thead><tr><th>Path</th><th>Type</th><th>Score</th><th>Changes</th><th>Detail · reason</th><th>Status</th></tr></thead>
     <tbody>
-     <tr><td><code class="small">/green-bay-packers-shirts/</code></td><td><span class="kbd">weak_ctr_title</span><br><span class="badge s-medium" style="margin-top:4px;display:inline-block">medium</span></td><td class="num">52.14</td><td class="changes"><span class="muted">—</span></td><td class="small" style="max-width:30ch">GSC: 114 impressions, CTR 0.0%, pos 34.06. Top query: None.<br><span class="muted">No safe auto-fix payload; flagged for observation only.</span></td><td><span class="badge st-observe">observe</span></td></tr>
+     <tr><td><code class="small">/shop/browns-cle/</code></td><td><span class="kbd">duplicate_title</span><br><span class="badge s-high" style="margin-top:4px;display:inline-block">high</span></td><td class="num">60</td><td class="changes"><span class="muted">—</span></td><td class="small" style="max-width:30ch">Title shared with 1 other page(s).<br><span class="muted">No safe auto-fix payload; flagged for observation only.</span></td><td><span class="badge st-observe">observe</span></td></tr><tr><td><code class="small">/shop/cle-browns/</code></td><td><span class="kbd">duplicate_title</span><br><span class="badge s-high" style="margin-top:4px;display:inline-block">high</span></td><td class="num">60</td><td class="changes"><span class="muted">—</span></td><td class="small" style="max-width:30ch">Title shared with 1 other page(s).<br><span class="muted">No safe auto-fix payload; flagged for observation only.</span></td><td><span class="badge st-observe">observe</span></td></tr><tr><td><code class="small">/green-bay-packers-shirts/</code></td><td><span class="kbd">weak_ctr_title</span><br><span class="badge s-medium" style="margin-top:4px;display:inline-block">medium</span></td><td class="num">52.14</td><td class="changes"><span class="muted">—</span></td><td class="small" style="max-width:30ch">GSC: 114 impressions, CTR 0.0%, pos 34.06. Top query: None.<br><span class="muted">No safe auto-fix payload; flagged for observation only.</span></td><td><span class="badge st-observe">observe</span></td></tr><tr><td><code class="small">/shop/limited-edition-cleveland-football-beware-of-the-dawgs/</code></td><td><span class="kbd">weak_ctr_description</span><br><span class="badge s-medium" style="margin-top:4px;display:inline-block">medium</span></td><td class="num">43.58</td><td class="changes"><b>meta_description</b>: Beware Dawgs Cleveland Browns Shirt: fan-made football design. Printed after you order, shipped worldwide.</td><td class="small" style="max-width:30ch">GSC: 58 impressions at pos 6.380000000000001 with 0 clicks - the snippet is the lever. Top query: None.<br><span class="muted">Search Console shows page-1 impressions with zero clicks — the meta description is the safe lever.</span></td><td><span class="badge st-auto">AUTO · ready</span></td></tr><tr><td><code class="small">/shop/limited-edition-grb2/</code></td><td><span class="kbd">weak_ctr_description</span><br><span class="badge s-medium" style="margin-top:4px;display:inline-block">medium</span></td><td class="num">43.19</td><td class="changes"><b>meta_description</b>: Make Me Drink Green Bay Packers Shirt: fan-made football design. Printed after you order, shipped worldwide.</td><td class="small" style="max-width:30ch">GSC: 19 impressions at pos 5.95 with 0 clicks - the snippet is the lever. Top query: None.<br><span class="muted">Search Console shows page-1 impressions with zero clicks — the meta description is the safe lever.</span></td><td><span class="badge st-auto">AUTO · ready</span></td></tr><tr><td><code class="small">/shop/dallas-football-vintage-style-tee/</code></td><td><span class="kbd">weak_ctr_description</span><br><span class="badge s-medium" style="margin-top:4px;display:inline-block">medium</span></td><td class="num">43.12</td><td class="changes"><b>meta_description</b>: Star Lightning Vintage Dallas Cowboys Shirt: fan-made football design. Printed after you order, shipped worldwide.</td><td class="small" style="max-width:30ch">GSC: 12 impressions at pos 5.08 with 0 clicks - the snippet is the lever. Top query: None.<br><span class="muted">Search Console shows page-1 impressions with zero clicks — the meta description is the safe lever.</span></td><td><span class="badge st-auto">AUTO · ready</span></td></tr><tr><td><code class="small">/shop/dallas-football-vintage-athletic-style-f/</code></td><td><span class="kbd">weak_ctr_description</span><br><span class="badge s-medium" style="margin-top:4px;display:inline-block">medium</span></td><td class="num">43.09</td><td class="changes"><b>meta_description</b>: 1960 Helmet Vintage Dallas Cowboys Shirt: fan-made football design. Printed after you order, shipped worldwide.</td><td class="small" style="max-width:30ch">GSC: 9 impressions at pos 5.0 with 0 clicks - the snippet is the lever. Top query: None.<br><span class="muted">Search Console shows page-1 impressions with zero clicks — the meta description is the safe lever.</span></td><td><span class="badge st-auto">AUTO · ready</span></td></tr><tr><td><code class="small">/shop/limited-edition-grb36/</code></td><td><span class="kbd">weak_ctr_description</span><br><span class="badge s-medium" style="margin-top:4px;display:inline-block">medium</span></td><td class="num">43.09</td><td class="changes"><b>meta_description</b>: Jordan Love 10 Flag Number Green Bay Packers Shirt: fan-made football design. Printed after you order, shipped worldwide.</td><td class="small" style="max-width:30ch">GSC: 9 impressions at pos 6.44 with 0 clicks - the snippet is the lever. Top query: None.<br><span class="muted">Search Console shows page-1 impressions with zero clicks — the meta description is the safe lever.</span></td><td><span class="badge st-auto">AUTO · ready</span></td></tr><tr><td><code class="small">/shop/limited-edition-cleveland-football/</code></td><td><span class="kbd">weak_ctr_description</span><br><span class="badge s-medium" style="margin-top:4px;display:inline-block">medium</span></td><td class="num">43.06</td><td class="changes"><b>meta_description</b>: Cleveland Browns Shirt Design: fan-made football design. Printed after you order, shipped worldwide.</td><td class="small" style="max-width:30ch">GSC: 6 impressions at pos 6.5 with 0 clicks - the snippet is the lever. Top query: None.<br><span class="muted">Search Console shows page-1 impressions with zero clicks — the meta description is the safe lever.</span></td><td><span class="badge st-auto">AUTO · ready</span></td></tr><tr><td><code class="small">/fan-trend-index/</code></td><td><span class="kbd">weak_ctr_description</span><br><span class="badge s-medium" style="margin-top:4px;display:inline-block">medium</span></td><td class="num">43.05</td><td class="changes"><b>meta_description</b>: Fan Trend Index: football fan page. Printed after you order, shipped worldwide.</td><td class="small" style="max-width:30ch">GSC: 5 impressions at pos 6.6 with 0 clicks - the snippet is the lever. Top query: None.<br><span class="muted">Search Console shows page-1 impressions with zero clicks — the meta description is the safe lever.</span></td><td><span class="badge st-auto">AUTO · ready</span></td></tr><tr><td><code class="small">/shop/limited-edition-grb20/</code></td><td><span class="kbd">weak_ctr_description</span><br><span class="badge s-medium" style="margin-top:4px;display:inline-block">medium</span></td><td class="num">43.05</td><td class="changes"><b>meta_description</b>: Sunday Funday Bars Green Bay Packers Shirt: fan-made football design. Printed after you order, shipped worldwide.</td><td class="small" style="max-width:30ch">GSC: 5 impressions at pos 3.8 with 0 clicks - the snippet is the lever. Top query: None.<br><span class="muted">Search Console shows page-1 impressions with zero clicks — the meta description is the safe lever.</span></td><td><span class="badge st-auto">AUTO · ready</span></td></tr><tr><td><code class="small">/shop/limited-edition-grb23/</code></td><td><span class="kbd">weak_ctr_description</span><br><span class="badge s-medium" style="margin-top:4px;display:inline-block">medium</span></td><td class="num">43.05</td><td class="changes"><b>meta_description</b>: Victory Monday Green Bay Packers Shirt: fan-made football design. Printed after you order, shipped worldwide.</td><td class="small" style="max-width:30ch">GSC: 5 impressions at pos 8.2 with 0 clicks - the snippet is the lever. Top query: None.<br><span class="muted">Search Console shows page-1 impressions with zero clicks — the meta description is the safe lever.</span></td><td><span class="badge st-auto">AUTO · ready</span></td></tr><tr><td><code class="small">/shop/dawg-life/</code></td><td><span class="kbd">weak_ctr_description</span><br><span class="badge s-medium" style="margin-top:4px;display:inline-block">medium</span></td><td class="num">43.03</td><td class="changes"><b>meta_description</b>: Dawg Life Cleveland Browns Shirt: fan-made football design. Printed after you order, shipped worldwide.</td><td class="small" style="max-width:30ch">GSC: 3 impressions at pos 4.67 with 0 clicks - the snippet is the lever. Top query: None.<br><span class="muted">Search Console shows page-1 impressions with zero clicks — the meta description is the safe lever.</span></td><td><span class="badge st-auto">AUTO · ready</span></td></tr><tr><td><code class="small">/shop/doomsday-defense-tee/</code></td><td><span class="kbd">weak_ctr_description</span><br><span class="badge s-medium" style="margin-top:4px;display:inline-block">medium</span></td><td class="num">43.03</td><td class="changes"><b>meta_description</b>: Doomsday Defense Dallas Cowboys Shirt: fan-made football design. Printed after you order, shipped worldwide.</td><td class="small" style="max-width:30ch">GSC: 3 impressions at pos 1.33 with 0 clicks - the snippet is the lever. Top query: None.<br><span class="muted">Search Console shows page-1 impressions with zero clicks — the meta description is the safe lever.</span></td><td><span class="badge st-auto">AUTO · ready</span></td></tr><tr><td><code class="small">/shop/vintage-country/</code></td><td><span class="kbd">description_too_long</span><br><span class="badge s-medium" style="margin-top:4px;display:inline-block">medium</span></td><td class="num">29</td><td class="changes"><b>meta_description</b>: Y&amp;#x27;all Can Kiss Longhorn Dallas Cowboys Shirt from Gridiron Locker - unofficial, fan-made Dallas football t-shirt with Y&amp;#x27;all Can Kiss Longhorn...</td><td class="small" style="max-width:30ch">Meta description is 165 chars (budget 158).<br><span class="muted">Descriptions past ~158 chars are truncated in SERPs.</span></td><td><span class="badge st-auto">AUTO · ready</span></td></tr>
     </tbody>
    </table>
    </div>
@@ -212,8 +375,46 @@ pre{overflow:auto;max-height:420px;font-size:.70rem;color:var(--mut2);white-spac
    </table>
    </div>
    <details><summary>Raw decisions JSON</summary><pre>{
-  &quot;action_count&quot;: 1,
+  &quot;action_count&quot;: 15,
   &quot;actions&quot;: [
+    {
+      &quot;changes&quot;: {},
+      &quot;detail&quot;: &quot;Title shared with 1 other page(s).&quot;,
+      &quot;evidence&quot;: {
+        &quot;owners&quot;: [
+          &quot;/shop/browns-cle/&quot;,
+          &quot;/shop/cle-browns/&quot;
+        ],
+        &quot;title&quot;: &quot;cle cleveland browns shirt | gridiron locker&quot;
+      },
+      &quot;id&quot;: &quot;seo-3989dfa2a2&quot;,
+      &quot;mode&quot;: &quot;AUTO&quot;,
+      &quot;path&quot;: &quot;/shop/browns-cle/&quot;,
+      &quot;reason&quot;: &quot;No safe auto-fix payload; flagged for observation only.&quot;,
+      &quot;score&quot;: 60,
+      &quot;severity&quot;: &quot;high&quot;,
+      &quot;status&quot;: &quot;observe&quot;,
+      &quot;type&quot;: &quot;duplicate_title&quot;
+    },
+    {
+      &quot;changes&quot;: {},
+      &quot;detail&quot;: &quot;Title shared with 1 other page(s).&quot;,
+      &quot;evidence&quot;: {
+        &quot;owners&quot;: [
+          &quot;/shop/browns-cle/&quot;,
+          &quot;/shop/cle-browns/&quot;
+        ],
+        &quot;title&quot;: &quot;cle cleveland browns shirt | gridiron locker&quot;
+      },
+      &quot;id&quot;: &quot;seo-4b03157dbf&quot;,
+      &quot;mode&quot;: &quot;AUTO&quot;,
+      &quot;path&quot;: &quot;/shop/cle-browns/&quot;,
+      &quot;reason&quot;: &quot;No safe auto-fix payload; flagged for observation only.&quot;,
+      &quot;score&quot;: 60,
+      &quot;severity&quot;: &quot;high&quot;,
+      &quot;status&quot;: &quot;observe&quot;,
+      &quot;type&quot;: &quot;duplicate_title&quot;
+    },
     {
       &quot;changes&quot;: {},
       &quot;detail&quot;: &quot;GSC: 114 impressions, CTR 0.0%, pos 34.06. Top query: None.&quot;,
@@ -233,62 +434,180 @@ pre{overflow:auto;max-height:420px;font-size:.70rem;color:var(--mut2);white-spac
       &quot;severity&quot;: &quot;medium&quot;,
       &quot;status&quot;: &quot;observe&quot;,
       &quot;type&quot;: &quot;weak_ctr_title&quot;
-    }
-  ],
-  &quot;engine&quot;: &quot;seo_engine.decide&quot;,
-  &quot;generated_at&quot;: &quot;2026-10-29T21:56:18Z&quot;,
-  &quot;policy&quot;: {
-    &quot;auto&quot;: [
-      &quot;description_too_long&quot;,
-      &quot;description_too_short&quot;,
-      &quot;duplicate_description&quot;,
-      &quot;duplicate_title&quot;,
-      &quot;missing_canonical&quot;,
-      &quot;missing_description&quot;,
-      &quot;missing_image_alt&quot;,
-      &quot;missing_og_description&quot;,
-      &quot;missing_og_title&quot;,
-      &quot;missing_title&quot;,
-      &quot;title_too_long&quot;,
-      &quot;title_too_short&quot;,
-      &quot;weak_ctr_description&quot;,
-      &quot;weak_ctr_title&quot;
-    ],
-    &quot;human&quot;: [
-      &quot;collection_restructure&quot;,
-      &quot;page_delete&quot;,
-      &quot;page_merge&quot;,
-      &quot;redirect_remap&quot;,
-      &quot;url_change&quot;
-    ],
-    &quot;note&quot;: &quot;AUTO writes data/seo/overrides.json only. src/build.py must be re-run to emit site/. PR/HUMAN never touch production without operator approval.&quot;,
-    &quot;pr&quot;: [
-      &quot;collection_content_rewrite&quot;,
-      &quot;internal_link_cluster&quot;,
-      &quot;new_guide_article&quot;,
-      &quot;product_content_rewrite&quot;,
-      &quot;schema_enrichment&quot;
-    ]
-  },
-  &quot;source_audit_at&quot;: &quot;2026-10-29T21:56:18Z&quot;,
-  &quot;summary&quot;: {
-    &quot;AUTO&quot;: 0,
-    &quot;HUMAN&quot;: 0,
-    &quot;PR&quot;: 0,
-    &quot;observe&quot;: 1
-  }
-}</pre></details>
+    },
+    {
+      &quot;changes&quot;: {
+        &quot;meta_description&quot;: &quot;Beware Dawgs Cleveland Browns Shirt: fan-made football design. Printed after you order, shipped worldwide.&quot;
+      },
+      &quot;detail&quot;: &quot;GSC: 58 impressions at pos 6.380000000000001 with 0 clicks - the snippet is the lever. Top query: None.&quot;,
+      &quot;evidence&quot;: {
+        &quot;clicks&quot;: 0.0,
+        &quot;current_description&quot;: &quot;Beware Dawgs Cleveland Browns Shirt from Gridiron Locker - unofficial, fan-made Browns football t-shirt with Beware Dawgs. Priced at $28.00, sizes S-5XL.&quot;,
+        &quot;impressions&quot;: 58.0,
+        &quot;position&quot;: 6.380000000000001,
+        &quot;top_query&quot;: null
+      },
+      &quot;id&quot;: &quot;seo-e629616990&quot;,
+      &quot;mode&quot;: &quot;AUTO&quot;,
+      &quot;path&quot;: &quot;/shop/limited-edition-cleveland-football-beware-of-the-dawgs/&quot;,
+      &quot;reason&quot;: &quot;Search Console shows page-1 impressions with zero clicks — the meta description is the safe lever.&quot;,
+      &quot;score&quot;: 43.58,
+      &quot;severity&quot;: &quot;medium&quot;,
+      &quot;status&quot;: &quot;ready_auto&quot;,
+      &quot;type&quot;: &quot;weak_ctr_description&quot;
+    },
+    {
+      &quot;changes&quot;: {
+        &quot;meta_description&quot;: &quot;Make Me Drink Green Bay Packers Shirt: fan-made football design. Printed after you order, shipped worldwide.&quot;
+      },
+      &quot;detail&quot;: &quot;GSC: 19 impressions at pos 5.95 with 0 clicks - the snippet is the lever. Top query: None.&quot;,
+      &quot;evidence&quot;: {
+        &quot;clicks&quot;: 0.0,
+        &quot;current_description&quot;: &quot;Make Me Drink Green Bay Packers Shirt - Make Me Drink, made for Packers fans. Printed on demand, from $24.99, sizes S-3XL. Shop on Viralstyle.&quot;,
+        &quot;impressions&quot;: 19.0,
+        &quot;position&quot;: 5.95,
+        &quot;top_query&quot;: null
+      },
+      &quot;id&quot;: &quot;seo-0329fd10e8&quot;,
+      &quot;mode&quot;: &quot;AUTO&quot;,
+      &quot;path&quot;: &quot;/shop/limited-edition-grb2/&quot;,
+      &quot;reason&quot;: &quot;Search Console shows page-1 impressions with zero clicks — the meta description is the safe lever.&quot;,
+      &quot;score&quot;: 43.19,
+      &quot;severity&quot;: &quot;medium&quot;,
+      &quot;status&quot;: &quot;ready_auto&quot;,
+      &quot;type&quot;: &quot;weak_ctr_description&quot;
+    },
+    {
+      &quot;changes&quot;: {
+        &quot;meta_description&quot;: &quot;Star Lightning Vintage Dallas Cowboys Shirt: fan-made football design. Printed after you order, shipped worldwide.&quot;
+      },
+      &quot;detail&quot;: &quot;GSC: 12 impressions at pos 5.08 with 0 clicks - the snippet is the lever. Top query: None.&quot;,
+      &quot;evidence&quot;: {
+        &quot;clicks&quot;: 0.0,
+        &quot;current_description&quot;: &quot;Star Lightning Vintage: Star Lightning Vintage Dallas Cowboys Shirt - t-shirt for Dallas fans. From $21.99, sizes S-3XL.&quot;,
+        &quot;impressions&quot;: 12.0,
+        &quot;position&quot;: 5.08,
+        &quot;top_query&quot;: null
+      },
+      &quot;id&quot;: &quot;seo-bd4c169e28&quot;,
+      &quot;mode&quot;: &quot;AUTO&quot;,
+      &quot;path&quot;: &quot;/shop/dallas-football-vintage-style-tee/&quot;,
+      &quot;reason&quot;: &quot;Search Console shows page-1 impressions with zero clicks — the meta description is the safe lever.&quot;,
+      &quot;score&quot;: 43.12,
+      &quot;severity&quot;: &quot;medium&quot;,
+      &quot;status&quot;: &quot;ready_auto&quot;,
+      &quot;type&quot;: &quot;weak_ctr_description&quot;
+    },
+    {
+      &quot;changes&quot;: {
+        &quot;meta_description&quot;: &quot;1960 Helmet Vintage Dallas Cowboys Shirt: fan-made football design. Printed after you order, shipped worldwide.&quot;
+      },
+      &quot;detail&quot;: &quot;GSC: 9 impressions at pos 5.0 with 0 clicks - the snippet is the lever. Top query: None.&quot;,
+      &quot;evidence&quot;: {
+        &quot;clicks&quot;: 0.0,
+        &quot;current_description&quot;: &quot;1960 Helmet Vintage Dallas Cowboys Shirt - 1960 Helmet Vintage, made for Dallas fans. Printed on demand, from $21.99, sizes S-3XL. Shop on Viralstyle.&quot;,
+        &quot;impressions&quot;: 9.0,
+        &quot;position&quot;: 5.0,
+        &quot;top_query&quot;: null
+      },
+      &quot;id&quot;: &quot;seo-5bdaf75037&quot;,
+      &quot;mode&quot;: &quot;AUTO&quot;,
+      &quot;path&quot;: &quot;/shop/dallas-football-vintage-athletic-style-f/&quot;,
+      &quot;reason&quot;: &quot;Search Console shows page-1 impressions with zero clicks — the meta description is the safe lever.&quot;,
+      &quot;score&quot;: 43.09,
+      &quot;severity&quot;: &quot;medium&quot;,
+      &quot;status&quot;: &quot;ready_auto&quot;,
+      &quot;type&quot;: &quot;weak_ctr_description&quot;
+    },
+    {
+      &quot;changes&quot;: {
+        &quot;meta_description&quot;: &quot;Jordan Love 10 Flag Number Green Bay Packers Shirt: fan-made football design. Printed after you order, shipped worldwide.&quot;
+      },
+      &quot;detail&quot;: &quot;GSC: 9 impressions at pos 6.44 with 0 clicks - the snippet is the lever. Top query: None.&quot;,
+      &quot;evidence&quot;: {
+        &quot;clicks&quot;: 0.0,
+        &quot;current_description&quot;: &quot;Jordan Love 10 Flag Number: Jordan Love 10 Flag Number Green Bay Packers Shirt - t-shirt for Packers fans. From $24.99, sizes S-3XL.&quot;,
+        &quot;impressions&quot;: 9.0,
+        &quot;position&quot;: 6.44,
+        &quot;top_query&quot;: null
+      },
+      &quot;id&quot;: &quot;seo-9b175ad67c&quot;,
+      &quot;mode&quot;: &quot;AUTO&quot;,
+      &quot;path&quot;: &quot;/shop/limited-edition-grb36/&quot;,
+      &quot;reason&quot;: &quot;Search Console shows page-1 impressions with zero clicks — the meta description is the safe lever.&quot;,
+      &quot;score&quot;: 43.09,
+      &quot;severity&quot;: &quot;medium&quot;,
+      &quot;status&quot;: &quot;ready_auto&quot;,
+      &quot;type&quot;: &quot;weak_ctr_description&quot;
+    },
+    {
+      &quot;changes&quot;: {
+        &quot;meta_description&quot;: &quot;Cleveland Browns Shirt Design: fan-made football design. Printed after you order, shipped worldwide.&quot;
+      },
+      &quot;detail&quot;: &quot;GSC: 6 impressions at pos 6.5 with 0 clicks - the snippet is the lever. Top query: None.&quot;,
+      &quot;evidence&quot;: {
+        &quot;clicks&quot;: 0.0,
+        &quot;current_description&quot;: &quot;The Cleveland Browns Shirt Design: independent Browns fan apparel, cleveland browns shirt. Printed on demand, priced at $23.00, sizes S-5XL.&quot;,
+        &quot;impressions&quot;: 6.0,
+        &quot;position&quot;: 6.5,
+        &quot;top_query&quot;: null
+      },
+      &quot;id&quot;: &quot;seo-52343a7a9c&quot;,
+      &quot;mode&quot;: &quot;AUTO&quot;,
+      &quot;path&quot;: &quot;/shop/limited-edition-cleveland-football/&quot;,
+      &quot;reason&quot;: &quot;Search Console shows page-1 impressions with zero clicks — the meta description is the safe lever.&quot;,
+      &quot;score&quot;: 43.06,
+      &quot;severity&quot;: &quot;medium&quot;,
+      &quot;status&quot;: &quot;ready_auto&quot;,
+      &quot;type&quot;: &quot;weak_ctr_description&quot;
+    },
+    {
+      &quot;changes&quot;: {
+        &quot;meta_description&quot;: &quot;Fan Trend Index: football fan page. Printed after you order, shipped worldwide.&quot;
+      },
+      &quot;detail&quot;: &quot;GSC: 5 impressions at pos 6.6 with 0 clicks - the snippet is the lever. Top query: None.&quot;,
+      &quot;evidence&quot;: {
+        &quot;clicks&quot;: 0.0,
+        &quot;current_description&quot;: &quot;Fan Trend Index for Cleveland, Green Bay, Dallas and Michigan: a 0-100 score of who the last 10 days of headlines are about, plus shoppable player moments.&quot;,
+        &quot;impressions&quot;: 5.0,
+        &quot;position&quot;: 6.6,
+        &quot;top_query&quot;: null
+      },
+      &quot;id&quot;: &quot;seo-33575ff17b&quot;,
+      &quot;mode&quot;: &quot;AUTO&quot;,
+      &quot;path&quot;: &quot;/fan-trend-index/&quot;,
+      &quot;reason&quot;: &quot;Search Console shows page-1 impressions with zero clicks — the meta description is the safe lever.&quot;,
+      &quot;score&quot;: 43.05,
+      &quot;severity&quot;: &quot;medium&quot;,
+      &quot;status&quot;: &quot;ready_auto&quot;,
+      &quot;type&quot;: &quot;weak_ctr_description&quot;
+    },
+    {
+      &quot;changes&quot;: {
+        &quot;meta_description&quot;: &quot;Sunday Funday Bars Green Bay Packers Shirt: fan-made football design. Printed after you order, shipped worldwide.&quot;
+      },
+      &quot;detail&quot;: &quot;GSC: 5 impressions at pos 3.8 with 0 clicks - the snippet is the lever. Top query: None.&quot;,
+      &quot;evidence&quot;: {
+        &quot;clicks&quot;: 0.0,
+        &quot;current_description&quot;: &quot;The Sunday Funday Bars Green Bay Packers Shirt: independent Packers fan apparel, Sunday Funday Bars. Printed on demand, from $24.99, sizes S-3XL.&quot;,
+        &quot;impressions&quot;: 5.0,
+        &quot;position&quot;: 3.8,
+        &quot;top_query&quot;: null
+      },
+      &quot;id&quot;: &quot;seo-d9e38aeea3&quot;,
+      &quot;mode&quot;: &quot;AUTO&quot;,
+      &quot;path&quot;: &quot;/shop/li</pre></details>
   </div>
  </section>
 
  <section id="overrides">
   <div class="card">
-   <h2>Active overrides <span class="muted" style="font-weight:600">· 14 page(s)</span></h2>
-   <p class="muted small">Live file: <code>data/seo/overrides.json</code> (schema v1) · updated 2026-10-29 · 14 change(s) in history (last: 2026-10-29T21:47:59Z). Keys are URL paths (<code>/shop/slug/</code>, <code>/michigan-wolverines-shirts/</code>). Supported fields: <code>title</code> · <code>meta_description</code> · <code>og_title</code> · <code>og_description</code>.</p>
+   <h2>Active overrides <span class="muted" style="font-weight:600">· 3 page(s)</span></h2>
+   <p class="muted small">Live file: <code>data/seo/overrides.json</code> (schema v1) · updated 2026-10-29 · 15 change(s) in history (last: 2026-10-29T22:30:00Z). Keys are URL paths (<code>/shop/slug/</code>, <code>/michigan-wolverines-shirts/</code>). Supported fields: <code>title</code> · <code>meta_description</code> · <code>og_title</code> · <code>og_description</code>.</p>
    <div style="overflow:auto">
    <table>
     <thead><tr><th>Path</th><th>Fields</th><th>Preview</th></tr></thead>
-    <tbody><tr><td><code class="small">/</code></td><td class="small"><b>change_id</b>, <b>meta_description</b>, <b>reason</b>, <b>type</b>, <b>updated_at</b></td><td class="changes">meta_description: Fan-made football tees, hoodies and gear across 4 team collections: Cleveland, Green Bay, Dallas and Michigan.…<br></td></tr><tr><td><code class="small">/2026-season/</code></td><td class="small"><b>change_id</b>, <b>meta_description</b>, <b>reason</b>, <b>type</b>, <b>updated_at</b></td><td class="changes">meta_description: 2026 football season hub: Week 1 dates, what changed on each roster, and the fan shirts trending right now for…<br></td></tr><tr><td><code class="small">/about/</code></td><td class="small"><b>change_id</b>, <b>meta_description</b>, <b>reason</b>, <b>type</b>, <b>updated_at</b></td><td class="changes">meta_description: Gridiron Locker is an independent fan-apparel studio making original football graphics for Cleveland, Green Ba…<br></td></tr><tr><td><code class="small">/fan-trend-index/</code></td><td class="small"><b>change_id</b>, <b>meta_description</b>, <b>reason</b>, <b>type</b>, <b>updated_at</b></td><td class="changes">meta_description: Fan Trend Index: football fan page. Printed after you order, shipped worldwide.<br></td></tr><tr><td><code class="small">/shop/dallas-football-vintage-athletic-style-f/</code></td><td class="small"><b>change_id</b>, <b>meta_description</b>, <b>reason</b>, <b>type</b>, <b>updated_at</b></td><td class="changes">meta_description: Dallas Football 1960 Helmet Vintage Shirt: fan-made football design. Printed after you order, shipped worldwid…<br></td></tr><tr><td><code class="small">/shop/dallas-football-vintage-style-tee/</code></td><td class="small"><b>change_id</b>, <b>meta_description</b>, <b>reason</b>, <b>type</b>, <b>updated_at</b></td><td class="changes">meta_description: Dallas Football Star Lightning Vintage Shirt: fan-made football design. Printed after you order, shipped world…<br></td></tr><tr><td><code class="small">/shop/dawg-life/</code></td><td class="small"><b>change_id</b>, <b>meta_description</b>, <b>reason</b>, <b>type</b>, <b>updated_at</b></td><td class="changes">meta_description: Dawg Life: fan-made football design. Printed after you order, shipped worldwide.<br></td></tr><tr><td><code class="small">/shop/doomsday-defense-tee/</code></td><td class="small"><b>change_id</b>, <b>meta_description</b>, <b>reason</b>, <b>type</b>, <b>updated_at</b></td><td class="changes">meta_description: Doomsday Defense Dallas Football Shirt: fan-made football design. Printed after you order, shipped worldwide.<br></td></tr><tr><td><code class="small">/shop/limited-edition-cleveland-football-beware-of-the-dawgs/</code></td><td class="small"><b>change_id</b>, <b>meta_description</b>, <b>reason</b>, <b>type</b>, <b>updated_at</b></td><td class="changes">meta_description: Limited Edition Cleveland Football Beware of the Dawgs Shirt: fan-made football design. Printed after you orde…<br></td></tr><tr><td><code class="small">/shop/limited-edition-cleveland-football/</code></td><td class="small"><b>change_id</b>, <b>meta_description</b>, <b>reason</b>, <b>type</b>, <b>updated_at</b></td><td class="changes">meta_description: Limited Edition Cleveland Football: fan-made football design. Printed after you order, shipped worldwide.<br></td></tr><tr><td><code class="small">/shop/limited-edition-grb2/</code></td><td class="small"><b>change_id</b>, <b>meta_description</b>, <b>reason</b>, <b>type</b>, <b>updated_at</b></td><td class="changes">meta_description: The Packers Make Me Drink Shirt: fan-made football design. Printed after you order, shipped worldwide.<br></td></tr><tr><td><code class="small">/shop/limited-edition-grb20/</code></td><td class="small"><b>change_id</b>, <b>meta_description</b>, <b>reason</b>, <b>type</b>, <b>updated_at</b></td><td class="changes">meta_description: Sunday Funday Green Bay Bars Shirt: fan-made football design. Printed after you order, shipped worldwide.<br></td></tr><tr><td><code class="small">/shop/limited-edition-grb23/</code></td><td class="small"><b>change_id</b>, <b>meta_description</b>, <b>reason</b>, <b>type</b>, <b>updated_at</b></td><td class="changes">meta_description: Packers Victory Monday Green Shirt: fan-made football design. Printed after you order, shipped worldwide.<br></td></tr><tr><td><code class="small">/shop/limited-edition-grb36/</code></td><td class="small"><b>change_id</b>, <b>meta_description</b>, <b>reason</b>, <b>type</b>, <b>updated_at</b></td><td class="changes">meta_description: Jordan Love 10 Flag Number Shirt: fan-made football design. Printed after you order, shipped worldwide.<br></td></tr></tbody>
+    <tbody><tr><td><code class="small">/</code></td><td class="small"><b>change_id</b>, <b>meta_description</b>, <b>reason</b>, <b>type</b>, <b>updated_at</b></td><td class="changes">meta_description: Fan-made football tees, hoodies and gear across 4 team collections: Cleveland, Green Bay, Dallas and Michigan.…<br></td></tr><tr><td><code class="small">/2026-season/</code></td><td class="small"><b>change_id</b>, <b>meta_description</b>, <b>reason</b>, <b>type</b>, <b>updated_at</b></td><td class="changes">meta_description: 2026 football season hub: Week 1 dates, what changed on each roster, and the fan shirts trending right now for…<br></td></tr><tr><td><code class="small">/about/</code></td><td class="small"><b>change_id</b>, <b>meta_description</b>, <b>reason</b>, <b>type</b>, <b>updated_at</b></td><td class="changes">meta_description: Gridiron Locker is an independent fan-apparel studio making original football graphics for Cleveland, Green Ba…<br></td></tr></tbody>
    </table>
    </div>
    <details><summary>Raw overrides.json</summary><pre>{
@@ -462,6 +781,31 @@ pre{overflow:auto;max-height:420px;font-size:.70rem;color:var(--mut2);white-spac
       &quot;id&quot;: &quot;seo-b0410bb0e6&quot;,
       &quot;path&quot;: &quot;/shop/doomsday-defense-tee/&quot;,
       &quot;type&quot;: &quot;weak_ctr_description&quot;
+    },
+    {
+      &quot;at&quot;: &quot;2026-10-29T22:30:00Z&quot;,
+      &quot;type&quot;: &quot;weak_ctr_description_retired&quot;,
+      &quot;path&quot;: &quot;*&quot;,
+      &quot;before&quot;: {
+        &quot;pages&quot;: [
+          &quot;/fan-trend-index/&quot;,
+          &quot;/shop/dallas-football-vintage-athletic-style-f/&quot;,
+          &quot;/shop/dallas-football-vintage-style-tee/&quot;,
+          &quot;/shop/dawg-life/&quot;,
+          &quot;/shop/doomsday-defense-tee/&quot;,
+          &quot;/shop/limited-edition-cleveland-football-beware-of-the-dawgs/&quot;,
+          &quot;/shop/limited-edition-cleveland-football/&quot;,
+          &quot;/shop/limited-edition-grb2/&quot;,
+          &quot;/shop/limited-edition-grb20/&quot;,
+          &quot;/shop/limited-edition-grb23/&quot;,
+          &quot;/shop/limited-edition-grb36/&quot;
+        ]
+      },
+      &quot;after&quot;: {
+        &quot;pages&quot;: &quot;generator-owned (full-catalogue keyword rewrite)&quot;
+      },
+      &quot;id&quot;: &quot;seo-kwrewrite-20261029&quot;,
+      &quot;note&quot;: &quot;Product meta descriptions now come from the keyword-map generator (src/landing.py + data/seo/product_keywords.json) after the 100% catalogue rewrite; the 11 auto weak_ctr_description overrides carried pre-rewrite copy. Approved description_too_long trims (/, /2026-season/, /about/) kept verbatim.&quot;
     }
   ],
   &quot;pages&quot;: {
@@ -481,28 +825,7 @@ pre{overflow:auto;max-height:420px;font-size:.70rem;color:var(--mut2);white-spac
     },
     &quot;/about/&quot;: {
       &quot;change_id&quot;: &quot;seo-24e7ced964&quot;,
-      &quot;meta_description&quot;: &quot;Gridiron Locker is an independent fan-apparel studio making original football graphics for Cleveland, Green Bay, Dallas and Michigan supporters. Here is...&quot;,
-      &quot;reason&quot;: &quot;Descriptions past ~158 chars are truncated in SERPs.&quot;,
-      &quot;type&quot;: &quot;description_too_long&quot;,
-      &quot;updated_at&quot;: &quot;2026-10-26T20:17:46Z&quot;
-    },
-    &quot;/fan-trend-index/&quot;: {
-      &quot;change_id&quot;: &quot;seo-33575ff17b&quot;,
-      &quot;meta_description&quot;: &quot;Fan Trend Index: football fan page. Printed after you order, shipped worldwide.&quot;,
-      &quot;reason&quot;: &quot;Search Console shows page-1 impressions with zero clicks — the meta description is the safe lever.&quot;,
-      &quot;type&quot;: &quot;weak_ctr_description&quot;,
-      &quot;updated_at&quot;: &quot;2026-10-29T21:47:59Z&quot;
-    },
-    &quot;/shop/dallas-football-vintage-athletic-style-f/&quot;: {
-      &quot;change_id&quot;: &quot;seo-87f3056a5e&quot;,
-      &quot;meta_description&quot;: &quot;Dallas Football 1960 Helmet Vintage Shirt: fan-made football design. Printed after you order, shipped worldwide.&quot;,
-      &quot;reason&quot;: &quot;Search Console shows page-1 impressions with zero clicks — the meta description is the safe lever.&quot;,
-      &quot;type&quot;: &quot;weak_ctr_description&quot;,
-      &quot;updated_at&quot;: &quot;2026-10-29T21:47:59Z&quot;
-    },
-    &quot;/shop/dallas-football-vintage-style-tee/&quot;: {
-      &quot;change_id&quot;: &quot;seo-352282ae72&quot;,
-      &quot;meta_description&quot;: &quot;Dallas Football Star Li</pre></details>
+      &quot;meta_description&quot;: &quot;Gridiron Locker is an independent fan-apparel studio making original football graphics for Cleveland, Green Bay, Dallas and Michigan supporters. He</pre></details>
   </div>
  </section>
 
@@ -705,7 +1028,7 @@ pre{overflow:auto;max-height:420px;font-size:.70rem;color:var(--mut2);white-spac
    <details><summary>Full policy notes + raw opportunities</summary>
     <ul><li class='small'><code class='muted'>No mass fan-intent pages. /search/ already consolidates ?q/?t/?g/?st=.</code></li><li class='small'><code class='muted'>No new product URL for a slug that already has one.</code></li><li class='small'><code class='muted'>No player-face / surname-on-chest / jersey-number / team-logo suggestions.</code></li><li class='small'><code class='muted'>Articles land via src/ guides after approval — never hand-copied into site/.</code></li><li class='small'><code class='muted'>Live catalogue slugs available for product links: 96.</code></li><li class='small'><code class='muted'>Existing guides: [&#x27;/guides/&#x27;, &#x27;/guides/2026-week-1-shirts/&#x27;, &#x27;/guides/cleveland-browns-shirts-buying-guide/&#x27;, &#x27;/guides/dallas-cowboys-shirts-buying-guide/&#x27;, &#x27;/guides/football-fan-gift-guide-2026/&#x27;, &#x27;/guides/green-bay-packers-shirts-buying-guide/&#x27;, &#x27;/guides/michigan-second-act-shirts/&#x27;, &#x27;/guides/michigan-vs-everybody-shirts/&#x27;, &#x27;/guides/michigan-wolverines-shirts-buying-guide/&#x27;].</code></li></ul>
     <pre>{
-  &quot;generated_at&quot;: &quot;2026-10-29T21:56:18Z&quot;,
+  &quot;generated_at&quot;: &quot;2026-10-29T23:21:09Z&quot;,
   &quot;engine&quot;: &quot;seo_engine.content&quot;,
   &quot;domain&quot;: &quot;https://gridironlocker.store&quot;,
   &quot;opportunity_count&quot;: 3,
@@ -792,8 +1115,8 @@ pre{overflow:auto;max-height:420px;font-size:.70rem;color:var(--mut2);white-spac
 </main>
 
 <footer class="foot"><div class="wrap">
-  <span>SEO Engine dashboard · ops/seo · noindex · robots Disallow: /ops/ · <span class="mono">2026-10-29T21:56:18Z</span> · <a href="../index.html">Ops Index</a></span>
-  <span class="muted">Audit verdict: <b style="color:var(--orange)">1 finding(s)</b> · AUTO 0 · PR 0 · HUMAN 0 · <a href="https://github.com/gridironlocker/gridiron-locker/blob/main/seo_engine/README.md">README</a></span>
+  <span>SEO Engine dashboard · ops/seo · noindex · robots Disallow: /ops/ · <span class="mono">2026-10-29T23:21:09Z</span> · <a href="../index.html">Ops Index</a></span>
+  <span class="muted">Audit verdict: <b style="color:var(--orange)">15 finding(s)</b> · AUTO 12 · PR 0 · HUMAN 0 · <a href="https://github.com/gridironlocker/gridiron-locker/blob/main/seo_engine/README.md">README</a></span>
 </div></footer>
 </body>
 </html>
