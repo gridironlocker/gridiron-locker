@@ -5278,3 +5278,42 @@ class GiftGuidePage(unittest.TestCase):
     def test_gift_guide_listed_on_guides_index(self):
         html = page("guides/index.html")
         self.assertTrue(_has_link(html, "guides/football-fan-gift-guide-2026/"))
+
+
+class MichiganVsEverybodyGuide(unittest.TestCase):
+    """Vs Everybody editorial - the largest GSC query cluster with live designs
+    but no supporting content (2026-10-29 export)."""
+
+    def test_guide_substantial_and_cross_linked(self):
+        html = page("guides/michigan-vs-everybody-shirts/index.html")
+        self.assertIn("<h1>", html)
+        self.assertGreater(len(html.split()), 1200)
+        for href in ("michigan-wolverines-shirts/", "size-guide/", "2026-season/",
+                     "guides/michigan-wolverines-shirts-buying-guide/",
+                     "guides/michigan-second-act-shirts/"):
+            self.assertTrue(_has_link(html, href), href)
+        self.assertIn("M vs Everybody", html)
+        self.assertIn("Michigan v Everybody", html)
+        self.assertIn("FAQPage", html)
+        self.assertIn("not affiliated", html.lower())
+
+    def test_listed_on_guides_index(self):
+        html = page("guides/index.html")
+        self.assertTrue(_has_link(html, "guides/michigan-vs-everybody-shirts/"))
+
+
+class DearbornAddendum(unittest.TestCase):
+    """Geo-cluster support in the Michigan buying guide (GSC: dearborn michigan
+    t-shirts / apparel / sweatshirts). Michigan-only, honest fulfilment copy."""
+
+    def test_michigan_guide_has_dearborn_section(self):
+        html = page("guides/michigan-wolverines-shirts-buying-guide/index.html")
+        i = html.find("Dearborn")
+        self.assertGreater(i, -1)
+        sec = html[i:html.find("<h2>Price range</h2>")]
+        self.assertTrue(_has_link(sec, "size-guide/"))
+        self.assertTrue(_has_link(sec, "guides/football-fan-gift-guide-2026/"))
+        self.assertRegex(sec.lower(), r"printed\s+after")
+        # No other team guide carries it.
+        for team in ("cleveland-browns", "green-bay-packers", "dallas-cowboys"):
+            self.assertNotIn("Dearborn", page(f"guides/{team}-shirts-buying-guide/index.html"))

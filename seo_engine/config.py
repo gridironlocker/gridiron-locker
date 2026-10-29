@@ -39,6 +39,7 @@ SAFE_TYPES = frozenset({
     "duplicate_title",
     "duplicate_description",
     "weak_ctr_title",       # GSC-backed title tweak when export is present
+    "weak_ctr_description", # page-1 weak CTR: description is the safe lever
 })
 
 PR_TYPES = frozenset({

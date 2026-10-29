@@ -1659,7 +1659,8 @@ def audience_gender(it):
 TEAM_TICKER_TERMS = {
     "cleveland-browns": [("Shedeur Sanders fan shirts", 1), ("Dawg Pound apparel", 0),
                          ("Here We Go Brownies", 0), ("Cleveland skyline tees", 0)],
-    "green-bay-packers": [("Go Pack Go tees", 0), ("Jordan Love 10 shirts", 1),
+    "green-bay-packers": [("Green Bay Packers gear", 0), ("Go Pack Go tees", 0),
+                          ("Jordan Love 10 shirts", 1),
                           ("Cheesehead Nation", 0), ("Lambeau game-day gear", 0)],
     "dallas-cowboys": [("Dallas vintage tees", 0), ("Texas pride shirts", 0),
                        ("Doomsday Defense tees", 1), ("Star-city lettering", 0)],
@@ -5634,6 +5635,129 @@ fan-created work.</p>
           + header() + body + footer())
 
 
+MVE_PATH = "/guides/michigan-vs-everybody-shirts/"
+
+
+def page_michigan_vs_everybody():
+    """Editorial guide for the "Vs Everybody" slogan family - the largest query
+    cluster in the GSC export without dedicated content ("michigan vs everybody
+    shirt / gear / sweatshirt / crewneck", "michigan against everybody shirt",
+    "michigan vs the world shirt"). Same house rules as the Second Act guide:
+    every design claim reads the live catalogue, empty-picks guard retires the
+    page with the designs, slogan-first copy, player references stay text-only."""
+    path = MVE_PATH
+    by_slug = {x["slug"]: x for x in MODEL["michigan"]}
+    picks = [by_slug[s] for s in ("m-vs-everybody", "michigan-v-everybody")
+             if s in by_slug]
+    if not picks:
+        return
+    cb, cbs = crumbs([("Home", "/"), ("Guides", "/guides/"),
+                      ("Michigan Vs Everybody Shirts", None)], path)
+    sayings = {
+        "m-vs-everybody": ("The shorthand version - what fans actually type when they "
+                           "mean it fast. Two words, one team."),
+        "michigan-v-everybody": ("The full-name version - reads like a fixture list and "
+                                 "means exactly the same thing."),
+    }
+    prices = sorted(x["price"] for x in picks)
+    garments = sorted({g for i in picks for g in i["styles"]})
+    garment_line = ", ".join(garments) if garments else "tees and more"
+    notes = "".join(
+        f'<li><strong><a href="{esc(store_href(i))}">{esc(i["name"])}</a></strong> '
+        f'(${i["price"]:.2f}, {esc(i["garment"])}) - {esc(sayings.get(i["slug"], i["art"]))}</li>'
+        for i in picks)
+    grid = "".join(card(i) for i in picks)
+    faqs = [
+        ("What does Vs Everybody mean to Michigan fans?",
+         "It is the us-against-the-world phrase: one team, everyone else, no middle "
+         "ground. Fans say it before big games, after bad calls and on shirts all year - "
+         "and unlike a score or a roster, the phrase never goes out of date."),
+        ("Are these shirts officially licensed?",
+         "No. Gridiron Locker is an independent, fan-made store. Designs are original "
+         "artwork that uses team and city words descriptively to say who a design is for. "
+         "We are not affiliated with, endorsed by or licensed by any league, club or "
+         "university."),
+        ("Which design should I pick - M vs Everybody or Michigan v Everybody?",
+         "They say the same thing in two registers. M vs Everybody is the shorthand - "
+         "shorter on the chest, faster to read. Michigan v Everybody spells it out and "
+         "reads more like a fixture. Both are lettering designs: no faces, no likenesses."),
+        ("What sizes do the Vs Everybody shirts come in?",
+         f"Apparel size ranges vary by design ({SIZE_RANGE_TO} overall) and each product "
+         "page lists its exact sizes. Measure a shirt you own flat across the chest and "
+         "match the size guide; between sizes, go up one."),
+        ("How long does a Vs Everybody shirt take to arrive?",
+         "Everything is printed after you order it. Delivery is an estimate: 5-12 "
+         "business days in the US, with longer international transit possible; arrival "
+         "before a specific game is not guaranteed."),
+    ]
+    faq_html = "".join(f"<h3>{esc(q)}</h3><p>{esc(a)}</p>" for q, a in faqs)
+    faq_schema = {"@context": "https://schema.org", "@type": "FAQPage",
+                  "mainEntity": [{"@type": "Question", "name": q,
+                                  "acceptedAnswer": {"@type": "Answer", "text": a}}
+                                 for q, a in faqs]}
+    title = "Michigan Vs Everybody Shirts: The Phrase Explained"
+    desc = ("What Vs Everybody means to Michigan fans and the shirts that carry it: the "
+            "two live designs, the garment styles they print on, sizing and lead times.")
+    art = {"@context": "https://schema.org", "@type": "Article",
+           "headline": title, "description": desc,
+           "datePublished": TODAY, "dateModified": DATA_DATE,
+           "author": {"@type": "Organization", "name": BRAND},
+           "publisher": {"@type": "Organization", "name": BRAND},
+           "mainEntityOfPage": DOMAIN + path,
+           "image": DOMAIN + "/img/hero-michigan.jpg?v=4"}
+    body = f"""{cb}<section style="padding-top:6px"><div class="wrap prose">
+<h1>{esc(title)}</h1>
+<p class="muted">Updated {TODAY} &middot; {len(picks)} live designs &middot; from
+${prices[0]:.2f}</p>
+<p>Every fanbase has one phrase that needs no explanation inside the room and all the
+explanation outside it. For Michigan it is two words. This is what fans mean when they say
+Vs Everybody - and the designs in the locker that carry it.</p>
+<h2>What Vs Everybody means</h2>
+<p>The phrase names a mood, not a matchup: one team against everyone else, proudly. It is
+why the same three words show up in searches in every possible spelling - vs everybody,
+against everybody, vs the world - and why they work on a shirt long after any single game
+is forgotten. A chant celebrates what happened; Vs Everybody announces who you are.</p>
+<h2>The designs in the locker</h2>
+<ul>{notes}</ul>
+<div class="grid" style="margin:16px 0">{grid}</div>
+<h2>The garments it prints on</h2>
+<p>Both designs are lettering-first and print across {esc(garment_line)} - the same phrase
+on a tee for September and on a crewneck or hoodie for December. Styles, colourways and
+exact sizes are listed on each product page, and everything is printed after you order it,
+so nothing sells out.</p>
+<h2>Sizing, garments and lead times</h2>
+<p>Standard fan-apparel sizing applies; apparel size ranges vary by design
+({SIZE_RANGE_TO} overall) and each product page lists its exact sizes - see the
+<a href="/size-guide/">size guide</a> before you order. Delivery is an estimate: 5-12
+business days in the US plus any international transit, not a guarantee for a specific
+game date.</p>
+<h2>Where it fits in the Michigan locker</h2>
+<p>The locker carries {len(MODEL['michigan'])} Michigan designs in total. For gift picks
+and garment comparisons read the
+<a href="/guides/michigan-wolverines-shirts-buying-guide/">Michigan buying guide</a>, for
+the year-two story see the
+<a href="/guides/michigan-second-act-shirts/">Second Act guide</a>, and for what is
+trending across the roster right now see the
+<a href="/2026-season/">2026 season hub</a>.</p>
+<p><a class="btn" href="/michigan-wolverines-shirts/">All Michigan designs &rarr;</a></p>
+<h2>Vs Everybody shirts FAQ</h2>
+{faq_html}
+<p class="muted" style="font-size:.82rem">Independent fan store. Gridiron Locker is not affiliated
+with, endorsed by, sponsored by or licensed by the National Football League, any NFL club, the NCAA,
+any university or any player. Team and city names are used descriptively. All artwork is original,
+fan-created work.</p>
+</div></section>"""
+    URLS.append((DOMAIN + path, "0.7", "monthly"))
+    write("guides/michigan-vs-everybody-shirts/index.html",
+          head(f"{title} | {BRAND}", desc, path, "/img/hero-michigan.jpg?v=4",
+               [cbs, art, faq_schema],
+               ["michigan vs everybody shirt", "michigan vs everybody gear",
+                "michigan vs everybody sweatshirt", "michigan vs everybody crewneck",
+                "michigan against everybody shirt", "michigan vs the world shirt",
+                "michigan football shirt"], col="michigan")
+          + header("michigan") + body + footer(collection="michigan"))
+
+
 def page_guides():
     week1_card = ('<div class="panel" style="margin-bottom:14px;border-top:3px solid var(--ink)">'
                   '<h3><a href="/guides/2026-week-1-shirts/">2026 Week 1 Fan Shirts: '
@@ -5651,7 +5775,13 @@ def page_guides():
                  '<p class="muted" style="margin:0">Gifts by budget and team: stocking stuffers, '
                  'slogan picks for all four collections, sizing help and honest delivery '
                  'estimates.</p></div>')
-    cards = week1_card + second_act_card + gift_card
+    vs_card = ('<div class="panel" style="margin-bottom:14px;border-top:3px solid var(--ink)">'
+               '<h3><a href="/guides/michigan-vs-everybody-shirts/">'
+               'Michigan Vs Everybody Shirts: The Phrase Explained</a></h3>'
+               '<p class="muted" style="margin:0">What "Vs Everybody" means to Michigan fans, '
+               'the two live designs that carry it, the garments they print on and sizing.</p>'
+               '</div>')
+    cards = week1_card + second_act_card + vs_card + gift_card
     for k in ORDER:
         c = COLLECTIONS[k]
         cards += (f'<div class="panel" style="margin-bottom:14px"><h3><a href="/guides/{c["slug"]}-buying-guide/">'
@@ -5684,6 +5814,7 @@ people buying gifts.</p>
                             f'(${i["price"]:.2f})</li>' for i in lst[:8])
             secs += f"<h2>{theme_titles.get(t, t.title())}</h2><ul>{links}</ul>"
         qb1_sec = ""
+        dearborn_sec = ""
         related_sec = ""
         if k == "cleveland-browns":
             # seo_engine seed opportunity QB1 BATTLE (2026-10-28): guide
@@ -5717,9 +5848,22 @@ on them. They mean the same thing in September and in January, whoever takes the
 still wearable after the story changes - and the <a href="/2026-season/">2026 season hub</a>
 tracks what is changing on the roster right now.</p>"""
         if k == "michigan":
-            related_sec = ('<p>Looking for the "Second Act" line specifically? Read what the '
-                           'slogan means in the <a href="/guides/michigan-second-act-shirts/">'
-                           'Michigan Second Act shirts guide</a>.</p>')
+            # GSC demand: "dearborn michigan t-shirts / apparel / sweatshirts" is a
+            # recurring geo cluster with no supporting content (2026-10-29 export).
+            dearborn_sec = """<h2>Michigan shirts for Dearborn &amp; Southeast Michigan fans</h2>
+<p>Fans around Dearborn look for gear a little differently - "dearborn michigan t-shirts",
+"dearborn michigan apparel", "dearborn michigan sweatshirts" - and the honest answer here is
+the same as everywhere else: nothing is warehoused locally. Every order is printed
+after it is placed and ships to you, with the working estimate at 5-12 business days for US delivery.</p>
+<p>Buying for a household rather than one fan? Measure a shirt each person already owns flat
+across the chest and match the <a href="/size-guide/">size guide</a> per person - hoodies and
+crewnecks run roomier than tees. The <a href="/guides/football-fan-gift-guide-2026/">gift
+guide</a> covers budget picks, and <a href="/how-ordering-works/">how ordering works</a>
+explains the print-and-ship model in full.</p>"""
+            related_sec = ('<p>Looking for a specific slogan line? Read what the phrases mean '
+                           'in the <a href="/guides/michigan-second-act-shirts/">Second Act '
+                           'guide</a> and the <a href="/guides/michigan-vs-everybody-shirts/">'
+                           'Michigan Vs Everybody guide</a>.</p>')
         path = f"/guides/{c['slug']}-buying-guide/"
         cb, cbs = crumbs([("Home", "/"), ("Guides", "/guides/"), (c["short"], None)], path)
         title = f"{c['short']} Fan Apparel Buying Guide {YEAR}"
@@ -5745,7 +5889,7 @@ gifts because sizing cannot go wrong.</p>
 lists its exact sizes. Measure a shirt you already own flat across the chest and match the number - see
 the full <a href="/size-guide/">size guide</a>. Between sizes? Go up, especially on fleece.</p>
 {secs}
-{qb1_sec}<h2>Price range</h2>
+{qb1_sec}{dearborn_sec}<h2>Price range</h2>
 <p>This collection runs from <strong>${prices[0]:.2f}</strong> to <strong>${prices[-1]:.2f}</strong>.
 Tees sit at the low end, hoodies and all-over prints at the top. Everything is printed after you
 order, so there is no clearance rack and no sold-out sizes.</p>
@@ -8277,6 +8421,7 @@ def main():
     page_guides()
     page_week1_graphics()
     page_second_act_guide()
+    page_michigan_vs_everybody()
     page_gift_guide()
     page_how_ordering()
     page_season()
