@@ -64,17 +64,30 @@ stubs pointing at the relevant collection; none has a buy path anywhere.
   test_never_lists_held_or_delisted_slugs` fails the build if a held or delisted
   slug ever enters the feed, or if any feed item lacks a price.
 
-## Operator action (Merchant Center)
+## Operator action (Merchant Center) - decided 2026-11-05: drop the 21 items
 
-1. **Products -> Data sources**: find the source still serving these items (label
-   "US" in the export). It will not be the healthy scheduled fetch of
-   `https://gridironlocker.store/feeds/google-merchant.xml` - look for an
-   **"Automatic feed from website"** source or an **older manual upload/file**.
-2. **Delete the 21 items** (or delete/disable that whole stale source - preferred
-   if it serves nothing else). The scheduled fetch stays as the single product
-   source.
-3. Issues clear within a few days of Google processing the removal. Do **not**
-   use "Add a price" on these items.
+1. Open `merchants.google.com` -> the account -> left menu **Products -> Data
+   sources**.
+2. Skip the source that shows `https://gridironlocker.store/feeds/google-merchant.xml`
+   (the healthy scheduled fetch - it never served these items). For each other
+   source (likely an **"Automatic feed from website"** or an **uploaded file**,
+   the "US" label of the export), open it -> **Items** tab -> paste
+   `sanders-the-next-level` in the item search. The source that finds it is the
+   stale one.
+3. Preferred: delete that whole stale source (**⋮ / More actions -> Delete /
+   Remove**). It serves nothing the store still sells. If it is an automatic
+   website feed, also confirm auto-creation is off afterwards. The scheduled
+   fetch remains the single product source.
+   Alternative: in that source's Items tab, select all its not-approved items
+   (they are exactly these 21) -> **⋮ -> Delete**.
+4. Do **not** click "Add a price" or "Request review" on these items - the
+   landing pages sell nothing, so any approval would only fail again.
+5. Verify: **Products -> All items** - the 21 disappear within a few days of
+   Google processing the deletion; the issues report history can lag up to
+   ~30 days before it looks clean.
+
+(Button labels vary slightly between account UIs - if something looks
+different, capture what you see and it can be mapped.)
 
 ## Why not to "fix" it by adding a price
 
