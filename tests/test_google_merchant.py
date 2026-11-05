@@ -130,6 +130,31 @@ class TestGoogleMerchantFeed(unittest.TestCase):
                          "site/feeds/google-merchant.xml drifted from the "
                          "generator - rebuild (python3 src/build.py)")
 
+    def test_never_lists_held_or_delisted_slugs(self):
+        """Google Merchant cleanup (2026-11-05 product-issues export).
+
+        21 free-listing items were flagged "Missing product price". Every one
+        is a retired design: either delisted.json (supplier campaign ended
+        2026-09-12) or data/fulfillment.json 'hold' (withheld until the design
+        is uploaded to Mayzing - no sellable page exists to price). Their
+        Merchant items are stale crawl/upload data living in some other data
+        source, not this feed. This test keeps it that way: a held or delisted
+        slug may never enter the feed, and every item must carry a price - the
+        exact attribute Google reported missing.
+        """
+        import json
+        with open(os.path.join(ROOT, "data", "fulfillment.json")) as fh:
+            held = set(json.load(fh)["hold"])
+        with open(os.path.join(ROOT, "data", "delisted.json")) as fh:
+            delisted = set(json.load(fh)["slugs"])
+        banned = {build.google_item_id(s) for s in held | delisted}
+        ids = [gtext(it, "id") for it in feed_items()]
+        leaked = sorted(set(ids) & banned)
+        self.assertEqual(leaked, [], f"held/delisted slugs in the feed: {leaked}")
+        for it in feed_items():
+            self.assertTrue(gtext(it, "price").strip(),
+                            f"missing price attribute: {gtext(it, 'id')}")
+
     def test_no_commas_in_image_links(self):
         # Shared with the Pinterest contract: Mayzing mockup URLs are
         # comma-separated parameter lists; the encoded form is what both

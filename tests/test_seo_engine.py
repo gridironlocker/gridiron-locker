@@ -648,7 +648,9 @@ class KeywordMap(unittest.TestCase):
         cls.map = json.loads((ROOT / "data/seo/product_keywords.json").read_text())
 
     def test_every_product_is_mapped(self):
-        self.assertEqual(len(self.map), 96)
+        # 96 mapped at the 2026-10-29 rewrite; 2026-11-05 the refresh
+        # retired limited-edition-grb25 (its PDP is a moved-page stub).
+        self.assertEqual(len(self.map), 95)
 
     def test_primary_keywords_no_stuffing_or_blanks(self):
         for slug, e in self.map.items():
@@ -703,4 +705,4 @@ class ProductCopyRewrite(unittest.TestCase):
                             f"{slug}: H1/lead missing listing title")
             self.assertIn('name="description"', html, slug)
             checked += 1
-        self.assertEqual(checked, 96)
+        self.assertEqual(checked, 95)  # 2026-11-05: grb25 retired (was 96)

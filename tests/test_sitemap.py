@@ -138,7 +138,9 @@ class SitemapDates(unittest.TestCase):
         # joined the sitemap.
         # 2026-10-29: 130 -> 131 - /guides/michigan-vs-everybody-shirts/ (the
         # Vs Everybody editorial guide) joined the sitemap.
-        self.assertEqual(len(self.rows), 131)
+        # 2026-11-05: 131 -> 130 - limited-edition-grb25 retired (its
+        # product page became a moved-page stub, 95 live designs).
+        self.assertEqual(len(self.rows), 130)
         self.assertEqual(len(self.rows), len(set(self.rows)))
         for url, lastmod in self.rows.items():
             self.assertTrue(url.startswith(build.DOMAIN + "/"), url)
