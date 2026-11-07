@@ -2,7 +2,7 @@
  "generated": "2026-11-07",
  "window_days": 10,
  "fti_formula": "round(100 * entity_mentions / peak_mentions_in_window)",
- "peak_mentions": 29,
+ "peak_mentions": 33,
  "stats": {
   "products": 95,
   "collections": 4,
@@ -11,15 +11,15 @@
   "hot": 11,
   "throwback": 1,
   "steady": 83,
-  "gaps": 4,
-  "moments": 5,
+  "gaps": 6,
+  "moments": 4,
   "tracked_names": 18,
   "dead_campaigns": 68
  },
  "fti_rows": [
   {
    "name": "shedeur sanders",
-   "mentions": 29,
+   "mentions": 33,
    "index": 100,
    "status": "trending",
    "gap": false,
@@ -27,27 +27,27 @@
    "collection": "cleveland-browns"
   },
   {
-   "name": "deshaun watson",
-   "mentions": 20,
-   "index": 69,
-   "status": "trending",
-   "gap": true,
-   "shoppable": false,
-   "collection": "cleveland-browns"
-  },
-  {
    "name": "micah parsons",
-   "mentions": 16,
-   "index": 55,
+   "mentions": 20,
+   "index": 61,
    "status": "trending",
    "gap": false,
    "shoppable": true,
    "collection": "green-bay-packers"
   },
   {
-   "name": "dak prescott",
+   "name": "deshaun watson",
    "mentions": 13,
-   "index": 45,
+   "index": 39,
+   "status": "trending",
+   "gap": true,
+   "shoppable": false,
+   "collection": "cleveland-browns"
+  },
+  {
+   "name": "dak prescott",
+   "mentions": 11,
+   "index": 33,
    "status": "trending",
    "gap": true,
    "shoppable": false,
@@ -55,35 +55,17 @@
   },
   {
    "name": "jordan love",
-   "mentions": 8,
-   "index": 28,
+   "mentions": 6,
+   "index": 18,
    "status": "trending",
    "gap": false,
    "shoppable": true,
    "collection": "green-bay-packers"
   },
   {
-   "name": "bryce underwood",
-   "mentions": 6,
-   "index": 21,
-   "status": "trending",
-   "gap": false,
-   "shoppable": true,
-   "collection": "michigan"
-  },
-  {
-   "name": "ceedee lamb",
-   "mentions": 5,
-   "index": 17,
-   "status": "trending",
-   "gap": true,
-   "shoppable": false,
-   "collection": "dallas-cowboys"
-  },
-  {
    "name": "josh jacobs",
-   "mentions": 3,
-   "index": 10,
+   "mentions": 5,
+   "index": 15,
    "status": "trending",
    "gap": true,
    "shoppable": false,
@@ -91,30 +73,39 @@
   },
   {
    "name": "kyle whittingham",
-   "mentions": 2,
-   "index": 7,
-   "status": "steady",
-   "gap": false,
+   "mentions": 4,
+   "index": 12,
+   "status": "trending",
+   "gap": true,
    "shoppable": false,
    "collection": "michigan"
   },
   {
-   "name": "todd monken",
-   "mentions": 2,
-   "index": 7,
-   "status": "steady",
-   "gap": false,
+   "name": "ceedee lamb",
+   "mentions": 3,
+   "index": 9,
+   "status": "trending",
+   "gap": true,
    "shoppable": false,
-   "collection": "cleveland-browns"
+   "collection": "dallas-cowboys"
   },
   {
    "name": "matt lafleur",
-   "mentions": 1,
-   "index": 3,
-   "status": "steady",
-   "gap": false,
+   "mentions": 3,
+   "index": 9,
+   "status": "trending",
+   "gap": true,
    "shoppable": false,
    "collection": "green-bay-packers"
+  },
+  {
+   "name": "bryce underwood",
+   "mentions": 2,
+   "index": 6,
+   "status": "steady",
+   "gap": false,
+   "shoppable": true,
+   "collection": "michigan"
   },
   {
    "name": "denzel ward",
@@ -178,13 +169,22 @@
    "gap": false,
    "shoppable": true,
    "collection": "green-bay-packers"
+  },
+  {
+   "name": "todd monken",
+   "mentions": 0,
+   "index": 0,
+   "status": "quiet",
+   "gap": false,
+   "shoppable": false,
+   "collection": "cleveland-browns"
   }
  ],
  "gaps": [
   {
    "name": "deshaun watson",
-   "mentions": 20,
-   "index": 69,
+   "mentions": 13,
+   "index": 39,
    "status": "trending",
    "gap": true,
    "shoppable": false,
@@ -192,17 +192,8 @@
   },
   {
    "name": "dak prescott",
-   "mentions": 13,
-   "index": 45,
-   "status": "trending",
-   "gap": true,
-   "shoppable": false,
-   "collection": "dallas-cowboys"
-  },
-  {
-   "name": "ceedee lamb",
-   "mentions": 5,
-   "index": 17,
+   "mentions": 11,
+   "index": 33,
    "status": "trending",
    "gap": true,
    "shoppable": false,
@@ -210,8 +201,35 @@
   },
   {
    "name": "josh jacobs",
+   "mentions": 5,
+   "index": 15,
+   "status": "trending",
+   "gap": true,
+   "shoppable": false,
+   "collection": "green-bay-packers"
+  },
+  {
+   "name": "kyle whittingham",
+   "mentions": 4,
+   "index": 12,
+   "status": "trending",
+   "gap": true,
+   "shoppable": false,
+   "collection": "michigan"
+  },
+  {
+   "name": "ceedee lamb",
    "mentions": 3,
-   "index": 10,
+   "index": 9,
+   "status": "trending",
+   "gap": true,
+   "shoppable": false,
+   "collection": "dallas-cowboys"
+  },
+  {
+   "name": "matt lafleur",
+   "mentions": 3,
+   "index": 9,
    "status": "trending",
    "gap": true,
    "shoppable": false,
@@ -232,8 +250,8 @@
    "gaps": [
     {
      "name": "deshaun watson",
-     "mentions": 20,
-     "index": 69,
+     "mentions": 13,
+     "index": 39,
      "status": "trending",
      "gap": true,
      "shoppable": false,
@@ -245,10 +263,10 @@
     "cleveland",
     "sanders",
     "shedeur",
-    "pittsburgh",
     "orleans",
-    "watson",
-    "deshaun"
+    "pittsburgh",
+    "defense",
+    "watson"
    ],
    "headline_count": 100,
    "headlines": [
@@ -265,22 +283,22 @@
      "pub": "Fri, 06 Nov 2026 18:30:54 GMT"
     },
     {
-     "title": "Cleveland Browns vs. Pittsburgh Steelers recap: Streak lives on, as Cleveland dominated and loses division lead",
-     "url": "https://news.google.com/rss/articles/CBMiiAJBVV95cUxPOWstUGlUZ0tFSThjTUxPTFJEOEtGSU5JeTFaRl91Z2RqUjI2Z19QaGM0Qmo4c0JoSFpNeHU1R0tFTHQzSlpDWW81TjFVTmk0WDVNSUxzS0pnMUxrbjlaSmt5Z2FWbk5xZk9nWFlBc3EyRlBvdkp0eWpSSldFLURUZW5LYTdxQnJuSWw1NDlaR0wzLWRpeWdBYnJFQTREdmkxeHdWU3lPU05LenI3a1dYZUNFdVRUU3M3NkE1RndXX3ZCbGpaYnhNTkF0aDVza0lURDh4M1RwTWdMZG1mdXhwVnpseUt5Q25yOV83dTRnUlVqYlY1cU12blRwOWpYTjJxeXhBMVdzVWc?oc=5",
-     "source": "Dawgs By Nature",
-     "pub": "Sun, 01 Nov 2026 21:08:23 GMT"
-    },
-    {
-     "title": "Browns vs. Steelers highlights | Week 8",
-     "url": "https://news.google.com/rss/articles/CBMicEFVX3lxTE93eHFDdlZhU25JcjBoSjVSaTlEejlCaWVRVlllVFB4MEx5WGRfZGVnaUxDcjFHX1AtSzFkbjcyakxjZnRIc3g5UWVDYUJHWWw3Qlo0ZG8wd0diNk1fVkxMai11THRiWkFsSldFSGhjei0?oc=5",
-     "source": "NFL.com",
-     "pub": "Sun, 01 Nov 2026 21:55:42 GMT"
+     "title": "How to watch today's Pittsburgh Steelers vs. Cleveland Browns game in Week 8 of the NFL schedule",
+     "url": "https://news.google.com/rss/articles/CBMirwFBVV95cUxNR3pQREVpVFpTTEVYNVc4TGhWZWlIb0xaV3NFLUx5NGduUDJVSmJ2aHJyZk54N3FxU243WThzbmlQRW1pb2NDOFVlR2Z1Vmh3REhVY0tjZU94Ync0TERjeEt5YVZBcGY1OGE4Q3dwTXhiRDU0MWRKVHJjYjhuZGduNWxJRzdMWGt5bmgzNFo3eFFScWlIS2wtbEdQTDA0VUpPTkstc1VPdUpPc0xEX2Vn?oc=5",
+     "source": "CBS News",
+     "pub": "Sun, 01 Nov 2026 11:00:00 GMT"
     },
     {
      "title": "Browns officially announce starting QB for Sunday",
      "url": "https://news.google.com/rss/articles/CBMingFBVV95cUxNc3lHcXNoMXpHOGRvOEJkN2UweFhNcTk1cjllZEgyWmhDWV9raFBTYnZTNEtuUENoX0tlWWJQNHJiUUt0NzRWdDg5S3NabW1zZzVyQjhFYVNnS3pxTDg3TWlfU3AxQ1BZVDV6V2RwV0xQSzBxcnFtQjAyaW1OVVNpeHcycElQWUs0aWpmd0lGN1BwcTNuMENOb1RHcXRXZ9IBowFBVV95cUxPenNyUHBYZ2hxcllrM0d4SmlPc0hud1FzUkZVMjgwYnhFRjB0TnFXY09XZlE3czVLcFM3SU1zY285R1VFUWI5SlgwOUh3cm5SLWQ0bXhaQkRtcXhmUlhOdmZWdUFoc2pSdEdPQUY1ZVYyVVR4azdWeWo3SkFnZjFCeFlacUQtbE0zLVh4aGc2ZG5rWTY4UTI0M3N3VkhEbGoxM2c0?oc=5",
      "source": "WKBN.com",
      "pub": "Fri, 06 Nov 2026 18:42:41 GMT"
+    },
+    {
+     "title": "Browns vs. Steelers highlights | Week 8",
+     "url": "https://news.google.com/rss/articles/CBMicEFVX3lxTE93eHFDdlZhU25JcjBoSjVSaTlEejlCaWVRVlllVFB4MEx5WGRfZGVnaUxDcjFHX1AtSzFkbjcyakxjZnRIc3g5UWVDYUJHWWw3Qlo0ZG8wd0diNk1fVkxMai11THRiWkFsSldFSGhjei0?oc=5",
+     "source": "NFL.com",
+     "pub": "Sun, 01 Nov 2026 21:55:42 GMT"
     }
    ],
    "fti_count": 7
@@ -298,8 +316,8 @@
    "gaps": [
     {
      "name": "dak prescott",
-     "mentions": 13,
-     "index": 45,
+     "mentions": 11,
+     "index": 33,
      "status": "trending",
      "gap": true,
      "shoppable": false,
@@ -307,8 +325,8 @@
     },
     {
      "name": "ceedee lamb",
-     "mentions": 5,
-     "index": 17,
+     "mentions": 3,
+     "index": 9,
      "status": "trending",
      "gap": true,
      "shoppable": false,
@@ -319,11 +337,11 @@
     "cowboys",
     "dallas",
     "trade",
-    "prescott",
-    "offense",
     "george",
     "pickens",
-    "defense"
+    "offense",
+    "prescott",
+    "calls"
    ],
    "headline_count": 100,
    "headlines": [
@@ -340,12 +358,6 @@
      "pub": "Sun, 01 Nov 2026 23:50:29 GMT"
     },
     {
-     "title": "Dallas Cowboys",
-     "url": "https://news.google.com/rss/articles/CBMiW0FVX3lxTE5mdnM5eElTNjdRdjdoV2Y3ZWtSdXkxRXVzaWY4WjNEUW1jc1pGa0FjVzZHcnBmX1gzX1RCZzRLSzJvOWl0OGs4SkpsblZJSGVvMXRkRTZQYU0tZ1U?oc=5",
-     "source": "Britannica",
-     "pub": "Mon, 02 Nov 2026 08:00:00 GMT"
-    },
-    {
      "title": "Updates: Downs in concussion protocol",
      "url": "https://news.google.com/rss/articles/CBMiZkFVX3lxTE41U3JDcmpCb1YyZjBxRFNnV25kSktlMVJ5aEJsX1hhNTFTcHJWdWdTbjF5cFhvQ3ZKZGd4bEdfT0VtT1RobmJwd3ZSbnZzM0c3RnJiTS1kSG5fMUtJWW9qclRUWlZtQQ?oc=5",
      "source": "Dallas Cowboys | Official Site of the Dallas Cowboys",
@@ -356,6 +368,12 @@
      "url": "https://news.google.com/rss/articles/CBMiqAFBVV95cUxNOEFJNDNpeDUyR0tLNkowOGVTbnI5TXdfZV84Y0NyeHdZQVBGcy1xVm96TVBVb2ZicFNLNUlGOG0zUGxfNzh6YnN6dU5yX2dmZ0ZoT2syVDNnUWVLa2hadDcyN3RoclZCejltLVEtemVUdGk5ekxxdXQ2VHZWdFgtTndxOGt3RzU2LU9qQVhFbTIyVlRRQ3BkTFNSNkFQeGZrSkItT1RyaVQ?oc=5",
      "source": "Dallas Cowboys | Official Site of the Dallas Cowboys",
      "pub": "Mon, 02 Nov 2026 00:42:56 GMT"
+    },
+    {
+     "title": "Cowboys offense looking to find their fastball vs. Colts",
+     "url": "https://news.google.com/rss/articles/CBMilAFBVV95cUxOUEhiR2V0ZGVyUno2dlpRTk5BcHA1Q2Rla1RUbzVoY2tjQWNucU5HVmF4aU1yZFZmQVVwNHNOZHA4MThEU3VabW1ma0VyNXRpRUlRREpWWUh1emRtc0RfMjM3ZlZzb3pSUTJ0Ym1icnlDR29uN3VsWThNV0U3aTluYmllaHFmZ1I3S2FSR2F6VjdwRkh2?oc=5",
+     "source": "Dallas Cowboys | Official Site of the Dallas Cowboys",
+     "pub": "Thu, 05 Nov 2026 23:23:21 GMT"
     }
    ],
    "fti_count": 2
@@ -373,8 +391,17 @@
    "gaps": [
     {
      "name": "josh jacobs",
+     "mentions": 5,
+     "index": 15,
+     "status": "trending",
+     "gap": true,
+     "shoppable": false,
+     "collection": "green-bay-packers"
+    },
+    {
+     "name": "matt lafleur",
      "mentions": 3,
-     "index": 10,
+     "index": 9,
      "status": "trending",
      "gap": true,
      "shoppable": false,
@@ -385,18 +412,18 @@
     "packers",
     "green",
     "trade",
-    "jordan",
-    "love",
     "micah",
     "parsons",
-    "injury"
+    "england",
+    "injury",
+    "thursday"
    ],
    "headline_count": 100,
    "headlines": [
     {
      "title": "Game recap: 5 takeaways from Packers\u2019 victory over Panthers",
      "url": "https://news.google.com/rss/articles/CBMinwFBVV95cUxOaDhJdXp6U1gtRzRtVjZMQy1DOUR0NzRfeVhqUFhrZU0ydEVvR3Z6WWtuOV9acVR2TXhHd1JLdUZ3Qk16VUZUOUNpSWttMWZzVzZjR3dOUDB6SDRzNl9uSHBKZGhiQWRfMTA4dDFtUVZuSXVZS2ppbDBNaXlDS3RuSy1wbG85M2I1WmQzd1I5R2dFMFNib3NHV0xteHBTS2M?oc=5",
-     "source": "Packers.com",
+     "source": "Green Bay Packers \u2013 packers.com",
      "pub": "Fri, 30 Oct 2026 05:43:13 GMT"
     },
     {
@@ -436,16 +463,26 @@
    "avg_price": 23.0,
    "hot": 0,
    "throwback": 0,
-   "gaps": [],
+   "gaps": [
+    {
+     "name": "kyle whittingham",
+     "mentions": 4,
+     "index": 12,
+     "status": "trending",
+     "gap": true,
+     "shoppable": false,
+     "collection": "michigan"
+    }
+   ],
    "top_terms": [
     "michigan",
     "football",
     "state",
     "rutgers",
-    "wolverines",
     "rivalry",
     "watch",
-    "tommy"
+    "wolverines",
+    "time"
    ],
    "headline_count": 100,
    "headlines": [
@@ -462,6 +499,12 @@
      "pub": "Sat, 31 Oct 2026 19:44:24 GMT"
     },
     {
+     "title": "How to watch Michigan State vs. Michigan: TV channel and streaming options for November 7",
+     "url": "https://news.google.com/rss/articles/CBMiqAFBVV95cUxNOFZ2YlhETUdkVFMzVU92UWFTZ0RjTWJnS24zUEE1V3dxdWxtNDkxU2RHNTE5QVkzb1JBbU5KdnBrTVBRWnprRW92SW9CQ3NKQVRXaklvUFZpOEtKaEpWdnJPc3pwaWVyVXJwZFZwRE9KeVNFVmZ0T2s1S1VPZEstN0R3NVNtTjFuZi1LemszalBQR0JSMFBqNHhvSVBQMmNYM3BLXzJ2UTI?oc=5",
+     "source": "The New York Times",
+     "pub": "Fri, 06 Nov 2026 01:14:00 GMT"
+    },
+    {
      "title": "Michigan football still waiting on top running back to emerge",
      "url": "https://news.google.com/rss/articles/CBMitwFBVV95cUxQZzZwNVFzLVlWNGhnNkFuN2VMU3gxeDRPSnM0QWxoRGttYlBHT0J2ZC1PaEtlWVRja1UwSTU2am1YdjRTOUcyNlVzN3drOFBUT2xFQVU4cktBanFtYTZnd19OUWtjcjRXcU1LUWF1MFVwWndnci1VSG5fUURRWGN2RzZJWDRZWmFWYy1uNnhIOF9kVmJTeG52NjlVNUpZZW1ibUxvcXI4MTRwNGxQd3JsdzFsbzAyZkXSAcsBQVVfeXFMUHJObkQwN2RPc2E3Q2tkdGdnc3RQQkxUYTVSMFR0UVBiRlVMTU5LU0RuQnhRM2VhQU92bFFkblJLVEZwX1ZEcDgwUzl1eHRnaEIxWWQ0VG5SMU1PTVQzRVNGa3NPYWFFRU13Y3VsMEVwZl83ckZINDBISWlQRlVLOU1lTUljMFBEbmFMa19VVXpiOGlPWjBraG1mMkxnUC1WLTlFckxRdzk3SzNzOUpGbXFMaWhyTDk5RV9GZ3FzdTdJWjFlYlRYVEdXTFk?oc=5",
      "source": "MLive.com",
@@ -472,12 +515,6 @@
      "url": "https://news.google.com/rss/articles/CBMi_AFBVV95cUxOc3oyTklJVU5zUm9DV2htRUdxenc3R2pmY2htRVR2R3RhVE9ZWGd0N2loNlFGNUlCTXB4WTkwVU9udjlRWkdWeDI1YldjTTh1U0VYcU02VElrVFcwS05qWFIwWERPYzdyaEh3VG90czNhZVIzMkpWd1dBN0NJMkJBQlZlOXhxd2hYX2tVbF92WU1yNk5rTWtrZUhFMmNRVmZxWWg4bFVwWFZPNHdWSkc5bUdSNk9fOUNhWTIyLTUzV0FpQVM1VTlrcTFVbnVpSmsxZTZUSjYxVDRicm5rS2FCeDFqNG1PNVFCZVRjRi1yNHl0eW8wTTRKVVNxYko?oc=5",
      "source": "ClickOnDetroit | WDIV Local 4",
      "pub": "Tue, 03 Nov 2026 10:00:00 GMT"
-    },
-    {
-     "title": "Michigan Wolverines vs Rutgers Scarlet Knights Highlights | FOX College Football",
-     "url": "https://news.google.com/rss/articles/CBMiYkFVX3lxTFBLNk5TT0Yydm5fbFJVc0JQQjJLQmp5MTdQSnhTLTN1cHpBeHFBWm1PVFp5dFNxN2tVQjg4azU3cmlWUFdaSThLQk9IVUlrU25fbFBEUWdhengxYkRfZml4S1BB?oc=5",
-     "source": "FOX Sports",
-     "pub": "Sat, 31 Oct 2026 20:14:37 GMT"
     }
    ],
    "fti_count": 4
@@ -826,16 +863,6 @@
   }
  ],
  "moments": [
-  {
-   "title": "Cleveland Browns QB Deshaun Watson placed in concussion protocol",
-   "url": "https://news.google.com/rss/articles/CBMikAFBVV95cUxPM2tzWnFaOTNNMnYydUxfWUFUeVhLQk1uTHdLYi0tQ2hxWVM5WlAxdnR1dDFvdkVPWnhHQUd1bFlCTHNka2tfZlhudTNuT01MMWFXMV9YWWxacGI4U2NFbldLc2ViS0QzczhSLVlQR0lfdHptX1FfOEFpSUhwOHc5UDZTN1NvczhwaUlWT1QzTk_SAZYBQVVfeXFMTmxzTnFJY1p3d0VDREhLUS1HNmt1NVpQTE5pYnRpY1prM1ZWNlNvNDNQRTVqM1h2eUg4a3Yxc3VxTWlsQ0NNYjlySl9yX0lxOUZEZURaT3g3M21OeHZoVXlZOWV4OTkyNTczNVVOLTBMUDQ2V0FEMU12X2xTNjdBeC0zdFRKM2ZzR2owY1E3SC1wYzFRZlR3?oc=5",
-   "source": "FOX 8 News",
-   "pub": "Wed, 04 Nov 2026 14:39:41 GMT",
-   "collection": "cleveland-browns",
-   "entities": [
-    "deshaun watson"
-   ]
-  },
   {
    "title": "Browns to start Sanders at QB vs. Saints with Watson in protocol",
    "url": "https://news.google.com/rss/articles/CBMijwFBVV95cUxOcU5DcUVuRS1Da2diZHR3T3VySk5ybEoybXlVNkxLWngzaXpoc2F3bk5ELWQwaE85SFl0VFIteHVzQ2FuTFdsV0Z3Z245NThVbVNoQUZVVWY3djIyVTZSVzI5bHZLQ0JWa0I0S0w5Y2RjZnZNWUQzVGs3YUlSd0l5Z1ktVzdUTlpiYkNiMmNVVQ?oc=5",
