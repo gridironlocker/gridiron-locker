@@ -171,9 +171,10 @@
       "type": "weak_ctr_description"
     },
     {
+      "after": {
+        "pages": "generator-owned (full-catalogue keyword rewrite)"
+      },
       "at": "2026-10-29T22:30:00Z",
-      "type": "weak_ctr_description_retired",
-      "path": "*",
       "before": {
         "pages": [
           "/fan-trend-index/",
@@ -189,17 +190,40 @@
           "/shop/limited-edition-grb36/"
         ]
       },
-      "after": {
-        "pages": "generator-owned (full-catalogue keyword rewrite)"
-      },
       "id": "seo-kwrewrite-20261029",
-      "note": "Product meta descriptions now come from the keyword-map generator (src/landing.py + data/seo/product_keywords.json) after the 100% catalogue rewrite; the 11 auto weak_ctr_description overrides carried pre-rewrite copy. Approved description_too_long trims (/, /2026-season/, /about/) kept verbatim."
+      "note": "Product meta descriptions now come from the keyword-map generator (src/landing.py + data/seo/product_keywords.json) after the 100% catalogue rewrite; the 11 auto weak_ctr_description overrides carried pre-rewrite copy. Approved description_too_long trims (/, /2026-season/, /about/) kept verbatim.",
+      "path": "*",
+      "type": "weak_ctr_description_retired"
+    },
+    {
+      "after": {
+        "meta_description": "<13 weak-CTR copy rewrites; per-path entries in pages[], change_id seo-weakctr-20261108>"
+      },
+      "at": "2026-11-08T22:40:00Z",
+      "before": {
+        "meta_description": "<generator defaults; GSC 0-click snippets>"
+      },
+      "id": "seo-weakctr-20261108",
+      "path": "*",
+      "type": "weak_ctr_description"
+    },
+    {
+      "after": {
+        "meta_description": "Fan-made football tees, hoodies and gear across 4 team collections: Cleveland, Green Bay, Dallas and Michigan. 95 original designs, sizes S-5XL, printed..."
+      },
+      "at": "2026-11-08T22:40:00Z",
+      "before": {
+        "meta_description": "Fan-made football tees, hoodies and gear across 4 team collections: Cleveland, Green Bay, Dallas and Michigan. 96 original designs, sizes S-5XL, printed..."
+      },
+      "id": "seo-countfix-20261108",
+      "path": "/",
+      "type": "stale_fact_fix"
     }
   ],
   "pages": {
     "/": {
       "change_id": "seo-b952d16676",
-      "meta_description": "Fan-made football tees, hoodies and gear across 4 team collections: Cleveland, Green Bay, Dallas and Michigan. 96 original designs, sizes S-5XL, printed...",
+      "meta_description": "Fan-made football tees, hoodies and gear across 4 team collections: Cleveland, Green Bay, Dallas and Michigan. 95 original designs, sizes S-5XL, printed...",
       "reason": "Descriptions past ~158 chars are truncated in SERPs.",
       "type": "description_too_long",
       "updated_at": "2026-10-26T20:17:46Z"
@@ -217,8 +241,60 @@
       "reason": "Descriptions past ~158 chars are truncated in SERPs.",
       "type": "description_too_long",
       "updated_at": "2026-10-26T20:17:46Z"
+    },
+    "/contact/": {
+      "change_id": "seo-weakctr-20261108",
+      "meta_description": "Questions about an order, a design or a partnership? Contact Gridiron Locker - a real fan-run storefront. Order help, sizing, returns and press requests."
+    },
+    "/fan-trend-index/": {
+      "change_id": "seo-weakctr-20261108",
+      "meta_description": "The Fan Trend Index scores who football fans are actually talking about - 0 to 100 across Cleveland, Green Bay, Dallas and Michigan. Built from live signals."
+    },
+    "/guides/": {
+      "change_id": "seo-weakctr-20261108",
+      "meta_description": "Gridiron Locker's football fan apparel guides: team shirt buying guides, gift ideas and game-day picks for Cleveland, Green Bay, Dallas and Michigan fans."
+    },
+    "/michigan/joe/": {
+      "change_id": "seo-weakctr-20261108",
+      "meta_description": "Joe's Michigan locker at Gridiron Locker - the designs he backs, his story and the picks fans order most. Creator-coded orders credit him. Shop the edit."
+    },
+    "/shop/dallas-football-vintage-athletic-style-f/": {
+      "change_id": "seo-weakctr-20261108",
+      "meta_description": "1960 Helmet Vintage Dallas Cowboys Shirt - old-school Cowboys fan tee, printed on demand. $21.99 on Viralstyle, sizes S-5XL. Size guide before checkout."
+    },
+    "/shop/dallas-football-vintage-style-tee/": {
+      "change_id": "seo-weakctr-20261108",
+      "meta_description": "Star Lightning Vintage Dallas Cowboys Shirt - retro fan-made tee, printed on demand. $21.99 on Viralstyle, sizes S-5XL. Style and color picked at checkout."
+    },
+    "/shop/doomsday-defense-tee/": {
+      "change_id": "seo-weakctr-20261108",
+      "meta_description": "Doomsday Defense Dallas Cowboys Shirt - the defense-section slogan tee, fan-made and made to order at $21.99 on Viralstyle, sizes S-5XL. Ships worldwide."
+    },
+    "/shop/limited-edition-cleveland-football-beware-of-the-dawgs/": {
+      "change_id": "seo-weakctr-20261108",
+      "meta_description": "Beware Dawgs Cleveland Browns Shirt - the Dawg Pound warning tee, fan-made and printed on demand. $28 on Mayzing, sizes S-5XL. Pick your size before checkout."
+    },
+    "/shop/limited-edition-cleveland-football/": {
+      "change_id": "seo-weakctr-20261108",
+      "meta_description": "Cleveland Browns Shirt Design - a clean fan-made Browns tee, printed on demand. $23 on Mayzing, sizes S-5XL. Confirm your size on Mayzing before ordering."
+    },
+    "/shop/limited-edition-grb2/": {
+      "change_id": "seo-weakctr-20261108",
+      "meta_description": "Make Me Drink Green Bay Packers Shirt for Sunday tailgates - printed on demand. $24.99 on Viralstyle, sizes S-5XL. Style and color chosen at checkout."
+    },
+    "/shop/limited-edition-grb20/": {
+      "change_id": "seo-weakctr-20261108",
+      "meta_description": "Sunday Funday Bars Green Bay Packers Shirt - the pregame tee, fan-made and printed on demand. $24.99 on Viralstyle, sizes S-5XL. Full design shown."
+    },
+    "/shop/limited-edition-grb23/": {
+      "change_id": "seo-weakctr-20261108",
+      "meta_description": "Victory Monday Green Bay Packers Shirt - wear the win at work. Fan-made, printed on demand, $24.99 on Viralstyle in sizes S-5XL. Ships worldwide."
+    },
+    "/shop/limited-edition-grb36/": {
+      "change_id": "seo-weakctr-20261108",
+      "meta_description": "Jordan Love 10 Flag Number Green Bay Packers Shirt - fan-made game-day tee, made to order by Viralstyle at $24.99, sizes S-5XL. See the size guide."
     }
   },
   "schema_version": 1,
-  "updated": "2026-10-29"
+  "updated": "2026-11-08"
 }

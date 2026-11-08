@@ -6621,7 +6621,7 @@ PINTEREST_FEED_COLUMNS = [
 _PIN_GPC = {
     "T-Shirt": "Apparel & Accessories > Clothing > Shirts & Tops",
     "Hoodie": "Apparel & Accessories > Clothing > Shirts & Tops",
-    "Beanie": "Apparel & Accessories > Clothing Accessories > Hats",
+    "Beanie": "Apparel & Accessories > Clothing Accessories > Hats & Caps > Beanies",
     "Mug": "Home & Garden > Kitchen & Dining > Tableware > Drinkware > Mugs",
     "Phone Case": "Electronics > Communications > Telephony > Mobile Phone Accessories > Mobile Phone Cases",
 }
@@ -6740,6 +6740,10 @@ def google_feed_items(rows=None):
     for r in (rows if rows is not None else pinterest_feed_rows()):
         g = dict(r)
         g["id"] = google_item_id(r["id"])
+        # item_group_id keeps the stable pre-hash design slug: Google groups
+        # variants by it and the 50-char-truncated id could one day collide
+        # while the slug itself never changes.
+        g["item_group_id"] = r["id"]
         g["identifier_exists"] = "no"
         # custom_label_0 is the fulfilment partner (see pinterest_feed_rows).
         if g.get("custom_label_0") == "Viralstyle":
@@ -6752,7 +6756,8 @@ def google_feed_items(rows=None):
 # Attribute order in each <item>. Everything is namespaced g: except <link>,
 # which the RSS flavour of the spec keeps un-namespaced.
 _GOOGLE_FEED_FIELDS = [
-    "id", "title", "description", "link", "image_link", "additional_image_link",
+    "id", "item_group_id", "title", "description", "link", "image_link",
+    "additional_image_link",
     "price", "availability", "condition", "brand", "google_product_category",
     "product_type", "gender", "age_group", "identifier_exists",
     "custom_label_0", "custom_label_1",
@@ -7214,6 +7219,15 @@ document.querySelectorAll('a.shopnow').forEach(function(a){
       collection:d.collection,placement:d.placement,creator:window.GL_CREATOR||'',
       destination:dest
     });}catch(e){}
+    // partner-split checkout signal: the legacy viralstyle_* names above fire
+    // for every hand-off so old GA4 reports keep working, while this event
+    // names the Mayzing hand-off explicitly (GA4 funnels can then split the
+    // Mayzing storefront traffic from Viralstyle).
+    if(dest.indexOf('mayzing')>=0){try{gtag('event','mayzing_checkout_click',{
+      item_id:d.slug,value:parseFloat(d.price||'0'),currency:'USD',
+      collection:d.collection,placement:d.placement,creator:window.GL_CREATOR||'',
+      destination:dest
+    });}catch(e){}}
     // Pinterest 'checkout': the hand-off to the partner cart is the last
     // step this domain can observe (the transaction itself completes on
     // Mayzing/Viralstyle), so it is the checkout signal the Verified

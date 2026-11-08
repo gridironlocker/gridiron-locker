@@ -148,6 +148,15 @@ document.querySelectorAll('a.shopnow').forEach(function(a){
       collection:d.collection,placement:d.placement,creator:window.GL_CREATOR||'',
       destination:dest
     });}catch(e){}
+    // partner-split checkout signal: the legacy viralstyle_* names above fire
+    // for every hand-off so old GA4 reports keep working, while this event
+    // names the Mayzing hand-off explicitly (GA4 funnels can then split the
+    // Mayzing storefront traffic from Viralstyle).
+    if(dest.indexOf('mayzing')>=0){try{gtag('event','mayzing_checkout_click',{
+      item_id:d.slug,value:parseFloat(d.price||'0'),currency:'USD',
+      collection:d.collection,placement:d.placement,creator:window.GL_CREATOR||'',
+      destination:dest
+    });}catch(e){}}
     // Pinterest 'checkout': the hand-off to the partner cart is the last
     // step this domain can observe (the transaction itself completes on
     // Mayzing/Viralstyle), so it is the checkout signal the Verified
