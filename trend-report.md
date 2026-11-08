@@ -1,6 +1,6 @@
 # Hunt Report - 2026-11-08
 
-Generated: 2026-11-08 19:07 UTC by src/hunter_intelligence.py
+Generated: 2026-11-08 19:23 UTC by src/hunter_intelligence.py
 
 Ladder: SIGNAL 0 · TREND 0 · OPPORTUNITY 2 · ACTION 1 · HEADLINE 4
 
@@ -34,13 +34,13 @@ Fan connectors: no fan posts observed - reddit error (HTTP Error 403: Blocked); 
 - Action: Instagram - product creative after engagement confirms the angle (after the X post confirms the angle)
 - Action: Pinterest - keyword pin of the matched design (+2 h)
   - Dallas Cowboys facing must-win, desperation game vs. Colts without George Pickens, Joey Porter - Yahoo Sports - google_news (2 h ago) https://news.google.com/rss/articles/CBMihgFBVV95cUxPa0pwV0xyRmwtNDFmNGdGN29ROEwyOFpLYnU1ekdZSUNMeXJjZ2o2RXNKNWhkUENrLUZtZmlZSTRMX0VfS2Q3Ri1jMk1DbFN3UkkwSEROMzBTaWc0S01BN3JGenBpUHZUMUU0a2xDb3Vpay1mMFRsWjUwV25HbGg0LUhiSm5Udw?oc=5
-  - Why were George Pickens & Joey Porter Jr. ruled out for the Cowboys? - Fort Worth Star-Telegram - google_news (2 h ago) https://news.google.com/rss/articles/CBMigwFBVV95cUxQQnZTb01VNlVYX2cxOFZiOFl0WDJXd1VIeFpSZmE3eWJlTWF1SElHcDl1a3NuWTZuSWNCQk9HYy1TeVFDYm85V1A0bHNBZ0g5QjJGaVhObnhkU19lZ3pUMlpScURTSE00UUpXdzJ5UFVNcHFMaG14TGhPMVFsODZVbmxPNNIBgwFBVV95cUxPQUMwUmtYbmJvTUtuV0xIR0N5TlpYTEtLZFA3dVVfWF82TlRLcTZjVjJuaDdJSlRYdExIR2N4ckJHalFSeElUZkVLNzk3Sm0tWXVqd1BNVFd2ZlcwTU9tUkxNNnZaY1drS0U5amRtNFlybzdDZ0lsSlJRTjBJOGNJam1Ybw?oc=5
-  - Cowboys WR Pickens, CB Porter, LB Overshown inactive against Colts - ESPN - google_news (2 h ago) https://news.google.com/rss/articles/CBMipwFBVV95cUxNQjF1UVBQNDZjR1djLV9HUUFJMlF6M3JfVDRzeWlwaVFtU0FSd2Q2aFZfWjdrVGRlRU5URXhvRmJRSUxET3dYX1Vlek5zQUlRVXZKeHlFb3p4TmYxTzQ0dFJmMHZCaDZULWFHNGpldTV2aHJjLXd2dW5qcExwR09hRDhrdU1aVXJkY3laUlFTQW1XTlhRaU5jT0lkenJqNXM3T0ZpdVZkRQ?oc=5
+  - Why were George Pickens & Joey Porter Jr. ruled out for the Cowboys? - Fort Worth Star-Telegram - google_news (3 h ago) https://news.google.com/rss/articles/CBMigwFBVV95cUxQQnZTb01VNlVYX2cxOFZiOFl0WDJXd1VIeFpSZmE3eWJlTWF1SElHcDl1a3NuWTZuSWNCQk9HYy1TeVFDYm85V1A0bHNBZ0g5QjJGaVhObnhkU19lZ3pUMlpScURTSE00UUpXdzJ5UFVNcHFMaG14TGhPMVFsODZVbmxPNNIBgwFBVV95cUxPQUMwUmtYbmJvTUtuV0xIR0N5TlpYTEtLZFA3dVVfWF82TlRLcTZjVjJuaDdJSlRYdExIR2N4ckJHalFSeElUZkVLNzk3Sm0tWXVqd1BNVFd2ZlcwTU9tUkxNNnZaY1drS0U5amRtNFlybzdDZ0lsSlJRTjBJOGNJam1Ybw?oc=5
+  - Cowboys WR Pickens, CB Porter, LB Overshown inactive against Colts - ESPN - google_news (3 h ago) https://news.google.com/rss/articles/CBMipwFBVV95cUxNQjF1UVBQNDZjR1djLV9HUUFJMlF6M3JfVDRzeWlwaVFtU0FSd2Q2aFZfWjdrVGRlRU5URXhvRmJRSUxET3dYX1Vlek5zQUlRVXZKeHlFb3p4TmYxTzQ0dFJmMHZCaDZULWFHNGpldTV2aHJjLXd2dW5qcExwR09hRDhrdU1aVXJkY3laUlFTQW1XTlhRaU5jT0lkenJqNXM3T0ZpdVZkRQ?oc=5
   - Dallas Cowboys defense receives $46,883 punishment as NFL quietly admits a mistake from overtime loss to Cardinals - A to Z Sports - google_news (7 h ago) https://news.google.com/rss/articles/CBMiowFBVV95cUxOanZsWHRwTDhiZjdhdTBPOHRKS2pTLWhOTU9uNFAtdWE1b1NhcUZDeTdlX1A1RS12d1RfQXZVa2dYd0VtUmhXdWdHdjlucmpjZ0FKSmlMM2lZQTNBR2ZYMlcxbktGcDB2dC1RYzY3Y3VvQkFYbGZldWFOU3ZVc3dtZHlPcUhjSHM5X3lPR25yX2JEWFpIMkx6eHQwSEFQX0lWWHdV?oc=5
 
 ### 2. QB room: who is QB1 in Cleveland - Cleveland Browns
 - Level: OPPORTUNITY · Confidence: 71% · 🟢 READY (matched design, posting window open, evidence under 12 h)
-- Fan signal: "Kaden Elliss takes down Shedeur Sanders for first sack of 2026" - NFL.com (42 min ago)
+- Fan signal: "Kaden Elliss takes down Shedeur Sanders for first sack of 2026" - NFL.com (58 min ago)
 - Evidence: 8 reaction items (10.0 weighted) · 7 outlets · 0 utility listings excluded · 0 fan posts
 - Phrase velocity: new - 1 item in last 60 min, none in the window before
 - Sentiment: proud - 'proud' on 4/8 lexicon hits across 8 item(s)
@@ -52,14 +52,14 @@ Fan connectors: no fan posts observed - reddit error (HTTP Error 403: Blocked); 
 - Action: Threads - alternate angle (+20 min)
 - Action: Instagram - product creative after engagement confirms the angle (after the X post confirms the angle)
 - Action: Pinterest - keyword pin of the matched design (+2 h)
-  - Kaden Elliss takes down Shedeur Sanders for first sack of 2026 - NFL.com - google_news (42 min ago) https://news.google.com/rss/articles/CBMikwFBVV95cUxPS1k2NmtLVXQ2c1p2MGcwVEdEekEzSjM1eWdzaTM5NmdlTklvd3p1emFVSjdBWVVOV3JMaVp5MGswODhyOWtUMlA5MzVDSnViMUNuZUJCWkgtWS1JSkZfSjg3anRMbkF4aWtoNDFSa2RZNHpFVVhMSFhoRUJfRm1nSVdlVmhmZmh6ZTdtT3Y2czAyT3c?oc=5
+  - Kaden Elliss takes down Shedeur Sanders for first sack of 2026 - NFL.com - google_news (58 min ago) https://news.google.com/rss/articles/CBMikwFBVV95cUxPS1k2NmtLVXQ2c1p2MGcwVEdEekEzSjM1eWdzaTM5NmdlTklvd3p1emFVSjdBWVVOV3JMaVp5MGswODhyOWtUMlA5MzVDSnViMUNuZUJCWkgtWS1JSkZfSjg3anRMbkF4aWtoNDFSa2RZNHpFVVhMSFhoRUJfRm1nSVdlVmhmZmh6ZTdtT3Y2czAyT3c?oc=5
   - Browns score at Saints. Live updates from Shedeur Sanders' 1st start - The Columbus Dispatch - google_news (5 h ago) https://news.google.com/rss/articles/CBMixwFBVV95cUxQLS1TdG44R0x1ZmpZMGhBQ2VWTUV1cDFFcXdjNkZpS3htbGdfdWxKT3QxQ0ZLYnZsckJ4cloyUmR3ZXhTSUZfMWpJdWRIMGpDREh5RFUtalllTlJJWGJEdDd3dnYwZ0l0Y0taYS1UNWNvTU5kVmF0S2wtY2t2elo4VzNPV1g0UDBRb1pSeVlqWkZZWDdTRm5OSUJkVl81TXRCY0s0QXV3ZnRROEJZRElQRVFNeldMYktkSTBhbWZYM0VlRzFhdjY0?oc=5
   - Browns' Shedeur Sanders gets hype video for first start of the season and social media cannot handle it - Fox News - google_news (5 h ago) https://news.google.com/rss/articles/CBMiugFBVV95cUxQZzNQcm12VlYzT3ljRXFIYWhSa1BnTS13RFNzLUdYUGpFaExja2NLSkFPWnZ5QTc4RzNRMDdkZENfWFJQbmlEd3JHZm1weHBqXzM4TnNLRm1HNlRKU01fcEtYWGR0cS1jVG5IQ0pwbDRFVng5cDZmOWFCY1RoWkhXREtYN3p3aTMxb3JZODhGd29EX3hsVVhyOG9STjlvYWEtTURxTks2SHYzdERSdDFlV0pKTE92WVRFUFE?oc=5
   - Browns vs. Saints: Shedeur Sanders starting as Cleveland looks for next win - FOX 8 News - google_news (7 h ago) https://news.google.com/rss/articles/CBMinAFBVV95cUxNb0NjSVdKa3ZNN0RFc3Qta3Y1T0xSbFpaME4wLTAtdE9oOHJPZGQyODFJRkZaR3ViR2lqQjMwRFRZMVRDaXA3UG5LaWhza1BJUFVCdjlMeXZBZnA5VFRLX3c5WmQ4Q1c5VmYzZ2VrcHJwMW5TdDJHMmNaM1R3RjJWUnY2VnRKc1pQaml1OXBQLVNMOUg1WV95T3lHamXSAaIBQVVfeXFMTmNFX1dzT1p5Z2tqcVVma19mZGk2QzNJSkl4dVdWTjhucnhPd1dEcGFpbU1vVkE1SWZoWlhkbVVneHlmSEdNUGNZbFJneklxc3dVTmZvbGF6WHQyT040bWV2Yzhvb203UGY5Y2NjOFZyVEFBWkI3S3NFM1RMY21KcERGRVJ3dGdIVWJ0NS1mLXVvQVNSSk9wX0pYcGNUUnhkT3p3?oc=5
 
 ### 3. Go Blue: The Big House identity - Michigan Wolverines
 - Level: OPPORTUNITY · Confidence: 61% · 🟢 READY (matched design, posting window open, evidence under 12 h)
-- Fan signal: "Michigan football's Kyle Whittingham could be on the chopping block after a disastrous first nine games in his tenure in Ann Arbor. See link below ⬇️ 📸 Eric Seals, Detroit Free…" - Facebook (37 min ago)
+- Fan signal: "Michigan football's Kyle Whittingham could be on the chopping block after a disastrous first nine games in his tenure in Ann Arbor. See link below ⬇️ 📸 Eric Seals, Detroit Free…" - Facebook (53 min ago)
 - Evidence: 3 reaction items (3.0 weighted) · 2 outlets · 0 utility listings excluded · 0 fan posts
 - Phrase velocity: new - 1 item in last 60 min, none in the window before
 - Sentiment: pride - 'pride' on 3/3 lexicon hits across 3 item(s)
@@ -71,7 +71,7 @@ Fan connectors: no fan posts observed - reddit error (HTTP Error 403: Blocked); 
 - Action: Threads - alternate angle (+20 min)
 - Action: Instagram - product creative after engagement confirms the angle (after the X post confirms the angle)
 - Action: Pinterest - keyword pin of the matched design (+2 h)
-  - Michigan football's Kyle Whittingham could be on the chopping block after a disastrous first nine games in his tenure in Ann Arbor. See link below ⬇️ 📸 Eric Seals, Detroit Free Press - Facebook - google_news (37 min ago) https://news.google.com/rss/articles/CBMi3wFBVV95cUxOUFhteUlOVEhaVlFKclFDRU9tX1JrVUhwRzFLVi1Zc0tnX1Blb2J3YmFKY1NBcGdhbDdUOFVsZEZ0Q2lFd1V1UGhTTTV0cndnTWZDR0QxUGZZZXJiMm10dkptRHhwcHdKbWFwUU9GOTNPS1UyU2FSWWRuTUlaQUgwSVZJa3ZfcjVYMHdodG00RlZWTng5dkhmN3VBNDNERVM4bXBWbEFEQXdPbGNCeHBrTUp4b29HU2EtUzlIeTJ2ODJLZmxaNjVGOXlwU0ZiRjc4eTlfRzBHeUNJUzZqUWVR?oc=5
+  - Michigan football's Kyle Whittingham could be on the chopping block after a disastrous first nine games in his tenure in Ann Arbor. See link below ⬇️ 📸 Eric Seals, Detroit Free Press - Facebook - google_news (53 min ago) https://news.google.com/rss/articles/CBMi3wFBVV95cUxOUFhteUlOVEhaVlFKclFDRU9tX1JrVUhwRzFLVi1Zc0tnX1Blb2J3YmFKY1NBcGdhbDdUOFVsZEZ0Q2lFd1V1UGhTTTV0cndnTWZDR0QxUGZZZXJiMm10dkptRHhwcHdKbWFwUU9GOTNPS1UyU2FSWWRuTUlaQUgwSVZJa3ZfcjVYMHdodG00RlZWTng5dkhmN3VBNDNERVM4bXBWbEFEQXdPbGNCeHBrTUp4b29HU2EtUzlIeTJ2ODJLZmxaNjVGOXlwU0ZiRjc4eTlfRzBHeUNJUzZqUWVR?oc=5
   - Photos: Photos from the Michigan football vs. Michigan State game at Michigan Stadium in Ann Arbor on Saturday, Nov. 7, 2026. See link below ⬇️ 📸 Eric Seals, Detroit Free Press - Facebook - google_news (17 h ago) https://news.google.com/rss/articles/CBMi3wFBVV95cUxPd2FncndoVjMyMjBRLUp4SUY4TTVHS1RCMFA0QlhBei1zUFk0TTU5NGVnMmdGbnl4NVdOckIzT3ZEdlR6VTBEZnNBZEJ0RVVBdExnNU1qTnk0TjlfTnJqVjk4Y2xGcFIwbzRncjNCN25JbHhEVTVURm0tSHQwckNiRkxCRkNBcWxuR29LeUZCWWdiWm92WHBvWlR0QTRIWVdNRWE4ZUJYeTNjaUFuYzlOWGcxMklVWksxTDdWU05GN0dzTkFoei1qZFVjQTBKWHpGdGtJNk40WV80Mk0zbTQw?oc=5
   - Michigan Wolverines vs Rutgers Scarlet Knights Highlights | FOX College Football - FOX Sports (9 d ago) https://news.google.com/rss/articles/CBMiYkFVX3lxTFBLNk5TT0Yydm5fbFJVc0JQQjJLQmp5MTdQSnhTLTN1cHpBeHFBWm1PVFp5dFNxN2tVQjg4azU3cmlWUFdaSThLQk9IVUlrU25fbFBEUWdhengxYkRfZml4S1BB?oc=5
 

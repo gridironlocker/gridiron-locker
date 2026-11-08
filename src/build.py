@@ -6841,6 +6841,24 @@ def assets():
             if f in _VERIFY and os.path.dirname(os.path.join(dp, f)) != SITE:
                 os.remove(os.path.join(dp, f))
                 print(f"pruned stray verification file: {os.path.relpath(os.path.join(dp, f), SITE)}")
+    # Shopping crawlers (Merchant Center, free listings) must not read
+    # retired product URLs - each retired /shop/ path answers with a redirect
+    # stub and no price, and every time Google's Shopping crawler re-reads one
+    # it strips the price off the legacy Merchant Center item ("Missing
+    # product price" ghost items: 21 on 2026-11-05, 24 on 2026-11-08, all
+    # retired design slugs). The list is generated from the retired catalogue
+    # on every build so a new retirement is fenced automatically. Two lines
+    # per path: "/shop/<slug>/" blocks the trailing-slash URL and everything
+    # under it; the "$" line blocks the bare form GitHub Pages redirects
+    # from - with no prefix bleed onto live slugs that share a stem (a
+    # retired /shop/x/ must never fence a live /shop/x2/).
+    _retired = retired_slugs()
+    _shop_paths = [f"/shop/{s}/" for s in sorted(_retired)]
+    _shop_paths += [f"/shop/{v}/" for v in sorted(RETIRED_VARIANTS)
+                    if v.split("/", 1)[0] not in _retired]
+    shopping_block = "\n".join(
+        ln for p in _shop_paths
+        for ln in (f"Disallow: {p}", f"Disallow: {p[:-1]}$"))
     write("robots.txt", f"""# {BRAND} - independent fan apparel storefront
 # Everything here is meant to be crawled and indexed.
 
@@ -6865,6 +6883,19 @@ User-agent: PerplexityBot
 Allow: /
 User-agent: ClaudeBot
 Allow: /
+
+# Shopping crawlers must not see retired product URLs. Every retired /shop/
+# path is a redirect stub with no price - the product is gone. When Google's
+# Shopping crawler re-reads one, the legacy Merchant Center item loses its
+# price and the account fills with "Missing product price" ghost items (21 on
+# 2026-11-05, 24 on 2026-11-08 - all retired design slugs). Googlebot stays
+# allowed so the stubs keep working as redirects in Search, and live product
+# pages stay open - Shopping verifies the offers on them. Belt and braces:
+# the authoritative fix is deleting the stale data source / disabling
+# automatic item creation in Merchant Center (MERCHANT-CENTER-ISSUES doc).
+User-agent: Storebot-Google
+User-agent: AdsBot-Google
+{shopping_block}
 
 # No Crawl-delay: Google ignores it entirely, and the directive only applied to
 # the user-agent group directly above it - so it throttled one AI crawler while

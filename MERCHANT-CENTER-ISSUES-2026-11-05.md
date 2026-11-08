@@ -120,3 +120,53 @@ Process gap noted while triaging: `limited-edition-grb25` (retired by the
 stub comes from the stale-crawl path. Future retirements should record the
 slug and reason in `data/delisted.json` so feeds, sitemap pins and Merchant
 cleanup all follow automatically.
+
+## 2026-11-08 update - the ghosts came back (24 items); delete the SOURCE, not the items
+
+The 2026-11-05 cleanup worked that day (116 -> 95 products, 0 Not approved),
+but the Overview panel on 2026-11-08 shows **119 products: Approved 81,
+Not approved 23, Under review 15**. The account is healthy where it counts -
+our 95 = 81 approved + 14 finishing review (expected by ~Nov 10), clicks up
++566% - but 24 ghost items are back: 23 Not approved "Missing product price"
+plus 1 still under review. Every ghost Item ID from the Nov 5 export was a
+retired design slug (`sanders-the-next-level`, `limited-edition-m-fans-n28`,
+`winter-hat-beanie-browns`, ...): legacy Merchant items whose landing pages
+are now redirect stubs. Each time Google's Shopping crawler re-reads a stub,
+the item's price is stripped and it lands in "Missing product price". The
+count grew 21 -> 24 because the source is still on and keeps sweeping up
+more retired URLs.
+
+**Lesson from Nov 5: deleting the ITEMS is not the fix - the source refills
+them. The source (or its automatic item creation) must be switched off.**
+
+Updated operator steps for the current Merchant Center layout:
+
+1. Left menu -> **Settings** (gear, bottom-left) -> **Data sources**. In the
+   2026 layout "Data sources" is no longer under "Products & store" (that
+   section holds only Products / Shipping and returns / Store quality) - if
+   you cannot find it, click any **Not approved** product instead: its detail
+   page names the data source it came from.
+2. Anything whose source is NOT
+   `https://gridironlocker.store/feeds/google-merchant.xml` is the ghost-maker
+   ("Automatic feed from website" / "automatic item creation" / an uploaded
+   file). Open it -> if it has a **turn off / disable automatic item
+   creation** control, use it; then **delete the source itself** (⋮ -> Delete
+   / Remove). Turning off automatic item creation is the step that stops the
+   regrowth.
+3. Keep the scheduled fetch of `google-merchant.xml` (95 items, every one
+   priced - re-verified 2026-11-08; a test now blocks held/delisted slugs
+   from ever entering it).
+4. Still never click "Add a price" or "Request review" on the ghost items -
+   the stub pages sell nothing.
+5. Expected end state within a few days of Google processing: **Total
+   products 95 - Approved 95 - Not approved 0**. If "Not approved" is not 0
+   after that, export the issues CSV again and re-diagnose.
+
+Site-side hardening shipped alongside (this update's PR): `robots.txt` now
+fences the Shopping crawlers (`Storebot-Google`, `AdsBot-Google`) out of
+every retired `/shop/` path - generated from the retired catalogue on each
+build, pinned by tests in `tests/test_google_merchant.py`. Googlebot keeps
+the stubs (the retirement redirect is Search-critical) and live product
+pages stay open (Shopping verifies offers on them). This stops the website
+from feeding new ghost items even if an automatic source lingers, but the
+authoritative fix is still step 2 above.

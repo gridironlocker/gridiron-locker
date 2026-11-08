@@ -165,5 +165,138 @@ class TestGoogleMerchantFeed(unittest.TestCase):
                 self.assertNotIn(",", v, gtext(item, "id"))
 
 
+class TestShoppingCrawlerRobots(unittest.TestCase):
+    """Retired /shop/ URLs must be fenced out for Shopping crawlers.
+
+    Google's Shopping crawler (Storebot-Google) re-reads product URLs it
+    once knew. Every retired /shop/ URL answers with a redirect stub that
+    carries no price - the product is gone - and each re-read strips the
+    price off the legacy Merchant Center item, refilling the account with
+    "Missing product price" ghost items (21 on 2026-11-05, 24 on 2026-11-08;
+    every ghost Item ID was a retired design slug). robots.txt is the only
+    lever the site has: the stubs must stay crawlable for Googlebot (the
+    retirement redirect is Search-critical) while the Shopping crawlers are
+    locked out of every stub path. Live product pages stay allowed -
+    Shopping verifies the offers on them - and the redirect-target
+    collections stay open too. The disallow list is generated from the
+    retired catalogue on each build (src/build.py), so a new retirement is
+    fenced automatically; these tests pin that the fence and the stub
+    population can never drift apart.
+    """
+
+    SHOPPING_UAS = ("Storebot-Google", "AdsBot-Google")
+
+    @staticmethod
+    def _groups():
+        """robots.txt user-agent groups: ua token -> Disallow paths.
+
+        Consecutive User-agent lines share the rules that follow them; a
+        User-agent line after rules starts a new group. Comments and blank
+        lines are separators only in the loose sense - they are stripped.
+        """
+        groups, pending, in_rules = {}, [], False
+        with open(os.path.join(SITE, "robots.txt")) as fh:
+            for raw in fh:
+                line = raw.split("#", 1)[0].strip()
+                if not line:
+                    continue
+                low = line.lower()
+                if low.startswith("user-agent:"):
+                    if in_rules:
+                        pending, in_rules = [], False
+                    pending.append(line.split(":", 1)[1].strip())
+                elif low.startswith(("allow:", "disallow:")):
+                    # Allow: is a rule line too - it closes the user-agent
+                    # run, per RFC 9309. Only Disallow: paths are collected.
+                    if low.startswith("disallow:"):
+                        for ua in pending:
+                            groups.setdefault(ua, []).append(
+                                line.split(":", 1)[1].strip())
+                    in_rules = True
+        return groups
+
+    @staticmethod
+    def _disallowed(paths, url):
+        """robots.txt prefix match incl. the '$' end-of-match anchor."""
+        for d in paths:
+            if not d:
+                continue
+            if d.endswith("$"):
+                if url == d[:-1]:
+                    return True
+            elif url.startswith(d):
+                return True
+        return False
+
+    @staticmethod
+    def _stub_paths():
+        """Every redirect stub under /shop/ as its URL path.
+
+        Walks the built site (not the data files) so the test sees exactly
+        what a crawler can fetch: a stub is any page carrying the
+        data-gl-redirect marker - slug stubs at /shop/<slug>/ plus the
+        garment-variant tombstones at /shop/<slug>/<style>/.
+        """
+        out = []
+        shop = os.path.join(SITE, "shop")
+        for slug in sorted(os.listdir(shop)):
+            base = os.path.join(shop, slug)
+            if not os.path.isdir(base):
+                continue
+            idx = os.path.join(base, "index.html")
+            if os.path.exists(idx) and "data-gl-redirect" in open(idx).read():
+                out.append(f"/shop/{slug}/")
+            for sub in sorted(os.listdir(base)):
+                vidx = os.path.join(base, sub, "index.html")
+                if (os.path.isdir(os.path.join(base, sub))
+                        and os.path.exists(vidx)
+                        and "data-gl-redirect" in open(vidx).read()):
+                    out.append(f"/shop/{slug}/{sub}/")
+        return out
+
+    def test_shopping_crawlers_are_named_in_robots(self):
+        robots = open(os.path.join(SITE, "robots.txt")).read()
+        for ua in self.SHOPPING_UAS:
+            self.assertIn(f"User-agent: {ua}", robots,
+                          f"{ua} group missing from robots.txt - Shopping "
+                          "crawlers must be fenced out of retired /shop/ URLs")
+
+    def test_every_stub_is_fenced_for_every_shopping_crawler(self):
+        stubs = self._stub_paths()
+        self.assertGreater(len(stubs), 400,
+                           "stub population collapsed - the walk or the "
+                           "retired catalogue is broken")
+        groups = self._groups()
+        for ua in self.SHOPPING_UAS:
+            rules = groups.get(ua, [])
+            self.assertTrue(rules, f"{ua} has no Disallow rules")
+            missing = [p for p in stubs
+                       if not self._disallowed(rules, p)
+                       and not self._disallowed(rules, p.rstrip("/"))]
+            self.assertEqual(missing, [],
+                             f"{ua} can read stub pages: {missing[:10]}")
+
+    def test_live_product_pages_stay_crawlable(self):
+        groups = self._groups()
+        for ua in self.SHOPPING_UAS:
+            rules = groups.get(ua, [])
+            blocked = [i["slug"] for i in build.ALL
+                       if self._disallowed(rules, i["url"])
+                       or self._disallowed(rules, i["url"].rstrip("/"))]
+            self.assertEqual(blocked, [],
+                             f"{ua} is fenced out of LIVE product pages: "
+                             f"{blocked} - Shopping must verify offers on them")
+
+    def test_googlebot_and_star_keep_the_shop(self):
+        # The retirement redirect only works if Googlebot can still fetch
+        # the stubs, and the '*' group must never fence /shop/ either.
+        groups = self._groups()
+        for ua in ("*", "Googlebot-Image"):
+            rules = groups.get(ua, [])
+            fenced = [d for d in rules if d.startswith("/shop")]
+            self.assertEqual(fenced, [],
+                             f"{ua} group fences /shop: {fenced}")
+
+
 if __name__ == "__main__":
     unittest.main()
