@@ -4,9 +4,7 @@
     "generator": "marketing/three_day_pulse.py",
     "horizon_days": 3,
     "refresh_rule": "Regenerate after every web/social signal collection; this is not an evergreen content calendar.",
-    "connected_sources": [
-      "google_news"
-    ],
+    "connected_sources": [],
     "human_approval_required": true,
     "auto_publish_enabled": false
   },
@@ -23,53 +21,53 @@
           "team": "Cleveland Browns",
           "trend": {
             "team": "cleveland-browns",
-            "story": "Terry’s Talkin’ Browns, Guardians & Cavs TV – Terry Pluto - Cleveland.com",
+            "story": "Cleveland Browns vs. New Orleans Saints recap: Shedeur Sanders comes close, but can’t get the final play in overtime",
             "emotion": "confident",
             "stage": "ACCELERATING",
-            "signal_count": 28,
+            "signal_count": 8,
             "sources": [
               {
-                "source": "google_news",
-                "text": "Terry’s Talkin’ Browns, Guardians & Cavs TV – Terry Pluto - Cleveland.com",
-                "url": "https://news.google.com/rss/articles/CBMinAFBVV95cUxOUzRaV1JVS3RvVkljdmZBYURFN2YweHUwZW1fSTNVem44cXdSNnFBYU9mQ2xvQVpkSjZ6ZkZrY0lRMFJYaGpiN3ZwOU5nV0ZYY3BKTFZpMGRuQndTQVp6cER4RzFfZXdkNE1HanVGQlJUeUplbWhES0dWcC1BTmZlUTFBakl6eE5DQjA1V0dZbE9sZ2duQkZJV0M3S3Q?oc=5"
+                "source": "repository_trend_snapshot",
+                "text": "Cleveland Browns vs. New Orleans Saints recap: Shedeur Sanders comes close, but can’t get the final play in overtime",
+                "url": "http://www.bing.com/news/apiclick.aspx?ref=FexRss&aid=&tid=6af0f771f6334e3bbf892df597497e01&url=https%3a%2f%2fwww.msn.com%2fen-us%2fnews%2fother%2fcleveland-browns-vs-new-orleans-saints-recap-shedeur-sanders-comes-close-but-cant-get-the-final-play-in-overtime%2far-AA2h1qNE&c=4465618030498827259&mkt=en-us"
               },
               {
-                "source": "google_news",
-                "text": "Inactives | Saints vs Browns | 2026 NFL Week 9 - New Orleans Saints | NewOrleansSaints.com",
-                "url": "https://news.google.com/rss/articles/CBMioAFBVV95cUxQRjdsY1hfRW1Jdjl0RUJCUmVTell3Si1yS213b1dOVlVVOU9VZ1JsemhrMnpLcTNqRkUyM0xGOEE4ekwxcV93WUh3ajhoUzZ2bUxjYk5KWTA1UDdZcUMwMTY3bTFFUkVvZjFEYTNnTFVwS3BJN29qYVAxdmdfSU0ycE5sRHgwVW54dzhveHE2bThidmdtOHJaQm55cjk2c2df?oc=5"
+                "source": "repository_trend_snapshot",
+                "text": "Cleveland Browns vs. New Orleans Saints NFL Week 9 Live Updates, Highlights and Analysis",
+                "url": "http://www.bing.com/news/apiclick.aspx?ref=FexRss&aid=&tid=6af0f771f6334e3bbf892df597497e01&url=https%3a%2f%2fbleacherreport.com%2fliveblogs%2f25530665-cleveland-browns-vs-new-orleans-saints-nfl-week-9-live-updates-highlights-and-analysis&c=5919587842271165815&mkt=en-us"
               },
               {
-                "source": "google_news",
-                "text": "Cleveland Browns vs. New Orleans Saints NFL Week 9 Live Updates, Highlights and Analysis - Bleacher Report",
-                "url": "https://news.google.com/rss/articles/CBMizAFBVV95cUxOVGpaR24ySVMwOWpHaENwWVdzVlBGNThTOEhHdVo4YS1MRUI2dWVmZy1HVV9BSlc0WlJJZTdiRGZUdmh5M1NyMG5qYUtaVDh5bjYyQjhFSElhTHhaYzJMLUZIcGpIOTE0SHI3NmhxQXIyWEk0c2RTaGJOdlQ3VmxFQXdzY2VySXRsUXdRX2ZveWZ2c0hPS1lIMHRObkp5S3JJWFFYLTlPRHdSWFpNQloxMklCNDBad3BiMTZ0U2xpaHhRdjE5QlFHYjY2S24?oc=5"
+                "source": "repository_trend_snapshot",
+                "text": "Saints hold on for a 23-22 overtime victory over the Browns by stopping a 2-point conversion",
+                "url": "http://www.bing.com/news/apiclick.aspx?ref=FexRss&aid=&tid=6af0f771f6334e3bbf892df597497e01&url=https%3a%2f%2fwww.msn.com%2fen-us%2fsports%2ffootball%2fsaints-hold-on-for-a-23-22-overtime-victory-over-the-browns-by-stopping-a-2-point-conversion%2far-AA2h1r01&c=14097464038124103914&mkt=en-us"
               },
               {
-                "source": "google_news",
-                "text": "Myles Garrett Just Made Browns’ Jared Verse Look Even Worse - Heavy.com",
-                "url": "https://news.google.com/rss/articles/CBMimAFBVV95cUxOSDNNb2hrVm9RRGJSUFBmd05nbGwtMjB0dHFxdGhwUzdCZExvbW5SZGZHMU9WUTNZbVIwV2dXQTlnVGF1ckN6QVU4X2RUYUVGR0xCSzFvT1Zfam1vUE1RUE1FNlNjS0dnMExhZmlUbE1TdVVYSEFDRzROU3c3OVVkTWN3cVh6bzlDUzI0N1Q2OWU5d0x3RGY0bw?oc=5"
+                "source": "repository_trend_snapshot",
+                "text": "Game Recap: New Orleans Saints 23, Cleveland Browns 22, overtime | 2026 NFL Week 9",
+                "url": "http://www.bing.com/news/apiclick.aspx?ref=FexRss&aid=&tid=6af0f771f6334e3bbf892df597497e01&url=https%3a%2f%2fwww.neworleanssaints.com%2fnews%2fcleveland-browns-new-orleans-saints-2026-nfl-week-9-game-recap&c=10131176726381271955&mkt=en-us"
               },
               {
-                "source": "google_news",
-                "text": "Saints vs. Browns live updates: Score, highlights, instant analysis - Saints Wire",
-                "url": "https://news.google.com/rss/articles/CBMiwwFBVV95cUxOQ3k4VGhaNm9Ta3VEXy1EQ2UtMl9wTnpPdi14dFd4eGpiRVpYRG9LeDMtdHZjRk5VYWVRVlVndUNQajFEZV9vNW5OOG1CblVFNWJTWWJ2aGZ3b1RyUlEzVjdaeERnemRkd0FiNlAwYWpEU2RzeVpqRGxyUThRR3RlSHNpdFNLX1NBSHRMa0JXWE56Y3FZZTBMV2tnSlZrR29QVUU3M3RzRnBfM3NyV3lOV2tSSmNEbjdVOXlfZVpKdXFWWVE?oc=5"
+                "source": "repository_trend_snapshot",
+                "text": "Saints stop Browns on 2-point try to seal 23-22 OT win",
+                "url": "http://www.bing.com/news/apiclick.aspx?ref=FexRss&aid=&tid=6af0f771f6334e3bbf892df597497e01&url=https%3a%2f%2fwww.cbssports.com%2fnfl%2fnews%2fsaints-stop-browns-on-2-point-try-to-seal-23-22-ot-win%2f&c=6238628483965998904&mkt=en-us"
               }
             ],
             "evidence": "public signal collector"
           },
           "fan_emotion": "confident",
           "creative_angle": "Fan identity statement",
-          "product_signal_score": 158.0,
+          "product_signal_score": 157.2,
           "copy": {
             "angle": "identity",
             "hook_template": "No slogan, no filler: {line}",
             "angle_label": "Fan identity statement",
             "hook": "No slogan, no filler: “THEY FORGOT WHO I AM” on a tee at $22.99.",
-            "ad_copy": "No slogan, no filler: “THEY FORGOT WHO I AM” on a tee at $22.99. Angle: fan identity statement. Signal driving it: Terry’s Talkin’ Browns, Guardians & Cavs TV – Terry Pluto - Cleveland.com Product: Shedeur Sanders 12 They Forgot Who I Am Shirt (shedeur sanders shirt). Verify licensing and the live listing before promotion.",
+            "ad_copy": "No slogan, no filler: “THEY FORGOT WHO I AM” on a tee at $22.99. Angle: fan identity statement. Signal driving it: Cleveland Browns vs. New Orleans Saints recap: Shedeur Sanders comes close, but can’t get the final play in overtime Product: Shedeur Sanders 12 They Forgot Who I Am Shirt (shedeur sanders shirt). Verify licensing and the live listing before promotion.",
             "captions": {
-              "instagram": "Read the shirt. No slogan, no filler: “THEY FORGOT WHO I AM” on a tee at $22.99. Why now: Terry’s Talkin’ Browns, Guardians & Cavs TV – Terry Pluto - Cleveland.com Link in bio for the listing. #clevelandbrowns #shedeursandersshirt #sandersbrownsqbtee",
-              "facebook": "No slogan, no filler: “THEY FORGOT WHO I AM” on a tee at $22.99. Context for Cleveland Browns fans: Terry’s Talkin’ Browns, Guardians & Cavs TV – Terry Pluto - Cleveland.com It is a tee at $22.99 from the Cleveland Browns collection. Link in bio for the listing. https://gridironlocker.store/shop/sanders-13-special-edition/",
-              "x": "No slogan, no filler: “THEY FORGOT WHO I AM” on a tee at $22.99. Terry’s Talkin’ Browns, Guardians & Cavs TV – Terry Pluto - Cleveland.com https://gridironlocker.store/shop/sanders-13-special-edition/",
-              "tiktok": "POV: No slogan, no filler: “THEY FORGOT WHO I AM” on a tee at $22.99. Script beat: Say who you root for before you say a word. Show the print, then the fit, then the price.",
+              "instagram": "Saved for Sunday. No slogan, no filler: “THEY FORGOT WHO I AM” on a tee at $22.99. Why now: Cleveland Browns vs. New Orleans Saints recap: Shedeur Sanders comes close, but can’t get the final play in overtime See it on the shop page. #clevelandbrowns #shedeursandersshirt #sandersbrownsqbtee",
+              "facebook": "No slogan, no filler: “THEY FORGOT WHO I AM” on a tee at $22.99. Context for Cleveland Browns fans: Cleveland Browns vs. New Orleans Saints recap: Shedeur Sanders comes close, but can’t get the final play in overtime It is a tee at $22.99 from the Cleveland Browns collection. See it on the shop page. https://gridironlocker.store/shop/sanders-13-special-edition/",
+              "x": "No slogan, no filler: “THEY FORGOT WHO I AM” on a tee at $22.99. Cleveland Browns vs. New Orleans Saints recap: Shedeur Sanders comes close, but can’t get https://gridironlocker.store/shop/sanders-13-special-edition/",
+              "tiktok": "Nobody asked, but: No slogan, no filler: “THEY FORGOT WHO I AM” on a tee at $22.99. Script beat: Say who you root for before you say a word. Show the print, then the fit, then the price.",
               "pinterest": "Shedeur Sanders 12 They Forgot Who I Am Shirt - shedeur sanders shirt idea for Cleveland Browns fans. Say who you root for before you say a word. Tee at $22.99."
             },
             "pinterest": {
@@ -96,68 +94,68 @@
           }
         },
         {
-          "product": "Go Pack Go Stencil Shirt",
-          "slug": "limited-edition-grb5",
-          "product_url": "https://gridironlocker.store/shop/limited-edition-grb5/",
+          "product": "Jordan Love 10 Green Bay Hoodie",
+          "slug": "limited-edition-grb31",
+          "product_url": "https://gridironlocker.store/shop/limited-edition-grb31/",
           "team": "Green Bay Packers",
           "trend": {
             "team": "green-bay-packers",
-            "story": "Packers vs. Patriots score, live updates: A.J. Brown, TreVeyon Henderson out for New England as Jordan Love, Drake Maye face off in Week 9 - Yahoo Sports",
-            "emotion": "disappointed",
+            "story": "Patriots vs. Packers live updates: Two playoff hopefuls meet in Week 9",
+            "emotion": "worried",
             "stage": "ACCELERATING",
-            "signal_count": 28,
+            "signal_count": 8,
             "sources": [
               {
-                "source": "google_news",
-                "text": "Packers vs. Patriots Live Updates, Score: Green Bay In Control - FOX Sports",
-                "url": "https://news.google.com/rss/articles/CBMihAFBVV95cUxQdVRQdDEyU3JRMGpkeUJHdnFHNVI5Y3diWTV6aGFmdkdzOW0zaFlUTXZLVXl3NkRWVTM4Ui1hOGtuNGJIeGt0SkU4YU5sVDdMSV9KcUpjbV9WajBDUnJZR3JVaWE4eWQ0SllRblFjQnNKUklDbkVfalRvb1R6YzliWHRWenc?oc=5"
+                "source": "repository_trend_snapshot",
+                "text": "Patriots vs. Packers live coverage: Tom Brady greets Drake Maye ahead of test vs. Green Bay",
+                "url": "http://www.bing.com/news/apiclick.aspx?ref=FexRss&aid=&tid=6af0f7c7b13f41988700f58ea87e1815&url=https%3a%2f%2fwww.msn.com%2fen-us%2fnews%2fother%2fpatriots-vs-packers-live-coverage-tom-brady-greets-drake-maye-ahead-of-test-vs-green-bay%2far-AA2h1dW4&c=5157659641759941392&mkt=en-us"
               },
               {
-                "source": "google_news",
-                "text": "Packers vs. Patriots score, live updates: A.J. Brown, TreVeyon Henderson out for New England as Jordan Love, Drake Maye face off in Week 9 - Yahoo Sports",
-                "url": "https://news.google.com/rss/articles/CBMixgFBVV95cUxPT001eGpYRG9WTXBMMzZTdnpCNzJJalNNRkVSR2JOazFCZ2taSno4R195Z1FBd2R0NHJNZTBMdUVxdnB4TkQyV1RNbGFXX3U1OU83VmV0SFh0b01iSk1EWEs4alRqZWhZWi1SU1BUNjJ4dzRIOEtqNklLb0NJdmVqWHdybkQ5WC1ZSUxiVDk4QXhxOVBMZXIyQjRIaTBiRVpoYmNQcW5QM3lvdHdyemlVNlFqLXVWWWZNc2VJbU8zamxjT0ZxWlE?oc=5"
+                "source": "repository_trend_snapshot",
+                "text": "Patriots vs. Packers live updates: Two playoff hopefuls meet in Week 9",
+                "url": "http://www.bing.com/news/apiclick.aspx?ref=FexRss&aid=&tid=6af0f7c7b13f41988700f58ea87e1815&url=https%3a%2f%2fwww.cbssports.com%2fnfl%2fnews%2fpatriots-vs-packers-live-updates-score-highlights%2flive%2f&c=6338397080755025148&mkt=en-us"
               },
               {
-                "source": "google_news",
-                "text": "Green Bay Packers safety Xavier McKinney picks off Drake Maye's pass on opening drive and returns it for 36 yards - NFL.com",
-                "url": "https://news.google.com/rss/articles/CBMitgFBVV95cUxOZ0F0YTRIVG5ESmZ0cVM1YTl2Zi1LRjl1RHVsVm85NmxIb01tc29ISzFCRlJPMjlzb3VBbDVDdFdweVZnZkVZeklNVUJGM3F1bC1SeHlZbW41MjUzLUd4dUpOQVk3MEhGN1RyWVE1VS0xSGd4ZFVtanVQVHdTSTdjc2F1dHRITGtXbjVjNURpckt4bE9yQVl2SF9VU09Ybm5zRkp6blFLRzFJdE1JRmFWcWwxQnhFdw?oc=5"
+                "source": "repository_trend_snapshot",
+                "text": "Packers LB Ty’Ron Hopper and RB Josh Jacobs Questionable to Return vs. Patriots",
+                "url": "http://www.bing.com/news/apiclick.aspx?ref=FexRss&aid=&tid=6af0f7c7b13f41988700f58ea87e1815&url=https%3a%2f%2fathlonsports.com%2fnfl%2fgreen-bay-packers%2fpackers-lb-tyron-hopper-and-rb-josh-jacobs-questionable-to-return-vs-patriots&c=8963483294072006371&mkt=en-us"
               },
               {
-                "source": "google_news",
-                "text": "Packers vs Vikings is Week 10's most expensive NFL ticket - USA Today",
-                "url": "https://news.google.com/rss/articles/CBMiswFBVV95cUxOcEZ6WlRiSk9sQkpCOHBXcVlfR3ZUWEVVNEpKMU5PUF85OHkwWExtMFFpdWtVYXlpOW1URnBSeksxdXhTZDhlVmRlU0NxWXdmTmV0UjRXTDdyX0ZUTHNmOHNZaGtDSmVPMy1KZ2Z6V2FnUUlvYTMtSGZ4Q2p4Y1VZWXZ0LWc5UzVtTTBpRXZXLThudEljanZRSmtCQ1NBb0Fwc1ozRTZFY0VrNmNjbWtJMTl4dw?oc=5"
+                "source": "repository_trend_snapshot",
+                "text": "Packers’ Jordan Love Hits Milestone Against Patriots That’s More Than ‘Cool’",
+                "url": "http://www.bing.com/news/apiclick.aspx?ref=FexRss&aid=&tid=6af0f7c7b13f41988700f58ea87e1815&url=https%3a%2f%2fwww.msn.com%2fen-us%2fnews%2fother%2fpackers-jordan-love-hits-milestone-against-patriots-that-s-more-than-cool%2far-AA2h195N&c=8315154707945627647&mkt=en-us"
               },
               {
-                "source": "google_news",
-                "text": "Packers’ Jordan Love Hits Milestone Against Patriots That’s More Than ‘Cool’ - Sports Illustrated",
-                "url": "https://news.google.com/rss/articles/CBMirAFBVV95cUxNM29uaWN3Vy1NRGF4bXhPNTFhWXhWRE9lVkY5ZnpBd3k1eUI5b29Ybjl1Q2tJNXN5QS10enB0MEY0aC1ISnRwSGhaYmpTWlZjY1k3MjZscWx1WGtRSG5FRWp4YURZekR4VDRkRndXMlQxd1dqVUlkVVRnbTR4bURmMElkS1JIbFVITk96VVdJSUJhZC1JU0hzcnNrcXRKUEJoOC1KWVFINzQtSVhF?oc=5"
+                "source": "repository_trend_snapshot",
+                "text": "Josh Jacobs suffers injury amid Packers’ hot start vs. Patriots",
+                "url": "http://www.bing.com/news/apiclick.aspx?ref=FexRss&aid=&tid=6af0f7c7b13f41988700f58ea87e1815&url=https%3a%2f%2fclutchpoints.com%2fnfl%2fgreen-bay-packers%2fpackers-news-josh-jacobs-suffers-injury-hot-start-patriots&c=13983191127984400340&mkt=en-us"
               }
             ],
             "evidence": "public signal collector"
           },
-          "fan_emotion": "disappointed",
-          "creative_angle": "Throwback / heritage",
-          "product_signal_score": 145.4,
+          "fan_emotion": "worried",
+          "creative_angle": "News reaction",
+          "product_signal_score": 119.3,
           "copy": {
-            "angle": "throwback",
-            "hook_template": "Throwback energy, current fit: {line}",
-            "angle_label": "Throwback / heritage",
-            "hook": "Throwback energy, current fit: “GO PACK GO STENCIL LETTERS” on a tee at $24.99.",
-            "ad_copy": "Throwback energy, current fit: “GO PACK GO STENCIL LETTERS” on a tee at $24.99. Angle: throwback / heritage. Signal driving it: Packers vs. Patriots score, live updates: A.J. Brown, TreVeyon Henderson out for New England as Jordan Love, Drake Maye face off in Week 9 - Yahoo Sports Product: Go Pack Go Stencil Shirt (go pack go shirt). Verify licensing and the live listing before promotion.",
+            "angle": "news_react",
+            "hook_template": "One headline, one {team} reaction piece: {line}",
+            "angle_label": "News reaction",
+            "hook": "One headline, one Green Bay Packers reaction piece: “10 LOVE WITH PLAYER AND GOLD 10” on a hoodie at $36.99.",
+            "ad_copy": "One headline, one Green Bay Packers reaction piece: “10 LOVE WITH PLAYER AND GOLD 10” on a hoodie at $36.99. Angle: news reaction. Signal driving it: Patriots vs. Packers live updates: Two playoff hopefuls meet in Week 9 Product: Jordan Love 10 Green Bay Hoodie (jordan love hoodie). Verify licensing and the live listing before promotion.",
             "captions": {
-              "instagram": "Saved for Sunday. Throwback energy, current fit: “GO PACK GO STENCIL LETTERS” on a tee at $24.99. Why now: Packers vs. Patriots score, live updates: A.J. Brown, TreVeyon Henderson out for New England as Jordan Love, Drake Maye face off in Week 9 - Yahoo Sports See it on the shop page. #greenbaypackers #gopackgoshirt #packerschanttee",
-              "facebook": "Throwback energy, current fit: “GO PACK GO STENCIL LETTERS” on a tee at $24.99. Context for Green Bay Packers fans: Packers vs. Patriots score, live updates: A.J. Brown, TreVeyon Henderson out for New England as Jordan Love, Drake Maye face off in Week 9 - Yahoo Sports It is a tee at $24.99 from the Green Bay Packers collection. See it on the shop page. https://gridironlocker.store/shop/limited-edition-grb5/",
-              "x": "Throwback energy, current fit: “GO PACK GO STENCIL LETTERS” on a tee at $24.99. Packers vs. Patriots score, live updates: A.J. Brown, TreVeyon Henderson out for New Engla https://gridironlocker.store/shop/limited-edition-grb5/",
-              "tiktok": "Nobody asked, but: Throwback energy, current fit: “GO PACK GO STENCIL LETTERS” on a tee at $24.99. Script beat: Anchor the product in the era fans keep bringing up. Show the print, then the fit, then the price.",
-              "pinterest": "Go Pack Go Stencil Shirt - go pack go shirt idea for Green Bay Packers fans. Anchor the product in the era fans keep bringing up. Tee at $24.99."
+              "instagram": "One piece, whole mood. One headline, one Green Bay Packers reaction piece: “10 LOVE WITH PLAYER AND GOLD 10” on a hoodie at $36.99. Why now: Patriots vs. Packers live updates: Two playoff hopefuls meet in Week 9 Sizes and colours are on the product page. #greenbaypackers #jordanlovehoodie #packers10sweatshirt",
+              "facebook": "One headline, one Green Bay Packers reaction piece: “10 LOVE WITH PLAYER AND GOLD 10” on a hoodie at $36.99. Context for Green Bay Packers fans: Patriots vs. Packers live updates: Two playoff hopefuls meet in Week 9 It is a hoodie at $36.99 from the Green Bay Packers collection. Sizes and colours are on the product page. https://gridironlocker.store/shop/limited-edition-grb31/",
+              "x": "One headline, one Green Bay Packers reaction piece: “10 LOVE WITH PLAYER AND GOLD 10” on a hoodie at $36.99. Patriots vs. Packers live updates: Two playoff hopefuls meet in Week 9 https://gridironlocker.store/shop/limited-edition-grb31/",
+              "tiktok": "Three seconds of Green Bay Packers truth: One headline, one Green Bay Packers reaction piece: “10 LOVE WITH PLAYER AND GOLD 10” on a hoodie at $36.99. Script beat: React to the storyline that is moving right now. Show the print, then the fit, then the price.",
+              "pinterest": "Jordan Love 10 Green Bay Hoodie - jordan love hoodie idea for Green Bay Packers fans. React to the storyline that is moving right now. Hoodie at $36.99."
             },
             "pinterest": {
-              "title": "Go Pack Go Stencil Shirt: Go Pack Go Shirt",
-              "description": "Throwback / heritage pin for Green Bay Packers fans feeling disappointed. “GO PACK GO STENCIL LETTERS” on a tee at $24.99. Use only after the product and licensing review.",
+              "title": "Jordan Love 10 Green Bay Hoodie: Jordan Love Hoodie",
+              "description": "News reaction pin for Green Bay Packers fans feeling worried. “10 LOVE WITH PLAYER AND GOLD 10” on a hoodie at $36.99. Use only after the product and licensing review.",
               "keywords": [
-                "go pack go shirt",
-                "packers chant tee",
-                "green bay yellow shirt",
+                "jordan love hoodie",
+                "packers 10 sweatshirt",
+                "green bay qb hoodie",
                 "Green Bay Packers game day outfit",
                 "football fan apparel"
               ]
@@ -181,40 +179,40 @@
           "team": "Dallas Cowboys",
           "trend": {
             "team": "dallas-cowboys",
-            "story": "Colts announce 7 inactive players for Week 9 game against Dallas Cowboys - Colts.com",
-            "emotion": "worried",
+            "story": "Dallas Cowboys facing must-win, desperation game vs. Colts without George Pickens, Joey Porter",
+            "emotion": "confident",
             "stage": "ACCELERATING",
-            "signal_count": 28,
+            "signal_count": 8,
             "sources": [
               {
-                "source": "google_news",
-                "text": "Cowboys WR Pickens, CB Porter, LB Overshown inactive against Colts - ESPN",
-                "url": "https://news.google.com/rss/articles/CBMipwFBVV95cUxNQjF1UVBQNDZjR1djLV9HUUFJMlF6M3JfVDRzeWlwaVFtU0FSd2Q2aFZfWjdrVGRlRU5URXhvRmJRSUxET3dYX1Vlek5zQUlRVXZKeHlFb3p4TmYxTzQ0dFJmMHZCaDZULWFHNGpldTV2aHJjLXd2dW5qcExwR09hRDhrdU1aVXJkY3laUlFTQW1XTlhRaU5jT0lkenJqNXM3T0ZpdVZkRQ?oc=5"
+                "source": "repository_trend_snapshot",
+                "text": "Biggest takeaways from Dallas Cowboys' uninspiring Week 9 win over Colts",
+                "url": "http://www.bing.com/news/apiclick.aspx?ref=FexRss&aid=&tid=6af0f7f2ceb348fc95faf02e16a3e09e&url=https%3a%2f%2fwww.msn.com%2fen-us%2fnews%2fother%2fbiggest-takeaways-from-dallas-cowboys-uninspiring-week-9-win-over-colts%2far-AA2h1FsC&c=18032594066939625005&mkt=en-us"
               },
               {
-                "source": "google_news",
-                "text": "Cowboys rally late to avoid disaster vs. Colts after blowing lead, multiple second-half miscues - Yahoo Sports",
-                "url": "https://news.google.com/rss/articles/CBMiwAFBVV95cUxNUnVnQi1iTnJ2MFdOQzVVckxvMEJ0clhwRmpwNlFNRVIzSzhSZllfUm9DR3VNUzNhM0hMbWlXWDNoV2FpME56OGk2ZWlQODBnSC1NSVhKYWZUSVJkWWtGejRNVkE2REZ1Uk1OWmphUmpPUmNRRjRRa1lmb1ZvSGY0QnB1MlI4N3pvaVkyY20zTmNUQ0FIcTdhMGtyVEtOU0M2RzNrblIwLXN5XzJLdVBWbGcxSzRFQ215QnhLUThfUm8?oc=5"
+                "source": "repository_trend_snapshot",
+                "text": "Five thoughts from Cowboys-Colts: Dallas survives in another topsy-turvy effort",
+                "url": "http://www.bing.com/news/apiclick.aspx?ref=FexRss&aid=&tid=6af0f7f2ceb348fc95faf02e16a3e09e&url=https%3a%2f%2fwww.msn.com%2fen-us%2fsports%2ffootball%2ffive-thoughts-from-cowboys-colts-dallas-survives-in-another-topsy-turvy-effort%2far-AA2h1ShP&c=16574600219862588440&mkt=en-us"
               },
               {
-                "source": "google_news",
-                "text": "Colts announce 7 inactive players for Week 9 game against Dallas Cowboys - Colts.com",
-                "url": "https://news.google.com/rss/articles/CBMioAFBVV95cUxOS1RDSVc2eTNWeVRXYnhlOTNVQzB1WHdpcmM3T2ZLdTZzT2xQN2VMYkZYbGFHbzd5Sl94amRVOWZCSkk5UTFtSklmNWg4Uk1HUGdHOGY5LXhtc1FkcXVVZ0xRZ0sxVzc0ZkNMT2N0djFKOXYyM1A1YW1COUxyVWQ4UF9rM2lmNGdicGhpUXFsdHd4ZUc0UTVBdVhITFpXX0FR?oc=5"
+                "source": "repository_trend_snapshot",
+                "text": "Dallas Cowboys facing must-win, desperation game vs. Colts without George Pickens, Joey Porter",
+                "url": "http://www.bing.com/news/apiclick.aspx?ref=FexRss&aid=&tid=6af0f7f2ceb348fc95faf02e16a3e09e&url=https%3a%2f%2fsports.yahoo.com%2farticles%2fdallas-cowboys-facing-must-win-165703251.html&c=14800057465491851082&mkt=en-us"
               },
               {
-                "source": "google_news",
-                "text": "Cowboys to host 49ers in Week 10 and tickets are starting at $318 - USA Today",
-                "url": "https://news.google.com/rss/articles/CBMi0AFBVV95cUxNTnRZTGRIeDZacHJkQlpETWlKa2V3dHNyMVpzM0hqSERkaHZONmhxWUxNT0dpVXZWTHFTLXBBdWJsUUhMSGhTc3F2VG9xeVBNazRvaG5mVEFZbjh0eGRmNHNpalVIdTgwUklHZ1Q1TktxWEZTWm5RcTJrTW4wU0lvUTVUcXJ1TUt5RWtBQjFzUG1YS3MzV3E2dkkwU05KN0RLNE8wRkdpWm1lMjhkMDBwTEVBRmdMV0YxZHlVMkxxSUphZE5DWFlQMU04bjJLN1JL?oc=5"
+                "source": "repository_trend_snapshot",
+                "text": "Cowboys rally late to beat Colts 27-23 on Javonte Williams TD",
+                "url": "http://www.bing.com/news/apiclick.aspx?ref=FexRss&aid=&tid=6af0f7f2ceb348fc95faf02e16a3e09e&url=https%3a%2f%2fwww.cbssports.com%2fnfl%2fnews%2fcowboys-rally-late-to-beat-colts-27-23-on-javonte-williams-td%2f&c=10243329308214806460&mkt=en-us"
               },
               {
-                "source": "google_news",
-                "text": "Cowboys vs Colts live updates, timeline: Colts get long touchdown to stay in touch - IndyStar",
-                "url": "https://news.google.com/rss/articles/CBMizgFBVV95cUxQVUR3S29fSUFBQmtqVEVRN2ZZTXpkSUZ3c19IYThBcDJrOWxSaVEyVlJoUHExNFVrMUF3elkwUzFRWjRBMnlvTDU4OG02Yi1qTE5DUVZ3ZXBIWFgwMTlCTFhjX1c2bFFDYkNJemNCMjQ3NkpSbFE1XzFBY1MwZXpsVkRpSnVmU2d4NlM0RHlfQjZQTUk0M1VuZ2FXQUV3MVdLblVpTWRXQ3JjeEctZmM4b1lWWHMxcnVSeHBuSGRCSkJ0anFWZ3AyRzZYMWxWUQ?oc=5"
+                "source": "repository_trend_snapshot",
+                "text": "Javonte Williams’ late TD run helps Cowboys avoid another 4th-quarter collapse and beat Colts 27-23",
+                "url": "http://www.bing.com/news/apiclick.aspx?ref=FexRss&aid=&tid=6af0f7f2ceb348fc95faf02e16a3e09e&url=https%3a%2f%2fapnews.com%2farticle%2findianapolis-colts-dallas-cowboys-score-a0e32a4347e90b2d10ad2ac6e527c576&c=10893278684911430053&mkt=en-us"
               }
             ],
             "evidence": "public signal collector"
           },
-          "fan_emotion": "worried",
+          "fan_emotion": "confident",
           "creative_angle": "Gift / relationship",
           "product_signal_score": 111.4,
           "copy": {
@@ -222,17 +220,17 @@
             "hook_template": "Buy it for them and they will wear it every Sunday. {line}",
             "angle_label": "Gift / relationship",
             "hook": "Buy it for them and they will wear it every Sunday. “THIS GIRL LOVES COWBOYS WITH FOOTBALL AND STARS” on a women's tee at $21.99.",
-            "ad_copy": "Buy it for them and they will wear it every Sunday. “THIS GIRL LOVES COWBOYS WITH FOOTBALL AND STARS” on a women's tee at $21.99. Angle: gift / relationship. Signal driving it: Colts announce 7 inactive players for Week 9 game against Dallas Cowboys - Colts.com Product: This Girl Loves Cowboys Women's Shirt (this girl loves cowboys). Verify licensing and the live listing before promotion.",
+            "ad_copy": "Buy it for them and they will wear it every Sunday. “THIS GIRL LOVES COWBOYS WITH FOOTBALL AND STARS” on a women's tee at $21.99. Angle: gift / relationship. Signal driving it: Dallas Cowboys facing must-win, desperation game vs. Colts without George Pickens, Joey Porter Product: This Girl Loves Cowboys Women's Shirt (this girl loves cowboys). Verify licensing and the live listing before promotion.",
             "captions": {
-              "instagram": "Read the shirt. Buy it for them and they will wear it every Sunday. “THIS GIRL LOVES COWBOYS WITH FOOTBALL AND STARS” on a women's tee at $21.99. Why now: Colts announce 7 inactive players for Week 9 game against Dallas Cowboys - Colts.com Link in bio for the listing. #dallascowboys #thisgirllovescowboys #dallaswomensshirt",
-              "facebook": "Buy it for them and they will wear it every Sunday. “THIS GIRL LOVES COWBOYS WITH FOOTBALL AND STARS” on a women's tee at $21.99. Context for Dallas Cowboys fans: Colts announce 7 inactive players for Week 9 game against Dallas Cowboys - Colts.com It is a women's tee at $21.99 from the Dallas Cowboys collection. Link in bio for the listing. https://gridironlocker.store/shop/girly-vintage-texas-pride/",
-              "x": "Buy it for them and they will wear it every Sunday. “THIS GIRL LOVES COWBOYS WITH FOOTBALL AND STARS” on a women's tee at $21.99. Colts announce 7 inactive players for Week 9 game against Dallas Cowboys - Colts.com https://gridironlocker.store/shop/girly-vintage-texas-pride/",
-              "tiktok": "POV: Buy it for them and they will wear it every Sunday. “THIS GIRL LOVES COWBOYS WITH FOOTBALL AND STARS” on a women's tee at $21.99. Script beat: Frame the product as a gift for a specific person. Show the print, then the fit, then the price.",
+              "instagram": "One piece, whole mood. Buy it for them and they will wear it every Sunday. “THIS GIRL LOVES COWBOYS WITH FOOTBALL AND STARS” on a women's tee at $21.99. Why now: Dallas Cowboys facing must-win, desperation game vs. Colts without George Pickens, Joey Porter Sizes and colours are on the product page. #dallascowboys #thisgirllovescowboys #dallaswomensshirt",
+              "facebook": "Buy it for them and they will wear it every Sunday. “THIS GIRL LOVES COWBOYS WITH FOOTBALL AND STARS” on a women's tee at $21.99. Context for Dallas Cowboys fans: Dallas Cowboys facing must-win, desperation game vs. Colts without George Pickens, Joey Porter It is a women's tee at $21.99 from the Dallas Cowboys collection. Sizes and colours are on the product page. https://gridironlocker.store/shop/girly-vintage-texas-pride/",
+              "x": "Buy it for them and they will wear it every Sunday. “THIS GIRL LOVES COWBOYS WITH FOOTBALL AND STARS” on a women's tee at $21.99. Dallas Cowboys facing must-win, desperation game vs. Colts without George Pickens, Joey Po https://gridironlocker.store/shop/girly-vintage-texas-pr…",
+              "tiktok": "Three seconds of Dallas Cowboys truth: Buy it for them and they will wear it every Sunday. “THIS GIRL LOVES COWBOYS WITH FOOTBALL AND STARS” on a women's tee at $21.99. Script beat: Frame the product as a gift for a specific person. Show the print, then the fit, then the price.",
               "pinterest": "This Girl Loves Cowboys Women's Shirt - this girl loves cowboys idea for Dallas Cowboys fans. Frame the product as a gift for a specific person. Women's tee at $21.99."
             },
             "pinterest": {
               "title": "This Girl Loves Cowboys Women's Shirt: This Girl Loves Cowboys",
-              "description": "Gift / relationship pin for Dallas Cowboys fans feeling worried. “THIS GIRL LOVES COWBOYS WITH FOOTBALL AND STARS” on a women's tee at $21.99. Use only after the product and licensing review.",
+              "description": "Gift / relationship pin for Dallas Cowboys fans feeling confident. “THIS GIRL LOVES COWBOYS WITH FOOTBALL AND STARS” on a women's tee at $21.99. Use only after the product and licensing review.",
               "keywords": [
                 "this girl loves cowboys",
                 "dallas womens shirt",
@@ -266,53 +264,53 @@
           "team": "Cleveland Browns",
           "trend": {
             "team": "cleveland-browns",
-            "story": "Inactives | Saints vs Browns | 2026 NFL Week 9 - New Orleans Saints | NewOrleansSaints.com",
+            "story": "Cleveland Browns vs. New Orleans Saints NFL Week 9 Live Updates, Highlights and Analysis",
             "emotion": "confident",
             "stage": "ACCELERATING",
-            "signal_count": 28,
+            "signal_count": 8,
             "sources": [
               {
-                "source": "google_news",
-                "text": "Terry’s Talkin’ Browns, Guardians & Cavs TV – Terry Pluto - Cleveland.com",
-                "url": "https://news.google.com/rss/articles/CBMinAFBVV95cUxOUzRaV1JVS3RvVkljdmZBYURFN2YweHUwZW1fSTNVem44cXdSNnFBYU9mQ2xvQVpkSjZ6ZkZrY0lRMFJYaGpiN3ZwOU5nV0ZYY3BKTFZpMGRuQndTQVp6cER4RzFfZXdkNE1HanVGQlJUeUplbWhES0dWcC1BTmZlUTFBakl6eE5DQjA1V0dZbE9sZ2duQkZJV0M3S3Q?oc=5"
+                "source": "repository_trend_snapshot",
+                "text": "Cleveland Browns vs. New Orleans Saints recap: Shedeur Sanders comes close, but can’t get the final play in overtime",
+                "url": "http://www.bing.com/news/apiclick.aspx?ref=FexRss&aid=&tid=6af0f771f6334e3bbf892df597497e01&url=https%3a%2f%2fwww.msn.com%2fen-us%2fnews%2fother%2fcleveland-browns-vs-new-orleans-saints-recap-shedeur-sanders-comes-close-but-cant-get-the-final-play-in-overtime%2far-AA2h1qNE&c=4465618030498827259&mkt=en-us"
               },
               {
-                "source": "google_news",
-                "text": "Inactives | Saints vs Browns | 2026 NFL Week 9 - New Orleans Saints | NewOrleansSaints.com",
-                "url": "https://news.google.com/rss/articles/CBMioAFBVV95cUxQRjdsY1hfRW1Jdjl0RUJCUmVTell3Si1yS213b1dOVlVVOU9VZ1JsemhrMnpLcTNqRkUyM0xGOEE4ekwxcV93WUh3ajhoUzZ2bUxjYk5KWTA1UDdZcUMwMTY3bTFFUkVvZjFEYTNnTFVwS3BJN29qYVAxdmdfSU0ycE5sRHgwVW54dzhveHE2bThidmdtOHJaQm55cjk2c2df?oc=5"
+                "source": "repository_trend_snapshot",
+                "text": "Cleveland Browns vs. New Orleans Saints NFL Week 9 Live Updates, Highlights and Analysis",
+                "url": "http://www.bing.com/news/apiclick.aspx?ref=FexRss&aid=&tid=6af0f771f6334e3bbf892df597497e01&url=https%3a%2f%2fbleacherreport.com%2fliveblogs%2f25530665-cleveland-browns-vs-new-orleans-saints-nfl-week-9-live-updates-highlights-and-analysis&c=5919587842271165815&mkt=en-us"
               },
               {
-                "source": "google_news",
-                "text": "Cleveland Browns vs. New Orleans Saints NFL Week 9 Live Updates, Highlights and Analysis - Bleacher Report",
-                "url": "https://news.google.com/rss/articles/CBMizAFBVV95cUxOVGpaR24ySVMwOWpHaENwWVdzVlBGNThTOEhHdVo4YS1MRUI2dWVmZy1HVV9BSlc0WlJJZTdiRGZUdmh5M1NyMG5qYUtaVDh5bjYyQjhFSElhTHhaYzJMLUZIcGpIOTE0SHI3NmhxQXIyWEk0c2RTaGJOdlQ3VmxFQXdzY2VySXRsUXdRX2ZveWZ2c0hPS1lIMHRObkp5S3JJWFFYLTlPRHdSWFpNQloxMklCNDBad3BiMTZ0U2xpaHhRdjE5QlFHYjY2S24?oc=5"
+                "source": "repository_trend_snapshot",
+                "text": "Saints hold on for a 23-22 overtime victory over the Browns by stopping a 2-point conversion",
+                "url": "http://www.bing.com/news/apiclick.aspx?ref=FexRss&aid=&tid=6af0f771f6334e3bbf892df597497e01&url=https%3a%2f%2fwww.msn.com%2fen-us%2fsports%2ffootball%2fsaints-hold-on-for-a-23-22-overtime-victory-over-the-browns-by-stopping-a-2-point-conversion%2far-AA2h1r01&c=14097464038124103914&mkt=en-us"
               },
               {
-                "source": "google_news",
-                "text": "Myles Garrett Just Made Browns’ Jared Verse Look Even Worse - Heavy.com",
-                "url": "https://news.google.com/rss/articles/CBMimAFBVV95cUxOSDNNb2hrVm9RRGJSUFBmd05nbGwtMjB0dHFxdGhwUzdCZExvbW5SZGZHMU9WUTNZbVIwV2dXQTlnVGF1ckN6QVU4X2RUYUVGR0xCSzFvT1Zfam1vUE1RUE1FNlNjS0dnMExhZmlUbE1TdVVYSEFDRzROU3c3OVVkTWN3cVh6bzlDUzI0N1Q2OWU5d0x3RGY0bw?oc=5"
+                "source": "repository_trend_snapshot",
+                "text": "Game Recap: New Orleans Saints 23, Cleveland Browns 22, overtime | 2026 NFL Week 9",
+                "url": "http://www.bing.com/news/apiclick.aspx?ref=FexRss&aid=&tid=6af0f771f6334e3bbf892df597497e01&url=https%3a%2f%2fwww.neworleanssaints.com%2fnews%2fcleveland-browns-new-orleans-saints-2026-nfl-week-9-game-recap&c=10131176726381271955&mkt=en-us"
               },
               {
-                "source": "google_news",
-                "text": "Saints vs. Browns live updates: Score, highlights, instant analysis - Saints Wire",
-                "url": "https://news.google.com/rss/articles/CBMiwwFBVV95cUxOQ3k4VGhaNm9Ta3VEXy1EQ2UtMl9wTnpPdi14dFd4eGpiRVpYRG9LeDMtdHZjRk5VYWVRVlVndUNQajFEZV9vNW5OOG1CblVFNWJTWWJ2aGZ3b1RyUlEzVjdaeERnemRkd0FiNlAwYWpEU2RzeVpqRGxyUThRR3RlSHNpdFNLX1NBSHRMa0JXWE56Y3FZZTBMV2tnSlZrR29QVUU3M3RzRnBfM3NyV3lOV2tSSmNEbjdVOXlfZVpKdXFWWVE?oc=5"
+                "source": "repository_trend_snapshot",
+                "text": "Saints stop Browns on 2-point try to seal 23-22 OT win",
+                "url": "http://www.bing.com/news/apiclick.aspx?ref=FexRss&aid=&tid=6af0f771f6334e3bbf892df597497e01&url=https%3a%2f%2fwww.cbssports.com%2fnfl%2fnews%2fsaints-stop-browns-on-2-point-try-to-seal-23-22-ot-win%2f&c=6238628483965998904&mkt=en-us"
               }
             ],
             "evidence": "public signal collector"
           },
           "fan_emotion": "confident",
           "creative_angle": "Fan identity statement",
-          "product_signal_score": 156.4,
+          "product_signal_score": 155.6,
           "copy": {
             "angle": "identity",
-            "hook_template": "{team} fandom is not a costume - it is a wardrobe decision. {line}",
+            "hook_template": "You can spot a real {team} fan before kickoff. {line}",
             "angle_label": "Fan identity statement",
-            "hook": "Cleveland Browns fandom is not a costume - it is a wardrobe decision. “SANDERS QB 12 WITH SIGNATURE” on a tee at $22.99.",
-            "ad_copy": "Cleveland Browns fandom is not a costume - it is a wardrobe decision. “SANDERS QB 12 WITH SIGNATURE” on a tee at $22.99. Angle: fan identity statement. Signal driving it: Inactives | Saints vs Browns | 2026 NFL Week 9 - New Orleans Saints | NewOrleansSaints.com Product: Sanders QB 12 Signature Shirt (sanders qb shirt). Verify licensing and the live listing before promotion.",
+            "hook": "You can spot a real Cleveland Browns fan before kickoff. “SANDERS QB 12 WITH SIGNATURE” on a tee at $22.99.",
+            "ad_copy": "You can spot a real Cleveland Browns fan before kickoff. “SANDERS QB 12 WITH SIGNATURE” on a tee at $22.99. Angle: fan identity statement. Signal driving it: Cleveland Browns vs. New Orleans Saints NFL Week 9 Live Updates, Highlights and Analysis Product: Sanders QB 12 Signature Shirt (sanders qb shirt). Verify licensing and the live listing before promotion.",
             "captions": {
-              "instagram": "Locked in. Cleveland Browns fandom is not a costume - it is a wardrobe decision. “SANDERS QB 12 WITH SIGNATURE” on a tee at $22.99. Why now: Inactives | Saints vs Browns | 2026 NFL Week 9 - New Orleans Saints | NewOrleansSaints.com Full details on the listing. #clevelandbrowns #sandersqbshirt #browns12quarterbacktee",
-              "facebook": "Cleveland Browns fandom is not a costume - it is a wardrobe decision. “SANDERS QB 12 WITH SIGNATURE” on a tee at $22.99. Context for Cleveland Browns fans: Inactives | Saints vs Browns | 2026 NFL Week 9 - New Orleans Saints | NewOrleansSaints.com It is a tee at $22.99 from the Cleveland Browns collection. Full details on the listing. https://gridironlocker.store/shop/sanders-12-special-edition/",
-              "x": "Cleveland Browns fandom is not a costume - it is a wardrobe decision. “SANDERS QB 12 WITH SIGNATURE” on a tee at $22.99. Inactives | Saints vs Browns | 2026 NFL Week 9 - New Orleans Saints | NewOrleansSaints.com https://gridironlocker.store/shop/sanders-12-special-edition/",
-              "tiktok": "Storytime, short version: Cleveland Browns fandom is not a costume - it is a wardrobe decision. “SANDERS QB 12 WITH SIGNATURE” on a tee at $22.99. Script beat: Say who you root for before you say a word. Show the print, then the fit, then the price.",
+              "instagram": "Saved for Sunday. You can spot a real Cleveland Browns fan before kickoff. “SANDERS QB 12 WITH SIGNATURE” on a tee at $22.99. Why now: Cleveland Browns vs. New Orleans Saints NFL Week 9 Live Updates, Highlights and Analysis See it on the shop page. #clevelandbrowns #sandersqbshirt #browns12quarterbacktee",
+              "facebook": "You can spot a real Cleveland Browns fan before kickoff. “SANDERS QB 12 WITH SIGNATURE” on a tee at $22.99. Context for Cleveland Browns fans: Cleveland Browns vs. New Orleans Saints NFL Week 9 Live Updates, Highlights and Analysis It is a tee at $22.99 from the Cleveland Browns collection. See it on the shop page. https://gridironlocker.store/shop/sanders-12-special-edition/",
+              "x": "You can spot a real Cleveland Browns fan before kickoff. “SANDERS QB 12 WITH SIGNATURE” on a tee at $22.99. Cleveland Browns vs. New Orleans Saints NFL Week 9 Live Updates, Highlights and Analysis https://gridironlocker.store/shop/sanders-12-special-edition/",
+              "tiktok": "Nobody asked, but: You can spot a real Cleveland Browns fan before kickoff. “SANDERS QB 12 WITH SIGNATURE” on a tee at $22.99. Script beat: Say who you root for before you say a word. Show the print, then the fit, then the price.",
               "pinterest": "Sanders QB 12 Signature Shirt - sanders qb shirt idea for Cleveland Browns fans. Say who you root for before you say a word. Tee at $22.99."
             },
             "pinterest": {
@@ -339,68 +337,68 @@
           }
         },
         {
-          "product": "Jordan Love 10 Green Bay Hoodie",
-          "slug": "limited-edition-grb31",
-          "product_url": "https://gridironlocker.store/shop/limited-edition-grb31/",
+          "product": "Jordan Freaking Love Shirt",
+          "slug": "limited-edition-grb30",
+          "product_url": "https://gridironlocker.store/shop/limited-edition-grb30/",
           "team": "Green Bay Packers",
           "trend": {
             "team": "green-bay-packers",
-            "story": "Green Bay Packers safety Xavier McKinney picks off Drake Maye's pass on opening drive and returns it for 36 yards - NFL.com",
-            "emotion": "disappointed",
+            "story": "Packers LB Ty’Ron Hopper and RB Josh Jacobs Questionable to Return vs. Patriots",
+            "emotion": "worried",
             "stage": "ACCELERATING",
-            "signal_count": 28,
+            "signal_count": 8,
             "sources": [
               {
-                "source": "google_news",
-                "text": "Packers vs. Patriots Live Updates, Score: Green Bay In Control - FOX Sports",
-                "url": "https://news.google.com/rss/articles/CBMihAFBVV95cUxQdVRQdDEyU3JRMGpkeUJHdnFHNVI5Y3diWTV6aGFmdkdzOW0zaFlUTXZLVXl3NkRWVTM4Ui1hOGtuNGJIeGt0SkU4YU5sVDdMSV9KcUpjbV9WajBDUnJZR3JVaWE4eWQ0SllRblFjQnNKUklDbkVfalRvb1R6YzliWHRWenc?oc=5"
+                "source": "repository_trend_snapshot",
+                "text": "Patriots vs. Packers live coverage: Tom Brady greets Drake Maye ahead of test vs. Green Bay",
+                "url": "http://www.bing.com/news/apiclick.aspx?ref=FexRss&aid=&tid=6af0f7c7b13f41988700f58ea87e1815&url=https%3a%2f%2fwww.msn.com%2fen-us%2fnews%2fother%2fpatriots-vs-packers-live-coverage-tom-brady-greets-drake-maye-ahead-of-test-vs-green-bay%2far-AA2h1dW4&c=5157659641759941392&mkt=en-us"
               },
               {
-                "source": "google_news",
-                "text": "Packers vs. Patriots score, live updates: A.J. Brown, TreVeyon Henderson out for New England as Jordan Love, Drake Maye face off in Week 9 - Yahoo Sports",
-                "url": "https://news.google.com/rss/articles/CBMixgFBVV95cUxPT001eGpYRG9WTXBMMzZTdnpCNzJJalNNRkVSR2JOazFCZ2taSno4R195Z1FBd2R0NHJNZTBMdUVxdnB4TkQyV1RNbGFXX3U1OU83VmV0SFh0b01iSk1EWEs4alRqZWhZWi1SU1BUNjJ4dzRIOEtqNklLb0NJdmVqWHdybkQ5WC1ZSUxiVDk4QXhxOVBMZXIyQjRIaTBiRVpoYmNQcW5QM3lvdHdyemlVNlFqLXVWWWZNc2VJbU8zamxjT0ZxWlE?oc=5"
+                "source": "repository_trend_snapshot",
+                "text": "Patriots vs. Packers live updates: Two playoff hopefuls meet in Week 9",
+                "url": "http://www.bing.com/news/apiclick.aspx?ref=FexRss&aid=&tid=6af0f7c7b13f41988700f58ea87e1815&url=https%3a%2f%2fwww.cbssports.com%2fnfl%2fnews%2fpatriots-vs-packers-live-updates-score-highlights%2flive%2f&c=6338397080755025148&mkt=en-us"
               },
               {
-                "source": "google_news",
-                "text": "Green Bay Packers safety Xavier McKinney picks off Drake Maye's pass on opening drive and returns it for 36 yards - NFL.com",
-                "url": "https://news.google.com/rss/articles/CBMitgFBVV95cUxOZ0F0YTRIVG5ESmZ0cVM1YTl2Zi1LRjl1RHVsVm85NmxIb01tc29ISzFCRlJPMjlzb3VBbDVDdFdweVZnZkVZeklNVUJGM3F1bC1SeHlZbW41MjUzLUd4dUpOQVk3MEhGN1RyWVE1VS0xSGd4ZFVtanVQVHdTSTdjc2F1dHRITGtXbjVjNURpckt4bE9yQVl2SF9VU09Ybm5zRkp6blFLRzFJdE1JRmFWcWwxQnhFdw?oc=5"
+                "source": "repository_trend_snapshot",
+                "text": "Packers LB Ty’Ron Hopper and RB Josh Jacobs Questionable to Return vs. Patriots",
+                "url": "http://www.bing.com/news/apiclick.aspx?ref=FexRss&aid=&tid=6af0f7c7b13f41988700f58ea87e1815&url=https%3a%2f%2fathlonsports.com%2fnfl%2fgreen-bay-packers%2fpackers-lb-tyron-hopper-and-rb-josh-jacobs-questionable-to-return-vs-patriots&c=8963483294072006371&mkt=en-us"
               },
               {
-                "source": "google_news",
-                "text": "Packers vs Vikings is Week 10's most expensive NFL ticket - USA Today",
-                "url": "https://news.google.com/rss/articles/CBMiswFBVV95cUxOcEZ6WlRiSk9sQkpCOHBXcVlfR3ZUWEVVNEpKMU5PUF85OHkwWExtMFFpdWtVYXlpOW1URnBSeksxdXhTZDhlVmRlU0NxWXdmTmV0UjRXTDdyX0ZUTHNmOHNZaGtDSmVPMy1KZ2Z6V2FnUUlvYTMtSGZ4Q2p4Y1VZWXZ0LWc5UzVtTTBpRXZXLThudEljanZRSmtCQ1NBb0Fwc1ozRTZFY0VrNmNjbWtJMTl4dw?oc=5"
+                "source": "repository_trend_snapshot",
+                "text": "Packers’ Jordan Love Hits Milestone Against Patriots That’s More Than ‘Cool’",
+                "url": "http://www.bing.com/news/apiclick.aspx?ref=FexRss&aid=&tid=6af0f7c7b13f41988700f58ea87e1815&url=https%3a%2f%2fwww.msn.com%2fen-us%2fnews%2fother%2fpackers-jordan-love-hits-milestone-against-patriots-that-s-more-than-cool%2far-AA2h195N&c=8315154707945627647&mkt=en-us"
               },
               {
-                "source": "google_news",
-                "text": "Packers’ Jordan Love Hits Milestone Against Patriots That’s More Than ‘Cool’ - Sports Illustrated",
-                "url": "https://news.google.com/rss/articles/CBMirAFBVV95cUxNM29uaWN3Vy1NRGF4bXhPNTFhWXhWRE9lVkY5ZnpBd3k1eUI5b29Ybjl1Q2tJNXN5QS10enB0MEY0aC1ISnRwSGhaYmpTWlZjY1k3MjZscWx1WGtRSG5FRWp4YURZekR4VDRkRndXMlQxd1dqVUlkVVRnbTR4bURmMElkS1JIbFVITk96VVdJSUJhZC1JU0hzcnNrcXRKUEJoOC1KWVFINzQtSVhF?oc=5"
+                "source": "repository_trend_snapshot",
+                "text": "Josh Jacobs suffers injury amid Packers’ hot start vs. Patriots",
+                "url": "http://www.bing.com/news/apiclick.aspx?ref=FexRss&aid=&tid=6af0f7c7b13f41988700f58ea87e1815&url=https%3a%2f%2fclutchpoints.com%2fnfl%2fgreen-bay-packers%2fpackers-news-josh-jacobs-suffers-injury-hot-start-patriots&c=13983191127984400340&mkt=en-us"
               }
             ],
             "evidence": "public signal collector"
           },
-          "fan_emotion": "disappointed",
+          "fan_emotion": "worried",
           "creative_angle": "News reaction",
-          "product_signal_score": 143.4,
+          "product_signal_score": 119.3,
           "copy": {
             "angle": "news_react",
-            "hook_template": "The storyline moved this morning; the merch shelf did not. {line}",
+            "hook_template": "Everyone in the {team} timeline is arguing about the same thing today. {line}",
             "angle_label": "News reaction",
-            "hook": "The storyline moved this morning; the merch shelf did not. “10 LOVE WITH PLAYER AND GOLD 10” on a hoodie at $36.99.",
-            "ad_copy": "The storyline moved this morning; the merch shelf did not. “10 LOVE WITH PLAYER AND GOLD 10” on a hoodie at $36.99. Angle: news reaction. Signal driving it: Green Bay Packers safety Xavier McKinney picks off Drake Maye's pass on opening drive and returns it for 36 yards - NFL.com Product: Jordan Love 10 Green Bay Hoodie (jordan love hoodie). Verify licensing and the live listing before promotion.",
+            "hook": "Everyone in the Green Bay Packers timeline is arguing about the same thing today. “JORDAN FREAKING LOVE” on a tee at $24.99.",
+            "ad_copy": "Everyone in the Green Bay Packers timeline is arguing about the same thing today. “JORDAN FREAKING LOVE” on a tee at $24.99. Angle: news reaction. Signal driving it: Packers LB Ty’Ron Hopper and RB Josh Jacobs Questionable to Return vs. Patriots Product: Jordan Freaking Love Shirt (jordan love shirt). Verify licensing and the live listing before promotion.",
             "captions": {
-              "instagram": "Locked in. The storyline moved this morning; the merch shelf did not. “10 LOVE WITH PLAYER AND GOLD 10” on a hoodie at $36.99. Why now: Green Bay Packers safety Xavier McKinney picks off Drake Maye's pass on opening drive and returns it for 36 yards - NFL.com Full details on the listing. #greenbaypackers #jordanlovehoodie #packers10sweatshirt",
-              "facebook": "The storyline moved this morning; the merch shelf did not. “10 LOVE WITH PLAYER AND GOLD 10” on a hoodie at $36.99. Context for Green Bay Packers fans: Green Bay Packers safety Xavier McKinney picks off Drake Maye's pass on opening drive and returns it for 36 yards - NFL.com It is a hoodie at $36.99 from the Green Bay Packers collection. Full details on the listing. https://gridironlocker.store/shop/limited-edition-grb31/",
-              "x": "The storyline moved this morning; the merch shelf did not. “10 LOVE WITH PLAYER AND GOLD 10” on a hoodie at $36.99. Green Bay Packers safety Xavier McKinney picks off Drake Maye's pass on opening drive and https://gridironlocker.store/shop/limited-edition-grb31/",
-              "tiktok": "Storytime, short version: The storyline moved this morning; the merch shelf did not. “10 LOVE WITH PLAYER AND GOLD 10” on a hoodie at $36.99. Script beat: React to the storyline that is moving right now. Show the print, then the fit, then the price.",
-              "pinterest": "Jordan Love 10 Green Bay Hoodie - jordan love hoodie idea for Green Bay Packers fans. React to the storyline that is moving right now. Hoodie at $36.99."
+              "instagram": "Read the shirt. Everyone in the Green Bay Packers timeline is arguing about the same thing today. “JORDAN FREAKING LOVE” on a tee at $24.99. Why now: Packers LB Ty’Ron Hopper and RB Josh Jacobs Questionable to Return vs. Patriots Link in bio for the listing. #greenbaypackers #jordanloveshirt #packersqbtee",
+              "facebook": "Everyone in the Green Bay Packers timeline is arguing about the same thing today. “JORDAN FREAKING LOVE” on a tee at $24.99. Context for Green Bay Packers fans: Packers LB Ty’Ron Hopper and RB Josh Jacobs Questionable to Return vs. Patriots It is a tee at $24.99 from the Green Bay Packers collection. Link in bio for the listing. https://gridironlocker.store/shop/limited-edition-grb30/",
+              "x": "Everyone in the Green Bay Packers timeline is arguing about the same thing today. “JORDAN FREAKING LOVE” on a tee at $24.99. Packers LB Ty’Ron Hopper and RB Josh Jacobs Questionable to Return vs. Patriots https://gridironlocker.store/shop/limited-edition-grb30/",
+              "tiktok": "POV: Everyone in the Green Bay Packers timeline is arguing about the same thing today. “JORDAN FREAKING LOVE” on a tee at $24.99. Script beat: React to the storyline that is moving right now. Show the print, then the fit, then the price.",
+              "pinterest": "Jordan Freaking Love Shirt - jordan love shirt idea for Green Bay Packers fans. React to the storyline that is moving right now. Tee at $24.99."
             },
             "pinterest": {
-              "title": "Jordan Love 10 Green Bay Hoodie: Jordan Love Hoodie",
-              "description": "News reaction pin for Green Bay Packers fans feeling disappointed. “10 LOVE WITH PLAYER AND GOLD 10” on a hoodie at $36.99. Use only after the product and licensing review.",
+              "title": "Jordan Freaking Love Shirt: Jordan Love Shirt",
+              "description": "News reaction pin for Green Bay Packers fans feeling worried. “JORDAN FREAKING LOVE” on a tee at $24.99. Use only after the product and licensing review.",
               "keywords": [
-                "jordan love hoodie",
-                "packers 10 sweatshirt",
-                "green bay qb hoodie",
+                "jordan love shirt",
+                "packers qb tee",
+                "green bay love shirt",
                 "Green Bay Packers game day outfit",
                 "football fan apparel"
               ]
@@ -424,40 +422,40 @@
           "team": "Dallas Cowboys",
           "trend": {
             "team": "dallas-cowboys",
-            "story": "Cowboys to host 49ers in Week 10 and tickets are starting at $318 - USA Today",
-            "emotion": "worried",
+            "story": "Cowboys rally late to beat Colts 27-23 on Javonte Williams TD",
+            "emotion": "confident",
             "stage": "ACCELERATING",
-            "signal_count": 28,
+            "signal_count": 8,
             "sources": [
               {
-                "source": "google_news",
-                "text": "Cowboys WR Pickens, CB Porter, LB Overshown inactive against Colts - ESPN",
-                "url": "https://news.google.com/rss/articles/CBMipwFBVV95cUxNQjF1UVBQNDZjR1djLV9HUUFJMlF6M3JfVDRzeWlwaVFtU0FSd2Q2aFZfWjdrVGRlRU5URXhvRmJRSUxET3dYX1Vlek5zQUlRVXZKeHlFb3p4TmYxTzQ0dFJmMHZCaDZULWFHNGpldTV2aHJjLXd2dW5qcExwR09hRDhrdU1aVXJkY3laUlFTQW1XTlhRaU5jT0lkenJqNXM3T0ZpdVZkRQ?oc=5"
+                "source": "repository_trend_snapshot",
+                "text": "Biggest takeaways from Dallas Cowboys' uninspiring Week 9 win over Colts",
+                "url": "http://www.bing.com/news/apiclick.aspx?ref=FexRss&aid=&tid=6af0f7f2ceb348fc95faf02e16a3e09e&url=https%3a%2f%2fwww.msn.com%2fen-us%2fnews%2fother%2fbiggest-takeaways-from-dallas-cowboys-uninspiring-week-9-win-over-colts%2far-AA2h1FsC&c=18032594066939625005&mkt=en-us"
               },
               {
-                "source": "google_news",
-                "text": "Cowboys rally late to avoid disaster vs. Colts after blowing lead, multiple second-half miscues - Yahoo Sports",
-                "url": "https://news.google.com/rss/articles/CBMiwAFBVV95cUxNUnVnQi1iTnJ2MFdOQzVVckxvMEJ0clhwRmpwNlFNRVIzSzhSZllfUm9DR3VNUzNhM0hMbWlXWDNoV2FpME56OGk2ZWlQODBnSC1NSVhKYWZUSVJkWWtGejRNVkE2REZ1Uk1OWmphUmpPUmNRRjRRa1lmb1ZvSGY0QnB1MlI4N3pvaVkyY20zTmNUQ0FIcTdhMGtyVEtOU0M2RzNrblIwLXN5XzJLdVBWbGcxSzRFQ215QnhLUThfUm8?oc=5"
+                "source": "repository_trend_snapshot",
+                "text": "Five thoughts from Cowboys-Colts: Dallas survives in another topsy-turvy effort",
+                "url": "http://www.bing.com/news/apiclick.aspx?ref=FexRss&aid=&tid=6af0f7f2ceb348fc95faf02e16a3e09e&url=https%3a%2f%2fwww.msn.com%2fen-us%2fsports%2ffootball%2ffive-thoughts-from-cowboys-colts-dallas-survives-in-another-topsy-turvy-effort%2far-AA2h1ShP&c=16574600219862588440&mkt=en-us"
               },
               {
-                "source": "google_news",
-                "text": "Colts announce 7 inactive players for Week 9 game against Dallas Cowboys - Colts.com",
-                "url": "https://news.google.com/rss/articles/CBMioAFBVV95cUxOS1RDSVc2eTNWeVRXYnhlOTNVQzB1WHdpcmM3T2ZLdTZzT2xQN2VMYkZYbGFHbzd5Sl94amRVOWZCSkk5UTFtSklmNWg4Uk1HUGdHOGY5LXhtc1FkcXVVZ0xRZ0sxVzc0ZkNMT2N0djFKOXYyM1A1YW1COUxyVWQ4UF9rM2lmNGdicGhpUXFsdHd4ZUc0UTVBdVhITFpXX0FR?oc=5"
+                "source": "repository_trend_snapshot",
+                "text": "Dallas Cowboys facing must-win, desperation game vs. Colts without George Pickens, Joey Porter",
+                "url": "http://www.bing.com/news/apiclick.aspx?ref=FexRss&aid=&tid=6af0f7f2ceb348fc95faf02e16a3e09e&url=https%3a%2f%2fsports.yahoo.com%2farticles%2fdallas-cowboys-facing-must-win-165703251.html&c=14800057465491851082&mkt=en-us"
               },
               {
-                "source": "google_news",
-                "text": "Cowboys to host 49ers in Week 10 and tickets are starting at $318 - USA Today",
-                "url": "https://news.google.com/rss/articles/CBMi0AFBVV95cUxNTnRZTGRIeDZacHJkQlpETWlKa2V3dHNyMVpzM0hqSERkaHZONmhxWUxNT0dpVXZWTHFTLXBBdWJsUUhMSGhTc3F2VG9xeVBNazRvaG5mVEFZbjh0eGRmNHNpalVIdTgwUklHZ1Q1TktxWEZTWm5RcTJrTW4wU0lvUTVUcXJ1TUt5RWtBQjFzUG1YS3MzV3E2dkkwU05KN0RLNE8wRkdpWm1lMjhkMDBwTEVBRmdMV0YxZHlVMkxxSUphZE5DWFlQMU04bjJLN1JL?oc=5"
+                "source": "repository_trend_snapshot",
+                "text": "Cowboys rally late to beat Colts 27-23 on Javonte Williams TD",
+                "url": "http://www.bing.com/news/apiclick.aspx?ref=FexRss&aid=&tid=6af0f7f2ceb348fc95faf02e16a3e09e&url=https%3a%2f%2fwww.cbssports.com%2fnfl%2fnews%2fcowboys-rally-late-to-beat-colts-27-23-on-javonte-williams-td%2f&c=10243329308214806460&mkt=en-us"
               },
               {
-                "source": "google_news",
-                "text": "Cowboys vs Colts live updates, timeline: Colts get long touchdown to stay in touch - IndyStar",
-                "url": "https://news.google.com/rss/articles/CBMizgFBVV95cUxQVUR3S29fSUFBQmtqVEVRN2ZZTXpkSUZ3c19IYThBcDJrOWxSaVEyVlJoUHExNFVrMUF3elkwUzFRWjRBMnlvTDU4OG02Yi1qTE5DUVZ3ZXBIWFgwMTlCTFhjX1c2bFFDYkNJemNCMjQ3NkpSbFE1XzFBY1MwZXpsVkRpSnVmU2d4NlM0RHlfQjZQTUk0M1VuZ2FXQUV3MVdLblVpTWRXQ3JjeEctZmM4b1lWWHMxcnVSeHBuSGRCSkJ0anFWZ3AyRzZYMWxWUQ?oc=5"
+                "source": "repository_trend_snapshot",
+                "text": "Javonte Williams’ late TD run helps Cowboys avoid another 4th-quarter collapse and beat Colts 27-23",
+                "url": "http://www.bing.com/news/apiclick.aspx?ref=FexRss&aid=&tid=6af0f7f2ceb348fc95faf02e16a3e09e&url=https%3a%2f%2fapnews.com%2farticle%2findianapolis-colts-dallas-cowboys-score-a0e32a4347e90b2d10ad2ac6e527c576&c=10893278684911430053&mkt=en-us"
               }
             ],
             "evidence": "public signal collector"
           },
-          "fan_emotion": "worried",
+          "fan_emotion": "confident",
           "creative_angle": "Outfit styling",
           "product_signal_score": 111.4,
           "copy": {
@@ -465,17 +463,17 @@
             "hook_template": "How {team} fans are actually dressing this season: {line}",
             "angle_label": "Outfit styling",
             "hook": "How Dallas Cowboys fans are actually dressing this season: “DALLAS FOOTBALL 1960 DALLAS” on a tee at $21.99.",
-            "ad_copy": "How Dallas Cowboys fans are actually dressing this season: “DALLAS FOOTBALL 1960 DALLAS” on a tee at $21.99. Angle: outfit styling. Signal driving it: Cowboys to host 49ers in Week 10 and tickets are starting at $318 - USA Today Product: Dallas Football 1960 Helmet Vintage Shirt (dallas 1960 shirt). Verify licensing and the live listing before promotion.",
+            "ad_copy": "How Dallas Cowboys fans are actually dressing this season: “DALLAS FOOTBALL 1960 DALLAS” on a tee at $21.99. Angle: outfit styling. Signal driving it: Cowboys rally late to beat Colts 27-23 on Javonte Williams TD Product: Dallas Football 1960 Helmet Vintage Shirt (dallas 1960 shirt). Verify licensing and the live listing before promotion.",
             "captions": {
-              "instagram": "Closet upgrade. How Dallas Cowboys fans are actually dressing this season: “DALLAS FOOTBALL 1960 DALLAS” on a tee at $21.99. Why now: Cowboys to host 49ers in Week 10 and tickets are starting at $318 - USA Today Tap through to the product page. #dallascowboys #dallas1960shirt #vintagedallasfootballtee",
-              "facebook": "How Dallas Cowboys fans are actually dressing this season: “DALLAS FOOTBALL 1960 DALLAS” on a tee at $21.99. Context for Dallas Cowboys fans: Cowboys to host 49ers in Week 10 and tickets are starting at $318 - USA Today It is a tee at $21.99 from the Dallas Cowboys collection. Tap through to the product page. https://gridironlocker.store/shop/dallas-football-vintage-athletic-style-f/",
-              "x": "How Dallas Cowboys fans are actually dressing this season: “DALLAS FOOTBALL 1960 DALLAS” on a tee at $21.99. Cowboys to host 49ers in Week 10 and tickets are starting at $318 - USA Today https://gridironlocker.store/shop/dallas-football-vintage-athletic-style-f/",
-              "tiktok": "Fit check: How Dallas Cowboys fans are actually dressing this season: “DALLAS FOOTBALL 1960 DALLAS” on a tee at $21.99. Script beat: Show how the piece is worn, not just what it says. Show the print, then the fit, then the price.",
+              "instagram": "Read the shirt. How Dallas Cowboys fans are actually dressing this season: “DALLAS FOOTBALL 1960 DALLAS” on a tee at $21.99. Why now: Cowboys rally late to beat Colts 27-23 on Javonte Williams TD Link in bio for the listing. #dallascowboys #dallas1960shirt #vintagedallasfootballtee",
+              "facebook": "How Dallas Cowboys fans are actually dressing this season: “DALLAS FOOTBALL 1960 DALLAS” on a tee at $21.99. Context for Dallas Cowboys fans: Cowboys rally late to beat Colts 27-23 on Javonte Williams TD It is a tee at $21.99 from the Dallas Cowboys collection. Link in bio for the listing. https://gridironlocker.store/shop/dallas-football-vintage-athletic-style-f/",
+              "x": "How Dallas Cowboys fans are actually dressing this season: “DALLAS FOOTBALL 1960 DALLAS” on a tee at $21.99. Cowboys rally late to beat Colts 27-23 on Javonte Williams TD https://gridironlocker.store/shop/dallas-football-vintage-athletic-style-f/",
+              "tiktok": "POV: How Dallas Cowboys fans are actually dressing this season: “DALLAS FOOTBALL 1960 DALLAS” on a tee at $21.99. Script beat: Show how the piece is worn, not just what it says. Show the print, then the fit, then the price.",
               "pinterest": "Dallas Football 1960 Helmet Vintage Shirt - dallas 1960 shirt idea for Dallas Cowboys fans. Show how the piece is worn, not just what it says. Tee at $21.99."
             },
             "pinterest": {
               "title": "Dallas Football 1960 Helmet Vintage Shirt: Dallas 1960 Shirt",
-              "description": "Outfit styling pin for Dallas Cowboys fans feeling worried. “DALLAS FOOTBALL 1960 DALLAS” on a tee at $21.99. Use only after the product and licensing review.",
+              "description": "Outfit styling pin for Dallas Cowboys fans feeling confident. “DALLAS FOOTBALL 1960 DALLAS” on a tee at $21.99. Use only after the product and licensing review.",
               "keywords": [
                 "dallas 1960 shirt",
                 "vintage dallas football tee",
@@ -509,53 +507,53 @@
           "team": "Cleveland Browns",
           "trend": {
             "team": "cleveland-browns",
-            "story": "Cleveland Browns vs. New Orleans Saints NFL Week 9 Live Updates, Highlights and Analysis - Bleacher Report",
+            "story": "Saints hold on for a 23-22 overtime victory over the Browns by stopping a 2-point conversion",
             "emotion": "confident",
             "stage": "ACCELERATING",
-            "signal_count": 28,
+            "signal_count": 8,
             "sources": [
               {
-                "source": "google_news",
-                "text": "Terry’s Talkin’ Browns, Guardians & Cavs TV – Terry Pluto - Cleveland.com",
-                "url": "https://news.google.com/rss/articles/CBMinAFBVV95cUxOUzRaV1JVS3RvVkljdmZBYURFN2YweHUwZW1fSTNVem44cXdSNnFBYU9mQ2xvQVpkSjZ6ZkZrY0lRMFJYaGpiN3ZwOU5nV0ZYY3BKTFZpMGRuQndTQVp6cER4RzFfZXdkNE1HanVGQlJUeUplbWhES0dWcC1BTmZlUTFBakl6eE5DQjA1V0dZbE9sZ2duQkZJV0M3S3Q?oc=5"
+                "source": "repository_trend_snapshot",
+                "text": "Cleveland Browns vs. New Orleans Saints recap: Shedeur Sanders comes close, but can’t get the final play in overtime",
+                "url": "http://www.bing.com/news/apiclick.aspx?ref=FexRss&aid=&tid=6af0f771f6334e3bbf892df597497e01&url=https%3a%2f%2fwww.msn.com%2fen-us%2fnews%2fother%2fcleveland-browns-vs-new-orleans-saints-recap-shedeur-sanders-comes-close-but-cant-get-the-final-play-in-overtime%2far-AA2h1qNE&c=4465618030498827259&mkt=en-us"
               },
               {
-                "source": "google_news",
-                "text": "Inactives | Saints vs Browns | 2026 NFL Week 9 - New Orleans Saints | NewOrleansSaints.com",
-                "url": "https://news.google.com/rss/articles/CBMioAFBVV95cUxQRjdsY1hfRW1Jdjl0RUJCUmVTell3Si1yS213b1dOVlVVOU9VZ1JsemhrMnpLcTNqRkUyM0xGOEE4ekwxcV93WUh3ajhoUzZ2bUxjYk5KWTA1UDdZcUMwMTY3bTFFUkVvZjFEYTNnTFVwS3BJN29qYVAxdmdfSU0ycE5sRHgwVW54dzhveHE2bThidmdtOHJaQm55cjk2c2df?oc=5"
+                "source": "repository_trend_snapshot",
+                "text": "Cleveland Browns vs. New Orleans Saints NFL Week 9 Live Updates, Highlights and Analysis",
+                "url": "http://www.bing.com/news/apiclick.aspx?ref=FexRss&aid=&tid=6af0f771f6334e3bbf892df597497e01&url=https%3a%2f%2fbleacherreport.com%2fliveblogs%2f25530665-cleveland-browns-vs-new-orleans-saints-nfl-week-9-live-updates-highlights-and-analysis&c=5919587842271165815&mkt=en-us"
               },
               {
-                "source": "google_news",
-                "text": "Cleveland Browns vs. New Orleans Saints NFL Week 9 Live Updates, Highlights and Analysis - Bleacher Report",
-                "url": "https://news.google.com/rss/articles/CBMizAFBVV95cUxOVGpaR24ySVMwOWpHaENwWVdzVlBGNThTOEhHdVo4YS1MRUI2dWVmZy1HVV9BSlc0WlJJZTdiRGZUdmh5M1NyMG5qYUtaVDh5bjYyQjhFSElhTHhaYzJMLUZIcGpIOTE0SHI3NmhxQXIyWEk0c2RTaGJOdlQ3VmxFQXdzY2VySXRsUXdRX2ZveWZ2c0hPS1lIMHRObkp5S3JJWFFYLTlPRHdSWFpNQloxMklCNDBad3BiMTZ0U2xpaHhRdjE5QlFHYjY2S24?oc=5"
+                "source": "repository_trend_snapshot",
+                "text": "Saints hold on for a 23-22 overtime victory over the Browns by stopping a 2-point conversion",
+                "url": "http://www.bing.com/news/apiclick.aspx?ref=FexRss&aid=&tid=6af0f771f6334e3bbf892df597497e01&url=https%3a%2f%2fwww.msn.com%2fen-us%2fsports%2ffootball%2fsaints-hold-on-for-a-23-22-overtime-victory-over-the-browns-by-stopping-a-2-point-conversion%2far-AA2h1r01&c=14097464038124103914&mkt=en-us"
               },
               {
-                "source": "google_news",
-                "text": "Myles Garrett Just Made Browns’ Jared Verse Look Even Worse - Heavy.com",
-                "url": "https://news.google.com/rss/articles/CBMimAFBVV95cUxOSDNNb2hrVm9RRGJSUFBmd05nbGwtMjB0dHFxdGhwUzdCZExvbW5SZGZHMU9WUTNZbVIwV2dXQTlnVGF1ckN6QVU4X2RUYUVGR0xCSzFvT1Zfam1vUE1RUE1FNlNjS0dnMExhZmlUbE1TdVVYSEFDRzROU3c3OVVkTWN3cVh6bzlDUzI0N1Q2OWU5d0x3RGY0bw?oc=5"
+                "source": "repository_trend_snapshot",
+                "text": "Game Recap: New Orleans Saints 23, Cleveland Browns 22, overtime | 2026 NFL Week 9",
+                "url": "http://www.bing.com/news/apiclick.aspx?ref=FexRss&aid=&tid=6af0f771f6334e3bbf892df597497e01&url=https%3a%2f%2fwww.neworleanssaints.com%2fnews%2fcleveland-browns-new-orleans-saints-2026-nfl-week-9-game-recap&c=10131176726381271955&mkt=en-us"
               },
               {
-                "source": "google_news",
-                "text": "Saints vs. Browns live updates: Score, highlights, instant analysis - Saints Wire",
-                "url": "https://news.google.com/rss/articles/CBMiwwFBVV95cUxOQ3k4VGhaNm9Ta3VEXy1EQ2UtMl9wTnpPdi14dFd4eGpiRVpYRG9LeDMtdHZjRk5VYWVRVlVndUNQajFEZV9vNW5OOG1CblVFNWJTWWJ2aGZ3b1RyUlEzVjdaeERnemRkd0FiNlAwYWpEU2RzeVpqRGxyUThRR3RlSHNpdFNLX1NBSHRMa0JXWE56Y3FZZTBMV2tnSlZrR29QVUU3M3RzRnBfM3NyV3lOV2tSSmNEbjdVOXlfZVpKdXFWWVE?oc=5"
+                "source": "repository_trend_snapshot",
+                "text": "Saints stop Browns on 2-point try to seal 23-22 OT win",
+                "url": "http://www.bing.com/news/apiclick.aspx?ref=FexRss&aid=&tid=6af0f771f6334e3bbf892df597497e01&url=https%3a%2f%2fwww.cbssports.com%2fnfl%2fnews%2fsaints-stop-browns-on-2-point-try-to-seal-23-22-ot-win%2f&c=6238628483965998904&mkt=en-us"
               }
             ],
             "evidence": "public signal collector"
           },
           "fan_emotion": "confident",
           "creative_angle": "Fan identity statement",
-          "product_signal_score": 156.4,
+          "product_signal_score": 155.6,
           "copy": {
             "angle": "identity",
-            "hook_template": "You can spot a real {team} fan before kickoff. {line}",
+            "hook_template": "{team} fandom is not a costume - it is a wardrobe decision. {line}",
             "angle_label": "Fan identity statement",
-            "hook": "You can spot a real Cleveland Browns fan before kickoff. “SANDERS QB 12 SIGNATURE” on a tee at $22.99.",
-            "ad_copy": "You can spot a real Cleveland Browns fan before kickoff. “SANDERS QB 12 SIGNATURE” on a tee at $22.99. Angle: fan identity statement. Signal driving it: Cleveland Browns vs. New Orleans Saints NFL Week 9 Live Updates, Highlights and Analysis - Bleacher Report Product: Sanders QB Signature White Shirt (sanders white tee). Verify licensing and the live listing before promotion.",
+            "hook": "Cleveland Browns fandom is not a costume - it is a wardrobe decision. “SANDERS QB 12 SIGNATURE” on a tee at $22.99.",
+            "ad_copy": "Cleveland Browns fandom is not a costume - it is a wardrobe decision. “SANDERS QB 12 SIGNATURE” on a tee at $22.99. Angle: fan identity statement. Signal driving it: Saints hold on for a 23-22 overtime victory over the Browns by stopping a 2-point conversion Product: Sanders QB Signature White Shirt (sanders white tee). Verify licensing and the live listing before promotion.",
             "captions": {
-              "instagram": "Read the shirt. You can spot a real Cleveland Browns fan before kickoff. “SANDERS QB 12 SIGNATURE” on a tee at $22.99. Why now: Cleveland Browns vs. New Orleans Saints NFL Week 9 Live Updates, Highlights and Analysis - Bleacher Report Link in bio for the listing. #clevelandbrowns #sanderswhitetee #brownsquarterbackshirt",
-              "facebook": "You can spot a real Cleveland Browns fan before kickoff. “SANDERS QB 12 SIGNATURE” on a tee at $22.99. Context for Cleveland Browns fans: Cleveland Browns vs. New Orleans Saints NFL Week 9 Live Updates, Highlights and Analysis - Bleacher Report It is a tee at $22.99 from the Cleveland Browns collection. Link in bio for the listing. https://gridironlocker.store/shop/sanders-special-edition/",
-              "x": "You can spot a real Cleveland Browns fan before kickoff. “SANDERS QB 12 SIGNATURE” on a tee at $22.99. Cleveland Browns vs. New Orleans Saints NFL Week 9 Live Updates, Highlights and Analysis - https://gridironlocker.store/shop/sanders-special-edition/",
-              "tiktok": "POV: You can spot a real Cleveland Browns fan before kickoff. “SANDERS QB 12 SIGNATURE” on a tee at $22.99. Script beat: Say who you root for before you say a word. Show the print, then the fit, then the price.",
+              "instagram": "Read the shirt. Cleveland Browns fandom is not a costume - it is a wardrobe decision. “SANDERS QB 12 SIGNATURE” on a tee at $22.99. Why now: Saints hold on for a 23-22 overtime victory over the Browns by stopping a 2-point conversion Link in bio for the listing. #clevelandbrowns #sanderswhitetee #brownsquarterbackshirt",
+              "facebook": "Cleveland Browns fandom is not a costume - it is a wardrobe decision. “SANDERS QB 12 SIGNATURE” on a tee at $22.99. Context for Cleveland Browns fans: Saints hold on for a 23-22 overtime victory over the Browns by stopping a 2-point conversion It is a tee at $22.99 from the Cleveland Browns collection. Link in bio for the listing. https://gridironlocker.store/shop/sanders-special-edition/",
+              "x": "Cleveland Browns fandom is not a costume - it is a wardrobe decision. “SANDERS QB 12 SIGNATURE” on a tee at $22.99. Saints hold on for a 23-22 overtime victory over the Browns by stopping a 2-point conversi https://gridironlocker.store/shop/sanders-special-edition/",
+              "tiktok": "POV: Cleveland Browns fandom is not a costume - it is a wardrobe decision. “SANDERS QB 12 SIGNATURE” on a tee at $22.99. Script beat: Say who you root for before you say a word. Show the print, then the fit, then the price.",
               "pinterest": "Sanders QB Signature White Shirt - sanders white tee idea for Cleveland Browns fans. Say who you root for before you say a word. Tee at $22.99."
             },
             "pinterest": {
@@ -582,68 +580,68 @@
           }
         },
         {
-          "product": "Jordan Freaking Love Shirt",
-          "slug": "limited-edition-grb30",
-          "product_url": "https://gridironlocker.store/shop/limited-edition-grb30/",
+          "product": "Jordan Love 10 Flag Number Shirt",
+          "slug": "limited-edition-grb36",
+          "product_url": "https://gridironlocker.store/shop/limited-edition-grb36/",
           "team": "Green Bay Packers",
           "trend": {
             "team": "green-bay-packers",
-            "story": "Packers vs Vikings is Week 10's most expensive NFL ticket - USA Today",
-            "emotion": "disappointed",
+            "story": "Packers’ Jordan Love Hits Milestone Against Patriots That’s More Than ‘Cool’",
+            "emotion": "worried",
             "stage": "ACCELERATING",
-            "signal_count": 28,
+            "signal_count": 8,
             "sources": [
               {
-                "source": "google_news",
-                "text": "Packers vs. Patriots Live Updates, Score: Green Bay In Control - FOX Sports",
-                "url": "https://news.google.com/rss/articles/CBMihAFBVV95cUxQdVRQdDEyU3JRMGpkeUJHdnFHNVI5Y3diWTV6aGFmdkdzOW0zaFlUTXZLVXl3NkRWVTM4Ui1hOGtuNGJIeGt0SkU4YU5sVDdMSV9KcUpjbV9WajBDUnJZR3JVaWE4eWQ0SllRblFjQnNKUklDbkVfalRvb1R6YzliWHRWenc?oc=5"
+                "source": "repository_trend_snapshot",
+                "text": "Patriots vs. Packers live coverage: Tom Brady greets Drake Maye ahead of test vs. Green Bay",
+                "url": "http://www.bing.com/news/apiclick.aspx?ref=FexRss&aid=&tid=6af0f7c7b13f41988700f58ea87e1815&url=https%3a%2f%2fwww.msn.com%2fen-us%2fnews%2fother%2fpatriots-vs-packers-live-coverage-tom-brady-greets-drake-maye-ahead-of-test-vs-green-bay%2far-AA2h1dW4&c=5157659641759941392&mkt=en-us"
               },
               {
-                "source": "google_news",
-                "text": "Packers vs. Patriots score, live updates: A.J. Brown, TreVeyon Henderson out for New England as Jordan Love, Drake Maye face off in Week 9 - Yahoo Sports",
-                "url": "https://news.google.com/rss/articles/CBMixgFBVV95cUxPT001eGpYRG9WTXBMMzZTdnpCNzJJalNNRkVSR2JOazFCZ2taSno4R195Z1FBd2R0NHJNZTBMdUVxdnB4TkQyV1RNbGFXX3U1OU83VmV0SFh0b01iSk1EWEs4alRqZWhZWi1SU1BUNjJ4dzRIOEtqNklLb0NJdmVqWHdybkQ5WC1ZSUxiVDk4QXhxOVBMZXIyQjRIaTBiRVpoYmNQcW5QM3lvdHdyemlVNlFqLXVWWWZNc2VJbU8zamxjT0ZxWlE?oc=5"
+                "source": "repository_trend_snapshot",
+                "text": "Patriots vs. Packers live updates: Two playoff hopefuls meet in Week 9",
+                "url": "http://www.bing.com/news/apiclick.aspx?ref=FexRss&aid=&tid=6af0f7c7b13f41988700f58ea87e1815&url=https%3a%2f%2fwww.cbssports.com%2fnfl%2fnews%2fpatriots-vs-packers-live-updates-score-highlights%2flive%2f&c=6338397080755025148&mkt=en-us"
               },
               {
-                "source": "google_news",
-                "text": "Green Bay Packers safety Xavier McKinney picks off Drake Maye's pass on opening drive and returns it for 36 yards - NFL.com",
-                "url": "https://news.google.com/rss/articles/CBMitgFBVV95cUxOZ0F0YTRIVG5ESmZ0cVM1YTl2Zi1LRjl1RHVsVm85NmxIb01tc29ISzFCRlJPMjlzb3VBbDVDdFdweVZnZkVZeklNVUJGM3F1bC1SeHlZbW41MjUzLUd4dUpOQVk3MEhGN1RyWVE1VS0xSGd4ZFVtanVQVHdTSTdjc2F1dHRITGtXbjVjNURpckt4bE9yQVl2SF9VU09Ybm5zRkp6blFLRzFJdE1JRmFWcWwxQnhFdw?oc=5"
+                "source": "repository_trend_snapshot",
+                "text": "Packers LB Ty’Ron Hopper and RB Josh Jacobs Questionable to Return vs. Patriots",
+                "url": "http://www.bing.com/news/apiclick.aspx?ref=FexRss&aid=&tid=6af0f7c7b13f41988700f58ea87e1815&url=https%3a%2f%2fathlonsports.com%2fnfl%2fgreen-bay-packers%2fpackers-lb-tyron-hopper-and-rb-josh-jacobs-questionable-to-return-vs-patriots&c=8963483294072006371&mkt=en-us"
               },
               {
-                "source": "google_news",
-                "text": "Packers vs Vikings is Week 10's most expensive NFL ticket - USA Today",
-                "url": "https://news.google.com/rss/articles/CBMiswFBVV95cUxOcEZ6WlRiSk9sQkpCOHBXcVlfR3ZUWEVVNEpKMU5PUF85OHkwWExtMFFpdWtVYXlpOW1URnBSeksxdXhTZDhlVmRlU0NxWXdmTmV0UjRXTDdyX0ZUTHNmOHNZaGtDSmVPMy1KZ2Z6V2FnUUlvYTMtSGZ4Q2p4Y1VZWXZ0LWc5UzVtTTBpRXZXLThudEljanZRSmtCQ1NBb0Fwc1ozRTZFY0VrNmNjbWtJMTl4dw?oc=5"
+                "source": "repository_trend_snapshot",
+                "text": "Packers’ Jordan Love Hits Milestone Against Patriots That’s More Than ‘Cool’",
+                "url": "http://www.bing.com/news/apiclick.aspx?ref=FexRss&aid=&tid=6af0f7c7b13f41988700f58ea87e1815&url=https%3a%2f%2fwww.msn.com%2fen-us%2fnews%2fother%2fpackers-jordan-love-hits-milestone-against-patriots-that-s-more-than-cool%2far-AA2h195N&c=8315154707945627647&mkt=en-us"
               },
               {
-                "source": "google_news",
-                "text": "Packers’ Jordan Love Hits Milestone Against Patriots That’s More Than ‘Cool’ - Sports Illustrated",
-                "url": "https://news.google.com/rss/articles/CBMirAFBVV95cUxNM29uaWN3Vy1NRGF4bXhPNTFhWXhWRE9lVkY5ZnpBd3k1eUI5b29Ybjl1Q2tJNXN5QS10enB0MEY0aC1ISnRwSGhaYmpTWlZjY1k3MjZscWx1WGtRSG5FRWp4YURZekR4VDRkRndXMlQxd1dqVUlkVVRnbTR4bURmMElkS1JIbFVITk96VVdJSUJhZC1JU0hzcnNrcXRKUEJoOC1KWVFINzQtSVhF?oc=5"
+                "source": "repository_trend_snapshot",
+                "text": "Josh Jacobs suffers injury amid Packers’ hot start vs. Patriots",
+                "url": "http://www.bing.com/news/apiclick.aspx?ref=FexRss&aid=&tid=6af0f7c7b13f41988700f58ea87e1815&url=https%3a%2f%2fclutchpoints.com%2fnfl%2fgreen-bay-packers%2fpackers-news-josh-jacobs-suffers-injury-hot-start-patriots&c=13983191127984400340&mkt=en-us"
               }
             ],
             "evidence": "public signal collector"
           },
-          "fan_emotion": "disappointed",
+          "fan_emotion": "worried",
           "creative_angle": "News reaction",
-          "product_signal_score": 143.4,
+          "product_signal_score": 119.3,
           "copy": {
             "angle": "news_react",
-            "hook_template": "One headline, one {team} reaction piece: {line}",
+            "hook_template": "The storyline moved this morning; the merch shelf did not. {line}",
             "angle_label": "News reaction",
-            "hook": "One headline, one Green Bay Packers reaction piece: “JORDAN FREAKING LOVE” on a tee at $24.99.",
-            "ad_copy": "One headline, one Green Bay Packers reaction piece: “JORDAN FREAKING LOVE” on a tee at $24.99. Angle: news reaction. Signal driving it: Packers vs Vikings is Week 10's most expensive NFL ticket - USA Today Product: Jordan Freaking Love Shirt (jordan love shirt). Verify licensing and the live listing before promotion.",
+            "hook": "The storyline moved this morning; the merch shelf did not. “PLAYER WITH A STARS AND STRIPES NUMBER 10” on a tee at $24.99.",
+            "ad_copy": "The storyline moved this morning; the merch shelf did not. “PLAYER WITH A STARS AND STRIPES NUMBER 10” on a tee at $24.99. Angle: news reaction. Signal driving it: Packers’ Jordan Love Hits Milestone Against Patriots That’s More Than ‘Cool’ Product: Jordan Love 10 Flag Number Shirt (jordan love flag shirt). Verify licensing and the live listing before promotion.",
             "captions": {
-              "instagram": "Closet upgrade. One headline, one Green Bay Packers reaction piece: “JORDAN FREAKING LOVE” on a tee at $24.99. Why now: Packers vs Vikings is Week 10's most expensive NFL ticket - USA Today Tap through to the product page. #greenbaypackers #jordanloveshirt #packersqbtee",
-              "facebook": "One headline, one Green Bay Packers reaction piece: “JORDAN FREAKING LOVE” on a tee at $24.99. Context for Green Bay Packers fans: Packers vs Vikings is Week 10's most expensive NFL ticket - USA Today It is a tee at $24.99 from the Green Bay Packers collection. Tap through to the product page. https://gridironlocker.store/shop/limited-edition-grb30/",
-              "x": "One headline, one Green Bay Packers reaction piece: “JORDAN FREAKING LOVE” on a tee at $24.99. Packers vs Vikings is Week 10's most expensive NFL ticket - USA Today https://gridironlocker.store/shop/limited-edition-grb30/",
-              "tiktok": "Fit check: One headline, one Green Bay Packers reaction piece: “JORDAN FREAKING LOVE” on a tee at $24.99. Script beat: React to the storyline that is moving right now. Show the print, then the fit, then the price.",
-              "pinterest": "Jordan Freaking Love Shirt - jordan love shirt idea for Green Bay Packers fans. React to the storyline that is moving right now. Tee at $24.99."
+              "instagram": "Locked in. The storyline moved this morning; the merch shelf did not. “PLAYER WITH A STARS AND STRIPES NUMBER 10” on a tee at $24.99. Why now: Packers’ Jordan Love Hits Milestone Against Patriots That’s More Than ‘Cool’ Full details on the listing. #greenbaypackers #jordanloveflagshirt #packers10tee",
+              "facebook": "The storyline moved this morning; the merch shelf did not. “PLAYER WITH A STARS AND STRIPES NUMBER 10” on a tee at $24.99. Context for Green Bay Packers fans: Packers’ Jordan Love Hits Milestone Against Patriots That’s More Than ‘Cool’ It is a tee at $24.99 from the Green Bay Packers collection. Full details on the listing. https://gridironlocker.store/shop/limited-edition-grb36/",
+              "x": "The storyline moved this morning; the merch shelf did not. “PLAYER WITH A STARS AND STRIPES NUMBER 10” on a tee at $24.99. Packers’ Jordan Love Hits Milestone Against Patriots That’s More Than ‘Cool’ https://gridironlocker.store/shop/limited-edition-grb36/",
+              "tiktok": "Storytime, short version: The storyline moved this morning; the merch shelf did not. “PLAYER WITH A STARS AND STRIPES NUMBER 10” on a tee at $24.99. Script beat: React to the storyline that is moving right now. Show the print, then the fit, then the price.",
+              "pinterest": "Jordan Love 10 Flag Number Shirt - jordan love flag shirt idea for Green Bay Packers fans. React to the storyline that is moving right now. Tee at $24.99."
             },
             "pinterest": {
-              "title": "Jordan Freaking Love Shirt: Jordan Love Shirt",
-              "description": "News reaction pin for Green Bay Packers fans feeling disappointed. “JORDAN FREAKING LOVE” on a tee at $24.99. Use only after the product and licensing review.",
+              "title": "Jordan Love 10 Flag Number Shirt: Jordan Love Flag Shirt",
+              "description": "News reaction pin for Green Bay Packers fans feeling worried. “PLAYER WITH A STARS AND STRIPES NUMBER 10” on a tee at $24.99. Use only after the product and licensing review.",
               "keywords": [
-                "jordan love shirt",
-                "packers qb tee",
-                "green bay love shirt",
+                "jordan love flag shirt",
+                "packers 10 tee",
+                "green bay patriotic shirt",
                 "Green Bay Packers game day outfit",
                 "football fan apparel"
               ]
@@ -667,58 +665,58 @@
           "team": "Dallas Cowboys",
           "trend": {
             "team": "dallas-cowboys",
-            "story": "Cowboys vs Colts live updates, timeline: Colts get long touchdown to stay in touch - IndyStar",
-            "emotion": "worried",
+            "story": "Javonte Williams’ late TD run helps Cowboys avoid another 4th-quarter collapse and beat Colts 27-23",
+            "emotion": "confident",
             "stage": "ACCELERATING",
-            "signal_count": 28,
+            "signal_count": 8,
             "sources": [
               {
-                "source": "google_news",
-                "text": "Cowboys WR Pickens, CB Porter, LB Overshown inactive against Colts - ESPN",
-                "url": "https://news.google.com/rss/articles/CBMipwFBVV95cUxNQjF1UVBQNDZjR1djLV9HUUFJMlF6M3JfVDRzeWlwaVFtU0FSd2Q2aFZfWjdrVGRlRU5URXhvRmJRSUxET3dYX1Vlek5zQUlRVXZKeHlFb3p4TmYxTzQ0dFJmMHZCaDZULWFHNGpldTV2aHJjLXd2dW5qcExwR09hRDhrdU1aVXJkY3laUlFTQW1XTlhRaU5jT0lkenJqNXM3T0ZpdVZkRQ?oc=5"
+                "source": "repository_trend_snapshot",
+                "text": "Biggest takeaways from Dallas Cowboys' uninspiring Week 9 win over Colts",
+                "url": "http://www.bing.com/news/apiclick.aspx?ref=FexRss&aid=&tid=6af0f7f2ceb348fc95faf02e16a3e09e&url=https%3a%2f%2fwww.msn.com%2fen-us%2fnews%2fother%2fbiggest-takeaways-from-dallas-cowboys-uninspiring-week-9-win-over-colts%2far-AA2h1FsC&c=18032594066939625005&mkt=en-us"
               },
               {
-                "source": "google_news",
-                "text": "Cowboys rally late to avoid disaster vs. Colts after blowing lead, multiple second-half miscues - Yahoo Sports",
-                "url": "https://news.google.com/rss/articles/CBMiwAFBVV95cUxNUnVnQi1iTnJ2MFdOQzVVckxvMEJ0clhwRmpwNlFNRVIzSzhSZllfUm9DR3VNUzNhM0hMbWlXWDNoV2FpME56OGk2ZWlQODBnSC1NSVhKYWZUSVJkWWtGejRNVkE2REZ1Uk1OWmphUmpPUmNRRjRRa1lmb1ZvSGY0QnB1MlI4N3pvaVkyY20zTmNUQ0FIcTdhMGtyVEtOU0M2RzNrblIwLXN5XzJLdVBWbGcxSzRFQ215QnhLUThfUm8?oc=5"
+                "source": "repository_trend_snapshot",
+                "text": "Five thoughts from Cowboys-Colts: Dallas survives in another topsy-turvy effort",
+                "url": "http://www.bing.com/news/apiclick.aspx?ref=FexRss&aid=&tid=6af0f7f2ceb348fc95faf02e16a3e09e&url=https%3a%2f%2fwww.msn.com%2fen-us%2fsports%2ffootball%2ffive-thoughts-from-cowboys-colts-dallas-survives-in-another-topsy-turvy-effort%2far-AA2h1ShP&c=16574600219862588440&mkt=en-us"
               },
               {
-                "source": "google_news",
-                "text": "Colts announce 7 inactive players for Week 9 game against Dallas Cowboys - Colts.com",
-                "url": "https://news.google.com/rss/articles/CBMioAFBVV95cUxOS1RDSVc2eTNWeVRXYnhlOTNVQzB1WHdpcmM3T2ZLdTZzT2xQN2VMYkZYbGFHbzd5Sl94amRVOWZCSkk5UTFtSklmNWg4Uk1HUGdHOGY5LXhtc1FkcXVVZ0xRZ0sxVzc0ZkNMT2N0djFKOXYyM1A1YW1COUxyVWQ4UF9rM2lmNGdicGhpUXFsdHd4ZUc0UTVBdVhITFpXX0FR?oc=5"
+                "source": "repository_trend_snapshot",
+                "text": "Dallas Cowboys facing must-win, desperation game vs. Colts without George Pickens, Joey Porter",
+                "url": "http://www.bing.com/news/apiclick.aspx?ref=FexRss&aid=&tid=6af0f7f2ceb348fc95faf02e16a3e09e&url=https%3a%2f%2fsports.yahoo.com%2farticles%2fdallas-cowboys-facing-must-win-165703251.html&c=14800057465491851082&mkt=en-us"
               },
               {
-                "source": "google_news",
-                "text": "Cowboys to host 49ers in Week 10 and tickets are starting at $318 - USA Today",
-                "url": "https://news.google.com/rss/articles/CBMi0AFBVV95cUxNTnRZTGRIeDZacHJkQlpETWlKa2V3dHNyMVpzM0hqSERkaHZONmhxWUxNT0dpVXZWTHFTLXBBdWJsUUhMSGhTc3F2VG9xeVBNazRvaG5mVEFZbjh0eGRmNHNpalVIdTgwUklHZ1Q1TktxWEZTWm5RcTJrTW4wU0lvUTVUcXJ1TUt5RWtBQjFzUG1YS3MzV3E2dkkwU05KN0RLNE8wRkdpWm1lMjhkMDBwTEVBRmdMV0YxZHlVMkxxSUphZE5DWFlQMU04bjJLN1JL?oc=5"
+                "source": "repository_trend_snapshot",
+                "text": "Cowboys rally late to beat Colts 27-23 on Javonte Williams TD",
+                "url": "http://www.bing.com/news/apiclick.aspx?ref=FexRss&aid=&tid=6af0f7f2ceb348fc95faf02e16a3e09e&url=https%3a%2f%2fwww.cbssports.com%2fnfl%2fnews%2fcowboys-rally-late-to-beat-colts-27-23-on-javonte-williams-td%2f&c=10243329308214806460&mkt=en-us"
               },
               {
-                "source": "google_news",
-                "text": "Cowboys vs Colts live updates, timeline: Colts get long touchdown to stay in touch - IndyStar",
-                "url": "https://news.google.com/rss/articles/CBMizgFBVV95cUxQVUR3S29fSUFBQmtqVEVRN2ZZTXpkSUZ3c19IYThBcDJrOWxSaVEyVlJoUHExNFVrMUF3elkwUzFRWjRBMnlvTDU4OG02Yi1qTE5DUVZ3ZXBIWFgwMTlCTFhjX1c2bFFDYkNJemNCMjQ3NkpSbFE1XzFBY1MwZXpsVkRpSnVmU2d4NlM0RHlfQjZQTUk0M1VuZ2FXQUV3MVdLblVpTWRXQ3JjeEctZmM4b1lWWHMxcnVSeHBuSGRCSkJ0anFWZ3AyRzZYMWxWUQ?oc=5"
+                "source": "repository_trend_snapshot",
+                "text": "Javonte Williams’ late TD run helps Cowboys avoid another 4th-quarter collapse and beat Colts 27-23",
+                "url": "http://www.bing.com/news/apiclick.aspx?ref=FexRss&aid=&tid=6af0f7f2ceb348fc95faf02e16a3e09e&url=https%3a%2f%2fapnews.com%2farticle%2findianapolis-colts-dallas-cowboys-score-a0e32a4347e90b2d10ad2ac6e527c576&c=10893278684911430053&mkt=en-us"
               }
             ],
             "evidence": "public signal collector"
           },
-          "fan_emotion": "worried",
-          "creative_angle": "Throwback / heritage",
+          "fan_emotion": "confident",
+          "creative_angle": "Outfit styling",
           "product_signal_score": 111.4,
           "copy": {
-            "angle": "throwback",
-            "hook_template": "Fans keep bringing up the old {team} era, so here it is on cotton. {line}",
-            "angle_label": "Throwback / heritage",
-            "hook": "Fans keep bringing up the old Dallas Cowboys era, so here it is on cotton. “DALLAS 1960 FOOTBALL WITH RETRO HELMET” on a tee at $21.99.",
-            "ad_copy": "Fans keep bringing up the old Dallas Cowboys era, so here it is on cotton. “DALLAS 1960 FOOTBALL WITH RETRO HELMET” on a tee at $21.99. Angle: throwback / heritage. Signal driving it: Cowboys vs Colts live updates, timeline: Colts get long touchdown to stay in touch - IndyStar Product: Dallas 1960 Football Helmet White Shirt (dallas white tee). Verify licensing and the live listing before promotion.",
+            "angle": "styling",
+            "hook_template": "Game day fit, weekday wearable. {line}",
+            "angle_label": "Outfit styling",
+            "hook": "Game day fit, weekday wearable. “DALLAS 1960 FOOTBALL WITH RETRO HELMET” on a tee at $21.99.",
+            "ad_copy": "Game day fit, weekday wearable. “DALLAS 1960 FOOTBALL WITH RETRO HELMET” on a tee at $21.99. Angle: outfit styling. Signal driving it: Javonte Williams’ late TD run helps Cowboys avoid another 4th-quarter collapse and beat Colts 27-23 Product: Dallas 1960 Football Helmet White Shirt (dallas white tee). Verify licensing and the live listing before promotion.",
             "captions": {
-              "instagram": "Read the shirt. Fans keep bringing up the old Dallas Cowboys era, so here it is on cotton. “DALLAS 1960 FOOTBALL WITH RETRO HELMET” on a tee at $21.99. Why now: Cowboys vs Colts live updates, timeline: Colts get long touchdown to stay in touch - IndyStar Link in bio for the listing. #dallascowboys #dallaswhitetee #vintage1960dallasshirt",
-              "facebook": "Fans keep bringing up the old Dallas Cowboys era, so here it is on cotton. “DALLAS 1960 FOOTBALL WITH RETRO HELMET” on a tee at $21.99. Context for Dallas Cowboys fans: Cowboys vs Colts live updates, timeline: Colts get long touchdown to stay in touch - IndyStar It is a tee at $21.99 from the Dallas Cowboys collection. Link in bio for the listing. https://gridironlocker.store/shop/dallas-texas-vintage-athletic-style-t-sh/",
-              "x": "Fans keep bringing up the old Dallas Cowboys era, so here it is on cotton. “DALLAS 1960 FOOTBALL WITH RETRO HELMET” on a tee at $21.99. Cowboys vs Colts live updates, timeline: Colts get long touchdown to stay in touch - IndyS https://gridironlocker.store/shop/dallas-texas-vin…",
-              "tiktok": "POV: Fans keep bringing up the old Dallas Cowboys era, so here it is on cotton. “DALLAS 1960 FOOTBALL WITH RETRO HELMET” on a tee at $21.99. Script beat: Anchor the product in the era fans keep bringing up. Show the print, then the fit, then the price.",
-              "pinterest": "Dallas 1960 Football Helmet White Shirt - dallas white tee idea for Dallas Cowboys fans. Anchor the product in the era fans keep bringing up. Tee at $21.99."
+              "instagram": "One piece, whole mood. Game day fit, weekday wearable. “DALLAS 1960 FOOTBALL WITH RETRO HELMET” on a tee at $21.99. Why now: Javonte Williams’ late TD run helps Cowboys avoid another 4th-quarter collapse and beat Colts 27-23 Sizes and colours are on the product page. #dallascowboys #dallaswhitetee #vintage1960dallasshirt",
+              "facebook": "Game day fit, weekday wearable. “DALLAS 1960 FOOTBALL WITH RETRO HELMET” on a tee at $21.99. Context for Dallas Cowboys fans: Javonte Williams’ late TD run helps Cowboys avoid another 4th-quarter collapse and beat Colts 27-23 It is a tee at $21.99 from the Dallas Cowboys collection. Sizes and colours are on the product page. https://gridironlocker.store/shop/dallas-texas-vintage-athletic-style-t-sh/",
+              "x": "Game day fit, weekday wearable. “DALLAS 1960 FOOTBALL WITH RETRO HELMET” on a tee at $21.99. Javonte Williams’ late TD run helps Cowboys avoid another 4th-quarter collapse and beat Co https://gridironlocker.store/shop/dallas-texas-vintage-athletic-style-t-sh/",
+              "tiktok": "Three seconds of Dallas Cowboys truth: Game day fit, weekday wearable. “DALLAS 1960 FOOTBALL WITH RETRO HELMET” on a tee at $21.99. Script beat: Show how the piece is worn, not just what it says. Show the print, then the fit, then the price.",
+              "pinterest": "Dallas 1960 Football Helmet White Shirt - dallas white tee idea for Dallas Cowboys fans. Show how the piece is worn, not just what it says. Tee at $21.99."
             },
             "pinterest": {
               "title": "Dallas 1960 Football Helmet White Shirt: Dallas White Tee",
-              "description": "Throwback / heritage pin for Dallas Cowboys fans feeling worried. “DALLAS 1960 FOOTBALL WITH RETRO HELMET” on a tee at $21.99. Use only after the product and licensing review.",
+              "description": "Outfit styling pin for Dallas Cowboys fans feeling confident. “DALLAS 1960 FOOTBALL WITH RETRO HELMET” on a tee at $21.99. Use only after the product and licensing review.",
               "keywords": [
                 "dallas white tee",
                 "vintage 1960 dallas shirt",
@@ -755,650 +753,9 @@
   },
   "signal_limits": {
     "google_news": {
-      "status": "connected",
-      "items": [
-        {
-          "source": "google_news",
-          "team": "cleveland-browns",
-          "text": "Terry’s Talkin’ Browns, Guardians & Cavs TV – Terry Pluto - Cleveland.com",
-          "url": "https://news.google.com/rss/articles/CBMinAFBVV95cUxOUzRaV1JVS3RvVkljdmZBYURFN2YweHUwZW1fSTNVem44cXdSNnFBYU9mQ2xvQVpkSjZ6ZkZrY0lRMFJYaGpiN3ZwOU5nV0ZYY3BKTFZpMGRuQndTQVp6cER4RzFfZXdkNE1HanVGQlJUeUplbWhES0dWcC1BTmZlUTFBakl6eE5DQjA1V0dZbE9sZ2duQkZJV0M3S3Q?oc=5",
-          "published": "Sun, 08 Nov 2026 10:00:00 GMT",
-          "metrics": {}
-        },
-        {
-          "source": "google_news",
-          "team": "cleveland-browns",
-          "text": "Inactives | Saints vs Browns | 2026 NFL Week 9 - New Orleans Saints | NewOrleansSaints.com",
-          "url": "https://news.google.com/rss/articles/CBMioAFBVV95cUxQRjdsY1hfRW1Jdjl0RUJCUmVTell3Si1yS213b1dOVlVVOU9VZ1JsemhrMnpLcTNqRkUyM0xGOEE4ekwxcV93WUh3ajhoUzZ2bUxjYk5KWTA1UDdZcUMwMTY3bTFFUkVvZjFEYTNnTFVwS3BJN29qYVAxdmdfSU0ycE5sRHgwVW54dzhveHE2bThidmdtOHJaQm55cjk2c2df?oc=5",
-          "published": "Sun, 08 Nov 2026 16:34:59 GMT",
-          "metrics": {}
-        },
-        {
-          "source": "google_news",
-          "team": "cleveland-browns",
-          "text": "Cleveland Browns vs. New Orleans Saints NFL Week 9 Live Updates, Highlights and Analysis - Bleacher Report",
-          "url": "https://news.google.com/rss/articles/CBMizAFBVV95cUxOVGpaR24ySVMwOWpHaENwWVdzVlBGNThTOEhHdVo4YS1MRUI2dWVmZy1HVV9BSlc0WlJJZTdiRGZUdmh5M1NyMG5qYUtaVDh5bjYyQjhFSElhTHhaYzJMLUZIcGpIOTE0SHI3NmhxQXIyWEk0c2RTaGJOdlQ3VmxFQXdzY2VySXRsUXdRX2ZveWZ2c0hPS1lIMHRObkp5S3JJWFFYLTlPRHdSWFpNQloxMklCNDBad3BiMTZ0U2xpaHhRdjE5QlFHYjY2S24?oc=5",
-          "published": "Sun, 08 Nov 2026 21:45:47 GMT",
-          "metrics": {}
-        },
-        {
-          "source": "google_news",
-          "team": "cleveland-browns",
-          "text": "Myles Garrett Just Made Browns’ Jared Verse Look Even Worse - Heavy.com",
-          "url": "https://news.google.com/rss/articles/CBMimAFBVV95cUxOSDNNb2hrVm9RRGJSUFBmd05nbGwtMjB0dHFxdGhwUzdCZExvbW5SZGZHMU9WUTNZbVIwV2dXQTlnVGF1ckN6QVU4X2RUYUVGR0xCSzFvT1Zfam1vUE1RUE1FNlNjS0dnMExhZmlUbE1TdVVYSEFDRzROU3c3OVVkTWN3cVh6bzlDUzI0N1Q2OWU5d0x3RGY0bw?oc=5",
-          "published": "Sun, 08 Nov 2026 20:03:07 GMT",
-          "metrics": {}
-        },
-        {
-          "source": "google_news",
-          "team": "cleveland-browns",
-          "text": "Saints vs. Browns live updates: Score, highlights, instant analysis - Saints Wire",
-          "url": "https://news.google.com/rss/articles/CBMiwwFBVV95cUxOQ3k4VGhaNm9Ta3VEXy1EQ2UtMl9wTnpPdi14dFd4eGpiRVpYRG9LeDMtdHZjRk5VYWVRVlVndUNQajFEZV9vNW5OOG1CblVFNWJTWWJ2aGZ3b1RyUlEzVjdaeERnemRkd0FiNlAwYWpEU2RzeVpqRGxyUThRR3RlSHNpdFNLX1NBSHRMa0JXWE56Y3FZZTBMV2tnSlZrR29QVUU3M3RzRnBfM3NyV3lOV2tSSmNEbjdVOXlfZVpKdXFWWVE?oc=5",
-          "published": "Sun, 08 Nov 2026 21:23:00 GMT",
-          "metrics": {}
-        },
-        {
-          "source": "google_news",
-          "team": "cleveland-browns",
-          "text": "HALFTIME: Cleveland and New Orleans tied at the half - FOX 8 News",
-          "url": "https://news.google.com/rss/articles/CBMinAFBVV95cUxNb0NjSVdKa3ZNN0RFc3Qta3Y1T0xSbFpaME4wLTAtdE9oOHJPZGQyODFJRkZaR3ViR2lqQjMwRFRZMVRDaXA3UG5LaWhza1BJUFVCdjlMeXZBZnA5VFRLX3c5WmQ4Q1c5VmYzZ2VrcHJwMW5TdDJHMmNaM1R3RjJWUnY2VnRKc1pQaml1OXBQLVNMOUg1WV95T3lHamXSAaIBQVVfeXFMTmNFX1dzT1p5Z2tqcVVma19mZGk2QzNJSkl4dVdWTjhucnhPd1dEcGFpbU1vVkE1SWZoWlhkbVVneHlmSEdNUGNZbFJneklxc3dVTmZvbGF6WHQyT040bWV2Yzhvb203UGY5Y2NjOFZyVEFBWkI3S3NFM1RMY21KcERGRVJ3dGdIVWJ0NS1mLXVvQVNSSk9wX0pYcGNUUnhkT3p3?oc=5",
-          "published": "Sun, 08 Nov 2026 12:13:41 GMT",
-          "metrics": {}
-        },
-        {
-          "source": "google_news",
-          "team": "cleveland-browns",
-          "text": "How to Watch Browns vs. Saints: TV Channel, Live Stream, Time - FOX Sports",
-          "url": "https://news.google.com/rss/articles/CBMiqgFBVV95cUxQdGU3N1BKVV9ONl92SmtITkl0WWRfVmhvSDRsRmZsM2x5bnZGOW1jTjNuTFRPY09mUDh2QVE5VnJfekpQWFBaWXZVWjlLV29CZHNydmEtaTRpU19nVXNnSTd1ZU5DS0lpQzJtUkJab2xpQnREaXVlY2N3V1czbERfVDE2QldIdEpPSUdQTUpIaGJDNXRMSDhvdW9wQVR2ZFNOZUVPdVptTWtMUQ?oc=5",
-          "published": "Sun, 08 Nov 2026 12:15:37 GMT",
-          "metrics": {}
-        },
-        {
-          "source": "google_news",
-          "team": "cleveland-browns",
-          "text": "Browns' Shedeur Sanders gets hype video for first start of the season and social media cannot handle it - Fox News",
-          "url": "https://news.google.com/rss/articles/CBMiugFBVV95cUxQZzNQcm12VlYzT3ljRXFIYWhSa1BnTS13RFNzLUdYUGpFaExja2NLSkFPWnZ5QTc4RzNRMDdkZENfWFJQbmlEd3JHZm1weHBqXzM4TnNLRm1HNlRKU01fcEtYWGR0cS1jVG5IQ0pwbDRFVng5cDZmOWFCY1RoWkhXREtYN3p3aTMxb3JZODhGd29EX3hsVVhyOG9STjlvYWEtTURxTks2SHYzdERSdDFlV0pKTE92WVRFUFE?oc=5",
-          "published": "Sun, 08 Nov 2026 14:17:55 GMT",
-          "metrics": {}
-        },
-        {
-          "source": "google_news",
-          "team": "cleveland-browns",
-          "text": "Browns 2-point conversion fails in OT loss to Saints - Akron Beacon Journal",
-          "url": "https://news.google.com/rss/articles/CBMizgFBVV95cUxOWW0yc2d6Mk9lTHlwU0RISThSZTJOdXpxeUpHSkFSTkpmWGFOak1FZXZyakI1VUdpRTZ1SWxTZENIbTJ2Rm8xeGtHNVlIcjJ3N1dha19MMzJOdk1HQVFHblFTWVlJbDNkYnJud0VZcmJQQlR4QXdPZDlfV2VtSFVJX1JnblIxV3Y2enAxUkdZblBudHpRRlN1Sll4ckVRRHNnazVmOFBURFhDYWVPM0s4SFN6VDNNa1VINUkyLVgxOFdtUlVmc0VsNjh4bzlaZw?oc=5",
-          "published": "Sun, 08 Nov 2026 21:37:00 GMT",
-          "metrics": {}
-        },
-        {
-          "source": "google_news",
-          "team": "cleveland-browns",
-          "text": "Browns QB Deshaun Watson out of concussion protocol - ESPN",
-          "url": "https://news.google.com/rss/articles/CBMikwFBVV95cUxQMXc1MnpXSHpIZXR6LUhXbC1qZDhzVWpKWGhFWXNuUDVkRmxXRVJuSDFxX0EtMUVjYzJNNXNIOTRNYnBCbjBUd2Vral9TVzBoZ3VQZC1Jb2NnNFVSX3hRNG5pTUE2MWJFWTQ5enV3WXB2SVAyZGpTRVFGRFJYVV91TUtleFhGSF9UVnM2YTJIcFZQVkk?oc=5",
-          "published": "Sat, 07 Nov 2026 18:24:00 GMT",
-          "metrics": {}
-        },
-        {
-          "source": "google_news",
-          "team": "cleveland-browns",
-          "text": "Cleveland Browns vs. New Orleans Saints Official Game Thread - 247Sports",
-          "url": "https://news.google.com/rss/articles/CBMioAFBVV95cUxOVlNUUFoxc0dfa1VhcV9nS1lIaktLR0lkQ2ZJOXYxRXpvUEs3NUJ1T3VhSG0wYV9vR2VQTmNWNkIyMTRsQW1CelpvWllWc045ZFpyS21JNEFZR09Fc2R0OHlzZF9uV0N3VnJPUWxRVmhNYXkyZGxlT3FEdVZWMUUtUFNWeXVOY0Y5dlVjcFY2VExUS294M3k5b2FyUUNadlVV?oc=5",
-          "published": "Sun, 08 Nov 2026 15:32:12 GMT",
-          "metrics": {}
-        },
-        {
-          "source": "google_news",
-          "team": "cleveland-browns",
-          "text": "Saints 23, Browns 22 | Final Score, Stats & Game Recap - Cleveland Browns",
-          "url": "https://news.google.com/rss/articles/CBMijgFBVV95cUxQYlhfTmFRdTU2QUxLbnpGdnVPTnd1SmVDckc0dS10UURIOWdXTlJnZ2Z6VVlwaGNoWUZNdnk3X25LUDEyNXV4Tno5ZXFIa1BPU3R5SnRSN01jQ2RuWW53M1pjN2hNbzFmN3pXVFI5b3dfRUs3R193eUJseHFfMWt0MVFERE84WVktRmp6QzFB?oc=5",
-          "published": "Sun, 08 Nov 2026 21:55:14 GMT",
-          "metrics": {}
-        },
-        {
-          "source": "google_news",
-          "team": "cleveland-browns",
-          "text": "Postgame LIVE Reaction: Saints Win Overtime Thriller Over Browns - Sports Illustrated",
-          "url": "https://news.google.com/rss/articles/CBMisAFBVV95cUxNRmRoUWpwWHk1cmVuQXdDR3d1NjdRVk15Nm9tcVZHeXYxaVJBbTBMMU5ZOVZIMTRhUXZFdUtYQTVEZ01RWElzRi15cE5fT3lRUjBQX2JvZnJsZGVNUm5xR29zUVZzeGNwR2VVaERBclJkQlAyS1JtRENEUnpoV3htdHJVUGQ5M1lHU1VqeHFYVUpBRkFnT2ltUHhuSlN3dGMtSWR1NnM0eXB5dC1iREFxWg?oc=5",
-          "published": "Sun, 08 Nov 2026 21:42:57 GMT",
-          "metrics": {}
-        },
-        {
-          "source": "google_news",
-          "team": "cleveland-browns",
-          "text": "Cleveland Browns news: It is going to be a day, that’s for sure! - Dawgs By Nature",
-          "url": "https://news.google.com/rss/articles/CBMisAFBVV95cUxNUWlfWHhkM1FyZUZkRC1Gb0c1VWVuOWRvb1Awa0dQOFJyZ1hDZmxhMUdOeURwaG9Fakx1MTlhRVg1bVFmN2I0aV9uN1UyWEVPdEx1Vk0yUTNlb0J5UE5USEVrZWJhanZvUXdNc244cUFoYlltenRhNUZONU9Xem9qbVZDWktuM2E0TmY1WkFMY1RxeWVaeFJJeHBYaEROTjZFTzRqOWtQNWVKRS1NeGxleQ?oc=5",
-          "published": "Sun, 08 Nov 2026 11:30:00 GMT",
-          "metrics": {}
-        },
-        {
-          "source": "google_news",
-          "team": "cleveland-browns",
-          "text": "New Orleans Saints - Cleveland Browns LIVE. NFL latest updates - MARCA",
-          "url": "https://news.google.com/rss/articles/CBMisgFBVV95cUxOY1h4dzZsQnhMQVJ4MGJLWnVCOU4ta1BzZ1NpRHBqbHBYVzNMMndWQTVvOEZPWkU4bzUtU0hxcEZnRVBTT3FIZURhQU44VFBRZ05URWV0MHRzT2I3Zk43d0ZGbXZHQl9QZktXbkx4ZWgzVWpzYTdBeVlPOFlaT2JiR0NDbUJqNlpuN2U2blpFOTJuZTUwbWNoUFBua1ZRZ05iYmp1Z21EZDIyNFdYdDRUWVpn0gGyAUFVX3lxTE90akFRT3ZISW9iWFBOejNUeTItYm5YRGlNTlhFTTBUb3dzN1RKMXJCVVFzWHN0LU1fMzdCc29QdElDODN0UWhUOGl5anQtTk8yaGlRWklLU0Z5QkdCUFpBV0lPclcxNmp2Q2tZbm1NZnFnWFBOZWdpSnVyTHhWNGpiZ1N1SzdlRFpKUC14TFpEVGlnZWlxLWdaZ0xUa1FMeGVMRlpSdi1jclFaUGZ5NVhmaVE?oc=5",
-          "published": "Sun, 08 Nov 2026 21:37:11 GMT",
-          "metrics": {}
-        },
-        {
-          "source": "google_news",
-          "team": "cleveland-browns",
-          "text": "Jeff Duncan: Three things we learned from the Saints’ overtime win over the Browns - NOLA.com",
-          "url": "https://news.google.com/rss/articles/CBMi1wFBVV95cUxNdzZnTEhjNEFjekxHTnJUWGpfR08wV2lnVGstYUpqV0k3ZlB1dXdZeVdOTks1eGk3RVZZZXZuVnBoTlE4cDV1dkU3dzZVSVA5TWhiSXhSWVltMm1NVE9VQjdPQ3U1b0pmTUliR2xqaUQ3eU5feUs1SGFuYkZEb2R5Z1l0LXI1VXVuRVdrY3hrWU5lQjgySHVJQ3ppaE9aRTJVUUxEWmQ0SzNEWlRvT2tpYWpDaFFLcHZnY09KTk5GSklBVkZIZXRzVjZmZ0VoM19rVVF3dk8tQdIB3AFBVV95cUxQcXIwTUNrbko1TWpKNFJtdE5UZ2xfclVJMEpXTUNFRWxuQjZUenY0SVBybHhfLU13UmxBQjFVVE5sbXNfSk9HRUxMdnljd0g5OXlJaTI0bmRPYWpmeHItV0ZEMFhjWnVjVmtWRDU0QlVXamR4Uk5DRDAzNFJyS0VlbnNqT24yczVVeTdaeWo4VHBNLVlsdy1hYnZEbmRlRndIZ2dBNWNRWW01d2VlU0dIRFRGcXdDMEVpZkxfY0N4NGpTU21scTNUNjQ1VnFlNTdRcGpHVUNoa0lVTXZZ?oc=5",
-          "published": "Sun, 08 Nov 2026 21:50:26 GMT",
-          "metrics": {}
-        },
-        {
-          "source": "google_news",
-          "team": "cleveland-browns",
-          "text": "WATCH: Browns players make perfect punch out plays against Saints; Schwesinger knocks out Tyson's first catch - News 5 Cleveland WEWS",
-          "url": "https://news.google.com/rss/articles/CBMi5gFBVV95cUxPTEVCV2FwQU04NGY1MEtEWjc0YThvcXVnaC1mWl84UlAxbFVTSDZmMmNfV0otUmZYakpjVnd5cU9LaE9jc0hNVTBnUzRsSnVmNmJGQUszZHdsb3F5dVJyaWd2RDZlWkhMZzlKMk1uTGV5bWszNEdHbGYzU3hYOXdZWnpxdE12MnlVMU9rNmJ6Y28zZ0w4ZkluZXlRZUZTWk9ObVNoN0stVzh2bTU1UHk0VVVzXzFPOEdXc2lhb3FDR2pUSVBJWXBOenFCb01Mcnlhb3QwRUVMVTRKZ196N2dnWXJscmM2QQ?oc=5",
-          "published": "Sun, 08 Nov 2026 19:33:47 GMT",
-          "metrics": {}
-        },
-        {
-          "source": "google_news",
-          "team": "cleveland-browns",
-          "text": "How to Watch Browns vs. Saints for Free: TV Channel, Live Stream for Week 9 - Athlon Sports",
-          "url": "https://news.google.com/rss/articles/CBMirwFBVV95cUxOQ21xQWxROTlaZ3VQd1VXREpGU0NwNE56T3J4WFYyZlNlajd2aFlxZk1Qd051ek92UVMyVHhYNHhqVmx0T3RWYU5CTC14UEpVaGUwZ3FwbmZxbS1xbWtkN1RyRDhmRHhYSDFDc2xHRUNKcDFxLTlEY2ZlbEVJbGpfclFDNEg2TWdvTTVVVElBUTlEYUUxU0xEeXQwdzhxLWpmVkhyTHQtUkdfOU82ZHVJ?oc=5",
-          "published": "Sun, 08 Nov 2026 17:00:00 GMT",
-          "metrics": {}
-        },
-        {
-          "source": "google_news",
-          "team": "cleveland-browns",
-          "text": "Polymarket promo code NYPMAX1: Deposit $10, get $25 for Browns vs. Saints - New York Post",
-          "url": "https://news.google.com/rss/articles/CBMiqwFBVV95cUxPUlFCYTJpbmRxSG9BRFdxQ0UySW55aHJWd2FBZjhES2pmQmJSWHpNZ2pmb2t5UlVmXzN6aGZnMzdLcTFobFliY3prbVQtNFJUb292bjBTdkhXRHlFeDZ6T2Z6WGRyRl90Q0p2QWNkY0pWQnJnOW5zd1dEYTUxb0hneGJBczh3YnFxaU42NUxTTk1PVmVtRms4UXZ3RFBneTM3MDNfN29sZEtObVk?oc=5",
-          "published": "Sun, 08 Nov 2026 15:15:00 GMT",
-          "metrics": {}
-        },
-        {
-          "source": "google_news",
-          "team": "cleveland-browns",
-          "text": "Saints defense faces tough challenge vs Cleveland dynamic duo - whodatdish.com",
-          "url": "https://news.google.com/rss/articles/CBMingFBVV95cUxOdTFzNGJSNTc5M2Fnd2RBeWYzZ3Q4OG0zZGVsZXlvVFVsTGxIcWxaNWtWZ1Vkb2U2ZHVVUkVZSGU2NUktZnd1VmV3SVVjYTdaTWdvUFZYQTFxNjMxR19raGpSVDlSSGFDemc3Vkdza2tUSTA0SVIzYmd6NGp4a1RTZG1UUzZ1TThKdDhrZVBZekhtZXNfUUxkbWk5MFoxQQ?oc=5",
-          "published": "Sun, 08 Nov 2026 15:51:10 GMT",
-          "metrics": {}
-        },
-        {
-          "source": "google_news",
-          "team": "green-bay-packers",
-          "text": "Packers vs. Patriots Live Updates, Score: Green Bay In Control - FOX Sports",
-          "url": "https://news.google.com/rss/articles/CBMihAFBVV95cUxQdVRQdDEyU3JRMGpkeUJHdnFHNVI5Y3diWTV6aGFmdkdzOW0zaFlUTXZLVXl3NkRWVTM4Ui1hOGtuNGJIeGt0SkU4YU5sVDdMSV9KcUpjbV9WajBDUnJZR3JVaWE4eWQ0SllRblFjQnNKUklDbkVfalRvb1R6YzliWHRWenc?oc=5",
-          "published": "Sun, 08 Nov 2026 22:04:12 GMT",
-          "metrics": {}
-        },
-        {
-          "source": "google_news",
-          "team": "green-bay-packers",
-          "text": "Packers vs. Patriots score, live updates: A.J. Brown, TreVeyon Henderson out for New England as Jordan Love, Drake Maye face off in Week 9 - Yahoo Sports",
-          "url": "https://news.google.com/rss/articles/CBMixgFBVV95cUxPT001eGpYRG9WTXBMMzZTdnpCNzJJalNNRkVSR2JOazFCZ2taSno4R195Z1FBd2R0NHJNZTBMdUVxdnB4TkQyV1RNbGFXX3U1OU83VmV0SFh0b01iSk1EWEs4alRqZWhZWi1SU1BUNjJ4dzRIOEtqNklLb0NJdmVqWHdybkQ5WC1ZSUxiVDk4QXhxOVBMZXIyQjRIaTBiRVpoYmNQcW5QM3lvdHdyemlVNlFqLXVWWWZNc2VJbU8zamxjT0ZxWlE?oc=5",
-          "published": "Sun, 08 Nov 2026 21:45:59 GMT",
-          "metrics": {}
-        },
-        {
-          "source": "google_news",
-          "team": "green-bay-packers",
-          "text": "Green Bay Packers safety Xavier McKinney picks off Drake Maye's pass on opening drive and returns it for 36 yards - NFL.com",
-          "url": "https://news.google.com/rss/articles/CBMitgFBVV95cUxOZ0F0YTRIVG5ESmZ0cVM1YTl2Zi1LRjl1RHVsVm85NmxIb01tc29ISzFCRlJPMjlzb3VBbDVDdFdweVZnZkVZeklNVUJGM3F1bC1SeHlZbW41MjUzLUd4dUpOQVk3MEhGN1RyWVE1VS0xSGd4ZFVtanVQVHdTSTdjc2F1dHRITGtXbjVjNURpckt4bE9yQVl2SF9VU09Ybm5zRkp6blFLRzFJdE1JRmFWcWwxQnhFdw?oc=5",
-          "published": "Sun, 08 Nov 2026 22:06:09 GMT",
-          "metrics": {}
-        },
-        {
-          "source": "google_news",
-          "team": "green-bay-packers",
-          "text": "Packers vs Vikings is Week 10's most expensive NFL ticket - USA Today",
-          "url": "https://news.google.com/rss/articles/CBMiswFBVV95cUxOcEZ6WlRiSk9sQkpCOHBXcVlfR3ZUWEVVNEpKMU5PUF85OHkwWExtMFFpdWtVYXlpOW1URnBSeksxdXhTZDhlVmRlU0NxWXdmTmV0UjRXTDdyX0ZUTHNmOHNZaGtDSmVPMy1KZ2Z6V2FnUUlvYTMtSGZ4Q2p4Y1VZWXZ0LWc5UzVtTTBpRXZXLThudEljanZRSmtCQ1NBb0Fwc1ozRTZFY0VrNmNjbWtJMTl4dw?oc=5",
-          "published": "Sun, 08 Nov 2026 21:04:16 GMT",
-          "metrics": {}
-        },
-        {
-          "source": "google_news",
-          "team": "green-bay-packers",
-          "text": "Packers’ Jordan Love Hits Milestone Against Patriots That’s More Than ‘Cool’ - Sports Illustrated",
-          "url": "https://news.google.com/rss/articles/CBMirAFBVV95cUxNM29uaWN3Vy1NRGF4bXhPNTFhWXhWRE9lVkY5ZnpBd3k1eUI5b29Ybjl1Q2tJNXN5QS10enB0MEY0aC1ISnRwSGhaYmpTWlZjY1k3MjZscWx1WGtRSG5FRWp4YURZekR4VDRkRndXMlQxd1dqVUlkVVRnbTR4bURmMElkS1JIbFVITk96VVdJSUJhZC1JU0hzcnNrcXRKUEJoOC1KWVFINzQtSVhF?oc=5",
-          "published": "Sun, 08 Nov 2026 21:42:50 GMT",
-          "metrics": {}
-        },
-        {
-          "source": "google_news",
-          "team": "green-bay-packers",
-          "text": "Packers Keisean Nixon active, MarShawn Lloyd inactive Week 9 vs Patriots - PackersNews.com",
-          "url": "https://news.google.com/rss/articles/CBMi4gFBVV95cUxQUWNhMW52Qmc5QWFfLVJ5OWMyekd4UEJfQ1VMVWFrRHpzY09JcldhMDQ4NlROcVFKbk52MzM3SjdhMmJwRzQ4SDU0Q18yTXN2clZGNHFYQk9tR2ZEYThMT2txLXk4S0h1M3ZfTzZOYm9wczlCcXZLQk5kQTAwTUhuSnRJd09EalFpZTc0NzZEbkVIeHBYNVlndjBLd0FLdFhaVEtmTkpLamdObzVQWEJjdDl6My1ibG1KX1Jya0tQWHNUejg2WlFtTHJRUU12aFZZUlJ0b3VsTVVva2Fic0k2MWp3?oc=5",
-          "published": "Sun, 08 Nov 2026 20:21:00 GMT",
-          "metrics": {}
-        },
-        {
-          "source": "google_news",
-          "team": "green-bay-packers",
-          "text": "Best Packers Sportsbook Promos: Claim Over $3,000 for Packers Odds - RotoWire",
-          "url": "https://news.google.com/rss/articles/CBMisgFBVV95cUxPSkxwd1p0dEllaERUbVFtaVZmQnR1X1BwUlY0Mm9LV25xRFA0UWMtM1pVM2duX3RFM2czMkVnMXF4bGxEODdnZ3NKTUpYeno4UnB3ajg4dGRSVzA4N2x2VXVlRldMbnF3LUhDejM1YjJ3UlV5R1JpWDNQbWJLNkRBbTNhU3hyYklKeVphS0F2dEI4X01jQWc5VGl5UnJkQ3NoV3NMS0gzZzU2YlZMZDNoNVh3?oc=5",
-          "published": "Sun, 08 Nov 2026 20:33:00 GMT",
-          "metrics": {}
-        },
-        {
-          "source": "google_news",
-          "team": "green-bay-packers",
-          "text": "Packers Inactives vs. Patriots - WLUK",
-          "url": "https://news.google.com/rss/articles/CBMiggFBVV95cUxONmhyeGFqaXhvSHhUcklhOTJ2TUVpb19wY2NybE91Q3dnX2tEemlvNkZjeVl5LXVJcm13T0V3QzhNQThhTEtZODdZb19yUUpXU0prUkw5bk8teHhJR2JJdW5tcmlPOEwwOGI5ZmlOc1VoUVpPVURvNXNZNEZxbFFheWF3?oc=5",
-          "published": "Sun, 08 Nov 2026 20:14:27 GMT",
-          "metrics": {}
-        },
-        {
-          "source": "google_news",
-          "team": "green-bay-packers",
-          "text": "Green Bay Packers: 5 Biggest Disappointments Halfway Through The Season - Yahoo Sports",
-          "url": "https://news.google.com/rss/articles/CBMiggFBVV95cUxQTG5LSG51dVJNY0VTdU1MWEE3MVc4VWZ4ZnpwTE8wTnlUVzNoMlJCSTk5OWlJZjNVTjVhMUU4UEw4cmk1bzBHeUJfSzlvVmlmbktZbEhTTXJ2OUVxalcyNFdtdml3VFZNa1g0VVE1dU42RjFDNTdoeE1LcnhOLXgwUjF3?oc=5",
-          "published": "Sun, 08 Nov 2026 20:11:32 GMT",
-          "metrics": {}
-        },
-        {
-          "source": "google_news",
-          "team": "green-bay-packers",
-          "text": "Packers announce roster move | Nov. 7, 2026 - Green Bay Packers – packers.com",
-          "url": "https://news.google.com/rss/articles/CBMid0FVX3lxTE93YUlsN2RuOVI3VURFOFZobXV1Um5rcTdVLWZOSTdLRXU2QktaMWg4NFJwQUFaT1VvY3hQV0puUE9pc1g1V2VrXzV5NlFOdkFrUU1MSVhPemhpYVNUUXNCMU4ybmZLMHBrdVdRWFFwNjdyZzBfcFlz?oc=5",
-          "published": "Sat, 07 Nov 2026 19:09:59 GMT",
-          "metrics": {}
-        },
-        {
-          "source": "google_news",
-          "team": "green-bay-packers",
-          "text": "Packers vs. Patriots | How to watch, stream & listen | Week 9 - Green Bay Packers – packers.com",
-          "url": "https://news.google.com/rss/articles/CBMikAFBVV95cUxNMG1ZWl8ta2JhbUdnRGZPbnZDa3A0WWZTTi1TaWV5V2JmRGc1eExxTFVjLTdjcmNzNVFhM1BDWmw3LWRxSjJFdnVhY0UwMXE3ckhrU1Y0N2d2RVhNU2JyWlI2STZKUGFkWm1Ud0ZuN0d0MlN6TVZwSE93VjFHSmlxWVZTeDlpWkdDY0Y0Z2hGQXY?oc=5",
-          "published": "Sun, 08 Nov 2026 21:30:46 GMT",
-          "metrics": {}
-        },
-        {
-          "source": "google_news",
-          "team": "green-bay-packers",
-          "text": "𝚆𝙰𝚃𝙲𝙷 Green Bay Packers vs. New England Patriots 𝐋𝐈𝐕𝐄 Ｓｔｒｅａｍ Ｆｒｅｅ ＯＮ Ｔｖ Ｃｈａｎｎｅｌ!NFL - Jackson County Pilot",
-          "url": "https://news.google.com/rss/articles/CBMi3wJBVV95cUxNSEoxZHNGQTdKS09lX3lwVFNoRThoZzlYaGdkM1FhQWRBY3EwUzY1QVlQYnJDLW1RN29NQmZ0LTBTZ1A3VkdyV3JWUDJnb1dsSC1DUW5vRDhXN3c0eWZhWWVPdTh1Y3hRdFF0dG5uLV9QUjhmVkRCOGgwSWt2a21iU0x6UV8wRWY2NlhZUldHc3A1WGNheTZqODM3dmZ5Y2ZNa0hTZU5WempuVVZlUHA4aFcxZ194VEx6ZHhsWGVWNlUyV0J0MUdpWUdJclpZMTNoalZBZDZ3MnZYVzZ6TUVla21pU3JQN3h3eXEtQzdIU1dEVnI5cEdCRjNrWVBGXzEydFJQM0Z2RWNYMUJtXy1ZTmlERHdXd3VORlAyQ2k3SjFNQkVEdTF5VWxSSWZON21yajhfQ3ZOTlBMOV9VX29reVRzWnpEZWt2bG9Pb25zYzFjVUE1MTNQMkY1WWNrVUE?oc=5",
-          "published": "Sun, 08 Nov 2026 21:19:06 GMT",
-          "metrics": {}
-        },
-        {
-          "source": "google_news",
-          "team": "green-bay-packers",
-          "text": "How to watch Packers vs. Patriots: TV channel and streaming options for November 8 - The New York Times",
-          "url": "https://news.google.com/rss/articles/CBMinwFBVV95cUxNM0FCRGl6NXZfZUh0TGp2N3dRSWVSczZ5MFU3Zy1LeUFYYzJaQU9UMW1zamR2bndTT3hkX1pJcXBGbVhiT29aMVVJbFVvYnZ1S2k4LWdkNkV5STNqOW1vREUxMUVoWHVqMGxWbERTc2hfcHdjX3hsS1M2RDhNd2trSWJwejZQek0yRVVoSW4wenFFbkNwWWE5TFFRZ3dQcWc?oc=5",
-          "published": "Sun, 08 Nov 2026 19:41:45 GMT",
-          "metrics": {}
-        },
-        {
-          "source": "google_news",
-          "team": "green-bay-packers",
-          "text": "What channel is Packers vs Patriots on today? Time, TV, streaming - Milwaukee Journal Sentinel",
-          "url": "https://news.google.com/rss/articles/CBMi0gFBVV95cUxOSjY2YmpRamtZT284T0s4SF9abi00Sm96dm5YRzZRdlpjOE9WU0h5V09UcjNtbk9OcEUyTS1QRDZtMEVKQjdSd0QyUlZGVGdpbVI0aGV6Q0ZIR3BPU2IyRUFsMGNGdjFxbG0yWVU4cU96RVVZNWxscGZFWkFBekxsMGEwY1Y4bGFmeW9wOFRHUDFfM0szX1NtNEQxRXAtQlpla1dKR1BnUGMyUUdmUk1YTjlsXzE1YXFPUGRfa1lDVTVTWTZMMmU1UmdfeU9NdldPNUE?oc=5",
-          "published": "Sun, 08 Nov 2026 20:37:00 GMT",
-          "metrics": {}
-        },
-        {
-          "source": "google_news",
-          "team": "green-bay-packers",
-          "text": "Packers confirm roster suspicion ahead of Week 9 game against the Patriots - A to Z Sports",
-          "url": "https://news.google.com/rss/articles/CBMinwFBVV95cUxPb1dHYUcxYUQwWnlZWVc1NjIwVmN0YWNVb1JncDBWRWpHa0hJOUdEV21zM0JHSlRUdU0zUHdRQ2trMmQtbW55MTJ4bFhsd1MxQWhyMlpzeVV1NWdYeUl0Nzl4RUR6SVZmTTZzSENEd1lMTFhKcGlYSHg0ajNnSTRPWW10NEZ4c01kRGJGWkdxVE5UTXBHTTF6VlVSZ2ZPckU?oc=5",
-          "published": "Sun, 08 Nov 2026 19:58:01 GMT",
-          "metrics": {}
-        },
-        {
-          "source": "google_news",
-          "team": "green-bay-packers",
-          "text": "What channel is Packers vs. Patriots on today? Time, TV schedule to watch Week 9 game - Packers Wire",
-          "url": "https://news.google.com/rss/articles/CBMi5AFBVV95cUxOR0d0QnpRdWJQXzVqYjhmR0tqb1o0TG9NY0dYVTRucFowNE1zOFVTLV9UZG5QQVp5V09KSGxVbW5HbVpPUjkxRzNQdTZCdGt0bGpyZEd6ZW9aMzhJTk4xaUdiNXVDVy00eGw3UnNyZGFRZUF1VzdPQi1XcWs2RV9IWDE0MnBqYnpUMnFEWGlqS3FWRm5yam9hQ1Z3Tkppck1tX1ZVcEhyTEpmdUY2VmpjaVlUSTdwdXVCaFhpaUNwVC1JQnkwdU5DQVNWZ0ZER0k3MGdhaGFvQ085OTNwSV9HN1dUbjg?oc=5",
-          "published": "Sun, 08 Nov 2026 19:50:00 GMT",
-          "metrics": {}
-        },
-        {
-          "source": "google_news",
-          "team": "green-bay-packers",
-          "text": "Patriots Week 9 Inactives vs. Packers: Here's How Banged-Up Offense Will Look - Sports Illustrated",
-          "url": "https://news.google.com/rss/articles/CBMisgFBVV95cUxQQk03a0p4U3hNSmV2U1I5ZzJuN2w3SEpKVF9PbnJKYUh5VzlVek9lNmlkRUVUZWVOenFYRU1uelhWUnFBN0I3T0NtZ2w3N1hSX0hZakdTMC05dEFGbzRjVWRVTWg0T1JtVXFGanI2QXBBaEtBOEl3b1lRR2N5ekFjbGJVQjJiNHE0MXRaWm9IRjVuRU5TQVptZTlSSkZtVzhSSUZOR2xsV3BsdG9yR1RNakdn?oc=5",
-          "published": "Sun, 08 Nov 2026 19:59:18 GMT",
-          "metrics": {}
-        },
-        {
-          "source": "google_news",
-          "team": "green-bay-packers",
-          "text": "Inactives Revealed for New England Patriots, Green Bay Packers Ahead of Sunday Showdown - roundtable.io",
-          "url": "https://news.google.com/rss/articles/CBMiyAFBVV95cUxPc290VTZtRFZfMGxNOG5kUUctN3JZeDFXTkh6WHphRjAxOUM1RUZJTU9SbUx2NURmcG5YRFhIYUpMU2lrNW5DdF9tSVZmbGQ0cTZTdjJZOXhVSFVVd3p5c0V4aGVXUENxSjBqZWdaeF9jWllObG14V1FqcTVPSG5lMzVKSE9yMVhrcmcwbE9FUW9iRHpDQ21RUGplSDRvblc0WldmSGRyMHc2dlEzT1VZOWgwZGxkNk1aOTBqTWFNa1E0bGo2bWxlYw?oc=5",
-          "published": "Sun, 08 Nov 2026 20:01:37 GMT",
-          "metrics": {}
-        },
-        {
-          "source": "google_news",
-          "team": "green-bay-packers",
-          "text": "The Green Bay Packers and New England Patriots don’t play each other that often. - Facebook",
-          "url": "https://news.google.com/rss/articles/CBMi1wFBVV95cUxQUUQyMzRLd1JKU05NSEdzVU1SRnR0cVFOYjJ5LVQxR3dxMUViZFBjU3Jkdy1md3JXZmlfTkY5X01iZnI1YUF3Q0p0VkFqYWxRamJXTnV5cjZGU2pxYWtQeHBGa015V2lBQmpYSmozdmp4VndRUDBBOGcwOWQxQndMT0NYOTVhTHdCVXhIMGtCMGhFSHhZaF94MlV6bkU2VGRHMGctWEMtV0tRbXZCSUZQd0pscXVKa1owczktblhZdW9FMVRYYmNuM1VKYy1EcmtQbmhWbzhnUQ?oc=5",
-          "published": "Sun, 08 Nov 2026 14:03:50 GMT",
-          "metrics": {}
-        },
-        {
-          "source": "google_news",
-          "team": "green-bay-packers",
-          "text": "2026 CHTV Watch Party: Green Bay Packers vs New England Patriots - Cheesehead TV",
-          "url": "https://news.google.com/rss/articles/CBMingFBVV95cUxQSzRTZEQzdTdpV0pNYlhDODN4RnJaY0l3Y0xkUlhfX1UtRkg5VGlaQldlMGVjSm5UQjc2Vk55Q19NMTNMR3M1UjZiQzcxU1VYOGticXo0ZTdaMjZPQnVaNlpCWnFGS2p1djl2ODNCRDNwanNtZXBwaXNtVnZkaGlYN2ZDVFQtRFNXUHYtclRZdzZhcEp2c3I2WWdUYmJHdw?oc=5",
-          "published": "Sun, 08 Nov 2026 22:05:33 GMT",
-          "metrics": {}
-        },
-        {
-          "source": "google_news",
-          "team": "dallas-cowboys",
-          "text": "Cowboys WR Pickens, CB Porter, LB Overshown inactive against Colts - ESPN",
-          "url": "https://news.google.com/rss/articles/CBMipwFBVV95cUxNQjF1UVBQNDZjR1djLV9HUUFJMlF6M3JfVDRzeWlwaVFtU0FSd2Q2aFZfWjdrVGRlRU5URXhvRmJRSUxET3dYX1Vlek5zQUlRVXZKeHlFb3p4TmYxTzQ0dFJmMHZCaDZULWFHNGpldTV2aHJjLXd2dW5qcExwR09hRDhrdU1aVXJkY3laUlFTQW1XTlhRaU5jT0lkenJqNXM3T0ZpdVZkRQ?oc=5",
-          "published": "Sun, 08 Nov 2026 16:40:00 GMT",
-          "metrics": {}
-        },
-        {
-          "source": "google_news",
-          "team": "dallas-cowboys",
-          "text": "Cowboys rally late to avoid disaster vs. Colts after blowing lead, multiple second-half miscues - Yahoo Sports",
-          "url": "https://news.google.com/rss/articles/CBMiwAFBVV95cUxNUnVnQi1iTnJ2MFdOQzVVckxvMEJ0clhwRmpwNlFNRVIzSzhSZllfUm9DR3VNUzNhM0hMbWlXWDNoV2FpME56OGk2ZWlQODBnSC1NSVhKYWZUSVJkWWtGejRNVkE2REZ1Uk1OWmphUmpPUmNRRjRRa1lmb1ZvSGY0QnB1MlI4N3pvaVkyY20zTmNUQ0FIcTdhMGtyVEtOU0M2RzNrblIwLXN5XzJLdVBWbGcxSzRFQ215QnhLUThfUm8?oc=5",
-          "published": "Sun, 08 Nov 2026 22:07:02 GMT",
-          "metrics": {}
-        },
-        {
-          "source": "google_news",
-          "team": "dallas-cowboys",
-          "text": "Colts announce 7 inactive players for Week 9 game against Dallas Cowboys - Colts.com",
-          "url": "https://news.google.com/rss/articles/CBMioAFBVV95cUxOS1RDSVc2eTNWeVRXYnhlOTNVQzB1WHdpcmM3T2ZLdTZzT2xQN2VMYkZYbGFHbzd5Sl94amRVOWZCSkk5UTFtSklmNWg4Uk1HUGdHOGY5LXhtc1FkcXVVZ0xRZ0sxVzc0ZkNMT2N0djFKOXYyM1A1YW1COUxyVWQ4UF9rM2lmNGdicGhpUXFsdHd4ZUc0UTVBdVhITFpXX0FR?oc=5",
-          "published": "Sun, 08 Nov 2026 16:34:16 GMT",
-          "metrics": {}
-        },
-        {
-          "source": "google_news",
-          "team": "dallas-cowboys",
-          "text": "Cowboys to host 49ers in Week 10 and tickets are starting at $318 - USA Today",
-          "url": "https://news.google.com/rss/articles/CBMi0AFBVV95cUxNTnRZTGRIeDZacHJkQlpETWlKa2V3dHNyMVpzM0hqSERkaHZONmhxWUxNT0dpVXZWTHFTLXBBdWJsUUhMSGhTc3F2VG9xeVBNazRvaG5mVEFZbjh0eGRmNHNpalVIdTgwUklHZ1Q1TktxWEZTWm5RcTJrTW4wU0lvUTVUcXJ1TUt5RWtBQjFzUG1YS3MzV3E2dkkwU05KN0RLNE8wRkdpWm1lMjhkMDBwTEVBRmdMV0YxZHlVMkxxSUphZE5DWFlQMU04bjJLN1JL?oc=5",
-          "published": "Sun, 08 Nov 2026 19:22:00 GMT",
-          "metrics": {}
-        },
-        {
-          "source": "google_news",
-          "team": "dallas-cowboys",
-          "text": "Cowboys vs Colts live updates, timeline: Colts get long touchdown to stay in touch - IndyStar",
-          "url": "https://news.google.com/rss/articles/CBMizgFBVV95cUxQVUR3S29fSUFBQmtqVEVRN2ZZTXpkSUZ3c19IYThBcDJrOWxSaVEyVlJoUHExNFVrMUF3elkwUzFRWjRBMnlvTDU4OG02Yi1qTE5DUVZ3ZXBIWFgwMTlCTFhjX1c2bFFDYkNJemNCMjQ3NkpSbFE1XzFBY1MwZXpsVkRpSnVmU2d4NlM0RHlfQjZQTUk0M1VuZ2FXQUV3MVdLblVpTWRXQ3JjeEctZmM4b1lWWHMxcnVSeHBuSGRCSkJ0anFWZ3AyRzZYMWxWUQ?oc=5",
-          "published": "Sun, 08 Nov 2026 20:48:00 GMT",
-          "metrics": {}
-        },
-        {
-          "source": "google_news",
-          "team": "dallas-cowboys",
-          "text": "Cowboys face Colts without 3 starters because of injuries, including Pickens - NBC 5 Dallas-Fort Worth",
-          "url": "https://news.google.com/rss/articles/CBMib0FVX3lxTE5xN1ZLLW9oMXhjdzRjalR2dWJFUWlpcXBZLUJld0hjaUpIX0tUaDRqMHc0N0lLVXY0WExnNld3QjVfc01HOXhkR2dMTXVUaGRYcjVfcENMQzR6WEFlSTRacWVWeWRMUWtWNmVKTHFUY9IBd0FVX3lxTE1ja0Zfc1hrdFZ2VVhaZl9UUkU1eFZIdDQ0WnI0SWx3aE1PaHBQQXVsdkh1c0lGOHVWeWs0cDNjSFZiYl9IcUNpWUJyckwxTFFtWEk3N21rTFhkQUEyMkdiMmYtdk1zTkRTNkxvdjY3OGpEcEF1RmVR?oc=5",
-          "published": "Sun, 08 Nov 2026 21:14:46 GMT",
-          "metrics": {}
-        },
-        {
-          "source": "google_news",
-          "team": "dallas-cowboys",
-          "text": "Dallas Cowboys defense receives $46,883 punishment as NFL quietly admits a mistake from overtime loss to Cardinals - A to Z Sports",
-          "url": "https://news.google.com/rss/articles/CBMiowFBVV95cUxOanZsWHRwTDhiZjdhdTBPOHRKS2pTLWhOTU9uNFAtdWE1b1NhcUZDeTdlX1A1RS12d1RfQXZVa2dYd0VtUmhXdWdHdjlucmpjZ0FKSmlMM2lZQTNBR2ZYMlcxbktGcDB2dC1RYzY3Y3VvQkFYbGZldWFOU3ZVc3dtZHlPcUhjSHM5X3lPR25yX2JEWFpIMkx6eHQwSEFQX0lWWHdV?oc=5",
-          "published": "Sun, 08 Nov 2026 12:01:00 GMT",
-          "metrics": {}
-        },
-        {
-          "source": "google_news",
-          "team": "dallas-cowboys",
-          "text": "Cowboys New Roster Move Raises Concerns on George Pickens Before Week 9 - Heavy.com",
-          "url": "https://news.google.com/rss/articles/CBMimgFBVV95cUxPZS0tU19BVVc4YnRMdzVZS2x1aXRvOUhwaWJNakc4bnJXbDZhbmFWTkRZQ3hxMEIwZW51TW4wNW1uTzhkeTRtS3NDTEt4WmFVdjkyRmx4RjRITWtHWG5hdzRRNmJkbXpwYXJ3RHZqZ1NhS3VpcFQ2Nk81Tl9wSHZ6WGNFbllyMHlvM0hSNWRicmNHV2Zjcnk1MmJ3?oc=5",
-          "published": "Sun, 08 Nov 2026 12:56:04 GMT",
-          "metrics": {}
-        },
-        {
-          "source": "google_news",
-          "team": "dallas-cowboys",
-          "text": "Javonte Williams' 1-yard TD regains lead for Cowboys in crunch time - Dallas Cowboys | Official Site of the Dallas Cowboys",
-          "url": "https://news.google.com/rss/articles/CBMipAFBVV95cUxNUmRlTURWTUhYOFpNNEdXYVJQVEFKZ1AxVU9TMTRjMHlLWGNUSll1bEFiU1A3UllwVjc3ZXl6NkFyMFlZUjlxZXhnRThVRVJSamMyZ3VRYWFDWC1MdkJBeWJ3b19RZXpzazlhdWRxeWlBdzZLUExqYkM0bk1sUmo3M3h0eExGYkhzbnV6ZzdiOU1lMl83YnpoZFpSem1jbl9Udzd2dA?oc=5",
-          "published": "Sun, 08 Nov 2026 21:54:06 GMT",
-          "metrics": {}
-        },
-        {
-          "source": "google_news",
-          "team": "dallas-cowboys",
-          "text": "Dallas Cowboys Cheerleaders take legal action against My Chemical Romance over onstage costumes - NBC News",
-          "url": "https://news.google.com/rss/articles/CBMirwFBVV95cUxNendiQ2JtamFQX01rYTlxbDRvUkNpVGNYREFoWC1tMWJ5MU9vX3VpVjJXMzBNclUwV0lRN1JQRGVkMXpEb0V3V05HN0tic3dNLUgxN0RpbEdWTE91b19FSzNicFdsSkVSTmVJTVhBaERXbWdFNlZWTnhUUUNvMVdNTTVxVWpBemFsMlZzQWVOSkNrY3ZKcTNLdDE3WHowTEpyUUh6Ukd1UGV0ZTZ2bjZn?oc=5",
-          "published": "Sat, 24 Oct 2026 07:00:00 GMT",
-          "metrics": {}
-        },
-        {
-          "source": "google_news",
-          "team": "dallas-cowboys",
-          "text": "Starlights: Big play tracker for Cowboys-Colts - Dallas Cowboys | Official Site of the Dallas Cowboys",
-          "url": "https://news.google.com/rss/articles/CBMikgFBVV95cUxOSDNKVnJacUMya3ZBekFJb0VXTDc2VGVmLUZSMWE3bkFQQ2VqNEJqTjBOT2s2dWg2RnlPd3FKdWNSajNuQzBSM2hmcjRLR2FUMmpCdnhQSXlUSzdYTHI0WlZrSkd0SEpvM3p2dEtTZmhUSWlvcXFSZFF4TkpXb0lUcXF4T1FObm9qclUwckZFMTBWdw?oc=5",
-          "published": "Sun, 08 Nov 2026 18:22:30 GMT",
-          "metrics": {}
-        },
-        {
-          "source": "google_news",
-          "team": "dallas-cowboys",
-          "text": "𝚆𝙰𝚃𝙲𝙷 Dallas Cowboys vs. Indianapolis Colts 𝐋𝐈𝐕𝐄 Ｓｔｒｅａｍ Ｆｒｅｅ ＯＮ Ｔｖ Ｃｈａｎｎｅｌ!NFL™ - Jackson County Pilot",
-          "url": "https://news.google.com/rss/articles/CBMi2AJBVV95cUxPWWZaNE9aNElHOTlEemRDTGtua3I1SF9FbGFrVnp2TVg1ZDQ5OFhrM1A1eHBJd0RNdzhaMm1wMTlxVE5lLXFqaF9ONkEwNVV6V1VZT0dQbjA2S3dlWXNFekRhNXpjWW5PcWF0Y2hGZnV2VjVqLWV2OWp5YlZLSDJPMHd3Y3ZvNEl6STJ4amNlMFFnUFdfbnJSY1JEQ3dxZjg0VnNJWjNvaXc4Yi1LLXNCaVliSGJuMXVqNHpiU1JKcEVmYkRpSkNWb3ZQZVpfZ18zQkxpRDVHSGRaU1hsSldQSHVxY0ttVXhRM1FEUlFyY1A5Sko0OHFtSHE3bHFCQ29KWWdOUllOZnlPT0wzZGttZUNGaDdDdkktS2tNbUlBcHNVamlhcFNmektIdnJVVmtyYTFBY3NWUEhzT0EzX1J5bzA3enpNTklpT2Q3NG1YM2R6VGk0YWo3Ug?oc=5",
-          "published": "Sun, 08 Nov 2026 18:13:37 GMT",
-          "metrics": {}
-        },
-        {
-          "source": "google_news",
-          "team": "dallas-cowboys",
-          "text": "Colts lose fifth straight of the season to Cowboys - Colts.com",
-          "url": "https://news.google.com/rss/articles/CBMigwFBVV95cUxOTW5peWJZbVg3MFZMQ3VQTzlNTFJsQ2dUWVJwT0NNWmk5R2ZCRmRhMlpUSVluSnJnNFNDR2hXMmZCVEpCV2xxa0lKYXcwa1NTVXJna0tZSlNjeE1zWEVXdUZNQ0lTWnJqM1BqbE85blgzMUhQbm84dG01UjVyZjFaMDY4aw?oc=5",
-          "published": "Sun, 08 Nov 2026 21:34:16 GMT",
-          "metrics": {}
-        },
-        {
-          "source": "google_news",
-          "team": "dallas-cowboys",
-          "text": "Cowboys score late touchdown to hand Colts 5th straight loss - Fox 59",
-          "url": "https://news.google.com/rss/articles/CBMilwFBVV95cUxQVkF6UERmamxQbzhQdktGR2NDeXlTbzBJb29RdkNOalhITzV6eVJubEZWVFEza3o1dzV1Z1llT2pBeWdLUlRLZXYzX3JIUXBoaTNYei0zbFV0a01sSGk2N2pXd3JybmpfZ2RMN2Ntal94cUo4enZQSmQ3MWpyTEhmWTI4STNmblM5ZU9yOVNTbnA0NTE1cHdR0gGcAUFVX3lxTFBnaW5peDBJdXJtemVHMVhVTWxLcE80N0JYaGZ3LUdtZU9aZFh2bHV3aGk4eTZ6aGVOMUdxaVZnaDZVelNkc29CY3ZQdWxBdHcyNHVONDdjUk1JVkJFX1FQSDhNTzhWOEZxQnBNemxGTjBfZXRCYXNPZlE4aS1uYTRnalEyTWRiYXNfbDhwOHFNVVZxX1RNd1F6a0g0dQ?oc=5",
-          "published": "Sun, 08 Nov 2026 21:34:55 GMT",
-          "metrics": {}
-        },
-        {
-          "source": "google_news",
-          "team": "dallas-cowboys",
-          "text": "Will Cowboys Trade George Pickens? Why Dallas WR is Inactive Ahead of Deadline - Sports Illustrated",
-          "url": "https://news.google.com/rss/articles/CBMiqwFBVV95cUxNOEtqdXFuRndOeTNvQ3ZHLU1mU09YdE82NDJQekswaVpQaFRVTERCQUMwbmpaZ3FsRU5rdGtIOE1kXzMwZlQxYjd0LS1YaXg1cFV2RlNYdVB5VmxaVW5NTWtfY1FlSHlTaFUxTkNTV2FxSkpvd2xvblNOam5fUXVTd2xsSXRfSkplN3ZGc0xsOVhKWXFjUUxoTEYtdGJQZUJycVdDdnBiVU54Q3M?oc=5",
-          "published": "Sun, 08 Nov 2026 17:59:42 GMT",
-          "metrics": {}
-        },
-        {
-          "source": "google_news",
-          "team": "dallas-cowboys",
-          "text": "Game Recap: Cowboys win late, 27-23 - Dallas Cowboys | Official Site of the Dallas Cowboys",
-          "url": "https://news.google.com/rss/articles/CBMid0FVX3lxTE9HaU4wYktQTWx2OEw0Ul93UnhZZDBRbkRXZmR6M3BxZW10VHZJWHFoQ3J6Ull4eHBoSENWNllZQXdZeUQxX2JNTExFQzB4S2JSTmhXTkw2aHVfSHN1cS1oMlc2dVF4QUd6Q0o3Tk1tUmJBYUNZV0pR?oc=5",
-          "published": "Sun, 08 Nov 2026 21:57:57 GMT",
-          "metrics": {}
-        },
-        {
-          "source": "google_news",
-          "team": "dallas-cowboys",
-          "text": "Dallas Cowboys vs. Indianapolis Colts Inactives: Who's In, Who's Out For Week 9 - Sports Illustrated",
-          "url": "https://news.google.com/rss/articles/CBMingFBVV95cUxQWWlpUWtkUVVidlJkQWhHejRLT3RNZEI3Zjh1dFd6OEhReFhYODJDZ3plTVpDSXZIaHdkR1lkNnFXbmxvYVBuU2JZb3diajF2MWFmS3J4WFl5dTB4b0NKa09yelM4UmVXTGVPeUY3M2hZbEVXd0dJRnBjdnVGbXV4NHVnM3Q0M3dBTDROWXhsaU9NbTVPNzA3a1hYdjFGQQ?oc=5",
-          "published": "Sun, 08 Nov 2026 16:34:03 GMT",
-          "metrics": {}
-        },
-        {
-          "source": "google_news",
-          "team": "dallas-cowboys",
-          "text": "Dallas Cowboys-Indianapolis Colts Announcer Pairing & Referee Assignment For Week 9 - Sports Illustrated",
-          "url": "https://news.google.com/rss/articles/CBMiuAFBVV95cUxPWGFuMHltSkhaUnllelo0cXIzYm5zandSam1nZF84RU1JNm5BVk9IWE5SNWdvb0UwSVlPaTZLQVNEX2htQTU1eEE1bFhNWThDRE90VGZOQmRkdDNPa0owSmlkMHpZN3BVSjctcmpVV0ROdzJrV3VEbFRsd2hTbWo4TEdjVDE2NTlfNVRqWjBvVVJmeUxoS0NNdkxROXljOGptUDh4NmR6NHlSdHA2T0dWdkp6REw2MWxQ?oc=5",
-          "published": "Sun, 08 Nov 2026 14:49:38 GMT",
-          "metrics": {}
-        },
-        {
-          "source": "google_news",
-          "team": "dallas-cowboys",
-          "text": "Cowboys-Colts: How to Watch, Listen, Stream in Week 9 - Dallas Cowboys | Official Site of the Dallas Cowboys",
-          "url": "https://news.google.com/rss/articles/CBMijgFBVV95cUxOekllRDRUTXlveGd3TjYxV2cxMGp2b1BOajhqN09XTGhjT2hUUVdZNUFWZWF4eThCOWZ5MUdwaEVzUDQzenllMnZ6c2k2NFJ5cW9vU0o2ZmJTUXE0M2F5anFKZ0FQLXFrdjRqb1JkaGFjU0dwSF83RE85ODdkcWNsWl9FejY5XzAyWkd6VGtB?oc=5",
-          "published": "Fri, 06 Nov 2026 22:51:28 GMT",
-          "metrics": {}
-        },
-        {
-          "source": "google_news",
-          "team": "dallas-cowboys",
-          "text": "Gut Feeling: Staff predictions for Cowboys-Colts - Dallas Cowboys | Official Site of the Dallas Cowboys",
-          "url": "https://news.google.com/rss/articles/CBMiigFBVV95cUxPckhsRU14R0ZTZ1hPZE5rb1lnYlowSXFtLTZIOWJfVjBoOXNZLWJBRlZybkh0N3FLcnBMRGxkdWJtNGpUaVNEU0ZnOGpWUWtGQldWME0xclJEcVd1YnNreTdjWjlkQkNmWndKQlVfZkRpM3RaZ0I4bjNRcTF0SGlfMFRRYmFLcjZzbGc?oc=5",
-          "published": "Sat, 07 Nov 2026 00:33:28 GMT",
-          "metrics": {}
-        },
-        {
-          "source": "google_news",
-          "team": "michigan",
-          "text": "Michigan must fire Kyle Whittingham immediately | Opinion - Wolverines Wire",
-          "url": "https://news.google.com/rss/articles/CBMi8wFBVV95cUxQQ2hJSGhWbGRtbEZ6OWhKek50aVZ1eFVoalExYWFEeFJXT3RJYVBCSzkxR2dwTURPc2VrVzRQUXpFMXBIZzNnbzlCRy1ENVdQSDAwMXRTcElCOTd6NXJRYVVyX1h3ekUxUnl4MkQxb0xtSlNtZjlrM2c4dFVUYkFBb3JjYkNoUTYwUC1VNVVnMHVyQTZQVnpMMWROWkdYZjh0dm5sRTR6SnlqTVYzdVFuSmZPM20wbFMwM1AyOGJwcm1UNUVsYWt2UTU4R1JFemNQaHE3MzM5YTk0eGt3VVlCcG1sLUc0X0ZrWmFUaFlHTTh1RXM?oc=5",
-          "published": "Sun, 08 Nov 2026 19:36:00 GMT",
-          "metrics": {}
-        },
-        {
-          "source": "google_news",
-          "team": "michigan",
-          "text": "Michigan’s offense hits rock bottom in humiliating loss to rival Michigan State - The New York Times",
-          "url": "https://news.google.com/rss/articles/CBMitwFBVV95cUxNY0I3Z1NOZHhIcW03ZEZVMi1EZ1pReDhYQ2VrdFAwVXR4amp6V2M3OFlxNXQ3ZkhfRlBFV2lxOGs4Y2FkdHhQTUZWV0FQTDZ2RUEtUVlOdWZtX3BBdjliZERKZVg1SzZJbC0zenlhbzBkdUZnTndBSU8yTW84ZmFQRm1xNlMxU1BrelRyX2Zma2t2ZTNPSnpXOExXdzZiX0RrWWJCMW8zbmtwVXZjNGc0OWVfSWRZOEk?oc=5",
-          "published": "Sun, 08 Nov 2026 14:52:00 GMT",
-          "metrics": {}
-        },
-        {
-          "source": "google_news",
-          "team": "michigan",
-          "text": "Michigan football is biggest underdog in almost two years vs. Oregon - MLive.com",
-          "url": "https://news.google.com/rss/articles/CBMivwFBVV95cUxQUzBlYS04QXBpR0x3U0tJV3NUSVQ4NTdvMlhuZHBDeW83YktILVVTN3h3ZEsyTEgwdVJPVGtfQmIxcG5JNEVLYTNDZ19kRVhfbEhnYXE0S3J2U3NsUEV5blRYeW9fM3RQRUs2amdCOFNMUnlxbmZ3aE9CWXBkSVJwUVpjR2paUU1NRzg5LTRFN3Y5X1lDYmJxVjFqLUNuNGYwR29sZEhtYlFGT3IyUWFUMWRRZGNvUE9uZFFFdGdVUdIB0wFBVV95cUxNR2pLLUNKVjd0eExnd1lQdDRNcUR0NkpKZURjcHBvVi1adWhOb3AxeDN6MG1JQkFxd2dzZlktWHNVaTZ1UThTbHRhbFlibGNCNjgyUG5pejFFeWVxVGRoN0hmTWtFclE0Q3ExMzFpX0RhY1hHb3czQzM4R0NUekJDV24yTVRpcDJmRHpZTnFIcW1wdUZUdDR3TXJxQXczN282Y1VqYTZIakFiYVBKa2h2N2NjcFpHZTRNa3ZqeUJ0cWdFa0IwNnIxcVpwV1NRTU9TWVEw?oc=5",
-          "published": "Sun, 08 Nov 2026 22:01:00 GMT",
-          "metrics": {}
-        },
-        {
-          "source": "google_news",
-          "team": "michigan",
-          "text": "PREWRITE: Michigan Fires OC Jason Beck, per Report - Sports Illustrated",
-          "url": "https://news.google.com/rss/articles/CBMijAFBVV95cUxNemNtSDFNeUoxVk5EbEpxZWZoOGhBR2ljSGk3Tk5jMmhudjh5STRtQnZnVWhsWl9Ub0FOd3I2T1VkUDFsU0RHRmhCSTVpcXd0RTQ2c3JqVnZxVWZEenlmT25rN2twM09aV3J3N3pMclkzQW9lbmhCb2xzZ3FJZldweWtZRm9qLWZtZm9BVw?oc=5",
-          "published": "Sun, 08 Nov 2026 22:06:30 GMT",
-          "metrics": {}
-        },
-        {
-          "source": "google_news",
-          "team": "michigan",
-          "text": "Michigan 21-18 Penn State (Oct 17, 2026) Final Score - ESPN",
-          "url": "https://news.google.com/rss/articles/CBMiiAFBVV95cUxON3RRWEtmZWFqVGVHN19HTFVSWDVOb0k5NXRueGJkR2JaZ0xJc09rOVpWUF9zdU91X1kyWk1La0VYTnhrbURvZGtXVnFKX1QyYXlsUE1KVm85NlV1M0ZuN21zUFNBZENGbEFLQUs4ZjRQQlBRNjhpODNGTmxTc3hCUk1JNVZCaHV0?oc=5",
-          "published": "Wed, 28 Jan 2026 01:36:53 GMT",
-          "metrics": {}
-        },
-        {
-          "source": "google_news",
-          "team": "michigan",
-          "text": "Newsstand: Michigan admits it considered going back to Bryce Underwood - On3",
-          "url": "https://news.google.com/rss/articles/CBMivgFBVV95cUxORTk0WmExSU1fdmhUVlZpZ3BDcTBwYjdYTGU5TE5TM3ZRV1NhbVRaaDF2cGd6dGVhUDYzbVg4MWhvZlRuejV6UzF1Z2plLW1WaUpvZmlMMWI2QllzVHJiWVpCUlJFcU5GeEVYZnFMSHVDaTQzcERRVVo1eHduUkFTb2dEWjU3ZnFneEFJZ1FXOGZJdUYxeDFBUXdQbGpWV056Z0NJbGpXSDh5d1dpVkJOSUJiMk5QbTcyMGpVNVh3?oc=5",
-          "published": "Sun, 08 Nov 2026 12:05:24 GMT",
-          "metrics": {}
-        },
-        {
-          "source": "google_news",
-          "team": "michigan",
-          "text": "Kyle Whittingham Buyout Details in Contract Show Cost for Michigan to Fire Coach - Heavy.com",
-          "url": "https://news.google.com/rss/articles/CBMixwFBVV95cUxQVllKVFE0ZVY3aTBFMGVrUmNQaUpyRHBzeF92LWNBMS1aWTQxMHFESG9ia1lZWjA1MzVtOFNranhQUVA3bVVMR1ZFSHVLcWVaaTBYbmJsT2dxVGs2aVBlclFGeXRyc1hKSmlOaDRzWkdRbXVKTEhmR1V3UVNsMVlyZHJhR1RlM25mUUlTd0h1WXdwLUhuai1NYS1DM3VXcnlYTlpPakVMSjhTZE9mVE9ScklRcGR5a1lsRE1hcUFwQlkzSXVZRWFn?oc=5",
-          "published": "Sun, 08 Nov 2026 03:37:00 GMT",
-          "metrics": {}
-        },
-        {
-          "source": "google_news",
-          "team": "michigan",
-          "text": "Kyle Whittingham buyout: How much would it cost Michigan to fire first-year coach after Michigan State loss - CBS Sports",
-          "url": "https://news.google.com/rss/articles/CBMilgFBVV95cUxQaFA0SEx6Vl9GZUpwSWxJbUg1Q0JTa0Q3aXF2NlJPZ05PdUV4Sm4xOGRqVXhUQkRGYk9yQ1RTbFZqWWFXaGg4eVM0Yjk5YVVyZ2tic3d0eG5XRUN6SWhpMnhMbzdEMk43V1ZEVFpDOG5idDVMT3JqYmFydU5tUnRrZFJ2N2l0QTJqZ25uVTI1SVJidlktNmc?oc=5",
-          "published": "Sun, 08 Nov 2026 04:16:05 GMT",
-          "metrics": {}
-        },
-        {
-          "source": "google_news",
-          "team": "michigan",
-          "text": "Connor Stalions jokingly ‘self-reports’ made-up contact with Michigan coaches to NCAA - Saturday Down South",
-          "url": "https://news.google.com/rss/articles/CBMi1wFBVV95cUxOTF9Qc25teFg3UnJMSXZxbVV1V2I4UFlWTXFWZFpWcU5RMVlBb1Z0NFlGR0pWU1RoSDlUTFFWRjZ0NXJ0RDVETm8tcnJSVkRRakFoS1plb2tzcWNGQWtqNFVZUDFRT21QNmRoZVBSSTAwMHZqcVpYT1dQYjdyQUxFOFA3WHBfTERWZm1paDM5bHg5TVBaOEJ2TVdjbGF0bnZmUkhVM0xyOGdoS1B1WjAtWVNBQkF1Q1JsekJTUzRTZVpPci1SalgxTFd2RW5QWUhqVVpwdHZnOA?oc=5",
-          "published": "Sun, 08 Nov 2026 18:16:00 GMT",
-          "metrics": {}
-        },
-        {
-          "source": "google_news",
-          "team": "michigan",
-          "text": "College Football Week 10 Winners and Losers: Ohio State-Michigan Should Air on Cartoon Network - Sports Illustrated",
-          "url": "https://news.google.com/rss/articles/CBMioAFBVV95cUxOQzZtSlc5TWo2cG5VUm1UZ1RCUHhkWVIxZGlEMGNKZV83N3B2OE8wS2o2M090NjA3aXFadU5lQkpZbzc4VkczMUk5SHZPRlV2MTlOZ19MeVU5eDgza3pmUklVVmVhbW50TTViNWVBUG1Md1YxS3JsSTd2Vk5JWHR2OVM4aDdCVUxUcG1IMkI5ZVRPbTdqUVE0TlNwT29xd0lL?oc=5",
-          "published": "Sun, 08 Nov 2026 05:00:53 GMT",
-          "metrics": {}
-        },
-        {
-          "source": "google_news",
-          "team": "michigan",
-          "text": "The Morning After: Michigan Football's One Year Blunder - Sports Illustrated",
-          "url": "https://news.google.com/rss/articles/CBMioAFBVV95cUxNTnU5UmxHYUhqYThZRm9PZFdUb0l3MjV1dzZ6RWNIWW5DWng2eDdDRXRDT3VmdVFwbGpNMERIS0N2NG80YnRJb2tzNjQ1UWZIbmxfU0c4R2tndW5RM3Y3bzU2NjZsZ0lqbm16Z2JXak1uMkJ3X1FMZTBqMk5pb29SWklxZ2VFVkw2elUxQUUyWVBCTE9jMlNDdlZ5Uzd5Z05p?oc=5",
-          "published": "Sun, 08 Nov 2026 14:00:00 GMT",
-          "metrics": {}
-        },
-        {
-          "source": "google_news",
-          "team": "michigan",
-          "text": "Fans react to Michigan Football’s ‘atrocious’ loss to Michigan State - Yahoo Sports",
-          "url": "https://news.google.com/rss/articles/CBMikAFBVV95cUxPWFloaXRpenFGWmtKZ2hPak9QU0k3d0ZobjdzeVhTLUVSck5BSmdTVnR3ZVJmUThtWm00ZWV5djhlVEZGY21wU3ZuMXpJd0hxODJtN3kxaTBMT19PQ1VNY2x1X1pRTXptQm9pLTdwZjJJN0V3M2xTRGVzVnRnUjZkYXU4N0VaN0NJTl9Fd3pMU0c?oc=5",
-          "published": "Sun, 08 Nov 2026 13:00:08 GMT",
-          "metrics": {}
-        },
-        {
-          "source": "google_news",
-          "team": "michigan",
-          "text": "Michigan Drops Rivalry Matchup to Michigan State - University of Michigan Athletics",
-          "url": "https://news.google.com/rss/articles/CBMiqAFBVV95cUxNSEduVXQ4Qjc0Y2ozZlNvbExsSWxJTWh2cE51VjZLdjlUdERiNVVYV1MwSHFwT3FJLWtVSzRfeHhIUk1JZVhqWnNMNFd4UTN2dEw1RzNvQXM4XzdqaTl0R3FsZHVGSjZENDc2UnpwWGpZWFNiV3RQUUxPRmFIMWVXREgtRkZtMnZvTTVkWXlRb3pTYmt0ZmxpQnV4RThqbTlUMHZzMVF2bng?oc=5",
-          "published": "Sun, 08 Nov 2026 04:46:00 GMT",
-          "metrics": {}
-        },
-        {
-          "source": "google_news",
-          "team": "michigan",
-          "text": "3 winners, 3 losers after Michigan Football’s loss to Michigan State - Maize n Brew",
-          "url": "https://news.google.com/rss/articles/CBMiywFBVV95cUxNQ0t1cVRoUWZDTlNoSGZqR0N2UzNaOXN0T0hLMlROaUltZWcwRWt4MXVIUEZSNlQzY3FzcEtsLU5Pc0loRmZSOTNvcm9SeVB2SkJpcTdyZFBGYXRfdndXM0diNEhFd2tkMkRMUzluM2VMWF9NeVRtaGcyX3F5bHltUXY5dzFkcUZ0ZVljMGRGZUVjUkZ1WXFBSmFYTVZoYktjTk90Q2NHYVI5V3otNGZoS2t5QUprdVExd0pYWEVNQUZpUkVUaXdYcmFlbw?oc=5",
-          "published": "Sun, 08 Nov 2026 12:00:00 GMT",
-          "metrics": {}
-        },
-        {
-          "source": "google_news",
-          "team": "michigan",
-          "text": "Observations: Michigan’s offense sinks even lower in loss to MSU - MLive.com",
-          "url": "https://news.google.com/rss/articles/CBMiuAFBVV95cUxNQXluclh6R21aM2Rub2MyWGRLX0xuWHB1aURmemhSWXJOeXZBWXFLcG1rbnkyeFdRai1PM0ZtVUlPeG5YbjZ4NTRTaGhCaXBYalh5YUVuUVFubThzck1rMmhSMFFvLXAtSWwyNDJndTJOVlFFaWZXU2c1a0NMVW9aMUNzS0xLd1oyWmVwdEVDdEpiSXJKQU9nLTJZaTlLNE12ZUF5WGpoV1FxUEZPN2hWcExDdEs4clpH0gHMAUFVX3lxTE1POThHWEFvTl8yRVZDS3lGdzBkOXphWmtUUHIyZS1FWlV3Z3g5cjVNQWVIQWZTTUtqcHM2cUJJSFc5Mm9wYm1Wemg3ckFuaFJ5R3diZWVzU1FFcnpvcFUxZi12eWJhNDB6SVZKeFFhWVFmdmlmeFJ4R18xU1hKM2ZVRmQyZDNzLVJvTkhZaHZzMDhCMmF5djh0eGhlM0dndXdCeXFTLVE5M0Zud2VzOHJ5VGdrRzNQcXJfX3pjeEhjWkJ5dXJZdVpPbUFKbg?oc=5",
-          "published": "Sun, 08 Nov 2026 11:00:00 GMT",
-          "metrics": {}
-        },
-        {
-          "source": "google_news",
-          "team": "michigan",
-          "text": "Tony Garcia grades the performance of freshman quarterback Tommy Carr in Michigan football's 15-6 win over Michigan State. See link below ⬇️ 📸 Eric Seals, Detroit Free Press - Facebook",
-          "url": "https://news.google.com/rss/articles/CBMi3wFBVV95cUxPaV9BdmRTT2VYUlRRbDYxTXo1aFhvTmdTTUFLWGNfU0ZqRzRvSllyMnN3ZVNUb3hxbXp2dzN3anE2MGJZMXByN2ZjdXNFS0FyWVg1aDk0MC10OFo1V3dsaFNxel8tcnZNVXl5SlVXTmZ2bTdEMm9iaTdfWC1haG5tZkVpWUZDYVdFa2lRNjFhWXpHdE0zcGhoR041MGFBV2xBQ2prWkhSY2RNMGFvLU9oRVJNOEdVS3FINTdNSk9GMmRfM0FmTWpzdmxQYWFhOWcwVXh3UFdrejdzR2R4bEpJ?oc=5",
-          "published": "Sun, 08 Nov 2026 18:18:40 GMT",
-          "metrics": {}
-        },
-        {
-          "source": "google_news",
-          "team": "michigan",
-          "text": "Wolverine Thoughts: Michigan Football Made a Mistake & Must Re-Start for 2027 - Sports Illustrated",
-          "url": "https://news.google.com/rss/articles/CBMiuwFBVV95cUxNOVBfODF2bDFGUjQ2Wnk5N0NhdFJNU00wNEprZFJ2ZDNidHlfc25ENEtBd3RuS0MtMVMtSHM1OWxEenBBUEp6ZVpXbXNBU2EyV0c5MlJ1R0RCbjROZExfZkhZSy04Z2xQb2NFSEcycEFYdm1SUHN6WGtQNVhTTU9kNEVZendBTHE0U2ZsNXBNSlhIU3c1VDVXVW82NklmQk5pa0hid2RYNWZWTUlkMURVY1ZfUGwyVVEwcEFB?oc=5",
-          "published": "Sun, 08 Nov 2026 12:00:00 GMT",
-          "metrics": {}
-        },
-        {
-          "source": "google_news",
-          "team": "michigan",
-          "text": "Michigan Football: Losing to MSU should be the end of the Kyle Whittingham era - Maize n Brew",
-          "url": "https://news.google.com/rss/articles/CBMivAFBVV95cUxPblR1M2R6SzBneEVtdU9UMENYSi1wU0h4Yzl4TDhHUWdLb25YV3o3aW1hZmRyQkI1VXR5ZF9UT05oYUJMajRqdmlObTVGWTlLZlZMaWFJZ2E3aGs2RnRqN0NhN1MzUVRRcmlWeXlyMG44eHJGdU4yZm41R2l2SENQTVYyWFdjQ2Eza3BTVS1sbTdqdXRsMmF3clozZ3pDeWVHaTQ4Mk9jV0NTQzVJNXFBUWpaZy1fM1cxZzVuWg?oc=5",
-          "published": "Sun, 08 Nov 2026 05:00:00 GMT",
-          "metrics": {}
-        },
-        {
-          "source": "google_news",
-          "team": "michigan",
-          "text": "Michigan football faces massive media backlash after loss to MSU - Yahoo Sports",
-          "url": "https://news.google.com/rss/articles/CBMijwFBVV95cUxOMnlKdnJ6V1Rrd0ZPUUQxVHZoNWliNjI1VVdRTFR3Mnh0UVM5R0NicVBiNHVLNWN3UHVGRDduQkdraWVuZ2ZLOXlQNzZ1S3lJN2xkdGwtVmpfOHZrekZJNjdxNURVcURWYnNZZ0QtcWVYOTFEdEEzTm1GNUtMTlVNa05BYngtTGt6T1VhTGlacw?oc=5",
-          "published": "Sun, 08 Nov 2026 07:43:00 GMT",
-          "metrics": {}
-        },
-        {
-          "source": "google_news",
-          "team": "michigan",
-          "text": "Here's how much it would cost Michigan to fire Kyle Whittingham - Detroit Free Press",
-          "url": "https://news.google.com/rss/articles/CBMi4gFBVV95cUxPM1UyTkRvOEQ1OWNmeDZLenJWSW5xWWxYVkhZb2pQTFRVUEtQem5CYXRadU16QkZjMWFiZW1qRURlNVpRa1MySUhmVkNkbGM4bE9sNUNOM05WOVdQRHhrNWpBQTUtX045R0UxcTFka0RWNHJtNnBNUzV2U1l4Wnh1cXFFbzJvWkJPSDBiQlIyX1QwWGtTSWpjX3F2U0xkbGhVc2dsaG1CX3NOMklnQmhzc2JneTdfandDZF91c1JYSENwYVp2dnI0cmxPQnFKV3N2dXdicTZCaGp0elduSzBxT3pB?oc=5",
-          "published": "Sun, 08 Nov 2026 15:46:00 GMT",
-          "metrics": {}
-        }
-      ],
-      "reason": null
+      "status": "error",
+      "items": [],
+      "reason": "HTTP Error 503: Service Unavailable"
     },
     "reddit": {
       "status": "error",
@@ -1442,257 +799,257 @@
         {
           "source": "repository_trend_snapshot",
           "team": "cleveland-browns",
-          "text": "Browns at Steelers Postgame Recap",
-          "url": "https://news.google.com/rss/articles/CBMikgFBVV95cUxQaHpyRkp5QUJqRHYwVFlYU3J2RTlMMmxVaDhtVlZkY1JkM1BGVnFVSzI2RGo1bkhMUHlXcWNvM3Z6aFpVWEctQmQ1aVJISE5FeGVpSU9mX0FTOXRmYUQwLXdpYnVnWDhlekxZQV9BMG43M2duRHcxOWVFOWtTM2hkTExQV3ZiLWdsNWRyNWFaQTBEZw?oc=5",
-          "published": "Sun, 01 Nov 2026 22:07:49 GMT",
+          "text": "Cleveland Browns vs. New Orleans Saints recap: Shedeur Sanders comes close, but can’t get the final play in overtime",
+          "url": "http://www.bing.com/news/apiclick.aspx?ref=FexRss&aid=&tid=6af0f771f6334e3bbf892df597497e01&url=https%3a%2f%2fwww.msn.com%2fen-us%2fnews%2fother%2fcleveland-browns-vs-new-orleans-saints-recap-shedeur-sanders-comes-close-but-cant-get-the-final-play-in-overtime%2far-AA2h1qNE&c=4465618030498827259&mkt=en-us",
+          "published": "Sun, 08 Nov 2026 13:40:00 GMT",
+          "metrics": {}
+        },
+        {
+          "source": "repository_trend_snapshot",
+          "team": "cleveland-browns",
+          "text": "Cleveland Browns vs. New Orleans Saints NFL Week 9 Live Updates, Highlights and Analysis",
+          "url": "http://www.bing.com/news/apiclick.aspx?ref=FexRss&aid=&tid=6af0f771f6334e3bbf892df597497e01&url=https%3a%2f%2fbleacherreport.com%2fliveblogs%2f25530665-cleveland-browns-vs-new-orleans-saints-nfl-week-9-live-updates-highlights-and-analysis&c=5919587842271165815&mkt=en-us",
+          "published": "Sun, 08 Nov 2026 09:52:00 GMT",
+          "metrics": {}
+        },
+        {
+          "source": "repository_trend_snapshot",
+          "team": "cleveland-browns",
+          "text": "Saints hold on for a 23-22 overtime victory over the Browns by stopping a 2-point conversion",
+          "url": "http://www.bing.com/news/apiclick.aspx?ref=FexRss&aid=&tid=6af0f771f6334e3bbf892df597497e01&url=https%3a%2f%2fwww.msn.com%2fen-us%2fsports%2ffootball%2fsaints-hold-on-for-a-23-22-overtime-victory-over-the-browns-by-stopping-a-2-point-conversion%2far-AA2h1r01&c=14097464038124103914&mkt=en-us",
+          "published": "Sun, 08 Nov 2026 14:10:11 GMT",
           "metrics": {}
         },
         {
           "source": "repository_trend_snapshot",
           "team": "cleveland-browns",
           "text": "Game Recap: New Orleans Saints 23, Cleveland Browns 22, overtime | 2026 NFL Week 9",
-          "url": "https://news.google.com/rss/articles/CBMiogFBVV95cUxPZG9nekd3V1FXUGFyZGFBemJpSzRYQThfVWJ3ak5Vd1RBY3dNMzdTWmJLMkRReGt6X3EzcngyaE5CSlJVUll3YkliMzcyRUtnMmNPTGdCTVBXOUVHN2QybDF3Ulo5VUM0Z2c3RlBjUlhRQkIwbEZjNFBfdmVZUng0TnFzV0ppUjBtNWxBbTRVb2VRZXpxb3RvTFZUZzZ5Ymt6NGc?oc=5",
-          "published": "Sun, 08 Nov 2026 21:35:31 GMT",
+          "url": "http://www.bing.com/news/apiclick.aspx?ref=FexRss&aid=&tid=6af0f771f6334e3bbf892df597497e01&url=https%3a%2f%2fwww.neworleanssaints.com%2fnews%2fcleveland-browns-new-orleans-saints-2026-nfl-week-9-game-recap&c=10131176726381271955&mkt=en-us",
+          "published": "Sun, 08 Nov 2026 07:35:00 GMT",
           "metrics": {}
         },
         {
           "source": "repository_trend_snapshot",
           "team": "cleveland-browns",
-          "text": "Cleveland Browns news: Culture changers, injuries, QB talk, and more!",
-          "url": "https://news.google.com/rss/articles/CBMivAFBVV95cUxQbExQTTBpRmI2NmdBWU9QN1ZnQ29Hd0QwbnVoSEZBN1hHYm14TldyTi1yYUxyWlZXdDM0UGpIU3J3WlJtRzlnSkRGZVByOHpjeGpsRUdlNkVHaGxjU1ZidThCbGp4Nl8zSUtoRHZ1MzlaQ2E5aVdlZEwtU2d0ZS1JS1d1ellQckNoY2M3ZFZjX2Rpd1dMdDlQTWFVbVFOMjlXZFZOYmdraXlpWElscDJzeVZqeFJtSXNlTjJaYQ?oc=5",
-          "published": "Fri, 06 Nov 2026 11:00:00 GMT",
+          "text": "Saints stop Browns on 2-point try to seal 23-22 OT win",
+          "url": "http://www.bing.com/news/apiclick.aspx?ref=FexRss&aid=&tid=6af0f771f6334e3bbf892df597497e01&url=https%3a%2f%2fwww.cbssports.com%2fnfl%2fnews%2fsaints-stop-browns-on-2-point-try-to-seal-23-22-ot-win%2f&c=6238628483965998904&mkt=en-us",
+          "published": "Sun, 08 Nov 2026 14:11:00 GMT",
           "metrics": {}
         },
         {
           "source": "repository_trend_snapshot",
           "team": "cleveland-browns",
-          "text": "How to watch today's Pittsburgh Steelers vs. Cleveland Browns game in Week 8 of the NFL schedule",
-          "url": "https://news.google.com/rss/articles/CBMirwFBVV95cUxNR3pQREVpVFpTTEVYNVc4TGhWZWlIb0xaV3NFLUx5NGduUDJVSmJ2aHJyZk54N3FxU243WThzbmlQRW1pb2NDOFVlR2Z1Vmh3REhVY0tjZU94Ync0TERjeEt5YVZBcGY1OGE4Q3dwTXhiRDU0MWRKVHJjYjhuZGduNWxJRzdMWGt5bmgzNFo3eFFScWlIS2wtbEdQTDA0VUpPTkstc1VPdUpPc0xEX2Vn?oc=5",
-          "published": "Sun, 01 Nov 2026 11:00:00 GMT",
+          "text": "Saints outlast the Browns for an embarrassing win in overtime",
+          "url": "http://www.bing.com/news/apiclick.aspx?ref=FexRss&aid=&tid=6af0f771f6334e3bbf892df597497e01&url=https%3a%2f%2fsaintswire.usatoday.com%2fstory%2fsports%2fnfl%2fsaints%2f2026%2f11%2f08%2fsaints-browns-final-score-overtime-shedeur-sanders-tyler-shough%2f92681601007%2f&c=17229757842983716832&mkt=en-us",
+          "published": "Sun, 08 Nov 2026 13:59:00 GMT",
           "metrics": {}
         },
         {
           "source": "repository_trend_snapshot",
           "team": "cleveland-browns",
-          "text": "Another late rally comes up short as Cleveland Browns fall to New Orleans Saints in overtime",
-          "url": "https://news.google.com/rss/articles/CBMiigJBVV95cUxPZVltTldzYVRMYzBGRkZYcnBoYlRzNkpHdGVoa2d0bWVCa1N0WkV5bHlDLTMyd1RucUptOW9vLUtVTzRjZlpDVHhDbEIxSUxUakU4T3pPS3dROThXU3F3VHBDbFZVbDNXVklWZkVKMmZCOXRsUDFlZWtPYnBlTVdvTWI0dExIWEVXUmE1alItX19oNkRJNjRsSmluM3pBYmhXQ0hKY0c3Yk1NdDVxVFlsRWdfZENic3p6RHZVRUpMSjIyMi1GbWJTQXFhbFRkR0NWUnNpYVdhNks1YnQyMDdTSVE1SHNjZUxNV0h6N0h6NVZkbEpBUEVJTEJVRmo1Wk9pUF9za1JOdmhzZw?oc=5",
-          "published": "Sun, 08 Nov 2026 21:34:00 GMT",
+          "text": "Tyler Shough leads late TD drives as Saints sink Shedeur Sanders, Browns in OT thriller",
+          "url": "http://www.bing.com/news/apiclick.aspx?ref=FexRss&aid=&tid=6af0f771f6334e3bbf892df597497e01&url=https%3a%2f%2fwww.nytimes.com%2fathletic%2f7764265%2f2026%2f11%2f08%2fbrowns-saints-nfl-week-9-score-result-takeaways%2f&c=16541055164954051026&mkt=en-us",
+          "published": "Sun, 08 Nov 2026 14:11:00 GMT",
           "metrics": {}
         },
         {
           "source": "repository_trend_snapshot",
           "team": "cleveland-browns",
-          "text": "Browns vs. Steelers highlights | Week 8",
-          "url": "https://news.google.com/rss/articles/CBMicEFVX3lxTE93eHFDdlZhU25JcjBoSjVSaTlEejlCaWVRVlllVFB4MEx5WGRfZGVnaUxDcjFHX1AtSzFkbjcyakxjZnRIc3g5UWVDYUJHWWw3Qlo0ZG8wd0diNk1fVkxMai11THRiWkFsSldFSGhjei0?oc=5",
-          "published": "Sun, 01 Nov 2026 21:55:42 GMT",
-          "metrics": {}
-        },
-        {
-          "source": "repository_trend_snapshot",
-          "team": "cleveland-browns",
-          "text": "Browns offense shows flashes but remains a major work in progress: Dan Labbe",
-          "url": "https://news.google.com/rss/articles/CBMisAFBVV95cUxNZ0dvazdXRS1kckhfZDZkYTNVakVta09KUlZCUEdVS09SZThfZGhZdUhweERvRkRVTUdQZFEyQnNwblVOWEc4dUhiMlpHVzlOM014T3dmX0tsVFNjZUtUcDE2X1pDOV9KNkQxSUlrdHpVRGNSR2dSZ0ZXa2ltLVBxR1dxb2xVZ3lGeGhZeTNIRDcyVWFBcVlNd1hDdURwcXgtOHY1azR2Nm51ZEkwVnhUSQ?oc=5",
-          "published": "Sun, 08 Nov 2026 21:35:00 GMT",
-          "metrics": {}
-        },
-        {
-          "source": "repository_trend_snapshot",
-          "team": "cleveland-browns",
-          "text": "Cleveland Browns QB Deshaun Watson placed in concussion protocol",
-          "url": "https://news.google.com/rss/articles/CBMikAFBVV95cUxPM2tzWnFaOTNNMnYydUxfWUFUeVhLQk1uTHdLYi0tQ2hxWVM5WlAxdnR1dDFvdkVPWnhHQUd1bFlCTHNka2tfZlhudTNuT01MMWFXMV9YWWxacGI4U2NFbldLc2ViS0QzczhSLVlQR0lfdHptX1FfOEFpSUhwOHc5UDZTN1NvczhwaUlWT1QzTk_SAZYBQVVfeXFMTmxzTnFJY1p3d0VDREhLUS1HNmt1NVpQTE5pYnRpY1prM1ZWNlNvNDNQRTVqM1h2eUg4a3Yxc3VxTWlsQ0NNYjlySl9yX0lxOUZEZURaT3g3M21OeHZoVXlZOWV4OTkyNTczNVVOLTBMUDQ2V0FEMU12X2xTNjdBeC0zdFRKM2ZzR2owY1E3SC1wYzFRZlR3?oc=5",
-          "published": "Wed, 04 Nov 2026 14:39:41 GMT",
+          "text": "Saints 23, Browns 22 | Final Score, Stats & Game Recap",
+          "url": "http://www.bing.com/news/apiclick.aspx?ref=FexRss&aid=&tid=6af0f771f6334e3bbf892df597497e01&url=https%3a%2f%2fwww.clevelandbrowns.com%2fnews%2fsaints-23-browns-22-final-score-stats-game-recap&c=15055637899166449936&mkt=en-us",
+          "published": "Sun, 08 Nov 2026 08:49:00 GMT",
           "metrics": {}
         },
         {
           "source": "repository_trend_snapshot",
           "team": "michigan",
-          "text": "4 Instant Takeaways After Michigan Football's Humiliating Loss to Michigan State",
-          "url": "https://news.google.com/rss/articles/CBMixwFBVV95cUxPcEJBel9wNzNGcHFBcHExZy04LWI0a0YtdDFBV09KVV92NEwtaVJjeWFRVF9sMmVwU3BFS1NTaXBfdm9nZ2piVEI2dUVHTGJrYzkzXzdyR3BhM2xvUkVIZ190WFVEUXN3ZmdlVFdGSmJycTMxc3BtYmptVlVVTjFSbEs4MnVCRlM1WHVNYUM0RkloaUhFdTZZZ3dKckwtUnhjVXNMZjlBLVp6N05QUWNNRDVRaWtETzJFZzNRTlFUakwxSzlMRHY0?oc=5",
-          "published": "Sun, 08 Nov 2026 04:13:31 GMT",
+          "text": "Michigan football is biggest underdog in almost two years vs. Oregon",
+          "url": "http://www.bing.com/news/apiclick.aspx?ref=FexRss&aid=&tid=6af0f7a09a43462b8c35452f74d1471f&url=https%3a%2f%2fwww.mlive.com%2fwolverines%2ffootball%2f2026%2f11%2fmichigan-football-is-biggest-underdog-in-almost-two-years-vs-oregon.html&c=2886667325710007904&mkt=en-us",
+          "published": "Sun, 08 Nov 2026 09:01:00 GMT",
           "metrics": {}
         },
         {
           "source": "repository_trend_snapshot",
           "team": "michigan",
-          "text": "Watch Michigan vs Rutgers Highlights, Replay & Score - CFB Week 9",
-          "url": "https://news.google.com/rss/articles/CBMiuAFBVV95cUxPdi12ZC16RjU4V2xMcUxJbWFadlFZandVbmZaTFI5Z0Z4cEd6TGJRUS04Y3JOd0tvOElweWxnWERFdjl5Ql83amJncUNIZHRZTkxQSTJDMTVqZk8xc2V5RnNKQ2Fpbmptb1dZUzBsaHppS2h6T0VzUTRfbDBRSkJ1bmJzbHhUS2J2MWU5VHBaQkgyb1NFS1VoNlVRQTZNd2tPRTI1VGxBOWVBc3lWRS1KdVRTazRRRXRj?oc=5",
-          "published": "Sat, 31 Oct 2026 07:00:00 GMT",
+          "text": "The PFF grades are NOT kind to Michigan Football in loss to Michigan State",
+          "url": "http://www.bing.com/news/apiclick.aspx?ref=FexRss&aid=&tid=6af0f7a09a43462b8c35452f74d1471f&url=https%3a%2f%2fsports.yahoo.com%2farticles%2fpff-grades-not-kind-michigan-210000026.html&c=16261189390523287125&mkt=en-us",
+          "published": "Sun, 08 Nov 2026 13:00:00 GMT",
           "metrics": {}
         },
         {
           "source": "repository_trend_snapshot",
           "team": "michigan",
-          "text": "Game Thread: Michigan Football vs Michigan State",
-          "url": "https://news.google.com/rss/articles/CBMiiAFBVV95cUxPMXNIdVU4S2FzR1hNei1RMnJGR2w0SGJNSXRCVFlpQUVldXV3UzQ2cG9yZmVfYWRVV0ZfS1o1bnBIWjlPaGplMFhlbnBsemplV0ptTkRpbnF0Z2trSS00ZV9wd240WTB3UkgzLXFyajdocmNfbTVZNkdUREdYUmVPa0tCbWRxUGxo?oc=5",
-          "published": "Sat, 07 Nov 2026 23:30:00 GMT",
+          "text": "Reacting to Michigan Football’s unacceptable loss to Michigan State",
+          "url": "http://www.bing.com/news/apiclick.aspx?ref=FexRss&aid=&tid=6af0f7a09a43462b8c35452f74d1471f&url=https%3a%2f%2fsports.yahoo.com%2farticles%2freacting-michigan-football-unacceptable-loss-160000097.html&c=11406228196514414290&mkt=en-us",
+          "published": "Sun, 08 Nov 2026 08:00:00 GMT",
           "metrics": {}
         },
         {
           "source": "repository_trend_snapshot",
           "team": "michigan",
-          "text": "Michigan Drops Rivalry Matchup to Michigan State",
-          "url": "https://news.google.com/rss/articles/CBMiqAFBVV95cUxNSEduVXQ4Qjc0Y2ozZlNvbExsSWxJTWh2cE51VjZLdjlUdERiNVVYV1MwSHFwT3FJLWtVSzRfeHhIUk1JZVhqWnNMNFd4UTN2dEw1RzNvQXM4XzdqaTl0R3FsZHVGSjZENDc2UnpwWGpZWFNiV3RQUUxPRmFIMWVXREgtRkZtMnZvTTVkWXlRb3pTYmt0ZmxpQnV4RThqbTlUMHZzMVF2bng?oc=5",
-          "published": "Sun, 08 Nov 2026 04:46:00 GMT",
+          "text": "Michigan football fires offensive coordinator Jason Beck, per report",
+          "url": "http://www.bing.com/news/apiclick.aspx?ref=FexRss&aid=&tid=6af0f7a09a43462b8c35452f74d1471f&url=https%3a%2f%2fwww.msn.com%2fen-us%2fsports%2ffootball%2fmichigan-football-fires-offensive-coordinator-jason-beck-per-report%2far-AA2h1Njy&c=7842351660675115616&mkt=en-us",
+          "published": "Sun, 08 Nov 2026 14:16:31 GMT",
           "metrics": {}
         },
         {
           "source": "repository_trend_snapshot",
           "team": "michigan",
-          "text": "Michigan football head coach Kyle Whittingham names starting quarterback, discusses Michigan State rivalry",
-          "url": "https://news.google.com/rss/articles/CBMi_AFBVV95cUxOc3oyTklJVU5zUm9DV2htRUdxenc3R2pmY2htRVR2R3RhVE9ZWGd0N2loNlFGNUlCTXB4WTkwVU9udjlRWkdWeDI1YldjTTh1U0VYcU02VElrVFcwS05qWFIwWERPYzdyaEh3VG90czNhZVIzMkpWd1dBN0NJMkJBQlZlOXhxd2hYX2tVbF92WU1yNk5rTWtrZUhFMmNRVmZxWWg4bFVwWFZPNHdWSkc5bUdSNk9fOUNhWTIyLTUzV0FpQVM1VTlrcTFVbnVpSmsxZTZUSjYxVDRicm5rS2FCeDFqNG1PNVFCZVRjRi1yNHl0eW8wTTRKVVNxYko?oc=5",
-          "published": "Tue, 03 Nov 2026 10:00:00 GMT",
+          "text": "Next up for Michigan football is a team that just won at Ohio State",
+          "url": "http://www.bing.com/news/apiclick.aspx?ref=FexRss&aid=&tid=6af0f7a09a43462b8c35452f74d1471f&url=https%3a%2f%2fwww.mlive.com%2fwolverines%2ffootball%2f2026%2f11%2fnext-up-for-michigan-football-is-a-team-that-just-won-at-ohio-state.html&c=10459917096664583226&mkt=en-us",
+          "published": "Sun, 08 Nov 2026 07:02:00 GMT",
           "metrics": {}
         },
         {
           "source": "repository_trend_snapshot",
           "team": "michigan",
-          "text": "Kickoff time set for Nov. 7 Michigan-Michigan State football rivalry game",
-          "url": "https://news.google.com/rss/articles/CBMixgFBVV95cUxNV20xZmZ3RktYN3ViMUdWZW9YZjVtU2ZyOUg2RXRYRThoSFZvX192UU8tVVdYa25OYkxkbUlwU08zbl9vM3h4YUJPdml4TF9GbWFmaWltQTlwWFhIcHg0SWgxVVZOUUhkeGFHYUozUEI5SzBLSUpWY3MzXzliZE12YTFrMURkVEFCeWx4V19KZ0FTMlB1TmRtRzVJd1hhUERIUFZMM2xSZDEwbkJzX1VnOXJWbldSNWVlenBSUHIwcUt1aHFreXfSAdoBQVVfeXFMUHplZjF6cDdqNFRieVg2QnRicXM4REhOTF9CUlBWYjZtOHdaQ2tvQ3hqLVNFXzNmbERYYktHdjkwcFVsM2N5cFE4MVI2ZXZ4WGI4ZkVocW5jczBoazBudmd6U29XcE1udnhyWWNKYTBZX252LVZvY2RGTXk4SUtNS09xbDJhMGZPcWlSSjFpMkZCWno0RDdHSUppTGtlUEZ5RnB5c0FJdFk2V2hGY1ZGejVSY3IxOXFtSWhLcGYzWU5zRVRIY1RlWVROZHloSmZETWZXd2JNY280aHc?oc=5",
-          "published": "Mon, 02 Nov 2026 15:18:00 GMT",
+          "text": "Michigan football grades: MSU debacle a failure on all accounts",
+          "url": "http://www.bing.com/news/apiclick.aspx?ref=FexRss&aid=&tid=6af0f7a09a43462b8c35452f74d1471f&url=https%3a%2f%2fwww.freep.com%2fstory%2fsports%2fcollege%2funiversity-michigan%2fwolverines%2f2026%2f11%2f08%2fmichigan-football-grades-msu-failure%2f92645852007%2f&c=14599061765398405099&mkt=en-us",
+          "published": "Sun, 08 Nov 2026 02:06:00 GMT",
           "metrics": {}
         },
         {
           "source": "repository_trend_snapshot",
           "team": "michigan",
-          "text": "Michigan Wolverines vs Rutgers Scarlet Knights Highlights | FOX College Football",
-          "url": "https://news.google.com/rss/articles/CBMiYkFVX3lxTFBLNk5TT0Yydm5fbFJVc0JQQjJLQmp5MTdQSnhTLTN1cHpBeHFBWm1PVFp5dFNxN2tVQjg4azU3cmlWUFdaSThLQk9IVUlrU25fbFBEUWdhengxYkRfZml4S1BB?oc=5",
-          "published": "Sat, 31 Oct 2026 07:00:00 GMT",
+          "text": "Michigan Fires OC Jason Beck, per Report",
+          "url": "http://www.bing.com/news/apiclick.aspx?ref=FexRss&aid=&tid=6af0f7a09a43462b8c35452f74d1471f&url=https%3a%2f%2fwww.msn.com%2fen-us%2fnews%2fother%2fmichigan-fires-oc-jason-beck-per-report%2far-AA2h1PMt&c=18219695751567446205&mkt=en-us",
+          "published": "Sun, 08 Nov 2026 14:06:31 GMT",
           "metrics": {}
         },
         {
           "source": "repository_trend_snapshot",
           "team": "michigan",
-          "text": "Michigan Football: Losing to MSU should be the end of the Kyle Whittingham era",
-          "url": "https://news.google.com/rss/articles/CBMivAFBVV95cUxPblR1M2R6SzBneEVtdU9UMENYSi1wU0h4Yzl4TDhHUWdLb25YV3o3aW1hZmRyQkI1VXR5ZF9UT05oYUJMajRqdmlObTVGWTlLZlZMaWFJZ2E3aGs2RnRqN0NhN1MzUVRRcmlWeXlyMG44eHJGdU4yZm41R2l2SENQTVYyWFdjQ2Eza3BTVS1sbTdqdXRsMmF3clozZ3pDeWVHaTQ4Mk9jV0NTQzVJNXFBUWpaZy1fM1cxZzVuWg?oc=5",
+          "text": "Michigan score as Michigan State completes 15-6 upset of Wolverines",
+          "url": "http://www.bing.com/news/apiclick.aspx?ref=FexRss&aid=&tid=6af0f7a09a43462b8c35452f74d1471f&url=https%3a%2f%2fsixerswire.usatoday.com%2fstory%2fsports%2fcollege%2f2026%2f11%2f07%2fmichigan-michigan-state-live-updates-score--live%2f92585293007%2f&c=17832363272694787193&mkt=en-us",
+          "published": "Sat, 07 Nov 2026 20:49:00 GMT",
+          "metrics": {}
+        },
+        {
+          "source": "repository_trend_snapshot",
+          "team": "green-bay-packers",
+          "text": "Patriots vs. Packers live coverage: Tom Brady greets Drake Maye ahead of test vs. Green Bay",
+          "url": "http://www.bing.com/news/apiclick.aspx?ref=FexRss&aid=&tid=6af0f7c7b13f41988700f58ea87e1815&url=https%3a%2f%2fwww.msn.com%2fen-us%2fnews%2fother%2fpatriots-vs-packers-live-coverage-tom-brady-greets-drake-maye-ahead-of-test-vs-green-bay%2far-AA2h1dW4&c=5157659641759941392&mkt=en-us",
+          "published": "Sun, 08 Nov 2026 13:45:45 GMT",
+          "metrics": {}
+        },
+        {
+          "source": "repository_trend_snapshot",
+          "team": "green-bay-packers",
+          "text": "Patriots vs. Packers live updates: Two playoff hopefuls meet in Week 9",
+          "url": "http://www.bing.com/news/apiclick.aspx?ref=FexRss&aid=&tid=6af0f7c7b13f41988700f58ea87e1815&url=https%3a%2f%2fwww.cbssports.com%2fnfl%2fnews%2fpatriots-vs-packers-live-updates-score-highlights%2flive%2f&c=6338397080755025148&mkt=en-us",
+          "published": "Sun, 08 Nov 2026 14:23:00 GMT",
+          "metrics": {}
+        },
+        {
+          "source": "repository_trend_snapshot",
+          "team": "green-bay-packers",
+          "text": "Packers LB Ty’Ron Hopper and RB Josh Jacobs Questionable to Return vs. Patriots",
+          "url": "http://www.bing.com/news/apiclick.aspx?ref=FexRss&aid=&tid=6af0f7c7b13f41988700f58ea87e1815&url=https%3a%2f%2fathlonsports.com%2fnfl%2fgreen-bay-packers%2fpackers-lb-tyron-hopper-and-rb-josh-jacobs-questionable-to-return-vs-patriots&c=8963483294072006371&mkt=en-us",
+          "published": "Sun, 08 Nov 2026 14:22:00 GMT",
+          "metrics": {}
+        },
+        {
+          "source": "repository_trend_snapshot",
+          "team": "green-bay-packers",
+          "text": "Packers’ Jordan Love Hits Milestone Against Patriots That’s More Than ‘Cool’",
+          "url": "http://www.bing.com/news/apiclick.aspx?ref=FexRss&aid=&tid=6af0f7c7b13f41988700f58ea87e1815&url=https%3a%2f%2fwww.msn.com%2fen-us%2fnews%2fother%2fpackers-jordan-love-hits-milestone-against-patriots-that-s-more-than-cool%2far-AA2h195N&c=8315154707945627647&mkt=en-us",
+          "published": "Sun, 08 Nov 2026 13:42:50 GMT",
+          "metrics": {}
+        },
+        {
+          "source": "repository_trend_snapshot",
+          "team": "green-bay-packers",
+          "text": "Josh Jacobs suffers injury amid Packers’ hot start vs. Patriots",
+          "url": "http://www.bing.com/news/apiclick.aspx?ref=FexRss&aid=&tid=6af0f7c7b13f41988700f58ea87e1815&url=https%3a%2f%2fclutchpoints.com%2fnfl%2fgreen-bay-packers%2fpackers-news-josh-jacobs-suffers-injury-hot-start-patriots&c=13983191127984400340&mkt=en-us",
+          "published": "Sun, 08 Nov 2026 14:16:00 GMT",
+          "metrics": {}
+        },
+        {
+          "source": "repository_trend_snapshot",
+          "team": "green-bay-packers",
+          "text": "NFL Experts Pick Against Patriots in Green Bay Showdown, but Not Everyone Is Convinced",
+          "url": "http://www.bing.com/news/apiclick.aspx?ref=FexRss&aid=&tid=6af0f7c7b13f41988700f58ea87e1815&url=https%3a%2f%2fwww.msn.com%2fen-us%2fnews%2fother%2fnfl-experts-pick-against-patriots-in-green-bay-showdown-but-not-everyone-is-convinced%2far-AA2h0iE9&c=1608760059127887470&mkt=en-us",
+          "published": "Sun, 08 Nov 2026 05:06:43 GMT",
+          "metrics": {}
+        },
+        {
+          "source": "repository_trend_snapshot",
+          "team": "green-bay-packers",
+          "text": "5 Keys to a New England Patriots Victory Over the Green Bay Packers in Week 9",
+          "url": "http://www.bing.com/news/apiclick.aspx?ref=FexRss&aid=&tid=6af0f7c7b13f41988700f58ea87e1815&url=https%3a%2f%2fwww.msn.com%2fen-us%2fnews%2fother%2f5-keys-to-a-new-england-patriots-victory-over-the-green-bay-packers-in-week-9%2far-AA2gZGC6&c=2744375378076008365&mkt=en-us",
+          "published": "Sun, 08 Nov 2026 04:44:58 GMT",
+          "metrics": {}
+        },
+        {
+          "source": "repository_trend_snapshot",
+          "team": "green-bay-packers",
+          "text": "Green Bay Packers at New England Patriots odds, picks and predictions",
+          "url": "http://www.bing.com/news/apiclick.aspx?ref=FexRss&aid=&tid=6af0f7c7b13f41988700f58ea87e1815&url=https%3a%2f%2fwww.freep.com%2fstory%2fsports%2fnfl%2f2026%2f11%2f07%2fpackers-at-patriots-odds-picks-and-predictions%2f92652186007%2f&c=6703202604528052640&mkt=en-us",
+          "published": "Sat, 07 Nov 2026 18:48:00 GMT",
+          "metrics": {}
+        },
+        {
+          "source": "repository_trend_snapshot",
+          "team": "dallas-cowboys",
+          "text": "Biggest takeaways from Dallas Cowboys' uninspiring Week 9 win over Colts",
+          "url": "http://www.bing.com/news/apiclick.aspx?ref=FexRss&aid=&tid=6af0f7f2ceb348fc95faf02e16a3e09e&url=https%3a%2f%2fwww.msn.com%2fen-us%2fnews%2fother%2fbiggest-takeaways-from-dallas-cowboys-uninspiring-week-9-win-over-colts%2far-AA2h1FsC&c=18032594066939625005&mkt=en-us",
+          "published": "Sun, 08 Nov 2026 13:42:42 GMT",
+          "metrics": {}
+        },
+        {
+          "source": "repository_trend_snapshot",
+          "team": "dallas-cowboys",
+          "text": "Five thoughts from Cowboys-Colts: Dallas survives in another topsy-turvy effort",
+          "url": "http://www.bing.com/news/apiclick.aspx?ref=FexRss&aid=&tid=6af0f7f2ceb348fc95faf02e16a3e09e&url=https%3a%2f%2fwww.msn.com%2fen-us%2fsports%2ffootball%2ffive-thoughts-from-cowboys-colts-dallas-survives-in-another-topsy-turvy-effort%2far-AA2h1ShP&c=16574600219862588440&mkt=en-us",
+          "published": "Sun, 08 Nov 2026 13:45:23 GMT",
+          "metrics": {}
+        },
+        {
+          "source": "repository_trend_snapshot",
+          "team": "dallas-cowboys",
+          "text": "Dallas Cowboys facing must-win, desperation game vs. Colts without George Pickens, Joey Porter",
+          "url": "http://www.bing.com/news/apiclick.aspx?ref=FexRss&aid=&tid=6af0f7f2ceb348fc95faf02e16a3e09e&url=https%3a%2f%2fsports.yahoo.com%2farticles%2fdallas-cowboys-facing-must-win-165703251.html&c=14800057465491851082&mkt=en-us",
+          "published": "Sun, 08 Nov 2026 08:58:00 GMT",
+          "metrics": {}
+        },
+        {
+          "source": "repository_trend_snapshot",
+          "team": "dallas-cowboys",
+          "text": "Cowboys rally late to beat Colts 27-23 on Javonte Williams TD",
+          "url": "http://www.bing.com/news/apiclick.aspx?ref=FexRss&aid=&tid=6af0f7f2ceb348fc95faf02e16a3e09e&url=https%3a%2f%2fwww.cbssports.com%2fnfl%2fnews%2fcowboys-rally-late-to-beat-colts-27-23-on-javonte-williams-td%2f&c=10243329308214806460&mkt=en-us",
+          "published": "Sun, 08 Nov 2026 14:22:00 GMT",
+          "metrics": {}
+        },
+        {
+          "source": "repository_trend_snapshot",
+          "team": "dallas-cowboys",
+          "text": "Javonte Williams’ late TD run helps Cowboys avoid another 4th-quarter collapse and beat Colts 27-23",
+          "url": "http://www.bing.com/news/apiclick.aspx?ref=FexRss&aid=&tid=6af0f7f2ceb348fc95faf02e16a3e09e&url=https%3a%2f%2fapnews.com%2farticle%2findianapolis-colts-dallas-cowboys-score-a0e32a4347e90b2d10ad2ac6e527c576&c=10893278684911430053&mkt=en-us",
+          "published": "Sun, 08 Nov 2026 14:20:00 GMT",
+          "metrics": {}
+        },
+        {
+          "source": "repository_trend_snapshot",
+          "team": "dallas-cowboys",
+          "text": "Dallas Cowboys-Indianapolis Colts Announcer Pairing & Referee Assignment For Week 9",
+          "url": "http://www.bing.com/news/apiclick.aspx?ref=FexRss&aid=&tid=6af0f7f2ceb348fc95faf02e16a3e09e&url=https%3a%2f%2fwww.si.com%2fnfl%2fcowboys%2fonsi%2fdallas-cowboys-indianapolis-colts-announcer-pairing-referee-assignment-nfl-week-9&c=16488153185772602683&mkt=en-us",
           "published": "Sun, 08 Nov 2026 05:00:00 GMT",
           "metrics": {}
         },
         {
           "source": "repository_trend_snapshot",
-          "team": "green-bay-packers",
-          "text": "Game recap: 5 takeaways from Packers’ victory over Panthers",
-          "url": "https://news.google.com/rss/articles/CBMinwFBVV95cUxOaDhJdXp6U1gtRzRtVjZMQy1DOUR0NzRfeVhqUFhrZU0ydEVvR3Z6WWtuOV9acVR2TXhHd1JLdUZ3Qk16VUZUOUNpSWttMWZzVzZjR3dOUDB6SDRzNl9uSHBKZGhiQWRfMTA4dDFtUVZuSXVZS2ppbDBNaXlDS3RuSy1wbG85M2I1WmQzd1I5R2dFMFNib3NHV0xteHBTS2M?oc=5",
-          "published": "Fri, 30 Oct 2026 07:00:00 GMT",
-          "metrics": {}
-        },
-        {
-          "source": "repository_trend_snapshot",
-          "team": "green-bay-packers",
-          "text": "Game Preview: Patriots vs. Packers | NFL Week 9",
-          "url": "https://news.google.com/rss/articles/CBMifkFVX3lxTE5QYlUwZmQxQ3lIcWdqa25QQ1dlc29EOVlfSjcwSkIxUmRtUWVPVlF3Ri1vSm5qWm5FcVZab0VwQU1MYktJQ0tSN3ZPMjlCVl9qdjVXcTZmbERmN1B3bk5Pdi01cmExTkVBa3ZrMnRzMmFvTFAzSDN0U0VSbmN6UQ?oc=5",
-          "published": "Tue, 03 Nov 2026 17:55:12 GMT",
-          "metrics": {}
-        },
-        {
-          "source": "repository_trend_snapshot",
-          "team": "green-bay-packers",
-          "text": "Green Bay Packers vs. New England Patriots Week 9 preview",
-          "url": "https://news.google.com/rss/articles/CBMi1AFBVV95cUxNYk5QYkN4dHpyaFh2cjY5bUpMY3pLaGdKa1NYQzJkY19oZWdCWXJ5eUpPbTFlNjRMVHBWUVBhR05QemgtRTdDM1RYSUhFUzdRZ0p1bXdqenpPRVNucUQ4eXd2d29UcHRXcVgwT1QzSlRVX1pkRWlLcks4RF93MWlLbkpiNmxzNmlKb05FME5Db2JZMTBtZ1lLcDBEcjB4czJNU3F4aHUyQjRKdnVsdUEybUVjdG9NTXFzd0R2VFJNUlMyZ09HcGJYekYxVjdxLUhqUkpUZw?oc=5",
-          "published": "Fri, 06 Nov 2026 14:40:00 GMT",
-          "metrics": {}
-        },
-        {
-          "source": "repository_trend_snapshot",
-          "team": "green-bay-packers",
-          "text": "Green Bay Packers News: Ty’Ron Hopper is having his moment",
-          "url": "https://news.google.com/rss/articles/CBMivAFBVV95cUxNcHJ4RjZrQW5qSDNmazRnWi1PRUotUWZJS2F3b0tjT1BRb2xQanJYcTFPNWVOWG1pT3JYZ0pPd0ppa1JUYXZnTVVRTnpWMHVyNlRIS3lCcXJFQkozWGJGU2RGQWhHUm00RllFNlBHeE1xUDBZYXhLVGJKZDlMUkJRcl8wREQ0aXphMjRGc0RMUTVMUGRaNVpGSzIycVByVnVBczZBZ3ZlOGpjSkFSU0NhRDRsQlVRTWlrNnc4Zw?oc=5",
-          "published": "Mon, 02 Nov 2026 15:37:40 GMT",
-          "metrics": {}
-        },
-        {
-          "source": "repository_trend_snapshot",
-          "team": "green-bay-packers",
-          "text": "Police have identified operator of drone that interrupted Packers game",
-          "url": "https://news.google.com/rss/articles/CBMihgJBVV95cUxPUGVKeGtWaVcxNE1WT2ZCYjJPUTFmSFNSVTBleXZBM3lLbEtlbUZiMktvblNKRXZSY2lxelRJZkVKT09aTkNEanBMdWUxOHZ3VklEaHR5T21ieVNIMkZudzBHQzEwSnhKZkt6aWdDOEV1eXF3U2pmdlZqMGdkR1VhZEJjdUExRTgyYzRaRlZ6UlVYZ19lVUNiWkJHNnl6ZktfX3hwU2JVeGJxbmhkcTRDWTZPSV9CcmU5VnA0aWFBNUtpR3E3TWNBekxFU0ZuNjljNGJESURzS2lYNHhick9maWFnZXdLTU4xX296UGRfNVBRbnV2bG9mQ2NfaDJKdU9TYWpkUk5R?oc=5",
-          "published": "Thu, 05 Nov 2026 16:11:25 GMT",
-          "metrics": {}
-        },
-        {
-          "source": "repository_trend_snapshot",
-          "team": "green-bay-packers",
-          "text": "𝚆𝙰𝚃𝙲𝙷 Green Bay Packers vs. New England Patriots 𝐋𝐈𝐕𝐄 Ｓｔｒｅａｍ Ｆｒｅｅ ＯＮ Ｔｖ Ｃｈａｎｎｅｌ!NFL",
-          "url": "https://news.google.com/rss/articles/CBMi3wJBVV95cUxNSEoxZHNGQTdKS09lX3lwVFNoRThoZzlYaGdkM1FhQWRBY3EwUzY1QVlQYnJDLW1RN29NQmZ0LTBTZ1A3VkdyV3JWUDJnb1dsSC1DUW5vRDhXN3c0eWZhWWVPdTh1Y3hRdFF0dG5uLV9QUjhmVkRCOGgwSWt2a21iU0x6UV8wRWY2NlhZUldHc3A1WGNheTZqODM3dmZ5Y2ZNa0hTZU5WempuVVZlUHA4aFcxZ194VEx6ZHhsWGVWNlUyV0J0MUdpWUdJclpZMTNoalZBZDZ3MnZYVzZ6TUVla21pU3JQN3h3eXEtQzdIU1dEVnI5cEdCRjNrWVBGXzEydFJQM0Z2RWNYMUJtXy1ZTmlERHdXd3VORlAyQ2k3SjFNQkVEdTF5VWxSSWZON21yajhfQ3ZOTlBMOV9VX29reVRzWnpEZWt2bG9Pb25zYzFjVUE1MTNQMkY1WWNrVUE?oc=5",
-          "published": "Sun, 08 Nov 2026 21:19:06 GMT",
-          "metrics": {}
-        },
-        {
-          "source": "repository_trend_snapshot",
-          "team": "green-bay-packers",
-          "text": "Panthers recover Coleman Owen's fumble on opening kickoff at Green Bay's 29-yard line",
-          "url": "https://news.google.com/rss/articles/CBMisgFBVV95cUxQUkhvczhFU1F5TEFuUWkxQlNRMVhNeFJGaUNfTHlLbXZSYzRLTmh0eTl2T1dubVFoSVotYXAyY2JKZFBMNmpJVVhtSEdnU3VvQm5SdEtWRW1fODMyMlpROWF4azI5Z3JYRlAtS09YNkFEMWtiRUdrOFVlaC1tT1Bsb09OU2NiYVFVTEJQR2V3enZCUkZBWWlFc0tVYWpJWS15ejI3UnhlSHI2U2I4MW1Sc2NR?oc=5",
-          "published": "Fri, 30 Oct 2026 00:41:47 GMT",
-          "metrics": {}
-        },
-        {
-          "source": "repository_trend_snapshot",
-          "team": "green-bay-packers",
-          "text": "Green Bay Packers give an update on running back Josh Jacobs",
-          "url": "https://news.google.com/rss/articles/CBMinAFBVV95cUxQVlBQeUE5OVJuMUhfeElFWjJzeTRlTUcya2tsUDB3dWxJTWZ6TlVucFNJb2hEU21PSktqSHZFTmtyUi1IdUNsS1lLcmZPZ1F0RWNYZlVNTkU4RWkycW9vUFVWekE2TmctYVFEQ2x3ekZDSXl2aWV5SmQ3MmYxQ2ZVTHJJS0RRQkR6Xzd6MkJ0SldPYU5LcmNMSUxrQnc?oc=5",
-          "published": "Mon, 02 Nov 2026 22:02:00 GMT",
+          "team": "dallas-cowboys",
+          "text": "Drew Brees IMPRESSED with Cowboys’ Win vs Colts, Explains How Dallas Can Compete in NFC East",
+          "url": "http://www.bing.com/news/apiclick.aspx?ref=FexRss&aid=&tid=6af0f7f2ceb348fc95faf02e16a3e09e&url=https%3a%2f%2fwww.foxsports.com%2fwatch%2ffmc-fq02kgbxj2vo6vq1&c=7864625582660904637&mkt=en-us",
+          "published": "Sun, 08 Nov 2026 14:03:00 GMT",
           "metrics": {}
         },
         {
           "source": "repository_trend_snapshot",
           "team": "dallas-cowboys",
-          "text": "Game Recap: Dallas shocked in OT, 33-30",
-          "url": "https://news.google.com/rss/articles/CBMifEFVX3lxTE4zS18xWXl1ZkxtUVJMQUZUMkJmRzJKRnJEM24xd0xJTGdxa3p2eURNYVA3a2hrV1FwcU5nMzBxZTFaeXMxQk16R0p6MXY5RlcxS0VKNzlYeW5BYVRyU1lNUHJkSmxGNTluTW1rME5iMTEtWklHckFWNDE3Y3c?oc=5",
-          "published": "Sun, 01 Nov 2026 22:04:20 GMT",
-          "metrics": {}
-        },
-        {
-          "source": "repository_trend_snapshot",
-          "team": "dallas-cowboys",
-          "text": "How to watch the Dallas Cowboys at Indianapolis Colts on November 8, 2026",
-          "url": "https://news.google.com/rss/articles/CBMirgFBVV95cUxNWng3TTJXZ1B2QnBQcW5lYTdXZW5QZUxxRlktTWg1Q2NnSWZ1NW8tSXkxcUNId0U2OTFCVTRjcmNkMjZTLXJsczJNQ1cxOVladTNhRGtUWDNQM0N2UXVtOExxMUUxNDZkYThrdEhtdmlvTnBMaFBaZU9wLWwxdmNweC1NcFVpRU5IUml3TW5QcndMX3NZcVp3Tmw0Q28wc1F6VlJXMnZSODVOUW1oNVE?oc=5",
-          "published": "Sun, 08 Nov 2026 19:36:59 GMT",
-          "metrics": {}
-        },
-        {
-          "source": "repository_trend_snapshot",
-          "team": "dallas-cowboys",
-          "text": "10 thoughts on the Cowboys loss to the Cardinals",
-          "url": "https://news.google.com/rss/articles/CBMiwwFBVV95cUxOYkR4d011R1VTU18yOFhOd2dlWE1SUHNaNTI2S3RvYzFtN0thUlViQWRjaXB3OGJGV3Bkb0xZVUtndFhMeS1kUTNOY290U0Z0U0Robl9hdFlFS1FWblZtQS0xM0xpWV9WZFQzbVVOYVpnTkZJY3FTMmJrMktHOGZ1OGZka1FmVzRQdk1jOXc4MGw3RkRJUll0eW1kWEJkcFNfWmJYd0l2UU5FNGtTVUtrZnJJcHFXc2JXREpCUjNRd3VmODA?oc=5",
-          "published": "Mon, 02 Nov 2026 14:00:00 GMT",
-          "metrics": {}
-        },
-        {
-          "source": "repository_trend_snapshot",
-          "team": "dallas-cowboys",
-          "text": "Updates: Downs in concussion protocol",
-          "url": "https://news.google.com/rss/articles/CBMiZkFVX3lxTE41U3JDcmpCb1YyZjBxRFNnV25kSktlMVJ5aEJsX1hhNTFTcHJWdWdTbjF5cFhvQ3ZKZGd4bEdfT0VtT1RobmJwd3ZSbnZzM0c3RnJiTS1kSG5fMUtJWW9qclRUWlZtQQ?oc=5",
-          "published": "Fri, 30 Oct 2026 07:00:00 GMT",
-          "metrics": {}
-        },
-        {
-          "source": "repository_trend_snapshot",
-          "team": "dallas-cowboys",
-          "text": "Dak Prescott calls loss to Cardinals ‘one of the toughest’ in his career",
-          "url": "https://news.google.com/rss/articles/CBMiqAFBVV95cUxNOEFJNDNpeDUyR0tLNkowOGVTbnI5TXdfZV84Y0NyeHdZQVBGcy1xVm96TVBVb2ZicFNLNUlGOG0zUGxfNzh6YnN6dU5yX2dmZ0ZoT2syVDNnUWVLa2hadDcyN3RoclZCejltLVEtemVUdGk5ekxxdXQ2VHZWdFgtTndxOGt3RzU2LU9qQVhFbTIyVlRRQ3BkTFNSNkFQeGZrSkItT1RyaVQ?oc=5",
-          "published": "Mon, 02 Nov 2026 00:42:56 GMT",
-          "metrics": {}
-        },
-        {
-          "source": "repository_trend_snapshot",
-          "team": "dallas-cowboys",
-          "text": "Cowboys offense looking to find their fastball vs. Colts",
-          "url": "https://news.google.com/rss/articles/CBMilAFBVV95cUxOUEhiR2V0ZGVyUno2dlpRTk5BcHA1Q2Rla1RUbzVoY2tjQWNucU5HVmF4aU1yZFZmQVVwNHNOZHA4MThEU3VabW1ma0VyNXRpRUlRREpWWUh1emRtc0RfMjM3ZlZzb3pSUTJ0Ym1icnlDR29uN3VsWThNV0U3aTluYmllaHFmZ1I3S2FSR2F6VjdwRkh2?oc=5",
-          "published": "Thu, 05 Nov 2026 23:23:21 GMT",
-          "metrics": {}
-        },
-        {
-          "source": "repository_trend_snapshot",
-          "team": "dallas-cowboys",
-          "text": "Caleb Downs explains what it will take to break Cardinals curse",
-          "url": "https://news.google.com/rss/articles/CBMinwFBVV95cUxQOE9mcEttRzdVTkJlNmpRWk14aVl4TEUxS2F5ZEVtU0hUTHdLTE5PVDdOdEY0alBTT1JDblVKY3BEcENMLXU1MlNtRkF1ZkJmWmtfbFdQZDZIeVBNWEZUWWNiMm02QmNoTzlwTC1YYXZvVGUzdFFYN3dKcDFpVmtpODVDSGNVTWo1dUlFVWkwVEJDWTNsSGxaNXctX2N4VmM?oc=5",
-          "published": "Fri, 30 Oct 2026 07:00:00 GMT",
-          "metrics": {}
-        },
-        {
-          "source": "repository_trend_snapshot",
-          "team": "dallas-cowboys",
-          "text": "Jerry Jones on Cowboys' defense: 'I like the way we're trending'",
-          "url": "https://news.google.com/rss/articles/CBMimwFBVV95cUxPQWJKQXZFWGE1Sm1OaUVnTkhMX25BU3J2Ml9pam1ueW5vaWVQdS14UHBydVcwS1JIaWQ1RlgwSUQ3ZTV2YVNDQzZIV2xEaVZYXy1Gc3NxWDhyWU44U2pvR0d6dkFxQWNfQmgxT3c0cWxqZGptaTJEeUh5YkcxUXBPbFkzMUJkQzliSEJrUHNDTmJDdXNVMG1ESW5tcw?oc=5",
-          "published": "Tue, 03 Nov 2026 16:15:23 GMT",
+          "text": "Matchups that cost Colts in wild loss to Cowboys, including Sauce Gardner and Jonathan Taylor",
+          "url": "http://www.bing.com/news/apiclick.aspx?ref=FexRss&aid=&tid=6af0f7f2ceb348fc95faf02e16a3e09e&url=https%3a%2f%2fwww.msn.com%2fen-us%2fnews%2fother%2fmatchups-that-cost-colts-in-wild-loss-to-cowboys-including-sauce-gardner-and-jonathan-taylor%2far-AA2h0ODd&c=6621329797793394297&mkt=en-us",
+          "published": "Sun, 08 Nov 2026 13:43:55 GMT",
           "metrics": {}
         }
       ],
