@@ -76,6 +76,16 @@ class TestGoogleMerchantFeed(unittest.TestCase):
             build.google_item_id(
                 "limited-edition-cleveland-football-beware-of-the-dawgs"),
             "limited-edition-cleveland-football-beware-b0e407b2")
+        # item_group_id carries the stable design slug (pre-hash): Google
+        # groups variants by it, and unlike the truncated id the slug never
+        # changes when the catalogue grows.
+        groups = {gtext(i, "item_group_id"): gtext(i, "id")
+                  for i in feed_items()}
+        self.assertEqual(len(groups), len(build.ALL),
+                         "one item_group_id per live design")
+        for item in build.ALL:
+            self.assertEqual(groups.get(item["slug"]),
+                             build.google_item_id(item["slug"]), item["slug"])
 
     def test_required_fields_on_every_item(self):
         for item in feed_items():

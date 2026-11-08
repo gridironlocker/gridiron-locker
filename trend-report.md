@@ -1,25 +1,43 @@
 # Hunt Report - 2026-11-08
 
-Generated: 2026-11-08 22:13 UTC by src/hunter_intelligence.py
+Generated: 2026-11-08 22:22 UTC by src/hunter_intelligence.py
 
-Ladder: SIGNAL 2 · TREND 0 · OPPORTUNITY 1 · ACTION 0 · HEADLINE 4
+Ladder: SIGNAL 1 · TREND 0 · OPPORTUNITY 2 · ACTION 0 · HEADLINE 4
 
 Fan connectors: no fan posts observed - reddit error (HTTP Error 403: Blocked); x not_configured (Set X_BEARER_TOKEN to use the official X recent-search API.); facebook not_configured (Set META_PAGE_ID and META_PAGE_ACCESS_TOKEN for the official Meta Page feed API.)
 
 ## What to do right now
 
-**Post the Doomsday memory: defence and the pass rush angle for Dallas Cowboys on X (@gridironlocker1 first) now with Doomsday Defense Dallas Cowboys Shirt - 64% confidence, OPPORTUNITY.**
+**Post the Underwood era: QB19 in Ann Arbor angle for Michigan Wolverines on X (@gridironlocker1 first) now with Second Act QB19 Vintage Michigan Wolverines Shirt - 64% confidence, OPPORTUNITY.**
 
-- Product: Doomsday Defense Dallas Cowboys Shirt https://viralstyle.com/kebystore/doomsday-defense-tee
+- Product: Second Act QB19 Vintage Michigan Wolverines Shirt https://gridironlocker.shop/second-act-qb19-vintage-football?collectionId=YYMlCmwgKG__&color=GILDAN-HEATHER_SPORT_GREY&productId=6aa1db87f1c6bb96a2648225
 - Platform: X (@gridironlocker1 first) · Timing: now
 - Confidence: 64% (OPPORTUNITY) · 🟢 READY
-- Campaign: DOOMSDAY DEFENSE
-- Creative: Pass-rush moment → Doomsday Defense tee. Retro framing beats current-roster framing here; Parsons is not ours to sell.
-- Why: Dallas defence talk always drifts to the Doomsday era - the one defensive identity we own a design for.
+- Campaign: SECOND ACT QB19
+- Creative: Grade/stat line → 'QB19' creative. Bryce 19 for the believer, Second Act QB19 for the story. Recruiting news = same designs.
+- Why: Every Michigan story right now routes through Underwood - the grade, the coach backing him, and what the era means next.
 
 ## Opportunities (SIGNAL and above)
 
-### 1. Doomsday memory: defence and the pass rush - Dallas Cowboys
+### 1. Underwood era: QB19 in Ann Arbor - Michigan Wolverines
+- Level: OPPORTUNITY · Confidence: 64% · 🟢 READY (matched design, posting window open, evidence under 12 h)
+- Fan signal: "Tony Garcia grades the performance of freshman quarterback Tommy Carr in Michigan football's 15-6 win over Michigan State. See link below ⬇️ 📸 Eric Seals, Detroit Free Press" - Facebook (4 h ago)
+- Evidence: 3 reaction items (4.0 weighted) · 3 outlets · 0 utility listings excluded · 0 fan posts
+- Phrase velocity: new - 2 items in last 1440 min, none in the window before
+- Sentiment: neutral - 3 item(s), none matched the MICHIGAN lexicon
+- Game state: result coverage in the last 30 h (2 item(s))
+- Commercial: exact - Second Act QB19 Vintage Michigan Wolverines Shirt $23.00 (sellable) - SECOND ACT QB19
+- Why fans care: Every Michigan story right now routes through Underwood - the grade, the coach backing him, and what the era means next.
+- Tracked names: kyle whittingham (17 window mentions, FTI 45); bryce underwood (10 window mentions, FTI 26)
+- Action: X (@gridironlocker1 first) - conversation post now (now)
+- Action: Threads - alternate angle (+20 min)
+- Action: Instagram - product creative after engagement confirms the angle (after the X post confirms the angle)
+- Action: Pinterest - keyword pin of the matched design (+2 h)
+  - Tony Garcia grades the performance of freshman quarterback Tommy Carr in Michigan football's 15-6 win over Michigan State. See link below ⬇️ 📸 Eric Seals, Detroit Free Press - Facebook - google_news (4 h ago) https://news.google.com/rss/articles/CBMi3wFBVV95cUxPaV9BdmRTT2VYUlRRbDYxTXo1aFhvTmdTTUFLWGNfU0ZqRzRvSllyMnN3ZVNUb3hxbXp2dzN3anE2MGJZMXByN2ZjdXNFS0FyWVg1aDk0MC10OFo1V3dsaFNxel8tcnZNVXl5SlVXTmZ2bTdEMm9iaTdfWC1haG5tZkVpWUZDYVdFa2lRNjFhWXpHdE0zcGhoR041MGFBV2xBQ2prWkhSY2RNMGFvLU9oRVJNOEdVS3FINTdNSk9GMmRfM0FmTWpzdmxQYWFhOWcwVXh3UFdrejdzR2R4bEpJ?oc=5
+  - Newsstand: Michigan admits it considered going back to Bryce Underwood - On3 - google_news (10 h ago) https://news.google.com/rss/articles/CBMivgFBVV95cUxORTk0WmExSU1fdmhUVlZpZ3BDcTBwYjdYTGU5TE5TM3ZRV1NhbVRaaDF2cGd6dGVhUDYzbVg4MWhvZlRuejV6UzF1Z2plLW1WaUpvZmlMMWI2QllzVHJiWVpCUlJFcU5GeEVYZnFMSHVDaTQzcERRVVo1eHduUkFTb2dEWjU3ZnFneEFJZ1FXOGZJdUYxeDFBUXdQbGpWV056Z0NJbGpXSDh5d1dpVkJOSUJiMk5QbTcyMGpVNVh3?oc=5
+  - Michigan football head coach Kyle Whittingham names starting quarterback, discusses Michigan State rivalry - ClickOnDetroit | WDIV Local 4 (6 d ago) https://news.google.com/rss/articles/CBMi_AFBVV95cUxOc3oyTklJVU5zUm9DV2htRUdxenc3R2pmY2htRVR2R3RhVE9ZWGd0N2loNlFGNUlCTXB4WTkwVU9udjlRWkdWeDI1YldjTTh1U0VYcU02VElrVFcwS05qWFIwWERPYzdyaEh3VG90czNhZVIzMkpWd1dBN0NJMkJBQlZlOXhxd2hYX2tVbF92WU1yNk5rTWtrZUhFMmNRVmZxWWg4bFVwWFZPNHdWSkc5bUdSNk9fOUNhWTIyLTUzV0FpQVM1VTlrcTFVbnVpSmsxZTZUSjYxVDRicm5rS2FCeDFqNG1PNVFCZVRjRi1yNHl0eW8wTTRKVVNxYko?oc=5
+
+### 2. Doomsday memory: defence and the pass rush - Dallas Cowboys
 - Level: OPPORTUNITY · Confidence: 64% · 🟢 READY (matched design, posting window open, evidence under 12 h)
 - Fan signal: "Cowboys WR Pickens, CB Porter, LB Overshown inactive against Colts" - ESPN (6 h ago)
 - Evidence: 3 reaction items (3.0 weighted) · 3 outlets · 0 utility listings excluded · 0 fan posts
@@ -37,7 +55,7 @@ Fan connectors: no fan posts observed - reddit error (HTTP Error 403: Blocked); 
   - Dallas Cowboys defense receives $46,883 punishment as NFL quietly admits a mistake from overtime loss to Cardinals - A to Z Sports - google_news (10 h ago) https://news.google.com/rss/articles/CBMiowFBVV95cUxOanZsWHRwTDhiZjdhdTBPOHRKS2pTLWhOTU9uNFAtdWE1b1NhcUZDeTdlX1A1RS12d1RfQXZVa2dYd0VtUmhXdWdHdjlucmpjZ0FKSmlMM2lZQTNBR2ZYMlcxbktGcDB2dC1RYzY3Y3VvQkFYbGZldWFOU3ZVc3dtZHlPcUhjSHM5X3lPR25yX2JEWFpIMkx6eHQwSEFQX0lWWHdV?oc=5
   - Jerry Jones on Cowboys' defense: 'I like the way we're trending' - Dallas Cowboys | Official Site of the Dallas Cowboys (5 d ago) https://news.google.com/rss/articles/CBMimwFBVV95cUxPQWJKQXZFWGE1Sm1OaUVnTkhMX25BU3J2Ml9pam1ueW5vaWVQdS14UHBydVcwS1JIaWQ1RlgwSUQ3ZTV2YVNDQzZIV2xEaVZYXy1Gc3NxWDhyWU44U2pvR0d6dkFxQWNfQmgxT3c0cWxqZGptaTJEeUh5YkcxUXBPbFkzMUJkQzliSEJrUHNDTmJDdXNVMG1ESW5tcw?oc=5
 
-### 2. QB room: who is QB1 in Cleveland - Cleveland Browns
+### 3. QB room: who is QB1 in Cleveland - Cleveland Browns
 - Level: SIGNAL · Confidence: 58% · ⚪ WATCH (fans are reacting but nothing on the shelf answers it yet)
 - Fan signal: "Browns QB Deshaun Watson out of concussion protocol" - ESPN (1 d ago)
 - Evidence: 4 reaction items (4.0 weighted) · 4 outlets · 0 utility listings excluded · 0 fan posts
@@ -52,20 +70,6 @@ Fan connectors: no fan posts observed - reddit error (HTTP Error 403: Blocked); 
   - Cleveland Browns news: Culture changers, injuries, QB talk, and more! - Dawgs By Nature (2 d ago) https://news.google.com/rss/articles/CBMivAFBVV95cUxQbExQTTBpRmI2NmdBWU9QN1ZnQ29Hd0QwbnVoSEZBN1hHYm14TldyTi1yYUxyWlZXdDM0UGpIU3J3WlJtRzlnSkRGZVByOHpjeGpsRUdlNkVHaGxjU1ZidThCbGp4Nl8zSUtoRHZ1MzlaQ2E5aVdlZEwtU2d0ZS1JS1d1ellQckNoY2M3ZFZjX2Rpd1dMdDlQTWFVbVFOMjlXZFZOYmdraXlpWElscDJzeVZqeFJtSXNlTjJaYQ?oc=5
   - Cleveland Browns QB Deshaun Watson placed in concussion protocol - FOX 8 News (4 d ago) https://news.google.com/rss/articles/CBMikAFBVV95cUxPM2tzWnFaOTNNMnYydUxfWUFUeVhLQk1uTHdLYi0tQ2hxWVM5WlAxdnR1dDFvdkVPWnhHQUd1bFlCTHNka2tfZlhudTNuT01MMWFXMV9YWWxacGI4U2NFbldLc2ViS0QzczhSLVlQR0lfdHptX1FfOEFpSUhwOHc5UDZTN1NvczhwaUlWT1QzTk_SAZYBQVVfeXFMTmxzTnFJY1p3d0VDREhLUS1HNmt1NVpQTE5pYnRpY1prM1ZWNlNvNDNQRTVqM1h2eUg4a3Yxc3VxTWlsQ0NNYjlySl9yX0lxOUZEZURaT3g3M21OeHZoVXlZOWV4OTkyNTczNVVOLTBMUDQ2V0FEMU12X2xTNjdBeC0zdFRKM2ZzR2owY1E3SC1wYzFRZlR3?oc=5
 
-### 3. Underwood era: QB19 in Ann Arbor - Michigan Wolverines
-- Level: SIGNAL · Confidence: 54% · ⚪ WATCH (fans are reacting but nothing on the shelf answers it yet)
-- Fan signal: "Tony Garcia grades the performance of freshman quarterback Tommy Carr in Michigan football's 15-6 win over Michigan State. See link below ⬇️ 📸 Eric Seals, Detroit Free Press" - Facebook (4 h ago)
-- Evidence: 3 reaction items (4.0 weighted) · 3 outlets · 0 utility listings excluded · 0 fan posts
-- Phrase velocity: new - 1 item in last 240 min, none in the window before
-- Sentiment: neutral - 3 item(s), none matched the MICHIGAN lexicon
-- Game state: result coverage in the last 30 h (2 item(s))
-- Commercial: exact - Second Act QB19 Vintage Michigan Wolverines Shirt $23.00 (sellable) - SECOND ACT QB19
-- Why fans care: Every Michigan story right now routes through Underwood - the grade, the coach backing him, and what the era means next.
-- Tracked names: kyle whittingham (17 window mentions, FTI 45); bryce underwood (10 window mentions, FTI 26)
-  - Tony Garcia grades the performance of freshman quarterback Tommy Carr in Michigan football's 15-6 win over Michigan State. See link below ⬇️ 📸 Eric Seals, Detroit Free Press - Facebook - google_news (4 h ago) https://news.google.com/rss/articles/CBMi3wFBVV95cUxPaV9BdmRTT2VYUlRRbDYxTXo1aFhvTmdTTUFLWGNfU0ZqRzRvSllyMnN3ZVNUb3hxbXp2dzN3anE2MGJZMXByN2ZjdXNFS0FyWVg1aDk0MC10OFo1V3dsaFNxel8tcnZNVXl5SlVXTmZ2bTdEMm9iaTdfWC1haG5tZkVpWUZDYVdFa2lRNjFhWXpHdE0zcGhoR041MGFBV2xBQ2prWkhSY2RNMGFvLU9oRVJNOEdVS3FINTdNSk9GMmRfM0FmTWpzdmxQYWFhOWcwVXh3UFdrejdzR2R4bEpJ?oc=5
-  - Newsstand: Michigan admits it considered going back to Bryce Underwood - On3 - google_news (10 h ago) https://news.google.com/rss/articles/CBMivgFBVV95cUxORTk0WmExSU1fdmhUVlZpZ3BDcTBwYjdYTGU5TE5TM3ZRV1NhbVRaaDF2cGd6dGVhUDYzbVg4MWhvZlRuejV6UzF1Z2plLW1WaUpvZmlMMWI2QllzVHJiWVpCUlJFcU5GeEVYZnFMSHVDaTQzcERRVVo1eHduUkFTb2dEWjU3ZnFneEFJZ1FXOGZJdUYxeDFBUXdQbGpWV056Z0NJbGpXSDh5d1dpVkJOSUJiMk5QbTcyMGpVNVh3?oc=5
-  - Michigan football head coach Kyle Whittingham names starting quarterback, discusses Michigan State rivalry - ClickOnDetroit | WDIV Local 4 (6 d ago) https://news.google.com/rss/articles/CBMi_AFBVV95cUxOc3oyTklJVU5zUm9DV2htRUdxenc3R2pmY2htRVR2R3RhVE9ZWGd0N2loNlFGNUlCTXB4WTkwVU9udjlRWkdWeDI1YldjTTh1U0VYcU02VElrVFcwS05qWFIwWERPYzdyaEh3VG90czNhZVIzMkpWd1dBN0NJMkJBQlZlOXhxd2hYX2tVbF92WU1yNk5rTWtrZUhFMmNRVmZxWWg4bFVwWFZPNHdWSkc5bUdSNk9fOUNhWTIyLTUzV0FpQVM1VTlrcTFVbnVpSmsxZTZUSjYxVDRicm5rS2FCeDFqNG1PNVFCZVRjRi1yNHl0eW8wTTRKVVNxYko?oc=5
-
 ## Filtered as HEADLINE (4)
 
 - COWBOYS - Texas pride: flag, star and Est. 1841: 1 reaction item(s), 1 outlet(s), confidence 27% - not a reaction
@@ -74,6 +78,24 @@ Fan connectors: no fan posts observed - reddit error (HTTP Error 403: Blocked); 
 - MICHIGAN - Go Blue: The Big House identity: 1 reaction item(s), 1 outlet(s), confidence 29% - not a reaction
 
 ## Article ideas (OPPORTUNITY+ only)
+
+- **[Medium] Michigan Wolverines: what the Go Blue faithful are actually saying about underwood era: qb19 in ann arbor**
+  - Where: Michigan football culture (Ann Arbor)
+  - Angle: Fan-demand piece built on the live signal (Tony Garcia grades the performance of freshman quarterback Tommy Carr in Michigan football's 15-6 win over Michigan State. See link below ⬇️ 📸 Eric Seals, Detroit Free Press), not on a headline recap.
+  - Link: https://gridironlocker.shop/second-act-qb19-vintage-football?collectionId=YYMlCmwgKG__&color=GILDAN-HEATHER_SPORT_GREY&productId=6aa1db87f1c6bb96a2648225
+  - Image: Second Act QB19 Vintage Michigan Wolverines Shirt mockup next to the moment that started it.
+
+- **[Quora] Why are Michigan Wolverines fans so focused on underwood era: qb19 in ann arbor right now?**
+  - Where: Michigan football / college football recruiting
+  - Angle: Answer the question a fan would actually type, then answer it properly.
+  - Link: https://gridironlocker.shop/second-act-qb19-vintage-football?collectionId=YYMlCmwgKG__&color=GILDAN-HEATHER_SPORT_GREY&productId=6aa1db87f1c6bb96a2648225
+  - Image: Simple stat/quote graphic - no product shot.
+
+- **[Reddit] Underwood era: QB19 in Ann Arbor - be a fan first in r/MichiganWolverines**
+  - Where: r/MichiganWolverines / r/CFB / r/collegefootball
+  - Angle: Join the existing thread instead of starting a promo post.
+  - Link: profile link only, if asked
+  - Image: None - text comment.
 
 - **[Medium] Dallas Cowboys: what the America's Team faithful are actually saying about doomsday memory: defence and the pass rush**
   - Where: Cowboys fan culture (Texas football)
