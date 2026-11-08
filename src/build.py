@@ -1642,6 +1642,8 @@ def header(active="", hide_nav=False, logo="", social=""):
    {links}
    <a href="/drops/">Trending</a>
    <a href="/guides/">Guides</a>
+   <a href="/funny-football-shirts/">Funny Shirts</a>
+   <a href="/vintage-football-shirts/">Vintage</a>
    <a href="/#shop-the-locker">Shop The Locker</a>
    <a class="custom-link" data-placement="nav" href="/#custom-design">Custom Design</a>
   </div>
@@ -2037,6 +2039,7 @@ def footer(popup=True, collection=None):
     <a href="/contact/">Contact</a></div>
    <div><h2>Brand</h2><a href="/about/">About</a><a class="custom-link" data-placement="footer" href="/#custom-design">Custom Design</a>
     <a href="/guides/">Buying Guides</a><a href="/2026-season/">2026 Season</a>
+    <a href="/funny-football-shirts/">Funny Shirts</a><a href="/vintage-football-shirts/">Vintage Shirts</a>
     <a href="/fan-trend-index/">Fan Trend Index</a></div>
    <div><h2>Compliance</h2><a href="/trademark-notice/">Trademark Notice</a>
     <a href="/privacy/">Privacy Policy</a>
@@ -5525,6 +5528,176 @@ fan-created work.</p>
           + header() + body + footer())
 
 
+# ------------------------------------------------------- theme landing pages
+# Shoppable "vibe" pages: funny football shirts and vintage football shirts.
+# Search purpose (2026-11-08 competitor research, COMPETITOR-SEO-STRATEGY-
+# 2026-11-08.md): both phrases are proven fan-apparel demand with commercial
+# intent (Etsy/CrazyDog/TeePublic bestseller lists are full of them), and
+# neither is served by a team collection page. The grids are computed from
+# the live catalogue at build time - a retired slug simply drops out - and
+# every design shown is a real listing with a real price. Copy describes the
+# designs only: no licensed marks, no resale-vintage claims, no invented
+# reviews or stock stories.
+
+VIBE_FUNNY = [
+    "limited-edition-grb2", "limited-edition-cleveland-football-copy",
+    "doomsday-defense-tee", "dawg-life",
+    "limited-edition-cleveland-football-beware-of-the-dawgs",
+    "limited-edition-grb20", "limited-edition-grb7", "limited-edition-grb28",
+    "vintage-country", "limited-edition-grb30", "limited-edition-grb8",
+    "sunday-funday",
+]
+
+VIBE_VINTAGE = [
+    "cleveland-football-est-1946", "classic-1946", "limited-edition-grb16",
+    "dallas-football-vintage-style-tee", "dallas-football-vintage-athletic-style-f",
+    "limited-edition-grb13", "second-act-qb19-vintage-football",
+    "dallas-texas-vintage-athletic-style-t-sh", "michigan-bet-vintage",
+    "limited-edition-grb12", "dallas-texas-vintage-athletic-sports",
+    "limited-edition-grb14",
+]
+
+
+def page_vibe_pages():
+    """Build /funny-football-shirts/ and /vintage-football-shirts/."""
+    by = {it["slug"]: it for it in ALL}
+
+    def grid(slugs):
+        picks = [by[s] for s in slugs if s in by]
+        return f'<div class="grid">{"".join(card(i) for i in picks)}</div>', picks
+
+    def itemlist(name, picks):
+        return {"@context": "https://schema.org", "@type": "ItemList",
+                "name": name,
+                "itemListElement": [
+                    {"@type": "ListItem", "position": n,
+                     "url": abs_url(p["url"])}
+                    for n, p in enumerate(picks, 1)]}
+
+    def faq_block(faqs):
+        html = "".join(f"<h3>{esc(q)}</h3>\n<p>{a}</p>" for q, a in faqs)
+        schema = {"@context": "https://schema.org", "@type": "FAQPage",
+                  "mainEntity": [{"@type": "Question", "name": q,
+                                  "acceptedAnswer": {"@type": "Answer",
+                                                     "text": a}}
+                                 for q, a in faqs]}
+        return html, schema
+
+    # ---------------- funny football shirts ----------------
+    fgrid, fpicks = grid(VIBE_FUNNY)
+    ffaqs = [
+        ("Are these shirts printed with team logos?",
+         "No. Every design is original fan artwork - team and city names appear as "
+         "text, never as official marks, logos or player numbers. The full "
+         '<a href="/trademark-notice/">trademark notice</a> explains the stance.'),
+        ("Is a funny shirt a good gift?",
+         "Humor is the most gifted category in fan apparel because it works off the "
+         "field - watch parties, tailgates, office banter. Match the joke to the fan: "
+         "Sunday Funday for the ritual crowd, Dawg Pound wit for Cleveland die-hards, "
+         "cheesehead gags for Green Bay. Sizes and garment options are on each product "
+         "page, and our "
+         '<a href="/guides/football-fan-gift-guide-2026/">gift guide</a> '
+         "picks by budget."),
+        ("What sizes do the funny shirts come in?",
+         "Most designs print on tees in sizes S-5XL; a few run on hoodies, "
+         "sweatshirts or mugs. Each product page lists exactly what that design "
+         "offers. Measurements live in the "
+         '<a href="/size-guide/">size guide</a>.'),
+        ("How long does a printed-to-order shirt take?",
+         "Printing starts after you order - there is no warehouse stock. Allow a few "
+         "business days for production plus shipping; the checkout shows the live "
+         "estimate for your address. Details on "
+         '<a href="/how-ordering-works/">how ordering works</a>.'),
+    ]
+    ffhtml, ffschema = faq_block(ffaqs)
+    fbody = f"""
+<p>Funny football shirts do the hardest job in fan apparel: they have to land the joke
+<em>and</em> look right on game day. The designs below are the humor side of the locker -
+Sunday Funday rituals, Dawg Pound wit, cheesehead gags and the kind of mild sarcasm that
+gets a nod across a parking lot. All original fan artwork, printed on demand when you
+order.</p>
+<h2>The humor styles</h2>
+<p><strong>Weekend ritual.</strong> Sunday Funday and Victory Monday designs name the
+weekly ceremony rather than a punchline - the joke is that everyone already knows it.</p>
+<p><strong>Dawg Pound wit.</strong> Cleveland humor runs loud and loyal: Beware Dawgs,
+Dawg Life, and the running argument the fanbase has with its own Sundays.</p>
+<p><strong>Game-day sarcasm.</strong> Defense-section chants, cheese-and-beer
+self-awareness, and rivalry-adjacent jabs that stay on the right side of the line -
+original phrases only, never protected marks.</p>
+{fgrid}
+<h2>Why these land better than a generic joke tee</h2>
+<p>A generic joke tee could belong to any fan of any team. These are built from the
+specific rituals our four fanbases actually have - the muni-lot energy, the cheesehead
+pride, the Texas swagger - which is why the same design reads as an inside joke in the
+right stadium parking lot and as ordinary humor everywhere else. Pick the fan first,
+then the joke.</p>
+<p class="muted small">Looking for old-school instead of funny? Browse the
+<a href="/vintage-football-shirts/">vintage football shirts</a>. Gifts by budget live in
+the <a href="/guides/football-fan-gift-guide-2026/">2026 gift guide</a>.</p>
+<h2>Funny shirt FAQ</h2>
+{ffhtml}
+"""
+    simple_page("funny-football-shirts", "Funny Football Shirts",
+                "Funny football shirts: Sunday Funday, Dawg Pound humor and game-day "
+                "sarcasm for Cleveland, Green Bay, Dallas and Michigan fans. Fan-made "
+                "tees, sizes S-5XL.",
+                "Funny Football Shirts", fbody, "0.7",
+                [ffschema, itemlist("Funny football shirts", fpicks)])
+
+    # ---------------- vintage football shirts ----------------
+    vgrid, vpicks = grid(VIBE_VINTAGE)
+    vfaqs = [
+        ("Are these real vintage shirts?",
+         "No - and we will never pretend otherwise. Every shirt here is brand new and "
+         "printed to order; the <em>designs</em> are vintage-inspired: founding-year "
+         "lettering, retro athletic type and old-program artwork. For actual second-hand "
+         "vintage, the resale market is where to look."),
+        ("What do the years on these designs mean?",
+         "The founding years fans wear as heritage - 1946 for Cleveland, 1919 for Green "
+         "Bay - come from club history and appear as text in original artwork. They are "
+         "used descriptively; no official logos or marks are printed."),
+        ("Will a retro design fade like an old shirt?",
+         "Prints are modern direct-to-garment transfers, so they wash like new apparel - "
+         "the faded look lives in the artwork, not the ink. Wash inside out in cold water "
+         "to keep it sharp."),
+        ("Can I get a vintage-style shirt in a hoodie?",
+         "Many designs print on sweatshirts and hoodies as well as tees. The product page "
+         "shows every garment style that design offers, with the "
+         '<a href="/size-guide/">size guide</a> for fit.'),
+    ]
+    vfhtml, vfschema = faq_block(vfaqs)
+    vbody = f"""
+<p>Vintage is fan apparel's fastest-growing style lane - retro sports designs now sit at
+the center of everyday streetwear, not just memorabilia tables. This is our old-school
+shelf: founding-year lettering, retro athletic type and classic program-cover artwork
+across Cleveland, Green Bay, Dallas and Michigan. All of it brand new and printed on
+demand - the vintage is in the design, never a false claim about the shirt.</p>
+<h2>What vintage means here</h2>
+<p><strong>Heritage years.</strong> Est. 1946 Cleveland and Est. 1919 Green Bay
+lettering wears a founding date like a varsity patch - the reference fans read
+instantly.</p>
+<p><strong>Retro athletic type.</strong> Stacked repeats, wavy grooves and 1960s helmet
+line work borrowed from old pennants and warm-up graphics.</p>
+<p><strong>Texas and campus pride.</strong> State-flag script and vintage collegiate
+vibes for the Dallas and Michigan faithful.</p>
+{vgrid}
+<h2>New shirts, honest promise</h2>
+<p>Every piece is printed after you order it by our fulfilment partners, so nothing here
+is a used garment repurposed with a story. What you get is modern fabric and print with
+designs that look like they have been in the family since the Eisenhower era. Pair with
+the <a href="/funny-football-shirts/">funny football shirts</a> for the full locker, or
+read the <a href="/guides/">buying guides</a> for sizing and garment picks.</p>
+<h2>Vintage style FAQ</h2>
+{vfhtml}
+"""
+    simple_page("vintage-football-shirts", "Vintage Football Shirts",
+                "Vintage football shirts - old-school 1946, 1919 and retro athletic "
+                "designs for Cleveland, Green Bay, Dallas and Michigan fans. Printed "
+                "on demand, sizes S-5XL.",
+                "Vintage Football Shirts", vbody, "0.7",
+                [vfschema, itemlist("Vintage football shirts", vpicks)])
+
+
 GIFT_GUIDE_PATH = "/guides/football-fan-gift-guide-2026/"
 
 
@@ -5813,7 +5986,15 @@ def page_guides():
                '<p class="muted" style="margin:0">What "Vs Everybody" means to Michigan fans, '
                'the two live designs that carry it, the garments they print on and sizing.</p>'
                '</div>')
-    cards = week1_card + second_act_card + vs_card + gift_card
+    funny_card = ('<div class="panel" style="margin-bottom:14px"><h3>'
+                  '<a href="/funny-football-shirts/">Funny Football Shirts</a></h3>'
+                  '<p class="muted" style="margin:0">The shoppable humor page: Sunday Funday, '
+                  'Dawg Pound wit and game-day sarcasm across all four teams.</p></div>')
+    vintage_card = ('<div class="panel" style="margin-bottom:14px"><h3>'
+                    '<a href="/vintage-football-shirts/">Vintage Football Shirts</a></h3>'
+                    '<p class="muted" style="margin:0">The shoppable old-school page: heritage '
+                    'years, retro athletic type and classic program-cover vibes.</p></div>')
+    cards = week1_card + second_act_card + vs_card + gift_card + funny_card + vintage_card
     for k in ORDER:
         c = COLLECTIONS[k]
         cards += (f'<div class="panel" style="margin-bottom:14px"><h3><a href="/guides/{c["slug"]}-buying-guide/">'
@@ -8501,6 +8682,7 @@ def main():
     page_michigan_vs_everybody()
     page_gift_guide()
     page_how_ordering()
+    page_vibe_pages()
     page_season()
     page_fti()
     page_drops()
