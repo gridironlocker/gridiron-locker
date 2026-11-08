@@ -1,12 +1,653 @@
 {
-  "generated_at": "2026-11-08T22:30:10+00:00",
+  "generated_at": "2026-11-08T22:51:28+00:00",
   "window": "current public signals; source-specific lookback",
   "privacy": "Public discovery signals only. No direct messages or private account data are collected.",
   "sources": {
     "google_news": {
-      "status": "error",
-      "items": [],
-      "reason": "HTTP Error 503: Service Unavailable"
+      "status": "connected",
+      "items": [
+        {
+          "source": "google_news",
+          "team": "cleveland-browns",
+          "text": "Terry’s Talkin’ Browns, Guardians & Cavs TV – Terry Pluto - Cleveland.com",
+          "url": "https://news.google.com/rss/articles/CBMinAFBVV95cUxOUzRaV1JVS3RvVkljdmZBYURFN2YweHUwZW1fSTNVem44cXdSNnFBYU9mQ2xvQVpkSjZ6ZkZrY0lRMFJYaGpiN3ZwOU5nV0ZYY3BKTFZpMGRuQndTQVp6cER4RzFfZXdkNE1HanVGQlJUeUplbWhES0dWcC1BTmZlUTFBakl6eE5DQjA1V0dZbE9sZ2duQkZJV0M3S3Q?oc=5",
+          "published": "Sun, 08 Nov 2026 10:00:00 GMT",
+          "metrics": {}
+        },
+        {
+          "source": "google_news",
+          "team": "cleveland-browns",
+          "text": "Inactives | Saints vs Browns | 2026 NFL Week 9 - New Orleans Saints | NewOrleansSaints.com",
+          "url": "https://news.google.com/rss/articles/CBMioAFBVV95cUxQRjdsY1hfRW1Jdjl0RUJCUmVTell3Si1yS213b1dOVlVVOU9VZ1JsemhrMnpLcTNqRkUyM0xGOEE4ekwxcV93WUh3ajhoUzZ2bUxjYk5KWTA1UDdZcUMwMTY3bTFFUkVvZjFEYTNnTFVwS3BJN29qYVAxdmdfSU0ycE5sRHgwVW54dzhveHE2bThidmdtOHJaQm55cjk2c2df?oc=5",
+          "published": "Sun, 08 Nov 2026 16:34:59 GMT",
+          "metrics": {}
+        },
+        {
+          "source": "google_news",
+          "team": "cleveland-browns",
+          "text": "Cleveland Browns vs. New Orleans Saints NFL Week 9 Live Updates, Highlights and Analysis - Bleacher Report",
+          "url": "https://news.google.com/rss/articles/CBMizAFBVV95cUxOVGpaR24ySVMwOWpHaENwWVdzVlBGNThTOEhHdVo4YS1MRUI2dWVmZy1HVV9BSlc0WlJJZTdiRGZUdmh5M1NyMG5qYUtaVDh5bjYyQjhFSElhTHhaYzJMLUZIcGpIOTE0SHI3NmhxQXIyWEk0c2RTaGJOdlQ3VmxFQXdzY2VySXRsUXdRX2ZveWZ2c0hPS1lIMHRObkp5S3JJWFFYLTlPRHdSWFpNQloxMklCNDBad3BiMTZ0U2xpaHhRdjE5QlFHYjY2S24?oc=5",
+          "published": "Sun, 08 Nov 2026 21:45:47 GMT",
+          "metrics": {}
+        },
+        {
+          "source": "google_news",
+          "team": "cleveland-browns",
+          "text": "Cleveland Browns vs. New Orleans Saints Live Score and Stats - November 8, 2026 Gametracker - CBS Sports",
+          "url": "https://news.google.com/rss/articles/CBMid0FVX3lxTE1IWmdEZDFuQjNLU1FIa19uZ2gwNzQxY0lFMDM0OF9XZWc3NjRHbm5taEg3NldzUGU5RDRKUjVzUzZNYWdzdXI5eW94bGIwWU9MS0R3TEREWWpxa2hzYzhmVHVSbnYtSWxRYjVIRjE4X1dkTk1ucWtN?oc=5",
+          "published": "Sun, 08 Nov 2026 22:17:00 GMT",
+          "metrics": {}
+        },
+        {
+          "source": "google_news",
+          "team": "cleveland-browns",
+          "text": "Can't-Miss Play: 64-yard TD! Shedeur Sanders and KC Concepcion stun Saints in fourth quarter - NFL.com",
+          "url": "https://news.google.com/rss/articles/CBMiuAFBVV95cUxPM0EtbDRQYnpCUVJDZFl1dkRBTEljWTR6dWZVSnc3QU1HbS10QXV0ZDI2ekY5OVJOU1VjbTIwMmxEUWI0cm5UVTgySHlTVWNsUWJkRjYyVWFPRWxyVlpUYi1FcHFuWVRjbXlyamsxeTRKaTFHcXgtOTVqc1g0MmVFcVctTTRxMlNPTmI5ZzJhdEJSRFZzUk5tQVlNcXJVNVJEbllFLV9XLWxCQ085WEJrOXBpT3R1WUZf?oc=5",
+          "published": "Sun, 08 Nov 2026 20:54:29 GMT",
+          "metrics": {}
+        },
+        {
+          "source": "google_news",
+          "team": "cleveland-browns",
+          "text": "Saints vs. Browns live updates: Score, highlights, instant analysis - Saints Wire",
+          "url": "https://news.google.com/rss/articles/CBMiwwFBVV95cUxOQ3k4VGhaNm9Ta3VEXy1EQ2UtMl9wTnpPdi14dFd4eGpiRVpYRG9LeDMtdHZjRk5VYWVRVlVndUNQajFEZV9vNW5OOG1CblVFNWJTWWJ2aGZ3b1RyUlEzVjdaeERnemRkd0FiNlAwYWpEU2RzeVpqRGxyUThRR3RlSHNpdFNLX1NBSHRMa0JXWE56Y3FZZTBMV2tnSlZrR29QVUU3M3RzRnBfM3NyV3lOV2tSSmNEbjdVOXlfZVpKdXFWWVE?oc=5",
+          "published": "Sun, 08 Nov 2026 21:33:00 GMT",
+          "metrics": {}
+        },
+        {
+          "source": "google_news",
+          "team": "cleveland-browns",
+          "text": "Myles Garrett Just Made Browns’ Jared Verse Look Even Worse - Heavy.com",
+          "url": "https://news.google.com/rss/articles/CBMimAFBVV95cUxOSDNNb2hrVm9RRGJSUFBmd05nbGwtMjB0dHFxdGhwUzdCZExvbW5SZGZHMU9WUTNZbVIwV2dXQTlnVGF1ckN6QVU4X2RUYUVGR0xCSzFvT1Zfam1vUE1RUE1FNlNjS0dnMExhZmlUbE1TdVVYSEFDRzROU3c3OVVkTWN3cVh6bzlDUzI0N1Q2OWU5d0x3RGY0bw?oc=5",
+          "published": "Sun, 08 Nov 2026 20:03:07 GMT",
+          "metrics": {}
+        },
+        {
+          "source": "google_news",
+          "team": "cleveland-browns",
+          "text": "Browns 2-point conversion fails in OT loss to Saints - Akron Beacon Journal",
+          "url": "https://news.google.com/rss/articles/CBMizgFBVV95cUxOWW0yc2d6Mk9lTHlwU0RISThSZTJOdXpxeUpHSkFSTkpmWGFOak1FZXZyakI1VUdpRTZ1SWxTZENIbTJ2Rm8xeGtHNVlIcjJ3N1dha19MMzJOdk1HQVFHblFTWVlJbDNkYnJud0VZcmJQQlR4QXdPZDlfV2VtSFVJX1JnblIxV3Y2enAxUkdZblBudHpRRlN1Sll4ckVRRHNnazVmOFBURFhDYWVPM0s4SFN6VDNNa1VINUkyLVgxOFdtUlVmc0VsNjh4bzlaZw?oc=5",
+          "published": "Sun, 08 Nov 2026 21:37:00 GMT",
+          "metrics": {}
+        },
+        {
+          "source": "google_news",
+          "team": "cleveland-browns",
+          "text": "Browns QB Deshaun Watson out of concussion protocol - ESPN",
+          "url": "https://news.google.com/rss/articles/CBMikwFBVV95cUxQMXc1MnpXSHpIZXR6LUhXbC1qZDhzVWpKWGhFWXNuUDVkRmxXRVJuSDFxX0EtMUVjYzJNNXNIOTRNYnBCbjBUd2Vral9TVzBoZ3VQZC1Jb2NnNFVSX3hRNG5pTUE2MWJFWTQ5enV3WXB2SVAyZGpTRVFGRFJYVV91TUtleFhGSF9UVnM2YTJIcFZQVkk?oc=5",
+          "published": "Sat, 07 Nov 2026 18:24:00 GMT",
+          "metrics": {}
+        },
+        {
+          "source": "google_news",
+          "team": "cleveland-browns",
+          "text": "How to Watch Browns vs. Saints: TV Channel, Live Stream, Time - FOX Sports",
+          "url": "https://news.google.com/rss/articles/CBMiqgFBVV95cUxQdGU3N1BKVV9ONl92SmtITkl0WWRfVmhvSDRsRmZsM2x5bnZGOW1jTjNuTFRPY09mUDh2QVE5VnJfekpQWFBaWXZVWjlLV29CZHNydmEtaTRpU19nVXNnSTd1ZU5DS0lpQzJtUkJab2xpQnREaXVlY2N3V1czbERfVDE2QldIdEpPSUdQTUpIaGJDNXRMSDhvdW9wQVR2ZFNOZUVPdVptTWtMUQ?oc=5",
+          "published": "Sun, 08 Nov 2026 12:15:37 GMT",
+          "metrics": {}
+        },
+        {
+          "source": "google_news",
+          "team": "cleveland-browns",
+          "text": "Browns' Shedeur Sanders gets hype video for first start of the season and social media cannot handle it - Fox News",
+          "url": "https://news.google.com/rss/articles/CBMiugFBVV95cUxQZzNQcm12VlYzT3ljRXFIYWhSa1BnTS13RFNzLUdYUGpFaExja2NLSkFPWnZ5QTc4RzNRMDdkZENfWFJQbmlEd3JHZm1weHBqXzM4TnNLRm1HNlRKU01fcEtYWGR0cS1jVG5IQ0pwbDRFVng5cDZmOWFCY1RoWkhXREtYN3p3aTMxb3JZODhGd29EX3hsVVhyOG9STjlvYWEtTURxTks2SHYzdERSdDFlV0pKTE92WVRFUFE?oc=5",
+          "published": "Sun, 08 Nov 2026 14:17:55 GMT",
+          "metrics": {}
+        },
+        {
+          "source": "google_news",
+          "team": "cleveland-browns",
+          "text": "Week 9 Questions Browns Must Answer vs. Saints - 247Sports",
+          "url": "https://news.google.com/rss/articles/CBMiqwFBVV95cUxQN3hCMnZDbGNLYkNUSzliR003OEZVWmlYMFRmdFlaTWRuanJCWm5EN2R2cUpfSHdNbDN5WVRMSkxSUGpCTmdTeVdkM29lWHNvUE5ZTldqa2MyaVEzRkpNcHBrMGdwX2Z6dHdoc1hfeWhoWjRiV3RNWE5KdElUREZ1NnBueXZWdDFINlFhNU44Znh4Z2xBSFo2Z3p1WTJ1Y0NnRkpPWk43QUZ1TUk?oc=5",
+          "published": "Sun, 08 Nov 2026 11:04:50 GMT",
+          "metrics": {}
+        },
+        {
+          "source": "google_news",
+          "team": "cleveland-browns",
+          "text": "Another late rally comes up short as Cleveland Browns fall to New Orleans Saints in overtime - WKYC",
+          "url": "https://news.google.com/rss/articles/CBMiigJBVV95cUxPZVltTldzYVRMYzBGRkZYcnBoYlRzNkpHdGVoa2d0bWVCa1N0WkV5bHlDLTMyd1RucUptOW9vLUtVTzRjZlpDVHhDbEIxSUxUakU4T3pPS3dROThXU3F3VHBDbFZVbDNXVklWZkVKMmZCOXRsUDFlZWtPYnBlTVdvTWI0dExIWEVXUmE1alItX19oNkRJNjRsSmluM3pBYmhXQ0hKY0c3Yk1NdDVxVFlsRWdfZENic3p6RHZVRUpMSjIyMi1GbWJTQXFhbFRkR0NWUnNpYVdhNks1YnQyMDdTSVE1SHNjZUxNV0h6N0h6NVZkbEpBUEVJTEJVRmo1Wk9pUF9za1JOdmhzZw?oc=5",
+          "published": "Sun, 08 Nov 2026 21:34:00 GMT",
+          "metrics": {}
+        },
+        {
+          "source": "google_news",
+          "team": "cleveland-browns",
+          "text": "Befuddling quote from Todd Monken: Shedeur Sanders asked for non-Browns plays this week - Dawgs By Nature",
+          "url": "https://news.google.com/rss/articles/CBMirAFBVV95cUxQYkxSN1E5OU9fVmJLRW1Nc0toSmtUTnA0bzRQYnNsRjBVODlqT3FJX3JneUNoRlVFRE1DbG40dXIwdGxaTl9LdWNac3l6ekthc25OaEdHY29IVDRvNUwyV280MkR5YldXaHFtM0QzUXJ1UXFUZ3MyaWNwejdOc1RWbGJQS1hqdlJUUTZlMDQ3RGxtV2F4UElmWXd1RDlGNUFTZC1hZHNjNF9VYzgx?oc=5",
+          "published": "Sun, 08 Nov 2026 21:37:33 GMT",
+          "metrics": {}
+        },
+        {
+          "source": "google_news",
+          "team": "cleveland-browns",
+          "text": "Saints 23, Browns 22 | Final Score, Stats & Game Recap - Cleveland Browns",
+          "url": "https://news.google.com/rss/articles/CBMijgFBVV95cUxQYlhfTmFRdTU2QUxLbnpGdnVPTnd1SmVDckc0dS10UURIOWdXTlJnZ2Z6VVlwaGNoWUZNdnk3X25LUDEyNXV4Tno5ZXFIa1BPU3R5SnRSN01jQ2RuWW53M1pjN2hNbzFmN3pXVFI5b3dfRUs3R193eUJseHFfMWt0MVFERE84WVktRmp6QzFB?oc=5",
+          "published": "Sun, 08 Nov 2026 21:55:14 GMT",
+          "metrics": {}
+        },
+        {
+          "source": "google_news",
+          "team": "cleveland-browns",
+          "text": "Browns lose to Saints in overtime - FOX 8 News",
+          "url": "https://news.google.com/rss/articles/CBMinAFBVV95cUxNb0NjSVdKa3ZNN0RFc3Qta3Y1T0xSbFpaME4wLTAtdE9oOHJPZGQyODFJRkZaR3ViR2lqQjMwRFRZMVRDaXA3UG5LaWhza1BJUFVCdjlMeXZBZnA5VFRLX3c5WmQ4Q1c5VmYzZ2VrcHJwMW5TdDJHMmNaM1R3RjJWUnY2VnRKc1pQaml1OXBQLVNMOUg1WV95T3lHamXSAaIBQVVfeXFMTmNFX1dzT1p5Z2tqcVVma19mZGk2QzNJSkl4dVdWTjhucnhPd1dEcGFpbU1vVkE1SWZoWlhkbVVneHlmSEdNUGNZbFJneklxc3dVTmZvbGF6WHQyT040bWV2Yzhvb203UGY5Y2NjOFZyVEFBWkI3S3NFM1RMY21KcERGRVJ3dGdIVWJ0NS1mLXVvQVNSSk9wX0pYcGNUUnhkT3p3?oc=5",
+          "published": "Sun, 08 Nov 2026 12:13:41 GMT",
+          "metrics": {}
+        },
+        {
+          "source": "google_news",
+          "team": "cleveland-browns",
+          "text": "New Orleans Saints - Cleveland Browns LIVE. NFL latest updates - MARCA",
+          "url": "https://news.google.com/rss/articles/CBMisgFBVV95cUxOY1h4dzZsQnhMQVJ4MGJLWnVCOU4ta1BzZ1NpRHBqbHBYVzNMMndWQTVvOEZPWkU4bzUtU0hxcEZnRVBTT3FIZURhQU44VFBRZ05URWV0MHRzT2I3Zk43d0ZGbXZHQl9QZktXbkx4ZWgzVWpzYTdBeVlPOFlaT2JiR0NDbUJqNlpuN2U2blpFOTJuZTUwbWNoUFBua1ZRZ05iYmp1Z21EZDIyNFdYdDRUWVpn0gGyAUFVX3lxTE90akFRT3ZISW9iWFBOejNUeTItYm5YRGlNTlhFTTBUb3dzN1RKMXJCVVFzWHN0LU1fMzdCc29QdElDODN0UWhUOGl5anQtTk8yaGlRWklLU0Z5QkdCUFpBV0lPclcxNmp2Q2tZbm1NZnFnWFBOZWdpSnVyTHhWNGpiZ1N1SzdlRFpKUC14TFpEVGlnZWlxLWdaZ0xUa1FMeGVMRlpSdi1jclFaUGZ5NVhmaVE?oc=5",
+          "published": "Sun, 08 Nov 2026 22:20:44 GMT",
+          "metrics": {}
+        },
+        {
+          "source": "google_news",
+          "team": "cleveland-browns",
+          "text": "Inside Shedeur Sanders’ First Start of the 2026 Season: What Went Right and Wrong - Sports Illustrated",
+          "url": "https://news.google.com/rss/articles/CBMixgFBVV95cUxNYkZDUVlUX09Da2JsUHBGc20zcXZsTlJZMmtCVVhud3BHcDdGdUxSN1BRby00RGJCclc5Qkx6c3hiRHY3cVdRSTBOclVkaHFQd0UxdDlwWmFzNlpPR0dOMldhdVdRejlmbGZvdmlvd0g4LVlOY21lM080eWVvT1pNQm05d0ZOLUthanVKMTFWdm94MkRMOE9ZM0JiSW1EMUJOVnRBSkxzb04xRHNWWFZqT3pHcUpTNzB0Z3o1dS1qdGozclJvYmc?oc=5",
+          "published": "Sun, 08 Nov 2026 21:49:09 GMT",
+          "metrics": {}
+        },
+        {
+          "source": "google_news",
+          "team": "cleveland-browns",
+          "text": "Photos: Saints defeated the Cleveland Browns in overtime 23-22 - NOLA.com",
+          "url": "https://news.google.com/rss/articles/CBMi6AFBVV95cUxPVk51Unl2NVFTRGZOZ0V1ODBJRl9TX29NMVd6S09STXhJNHUyNjdiVWZhQmxSZXFHSG9KRF91cFNJNHBfS2lscUdjRDkwWU9UTlVfRGY5bVRhRko2SEdhU2UyMUVvenV6NjBxRUs5Y1NReW5zUzByQ0lIeEhFTGtwMlJMY1lmSnBGVGFFazNLMXhsSndlbTRfY2xhX3U1bmRTbVd5dTcyNFMwQnFxLUc2UTVJaFZXSFRvMUZOLTd5UTBoUzhEaVJSeUNfcGlyN3AwTVVwOGV3SUs2YUpHY2FsWnQwUnJpX2dk?oc=5",
+          "published": "Sun, 08 Nov 2026 22:24:00 GMT",
+          "metrics": {}
+        },
+        {
+          "source": "google_news",
+          "team": "cleveland-browns",
+          "text": "Saints hang on to defeat Browns in overtime, 23-22 - NBC Sports",
+          "url": "https://news.google.com/rss/articles/CBMisAFBVV95cUxNUXdBSGpZTUE5bXNoTXRoRFlERDJxdWtoZDNjNzhRdmtoUm1OaHRPMWtzT0VRdk5kbFRlUXN2dG1BSFR4b0VfOVpad1E0cHF5UmluOUczSXNmenBma2dyekc3WUJ3dF9vX1dadUJMVklsOXV2emU0cnMxaTkxeFVMdi0yWnkyQVFCSFVzQ2VsNmNDSVJSY1ZQN2FEQ0ZiQlNKWUtZZk1JOVJ3S1lVYVRCUQ?oc=5",
+          "published": "Sun, 08 Nov 2026 21:51:21 GMT",
+          "metrics": {}
+        },
+        {
+          "source": "google_news",
+          "team": "green-bay-packers",
+          "text": "Packers vs. Patriots Live Updates, Score: Green Bay In Control - FOX Sports",
+          "url": "https://news.google.com/rss/articles/CBMihAFBVV95cUxQdVRQdDEyU3JRMGpkeUJHdnFHNVI5Y3diWTV6aGFmdkdzOW0zaFlUTXZLVXl3NkRWVTM4Ui1hOGtuNGJIeGt0SkU4YU5sVDdMSV9KcUpjbV9WajBDUnJZR3JVaWE4eWQ0SllRblFjQnNKUklDbkVfalRvb1R6YzliWHRWenc?oc=5",
+          "published": "Sun, 08 Nov 2026 22:04:12 GMT",
+          "metrics": {}
+        },
+        {
+          "source": "google_news",
+          "team": "green-bay-packers",
+          "text": "Can't-Miss Play: Watson's one-handed catch deserves to be viewed at multiple replay angles - NFL.com",
+          "url": "https://news.google.com/rss/articles/CBMitwFBVV95cUxPcm1VXzd2MllDdWVOU2RiajNmZGk5ODNFNXZ2cjJjdU9VOFpRMXZ3SW5HVExEZGVRdWFiVzhXVjlFZTQtUGk3aFZWQjY3a3lUVUZrcEJRRjJ4dWw4RUV4TnJDQUVFUVotMmloTmtLcHRDVkl0YkNYOWwtcVg2VXM5WmU3OGM1Y1h5WGYzTWVTaUZtX1dHZXFBXzNTbWFCT2lqbk92czlicENPanF4V25WSVNPQ1M5LWM?oc=5",
+          "published": "Sun, 08 Nov 2026 22:46:42 GMT",
+          "metrics": {}
+        },
+        {
+          "source": "google_news",
+          "team": "green-bay-packers",
+          "text": "Packers vs. Patriots score, live updates: Josh Jacobs questionable to return with hand injury after inefficient start in Week 9 - Yahoo Sports",
+          "url": "https://news.google.com/rss/articles/CBMixgFBVV95cUxPT001eGpYRG9WTXBMMzZTdnpCNzJJalNNRkVSR2JOazFCZ2taSno4R195Z1FBd2R0NHJNZTBMdUVxdnB4TkQyV1RNbGFXX3U1OU83VmV0SFh0b01iSk1EWEs4alRqZWhZWi1SU1BUNjJ4dzRIOEtqNklLb0NJdmVqWHdybkQ5WC1ZSUxiVDk4QXhxOVBMZXIyQjRIaTBiRVpoYmNQcW5QM3lvdHdyemlVNlFqLXVWWWZNc2VJbU8zamxjT0ZxWlE?oc=5",
+          "published": "Sun, 08 Nov 2026 22:45:58 GMT",
+          "metrics": {}
+        },
+        {
+          "source": "google_news",
+          "team": "green-bay-packers",
+          "text": "Packers vs Vikings is Week 10's most expensive NFL ticket - USA Today",
+          "url": "https://news.google.com/rss/articles/CBMiswFBVV95cUxOcEZ6WlRiSk9sQkpCOHBXcVlfR3ZUWEVVNEpKMU5PUF85OHkwWExtMFFpdWtVYXlpOW1URnBSeksxdXhTZDhlVmRlU0NxWXdmTmV0UjRXTDdyX0ZUTHNmOHNZaGtDSmVPMy1KZ2Z6V2FnUUlvYTMtSGZ4Q2p4Y1VZWXZ0LWc5UzVtTTBpRXZXLThudEljanZRSmtCQ1NBb0Fwc1ozRTZFY0VrNmNjbWtJMTl4dw?oc=5",
+          "published": "Sun, 08 Nov 2026 21:12:11 GMT",
+          "metrics": {}
+        },
+        {
+          "source": "google_news",
+          "team": "green-bay-packers",
+          "text": "Josh Jacobs questionable to return with a hand injury - NBC Sports",
+          "url": "https://news.google.com/rss/articles/CBMitgFBVV95cUxONVFVM2t4UWw0WWxRY19UaU9UcDZvcWdjTTd4aDVWNDVVc0o2dzNSemtDZzc4REJpdWhsVkhCdzJVNDBGMHUwT3NVVGhzajl4N2Z0YkJFTU5FdjczQWR2SkExa1NMVm5BSVh1RldOaGdiUjdEZGtCVmkyQzBxVk5xa1pHTlByWWtfeGEzbFJVRHFmNzJsdmdpbjdjWllPNU5Sa2N6TXJYVEc5SHlUWjhOaGRxWDU1dw?oc=5",
+          "published": "Sun, 08 Nov 2026 21:59:26 GMT",
+          "metrics": {}
+        },
+        {
+          "source": "google_news",
+          "team": "green-bay-packers",
+          "text": "Packers’ Jordan Love Hits Milestone Against Patriots That’s More Than ‘Cool’ - Sports Illustrated",
+          "url": "https://news.google.com/rss/articles/CBMirAFBVV95cUxNM29uaWN3Vy1NRGF4bXhPNTFhWXhWRE9lVkY5ZnpBd3k1eUI5b29Ybjl1Q2tJNXN5QS10enB0MEY0aC1ISnRwSGhaYmpTWlZjY1k3MjZscWx1WGtRSG5FRWp4YURZekR4VDRkRndXMlQxd1dqVUlkVVRnbTR4bURmMElkS1JIbFVITk96VVdJSUJhZC1JU0hzcnNrcXRKUEJoOC1KWVFINzQtSVhF?oc=5",
+          "published": "Sun, 08 Nov 2026 21:42:50 GMT",
+          "metrics": {}
+        },
+        {
+          "source": "google_news",
+          "team": "green-bay-packers",
+          "text": "New England Patriots - Green Bay Packers LIVE. NFL latest updates - MARCA",
+          "url": "https://news.google.com/rss/articles/CBMitgFBVV95cUxQbUZRWFpsM3A2aEpFR0NYcDBjTk1hbFFyM2tjTjFWMElOSEVjSzBoM0JFRl9FTk9TWGVkcVRJQTRSUmIxVG54T3NPMmQzb0NPNUdWeUFmOGlqMHpBM1pEcU5xdWNaRFB4bzFPc2x0MkVkUDU2LVRLNHZkSmRXdXA3aFdZX0xzUGk2Z0xMcV9GWk1aREhWQkRzWVh6dzItSktpV3hsaDVIa2hWOEFMcjlnU1pGRGdWUdIBtgFBVV95cUxNbjNueWZGQnU1SDhJS1ZHQU9YcGxsZWxpZVo4UXl6NjE5cFVvSnRJRnA1anpqTUFsdzV3QkdRTFBMMGZkX2RlZ3BPMlZJUmtoRVpRZkRnVmIyMXd6ZXRqR3hNNVA2R2RBNmZENjdkajV4bUJpUFk1ZEViYWluVnhfcHY2UGZkRG10ZGxyazJHbFRFNC1RVkQzd3c2ZG5WbVI2SDBjaTFSd0VlcXp4NDR3Sm5YeWdKZw?oc=5",
+          "published": "Sun, 08 Nov 2026 22:47:23 GMT",
+          "metrics": {}
+        },
+        {
+          "source": "google_news",
+          "team": "green-bay-packers",
+          "text": "Packers Keisean Nixon active, MarShawn Lloyd inactive Week 9 vs Patriots - PackersNews.com",
+          "url": "https://news.google.com/rss/articles/CBMi4gFBVV95cUxQUWNhMW52Qmc5QWFfLVJ5OWMyekd4UEJfQ1VMVWFrRHpzY09JcldhMDQ4NlROcVFKbk52MzM3SjdhMmJwRzQ4SDU0Q18yTXN2clZGNHFYQk9tR2ZEYThMT2txLXk4S0h1M3ZfTzZOYm9wczlCcXZLQk5kQTAwTUhuSnRJd09EalFpZTc0NzZEbkVIeHBYNVlndjBLd0FLdFhaVEtmTkpLamdObzVQWEJjdDl6My1ibG1KX1Jya0tQWHNUejg2WlFtTHJRUU12aFZZUlJ0b3VsTVVva2Fic0k2MWp3?oc=5",
+          "published": "Sun, 08 Nov 2026 20:21:00 GMT",
+          "metrics": {}
+        },
+        {
+          "source": "google_news",
+          "team": "green-bay-packers",
+          "text": "Josh Jacobs Injury Update: Packers RB Exits Game in First Quarter With Hand Injury - Athlon Sports",
+          "url": "https://news.google.com/rss/articles/CBMikAFBVV95cUxPVVM2UGNQY3I4cHotZldobThtVmZUVW84Q2RqSEhfa3dlWk44YkVlQkRiQVRMb21FemZUUVhFTF9lWUd3X292QmFaRDQ0Wjd5bkkzZi0zRUlscHlBQU5nTlpjaUZyV0lCQjVmQ3hRSXA1UmhvYXhma185ZnRyVG1PbkF2RTY1OUxRd0QxekJCNFk?oc=5",
+          "published": "Sun, 08 Nov 2026 21:56:45 GMT",
+          "metrics": {}
+        },
+        {
+          "source": "google_news",
+          "team": "green-bay-packers",
+          "text": "Inactives Analysis: TE Hunter Henry, WR Mack Hollins active; CB Charles Woods inactive for Patriots vs. Packers in Week 9 - New England Patriots",
+          "url": "https://news.google.com/rss/articles/CBMi4AFBVV95cUxQYlBrOEJHLWpmUFJTYTU0R202X2tHMW5oaDg0NFBrVU10Y1hzaVR3UUFZYW5TOG5pLVU1amUwME9qSUtvYVQzNEliMkMzOGZ0YlVLRy1Kbml3bEZ2a2VMdzhac1EyN2RYZEtHRGh1S3NoVlkwX3hqMDRPSFJsVzJ3eThXYnZUN01TLXljSzh5emdhY2JEazJXN05WWkhuVkwtcmVRQXlWQURjcmcwSlNZSWdGbnRFVktwV3pYT2d6Skh4el84aFhydGZDY1pCWmpmclhYZG1xWFVtQ3l0dTEzeA?oc=5",
+          "published": "Sun, 08 Nov 2026 19:59:08 GMT",
+          "metrics": {}
+        },
+        {
+          "source": "google_news",
+          "team": "green-bay-packers",
+          "text": "Packers vs. Patriots | How to watch, stream & listen | Week 9 - Green Bay Packers – packers.com",
+          "url": "https://news.google.com/rss/articles/CBMikAFBVV95cUxNMG1ZWl8ta2JhbUdnRGZPbnZDa3A0WWZTTi1TaWV5V2JmRGc1eExxTFVjLTdjcmNzNVFhM1BDWmw3LWRxSjJFdnVhY0UwMXE3ckhrU1Y0N2d2RVhNU2JyWlI2STZKUGFkWm1Ud0ZuN0d0MlN6TVZwSE93VjFHSmlxWVZTeDlpWkdDY0Y0Z2hGQXY?oc=5",
+          "published": "Sun, 08 Nov 2026 21:30:46 GMT",
+          "metrics": {}
+        },
+        {
+          "source": "google_news",
+          "team": "green-bay-packers",
+          "text": "𝚆𝙰𝚃𝙲𝙷 Green Bay Packers vs. New England Patriots 𝐋𝐈𝐕𝐄 Ｓｔｒｅａｍ Ｆｒｅｅ ＯＮ Ｔｖ Ｃｈａｎｎｅｌ!NFL - Jackson County Pilot",
+          "url": "https://news.google.com/rss/articles/CBMi3wJBVV95cUxNSEoxZHNGQTdKS09lX3lwVFNoRThoZzlYaGdkM1FhQWRBY3EwUzY1QVlQYnJDLW1RN29NQmZ0LTBTZ1A3VkdyV3JWUDJnb1dsSC1DUW5vRDhXN3c0eWZhWWVPdTh1Y3hRdFF0dG5uLV9QUjhmVkRCOGgwSWt2a21iU0x6UV8wRWY2NlhZUldHc3A1WGNheTZqODM3dmZ5Y2ZNa0hTZU5WempuVVZlUHA4aFcxZ194VEx6ZHhsWGVWNlUyV0J0MUdpWUdJclpZMTNoalZBZDZ3MnZYVzZ6TUVla21pU3JQN3h3eXEtQzdIU1dEVnI5cEdCRjNrWVBGXzEydFJQM0Z2RWNYMUJtXy1ZTmlERHdXd3VORlAyQ2k3SjFNQkVEdTF5VWxSSWZON21yajhfQ3ZOTlBMOV9VX29reVRzWnpEZWt2bG9Pb25zYzFjVUE1MTNQMkY1WWNrVUE?oc=5",
+          "published": "Sun, 08 Nov 2026 21:19:06 GMT",
+          "metrics": {}
+        },
+        {
+          "source": "google_news",
+          "team": "green-bay-packers",
+          "text": "Green Bay Packers safety Xavier McKinney picks off Drake Maye's pass on opening drive and returns it for 36 yards - NFL.com",
+          "url": "https://news.google.com/rss/articles/CBMitgFBVV95cUxOZ0F0YTRIVG5ESmZ0cVM1YTl2Zi1LRjl1RHVsVm85NmxIb01tc29ISzFCRlJPMjlzb3VBbDVDdFdweVZnZkVZeklNVUJGM3F1bC1SeHlZbW41MjUzLUd4dUpOQVk3MEhGN1RyWVE1VS0xSGd4ZFVtanVQVHdTSTdjc2F1dHRITGtXbjVjNURpckt4bE9yQVl2SF9VU09Ybm5zRkp6blFLRzFJdE1JRmFWcWwxQnhFdw?oc=5",
+          "published": "Sun, 08 Nov 2026 22:06:09 GMT",
+          "metrics": {}
+        },
+        {
+          "source": "google_news",
+          "team": "green-bay-packers",
+          "text": "How to watch Packers vs. Patriots: TV channel and streaming options for November 8 - The New York Times",
+          "url": "https://news.google.com/rss/articles/CBMinwFBVV95cUxNM0FCRGl6NXZfZUh0TGp2N3dRSWVSczZ5MFU3Zy1LeUFYYzJaQU9UMW1zamR2bndTT3hkX1pJcXBGbVhiT29aMVVJbFVvYnZ1S2k4LWdkNkV5STNqOW1vREUxMUVoWHVqMGxWbERTc2hfcHdjX3hsS1M2RDhNd2trSWJwejZQek0yRVVoSW4wenFFbkNwWWE5TFFRZ3dQcWc?oc=5",
+          "published": "Sun, 08 Nov 2026 19:41:45 GMT",
+          "metrics": {}
+        },
+        {
+          "source": "google_news",
+          "team": "green-bay-packers",
+          "text": "What channel is Packers vs Patriots on today? Time, TV, streaming - Milwaukee Journal Sentinel",
+          "url": "https://news.google.com/rss/articles/CBMi0gFBVV95cUxOSjY2YmpRamtZT284T0s4SF9abi00Sm96dm5YRzZRdlpjOE9WU0h5V09UcjNtbk9OcEUyTS1QRDZtMEVKQjdSd0QyUlZGVGdpbVI0aGV6Q0ZIR3BPU2IyRUFsMGNGdjFxbG0yWVU4cU96RVVZNWxscGZFWkFBekxsMGEwY1Y4bGFmeW9wOFRHUDFfM0szX1NtNEQxRXAtQlpla1dKR1BnUGMyUUdmUk1YTjlsXzE1YXFPUGRfa1lDVTVTWTZMMmU1UmdfeU9NdldPNUE?oc=5",
+          "published": "Sun, 08 Nov 2026 20:37:00 GMT",
+          "metrics": {}
+        },
+        {
+          "source": "google_news",
+          "team": "green-bay-packers",
+          "text": "Packers confirm roster suspicion ahead of Week 9 game against the Patriots - A to Z Sports",
+          "url": "https://news.google.com/rss/articles/CBMinwFBVV95cUxPb1dHYUcxYUQwWnlZWVc1NjIwVmN0YWNVb1JncDBWRWpHa0hJOUdEV21zM0JHSlRUdU0zUHdRQ2trMmQtbW55MTJ4bFhsd1MxQWhyMlpzeVV1NWdYeUl0Nzl4RUR6SVZmTTZzSENEd1lMTFhKcGlYSHg0ajNnSTRPWW10NEZ4c01kRGJGWkdxVE5UTXBHTTF6VlVSZ2ZPckU?oc=5",
+          "published": "Sun, 08 Nov 2026 19:58:01 GMT",
+          "metrics": {}
+        },
+        {
+          "source": "google_news",
+          "team": "green-bay-packers",
+          "text": "What channel is Packers vs. Patriots on today? Time, TV schedule to watch Week 9 game - Packers Wire",
+          "url": "https://news.google.com/rss/articles/CBMi5AFBVV95cUxOR0d0QnpRdWJQXzVqYjhmR0tqb1o0TG9NY0dYVTRucFowNE1zOFVTLV9UZG5QQVp5V09KSGxVbW5HbVpPUjkxRzNQdTZCdGt0bGpyZEd6ZW9aMzhJTk4xaUdiNXVDVy00eGw3UnNyZGFRZUF1VzdPQi1XcWs2RV9IWDE0MnBqYnpUMnFEWGlqS3FWRm5yam9hQ1Z3Tkppck1tX1ZVcEhyTEpmdUY2VmpjaVlUSTdwdXVCaFhpaUNwVC1JQnkwdU5DQVNWZ0ZER0k3MGdhaGFvQ085OTNwSV9HN1dUbjg?oc=5",
+          "published": "Sun, 08 Nov 2026 19:50:00 GMT",
+          "metrics": {}
+        },
+        {
+          "source": "google_news",
+          "team": "green-bay-packers",
+          "text": "Patriots Week 9 Inactives vs. Packers: Here's How Banged-Up Offense Will Look - Sports Illustrated",
+          "url": "https://news.google.com/rss/articles/CBMisgFBVV95cUxQQk03a0p4U3hNSmV2U1I5ZzJuN2w3SEpKVF9PbnJKYUh5VzlVek9lNmlkRUVUZWVOenFYRU1uelhWUnFBN0I3T0NtZ2w3N1hSX0hZakdTMC05dEFGbzRjVWRVTWg0T1JtVXFGanI2QXBBaEtBOEl3b1lRR2N5ekFjbGJVQjJiNHE0MXRaWm9IRjVuRU5TQVptZTlSSkZtVzhSSUZOR2xsV3BsdG9yR1RNakdn?oc=5",
+          "published": "Sun, 08 Nov 2026 19:59:18 GMT",
+          "metrics": {}
+        },
+        {
+          "source": "google_news",
+          "team": "green-bay-packers",
+          "text": "Inactives Revealed for New England Patriots, Green Bay Packers Ahead of Sunday Showdown - roundtable.io",
+          "url": "https://news.google.com/rss/articles/CBMiyAFBVV95cUxPc290VTZtRFZfMGxNOG5kUUctN3JZeDFXTkh6WHphRjAxOUM1RUZJTU9SbUx2NURmcG5YRFhIYUpMU2lrNW5DdF9tSVZmbGQ0cTZTdjJZOXhVSFVVd3p5c0V4aGVXUENxSjBqZWdaeF9jWllObG14V1FqcTVPSG5lMzVKSE9yMVhrcmcwbE9FUW9iRHpDQ21RUGplSDRvblc0WldmSGRyMHc2dlEzT1VZOWgwZGxkNk1aOTBqTWFNa1E0bGo2bWxlYw?oc=5",
+          "published": "Sun, 08 Nov 2026 20:01:37 GMT",
+          "metrics": {}
+        },
+        {
+          "source": "google_news",
+          "team": "green-bay-packers",
+          "text": "Jordan Love's 100th TOUCHDOWN PASS | Packers vs. Patriots - Green Bay Packers – packers.com",
+          "url": "https://news.google.com/rss/articles/CBMikwFBVV95cUxPd2ZKb1d4c1RBLXloZjBiN0E1eDR0TktRbHd4a1VrZWpYeGVwaDc0WHhhbnYzZ2ZSelBNY1BQUnhTYzRfY2xlUWtLZHJKZVRQeW0zeGQ1YWk2elNyQVRIUkR4YkFTMmtNLUhmN2hMX1pMUHdVcVlEdW9EYTZCTjZJYm5LQ1d3ajIyOVpYc3c0MHhLdTQ?oc=5",
+          "published": "Sun, 08 Nov 2026 22:10:30 GMT",
+          "metrics": {}
+        },
+        {
+          "source": "google_news",
+          "team": "dallas-cowboys",
+          "text": "Cowboys rally late to avoid disaster vs. Colts after blowing lead, multiple second-half miscues - Yahoo Sports",
+          "url": "https://news.google.com/rss/articles/CBMiwAFBVV95cUxNUnVnQi1iTnJ2MFdOQzVVckxvMEJ0clhwRmpwNlFNRVIzSzhSZllfUm9DR3VNUzNhM0hMbWlXWDNoV2FpME56OGk2ZWlQODBnSC1NSVhKYWZUSVJkWWtGejRNVkE2REZ1Uk1OWmphUmpPUmNRRjRRa1lmb1ZvSGY0QnB1MlI4N3pvaVkyY20zTmNUQ0FIcTdhMGtyVEtOU0M2RzNrblIwLXN5XzJLdVBWbGcxSzRFQ215QnhLUThfUm8?oc=5",
+          "published": "Sun, 08 Nov 2026 22:07:02 GMT",
+          "metrics": {}
+        },
+        {
+          "source": "google_news",
+          "team": "dallas-cowboys",
+          "text": "Cowboys WR Pickens, CB Porter, LB Overshown inactive against Colts - ESPN",
+          "url": "https://news.google.com/rss/articles/CBMipwFBVV95cUxNQjF1UVBQNDZjR1djLV9HUUFJMlF6M3JfVDRzeWlwaVFtU0FSd2Q2aFZfWjdrVGRlRU5URXhvRmJRSUxET3dYX1Vlek5zQUlRVXZKeHlFb3p4TmYxTzQ0dFJmMHZCaDZULWFHNGpldTV2aHJjLXd2dW5qcExwR09hRDhrdU1aVXJkY3laUlFTQW1XTlhRaU5jT0lkenJqNXM3T0ZpdVZkRQ?oc=5",
+          "published": "Sun, 08 Nov 2026 16:40:00 GMT",
+          "metrics": {}
+        },
+        {
+          "source": "google_news",
+          "team": "dallas-cowboys",
+          "text": "Colts announce 7 inactive players for Week 9 game against Dallas Cowboys - Colts.com",
+          "url": "https://news.google.com/rss/articles/CBMioAFBVV95cUxOS1RDSVc2eTNWeVRXYnhlOTNVQzB1WHdpcmM3T2ZLdTZzT2xQN2VMYkZYbGFHbzd5Sl94amRVOWZCSkk5UTFtSklmNWg4Uk1HUGdHOGY5LXhtc1FkcXVVZ0xRZ0sxVzc0ZkNMT2N0djFKOXYyM1A1YW1COUxyVWQ4UF9rM2lmNGdicGhpUXFsdHd4ZUc0UTVBdVhITFpXX0FR?oc=5",
+          "published": "Sun, 08 Nov 2026 16:34:16 GMT",
+          "metrics": {}
+        },
+        {
+          "source": "google_news",
+          "team": "dallas-cowboys",
+          "text": "Cowboys to host 49ers in Week 10 and tickets are starting at $318 - USA Today",
+          "url": "https://news.google.com/rss/articles/CBMi0AFBVV95cUxNTnRZTGRIeDZacHJkQlpETWlKa2V3dHNyMVpzM0hqSERkaHZONmhxWUxNT0dpVXZWTHFTLXBBdWJsUUhMSGhTc3F2VG9xeVBNazRvaG5mVEFZbjh0eGRmNHNpalVIdTgwUklHZ1Q1TktxWEZTWm5RcTJrTW4wU0lvUTVUcXJ1TUt5RWtBQjFzUG1YS3MzV3E2dkkwU05KN0RLNE8wRkdpWm1lMjhkMDBwTEVBRmdMV0YxZHlVMkxxSUphZE5DWFlQMU04bjJLN1JL?oc=5",
+          "published": "Sun, 08 Nov 2026 21:36:00 GMT",
+          "metrics": {}
+        },
+        {
+          "source": "google_news",
+          "team": "dallas-cowboys",
+          "text": "Will George Pickens Play Today? Injury Update, Start-or-Sit Advice for Week 9 - Sports Illustrated",
+          "url": "https://news.google.com/rss/articles/CBMipwFBVV95cUxOaUhocmVTbUd4TDNRN3VWbnhnQS16ekJnU0ljajdmOTk3NDJsbkVFcVJYZERFaVdoeHNhLURhTms3RDJZV2hJUmlodnpoOGpCUS1JYURBWm82Mkl2eHowUWZfVkdPMHJ6QzNXYjc2eGVlaS1wc1E1Y0N1LTZqNE9uSFpzTTRMWkVFZjhFMFZJVjRrWl9HWS0tbU9lbE9yOWtmMG40QmJ3cw?oc=5",
+          "published": "Sun, 08 Nov 2026 12:45:00 GMT",
+          "metrics": {}
+        },
+        {
+          "source": "google_news",
+          "team": "dallas-cowboys",
+          "text": "Cowboys vs Colts live updates, timeline: Colts get long touchdown to stay in touch - IndyStar",
+          "url": "https://news.google.com/rss/articles/CBMizgFBVV95cUxQVUR3S29fSUFBQmtqVEVRN2ZZTXpkSUZ3c19IYThBcDJrOWxSaVEyVlJoUHExNFVrMUF3elkwUzFRWjRBMnlvTDU4OG02Yi1qTE5DUVZ3ZXBIWFgwMTlCTFhjX1c2bFFDYkNJemNCMjQ3NkpSbFE1XzFBY1MwZXpsVkRpSnVmU2d4NlM0RHlfQjZQTUk0M1VuZ2FXQUV3MVdLblVpTWRXQ3JjeEctZmM4b1lWWHMxcnVSeHBuSGRCSkJ0anFWZ3AyRzZYMWxWUQ?oc=5",
+          "published": "Sun, 08 Nov 2026 20:48:00 GMT",
+          "metrics": {}
+        },
+        {
+          "source": "google_news",
+          "team": "dallas-cowboys",
+          "text": "Dallas Cowboys triumph over Indianapolis Colts in Sunday afternoon showdown - NBC 5 Dallas-Fort Worth",
+          "url": "https://news.google.com/rss/articles/CBMib0FVX3lxTE5xN1ZLLW9oMXhjdzRjalR2dWJFUWlpcXBZLUJld0hjaUpIX0tUaDRqMHc0N0lLVXY0WExnNld3QjVfc01HOXhkR2dMTXVUaGRYcjVfcENMQzR6WEFlSTRacWVWeWRMUWtWNmVKTHFUY9IBd0FVX3lxTE1ja0Zfc1hrdFZ2VVhaZl9UUkU1eFZIdDQ0WnI0SWx3aE1PaHBQQXVsdkh1c0lGOHVWeWs0cDNjSFZiYl9IcUNpWUJyckwxTFFtWEk3N21rTFhkQUEyMkdiMmYtdk1zTkRTNkxvdjY3OGpEcEF1RmVR?oc=5",
+          "published": "Sun, 08 Nov 2026 21:14:46 GMT",
+          "metrics": {}
+        },
+        {
+          "source": "google_news",
+          "team": "dallas-cowboys",
+          "text": "Dallas Cowboys defense receives $46,883 punishment as NFL quietly admits a mistake from overtime loss to Cardinals - A to Z Sports",
+          "url": "https://news.google.com/rss/articles/CBMiowFBVV95cUxOanZsWHRwTDhiZjdhdTBPOHRKS2pTLWhOTU9uNFAtdWE1b1NhcUZDeTdlX1A1RS12d1RfQXZVa2dYd0VtUmhXdWdHdjlucmpjZ0FKSmlMM2lZQTNBR2ZYMlcxbktGcDB2dC1RYzY3Y3VvQkFYbGZldWFOU3ZVc3dtZHlPcUhjSHM5X3lPR25yX2JEWFpIMkx6eHQwSEFQX0lWWHdV?oc=5",
+          "published": "Sun, 08 Nov 2026 12:01:00 GMT",
+          "metrics": {}
+        },
+        {
+          "source": "google_news",
+          "team": "dallas-cowboys",
+          "text": "Cowboys New Roster Move Raises Concerns on George Pickens Before Week 9 - Heavy.com",
+          "url": "https://news.google.com/rss/articles/CBMimgFBVV95cUxPZS0tU19BVVc4YnRMdzVZS2x1aXRvOUhwaWJNakc4bnJXbDZhbmFWTkRZQ3hxMEIwZW51TW4wNW1uTzhkeTRtS3NDTEt4WmFVdjkyRmx4RjRITWtHWG5hdzRRNmJkbXpwYXJ3RHZqZ1NhS3VpcFQ2Nk81Tl9wSHZ6WGNFbllyMHlvM0hSNWRicmNHV2Zjcnk1MmJ3?oc=5",
+          "published": "Sun, 08 Nov 2026 12:56:04 GMT",
+          "metrics": {}
+        },
+        {
+          "source": "google_news",
+          "team": "dallas-cowboys",
+          "text": "Dak Prescott's best throws from 335-yard 2-TD game vs. Colts | Week 9 - Dallas Cowboys | Official Site of the Dallas Cowboys",
+          "url": "https://news.google.com/rss/articles/CBMipAFBVV95cUxPM3JiU2hFTlIxQ1FSSW1wMTJpazZ2anZ0LS1WVUxjSlpfY2pUVUt3UDV1cjJsLUUzc0NzNzlHbUpGVEZmSTVaMnNLX0psOHhycEJ6YVROOThmTjFOVjNRSUdTM3Fudk5xd2hmVzRvazMxRHA0eGNRdUM0TThSS1BaLXZnMjZ5NTA5QzVxNWNiMjNUbVl5c2VwNHo1YU1lTERxZUI0NA?oc=5",
+          "published": "Sun, 08 Nov 2026 22:25:52 GMT",
+          "metrics": {}
+        },
+        {
+          "source": "google_news",
+          "team": "dallas-cowboys",
+          "text": "Game Recap: Cowboys win late, 27-23 - Dallas Cowboys | Official Site of the Dallas Cowboys",
+          "url": "https://news.google.com/rss/articles/CBMid0FVX3lxTE9HaU4wYktQTWx2OEw0Ul93UnhZZDBRbkRXZmR6M3BxZW10VHZJWHFoQ3J6Ull4eHBoSENWNllZQXdZeUQxX2JNTExFQzB4S2JSTmhXTkw2aHVfSHN1cS1oMlc2dVF4QUd6Q0o3Tk1tUmJBYUNZV0pR?oc=5",
+          "published": "Sun, 08 Nov 2026 21:57:57 GMT",
+          "metrics": {}
+        },
+        {
+          "source": "google_news",
+          "team": "dallas-cowboys",
+          "text": "HIGHLIGHTS | CeeDee Lamb fumbles, Kenneth Harris recovers vs. Dallas Cowboys - Colts.com",
+          "url": "https://news.google.com/rss/articles/CBMiogFBVV95cUxOX3VrbmVEVGVCU3FlOHZvdWw5OFFRUkl1MGlpa2piR0tuNzNsOXU1QXZKQ3JFdV9zai0tWHNwY0habjBGMTFiUzUxU0NXTHF6RjZEUFZFWUhjMnBJTUlTUUN0Sy1kX196UTVOLUx0ZXpEUURVSlM5QmEzUE5rc3FhTTFaZFBvSHhQRGVRV0ZvclIzSDFuVmllMUpLRHNVeXJoVVE?oc=5",
+          "published": "Sun, 08 Nov 2026 21:00:44 GMT",
+          "metrics": {}
+        },
+        {
+          "source": "google_news",
+          "team": "dallas-cowboys",
+          "text": "Biggest Takeaways From Dallas Cowboys' Uninspiring Week 9 Win Over Colts - Sports Illustrated",
+          "url": "https://news.google.com/rss/articles/CBMipAFBVV95cUxPQWNiNWVmSFhRVU1GcFRQZnBDNzh3VV8xRUJvTDlvTjNIa3RVYkgyelNOTGZhQm1tNC1DajBILVhrc3JYMk5UTi10dC1kWllRN2hZYW11VGoxMmNpdDJ6Z0t2bk84aHQydTNBcjJibG9jb2hrZGVIYlRKQmFTR21nTVlHeVF1NF9UMGVZWXd6ZFdnb2F4WFlQQXU4RGJFMGNpUmtZVw?oc=5",
+          "published": "Sun, 08 Nov 2026 21:42:41 GMT",
+          "metrics": {}
+        },
+        {
+          "source": "google_news",
+          "team": "dallas-cowboys",
+          "text": "𝚆𝙰𝚃𝙲𝙷 Dallas Cowboys vs. Indianapolis Colts 𝐋𝐈𝐕𝐄 Ｓｔｒｅａｍ Ｆｒｅｅ ＯＮ Ｔｖ Ｃｈａｎｎｅｌ!NFL™ - Jackson County Pilot",
+          "url": "https://news.google.com/rss/articles/CBMi2AJBVV95cUxPWWZaNE9aNElHOTlEemRDTGtua3I1SF9FbGFrVnp2TVg1ZDQ5OFhrM1A1eHBJd0RNdzhaMm1wMTlxVE5lLXFqaF9ONkEwNVV6V1VZT0dQbjA2S3dlWXNFekRhNXpjWW5PcWF0Y2hGZnV2VjVqLWV2OWp5YlZLSDJPMHd3Y3ZvNEl6STJ4amNlMFFnUFdfbnJSY1JEQ3dxZjg0VnNJWjNvaXc4Yi1LLXNCaVliSGJuMXVqNHpiU1JKcEVmYkRpSkNWb3ZQZVpfZ18zQkxpRDVHSGRaU1hsSldQSHVxY0ttVXhRM1FEUlFyY1A5Sko0OHFtSHE3bHFCQ29KWWdOUllOZnlPT0wzZGttZUNGaDdDdkktS2tNbUlBcHNVamlhcFNmektIdnJVVmtyYTFBY3NWUEhzT0EzX1J5bzA3enpNTklpT2Q3NG1YM2R6VGk0YWo3Ug?oc=5",
+          "published": "Sun, 08 Nov 2026 18:13:37 GMT",
+          "metrics": {}
+        },
+        {
+          "source": "google_news",
+          "team": "dallas-cowboys",
+          "text": "Dak Prescott Finds Jake Ferguson For Cowboys 10-Yard TD To Retake Lead vs Colts | NFL Highlights - FOX Sports",
+          "url": "https://news.google.com/rss/articles/CBMiYkFVX3lxTFB0MlZDVWIxVnktR1JKUTJXaWxwbm9CZGltc1FiWmJZWG1Ob1lwQ3JoTnF3c2pCT2VVaXhwY1hqWmRTMk1ac3lwWDAyemFST05mT09mejBMb2NodWVaQmJERDRB?oc=5",
+          "published": "Sun, 08 Nov 2026 18:52:46 GMT",
+          "metrics": {}
+        },
+        {
+          "source": "google_news",
+          "team": "dallas-cowboys",
+          "text": "Colts lose fifth straight of the season to Cowboys - Colts.com",
+          "url": "https://news.google.com/rss/articles/CBMigwFBVV95cUxOTW5peWJZbVg3MFZMQ3VQTzlNTFJsQ2dUWVJwT0NNWmk5R2ZCRmRhMlpUSVluSnJnNFNDR2hXMmZCVEpCV2xxa0lKYXcwa1NTVXJna0tZSlNjeE1zWEVXdUZNQ0lTWnJqM1BqbE85blgzMUhQbm84dG01UjVyZjFaMDY4aw?oc=5",
+          "published": "Sun, 08 Nov 2026 21:34:16 GMT",
+          "metrics": {}
+        },
+        {
+          "source": "google_news",
+          "team": "dallas-cowboys",
+          "text": "Dallas Cowboys vs. Indianapolis Colts Inactives: Who's In, Who's Out For Week 9 - Sports Illustrated",
+          "url": "https://news.google.com/rss/articles/CBMingFBVV95cUxQWWlpUWtkUVVidlJkQWhHejRLT3RNZEI3Zjh1dFd6OEhReFhYODJDZ3plTVpDSXZIaHdkR1lkNnFXbmxvYVBuU2JZb3diajF2MWFmS3J4WFl5dTB4b0NKa09yelM4UmVXTGVPeUY3M2hZbEVXd0dJRnBjdnVGbXV4NHVnM3Q0M3dBTDROWXhsaU9NbTVPNzA3a1hYdjFGQQ?oc=5",
+          "published": "Sun, 08 Nov 2026 16:34:03 GMT",
+          "metrics": {}
+        },
+        {
+          "source": "google_news",
+          "team": "dallas-cowboys",
+          "text": "Starlights: Big play tracker for Cowboys-Colts - Dallas Cowboys | Official Site of the Dallas Cowboys",
+          "url": "https://news.google.com/rss/articles/CBMikgFBVV95cUxOSDNKVnJacUMya3ZBekFJb0VXTDc2VGVmLUZSMWE3bkFQQ2VqNEJqTjBOT2s2dWg2RnlPd3FKdWNSajNuQzBSM2hmcjRLR2FUMmpCdnhQSXlUSzdYTHI0WlZrSkd0SEpvM3p2dEtTZmhUSWlvcXFSZFF4TkpXb0lUcXF4T1FObm9qclUwckZFMTBWdw?oc=5",
+          "published": "Sun, 08 Nov 2026 22:07:30 GMT",
+          "metrics": {}
+        },
+        {
+          "source": "google_news",
+          "team": "dallas-cowboys",
+          "text": "Will Cowboys Trade George Pickens? Why Dallas WR is Inactive Ahead of Deadline - Sports Illustrated",
+          "url": "https://news.google.com/rss/articles/CBMiqwFBVV95cUxNOEtqdXFuRndOeTNvQ3ZHLU1mU09YdE82NDJQekswaVpQaFRVTERCQUMwbmpaZ3FsRU5rdGtIOE1kXzMwZlQxYjd0LS1YaXg1cFV2RlNYdVB5VmxaVW5NTWtfY1FlSHlTaFUxTkNTV2FxSkpvd2xvblNOam5fUXVTd2xsSXRfSkplN3ZGc0xsOVhKWXFjUUxoTEYtdGJQZUJycVdDdnBiVU54Q3M?oc=5",
+          "published": "Sun, 08 Nov 2026 17:59:42 GMT",
+          "metrics": {}
+        },
+        {
+          "source": "google_news",
+          "team": "dallas-cowboys",
+          "text": "Dallas Cowboys-Indianapolis Colts Announcer Pairing & Referee Assignment For Week 9 - Sports Illustrated",
+          "url": "https://news.google.com/rss/articles/CBMiuAFBVV95cUxPWGFuMHltSkhaUnllelo0cXIzYm5zandSam1nZF84RU1JNm5BVk9IWE5SNWdvb0UwSVlPaTZLQVNEX2htQTU1eEE1bFhNWThDRE90VGZOQmRkdDNPa0owSmlkMHpZN3BVSjctcmpVV0ROdzJrV3VEbFRsd2hTbWo4TEdjVDE2NTlfNVRqWjBvVVJmeUxoS0NNdkxROXljOGptUDh4NmR6NHlSdHA2T0dWdkp6REw2MWxQ?oc=5",
+          "published": "Sun, 08 Nov 2026 14:49:38 GMT",
+          "metrics": {}
+        },
+        {
+          "source": "google_news",
+          "team": "michigan",
+          "text": "Michigan must fire Kyle Whittingham immediately | Opinion - Wolverines Wire",
+          "url": "https://news.google.com/rss/articles/CBMi8wFBVV95cUxQQ2hJSGhWbGRtbEZ6OWhKek50aVZ1eFVoalExYWFEeFJXT3RJYVBCSzkxR2dwTURPc2VrVzRQUXpFMXBIZzNnbzlCRy1ENVdQSDAwMXRTcElCOTd6NXJRYVVyX1h3ekUxUnl4MkQxb0xtSlNtZjlrM2c4dFVUYkFBb3JjYkNoUTYwUC1VNVVnMHVyQTZQVnpMMWROWkdYZjh0dm5sRTR6SnlqTVYzdVFuSmZPM20wbFMwM1AyOGJwcm1UNUVsYWt2UTU4R1JFemNQaHE3MzM5YTk0eGt3VVlCcG1sLUc0X0ZrWmFUaFlHTTh1RXM?oc=5",
+          "published": "Sun, 08 Nov 2026 19:36:00 GMT",
+          "metrics": {}
+        },
+        {
+          "source": "google_news",
+          "team": "michigan",
+          "text": "Why Michigan didn’t turn to Bryce Underwood during loss to MSU - MLive.com",
+          "url": "https://news.google.com/rss/articles/CBMitwFBVV95cUxOS2xjUnp1SEd2MHNGeEI4cTJ2eWZwOGdhQWJ0YXlIeWJTUER3ZFgwRmdmcXhZUDdqZlhrZDRieDB0b3lhZXkxQ0h6WmxJeFJWcmtmcEJIMWJxXzVHanpmWWZfM2I5MHlveHBjV1ZPRFRldS1SQkVnc2xWMFFnVG1qc3hoZmFSWkU4aVBaRXdNNWZqejBwS3BSdVdwV2lIMHByZFI0ZEhCVVpXdUM4X3dyQ3IteVB1Zm_SAcsBQVVfeXFMTWtReHhMUV9mT3dmNml2NGdKTWthTDZ5UVlwLTM0YWxUUHFxdlBVR3hITW5KcERNYnJrUVZPWkpNYnVKb3ZhaGdOLXdDNmx2RGMybTJKUU1QSHhyNV9rVVdjNGxUS1U2QW52cWxTaEVGRmlMUzV0SWw2aHZpS0lUeTMwV0QxOTdiOE5RRndqN01jN1Fzckt0QWFiN3NvYmFVazNUUnNTLW42YWNsUG1WM2hWVVBXemp2MHphNlM0X2d5RHZkVUZDUGhWQ1E?oc=5",
+          "published": "Sun, 08 Nov 2026 13:00:00 GMT",
+          "metrics": {}
+        },
+        {
+          "source": "google_news",
+          "team": "michigan",
+          "text": "Michigan football is biggest underdog in almost two years vs. Oregon - MLive.com",
+          "url": "https://news.google.com/rss/articles/CBMivwFBVV95cUxQUzBlYS04QXBpR0x3U0tJV3NUSVQ4NTdvMlhuZHBDeW83YktILVVTN3h3ZEsyTEgwdVJPVGtfQmIxcG5JNEVLYTNDZ19kRVhfbEhnYXE0S3J2U3NsUEV5blRYeW9fM3RQRUs2amdCOFNMUnlxbmZ3aE9CWXBkSVJwUVpjR2paUU1NRzg5LTRFN3Y5X1lDYmJxVjFqLUNuNGYwR29sZEhtYlFGT3IyUWFUMWRRZGNvUE9uZFFFdGdVUQ?oc=5",
+          "published": "Sun, 08 Nov 2026 22:01:00 GMT",
+          "metrics": {}
+        },
+        {
+          "source": "google_news",
+          "team": "michigan",
+          "text": "Michigan offense coordinator Jason Beck fired - On3",
+          "url": "https://news.google.com/rss/articles/CBMingFBVV95cUxNUHNCcEJ2M3kzVkFGenVMMi1zRTZ2MUtGM0NuZVRmUFlZUlNHZ3o4ZkJyMjdmUEpHSEdUdGxzYWhjRVFkOG91VTdsbFV1RWFIRHdfYzlPamVqVWM1VkF6UEl2ZEl3eFlJTldEeWF3R2ZLa2NfblBGR1BTclBUT3RGSEs1Tk1qamZ5SWdhLUplWVZaMHB5TWRFOW9jWjRpUQ?oc=5",
+          "published": "Sun, 08 Nov 2026 22:25:29 GMT",
+          "metrics": {}
+        },
+        {
+          "source": "google_news",
+          "team": "michigan",
+          "text": "Michigan fires Jason Beck: Wolverines will owe significant buyout after parting with struggling OC in Year 1 - CBS Sports",
+          "url": "https://news.google.com/rss/articles/CBMipgFBVV95cUxPMVYzTFkxNk1qbzltNWNmc3lCX1Y4RUd2dzlCZ210VEQyX0ZnamUzbENxZ1RmRE5xbGlfUGJHdkFod2RxR0c4cWo0bnFmWjBSNTdEMG5HdUdDVjA4ejdjNGxtRlNQMlA2MFJRNTF1c0I2Vk5BRzRKZ09PN21OMUJybDhfa1hKUnVNVTl1TTNxdXJWRk1weXpjN1dFbExGUlNHbXhwZmN3?oc=5",
+          "published": "Sun, 08 Nov 2026 22:29:07 GMT",
+          "metrics": {}
+        },
+        {
+          "source": "google_news",
+          "team": "michigan",
+          "text": "Michigan fires OC Jason Beck after ugly loss to rival Michigan State - USA Today",
+          "url": "https://news.google.com/rss/articles/CBMiywFBVV95cUxPYlRab2NpbGJldUlxMW9CaHI3dE5HNWcwdjdjbjhOV1hGWDNjVUR6RlQ3dC1WdW1uVUh3RWNSWUxjczRaVFV6RkMzR3MtWjZGYkFvQUxVd2lnMmRybUx2bU9KNUs1elZaQk1IOVhTRjd3QnN1RmUwd2VPemlxMEk0MXlLemg4T1FXeFBvNUVZVWpVTHBEMzVqbjVLcGh5RFVhRjRqcXRCbzlLZHdtV0RYM0lSZ1hoTWpLMENWc1hZQjItc0Y5eDlZUTVkTQ?oc=5",
+          "published": "Sun, 08 Nov 2026 22:40:00 GMT",
+          "metrics": {}
+        },
+        {
+          "source": "google_news",
+          "team": "michigan",
+          "text": "Kyle Whittingham says he 'can't come up with one positive offensively' after Michigan's 15-6 home loss to Michigan State - Yahoo Sports",
+          "url": "https://news.google.com/rss/articles/CBMioAJBVV95cUxQODFFT2txMHNadV9DbTlUS2xLTU1VMzBkTVlYeTkzTDhySjRzTklxY0NyLUdLaF9vZXRVY0dNeHRPYnl3WVZxaGJWaUV1QkU3ZjlVdVVvTkxWZTlqWFpndHkyOERNM3RVQ09QbFhfaDljWjBnWk1MejhIUUlSTlRFaU9TVzI0XzNqQU11ZTNUWDd3TWhQdW11azU4U0ROdjVQYVZQc3pEbDdseG1yVkJGaW44bnZCTGVVZGtxaUdCdU9WemYyZmxkOE9Qb2tfYzB6RXhyWk4xeXlaUnBFYms3N3I5UVFQbjJyR3R6UlJvRTQzNmNWSW9HU2VYRnlVTm42WXRsOEhmMTc4d3JUVFAxUjQ4dzFHbjZmVFBBLXRmcUQ?oc=5",
+          "published": "Sun, 08 Nov 2026 05:30:00 GMT",
+          "metrics": {}
+        },
+        {
+          "source": "google_news",
+          "team": "michigan",
+          "text": "Kyle Whittingham Buyout Details in Contract Show Cost for Michigan to Fire Coach - Heavy.com",
+          "url": "https://news.google.com/rss/articles/CBMixwFBVV95cUxQVllKVFE0ZVY3aTBFMGVrUmNQaUpyRHBzeF92LWNBMS1aWTQxMHFESG9ia1lZWjA1MzVtOFNranhQUVA3bVVMR1ZFSHVLcWVaaTBYbmJsT2dxVGs2aVBlclFGeXRyc1hKSmlOaDRzWkdRbXVKTEhmR1V3UVNsMVlyZHJhR1RlM25mUUlTd0h1WXdwLUhuai1NYS1DM3VXcnlYTlpPakVMSjhTZE9mVE9ScklRcGR5a1lsRE1hcUFwQlkzSXVZRWFn?oc=5",
+          "published": "Sun, 08 Nov 2026 03:37:00 GMT",
+          "metrics": {}
+        },
+        {
+          "source": "google_news",
+          "team": "michigan",
+          "text": "Michigan 17-10 Oklahoma (Sep 12, 2026) Final Score - ESPN",
+          "url": "https://news.google.com/rss/articles/CBMihgFBVV95cUxPRWhEaDFKRGE0bnZVMmkxOG5TS1dRdWt4alVPaFZFWGIxaXg2U1BNT183Z2pUVy1sTzI1dDM3bkJ5MEhrbF90MjNJRmtMbjgxWGNLSXFXWlZpb0VFclZRanZWRWN4d1dOTzhTZWJNTUI3UXlxSHc2U3RrMldEc1RwWXFNVDRyZw?oc=5",
+          "published": "Wed, 21 Jan 2026 18:52:17 GMT",
+          "metrics": {}
+        },
+        {
+          "source": "google_news",
+          "team": "michigan",
+          "text": "Kyle Whittingham buyout: How much would it cost Michigan to fire first-year coach after Michigan State loss - CBS Sports",
+          "url": "https://news.google.com/rss/articles/CBMilgFBVV95cUxQaFA0SEx6Vl9GZUpwSWxJbUg1Q0JTa0Q3aXF2NlJPZ05PdUV4Sm4xOGRqVXhUQkRGYk9yQ1RTbFZqWWFXaGg4eVM0Yjk5YVVyZ2tic3d0eG5XRUN6SWhpMnhMbzdEMk43V1ZEVFpDOG5idDVMT3JqYmFydU5tUnRrZFJ2N2l0QTJqZ25uVTI1SVJidlktNmc?oc=5",
+          "published": "Sun, 08 Nov 2026 04:16:05 GMT",
+          "metrics": {}
+        },
+        {
+          "source": "google_news",
+          "team": "michigan",
+          "text": "Connor Stalions jokingly ‘self-reports’ made-up contact with Michigan coaches to NCAA - Saturday Down South",
+          "url": "https://news.google.com/rss/articles/CBMi1wFBVV95cUxOTF9Qc25teFg3UnJMSXZxbVV1V2I4UFlWTXFWZFpWcU5RMVlBb1Z0NFlGR0pWU1RoSDlUTFFWRjZ0NXJ0RDVETm8tcnJSVkRRakFoS1plb2tzcWNGQWtqNFVZUDFRT21QNmRoZVBSSTAwMHZqcVpYT1dQYjdyQUxFOFA3WHBfTERWZm1paDM5bHg5TVBaOEJ2TVdjbGF0bnZmUkhVM0xyOGdoS1B1WjAtWVNBQkF1Q1JsekJTUzRTZVpPci1SalgxTFd2RW5QWUhqVVpwdHZnOA?oc=5",
+          "published": "Sun, 08 Nov 2026 18:16:00 GMT",
+          "metrics": {}
+        },
+        {
+          "source": "google_news",
+          "team": "michigan",
+          "text": "Oregon's Michigan matchup becomes a massive question with Wolverines firing Jason Beck - Autzen Zoo",
+          "url": "https://news.google.com/rss/articles/CBMirAFBVV95cUxQUE9VaUgzQXBxWmNDT0c1QlFEeVRWNWgwSlVDOGdta1VuMWZuUXpQdnRpWXdjQndjRldPcGFSNGVlN1FwV0NYekJLX2pxek5HQ293cUxYV2dwTl9oZ2FkXzVNV0ppaHZkUVBsVFdqMkhBM1FuSTFqT2FtYmY5czRGWkF3NnNwZEEwZDhvdVFaVlB4NGRrbXVaNkRXWUFwT2ktd1JEWFJIbncwX1NY?oc=5",
+          "published": "Sun, 08 Nov 2026 22:26:59 GMT",
+          "metrics": {}
+        },
+        {
+          "source": "google_news",
+          "team": "michigan",
+          "text": "The Morning After: Michigan Football's One Year Blunder - Sports Illustrated",
+          "url": "https://news.google.com/rss/articles/CBMioAFBVV95cUxNTnU5UmxHYUhqYThZRm9PZFdUb0l3MjV1dzZ6RWNIWW5DWng2eDdDRXRDT3VmdVFwbGpNMERIS0N2NG80YnRJb2tzNjQ1UWZIbmxfU0c4R2tndW5RM3Y3bzU2NjZsZ0lqbm16Z2JXak1uMkJ3X1FMZTBqMk5pb29SWklxZ2VFVkw2elUxQUUyWVBCTE9jMlNDdlZ5Uzd5Z05p?oc=5",
+          "published": "Sun, 08 Nov 2026 14:00:00 GMT",
+          "metrics": {}
+        },
+        {
+          "source": "google_news",
+          "team": "michigan",
+          "text": "Michigan fires Jason Beck, college football’s highest-paid offensive coordinator: Source - The New York Times",
+          "url": "https://news.google.com/rss/articles/CBMiogFBVV95cUxPRlZlei1LSUVCOHBLemppWUUzb1laNnFHdXhCSHB1V2t0bkhpVGpxZnRMQzlSQXVwYW9GaDk2dVNsT3Qyd05iblJUSWJ6ek03ME5CRVRJQmpqWHRWT1BYQnNKZWcxa21BLUtOcDRZZnVocDZPMUpiZFZJZmQzQnlselUzZnVZbmt6QkFfSTJaSTVfYUlHR01qeU84bjJ5cXVfMHc?oc=5",
+          "published": "Sun, 08 Nov 2026 22:16:17 GMT",
+          "metrics": {}
+        },
+        {
+          "source": "google_news",
+          "team": "michigan",
+          "text": "Fans react to Michigan Football’s ‘atrocious’ loss to Michigan State - Yahoo Sports",
+          "url": "https://news.google.com/rss/articles/CBMikAFBVV95cUxPWFloaXRpenFGWmtKZ2hPak9QU0k3d0ZobjdzeVhTLUVSck5BSmdTVnR3ZVJmUThtWm00ZWV5djhlVEZGY21wU3ZuMXpJd0hxODJtN3kxaTBMT19PQ1VNY2x1X1pRTXptQm9pLTdwZjJJN0V3M2xTRGVzVnRnUjZkYXU4N0VaN0NJTl9Fd3pMU0c?oc=5",
+          "published": "Sun, 08 Nov 2026 13:00:08 GMT",
+          "metrics": {}
+        },
+        {
+          "source": "google_news",
+          "team": "michigan",
+          "text": "Michigan Drops Rivalry Matchup to Michigan State - University of Michigan Athletics",
+          "url": "https://news.google.com/rss/articles/CBMiqAFBVV95cUxNSEduVXQ4Qjc0Y2ozZlNvbExsSWxJTWh2cE51VjZLdjlUdERiNVVYV1MwSHFwT3FJLWtVSzRfeHhIUk1JZVhqWnNMNFd4UTN2dEw1RzNvQXM4XzdqaTl0R3FsZHVGSjZENDc2UnpwWGpZWFNiV3RQUUxPRmFIMWVXREgtRkZtMnZvTTVkWXlRb3pTYmt0ZmxpQnV4RThqbTlUMHZzMVF2bng?oc=5",
+          "published": "Sun, 08 Nov 2026 04:46:00 GMT",
+          "metrics": {}
+        },
+        {
+          "source": "google_news",
+          "team": "michigan",
+          "text": "Michigan football fires offensive coordinator Jason Beck, per report - Wolverines Wire",
+          "url": "https://news.google.com/rss/articles/CBMi_gFBVV95cUxQSDJQZnhWR0pqajVYU2ZZWTk3OElwM3k1bXZ1Z1lPdVh4LWdqU0pHVnFDUURjNWIxeURrTF9BS2Z3SWpyTlRwY2hWRm9PdzlNRzJtOFJ4ZlFOazVFZDZYRFJleEViNDlkcGRMY3RzNjB2NnFmOXV2MU45LWFrTFVCLWUzX3B4NktiaG5CdzVsWjBvcDdjRTU0dmJaem90VGw1eUYtQUc2YW8xR3JXNFlQN1BhcEZaX3ZSV1d2Z0ItbVdkU2tfSXJQbUZCVkltWVhMYVpnbEkwY0F6WFRab0RUMFNyTGY3OEY2T0lZeDBJMzI0TmZGNV83LUNSTmM0dw?oc=5",
+          "published": "Sun, 08 Nov 2026 22:16:00 GMT",
+          "metrics": {}
+        },
+        {
+          "source": "google_news",
+          "team": "michigan",
+          "text": "Wolverine Thoughts: Michigan Football Made a Mistake & Must Re-Start for 2027 - Sports Illustrated",
+          "url": "https://news.google.com/rss/articles/CBMiuwFBVV95cUxNOVBfODF2bDFGUjQ2Wnk5N0NhdFJNU00wNEprZFJ2ZDNidHlfc25ENEtBd3RuS0MtMVMtSHM1OWxEenBBUEp6ZVpXbXNBU2EyV0c5MlJ1R0RCbjROZExfZkhZSy04Z2xQb2NFSEcycEFYdm1SUHN6WGtQNVhTTU9kNEVZendBTHE0U2ZsNXBNSlhIU3c1VDVXVW82NklmQk5pa0hid2RYNWZWTUlkMURVY1ZfUGwyVVEwcEFB?oc=5",
+          "published": "Sun, 08 Nov 2026 12:00:00 GMT",
+          "metrics": {}
+        },
+        {
+          "source": "google_news",
+          "team": "michigan",
+          "text": "3 winners, 3 losers after Michigan Football’s loss to Michigan State - Maize n Brew",
+          "url": "https://news.google.com/rss/articles/CBMiywFBVV95cUxNQ0t1cVRoUWZDTlNoSGZqR0N2UzNaOXN0T0hLMlROaUltZWcwRWt4MXVIUEZSNlQzY3FzcEtsLU5Pc0loRmZSOTNvcm9SeVB2SkJpcTdyZFBGYXRfdndXM0diNEhFd2tkMkRMUzluM2VMWF9NeVRtaGcyX3F5bHltUXY5dzFkcUZ0ZVljMGRGZUVjUkZ1WXFBSmFYTVZoYktjTk90Q2NHYVI5V3otNGZoS2t5QUprdVExd0pYWEVNQUZpUkVUaXdYcmFlbw?oc=5",
+          "published": "Sun, 08 Nov 2026 12:00:00 GMT",
+          "metrics": {}
+        },
+        {
+          "source": "google_news",
+          "team": "michigan",
+          "text": "Michigan football faces massive media backlash after loss to MSU - Yahoo Sports",
+          "url": "https://news.google.com/rss/articles/CBMijwFBVV95cUxOMnlKdnJ6V1Rrd0ZPUUQxVHZoNWliNjI1VVdRTFR3Mnh0UVM5R0NicVBiNHVLNWN3UHVGRDduQkdraWVuZ2ZLOXlQNzZ1S3lJN2xkdGwtVmpfOHZrekZJNjdxNURVcURWYnNZZ0QtcWVYOTFEdEEzTm1GNUtMTlVNa05BYngtTGt6T1VhTGlacw?oc=5",
+          "published": "Sun, 08 Nov 2026 07:43:00 GMT",
+          "metrics": {}
+        }
+      ],
+      "reason": null
     },
     "reddit": {
       "status": "error",
@@ -50,257 +691,257 @@
         {
           "source": "repository_trend_snapshot",
           "team": "cleveland-browns",
-          "text": "Cleveland Browns vs. New Orleans Saints recap: Shedeur Sanders comes close, but can’t get the final play in overtime",
-          "url": "http://www.bing.com/news/apiclick.aspx?ref=FexRss&aid=&tid=6af0f771f6334e3bbf892df597497e01&url=https%3a%2f%2fwww.msn.com%2fen-us%2fnews%2fother%2fcleveland-browns-vs-new-orleans-saints-recap-shedeur-sanders-comes-close-but-cant-get-the-final-play-in-overtime%2far-AA2h1qNE&c=4465618030498827259&mkt=en-us",
-          "published": "Sun, 08 Nov 2026 13:40:00 GMT",
-          "metrics": {}
-        },
-        {
-          "source": "repository_trend_snapshot",
-          "team": "cleveland-browns",
-          "text": "Cleveland Browns vs. New Orleans Saints NFL Week 9 Live Updates, Highlights and Analysis",
-          "url": "http://www.bing.com/news/apiclick.aspx?ref=FexRss&aid=&tid=6af0f771f6334e3bbf892df597497e01&url=https%3a%2f%2fbleacherreport.com%2fliveblogs%2f25530665-cleveland-browns-vs-new-orleans-saints-nfl-week-9-live-updates-highlights-and-analysis&c=5919587842271165815&mkt=en-us",
-          "published": "Sun, 08 Nov 2026 09:52:00 GMT",
-          "metrics": {}
-        },
-        {
-          "source": "repository_trend_snapshot",
-          "team": "cleveland-browns",
-          "text": "Saints hold on for a 23-22 overtime victory over the Browns by stopping a 2-point conversion",
-          "url": "http://www.bing.com/news/apiclick.aspx?ref=FexRss&aid=&tid=6af0f771f6334e3bbf892df597497e01&url=https%3a%2f%2fwww.msn.com%2fen-us%2fsports%2ffootball%2fsaints-hold-on-for-a-23-22-overtime-victory-over-the-browns-by-stopping-a-2-point-conversion%2far-AA2h1r01&c=14097464038124103914&mkt=en-us",
-          "published": "Sun, 08 Nov 2026 14:10:11 GMT",
+          "text": "Browns at Steelers Postgame Recap",
+          "url": "https://news.google.com/rss/articles/CBMikgFBVV95cUxQaHpyRkp5QUJqRHYwVFlYU3J2RTlMMmxVaDhtVlZkY1JkM1BGVnFVSzI2RGo1bkhMUHlXcWNvM3Z6aFpVWEctQmQ1aVJISE5FeGVpSU9mX0FTOXRmYUQwLXdpYnVnWDhlekxZQV9BMG43M2duRHcxOWVFOWtTM2hkTExQV3ZiLWdsNWRyNWFaQTBEZw?oc=5",
+          "published": "Sun, 01 Nov 2026 22:07:49 GMT",
           "metrics": {}
         },
         {
           "source": "repository_trend_snapshot",
           "team": "cleveland-browns",
           "text": "Game Recap: New Orleans Saints 23, Cleveland Browns 22, overtime | 2026 NFL Week 9",
-          "url": "http://www.bing.com/news/apiclick.aspx?ref=FexRss&aid=&tid=6af0f771f6334e3bbf892df597497e01&url=https%3a%2f%2fwww.neworleanssaints.com%2fnews%2fcleveland-browns-new-orleans-saints-2026-nfl-week-9-game-recap&c=10131176726381271955&mkt=en-us",
-          "published": "Sun, 08 Nov 2026 07:35:00 GMT",
+          "url": "https://news.google.com/rss/articles/CBMiogFBVV95cUxPZG9nekd3V1FXUGFyZGFBemJpSzRYQThfVWJ3ak5Vd1RBY3dNMzdTWmJLMkRReGt6X3EzcngyaE5CSlJVUll3YkliMzcyRUtnMmNPTGdCTVBXOUVHN2QybDF3Ulo5VUM0Z2c3RlBjUlhRQkIwbEZjNFBfdmVZUng0TnFzV0ppUjBtNWxBbTRVb2VRZXpxb3RvTFZUZzZ5Ymt6NGc?oc=5",
+          "published": "Sun, 08 Nov 2026 21:35:31 GMT",
           "metrics": {}
         },
         {
           "source": "repository_trend_snapshot",
           "team": "cleveland-browns",
-          "text": "Saints stop Browns on 2-point try to seal 23-22 OT win",
-          "url": "http://www.bing.com/news/apiclick.aspx?ref=FexRss&aid=&tid=6af0f771f6334e3bbf892df597497e01&url=https%3a%2f%2fwww.cbssports.com%2fnfl%2fnews%2fsaints-stop-browns-on-2-point-try-to-seal-23-22-ot-win%2f&c=6238628483965998904&mkt=en-us",
-          "published": "Sun, 08 Nov 2026 14:11:00 GMT",
+          "text": "Cleveland Browns news: Culture changers, injuries, QB talk, and more!",
+          "url": "https://news.google.com/rss/articles/CBMivAFBVV95cUxQbExQTTBpRmI2NmdBWU9QN1ZnQ29Hd0QwbnVoSEZBN1hHYm14TldyTi1yYUxyWlZXdDM0UGpIU3J3WlJtRzlnSkRGZVByOHpjeGpsRUdlNkVHaGxjU1ZidThCbGp4Nl8zSUtoRHZ1MzlaQ2E5aVdlZEwtU2d0ZS1JS1d1ellQckNoY2M3ZFZjX2Rpd1dMdDlQTWFVbVFOMjlXZFZOYmdraXlpWElscDJzeVZqeFJtSXNlTjJaYQ?oc=5",
+          "published": "Fri, 06 Nov 2026 11:00:00 GMT",
           "metrics": {}
         },
         {
           "source": "repository_trend_snapshot",
           "team": "cleveland-browns",
-          "text": "Saints outlast the Browns for an embarrassing win in overtime",
-          "url": "http://www.bing.com/news/apiclick.aspx?ref=FexRss&aid=&tid=6af0f771f6334e3bbf892df597497e01&url=https%3a%2f%2fsaintswire.usatoday.com%2fstory%2fsports%2fnfl%2fsaints%2f2026%2f11%2f08%2fsaints-browns-final-score-overtime-shedeur-sanders-tyler-shough%2f92681601007%2f&c=17229757842983716832&mkt=en-us",
-          "published": "Sun, 08 Nov 2026 13:59:00 GMT",
+          "text": "How to watch today's Pittsburgh Steelers vs. Cleveland Browns game in Week 8 of the NFL schedule",
+          "url": "https://news.google.com/rss/articles/CBMirwFBVV95cUxNR3pQREVpVFpTTEVYNVc4TGhWZWlIb0xaV3NFLUx5NGduUDJVSmJ2aHJyZk54N3FxU243WThzbmlQRW1pb2NDOFVlR2Z1Vmh3REhVY0tjZU94Ync0TERjeEt5YVZBcGY1OGE4Q3dwTXhiRDU0MWRKVHJjYjhuZGduNWxJRzdMWGt5bmgzNFo3eFFScWlIS2wtbEdQTDA0VUpPTkstc1VPdUpPc0xEX2Vn?oc=5",
+          "published": "Sun, 01 Nov 2026 11:00:00 GMT",
           "metrics": {}
         },
         {
           "source": "repository_trend_snapshot",
           "team": "cleveland-browns",
-          "text": "Tyler Shough leads late TD drives as Saints sink Shedeur Sanders, Browns in OT thriller",
-          "url": "http://www.bing.com/news/apiclick.aspx?ref=FexRss&aid=&tid=6af0f771f6334e3bbf892df597497e01&url=https%3a%2f%2fwww.nytimes.com%2fathletic%2f7764265%2f2026%2f11%2f08%2fbrowns-saints-nfl-week-9-score-result-takeaways%2f&c=16541055164954051026&mkt=en-us",
-          "published": "Sun, 08 Nov 2026 14:11:00 GMT",
+          "text": "Another late rally comes up short as Cleveland Browns fall to New Orleans Saints in overtime",
+          "url": "https://news.google.com/rss/articles/CBMiigJBVV95cUxPZVltTldzYVRMYzBGRkZYcnBoYlRzNkpHdGVoa2d0bWVCa1N0WkV5bHlDLTMyd1RucUptOW9vLUtVTzRjZlpDVHhDbEIxSUxUakU4T3pPS3dROThXU3F3VHBDbFZVbDNXVklWZkVKMmZCOXRsUDFlZWtPYnBlTVdvTWI0dExIWEVXUmE1alItX19oNkRJNjRsSmluM3pBYmhXQ0hKY0c3Yk1NdDVxVFlsRWdfZENic3p6RHZVRUpMSjIyMi1GbWJTQXFhbFRkR0NWUnNpYVdhNks1YnQyMDdTSVE1SHNjZUxNV0h6N0h6NVZkbEpBUEVJTEJVRmo1Wk9pUF9za1JOdmhzZw?oc=5",
+          "published": "Sun, 08 Nov 2026 21:34:00 GMT",
           "metrics": {}
         },
         {
           "source": "repository_trend_snapshot",
           "team": "cleveland-browns",
-          "text": "Saints 23, Browns 22 | Final Score, Stats & Game Recap",
-          "url": "http://www.bing.com/news/apiclick.aspx?ref=FexRss&aid=&tid=6af0f771f6334e3bbf892df597497e01&url=https%3a%2f%2fwww.clevelandbrowns.com%2fnews%2fsaints-23-browns-22-final-score-stats-game-recap&c=15055637899166449936&mkt=en-us",
-          "published": "Sun, 08 Nov 2026 08:49:00 GMT",
+          "text": "Can't-Miss Play: 64-yard TD! Shedeur Sanders and KC Concepcion stun Saints in fourth quarter",
+          "url": "https://news.google.com/rss/articles/CBMiuAFBVV95cUxPM0EtbDRQYnpCUVJDZFl1dkRBTEljWTR6dWZVSnc3QU1HbS10QXV0ZDI2ekY5OVJOU1VjbTIwMmxEUWI0cm5UVTgySHlTVWNsUWJkRjYyVWFPRWxyVlpUYi1FcHFuWVRjbXlyamsxeTRKaTFHcXgtOTVqc1g0MmVFcVctTTRxMlNPTmI5ZzJhdEJSRFZzUk5tQVlNcXJVNVJEbllFLV9XLWxCQ085WEJrOXBpT3R1WUZf?oc=5",
+          "published": "Sun, 08 Nov 2026 20:54:29 GMT",
+          "metrics": {}
+        },
+        {
+          "source": "repository_trend_snapshot",
+          "team": "cleveland-browns",
+          "text": "Browns offense shows flashes but remains a major work in progress: Dan Labbe",
+          "url": "https://news.google.com/rss/articles/CBMisAFBVV95cUxNZ0dvazdXRS1kckhfZDZkYTNVakVta09KUlZCUEdVS09SZThfZGhZdUhweERvRkRVTUdQZFEyQnNwblVOWEc4dUhiMlpHVzlOM014T3dmX0tsVFNjZUtUcDE2X1pDOV9KNkQxSUlrdHpVRGNSR2dSZ0ZXa2ltLVBxR1dxb2xVZ3lGeGhZeTNIRDcyVWFBcVlNd1hDdURwcXgtOHY1azR2Nm51ZEkwVnhUSQ?oc=5",
+          "published": "Sun, 08 Nov 2026 21:35:00 GMT",
+          "metrics": {}
+        },
+        {
+          "source": "repository_trend_snapshot",
+          "team": "cleveland-browns",
+          "text": "Cleveland Browns QB Deshaun Watson placed in concussion protocol",
+          "url": "https://news.google.com/rss/articles/CBMikAFBVV95cUxPM2tzWnFaOTNNMnYydUxfWUFUeVhLQk1uTHdLYi0tQ2hxWVM5WlAxdnR1dDFvdkVPWnhHQUd1bFlCTHNka2tfZlhudTNuT01MMWFXMV9YWWxacGI4U2NFbldLc2ViS0QzczhSLVlQR0lfdHptX1FfOEFpSUhwOHc5UDZTN1NvczhwaUlWT1QzTk_SAZYBQVVfeXFMTmxzTnFJY1p3d0VDREhLUS1HNmt1NVpQTE5pYnRpY1prM1ZWNlNvNDNQRTVqM1h2eUg4a3Yxc3VxTWlsQ0NNYjlySl9yX0lxOUZEZURaT3g3M21OeHZoVXlZOWV4OTkyNTczNVVOLTBMUDQ2V0FEMU12X2xTNjdBeC0zdFRKM2ZzR2owY1E3SC1wYzFRZlR3?oc=5",
+          "published": "Wed, 04 Nov 2026 14:39:41 GMT",
           "metrics": {}
         },
         {
           "source": "repository_trend_snapshot",
           "team": "michigan",
-          "text": "Michigan football is biggest underdog in almost two years vs. Oregon",
-          "url": "http://www.bing.com/news/apiclick.aspx?ref=FexRss&aid=&tid=6af0f7a09a43462b8c35452f74d1471f&url=https%3a%2f%2fwww.mlive.com%2fwolverines%2ffootball%2f2026%2f11%2fmichigan-football-is-biggest-underdog-in-almost-two-years-vs-oregon.html&c=2886667325710007904&mkt=en-us",
-          "published": "Sun, 08 Nov 2026 09:01:00 GMT",
+          "text": "4 Instant Takeaways After Michigan Football's Humiliating Loss to Michigan State",
+          "url": "https://news.google.com/rss/articles/CBMixwFBVV95cUxPcEJBel9wNzNGcHFBcHExZy04LWI0a0YtdDFBV09KVV92NEwtaVJjeWFRVF9sMmVwU3BFS1NTaXBfdm9nZ2piVEI2dUVHTGJrYzkzXzdyR3BhM2xvUkVIZ190WFVEUXN3ZmdlVFdGSmJycTMxc3BtYmptVlVVTjFSbEs4MnVCRlM1WHVNYUM0RkloaUhFdTZZZ3dKckwtUnhjVXNMZjlBLVp6N05QUWNNRDVRaWtETzJFZzNRTlFUakwxSzlMRHY0?oc=5",
+          "published": "Sun, 08 Nov 2026 04:13:31 GMT",
           "metrics": {}
         },
         {
           "source": "repository_trend_snapshot",
           "team": "michigan",
-          "text": "The PFF grades are NOT kind to Michigan Football in loss to Michigan State",
-          "url": "http://www.bing.com/news/apiclick.aspx?ref=FexRss&aid=&tid=6af0f7a09a43462b8c35452f74d1471f&url=https%3a%2f%2fsports.yahoo.com%2farticles%2fpff-grades-not-kind-michigan-210000026.html&c=16261189390523287125&mkt=en-us",
-          "published": "Sun, 08 Nov 2026 13:00:00 GMT",
+          "text": "Watch Michigan vs Rutgers Highlights, Replay & Score - CFB Week 9",
+          "url": "https://news.google.com/rss/articles/CBMiuAFBVV95cUxPdi12ZC16RjU4V2xMcUxJbWFadlFZandVbmZaTFI5Z0Z4cEd6TGJRUS04Y3JOd0tvOElweWxnWERFdjl5Ql83amJncUNIZHRZTkxQSTJDMTVqZk8xc2V5RnNKQ2Fpbmptb1dZUzBsaHppS2h6T0VzUTRfbDBRSkJ1bmJzbHhUS2J2MWU5VHBaQkgyb1NFS1VoNlVRQTZNd2tPRTI1VGxBOWVBc3lWRS1KdVRTazRRRXRj?oc=5",
+          "published": "Sat, 31 Oct 2026 07:00:00 GMT",
           "metrics": {}
         },
         {
           "source": "repository_trend_snapshot",
           "team": "michigan",
-          "text": "Reacting to Michigan Football’s unacceptable loss to Michigan State",
-          "url": "http://www.bing.com/news/apiclick.aspx?ref=FexRss&aid=&tid=6af0f7a09a43462b8c35452f74d1471f&url=https%3a%2f%2fsports.yahoo.com%2farticles%2freacting-michigan-football-unacceptable-loss-160000097.html&c=11406228196514414290&mkt=en-us",
-          "published": "Sun, 08 Nov 2026 08:00:00 GMT",
+          "text": "Game Thread: Michigan Football vs Michigan State",
+          "url": "https://news.google.com/rss/articles/CBMiiAFBVV95cUxPMXNIdVU4S2FzR1hNei1RMnJGR2w0SGJNSXRCVFlpQUVldXV3UzQ2cG9yZmVfYWRVV0ZfS1o1bnBIWjlPaGplMFhlbnBsemplV0ptTkRpbnF0Z2trSS00ZV9wd240WTB3UkgzLXFyajdocmNfbTVZNkdUREdYUmVPa0tCbWRxUGxo?oc=5",
+          "published": "Sat, 07 Nov 2026 23:30:00 GMT",
           "metrics": {}
         },
         {
           "source": "repository_trend_snapshot",
           "team": "michigan",
-          "text": "Michigan football fires offensive coordinator Jason Beck, per report",
-          "url": "http://www.bing.com/news/apiclick.aspx?ref=FexRss&aid=&tid=6af0f7a09a43462b8c35452f74d1471f&url=https%3a%2f%2fwww.msn.com%2fen-us%2fsports%2ffootball%2fmichigan-football-fires-offensive-coordinator-jason-beck-per-report%2far-AA2h1Njy&c=7842351660675115616&mkt=en-us",
-          "published": "Sun, 08 Nov 2026 14:16:31 GMT",
+          "text": "Michigan Drops Rivalry Matchup to Michigan State",
+          "url": "https://news.google.com/rss/articles/CBMiqAFBVV95cUxNSEduVXQ4Qjc0Y2ozZlNvbExsSWxJTWh2cE51VjZLdjlUdERiNVVYV1MwSHFwT3FJLWtVSzRfeHhIUk1JZVhqWnNMNFd4UTN2dEw1RzNvQXM4XzdqaTl0R3FsZHVGSjZENDc2UnpwWGpZWFNiV3RQUUxPRmFIMWVXREgtRkZtMnZvTTVkWXlRb3pTYmt0ZmxpQnV4RThqbTlUMHZzMVF2bng?oc=5",
+          "published": "Sun, 08 Nov 2026 04:46:00 GMT",
           "metrics": {}
         },
         {
           "source": "repository_trend_snapshot",
           "team": "michigan",
-          "text": "Next up for Michigan football is a team that just won at Ohio State",
-          "url": "http://www.bing.com/news/apiclick.aspx?ref=FexRss&aid=&tid=6af0f7a09a43462b8c35452f74d1471f&url=https%3a%2f%2fwww.mlive.com%2fwolverines%2ffootball%2f2026%2f11%2fnext-up-for-michigan-football-is-a-team-that-just-won-at-ohio-state.html&c=10459917096664583226&mkt=en-us",
-          "published": "Sun, 08 Nov 2026 07:02:00 GMT",
+          "text": "Michigan football head coach Kyle Whittingham names starting quarterback, discusses Michigan State rivalry",
+          "url": "https://news.google.com/rss/articles/CBMi_AFBVV95cUxOc3oyTklJVU5zUm9DV2htRUdxenc3R2pmY2htRVR2R3RhVE9ZWGd0N2loNlFGNUlCTXB4WTkwVU9udjlRWkdWeDI1YldjTTh1U0VYcU02VElrVFcwS05qWFIwWERPYzdyaEh3VG90czNhZVIzMkpWd1dBN0NJMkJBQlZlOXhxd2hYX2tVbF92WU1yNk5rTWtrZUhFMmNRVmZxWWg4bFVwWFZPNHdWSkc5bUdSNk9fOUNhWTIyLTUzV0FpQVM1VTlrcTFVbnVpSmsxZTZUSjYxVDRicm5rS2FCeDFqNG1PNVFCZVRjRi1yNHl0eW8wTTRKVVNxYko?oc=5",
+          "published": "Tue, 03 Nov 2026 10:00:00 GMT",
           "metrics": {}
         },
         {
           "source": "repository_trend_snapshot",
           "team": "michigan",
-          "text": "Michigan football grades: MSU debacle a failure on all accounts",
-          "url": "http://www.bing.com/news/apiclick.aspx?ref=FexRss&aid=&tid=6af0f7a09a43462b8c35452f74d1471f&url=https%3a%2f%2fwww.freep.com%2fstory%2fsports%2fcollege%2funiversity-michigan%2fwolverines%2f2026%2f11%2f08%2fmichigan-football-grades-msu-failure%2f92645852007%2f&c=14599061765398405099&mkt=en-us",
-          "published": "Sun, 08 Nov 2026 02:06:00 GMT",
+          "text": "Kickoff time set for Nov. 7 Michigan-Michigan State football rivalry game",
+          "url": "https://news.google.com/rss/articles/CBMixgFBVV95cUxNV20xZmZ3RktYN3ViMUdWZW9YZjVtU2ZyOUg2RXRYRThoSFZvX192UU8tVVdYa25OYkxkbUlwU08zbl9vM3h4YUJPdml4TF9GbWFmaWltQTlwWFhIcHg0SWgxVVZOUUhkeGFHYUozUEI5SzBLSUpWY3MzXzliZE12YTFrMURkVEFCeWx4V19KZ0FTMlB1TmRtRzVJd1hhUERIUFZMM2xSZDEwbkJzX1VnOXJWbldSNWVlenBSUHIwcUt1aHFreXfSAdoBQVVfeXFMUHplZjF6cDdqNFRieVg2QnRicXM4REhOTF9CUlBWYjZtOHdaQ2tvQ3hqLVNFXzNmbERYYktHdjkwcFVsM2N5cFE4MVI2ZXZ4WGI4ZkVocW5jczBoazBudmd6U29XcE1udnhyWWNKYTBZX252LVZvY2RGTXk4SUtNS09xbDJhMGZPcWlSSjFpMkZCWno0RDdHSUppTGtlUEZ5RnB5c0FJdFk2V2hGY1ZGejVSY3IxOXFtSWhLcGYzWU5zRVRIY1RlWVROZHloSmZETWZXd2JNY280aHc?oc=5",
+          "published": "Mon, 02 Nov 2026 15:18:00 GMT",
           "metrics": {}
         },
         {
           "source": "repository_trend_snapshot",
           "team": "michigan",
-          "text": "Michigan Fires OC Jason Beck, per Report",
-          "url": "http://www.bing.com/news/apiclick.aspx?ref=FexRss&aid=&tid=6af0f7a09a43462b8c35452f74d1471f&url=https%3a%2f%2fwww.msn.com%2fen-us%2fnews%2fother%2fmichigan-fires-oc-jason-beck-per-report%2far-AA2h1PMt&c=18219695751567446205&mkt=en-us",
-          "published": "Sun, 08 Nov 2026 14:06:31 GMT",
-          "metrics": {}
-        },
-        {
-          "source": "repository_trend_snapshot",
-          "team": "michigan",
-          "text": "Michigan score as Michigan State completes 15-6 upset of Wolverines",
-          "url": "http://www.bing.com/news/apiclick.aspx?ref=FexRss&aid=&tid=6af0f7a09a43462b8c35452f74d1471f&url=https%3a%2f%2fsixerswire.usatoday.com%2fstory%2fsports%2fcollege%2f2026%2f11%2f07%2fmichigan-michigan-state-live-updates-score--live%2f92585293007%2f&c=17832363272694787193&mkt=en-us",
-          "published": "Sat, 07 Nov 2026 20:49:00 GMT",
-          "metrics": {}
-        },
-        {
-          "source": "repository_trend_snapshot",
-          "team": "green-bay-packers",
-          "text": "Patriots vs. Packers live coverage: Tom Brady greets Drake Maye ahead of test vs. Green Bay",
-          "url": "http://www.bing.com/news/apiclick.aspx?ref=FexRss&aid=&tid=6af0f7c7b13f41988700f58ea87e1815&url=https%3a%2f%2fwww.msn.com%2fen-us%2fnews%2fother%2fpatriots-vs-packers-live-coverage-tom-brady-greets-drake-maye-ahead-of-test-vs-green-bay%2far-AA2h1dW4&c=5157659641759941392&mkt=en-us",
-          "published": "Sun, 08 Nov 2026 13:45:45 GMT",
-          "metrics": {}
-        },
-        {
-          "source": "repository_trend_snapshot",
-          "team": "green-bay-packers",
-          "text": "Patriots vs. Packers live updates: Two playoff hopefuls meet in Week 9",
-          "url": "http://www.bing.com/news/apiclick.aspx?ref=FexRss&aid=&tid=6af0f7c7b13f41988700f58ea87e1815&url=https%3a%2f%2fwww.cbssports.com%2fnfl%2fnews%2fpatriots-vs-packers-live-updates-score-highlights%2flive%2f&c=6338397080755025148&mkt=en-us",
-          "published": "Sun, 08 Nov 2026 14:23:00 GMT",
-          "metrics": {}
-        },
-        {
-          "source": "repository_trend_snapshot",
-          "team": "green-bay-packers",
-          "text": "Packers LB Ty’Ron Hopper and RB Josh Jacobs Questionable to Return vs. Patriots",
-          "url": "http://www.bing.com/news/apiclick.aspx?ref=FexRss&aid=&tid=6af0f7c7b13f41988700f58ea87e1815&url=https%3a%2f%2fathlonsports.com%2fnfl%2fgreen-bay-packers%2fpackers-lb-tyron-hopper-and-rb-josh-jacobs-questionable-to-return-vs-patriots&c=8963483294072006371&mkt=en-us",
-          "published": "Sun, 08 Nov 2026 14:22:00 GMT",
-          "metrics": {}
-        },
-        {
-          "source": "repository_trend_snapshot",
-          "team": "green-bay-packers",
-          "text": "Packers’ Jordan Love Hits Milestone Against Patriots That’s More Than ‘Cool’",
-          "url": "http://www.bing.com/news/apiclick.aspx?ref=FexRss&aid=&tid=6af0f7c7b13f41988700f58ea87e1815&url=https%3a%2f%2fwww.msn.com%2fen-us%2fnews%2fother%2fpackers-jordan-love-hits-milestone-against-patriots-that-s-more-than-cool%2far-AA2h195N&c=8315154707945627647&mkt=en-us",
-          "published": "Sun, 08 Nov 2026 13:42:50 GMT",
-          "metrics": {}
-        },
-        {
-          "source": "repository_trend_snapshot",
-          "team": "green-bay-packers",
-          "text": "Josh Jacobs suffers injury amid Packers’ hot start vs. Patriots",
-          "url": "http://www.bing.com/news/apiclick.aspx?ref=FexRss&aid=&tid=6af0f7c7b13f41988700f58ea87e1815&url=https%3a%2f%2fclutchpoints.com%2fnfl%2fgreen-bay-packers%2fpackers-news-josh-jacobs-suffers-injury-hot-start-patriots&c=13983191127984400340&mkt=en-us",
-          "published": "Sun, 08 Nov 2026 14:16:00 GMT",
-          "metrics": {}
-        },
-        {
-          "source": "repository_trend_snapshot",
-          "team": "green-bay-packers",
-          "text": "NFL Experts Pick Against Patriots in Green Bay Showdown, but Not Everyone Is Convinced",
-          "url": "http://www.bing.com/news/apiclick.aspx?ref=FexRss&aid=&tid=6af0f7c7b13f41988700f58ea87e1815&url=https%3a%2f%2fwww.msn.com%2fen-us%2fnews%2fother%2fnfl-experts-pick-against-patriots-in-green-bay-showdown-but-not-everyone-is-convinced%2far-AA2h0iE9&c=1608760059127887470&mkt=en-us",
-          "published": "Sun, 08 Nov 2026 05:06:43 GMT",
-          "metrics": {}
-        },
-        {
-          "source": "repository_trend_snapshot",
-          "team": "green-bay-packers",
-          "text": "5 Keys to a New England Patriots Victory Over the Green Bay Packers in Week 9",
-          "url": "http://www.bing.com/news/apiclick.aspx?ref=FexRss&aid=&tid=6af0f7c7b13f41988700f58ea87e1815&url=https%3a%2f%2fwww.msn.com%2fen-us%2fnews%2fother%2f5-keys-to-a-new-england-patriots-victory-over-the-green-bay-packers-in-week-9%2far-AA2gZGC6&c=2744375378076008365&mkt=en-us",
-          "published": "Sun, 08 Nov 2026 04:44:58 GMT",
-          "metrics": {}
-        },
-        {
-          "source": "repository_trend_snapshot",
-          "team": "green-bay-packers",
-          "text": "Green Bay Packers at New England Patriots odds, picks and predictions",
-          "url": "http://www.bing.com/news/apiclick.aspx?ref=FexRss&aid=&tid=6af0f7c7b13f41988700f58ea87e1815&url=https%3a%2f%2fwww.freep.com%2fstory%2fsports%2fnfl%2f2026%2f11%2f07%2fpackers-at-patriots-odds-picks-and-predictions%2f92652186007%2f&c=6703202604528052640&mkt=en-us",
-          "published": "Sat, 07 Nov 2026 18:48:00 GMT",
-          "metrics": {}
-        },
-        {
-          "source": "repository_trend_snapshot",
-          "team": "dallas-cowboys",
-          "text": "Biggest takeaways from Dallas Cowboys' uninspiring Week 9 win over Colts",
-          "url": "http://www.bing.com/news/apiclick.aspx?ref=FexRss&aid=&tid=6af0f7f2ceb348fc95faf02e16a3e09e&url=https%3a%2f%2fwww.msn.com%2fen-us%2fnews%2fother%2fbiggest-takeaways-from-dallas-cowboys-uninspiring-week-9-win-over-colts%2far-AA2h1FsC&c=18032594066939625005&mkt=en-us",
-          "published": "Sun, 08 Nov 2026 13:42:42 GMT",
-          "metrics": {}
-        },
-        {
-          "source": "repository_trend_snapshot",
-          "team": "dallas-cowboys",
-          "text": "Five thoughts from Cowboys-Colts: Dallas survives in another topsy-turvy effort",
-          "url": "http://www.bing.com/news/apiclick.aspx?ref=FexRss&aid=&tid=6af0f7f2ceb348fc95faf02e16a3e09e&url=https%3a%2f%2fwww.msn.com%2fen-us%2fsports%2ffootball%2ffive-thoughts-from-cowboys-colts-dallas-survives-in-another-topsy-turvy-effort%2far-AA2h1ShP&c=16574600219862588440&mkt=en-us",
-          "published": "Sun, 08 Nov 2026 13:45:23 GMT",
-          "metrics": {}
-        },
-        {
-          "source": "repository_trend_snapshot",
-          "team": "dallas-cowboys",
-          "text": "Dallas Cowboys facing must-win, desperation game vs. Colts without George Pickens, Joey Porter",
-          "url": "http://www.bing.com/news/apiclick.aspx?ref=FexRss&aid=&tid=6af0f7f2ceb348fc95faf02e16a3e09e&url=https%3a%2f%2fsports.yahoo.com%2farticles%2fdallas-cowboys-facing-must-win-165703251.html&c=14800057465491851082&mkt=en-us",
-          "published": "Sun, 08 Nov 2026 08:58:00 GMT",
-          "metrics": {}
-        },
-        {
-          "source": "repository_trend_snapshot",
-          "team": "dallas-cowboys",
-          "text": "Cowboys rally late to beat Colts 27-23 on Javonte Williams TD",
-          "url": "http://www.bing.com/news/apiclick.aspx?ref=FexRss&aid=&tid=6af0f7f2ceb348fc95faf02e16a3e09e&url=https%3a%2f%2fwww.cbssports.com%2fnfl%2fnews%2fcowboys-rally-late-to-beat-colts-27-23-on-javonte-williams-td%2f&c=10243329308214806460&mkt=en-us",
-          "published": "Sun, 08 Nov 2026 14:22:00 GMT",
-          "metrics": {}
-        },
-        {
-          "source": "repository_trend_snapshot",
-          "team": "dallas-cowboys",
-          "text": "Javonte Williams’ late TD run helps Cowboys avoid another 4th-quarter collapse and beat Colts 27-23",
-          "url": "http://www.bing.com/news/apiclick.aspx?ref=FexRss&aid=&tid=6af0f7f2ceb348fc95faf02e16a3e09e&url=https%3a%2f%2fapnews.com%2farticle%2findianapolis-colts-dallas-cowboys-score-a0e32a4347e90b2d10ad2ac6e527c576&c=10893278684911430053&mkt=en-us",
-          "published": "Sun, 08 Nov 2026 14:20:00 GMT",
-          "metrics": {}
-        },
-        {
-          "source": "repository_trend_snapshot",
-          "team": "dallas-cowboys",
-          "text": "Dallas Cowboys-Indianapolis Colts Announcer Pairing & Referee Assignment For Week 9",
-          "url": "http://www.bing.com/news/apiclick.aspx?ref=FexRss&aid=&tid=6af0f7f2ceb348fc95faf02e16a3e09e&url=https%3a%2f%2fwww.si.com%2fnfl%2fcowboys%2fonsi%2fdallas-cowboys-indianapolis-colts-announcer-pairing-referee-assignment-nfl-week-9&c=16488153185772602683&mkt=en-us",
+          "text": "Michigan Football: Losing to MSU should be the end of the Kyle Whittingham era",
+          "url": "https://news.google.com/rss/articles/CBMivAFBVV95cUxPblR1M2R6SzBneEVtdU9UMENYSi1wU0h4Yzl4TDhHUWdLb25YV3o3aW1hZmRyQkI1VXR5ZF9UT05oYUJMajRqdmlObTVGWTlLZlZMaWFJZ2E3aGs2RnRqN0NhN1MzUVRRcmlWeXlyMG44eHJGdU4yZm41R2l2SENQTVYyWFdjQ2Eza3BTVS1sbTdqdXRsMmF3clozZ3pDeWVHaTQ4Mk9jV0NTQzVJNXFBUWpaZy1fM1cxZzVuWg?oc=5",
           "published": "Sun, 08 Nov 2026 05:00:00 GMT",
           "metrics": {}
         },
         {
           "source": "repository_trend_snapshot",
-          "team": "dallas-cowboys",
-          "text": "Drew Brees IMPRESSED with Cowboys’ Win vs Colts, Explains How Dallas Can Compete in NFC East",
-          "url": "http://www.bing.com/news/apiclick.aspx?ref=FexRss&aid=&tid=6af0f7f2ceb348fc95faf02e16a3e09e&url=https%3a%2f%2fwww.foxsports.com%2fwatch%2ffmc-fq02kgbxj2vo6vq1&c=7864625582660904637&mkt=en-us",
-          "published": "Sun, 08 Nov 2026 14:03:00 GMT",
+          "team": "michigan",
+          "text": "Michigan Wolverines vs Rutgers Scarlet Knights Highlights | FOX College Football",
+          "url": "https://news.google.com/rss/articles/CBMiYkFVX3lxTFBLNk5TT0Yydm5fbFJVc0JQQjJLQmp5MTdQSnhTLTN1cHpBeHFBWm1PVFp5dFNxN2tVQjg4azU3cmlWUFdaSThLQk9IVUlrU25fbFBEUWdhengxYkRfZml4S1BB?oc=5",
+          "published": "Sat, 31 Oct 2026 07:00:00 GMT",
+          "metrics": {}
+        },
+        {
+          "source": "repository_trend_snapshot",
+          "team": "green-bay-packers",
+          "text": "Game recap: 5 takeaways from Packers’ victory over Panthers",
+          "url": "https://news.google.com/rss/articles/CBMinwFBVV95cUxOaDhJdXp6U1gtRzRtVjZMQy1DOUR0NzRfeVhqUFhrZU0ydEVvR3Z6WWtuOV9acVR2TXhHd1JLdUZ3Qk16VUZUOUNpSWttMWZzVzZjR3dOUDB6SDRzNl9uSHBKZGhiQWRfMTA4dDFtUVZuSXVZS2ppbDBNaXlDS3RuSy1wbG85M2I1WmQzd1I5R2dFMFNib3NHV0xteHBTS2M?oc=5",
+          "published": "Fri, 30 Oct 2026 07:00:00 GMT",
+          "metrics": {}
+        },
+        {
+          "source": "repository_trend_snapshot",
+          "team": "green-bay-packers",
+          "text": "Game Preview: Patriots vs. Packers | NFL Week 9",
+          "url": "https://news.google.com/rss/articles/CBMifkFVX3lxTE5QYlUwZmQxQ3lIcWdqa25QQ1dlc29EOVlfSjcwSkIxUmRtUWVPVlF3Ri1vSm5qWm5FcVZab0VwQU1MYktJQ0tSN3ZPMjlCVl9qdjVXcTZmbERmN1B3bk5Pdi01cmExTkVBa3ZrMnRzMmFvTFAzSDN0U0VSbmN6UQ?oc=5",
+          "published": "Tue, 03 Nov 2026 17:55:12 GMT",
+          "metrics": {}
+        },
+        {
+          "source": "repository_trend_snapshot",
+          "team": "green-bay-packers",
+          "text": "Green Bay Packers vs. New England Patriots Week 9 preview",
+          "url": "https://news.google.com/rss/articles/CBMi1AFBVV95cUxNYk5QYkN4dHpyaFh2cjY5bUpMY3pLaGdKa1NYQzJkY19oZWdCWXJ5eUpPbTFlNjRMVHBWUVBhR05QemgtRTdDM1RYSUhFUzdRZ0p1bXdqenpPRVNucUQ4eXd2d29UcHRXcVgwT1QzSlRVX1pkRWlLcks4RF93MWlLbkpiNmxzNmlKb05FME5Db2JZMTBtZ1lLcDBEcjB4czJNU3F4aHUyQjRKdnVsdUEybUVjdG9NTXFzd0R2VFJNUlMyZ09HcGJYekYxVjdxLUhqUkpUZw?oc=5",
+          "published": "Fri, 06 Nov 2026 14:40:00 GMT",
+          "metrics": {}
+        },
+        {
+          "source": "repository_trend_snapshot",
+          "team": "green-bay-packers",
+          "text": "Green Bay Packers News: Ty’Ron Hopper is having his moment",
+          "url": "https://news.google.com/rss/articles/CBMivAFBVV95cUxNcHJ4RjZrQW5qSDNmazRnWi1PRUotUWZJS2F3b0tjT1BRb2xQanJYcTFPNWVOWG1pT3JYZ0pPd0ppa1JUYXZnTVVRTnpWMHVyNlRIS3lCcXJFQkozWGJGU2RGQWhHUm00RllFNlBHeE1xUDBZYXhLVGJKZDlMUkJRcl8wREQ0aXphMjRGc0RMUTVMUGRaNVpGSzIycVByVnVBczZBZ3ZlOGpjSkFSU0NhRDRsQlVRTWlrNnc4Zw?oc=5",
+          "published": "Mon, 02 Nov 2026 15:37:40 GMT",
+          "metrics": {}
+        },
+        {
+          "source": "repository_trend_snapshot",
+          "team": "green-bay-packers",
+          "text": "Police have identified operator of drone that interrupted Packers game",
+          "url": "https://news.google.com/rss/articles/CBMihgJBVV95cUxPUGVKeGtWaVcxNE1WT2ZCYjJPUTFmSFNSVTBleXZBM3lLbEtlbUZiMktvblNKRXZSY2lxelRJZkVKT09aTkNEanBMdWUxOHZ3VklEaHR5T21ieVNIMkZudzBHQzEwSnhKZkt6aWdDOEV1eXF3U2pmdlZqMGdkR1VhZEJjdUExRTgyYzRaRlZ6UlVYZ19lVUNiWkJHNnl6ZktfX3hwU2JVeGJxbmhkcTRDWTZPSV9CcmU5VnA0aWFBNUtpR3E3TWNBekxFU0ZuNjljNGJESURzS2lYNHhick9maWFnZXdLTU4xX296UGRfNVBRbnV2bG9mQ2NfaDJKdU9TYWpkUk5R?oc=5",
+          "published": "Thu, 05 Nov 2026 16:11:25 GMT",
+          "metrics": {}
+        },
+        {
+          "source": "repository_trend_snapshot",
+          "team": "green-bay-packers",
+          "text": "𝚆𝙰𝚃𝙲𝙷 Green Bay Packers vs. New England Patriots 𝐋𝐈𝐕𝐄 Ｓｔｒｅａｍ Ｆｒｅｅ ＯＮ Ｔｖ Ｃｈａｎｎｅｌ!NFL",
+          "url": "https://news.google.com/rss/articles/CBMi3wJBVV95cUxNSEoxZHNGQTdKS09lX3lwVFNoRThoZzlYaGdkM1FhQWRBY3EwUzY1QVlQYnJDLW1RN29NQmZ0LTBTZ1A3VkdyV3JWUDJnb1dsSC1DUW5vRDhXN3c0eWZhWWVPdTh1Y3hRdFF0dG5uLV9QUjhmVkRCOGgwSWt2a21iU0x6UV8wRWY2NlhZUldHc3A1WGNheTZqODM3dmZ5Y2ZNa0hTZU5WempuVVZlUHA4aFcxZ194VEx6ZHhsWGVWNlUyV0J0MUdpWUdJclpZMTNoalZBZDZ3MnZYVzZ6TUVla21pU3JQN3h3eXEtQzdIU1dEVnI5cEdCRjNrWVBGXzEydFJQM0Z2RWNYMUJtXy1ZTmlERHdXd3VORlAyQ2k3SjFNQkVEdTF5VWxSSWZON21yajhfQ3ZOTlBMOV9VX29reVRzWnpEZWt2bG9Pb25zYzFjVUE1MTNQMkY1WWNrVUE?oc=5",
+          "published": "Sun, 08 Nov 2026 21:19:06 GMT",
+          "metrics": {}
+        },
+        {
+          "source": "repository_trend_snapshot",
+          "team": "green-bay-packers",
+          "text": "Green Bay Packers safety Xavier McKinney picks off Drake Maye's pass on opening drive and returns it for 36 yards",
+          "url": "https://news.google.com/rss/articles/CBMitgFBVV95cUxOZ0F0YTRIVG5ESmZ0cVM1YTl2Zi1LRjl1RHVsVm85NmxIb01tc29ISzFCRlJPMjlzb3VBbDVDdFdweVZnZkVZeklNVUJGM3F1bC1SeHlZbW41MjUzLUd4dUpOQVk3MEhGN1RyWVE1VS0xSGd4ZFVtanVQVHdTSTdjc2F1dHRITGtXbjVjNURpckt4bE9yQVl2SF9VU09Ybm5zRkp6blFLRzFJdE1JRmFWcWwxQnhFdw?oc=5",
+          "published": "Sun, 08 Nov 2026 22:06:09 GMT",
+          "metrics": {}
+        },
+        {
+          "source": "repository_trend_snapshot",
+          "team": "green-bay-packers",
+          "text": "Green Bay Packers give an update on running back Josh Jacobs",
+          "url": "https://news.google.com/rss/articles/CBMinAFBVV95cUxQVlBQeUE5OVJuMUhfeElFWjJzeTRlTUcya2tsUDB3dWxJTWZ6TlVucFNJb2hEU21PSktqSHZFTmtyUi1IdUNsS1lLcmZPZ1F0RWNYZlVNTkU4RWkycW9vUFVWekE2TmctYVFEQ2x3ekZDSXl2aWV5SmQ3MmYxQ2ZVTHJJS0RRQkR6Xzd6MkJ0SldPYU5LcmNMSUxrQnc?oc=5",
+          "published": "Mon, 02 Nov 2026 22:02:00 GMT",
           "metrics": {}
         },
         {
           "source": "repository_trend_snapshot",
           "team": "dallas-cowboys",
-          "text": "Matchups that cost Colts in wild loss to Cowboys, including Sauce Gardner and Jonathan Taylor",
-          "url": "http://www.bing.com/news/apiclick.aspx?ref=FexRss&aid=&tid=6af0f7f2ceb348fc95faf02e16a3e09e&url=https%3a%2f%2fwww.msn.com%2fen-us%2fnews%2fother%2fmatchups-that-cost-colts-in-wild-loss-to-cowboys-including-sauce-gardner-and-jonathan-taylor%2far-AA2h0ODd&c=6621329797793394297&mkt=en-us",
-          "published": "Sun, 08 Nov 2026 13:43:55 GMT",
+          "text": "Game Recap: Dallas shocked in OT, 33-30",
+          "url": "https://news.google.com/rss/articles/CBMifEFVX3lxTE4zS18xWXl1ZkxtUVJMQUZUMkJmRzJKRnJEM24xd0xJTGdxa3p2eURNYVA3a2hrV1FwcU5nMzBxZTFaeXMxQk16R0p6MXY5RlcxS0VKNzlYeW5BYVRyU1lNUHJkSmxGNTluTW1rME5iMTEtWklHckFWNDE3Y3c?oc=5",
+          "published": "Sun, 01 Nov 2026 22:04:20 GMT",
+          "metrics": {}
+        },
+        {
+          "source": "repository_trend_snapshot",
+          "team": "dallas-cowboys",
+          "text": "How to watch the Dallas Cowboys at Indianapolis Colts on November 8, 2026",
+          "url": "https://news.google.com/rss/articles/CBMirgFBVV95cUxNWng3TTJXZ1B2QnBQcW5lYTdXZW5QZUxxRlktTWg1Q2NnSWZ1NW8tSXkxcUNId0U2OTFCVTRjcmNkMjZTLXJsczJNQ1cxOVladTNhRGtUWDNQM0N2UXVtOExxMUUxNDZkYThrdEhtdmlvTnBMaFBaZU9wLWwxdmNweC1NcFVpRU5IUml3TW5QcndMX3NZcVp3Tmw0Q28wc1F6VlJXMnZSODVOUW1oNVE?oc=5",
+          "published": "Sun, 08 Nov 2026 19:36:59 GMT",
+          "metrics": {}
+        },
+        {
+          "source": "repository_trend_snapshot",
+          "team": "dallas-cowboys",
+          "text": "Updates: Downs in concussion protocol",
+          "url": "https://news.google.com/rss/articles/CBMiZkFVX3lxTE41U3JDcmpCb1YyZjBxRFNnV25kSktlMVJ5aEJsX1hhNTFTcHJWdWdTbjF5cFhvQ3ZKZGd4bEdfT0VtT1RobmJwd3ZSbnZzM0c3RnJiTS1kSG5fMUtJWW9qclRUWlZtQQ?oc=5",
+          "published": "Fri, 30 Oct 2026 07:00:00 GMT",
+          "metrics": {}
+        },
+        {
+          "source": "repository_trend_snapshot",
+          "team": "dallas-cowboys",
+          "text": "Dak Prescott calls loss to Cardinals ‘one of the toughest’ in his career",
+          "url": "https://news.google.com/rss/articles/CBMiqAFBVV95cUxNOEFJNDNpeDUyR0tLNkowOGVTbnI5TXdfZV84Y0NyeHdZQVBGcy1xVm96TVBVb2ZicFNLNUlGOG0zUGxfNzh6YnN6dU5yX2dmZ0ZoT2syVDNnUWVLa2hadDcyN3RoclZCejltLVEtemVUdGk5ekxxdXQ2VHZWdFgtTndxOGt3RzU2LU9qQVhFbTIyVlRRQ3BkTFNSNkFQeGZrSkItT1RyaVQ?oc=5",
+          "published": "Mon, 02 Nov 2026 00:42:56 GMT",
+          "metrics": {}
+        },
+        {
+          "source": "repository_trend_snapshot",
+          "team": "dallas-cowboys",
+          "text": "Cowboys offense looking to find their fastball vs. Colts",
+          "url": "https://news.google.com/rss/articles/CBMilAFBVV95cUxOUEhiR2V0ZGVyUno2dlpRTk5BcHA1Q2Rla1RUbzVoY2tjQWNucU5HVmF4aU1yZFZmQVVwNHNOZHA4MThEU3VabW1ma0VyNXRpRUlRREpWWUh1emRtc0RfMjM3ZlZzb3pSUTJ0Ym1icnlDR29uN3VsWThNV0U3aTluYmllaHFmZ1I3S2FSR2F6VjdwRkh2?oc=5",
+          "published": "Thu, 05 Nov 2026 23:23:21 GMT",
+          "metrics": {}
+        },
+        {
+          "source": "repository_trend_snapshot",
+          "team": "dallas-cowboys",
+          "text": "Caleb Downs explains what it will take to break Cardinals curse",
+          "url": "https://news.google.com/rss/articles/CBMinwFBVV95cUxQOE9mcEttRzdVTkJlNmpRWk14aVl4TEUxS2F5ZEVtU0hUTHdLTE5PVDdOdEY0alBTT1JDblVKY3BEcENMLXU1MlNtRkF1ZkJmWmtfbFdQZDZIeVBNWEZUWWNiMm02QmNoTzlwTC1YYXZvVGUzdFFYN3dKcDFpVmtpODVDSGNVTWo1dUlFVWkwVEJDWTNsSGxaNXctX2N4VmM?oc=5",
+          "published": "Fri, 30 Oct 2026 07:00:00 GMT",
+          "metrics": {}
+        },
+        {
+          "source": "repository_trend_snapshot",
+          "team": "dallas-cowboys",
+          "text": "Jerry Jones on Cowboys' defense: 'I like the way we're trending'",
+          "url": "https://news.google.com/rss/articles/CBMimwFBVV95cUxPQWJKQXZFWGE1Sm1OaUVnTkhMX25BU3J2Ml9pam1ueW5vaWVQdS14UHBydVcwS1JIaWQ1RlgwSUQ3ZTV2YVNDQzZIV2xEaVZYXy1Gc3NxWDhyWU44U2pvR0d6dkFxQWNfQmgxT3c0cWxqZGptaTJEeUh5YkcxUXBPbFkzMUJkQzliSEJrUHNDTmJDdXNVMG1ESW5tcw?oc=5",
+          "published": "Tue, 03 Nov 2026 16:15:23 GMT",
+          "metrics": {}
+        },
+        {
+          "source": "repository_trend_snapshot",
+          "team": "dallas-cowboys",
+          "text": "Shemar James explains mindset of Cowboys 'urgent' defense",
+          "url": "https://news.google.com/rss/articles/CBMilAFBVV95cUxOdjAwMC1OcGtwYWJubjhWSVhkOWxWalhnQkxmQ0hQdHJObHJteFIzRVBDR0hRLXUwTFR0QVEwdFRJbjZOUy1CeFJiSHRjNWtZVkM1R1R2Zmw3c3IyczZXNDd5eUROd0hya3otMWNnYUNfay1iR3o5V0RsSDZEWkloNENlQk80WGJFZlZZUEpZRXVNTmZy?oc=5",
+          "published": "Wed, 04 Nov 2026 23:53:54 GMT",
           "metrics": {}
         }
       ],
@@ -309,264 +950,906 @@
   },
   "items": [
     {
-      "source": "repository_trend_snapshot",
+      "source": "google_news",
       "team": "cleveland-browns",
-      "text": "Cleveland Browns vs. New Orleans Saints recap: Shedeur Sanders comes close, but can’t get the final play in overtime",
-      "url": "http://www.bing.com/news/apiclick.aspx?ref=FexRss&aid=&tid=6af0f771f6334e3bbf892df597497e01&url=https%3a%2f%2fwww.msn.com%2fen-us%2fnews%2fother%2fcleveland-browns-vs-new-orleans-saints-recap-shedeur-sanders-comes-close-but-cant-get-the-final-play-in-overtime%2far-AA2h1qNE&c=4465618030498827259&mkt=en-us",
-      "published": "Sun, 08 Nov 2026 13:40:00 GMT",
+      "text": "Terry’s Talkin’ Browns, Guardians & Cavs TV – Terry Pluto - Cleveland.com",
+      "url": "https://news.google.com/rss/articles/CBMinAFBVV95cUxOUzRaV1JVS3RvVkljdmZBYURFN2YweHUwZW1fSTNVem44cXdSNnFBYU9mQ2xvQVpkSjZ6ZkZrY0lRMFJYaGpiN3ZwOU5nV0ZYY3BKTFZpMGRuQndTQVp6cER4RzFfZXdkNE1HanVGQlJUeUplbWhES0dWcC1BTmZlUTFBakl6eE5DQjA1V0dZbE9sZ2duQkZJV0M3S3Q?oc=5",
+      "published": "Sun, 08 Nov 2026 10:00:00 GMT",
+      "metrics": {}
+    },
+    {
+      "source": "google_news",
+      "team": "cleveland-browns",
+      "text": "Inactives | Saints vs Browns | 2026 NFL Week 9 - New Orleans Saints | NewOrleansSaints.com",
+      "url": "https://news.google.com/rss/articles/CBMioAFBVV95cUxQRjdsY1hfRW1Jdjl0RUJCUmVTell3Si1yS213b1dOVlVVOU9VZ1JsemhrMnpLcTNqRkUyM0xGOEE4ekwxcV93WUh3ajhoUzZ2bUxjYk5KWTA1UDdZcUMwMTY3bTFFUkVvZjFEYTNnTFVwS3BJN29qYVAxdmdfSU0ycE5sRHgwVW54dzhveHE2bThidmdtOHJaQm55cjk2c2df?oc=5",
+      "published": "Sun, 08 Nov 2026 16:34:59 GMT",
+      "metrics": {}
+    },
+    {
+      "source": "google_news",
+      "team": "cleveland-browns",
+      "text": "Cleveland Browns vs. New Orleans Saints NFL Week 9 Live Updates, Highlights and Analysis - Bleacher Report",
+      "url": "https://news.google.com/rss/articles/CBMizAFBVV95cUxOVGpaR24ySVMwOWpHaENwWVdzVlBGNThTOEhHdVo4YS1MRUI2dWVmZy1HVV9BSlc0WlJJZTdiRGZUdmh5M1NyMG5qYUtaVDh5bjYyQjhFSElhTHhaYzJMLUZIcGpIOTE0SHI3NmhxQXIyWEk0c2RTaGJOdlQ3VmxFQXdzY2VySXRsUXdRX2ZveWZ2c0hPS1lIMHRObkp5S3JJWFFYLTlPRHdSWFpNQloxMklCNDBad3BiMTZ0U2xpaHhRdjE5QlFHYjY2S24?oc=5",
+      "published": "Sun, 08 Nov 2026 21:45:47 GMT",
+      "metrics": {}
+    },
+    {
+      "source": "google_news",
+      "team": "cleveland-browns",
+      "text": "Cleveland Browns vs. New Orleans Saints Live Score and Stats - November 8, 2026 Gametracker - CBS Sports",
+      "url": "https://news.google.com/rss/articles/CBMid0FVX3lxTE1IWmdEZDFuQjNLU1FIa19uZ2gwNzQxY0lFMDM0OF9XZWc3NjRHbm5taEg3NldzUGU5RDRKUjVzUzZNYWdzdXI5eW94bGIwWU9MS0R3TEREWWpxa2hzYzhmVHVSbnYtSWxRYjVIRjE4X1dkTk1ucWtN?oc=5",
+      "published": "Sun, 08 Nov 2026 22:17:00 GMT",
+      "metrics": {}
+    },
+    {
+      "source": "google_news",
+      "team": "cleveland-browns",
+      "text": "Can't-Miss Play: 64-yard TD! Shedeur Sanders and KC Concepcion stun Saints in fourth quarter - NFL.com",
+      "url": "https://news.google.com/rss/articles/CBMiuAFBVV95cUxPM0EtbDRQYnpCUVJDZFl1dkRBTEljWTR6dWZVSnc3QU1HbS10QXV0ZDI2ekY5OVJOU1VjbTIwMmxEUWI0cm5UVTgySHlTVWNsUWJkRjYyVWFPRWxyVlpUYi1FcHFuWVRjbXlyamsxeTRKaTFHcXgtOTVqc1g0MmVFcVctTTRxMlNPTmI5ZzJhdEJSRFZzUk5tQVlNcXJVNVJEbllFLV9XLWxCQ085WEJrOXBpT3R1WUZf?oc=5",
+      "published": "Sun, 08 Nov 2026 20:54:29 GMT",
+      "metrics": {}
+    },
+    {
+      "source": "google_news",
+      "team": "cleveland-browns",
+      "text": "Saints vs. Browns live updates: Score, highlights, instant analysis - Saints Wire",
+      "url": "https://news.google.com/rss/articles/CBMiwwFBVV95cUxOQ3k4VGhaNm9Ta3VEXy1EQ2UtMl9wTnpPdi14dFd4eGpiRVpYRG9LeDMtdHZjRk5VYWVRVlVndUNQajFEZV9vNW5OOG1CblVFNWJTWWJ2aGZ3b1RyUlEzVjdaeERnemRkd0FiNlAwYWpEU2RzeVpqRGxyUThRR3RlSHNpdFNLX1NBSHRMa0JXWE56Y3FZZTBMV2tnSlZrR29QVUU3M3RzRnBfM3NyV3lOV2tSSmNEbjdVOXlfZVpKdXFWWVE?oc=5",
+      "published": "Sun, 08 Nov 2026 21:33:00 GMT",
+      "metrics": {}
+    },
+    {
+      "source": "google_news",
+      "team": "cleveland-browns",
+      "text": "Myles Garrett Just Made Browns’ Jared Verse Look Even Worse - Heavy.com",
+      "url": "https://news.google.com/rss/articles/CBMimAFBVV95cUxOSDNNb2hrVm9RRGJSUFBmd05nbGwtMjB0dHFxdGhwUzdCZExvbW5SZGZHMU9WUTNZbVIwV2dXQTlnVGF1ckN6QVU4X2RUYUVGR0xCSzFvT1Zfam1vUE1RUE1FNlNjS0dnMExhZmlUbE1TdVVYSEFDRzROU3c3OVVkTWN3cVh6bzlDUzI0N1Q2OWU5d0x3RGY0bw?oc=5",
+      "published": "Sun, 08 Nov 2026 20:03:07 GMT",
+      "metrics": {}
+    },
+    {
+      "source": "google_news",
+      "team": "cleveland-browns",
+      "text": "Browns 2-point conversion fails in OT loss to Saints - Akron Beacon Journal",
+      "url": "https://news.google.com/rss/articles/CBMizgFBVV95cUxOWW0yc2d6Mk9lTHlwU0RISThSZTJOdXpxeUpHSkFSTkpmWGFOak1FZXZyakI1VUdpRTZ1SWxTZENIbTJ2Rm8xeGtHNVlIcjJ3N1dha19MMzJOdk1HQVFHblFTWVlJbDNkYnJud0VZcmJQQlR4QXdPZDlfV2VtSFVJX1JnblIxV3Y2enAxUkdZblBudHpRRlN1Sll4ckVRRHNnazVmOFBURFhDYWVPM0s4SFN6VDNNa1VINUkyLVgxOFdtUlVmc0VsNjh4bzlaZw?oc=5",
+      "published": "Sun, 08 Nov 2026 21:37:00 GMT",
+      "metrics": {}
+    },
+    {
+      "source": "google_news",
+      "team": "cleveland-browns",
+      "text": "Browns QB Deshaun Watson out of concussion protocol - ESPN",
+      "url": "https://news.google.com/rss/articles/CBMikwFBVV95cUxQMXc1MnpXSHpIZXR6LUhXbC1qZDhzVWpKWGhFWXNuUDVkRmxXRVJuSDFxX0EtMUVjYzJNNXNIOTRNYnBCbjBUd2Vral9TVzBoZ3VQZC1Jb2NnNFVSX3hRNG5pTUE2MWJFWTQ5enV3WXB2SVAyZGpTRVFGRFJYVV91TUtleFhGSF9UVnM2YTJIcFZQVkk?oc=5",
+      "published": "Sat, 07 Nov 2026 18:24:00 GMT",
+      "metrics": {}
+    },
+    {
+      "source": "google_news",
+      "team": "cleveland-browns",
+      "text": "How to Watch Browns vs. Saints: TV Channel, Live Stream, Time - FOX Sports",
+      "url": "https://news.google.com/rss/articles/CBMiqgFBVV95cUxQdGU3N1BKVV9ONl92SmtITkl0WWRfVmhvSDRsRmZsM2x5bnZGOW1jTjNuTFRPY09mUDh2QVE5VnJfekpQWFBaWXZVWjlLV29CZHNydmEtaTRpU19nVXNnSTd1ZU5DS0lpQzJtUkJab2xpQnREaXVlY2N3V1czbERfVDE2QldIdEpPSUdQTUpIaGJDNXRMSDhvdW9wQVR2ZFNOZUVPdVptTWtMUQ?oc=5",
+      "published": "Sun, 08 Nov 2026 12:15:37 GMT",
+      "metrics": {}
+    },
+    {
+      "source": "google_news",
+      "team": "cleveland-browns",
+      "text": "Browns' Shedeur Sanders gets hype video for first start of the season and social media cannot handle it - Fox News",
+      "url": "https://news.google.com/rss/articles/CBMiugFBVV95cUxQZzNQcm12VlYzT3ljRXFIYWhSa1BnTS13RFNzLUdYUGpFaExja2NLSkFPWnZ5QTc4RzNRMDdkZENfWFJQbmlEd3JHZm1weHBqXzM4TnNLRm1HNlRKU01fcEtYWGR0cS1jVG5IQ0pwbDRFVng5cDZmOWFCY1RoWkhXREtYN3p3aTMxb3JZODhGd29EX3hsVVhyOG9STjlvYWEtTURxTks2SHYzdERSdDFlV0pKTE92WVRFUFE?oc=5",
+      "published": "Sun, 08 Nov 2026 14:17:55 GMT",
+      "metrics": {}
+    },
+    {
+      "source": "google_news",
+      "team": "cleveland-browns",
+      "text": "Week 9 Questions Browns Must Answer vs. Saints - 247Sports",
+      "url": "https://news.google.com/rss/articles/CBMiqwFBVV95cUxQN3hCMnZDbGNLYkNUSzliR003OEZVWmlYMFRmdFlaTWRuanJCWm5EN2R2cUpfSHdNbDN5WVRMSkxSUGpCTmdTeVdkM29lWHNvUE5ZTldqa2MyaVEzRkpNcHBrMGdwX2Z6dHdoc1hfeWhoWjRiV3RNWE5KdElUREZ1NnBueXZWdDFINlFhNU44Znh4Z2xBSFo2Z3p1WTJ1Y0NnRkpPWk43QUZ1TUk?oc=5",
+      "published": "Sun, 08 Nov 2026 11:04:50 GMT",
+      "metrics": {}
+    },
+    {
+      "source": "google_news",
+      "team": "cleveland-browns",
+      "text": "Another late rally comes up short as Cleveland Browns fall to New Orleans Saints in overtime - WKYC",
+      "url": "https://news.google.com/rss/articles/CBMiigJBVV95cUxPZVltTldzYVRMYzBGRkZYcnBoYlRzNkpHdGVoa2d0bWVCa1N0WkV5bHlDLTMyd1RucUptOW9vLUtVTzRjZlpDVHhDbEIxSUxUakU4T3pPS3dROThXU3F3VHBDbFZVbDNXVklWZkVKMmZCOXRsUDFlZWtPYnBlTVdvTWI0dExIWEVXUmE1alItX19oNkRJNjRsSmluM3pBYmhXQ0hKY0c3Yk1NdDVxVFlsRWdfZENic3p6RHZVRUpMSjIyMi1GbWJTQXFhbFRkR0NWUnNpYVdhNks1YnQyMDdTSVE1SHNjZUxNV0h6N0h6NVZkbEpBUEVJTEJVRmo1Wk9pUF9za1JOdmhzZw?oc=5",
+      "published": "Sun, 08 Nov 2026 21:34:00 GMT",
+      "metrics": {}
+    },
+    {
+      "source": "google_news",
+      "team": "cleveland-browns",
+      "text": "Befuddling quote from Todd Monken: Shedeur Sanders asked for non-Browns plays this week - Dawgs By Nature",
+      "url": "https://news.google.com/rss/articles/CBMirAFBVV95cUxQYkxSN1E5OU9fVmJLRW1Nc0toSmtUTnA0bzRQYnNsRjBVODlqT3FJX3JneUNoRlVFRE1DbG40dXIwdGxaTl9LdWNac3l6ekthc25OaEdHY29IVDRvNUwyV280MkR5YldXaHFtM0QzUXJ1UXFUZ3MyaWNwejdOc1RWbGJQS1hqdlJUUTZlMDQ3RGxtV2F4UElmWXd1RDlGNUFTZC1hZHNjNF9VYzgx?oc=5",
+      "published": "Sun, 08 Nov 2026 21:37:33 GMT",
+      "metrics": {}
+    },
+    {
+      "source": "google_news",
+      "team": "cleveland-browns",
+      "text": "Saints 23, Browns 22 | Final Score, Stats & Game Recap - Cleveland Browns",
+      "url": "https://news.google.com/rss/articles/CBMijgFBVV95cUxQYlhfTmFRdTU2QUxLbnpGdnVPTnd1SmVDckc0dS10UURIOWdXTlJnZ2Z6VVlwaGNoWUZNdnk3X25LUDEyNXV4Tno5ZXFIa1BPU3R5SnRSN01jQ2RuWW53M1pjN2hNbzFmN3pXVFI5b3dfRUs3R193eUJseHFfMWt0MVFERE84WVktRmp6QzFB?oc=5",
+      "published": "Sun, 08 Nov 2026 21:55:14 GMT",
+      "metrics": {}
+    },
+    {
+      "source": "google_news",
+      "team": "cleveland-browns",
+      "text": "Browns lose to Saints in overtime - FOX 8 News",
+      "url": "https://news.google.com/rss/articles/CBMinAFBVV95cUxNb0NjSVdKa3ZNN0RFc3Qta3Y1T0xSbFpaME4wLTAtdE9oOHJPZGQyODFJRkZaR3ViR2lqQjMwRFRZMVRDaXA3UG5LaWhza1BJUFVCdjlMeXZBZnA5VFRLX3c5WmQ4Q1c5VmYzZ2VrcHJwMW5TdDJHMmNaM1R3RjJWUnY2VnRKc1pQaml1OXBQLVNMOUg1WV95T3lHamXSAaIBQVVfeXFMTmNFX1dzT1p5Z2tqcVVma19mZGk2QzNJSkl4dVdWTjhucnhPd1dEcGFpbU1vVkE1SWZoWlhkbVVneHlmSEdNUGNZbFJneklxc3dVTmZvbGF6WHQyT040bWV2Yzhvb203UGY5Y2NjOFZyVEFBWkI3S3NFM1RMY21KcERGRVJ3dGdIVWJ0NS1mLXVvQVNSSk9wX0pYcGNUUnhkT3p3?oc=5",
+      "published": "Sun, 08 Nov 2026 12:13:41 GMT",
+      "metrics": {}
+    },
+    {
+      "source": "google_news",
+      "team": "cleveland-browns",
+      "text": "New Orleans Saints - Cleveland Browns LIVE. NFL latest updates - MARCA",
+      "url": "https://news.google.com/rss/articles/CBMisgFBVV95cUxOY1h4dzZsQnhMQVJ4MGJLWnVCOU4ta1BzZ1NpRHBqbHBYVzNMMndWQTVvOEZPWkU4bzUtU0hxcEZnRVBTT3FIZURhQU44VFBRZ05URWV0MHRzT2I3Zk43d0ZGbXZHQl9QZktXbkx4ZWgzVWpzYTdBeVlPOFlaT2JiR0NDbUJqNlpuN2U2blpFOTJuZTUwbWNoUFBua1ZRZ05iYmp1Z21EZDIyNFdYdDRUWVpn0gGyAUFVX3lxTE90akFRT3ZISW9iWFBOejNUeTItYm5YRGlNTlhFTTBUb3dzN1RKMXJCVVFzWHN0LU1fMzdCc29QdElDODN0UWhUOGl5anQtTk8yaGlRWklLU0Z5QkdCUFpBV0lPclcxNmp2Q2tZbm1NZnFnWFBOZWdpSnVyTHhWNGpiZ1N1SzdlRFpKUC14TFpEVGlnZWlxLWdaZ0xUa1FMeGVMRlpSdi1jclFaUGZ5NVhmaVE?oc=5",
+      "published": "Sun, 08 Nov 2026 22:20:44 GMT",
+      "metrics": {}
+    },
+    {
+      "source": "google_news",
+      "team": "cleveland-browns",
+      "text": "Inside Shedeur Sanders’ First Start of the 2026 Season: What Went Right and Wrong - Sports Illustrated",
+      "url": "https://news.google.com/rss/articles/CBMixgFBVV95cUxNYkZDUVlUX09Da2JsUHBGc20zcXZsTlJZMmtCVVhud3BHcDdGdUxSN1BRby00RGJCclc5Qkx6c3hiRHY3cVdRSTBOclVkaHFQd0UxdDlwWmFzNlpPR0dOMldhdVdRejlmbGZvdmlvd0g4LVlOY21lM080eWVvT1pNQm05d0ZOLUthanVKMTFWdm94MkRMOE9ZM0JiSW1EMUJOVnRBSkxzb04xRHNWWFZqT3pHcUpTNzB0Z3o1dS1qdGozclJvYmc?oc=5",
+      "published": "Sun, 08 Nov 2026 21:49:09 GMT",
+      "metrics": {}
+    },
+    {
+      "source": "google_news",
+      "team": "cleveland-browns",
+      "text": "Photos: Saints defeated the Cleveland Browns in overtime 23-22 - NOLA.com",
+      "url": "https://news.google.com/rss/articles/CBMi6AFBVV95cUxPVk51Unl2NVFTRGZOZ0V1ODBJRl9TX29NMVd6S09STXhJNHUyNjdiVWZhQmxSZXFHSG9KRF91cFNJNHBfS2lscUdjRDkwWU9UTlVfRGY5bVRhRko2SEdhU2UyMUVvenV6NjBxRUs5Y1NReW5zUzByQ0lIeEhFTGtwMlJMY1lmSnBGVGFFazNLMXhsSndlbTRfY2xhX3U1bmRTbVd5dTcyNFMwQnFxLUc2UTVJaFZXSFRvMUZOLTd5UTBoUzhEaVJSeUNfcGlyN3AwTVVwOGV3SUs2YUpHY2FsWnQwUnJpX2dk?oc=5",
+      "published": "Sun, 08 Nov 2026 22:24:00 GMT",
+      "metrics": {}
+    },
+    {
+      "source": "google_news",
+      "team": "cleveland-browns",
+      "text": "Saints hang on to defeat Browns in overtime, 23-22 - NBC Sports",
+      "url": "https://news.google.com/rss/articles/CBMisAFBVV95cUxNUXdBSGpZTUE5bXNoTXRoRFlERDJxdWtoZDNjNzhRdmtoUm1OaHRPMWtzT0VRdk5kbFRlUXN2dG1BSFR4b0VfOVpad1E0cHF5UmluOUczSXNmenBma2dyekc3WUJ3dF9vX1dadUJMVklsOXV2emU0cnMxaTkxeFVMdi0yWnkyQVFCSFVzQ2VsNmNDSVJSY1ZQN2FEQ0ZiQlNKWUtZZk1JOVJ3S1lVYVRCUQ?oc=5",
+      "published": "Sun, 08 Nov 2026 21:51:21 GMT",
+      "metrics": {}
+    },
+    {
+      "source": "google_news",
+      "team": "green-bay-packers",
+      "text": "Packers vs. Patriots Live Updates, Score: Green Bay In Control - FOX Sports",
+      "url": "https://news.google.com/rss/articles/CBMihAFBVV95cUxQdVRQdDEyU3JRMGpkeUJHdnFHNVI5Y3diWTV6aGFmdkdzOW0zaFlUTXZLVXl3NkRWVTM4Ui1hOGtuNGJIeGt0SkU4YU5sVDdMSV9KcUpjbV9WajBDUnJZR3JVaWE4eWQ0SllRblFjQnNKUklDbkVfalRvb1R6YzliWHRWenc?oc=5",
+      "published": "Sun, 08 Nov 2026 22:04:12 GMT",
+      "metrics": {}
+    },
+    {
+      "source": "google_news",
+      "team": "green-bay-packers",
+      "text": "Can't-Miss Play: Watson's one-handed catch deserves to be viewed at multiple replay angles - NFL.com",
+      "url": "https://news.google.com/rss/articles/CBMitwFBVV95cUxPcm1VXzd2MllDdWVOU2RiajNmZGk5ODNFNXZ2cjJjdU9VOFpRMXZ3SW5HVExEZGVRdWFiVzhXVjlFZTQtUGk3aFZWQjY3a3lUVUZrcEJRRjJ4dWw4RUV4TnJDQUVFUVotMmloTmtLcHRDVkl0YkNYOWwtcVg2VXM5WmU3OGM1Y1h5WGYzTWVTaUZtX1dHZXFBXzNTbWFCT2lqbk92czlicENPanF4V25WSVNPQ1M5LWM?oc=5",
+      "published": "Sun, 08 Nov 2026 22:46:42 GMT",
+      "metrics": {}
+    },
+    {
+      "source": "google_news",
+      "team": "green-bay-packers",
+      "text": "Packers vs. Patriots score, live updates: Josh Jacobs questionable to return with hand injury after inefficient start in Week 9 - Yahoo Sports",
+      "url": "https://news.google.com/rss/articles/CBMixgFBVV95cUxPT001eGpYRG9WTXBMMzZTdnpCNzJJalNNRkVSR2JOazFCZ2taSno4R195Z1FBd2R0NHJNZTBMdUVxdnB4TkQyV1RNbGFXX3U1OU83VmV0SFh0b01iSk1EWEs4alRqZWhZWi1SU1BUNjJ4dzRIOEtqNklLb0NJdmVqWHdybkQ5WC1ZSUxiVDk4QXhxOVBMZXIyQjRIaTBiRVpoYmNQcW5QM3lvdHdyemlVNlFqLXVWWWZNc2VJbU8zamxjT0ZxWlE?oc=5",
+      "published": "Sun, 08 Nov 2026 22:45:58 GMT",
+      "metrics": {}
+    },
+    {
+      "source": "google_news",
+      "team": "green-bay-packers",
+      "text": "Packers vs Vikings is Week 10's most expensive NFL ticket - USA Today",
+      "url": "https://news.google.com/rss/articles/CBMiswFBVV95cUxOcEZ6WlRiSk9sQkpCOHBXcVlfR3ZUWEVVNEpKMU5PUF85OHkwWExtMFFpdWtVYXlpOW1URnBSeksxdXhTZDhlVmRlU0NxWXdmTmV0UjRXTDdyX0ZUTHNmOHNZaGtDSmVPMy1KZ2Z6V2FnUUlvYTMtSGZ4Q2p4Y1VZWXZ0LWc5UzVtTTBpRXZXLThudEljanZRSmtCQ1NBb0Fwc1ozRTZFY0VrNmNjbWtJMTl4dw?oc=5",
+      "published": "Sun, 08 Nov 2026 21:12:11 GMT",
+      "metrics": {}
+    },
+    {
+      "source": "google_news",
+      "team": "green-bay-packers",
+      "text": "Josh Jacobs questionable to return with a hand injury - NBC Sports",
+      "url": "https://news.google.com/rss/articles/CBMitgFBVV95cUxONVFVM2t4UWw0WWxRY19UaU9UcDZvcWdjTTd4aDVWNDVVc0o2dzNSemtDZzc4REJpdWhsVkhCdzJVNDBGMHUwT3NVVGhzajl4N2Z0YkJFTU5FdjczQWR2SkExa1NMVm5BSVh1RldOaGdiUjdEZGtCVmkyQzBxVk5xa1pHTlByWWtfeGEzbFJVRHFmNzJsdmdpbjdjWllPNU5Sa2N6TXJYVEc5SHlUWjhOaGRxWDU1dw?oc=5",
+      "published": "Sun, 08 Nov 2026 21:59:26 GMT",
+      "metrics": {}
+    },
+    {
+      "source": "google_news",
+      "team": "green-bay-packers",
+      "text": "Packers’ Jordan Love Hits Milestone Against Patriots That’s More Than ‘Cool’ - Sports Illustrated",
+      "url": "https://news.google.com/rss/articles/CBMirAFBVV95cUxNM29uaWN3Vy1NRGF4bXhPNTFhWXhWRE9lVkY5ZnpBd3k1eUI5b29Ybjl1Q2tJNXN5QS10enB0MEY0aC1ISnRwSGhaYmpTWlZjY1k3MjZscWx1WGtRSG5FRWp4YURZekR4VDRkRndXMlQxd1dqVUlkVVRnbTR4bURmMElkS1JIbFVITk96VVdJSUJhZC1JU0hzcnNrcXRKUEJoOC1KWVFINzQtSVhF?oc=5",
+      "published": "Sun, 08 Nov 2026 21:42:50 GMT",
+      "metrics": {}
+    },
+    {
+      "source": "google_news",
+      "team": "green-bay-packers",
+      "text": "New England Patriots - Green Bay Packers LIVE. NFL latest updates - MARCA",
+      "url": "https://news.google.com/rss/articles/CBMitgFBVV95cUxQbUZRWFpsM3A2aEpFR0NYcDBjTk1hbFFyM2tjTjFWMElOSEVjSzBoM0JFRl9FTk9TWGVkcVRJQTRSUmIxVG54T3NPMmQzb0NPNUdWeUFmOGlqMHpBM1pEcU5xdWNaRFB4bzFPc2x0MkVkUDU2LVRLNHZkSmRXdXA3aFdZX0xzUGk2Z0xMcV9GWk1aREhWQkRzWVh6dzItSktpV3hsaDVIa2hWOEFMcjlnU1pGRGdWUdIBtgFBVV95cUxNbjNueWZGQnU1SDhJS1ZHQU9YcGxsZWxpZVo4UXl6NjE5cFVvSnRJRnA1anpqTUFsdzV3QkdRTFBMMGZkX2RlZ3BPMlZJUmtoRVpRZkRnVmIyMXd6ZXRqR3hNNVA2R2RBNmZENjdkajV4bUJpUFk1ZEViYWluVnhfcHY2UGZkRG10ZGxyazJHbFRFNC1RVkQzd3c2ZG5WbVI2SDBjaTFSd0VlcXp4NDR3Sm5YeWdKZw?oc=5",
+      "published": "Sun, 08 Nov 2026 22:47:23 GMT",
+      "metrics": {}
+    },
+    {
+      "source": "google_news",
+      "team": "green-bay-packers",
+      "text": "Packers Keisean Nixon active, MarShawn Lloyd inactive Week 9 vs Patriots - PackersNews.com",
+      "url": "https://news.google.com/rss/articles/CBMi4gFBVV95cUxQUWNhMW52Qmc5QWFfLVJ5OWMyekd4UEJfQ1VMVWFrRHpzY09JcldhMDQ4NlROcVFKbk52MzM3SjdhMmJwRzQ4SDU0Q18yTXN2clZGNHFYQk9tR2ZEYThMT2txLXk4S0h1M3ZfTzZOYm9wczlCcXZLQk5kQTAwTUhuSnRJd09EalFpZTc0NzZEbkVIeHBYNVlndjBLd0FLdFhaVEtmTkpLamdObzVQWEJjdDl6My1ibG1KX1Jya0tQWHNUejg2WlFtTHJRUU12aFZZUlJ0b3VsTVVva2Fic0k2MWp3?oc=5",
+      "published": "Sun, 08 Nov 2026 20:21:00 GMT",
+      "metrics": {}
+    },
+    {
+      "source": "google_news",
+      "team": "green-bay-packers",
+      "text": "Josh Jacobs Injury Update: Packers RB Exits Game in First Quarter With Hand Injury - Athlon Sports",
+      "url": "https://news.google.com/rss/articles/CBMikAFBVV95cUxPVVM2UGNQY3I4cHotZldobThtVmZUVW84Q2RqSEhfa3dlWk44YkVlQkRiQVRMb21FemZUUVhFTF9lWUd3X292QmFaRDQ0Wjd5bkkzZi0zRUlscHlBQU5nTlpjaUZyV0lCQjVmQ3hRSXA1UmhvYXhma185ZnRyVG1PbkF2RTY1OUxRd0QxekJCNFk?oc=5",
+      "published": "Sun, 08 Nov 2026 21:56:45 GMT",
+      "metrics": {}
+    },
+    {
+      "source": "google_news",
+      "team": "green-bay-packers",
+      "text": "Inactives Analysis: TE Hunter Henry, WR Mack Hollins active; CB Charles Woods inactive for Patriots vs. Packers in Week 9 - New England Patriots",
+      "url": "https://news.google.com/rss/articles/CBMi4AFBVV95cUxQYlBrOEJHLWpmUFJTYTU0R202X2tHMW5oaDg0NFBrVU10Y1hzaVR3UUFZYW5TOG5pLVU1amUwME9qSUtvYVQzNEliMkMzOGZ0YlVLRy1Kbml3bEZ2a2VMdzhac1EyN2RYZEtHRGh1S3NoVlkwX3hqMDRPSFJsVzJ3eThXYnZUN01TLXljSzh5emdhY2JEazJXN05WWkhuVkwtcmVRQXlWQURjcmcwSlNZSWdGbnRFVktwV3pYT2d6Skh4el84aFhydGZDY1pCWmpmclhYZG1xWFVtQ3l0dTEzeA?oc=5",
+      "published": "Sun, 08 Nov 2026 19:59:08 GMT",
+      "metrics": {}
+    },
+    {
+      "source": "google_news",
+      "team": "green-bay-packers",
+      "text": "Packers vs. Patriots | How to watch, stream & listen | Week 9 - Green Bay Packers – packers.com",
+      "url": "https://news.google.com/rss/articles/CBMikAFBVV95cUxNMG1ZWl8ta2JhbUdnRGZPbnZDa3A0WWZTTi1TaWV5V2JmRGc1eExxTFVjLTdjcmNzNVFhM1BDWmw3LWRxSjJFdnVhY0UwMXE3ckhrU1Y0N2d2RVhNU2JyWlI2STZKUGFkWm1Ud0ZuN0d0MlN6TVZwSE93VjFHSmlxWVZTeDlpWkdDY0Y0Z2hGQXY?oc=5",
+      "published": "Sun, 08 Nov 2026 21:30:46 GMT",
+      "metrics": {}
+    },
+    {
+      "source": "google_news",
+      "team": "green-bay-packers",
+      "text": "𝚆𝙰𝚃𝙲𝙷 Green Bay Packers vs. New England Patriots 𝐋𝐈𝐕𝐄 Ｓｔｒｅａｍ Ｆｒｅｅ ＯＮ Ｔｖ Ｃｈａｎｎｅｌ!NFL - Jackson County Pilot",
+      "url": "https://news.google.com/rss/articles/CBMi3wJBVV95cUxNSEoxZHNGQTdKS09lX3lwVFNoRThoZzlYaGdkM1FhQWRBY3EwUzY1QVlQYnJDLW1RN29NQmZ0LTBTZ1A3VkdyV3JWUDJnb1dsSC1DUW5vRDhXN3c0eWZhWWVPdTh1Y3hRdFF0dG5uLV9QUjhmVkRCOGgwSWt2a21iU0x6UV8wRWY2NlhZUldHc3A1WGNheTZqODM3dmZ5Y2ZNa0hTZU5WempuVVZlUHA4aFcxZ194VEx6ZHhsWGVWNlUyV0J0MUdpWUdJclpZMTNoalZBZDZ3MnZYVzZ6TUVla21pU3JQN3h3eXEtQzdIU1dEVnI5cEdCRjNrWVBGXzEydFJQM0Z2RWNYMUJtXy1ZTmlERHdXd3VORlAyQ2k3SjFNQkVEdTF5VWxSSWZON21yajhfQ3ZOTlBMOV9VX29reVRzWnpEZWt2bG9Pb25zYzFjVUE1MTNQMkY1WWNrVUE?oc=5",
+      "published": "Sun, 08 Nov 2026 21:19:06 GMT",
+      "metrics": {}
+    },
+    {
+      "source": "google_news",
+      "team": "green-bay-packers",
+      "text": "Green Bay Packers safety Xavier McKinney picks off Drake Maye's pass on opening drive and returns it for 36 yards - NFL.com",
+      "url": "https://news.google.com/rss/articles/CBMitgFBVV95cUxOZ0F0YTRIVG5ESmZ0cVM1YTl2Zi1LRjl1RHVsVm85NmxIb01tc29ISzFCRlJPMjlzb3VBbDVDdFdweVZnZkVZeklNVUJGM3F1bC1SeHlZbW41MjUzLUd4dUpOQVk3MEhGN1RyWVE1VS0xSGd4ZFVtanVQVHdTSTdjc2F1dHRITGtXbjVjNURpckt4bE9yQVl2SF9VU09Ybm5zRkp6blFLRzFJdE1JRmFWcWwxQnhFdw?oc=5",
+      "published": "Sun, 08 Nov 2026 22:06:09 GMT",
+      "metrics": {}
+    },
+    {
+      "source": "google_news",
+      "team": "green-bay-packers",
+      "text": "How to watch Packers vs. Patriots: TV channel and streaming options for November 8 - The New York Times",
+      "url": "https://news.google.com/rss/articles/CBMinwFBVV95cUxNM0FCRGl6NXZfZUh0TGp2N3dRSWVSczZ5MFU3Zy1LeUFYYzJaQU9UMW1zamR2bndTT3hkX1pJcXBGbVhiT29aMVVJbFVvYnZ1S2k4LWdkNkV5STNqOW1vREUxMUVoWHVqMGxWbERTc2hfcHdjX3hsS1M2RDhNd2trSWJwejZQek0yRVVoSW4wenFFbkNwWWE5TFFRZ3dQcWc?oc=5",
+      "published": "Sun, 08 Nov 2026 19:41:45 GMT",
+      "metrics": {}
+    },
+    {
+      "source": "google_news",
+      "team": "green-bay-packers",
+      "text": "What channel is Packers vs Patriots on today? Time, TV, streaming - Milwaukee Journal Sentinel",
+      "url": "https://news.google.com/rss/articles/CBMi0gFBVV95cUxOSjY2YmpRamtZT284T0s4SF9abi00Sm96dm5YRzZRdlpjOE9WU0h5V09UcjNtbk9OcEUyTS1QRDZtMEVKQjdSd0QyUlZGVGdpbVI0aGV6Q0ZIR3BPU2IyRUFsMGNGdjFxbG0yWVU4cU96RVVZNWxscGZFWkFBekxsMGEwY1Y4bGFmeW9wOFRHUDFfM0szX1NtNEQxRXAtQlpla1dKR1BnUGMyUUdmUk1YTjlsXzE1YXFPUGRfa1lDVTVTWTZMMmU1UmdfeU9NdldPNUE?oc=5",
+      "published": "Sun, 08 Nov 2026 20:37:00 GMT",
+      "metrics": {}
+    },
+    {
+      "source": "google_news",
+      "team": "green-bay-packers",
+      "text": "Packers confirm roster suspicion ahead of Week 9 game against the Patriots - A to Z Sports",
+      "url": "https://news.google.com/rss/articles/CBMinwFBVV95cUxPb1dHYUcxYUQwWnlZWVc1NjIwVmN0YWNVb1JncDBWRWpHa0hJOUdEV21zM0JHSlRUdU0zUHdRQ2trMmQtbW55MTJ4bFhsd1MxQWhyMlpzeVV1NWdYeUl0Nzl4RUR6SVZmTTZzSENEd1lMTFhKcGlYSHg0ajNnSTRPWW10NEZ4c01kRGJGWkdxVE5UTXBHTTF6VlVSZ2ZPckU?oc=5",
+      "published": "Sun, 08 Nov 2026 19:58:01 GMT",
+      "metrics": {}
+    },
+    {
+      "source": "google_news",
+      "team": "green-bay-packers",
+      "text": "What channel is Packers vs. Patriots on today? Time, TV schedule to watch Week 9 game - Packers Wire",
+      "url": "https://news.google.com/rss/articles/CBMi5AFBVV95cUxOR0d0QnpRdWJQXzVqYjhmR0tqb1o0TG9NY0dYVTRucFowNE1zOFVTLV9UZG5QQVp5V09KSGxVbW5HbVpPUjkxRzNQdTZCdGt0bGpyZEd6ZW9aMzhJTk4xaUdiNXVDVy00eGw3UnNyZGFRZUF1VzdPQi1XcWs2RV9IWDE0MnBqYnpUMnFEWGlqS3FWRm5yam9hQ1Z3Tkppck1tX1ZVcEhyTEpmdUY2VmpjaVlUSTdwdXVCaFhpaUNwVC1JQnkwdU5DQVNWZ0ZER0k3MGdhaGFvQ085OTNwSV9HN1dUbjg?oc=5",
+      "published": "Sun, 08 Nov 2026 19:50:00 GMT",
+      "metrics": {}
+    },
+    {
+      "source": "google_news",
+      "team": "green-bay-packers",
+      "text": "Patriots Week 9 Inactives vs. Packers: Here's How Banged-Up Offense Will Look - Sports Illustrated",
+      "url": "https://news.google.com/rss/articles/CBMisgFBVV95cUxQQk03a0p4U3hNSmV2U1I5ZzJuN2w3SEpKVF9PbnJKYUh5VzlVek9lNmlkRUVUZWVOenFYRU1uelhWUnFBN0I3T0NtZ2w3N1hSX0hZakdTMC05dEFGbzRjVWRVTWg0T1JtVXFGanI2QXBBaEtBOEl3b1lRR2N5ekFjbGJVQjJiNHE0MXRaWm9IRjVuRU5TQVptZTlSSkZtVzhSSUZOR2xsV3BsdG9yR1RNakdn?oc=5",
+      "published": "Sun, 08 Nov 2026 19:59:18 GMT",
+      "metrics": {}
+    },
+    {
+      "source": "google_news",
+      "team": "green-bay-packers",
+      "text": "Inactives Revealed for New England Patriots, Green Bay Packers Ahead of Sunday Showdown - roundtable.io",
+      "url": "https://news.google.com/rss/articles/CBMiyAFBVV95cUxPc290VTZtRFZfMGxNOG5kUUctN3JZeDFXTkh6WHphRjAxOUM1RUZJTU9SbUx2NURmcG5YRFhIYUpMU2lrNW5DdF9tSVZmbGQ0cTZTdjJZOXhVSFVVd3p5c0V4aGVXUENxSjBqZWdaeF9jWllObG14V1FqcTVPSG5lMzVKSE9yMVhrcmcwbE9FUW9iRHpDQ21RUGplSDRvblc0WldmSGRyMHc2dlEzT1VZOWgwZGxkNk1aOTBqTWFNa1E0bGo2bWxlYw?oc=5",
+      "published": "Sun, 08 Nov 2026 20:01:37 GMT",
+      "metrics": {}
+    },
+    {
+      "source": "google_news",
+      "team": "green-bay-packers",
+      "text": "Jordan Love's 100th TOUCHDOWN PASS | Packers vs. Patriots - Green Bay Packers – packers.com",
+      "url": "https://news.google.com/rss/articles/CBMikwFBVV95cUxPd2ZKb1d4c1RBLXloZjBiN0E1eDR0TktRbHd4a1VrZWpYeGVwaDc0WHhhbnYzZ2ZSelBNY1BQUnhTYzRfY2xlUWtLZHJKZVRQeW0zeGQ1YWk2elNyQVRIUkR4YkFTMmtNLUhmN2hMX1pMUHdVcVlEdW9EYTZCTjZJYm5LQ1d3ajIyOVpYc3c0MHhLdTQ?oc=5",
+      "published": "Sun, 08 Nov 2026 22:10:30 GMT",
+      "metrics": {}
+    },
+    {
+      "source": "google_news",
+      "team": "dallas-cowboys",
+      "text": "Cowboys rally late to avoid disaster vs. Colts after blowing lead, multiple second-half miscues - Yahoo Sports",
+      "url": "https://news.google.com/rss/articles/CBMiwAFBVV95cUxNUnVnQi1iTnJ2MFdOQzVVckxvMEJ0clhwRmpwNlFNRVIzSzhSZllfUm9DR3VNUzNhM0hMbWlXWDNoV2FpME56OGk2ZWlQODBnSC1NSVhKYWZUSVJkWWtGejRNVkE2REZ1Uk1OWmphUmpPUmNRRjRRa1lmb1ZvSGY0QnB1MlI4N3pvaVkyY20zTmNUQ0FIcTdhMGtyVEtOU0M2RzNrblIwLXN5XzJLdVBWbGcxSzRFQ215QnhLUThfUm8?oc=5",
+      "published": "Sun, 08 Nov 2026 22:07:02 GMT",
+      "metrics": {}
+    },
+    {
+      "source": "google_news",
+      "team": "dallas-cowboys",
+      "text": "Cowboys WR Pickens, CB Porter, LB Overshown inactive against Colts - ESPN",
+      "url": "https://news.google.com/rss/articles/CBMipwFBVV95cUxNQjF1UVBQNDZjR1djLV9HUUFJMlF6M3JfVDRzeWlwaVFtU0FSd2Q2aFZfWjdrVGRlRU5URXhvRmJRSUxET3dYX1Vlek5zQUlRVXZKeHlFb3p4TmYxTzQ0dFJmMHZCaDZULWFHNGpldTV2aHJjLXd2dW5qcExwR09hRDhrdU1aVXJkY3laUlFTQW1XTlhRaU5jT0lkenJqNXM3T0ZpdVZkRQ?oc=5",
+      "published": "Sun, 08 Nov 2026 16:40:00 GMT",
+      "metrics": {}
+    },
+    {
+      "source": "google_news",
+      "team": "dallas-cowboys",
+      "text": "Colts announce 7 inactive players for Week 9 game against Dallas Cowboys - Colts.com",
+      "url": "https://news.google.com/rss/articles/CBMioAFBVV95cUxOS1RDSVc2eTNWeVRXYnhlOTNVQzB1WHdpcmM3T2ZLdTZzT2xQN2VMYkZYbGFHbzd5Sl94amRVOWZCSkk5UTFtSklmNWg4Uk1HUGdHOGY5LXhtc1FkcXVVZ0xRZ0sxVzc0ZkNMT2N0djFKOXYyM1A1YW1COUxyVWQ4UF9rM2lmNGdicGhpUXFsdHd4ZUc0UTVBdVhITFpXX0FR?oc=5",
+      "published": "Sun, 08 Nov 2026 16:34:16 GMT",
+      "metrics": {}
+    },
+    {
+      "source": "google_news",
+      "team": "dallas-cowboys",
+      "text": "Cowboys to host 49ers in Week 10 and tickets are starting at $318 - USA Today",
+      "url": "https://news.google.com/rss/articles/CBMi0AFBVV95cUxNTnRZTGRIeDZacHJkQlpETWlKa2V3dHNyMVpzM0hqSERkaHZONmhxWUxNT0dpVXZWTHFTLXBBdWJsUUhMSGhTc3F2VG9xeVBNazRvaG5mVEFZbjh0eGRmNHNpalVIdTgwUklHZ1Q1TktxWEZTWm5RcTJrTW4wU0lvUTVUcXJ1TUt5RWtBQjFzUG1YS3MzV3E2dkkwU05KN0RLNE8wRkdpWm1lMjhkMDBwTEVBRmdMV0YxZHlVMkxxSUphZE5DWFlQMU04bjJLN1JL?oc=5",
+      "published": "Sun, 08 Nov 2026 21:36:00 GMT",
+      "metrics": {}
+    },
+    {
+      "source": "google_news",
+      "team": "dallas-cowboys",
+      "text": "Will George Pickens Play Today? Injury Update, Start-or-Sit Advice for Week 9 - Sports Illustrated",
+      "url": "https://news.google.com/rss/articles/CBMipwFBVV95cUxOaUhocmVTbUd4TDNRN3VWbnhnQS16ekJnU0ljajdmOTk3NDJsbkVFcVJYZERFaVdoeHNhLURhTms3RDJZV2hJUmlodnpoOGpCUS1JYURBWm82Mkl2eHowUWZfVkdPMHJ6QzNXYjc2eGVlaS1wc1E1Y0N1LTZqNE9uSFpzTTRMWkVFZjhFMFZJVjRrWl9HWS0tbU9lbE9yOWtmMG40QmJ3cw?oc=5",
+      "published": "Sun, 08 Nov 2026 12:45:00 GMT",
+      "metrics": {}
+    },
+    {
+      "source": "google_news",
+      "team": "dallas-cowboys",
+      "text": "Cowboys vs Colts live updates, timeline: Colts get long touchdown to stay in touch - IndyStar",
+      "url": "https://news.google.com/rss/articles/CBMizgFBVV95cUxQVUR3S29fSUFBQmtqVEVRN2ZZTXpkSUZ3c19IYThBcDJrOWxSaVEyVlJoUHExNFVrMUF3elkwUzFRWjRBMnlvTDU4OG02Yi1qTE5DUVZ3ZXBIWFgwMTlCTFhjX1c2bFFDYkNJemNCMjQ3NkpSbFE1XzFBY1MwZXpsVkRpSnVmU2d4NlM0RHlfQjZQTUk0M1VuZ2FXQUV3MVdLblVpTWRXQ3JjeEctZmM4b1lWWHMxcnVSeHBuSGRCSkJ0anFWZ3AyRzZYMWxWUQ?oc=5",
+      "published": "Sun, 08 Nov 2026 20:48:00 GMT",
+      "metrics": {}
+    },
+    {
+      "source": "google_news",
+      "team": "dallas-cowboys",
+      "text": "Dallas Cowboys triumph over Indianapolis Colts in Sunday afternoon showdown - NBC 5 Dallas-Fort Worth",
+      "url": "https://news.google.com/rss/articles/CBMib0FVX3lxTE5xN1ZLLW9oMXhjdzRjalR2dWJFUWlpcXBZLUJld0hjaUpIX0tUaDRqMHc0N0lLVXY0WExnNld3QjVfc01HOXhkR2dMTXVUaGRYcjVfcENMQzR6WEFlSTRacWVWeWRMUWtWNmVKTHFUY9IBd0FVX3lxTE1ja0Zfc1hrdFZ2VVhaZl9UUkU1eFZIdDQ0WnI0SWx3aE1PaHBQQXVsdkh1c0lGOHVWeWs0cDNjSFZiYl9IcUNpWUJyckwxTFFtWEk3N21rTFhkQUEyMkdiMmYtdk1zTkRTNkxvdjY3OGpEcEF1RmVR?oc=5",
+      "published": "Sun, 08 Nov 2026 21:14:46 GMT",
+      "metrics": {}
+    },
+    {
+      "source": "google_news",
+      "team": "dallas-cowboys",
+      "text": "Dallas Cowboys defense receives $46,883 punishment as NFL quietly admits a mistake from overtime loss to Cardinals - A to Z Sports",
+      "url": "https://news.google.com/rss/articles/CBMiowFBVV95cUxOanZsWHRwTDhiZjdhdTBPOHRKS2pTLWhOTU9uNFAtdWE1b1NhcUZDeTdlX1A1RS12d1RfQXZVa2dYd0VtUmhXdWdHdjlucmpjZ0FKSmlMM2lZQTNBR2ZYMlcxbktGcDB2dC1RYzY3Y3VvQkFYbGZldWFOU3ZVc3dtZHlPcUhjSHM5X3lPR25yX2JEWFpIMkx6eHQwSEFQX0lWWHdV?oc=5",
+      "published": "Sun, 08 Nov 2026 12:01:00 GMT",
+      "metrics": {}
+    },
+    {
+      "source": "google_news",
+      "team": "dallas-cowboys",
+      "text": "Cowboys New Roster Move Raises Concerns on George Pickens Before Week 9 - Heavy.com",
+      "url": "https://news.google.com/rss/articles/CBMimgFBVV95cUxPZS0tU19BVVc4YnRMdzVZS2x1aXRvOUhwaWJNakc4bnJXbDZhbmFWTkRZQ3hxMEIwZW51TW4wNW1uTzhkeTRtS3NDTEt4WmFVdjkyRmx4RjRITWtHWG5hdzRRNmJkbXpwYXJ3RHZqZ1NhS3VpcFQ2Nk81Tl9wSHZ6WGNFbllyMHlvM0hSNWRicmNHV2Zjcnk1MmJ3?oc=5",
+      "published": "Sun, 08 Nov 2026 12:56:04 GMT",
+      "metrics": {}
+    },
+    {
+      "source": "google_news",
+      "team": "dallas-cowboys",
+      "text": "Dak Prescott's best throws from 335-yard 2-TD game vs. Colts | Week 9 - Dallas Cowboys | Official Site of the Dallas Cowboys",
+      "url": "https://news.google.com/rss/articles/CBMipAFBVV95cUxPM3JiU2hFTlIxQ1FSSW1wMTJpazZ2anZ0LS1WVUxjSlpfY2pUVUt3UDV1cjJsLUUzc0NzNzlHbUpGVEZmSTVaMnNLX0psOHhycEJ6YVROOThmTjFOVjNRSUdTM3Fudk5xd2hmVzRvazMxRHA0eGNRdUM0TThSS1BaLXZnMjZ5NTA5QzVxNWNiMjNUbVl5c2VwNHo1YU1lTERxZUI0NA?oc=5",
+      "published": "Sun, 08 Nov 2026 22:25:52 GMT",
+      "metrics": {}
+    },
+    {
+      "source": "google_news",
+      "team": "dallas-cowboys",
+      "text": "Game Recap: Cowboys win late, 27-23 - Dallas Cowboys | Official Site of the Dallas Cowboys",
+      "url": "https://news.google.com/rss/articles/CBMid0FVX3lxTE9HaU4wYktQTWx2OEw0Ul93UnhZZDBRbkRXZmR6M3BxZW10VHZJWHFoQ3J6Ull4eHBoSENWNllZQXdZeUQxX2JNTExFQzB4S2JSTmhXTkw2aHVfSHN1cS1oMlc2dVF4QUd6Q0o3Tk1tUmJBYUNZV0pR?oc=5",
+      "published": "Sun, 08 Nov 2026 21:57:57 GMT",
+      "metrics": {}
+    },
+    {
+      "source": "google_news",
+      "team": "dallas-cowboys",
+      "text": "HIGHLIGHTS | CeeDee Lamb fumbles, Kenneth Harris recovers vs. Dallas Cowboys - Colts.com",
+      "url": "https://news.google.com/rss/articles/CBMiogFBVV95cUxOX3VrbmVEVGVCU3FlOHZvdWw5OFFRUkl1MGlpa2piR0tuNzNsOXU1QXZKQ3JFdV9zai0tWHNwY0habjBGMTFiUzUxU0NXTHF6RjZEUFZFWUhjMnBJTUlTUUN0Sy1kX196UTVOLUx0ZXpEUURVSlM5QmEzUE5rc3FhTTFaZFBvSHhQRGVRV0ZvclIzSDFuVmllMUpLRHNVeXJoVVE?oc=5",
+      "published": "Sun, 08 Nov 2026 21:00:44 GMT",
+      "metrics": {}
+    },
+    {
+      "source": "google_news",
+      "team": "dallas-cowboys",
+      "text": "Biggest Takeaways From Dallas Cowboys' Uninspiring Week 9 Win Over Colts - Sports Illustrated",
+      "url": "https://news.google.com/rss/articles/CBMipAFBVV95cUxPQWNiNWVmSFhRVU1GcFRQZnBDNzh3VV8xRUJvTDlvTjNIa3RVYkgyelNOTGZhQm1tNC1DajBILVhrc3JYMk5UTi10dC1kWllRN2hZYW11VGoxMmNpdDJ6Z0t2bk84aHQydTNBcjJibG9jb2hrZGVIYlRKQmFTR21nTVlHeVF1NF9UMGVZWXd6ZFdnb2F4WFlQQXU4RGJFMGNpUmtZVw?oc=5",
+      "published": "Sun, 08 Nov 2026 21:42:41 GMT",
+      "metrics": {}
+    },
+    {
+      "source": "google_news",
+      "team": "dallas-cowboys",
+      "text": "𝚆𝙰𝚃𝙲𝙷 Dallas Cowboys vs. Indianapolis Colts 𝐋𝐈𝐕𝐄 Ｓｔｒｅａｍ Ｆｒｅｅ ＯＮ Ｔｖ Ｃｈａｎｎｅｌ!NFL™ - Jackson County Pilot",
+      "url": "https://news.google.com/rss/articles/CBMi2AJBVV95cUxPWWZaNE9aNElHOTlEemRDTGtua3I1SF9FbGFrVnp2TVg1ZDQ5OFhrM1A1eHBJd0RNdzhaMm1wMTlxVE5lLXFqaF9ONkEwNVV6V1VZT0dQbjA2S3dlWXNFekRhNXpjWW5PcWF0Y2hGZnV2VjVqLWV2OWp5YlZLSDJPMHd3Y3ZvNEl6STJ4amNlMFFnUFdfbnJSY1JEQ3dxZjg0VnNJWjNvaXc4Yi1LLXNCaVliSGJuMXVqNHpiU1JKcEVmYkRpSkNWb3ZQZVpfZ18zQkxpRDVHSGRaU1hsSldQSHVxY0ttVXhRM1FEUlFyY1A5Sko0OHFtSHE3bHFCQ29KWWdOUllOZnlPT0wzZGttZUNGaDdDdkktS2tNbUlBcHNVamlhcFNmektIdnJVVmtyYTFBY3NWUEhzT0EzX1J5bzA3enpNTklpT2Q3NG1YM2R6VGk0YWo3Ug?oc=5",
+      "published": "Sun, 08 Nov 2026 18:13:37 GMT",
+      "metrics": {}
+    },
+    {
+      "source": "google_news",
+      "team": "dallas-cowboys",
+      "text": "Dak Prescott Finds Jake Ferguson For Cowboys 10-Yard TD To Retake Lead vs Colts | NFL Highlights - FOX Sports",
+      "url": "https://news.google.com/rss/articles/CBMiYkFVX3lxTFB0MlZDVWIxVnktR1JKUTJXaWxwbm9CZGltc1FiWmJZWG1Ob1lwQ3JoTnF3c2pCT2VVaXhwY1hqWmRTMk1ac3lwWDAyemFST05mT09mejBMb2NodWVaQmJERDRB?oc=5",
+      "published": "Sun, 08 Nov 2026 18:52:46 GMT",
+      "metrics": {}
+    },
+    {
+      "source": "google_news",
+      "team": "dallas-cowboys",
+      "text": "Colts lose fifth straight of the season to Cowboys - Colts.com",
+      "url": "https://news.google.com/rss/articles/CBMigwFBVV95cUxOTW5peWJZbVg3MFZMQ3VQTzlNTFJsQ2dUWVJwT0NNWmk5R2ZCRmRhMlpUSVluSnJnNFNDR2hXMmZCVEpCV2xxa0lKYXcwa1NTVXJna0tZSlNjeE1zWEVXdUZNQ0lTWnJqM1BqbE85blgzMUhQbm84dG01UjVyZjFaMDY4aw?oc=5",
+      "published": "Sun, 08 Nov 2026 21:34:16 GMT",
+      "metrics": {}
+    },
+    {
+      "source": "google_news",
+      "team": "dallas-cowboys",
+      "text": "Dallas Cowboys vs. Indianapolis Colts Inactives: Who's In, Who's Out For Week 9 - Sports Illustrated",
+      "url": "https://news.google.com/rss/articles/CBMingFBVV95cUxQWWlpUWtkUVVidlJkQWhHejRLT3RNZEI3Zjh1dFd6OEhReFhYODJDZ3plTVpDSXZIaHdkR1lkNnFXbmxvYVBuU2JZb3diajF2MWFmS3J4WFl5dTB4b0NKa09yelM4UmVXTGVPeUY3M2hZbEVXd0dJRnBjdnVGbXV4NHVnM3Q0M3dBTDROWXhsaU9NbTVPNzA3a1hYdjFGQQ?oc=5",
+      "published": "Sun, 08 Nov 2026 16:34:03 GMT",
+      "metrics": {}
+    },
+    {
+      "source": "google_news",
+      "team": "dallas-cowboys",
+      "text": "Starlights: Big play tracker for Cowboys-Colts - Dallas Cowboys | Official Site of the Dallas Cowboys",
+      "url": "https://news.google.com/rss/articles/CBMikgFBVV95cUxOSDNKVnJacUMya3ZBekFJb0VXTDc2VGVmLUZSMWE3bkFQQ2VqNEJqTjBOT2s2dWg2RnlPd3FKdWNSajNuQzBSM2hmcjRLR2FUMmpCdnhQSXlUSzdYTHI0WlZrSkd0SEpvM3p2dEtTZmhUSWlvcXFSZFF4TkpXb0lUcXF4T1FObm9qclUwckZFMTBWdw?oc=5",
+      "published": "Sun, 08 Nov 2026 22:07:30 GMT",
+      "metrics": {}
+    },
+    {
+      "source": "google_news",
+      "team": "dallas-cowboys",
+      "text": "Will Cowboys Trade George Pickens? Why Dallas WR is Inactive Ahead of Deadline - Sports Illustrated",
+      "url": "https://news.google.com/rss/articles/CBMiqwFBVV95cUxNOEtqdXFuRndOeTNvQ3ZHLU1mU09YdE82NDJQekswaVpQaFRVTERCQUMwbmpaZ3FsRU5rdGtIOE1kXzMwZlQxYjd0LS1YaXg1cFV2RlNYdVB5VmxaVW5NTWtfY1FlSHlTaFUxTkNTV2FxSkpvd2xvblNOam5fUXVTd2xsSXRfSkplN3ZGc0xsOVhKWXFjUUxoTEYtdGJQZUJycVdDdnBiVU54Q3M?oc=5",
+      "published": "Sun, 08 Nov 2026 17:59:42 GMT",
+      "metrics": {}
+    },
+    {
+      "source": "google_news",
+      "team": "dallas-cowboys",
+      "text": "Dallas Cowboys-Indianapolis Colts Announcer Pairing & Referee Assignment For Week 9 - Sports Illustrated",
+      "url": "https://news.google.com/rss/articles/CBMiuAFBVV95cUxPWGFuMHltSkhaUnllelo0cXIzYm5zandSam1nZF84RU1JNm5BVk9IWE5SNWdvb0UwSVlPaTZLQVNEX2htQTU1eEE1bFhNWThDRE90VGZOQmRkdDNPa0owSmlkMHpZN3BVSjctcmpVV0ROdzJrV3VEbFRsd2hTbWo4TEdjVDE2NTlfNVRqWjBvVVJmeUxoS0NNdkxROXljOGptUDh4NmR6NHlSdHA2T0dWdkp6REw2MWxQ?oc=5",
+      "published": "Sun, 08 Nov 2026 14:49:38 GMT",
+      "metrics": {}
+    },
+    {
+      "source": "google_news",
+      "team": "michigan",
+      "text": "Michigan must fire Kyle Whittingham immediately | Opinion - Wolverines Wire",
+      "url": "https://news.google.com/rss/articles/CBMi8wFBVV95cUxQQ2hJSGhWbGRtbEZ6OWhKek50aVZ1eFVoalExYWFEeFJXT3RJYVBCSzkxR2dwTURPc2VrVzRQUXpFMXBIZzNnbzlCRy1ENVdQSDAwMXRTcElCOTd6NXJRYVVyX1h3ekUxUnl4MkQxb0xtSlNtZjlrM2c4dFVUYkFBb3JjYkNoUTYwUC1VNVVnMHVyQTZQVnpMMWROWkdYZjh0dm5sRTR6SnlqTVYzdVFuSmZPM20wbFMwM1AyOGJwcm1UNUVsYWt2UTU4R1JFemNQaHE3MzM5YTk0eGt3VVlCcG1sLUc0X0ZrWmFUaFlHTTh1RXM?oc=5",
+      "published": "Sun, 08 Nov 2026 19:36:00 GMT",
+      "metrics": {}
+    },
+    {
+      "source": "google_news",
+      "team": "michigan",
+      "text": "Why Michigan didn’t turn to Bryce Underwood during loss to MSU - MLive.com",
+      "url": "https://news.google.com/rss/articles/CBMitwFBVV95cUxOS2xjUnp1SEd2MHNGeEI4cTJ2eWZwOGdhQWJ0YXlIeWJTUER3ZFgwRmdmcXhZUDdqZlhrZDRieDB0b3lhZXkxQ0h6WmxJeFJWcmtmcEJIMWJxXzVHanpmWWZfM2I5MHlveHBjV1ZPRFRldS1SQkVnc2xWMFFnVG1qc3hoZmFSWkU4aVBaRXdNNWZqejBwS3BSdVdwV2lIMHByZFI0ZEhCVVpXdUM4X3dyQ3IteVB1Zm_SAcsBQVVfeXFMTWtReHhMUV9mT3dmNml2NGdKTWthTDZ5UVlwLTM0YWxUUHFxdlBVR3hITW5KcERNYnJrUVZPWkpNYnVKb3ZhaGdOLXdDNmx2RGMybTJKUU1QSHhyNV9rVVdjNGxUS1U2QW52cWxTaEVGRmlMUzV0SWw2aHZpS0lUeTMwV0QxOTdiOE5RRndqN01jN1Fzckt0QWFiN3NvYmFVazNUUnNTLW42YWNsUG1WM2hWVVBXemp2MHphNlM0X2d5RHZkVUZDUGhWQ1E?oc=5",
+      "published": "Sun, 08 Nov 2026 13:00:00 GMT",
+      "metrics": {}
+    },
+    {
+      "source": "google_news",
+      "team": "michigan",
+      "text": "Michigan football is biggest underdog in almost two years vs. Oregon - MLive.com",
+      "url": "https://news.google.com/rss/articles/CBMivwFBVV95cUxQUzBlYS04QXBpR0x3U0tJV3NUSVQ4NTdvMlhuZHBDeW83YktILVVTN3h3ZEsyTEgwdVJPVGtfQmIxcG5JNEVLYTNDZ19kRVhfbEhnYXE0S3J2U3NsUEV5blRYeW9fM3RQRUs2amdCOFNMUnlxbmZ3aE9CWXBkSVJwUVpjR2paUU1NRzg5LTRFN3Y5X1lDYmJxVjFqLUNuNGYwR29sZEhtYlFGT3IyUWFUMWRRZGNvUE9uZFFFdGdVUQ?oc=5",
+      "published": "Sun, 08 Nov 2026 22:01:00 GMT",
+      "metrics": {}
+    },
+    {
+      "source": "google_news",
+      "team": "michigan",
+      "text": "Michigan offense coordinator Jason Beck fired - On3",
+      "url": "https://news.google.com/rss/articles/CBMingFBVV95cUxNUHNCcEJ2M3kzVkFGenVMMi1zRTZ2MUtGM0NuZVRmUFlZUlNHZ3o4ZkJyMjdmUEpHSEdUdGxzYWhjRVFkOG91VTdsbFV1RWFIRHdfYzlPamVqVWM1VkF6UEl2ZEl3eFlJTldEeWF3R2ZLa2NfblBGR1BTclBUT3RGSEs1Tk1qamZ5SWdhLUplWVZaMHB5TWRFOW9jWjRpUQ?oc=5",
+      "published": "Sun, 08 Nov 2026 22:25:29 GMT",
+      "metrics": {}
+    },
+    {
+      "source": "google_news",
+      "team": "michigan",
+      "text": "Michigan fires Jason Beck: Wolverines will owe significant buyout after parting with struggling OC in Year 1 - CBS Sports",
+      "url": "https://news.google.com/rss/articles/CBMipgFBVV95cUxPMVYzTFkxNk1qbzltNWNmc3lCX1Y4RUd2dzlCZ210VEQyX0ZnamUzbENxZ1RmRE5xbGlfUGJHdkFod2RxR0c4cWo0bnFmWjBSNTdEMG5HdUdDVjA4ejdjNGxtRlNQMlA2MFJRNTF1c0I2Vk5BRzRKZ09PN21OMUJybDhfa1hKUnVNVTl1TTNxdXJWRk1weXpjN1dFbExGUlNHbXhwZmN3?oc=5",
+      "published": "Sun, 08 Nov 2026 22:29:07 GMT",
+      "metrics": {}
+    },
+    {
+      "source": "google_news",
+      "team": "michigan",
+      "text": "Michigan fires OC Jason Beck after ugly loss to rival Michigan State - USA Today",
+      "url": "https://news.google.com/rss/articles/CBMiywFBVV95cUxPYlRab2NpbGJldUlxMW9CaHI3dE5HNWcwdjdjbjhOV1hGWDNjVUR6RlQ3dC1WdW1uVUh3RWNSWUxjczRaVFV6RkMzR3MtWjZGYkFvQUxVd2lnMmRybUx2bU9KNUs1elZaQk1IOVhTRjd3QnN1RmUwd2VPemlxMEk0MXlLemg4T1FXeFBvNUVZVWpVTHBEMzVqbjVLcGh5RFVhRjRqcXRCbzlLZHdtV0RYM0lSZ1hoTWpLMENWc1hZQjItc0Y5eDlZUTVkTQ?oc=5",
+      "published": "Sun, 08 Nov 2026 22:40:00 GMT",
+      "metrics": {}
+    },
+    {
+      "source": "google_news",
+      "team": "michigan",
+      "text": "Kyle Whittingham says he 'can't come up with one positive offensively' after Michigan's 15-6 home loss to Michigan State - Yahoo Sports",
+      "url": "https://news.google.com/rss/articles/CBMioAJBVV95cUxQODFFT2txMHNadV9DbTlUS2xLTU1VMzBkTVlYeTkzTDhySjRzTklxY0NyLUdLaF9vZXRVY0dNeHRPYnl3WVZxaGJWaUV1QkU3ZjlVdVVvTkxWZTlqWFpndHkyOERNM3RVQ09QbFhfaDljWjBnWk1MejhIUUlSTlRFaU9TVzI0XzNqQU11ZTNUWDd3TWhQdW11azU4U0ROdjVQYVZQc3pEbDdseG1yVkJGaW44bnZCTGVVZGtxaUdCdU9WemYyZmxkOE9Qb2tfYzB6RXhyWk4xeXlaUnBFYms3N3I5UVFQbjJyR3R6UlJvRTQzNmNWSW9HU2VYRnlVTm42WXRsOEhmMTc4d3JUVFAxUjQ4dzFHbjZmVFBBLXRmcUQ?oc=5",
+      "published": "Sun, 08 Nov 2026 05:30:00 GMT",
+      "metrics": {}
+    },
+    {
+      "source": "google_news",
+      "team": "michigan",
+      "text": "Kyle Whittingham Buyout Details in Contract Show Cost for Michigan to Fire Coach - Heavy.com",
+      "url": "https://news.google.com/rss/articles/CBMixwFBVV95cUxQVllKVFE0ZVY3aTBFMGVrUmNQaUpyRHBzeF92LWNBMS1aWTQxMHFESG9ia1lZWjA1MzVtOFNranhQUVA3bVVMR1ZFSHVLcWVaaTBYbmJsT2dxVGs2aVBlclFGeXRyc1hKSmlOaDRzWkdRbXVKTEhmR1V3UVNsMVlyZHJhR1RlM25mUUlTd0h1WXdwLUhuai1NYS1DM3VXcnlYTlpPakVMSjhTZE9mVE9ScklRcGR5a1lsRE1hcUFwQlkzSXVZRWFn?oc=5",
+      "published": "Sun, 08 Nov 2026 03:37:00 GMT",
+      "metrics": {}
+    },
+    {
+      "source": "google_news",
+      "team": "michigan",
+      "text": "Michigan 17-10 Oklahoma (Sep 12, 2026) Final Score - ESPN",
+      "url": "https://news.google.com/rss/articles/CBMihgFBVV95cUxPRWhEaDFKRGE0bnZVMmkxOG5TS1dRdWt4alVPaFZFWGIxaXg2U1BNT183Z2pUVy1sTzI1dDM3bkJ5MEhrbF90MjNJRmtMbjgxWGNLSXFXWlZpb0VFclZRanZWRWN4d1dOTzhTZWJNTUI3UXlxSHc2U3RrMldEc1RwWXFNVDRyZw?oc=5",
+      "published": "Wed, 21 Jan 2026 18:52:17 GMT",
+      "metrics": {}
+    },
+    {
+      "source": "google_news",
+      "team": "michigan",
+      "text": "Kyle Whittingham buyout: How much would it cost Michigan to fire first-year coach after Michigan State loss - CBS Sports",
+      "url": "https://news.google.com/rss/articles/CBMilgFBVV95cUxQaFA0SEx6Vl9GZUpwSWxJbUg1Q0JTa0Q3aXF2NlJPZ05PdUV4Sm4xOGRqVXhUQkRGYk9yQ1RTbFZqWWFXaGg4eVM0Yjk5YVVyZ2tic3d0eG5XRUN6SWhpMnhMbzdEMk43V1ZEVFpDOG5idDVMT3JqYmFydU5tUnRrZFJ2N2l0QTJqZ25uVTI1SVJidlktNmc?oc=5",
+      "published": "Sun, 08 Nov 2026 04:16:05 GMT",
+      "metrics": {}
+    },
+    {
+      "source": "google_news",
+      "team": "michigan",
+      "text": "Connor Stalions jokingly ‘self-reports’ made-up contact with Michigan coaches to NCAA - Saturday Down South",
+      "url": "https://news.google.com/rss/articles/CBMi1wFBVV95cUxOTF9Qc25teFg3UnJMSXZxbVV1V2I4UFlWTXFWZFpWcU5RMVlBb1Z0NFlGR0pWU1RoSDlUTFFWRjZ0NXJ0RDVETm8tcnJSVkRRakFoS1plb2tzcWNGQWtqNFVZUDFRT21QNmRoZVBSSTAwMHZqcVpYT1dQYjdyQUxFOFA3WHBfTERWZm1paDM5bHg5TVBaOEJ2TVdjbGF0bnZmUkhVM0xyOGdoS1B1WjAtWVNBQkF1Q1JsekJTUzRTZVpPci1SalgxTFd2RW5QWUhqVVpwdHZnOA?oc=5",
+      "published": "Sun, 08 Nov 2026 18:16:00 GMT",
+      "metrics": {}
+    },
+    {
+      "source": "google_news",
+      "team": "michigan",
+      "text": "Oregon's Michigan matchup becomes a massive question with Wolverines firing Jason Beck - Autzen Zoo",
+      "url": "https://news.google.com/rss/articles/CBMirAFBVV95cUxQUE9VaUgzQXBxWmNDT0c1QlFEeVRWNWgwSlVDOGdta1VuMWZuUXpQdnRpWXdjQndjRldPcGFSNGVlN1FwV0NYekJLX2pxek5HQ293cUxYV2dwTl9oZ2FkXzVNV0ppaHZkUVBsVFdqMkhBM1FuSTFqT2FtYmY5czRGWkF3NnNwZEEwZDhvdVFaVlB4NGRrbXVaNkRXWUFwT2ktd1JEWFJIbncwX1NY?oc=5",
+      "published": "Sun, 08 Nov 2026 22:26:59 GMT",
+      "metrics": {}
+    },
+    {
+      "source": "google_news",
+      "team": "michigan",
+      "text": "The Morning After: Michigan Football's One Year Blunder - Sports Illustrated",
+      "url": "https://news.google.com/rss/articles/CBMioAFBVV95cUxNTnU5UmxHYUhqYThZRm9PZFdUb0l3MjV1dzZ6RWNIWW5DWng2eDdDRXRDT3VmdVFwbGpNMERIS0N2NG80YnRJb2tzNjQ1UWZIbmxfU0c4R2tndW5RM3Y3bzU2NjZsZ0lqbm16Z2JXak1uMkJ3X1FMZTBqMk5pb29SWklxZ2VFVkw2elUxQUUyWVBCTE9jMlNDdlZ5Uzd5Z05p?oc=5",
+      "published": "Sun, 08 Nov 2026 14:00:00 GMT",
+      "metrics": {}
+    },
+    {
+      "source": "google_news",
+      "team": "michigan",
+      "text": "Michigan fires Jason Beck, college football’s highest-paid offensive coordinator: Source - The New York Times",
+      "url": "https://news.google.com/rss/articles/CBMiogFBVV95cUxPRlZlei1LSUVCOHBLemppWUUzb1laNnFHdXhCSHB1V2t0bkhpVGpxZnRMQzlSQXVwYW9GaDk2dVNsT3Qyd05iblJUSWJ6ek03ME5CRVRJQmpqWHRWT1BYQnNKZWcxa21BLUtOcDRZZnVocDZPMUpiZFZJZmQzQnlselUzZnVZbmt6QkFfSTJaSTVfYUlHR01qeU84bjJ5cXVfMHc?oc=5",
+      "published": "Sun, 08 Nov 2026 22:16:17 GMT",
+      "metrics": {}
+    },
+    {
+      "source": "google_news",
+      "team": "michigan",
+      "text": "Fans react to Michigan Football’s ‘atrocious’ loss to Michigan State - Yahoo Sports",
+      "url": "https://news.google.com/rss/articles/CBMikAFBVV95cUxPWFloaXRpenFGWmtKZ2hPak9QU0k3d0ZobjdzeVhTLUVSck5BSmdTVnR3ZVJmUThtWm00ZWV5djhlVEZGY21wU3ZuMXpJd0hxODJtN3kxaTBMT19PQ1VNY2x1X1pRTXptQm9pLTdwZjJJN0V3M2xTRGVzVnRnUjZkYXU4N0VaN0NJTl9Fd3pMU0c?oc=5",
+      "published": "Sun, 08 Nov 2026 13:00:08 GMT",
+      "metrics": {}
+    },
+    {
+      "source": "google_news",
+      "team": "michigan",
+      "text": "Michigan Drops Rivalry Matchup to Michigan State - University of Michigan Athletics",
+      "url": "https://news.google.com/rss/articles/CBMiqAFBVV95cUxNSEduVXQ4Qjc0Y2ozZlNvbExsSWxJTWh2cE51VjZLdjlUdERiNVVYV1MwSHFwT3FJLWtVSzRfeHhIUk1JZVhqWnNMNFd4UTN2dEw1RzNvQXM4XzdqaTl0R3FsZHVGSjZENDc2UnpwWGpZWFNiV3RQUUxPRmFIMWVXREgtRkZtMnZvTTVkWXlRb3pTYmt0ZmxpQnV4RThqbTlUMHZzMVF2bng?oc=5",
+      "published": "Sun, 08 Nov 2026 04:46:00 GMT",
+      "metrics": {}
+    },
+    {
+      "source": "google_news",
+      "team": "michigan",
+      "text": "Michigan football fires offensive coordinator Jason Beck, per report - Wolverines Wire",
+      "url": "https://news.google.com/rss/articles/CBMi_gFBVV95cUxQSDJQZnhWR0pqajVYU2ZZWTk3OElwM3k1bXZ1Z1lPdVh4LWdqU0pHVnFDUURjNWIxeURrTF9BS2Z3SWpyTlRwY2hWRm9PdzlNRzJtOFJ4ZlFOazVFZDZYRFJleEViNDlkcGRMY3RzNjB2NnFmOXV2MU45LWFrTFVCLWUzX3B4NktiaG5CdzVsWjBvcDdjRTU0dmJaem90VGw1eUYtQUc2YW8xR3JXNFlQN1BhcEZaX3ZSV1d2Z0ItbVdkU2tfSXJQbUZCVkltWVhMYVpnbEkwY0F6WFRab0RUMFNyTGY3OEY2T0lZeDBJMzI0TmZGNV83LUNSTmM0dw?oc=5",
+      "published": "Sun, 08 Nov 2026 22:16:00 GMT",
+      "metrics": {}
+    },
+    {
+      "source": "google_news",
+      "team": "michigan",
+      "text": "Wolverine Thoughts: Michigan Football Made a Mistake & Must Re-Start for 2027 - Sports Illustrated",
+      "url": "https://news.google.com/rss/articles/CBMiuwFBVV95cUxNOVBfODF2bDFGUjQ2Wnk5N0NhdFJNU00wNEprZFJ2ZDNidHlfc25ENEtBd3RuS0MtMVMtSHM1OWxEenBBUEp6ZVpXbXNBU2EyV0c5MlJ1R0RCbjROZExfZkhZSy04Z2xQb2NFSEcycEFYdm1SUHN6WGtQNVhTTU9kNEVZendBTHE0U2ZsNXBNSlhIU3c1VDVXVW82NklmQk5pa0hid2RYNWZWTUlkMURVY1ZfUGwyVVEwcEFB?oc=5",
+      "published": "Sun, 08 Nov 2026 12:00:00 GMT",
+      "metrics": {}
+    },
+    {
+      "source": "google_news",
+      "team": "michigan",
+      "text": "3 winners, 3 losers after Michigan Football’s loss to Michigan State - Maize n Brew",
+      "url": "https://news.google.com/rss/articles/CBMiywFBVV95cUxNQ0t1cVRoUWZDTlNoSGZqR0N2UzNaOXN0T0hLMlROaUltZWcwRWt4MXVIUEZSNlQzY3FzcEtsLU5Pc0loRmZSOTNvcm9SeVB2SkJpcTdyZFBGYXRfdndXM0diNEhFd2tkMkRMUzluM2VMWF9NeVRtaGcyX3F5bHltUXY5dzFkcUZ0ZVljMGRGZUVjUkZ1WXFBSmFYTVZoYktjTk90Q2NHYVI5V3otNGZoS2t5QUprdVExd0pYWEVNQUZpUkVUaXdYcmFlbw?oc=5",
+      "published": "Sun, 08 Nov 2026 12:00:00 GMT",
+      "metrics": {}
+    },
+    {
+      "source": "google_news",
+      "team": "michigan",
+      "text": "Michigan football faces massive media backlash after loss to MSU - Yahoo Sports",
+      "url": "https://news.google.com/rss/articles/CBMijwFBVV95cUxOMnlKdnJ6V1Rrd0ZPUUQxVHZoNWliNjI1VVdRTFR3Mnh0UVM5R0NicVBiNHVLNWN3UHVGRDduQkdraWVuZ2ZLOXlQNzZ1S3lJN2xkdGwtVmpfOHZrekZJNjdxNURVcURWYnNZZ0QtcWVYOTFEdEEzTm1GNUtMTlVNa05BYngtTGt6T1VhTGlacw?oc=5",
+      "published": "Sun, 08 Nov 2026 07:43:00 GMT",
       "metrics": {}
     },
     {
       "source": "repository_trend_snapshot",
       "team": "cleveland-browns",
-      "text": "Cleveland Browns vs. New Orleans Saints NFL Week 9 Live Updates, Highlights and Analysis",
-      "url": "http://www.bing.com/news/apiclick.aspx?ref=FexRss&aid=&tid=6af0f771f6334e3bbf892df597497e01&url=https%3a%2f%2fbleacherreport.com%2fliveblogs%2f25530665-cleveland-browns-vs-new-orleans-saints-nfl-week-9-live-updates-highlights-and-analysis&c=5919587842271165815&mkt=en-us",
-      "published": "Sun, 08 Nov 2026 09:52:00 GMT",
-      "metrics": {}
-    },
-    {
-      "source": "repository_trend_snapshot",
-      "team": "cleveland-browns",
-      "text": "Saints hold on for a 23-22 overtime victory over the Browns by stopping a 2-point conversion",
-      "url": "http://www.bing.com/news/apiclick.aspx?ref=FexRss&aid=&tid=6af0f771f6334e3bbf892df597497e01&url=https%3a%2f%2fwww.msn.com%2fen-us%2fsports%2ffootball%2fsaints-hold-on-for-a-23-22-overtime-victory-over-the-browns-by-stopping-a-2-point-conversion%2far-AA2h1r01&c=14097464038124103914&mkt=en-us",
-      "published": "Sun, 08 Nov 2026 14:10:11 GMT",
+      "text": "Browns at Steelers Postgame Recap",
+      "url": "https://news.google.com/rss/articles/CBMikgFBVV95cUxQaHpyRkp5QUJqRHYwVFlYU3J2RTlMMmxVaDhtVlZkY1JkM1BGVnFVSzI2RGo1bkhMUHlXcWNvM3Z6aFpVWEctQmQ1aVJISE5FeGVpSU9mX0FTOXRmYUQwLXdpYnVnWDhlekxZQV9BMG43M2duRHcxOWVFOWtTM2hkTExQV3ZiLWdsNWRyNWFaQTBEZw?oc=5",
+      "published": "Sun, 01 Nov 2026 22:07:49 GMT",
       "metrics": {}
     },
     {
       "source": "repository_trend_snapshot",
       "team": "cleveland-browns",
       "text": "Game Recap: New Orleans Saints 23, Cleveland Browns 22, overtime | 2026 NFL Week 9",
-      "url": "http://www.bing.com/news/apiclick.aspx?ref=FexRss&aid=&tid=6af0f771f6334e3bbf892df597497e01&url=https%3a%2f%2fwww.neworleanssaints.com%2fnews%2fcleveland-browns-new-orleans-saints-2026-nfl-week-9-game-recap&c=10131176726381271955&mkt=en-us",
-      "published": "Sun, 08 Nov 2026 07:35:00 GMT",
+      "url": "https://news.google.com/rss/articles/CBMiogFBVV95cUxPZG9nekd3V1FXUGFyZGFBemJpSzRYQThfVWJ3ak5Vd1RBY3dNMzdTWmJLMkRReGt6X3EzcngyaE5CSlJVUll3YkliMzcyRUtnMmNPTGdCTVBXOUVHN2QybDF3Ulo5VUM0Z2c3RlBjUlhRQkIwbEZjNFBfdmVZUng0TnFzV0ppUjBtNWxBbTRVb2VRZXpxb3RvTFZUZzZ5Ymt6NGc?oc=5",
+      "published": "Sun, 08 Nov 2026 21:35:31 GMT",
       "metrics": {}
     },
     {
       "source": "repository_trend_snapshot",
       "team": "cleveland-browns",
-      "text": "Saints stop Browns on 2-point try to seal 23-22 OT win",
-      "url": "http://www.bing.com/news/apiclick.aspx?ref=FexRss&aid=&tid=6af0f771f6334e3bbf892df597497e01&url=https%3a%2f%2fwww.cbssports.com%2fnfl%2fnews%2fsaints-stop-browns-on-2-point-try-to-seal-23-22-ot-win%2f&c=6238628483965998904&mkt=en-us",
-      "published": "Sun, 08 Nov 2026 14:11:00 GMT",
+      "text": "Cleveland Browns news: Culture changers, injuries, QB talk, and more!",
+      "url": "https://news.google.com/rss/articles/CBMivAFBVV95cUxQbExQTTBpRmI2NmdBWU9QN1ZnQ29Hd0QwbnVoSEZBN1hHYm14TldyTi1yYUxyWlZXdDM0UGpIU3J3WlJtRzlnSkRGZVByOHpjeGpsRUdlNkVHaGxjU1ZidThCbGp4Nl8zSUtoRHZ1MzlaQ2E5aVdlZEwtU2d0ZS1JS1d1ellQckNoY2M3ZFZjX2Rpd1dMdDlQTWFVbVFOMjlXZFZOYmdraXlpWElscDJzeVZqeFJtSXNlTjJaYQ?oc=5",
+      "published": "Fri, 06 Nov 2026 11:00:00 GMT",
       "metrics": {}
     },
     {
       "source": "repository_trend_snapshot",
       "team": "cleveland-browns",
-      "text": "Saints outlast the Browns for an embarrassing win in overtime",
-      "url": "http://www.bing.com/news/apiclick.aspx?ref=FexRss&aid=&tid=6af0f771f6334e3bbf892df597497e01&url=https%3a%2f%2fsaintswire.usatoday.com%2fstory%2fsports%2fnfl%2fsaints%2f2026%2f11%2f08%2fsaints-browns-final-score-overtime-shedeur-sanders-tyler-shough%2f92681601007%2f&c=17229757842983716832&mkt=en-us",
-      "published": "Sun, 08 Nov 2026 13:59:00 GMT",
+      "text": "How to watch today's Pittsburgh Steelers vs. Cleveland Browns game in Week 8 of the NFL schedule",
+      "url": "https://news.google.com/rss/articles/CBMirwFBVV95cUxNR3pQREVpVFpTTEVYNVc4TGhWZWlIb0xaV3NFLUx5NGduUDJVSmJ2aHJyZk54N3FxU243WThzbmlQRW1pb2NDOFVlR2Z1Vmh3REhVY0tjZU94Ync0TERjeEt5YVZBcGY1OGE4Q3dwTXhiRDU0MWRKVHJjYjhuZGduNWxJRzdMWGt5bmgzNFo3eFFScWlIS2wtbEdQTDA0VUpPTkstc1VPdUpPc0xEX2Vn?oc=5",
+      "published": "Sun, 01 Nov 2026 11:00:00 GMT",
       "metrics": {}
     },
     {
       "source": "repository_trend_snapshot",
       "team": "cleveland-browns",
-      "text": "Tyler Shough leads late TD drives as Saints sink Shedeur Sanders, Browns in OT thriller",
-      "url": "http://www.bing.com/news/apiclick.aspx?ref=FexRss&aid=&tid=6af0f771f6334e3bbf892df597497e01&url=https%3a%2f%2fwww.nytimes.com%2fathletic%2f7764265%2f2026%2f11%2f08%2fbrowns-saints-nfl-week-9-score-result-takeaways%2f&c=16541055164954051026&mkt=en-us",
-      "published": "Sun, 08 Nov 2026 14:11:00 GMT",
+      "text": "Another late rally comes up short as Cleveland Browns fall to New Orleans Saints in overtime",
+      "url": "https://news.google.com/rss/articles/CBMiigJBVV95cUxPZVltTldzYVRMYzBGRkZYcnBoYlRzNkpHdGVoa2d0bWVCa1N0WkV5bHlDLTMyd1RucUptOW9vLUtVTzRjZlpDVHhDbEIxSUxUakU4T3pPS3dROThXU3F3VHBDbFZVbDNXVklWZkVKMmZCOXRsUDFlZWtPYnBlTVdvTWI0dExIWEVXUmE1alItX19oNkRJNjRsSmluM3pBYmhXQ0hKY0c3Yk1NdDVxVFlsRWdfZENic3p6RHZVRUpMSjIyMi1GbWJTQXFhbFRkR0NWUnNpYVdhNks1YnQyMDdTSVE1SHNjZUxNV0h6N0h6NVZkbEpBUEVJTEJVRmo1Wk9pUF9za1JOdmhzZw?oc=5",
+      "published": "Sun, 08 Nov 2026 21:34:00 GMT",
       "metrics": {}
     },
     {
       "source": "repository_trend_snapshot",
       "team": "cleveland-browns",
-      "text": "Saints 23, Browns 22 | Final Score, Stats & Game Recap",
-      "url": "http://www.bing.com/news/apiclick.aspx?ref=FexRss&aid=&tid=6af0f771f6334e3bbf892df597497e01&url=https%3a%2f%2fwww.clevelandbrowns.com%2fnews%2fsaints-23-browns-22-final-score-stats-game-recap&c=15055637899166449936&mkt=en-us",
-      "published": "Sun, 08 Nov 2026 08:49:00 GMT",
+      "text": "Can't-Miss Play: 64-yard TD! Shedeur Sanders and KC Concepcion stun Saints in fourth quarter",
+      "url": "https://news.google.com/rss/articles/CBMiuAFBVV95cUxPM0EtbDRQYnpCUVJDZFl1dkRBTEljWTR6dWZVSnc3QU1HbS10QXV0ZDI2ekY5OVJOU1VjbTIwMmxEUWI0cm5UVTgySHlTVWNsUWJkRjYyVWFPRWxyVlpUYi1FcHFuWVRjbXlyamsxeTRKaTFHcXgtOTVqc1g0MmVFcVctTTRxMlNPTmI5ZzJhdEJSRFZzUk5tQVlNcXJVNVJEbllFLV9XLWxCQ085WEJrOXBpT3R1WUZf?oc=5",
+      "published": "Sun, 08 Nov 2026 20:54:29 GMT",
+      "metrics": {}
+    },
+    {
+      "source": "repository_trend_snapshot",
+      "team": "cleveland-browns",
+      "text": "Browns offense shows flashes but remains a major work in progress: Dan Labbe",
+      "url": "https://news.google.com/rss/articles/CBMisAFBVV95cUxNZ0dvazdXRS1kckhfZDZkYTNVakVta09KUlZCUEdVS09SZThfZGhZdUhweERvRkRVTUdQZFEyQnNwblVOWEc4dUhiMlpHVzlOM014T3dmX0tsVFNjZUtUcDE2X1pDOV9KNkQxSUlrdHpVRGNSR2dSZ0ZXa2ltLVBxR1dxb2xVZ3lGeGhZeTNIRDcyVWFBcVlNd1hDdURwcXgtOHY1azR2Nm51ZEkwVnhUSQ?oc=5",
+      "published": "Sun, 08 Nov 2026 21:35:00 GMT",
+      "metrics": {}
+    },
+    {
+      "source": "repository_trend_snapshot",
+      "team": "cleveland-browns",
+      "text": "Cleveland Browns QB Deshaun Watson placed in concussion protocol",
+      "url": "https://news.google.com/rss/articles/CBMikAFBVV95cUxPM2tzWnFaOTNNMnYydUxfWUFUeVhLQk1uTHdLYi0tQ2hxWVM5WlAxdnR1dDFvdkVPWnhHQUd1bFlCTHNka2tfZlhudTNuT01MMWFXMV9YWWxacGI4U2NFbldLc2ViS0QzczhSLVlQR0lfdHptX1FfOEFpSUhwOHc5UDZTN1NvczhwaUlWT1QzTk_SAZYBQVVfeXFMTmxzTnFJY1p3d0VDREhLUS1HNmt1NVpQTE5pYnRpY1prM1ZWNlNvNDNQRTVqM1h2eUg4a3Yxc3VxTWlsQ0NNYjlySl9yX0lxOUZEZURaT3g3M21OeHZoVXlZOWV4OTkyNTczNVVOLTBMUDQ2V0FEMU12X2xTNjdBeC0zdFRKM2ZzR2owY1E3SC1wYzFRZlR3?oc=5",
+      "published": "Wed, 04 Nov 2026 14:39:41 GMT",
       "metrics": {}
     },
     {
       "source": "repository_trend_snapshot",
       "team": "michigan",
-      "text": "Michigan football is biggest underdog in almost two years vs. Oregon",
-      "url": "http://www.bing.com/news/apiclick.aspx?ref=FexRss&aid=&tid=6af0f7a09a43462b8c35452f74d1471f&url=https%3a%2f%2fwww.mlive.com%2fwolverines%2ffootball%2f2026%2f11%2fmichigan-football-is-biggest-underdog-in-almost-two-years-vs-oregon.html&c=2886667325710007904&mkt=en-us",
-      "published": "Sun, 08 Nov 2026 09:01:00 GMT",
+      "text": "4 Instant Takeaways After Michigan Football's Humiliating Loss to Michigan State",
+      "url": "https://news.google.com/rss/articles/CBMixwFBVV95cUxPcEJBel9wNzNGcHFBcHExZy04LWI0a0YtdDFBV09KVV92NEwtaVJjeWFRVF9sMmVwU3BFS1NTaXBfdm9nZ2piVEI2dUVHTGJrYzkzXzdyR3BhM2xvUkVIZ190WFVEUXN3ZmdlVFdGSmJycTMxc3BtYmptVlVVTjFSbEs4MnVCRlM1WHVNYUM0RkloaUhFdTZZZ3dKckwtUnhjVXNMZjlBLVp6N05QUWNNRDVRaWtETzJFZzNRTlFUakwxSzlMRHY0?oc=5",
+      "published": "Sun, 08 Nov 2026 04:13:31 GMT",
       "metrics": {}
     },
     {
       "source": "repository_trend_snapshot",
       "team": "michigan",
-      "text": "The PFF grades are NOT kind to Michigan Football in loss to Michigan State",
-      "url": "http://www.bing.com/news/apiclick.aspx?ref=FexRss&aid=&tid=6af0f7a09a43462b8c35452f74d1471f&url=https%3a%2f%2fsports.yahoo.com%2farticles%2fpff-grades-not-kind-michigan-210000026.html&c=16261189390523287125&mkt=en-us",
-      "published": "Sun, 08 Nov 2026 13:00:00 GMT",
+      "text": "Watch Michigan vs Rutgers Highlights, Replay & Score - CFB Week 9",
+      "url": "https://news.google.com/rss/articles/CBMiuAFBVV95cUxPdi12ZC16RjU4V2xMcUxJbWFadlFZandVbmZaTFI5Z0Z4cEd6TGJRUS04Y3JOd0tvOElweWxnWERFdjl5Ql83amJncUNIZHRZTkxQSTJDMTVqZk8xc2V5RnNKQ2Fpbmptb1dZUzBsaHppS2h6T0VzUTRfbDBRSkJ1bmJzbHhUS2J2MWU5VHBaQkgyb1NFS1VoNlVRQTZNd2tPRTI1VGxBOWVBc3lWRS1KdVRTazRRRXRj?oc=5",
+      "published": "Sat, 31 Oct 2026 07:00:00 GMT",
       "metrics": {}
     },
     {
       "source": "repository_trend_snapshot",
       "team": "michigan",
-      "text": "Reacting to Michigan Football’s unacceptable loss to Michigan State",
-      "url": "http://www.bing.com/news/apiclick.aspx?ref=FexRss&aid=&tid=6af0f7a09a43462b8c35452f74d1471f&url=https%3a%2f%2fsports.yahoo.com%2farticles%2freacting-michigan-football-unacceptable-loss-160000097.html&c=11406228196514414290&mkt=en-us",
-      "published": "Sun, 08 Nov 2026 08:00:00 GMT",
+      "text": "Game Thread: Michigan Football vs Michigan State",
+      "url": "https://news.google.com/rss/articles/CBMiiAFBVV95cUxPMXNIdVU4S2FzR1hNei1RMnJGR2w0SGJNSXRCVFlpQUVldXV3UzQ2cG9yZmVfYWRVV0ZfS1o1bnBIWjlPaGplMFhlbnBsemplV0ptTkRpbnF0Z2trSS00ZV9wd240WTB3UkgzLXFyajdocmNfbTVZNkdUREdYUmVPa0tCbWRxUGxo?oc=5",
+      "published": "Sat, 07 Nov 2026 23:30:00 GMT",
       "metrics": {}
     },
     {
       "source": "repository_trend_snapshot",
       "team": "michigan",
-      "text": "Michigan football fires offensive coordinator Jason Beck, per report",
-      "url": "http://www.bing.com/news/apiclick.aspx?ref=FexRss&aid=&tid=6af0f7a09a43462b8c35452f74d1471f&url=https%3a%2f%2fwww.msn.com%2fen-us%2fsports%2ffootball%2fmichigan-football-fires-offensive-coordinator-jason-beck-per-report%2far-AA2h1Njy&c=7842351660675115616&mkt=en-us",
-      "published": "Sun, 08 Nov 2026 14:16:31 GMT",
+      "text": "Michigan Drops Rivalry Matchup to Michigan State",
+      "url": "https://news.google.com/rss/articles/CBMiqAFBVV95cUxNSEduVXQ4Qjc0Y2ozZlNvbExsSWxJTWh2cE51VjZLdjlUdERiNVVYV1MwSHFwT3FJLWtVSzRfeHhIUk1JZVhqWnNMNFd4UTN2dEw1RzNvQXM4XzdqaTl0R3FsZHVGSjZENDc2UnpwWGpZWFNiV3RQUUxPRmFIMWVXREgtRkZtMnZvTTVkWXlRb3pTYmt0ZmxpQnV4RThqbTlUMHZzMVF2bng?oc=5",
+      "published": "Sun, 08 Nov 2026 04:46:00 GMT",
       "metrics": {}
     },
     {
       "source": "repository_trend_snapshot",
       "team": "michigan",
-      "text": "Next up for Michigan football is a team that just won at Ohio State",
-      "url": "http://www.bing.com/news/apiclick.aspx?ref=FexRss&aid=&tid=6af0f7a09a43462b8c35452f74d1471f&url=https%3a%2f%2fwww.mlive.com%2fwolverines%2ffootball%2f2026%2f11%2fnext-up-for-michigan-football-is-a-team-that-just-won-at-ohio-state.html&c=10459917096664583226&mkt=en-us",
-      "published": "Sun, 08 Nov 2026 07:02:00 GMT",
+      "text": "Michigan football head coach Kyle Whittingham names starting quarterback, discusses Michigan State rivalry",
+      "url": "https://news.google.com/rss/articles/CBMi_AFBVV95cUxOc3oyTklJVU5zUm9DV2htRUdxenc3R2pmY2htRVR2R3RhVE9ZWGd0N2loNlFGNUlCTXB4WTkwVU9udjlRWkdWeDI1YldjTTh1U0VYcU02VElrVFcwS05qWFIwWERPYzdyaEh3VG90czNhZVIzMkpWd1dBN0NJMkJBQlZlOXhxd2hYX2tVbF92WU1yNk5rTWtrZUhFMmNRVmZxWWg4bFVwWFZPNHdWSkc5bUdSNk9fOUNhWTIyLTUzV0FpQVM1VTlrcTFVbnVpSmsxZTZUSjYxVDRicm5rS2FCeDFqNG1PNVFCZVRjRi1yNHl0eW8wTTRKVVNxYko?oc=5",
+      "published": "Tue, 03 Nov 2026 10:00:00 GMT",
       "metrics": {}
     },
     {
       "source": "repository_trend_snapshot",
       "team": "michigan",
-      "text": "Michigan football grades: MSU debacle a failure on all accounts",
-      "url": "http://www.bing.com/news/apiclick.aspx?ref=FexRss&aid=&tid=6af0f7a09a43462b8c35452f74d1471f&url=https%3a%2f%2fwww.freep.com%2fstory%2fsports%2fcollege%2funiversity-michigan%2fwolverines%2f2026%2f11%2f08%2fmichigan-football-grades-msu-failure%2f92645852007%2f&c=14599061765398405099&mkt=en-us",
-      "published": "Sun, 08 Nov 2026 02:06:00 GMT",
+      "text": "Kickoff time set for Nov. 7 Michigan-Michigan State football rivalry game",
+      "url": "https://news.google.com/rss/articles/CBMixgFBVV95cUxNV20xZmZ3RktYN3ViMUdWZW9YZjVtU2ZyOUg2RXRYRThoSFZvX192UU8tVVdYa25OYkxkbUlwU08zbl9vM3h4YUJPdml4TF9GbWFmaWltQTlwWFhIcHg0SWgxVVZOUUhkeGFHYUozUEI5SzBLSUpWY3MzXzliZE12YTFrMURkVEFCeWx4V19KZ0FTMlB1TmRtRzVJd1hhUERIUFZMM2xSZDEwbkJzX1VnOXJWbldSNWVlenBSUHIwcUt1aHFreXfSAdoBQVVfeXFMUHplZjF6cDdqNFRieVg2QnRicXM4REhOTF9CUlBWYjZtOHdaQ2tvQ3hqLVNFXzNmbERYYktHdjkwcFVsM2N5cFE4MVI2ZXZ4WGI4ZkVocW5jczBoazBudmd6U29XcE1udnhyWWNKYTBZX252LVZvY2RGTXk4SUtNS09xbDJhMGZPcWlSSjFpMkZCWno0RDdHSUppTGtlUEZ5RnB5c0FJdFk2V2hGY1ZGejVSY3IxOXFtSWhLcGYzWU5zRVRIY1RlWVROZHloSmZETWZXd2JNY280aHc?oc=5",
+      "published": "Mon, 02 Nov 2026 15:18:00 GMT",
       "metrics": {}
     },
     {
       "source": "repository_trend_snapshot",
       "team": "michigan",
-      "text": "Michigan Fires OC Jason Beck, per Report",
-      "url": "http://www.bing.com/news/apiclick.aspx?ref=FexRss&aid=&tid=6af0f7a09a43462b8c35452f74d1471f&url=https%3a%2f%2fwww.msn.com%2fen-us%2fnews%2fother%2fmichigan-fires-oc-jason-beck-per-report%2far-AA2h1PMt&c=18219695751567446205&mkt=en-us",
-      "published": "Sun, 08 Nov 2026 14:06:31 GMT",
-      "metrics": {}
-    },
-    {
-      "source": "repository_trend_snapshot",
-      "team": "michigan",
-      "text": "Michigan score as Michigan State completes 15-6 upset of Wolverines",
-      "url": "http://www.bing.com/news/apiclick.aspx?ref=FexRss&aid=&tid=6af0f7a09a43462b8c35452f74d1471f&url=https%3a%2f%2fsixerswire.usatoday.com%2fstory%2fsports%2fcollege%2f2026%2f11%2f07%2fmichigan-michigan-state-live-updates-score--live%2f92585293007%2f&c=17832363272694787193&mkt=en-us",
-      "published": "Sat, 07 Nov 2026 20:49:00 GMT",
-      "metrics": {}
-    },
-    {
-      "source": "repository_trend_snapshot",
-      "team": "green-bay-packers",
-      "text": "Patriots vs. Packers live coverage: Tom Brady greets Drake Maye ahead of test vs. Green Bay",
-      "url": "http://www.bing.com/news/apiclick.aspx?ref=FexRss&aid=&tid=6af0f7c7b13f41988700f58ea87e1815&url=https%3a%2f%2fwww.msn.com%2fen-us%2fnews%2fother%2fpatriots-vs-packers-live-coverage-tom-brady-greets-drake-maye-ahead-of-test-vs-green-bay%2far-AA2h1dW4&c=5157659641759941392&mkt=en-us",
-      "published": "Sun, 08 Nov 2026 13:45:45 GMT",
-      "metrics": {}
-    },
-    {
-      "source": "repository_trend_snapshot",
-      "team": "green-bay-packers",
-      "text": "Patriots vs. Packers live updates: Two playoff hopefuls meet in Week 9",
-      "url": "http://www.bing.com/news/apiclick.aspx?ref=FexRss&aid=&tid=6af0f7c7b13f41988700f58ea87e1815&url=https%3a%2f%2fwww.cbssports.com%2fnfl%2fnews%2fpatriots-vs-packers-live-updates-score-highlights%2flive%2f&c=6338397080755025148&mkt=en-us",
-      "published": "Sun, 08 Nov 2026 14:23:00 GMT",
-      "metrics": {}
-    },
-    {
-      "source": "repository_trend_snapshot",
-      "team": "green-bay-packers",
-      "text": "Packers LB Ty’Ron Hopper and RB Josh Jacobs Questionable to Return vs. Patriots",
-      "url": "http://www.bing.com/news/apiclick.aspx?ref=FexRss&aid=&tid=6af0f7c7b13f41988700f58ea87e1815&url=https%3a%2f%2fathlonsports.com%2fnfl%2fgreen-bay-packers%2fpackers-lb-tyron-hopper-and-rb-josh-jacobs-questionable-to-return-vs-patriots&c=8963483294072006371&mkt=en-us",
-      "published": "Sun, 08 Nov 2026 14:22:00 GMT",
-      "metrics": {}
-    },
-    {
-      "source": "repository_trend_snapshot",
-      "team": "green-bay-packers",
-      "text": "Packers’ Jordan Love Hits Milestone Against Patriots That’s More Than ‘Cool’",
-      "url": "http://www.bing.com/news/apiclick.aspx?ref=FexRss&aid=&tid=6af0f7c7b13f41988700f58ea87e1815&url=https%3a%2f%2fwww.msn.com%2fen-us%2fnews%2fother%2fpackers-jordan-love-hits-milestone-against-patriots-that-s-more-than-cool%2far-AA2h195N&c=8315154707945627647&mkt=en-us",
-      "published": "Sun, 08 Nov 2026 13:42:50 GMT",
-      "metrics": {}
-    },
-    {
-      "source": "repository_trend_snapshot",
-      "team": "green-bay-packers",
-      "text": "Josh Jacobs suffers injury amid Packers’ hot start vs. Patriots",
-      "url": "http://www.bing.com/news/apiclick.aspx?ref=FexRss&aid=&tid=6af0f7c7b13f41988700f58ea87e1815&url=https%3a%2f%2fclutchpoints.com%2fnfl%2fgreen-bay-packers%2fpackers-news-josh-jacobs-suffers-injury-hot-start-patriots&c=13983191127984400340&mkt=en-us",
-      "published": "Sun, 08 Nov 2026 14:16:00 GMT",
-      "metrics": {}
-    },
-    {
-      "source": "repository_trend_snapshot",
-      "team": "green-bay-packers",
-      "text": "NFL Experts Pick Against Patriots in Green Bay Showdown, but Not Everyone Is Convinced",
-      "url": "http://www.bing.com/news/apiclick.aspx?ref=FexRss&aid=&tid=6af0f7c7b13f41988700f58ea87e1815&url=https%3a%2f%2fwww.msn.com%2fen-us%2fnews%2fother%2fnfl-experts-pick-against-patriots-in-green-bay-showdown-but-not-everyone-is-convinced%2far-AA2h0iE9&c=1608760059127887470&mkt=en-us",
-      "published": "Sun, 08 Nov 2026 05:06:43 GMT",
-      "metrics": {}
-    },
-    {
-      "source": "repository_trend_snapshot",
-      "team": "green-bay-packers",
-      "text": "5 Keys to a New England Patriots Victory Over the Green Bay Packers in Week 9",
-      "url": "http://www.bing.com/news/apiclick.aspx?ref=FexRss&aid=&tid=6af0f7c7b13f41988700f58ea87e1815&url=https%3a%2f%2fwww.msn.com%2fen-us%2fnews%2fother%2f5-keys-to-a-new-england-patriots-victory-over-the-green-bay-packers-in-week-9%2far-AA2gZGC6&c=2744375378076008365&mkt=en-us",
-      "published": "Sun, 08 Nov 2026 04:44:58 GMT",
-      "metrics": {}
-    },
-    {
-      "source": "repository_trend_snapshot",
-      "team": "green-bay-packers",
-      "text": "Green Bay Packers at New England Patriots odds, picks and predictions",
-      "url": "http://www.bing.com/news/apiclick.aspx?ref=FexRss&aid=&tid=6af0f7c7b13f41988700f58ea87e1815&url=https%3a%2f%2fwww.freep.com%2fstory%2fsports%2fnfl%2f2026%2f11%2f07%2fpackers-at-patriots-odds-picks-and-predictions%2f92652186007%2f&c=6703202604528052640&mkt=en-us",
-      "published": "Sat, 07 Nov 2026 18:48:00 GMT",
-      "metrics": {}
-    },
-    {
-      "source": "repository_trend_snapshot",
-      "team": "dallas-cowboys",
-      "text": "Biggest takeaways from Dallas Cowboys' uninspiring Week 9 win over Colts",
-      "url": "http://www.bing.com/news/apiclick.aspx?ref=FexRss&aid=&tid=6af0f7f2ceb348fc95faf02e16a3e09e&url=https%3a%2f%2fwww.msn.com%2fen-us%2fnews%2fother%2fbiggest-takeaways-from-dallas-cowboys-uninspiring-week-9-win-over-colts%2far-AA2h1FsC&c=18032594066939625005&mkt=en-us",
-      "published": "Sun, 08 Nov 2026 13:42:42 GMT",
-      "metrics": {}
-    },
-    {
-      "source": "repository_trend_snapshot",
-      "team": "dallas-cowboys",
-      "text": "Five thoughts from Cowboys-Colts: Dallas survives in another topsy-turvy effort",
-      "url": "http://www.bing.com/news/apiclick.aspx?ref=FexRss&aid=&tid=6af0f7f2ceb348fc95faf02e16a3e09e&url=https%3a%2f%2fwww.msn.com%2fen-us%2fsports%2ffootball%2ffive-thoughts-from-cowboys-colts-dallas-survives-in-another-topsy-turvy-effort%2far-AA2h1ShP&c=16574600219862588440&mkt=en-us",
-      "published": "Sun, 08 Nov 2026 13:45:23 GMT",
-      "metrics": {}
-    },
-    {
-      "source": "repository_trend_snapshot",
-      "team": "dallas-cowboys",
-      "text": "Dallas Cowboys facing must-win, desperation game vs. Colts without George Pickens, Joey Porter",
-      "url": "http://www.bing.com/news/apiclick.aspx?ref=FexRss&aid=&tid=6af0f7f2ceb348fc95faf02e16a3e09e&url=https%3a%2f%2fsports.yahoo.com%2farticles%2fdallas-cowboys-facing-must-win-165703251.html&c=14800057465491851082&mkt=en-us",
-      "published": "Sun, 08 Nov 2026 08:58:00 GMT",
-      "metrics": {}
-    },
-    {
-      "source": "repository_trend_snapshot",
-      "team": "dallas-cowboys",
-      "text": "Cowboys rally late to beat Colts 27-23 on Javonte Williams TD",
-      "url": "http://www.bing.com/news/apiclick.aspx?ref=FexRss&aid=&tid=6af0f7f2ceb348fc95faf02e16a3e09e&url=https%3a%2f%2fwww.cbssports.com%2fnfl%2fnews%2fcowboys-rally-late-to-beat-colts-27-23-on-javonte-williams-td%2f&c=10243329308214806460&mkt=en-us",
-      "published": "Sun, 08 Nov 2026 14:22:00 GMT",
-      "metrics": {}
-    },
-    {
-      "source": "repository_trend_snapshot",
-      "team": "dallas-cowboys",
-      "text": "Javonte Williams’ late TD run helps Cowboys avoid another 4th-quarter collapse and beat Colts 27-23",
-      "url": "http://www.bing.com/news/apiclick.aspx?ref=FexRss&aid=&tid=6af0f7f2ceb348fc95faf02e16a3e09e&url=https%3a%2f%2fapnews.com%2farticle%2findianapolis-colts-dallas-cowboys-score-a0e32a4347e90b2d10ad2ac6e527c576&c=10893278684911430053&mkt=en-us",
-      "published": "Sun, 08 Nov 2026 14:20:00 GMT",
-      "metrics": {}
-    },
-    {
-      "source": "repository_trend_snapshot",
-      "team": "dallas-cowboys",
-      "text": "Dallas Cowboys-Indianapolis Colts Announcer Pairing & Referee Assignment For Week 9",
-      "url": "http://www.bing.com/news/apiclick.aspx?ref=FexRss&aid=&tid=6af0f7f2ceb348fc95faf02e16a3e09e&url=https%3a%2f%2fwww.si.com%2fnfl%2fcowboys%2fonsi%2fdallas-cowboys-indianapolis-colts-announcer-pairing-referee-assignment-nfl-week-9&c=16488153185772602683&mkt=en-us",
+      "text": "Michigan Football: Losing to MSU should be the end of the Kyle Whittingham era",
+      "url": "https://news.google.com/rss/articles/CBMivAFBVV95cUxPblR1M2R6SzBneEVtdU9UMENYSi1wU0h4Yzl4TDhHUWdLb25YV3o3aW1hZmRyQkI1VXR5ZF9UT05oYUJMajRqdmlObTVGWTlLZlZMaWFJZ2E3aGs2RnRqN0NhN1MzUVRRcmlWeXlyMG44eHJGdU4yZm41R2l2SENQTVYyWFdjQ2Eza3BTVS1sbTdqdXRsMmF3clozZ3pDeWVHaTQ4Mk9jV0NTQzVJNXFBUWpaZy1fM1cxZzVuWg?oc=5",
       "published": "Sun, 08 Nov 2026 05:00:00 GMT",
       "metrics": {}
     },
     {
       "source": "repository_trend_snapshot",
-      "team": "dallas-cowboys",
-      "text": "Drew Brees IMPRESSED with Cowboys’ Win vs Colts, Explains How Dallas Can Compete in NFC East",
-      "url": "http://www.bing.com/news/apiclick.aspx?ref=FexRss&aid=&tid=6af0f7f2ceb348fc95faf02e16a3e09e&url=https%3a%2f%2fwww.foxsports.com%2fwatch%2ffmc-fq02kgbxj2vo6vq1&c=7864625582660904637&mkt=en-us",
-      "published": "Sun, 08 Nov 2026 14:03:00 GMT",
+      "team": "michigan",
+      "text": "Michigan Wolverines vs Rutgers Scarlet Knights Highlights | FOX College Football",
+      "url": "https://news.google.com/rss/articles/CBMiYkFVX3lxTFBLNk5TT0Yydm5fbFJVc0JQQjJLQmp5MTdQSnhTLTN1cHpBeHFBWm1PVFp5dFNxN2tVQjg4azU3cmlWUFdaSThLQk9IVUlrU25fbFBEUWdhengxYkRfZml4S1BB?oc=5",
+      "published": "Sat, 31 Oct 2026 07:00:00 GMT",
+      "metrics": {}
+    },
+    {
+      "source": "repository_trend_snapshot",
+      "team": "green-bay-packers",
+      "text": "Game recap: 5 takeaways from Packers’ victory over Panthers",
+      "url": "https://news.google.com/rss/articles/CBMinwFBVV95cUxOaDhJdXp6U1gtRzRtVjZMQy1DOUR0NzRfeVhqUFhrZU0ydEVvR3Z6WWtuOV9acVR2TXhHd1JLdUZ3Qk16VUZUOUNpSWttMWZzVzZjR3dOUDB6SDRzNl9uSHBKZGhiQWRfMTA4dDFtUVZuSXVZS2ppbDBNaXlDS3RuSy1wbG85M2I1WmQzd1I5R2dFMFNib3NHV0xteHBTS2M?oc=5",
+      "published": "Fri, 30 Oct 2026 07:00:00 GMT",
+      "metrics": {}
+    },
+    {
+      "source": "repository_trend_snapshot",
+      "team": "green-bay-packers",
+      "text": "Game Preview: Patriots vs. Packers | NFL Week 9",
+      "url": "https://news.google.com/rss/articles/CBMifkFVX3lxTE5QYlUwZmQxQ3lIcWdqa25QQ1dlc29EOVlfSjcwSkIxUmRtUWVPVlF3Ri1vSm5qWm5FcVZab0VwQU1MYktJQ0tSN3ZPMjlCVl9qdjVXcTZmbERmN1B3bk5Pdi01cmExTkVBa3ZrMnRzMmFvTFAzSDN0U0VSbmN6UQ?oc=5",
+      "published": "Tue, 03 Nov 2026 17:55:12 GMT",
+      "metrics": {}
+    },
+    {
+      "source": "repository_trend_snapshot",
+      "team": "green-bay-packers",
+      "text": "Green Bay Packers vs. New England Patriots Week 9 preview",
+      "url": "https://news.google.com/rss/articles/CBMi1AFBVV95cUxNYk5QYkN4dHpyaFh2cjY5bUpMY3pLaGdKa1NYQzJkY19oZWdCWXJ5eUpPbTFlNjRMVHBWUVBhR05QemgtRTdDM1RYSUhFUzdRZ0p1bXdqenpPRVNucUQ4eXd2d29UcHRXcVgwT1QzSlRVX1pkRWlLcks4RF93MWlLbkpiNmxzNmlKb05FME5Db2JZMTBtZ1lLcDBEcjB4czJNU3F4aHUyQjRKdnVsdUEybUVjdG9NTXFzd0R2VFJNUlMyZ09HcGJYekYxVjdxLUhqUkpUZw?oc=5",
+      "published": "Fri, 06 Nov 2026 14:40:00 GMT",
+      "metrics": {}
+    },
+    {
+      "source": "repository_trend_snapshot",
+      "team": "green-bay-packers",
+      "text": "Green Bay Packers News: Ty’Ron Hopper is having his moment",
+      "url": "https://news.google.com/rss/articles/CBMivAFBVV95cUxNcHJ4RjZrQW5qSDNmazRnWi1PRUotUWZJS2F3b0tjT1BRb2xQanJYcTFPNWVOWG1pT3JYZ0pPd0ppa1JUYXZnTVVRTnpWMHVyNlRIS3lCcXJFQkozWGJGU2RGQWhHUm00RllFNlBHeE1xUDBZYXhLVGJKZDlMUkJRcl8wREQ0aXphMjRGc0RMUTVMUGRaNVpGSzIycVByVnVBczZBZ3ZlOGpjSkFSU0NhRDRsQlVRTWlrNnc4Zw?oc=5",
+      "published": "Mon, 02 Nov 2026 15:37:40 GMT",
+      "metrics": {}
+    },
+    {
+      "source": "repository_trend_snapshot",
+      "team": "green-bay-packers",
+      "text": "Police have identified operator of drone that interrupted Packers game",
+      "url": "https://news.google.com/rss/articles/CBMihgJBVV95cUxPUGVKeGtWaVcxNE1WT2ZCYjJPUTFmSFNSVTBleXZBM3lLbEtlbUZiMktvblNKRXZSY2lxelRJZkVKT09aTkNEanBMdWUxOHZ3VklEaHR5T21ieVNIMkZudzBHQzEwSnhKZkt6aWdDOEV1eXF3U2pmdlZqMGdkR1VhZEJjdUExRTgyYzRaRlZ6UlVYZ19lVUNiWkJHNnl6ZktfX3hwU2JVeGJxbmhkcTRDWTZPSV9CcmU5VnA0aWFBNUtpR3E3TWNBekxFU0ZuNjljNGJESURzS2lYNHhick9maWFnZXdLTU4xX296UGRfNVBRbnV2bG9mQ2NfaDJKdU9TYWpkUk5R?oc=5",
+      "published": "Thu, 05 Nov 2026 16:11:25 GMT",
+      "metrics": {}
+    },
+    {
+      "source": "repository_trend_snapshot",
+      "team": "green-bay-packers",
+      "text": "𝚆𝙰𝚃𝙲𝙷 Green Bay Packers vs. New England Patriots 𝐋𝐈𝐕𝐄 Ｓｔｒｅａｍ Ｆｒｅｅ ＯＮ Ｔｖ Ｃｈａｎｎｅｌ!NFL",
+      "url": "https://news.google.com/rss/articles/CBMi3wJBVV95cUxNSEoxZHNGQTdKS09lX3lwVFNoRThoZzlYaGdkM1FhQWRBY3EwUzY1QVlQYnJDLW1RN29NQmZ0LTBTZ1A3VkdyV3JWUDJnb1dsSC1DUW5vRDhXN3c0eWZhWWVPdTh1Y3hRdFF0dG5uLV9QUjhmVkRCOGgwSWt2a21iU0x6UV8wRWY2NlhZUldHc3A1WGNheTZqODM3dmZ5Y2ZNa0hTZU5WempuVVZlUHA4aFcxZ194VEx6ZHhsWGVWNlUyV0J0MUdpWUdJclpZMTNoalZBZDZ3MnZYVzZ6TUVla21pU3JQN3h3eXEtQzdIU1dEVnI5cEdCRjNrWVBGXzEydFJQM0Z2RWNYMUJtXy1ZTmlERHdXd3VORlAyQ2k3SjFNQkVEdTF5VWxSSWZON21yajhfQ3ZOTlBMOV9VX29reVRzWnpEZWt2bG9Pb25zYzFjVUE1MTNQMkY1WWNrVUE?oc=5",
+      "published": "Sun, 08 Nov 2026 21:19:06 GMT",
+      "metrics": {}
+    },
+    {
+      "source": "repository_trend_snapshot",
+      "team": "green-bay-packers",
+      "text": "Green Bay Packers safety Xavier McKinney picks off Drake Maye's pass on opening drive and returns it for 36 yards",
+      "url": "https://news.google.com/rss/articles/CBMitgFBVV95cUxOZ0F0YTRIVG5ESmZ0cVM1YTl2Zi1LRjl1RHVsVm85NmxIb01tc29ISzFCRlJPMjlzb3VBbDVDdFdweVZnZkVZeklNVUJGM3F1bC1SeHlZbW41MjUzLUd4dUpOQVk3MEhGN1RyWVE1VS0xSGd4ZFVtanVQVHdTSTdjc2F1dHRITGtXbjVjNURpckt4bE9yQVl2SF9VU09Ybm5zRkp6blFLRzFJdE1JRmFWcWwxQnhFdw?oc=5",
+      "published": "Sun, 08 Nov 2026 22:06:09 GMT",
+      "metrics": {}
+    },
+    {
+      "source": "repository_trend_snapshot",
+      "team": "green-bay-packers",
+      "text": "Green Bay Packers give an update on running back Josh Jacobs",
+      "url": "https://news.google.com/rss/articles/CBMinAFBVV95cUxQVlBQeUE5OVJuMUhfeElFWjJzeTRlTUcya2tsUDB3dWxJTWZ6TlVucFNJb2hEU21PSktqSHZFTmtyUi1IdUNsS1lLcmZPZ1F0RWNYZlVNTkU4RWkycW9vUFVWekE2TmctYVFEQ2x3ekZDSXl2aWV5SmQ3MmYxQ2ZVTHJJS0RRQkR6Xzd6MkJ0SldPYU5LcmNMSUxrQnc?oc=5",
+      "published": "Mon, 02 Nov 2026 22:02:00 GMT",
       "metrics": {}
     },
     {
       "source": "repository_trend_snapshot",
       "team": "dallas-cowboys",
-      "text": "Matchups that cost Colts in wild loss to Cowboys, including Sauce Gardner and Jonathan Taylor",
-      "url": "http://www.bing.com/news/apiclick.aspx?ref=FexRss&aid=&tid=6af0f7f2ceb348fc95faf02e16a3e09e&url=https%3a%2f%2fwww.msn.com%2fen-us%2fnews%2fother%2fmatchups-that-cost-colts-in-wild-loss-to-cowboys-including-sauce-gardner-and-jonathan-taylor%2far-AA2h0ODd&c=6621329797793394297&mkt=en-us",
-      "published": "Sun, 08 Nov 2026 13:43:55 GMT",
+      "text": "Game Recap: Dallas shocked in OT, 33-30",
+      "url": "https://news.google.com/rss/articles/CBMifEFVX3lxTE4zS18xWXl1ZkxtUVJMQUZUMkJmRzJKRnJEM24xd0xJTGdxa3p2eURNYVA3a2hrV1FwcU5nMzBxZTFaeXMxQk16R0p6MXY5RlcxS0VKNzlYeW5BYVRyU1lNUHJkSmxGNTluTW1rME5iMTEtWklHckFWNDE3Y3c?oc=5",
+      "published": "Sun, 01 Nov 2026 22:04:20 GMT",
+      "metrics": {}
+    },
+    {
+      "source": "repository_trend_snapshot",
+      "team": "dallas-cowboys",
+      "text": "How to watch the Dallas Cowboys at Indianapolis Colts on November 8, 2026",
+      "url": "https://news.google.com/rss/articles/CBMirgFBVV95cUxNWng3TTJXZ1B2QnBQcW5lYTdXZW5QZUxxRlktTWg1Q2NnSWZ1NW8tSXkxcUNId0U2OTFCVTRjcmNkMjZTLXJsczJNQ1cxOVladTNhRGtUWDNQM0N2UXVtOExxMUUxNDZkYThrdEhtdmlvTnBMaFBaZU9wLWwxdmNweC1NcFVpRU5IUml3TW5QcndMX3NZcVp3Tmw0Q28wc1F6VlJXMnZSODVOUW1oNVE?oc=5",
+      "published": "Sun, 08 Nov 2026 19:36:59 GMT",
+      "metrics": {}
+    },
+    {
+      "source": "repository_trend_snapshot",
+      "team": "dallas-cowboys",
+      "text": "Updates: Downs in concussion protocol",
+      "url": "https://news.google.com/rss/articles/CBMiZkFVX3lxTE41U3JDcmpCb1YyZjBxRFNnV25kSktlMVJ5aEJsX1hhNTFTcHJWdWdTbjF5cFhvQ3ZKZGd4bEdfT0VtT1RobmJwd3ZSbnZzM0c3RnJiTS1kSG5fMUtJWW9qclRUWlZtQQ?oc=5",
+      "published": "Fri, 30 Oct 2026 07:00:00 GMT",
+      "metrics": {}
+    },
+    {
+      "source": "repository_trend_snapshot",
+      "team": "dallas-cowboys",
+      "text": "Dak Prescott calls loss to Cardinals ‘one of the toughest’ in his career",
+      "url": "https://news.google.com/rss/articles/CBMiqAFBVV95cUxNOEFJNDNpeDUyR0tLNkowOGVTbnI5TXdfZV84Y0NyeHdZQVBGcy1xVm96TVBVb2ZicFNLNUlGOG0zUGxfNzh6YnN6dU5yX2dmZ0ZoT2syVDNnUWVLa2hadDcyN3RoclZCejltLVEtemVUdGk5ekxxdXQ2VHZWdFgtTndxOGt3RzU2LU9qQVhFbTIyVlRRQ3BkTFNSNkFQeGZrSkItT1RyaVQ?oc=5",
+      "published": "Mon, 02 Nov 2026 00:42:56 GMT",
+      "metrics": {}
+    },
+    {
+      "source": "repository_trend_snapshot",
+      "team": "dallas-cowboys",
+      "text": "Cowboys offense looking to find their fastball vs. Colts",
+      "url": "https://news.google.com/rss/articles/CBMilAFBVV95cUxOUEhiR2V0ZGVyUno2dlpRTk5BcHA1Q2Rla1RUbzVoY2tjQWNucU5HVmF4aU1yZFZmQVVwNHNOZHA4MThEU3VabW1ma0VyNXRpRUlRREpWWUh1emRtc0RfMjM3ZlZzb3pSUTJ0Ym1icnlDR29uN3VsWThNV0U3aTluYmllaHFmZ1I3S2FSR2F6VjdwRkh2?oc=5",
+      "published": "Thu, 05 Nov 2026 23:23:21 GMT",
+      "metrics": {}
+    },
+    {
+      "source": "repository_trend_snapshot",
+      "team": "dallas-cowboys",
+      "text": "Caleb Downs explains what it will take to break Cardinals curse",
+      "url": "https://news.google.com/rss/articles/CBMinwFBVV95cUxQOE9mcEttRzdVTkJlNmpRWk14aVl4TEUxS2F5ZEVtU0hUTHdLTE5PVDdOdEY0alBTT1JDblVKY3BEcENMLXU1MlNtRkF1ZkJmWmtfbFdQZDZIeVBNWEZUWWNiMm02QmNoTzlwTC1YYXZvVGUzdFFYN3dKcDFpVmtpODVDSGNVTWo1dUlFVWkwVEJDWTNsSGxaNXctX2N4VmM?oc=5",
+      "published": "Fri, 30 Oct 2026 07:00:00 GMT",
+      "metrics": {}
+    },
+    {
+      "source": "repository_trend_snapshot",
+      "team": "dallas-cowboys",
+      "text": "Jerry Jones on Cowboys' defense: 'I like the way we're trending'",
+      "url": "https://news.google.com/rss/articles/CBMimwFBVV95cUxPQWJKQXZFWGE1Sm1OaUVnTkhMX25BU3J2Ml9pam1ueW5vaWVQdS14UHBydVcwS1JIaWQ1RlgwSUQ3ZTV2YVNDQzZIV2xEaVZYXy1Gc3NxWDhyWU44U2pvR0d6dkFxQWNfQmgxT3c0cWxqZGptaTJEeUh5YkcxUXBPbFkzMUJkQzliSEJrUHNDTmJDdXNVMG1ESW5tcw?oc=5",
+      "published": "Tue, 03 Nov 2026 16:15:23 GMT",
+      "metrics": {}
+    },
+    {
+      "source": "repository_trend_snapshot",
+      "team": "dallas-cowboys",
+      "text": "Shemar James explains mindset of Cowboys 'urgent' defense",
+      "url": "https://news.google.com/rss/articles/CBMilAFBVV95cUxOdjAwMC1OcGtwYWJubjhWSVhkOWxWalhnQkxmQ0hQdHJObHJteFIzRVBDR0hRLXUwTFR0QVEwdFRJbjZOUy1CeFJiSHRjNWtZVkM1R1R2Zmw3c3IyczZXNDd5eUROd0hya3otMWNnYUNfay1iR3o5V0RsSDZEWkloNENlQk80WGJFZlZZUEpZRXVNTmZy?oc=5",
+      "published": "Wed, 04 Nov 2026 23:53:54 GMT",
       "metrics": {}
     }
   ],
   "summary": {
-    "connected_sources": [],
-    "item_count": 32
+    "connected_sources": [
+      "google_news"
+    ],
+    "item_count": 112
   }
 }
