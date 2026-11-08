@@ -2040,6 +2040,7 @@ def footer(popup=True, collection=None):
    <div><h2>Brand</h2><a href="/about/">About</a><a class="custom-link" data-placement="footer" href="/#custom-design">Custom Design</a>
     <a href="/guides/">Buying Guides</a><a href="/2026-season/">2026 Season</a>
     <a href="/funny-football-shirts/">Funny Shirts</a><a href="/vintage-football-shirts/">Vintage Shirts</a>
+    <a href="/football-gifts/">Gifts</a>
     <a href="/fan-trend-index/">Fan Trend Index</a></div>
    <div><h2>Compliance</h2><a href="/trademark-notice/">Trademark Notice</a>
     <a href="/privacy/">Privacy Policy</a>
@@ -5698,6 +5699,113 @@ read the <a href="/guides/">buying guides</a> for sizing and garment picks.</p>
                 [vfschema, itemlist("Vintage football shirts", vpicks)])
 
 
+def page_football_gifts():
+    """Shoppable gift landing (Phase 5 'Football Gifts for Fans' collection):
+    shop-by-fan-type grids over the live catalogue, complementing - not
+    duplicating - the editorial gift guide (which organises by budget and
+    advises; this page organises by the fan receiving the gift and sells).
+    Build-time slug resolution: a retired design simply drops out. Honest
+    delivery language only (printed after ordering, no guaranteed dates),
+    no invented gift wrap, cards or stock claims."""
+    by = {it["slug"]: it for it in ALL}
+
+    def grid(slugs):
+        picks = [by[s] for s in slugs if s in by]
+        return f'<div class="grid">{"".join(card(i) for i in picks)}</div>'
+
+    groups = [
+        ("Gifts for Cleveland Browns fans", [
+            "sunday-funday", "dawg-life",
+            "limited-edition-cleveland-football-beware-of-the-dawgs",
+            "cleveland-football-est-1946", "the-wall"],
+         "/cleveland-browns-shirts/", "all Browns designs"),
+        ("Gifts for Michigan fans", [
+            "limited-edition-go-blue", "michigan-revenge-tour", "legacy",
+            "second-act", "respond-nothing-given-everything-earned"],
+         "/michigan-wolverines-shirts/", "all Michigan designs"),
+        ("Gifts for Green Bay Packers fans", [
+            "limited-edition-grb2", "limited-edition-grb33",
+            "limited-edition-grb32", "limited-edition-grb35",
+            "limited-edition-grb31"],
+         "/green-bay-packers-shirts/", "all Packers designs"),
+        ("Gifts for Dallas Cowboys fans", [
+            "doomsday-defense-tee", "dallas-football-vintage-style-tee",
+            "vintage-texas-pride", "girly-vintage-texas-pride"],
+         "/dallas-cowboys-shirts/", "all Cowboys designs"),
+    ]
+    blocks = ""
+    for h3, slugs, href, label in groups:
+        blocks += (f'<h2>{esc(h3)}</h2>\n{grid(slugs)}\n'
+                   f'<p><a href="{href}">See {label} &rarr;</a></p>\n')
+    faqs = [
+        ("What makes a good football gift?",
+         "Match the gift to the fan, not the standings: a Browns fan laughs at Dawg "
+         "Pound wit, a Michigan fan wears the rivalry, a Packers fan takes the cheese "
+         "jokes. If you know their team but not their humor, the vintage-style "
+         '<a href="/vintage-football-shirts/">classic designs</a> are the safest bet. '
+         "The <a href=\"/guides/football-fan-gift-guide-2026/\">budget gift guide</a> "
+         "has the longer version."),
+        ("Can you deliver by a specific game or holiday date?",
+         "No promises - and anyone who guarantees a date on printed-to-order gear is "
+         "guessing. Printing starts after the order and shipping time depends on the "
+         "address; the partner's checkout shows the live estimate. Order as early as "
+         "you can and the odds are firmly in your favor."),
+        ("What size should I gift?",
+         "Each product page lists the sizes that design actually offers - most run "
+         "S-5XL on unisex tees. When in doubt between two sizes, size up: relaxed "
+         "fits better as a gift. The "
+         '<a href="/size-guide/">size guide</a> has garment measurements.'),
+        ("Are these officially licensed team products?",
+         "No. Everything here is original, fan-created artwork made by fans for fans - "
+         "team and city names appear as text, never official marks. The full story is "
+         'in the <a href="/trademark-notice/">trademark notice</a>.'),
+    ]
+    ffhtml = "".join(f"<h3>{esc(q)}</h3>\n<p>{a}</p>" for q, a in faqs)
+    ffschema = {"@context": "https://schema.org", "@type": "FAQPage",
+                "mainEntity": [{"@type": "Question", "name": q,
+                                "acceptedAnswer": {"@type": "Answer", "text": a}}
+                               for q, a in faqs]}
+    ilist = {"@context": "https://schema.org", "@type": "ItemList",
+             "name": "Football gifts for fans",
+             "itemListElement": [
+                 {"@type": "ListItem", "position": n,
+                  "url": abs_url(by[s]["url"])}
+                 for n, s in enumerate(
+                     [s for g in groups for s in g[1] if s in by], 1)]}
+    body = f"""
+<p>Gifts for football fans, sorted by the person you are buying for. Every pick below
+is a live design with a real price, fan-made and printed on demand after you order -
+no warehouses, no gift-wrap promises, no mystery. Buying on a budget? The
+<a href="/guides/football-fan-gift-guide-2026/\">2026 gift guide</a> organises picks
+by price instead of person.</p>
+{blocks}
+<h2>Gifts for the funny fan and the vintage fan</h2>
+<p>Some fans are defined by their humor, not just their team - start at
+<a href="/funny-football-shirts/">Funny Football Shirts</a>. Others want something
+that looks like it has been in the family since the stadium was built - start at
+<a href="/vintage-football-shirts/">Vintage Football Shirts</a>. Both pages ship the
+same honest way: original artwork, printed to order, worldwide shipping with
+tracking.</p>
+<h2>Gifting FAQ</h2>
+{ffhtml}
+"""
+    path = "/football-gifts/"
+    cb, cbs = crumbs([("Home", "/"), ("Football Gifts for Fans", None)], path)
+    URLS.append((DOMAIN + path, "0.8", "weekly"))
+    write("football-gifts/index.html",
+          head("Football Gifts for Fans | " + BRAND,
+               "Football gifts for fans - Cleveland, Green Bay, Dallas and Michigan "
+               "picks from funny tees to vintage classics. Fan-made, printed on "
+               "demand, sizes S-5XL.",
+               path, "/img/hero-home.jpg?v=5", [cbs, ffschema, ilist],
+               ["football gifts", "gifts for football fans", "browns gift ideas",
+                "michigan gift ideas", "packers gifts", "game day gifts"])
+          + header() + cb + f"""<main id="main"><section style="padding-top:6px">
+<div class="wrap prose">
+ <h1>Football Gifts for Fans</h1>{body}
+</div></section></main>""" + footer())
+
+
 GIFT_GUIDE_PATH = "/guides/football-fan-gift-guide-2026/"
 
 
@@ -5994,7 +6102,11 @@ def page_guides():
                     '<a href="/vintage-football-shirts/">Vintage Football Shirts</a></h3>'
                     '<p class="muted" style="margin:0">The shoppable old-school page: heritage '
                     'years, retro athletic type and classic program-cover vibes.</p></div>')
-    cards = week1_card + second_act_card + vs_card + gift_card + funny_card + vintage_card
+    gifts_card = ('<div class="panel" style="margin-bottom:14px"><h3>'
+                  '<a href="/football-gifts/">Football Gifts for Fans</a></h3>'
+                  '<p class="muted" style="margin:0">The shoppable gift page: picks '
+                  'sorted by the fan you are buying for, across all four teams.</p></div>')
+    cards = week1_card + second_act_card + vs_card + gift_card + funny_card + vintage_card + gifts_card
     for k in ORDER:
         c = COLLECTIONS[k]
         cards += (f'<div class="panel" style="margin-bottom:14px"><h3><a href="/guides/{c["slug"]}-buying-guide/">'
@@ -8683,6 +8795,7 @@ def main():
     page_gift_guide()
     page_how_ordering()
     page_vibe_pages()
+    page_football_gifts()
     page_season()
     page_fti()
     page_drops()
