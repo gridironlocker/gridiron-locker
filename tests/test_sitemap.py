@@ -145,7 +145,9 @@ class SitemapDates(unittest.TestCase):
         # pass COMPETITOR-SEO-STRATEGY-2026-11-08.md).
         # 2026-11-08b: 132 -> 133 - /football-gifts/ (Phase 5 gift
         # collection landing, master execution pass).
-        self.assertEqual(len(self.rows), 133)
+        # 2026-11-08c: 133 -> 137 - four team gift guides under /guides/
+        # (Phase 8 buyer-intent content, improvement pass).
+        self.assertEqual(len(self.rows), 137)
         self.assertEqual(len(self.rows), len(set(self.rows)))
         for url, lastmod in self.rows.items():
             self.assertTrue(url.startswith(build.DOMAIN + "/"), url)

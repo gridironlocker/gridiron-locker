@@ -662,11 +662,23 @@ class TeamCollectionPages(unittest.TestCase):
             self.assertLessEqual(len(pos), 60, k)
 
     def test_hero_images_and_seo_preserved(self):
+        # 2026-11-08: titles may come from an APPROVED override in
+        # data/seo/overrides.json (the sanctioned mechanism, history-tracked)
+        # instead of the catalogue name. First such case: the Green Bay hub
+        # title test (seo-gbtitle-20261108, weak-CTR title, user-approved
+        # improvement pass). The pin stays strong: the rendered title must
+        # match exactly one known-good source.
+        import json
+        ov_path = os.path.join(os.path.dirname(__file__), "..", "data",
+                               "seo", "overrides.json")
+        overrides = json.load(open(ov_path)).get("pages", {})
         for k, html in self.pages.items():
             c = COLLECTIONS[k]
             self.assertIn(os.path.basename(c["hero"]), html, k)
             self.assertIn(f'<link rel="canonical" href="https://gridironlocker.store/{c["slug"]}/">', html)
-            self.assertIn(f"<title>{c['name']} | Gridiron Locker</title>", html)
+            ent = overrides.get(f"/{c['slug']}/") or {}
+            expected_title = ent.get("title") or f"{c['name']} | Gridiron Locker"
+            self.assertIn(f"<title>{expected_title}</title>", html, k)
             self.assertIn('<meta name="description"', html)
             self.assertIn('"@type":"CollectionPage"', html)
             self.assertIn('"@type":"FAQPage"', html)
