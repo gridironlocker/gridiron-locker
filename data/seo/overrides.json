@@ -218,6 +218,18 @@
       "id": "seo-countfix-20261108",
       "path": "/",
       "type": "stale_fact_fix"
+    },
+    {
+      "after": {
+        "title": "Green Bay Packers Shirts | Gridiron Locker"
+      },
+      "at": "2026-11-08T23:55:00Z",
+      "before": {
+        "title": "Green Bay Packers Fan Shirts | Gridiron Locker"
+      },
+      "id": "seo-gbtitle-20261108",
+      "path": "/green-bay-packers-shirts/",
+      "type": "weak_ctr_title_test"
     }
   ],
   "pages": {
@@ -249,6 +261,14 @@
     "/fan-trend-index/": {
       "change_id": "seo-weakctr-20261108",
       "meta_description": "The Fan Trend Index scores who football fans are actually talking about - 0 to 100 across Cleveland, Green Bay, Dallas and Michigan. Built from live signals."
+    },
+    "/green-bay-packers-shirts/": {
+      "change_id": "seo-gbtitle-20261108",
+      "og_title": "Green Bay Packers Shirts | Gridiron Locker",
+      "reason": "GSC: 121 impressions at pos 33.9 with 0 clicks; top query \"green bay packers shirt\" (41 impr). Exact head-term phrase first, user-approved improvement pass 2026-11-08.",
+      "title": "Green Bay Packers Shirts | Gridiron Locker",
+      "type": "weak_ctr_title_test",
+      "updated_at": "2026-11-08T23:55:00Z"
     },
     "/guides/": {
       "change_id": "seo-weakctr-20261108",
@@ -296,5 +316,5 @@
     }
   },
   "schema_version": 1,
-  "updated": "2026-11-08"
+  "updated": "2026-11-08T23:55:00Z"
 }

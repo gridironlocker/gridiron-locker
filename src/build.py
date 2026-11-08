@@ -5775,8 +5775,13 @@ def page_football_gifts():
     body = f"""
 <p>Gifts for football fans, sorted by the person you are buying for. Every pick below
 is a live design with a real price, fan-made and printed on demand after you order -
-no warehouses, no gift-wrap promises, no mystery. Buying on a budget? The
-<a href="/guides/football-fan-gift-guide-2026/\">2026 gift guide</a> organises picks
+no warehouses, no gift-wrap promises, no mystery. Want deeper picks by team
+personality? Read the team gift guides: <a
+href="/guides/gifts-for-cleveland-browns-fans/">Browns</a>, <a
+href="/guides/michigan-wolverines-gift-ideas/">Michigan</a>, <a
+href="/guides/green-bay-packers-gift-ideas/">Packers</a> and <a
+href="/guides/dallas-cowboys-gift-ideas/">Dallas</a>. Buying on a budget? The
+<a href="/guides/football-fan-gift-guide-2026/">2026 gift guide</a> organises picks
 by price instead of person.</p>
 {blocks}
 <h2>Gifts for the funny fan and the vintage fan</h2>
@@ -5804,6 +5809,258 @@ tracking.</p>
 <div class="wrap prose">
  <h1>Football Gifts for Fans</h1>{body}
 </div></section></main>""" + footer())
+
+
+def page_team_gift_guides():
+    """Team-by-team gift guides (Phase 8 content calendar, buyer-intent
+    long-tails: 'gifts for cleveland browns fans', 'michigan wolverines gift
+    ideas', ...). Archetype-led - distinct from the budget-led gift guide and
+    the shop-by-fan /football-gifts/ grid. Picks resolve from the live
+    catalogue at build time; copy never invents prices, dates or stock."""
+    by = {it["slug"]: it for it in ALL}
+
+    def grid(slugs):
+        picks = [by[s] for s in slugs if s in by]
+        return f'<div class="grid">{"".join(card(i) for i in picks)}</div>'
+
+    guides = [
+        {
+            "slug": "guides/gifts-for-cleveland-browns-fans",
+            "title": "Best Gifts for Cleveland Browns Fans",
+            "meta": ("Best gifts for Cleveland Browns fans: Dawg Pound shirts, "
+                     "vintage 1946 tees and Sunday Funday picks. Fan-made "
+                     "designs, printed on demand, sizes S-5XL."),
+            "team": "Browns",
+            "intro": ("A Browns fan does not need another bandwagon gift. They need "
+                      "something that says <em>I was there for the 1-31 years and I "
+                      "am still here</em>. These picks are sorted by the kind of "
+                      "Browns fan you are buying for - the lifer, the Sunday "
+                      "ritualist, the history buff and the eternal optimist."),
+            "archetypes": [
+                ("For the Dawg Pound lifer",
+                 "Loud, loyal, and fluent in the Dawg Pound vocabulary. These are "
+                 "the designs that read as membership cards in the muni lot.",
+                 ["dawg-life", "limited-edition-cleveland-football-beware-of-the-dawgs",
+                  "be-awar-of-dawg", "dwag"]),
+                ("For the Sunday ritualist",
+                 "The fan whose week bends around the game. Sunday Funday energy, "
+                 "Victory Monday hopes.",
+                 ["sunday-funday", "limited-edition-cleveland-football-copy",
+                  "cleveland-victory-monday"]),
+                ("For the history buff",
+                 "1946 is not just a year - it is the whole personality. Heritage "
+                 "lettering and classic script for the fan who knows the AAFC "
+                 "chapter by heart.",
+                 ["cleveland-football-est-1946", "classic-1946",
+                  "cleveland-1946-tshirt"]),
+                ("For the eternal optimist",
+                 "Playoffs talk starts in August in this house. Belief slogans for "
+                 "the fan who always thinks this is the year.",
+                 ["playoffs", "go-browns", "make-them-know-your-name", "the-wall"]),
+            ],
+            "faqs": [
+                ("What size should I buy as a gift?",
+                 "Most designs print on unisex tees in sizes S-5XL - each product "
+                 "page lists exactly what that design offers. If the fan is between "
+                 "sizes, size up: relaxed reads better as a gift. The "
+                 '<a href="/size-guide/">size guide</a> has garment measurements.'),
+                ("Is Browns gear like this officially licensed?",
+                 "No - and that is the point. Everything here is original, "
+                 "fan-created artwork: team and city names appear as text, never "
+                 'official marks. The <a href="/trademark-notice/">trademark '
+                 'notice</a> explains the stance.'),
+                ("When should I order for the holidays?",
+                 "Everything is printed after the order, so order as early as you "
+                 "can - nobody can honestly guarantee a delivery date on "
+                 "print-on-demand gear. The partner checkout shows the live "
+                 "shipping estimate for the address."),
+            ],
+        },
+        {
+            "slug": "guides/michigan-wolverines-gift-ideas",
+            "title": "Michigan Wolverines Gift Ideas",
+            "meta": ("Michigan Wolverines gift ideas for every kind of fan - Go "
+                     "Blue classics, rivalry tees and belief slogans. Fan-made "
+                     "designs, printed on demand, sizes S-5XL."),
+            "team": "Michigan",
+            "intro": ("Michigan fans run on belief and rivalry. The right gift lands "
+                      "the specific frequency of the fan you are buying for - the "
+                      "Go Blue classicist, the rivalry historian, the believer, or "
+                      "the fan reliving the greatest moments in the program's "
+                      "memory. (Shopping near the November rivalry game? Order "
+                      "early - the whole sport does.)"),
+            "archetypes": [
+                ("For the Go Blue classicist",
+                 "Maize and blue, no explanation needed. The designs that look "
+                 "right at the Big House, at a watch party, or at a graduation "
+                 "brunch in Ann Arbor.",
+                 ["limited-edition-go-blue", "maize-out", "michigan"]),
+                ("For the rivalry historian",
+                 "'Vs Everybody' energy in wearable form - for the fan whose "
+                 "favorite holiday is the last Saturday in November.",
+                 ["m-vs-everybody", "michigan-v-everybody", "michigan-revenge-tour"]),
+                ("For the believer",
+                 "The mantra shelf: nothing given, everything earned, second acts "
+                 "and bet-on-yourself energy.",
+                 ["respond-nothing-given-everything-earned", "legacy", "second-act",
+                  "michigan-bet", "bet-m"]),
+                ("For the moment fan",
+                 "The plays that still get brought up at every tailgate - rendered "
+                 "as slogans and numbers, never as official broadcasts.",
+                 ["limited-edition-h-a-i-l-mary", "one-second", "bryce-19"]),
+            ],
+            "faqs": [
+                ("What makes a good Michigan gift over a generic one?",
+                 "Phrasing. Michigan fans respond to the specific language of the "
+                 "fanbase - Go Blue, Vs Everybody, the belief slogans - not a "
+                 "generic block M. Every pick above carries that language as "
+                 "original artwork."),
+                ("Do you have Michigan gear for women?",
+                 "Several designs print on women's and relaxed-fit garments as "
+                 "well as unisex tees - the product page shows every garment style "
+                 "available for that design, and the "
+                 '<a href="/size-guide/">size guide</a> covers measurements.'),
+                ("Can something arrive before the rivalry game?",
+                 "No honest store guarantees that on printed-to-order gear. "
+                 "Production plus shipping is address-dependent; the partner "
+                 "checkout shows the live estimate. Order weeks ahead, not days."),
+            ],
+        },
+        {
+            "slug": "guides/green-bay-packers-gift-ideas",
+            "title": "Green Bay Packers Gift Ideas",
+            "meta": ("Green Bay Packers gift ideas - cheesehead humor, Sunday "
+                     "Funday tailgate tees and vintage 1919 designs. Fan-made, "
+                     "printed on demand, sizes S-5XL."),
+            "team": "Packers",
+            "intro": ("Packers fandom is a lifestyle with its own food groups - "
+                      "cheese, beer and frozen tundra. The picks below are sorted "
+                      "by the kind of Packers fan you are buying for, from the "
+                      "cheesehead comedian to the 10VE believer."),
+            "archetypes": [
+                ("For the cheesehead comedian",
+                 "The fan who has leaned all the way in. Cheese beer, game-day "
+                 "cheeseheads and heart-shaped cheese - a couple of these print on "
+                 "mugs and beanies too, which is as close to a cheat code as "
+                 "gift shopping gets.",
+                 ["limited-edition-grb7", "limited-edition-grb28",
+                  "limited-edition-grb8", "limited-edition-grb32",
+                  "limited-edition-grb35"]),
+                ("For the Sunday tailgater",
+                 "Make Me Drink energy - the fan whose tailgate has a soundtrack "
+                 "and a theme. Sunday Funday designs for the ritual crowd.",
+                 ["limited-edition-grb2", "limited-edition-grb20",
+                  "limited-edition-grb21"]),
+                ("For the vintage lover",
+                 "Est. 1919 lettering and retro stacked type for the fan who "
+                 "treats the franchise like a century-long story - because it is.",
+                 ["limited-edition-grb16", "limited-edition-grb13",
+                  "limited-edition-grb12"]),
+                ("For the 10VE believer",
+                 "The number says everything. Helmet graphics, flag numbers and "
+                 "one warm hoodie for the cold months.",
+                 ["limited-edition-grb33", "limited-edition-grb30",
+                  "limited-edition-grb31"]),
+            ],
+            "faqs": [
+                ("What do Packers fans actually want as gifts?",
+                 "Humor that shows you know the culture beats generic green and "
+                 "gold every time. Cheesehead wit, Sunday Funday tailgate humor "
+                 "and 1919 heritage covers almost every Packers personality."),
+                ("Any gift that is not a t-shirt?",
+                 "Yes - a couple of designs in this guide print on mugs and "
+                 "knit beanies, and several print on hoodies and sweatshirts. "
+                 "Each product page lists the full garment range for that design."),
+                ("Is this officially licensed Packers merchandise?",
+                 "No. It is original fan artwork - names and cities appear as "
+                 "text only, never official logos. Full details in the "
+                 '<a href="/trademark-notice/">trademark notice</a>.'),
+            ],
+        },
+        {
+            "slug": "guides/dallas-cowboys-gift-ideas",
+            "title": "Dallas Cowboys Gift Ideas",
+            "meta": ("Dallas Cowboys gift ideas for the Texas-proud fan - "
+                     "Doomsday Defense, vintage 1960 helmet tees and flag "
+                     "pride. Fan-made, printed on demand, sizes S-5XL."),
+            "team": "Cowboys",
+            "intro": ("Cowboys fandom runs bigger than football - it is Texas "
+                      "itself. The safest gifts lean into that: defense-section "
+                      "mythology, vintage helmet glory and Lone Star pride. The "
+                      "locker here is deliberately tight; every design earns its "
+                      "place."),
+            "archetypes": [
+                ("For the defense-section loyalist",
+                 "Doomsday is a promise, not a slogan. For the fan who watches "
+                 "the game from behind the couch on third down.",
+                 ["doomsday-defense-tee"]),
+                ("For the Texas-proud fan",
+                 "Flag pride and state swagger - designs where the star is a "
+                 "lone star of the state kind.",
+                 ["vintage-texas-pride", "dallas-flag-tee", "vintage-country"]),
+                ("For the vintage fan",
+                 "1960 helmet line work and lightning-star retro graphics: the "
+                 "look of programs and pennants from the early dynasty years.",
+                 ["dallas-football-vintage-style-tee",
+                  "dallas-football-vintage-athletic-style-f",
+                  "dallas-texas-vintage-athletic-style-t-sh",
+                  "dallas-texas-vintage-athletic-sports"]),
+                ("For the fan who likes it girly",
+                 "Retro-glam team spirit - the design that pairs with game-day "
+                 "jewelry rather than replacing it.",
+                 ["girly-vintage-texas-pride"]),
+            ],
+            "faqs": [
+                ("What is a good Cowboys gift that is not another star logo tee?",
+                 "Vintage-athletic designs and Texas pride pieces. They read as "
+                 "style first and fandom second, which is exactly why people who "
+                 "'already have enough Cowboys stuff' still wear them."),
+                ("Do the vintage Dallas designs come in women's sizes?",
+                 "Several designs print on women's fits - check the product page "
+                 "for that design's full garment and size list before ordering."),
+                ("How fast can a gift ship?",
+                 "Printing starts after the order; shipping time depends on the "
+                 "destination. The partner checkout shows the live estimate - we "
+                 "do not make delivery promises nobody can keep."),
+            ],
+        },
+    ]
+    tail = ('<h2>More gift help</h2>\n<p>Shopping by budget instead of by team? The '
+            '<a href="/guides/football-fan-gift-guide-2026/">2026 football fan gift '
+            'guide</a> sorts picks by price. Prefer to browse by vibe? Start with '
+            '<a href="/funny-football-shirts/">Funny Football Shirts</a>, '
+            '<a href="/vintage-football-shirts/">Vintage Football Shirts</a> or the '
+            'full <a href="/football-gifts/">Football Gifts</a> shop page. Other '
+            'teams: '
+            + " · ".join(
+                f'<a href="/{g["slug"]}/">{esc(g["team"])} gift guide</a>'
+                for g in guides)
+            + '.</p>')
+    for n, g in enumerate(guides):
+        blocks = ""
+        for h2, blurb, slugs in g["archetypes"]:
+            blocks += (f'<h2>{esc(h2)}</h2>\n<p>{blurb}</p>\n{grid(slugs)}\n')
+        others = "".join(
+            f'<h3>{esc(o["title"])}</h3>\n<p><a href="/{o["slug"]}/">{esc(o["title"])} '
+            '&rarr;</a></p>' for o in guides if o is not g)
+        faq_html = "".join(f"<h3>{esc(q)}</h3>\n<p>{a}</p>" for q, a in g["faqs"])
+        faq_schema = {"@context": "https://schema.org", "@type": "FAQPage",
+                      "mainEntity": [{"@type": "Question", "name": q,
+                                      "acceptedAnswer": {"@type": "Answer",
+                                                         "text": a}}
+                                     for q, a in g["faqs"]]}
+        picks = [by[s] for a in g["archetypes"] for s in a[2] if s in by]
+        ilist = {"@context": "https://schema.org", "@type": "ItemList",
+                 "name": g["title"],
+                 "itemListElement": [
+                     {"@type": "ListItem", "position": n2,
+                      "url": abs_url(p["url"])}
+                     for n2, p in enumerate(picks, 1)]}
+        body = (f'<p>{g["intro"]}</p>\n{blocks}\n'
+                f'<h2>{esc(g["team"])} gift FAQ</h2>\n{faq_html}\n{tail}\n'
+                f'<h2>Other team gift guides</h2>\n{others}')
+        simple_page(g["slug"], g["title"], g["meta"], g["title"], body, "0.7",
+                    [faq_schema, ilist], crumb_label=g["title"])
 
 
 GIFT_GUIDE_PATH = "/guides/football-fan-gift-guide-2026/"
@@ -6106,7 +6363,30 @@ def page_guides():
                   '<a href="/football-gifts/">Football Gifts for Fans</a></h3>'
                   '<p class="muted" style="margin:0">The shoppable gift page: picks '
                   'sorted by the fan you are buying for, across all four teams.</p></div>')
-    cards = week1_card + second_act_card + vs_card + gift_card + funny_card + vintage_card + gifts_card
+    team_gift_cards = "".join(
+        f'<div class="panel" style="margin-bottom:14px"><h3>'
+        f'<a href="/guides/{s}/">{t}</a></h3>'
+        f'<p class="muted" style="margin:0">{d}</p></div>'
+        for s, t, d in [
+            ("gifts-for-cleveland-browns-fans",
+             "Best Gifts for Cleveland Browns Fans",
+             "Gift picks by the kind of Browns fan: Dawg Pound lifer, Sunday "
+             "ritualist, history buff, eternal optimist."),
+            ("michigan-wolverines-gift-ideas",
+             "Michigan Wolverines Gift Ideas",
+             "Go Blue classics, rivalry tees and belief slogans, sorted by fan "
+             "personality."),
+            ("green-bay-packers-gift-ideas",
+             "Green Bay Packers Gift Ideas",
+             "Cheesehead humor, tailgate picks and vintage 1919 designs for "
+             "every kind of Packers fan."),
+            ("dallas-cowboys-gift-ideas",
+             "Dallas Cowboys Gift Ideas",
+             "Doomsday Defense, Texas flag pride and vintage helmet styles for "
+             "the Texas-proud fan."),
+        ])
+    cards = (week1_card + second_act_card + vs_card + gift_card + funny_card
+             + vintage_card + gifts_card + team_gift_cards)
     for k in ORDER:
         c = COLLECTIONS[k]
         cards += (f'<div class="panel" style="margin-bottom:14px"><h3><a href="/guides/{c["slug"]}-buying-guide/">'
@@ -8796,6 +9076,7 @@ def main():
     page_how_ordering()
     page_vibe_pages()
     page_football_gifts()
+    page_team_gift_guides()
     page_season()
     page_fti()
     page_drops()
