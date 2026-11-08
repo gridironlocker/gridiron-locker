@@ -140,7 +140,10 @@ class SitemapDates(unittest.TestCase):
         # Vs Everybody editorial guide) joined the sitemap.
         # 2026-11-05: 131 -> 130 - limited-edition-grb25 retired (its
         # product page became a moved-page stub, 95 live designs).
-        self.assertEqual(len(self.rows), 130)
+        # 2026-11-08: 130 -> 132 - /funny-football-shirts/ and
+        # /vintage-football-shirts/ (shoppable theme pages, competitor-gap
+        # pass COMPETITOR-SEO-STRATEGY-2026-11-08.md).
+        self.assertEqual(len(self.rows), 132)
         self.assertEqual(len(self.rows), len(set(self.rows)))
         for url, lastmod in self.rows.items():
             self.assertTrue(url.startswith(build.DOMAIN + "/"), url)

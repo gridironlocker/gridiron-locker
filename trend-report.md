@@ -1,6 +1,6 @@
 # Hunt Report - 2026-11-08
 
-Generated: 2026-11-08 22:31 UTC by src/hunter_intelligence.py
+Generated: 2026-11-08 22:49 UTC by src/hunter_intelligence.py
 
 Ladder: SIGNAL 0 · TREND 0 · OPPORTUNITY 0 · ACTION 0 · HEADLINE 5
 
