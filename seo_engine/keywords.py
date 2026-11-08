@@ -709,23 +709,24 @@ def _uniquify(out: dict) -> None:
     for slug in sorted(out):
         e = out[slug]
         title = e["listing_title"]
-        if title not in seen:
-            seen[title] = slug
+        key = title.casefold()   # Google folds case: "CLE" == "Cle"
+        if key not in seen:
+            seen[key] = slug
             continue
         base, _, g = title.rpartition(" ")
         for v in _GARMENT_VARIANTS.get(g, []):
             cand = f"{base} {v}"
-            if cand not in seen:
-                seen[cand] = slug
+            if cand.casefold() not in seen:
+                seen[cand.casefold()] = slug
                 e["listing_title"] = cand
                 break
         else:
             cand = f"{title} Design"
             n = 2
-            while cand in seen:
+            while cand.casefold() in seen:
                 cand = f"{title} Design {n}"
                 n += 1
-            seen[cand] = slug
+            seen[cand.casefold()] = slug
             e["listing_title"] = cand
 
 
