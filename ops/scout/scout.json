@@ -2,7 +2,7 @@
  "generated": "2026-11-08",
  "window_days": 10,
  "fti_formula": "round(100 * entity_mentions / peak_mentions_in_window)",
- "peak_mentions": 45,
+ "peak_mentions": 47,
  "stats": {
   "products": 95,
   "collections": 4,
@@ -19,7 +19,7 @@
  "fti_rows": [
   {
    "name": "shedeur sanders",
-   "mentions": 45,
+   "mentions": 47,
    "index": 100,
    "status": "trending",
    "gap": false,
@@ -28,35 +28,35 @@
   },
   {
    "name": "kyle whittingham",
-   "mentions": 15,
-   "index": 33,
+   "mentions": 16,
+   "index": 34,
    "status": "trending",
    "gap": true,
    "shoppable": false,
    "collection": "michigan"
   },
   {
-   "name": "deshaun watson",
-   "mentions": 12,
-   "index": 27,
-   "status": "trending",
-   "gap": true,
-   "shoppable": false,
-   "collection": "cleveland-browns"
-  },
-  {
    "name": "dak prescott",
-   "mentions": 10,
-   "index": 22,
+   "mentions": 11,
+   "index": 23,
    "status": "trending",
    "gap": true,
    "shoppable": false,
    "collection": "dallas-cowboys"
   },
   {
+   "name": "deshaun watson",
+   "mentions": 10,
+   "index": 21,
+   "status": "trending",
+   "gap": true,
+   "shoppable": false,
+   "collection": "cleveland-browns"
+  },
+  {
    "name": "jordan love",
    "mentions": 10,
-   "index": 22,
+   "index": 21,
    "status": "trending",
    "gap": false,
    "shoppable": true,
@@ -105,6 +105,15 @@
    "status": "trending",
    "gap": true,
    "shoppable": false,
+   "collection": "cleveland-browns"
+  },
+  {
+   "name": "myles garrett",
+   "mentions": 2,
+   "index": 4,
+   "status": "steady",
+   "gap": false,
+   "shoppable": true,
    "collection": "cleveland-browns"
   },
   {
@@ -162,15 +171,6 @@
    "collection": "cleveland-browns"
   },
   {
-   "name": "myles garrett",
-   "mentions": 0,
-   "index": 0,
-   "status": "quiet",
-   "gap": false,
-   "shoppable": true,
-   "collection": "cleveland-browns"
-  },
-  {
    "name": "robert tonyan",
    "mentions": 0,
    "index": 0,
@@ -183,30 +183,30 @@
  "gaps": [
   {
    "name": "kyle whittingham",
-   "mentions": 15,
-   "index": 33,
+   "mentions": 16,
+   "index": 34,
    "status": "trending",
    "gap": true,
    "shoppable": false,
    "collection": "michigan"
   },
   {
-   "name": "deshaun watson",
-   "mentions": 12,
-   "index": 27,
-   "status": "trending",
-   "gap": true,
-   "shoppable": false,
-   "collection": "cleveland-browns"
-  },
-  {
    "name": "dak prescott",
-   "mentions": 10,
-   "index": 22,
+   "mentions": 11,
+   "index": 23,
    "status": "trending",
    "gap": true,
    "shoppable": false,
    "collection": "dallas-cowboys"
+  },
+  {
+   "name": "deshaun watson",
+   "mentions": 10,
+   "index": 21,
+   "status": "trending",
+   "gap": true,
+   "shoppable": false,
+   "collection": "cleveland-browns"
   },
   {
    "name": "josh jacobs",
@@ -250,8 +250,8 @@
    "gaps": [
     {
      "name": "deshaun watson",
-     "mentions": 12,
-     "index": 27,
+     "mentions": 10,
+     "index": 21,
      "status": "trending",
      "gap": true,
      "shoppable": false,
@@ -270,12 +270,12 @@
    "top_terms": [
     "browns",
     "cleveland",
-    "orleans",
     "sanders",
+    "orleans",
     "shedeur",
     "overtime",
     "yard",
-    "watch"
+    "loss"
    ],
    "headline_count": 100,
    "headlines": [
@@ -298,16 +298,16 @@
      "pub": "Sun, 08 Nov 2026 21:34:00 GMT"
     },
     {
-     "title": "Cleveland Browns news: Culture changers, injuries, QB talk, and more!",
-     "url": "https://news.google.com/rss/articles/CBMivAFBVV95cUxQbExQTTBpRmI2NmdBWU9QN1ZnQ29Hd0QwbnVoSEZBN1hHYm14TldyTi1yYUxyWlZXdDM0UGpIU3J3WlJtRzlnSkRGZVByOHpjeGpsRUdlNkVHaGxjU1ZidThCbGp4Nl8zSUtoRHZ1MzlaQ2E5aVdlZEwtU2d0ZS1JS1d1ellQckNoY2M3ZFZjX2Rpd1dMdDlQTWFVbVFOMjlXZFZOYmdraXlpWElscDJzeVZqeFJtSXNlTjJaYQ?oc=5",
-     "source": "Dawgs By Nature",
-     "pub": "Fri, 06 Nov 2026 11:00:00 GMT"
-    },
-    {
      "title": "Can't-Miss Play: 64-yard TD! Shedeur Sanders and KC Concepcion stun Saints in fourth quarter",
      "url": "https://news.google.com/rss/articles/CBMiuAFBVV95cUxPM0EtbDRQYnpCUVJDZFl1dkRBTEljWTR6dWZVSnc3QU1HbS10QXV0ZDI2ekY5OVJOU1VjbTIwMmxEUWI0cm5UVTgySHlTVWNsUWJkRjYyVWFPRWxyVlpUYi1FcHFuWVRjbXlyamsxeTRKaTFHcXgtOTVqc1g0MmVFcVctTTRxMlNPTmI5ZzJhdEJSRFZzUk5tQVlNcXJVNVJEbllFLV9XLWxCQ085WEJrOXBpT3R1WUZf?oc=5",
      "source": "NFL.com",
      "pub": "Sun, 08 Nov 2026 20:54:29 GMT"
+    },
+    {
+     "title": "Cleveland Browns news: Culture changers, injuries, QB talk, and more!",
+     "url": "https://news.google.com/rss/articles/CBMivAFBVV95cUxQbExQTTBpRmI2NmdBWU9QN1ZnQ29Hd0QwbnVoSEZBN1hHYm14TldyTi1yYUxyWlZXdDM0UGpIU3J3WlJtRzlnSkRGZVByOHpjeGpsRUdlNkVHaGxjU1ZidThCbGp4Nl8zSUtoRHZ1MzlaQ2E5aVdlZEwtU2d0ZS1JS1d1ellQckNoY2M3ZFZjX2Rpd1dMdDlQTWFVbVFOMjlXZFZOYmdraXlpWElscDJzeVZqeFJtSXNlTjJaYQ?oc=5",
+     "source": "Dawgs By Nature",
+     "pub": "Fri, 06 Nov 2026 11:00:00 GMT"
     }
    ],
    "fti_count": 7
@@ -325,8 +325,8 @@
    "gaps": [
     {
      "name": "dak prescott",
-     "mentions": 10,
-     "index": 22,
+     "mentions": 11,
+     "index": 23,
      "status": "trending",
      "gap": true,
      "shoppable": false,
@@ -346,11 +346,11 @@
     "cowboys",
     "dallas",
     "indianapolis",
-    "pickens",
     "time",
+    "pickens",
     "yard",
-    "george",
-    "highlights"
+    "highlights",
+    "george"
    ],
    "headline_count": 100,
    "headlines": [
@@ -466,8 +466,8 @@
    "gaps": [
     {
      "name": "kyle whittingham",
-     "mentions": 15,
-     "index": 33,
+     "mentions": 16,
+     "index": 34,
      "status": "trending",
      "gap": true,
      "shoppable": false,
@@ -479,8 +479,8 @@
     "football",
     "state",
     "loss",
-    "kyle",
     "whittingham",
+    "kyle",
     "rutgers",
     "jason"
    ],
