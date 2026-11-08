@@ -8,6 +8,7 @@ from __future__ import annotations
 import html as _html
 import json
 import os
+import html as _htmlmod
 import re
 from dataclasses import asdict, dataclass, field
 from pathlib import Path
@@ -197,15 +198,17 @@ def parse_page(url_path: str, file_path: Path, site_domain: str | None = None) -
     body_text = _strip(text)
     words = re.findall(r"[A-Za-z0-9']+", body_text)
 
+    # Decode HTML entities: Google measures the rendered snippet, so
+    # "Y&#x27;all" must count as 4 chars ("Y'all"), not 9.
     return Page(
         path=url_path,
         file=str(file_path),
-        title=title,
-        meta_description=metas.get("description"),
+        title=_htmlmod.unescape(title) if title else title,
+        meta_description=_htmlmod.unescape(metas["description"]) if metas.get("description") else metas.get("description"),
         canonical=canon,
         robots=robots,
-        og_title=metas.get("og:title"),
-        og_description=metas.get("og:description"),
+        og_title=_htmlmod.unescape(metas["og:title"]) if metas.get("og:title") else metas.get("og:title"),
+        og_description=_htmlmod.unescape(metas["og:description"]) if metas.get("og:description") else metas.get("og:description"),
         og_image=metas.get("og:image"),
         h1=h1s,
         h2=h2s,

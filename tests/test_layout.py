@@ -911,8 +911,9 @@ class ProductPages(unittest.TestCase):
                 self.assertEqual(unescape(t), names[slug], slug)
             self.assertLessEqual(len(unescape(m)), 160, f"{slug}: {m}")
             self.assertGreater(len(unescape(m)), 70, f"{slug}: {m}")
-            titles.setdefault(t, []).append(slug)
-            metas.setdefault(m, []).append(slug)
+            # Case-folded: Google treats "CLE" and "Cle" titles as one.
+            titles.setdefault(unescape(t).casefold(), []).append(slug)
+            metas.setdefault(unescape(m).casefold(), []).append(slug)
         dupe_t = {k: v for k, v in titles.items() if len(v) > 1}
         dupe_m = {k: v for k, v in metas.items() if len(v) > 1}
         self.assertEqual(dupe_t, {})
