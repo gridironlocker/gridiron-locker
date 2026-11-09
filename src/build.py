@@ -7063,7 +7063,18 @@ sold on its own page. Taking you to the {esc(COLLECTIONS[ckey]['name'])} &mdash;
                         "# Honoured as a true 301 by Netlify and Cloudflare Pages;\n"
                         "# GitHub Pages ignores this file and serves the noindex\n"
                         "# redirect stubs built at the same paths instead.\n"
-          + "\n".join(lines) + "\n")
+          + "\n".join(lines) + "\n"
+          + "\n# Canonical cleanup: /path/index.html -> /path/. The 3-month GSC\n"
+            "# export (2026-11-08) showed Google indexing directory/index.html\n"
+            "# variants as separate URLs - the Michigan hub alone split 293\n"
+            "# impressions onto its variant, and retired designs kept showing\n"
+            "# on page 1 through theirs. These rules consolidate every variant\n"
+            "# onto the canonical URL; force (!) is required because a file\n"
+            "# exists at each source path.\n"
+            "/index.html / 301!\n"
+            "/:a/index.html /:a/ 301!\n"
+            "/:a/:b/index.html /:a/:b/ 301!\n"
+            "/:a/:b/:c/index.html /:a/:b/:c/ 301!\n")
     return len(lines)
 
 
