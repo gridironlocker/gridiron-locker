@@ -230,15 +230,39 @@
       "id": "seo-gbtitle-20261108",
       "path": "/green-bay-packers-shirts/",
       "type": "weak_ctr_title_test"
+    },
+    {
+      "after": {
+        "meta_description": "Gridiron Locker fan gear: fan-made football tees, hoodies and more for Cleveland, Green Bay, Dallas and Michigan fans. 95 original designs, printed on demand."
+      },
+      "at": "2026-11-09T00:20:00Z",
+      "before": {
+        "meta_description": "Fan-made football tees, hoodies and gear across 4 team collections: Cleveland, Green Bay, Dallas and Michigan. 95 original designs, sizes S-5XL, printed..."
+      },
+      "id": "seo-gsc3m-20261108",
+      "path": "/",
+      "type": "weak_query_ctr_meta"
+    },
+    {
+      "after": {
+        "meta_description": "Michigan Vs Everybody shirts: what the phrase means to Michigan fans and the two live designs that carry it - garment styles, sizing and honest lead times."
+      },
+      "at": "2026-11-09T00:20:00Z",
+      "before": {
+        "meta_description": "What Vs Everybody means to Michigan fans and the shirts that carry it: the two live designs, the garment styles they print on, sizing and lead times."
+      },
+      "id": "seo-gsc3m-20261108b",
+      "path": "/guides/michigan-vs-everybody-shirts/",
+      "type": "weak_query_ctr_meta"
     }
   ],
   "pages": {
     "/": {
-      "change_id": "seo-b952d16676",
-      "meta_description": "Fan-made football tees, hoodies and gear across 4 team collections: Cleveland, Green Bay, Dallas and Michigan. 95 original designs, sizes S-5XL, printed...",
-      "reason": "Descriptions past ~158 chars are truncated in SERPs.",
+      "change_id": "seo-gsc3m-20261108",
+      "meta_description": "Gridiron Locker fan gear: fan-made football tees, hoodies and more for Cleveland, Green Bay, Dallas and Michigan fans. 95 original designs, printed on demand.",
+      "reason": "3-month GSC export (Filters: Web, Last 3 months): query \"gridiron fan gear\" 32 impr at pos 11 - exact phrase front-loaded; facts kept (95 designs).",
       "type": "description_too_long",
-      "updated_at": "2026-10-26T20:17:46Z"
+      "updated_at": "2026-11-09T00:20:00Z"
     },
     "/2026-season/": {
       "change_id": "seo-80ad788982",
@@ -273,6 +297,13 @@
     "/guides/": {
       "change_id": "seo-weakctr-20261108",
       "meta_description": "Gridiron Locker's football fan apparel guides: team shirt buying guides, gift ideas and game-day picks for Cleveland, Green Bay, Dallas and Michigan fans."
+    },
+    "/guides/michigan-vs-everybody-shirts/": {
+      "change_id": "seo-gsc3m-20261108",
+      "meta_description": "Michigan Vs Everybody shirts: what the phrase means to Michigan fans and the two live designs that carry it - garment styles, sizing and honest lead times.",
+      "reason": "3-month GSC export: query \"michigan vs everybody shirt\" 35 impr at pos 7.26 with 0 clicks (currently captured by a retired stub - live guide is the intended landing). Exact phrase front-loaded.",
+      "type": "weak_query_ctr_meta",
+      "updated_at": "2026-11-09T00:20:00Z"
     },
     "/michigan/joe/": {
       "change_id": "seo-weakctr-20261108",
@@ -316,5 +347,5 @@
     }
   },
   "schema_version": 1,
-  "updated": "2026-11-08T23:55:00Z"
+  "updated": "2026-11-09T00:20:00Z"
 }
