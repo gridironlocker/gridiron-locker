@@ -12,7 +12,7 @@
   "throwback": 1,
   "steady": 83,
   "gaps": 6,
-  "moments": 6,
+  "moments": 7,
   "tracked_names": 18,
   "dead_campaigns": 68
  },
@@ -27,22 +27,22 @@
    "collection": "cleveland-browns"
   },
   {
-   "name": "kyle whittingham",
-   "mentions": 16,
-   "index": 35,
-   "status": "trending",
-   "gap": true,
-   "shoppable": false,
-   "collection": "michigan"
-  },
-  {
    "name": "dak prescott",
-   "mentions": 15,
-   "index": 33,
+   "mentions": 17,
+   "index": 37,
    "status": "trending",
    "gap": true,
    "shoppable": false,
    "collection": "dallas-cowboys"
+  },
+  {
+   "name": "kyle whittingham",
+   "mentions": 17,
+   "index": 37,
+   "status": "trending",
+   "gap": true,
+   "shoppable": false,
+   "collection": "michigan"
   },
   {
    "name": "jordan love",
@@ -55,8 +55,8 @@
   },
   {
    "name": "deshaun watson",
-   "mentions": 8,
-   "index": 17,
+   "mentions": 10,
+   "index": 22,
    "status": "trending",
    "gap": true,
    "shoppable": false,
@@ -105,6 +105,15 @@
    "status": "trending",
    "gap": true,
    "shoppable": false,
+   "collection": "cleveland-browns"
+  },
+  {
+   "name": "myles garrett",
+   "mentions": 2,
+   "index": 4,
+   "status": "steady",
+   "gap": false,
+   "shoppable": true,
    "collection": "cleveland-browns"
   },
   {
@@ -162,15 +171,6 @@
    "collection": "green-bay-packers"
   },
   {
-   "name": "myles garrett",
-   "mentions": 0,
-   "index": 0,
-   "status": "quiet",
-   "gap": false,
-   "shoppable": true,
-   "collection": "cleveland-browns"
-  },
-  {
    "name": "robert tonyan",
    "mentions": 0,
    "index": 0,
@@ -182,27 +182,27 @@
  ],
  "gaps": [
   {
-   "name": "kyle whittingham",
-   "mentions": 16,
-   "index": 35,
-   "status": "trending",
-   "gap": true,
-   "shoppable": false,
-   "collection": "michigan"
-  },
-  {
    "name": "dak prescott",
-   "mentions": 15,
-   "index": 33,
+   "mentions": 17,
+   "index": 37,
    "status": "trending",
    "gap": true,
    "shoppable": false,
    "collection": "dallas-cowboys"
   },
   {
+   "name": "kyle whittingham",
+   "mentions": 17,
+   "index": 37,
+   "status": "trending",
+   "gap": true,
+   "shoppable": false,
+   "collection": "michigan"
+  },
+  {
    "name": "deshaun watson",
-   "mentions": 8,
-   "index": 17,
+   "mentions": 10,
+   "index": 22,
    "status": "trending",
    "gap": true,
    "shoppable": false,
@@ -250,8 +250,8 @@
    "gaps": [
     {
      "name": "deshaun watson",
-     "mentions": 8,
-     "index": 17,
+     "mentions": 10,
+     "index": 22,
      "status": "trending",
      "gap": true,
      "shoppable": false,
@@ -273,9 +273,9 @@
     "orleans",
     "shedeur",
     "sanders",
-    "overtime",
-    "loss",
-    "score"
+    "score",
+    "recap",
+    "overtime"
    ],
    "headline_count": 100,
    "headlines": [
@@ -325,8 +325,8 @@
    "gaps": [
     {
      "name": "dak prescott",
-     "mentions": 15,
-     "index": 33,
+     "mentions": 17,
+     "index": 37,
      "status": "trending",
      "gap": true,
      "shoppable": false,
@@ -348,8 +348,8 @@
     "indianapolis",
     "prescott",
     "pickens",
-    "time",
     "yard",
+    "time",
     "highlights"
    ],
    "headline_count": 100,
@@ -364,7 +364,7 @@
      "title": "How to watch the Dallas Cowboys at Indianapolis Colts on November 8, 2026",
      "url": "https://news.google.com/rss/articles/CBMirgFBVV95cUxNWng3TTJXZ1B2QnBQcW5lYTdXZW5QZUxxRlktTWg1Q2NnSWZ1NW8tSXkxcUNId0U2OTFCVTRjcmNkMjZTLXJsczJNQ1cxOVladTNhRGtUWDNQM0N2UXVtOExxMUUxNDZkYThrdEhtdmlvTnBMaFBaZU9wLWwxdmNweC1NcFVpRU5IUml3TW5QcndMX3NZcVp3Tmw0Q28wc1F6VlJXMnZSODVOUW1oNVE?oc=5",
      "source": "Colts.com",
-     "pub": "Sun, 08 Nov 2026 22:38:08 GMT"
+     "pub": "Sun, 08 Nov 2026 19:36:59 GMT"
     },
     {
      "title": "Updates: Downs in concussion protocol",
@@ -411,9 +411,9 @@
    "top_terms": [
     "packers",
     "green",
+    "england",
     "jordan",
     "love",
-    "england",
     "watch",
     "josh",
     "jacobs"
@@ -466,8 +466,8 @@
    "gaps": [
     {
      "name": "kyle whittingham",
-     "mentions": 16,
-     "index": 35,
+     "mentions": 17,
+     "index": 37,
      "status": "trending",
      "gap": true,
      "shoppable": false,
@@ -479,13 +479,19 @@
     "football",
     "state",
     "loss",
-    "kyle",
     "whittingham",
+    "kyle",
     "rutgers",
-    "jason"
+    "wolverines"
    ],
    "headline_count": 100,
    "headlines": [
+    {
+     "title": "Whittingham Announces Change to Offensive Coaching Staff",
+     "url": "https://news.google.com/rss/articles/CBMiogFBVV95cUxOR2ZYRnlMcnFjN3BNVlEyNjV5WHRsQVFraGZHOTdQWFBWTkRDYjE5QmEtZnd5bG9YeDEycGJIMTNwLW5oY3lEdk05cjJsOHlnYWM4b2NqcFV6U0JpX1JCMjlkYjhUeDkzMmpHUFZpYWptcXU3a1h4WlNja2l2ZU1uczlHa0VZYm9meFhiY3ZBcnM2SDNwcWI5aGROQUR0V0k5bHc?oc=5",
+     "source": "University of Michigan Athletics",
+     "pub": "Sun, 08 Nov 2026 22:28:49 GMT"
+    },
     {
      "title": "4 Instant Takeaways After Michigan Football's Humiliating Loss to Michigan State",
      "url": "https://news.google.com/rss/articles/CBMixwFBVV95cUxPcEJBel9wNzNGcHFBcHExZy04LWI0a0YtdDFBV09KVV92NEwtaVJjeWFRVF9sMmVwU3BFS1NTaXBfdm9nZ2piVEI2dUVHTGJrYzkzXzdyR3BhM2xvUkVIZ190WFVEUXN3ZmdlVFdGSmJycTMxc3BtYmptVlVVTjFSbEs4MnVCRlM1WHVNYUM0RkloaUhFdTZZZ3dKckwtUnhjVXNMZjlBLVp6N05QUWNNRDVRaWtETzJFZzNRTlFUakwxSzlMRHY0?oc=5",
@@ -509,12 +515,6 @@
      "url": "https://news.google.com/rss/articles/CBMiiAFBVV95cUxPMXNIdVU4S2FzR1hNei1RMnJGR2w0SGJNSXRCVFlpQUVldXV3UzQ2cG9yZmVfYWRVV0ZfS1o1bnBIWjlPaGplMFhlbnBsemplV0ptTkRpbnF0Z2trSS00ZV9wd240WTB3UkgzLXFyajdocmNfbTVZNkdUREdYUmVPa0tCbWRxUGxo?oc=5",
      "source": "Yahoo Sports",
      "pub": "Sat, 07 Nov 2026 23:30:00 GMT"
-    },
-    {
-     "title": "Michigan football head coach Kyle Whittingham names starting quarterback, discusses Michigan State rivalry",
-     "url": "https://news.google.com/rss/articles/CBMi_AFBVV95cUxOc3oyTklJVU5zUm9DV2htRUdxenc3R2pmY2htRVR2R3RhVE9ZWGd0N2loNlFGNUlCTXB4WTkwVU9udjlRWkdWeDI1YldjTTh1U0VYcU02VElrVFcwS05qWFIwWERPYzdyaEh3VG90czNhZVIzMkpWd1dBN0NJMkJBQlZlOXhxd2hYX2tVbF92WU1yNk5rTWtrZUhFMmNRVmZxWWg4bFVwWFZPNHdWSkc5bUdSNk9fOUNhWTIyLTUzV0FpQVM1VTlrcTFVbnVpSmsxZTZUSjYxVDRicm5rS2FCeDFqNG1PNVFCZVRjRi1yNHl0eW8wTTRKVVNxYko?oc=5",
-     "source": "ClickOnDetroit | WDIV Local 4",
-     "pub": "Tue, 03 Nov 2026 10:00:00 GMT"
     }
    ],
    "fti_count": 4
@@ -881,6 +881,16 @@
    "collection": "cleveland-browns",
    "entities": [
     "deshaun watson"
+   ]
+  },
+  {
+   "title": "Whittingham Announces Change to Offensive Coaching Staff",
+   "url": "https://news.google.com/rss/articles/CBMiogFBVV95cUxOR2ZYRnlMcnFjN3BNVlEyNjV5WHRsQVFraGZHOTdQWFBWTkRDYjE5QmEtZnd5bG9YeDEycGJIMTNwLW5oY3lEdk05cjJsOHlnYWM4b2NqcFV6U0JpX1JCMjlkYjhUeDkzMmpHUFZpYWptcXU3a1h4WlNja2l2ZU1uczlHa0VZYm9meFhiY3ZBcnM2SDNwcWI5aGROQUR0V0k5bHc?oc=5",
+   "source": "University of Michigan Athletics",
+   "pub": "Sun, 08 Nov 2026 22:28:49 GMT",
+   "collection": "michigan",
+   "entities": [
+    "kyle whittingham"
    ]
   },
   {
