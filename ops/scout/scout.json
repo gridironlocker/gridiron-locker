@@ -1,8 +1,8 @@
 {
- "generated": "2026-11-08",
+ "generated": "2026-11-09",
  "window_days": 10,
  "fti_formula": "round(100 * entity_mentions / peak_mentions_in_window)",
- "peak_mentions": 47,
+ "peak_mentions": 46,
  "stats": {
   "products": 95,
   "collections": 4,
@@ -19,7 +19,7 @@
  "fti_rows": [
   {
    "name": "shedeur sanders",
-   "mentions": 47,
+   "mentions": 46,
    "index": 100,
    "status": "trending",
    "gap": false,
@@ -29,7 +29,7 @@
   {
    "name": "kyle whittingham",
    "mentions": 16,
-   "index": 34,
+   "index": 35,
    "status": "trending",
    "gap": true,
    "shoppable": false,
@@ -37,29 +37,38 @@
   },
   {
    "name": "dak prescott",
-   "mentions": 11,
-   "index": 23,
+   "mentions": 15,
+   "index": 33,
    "status": "trending",
    "gap": true,
    "shoppable": false,
    "collection": "dallas-cowboys"
   },
   {
+   "name": "jordan love",
+   "mentions": 12,
+   "index": 26,
+   "status": "trending",
+   "gap": false,
+   "shoppable": true,
+   "collection": "green-bay-packers"
+  },
+  {
    "name": "deshaun watson",
-   "mentions": 10,
-   "index": 21,
+   "mentions": 8,
+   "index": 17,
    "status": "trending",
    "gap": true,
    "shoppable": false,
    "collection": "cleveland-browns"
   },
   {
-   "name": "jordan love",
-   "mentions": 10,
-   "index": 21,
+   "name": "josh jacobs",
+   "mentions": 7,
+   "index": 15,
    "status": "trending",
-   "gap": false,
-   "shoppable": true,
+   "gap": true,
+   "shoppable": false,
    "collection": "green-bay-packers"
   },
   {
@@ -72,13 +81,13 @@
    "collection": "michigan"
   },
   {
-   "name": "josh jacobs",
+   "name": "ceedee lamb",
    "mentions": 6,
    "index": 13,
    "status": "trending",
    "gap": true,
    "shoppable": false,
-   "collection": "green-bay-packers"
+   "collection": "dallas-cowboys"
   },
   {
    "name": "micah parsons",
@@ -90,15 +99,6 @@
    "collection": "green-bay-packers"
   },
   {
-   "name": "ceedee lamb",
-   "mentions": 4,
-   "index": 9,
-   "status": "trending",
-   "gap": true,
-   "shoppable": false,
-   "collection": "dallas-cowboys"
-  },
-  {
    "name": "todd monken",
    "mentions": 4,
    "index": 9,
@@ -106,24 +106,6 @@
    "gap": true,
    "shoppable": false,
    "collection": "cleveland-browns"
-  },
-  {
-   "name": "myles garrett",
-   "mentions": 2,
-   "index": 4,
-   "status": "steady",
-   "gap": false,
-   "shoppable": true,
-   "collection": "cleveland-browns"
-  },
-  {
-   "name": "matt lafleur",
-   "mentions": 1,
-   "index": 2,
-   "status": "steady",
-   "gap": false,
-   "shoppable": false,
-   "collection": "green-bay-packers"
   },
   {
    "name": "denzel ward",
@@ -171,6 +153,24 @@
    "collection": "cleveland-browns"
   },
   {
+   "name": "matt lafleur",
+   "mentions": 0,
+   "index": 0,
+   "status": "quiet",
+   "gap": false,
+   "shoppable": false,
+   "collection": "green-bay-packers"
+  },
+  {
+   "name": "myles garrett",
+   "mentions": 0,
+   "index": 0,
+   "status": "quiet",
+   "gap": false,
+   "shoppable": true,
+   "collection": "cleveland-browns"
+  },
+  {
    "name": "robert tonyan",
    "mentions": 0,
    "index": 0,
@@ -184,7 +184,7 @@
   {
    "name": "kyle whittingham",
    "mentions": 16,
-   "index": 34,
+   "index": 35,
    "status": "trending",
    "gap": true,
    "shoppable": false,
@@ -192,8 +192,8 @@
   },
   {
    "name": "dak prescott",
-   "mentions": 11,
-   "index": 23,
+   "mentions": 15,
+   "index": 33,
    "status": "trending",
    "gap": true,
    "shoppable": false,
@@ -201,8 +201,8 @@
   },
   {
    "name": "deshaun watson",
-   "mentions": 10,
-   "index": 21,
+   "mentions": 8,
+   "index": 17,
    "status": "trending",
    "gap": true,
    "shoppable": false,
@@ -210,8 +210,8 @@
   },
   {
    "name": "josh jacobs",
-   "mentions": 6,
-   "index": 13,
+   "mentions": 7,
+   "index": 15,
    "status": "trending",
    "gap": true,
    "shoppable": false,
@@ -219,8 +219,8 @@
   },
   {
    "name": "ceedee lamb",
-   "mentions": 4,
-   "index": 9,
+   "mentions": 6,
+   "index": 13,
    "status": "trending",
    "gap": true,
    "shoppable": false,
@@ -250,8 +250,8 @@
    "gaps": [
     {
      "name": "deshaun watson",
-     "mentions": 10,
-     "index": 21,
+     "mentions": 8,
+     "index": 17,
      "status": "trending",
      "gap": true,
      "shoppable": false,
@@ -270,20 +270,20 @@
    "top_terms": [
     "browns",
     "cleveland",
-    "sanders",
     "orleans",
     "shedeur",
+    "sanders",
     "overtime",
-    "yard",
-    "loss"
+    "loss",
+    "score"
    ],
    "headline_count": 100,
    "headlines": [
     {
-     "title": "Browns at Steelers Postgame Recap",
-     "url": "https://news.google.com/rss/articles/CBMikgFBVV95cUxQaHpyRkp5QUJqRHYwVFlYU3J2RTlMMmxVaDhtVlZkY1JkM1BGVnFVSzI2RGo1bkhMUHlXcWNvM3Z6aFpVWEctQmQ1aVJISE5FeGVpSU9mX0FTOXRmYUQwLXdpYnVnWDhlekxZQV9BMG43M2duRHcxOWVFOWtTM2hkTExQV3ZiLWdsNWRyNWFaQTBEZw?oc=5",
+     "title": "Saints 23, Browns 22 | Final Score, Stats & Game Recap",
+     "url": "https://news.google.com/rss/articles/CBMijgFBVV95cUxQYlhfTmFRdTU2QUxLbnpGdnVPTnd1SmVDckc0dS10UURIOWdXTlJnZ2Z6VVlwaGNoWUZNdnk3X25LUDEyNXV4Tno5ZXFIa1BPU3R5SnRSN01jQ2RuWW53M1pjN2hNbzFmN3pXVFI5b3dfRUs3R193eUJseHFfMWt0MVFERE84WVktRmp6QzFB?oc=5",
      "source": "Cleveland Browns",
-     "pub": "Sun, 01 Nov 2026 22:07:49 GMT"
+     "pub": "Sun, 08 Nov 2026 21:55:14 GMT"
     },
     {
      "title": "Game Recap: New Orleans Saints 23, Cleveland Browns 22, overtime | 2026 NFL Week 9",
@@ -325,8 +325,8 @@
    "gaps": [
     {
      "name": "dak prescott",
-     "mentions": 11,
-     "index": 23,
+     "mentions": 15,
+     "index": 33,
      "status": "trending",
      "gap": true,
      "shoppable": false,
@@ -334,8 +334,8 @@
     },
     {
      "name": "ceedee lamb",
-     "mentions": 4,
-     "index": 9,
+     "mentions": 6,
+     "index": 13,
      "status": "trending",
      "gap": true,
      "shoppable": false,
@@ -346,11 +346,11 @@
     "cowboys",
     "dallas",
     "indianapolis",
-    "time",
+    "prescott",
     "pickens",
+    "time",
     "yard",
-    "highlights",
-    "george"
+    "highlights"
    ],
    "headline_count": 100,
    "headlines": [
@@ -364,13 +364,7 @@
      "title": "How to watch the Dallas Cowboys at Indianapolis Colts on November 8, 2026",
      "url": "https://news.google.com/rss/articles/CBMirgFBVV95cUxNWng3TTJXZ1B2QnBQcW5lYTdXZW5QZUxxRlktTWg1Q2NnSWZ1NW8tSXkxcUNId0U2OTFCVTRjcmNkMjZTLXJsczJNQ1cxOVladTNhRGtUWDNQM0N2UXVtOExxMUUxNDZkYThrdEhtdmlvTnBMaFBaZU9wLWwxdmNweC1NcFVpRU5IUml3TW5QcndMX3NZcVp3Tmw0Q28wc1F6VlJXMnZSODVOUW1oNVE?oc=5",
      "source": "Colts.com",
-     "pub": "Sun, 08 Nov 2026 19:36:59 GMT"
-    },
-    {
-     "title": "It's Time For the Cowboys To Move on From Brian Schottenheimer",
-     "url": "https://news.google.com/rss/articles/CBMijgFBVV95cUxPamtqYTJHQW1QdnA5SUdyaURrLThra2xmV0ZxZjFraU5xSDNpX2VrYXR0TzJVZnVoZlAzRGptNGxaYWJ3RldiRm1PR0NVNFhNWE54Y3FZd2Q4cmZVa0pLMnZSM3dYY2d4c0ptQU5hWmlBdEtXd2ZOSzFLanZGOVFrV1ZsMDBhaEJmcHlpc0tn?oc=5",
-     "source": "D Magazine",
-     "pub": "Mon, 02 Nov 2026 16:41:27 GMT"
+     "pub": "Sun, 08 Nov 2026 22:38:08 GMT"
     },
     {
      "title": "Updates: Downs in concussion protocol",
@@ -383,6 +377,12 @@
      "url": "https://news.google.com/rss/articles/CBMiqAFBVV95cUxNOEFJNDNpeDUyR0tLNkowOGVTbnI5TXdfZV84Y0NyeHdZQVBGcy1xVm96TVBVb2ZicFNLNUlGOG0zUGxfNzh6YnN6dU5yX2dmZ0ZoT2syVDNnUWVLa2hadDcyN3RoclZCejltLVEtemVUdGk5ekxxdXQ2VHZWdFgtTndxOGt3RzU2LU9qQVhFbTIyVlRRQ3BkTFNSNkFQeGZrSkItT1RyaVQ?oc=5",
      "source": "Dallas Cowboys | Official Site of the Dallas Cowboys",
      "pub": "Mon, 02 Nov 2026 00:42:56 GMT"
+    },
+    {
+     "title": "Cowboys offense looking to find their fastball vs. Colts",
+     "url": "https://news.google.com/rss/articles/CBMilAFBVV95cUxOUEhiR2V0ZGVyUno2dlpRTk5BcHA1Q2Rla1RUbzVoY2tjQWNucU5HVmF4aU1yZFZmQVVwNHNOZHA4MThEU3VabW1ma0VyNXRpRUlRREpWWUh1emRtc0RfMjM3ZlZzb3pSUTJ0Ym1icnlDR29uN3VsWThNV0U3aTluYmllaHFmZ1I3S2FSR2F6VjdwRkh2?oc=5",
+     "source": "Dallas Cowboys | Official Site of the Dallas Cowboys",
+     "pub": "Thu, 05 Nov 2026 23:23:21 GMT"
     }
    ],
    "fti_count": 2
@@ -400,8 +400,8 @@
    "gaps": [
     {
      "name": "josh jacobs",
-     "mentions": 6,
-     "index": 13,
+     "mentions": 7,
+     "index": 15,
      "status": "trending",
      "gap": true,
      "shoppable": false,
@@ -411,12 +411,12 @@
    "top_terms": [
     "packers",
     "green",
-    "england",
-    "watch",
     "jordan",
     "love",
-    "predictions",
-    "channel"
+    "england",
+    "watch",
+    "josh",
+    "jacobs"
    ],
    "headline_count": 100,
    "headlines": [
@@ -467,7 +467,7 @@
     {
      "name": "kyle whittingham",
      "mentions": 16,
-     "index": 34,
+     "index": 35,
      "status": "trending",
      "gap": true,
      "shoppable": false,
@@ -479,13 +479,19 @@
     "football",
     "state",
     "loss",
-    "whittingham",
     "kyle",
+    "whittingham",
     "rutgers",
     "jason"
    ],
    "headline_count": 100,
    "headlines": [
+    {
+     "title": "4 Instant Takeaways After Michigan Football's Humiliating Loss to Michigan State",
+     "url": "https://news.google.com/rss/articles/CBMixwFBVV95cUxPcEJBel9wNzNGcHFBcHExZy04LWI0a0YtdDFBV09KVV92NEwtaVJjeWFRVF9sMmVwU3BFS1NTaXBfdm9nZ2piVEI2dUVHTGJrYzkzXzdyR3BhM2xvUkVIZ190WFVEUXN3ZmdlVFdGSmJycTMxc3BtYmptVlVVTjFSbEs4MnVCRlM1WHVNYUM0RkloaUhFdTZZZ3dKckwtUnhjVXNMZjlBLVp6N05QUWNNRDVRaWtETzJFZzNRTlFUakwxSzlMRHY0?oc=5",
+     "source": "Sports Illustrated",
+     "pub": "Sun, 08 Nov 2026 04:13:31 GMT"
+    },
     {
      "title": "Watch Michigan vs Rutgers Highlights, Replay & Score - CFB Week 9",
      "url": "https://news.google.com/rss/articles/CBMiuAFBVV95cUxPdi12ZC16RjU4V2xMcUxJbWFadlFZandVbmZaTFI5Z0Z4cEd6TGJRUS04Y3JOd0tvOElweWxnWERFdjl5Ql83amJncUNIZHRZTkxQSTJDMTVqZk8xc2V5RnNKQ2Fpbmptb1dZUzBsaHppS2h6T0VzUTRfbDBRSkJ1bmJzbHhUS2J2MWU5VHBaQkgyb1NFS1VoNlVRQTZNd2tPRTI1VGxBOWVBc3lWRS1KdVRTazRRRXRj?oc=5",
@@ -493,10 +499,10 @@
      "pub": "Sat, 31 Oct 2026 07:00:00 GMT"
     },
     {
-     "title": "4 Instant Takeaways After Michigan Football's Humiliating Loss to Michigan State",
-     "url": "https://news.google.com/rss/articles/CBMixwFBVV95cUxPcEJBel9wNzNGcHFBcHExZy04LWI0a0YtdDFBV09KVV92NEwtaVJjeWFRVF9sMmVwU3BFS1NTaXBfdm9nZ2piVEI2dUVHTGJrYzkzXzdyR3BhM2xvUkVIZ190WFVEUXN3ZmdlVFdGSmJycTMxc3BtYmptVlVVTjFSbEs4MnVCRlM1WHVNYUM0RkloaUhFdTZZZ3dKckwtUnhjVXNMZjlBLVp6N05QUWNNRDVRaWtETzJFZzNRTlFUakwxSzlMRHY0?oc=5",
-     "source": "Sports Illustrated",
-     "pub": "Sun, 08 Nov 2026 04:13:31 GMT"
+     "title": "Michigan State 15-6 Michigan (Nov 7, 2026) Game Recap",
+     "url": "https://news.google.com/rss/articles/CBMibEFVX3lxTE56b0RlSGM2akcyYjBaQkh0bXJlWlFCZ0xFVzZENkoyNmZoYTB0QWZBTlgtdGxhV1RHd3VFQlVXSEE5eXNYRERjUUV0ZTZlNVZScTg4M29XRGpfM25oS2Mzem45Wm1NRFpXaktwTQ?oc=5",
+     "source": "ESPN",
+     "pub": "Sun, 08 Nov 2026 05:49:34 GMT"
     },
     {
      "title": "Game Thread: Michigan Football vs Michigan State",
@@ -509,12 +515,6 @@
      "url": "https://news.google.com/rss/articles/CBMi_AFBVV95cUxOc3oyTklJVU5zUm9DV2htRUdxenc3R2pmY2htRVR2R3RhVE9ZWGd0N2loNlFGNUlCTXB4WTkwVU9udjlRWkdWeDI1YldjTTh1U0VYcU02VElrVFcwS05qWFIwWERPYzdyaEh3VG90czNhZVIzMkpWd1dBN0NJMkJBQlZlOXhxd2hYX2tVbF92WU1yNk5rTWtrZUhFMmNRVmZxWWg4bFVwWFZPNHdWSkc5bUdSNk9fOUNhWTIyLTUzV0FpQVM1VTlrcTFVbnVpSmsxZTZUSjYxVDRicm5rS2FCeDFqNG1PNVFCZVRjRi1yNHl0eW8wTTRKVVNxYko?oc=5",
      "source": "ClickOnDetroit | WDIV Local 4",
      "pub": "Tue, 03 Nov 2026 10:00:00 GMT"
-    },
-    {
-     "title": "Kickoff time set for Nov. 7 Michigan-Michigan State football rivalry game",
-     "url": "https://news.google.com/rss/articles/CBMixgFBVV95cUxNV20xZmZ3RktYN3ViMUdWZW9YZjVtU2ZyOUg2RXRYRThoSFZvX192UU8tVVdYa25OYkxkbUlwU08zbl9vM3h4YUJPdml4TF9GbWFmaWltQTlwWFhIcHg0SWgxVVZOUUhkeGFHYUozUEI5SzBLSUpWY3MzXzliZE12YTFrMURkVEFCeWx4V19KZ0FTMlB1TmRtRzVJd1hhUERIUFZMM2xSZDEwbkJzX1VnOXJWbldSNWVlenBSUHIwcUt1aHFreXfSAdoBQVVfeXFMUHplZjF6cDdqNFRieVg2QnRicXM4REhOTF9CUlBWYjZtOHdaQ2tvQ3hqLVNFXzNmbERYYktHdjkwcFVsM2N5cFE4MVI2ZXZ4WGI4ZkVocW5jczBoazBudmd6U29XcE1udnhyWWNKYTBZX252LVZvY2RGTXk4SUtNS09xbDJhMGZPcWlSSjFpMkZCWno0RDdHSUppTGtlUEZ5RnB5c0FJdFk2V2hGY1ZGejVSY3IxOXFtSWhLcGYzWU5zRVRIY1RlWVROZHloSmZETWZXd2JNY280aHc?oc=5",
-     "source": "MLive.com",
-     "pub": "Mon, 02 Nov 2026 15:18:00 GMT"
     }
    ],
    "fti_count": 4
