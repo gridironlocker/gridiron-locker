@@ -147,7 +147,10 @@ class SitemapDates(unittest.TestCase):
         # collection landing, master execution pass).
         # 2026-11-08c: 133 -> 137 - four team gift guides under /guides/
         # (Phase 8 buyer-intent content, improvement pass).
-        self.assertEqual(len(self.rows), 137)
+        # 2026-11-09: 137 -> 136 - /search/ left the sitemap (internal
+        # search utility: noindex + robots-blocked after the GSC crawl
+        # report showed Googlebot burning budget on its parameter pages).
+        self.assertEqual(len(self.rows), 136)
         self.assertEqual(len(self.rows), len(set(self.rows)))
         for url, lastmod in self.rows.items():
             self.assertTrue(url.startswith(build.DOMAIN + "/"), url)

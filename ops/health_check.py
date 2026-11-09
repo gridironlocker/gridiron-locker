@@ -219,7 +219,15 @@ class Checker:
 
         want = f"https://{HOST}{path}"
         canon = re.search(r'<link rel="canonical" href="([^"]+)"', html)
-        if not canon:
+        robots = re.search(r'<meta name="robots" content="([^"]+)"', html)
+        noindexed = bool(robots) and "noindex" in robots.group(1)
+        if noindexed:
+            # 2026-11-09: noindex + canonical = contradictory signals (the
+            # redirect-stub doctrine). A noindex utility page (/search/, 404)
+            # must carry NO canonical link at all.
+            if canon:
+                self.fail(f"{path}: noindex page must not carry a canonical")
+        elif not canon:
             self.fail(f"{path}: no canonical link")
         elif canon.group(1).rstrip("/") != want.rstrip("/"):
             self.fail(f"{path}: canonical is {canon.group(1)}, expected {want}")
