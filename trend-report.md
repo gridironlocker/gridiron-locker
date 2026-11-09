@@ -1,18 +1,18 @@
 # Hunt Report - 2026-11-09
 
-Generated: 2026-11-09 00:06 UTC by src/hunter_intelligence.py
+Generated: 2026-11-09 00:09 UTC by src/hunter_intelligence.py
 
-Ladder: SIGNAL 0 · TREND 1 · OPPORTUNITY 5 · ACTION 0 · HEADLINE 1
+Ladder: SIGNAL 0 · TREND 1 · OPPORTUNITY 4 · ACTION 1 · HEADLINE 1
 
 Fan connectors: no fan posts observed - reddit error (HTTP Error 403: Blocked); x not_configured (Set X_BEARER_TOKEN to use the official X recent-search API.); facebook not_configured (Set META_PAGE_ID and META_PAGE_ACCESS_TOKEN for the official Meta Page feed API.)
 
 ## What to do right now
 
-**Post the QB room: who is QB1 in Cleveland angle for Cleveland Browns on X (@gridironlocker1 first) now with Make Them Know Your Name Cleveland Browns Shirt - 71% confidence, OPPORTUNITY.**
+**Post the QB room: who is QB1 in Cleveland angle for Cleveland Browns on X (@gridironlocker1 first) now with Make Them Know Your Name Cleveland Browns Shirt - 85% confidence, ACTION.**
 
 - Product: Make Them Know Your Name Cleveland Browns Shirt https://gridironlocker.shop/make-them-know-your-name?collectionId=P19bpeU2x_Ng&color=GILDAN-DARK_CHOCOLATE&productId=6aa33fa01cdc8689e252dab3
 - Platform: X (@gridironlocker1 first) · Timing: now
-- Confidence: 71% (OPPORTUNITY) · 🟢 READY
+- Confidence: 85% (ACTION) · 🟢 READY
 - Campaign: THEY FORGOT WHO I AM — QB1 belief
 - Creative: Post the belief, not the debate: 'QB1 wears 12' with the Sanders design. Never take a side on Watson - that thread eats the post.
 - Why: The whole fanbase is arguing one question: who starts. That is a belief argument, and belief is what a QB tee sells.
@@ -20,10 +20,10 @@ Fan connectors: no fan posts observed - reddit error (HTTP Error 403: Blocked); 
 ## Opportunities (SIGNAL and above)
 
 ### 1. QB room: who is QB1 in Cleveland - Cleveland Browns
-- Level: OPPORTUNITY · Confidence: 71% · 🟢 READY (matched design, posting window open, evidence under 12 h)
-- Fan signal: "Browns, Saints inactives: Decision on Deshaun Watson’s gameday status made official" - Dawgs By Nature (7 h ago)
+- Level: ACTION · Confidence: 85% · 🟢 READY (matched design, posting window open, evidence under 12 h)
+- Fan signal: "Browns, Saints inactives: Decision on Deshaun Watson’s gameday status made official" - Dawgs By Nature (8 h ago)
 - Evidence: 8 reaction items (9.0 weighted) · 7 outlets · 1 utility listings excluded · 0 fan posts
-- Phrase velocity: ↓ 67% / 60 min (1 vs 3)
+- Phrase velocity: ↑ 400% / 240 min (5 vs 1)
 - Sentiment: anxious - 'anxious' on 3/5 lexicon hits across 8 item(s)
 - Game state: result coverage in the last 30 h (2 item(s))
 - Commercial: campaign - Make Them Know Your Name Cleveland Browns Shirt $23.00 (sellable) - THEY FORGOT WHO I AM — QB1 belief
@@ -33,8 +33,8 @@ Fan connectors: no fan posts observed - reddit error (HTTP Error 403: Blocked); 
 - Action: Threads - alternate angle (+20 min)
 - Action: Instagram - product creative after engagement confirms the angle (after the X post confirms the angle)
 - Action: Pinterest - keyword pin of the matched design (+2 h)
-  - Browns, Saints inactives: Decision on Deshaun Watson’s gameday status made official - Dawgs By Nature - google_news (7 h ago) https://news.google.com/rss/articles/CBMi2wFBVV95cUxNY3V5b2pVdjA1LUk4OVFwVVpSdmFJdkVpRFYxZVJubjl3aFJYeDk3WWhQclhXbXp6ZmxOanB0ZTQ3Z01NNnV3dGhzb2NzaW0yS01xc2ozbE1QdG1SeFAwYWZHTnFGVGd5ek43LWNXbEpSQTFLa3A1VTF6OGJZcEVLZmNWYS1HUFBPakt1X1ZGUzVqTldoNFdpVkpjQl9qNmt0V2VjOS1kWktySVZoeTF3QzZYQnBTRWRubjJRdkxOc0F2c1ZJalM3R3lIUlVPaDh2aktXdzlPSThoTXM?oc=5
-  - Saints hang on in overtime with 2-point stop, beating Shedeur Sanders-led Browns - Yahoo Sports - google_news (57 min ago) https://news.google.com/rss/articles/CBMi8wFBVV95cUxQX1RRSnVaQU1LZ25QdEJRczFqc1RQenh4ZjlmelJXd1ozanNubFRSN3BNOFZGYUhVbUlieWFQbURBc013Mlkza3BibWNFVWJTMXI3OVc4Nm5YbVA5LVF1a25fOXB4bTczcU1tV1NDU1lLSzR1Wm83WDl6QzAzMzVBMTNFY0NvR29Ib3E3T2FzbkJNRmRLNUVRTllCTmJmcmJfY0ZyWWVObEhocGJvSGtna3JoaWttMElZRlVmVXIzaTdWM29RdThNTmdKQWk2UWt2WUkzV2xPSGdkVXY2QVB5MVpfQ3BkaWg2S3NSNTNLYXR3QW8?oc=5
+  - Browns, Saints inactives: Decision on Deshaun Watson’s gameday status made official - Dawgs By Nature - google_news (8 h ago) https://news.google.com/rss/articles/CBMi2wFBVV95cUxNY3V5b2pVdjA1LUk4OVFwVVpSdmFJdkVpRFYxZVJubjl3aFJYeDk3WWhQclhXbXp6ZmxOanB0ZTQ3Z01NNnV3dGhzb2NzaW0yS01xc2ozbE1QdG1SeFAwYWZHTnFGVGd5ek43LWNXbEpSQTFLa3A1VTF6OGJZcEVLZmNWYS1HUFBPakt1X1ZGUzVqTldoNFdpVkpjQl9qNmt0V2VjOS1kWktySVZoeTF3QzZYQnBTRWRubjJRdkxOc0F2c1ZJalM3R3lIUlVPaDh2aktXdzlPSThoTXM?oc=5
+  - Saints hang on in overtime with 2-point stop, beating Shedeur Sanders-led Browns - Yahoo Sports - google_news (1 h ago) https://news.google.com/rss/articles/CBMi8wFBVV95cUxQX1RRSnVaQU1LZ25QdEJRczFqc1RQenh4ZjlmelJXd1ozanNubFRSN3BNOFZGYUhVbUlieWFQbURBc013Mlkza3BibWNFVWJTMXI3OVc4Nm5YbVA5LVF1a25fOXB4bTczcU1tV1NDU1lLSzR1Wm83WDl6QzAzMzVBMTNFY0NvR29Ib3E3T2FzbkJNRmRLNUVRTllCTmJmcmJfY0ZyWWVObEhocGJvSGtna3JoaWttMElZRlVmVXIzaTdWM29RdThNTmdKQWk2UWt2WUkzV2xPSGdkVXY2QVB5MVpfQ3BkaWg2S3NSNTNLYXR3QW8?oc=5
   - Shedeur Sanders makes case to replace Deshaun Watson despite Browns' overtime loss to Saints - Fox News - google_news (1 h ago) https://news.google.com/rss/articles/CBMirwFBVV95cUxQWExnb1VsSnFBZFNLcUF0bTlZYWVmQzVHX29wOUthbUpmWTdBemdmRG1GNkxtbzhFUVZWT3h3QjdqR3Nia3pyVjViTkFvSHJsMXBrbjB2WmhiVTgtRlhSM3Y5MXZ1TC1zTGJleWZ3NGdzS0xQa1VBXy1yOHExY0UteVdCdnpFdVQ0ZzVpWVJPdlJQMnJscnF5Q0xwSC1VdlpPb3JNOFBfaUxXZHpsT1gw?oc=5
   - Todd Monken Leaves Browns’ QB Decision Open After Shedeur Sanders’ Start - 247Sports - google_news (1 h ago) https://news.google.com/rss/articles/CBMixAFBVV95cUxPbUlQN05HVUtMd3I3QXU3RldVclpjM24yRno5MFZnYWM0dGNPcUY0cG9Ua0NGQTJuMEwzcTZsMnQ2TTEzdklsSXBXY2dUaTBaRVMtNUJlMVI1dS1QT21uNFZhTUFsby1YN2FkQWNIZmJSbHAwZWQxQzVVWTRwNndEZ1VLZGZBbWRpVG00bXRhZFJWQUpSVGQtSkdDY3NzdmVfNWU1S1ZaQjM1ZFJySGtMcVRQN1Y0Z0tmSEtrY2x6MktNR0VS?oc=5
 
@@ -76,7 +76,7 @@ Fan connectors: no fan posts observed - reddit error (HTTP Error 403: Blocked); 
 
 ### 4. Go Blue: The Big House identity - Michigan Wolverines
 - Level: OPPORTUNITY · Confidence: 65% · 🟢 READY (matched design, posting window open, evidence under 12 h)
-- Fan signal: "Michigan Football OC Hot Board: 4 Names Wolverines Should Call" - Sports Illustrated (35 min ago)
+- Fan signal: "Michigan Football OC Hot Board: 4 Names Wolverines Should Call" - Sports Illustrated (38 min ago)
 - Evidence: 4 reaction items (4.0 weighted) · 4 outlets · 0 utility listings excluded · 0 fan posts
 - Phrase velocity: ↓ 50% / 60 min (1 vs 2)
 - Sentiment: pride - 'pride' on 4/4 lexicon hits across 4 item(s)
@@ -87,14 +87,14 @@ Fan connectors: no fan posts observed - reddit error (HTTP Error 403: Blocked); 
 - Action: Threads - alternate angle (+20 min)
 - Action: Instagram - product creative after engagement confirms the angle (after the X post confirms the angle)
 - Action: Pinterest - keyword pin of the matched design (+2 h)
-  - Michigan Football OC Hot Board: 4 Names Wolverines Should Call - Sports Illustrated - google_news (35 min ago) https://news.google.com/rss/articles/CBMivAFBVV95cUxNM2FxMnh0SVZ4eF93UFhnUUFPMHdTR3ktV0lEb2tuWHNlQzU4TTRBNjNOV2Q2aVItUFJuMjZ4eXZua3RQa0Y3ekhfMm5Rck11RGtYT3BHZWZBRnZzQ0M2NlI5V1NSR2xXU19RZXFTMnJ2ZTEzVy1OQXhuNExTcktEeU5oODhDd3E0ZFN6QkxyZ1BTMDN6aG9iR2lsSmk4V3FQYXJmR0FNLXVTb05la3FoR2xuVUZxQVU4LS1NUA?oc=5
+  - Michigan Football OC Hot Board: 4 Names Wolverines Should Call - Sports Illustrated - google_news (38 min ago) https://news.google.com/rss/articles/CBMivAFBVV95cUxNM2FxMnh0SVZ4eF93UFhnUUFPMHdTR3ktV0lEb2tuWHNlQzU4TTRBNjNOV2Q2aVItUFJuMjZ4eXZua3RQa0Y3ekhfMm5Rck11RGtYT3BHZWZBRnZzQ0M2NlI5V1NSR2xXU19RZXFTMnJ2ZTEzVy1OQXhuNExTcktEeU5oODhDd3E0ZFN6QkxyZ1BTMDN6aG9iR2lsSmk4V3FQYXJmR0FNLXVTb05la3FoR2xuVUZxQVU4LS1NUA?oc=5
   - Michigan fires Jason Beck: Wolverines will owe significant buyout after parting with struggling OC in Year 1 - CBS Sports - google_news (1 h ago) https://news.google.com/rss/articles/CBMipgFBVV95cUxPMVYzTFkxNk1qbzltNWNmc3lCX1Y4RUd2dzlCZ210VEQyX0ZnamUzbENxZ1RmRE5xbGlfUGJHdkFod2RxR0c4cWo0bnFmWjBSNTdEMG5HdUdDVjA4ejdjNGxtRlNQMlA2MFJRNTF1c0I2Vk5BRzRKZ09PN21OMUJybDhfa1hKUnVNVTl1TTNxdXJWRk1weXpjN1dFbExGUlNHbXhwZmN3?oc=5
   - Oregon's Michigan matchup becomes a massive question with Wolverines firing Jason Beck - Autzen Zoo - google_news (2 h ago) https://news.google.com/rss/articles/CBMirAFBVV95cUxQUE9VaUgzQXBxWmNDT0c1QlFEeVRWNWgwSlVDOGdta1VuMWZuUXpQdnRpWXdjQndjRldPcGFSNGVlN1FwV0NYekJLX2pxek5HQ293cUxYV2dwTl9oZ2FkXzVNV0ppaHZkUVBsVFdqMkhBM1FuSTFqT2FtYmY5czRGWkF3NnNwZEEwZDhvdVFaVlB4NGRrbXVaNkRXWUFwT2ktd1JEWFJIbncwX1NY?oc=5
   - Michigan Wolverines vs Rutgers Scarlet Knights Highlights | FOX College Football - FOX Sports (9 d ago) https://news.google.com/rss/articles/CBMiYkFVX3lxTFBLNk5TT0Yydm5fbFJVc0JQQjJLQmp5MTdQSnhTLTN1cHpBeHFBWm1PVFp5dFNxN2tVQjg4azU3cmlWUFdaSThLQk9IVUlrU25fbFBEUWdhengxYkRfZml4S1BB?oc=5
 
 ### 5. Doomsday memory: defence and the pass rush - Dallas Cowboys
 - Level: OPPORTUNITY · Confidence: 61% · 🟢 READY (matched design, posting window open, evidence under 12 h)
-- Fan signal: "Cowboys WR Pickens, CB Porter, LB Overshown inactive against Colts" - ESPN (7 h ago)
+- Fan signal: "Cowboys WR Pickens, CB Porter, LB Overshown inactive against Colts" - ESPN (8 h ago)
 - Evidence: 4 reaction items (4.0 weighted) · 3 outlets · 0 utility listings excluded · 0 fan posts
 - Phrase velocity: new - 2 items in last 1440 min, none in the window before
 - Sentiment: proud - 'proud' on 1/1 lexicon hits across 4 item(s)
@@ -106,7 +106,7 @@ Fan connectors: no fan posts observed - reddit error (HTTP Error 403: Blocked); 
 - Action: Threads - alternate angle (+20 min)
 - Action: Instagram - product creative after engagement confirms the angle (after the X post confirms the angle)
 - Action: Pinterest - keyword pin of the matched design (+2 h)
-  - Cowboys WR Pickens, CB Porter, LB Overshown inactive against Colts - ESPN - google_news (7 h ago) https://news.google.com/rss/articles/CBMipwFBVV95cUxNQjF1UVBQNDZjR1djLV9HUUFJMlF6M3JfVDRzeWlwaVFtU0FSd2Q2aFZfWjdrVGRlRU5URXhvRmJRSUxET3dYX1Vlek5zQUlRVXZKeHlFb3p4TmYxTzQ0dFJmMHZCaDZULWFHNGpldTV2aHJjLXd2dW5qcExwR09hRDhrdU1aVXJkY3laUlFTQW1XTlhRaU5jT0lkenJqNXM3T0ZpdVZkRQ?oc=5
+  - Cowboys WR Pickens, CB Porter, LB Overshown inactive against Colts - ESPN - google_news (8 h ago) https://news.google.com/rss/articles/CBMipwFBVV95cUxNQjF1UVBQNDZjR1djLV9HUUFJMlF6M3JfVDRzeWlwaVFtU0FSd2Q2aFZfWjdrVGRlRU5URXhvRmJRSUxET3dYX1Vlek5zQUlRVXZKeHlFb3p4TmYxTzQ0dFJmMHZCaDZULWFHNGpldTV2aHJjLXd2dW5qcExwR09hRDhrdU1aVXJkY3laUlFTQW1XTlhRaU5jT0lkenJqNXM3T0ZpdVZkRQ?oc=5
   - Dallas Cowboys defense receives $46,883 punishment as NFL quietly admits a mistake from overtime loss to Cardinals - A to Z Sports - google_news (12 h ago) https://news.google.com/rss/articles/CBMiowFBVV95cUxOanZsWHRwTDhiZjdhdTBPOHRKS2pTLWhOTU9uNFAtdWE1b1NhcUZDeTdlX1A1RS12d1RfQXZVa2dYd0VtUmhXdWdHdjlucmpjZ0FKSmlMM2lZQTNBR2ZYMlcxbktGcDB2dC1RYzY3Y3VvQkFYbGZldWFOU3ZVc3dtZHlPcUhjSHM5X3lPR25yX2JEWFpIMkx6eHQwSEFQX0lWWHdV?oc=5
   - Shemar James explains mindset of Cowboys 'urgent' defense - Dallas Cowboys | Official Site of the Dallas Cowboys (4 d ago) https://news.google.com/rss/articles/CBMilAFBVV95cUxOdjAwMC1OcGtwYWJubjhWSVhkOWxWalhnQkxmQ0hQdHJObHJteFIzRVBDR0hRLXUwTFR0QVEwdFRJbjZOUy1CeFJiSHRjNWtZVkM1R1R2Zmw3c3IyczZXNDd5eUROd0hya3otMWNnYUNfay1iR3o5V0RsSDZEWkloNENlQk80WGJFZlZZUEpZRXVNTmZy?oc=5
   - Jerry Jones on Cowboys' defense: 'I like the way we're trending' - Dallas Cowboys | Official Site of the Dallas Cowboys (5 d ago) https://news.google.com/rss/articles/CBMimwFBVV95cUxPQWJKQXZFWGE1Sm1OaUVnTkhMX25BU3J2Ml9pam1ueW5vaWVQdS14UHBydVcwS1JIaWQ1RlgwSUQ3ZTV2YVNDQzZIV2xEaVZYXy1Gc3NxWDhyWU44U2pvR0d6dkFxQWNfQmgxT3c0cWxqZGptaTJEeUh5YkcxUXBPbFkzMUJkQzliSEJrUHNDTmJDdXNVMG1ESW5tcw?oc=5
