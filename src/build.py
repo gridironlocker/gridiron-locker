@@ -3,7 +3,7 @@
 import json, os, re, shutil, html, sys, datetime, hashlib
 sys.path.insert(0, os.path.dirname(__file__))
 from collections import OrderedDict
-from urllib.parse import parse_qsl, urlencode, urlsplit, urlunsplit
+from urllib.parse import parse_qsl, quote, urlencode, urlsplit, urlunsplit
 from collections_data import (COLLECTIONS, ORDER, SEASON, NEXT_GAME, partner_of,
                              PRIORITY_TEAMS, merch_order)
 from collections_data import season_recap_long, season_recap_short, season_slate_sentence
@@ -1480,6 +1480,13 @@ def head(title, desc, path, image=None, schema=None, keywords=None, col=None,
     # (Pinterest re-verifies against the homepage and product URLs it crawls).
     pin_verify = (f'<meta name="p:domain_verify" content="{esc(PINTEREST_VERIFY)}">\n'
                   if PINTEREST_VERIFY else "")
+    # Noindex pages carry NO canonical - the redirect-stub doctrine
+    # (page_redirects docstring): canonical + noindex feed Google two
+    # contradictory signals, and it resolves them by honouring the
+    # canonical, so the "Alternate page with proper canonical tag" status
+    # never clears. Applies to /search/ and the 404 as well as stubs.
+    canon_line = ("" if noindex
+                  else f'<link rel="canonical" href="{canon}">')
     return f"""<!doctype html>
 <html lang="en">
 <head>
@@ -1488,7 +1495,7 @@ def head(title, desc, path, image=None, schema=None, keywords=None, col=None,
 <title>{esc(title)}</title>
 <meta name="description" content="{esc(desc)}">
 {kw}
-<link rel="canonical" href="{canon}">
+{canon_line}
 <meta name="robots" content="{robots}">
 {pin_verify}<meta property="og:type" content="{'product' if path.startswith('/shop/') else 'website'}">
 <meta property="og:site_name" content="{esc(BRAND)}">
@@ -2593,7 +2600,7 @@ def quick_find():
         if not products_for_entity(ck, r["name"], 1):
             continue
         trend_chips += (f'<a class="qf-chip hot" style="{theme_vars(ck)}" '
-                        f'href="/search/?q={esc(r["name"])}">{esc(pretty_name(r["name"]))} '
+                        f'href="/search/?q={quote(r["name"])}">{esc(pretty_name(r["name"]))} '
                         f'<em>trending</em></a>')
         if trend_chips.count("qf-chip hot") >= 4:
             break
@@ -2809,11 +2816,19 @@ def page_search():
  <p class="muted center" id="nores" style="display:none;padding:40px 0">No designs match that
  search. <a class="link" href="/collections/">Browse a collection instead</a></p>
 </div></div></main>"""
-    URLS.append((DOMAIN + path, "0.6", "daily"))
+    # 2026-11-09: internal search left the sitemap and went noindex. The
+    # 3-month GSC crawl report (user paste) showed Googlebot spending its
+    # budget on /search/?st=... ?g=... ?t=... ?q=... parameter pages and
+    # even fetching the SearchAction template literally
+    # (?q={search_term_string}). Every design is reachable from the
+    # collections, hubs and sitemap; this page is a utility, not a landing.
+    # robots.txt also blocks /search/ (crawl budget) - the noindex covers
+    # any URL crawled before robots.txt is re-read and other engines.
     write("search/index.html",
           head(f"Search All {n} Fan Designs | {BRAND}", desc, path, "/img/hero-home.jpg?v=5",
                schema, ["all fan shirts", "search football fan apparel",
-                        "football fan design search", "custom fan tee search"])
+                        "football fan design search", "custom fan tee search"],
+               noindex=True)
           + header() + body + footer())
 
 
@@ -7456,6 +7471,16 @@ User-agent: *
 # they are noindex, never in the sitemap and never linked from public nav.
 Disallow: /marketing/
 Disallow: /ops/
+# Internal search: the ?q=/?st=/?g=/?t= parameter space is unbounded and the
+# GSC crawl report (2026-11-09) showed Googlebot burning budget on it - and
+# even fetching the schema SearchAction template literally
+# (/collections/?q=search_term_string, the literal template). Nothing here needs crawling: every
+# design is reachable from the collections, team hubs and the sitemap. The
+# /search/ page itself carries noindex,follow for engines that reach it
+# through links; this block is the crawl-budget half of the same decision.
+Disallow: /search/
+Disallow: /collections/?q=
+Disallow: /collections?q=
 Allow: /
 
 # Product imagery is a ranking asset - let image crawlers in

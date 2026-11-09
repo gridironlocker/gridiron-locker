@@ -6,6 +6,16 @@ User-agent: *
 # they are noindex, never in the sitemap and never linked from public nav.
 Disallow: /marketing/
 Disallow: /ops/
+# Internal search: the ?q=/?st=/?g=/?t= parameter space is unbounded and the
+# GSC crawl report (2026-11-09) showed Googlebot burning budget on it - and
+# even fetching the schema SearchAction template literally
+# (/collections/?q=search_term_string, the literal template). Nothing here needs crawling: every
+# design is reachable from the collections, team hubs and the sitemap. The
+# /search/ page itself carries noindex,follow for engines that reach it
+# through links; this block is the crawl-budget half of the same decision.
+Disallow: /search/
+Disallow: /collections/?q=
+Disallow: /collections?q=
 Allow: /
 
 # Product imagery is a ranking asset - let image crawlers in
