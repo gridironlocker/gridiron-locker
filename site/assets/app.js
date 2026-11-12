@@ -487,7 +487,7 @@ document.querySelectorAll('a.custom-link').forEach(function(a){
     var target=document.querySelector('.customsec')||document.querySelector('.customform');
     if(target){target.scrollIntoView({behavior:'smooth',block:'start'});return;}
     // no custom section on this page - send them to the one on the homepage
-    location.href=(document.body.getAttribute('data-root')||'./')+'#custom-design';
+    location.href=(document.body.getAttribute('data-root')||'./')+'custom-t-shirts/';
   });
 })();
 

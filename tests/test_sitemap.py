@@ -150,7 +150,9 @@ class SitemapDates(unittest.TestCase):
         # 2026-11-09: 137 -> 136 - /search/ left the sitemap (internal
         # search utility: noindex + robots-blocked after the GSC crawl
         # report showed Googlebot burning budget on its parameter pages).
-        self.assertEqual(len(self.rows), 136)
+        # 2026-11-09b: 136 -> 137 - /custom-t-shirts/ (custom-design
+        # service landing page, Merchant trends "custom t shirts" +2.4%).
+        self.assertEqual(len(self.rows), 137)
         self.assertEqual(len(self.rows), len(set(self.rows)))
         for url, lastmod in self.rows.items():
             self.assertTrue(url.startswith(build.DOMAIN + "/"), url)

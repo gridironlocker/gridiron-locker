@@ -4816,7 +4816,12 @@ class ConversionUpgrades(unittest.TestCase):
     def test_custom_design_is_in_site_navigation(self):
         nav = between(self.home, '<nav class="menubar"', "</nav>")
         self.assertIn("Custom Design", nav)
-        self.assertIn("#custom-design", nav)
+        # 2026-11-12: the sitewide nav target moved from the homepage
+        # #custom-design anchor to the /custom-t-shirts/ landing page (the
+        # service needs a rankable URL; the homepage keeps its own section
+        # and in-page hero anchors). The offer must stay in the nav either
+        # way - what is pinned is reachability, not the fragment.
+        self.assertIn("/custom-t-shirts/", nav)
 
     def test_collection_pages_carry_a_custom_band(self):
         for k, html in collection_pages().items():
