@@ -1652,7 +1652,7 @@ def header(active="", hide_nav=False, logo="", social=""):
    <a href="/funny-football-shirts/">Funny Shirts</a>
    <a href="/vintage-football-shirts/">Vintage</a>
    <a href="/#shop-the-locker">Shop The Locker</a>
-   <a class="custom-link" data-placement="nav" href="/#custom-design">Custom Design</a>
+   <a class="custom-link" data-placement="nav" href="/custom-t-shirts/">Custom Design</a>
   </div>
  </nav>"""
     logo_html = logo or (
@@ -2044,7 +2044,7 @@ def footer(popup=True, collection=None):
    <div><h2>Help</h2><a href="/faq/">FAQ</a><a href="/shipping/">Shipping</a>
     <a href="/shipping/">Returns</a><a href="/how-ordering-works/">How It Works</a><a href="/size-guide/">Size Guide</a>
     <a href="/contact/">Contact</a></div>
-   <div><h2>Brand</h2><a href="/about/">About</a><a class="custom-link" data-placement="footer" href="/#custom-design">Custom Design</a>
+   <div><h2>Brand</h2><a href="/about/">About</a><a class="custom-link" data-placement="footer" href="/custom-t-shirts/">Custom Design</a>
     <a href="/guides/">Buying Guides</a><a href="/2026-season/">2026 Season</a>
     <a href="/funny-football-shirts/">Funny Shirts</a><a href="/vintage-football-shirts/">Vintage Shirts</a>
     <a href="/football-gifts/">Gifts</a>
@@ -5649,7 +5649,8 @@ right stadium parking lot and as ordinary humor everywhere else. Pick the fan fi
 then the joke.</p>
 <p class="muted small">Looking for old-school instead of funny? Browse the
 <a href="/vintage-football-shirts/">vintage football shirts</a>. Gifts by budget live in
-the <a href="/guides/football-fan-gift-guide-2026/">2026 gift guide</a>.</p>
+the <a href="/guides/football-fan-gift-guide-2026/">2026 gift guide</a>. Got a joke
+only your group would get? <a href="/custom-t-shirts/">We will design it</a>.</p>
 <h2>Funny shirt FAQ</h2>
 {ffhtml}
 """
@@ -6078,6 +6079,89 @@ def page_team_gift_guides():
                     [faq_schema, ilist], crumb_label=g["title"])
 
 
+def page_custom_t_shirts():
+    """SEO landing page for the custom-design service, targeting the rising
+    generic query cluster ("custom t shirts" +2.4% in the Merchant Center
+    trends report 2026-11-09, US, last 7 days) and the long-tail around it
+    ("custom football shirts", "design your own football shirt"). The
+    homepage section keeps the in-page anchor; this page exists so the
+    service can rank and so sitewide Custom Design links point at a real
+    URL instead of a homepage fragment. Commercial route: the same free-
+    inquiry form - we reply with a proof and a price. Nothing on this page
+    invents a price, a turnaround guarantee or an order minimum."""
+    path = "/custom-t-shirts/"
+    cb, cbs = crumbs([("Home", "/"), ("Custom T Shirts", None)], path)
+    faqs = [
+        ("How much does a custom t shirt cost?",
+         "The inquiry is free. Pricing depends on the garment and the scope of "
+         "the design, so we reply with a proof and a price before anything is "
+         "made - you approve both before there is any order."),
+        ("Can I order just one custom shirt?",
+         "Yes. Custom designs are printed on demand, so there is no minimum "
+         "order - one shirt is a normal order, and the same file can go on "
+         "hoodies, sweatshirts, mugs or beanies later."),
+        ("How long does a custom design take?",
+         "We usually reply by email within 1&ndash;2 days with the first proof. "
+         "After you approve it, printing is made to order and ships with "
+         "tracking - allow production plus shipping time for delivery."),
+        ("What should I put in my request?",
+         "The phrase or idea is the heart of it, then the team or theme, your "
+         "colors and anything behind the story - a family motto, a group "
+         "slogan, a running joke. The more specific the brief, the closer the "
+         "first proof lands."),
+        ("Is custom work officially licensed team merchandise?",
+         "No - and nothing we make is. Custom designs are original artwork in "
+         "the same fan-made style as the shop: names and cities as text, never "
+         "official marks. The "
+         '<a href="/trademark-notice/">trademark notice</a> explains the stance.'),
+    ]
+    faq_html = "".join(f"<h3>{esc(q)}</h3>\n<p>{a}</p>" for q, a in faqs)
+    faq_schema = {"@context": "https://schema.org", "@type": "FAQPage",
+                  "mainEntity": [{"@type": "Question", "name": q,
+                                  "acceptedAnswer": {"@type": "Answer", "text": a}}
+                                 for q, a in faqs]}
+    body = f"""
+<p>Custom t shirts for football fans: your phrase, your colors, your game day. Send
+the idea and we turn it into an original football graphic - one you can buy a single
+copy of, printed on demand and shipped with tracking. It starts as a free inquiry
+with a proof and a price before anything is made.</p>
+<h2>How a custom shirt happens</h2>
+<p><strong>01 - Your idea.</strong> A phrase, a nickname, a family motto, a group
+slogan or a running joke, plus the team and the colors.</p>
+<p><strong>02 - Our design.</strong> We turn the brief into an original football
+graphic in the same hand-drawn spirit as the shop, and send a proof with a price.</p>
+<p><strong>03 - Your shirt.</strong> Approve both and it prints on demand - tees,
+hoodies, sweatshirts, long sleeves, mugs or beanies, one at a time, no minimum.</p>
+<h2>What makes a great brief</h2>
+<p>The strongest requests name the exact words you want on the shirt and who they
+are for. "DAWG POUND FOREVER in orange and brown" beats "something for a Browns
+fan" every time - but the story behind the words matters too: the best custom
+designs come from jokes only one group of people would get.</p>
+{custom_design()}
+<h2>Custom design FAQ</h2>
+{faq_html}
+<p class="muted small">Not after something custom? Browse the live designs in
+<a href="/collections/">all collections</a>, start with
+<a href="/funny-football-shirts/">Funny Football Shirts</a> or
+<a href="/vintage-football-shirts/">Vintage Football Shirts</a>, and check the
+<a href="/size-guide/">size guide</a> before you order.</p>
+"""
+    URLS.append((DOMAIN + path, "0.8", "weekly"))
+    write("custom-t-shirts/index.html",
+          head("Custom T Shirts for Football Fans | " + BRAND,
+               "Custom t shirts from your idea: send the phrase, team and colors "
+               "- we design an original football graphic you buy one at a time. "
+               "Free inquiry, fast reply.",
+               path, "/img/custom-tee1.jpg", [cbs, faq_schema],
+               ["custom t shirts", "custom football shirts",
+                "design your own football shirt", "custom team shirt",
+                "custom fan apparel"])
+          + header() + cb + f"""<main id="main"><section style="padding-top:6px">
+<div class="wrap prose">
+ <h1>Custom T Shirts for Football Fans</h1>{body}
+</div></section></main>""" + footer(popup=False))
+
+
 GIFT_GUIDE_PATH = "/guides/football-fan-gift-guide-2026/"
 
 
@@ -6400,8 +6484,13 @@ def page_guides():
              "Doomsday Defense, Texas flag pride and vintage helmet styles for "
              "the Texas-proud fan."),
         ])
+    custom_card = ('<div class="panel" style="margin-bottom:14px"><h3>'
+                   '<a href="/custom-t-shirts/">Custom T Shirts</a></h3>'
+                   '<p class="muted" style="margin:0">Your phrase, your colors: '
+                   'the free custom-design service explained, with the request '
+                   'form.</p></div>')
     cards = (week1_card + second_act_card + vs_card + gift_card + funny_card
-             + vintage_card + gifts_card + team_gift_cards)
+             + vintage_card + gifts_card + team_gift_cards + custom_card)
     for k in ORDER:
         c = COLLECTIONS[k]
         cards += (f'<div class="panel" style="margin-bottom:14px"><h3><a href="/guides/{c["slug"]}-buying-guide/">'
@@ -8167,7 +8256,7 @@ document.querySelectorAll('a.custom-link').forEach(function(a){
     var target=document.querySelector('.customsec')||document.querySelector('.customform');
     if(target){target.scrollIntoView({behavior:'smooth',block:'start'});return;}
     // no custom section on this page - send them to the one on the homepage
-    location.href=(document.body.getAttribute('data-root')||'./')+'#custom-design';
+    location.href=(document.body.getAttribute('data-root')||'./')+'custom-t-shirts/';
   });
 })();
 
@@ -9113,6 +9202,7 @@ def main():
     page_vibe_pages()
     page_football_gifts()
     page_team_gift_guides()
+    page_custom_t_shirts()
     page_season()
     page_fti()
     page_drops()
