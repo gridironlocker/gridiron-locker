@@ -1,5 +1,5 @@
 {
- "generated": "2026-11-11",
+ "generated": "2026-11-12",
  "window_days": 10,
  "fti_formula": "round(100 * entity_mentions / peak_mentions_in_window)",
  "peak_mentions": 40,
@@ -11,8 +11,8 @@
   "hot": 11,
   "throwback": 1,
   "steady": 83,
-  "gaps": 5,
-  "moments": 4,
+  "gaps": 6,
+  "moments": 5,
   "tracked_names": 18,
   "dead_campaigns": 68
  },
@@ -28,8 +28,8 @@
   },
   {
    "name": "deshaun watson",
-   "mentions": 25,
-   "index": 62,
+   "mentions": 28,
+   "index": 70,
    "status": "trending",
    "gap": true,
    "shoppable": false,
@@ -37,24 +37,33 @@
   },
   {
    "name": "kyle whittingham",
-   "mentions": 25,
-   "index": 62,
+   "mentions": 21,
+   "index": 52,
    "status": "trending",
    "gap": true,
    "shoppable": false,
    "collection": "michigan"
   },
   {
-   "name": "jordan love",
-   "mentions": 8,
-   "index": 20,
+   "name": "micah parsons",
+   "mentions": 16,
+   "index": 40,
    "status": "trending",
    "gap": false,
    "shoppable": true,
    "collection": "green-bay-packers"
   },
   {
-   "name": "micah parsons",
+   "name": "bryce underwood",
+   "mentions": 12,
+   "index": 30,
+   "status": "trending",
+   "gap": false,
+   "shoppable": true,
+   "collection": "michigan"
+  },
+  {
+   "name": "jordan love",
    "mentions": 6,
    "index": 15,
    "status": "trending",
@@ -63,13 +72,22 @@
    "collection": "green-bay-packers"
   },
   {
-   "name": "josh jacobs",
+   "name": "matt lafleur",
+   "mentions": 6,
+   "index": 15,
+   "status": "trending",
+   "gap": true,
+   "shoppable": false,
+   "collection": "green-bay-packers"
+  },
+  {
+   "name": "ceedee lamb",
    "mentions": 4,
    "index": 10,
    "status": "trending",
    "gap": true,
    "shoppable": false,
-   "collection": "green-bay-packers"
+   "collection": "dallas-cowboys"
   },
   {
    "name": "todd monken",
@@ -81,31 +99,13 @@
    "collection": "cleveland-browns"
   },
   {
-   "name": "matt lafleur",
+   "name": "josh jacobs",
    "mentions": 3,
    "index": 8,
    "status": "trending",
    "gap": true,
    "shoppable": false,
    "collection": "green-bay-packers"
-  },
-  {
-   "name": "bryce underwood",
-   "mentions": 2,
-   "index": 5,
-   "status": "steady",
-   "gap": false,
-   "shoppable": true,
-   "collection": "michigan"
-  },
-  {
-   "name": "ceedee lamb",
-   "mentions": 2,
-   "index": 5,
-   "status": "steady",
-   "gap": false,
-   "shoppable": false,
-   "collection": "dallas-cowboys"
   },
   {
    "name": "dak prescott",
@@ -183,8 +183,8 @@
  "gaps": [
   {
    "name": "deshaun watson",
-   "mentions": 25,
-   "index": 62,
+   "mentions": 28,
+   "index": 70,
    "status": "trending",
    "gap": true,
    "shoppable": false,
@@ -192,21 +192,30 @@
   },
   {
    "name": "kyle whittingham",
-   "mentions": 25,
-   "index": 62,
+   "mentions": 21,
+   "index": 52,
    "status": "trending",
    "gap": true,
    "shoppable": false,
    "collection": "michigan"
   },
   {
-   "name": "josh jacobs",
+   "name": "matt lafleur",
+   "mentions": 6,
+   "index": 15,
+   "status": "trending",
+   "gap": true,
+   "shoppable": false,
+   "collection": "green-bay-packers"
+  },
+  {
+   "name": "ceedee lamb",
    "mentions": 4,
    "index": 10,
    "status": "trending",
    "gap": true,
    "shoppable": false,
-   "collection": "green-bay-packers"
+   "collection": "dallas-cowboys"
   },
   {
    "name": "todd monken",
@@ -218,7 +227,7 @@
    "collection": "cleveland-browns"
   },
   {
-   "name": "matt lafleur",
+   "name": "josh jacobs",
    "mentions": 3,
    "index": 8,
    "status": "trending",
@@ -241,8 +250,8 @@
    "gaps": [
     {
      "name": "deshaun watson",
-     "mentions": 25,
-     "index": 62,
+     "mentions": 28,
+     "index": 70,
      "status": "trending",
      "gap": true,
      "shoppable": false,
@@ -261,12 +270,12 @@
    "top_terms": [
     "browns",
     "cleveland",
-    "trade",
     "sanders",
     "shedeur",
+    "trade",
     "deadline",
-    "watson",
-    "deshaun"
+    "deshaun",
+    "watson"
    ],
    "headline_count": 100,
    "headlines": [
@@ -313,15 +322,25 @@
    "avg_price": 21.99,
    "hot": 0,
    "throwback": 0,
-   "gaps": [],
+   "gaps": [
+    {
+     "name": "ceedee lamb",
+     "mentions": 4,
+     "index": 10,
+     "status": "trending",
+     "gap": true,
+     "shoppable": false,
+     "collection": "dallas-cowboys"
+    }
+   ],
    "top_terms": [
     "cowboys",
     "dallas",
     "trade",
     "deadline",
+    "pickens",
     "injury",
-    "make",
-    "former",
+    "george",
     "jerry"
    ],
    "headline_count": 100,
@@ -345,16 +364,16 @@
      "pub": "Thu, 05 Nov 2026 23:23:21 GMT"
     },
     {
+     "title": "Kendre Miller feeling at home with Cowboys: 'I feel like it happened for a reason'",
+     "url": "https://news.google.com/rss/articles/CBMitAFBVV95cUxNR0oxR2xBTktobG9scXFMVV9SOS1Tb2pMU01mUjJDMi1YWEFBR2F5dElBY3pQUkhiV0xOQ240QkEwNDZVT2UxazFYYkpDcGpJME0zMnhBUGQtWDdpenZVeUxZTW1FRXZ0a3VUMnQ0ejMxMy1BdzhpVHduc2diM283aDUtSlk3VTV2cE42aFdhc0lnNjJKaDI2ZUtOVUc1dDNWMGw0Y1hXRmkxWEpubUFOLWlaUzA?oc=5",
+     "source": "Dallas Cowboys | Official Site of the Dallas Cowboys",
+     "pub": "Wed, 11 Nov 2026 22:19:59 GMT"
+    },
+    {
      "title": "Shemar James explains mindset of Cowboys 'urgent' defense",
      "url": "https://news.google.com/rss/articles/CBMilAFBVV95cUxOdjAwMC1OcGtwYWJubjhWSVhkOWxWalhnQkxmQ0hQdHJObHJteFIzRVBDR0hRLXUwTFR0QVEwdFRJbjZOUy1CeFJiSHRjNWtZVkM1R1R2Zmw3c3IyczZXNDd5eUROd0hya3otMWNnYUNfay1iR3o5V0RsSDZEWkloNENlQk80WGJFZlZZUEpZRXVNTmZy?oc=5",
      "source": "Dallas Cowboys | Official Site of the Dallas Cowboys",
      "pub": "Wed, 04 Nov 2026 23:53:54 GMT"
-    },
-    {
-     "title": "Cowboys-Colts: How to Watch, Listen, Stream in Week 9",
-     "url": "https://news.google.com/rss/articles/CBMijgFBVV95cUxOekllRDRUTXlveGd3TjYxV2cxMGp2b1BOajhqN09XTGhjT2hUUVdZNUFWZWF4eThCOWZ5MUdwaEVzUDQzenllMnZ6c2k2NFJ5cW9vU0o2ZmJTUXE0M2F5anFKZ0FQLXFrdjRqb1JkaGFjU0dwSF83RE85ODdkcWNsWl9FejY5XzAyWkd6VGtB?oc=5",
-     "source": "Dallas Cowboys | Official Site of the Dallas Cowboys",
-     "pub": "Fri, 06 Nov 2026 22:51:28 GMT"
     }
    ],
    "fti_count": 2
@@ -371,16 +390,16 @@
    "throwback": 0,
    "gaps": [
     {
-     "name": "josh jacobs",
-     "mentions": 4,
-     "index": 10,
+     "name": "matt lafleur",
+     "mentions": 6,
+     "index": 15,
      "status": "trending",
      "gap": true,
      "shoppable": false,
      "collection": "green-bay-packers"
     },
     {
-     "name": "matt lafleur",
+     "name": "josh jacobs",
      "mentions": 3,
      "index": 8,
      "status": "trending",
@@ -395,9 +414,9 @@
     "trade",
     "deadline",
     "love",
-    "jordan",
-    "kirk",
-    "cousins"
+    "micah",
+    "parsons",
+    "kirk"
    ],
    "headline_count": 100,
    "headlines": [
@@ -410,20 +429,20 @@
     {
      "title": "Green Bay Packers Postgame Quotes 11/8",
      "url": "https://news.google.com/rss/articles/CBMid0FVX3lxTFBZdWdFd3lyUDVJVzBPZE1HYkE3dGM0cUduZTk2NnRwQ1Jja0tueGRYSmVOaWw4bkZ2UldCSXJsTGFhSncyTWFESDdtSkJPa0hTRzB4QlI2ZXd6TURWQXdpTEFpUWY2NmFPbEIwTnpTRkQ3ZTJRYl9j?oc=5",
-     "source": "Patriots.com",
+     "source": "New England Patriots",
      "pub": "Mon, 09 Nov 2026 05:13:05 GMT"
-    },
-    {
-     "title": "5 Players The Green Bay Packers Should Target At The Trade Deadline",
-     "url": "https://news.google.com/rss/articles/CBMivAFBVV95cUxQXzVVc0hsZVJHOTZZUWtSeWdnYnlWbFBMYWhmdkFBbkRTamJ3c1NHbG80N2VtcS1TWlJDcFlnMENFUi1WdkNRSzJ1YlRELUJBekhVRGdxUnZDVGNGSDgtcVlzZG5BQUhWMmtXSDdBdVpGOUtGYWZRQ3NXSzdrWDZmNi1xbnRiVFQtdU45dWhWMC1SSlVYUGdNZTRKd3gtaU03dzdIZEllVDhfZXFEUjZuRHN4eFNQc2RhRi1DQQ?oc=5",
-     "source": "Forbes",
-     "pub": "Mon, 09 Nov 2026 13:44:17 GMT"
     },
     {
      "title": "Green Bay Packers wide receiver Christian Watson's best catches from 171-yard game vs. Patriots | Week 9",
      "url": "https://news.google.com/rss/articles/CBMinAFBVV95cUxPS1hxN290aGRDS3hKSFpEckxkeHdORUxKVVF6SS1rTEl5UzBNZW9YbUMxazNscF9rbnlNRDRPaWhTbFRPLU9sX1Rxamh2MHkxLXVWNHBPTWUxaGVaeG5uZ0JVWGs2YmQ4YlRlaVZzSHl5US1Jb3htYjdVQ2RyZnlkOG96NkdQVFBsTHJsSUNIb294V1JxdlNPWW5kTlo?oc=5",
      "source": "NFL.com",
      "pub": "Mon, 09 Nov 2026 01:32:59 GMT"
+    },
+    {
+     "title": "5 Players The Green Bay Packers Should Target At The Trade Deadline",
+     "url": "https://news.google.com/rss/articles/CBMivAFBVV95cUxQXzVVc0hsZVJHOTZZUWtSeWdnYnlWbFBMYWhmdkFBbkRTamJ3c1NHbG80N2VtcS1TWlJDcFlnMENFUi1WdkNRSzJ1YlRELUJBekhVRGdxUnZDVGNGSDgtcVlzZG5BQUhWMmtXSDdBdVpGOUtGYWZRQ3NXSzdrWDZmNi1xbnRiVFQtdU45dWhWMC1SSlVYUGdNZTRKd3gtaU03dzdIZEllVDhfZXFEUjZuRHN4eFNQc2RhRi1DQQ?oc=5",
+     "source": "Forbes",
+     "pub": "Mon, 09 Nov 2026 13:44:17 GMT"
     },
     {
      "title": "Green Bay Packers vs. New England Patriots: Game Highlights",
@@ -447,8 +466,8 @@
    "gaps": [
     {
      "name": "kyle whittingham",
-     "mentions": 25,
-     "index": 62,
+     "mentions": 21,
+     "index": 52,
      "status": "trending",
      "gap": true,
      "shoppable": false,
@@ -460,8 +479,8 @@
     "football",
     "kyle",
     "whittingham",
-    "state",
     "wolverines",
+    "state",
     "oregon",
     "loss"
    ],
@@ -480,22 +499,22 @@
      "pub": "Sun, 08 Nov 2026 12:00:00 GMT"
     },
     {
-     "title": "Kickoff time set for Nov. 7 Michigan-Michigan State football rivalry game",
-     "url": "https://news.google.com/rss/articles/CBMixgFBVV95cUxNV20xZmZ3RktYN3ViMUdWZW9YZjVtU2ZyOUg2RXRYRThoSFZvX192UU8tVVdYa25OYkxkbUlwU08zbl9vM3h4YUJPdml4TF9GbWFmaWltQTlwWFhIcHg0SWgxVVZOUUhkeGFHYUozUEI5SzBLSUpWY3MzXzliZE12YTFrMURkVEFCeWx4V19KZ0FTMlB1TmRtRzVJd1hhUERIUFZMM2xSZDEwbkJzX1VnOXJWbldSNWVlenBSUHIwcUt1aHFreXfSAdoBQVVfeXFMUHplZjF6cDdqNFRieVg2QnRicXM4REhOTF9CUlBWYjZtOHdaQ2tvQ3hqLVNFXzNmbERYYktHdjkwcFVsM2N5cFE4MVI2ZXZ4WGI4ZkVocW5jczBoazBudmd6U29XcE1udnhyWWNKYTBZX252LVZvY2RGTXk4SUtNS09xbDJhMGZPcWlSSjFpMkZCWno0RDdHSUppTGtlUEZ5RnB5c0FJdFk2V2hGY1ZGejVSY3IxOXFtSWhLcGYzWU5zRVRIY1RlWVROZHloSmZETWZXd2JNY280aHc?oc=5",
-     "source": "MLive.com",
-     "pub": "Mon, 02 Nov 2026 08:00:00 GMT"
-    },
-    {
-     "title": "Michigan Football hits new low with pathetic loss to Michigan State",
-     "url": "https://news.google.com/rss/articles/CBMi9gFBVV95cUxNVFJfSUxUV1BVS0xESWJsSVhvemU4RFFpaWViNmx1YW1NWEUybXFhTTY1T2RyOGl6Mlk2eWt1ZF85cHB0RnhWd3NjVU1sUFdVTWFaLU8xOHR4R2RvdkFLUVB6WXM2bEgyQW1rQ2hfYWotNUtIN1dXQ1I2eWZSZTVjejFrNU5UQkllQnVGWWZaSWpIWUR2OHJTWlYwWlFUcFFGTW5BRHBoOTNFT1NGcW10bEJLZE5IdFdYQnFfTU9EaW10WWlWZlFVT0hxWG52UjE4Q0w4UUZNZGk1TU1hZC13TmFFVV9fV0s3ZWVSWE5BS214SHlCUmc?oc=5",
-     "source": "Maize n Brew",
-     "pub": "Sun, 08 Nov 2026 04:50:00 GMT"
-    },
-    {
      "title": "Michigan football head coach Kyle Whittingham names starting quarterback, discusses Michigan State rivalry",
      "url": "https://news.google.com/rss/articles/CBMi_AFBVV95cUxOc3oyTklJVU5zUm9DV2htRUdxenc3R2pmY2htRVR2R3RhVE9ZWGd0N2loNlFGNUlCTXB4WTkwVU9udjlRWkdWeDI1YldjTTh1U0VYcU02VElrVFcwS05qWFIwWERPYzdyaEh3VG90czNhZVIzMkpWd1dBN0NJMkJBQlZlOXhxd2hYX2tVbF92WU1yNk5rTWtrZUhFMmNRVmZxWWg4bFVwWFZPNHdWSkc5bUdSNk9fOUNhWTIyLTUzV0FpQVM1VTlrcTFVbnVpSmsxZTZUSjYxVDRicm5rS2FCeDFqNG1PNVFCZVRjRi1yNHl0eW8wTTRKVVNxYko?oc=5",
      "source": "ClickOnDetroit | WDIV Local 4",
-     "pub": "Tue, 03 Nov 2026 10:00:00 GMT"
+     "pub": "Tue, 03 Nov 2026 08:00:00 GMT"
+    },
+    {
+     "title": "Watch Michigan vs Oregon Live: Streaming, TV Channel & Start Time - Nov 14, 2026 | CFB Week 11",
+     "url": "https://news.google.com/rss/articles/CBMiqgFBVV95cUxNbU1GYzdlSDdYXzd1RkZfUXhaZnVoMkdwY2hYYXR2Q3lXcHdmY1E2MW43UHJ1a1N6SnZGajZKMzlFQUgtYkxvR1ZmWDNNa25IckVUVTh2TjBPNkRSNUp6TFJvZU1RWDVWX0pscEowTXN2N1hzcXFFcTZaTFhpRHZKN1FLWjRHQnVoWGtPV01YX1RENXZuZHBGRUM0X3ZQNGdKa2tvVzZhUXQxZw?oc=5",
+     "source": "FOX One",
+     "pub": "Thu, 12 Nov 2026 10:15:22 GMT"
+    },
+    {
+     "title": "Michigan Drops Rivalry Matchup to Michigan State",
+     "url": "https://news.google.com/rss/articles/CBMiqAFBVV95cUxNSEduVXQ4Qjc0Y2ozZlNvbExsSWxJTWh2cE51VjZLdjlUdERiNVVYV1MwSHFwT3FJLWtVSzRfeHhIUk1JZVhqWnNMNFd4UTN2dEw1RzNvQXM4XzdqaTl0R3FsZHVGSjZENDc2UnpwWGpZWFNiV3RQUUxPRmFIMWVXREgtRkZtMnZvTTVkWXlRb3pTYmt0ZmxpQnV4RThqbTlUMHZzMVF2bng?oc=5",
+     "source": "University of Michigan Athletics",
+     "pub": "Sat, 07 Nov 2026 08:00:00 GMT"
     }
    ],
    "fti_count": 4
@@ -868,20 +887,30 @@
    "title": "Michigan football head coach Kyle Whittingham names starting quarterback, discusses Michigan State rivalry",
    "url": "https://news.google.com/rss/articles/CBMi_AFBVV95cUxOc3oyTklJVU5zUm9DV2htRUdxenc3R2pmY2htRVR2R3RhVE9ZWGd0N2loNlFGNUlCTXB4WTkwVU9udjlRWkdWeDI1YldjTTh1U0VYcU02VElrVFcwS05qWFIwWERPYzdyaEh3VG90czNhZVIzMkpWd1dBN0NJMkJBQlZlOXhxd2hYX2tVbF92WU1yNk5rTWtrZUhFMmNRVmZxWWg4bFVwWFZPNHdWSkc5bUdSNk9fOUNhWTIyLTUzV0FpQVM1VTlrcTFVbnVpSmsxZTZUSjYxVDRicm5rS2FCeDFqNG1PNVFCZVRjRi1yNHl0eW8wTTRKVVNxYko?oc=5",
    "source": "ClickOnDetroit | WDIV Local 4",
-   "pub": "Tue, 03 Nov 2026 10:00:00 GMT",
+   "pub": "Tue, 03 Nov 2026 08:00:00 GMT",
    "collection": "michigan",
    "entities": [
     "kyle whittingham"
    ]
   },
   {
-   "title": "Jordan Love's 100th TOUCHDOWN PASS | Packers vs. Patriots",
-   "url": "https://news.google.com/rss/articles/CBMikwFBVV95cUxPd2ZKb1d4c1RBLXloZjBiN0E1eDR0TktRbHd4a1VrZWpYeGVwaDc0WHhhbnYzZ2ZSelBNY1BQUnhTYzRfY2xlUWtLZHJKZVRQeW0zeGQ1YWk2elNyQVRIUkR4YkFTMmtNLUhmN2hMX1pMUHdVcVlEdW9EYTZCTjZJYm5LQ1d3ajIyOVpYc3c0MHhLdTQ?oc=5",
-   "source": "Green Bay Packers \u2013 packers.com",
-   "pub": "Sun, 08 Nov 2026 22:10:30 GMT",
-   "collection": "green-bay-packers",
+   "title": "Michigan hired Kyle Whittingham to fix its mess. Instead, he\u2019s created an even bigger one with Wolverines",
+   "url": "https://news.google.com/rss/articles/CBMiuAFBVV95cUxOZVBHNkYwMXNDbzdUdzdIbU9TVFdVZmRRUlFiMUxaRGtVNThweWZMa25zc052MGM3TXBnZ2tVX25lc0xzT0JZeG9fTW45c1JENk9Oc2Z1U1pLdlBPXzFZcmpXOFRJY3dPaUJSdGlNVDRMWHZvZjBieXZrb1B6M2c1LUhpemw4R0ZhZkRKNVpuS3JiU3VBVUNBNkpLd0YtX0k2RWxMZXVTY0plSW94WDFvTXUzZmRPcWF4?oc=5",
+   "source": "Fox News",
+   "pub": "Mon, 09 Nov 2026 15:17:42 GMT",
+   "collection": "michigan",
    "entities": [
-    "jordan love"
+    "kyle whittingham"
+   ]
+  },
+  {
+   "title": "CeeDee Lamb powers Cowboys to much-needed win vs. Colts, but expects more",
+   "url": "https://news.google.com/rss/articles/CBMiqgFBVV95cUxPaHVtcHN6ck05Mm1IVTJPb01EUWxFNmlWYl9yclB3Y1VjX0N1YUtqSU9CanFiNktmRy1EZktnZm9PT01pNmFYVGtqak9tN1JIT0RhVFJRX3Vwd0R2aVpsTXBrc0xSSWVTY2ZQbUxROTlsMm5lWERQcy05UGVGXzFQUlNkMUl4bzNyajFWNUNnYUQ1OHQ5RERsUThkN1c3Wjlfc0tsX0lXbkNxZw?oc=5",
+   "source": "Dallas Cowboys | Official Site of the Dallas Cowboys",
+   "pub": "Sun, 08 Nov 2026 23:12:31 GMT",
+   "collection": "dallas-cowboys",
+   "entities": [
+    "ceedee lamb"
    ]
   }
  ]
