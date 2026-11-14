@@ -2,7 +2,7 @@
  "generated": "2026-11-14",
  "window_days": 10,
  "fti_formula": "round(100 * entity_mentions / peak_mentions_in_window)",
- "peak_mentions": 30,
+ "peak_mentions": 26,
  "stats": {
   "products": 95,
   "collections": 4,
@@ -11,7 +11,7 @@
   "hot": 11,
   "throwback": 1,
   "steady": 83,
-  "gaps": 4,
+  "gaps": 5,
   "moments": 6,
   "tracked_names": 18,
   "dead_campaigns": 68
@@ -19,7 +19,7 @@
  "fti_rows": [
   {
    "name": "shedeur sanders",
-   "mentions": 30,
+   "mentions": 26,
    "index": 100,
    "status": "trending",
    "gap": false,
@@ -27,27 +27,9 @@
    "collection": "cleveland-browns"
   },
   {
-   "name": "deshaun watson",
-   "mentions": 20,
-   "index": 67,
-   "status": "trending",
-   "gap": true,
-   "shoppable": false,
-   "collection": "cleveland-browns"
-  },
-  {
-   "name": "kyle whittingham",
-   "mentions": 16,
-   "index": 53,
-   "status": "trending",
-   "gap": true,
-   "shoppable": false,
-   "collection": "michigan"
-  },
-  {
    "name": "dak prescott",
    "mentions": 12,
-   "index": 40,
+   "index": 46,
    "status": "trending",
    "gap": true,
    "shoppable": false,
@@ -55,17 +37,35 @@
   },
   {
    "name": "jordan love",
-   "mentions": 8,
-   "index": 27,
+   "mentions": 11,
+   "index": 42,
    "status": "trending",
    "gap": false,
    "shoppable": true,
    "collection": "green-bay-packers"
   },
   {
+   "name": "deshaun watson",
+   "mentions": 10,
+   "index": 38,
+   "status": "trending",
+   "gap": true,
+   "shoppable": false,
+   "collection": "cleveland-browns"
+  },
+  {
+   "name": "kyle whittingham",
+   "mentions": 10,
+   "index": 38,
+   "status": "trending",
+   "gap": true,
+   "shoppable": false,
+   "collection": "michigan"
+  },
+  {
    "name": "micah parsons",
-   "mentions": 7,
-   "index": 23,
+   "mentions": 8,
+   "index": 31,
    "status": "trending",
    "gap": false,
    "shoppable": true,
@@ -74,7 +74,7 @@
   {
    "name": "bryce underwood",
    "mentions": 6,
-   "index": 20,
+   "index": 23,
    "status": "trending",
    "gap": false,
    "shoppable": true,
@@ -83,47 +83,47 @@
   {
    "name": "ceedee lamb",
    "mentions": 4,
-   "index": 13,
+   "index": 15,
    "status": "trending",
    "gap": true,
    "shoppable": false,
    "collection": "dallas-cowboys"
   },
   {
+   "name": "matt lafleur",
+   "mentions": 4,
+   "index": 15,
+   "status": "trending",
+   "gap": true,
+   "shoppable": false,
+   "collection": "green-bay-packers"
+  },
+  {
    "name": "jj mccarthy",
    "mentions": 2,
-   "index": 7,
+   "index": 8,
    "status": "steady",
    "gap": false,
    "shoppable": true,
    "collection": "michigan"
   },
   {
+   "name": "josh jacobs",
+   "mentions": 2,
+   "index": 8,
+   "status": "steady",
+   "gap": false,
+   "shoppable": false,
+   "collection": "green-bay-packers"
+  },
+  {
    "name": "todd monken",
    "mentions": 2,
-   "index": 7,
+   "index": 8,
    "status": "steady",
    "gap": false,
    "shoppable": false,
    "collection": "cleveland-browns"
-  },
-  {
-   "name": "josh jacobs",
-   "mentions": 1,
-   "index": 3,
-   "status": "steady",
-   "gap": false,
-   "shoppable": false,
-   "collection": "green-bay-packers"
-  },
-  {
-   "name": "matt lafleur",
-   "mentions": 1,
-   "index": 3,
-   "status": "steady",
-   "gap": false,
-   "shoppable": false,
-   "collection": "green-bay-packers"
   },
   {
    "name": "denzel ward",
@@ -182,9 +182,18 @@
  ],
  "gaps": [
   {
+   "name": "dak prescott",
+   "mentions": 12,
+   "index": 46,
+   "status": "trending",
+   "gap": true,
+   "shoppable": false,
+   "collection": "dallas-cowboys"
+  },
+  {
    "name": "deshaun watson",
-   "mentions": 20,
-   "index": 67,
+   "mentions": 10,
+   "index": 38,
    "status": "trending",
    "gap": true,
    "shoppable": false,
@@ -192,30 +201,30 @@
   },
   {
    "name": "kyle whittingham",
-   "mentions": 16,
-   "index": 53,
+   "mentions": 10,
+   "index": 38,
    "status": "trending",
    "gap": true,
    "shoppable": false,
    "collection": "michigan"
   },
   {
-   "name": "dak prescott",
-   "mentions": 12,
-   "index": 40,
+   "name": "ceedee lamb",
+   "mentions": 4,
+   "index": 15,
    "status": "trending",
    "gap": true,
    "shoppable": false,
    "collection": "dallas-cowboys"
   },
   {
-   "name": "ceedee lamb",
+   "name": "matt lafleur",
    "mentions": 4,
-   "index": 13,
+   "index": 15,
    "status": "trending",
    "gap": true,
    "shoppable": false,
-   "collection": "dallas-cowboys"
+   "collection": "green-bay-packers"
   }
  ],
  "collections": [
@@ -232,8 +241,8 @@
    "gaps": [
     {
      "name": "deshaun watson",
-     "mentions": 20,
-     "index": 67,
+     "mentions": 10,
+     "index": 38,
      "status": "trending",
      "gap": true,
      "shoppable": false,
@@ -243,12 +252,12 @@
    "top_terms": [
     "browns",
     "cleveland",
+    "houston",
     "sanders",
     "shedeur",
-    "houston",
-    "deshaun",
-    "watson",
-    "orleans"
+    "orleans",
+    "trade",
+    "deshaun"
    ],
    "headline_count": 100,
    "headlines": [
@@ -271,16 +280,16 @@
      "pub": "Mon, 09 Nov 2026 14:59:38 GMT"
     },
     {
-     "title": "Another late rally comes up short as Cleveland Browns fall to New Orleans Saints in overtime",
-     "url": "https://news.google.com/rss/articles/CBMiigJBVV95cUxPZVltTldzYVRMYzBGRkZYcnBoYlRzNkpHdGVoa2d0bWVCa1N0WkV5bHlDLTMyd1RucUptOW9vLUtVTzRjZlpDVHhDbEIxSUxUakU4T3pPS3dROThXU3F3VHBDbFZVbDNXVklWZkVKMmZCOXRsUDFlZWtPYnBlTVdvTWI0dExIWEVXUmE1alItX19oNkRJNjRsSmluM3pBYmhXQ0hKY0c3Yk1NdDVxVFlsRWdfZENic3p6RHZVRUpMSjIyMi1GbWJTQXFhbFRkR0NWUnNpYVdhNks1YnQyMDdTSVE1SHNjZUxNV0h6N0h6NVZkbEpBUEVJTEJVRmo1Wk9pUF9za1JOdmhzZw?oc=5",
-     "source": "WKYC",
-     "pub": "Sun, 08 Nov 2026 21:34:00 GMT"
-    },
-    {
      "title": "Can't-Miss Play: 64-yard TD! Shedeur Sanders and KC Concepcion stun Saints in fourth quarter",
      "url": "https://news.google.com/rss/articles/CBMiuAFBVV95cUxPM0EtbDRQYnpCUVJDZFl1dkRBTEljWTR6dWZVSnc3QU1HbS10QXV0ZDI2ekY5OVJOU1VjbTIwMmxEUWI0cm5UVTgySHlTVWNsUWJkRjYyVWFPRWxyVlpUYi1FcHFuWVRjbXlyamsxeTRKaTFHcXgtOTVqc1g0MmVFcVctTTRxMlNPTmI5ZzJhdEJSRFZzUk5tQVlNcXJVNVJEbllFLV9XLWxCQ085WEJrOXBpT3R1WUZf?oc=5",
      "source": "NFL.com",
      "pub": "Sun, 08 Nov 2026 20:54:29 GMT"
+    },
+    {
+     "title": "Another late rally comes up short as Cleveland Browns fall to New Orleans Saints in overtime",
+     "url": "https://news.google.com/rss/articles/CBMiigJBVV95cUxPZVltTldzYVRMYzBGRkZYcnBoYlRzNkpHdGVoa2d0bWVCa1N0WkV5bHlDLTMyd1RucUptOW9vLUtVTzRjZlpDVHhDbEIxSUxUakU4T3pPS3dROThXU3F3VHBDbFZVbDNXVklWZkVKMmZCOXRsUDFlZWtPYnBlTVdvTWI0dExIWEVXUmE1alItX19oNkRJNjRsSmluM3pBYmhXQ0hKY0c3Yk1NdDVxVFlsRWdfZENic3p6RHZVRUpMSjIyMi1GbWJTQXFhbFRkR0NWUnNpYVdhNks1YnQyMDdTSVE1SHNjZUxNV0h6N0h6NVZkbEpBUEVJTEJVRmo1Wk9pUF9za1JOdmhzZw?oc=5",
+     "source": "WKYC",
+     "pub": "Sun, 08 Nov 2026 21:34:00 GMT"
     }
    ],
    "fti_count": 7
@@ -299,7 +308,7 @@
     {
      "name": "dak prescott",
      "mentions": 12,
-     "index": 40,
+     "index": 46,
      "status": "trending",
      "gap": true,
      "shoppable": false,
@@ -308,7 +317,7 @@
     {
      "name": "ceedee lamb",
      "mentions": 4,
-     "index": 13,
+     "index": 15,
      "status": "trending",
      "gap": true,
      "shoppable": false,
@@ -319,11 +328,11 @@
     "cowboys",
     "dallas",
     "injury",
-    "pickens",
     "williams",
+    "pickens",
     "george",
-    "overshown",
-    "prescott"
+    "prescott",
+    "jones"
    ],
    "headline_count": 100,
    "headlines": [
@@ -370,16 +379,26 @@
    "avg_price": 25.19,
    "hot": 11,
    "throwback": 0,
-   "gaps": [],
+   "gaps": [
+    {
+     "name": "matt lafleur",
+     "mentions": 4,
+     "index": 15,
+     "status": "trending",
+     "gap": true,
+     "shoppable": false,
+     "collection": "green-bay-packers"
+    }
+   ],
    "top_terms": [
     "packers",
     "green",
-    "injury",
     "jordan",
     "love",
-    "kirk",
-    "cousins",
-    "ahead"
+    "injury",
+    "trade",
+    "preview",
+    "defense"
    ],
    "headline_count": 100,
    "headlines": [
@@ -410,7 +429,7 @@
     {
      "title": "Green Bay Packers invite fans to connect with team in Munich ahead of NFL Germany game",
      "url": "https://news.google.com/rss/articles/CBMivAFBVV95cUxPZmg1dTBUZmtyTThzNVJtNG85ZEZmMWV1RlBFUWJ1bG5NSjUtMUEwYzg1ZTBWTV9zXzNoa3ZEYzYxeVhXeEV6MzdDell6dV9jUHJUV0JHdm4zVFdRN1h4VzRHV2MyMzQwcGlMNjI4MENhSkZJZ053NGkzY3V1OHBWTUF0dVROcHc5NUVzenlhVTlrNE9GODRuRzB5Tk5sbkk1MHM2VmhyNGUxVTFURDczeVBDZHdSS2d4MHAydA?oc=5",
-     "source": "Packers.com",
+     "source": "Green Bay Packers \u2013 packers.com",
      "pub": "Mon, 09 Nov 2026 20:20:22 GMT"
     }
    ],
@@ -429,8 +448,8 @@
    "gaps": [
     {
      "name": "kyle whittingham",
-     "mentions": 16,
-     "index": 53,
+     "mentions": 10,
+     "index": 38,
      "status": "trending",
      "gap": true,
      "shoppable": false,
@@ -442,10 +461,10 @@
     "football",
     "oregon",
     "wolverines",
-    "kyle",
-    "whittingham",
     "state",
-    "ducks"
+    "ducks",
+    "watch",
+    "kyle"
    ],
    "headline_count": 100,
    "headlines": [
@@ -453,7 +472,7 @@
      "title": "Watch Michigan vs Oregon Live: Streaming, TV Channel & Start Time - Nov 14, 2026 | CFB Week 11",
      "url": "https://news.google.com/rss/articles/CBMiqgFBVV95cUxNbU1GYzdlSDdYXzd1RkZfUXhaZnVoMkdwY2hYYXR2Q3lXcHdmY1E2MW43UHJ1a1N6SnZGajZKMzlFQUgtYkxvR1ZmWDNNa25IckVUVTh2TjBPNkRSNUp6TFJvZU1RWDVWX0pscEowTXN2N1hzcXFFcTZaTFhpRHZKN1FLWjRHQnVoWGtPV01YX1RENXZuZHBGRUM0X3ZQNGdKa2tvVzZhUXQxZw?oc=5",
      "source": "FOX One",
-     "pub": "Sat, 14 Nov 2026 06:59:43 GMT"
+     "pub": "Sat, 14 Nov 2026 17:15:41 GMT"
     },
     {
      "title": "4 Instant Takeaways After Michigan Football's Humiliating Loss to Michigan State",
@@ -462,22 +481,22 @@
      "pub": "Sun, 08 Nov 2026 04:14:45 GMT"
     },
     {
+     "title": "3 winners, 3 losers after Michigan Football\u2019s loss to Michigan State",
+     "url": "https://news.google.com/rss/articles/CBMiggFBVV95cUxPYW1mb0dDV1JoXzlkX0lSbVE3eDRYZXRuQlNqemJvZXdEWFdXemZySi0ybWJRTUN4Y0tFdWwwNThQOC1RWGNOZzNRSk9jbEh5aTdNUnFLa19MbDNWOUtaNmlmU0p6S0VyZ19QQWxJZEE3NWVXYmE4RTU4aWp0ZC1oYU5R?oc=5",
+     "source": "Yahoo Sports",
+     "pub": "Sun, 08 Nov 2026 12:00:00 GMT"
+    },
+    {
      "title": "Michigan Football hits new low with pathetic loss to Michigan State",
      "url": "https://news.google.com/rss/articles/CBMi9gFBVV95cUxNVFJfSUxUV1BVS0xESWJsSVhvemU4RFFpaWViNmx1YW1NWEUybXFhTTY1T2RyOGl6Mlk2eWt1ZF85cHB0RnhWd3NjVU1sUFdVTWFaLU8xOHR4R2RvdkFLUVB6WXM2bEgyQW1rQ2hfYWotNUtIN1dXQ1I2eWZSZTVjejFrNU5UQkllQnVGWWZaSWpIWUR2OHJTWlYwWlFUcFFGTW5BRHBoOTNFT1NGcW10bEJLZE5IdFdYQnFfTU9EaW10WWlWZlFVT0hxWG52UjE4Q0w4UUZNZGk1TU1hZC13TmFFVV9fV0s3ZWVSWE5BS214SHlCUmc?oc=5",
      "source": "Maize n Brew",
      "pub": "Sun, 08 Nov 2026 04:50:00 GMT"
     },
     {
-     "title": "Michigan football faces massive media backlash after loss to MSU",
-     "url": "https://news.google.com/rss/articles/CBMijwFBVV95cUxOMnlKdnJ6V1Rrd0ZPUUQxVHZoNWliNjI1VVdRTFR3Mnh0UVM5R0NicVBiNHVLNWN3UHVGRDduQkdraWVuZ2ZLOXlQNzZ1S3lJN2xkdGwtVmpfOHZrekZJNjdxNURVcURWYnNZZ0QtcWVYOTFEdEEzTm1GNUtMTlVNa05BYngtTGt6T1VhTGlacw?oc=5",
-     "source": "Yahoo Sports",
-     "pub": "Sun, 08 Nov 2026 07:43:00 GMT"
-    },
-    {
-     "title": "How to watch Michigan vs. No. 18 Oregon: TV channel and streaming options for November 14 - The Athletic",
-     "url": "https://news.google.com/rss/articles/CBMinwFBVV95cUxQUXg2TzJ1bzFLVlc1SzVTblJzbnNJMEpwcGtYbkI3RFd2b1ZGRDZLZ2RyQWFfQTlQTlVPZTRsYjVINzBhdmJscXBjQzZoSHNvX18zRXctbmJ2b3N3TG9zQzRLQ28tNHZpRXlDRkdZaElURFM2SW5sMVFCWXBNVy1oZHhmYTR2Y0NMSWJwRW84MDhhZGxLX2o3UTluS25KS0U?oc=5",
-     "source": "The New York Times",
-     "pub": "Sat, 14 Nov 2026 05:21:00 GMT"
+     "title": "How to Watch Michigan vs. Oregon: TV Channel, Live Stream, Time",
+     "url": "https://news.google.com/rss/articles/CBMivwFBVV95cUxPX1FRbkFVaEQ5Zm12TXRPcDJncWprcDE5Q0NDT0U4VkxkcEN4TUFYOEVhaUFQdDFtczJTbVlpaUV5bURKTUJSLW85UWtEcmFkblpXQ1RFT2ZTNUF1bUIwTHZhWEVpcTZWQXJ5dFpLUWJNeVNUdEt4bkhZb0ZDekpiM2xkMFVFX0IwZ0pUaTBlLXRZZGQtc25hUzhHNHNSMFBWVHB0aWd6RlV6UXpwVUZzaURBZmpTYjBzbXZMa1lVVQ?oc=5",
+     "source": "FOX Sports",
+     "pub": "Sat, 14 Nov 2026 14:15:39 GMT"
     }
    ],
    "fti_count": 4
@@ -859,8 +878,8 @@
   {
    "title": "Jordan Love's 100th TOUCHDOWN PASS | Packers vs. Patriots",
    "url": "https://news.google.com/rss/articles/CBMikwFBVV95cUxPd2ZKb1d4c1RBLXloZjBiN0E1eDR0TktRbHd4a1VrZWpYeGVwaDc0WHhhbnYzZ2ZSelBNY1BQUnhTYzRfY2xlUWtLZHJKZVRQeW0zeGQ1YWk2elNyQVRIUkR4YkFTMmtNLUhmN2hMX1pMUHdVcVlEdW9EYTZCTjZJYm5LQ1d3ajIyOVpYc3c0MHhLdTQ?oc=5",
-   "source": "Packers.com",
-   "pub": "Sat, 14 Nov 2026 10:57:43 GMT",
+   "source": "Green Bay Packers \u2013 packers.com",
+   "pub": "Fri, 13 Nov 2026 08:00:00 GMT",
    "collection": "green-bay-packers",
    "entities": [
     "jordan love"
