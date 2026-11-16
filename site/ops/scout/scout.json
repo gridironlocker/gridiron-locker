@@ -2,7 +2,7 @@
  "generated": "2026-11-16",
  "window_days": 10,
  "fti_formula": "round(100 * entity_mentions / peak_mentions_in_window)",
- "peak_mentions": 19,
+ "peak_mentions": 23,
  "stats": {
   "products": 95,
   "collections": 4,
@@ -11,7 +11,7 @@
   "hot": 11,
   "throwback": 1,
   "steady": 83,
-  "gaps": 5,
+  "gaps": 6,
   "moments": 4,
   "tracked_names": 18,
   "dead_campaigns": 68
@@ -19,7 +19,7 @@
  "fti_rows": [
   {
    "name": "deshaun watson",
-   "mentions": 19,
+   "mentions": 23,
    "index": 100,
    "status": "trending",
    "gap": true,
@@ -28,80 +28,89 @@
   },
   {
    "name": "kyle whittingham",
-   "mentions": 15,
-   "index": 79,
+   "mentions": 16,
+   "index": 70,
    "status": "trending",
    "gap": true,
    "shoppable": false,
-   "collection": "michigan"
-  },
-  {
-   "name": "bryce underwood",
-   "mentions": 12,
-   "index": 63,
-   "status": "trending",
-   "gap": false,
-   "shoppable": true,
    "collection": "michigan"
   },
   {
    "name": "dak prescott",
    "mentions": 12,
-   "index": 63,
+   "index": 52,
    "status": "trending",
    "gap": true,
    "shoppable": false,
    "collection": "dallas-cowboys"
   },
   {
-   "name": "shedeur sanders",
-   "mentions": 9,
-   "index": 47,
+   "name": "bryce underwood",
+   "mentions": 10,
+   "index": 43,
    "status": "trending",
    "gap": false,
    "shoppable": true,
-   "collection": "cleveland-browns"
+   "collection": "michigan"
   },
   {
    "name": "jordan love",
-   "mentions": 7,
-   "index": 37,
+   "mentions": 10,
+   "index": 43,
    "status": "trending",
    "gap": false,
    "shoppable": true,
    "collection": "green-bay-packers"
   },
   {
+   "name": "shedeur sanders",
+   "mentions": 7,
+   "index": 30,
+   "status": "trending",
+   "gap": false,
+   "shoppable": true,
+   "collection": "cleveland-browns"
+  },
+  {
    "name": "ceedee lamb",
-   "mentions": 4,
-   "index": 21,
+   "mentions": 6,
+   "index": 26,
    "status": "trending",
    "gap": true,
    "shoppable": false,
    "collection": "dallas-cowboys"
   },
   {
+   "name": "todd monken",
+   "mentions": 5,
+   "index": 22,
+   "status": "trending",
+   "gap": true,
+   "shoppable": false,
+   "collection": "cleveland-browns"
+  },
+  {
    "name": "matt lafleur",
-   "mentions": 3,
-   "index": 16,
+   "mentions": 4,
+   "index": 17,
    "status": "trending",
    "gap": true,
    "shoppable": false,
    "collection": "green-bay-packers"
   },
   {
-   "name": "todd monken",
+   "name": "micah parsons",
    "mentions": 2,
-   "index": 11,
+   "index": 9,
    "status": "steady",
    "gap": false,
-   "shoppable": false,
-   "collection": "cleveland-browns"
+   "shoppable": true,
+   "collection": "green-bay-packers"
   },
   {
    "name": "josh jacobs",
    "mentions": 1,
-   "index": 5,
+   "index": 4,
    "status": "steady",
    "gap": false,
    "shoppable": false,
@@ -153,15 +162,6 @@
    "collection": "cleveland-browns"
   },
   {
-   "name": "micah parsons",
-   "mentions": 0,
-   "index": 0,
-   "status": "quiet",
-   "gap": false,
-   "shoppable": true,
-   "collection": "green-bay-packers"
-  },
-  {
    "name": "myles garrett",
    "mentions": 0,
    "index": 0,
@@ -183,7 +183,7 @@
  "gaps": [
   {
    "name": "deshaun watson",
-   "mentions": 19,
+   "mentions": 23,
    "index": 100,
    "status": "trending",
    "gap": true,
@@ -192,8 +192,8 @@
   },
   {
    "name": "kyle whittingham",
-   "mentions": 15,
-   "index": 79,
+   "mentions": 16,
+   "index": 70,
    "status": "trending",
    "gap": true,
    "shoppable": false,
@@ -202,7 +202,7 @@
   {
    "name": "dak prescott",
    "mentions": 12,
-   "index": 63,
+   "index": 52,
    "status": "trending",
    "gap": true,
    "shoppable": false,
@@ -210,17 +210,26 @@
   },
   {
    "name": "ceedee lamb",
-   "mentions": 4,
-   "index": 21,
+   "mentions": 6,
+   "index": 26,
    "status": "trending",
    "gap": true,
    "shoppable": false,
    "collection": "dallas-cowboys"
   },
   {
+   "name": "todd monken",
+   "mentions": 5,
+   "index": 22,
+   "status": "trending",
+   "gap": true,
+   "shoppable": false,
+   "collection": "cleveland-browns"
+  },
+  {
    "name": "matt lafleur",
-   "mentions": 3,
-   "index": 16,
+   "mentions": 4,
+   "index": 17,
    "status": "trending",
    "gap": true,
    "shoppable": false,
@@ -241,8 +250,17 @@
    "gaps": [
     {
      "name": "deshaun watson",
-     "mentions": 19,
+     "mentions": 23,
      "index": 100,
+     "status": "trending",
+     "gap": true,
+     "shoppable": false,
+     "collection": "cleveland-browns"
+    },
+    {
+     "name": "todd monken",
+     "mentions": 5,
+     "index": 22,
      "status": "trending",
      "gap": true,
      "shoppable": false,
@@ -256,8 +274,8 @@
     "watson",
     "deshaun",
     "live",
-    "yard",
-    "free"
+    "free",
+    "november"
    ],
    "headline_count": 100,
    "headlines": [
@@ -271,13 +289,13 @@
      "title": "Game Recap: New Orleans Saints 23, Cleveland Browns 22, overtime | 2026 NFL Week 9",
      "url": "https://news.google.com/rss/articles/CBMiogFBVV95cUxPZG9nekd3V1FXUGFyZGFBemJpSzRYQThfVWJ3ak5Vd1RBY3dNMzdTWmJLMkRReGt6X3EzcngyaE5CSlJVUll3YkliMzcyRUtnMmNPTGdCTVBXOUVHN2QybDF3Ulo5VUM0Z2c3RlBjUlhRQkIwbEZjNFBfdmVZUng0TnFzV0ppUjBtNWxBbTRVb2VRZXpxb3RvTFZUZzZ5Ymt6NGc?oc=5",
      "source": "New Orleans Saints | NewOrleansSaints.com",
-     "pub": "Sun, 08 Nov 2026 21:35:31 GMT"
+     "pub": "Sun, 08 Nov 2026 08:00:00 GMT"
     },
     {
-     "title": "Houston Texans at Cleveland Browns: How to Watch, Listen, & Live Stream",
-     "url": "https://news.google.com/rss/articles/CBMiowFBVV95cUxNU1F0SFR3OVpVQzJfYUhfa0tXMlpibUljeDNMRmxQcnBzSUdVZGpRcHdmZTlGUmFqMTFmYmVBWTNaN2JrVmhjWldPemNzVFN5Y1pkdE5PMjg0OXR5ZzhnTVhlMmxsd09xazh3dUU4a0lXOGo3cVZXUlpiU1ZmNjN5NDlkc2VJWGZPZXJrRVZUbDhVZ1BKWDVvR3I3RTFFZm1kY0hv?oc=5",
+     "title": "Texans Inactives: Week 10 vs Cleveland Browns",
+     "url": "https://news.google.com/rss/articles/CBMihgFBVV95cUxNRDRCcHg1VnNGTlhrZmhlNlFUeGhVb28wMWpPcFJNenFJUjBLT3VmR3h1cFZwWEdoRk5qbHhmandURFpPbnJUTnBJbWpwb2QwRnItc094ZGFrVHU2TktVUXd0MElucWNZS0RDazNHc3ljbFJOS1pzSzRrUURZamljUTlNbkUzUQ?oc=5",
      "source": "Houston Texans",
-     "pub": "Mon, 09 Nov 2026 11:03:54 GMT"
+     "pub": "Sun, 15 Nov 2026 16:32:26 GMT"
     },
     {
      "title": "Were you ready to give up on the Browns? \u2013 Terry Pluto",
@@ -308,7 +326,7 @@
     {
      "name": "dak prescott",
      "mentions": 12,
-     "index": 63,
+     "index": 52,
      "status": "trending",
      "gap": true,
      "shoppable": false,
@@ -316,8 +334,8 @@
     },
     {
      "name": "ceedee lamb",
-     "mentions": 4,
-     "index": 21,
+     "mentions": 6,
+     "index": 26,
      "status": "trending",
      "gap": true,
      "shoppable": false,
@@ -327,12 +345,12 @@
    "top_terms": [
     "cowboys",
     "dallas",
-    "francisco",
-    "score",
     "loss",
-    "yard",
     "defense",
-    "november"
+    "christian",
+    "francisco",
+    "recap",
+    "schottenheimer"
    ],
    "headline_count": 100,
    "headlines": [
@@ -382,8 +400,8 @@
    "gaps": [
     {
      "name": "matt lafleur",
-     "mentions": 3,
-     "index": 16,
+     "mentions": 4,
+     "index": 17,
      "status": "trending",
      "gap": true,
      "shoppable": false,
@@ -395,10 +413,10 @@
     "green",
     "loss",
     "love",
-    "score",
-    "cousins",
     "jordan",
-    "kirk"
+    "cousins",
+    "kirk",
+    "return"
    ],
    "headline_count": 100,
    "headlines": [
@@ -427,10 +445,10 @@
      "pub": "Thu, 12 Nov 2026 11:00:06 GMT"
     },
     {
-     "title": "Packers activate RB Chris Brooks and WR Skyy Moore off injured reserve",
-     "url": "https://news.google.com/rss/articles/CBMisAFBVV95cUxPNHF4UWNsaENDVllDdlM5SWlwYlpTQnQ4NXNoRndROE1hSGFzUWcybjdoLXNoV3BjdGp4ZEtPNUVEUUlncXlhS2dOSVFvRjRZb29sTVZ2Z1ZFSzZ2VXpmSUE0bHM3ZzlVZFp6QURRcVZLZy1PZUdPYUFFdGloeGJ2M2RzUGprX21yd2pSUG9pM3BqTnBFdUFaWW5uWjUzS0lLWWRsNlJadWFOdTREalhweg?oc=5",
+     "title": "Packers host division-foe Vikings at home",
+     "url": "https://news.google.com/rss/articles/CBMiiwFBVV95cUxOTllQRVZ0X2JVVVRadjA5QVJlY2laMUxpT056Y21xVk9yYWZmZGo0MHZyUUdYc1BBVlBFSnY0Zk1BeU5mbUc0QzA2dW1NZVZWZVZaT3VYMFRkZTBYcEpLaU9qZmlKZmpPMVZySlUxVGx6Y3ZCbUFWUktFa2NKeXNGWFBTVVNxeWV5bXVB?oc=5",
      "source": "Green Bay Packers \u2013 packers.com",
-     "pub": "Sat, 14 Nov 2026 21:01:50 GMT"
+     "pub": "Tue, 10 Nov 2026 21:04:33 GMT"
     }
    ],
    "fti_count": 5
@@ -448,8 +466,8 @@
    "gaps": [
     {
      "name": "kyle whittingham",
-     "mentions": 15,
-     "index": 79,
+     "mentions": 16,
+     "index": 70,
      "status": "trending",
      "gap": true,
      "shoppable": false,
@@ -458,12 +476,12 @@
    ],
    "top_terms": [
     "michigan",
-    "oregon",
     "football",
-    "loss",
+    "oregon",
     "wolverines",
-    "kyle",
+    "loss",
     "whittingham",
+    "kyle",
     "ducks"
    ],
    "headline_count": 100,
@@ -475,16 +493,16 @@
      "pub": "Sun, 15 Nov 2026 01:17:02 GMT"
     },
     {
-     "title": "Watch Michigan vs Oregon Live: Streaming, TV Channel & Start Time - Nov 14, 2026 | CFB Week 11",
-     "url": "https://news.google.com/rss/articles/CBMiqgFBVV95cUxNbU1GYzdlSDdYXzd1RkZfUXhaZnVoMkdwY2hYYXR2Q3lXcHdmY1E2MW43UHJ1a1N6SnZGajZKMzlFQUgtYkxvR1ZmWDNNa25IckVUVTh2TjBPNkRSNUp6TFJvZU1RWDVWX0pscEowTXN2N1hzcXFFcTZaTFhpRHZKN1FLWjRHQnVoWGtPV01YX1RENXZuZHBGRUM0X3ZQNGdKa2tvVzZhUXQxZw?oc=5",
-     "source": "FOX One",
-     "pub": "Sat, 14 Nov 2026 08:00:00 GMT"
-    },
-    {
      "title": "Game Thread: Michigan Football at No. 16 Oregon",
      "url": "https://news.google.com/rss/articles/CBMiiAFBVV95cUxQa09RX2pjTElCSzkyV2VwaDlOMnZUSUtUdzNTT0V6UWpWS1pDQXNoQ0JnUmJ5dFdSV0JHdzdQM284b2hQdDQzM0IxcE8tZlNRWG5IU2trNjh4dlNTakZsT2o5aUJpS0hoTG9WTl9iejVFN0J0b0VONU5mZWVWbF9nWFlra3VuWV8z?oc=5",
      "source": "Yahoo Sports",
      "pub": "Sat, 14 Nov 2026 19:30:00 GMT"
+    },
+    {
+     "title": "Watch Michigan vs Oregon Live: Streaming, TV Channel & Start Time - Nov 14, 2026 | CFB Week 11",
+     "url": "https://news.google.com/rss/articles/CBMiqgFBVV95cUxNbU1GYzdlSDdYXzd1RkZfUXhaZnVoMkdwY2hYYXR2Q3lXcHdmY1E2MW43UHJ1a1N6SnZGajZKMzlFQUgtYkxvR1ZmWDNNa25IckVUVTh2TjBPNkRSNUp6TFJvZU1RWDVWX0pscEowTXN2N1hzcXFFcTZaTFhpRHZKN1FLWjRHQnVoWGtPV01YX1RENXZuZHBGRUM0X3ZQNGdKa2tvVzZhUXQxZw?oc=5",
+     "source": "FOX One",
+     "pub": "Sat, 14 Nov 2026 08:00:00 GMT"
     },
     {
      "title": "Michigan Football Winners and Losers as Wolverines Falls Below .500",
@@ -493,10 +511,10 @@
      "pub": "Sun, 15 Nov 2026 02:30:00 GMT"
     },
     {
-     "title": "Michigan Football hits new low with pathetic loss to Michigan State",
-     "url": "https://news.google.com/rss/articles/CBMi9gFBVV95cUxNVFJfSUxUV1BVS0xESWJsSVhvemU4RFFpaWViNmx1YW1NWEUybXFhTTY1T2RyOGl6Mlk2eWt1ZF85cHB0RnhWd3NjVU1sUFdVTWFaLU8xOHR4R2RvdkFLUVB6WXM2bEgyQW1rQ2hfYWotNUtIN1dXQ1I2eWZSZTVjejFrNU5UQkllQnVGWWZaSWpIWUR2OHJTWlYwWlFUcFFGTW5BRHBoOTNFT1NGcW10bEJLZE5IdFdYQnFfTU9EaW10WWlWZlFVT0hxWG52UjE4Q0w4UUZNZGk1TU1hZC13TmFFVV9fV0s3ZWVSWE5BS214SHlCUmc?oc=5",
-     "source": "Maize n Brew",
-     "pub": "Sat, 07 Nov 2026 08:00:00 GMT"
+     "title": "Michigan hung around and kept it a game, and the Wolverines deserve credit for that. No, not the coach \u2212 the players. See link below \u2b07\ufe0f \ud83d\udcf8 Troy Wayrynen, IMAGN IMAGES via Reuters",
+     "url": "https://news.google.com/rss/articles/CBMi3wFBVV95cUxQbURTeURjTWRyb2c1NHJhNm1sdF9TVzNBWHVqUlk4UEt0ZFBwazZLNHlKX2EwUS03N2p4dWh5Rm1fem1KWDV5b21tTEFsTzF6UVFwVEJfdjN2TDBtWExfX0Iyc2E2ckdFb2JFT291Q2c3SWdKZEcwZFc4d0prbERuWE9odDFHSUozSEw4VXo3VWFBYWgzeE9hZmZkZUs4a0MtU1hmNWh6ajJjc0RmaHQ4SnZDMWxqRG4tQ1h2bXJYQXA5UUw2b3BOZEdCOTdvaUR2S29Cd0c3RUZRd3dFV3JV?oc=5",
+     "source": "Facebook",
+     "pub": "Sun, 15 Nov 2026 03:00:06 GMT"
     }
    ],
    "fti_count": 4
