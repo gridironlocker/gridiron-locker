@@ -1,8 +1,8 @@
 {
- "generated": "2026-11-16",
+ "generated": "2026-11-17",
  "window_days": 10,
  "fti_formula": "round(100 * entity_mentions / peak_mentions_in_window)",
- "peak_mentions": 23,
+ "peak_mentions": 19,
  "stats": {
   "products": 95,
   "collections": 4,
@@ -12,14 +12,14 @@
   "throwback": 1,
   "steady": 83,
   "gaps": 6,
-  "moments": 4,
+  "moments": 3,
   "tracked_names": 18,
   "dead_campaigns": 68
  },
  "fti_rows": [
   {
    "name": "deshaun watson",
-   "mentions": 23,
+   "mentions": 19,
    "index": 100,
    "status": "trending",
    "gap": true,
@@ -28,8 +28,8 @@
   },
   {
    "name": "kyle whittingham",
-   "mentions": 16,
-   "index": 70,
+   "mentions": 19,
+   "index": 100,
    "status": "trending",
    "gap": true,
    "shoppable": false,
@@ -37,8 +37,8 @@
   },
   {
    "name": "dak prescott",
-   "mentions": 12,
-   "index": 52,
+   "mentions": 14,
+   "index": 74,
    "status": "trending",
    "gap": true,
    "shoppable": false,
@@ -46,8 +46,8 @@
   },
   {
    "name": "bryce underwood",
-   "mentions": 10,
-   "index": 43,
+   "mentions": 12,
+   "index": 63,
    "status": "trending",
    "gap": false,
    "shoppable": true,
@@ -55,44 +55,17 @@
   },
   {
    "name": "jordan love",
-   "mentions": 10,
-   "index": 43,
+   "mentions": 9,
+   "index": 47,
    "status": "trending",
    "gap": false,
    "shoppable": true,
    "collection": "green-bay-packers"
   },
   {
-   "name": "shedeur sanders",
-   "mentions": 7,
-   "index": 30,
-   "status": "trending",
-   "gap": false,
-   "shoppable": true,
-   "collection": "cleveland-browns"
-  },
-  {
-   "name": "ceedee lamb",
-   "mentions": 6,
-   "index": 26,
-   "status": "trending",
-   "gap": true,
-   "shoppable": false,
-   "collection": "dallas-cowboys"
-  },
-  {
-   "name": "todd monken",
-   "mentions": 5,
-   "index": 22,
-   "status": "trending",
-   "gap": true,
-   "shoppable": false,
-   "collection": "cleveland-browns"
-  },
-  {
    "name": "matt lafleur",
-   "mentions": 4,
-   "index": 17,
+   "mentions": 8,
+   "index": 42,
    "status": "trending",
    "gap": true,
    "shoppable": false,
@@ -100,17 +73,44 @@
   },
   {
    "name": "micah parsons",
-   "mentions": 2,
-   "index": 9,
-   "status": "steady",
+   "mentions": 8,
+   "index": 42,
+   "status": "trending",
    "gap": false,
    "shoppable": true,
    "collection": "green-bay-packers"
   },
   {
+   "name": "todd monken",
+   "mentions": 5,
+   "index": 26,
+   "status": "trending",
+   "gap": true,
+   "shoppable": false,
+   "collection": "cleveland-browns"
+  },
+  {
+   "name": "ceedee lamb",
+   "mentions": 4,
+   "index": 21,
+   "status": "trending",
+   "gap": true,
+   "shoppable": false,
+   "collection": "dallas-cowboys"
+  },
+  {
+   "name": "shedeur sanders",
+   "mentions": 4,
+   "index": 21,
+   "status": "trending",
+   "gap": false,
+   "shoppable": true,
+   "collection": "cleveland-browns"
+  },
+  {
    "name": "josh jacobs",
-   "mentions": 1,
-   "index": 4,
+   "mentions": 2,
+   "index": 11,
    "status": "steady",
    "gap": false,
    "shoppable": false,
@@ -183,7 +183,7 @@
  "gaps": [
   {
    "name": "deshaun watson",
-   "mentions": 23,
+   "mentions": 19,
    "index": 100,
    "status": "trending",
    "gap": true,
@@ -192,8 +192,8 @@
   },
   {
    "name": "kyle whittingham",
-   "mentions": 16,
-   "index": 70,
+   "mentions": 19,
+   "index": 100,
    "status": "trending",
    "gap": true,
    "shoppable": false,
@@ -201,39 +201,39 @@
   },
   {
    "name": "dak prescott",
-   "mentions": 12,
-   "index": 52,
+   "mentions": 14,
+   "index": 74,
    "status": "trending",
    "gap": true,
    "shoppable": false,
    "collection": "dallas-cowboys"
   },
   {
-   "name": "ceedee lamb",
-   "mentions": 6,
-   "index": 26,
+   "name": "matt lafleur",
+   "mentions": 8,
+   "index": 42,
    "status": "trending",
    "gap": true,
    "shoppable": false,
-   "collection": "dallas-cowboys"
+   "collection": "green-bay-packers"
   },
   {
    "name": "todd monken",
    "mentions": 5,
-   "index": 22,
+   "index": 26,
    "status": "trending",
    "gap": true,
    "shoppable": false,
    "collection": "cleveland-browns"
   },
   {
-   "name": "matt lafleur",
+   "name": "ceedee lamb",
    "mentions": 4,
-   "index": 17,
+   "index": 21,
    "status": "trending",
    "gap": true,
    "shoppable": false,
-   "collection": "green-bay-packers"
+   "collection": "dallas-cowboys"
   }
  ],
  "collections": [
@@ -250,7 +250,7 @@
    "gaps": [
     {
      "name": "deshaun watson",
-     "mentions": 23,
+     "mentions": 19,
      "index": 100,
      "status": "trending",
      "gap": true,
@@ -260,7 +260,7 @@
     {
      "name": "todd monken",
      "mentions": 5,
-     "index": 22,
+     "index": 26,
      "status": "trending",
      "gap": true,
      "shoppable": false,
@@ -271,10 +271,10 @@
     "browns",
     "cleveland",
     "houston",
-    "watson",
-    "deshaun",
     "live",
+    "watson",
     "free",
+    "deshaun",
     "november"
    ],
    "headline_count": 100,
@@ -292,22 +292,22 @@
      "pub": "Sun, 08 Nov 2026 08:00:00 GMT"
     },
     {
+     "title": "Cleveland Browns proving that TD passes may be overrated",
+     "url": "https://news.google.com/rss/articles/CBMiiwFBVV95cUxPV1hEM2EzN3RtV2QzQlNyeDNGd2RFZEprYzJXQjhrMUNUSUcyOUdPQTBUWHRmTTJQbDFVOUZWMjZTdTNZX1p3MmhNSWVXcGpLNm1Da1RvMzg4Rlpvejk4T00xYlhEQXNwY3kxVDdLb3A2cV85T1ZqdWFZWnYyQXc1YTRTYlFGV3J0RHlF?oc=5",
+     "source": "Yahoo Sports",
+     "pub": "Tue, 17 Nov 2026 00:02:00 GMT"
+    },
+    {
      "title": "Texans Inactives: Week 10 vs Cleveland Browns",
      "url": "https://news.google.com/rss/articles/CBMihgFBVV95cUxNRDRCcHg1VnNGTlhrZmhlNlFUeGhVb28wMWpPcFJNenFJUjBLT3VmR3h1cFZwWEdoRk5qbHhmandURFpPbnJUTnBJbWpwb2QwRnItc094ZGFrVHU2TktVUXd0MElucWNZS0RDazNHc3ljbFJOS1pzSzRrUURZamljUTlNbkUzUQ?oc=5",
      "source": "Houston Texans",
      "pub": "Sun, 15 Nov 2026 16:32:26 GMT"
     },
     {
-     "title": "Were you ready to give up on the Browns? \u2013 Terry Pluto",
-     "url": "https://news.google.com/rss/articles/CBMingFBVV95cUxPQkMza2JRVURwd3hWOUU1aGI3V1NWNVJrSHRONnJ1U1VpYWRWemV6WU8yaENNSExGcVJUVzFudEpaX2xLbnR1LVZqaDlOaE80MXlJY043SmR4TjR0TVZjYW85Ykp4REdjWm9NYTJUWDMtWG1lRWEzNF9QcDNCc3dVTGVSRjg3UXptU1R4MFBwZ3VBQXBvWW1TVzY2dHpIQQ?oc=5",
-     "source": "Cleveland.com",
-     "pub": "Sun, 15 Nov 2026 22:40:00 GMT"
-    },
-    {
-     "title": "Cleveland Browns quarterback Deshaun Watson shows off his wheels with a 20-yard sideline scramble",
-     "url": "https://news.google.com/rss/articles/CBMimwFBVV95cUxQdVBZdjdBYXpUaUM0M1ZnSmRkOWFHcHZRVGhQVXNCSGs4RGlaeDZPUjZuanpqM3lRdzZVbHc2NjUyUjlBQVBrVExBUzNfRTJQYUgyRFFvME40d05SUTBJZVI0cVE2aDhLTHVidFpMaDNFcmY5d2o4TUhjdUxVWFU5ZkNNUm1vVjdERDNXTTV3MGpHcVhIZzlNZzhYcw?oc=5",
+     "title": "Is it time to take the 6-4 Browns seriously? | 'GMFB'",
+     "url": "https://news.google.com/rss/articles/CBMigAFBVV95cUxOSUVqc1ctU0lKYnVQblVVXzRlS3otNlpNMGxjaWhsVGxHYW45ei1qZjJqbzV1eEZzcTlkbGdNR0lKRV9hdjFwV3I5MU1OZUVFZjJhTXpfa2FGb1NxZnM4RWhXZGhfY25IekdSQnBobVNINzc5ZnoyNzQwWlQwTVNtSg?oc=5",
      "source": "NFL.com",
-     "pub": "Sun, 15 Nov 2026 19:08:23 GMT"
+     "pub": "Tue, 17 Nov 2026 11:47:19 GMT"
     }
    ],
    "fti_count": 7
@@ -325,8 +325,8 @@
    "gaps": [
     {
      "name": "dak prescott",
-     "mentions": 12,
-     "index": 52,
+     "mentions": 14,
+     "index": 74,
      "status": "trending",
      "gap": true,
      "shoppable": false,
@@ -334,8 +334,8 @@
     },
     {
      "name": "ceedee lamb",
-     "mentions": 6,
-     "index": 26,
+     "mentions": 4,
+     "index": 21,
      "status": "trending",
      "gap": true,
      "shoppable": false,
@@ -346,10 +346,10 @@
     "cowboys",
     "dallas",
     "loss",
+    "fans",
+    "defensive",
     "defense",
-    "christian",
-    "francisco",
-    "recap",
+    "brian",
     "schottenheimer"
    ],
    "headline_count": 100,
@@ -367,16 +367,16 @@
      "pub": "Mon, 16 Nov 2026 03:35:27 GMT"
     },
     {
-     "title": "How to watch the Dallas Cowboys at Indianapolis Colts on November 8, 2026",
-     "url": "https://news.google.com/rss/articles/CBMirgFBVV95cUxNWng3TTJXZ1B2QnBQcW5lYTdXZW5QZUxxRlktTWg1Q2NnSWZ1NW8tSXkxcUNId0U2OTFCVTRjcmNkMjZTLXJsczJNQ1cxOVladTNhRGtUWDNQM0N2UXVtOExxMUUxNDZkYThrdEhtdmlvTnBMaFBaZU9wLWwxdmNweC1NcFVpRU5IUml3TW5QcndMX3NZcVp3Tmw0Q28wc1F6VlJXMnZSODVOUW1oNVE?oc=5",
-     "source": "Colts.com",
-     "pub": "Sun, 08 Nov 2026 08:00:00 GMT"
+     "title": "Dak Prescott let down by the Dallas Cowboys yet again",
+     "url": "https://news.google.com/rss/articles/CBMijAFBVV95cUxOVWRnOWJwdzVTM0VlQVNsd2JFNEl5UFM1VlcxTEszSnhXVjRSVGpiVEJfYmxJMjBuZUh0VzdpOUN4dDNBd2pNTV9xUmpXNktxTnloZHJySmZCQnNXVUZSOTFIWXNJZi1zMFEycWZmVDY1X3lGTmplSFdpaEZPcUFnZ05OZFFlMlZ6b0lsNQ?oc=5",
+     "source": "Andscape",
+     "pub": "Mon, 16 Nov 2026 16:13:38 GMT"
     },
     {
-     "title": "Game Recap: Explosive plays doom Dallas, 46-40",
-     "url": "https://news.google.com/rss/articles/CBMihgFBVV95cUxONTk2bklZZU1JSTVNd1FzUVdhYU55R3MwdnRmaFBsWHlkWDZsTjRFZDgwczRmazMxUDFoa1BfVDZaQWE4ZC1jZEQwZTMxVnRUMkp0YzlINHd2TnJPWWR1ME1hT2QyaTVuSXkxUWliUEpsYTloZ2hUYW5HNEhaTm9TRjlTU3RBZw?oc=5",
+     "title": "Dak Prescott on loss to 49ers: 'We've gotta be better.'",
+     "url": "https://news.google.com/rss/articles/CBMijwFBVV95cUxQS3hMNTVjNkZQNEktYXRyRi1zSUlQSWZjY0FXcjlZOWtaS3ZQVklCTFZTSnVnNWFnRVFjLS1UbERaTGNlc0VVQ3FxVGhuQ0VIY0gzLTBQU2VqRVZlOTFPN0M1NndJTUF1TU0wY0JGbUVTUkFxb2doSzE2MmZ4V2xHbTU0UmxpOHpiLWNaNFZhcw?oc=5",
      "source": "Dallas Cowboys | Official Site of the Dallas Cowboys",
-     "pub": "Mon, 16 Nov 2026 01:08:26 GMT"
+     "pub": "Mon, 16 Nov 2026 02:23:34 GMT"
     },
     {
      "title": "Game Recap: Cowboys win late, 27-23",
@@ -400,8 +400,8 @@
    "gaps": [
     {
      "name": "matt lafleur",
-     "mentions": 4,
-     "index": 17,
+     "mentions": 8,
+     "index": 42,
      "status": "trending",
      "gap": true,
      "shoppable": false,
@@ -414,9 +414,9 @@
     "loss",
     "love",
     "jordan",
-    "cousins",
-    "kirk",
-    "return"
+    "lafleur",
+    "return",
+    "matt"
    ],
    "headline_count": 100,
    "headlines": [
@@ -436,19 +436,19 @@
      "title": "Green Bay Packers invite fans to connect with team in Munich ahead of NFL Germany game",
      "url": "https://news.google.com/rss/articles/CBMivAFBVV95cUxPZmg1dTBUZmtyTThzNVJtNG85ZEZmMWV1RlBFUWJ1bG5NSjUtMUEwYzg1ZTBWTV9zXzNoa3ZEYzYxeVhXeEV6MzdDell6dV9jUHJUV0JHdm4zVFdRN1h4VzRHV2MyMzQwcGlMNjI4MENhSkZJZ053NGkzY3V1OHBWTUF0dVROcHc5NUVzenlhVTlrNE9GODRuRzB5Tk5sbkk1MHM2VmhyNGUxVTFURDczeVBDZHdSS2d4MHAydA?oc=5",
      "source": "Green Bay Packers \u2013 packers.com",
-     "pub": "Mon, 09 Nov 2026 20:20:22 GMT"
+     "pub": "Mon, 09 Nov 2026 08:00:00 GMT"
     },
     {
-     "title": "Green Bay Packers Have an Answer at Running Back in Kaleb Johnson",
-     "url": "https://news.google.com/rss/articles/CBMiiAFBVV95cUxNbVlHRm9NaFI1YV9RaHVPSnpGbVBMTzlDcng5TW96M014SnlleFFjbG90OS10U3JSYkFFek9MR1FoV2RFOEtDNUxac2ZIdWhydzRLc1U0UDVYeHFZNE92aWtWMDZBLWoxbjRQMlZWQW8xLWVXZXV6bjlDYUNIV2o4VVNmakZIYzJR?oc=5",
+     "title": "Packers-Vikings Final Score: Green Bay\u2019s comedy of errors continues",
+     "url": "https://news.google.com/rss/articles/CBMiigFBVV95cUxPZ09Cd1FSZGpTQWhYdUl5RUlFUUdKcS1sa2NDT0s4dUdEbTJkaU80S1UyRkUyU1ltLTAwMU5CTVZnVkttT2k3OFR1bEp2UEx0d2Z5UjBwRExxSE4yOUtDOG9keWhFcE42MkZoR3VHWDAzRU5ScWZ6VkFGZmp0QmxlODJoZU9qVmttYVE?oc=5",
      "source": "Yahoo Sports",
-     "pub": "Thu, 12 Nov 2026 11:00:06 GMT"
+     "pub": "Sun, 15 Nov 2026 21:06:46 GMT"
     },
     {
-     "title": "Packers host division-foe Vikings at home",
-     "url": "https://news.google.com/rss/articles/CBMiiwFBVV95cUxOTllQRVZ0X2JVVVRadjA5QVJlY2laMUxpT056Y21xVk9yYWZmZGo0MHZyUUdYc1BBVlBFSnY0Zk1BeU5mbUc0QzA2dW1NZVZWZVZaT3VYMFRkZTBYcEpLaU9qZmlKZmpPMVZySlUxVGx6Y3ZCbUFWUktFa2NKeXNGWFBTVVNxeWV5bXVB?oc=5",
-     "source": "Green Bay Packers \u2013 packers.com",
-     "pub": "Tue, 10 Nov 2026 21:04:33 GMT"
+     "title": "Vikings face Packers in Week 10 | 'The NFL Report'",
+     "url": "https://news.google.com/rss/articles/CBMifkFVX3lxTE9EMWd0cU5FekR3RHgzSDI1cVQ2TkU0cFFhTFRLUGgtWERaNnI0WnRjMmxXZ2tEQXlOek53YVUyWjhKM3YtYTJmWlpvcExaRGVvREpkb2x3MldTYWdXaGtCXzZraktBLXhOQzNBemM3anAtVHdxdkhBVkM2M2tDUQ?oc=5",
+     "source": "NFL.com",
+     "pub": "Sat, 14 Nov 2026 00:39:23 GMT"
     }
    ],
    "fti_count": 5
@@ -466,8 +466,8 @@
    "gaps": [
     {
      "name": "kyle whittingham",
-     "mentions": 16,
-     "index": 70,
+     "mentions": 19,
+     "index": 100,
      "status": "trending",
      "gap": true,
      "shoppable": false,
@@ -479,10 +479,10 @@
     "football",
     "oregon",
     "wolverines",
-    "loss",
-    "whittingham",
     "kyle",
-    "ducks"
+    "whittingham",
+    "ducks",
+    "loss"
    ],
    "headline_count": 100,
    "headlines": [
@@ -493,16 +493,16 @@
      "pub": "Sun, 15 Nov 2026 01:17:02 GMT"
     },
     {
-     "title": "Game Thread: Michigan Football at No. 16 Oregon",
-     "url": "https://news.google.com/rss/articles/CBMiiAFBVV95cUxQa09RX2pjTElCSzkyV2VwaDlOMnZUSUtUdzNTT0V6UWpWS1pDQXNoQ0JnUmJ5dFdSV0JHdzdQM284b2hQdDQzM0IxcE8tZlNRWG5IU2trNjh4dlNTakZsT2o5aUJpS0hoTG9WTl9iejVFN0J0b0VONU5mZWVWbF9nWFlra3VuWV8z?oc=5",
-     "source": "Yahoo Sports",
-     "pub": "Sat, 14 Nov 2026 19:30:00 GMT"
-    },
-    {
      "title": "Watch Michigan vs Oregon Live: Streaming, TV Channel & Start Time - Nov 14, 2026 | CFB Week 11",
      "url": "https://news.google.com/rss/articles/CBMiqgFBVV95cUxNbU1GYzdlSDdYXzd1RkZfUXhaZnVoMkdwY2hYYXR2Q3lXcHdmY1E2MW43UHJ1a1N6SnZGajZKMzlFQUgtYkxvR1ZmWDNNa25IckVUVTh2TjBPNkRSNUp6TFJvZU1RWDVWX0pscEowTXN2N1hzcXFFcTZaTFhpRHZKN1FLWjRHQnVoWGtPV01YX1RENXZuZHBGRUM0X3ZQNGdKa2tvVzZhUXQxZw?oc=5",
      "source": "FOX One",
      "pub": "Sat, 14 Nov 2026 08:00:00 GMT"
+    },
+    {
+     "title": "Game Thread: Michigan Football at No. 16 Oregon",
+     "url": "https://news.google.com/rss/articles/CBMiiAFBVV95cUxQa09RX2pjTElCSzkyV2VwaDlOMnZUSUtUdzNTT0V6UWpWS1pDQXNoQ0JnUmJ5dFdSV0JHdzdQM284b2hQdDQzM0IxcE8tZlNRWG5IU2trNjh4dlNTakZsT2o5aUJpS0hoTG9WTl9iejVFN0J0b0VONU5mZWVWbF9nWFlra3VuWV8z?oc=5",
+     "source": "Yahoo Sports",
+     "pub": "Sat, 14 Nov 2026 19:30:00 GMT"
     },
     {
      "title": "Michigan Football Winners and Losers as Wolverines Falls Below .500",
@@ -864,16 +864,6 @@
  ],
  "moments": [
   {
-   "title": "Cleveland Browns quarterback Deshaun Watson shows off his wheels with a 20-yard sideline scramble",
-   "url": "https://news.google.com/rss/articles/CBMimwFBVV95cUxQdVBZdjdBYXpUaUM0M1ZnSmRkOWFHcHZRVGhQVXNCSGs4RGlaeDZPUjZuanpqM3lRdzZVbHc2NjUyUjlBQVBrVExBUzNfRTJQYUgyRFFvME40d05SUTBJZVI0cVE2aDhLTHVidFpMaDNFcmY5d2o4TUhjdUxVWFU5ZkNNUm1vVjdERDNXTTV3MGpHcVhIZzlNZzhYcw?oc=5",
-   "source": "NFL.com",
-   "pub": "Sun, 15 Nov 2026 19:08:23 GMT",
-   "collection": "cleveland-browns",
-   "entities": [
-    "deshaun watson"
-   ]
-  },
-  {
    "title": "Shedeur Sanders ignites Cleveland Browns quarterback chatter again",
    "url": "https://news.google.com/rss/articles/CBMiiAFBVV95cUxQN01fWVhITExyYi1VS1Z5TGk1RFFGdXItelA2aVkzTzlUTmZDZms2MWphZy1wQVdoRWx0M054SzV0dFJXVzRKcWp6a0dtSU5sRTI2WUlxZEduRlhJTGpCNmxwTEVMVTZtSjRvR2dmUW9SMFpocWgtb01qdVNlR3dONGY0OWRmN3By?oc=5",
    "source": "Andscape",
@@ -884,23 +874,23 @@
    ]
   },
   {
-   "title": "Jordan Love's 100th TOUCHDOWN PASS | Packers vs. Patriots",
-   "url": "https://news.google.com/rss/articles/CBMikwFBVV95cUxPd2ZKb1d4c1RBLXloZjBiN0E1eDR0TktRbHd4a1VrZWpYeGVwaDc0WHhhbnYzZ2ZSelBNY1BQUnhTYzRfY2xlUWtLZHJKZVRQeW0zeGQ1YWk2elNyQVRIUkR4YkFTMmtNLUhmN2hMX1pMUHdVcVlEdW9EYTZCTjZJYm5LQ1d3ajIyOVpYc3c0MHhLdTQ?oc=5",
-   "source": "Green Bay Packers \u2013 packers.com",
-   "pub": "Sun, 08 Nov 2026 22:10:30 GMT",
-   "collection": "green-bay-packers",
+   "title": "Dak Prescott let down by the Dallas Cowboys yet again",
+   "url": "https://news.google.com/rss/articles/CBMijAFBVV95cUxOVWRnOWJwdzVTM0VlQVNsd2JFNEl5UFM1VlcxTEszSnhXVjRSVGpiVEJfYmxJMjBuZUh0VzdpOUN4dDNBd2pNTV9xUmpXNktxTnloZHJySmZCQnNXVUZSOTFIWXNJZi1zMFEycWZmVDY1X3lGTmplSFdpaEZPcUFnZ05OZFFlMlZ6b0lsNQ?oc=5",
+   "source": "Andscape",
+   "pub": "Mon, 16 Nov 2026 16:13:38 GMT",
+   "collection": "dallas-cowboys",
    "entities": [
-    "jordan love"
+    "dak prescott"
    ]
   },
   {
-   "title": "CeeDee Lamb powers Cowboys to much-needed win vs. Colts, but expects more",
-   "url": "https://news.google.com/rss/articles/CBMiqgFBVV95cUxPaHVtcHN6ck05Mm1IVTJPb01EUWxFNmlWYl9yclB3Y1VjX0N1YUtqSU9CanFiNktmRy1EZktnZm9PT01pNmFYVGtqak9tN1JIT0RhVFJRX3Vwd0R2aVpsTXBrc0xSSWVTY2ZQbUxROTlsMm5lWERQcy05UGVGXzFQUlNkMUl4bzNyajFWNUNnYUQ1OHQ5RERsUThkN1c3Wjlfc0tsX0lXbkNxZw?oc=5",
+   "title": "Dak Prescott on loss to 49ers: 'We've gotta be better.'",
+   "url": "https://news.google.com/rss/articles/CBMijwFBVV95cUxQS3hMNTVjNkZQNEktYXRyRi1zSUlQSWZjY0FXcjlZOWtaS3ZQVklCTFZTSnVnNWFnRVFjLS1UbERaTGNlc0VVQ3FxVGhuQ0VIY0gzLTBQU2VqRVZlOTFPN0M1NndJTUF1TU0wY0JGbUVTUkFxb2doSzE2MmZ4V2xHbTU0UmxpOHpiLWNaNFZhcw?oc=5",
    "source": "Dallas Cowboys | Official Site of the Dallas Cowboys",
-   "pub": "Sun, 08 Nov 2026 08:00:00 GMT",
+   "pub": "Mon, 16 Nov 2026 02:23:34 GMT",
    "collection": "dallas-cowboys",
    "entities": [
-    "ceedee lamb"
+    "dak prescott"
    ]
   }
  ]

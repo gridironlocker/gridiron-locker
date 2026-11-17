@@ -1,6 +1,6 @@
 {
   "meta": {
-    "generated_on": "2026-11-16",
+    "generated_on": "2026-11-17",
     "generator": "marketing/live_engine.py + copy_vault.py (unique per team)",
     "standalone": true,
     "design_count": 96,
@@ -22,7 +22,7 @@
     ],
     "output_file": "marketing/plan.json",
     "trend_window_days": 10,
-    "trends_generated_on": "2026-11-16",
+    "trends_generated_on": "2026-11-17",
     "vault_version": "v1 - team-specific voices, 20+ openers per team, headline-aware"
   },
   "score_rules": {
@@ -133,12 +133,12 @@
         "headline_name_matches": [
           {
             "name": "shedeur sanders",
-            "mentions": 7,
-            "repeated_mentions": 7,
+            "mentions": 4,
+            "repeated_mentions": 4,
             "throwback_signal": false
           }
         ],
-        "headline_name_repeat_count": 7,
+        "headline_name_repeat_count": 4,
         "headline_name_bonus": 30,
         "playoff_or_player_theme": true,
         "playoff_or_player_bonus": 6,
@@ -334,12 +334,12 @@
         "headline_name_matches": [
           {
             "name": "shedeur sanders",
-            "mentions": 7,
-            "repeated_mentions": 7,
+            "mentions": 4,
+            "repeated_mentions": 4,
             "throwback_signal": false
           }
         ],
-        "headline_name_repeat_count": 7,
+        "headline_name_repeat_count": 4,
         "headline_name_bonus": 30,
         "playoff_or_player_theme": true,
         "playoff_or_player_bonus": 6,
@@ -532,12 +532,12 @@
         "headline_name_matches": [
           {
             "name": "shedeur sanders",
-            "mentions": 7,
-            "repeated_mentions": 7,
+            "mentions": 4,
+            "repeated_mentions": 4,
             "throwback_signal": false
           }
         ],
-        "headline_name_repeat_count": 7,
+        "headline_name_repeat_count": 4,
         "headline_name_bonus": 30,
         "playoff_or_player_theme": true,
         "playoff_or_player_bonus": 6,
@@ -730,12 +730,12 @@
         "headline_name_matches": [
           {
             "name": "jordan love",
-            "mentions": 10,
-            "repeated_mentions": 10,
+            "mentions": 9,
+            "repeated_mentions": 9,
             "throwback_signal": false
           }
         ],
-        "headline_name_repeat_count": 10,
+        "headline_name_repeat_count": 9,
         "headline_name_bonus": 30,
         "playoff_or_player_theme": true,
         "playoff_or_player_bonus": 6,
@@ -744,12 +744,12 @@
         "throwback_penalty": 0
       },
       "opportunity": {
-        "score": 74.8,
+        "score": 72.5,
         "confidence": 75,
         "factors": {
           "audience": 100,
           "search": 85,
-          "velocity": 85,
+          "velocity": 70,
           "gap": 35,
           "competition": 70,
           "business": 70,
@@ -769,7 +769,7 @@
           "distribution": 5
         },
         "trend_stage": "ACCELERATING",
-        "opportunity_type": "Breaking News",
+        "opportunity_type": "Commercial",
         "decision": "PUBLISH",
         "decision_reason": "Strong need, evidence, and differentiation",
         "gates": {
@@ -931,12 +931,12 @@
         "headline_name_matches": [
           {
             "name": "jordan love",
-            "mentions": 10,
-            "repeated_mentions": 10,
+            "mentions": 9,
+            "repeated_mentions": 9,
             "throwback_signal": false
           }
         ],
-        "headline_name_repeat_count": 10,
+        "headline_name_repeat_count": 9,
         "headline_name_bonus": 30,
         "playoff_or_player_theme": true,
         "playoff_or_player_bonus": 6,
@@ -945,12 +945,12 @@
         "throwback_penalty": 0
       },
       "opportunity": {
-        "score": 74.8,
+        "score": 72.5,
         "confidence": 75,
         "factors": {
           "audience": 100,
           "search": 85,
-          "velocity": 85,
+          "velocity": 70,
           "gap": 35,
           "competition": 70,
           "business": 70,
@@ -970,7 +970,7 @@
           "distribution": 5
         },
         "trend_stage": "ACCELERATING",
-        "opportunity_type": "Breaking News",
+        "opportunity_type": "Commercial",
         "decision": "PUBLISH",
         "decision_reason": "Strong need, evidence, and differentiation",
         "gates": {
@@ -1132,12 +1132,12 @@
         "headline_name_matches": [
           {
             "name": "jordan love",
-            "mentions": 10,
-            "repeated_mentions": 10,
+            "mentions": 9,
+            "repeated_mentions": 9,
             "throwback_signal": false
           }
         ],
-        "headline_name_repeat_count": 10,
+        "headline_name_repeat_count": 9,
         "headline_name_bonus": 30,
         "playoff_or_player_theme": true,
         "playoff_or_player_bonus": 6,
@@ -1146,12 +1146,12 @@
         "throwback_penalty": 0
       },
       "opportunity": {
-        "score": 74.8,
+        "score": 72.5,
         "confidence": 75,
         "factors": {
           "audience": 100,
           "search": 85,
-          "velocity": 85,
+          "velocity": 70,
           "gap": 35,
           "competition": 70,
           "business": 70,
@@ -1171,7 +1171,7 @@
           "distribution": 5
         },
         "trend_stage": "ACCELERATING",
-        "opportunity_type": "Breaking News",
+        "opportunity_type": "Commercial",
         "decision": "PUBLISH",
         "decision_reason": "Strong need, evidence, and differentiation",
         "gates": {
@@ -1333,12 +1333,12 @@
         "headline_name_matches": [
           {
             "name": "jordan love",
-            "mentions": 10,
-            "repeated_mentions": 10,
+            "mentions": 9,
+            "repeated_mentions": 9,
             "throwback_signal": false
           }
         ],
-        "headline_name_repeat_count": 10,
+        "headline_name_repeat_count": 9,
         "headline_name_bonus": 30,
         "playoff_or_player_theme": true,
         "playoff_or_player_bonus": 6,
@@ -1347,12 +1347,12 @@
         "throwback_penalty": 0
       },
       "opportunity": {
-        "score": 74.8,
+        "score": 72.5,
         "confidence": 75,
         "factors": {
           "audience": 100,
           "search": 85,
-          "velocity": 85,
+          "velocity": 70,
           "gap": 35,
           "competition": 70,
           "business": 70,
@@ -1372,7 +1372,7 @@
           "distribution": 5
         },
         "trend_stage": "ACCELERATING",
-        "opportunity_type": "Breaking News",
+        "opportunity_type": "Commercial",
         "decision": "PUBLISH",
         "decision_reason": "Strong need, evidence, and differentiation",
         "gates": {
@@ -1534,12 +1534,12 @@
         "headline_name_matches": [
           {
             "name": "jordan love",
-            "mentions": 10,
-            "repeated_mentions": 10,
+            "mentions": 9,
+            "repeated_mentions": 9,
             "throwback_signal": false
           }
         ],
-        "headline_name_repeat_count": 10,
+        "headline_name_repeat_count": 9,
         "headline_name_bonus": 30,
         "playoff_or_player_theme": true,
         "playoff_or_player_bonus": 6,
@@ -1548,12 +1548,12 @@
         "throwback_penalty": 0
       },
       "opportunity": {
-        "score": 74.8,
+        "score": 72.5,
         "confidence": 75,
         "factors": {
           "audience": 100,
           "search": 85,
-          "velocity": 85,
+          "velocity": 70,
           "gap": 35,
           "competition": 70,
           "business": 70,
@@ -1573,7 +1573,7 @@
           "distribution": 5
         },
         "trend_stage": "ACCELERATING",
-        "opportunity_type": "Breaking News",
+        "opportunity_type": "Commercial",
         "decision": "PUBLISH",
         "decision_reason": "Strong need, evidence, and differentiation",
         "gates": {
@@ -1735,12 +1735,12 @@
         "headline_name_matches": [
           {
             "name": "jordan love",
-            "mentions": 10,
-            "repeated_mentions": 10,
+            "mentions": 9,
+            "repeated_mentions": 9,
             "throwback_signal": false
           }
         ],
-        "headline_name_repeat_count": 10,
+        "headline_name_repeat_count": 9,
         "headline_name_bonus": 30,
         "playoff_or_player_theme": true,
         "playoff_or_player_bonus": 6,
@@ -1749,12 +1749,12 @@
         "throwback_penalty": 0
       },
       "opportunity": {
-        "score": 74.8,
+        "score": 72.5,
         "confidence": 75,
         "factors": {
           "audience": 100,
           "search": 85,
-          "velocity": 85,
+          "velocity": 70,
           "gap": 35,
           "competition": 70,
           "business": 70,
@@ -1774,7 +1774,7 @@
           "distribution": 5
         },
         "trend_stage": "ACCELERATING",
-        "opportunity_type": "Breaking News",
+        "opportunity_type": "Commercial",
         "decision": "PUBLISH",
         "decision_reason": "Strong need, evidence, and differentiation",
         "gates": {
@@ -1936,12 +1936,12 @@
         "headline_name_matches": [
           {
             "name": "jordan love",
-            "mentions": 10,
-            "repeated_mentions": 10,
+            "mentions": 9,
+            "repeated_mentions": 9,
             "throwback_signal": false
           }
         ],
-        "headline_name_repeat_count": 10,
+        "headline_name_repeat_count": 9,
         "headline_name_bonus": 30,
         "playoff_or_player_theme": false,
         "playoff_or_player_bonus": 0,
@@ -1950,12 +1950,12 @@
         "throwback_penalty": 0
       },
       "opportunity": {
-        "score": 73.8,
+        "score": 71.5,
         "confidence": 75,
         "factors": {
           "audience": 90,
           "search": 85,
-          "velocity": 85,
+          "velocity": 70,
           "gap": 35,
           "competition": 70,
           "business": 70,
@@ -1975,7 +1975,7 @@
           "distribution": 5
         },
         "trend_stage": "ACCELERATING",
-        "opportunity_type": "Breaking News",
+        "opportunity_type": "Evergreen",
         "decision": "PUBLISH",
         "decision_reason": "Strong need, evidence, and differentiation",
         "gates": {
@@ -2136,12 +2136,12 @@
         "headline_name_matches": [
           {
             "name": "jordan love",
-            "mentions": 10,
-            "repeated_mentions": 10,
+            "mentions": 9,
+            "repeated_mentions": 9,
             "throwback_signal": false
           }
         ],
-        "headline_name_repeat_count": 10,
+        "headline_name_repeat_count": 9,
         "headline_name_bonus": 30,
         "playoff_or_player_theme": false,
         "playoff_or_player_bonus": 0,
@@ -2150,12 +2150,12 @@
         "throwback_penalty": 0
       },
       "opportunity": {
-        "score": 80.5,
+        "score": 78.2,
         "confidence": 75,
         "factors": {
           "audience": 90,
           "search": 85,
-          "velocity": 85,
+          "velocity": 70,
           "gap": 80,
           "competition": 70,
           "business": 70,
@@ -2175,7 +2175,7 @@
           "distribution": 5
         },
         "trend_stage": "ACCELERATING",
-        "opportunity_type": "Breaking News",
+        "opportunity_type": "Evergreen",
         "decision": "PUBLISH",
         "decision_reason": "Strong need, evidence, and differentiation",
         "gates": {
@@ -2335,12 +2335,12 @@
         "headline_name_matches": [
           {
             "name": "jordan love",
-            "mentions": 10,
-            "repeated_mentions": 10,
+            "mentions": 9,
+            "repeated_mentions": 9,
             "throwback_signal": false
           }
         ],
-        "headline_name_repeat_count": 10,
+        "headline_name_repeat_count": 9,
         "headline_name_bonus": 30,
         "playoff_or_player_theme": false,
         "playoff_or_player_bonus": 0,
@@ -2349,12 +2349,12 @@
         "throwback_penalty": 0
       },
       "opportunity": {
-        "score": 73.8,
+        "score": 71.5,
         "confidence": 75,
         "factors": {
           "audience": 90,
           "search": 85,
-          "velocity": 85,
+          "velocity": 70,
           "gap": 35,
           "competition": 70,
           "business": 70,
@@ -2374,7 +2374,7 @@
           "distribution": 5
         },
         "trend_stage": "ACCELERATING",
-        "opportunity_type": "Breaking News",
+        "opportunity_type": "Evergreen",
         "decision": "PUBLISH",
         "decision_reason": "Strong need, evidence, and differentiation",
         "gates": {
@@ -2531,12 +2531,12 @@
         "headline_name_matches": [
           {
             "name": "jordan love",
-            "mentions": 10,
-            "repeated_mentions": 10,
+            "mentions": 9,
+            "repeated_mentions": 9,
             "throwback_signal": false
           }
         ],
-        "headline_name_repeat_count": 10,
+        "headline_name_repeat_count": 9,
         "headline_name_bonus": 30,
         "playoff_or_player_theme": false,
         "playoff_or_player_bonus": 0,
@@ -2545,12 +2545,12 @@
         "throwback_penalty": 0
       },
       "opportunity": {
-        "score": 65.5,
+        "score": 63.2,
         "confidence": 65,
         "factors": {
           "audience": 70,
           "search": 55,
-          "velocity": 85,
+          "velocity": 70,
           "gap": 50,
           "competition": 50,
           "business": 70,
@@ -2570,7 +2570,7 @@
           "distribution": 5
         },
         "trend_stage": "MAINSTREAM",
-        "opportunity_type": "Breaking News",
+        "opportunity_type": "Evergreen",
         "decision": "IMPROVE",
         "decision_reason": "Attractive but needs a sharper angle or evidence",
         "gates": {
@@ -2725,12 +2725,12 @@
         "headline_name_matches": [
           {
             "name": "jordan love",
-            "mentions": 10,
-            "repeated_mentions": 10,
+            "mentions": 9,
+            "repeated_mentions": 9,
             "throwback_signal": false
           }
         ],
-        "headline_name_repeat_count": 10,
+        "headline_name_repeat_count": 9,
         "headline_name_bonus": 30,
         "playoff_or_player_theme": false,
         "playoff_or_player_bonus": 0,
@@ -2739,12 +2739,12 @@
         "throwback_penalty": 0
       },
       "opportunity": {
-        "score": 66.8,
+        "score": 64.5,
         "confidence": 65,
         "factors": {
           "audience": 70,
           "search": 55,
-          "velocity": 85,
+          "velocity": 70,
           "gap": 50,
           "competition": 50,
           "business": 70,
@@ -2764,7 +2764,7 @@
           "distribution": 5
         },
         "trend_stage": "MAINSTREAM",
-        "opportunity_type": "Breaking News",
+        "opportunity_type": "Evergreen",
         "decision": "IMPROVE",
         "decision_reason": "Attractive but needs a sharper angle or evidence",
         "gates": {
@@ -2921,12 +2921,12 @@
         "headline_name_matches": [
           {
             "name": "jordan love",
-            "mentions": 10,
-            "repeated_mentions": 10,
+            "mentions": 9,
+            "repeated_mentions": 9,
             "throwback_signal": false
           }
         ],
-        "headline_name_repeat_count": 10,
+        "headline_name_repeat_count": 9,
         "headline_name_bonus": 30,
         "playoff_or_player_theme": false,
         "playoff_or_player_bonus": 0,
@@ -2935,12 +2935,12 @@
         "throwback_penalty": 0
       },
       "opportunity": {
-        "score": 65.5,
+        "score": 63.2,
         "confidence": 65,
         "factors": {
           "audience": 70,
           "search": 55,
-          "velocity": 85,
+          "velocity": 70,
           "gap": 50,
           "competition": 50,
           "business": 70,
@@ -2960,7 +2960,7 @@
           "distribution": 5
         },
         "trend_stage": "MAINSTREAM",
-        "opportunity_type": "Breaking News",
+        "opportunity_type": "Evergreen",
         "decision": "IMPROVE",
         "decision_reason": "Attractive but needs a sharper angle or evidence",
         "gates": {
@@ -3115,12 +3115,12 @@
         "headline_name_matches": [
           {
             "name": "jordan love",
-            "mentions": 10,
-            "repeated_mentions": 10,
+            "mentions": 9,
+            "repeated_mentions": 9,
             "throwback_signal": false
           }
         ],
-        "headline_name_repeat_count": 10,
+        "headline_name_repeat_count": 9,
         "headline_name_bonus": 30,
         "playoff_or_player_theme": false,
         "playoff_or_player_bonus": 0,
@@ -3129,12 +3129,12 @@
         "throwback_penalty": 0
       },
       "opportunity": {
-        "score": 65.5,
+        "score": 63.2,
         "confidence": 65,
         "factors": {
           "audience": 70,
           "search": 55,
-          "velocity": 85,
+          "velocity": 70,
           "gap": 50,
           "competition": 50,
           "business": 70,
@@ -3154,7 +3154,7 @@
           "distribution": 5
         },
         "trend_stage": "MAINSTREAM",
-        "opportunity_type": "Breaking News",
+        "opportunity_type": "Evergreen",
         "decision": "IMPROVE",
         "decision_reason": "Attractive but needs a sharper angle or evidence",
         "gates": {
@@ -3311,12 +3311,12 @@
         "headline_name_matches": [
           {
             "name": "jordan love",
-            "mentions": 10,
-            "repeated_mentions": 10,
+            "mentions": 9,
+            "repeated_mentions": 9,
             "throwback_signal": false
           }
         ],
-        "headline_name_repeat_count": 10,
+        "headline_name_repeat_count": 9,
         "headline_name_bonus": 30,
         "playoff_or_player_theme": false,
         "playoff_or_player_bonus": 0,
@@ -3325,12 +3325,12 @@
         "throwback_penalty": 0
       },
       "opportunity": {
-        "score": 66.8,
+        "score": 64.5,
         "confidence": 65,
         "factors": {
           "audience": 70,
           "search": 55,
-          "velocity": 85,
+          "velocity": 70,
           "gap": 50,
           "competition": 50,
           "business": 70,
@@ -3350,7 +3350,7 @@
           "distribution": 5
         },
         "trend_stage": "MAINSTREAM",
-        "opportunity_type": "Breaking News",
+        "opportunity_type": "Evergreen",
         "decision": "IMPROVE",
         "decision_reason": "Attractive but needs a sharper angle or evidence",
         "gates": {
@@ -3505,12 +3505,12 @@
         "headline_name_matches": [
           {
             "name": "jordan love",
-            "mentions": 10,
-            "repeated_mentions": 10,
+            "mentions": 9,
+            "repeated_mentions": 9,
             "throwback_signal": false
           }
         ],
-        "headline_name_repeat_count": 10,
+        "headline_name_repeat_count": 9,
         "headline_name_bonus": 30,
         "playoff_or_player_theme": false,
         "playoff_or_player_bonus": 0,
@@ -3519,12 +3519,12 @@
         "throwback_penalty": 0
       },
       "opportunity": {
-        "score": 65.5,
+        "score": 63.2,
         "confidence": 65,
         "factors": {
           "audience": 70,
           "search": 55,
-          "velocity": 85,
+          "velocity": 70,
           "gap": 50,
           "competition": 50,
           "business": 70,
@@ -3544,7 +3544,7 @@
           "distribution": 5
         },
         "trend_stage": "MAINSTREAM",
-        "opportunity_type": "Breaking News",
+        "opportunity_type": "Evergreen",
         "decision": "IMPROVE",
         "decision_reason": "Attractive but needs a sharper angle or evidence",
         "gates": {
@@ -3699,12 +3699,12 @@
         "headline_name_matches": [
           {
             "name": "jordan love",
-            "mentions": 10,
-            "repeated_mentions": 10,
+            "mentions": 9,
+            "repeated_mentions": 9,
             "throwback_signal": false
           }
         ],
-        "headline_name_repeat_count": 10,
+        "headline_name_repeat_count": 9,
         "headline_name_bonus": 30,
         "playoff_or_player_theme": false,
         "playoff_or_player_bonus": 0,
@@ -3713,12 +3713,12 @@
         "throwback_penalty": 0
       },
       "opportunity": {
-        "score": 65.5,
+        "score": 63.2,
         "confidence": 65,
         "factors": {
           "audience": 70,
           "search": 55,
-          "velocity": 85,
+          "velocity": 70,
           "gap": 50,
           "competition": 50,
           "business": 70,
@@ -3738,7 +3738,7 @@
           "distribution": 5
         },
         "trend_stage": "MAINSTREAM",
-        "opportunity_type": "Breaking News",
+        "opportunity_type": "Evergreen",
         "decision": "IMPROVE",
         "decision_reason": "Attractive but needs a sharper angle or evidence",
         "gates": {
@@ -3895,12 +3895,12 @@
         "headline_name_matches": [
           {
             "name": "jordan love",
-            "mentions": 10,
-            "repeated_mentions": 10,
+            "mentions": 9,
+            "repeated_mentions": 9,
             "throwback_signal": false
           }
         ],
-        "headline_name_repeat_count": 10,
+        "headline_name_repeat_count": 9,
         "headline_name_bonus": 30,
         "playoff_or_player_theme": false,
         "playoff_or_player_bonus": 0,
@@ -3909,12 +3909,12 @@
         "throwback_penalty": 0
       },
       "opportunity": {
-        "score": 65.5,
+        "score": 63.2,
         "confidence": 65,
         "factors": {
           "audience": 70,
           "search": 55,
-          "velocity": 85,
+          "velocity": 70,
           "gap": 50,
           "competition": 50,
           "business": 70,
@@ -3934,7 +3934,7 @@
           "distribution": 5
         },
         "trend_stage": "MAINSTREAM",
-        "opportunity_type": "Breaking News",
+        "opportunity_type": "Evergreen",
         "decision": "IMPROVE",
         "decision_reason": "Attractive but needs a sharper angle or evidence",
         "gates": {
@@ -4089,12 +4089,12 @@
         "headline_name_matches": [
           {
             "name": "jordan love",
-            "mentions": 10,
-            "repeated_mentions": 10,
+            "mentions": 9,
+            "repeated_mentions": 9,
             "throwback_signal": false
           }
         ],
-        "headline_name_repeat_count": 10,
+        "headline_name_repeat_count": 9,
         "headline_name_bonus": 30,
         "playoff_or_player_theme": false,
         "playoff_or_player_bonus": 0,
@@ -4103,12 +4103,12 @@
         "throwback_penalty": 0
       },
       "opportunity": {
-        "score": 65.5,
+        "score": 63.2,
         "confidence": 65,
         "factors": {
           "audience": 70,
           "search": 55,
-          "velocity": 85,
+          "velocity": 70,
           "gap": 50,
           "competition": 50,
           "business": 70,
@@ -4128,7 +4128,7 @@
           "distribution": 5
         },
         "trend_stage": "MAINSTREAM",
-        "opportunity_type": "Breaking News",
+        "opportunity_type": "Evergreen",
         "decision": "IMPROVE",
         "decision_reason": "Attractive but needs a sharper angle or evidence",
         "gates": {
@@ -4283,12 +4283,12 @@
         "headline_name_matches": [
           {
             "name": "jordan love",
-            "mentions": 10,
-            "repeated_mentions": 10,
+            "mentions": 9,
+            "repeated_mentions": 9,
             "throwback_signal": false
           }
         ],
-        "headline_name_repeat_count": 10,
+        "headline_name_repeat_count": 9,
         "headline_name_bonus": 30,
         "playoff_or_player_theme": false,
         "playoff_or_player_bonus": 0,
@@ -4297,12 +4297,12 @@
         "throwback_penalty": 0
       },
       "opportunity": {
-        "score": 65.5,
+        "score": 63.2,
         "confidence": 65,
         "factors": {
           "audience": 70,
           "search": 55,
-          "velocity": 85,
+          "velocity": 70,
           "gap": 50,
           "competition": 50,
           "business": 70,
@@ -4322,7 +4322,7 @@
           "distribution": 5
         },
         "trend_stage": "MAINSTREAM",
-        "opportunity_type": "Breaking News",
+        "opportunity_type": "Evergreen",
         "decision": "IMPROVE",
         "decision_reason": "Attractive but needs a sharper angle or evidence",
         "gates": {
@@ -4479,12 +4479,12 @@
         "headline_name_matches": [
           {
             "name": "jordan love",
-            "mentions": 10,
-            "repeated_mentions": 10,
+            "mentions": 9,
+            "repeated_mentions": 9,
             "throwback_signal": false
           }
         ],
-        "headline_name_repeat_count": 10,
+        "headline_name_repeat_count": 9,
         "headline_name_bonus": 30,
         "playoff_or_player_theme": false,
         "playoff_or_player_bonus": 0,
@@ -4493,12 +4493,12 @@
         "throwback_penalty": 0
       },
       "opportunity": {
-        "score": 66.8,
+        "score": 64.5,
         "confidence": 65,
         "factors": {
           "audience": 70,
           "search": 55,
-          "velocity": 85,
+          "velocity": 70,
           "gap": 50,
           "competition": 50,
           "business": 70,
@@ -4518,7 +4518,7 @@
           "distribution": 5
         },
         "trend_stage": "MAINSTREAM",
-        "opportunity_type": "Breaking News",
+        "opportunity_type": "Evergreen",
         "decision": "IMPROVE",
         "decision_reason": "Attractive but needs a sharper angle or evidence",
         "gates": {
@@ -4673,12 +4673,12 @@
         "headline_name_matches": [
           {
             "name": "jordan love",
-            "mentions": 10,
-            "repeated_mentions": 10,
+            "mentions": 9,
+            "repeated_mentions": 9,
             "throwback_signal": false
           }
         ],
-        "headline_name_repeat_count": 10,
+        "headline_name_repeat_count": 9,
         "headline_name_bonus": 30,
         "playoff_or_player_theme": false,
         "playoff_or_player_bonus": 0,
@@ -4687,12 +4687,12 @@
         "throwback_penalty": 0
       },
       "opportunity": {
-        "score": 65.5,
+        "score": 63.2,
         "confidence": 65,
         "factors": {
           "audience": 70,
           "search": 55,
-          "velocity": 85,
+          "velocity": 70,
           "gap": 50,
           "competition": 50,
           "business": 70,
@@ -4712,7 +4712,7 @@
           "distribution": 5
         },
         "trend_stage": "MAINSTREAM",
-        "opportunity_type": "Breaking News",
+        "opportunity_type": "Evergreen",
         "decision": "IMPROVE",
         "decision_reason": "Attractive but needs a sharper angle or evidence",
         "gates": {
@@ -4867,12 +4867,12 @@
         "headline_name_matches": [
           {
             "name": "jordan love",
-            "mentions": 10,
-            "repeated_mentions": 10,
+            "mentions": 9,
+            "repeated_mentions": 9,
             "throwback_signal": false
           }
         ],
-        "headline_name_repeat_count": 10,
+        "headline_name_repeat_count": 9,
         "headline_name_bonus": 30,
         "playoff_or_player_theme": false,
         "playoff_or_player_bonus": 0,
@@ -4881,12 +4881,12 @@
         "throwback_penalty": 0
       },
       "opportunity": {
-        "score": 65.5,
+        "score": 63.2,
         "confidence": 65,
         "factors": {
           "audience": 70,
           "search": 55,
-          "velocity": 85,
+          "velocity": 70,
           "gap": 50,
           "competition": 50,
           "business": 70,
@@ -4906,7 +4906,7 @@
           "distribution": 5
         },
         "trend_stage": "MAINSTREAM",
-        "opportunity_type": "Breaking News",
+        "opportunity_type": "Evergreen",
         "decision": "IMPROVE",
         "decision_reason": "Attractive but needs a sharper angle or evidence",
         "gates": {
@@ -5059,12 +5059,12 @@
         "headline_name_matches": [
           {
             "name": "jordan love",
-            "mentions": 10,
-            "repeated_mentions": 10,
+            "mentions": 9,
+            "repeated_mentions": 9,
             "throwback_signal": false
           }
         ],
-        "headline_name_repeat_count": 10,
+        "headline_name_repeat_count": 9,
         "headline_name_bonus": 30,
         "playoff_or_player_theme": false,
         "playoff_or_player_bonus": 0,
@@ -5073,12 +5073,12 @@
         "throwback_penalty": 0
       },
       "opportunity": {
-        "score": 65.5,
+        "score": 63.2,
         "confidence": 65,
         "factors": {
           "audience": 70,
           "search": 55,
-          "velocity": 85,
+          "velocity": 70,
           "gap": 50,
           "competition": 50,
           "business": 70,
@@ -5098,7 +5098,7 @@
           "distribution": 5
         },
         "trend_stage": "MAINSTREAM",
-        "opportunity_type": "Breaking News",
+        "opportunity_type": "Evergreen",
         "decision": "IMPROVE",
         "decision_reason": "Attractive but needs a sharper angle or evidence",
         "gates": {
@@ -5253,12 +5253,12 @@
         "headline_name_matches": [
           {
             "name": "jordan love",
-            "mentions": 10,
-            "repeated_mentions": 10,
+            "mentions": 9,
+            "repeated_mentions": 9,
             "throwback_signal": false
           }
         ],
-        "headline_name_repeat_count": 10,
+        "headline_name_repeat_count": 9,
         "headline_name_bonus": 30,
         "playoff_or_player_theme": false,
         "playoff_or_player_bonus": 0,
@@ -5267,12 +5267,12 @@
         "throwback_penalty": 0
       },
       "opportunity": {
-        "score": 65.5,
+        "score": 63.2,
         "confidence": 65,
         "factors": {
           "audience": 70,
           "search": 55,
-          "velocity": 85,
+          "velocity": 70,
           "gap": 50,
           "competition": 50,
           "business": 70,
@@ -5292,7 +5292,7 @@
           "distribution": 5
         },
         "trend_stage": "MAINSTREAM",
-        "opportunity_type": "Breaking News",
+        "opportunity_type": "Evergreen",
         "decision": "IMPROVE",
         "decision_reason": "Attractive but needs a sharper angle or evidence",
         "gates": {
@@ -5447,12 +5447,12 @@
         "headline_name_matches": [
           {
             "name": "jordan love",
-            "mentions": 10,
-            "repeated_mentions": 10,
+            "mentions": 9,
+            "repeated_mentions": 9,
             "throwback_signal": false
           }
         ],
-        "headline_name_repeat_count": 10,
+        "headline_name_repeat_count": 9,
         "headline_name_bonus": 30,
         "playoff_or_player_theme": false,
         "playoff_or_player_bonus": 0,
@@ -5461,12 +5461,12 @@
         "throwback_penalty": 0
       },
       "opportunity": {
-        "score": 65.5,
+        "score": 63.2,
         "confidence": 65,
         "factors": {
           "audience": 70,
           "search": 55,
-          "velocity": 85,
+          "velocity": 70,
           "gap": 50,
           "competition": 50,
           "business": 70,
@@ -5486,7 +5486,7 @@
           "distribution": 5
         },
         "trend_stage": "MAINSTREAM",
-        "opportunity_type": "Breaking News",
+        "opportunity_type": "Evergreen",
         "decision": "IMPROVE",
         "decision_reason": "Attractive but needs a sharper angle or evidence",
         "gates": {
@@ -5641,12 +5641,12 @@
         "headline_name_matches": [
           {
             "name": "jordan love",
-            "mentions": 10,
-            "repeated_mentions": 10,
+            "mentions": 9,
+            "repeated_mentions": 9,
             "throwback_signal": false
           }
         ],
-        "headline_name_repeat_count": 10,
+        "headline_name_repeat_count": 9,
         "headline_name_bonus": 30,
         "playoff_or_player_theme": false,
         "playoff_or_player_bonus": 0,
@@ -5655,12 +5655,12 @@
         "throwback_penalty": 0
       },
       "opportunity": {
-        "score": 65.5,
+        "score": 63.2,
         "confidence": 65,
         "factors": {
           "audience": 70,
           "search": 55,
-          "velocity": 85,
+          "velocity": 70,
           "gap": 50,
           "competition": 50,
           "business": 70,
@@ -5680,7 +5680,7 @@
           "distribution": 5
         },
         "trend_stage": "MAINSTREAM",
-        "opportunity_type": "Breaking News",
+        "opportunity_type": "Evergreen",
         "decision": "IMPROVE",
         "decision_reason": "Attractive but needs a sharper angle or evidence",
         "gates": {
@@ -5835,12 +5835,12 @@
         "headline_name_matches": [
           {
             "name": "jordan love",
-            "mentions": 10,
-            "repeated_mentions": 10,
+            "mentions": 9,
+            "repeated_mentions": 9,
             "throwback_signal": false
           }
         ],
-        "headline_name_repeat_count": 10,
+        "headline_name_repeat_count": 9,
         "headline_name_bonus": 30,
         "playoff_or_player_theme": false,
         "playoff_or_player_bonus": 0,
@@ -5849,12 +5849,12 @@
         "throwback_penalty": 0
       },
       "opportunity": {
-        "score": 65.5,
+        "score": 63.2,
         "confidence": 65,
         "factors": {
           "audience": 70,
           "search": 55,
-          "velocity": 85,
+          "velocity": 70,
           "gap": 50,
           "competition": 50,
           "business": 70,
@@ -5874,7 +5874,7 @@
           "distribution": 5
         },
         "trend_stage": "MAINSTREAM",
-        "opportunity_type": "Breaking News",
+        "opportunity_type": "Evergreen",
         "decision": "IMPROVE",
         "decision_reason": "Attractive but needs a sharper angle or evidence",
         "gates": {
@@ -6029,12 +6029,12 @@
         "headline_name_matches": [
           {
             "name": "jordan love",
-            "mentions": 10,
-            "repeated_mentions": 10,
+            "mentions": 9,
+            "repeated_mentions": 9,
             "throwback_signal": false
           }
         ],
-        "headline_name_repeat_count": 10,
+        "headline_name_repeat_count": 9,
         "headline_name_bonus": 30,
         "playoff_or_player_theme": false,
         "playoff_or_player_bonus": 0,
@@ -6043,12 +6043,12 @@
         "throwback_penalty": 0
       },
       "opportunity": {
-        "score": 65.5,
+        "score": 63.2,
         "confidence": 65,
         "factors": {
           "audience": 70,
           "search": 55,
-          "velocity": 85,
+          "velocity": 70,
           "gap": 50,
           "competition": 50,
           "business": 70,
@@ -6068,7 +6068,7 @@
           "distribution": 5
         },
         "trend_stage": "MAINSTREAM",
-        "opportunity_type": "Breaking News",
+        "opportunity_type": "Evergreen",
         "decision": "IMPROVE",
         "decision_reason": "Attractive but needs a sharper angle or evidence",
         "gates": {
@@ -18323,8 +18323,8 @@
   ],
   "calendar": [
     {
-      "date": "2026-11-16",
-      "weekday": "Monday",
+      "date": "2026-11-17",
+      "weekday": "Tuesday",
       "focus_rank": 1,
       "focus_slug": "sanders-13-special-edition",
       "focus_name": "Shedeur Sanders 12 They Forgot Who I Am Shirt",
@@ -18428,8 +18428,8 @@
       ]
     },
     {
-      "date": "2026-11-17",
-      "weekday": "Tuesday",
+      "date": "2026-11-18",
+      "weekday": "Wednesday",
       "focus_rank": 2,
       "focus_slug": "sanders-12-special-edition",
       "focus_name": "Sanders QB 12 Signature Shirt",
@@ -18533,8 +18533,8 @@
       ]
     },
     {
-      "date": "2026-11-18",
-      "weekday": "Wednesday",
+      "date": "2026-11-19",
+      "weekday": "Thursday",
       "focus_rank": 3,
       "focus_slug": "sanders-special-edition",
       "focus_name": "Sanders QB Signature White Shirt",
@@ -18638,8 +18638,8 @@
       ]
     },
     {
-      "date": "2026-11-19",
-      "weekday": "Thursday",
+      "date": "2026-11-20",
+      "weekday": "Friday",
       "focus_rank": 4,
       "focus_slug": "limited-edition-grb31",
       "focus_name": "Jordan Love 10 Green Bay Hoodie",
@@ -18743,8 +18743,8 @@
       ]
     },
     {
-      "date": "2026-11-20",
-      "weekday": "Friday",
+      "date": "2026-11-21",
+      "weekday": "Saturday",
       "focus_rank": 5,
       "focus_slug": "limited-edition-grb30",
       "focus_name": "Jordan Freaking Love Shirt",
@@ -18848,8 +18848,8 @@
       ]
     },
     {
-      "date": "2026-11-21",
-      "weekday": "Saturday",
+      "date": "2026-11-22",
+      "weekday": "Sunday",
       "focus_rank": 6,
       "focus_slug": "limited-edition-grb36",
       "focus_name": "Jordan Love 10 Flag Number Shirt",
@@ -18953,8 +18953,8 @@
       ]
     },
     {
-      "date": "2026-11-22",
-      "weekday": "Sunday",
+      "date": "2026-11-23",
+      "weekday": "Monday",
       "focus_rank": 7,
       "focus_slug": "limited-edition-grb24",
       "focus_name": "Love 10 Jersey Back Shirt",
@@ -19058,8 +19058,8 @@
       ]
     },
     {
-      "date": "2026-11-23",
-      "weekday": "Monday",
+      "date": "2026-11-24",
+      "weekday": "Tuesday",
       "focus_rank": 8,
       "focus_slug": "limited-edition-grb4",
       "focus_name": "Let The 10VE Begin Green Bay Shirt",
@@ -19163,8 +19163,8 @@
       ]
     },
     {
-      "date": "2026-11-24",
-      "weekday": "Tuesday",
+      "date": "2026-11-25",
+      "weekday": "Wednesday",
       "focus_rank": 9,
       "focus_slug": "limited-edition-grb11",
       "focus_name": "Jordan Love Is All You Need Shirt",
@@ -19268,8 +19268,8 @@
       ]
     },
     {
-      "date": "2026-11-25",
-      "weekday": "Wednesday",
+      "date": "2026-11-26",
+      "weekday": "Thursday",
       "focus_rank": 10,
       "focus_slug": "limited-edition-grb33",
       "focus_name": "All You Need Is Love 10 Helmet Shirt",
@@ -19373,8 +19373,8 @@
       ]
     },
     {
-      "date": "2026-11-26",
-      "weekday": "Thursday",
+      "date": "2026-11-27",
+      "weekday": "Friday",
       "focus_rank": 11,
       "focus_slug": "limited-edition-grb5",
       "focus_name": "Go Pack Go Stencil Shirt",
@@ -19478,8 +19478,8 @@
       ]
     },
     {
-      "date": "2026-11-27",
-      "weekday": "Friday",
+      "date": "2026-11-28",
+      "weekday": "Saturday",
       "focus_rank": 12,
       "focus_slug": "limited-edition-grb12",
       "focus_name": "What Would Jordan Do Retro Shirt",
@@ -19583,8 +19583,8 @@
       ]
     },
     {
-      "date": "2026-11-28",
-      "weekday": "Saturday",
+      "date": "2026-11-29",
+      "weekday": "Sunday",
       "focus_rank": 13,
       "focus_slug": "limited-edition-grb37",
       "focus_name": "This Girl Loves The Pack Shirt",
@@ -19688,8 +19688,8 @@
       ]
     },
     {
-      "date": "2026-11-29",
-      "weekday": "Sunday",
+      "date": "2026-11-30",
+      "weekday": "Monday",
       "focus_rank": 14,
       "focus_slug": "limited-edition-grb32",
       "focus_name": "Cheese Heart Green Bay Shirt",
@@ -19858,9 +19858,9 @@
       "gaps": [
         {
           "name": "deshaun watson",
-          "mentions": 23,
+          "mentions": 19,
           "angle": "Current conversation around Deshaun Watson",
-          "copy_text": "Opportunity: explore an independent fan-made Cleveland concept around Deshaun Watson while the conversation is active (23 recent headline mentions). Validate the current context before publishing."
+          "copy_text": "Opportunity: explore an independent fan-made Cleveland concept around Deshaun Watson while the conversation is active (19 recent headline mentions). Validate the current context before publishing."
         },
         {
           "name": "todd monken",
@@ -19883,36 +19883,36 @@
           "pub": "Sun, 08 Nov 2026 08:00:00 GMT"
         },
         {
+          "title": "Cleveland Browns proving that TD passes may be overrated",
+          "url": "https://news.google.com/rss/articles/CBMiiwFBVV95cUxPV1hEM2EzN3RtV2QzQlNyeDNGd2RFZEprYzJXQjhrMUNUSUcyOUdPQTBUWHRmTTJQbDFVOUZWMjZTdTNZX1p3MmhNSWVXcGpLNm1Da1RvMzg4Rlpvejk4T00xYlhEQXNwY3kxVDdLb3A2cV85T1ZqdWFZWnYyQXc1YTRTYlFGV3J0RHlF?oc=5",
+          "source": "Yahoo Sports",
+          "pub": "Tue, 17 Nov 2026 00:02:00 GMT"
+        },
+        {
           "title": "Texans Inactives: Week 10 vs Cleveland Browns",
           "url": "https://news.google.com/rss/articles/CBMihgFBVV95cUxNRDRCcHg1VnNGTlhrZmhlNlFUeGhVb28wMWpPcFJNenFJUjBLT3VmR3h1cFZwWEdoRk5qbHhmandURFpPbnJUTnBJbWpwb2QwRnItc094ZGFrVHU2TktVUXd0MElucWNZS0RDazNHc3ljbFJOS1pzSzRrUURZamljUTlNbkUzUQ?oc=5",
           "source": "Houston Texans",
           "pub": "Sun, 15 Nov 2026 16:32:26 GMT"
         },
         {
-          "title": "Were you ready to give up on the Browns? – Terry Pluto",
-          "url": "https://news.google.com/rss/articles/CBMingFBVV95cUxPQkMza2JRVURwd3hWOUU1aGI3V1NWNVJrSHRONnJ1U1VpYWRWemV6WU8yaENNSExGcVJUVzFudEpaX2xLbnR1LVZqaDlOaE80MXlJY043SmR4TjR0TVZjYW85Ykp4REdjWm9NYTJUWDMtWG1lRWEzNF9QcDNCc3dVTGVSRjg3UXptU1R4MFBwZ3VBQXBvWW1TVzY2dHpIQQ?oc=5",
-          "source": "Cleveland.com",
-          "pub": "Sun, 15 Nov 2026 22:40:00 GMT"
-        },
-        {
-          "title": "Cleveland Browns quarterback Deshaun Watson shows off his wheels with a 20-yard sideline scramble",
-          "url": "https://news.google.com/rss/articles/CBMimwFBVV95cUxQdVBZdjdBYXpUaUM0M1ZnSmRkOWFHcHZRVGhQVXNCSGs4RGlaeDZPUjZuanpqM3lRdzZVbHc2NjUyUjlBQVBrVExBUzNfRTJQYUgyRFFvME40d05SUTBJZVI0cVE2aDhLTHVidFpMaDNFcmY5d2o4TUhjdUxVWFU5ZkNNUm1vVjdERDNXTTV3MGpHcVhIZzlNZzhYcw?oc=5",
+          "title": "Is it time to take the 6-4 Browns seriously? | 'GMFB'",
+          "url": "https://news.google.com/rss/articles/CBMigAFBVV95cUxOSUVqc1ctU0lKYnVQblVVXzRlS3otNlpNMGxjaWhsVGxHYW45ei1qZjJqbzV1eEZzcTlkbGdNR0lKRV9hdjFwV3I5MU1OZUVFZjJhTXpfa2FGb1NxZnM4RWhXZGhfY25IekdSQnBobVNINzc5ZnoyNzQwWlQwTVNtSg?oc=5",
           "source": "NFL.com",
-          "pub": "Sun, 15 Nov 2026 19:08:23 GMT"
+          "pub": "Tue, 17 Nov 2026 11:47:19 GMT"
         }
       ],
       "covered_names": [
         {
           "name": "deshaun watson",
-          "mentions": 23
-        },
-        {
-          "name": "shedeur sanders",
-          "mentions": 7
+          "mentions": 19
         },
         {
           "name": "todd monken",
           "mentions": 5
+        },
+        {
+          "name": "shedeur sanders",
+          "mentions": 4
         },
         {
           "name": "denzel ward",
@@ -19940,9 +19940,9 @@
       "gaps": [
         {
           "name": "matt lafleur",
-          "mentions": 4,
+          "mentions": 8,
           "angle": "Current conversation around Matt Lafleur",
-          "copy_text": "Opportunity: explore an independent fan-made Green Bay concept around Matt Lafleur while the conversation is active (4 recent headline mentions). Validate the current context before publishing."
+          "copy_text": "Opportunity: explore an independent fan-made Green Bay concept around Matt Lafleur while the conversation is active (8 recent headline mentions). Validate the current context before publishing."
         }
       ],
       "top_headlines": [
@@ -19962,37 +19962,37 @@
           "title": "Green Bay Packers invite fans to connect with team in Munich ahead of NFL Germany game",
           "url": "https://news.google.com/rss/articles/CBMivAFBVV95cUxPZmg1dTBUZmtyTThzNVJtNG85ZEZmMWV1RlBFUWJ1bG5NSjUtMUEwYzg1ZTBWTV9zXzNoa3ZEYzYxeVhXeEV6MzdDell6dV9jUHJUV0JHdm4zVFdRN1h4VzRHV2MyMzQwcGlMNjI4MENhSkZJZ053NGkzY3V1OHBWTUF0dVROcHc5NUVzenlhVTlrNE9GODRuRzB5Tk5sbkk1MHM2VmhyNGUxVTFURDczeVBDZHdSS2d4MHAydA?oc=5",
           "source": "Green Bay Packers – packers.com",
-          "pub": "Mon, 09 Nov 2026 20:20:22 GMT"
+          "pub": "Mon, 09 Nov 2026 08:00:00 GMT"
         },
         {
-          "title": "Green Bay Packers Have an Answer at Running Back in Kaleb Johnson",
-          "url": "https://news.google.com/rss/articles/CBMiiAFBVV95cUxNbVlHRm9NaFI1YV9RaHVPSnpGbVBMTzlDcng5TW96M014SnlleFFjbG90OS10U3JSYkFFek9MR1FoV2RFOEtDNUxac2ZIdWhydzRLc1U0UDVYeHFZNE92aWtWMDZBLWoxbjRQMlZWQW8xLWVXZXV6bjlDYUNIV2o4VVNmakZIYzJR?oc=5",
+          "title": "Packers-Vikings Final Score: Green Bay’s comedy of errors continues",
+          "url": "https://news.google.com/rss/articles/CBMiigFBVV95cUxPZ09Cd1FSZGpTQWhYdUl5RUlFUUdKcS1sa2NDT0s4dUdEbTJkaU80S1UyRkUyU1ltLTAwMU5CTVZnVkttT2k3OFR1bEp2UEx0d2Z5UjBwRExxSE4yOUtDOG9keWhFcE42MkZoR3VHWDAzRU5ScWZ6VkFGZmp0QmxlODJoZU9qVmttYVE?oc=5",
           "source": "Yahoo Sports",
-          "pub": "Thu, 12 Nov 2026 11:00:06 GMT"
+          "pub": "Sun, 15 Nov 2026 21:06:46 GMT"
         },
         {
-          "title": "Packers host division-foe Vikings at home",
-          "url": "https://news.google.com/rss/articles/CBMiiwFBVV95cUxOTllQRVZ0X2JVVVRadjA5QVJlY2laMUxpT056Y21xVk9yYWZmZGo0MHZyUUdYc1BBVlBFSnY0Zk1BeU5mbUc0QzA2dW1NZVZWZVZaT3VYMFRkZTBYcEpLaU9qZmlKZmpPMVZySlUxVGx6Y3ZCbUFWUktFa2NKeXNGWFBTVVNxeWV5bXVB?oc=5",
-          "source": "Green Bay Packers – packers.com",
-          "pub": "Tue, 10 Nov 2026 21:04:33 GMT"
+          "title": "Vikings face Packers in Week 10 | 'The NFL Report'",
+          "url": "https://news.google.com/rss/articles/CBMifkFVX3lxTE9EMWd0cU5FekR3RHgzSDI1cVQ2TkU0cFFhTFRLUGgtWERaNnI0WnRjMmxXZ2tEQXlOek53YVUyWjhKM3YtYTJmWlpvcExaRGVvREpkb2x3MldTYWdXaGtCXzZraktBLXhOQzNBemM3anAtVHdxdkhBVkM2M2tDUQ?oc=5",
+          "source": "NFL.com",
+          "pub": "Sat, 14 Nov 2026 00:39:23 GMT"
         }
       ],
       "covered_names": [
         {
           "name": "jordan love",
-          "mentions": 10
+          "mentions": 9
         },
         {
           "name": "matt lafleur",
-          "mentions": 4
+          "mentions": 8
         },
         {
           "name": "micah parsons",
-          "mentions": 2
+          "mentions": 8
         },
         {
           "name": "josh jacobs",
-          "mentions": 1
+          "mentions": 2
         },
         {
           "name": "robert tonyan",
@@ -20008,15 +20008,15 @@
       "gaps": [
         {
           "name": "dak prescott",
-          "mentions": 12,
+          "mentions": 14,
           "angle": "Current conversation around Dak Prescott",
-          "copy_text": "Opportunity: explore an independent fan-made Dallas concept around Dak Prescott while the conversation is active (12 recent headline mentions). Validate the current context before publishing."
+          "copy_text": "Opportunity: explore an independent fan-made Dallas concept around Dak Prescott while the conversation is active (14 recent headline mentions). Validate the current context before publishing."
         },
         {
           "name": "ceedee lamb",
-          "mentions": 6,
+          "mentions": 4,
           "angle": "Current conversation around Ceedee Lamb",
-          "copy_text": "Opportunity: explore an independent fan-made Dallas concept around Ceedee Lamb while the conversation is active (6 recent headline mentions). Validate the current context before publishing."
+          "copy_text": "Opportunity: explore an independent fan-made Dallas concept around Ceedee Lamb while the conversation is active (4 recent headline mentions). Validate the current context before publishing."
         }
       ],
       "top_headlines": [
@@ -20033,16 +20033,16 @@
           "pub": "Mon, 16 Nov 2026 03:35:27 GMT"
         },
         {
-          "title": "How to watch the Dallas Cowboys at Indianapolis Colts on November 8, 2026",
-          "url": "https://news.google.com/rss/articles/CBMirgFBVV95cUxNWng3TTJXZ1B2QnBQcW5lYTdXZW5QZUxxRlktTWg1Q2NnSWZ1NW8tSXkxcUNId0U2OTFCVTRjcmNkMjZTLXJsczJNQ1cxOVladTNhRGtUWDNQM0N2UXVtOExxMUUxNDZkYThrdEhtdmlvTnBMaFBaZU9wLWwxdmNweC1NcFVpRU5IUml3TW5QcndMX3NZcVp3Tmw0Q28wc1F6VlJXMnZSODVOUW1oNVE?oc=5",
-          "source": "Colts.com",
-          "pub": "Sun, 08 Nov 2026 08:00:00 GMT"
+          "title": "Dak Prescott let down by the Dallas Cowboys yet again",
+          "url": "https://news.google.com/rss/articles/CBMijAFBVV95cUxOVWRnOWJwdzVTM0VlQVNsd2JFNEl5UFM1VlcxTEszSnhXVjRSVGpiVEJfYmxJMjBuZUh0VzdpOUN4dDNBd2pNTV9xUmpXNktxTnloZHJySmZCQnNXVUZSOTFIWXNJZi1zMFEycWZmVDY1X3lGTmplSFdpaEZPcUFnZ05OZFFlMlZ6b0lsNQ?oc=5",
+          "source": "Andscape",
+          "pub": "Mon, 16 Nov 2026 16:13:38 GMT"
         },
         {
-          "title": "Game Recap: Explosive plays doom Dallas, 46-40",
-          "url": "https://news.google.com/rss/articles/CBMihgFBVV95cUxONTk2bklZZU1JSTVNd1FzUVdhYU55R3MwdnRmaFBsWHlkWDZsTjRFZDgwczRmazMxUDFoa1BfVDZaQWE4ZC1jZEQwZTMxVnRUMkp0YzlINHd2TnJPWWR1ME1hT2QyaTVuSXkxUWliUEpsYTloZ2hUYW5HNEhaTm9TRjlTU3RBZw?oc=5",
+          "title": "Dak Prescott on loss to 49ers: 'We've gotta be better.'",
+          "url": "https://news.google.com/rss/articles/CBMijwFBVV95cUxQS3hMNTVjNkZQNEktYXRyRi1zSUlQSWZjY0FXcjlZOWtaS3ZQVklCTFZTSnVnNWFnRVFjLS1UbERaTGNlc0VVQ3FxVGhuQ0VIY0gzLTBQU2VqRVZlOTFPN0M1NndJTUF1TU0wY0JGbUVTUkFxb2doSzE2MmZ4V2xHbTU0UmxpOHpiLWNaNFZhcw?oc=5",
           "source": "Dallas Cowboys | Official Site of the Dallas Cowboys",
-          "pub": "Mon, 16 Nov 2026 01:08:26 GMT"
+          "pub": "Mon, 16 Nov 2026 02:23:34 GMT"
         },
         {
           "title": "Game Recap: Cowboys win late, 27-23",
@@ -20054,11 +20054,11 @@
       "covered_names": [
         {
           "name": "dak prescott",
-          "mentions": 12
+          "mentions": 14
         },
         {
           "name": "ceedee lamb",
-          "mentions": 6
+          "mentions": 4
         }
       ]
     },
@@ -20070,9 +20070,9 @@
       "gaps": [
         {
           "name": "kyle whittingham",
-          "mentions": 16,
+          "mentions": 19,
           "angle": "Current conversation around Kyle Whittingham",
-          "copy_text": "Opportunity: explore an independent fan-made Michigan concept around Kyle Whittingham while the conversation is active (16 recent headline mentions). Validate the current context before publishing."
+          "copy_text": "Opportunity: explore an independent fan-made Michigan concept around Kyle Whittingham while the conversation is active (19 recent headline mentions). Validate the current context before publishing."
         }
       ],
       "top_headlines": [
@@ -20083,16 +20083,16 @@
           "pub": "Sun, 15 Nov 2026 01:17:02 GMT"
         },
         {
-          "title": "Game Thread: Michigan Football at No. 16 Oregon",
-          "url": "https://news.google.com/rss/articles/CBMiiAFBVV95cUxQa09RX2pjTElCSzkyV2VwaDlOMnZUSUtUdzNTT0V6UWpWS1pDQXNoQ0JnUmJ5dFdSV0JHdzdQM284b2hQdDQzM0IxcE8tZlNRWG5IU2trNjh4dlNTakZsT2o5aUJpS0hoTG9WTl9iejVFN0J0b0VONU5mZWVWbF9nWFlra3VuWV8z?oc=5",
-          "source": "Yahoo Sports",
-          "pub": "Sat, 14 Nov 2026 19:30:00 GMT"
-        },
-        {
           "title": "Watch Michigan vs Oregon Live: Streaming, TV Channel & Start Time - Nov 14, 2026 | CFB Week 11",
           "url": "https://news.google.com/rss/articles/CBMiqgFBVV95cUxNbU1GYzdlSDdYXzd1RkZfUXhaZnVoMkdwY2hYYXR2Q3lXcHdmY1E2MW43UHJ1a1N6SnZGajZKMzlFQUgtYkxvR1ZmWDNNa25IckVUVTh2TjBPNkRSNUp6TFJvZU1RWDVWX0pscEowTXN2N1hzcXFFcTZaTFhpRHZKN1FLWjRHQnVoWGtPV01YX1RENXZuZHBGRUM0X3ZQNGdKa2tvVzZhUXQxZw?oc=5",
           "source": "FOX One",
           "pub": "Sat, 14 Nov 2026 08:00:00 GMT"
+        },
+        {
+          "title": "Game Thread: Michigan Football at No. 16 Oregon",
+          "url": "https://news.google.com/rss/articles/CBMiiAFBVV95cUxQa09RX2pjTElCSzkyV2VwaDlOMnZUSUtUdzNTT0V6UWpWS1pDQXNoQ0JnUmJ5dFdSV0JHdzdQM284b2hQdDQzM0IxcE8tZlNRWG5IU2trNjh4dlNTakZsT2o5aUJpS0hoTG9WTl9iejVFN0J0b0VONU5mZWVWbF9nWFlra3VuWV8z?oc=5",
+          "source": "Yahoo Sports",
+          "pub": "Sat, 14 Nov 2026 19:30:00 GMT"
         },
         {
           "title": "Michigan Football Winners and Losers as Wolverines Falls Below .500",
@@ -20110,11 +20110,11 @@
       "covered_names": [
         {
           "name": "kyle whittingham",
-          "mentions": 16
+          "mentions": 19
         },
         {
           "name": "bryce underwood",
-          "mentions": 10
+          "mentions": 12
         },
         {
           "name": "jj mccarthy",
@@ -21711,10 +21711,10 @@
       "top_opportunity": {
         "slug": "limited-edition-grb5",
         "name": "Go Pack Go Stencil Shirt",
-        "opportunity_score": 80.5,
+        "opportunity_score": 78.2,
         "decision": "PUBLISH",
         "trend_stage": "ACCELERATING",
-        "opportunity_type": "Breaking News"
+        "opportunity_type": "Evergreen"
       }
     },
     {
