@@ -2,110 +2,47 @@
  "generated": "2026-11-19",
  "window_days": 10,
  "fti_formula": "round(100 * entity_mentions / peak_mentions_in_window)",
- "peak_mentions": 24,
+ "peak_mentions": 0,
  "stats": {
   "products": 95,
   "collections": 4,
   "images": 451,
   "avg_price": 23.81,
-  "hot": 11,
-  "throwback": 1,
+  "hot": 0,
+  "throwback": 12,
   "steady": 83,
-  "gaps": 6,
-  "moments": 6,
+  "gaps": 0,
+  "moments": 0,
   "tracked_names": 18,
   "dead_campaigns": 68
  },
  "fti_rows": [
   {
-   "name": "deshaun watson",
-   "mentions": 24,
-   "index": 100,
-   "status": "trending",
-   "gap": true,
-   "shoppable": false,
-   "collection": "cleveland-browns"
-  },
-  {
-   "name": "kyle whittingham",
-   "mentions": 21,
-   "index": 88,
-   "status": "trending",
-   "gap": true,
-   "shoppable": false,
-   "collection": "michigan"
-  },
-  {
-   "name": "dak prescott",
-   "mentions": 10,
-   "index": 42,
-   "status": "trending",
-   "gap": true,
-   "shoppable": false,
-   "collection": "dallas-cowboys"
-  },
-  {
-   "name": "matt lafleur",
-   "mentions": 6,
-   "index": 25,
-   "status": "trending",
-   "gap": true,
-   "shoppable": false,
-   "collection": "green-bay-packers"
-  },
-  {
-   "name": "jordan love",
-   "mentions": 4,
-   "index": 17,
-   "status": "trending",
-   "gap": false,
-   "shoppable": true,
-   "collection": "green-bay-packers"
-  },
-  {
-   "name": "josh jacobs",
-   "mentions": 3,
-   "index": 12,
-   "status": "trending",
-   "gap": true,
-   "shoppable": false,
-   "collection": "green-bay-packers"
-  },
-  {
-   "name": "todd monken",
-   "mentions": 3,
-   "index": 12,
-   "status": "trending",
-   "gap": true,
-   "shoppable": false,
-   "collection": "cleveland-browns"
-  },
-  {
    "name": "bryce underwood",
-   "mentions": 2,
-   "index": 8,
-   "status": "steady",
+   "mentions": 0,
+   "index": 0,
+   "status": "quiet",
    "gap": false,
    "shoppable": true,
    "collection": "michigan"
   },
   {
    "name": "ceedee lamb",
-   "mentions": 2,
-   "index": 8,
-   "status": "steady",
+   "mentions": 0,
+   "index": 0,
+   "status": "quiet",
    "gap": false,
    "shoppable": false,
    "collection": "dallas-cowboys"
   },
   {
-   "name": "micah parsons",
-   "mentions": 2,
-   "index": 8,
-   "status": "steady",
+   "name": "dak prescott",
+   "mentions": 0,
+   "index": 0,
+   "status": "quiet",
    "gap": false,
-   "shoppable": true,
-   "collection": "green-bay-packers"
+   "shoppable": false,
+   "collection": "dallas-cowboys"
   },
   {
    "name": "denzel ward",
@@ -114,6 +51,15 @@
    "status": "quiet",
    "gap": false,
    "shoppable": true,
+   "collection": "cleveland-browns"
+  },
+  {
+   "name": "deshaun watson",
+   "mentions": 0,
+   "index": 0,
+   "status": "quiet",
+   "gap": false,
+   "shoppable": false,
    "collection": "cleveland-browns"
   },
   {
@@ -135,6 +81,15 @@
    "collection": "cleveland-browns"
   },
   {
+   "name": "jordan love",
+   "mentions": 0,
+   "index": 0,
+   "status": "quiet",
+   "gap": false,
+   "shoppable": true,
+   "collection": "green-bay-packers"
+  },
+  {
    "name": "jordan marshall",
    "mentions": 0,
    "index": 0,
@@ -144,6 +99,15 @@
    "collection": "michigan"
   },
   {
+   "name": "josh jacobs",
+   "mentions": 0,
+   "index": 0,
+   "status": "quiet",
+   "gap": false,
+   "shoppable": false,
+   "collection": "green-bay-packers"
+  },
+  {
    "name": "kevin stefanski",
    "mentions": 0,
    "index": 0,
@@ -151,6 +115,33 @@
    "gap": false,
    "shoppable": true,
    "collection": "cleveland-browns"
+  },
+  {
+   "name": "kyle whittingham",
+   "mentions": 0,
+   "index": 0,
+   "status": "quiet",
+   "gap": false,
+   "shoppable": false,
+   "collection": "michigan"
+  },
+  {
+   "name": "matt lafleur",
+   "mentions": 0,
+   "index": 0,
+   "status": "quiet",
+   "gap": false,
+   "shoppable": false,
+   "collection": "green-bay-packers"
+  },
+  {
+   "name": "micah parsons",
+   "mentions": 0,
+   "index": 0,
+   "status": "quiet",
+   "gap": false,
+   "shoppable": true,
+   "collection": "green-bay-packers"
   },
   {
    "name": "myles garrett",
@@ -178,64 +169,18 @@
    "gap": false,
    "shoppable": true,
    "collection": "cleveland-browns"
-  }
- ],
- "gaps": [
-  {
-   "name": "deshaun watson",
-   "mentions": 24,
-   "index": 100,
-   "status": "trending",
-   "gap": true,
-   "shoppable": false,
-   "collection": "cleveland-browns"
-  },
-  {
-   "name": "kyle whittingham",
-   "mentions": 21,
-   "index": 88,
-   "status": "trending",
-   "gap": true,
-   "shoppable": false,
-   "collection": "michigan"
-  },
-  {
-   "name": "dak prescott",
-   "mentions": 10,
-   "index": 42,
-   "status": "trending",
-   "gap": true,
-   "shoppable": false,
-   "collection": "dallas-cowboys"
-  },
-  {
-   "name": "matt lafleur",
-   "mentions": 6,
-   "index": 25,
-   "status": "trending",
-   "gap": true,
-   "shoppable": false,
-   "collection": "green-bay-packers"
-  },
-  {
-   "name": "josh jacobs",
-   "mentions": 3,
-   "index": 12,
-   "status": "trending",
-   "gap": true,
-   "shoppable": false,
-   "collection": "green-bay-packers"
   },
   {
    "name": "todd monken",
-   "mentions": 3,
-   "index": 12,
-   "status": "trending",
-   "gap": true,
+   "mentions": 0,
+   "index": 0,
+   "status": "quiet",
+   "gap": false,
    "shoppable": false,
    "collection": "cleveland-browns"
   }
  ],
+ "gaps": [],
  "collections": [
   {
    "key": "cleveland-browns",
@@ -247,67 +192,30 @@
    "avg_price": 23.3,
    "hot": 0,
    "throwback": 1,
-   "gaps": [
-    {
-     "name": "deshaun watson",
-     "mentions": 24,
-     "index": 100,
-     "status": "trending",
-     "gap": true,
-     "shoppable": false,
-     "collection": "cleveland-browns"
-    },
-    {
-     "name": "todd monken",
-     "mentions": 3,
-     "index": 12,
-     "status": "trending",
-     "gap": true,
-     "shoppable": false,
-     "collection": "cleveland-browns"
-    }
-   ],
+   "gaps": [],
    "top_terms": [
     "browns",
     "cleveland",
-    "houston",
-    "deshaun",
-    "watson",
-    "flexed",
-    "free",
-    "football"
+    "power",
+    "rankings",
+    "high",
+    "defense",
+    "thriving",
+    "mike"
    ],
-   "headline_count": 100,
+   "headline_count": 2,
    "headlines": [
     {
-     "title": "Browns erase 17-point deficit to beat Texans in Week 10 | By the Numbers",
-     "url": "https://news.google.com/rss/articles/CBMiqwFBVV95cUxOcGJmenF0M3I5SDBBOTN5NzhFSXV6WGZOREYzbDJRdndBdmdUTTlBMy04WTVsN0hkR3RHREE2VE9sdzR1aUM1cXdzQUw2REpJYzlhTm11WWtweGxEcjJ4Y2VpXzkyaGFrdzZsMWFjM0VnWnJXQWwxWEVYSlJyWXY2cWpBWGFOYkNNRmh2SVBack5BTnk4YkNGbWxSOHlhemx3NzZ3dm15Q1lRQm8?oc=5",
-     "source": "Cleveland Browns",
-     "pub": "Mon, 16 Nov 2026 00:00:07 GMT"
+     "title": "Week 11 Browns NFL Power Rankings: A new season-high for Cleveland",
+     "url": "http://www.bing.com/news/apiclick.aspx?ref=FexRss&aid=&tid=6aff7b40f3494274a91060720e7ba001&url=https%3a%2f%2fwww.msn.com%2fen-us%2fsports%2ffootball%2fweek-11-browns-nfl-power-rankings-a-new-season-high-for-cleveland%2far-AA2hNGj6&c=11052167618571736434&mkt=en-us",
+     "source": "",
+     "pub": "Thu, 19 Nov 2026 11:39:33 GMT"
     },
     {
-     "title": "Texans Inactives: Week 10 vs Cleveland Browns",
-     "url": "https://news.google.com/rss/articles/CBMihgFBVV95cUxNRDRCcHg1VnNGTlhrZmhlNlFUeGhVb28wMWpPcFJNenFJUjBLT3VmR3h1cFZwWEdoRk5qbHhmandURFpPbnJUTnBJbWpwb2QwRnItc094ZGFrVHU2TktVUXd0MElucWNZS0RDazNHc3ljbFJOS1pzSzRrUURZamljUTlNbkUzUQ?oc=5",
-     "source": "Houston Texans",
-     "pub": "Sun, 15 Nov 2026 16:33:20 GMT"
-    },
-    {
-     "title": "Cleveland Browns proving that TD passes may be overrated",
-     "url": "https://news.google.com/rss/articles/CBMiiwFBVV95cUxPV1hEM2EzN3RtV2QzQlNyeDNGd2RFZEprYzJXQjhrMUNUSUcyOUdPQTBUWHRmTTJQbDFVOUZWMjZTdTNZX1p3MmhNSWVXcGpLNm1Da1RvMzg4Rlpvejk4T00xYlhEQXNwY3kxVDdLb3A2cV85T1ZqdWFZWnYyQXc1YTRTYlFGV3J0RHlF?oc=5",
-     "source": "Yahoo Sports",
-     "pub": "Tue, 17 Nov 2026 00:02:00 GMT"
-    },
-    {
-     "title": "Cleveland Browns quarterback Deshaun Watson's best plays from 361-yard game vs. Houston Texans | Week 10",
-     "url": "https://news.google.com/rss/articles/CBMilgFBVV95cUxOQm4xN1dkdnF1bElxSDlzSFlJRDNoTlNwQjVibnBKeTNwVW9mNHFSRzNWT2hIejZTLThwdF9qOW1FVE90b0QwS0lqSkJHVTBVNmlmSFJidWdVS3N1LVJlVzBleTVha3VXYVh0MHRzanFNdWZCXzBCSzVVblg1U3c1dTJOb2NuLVBnSW5lalBRVlBxZUxRYVE?oc=5",
-     "source": "NFL.com",
-     "pub": "Sun, 15 Nov 2026 22:28:19 GMT"
-    },
-    {
-     "title": "Cleveland\u2019s 6-4 Start Has Put This Unexpected Browns Storyline in the Spotlight",
-     "url": "https://news.google.com/rss/articles/CBMixgFBVV95cUxNcnkzSnh4V182azRYajh2THJjVHMteGdJQnFWR3VGVTlUenI0UHRXS25MX0hlSjEzalpFbFBlRU9Wby00WDdvWEpYT2l6M0VNN1dydGk5Z3R6SnNTdHBfV2Q0TGR5dEJoTHlKY2FwMHhFbkZ0T1hLS01KbzI3RWFfOTJDQ2Nla3M4U1JLTWtHNGRDX2JpZkNXdEVMQVppR1RlZU1va0FpZ2tiVEw4ZUdDTjF1UzdFOHFfcS16T1FIc0tjSWZNY2c?oc=5",
-     "source": "Sports Illustrated",
-     "pub": "Wed, 18 Nov 2026 12:00:00 GMT"
+     "title": "Cleveland Browns defense thriving under Mike Rutenberg\u2019s bold strategy",
+     "url": "https://www.msn.com/en-us/sports/football/cleveland-browns-defense-thriving-under-mike-rutenberg-s-bold-strategy/ar-AA2hO8fa?ocid=BingNewsVerp",
+     "source": "",
+     "pub": "Thu, 19 Nov 2026 12:00:00 GMT"
     }
    ],
    "fti_count": 7
@@ -322,58 +230,48 @@
    "avg_price": 21.99,
    "hot": 0,
    "throwback": 0,
-   "gaps": [
-    {
-     "name": "dak prescott",
-     "mentions": 10,
-     "index": 42,
-     "status": "trending",
-     "gap": true,
-     "shoppable": false,
-     "collection": "dallas-cowboys"
-    }
-   ],
+   "gaps": [],
    "top_terms": [
     "cowboys",
     "dallas",
-    "christian",
     "parker",
+    "christian",
+    "duties",
     "defensive",
     "calling",
-    "duties",
-    "change"
+    "strip"
    ],
-   "headline_count": 100,
+   "headline_count": 14,
    "headlines": [
     {
-     "title": "Updates: Cornelius claimed; Porter full on Wed.",
-     "url": "https://news.google.com/rss/articles/CBMiZ0FVX3lxTE1XYnlkakRab0lRRVJfS0dyTU1saW51YnhMSGtMWm1xUTNpMHF2ZU5wQW9kZ0lxRDR2LUttekNTMkhpWXRwemkzb3U1SkIwUkxfV2xEeW5fRV8xVGdMV0o4YmJlYUEwV2c?oc=5",
-     "source": "Dallas Cowboys | Official Site of the Dallas Cowboys",
-     "pub": "Wed, 18 Nov 2026 08:00:00 GMT"
+     "title": "Christian Parker Is Disappointed Cowboys Pulled Play-Calling Duties, but Keeps Focus on Team",
+     "url": "http://www.bing.com/news/apiclick.aspx?ref=FexRss&aid=&tid=6aff7bc292c3417fbe90227ea8d40039&url=https%3a%2f%2fwww.usnews.com%2fnews%2fsports%2farticles%2f2026-11-19%2fchristian-parker-is-disappointed-cowboys-pulled-play-calling-duties-but-keeps-focus-on-team&c=11093487838918431275&mkt=en-us",
+     "source": "",
+     "pub": "Thu, 19 Nov 2026 09:14:00 GMT"
     },
     {
-     "title": "49ers Outlast the Dallas Cowboys in 46-40 Shootout; Takeaways from #SFvsDAL",
-     "url": "https://news.google.com/rss/articles/CBMiogFBVV95cUxPRjdTdGpWbGJmZjIxLWZ6TXBwVWZTNUNjc1Q0bm1zT0ZyaUlIelFWNkJiZ2E3bnZYZE9DaEJXLXpJU3h1WnR5WFA2cEZPc2ZiUGFkOGNmLVgzOEZvVTNaT0RGeU1VeHdibS1oQW5xV3BxVTBJNDF5RWRnVjdpX1d1b01LT2xsaUwwRDllX1JxZHZaRmF2Ry11dlhCMm5vZmFpUGc?oc=5",
-     "source": "San Francisco 49ers",
-     "pub": "Mon, 16 Nov 2026 03:35:27 GMT"
+     "title": "Dallas Cowboys' 3 Keys To Victory In Week 11 vs Tennessee Titans",
+     "url": "http://www.bing.com/news/apiclick.aspx?ref=FexRss&aid=&tid=6aff7bc292c3417fbe90227ea8d40039&url=https%3a%2f%2fwww.msn.com%2fen-us%2fsports%2ffootball%2fdallas-cowboys-3-keys-to-victory-in-week-11-vs-tennessee-titans%2far-AA2hMbyo&c=4691675269576185957&mkt=en-us",
+     "source": "",
+     "pub": "Thu, 19 Nov 2026 05:05:02 GMT"
     },
     {
-     "title": "DaRon Bland sidelined going forward due to injury",
-     "url": "https://news.google.com/rss/articles/CBMijAFBVV95cUxQdExFU3VycjAzZC1haDR2MFNMS2JGLTNfZm9Ld3NrSnl1QWVZVDJSczUxa1diaWoyZm5WUjUxUnBUZ0ZmM0dEU2xWeHpNWGxoNXpDWmdzaVVHZHRIU2U2X1BZYVhDOEVOTDViSXpXaFdnYm1ucy1vQ2RVUTJGbndReXdURnhCc255YXEzWQ?oc=5",
-     "source": "Dallas Cowboys | Official Site of the Dallas Cowboys",
-     "pub": "Mon, 16 Nov 2026 22:58:49 GMT"
+     "title": "Christian Parker almost quit Dallas Cowboys over demotion, a significant personal disappointment",
+     "url": "http://www.bing.com/news/apiclick.aspx?ref=FexRss&aid=&tid=6aff7bc292c3417fbe90227ea8d40039&url=https%3a%2f%2fsports.yahoo.com%2farticles%2fchristian-parker-almost-quit-dallas-214916668.html&c=13213348941033935868&mkt=en-us",
+     "source": "",
+     "pub": "Thu, 19 Nov 2026 13:49:00 GMT"
     },
     {
-     "title": "Dak Prescott on loss to 49ers: 'We've gotta be better.'",
-     "url": "https://news.google.com/rss/articles/CBMijwFBVV95cUxQS3hMNTVjNkZQNEktYXRyRi1zSUlQSWZjY0FXcjlZOWtaS3ZQVklCTFZTSnVnNWFnRVFjLS1UbERaTGNlc0VVQ3FxVGhuQ0VIY0gzLTBQU2VqRVZlOTFPN0M1NndJTUF1TU0wY0JGbUVTUkFxb2doSzE2MmZ4V2xHbTU0UmxpOHpiLWNaNFZhcw?oc=5",
-     "source": "Dallas Cowboys | Official Site of the Dallas Cowboys",
-     "pub": "Mon, 16 Nov 2026 02:23:34 GMT"
+     "title": "Cowboys insider sets record straight on Quinnen Williams incident that got blown out of proportion",
+     "url": "http://www.bing.com/news/apiclick.aspx?ref=FexRss&aid=&tid=6aff7bc292c3417fbe90227ea8d40039&url=https%3a%2f%2fclutchpoints.com%2fnfl%2fdallas-cowboys%2fcowboys-news-insider-clears-air-quinnen-williams-incident-blown-out-proportion&c=117500114268314238&mkt=en-us",
+     "source": "",
+     "pub": "Thu, 19 Nov 2026 14:36:00 GMT"
     },
     {
-     "title": "Game Recap: Explosive plays doom Dallas, 46-40",
-     "url": "https://news.google.com/rss/articles/CBMihgFBVV95cUxONTk2bklZZU1JSTVNd1FzUVdhYU55R3MwdnRmaFBsWHlkWDZsTjRFZDgwczRmazMxUDFoa1BfVDZaQWE4ZC1jZEQwZTMxVnRUMkp0YzlINHd2TnJPWWR1ME1hT2QyaTVuSXkxUWliUEpsYTloZ2hUYW5HNEhaTm9TRjlTU3RBZw?oc=5",
-     "source": "Dallas Cowboys | Official Site of the Dallas Cowboys",
-     "pub": "Mon, 16 Nov 2026 01:08:26 GMT"
+     "title": "Cowboys Headlines: Dallas demotes Parker, opens window for return of key DB",
+     "url": "http://www.bing.com/news/apiclick.aspx?ref=FexRss&aid=&tid=6aff7bc292c3417fbe90227ea8d40039&url=https%3a%2f%2fwww.freep.com%2fstory%2fsports%2fnfl%2fcowboys%2f2026%2f11%2f19%2fcowboys-news-notes-november-19%2f92845114007%2f&c=10008214106846243646&mkt=en-us",
+     "source": "",
+     "pub": "Thu, 19 Nov 2026 02:55:00 GMT"
     }
    ],
    "fti_count": 2
@@ -386,69 +284,32 @@
    "store": "https://viralstyle.com/store/kebystore/Packss/1",
    "products": 35,
    "avg_price": 25.19,
-   "hot": 11,
-   "throwback": 0,
-   "gaps": [
-    {
-     "name": "matt lafleur",
-     "mentions": 6,
-     "index": 25,
-     "status": "trending",
-     "gap": true,
-     "shoppable": false,
-     "collection": "green-bay-packers"
-    },
-    {
-     "name": "josh jacobs",
-     "mentions": 3,
-     "index": 12,
-     "status": "trending",
-     "gap": true,
-     "shoppable": false,
-     "collection": "green-bay-packers"
-    }
-   ],
+   "hot": 0,
+   "throwback": 11,
+   "gaps": [],
    "top_terms": [
     "packers",
+    "release",
+    "pierre",
+    "strong",
     "green",
-    "line",
-    "offensive",
-    "lafleur",
-    "loss",
-    "love",
-    "matt"
+    "should",
+    "fans",
+    "hold"
    ],
-   "headline_count": 100,
+   "headline_count": 2,
    "headlines": [
     {
-     "title": "Game recap: 5 takeaways from Packers\u2019 loss to Vikings",
-     "url": "https://news.google.com/rss/articles/CBMimAFBVV95cUxPYzJFU1V0bWtObFZETFZQWjlLZEhmWUNIamwwbWlXUTJPN01JT2cxYnVGeEtlenViajJUTjk1TlRrX0pMbVhkSVZudEQzWk14dzMtYmxrRE1hTWlzeXdjb0RwczJNbEpvX1YwaGItRHpSTG12dVpZeDU1WThhSEQteUNFdS1SM3dUQ18xbC1xYVUzM1BEWDJ5bw?oc=5",
-     "source": "Green Bay Packers \u2013 packers.com",
-     "pub": "Mon, 16 Nov 2026 00:20:08 GMT"
+     "title": "Packers release RB Pierre Strong",
+     "url": "http://www.bing.com/news/apiclick.aspx?ref=FexRss&aid=&tid=6aff7b99e29f4319886edeb71d6f43f8&url=https%3a%2f%2fwww.nbcsports.com%2ffantasy%2ffootball%2fplayer-news%2f2026-11-19%2fpackers-release-pierre-strong&c=865050126492106793&mkt=en-us",
+     "source": "",
+     "pub": "Thu, 19 Nov 2026 08:00:00 GMT"
     },
     {
-     "title": "Green Bay Packers News: Do the Packers have any reason for hope?",
-     "url": "https://news.google.com/rss/articles/CBMihgFBVV95cUxPSk5xMVlQWUpFYkpxWm9nVlk5Qmo5QUdxQUUwU1d4SVZkNU9ncDRtd1RmSG8xWDlmaWpsSnNOTXJJQjAycUpfUjktTkttemdpdjZodkVXLVMxdlVZSWZ6TjlnZnliU3FROUVobkxXWlh2T21ERWk2WDFIWUtSQXFpNnV6RjhFQQ?oc=5",
-     "source": "Yahoo Sports",
-     "pub": "Wed, 18 Nov 2026 14:55:54 GMT"
-    },
-    {
-     "title": "Can't-Miss Play: Love's 32-yard TD strike to J. Michael Sturdivant gets Packers on the board vs. Vikes",
-     "url": "https://news.google.com/rss/articles/CBMixAFBVV95cUxONlV0RE04SUVGZjNkT09oMEV1OWN3RG51MDlMTzBwaTdEYnE5RHV5Q1h2b0xHLWNkZ0JMeUZ2SWhkZi1Xd2Utc2FBTnJUVndHOWktMHhmYlJUY0FRYk9fdl9rQ2NfYkItdnVidTFNNDU3aXVqTE9SVk5id09UQ0d3cVlFWFhkWm5aVzJ6RWtuVE1FQjVMLUtjVVViVk5ZcDNZMjVwZTE0anNFdHRfSFc2WlB1UUxiV1dEWGZUbDl0V09TMjRT?oc=5",
-     "source": "NFL.com",
-     "pub": "Sun, 15 Nov 2026 20:24:45 GMT"
-    },
-    {
-     "title": "Green Bay Packers News: Packers stand pat at trade deadline",
-     "url": "https://news.google.com/rss/articles/CBMixAFBVV95cUxPUUdTMWM4ZlNyTmVkeE1SbENPWi1NSWgzbldxd2c3ZFkySEI2bndndzdlbWlNR2xjczkxOVVlVXcxVHBJTEpTQV9NU3hlTTdEU0VTempTM1F2d1R0TWxucGpBUkpITTRWZkpjbWpKa1VwakJIS1ZZQW5tVEhpVkNZZVJ0aVptRzNEd25pVW1JdlJ3SG1MalZtVzVGbkl5c2JuMjdBTVMxdEN1V0JpemE5QVdlUTJ4MmVIU1cxOUdaUmxya3px?oc=5",
-     "source": "Acme Packing Company",
-     "pub": "Wed, 11 Nov 2026 15:15:50 GMT"
-    },
-    {
-     "title": "Why Packers can't protect Jordan Love or rush successfully",
-     "url": "https://news.google.com/rss/articles/CBMilwFBVV95cUxPOFY2M3RydERkZGhhdHV2ME1UQnpqc1gySHo5WXdLVnpidUJfcEcwM2k0OGpkRzlwc1EyUFBwUEVQbllxN25WbWVKS1ltMU5YdkVYb2RKTTk5MUI1V2pmbTdkelBHT3dUd0NWM0dwMnRSWkZ0SHI2V2NCV1NOMDFEVXJuTjNzSzgwTWQzV1lsamlWekZCZklZ?oc=5",
-     "source": "ESPN",
-     "pub": "Wed, 18 Nov 2026 11:00:00 GMT"
+     "title": "Green Bay Packers news: Should fans hold onto hope for Trey Smack?",
+     "url": "https://www.msn.com/en-us/sports/football/green-bay-packers-news-should-fans-hold-onto-hope-for-trey-smack/ar-AA2hNvkF?ocid=BingNewsVerp",
+     "source": "",
+     "pub": "Thu, 19 Nov 2026 08:46:05 GMT"
     }
    ],
    "fti_count": 5
@@ -463,58 +324,30 @@
    "avg_price": 23.0,
    "hot": 0,
    "throwback": 0,
-   "gaps": [
-    {
-     "name": "kyle whittingham",
-     "mentions": 21,
-     "index": 88,
-     "status": "trending",
-     "gap": true,
-     "shoppable": false,
-     "collection": "michigan"
-    }
-   ],
+   "gaps": [],
    "top_terms": [
     "michigan",
-    "football",
-    "wolverines",
-    "whittingham",
-    "kyle",
-    "oregon",
-    "ucla",
-    "trev"
+    "joel",
+    "klatt",
+    "questions",
+    "defense",
+    "picking",
+    "between",
+    "wolverines"
    ],
-   "headline_count": 100,
+   "headline_count": 2,
    "headlines": [
     {
-     "title": "Watch Michigan vs Oregon Highlights, Replay & Score - CFB Week 11",
-     "url": "https://news.google.com/rss/articles/CBMiqgFBVV95cUxNbU1GYzdlSDdYXzd1RkZfUXhaZnVoMkdwY2hYYXR2Q3lXcHdmY1E2MW43UHJ1a1N6SnZGajZKMzlFQUgtYkxvR1ZmWDNNa25IckVUVTh2TjBPNkRSNUp6TFJvZU1RWDVWX0pscEowTXN2N1hzcXFFcTZaTFhpRHZKN1FLWjRHQnVoWGtPV01YX1RENXZuZHBGRUM0X3ZQNGdKa2tvVzZhUXQxZw?oc=5",
-     "source": "FOX One",
-     "pub": "Sat, 14 Nov 2026 08:00:00 GMT"
+     "title": "Joel Klatt Questions Michigan's Defense When Picking Between Wolverines, UCLA",
+     "url": "http://www.bing.com/news/apiclick.aspx?ref=FexRss&aid=&tid=6aff7b6c71e8486d8a2f5b70d68f4127&url=https%3a%2f%2fsports.yahoo.com%2farticles%2fjoel-klatt-questions-michigans-defense-133856892.html&c=13344486463528384219&mkt=en-us",
+     "source": "",
+     "pub": "Thu, 19 Nov 2026 05:38:00 GMT"
     },
     {
-     "title": "How to Watch Michigan Football's Week 11 Game Against No. 16 Oregon",
-     "url": "https://news.google.com/rss/articles/CBMiiAFBVV95cUxQempwUnVQT2FXaFFOWVlCcHdqbzJnYVFMTW11X3lIS2JNTHVRVEktUnIyQUJ1aHp2ejdYTmQ5OW45cDRPZi1DZlFWaEFfblJRTVJWQU9YWklJblNFRzNVVG5WeGxWOXFnZ20xRVM5dkdBeXR4TVhjeDZEWno5UjdhNjlhWUlJckFQ?oc=5",
-     "source": "Yahoo Sports",
-     "pub": "Sat, 14 Nov 2026 11:00:06 GMT"
-    },
-    {
-     "title": "Michigan Football Winners and Losers as Wolverines Falls Below .500",
-     "url": "https://news.google.com/rss/articles/CBMiqAFBVV95cUxNZ3FzUy1QUVYydWoyVmxSZXpjaXRhUlViSkFIcnIyY0dXazJTZzVKMVVKUXN1QzIzNmxTcWdqRXNlZWZTTE5mcmlSVjFCUkNvV21NNV8wUXJyTHA1UzhBMWNjcGxFbkNDdm53eFoyeEdtWjBwQ1BfQzRrQ0VCT19VMDFlSjQ4VjcwSDhudHhDTFE4RTlJYm5SbEFVU2ZoRERSLXVseU11Q0s?oc=5",
-     "source": "Sports Illustrated",
-     "pub": "Sun, 15 Nov 2026 04:14:23 GMT"
-    },
-    {
-     "title": "\"But in terms of how upset he is and bothered by the season, I would say immensely,\" U-M OC Jim Harding said of coach Kyle Whittingham. See link below \u2b07\ufe0f \ud83d\udcf8 Junfu Han, Detroit Free Press",
-     "url": "https://news.google.com/rss/articles/CBMi3wFBVV95cUxORzdzMjNGamZmOVg1Vlh4aHJwYl9KWTVydkdlVmJxdVdlUkJsSmhvelQtX3k0dlNjVGxiVHJrOHFndVZWQWxoaWdEdEluMmJZRDNuVlBHWXBxV0RMYTMyWTdReVd2OGN1RzRnYXRsOEJHU2ptcGZURkRQbWU5MHFnUHpYTDJIMmNfTFA3dGIzMm5zUzY5V0FSclROaDNqd0g2bVh3ZTJiNTJmQ3doOWVaaXozSjdjZHhWR2xOMkVGSnFXZUlpeDZSRzdybi1BVi01X3JHYXl6QlhJX3BVRDhv?oc=5",
-     "source": "Facebook",
-     "pub": "Thu, 19 Nov 2026 00:00:21 GMT"
-    },
-    {
-     "title": "Michigan Wolverines vs No. 16 Oregon Ducks Highlights | FOX College Football",
-     "url": "https://news.google.com/rss/articles/CBMiYkFVX3lxTFBHRHhFNF9yQlNaSHk2WUp3R3dZajhkbnF2dzhyS1hpZmJfNTFSX3lUTlJBTjF6T0oyWVhBaFZqck1OQlJBUmNMSXdpUUJnc294M1FhY3NxU01LUmtMWVNZZHBn?oc=5",
-     "source": "FOX Sports",
-     "pub": "Sun, 15 Nov 2026 00:24:18 GMT"
+     "title": "Michigan football tickets could drop as low as $10 for final home game",
+     "url": "https://www.msn.com/en-us/news/other/michigan-football-tickets-could-drop-as-low-as-10-for-final-home-game/ar-AA2hNh5a?ocid=BingNewsVerp",
+     "source": "",
+     "pub": "Thu, 19 Nov 2026 12:16:30 GMT"
     }
    ],
    "fti_count": 4
@@ -862,66 +695,5 @@
    "url": "https://viralstyle.com/kebystore/winter-hat-beanie-go-browns"
   }
  ],
- "moments": [
-  {
-   "title": "Cleveland Browns quarterback Deshaun Watson's best plays from 361-yard game vs. Houston Texans | Week 10",
-   "url": "https://news.google.com/rss/articles/CBMilgFBVV95cUxOQm4xN1dkdnF1bElxSDlzSFlJRDNoTlNwQjVibnBKeTNwVW9mNHFSRzNWT2hIejZTLThwdF9qOW1FVE90b0QwS0lqSkJHVTBVNmlmSFJidWdVS3N1LVJlVzBleTVha3VXYVh0MHRzanFNdWZCXzBCSzVVblg1U3c1dTJOb2NuLVBnSW5lalBRVlBxZUxRYVE?oc=5",
-   "source": "NFL.com",
-   "pub": "Sun, 15 Nov 2026 22:28:19 GMT",
-   "collection": "cleveland-browns",
-   "entities": [
-    "deshaun watson"
-   ]
-  },
-  {
-   "title": "\"But in terms of how upset he is and bothered by the season, I would say immensely,\" U-M OC Jim Harding said of coach Kyle Whittingham. See link below \u2b07\ufe0f \ud83d\udcf8 Junfu Han, Detroit Free Press",
-   "url": "https://news.google.com/rss/articles/CBMi3wFBVV95cUxORzdzMjNGamZmOVg1Vlh4aHJwYl9KWTVydkdlVmJxdVdlUkJsSmhvelQtX3k0dlNjVGxiVHJrOHFndVZWQWxoaWdEdEluMmJZRDNuVlBHWXBxV0RMYTMyWTdReVd2OGN1RzRnYXRsOEJHU2ptcGZURkRQbWU5MHFnUHpYTDJIMmNfTFA3dGIzMm5zUzY5V0FSclROaDNqd0g2bVh3ZTJiNTJmQ3doOWVaaXozSjdjZHhWR2xOMkVGSnFXZUlpeDZSRzdybi1BVi01X3JHYXl6QlhJX3BVRDhv?oc=5",
-   "source": "Facebook",
-   "pub": "Thu, 19 Nov 2026 00:00:21 GMT",
-   "collection": "michigan",
-   "entities": [
-    "kyle whittingham"
-   ]
-  },
-  {
-   "title": "Kyle Whittingham addresses job security questions at Michigan, makes more headlines with UCLA comments",
-   "url": "https://news.google.com/rss/articles/CBMizAFBVV95cUxNM1NDVExpZWI2Y1YtbFBSR2hXNFdic29DQ19kWUJUR1ptZ19JY3NEY2k4MnRVMFNjSndMMklYbF9ETUdSNDA1RlNKcV9yMnhPaUhfN200Z1N6VzVzY1QybXFUb3Jqc1Y0NGJaRlk0RTZTT25NRnVXZ0xIcjRUbU00VHZIeEJRcks1bzdwZENQajJqVFctYnVkUHRxTG85dUdvcVh3MjcyMFhrU1ZKNzRER0NiQmtZWVc0NEN0VGE0UGhmWDdTZFgzR3o3M0g?oc=5",
-   "source": "Fox News",
-   "pub": "Tue, 17 Nov 2026 23:45:18 GMT",
-   "collection": "michigan",
-   "entities": [
-    "kyle whittingham"
-   ]
-  },
-  {
-   "title": "\u2018Have at it\u2019: Kyle Whittingham responds to criticism from Michigan Football fans",
-   "url": "https://news.google.com/rss/articles/CBMitwFBVV95cUxNemczU0l6MEQxM1h3c2V3bEJGbklHdDJfVzFDY0VxbHRWQzRhSG83OEc0VUp6S2NNWnZfYVprYmM1ZlMwWjQ2bHBMTy0zS3FjRFpsRFJ3RXowNzZtNEpxMllqLUxiT3hNMF8zU2pLNzVXWWxLTXZTdkhYM2lwYV9UWGZ4N25ubUE4OHFrcFo3M2Ztc1V6ckptLVc0NUExV0VseTB6MmlMUzJZSlNjUkFGYklMdjZtdTA?oc=5",
-   "source": "Maize n Brew",
-   "pub": "Mon, 16 Nov 2026 19:00:00 GMT",
-   "collection": "michigan",
-   "entities": [
-    "kyle whittingham"
-   ]
-  },
-  {
-   "title": "Why Packers can't protect Jordan Love or rush successfully",
-   "url": "https://news.google.com/rss/articles/CBMilwFBVV95cUxPOFY2M3RydERkZGhhdHV2ME1UQnpqc1gySHo5WXdLVnpidUJfcEcwM2k0OGpkRzlwc1EyUFBwUEVQbllxN25WbWVKS1ltMU5YdkVYb2RKTTk5MUI1V2pmbTdkelBHT3dUd0NWM0dwMnRSWkZ0SHI2V2NCV1NOMDFEVXJuTjNzSzgwTWQzV1lsamlWekZCZklZ?oc=5",
-   "source": "ESPN",
-   "pub": "Wed, 18 Nov 2026 11:00:00 GMT",
-   "collection": "green-bay-packers",
-   "entities": [
-    "jordan love"
-   ]
-  },
-  {
-   "title": "Dak Prescott on loss to 49ers: 'We've gotta be better.'",
-   "url": "https://news.google.com/rss/articles/CBMijwFBVV95cUxQS3hMNTVjNkZQNEktYXRyRi1zSUlQSWZjY0FXcjlZOWtaS3ZQVklCTFZTSnVnNWFnRVFjLS1UbERaTGNlc0VVQ3FxVGhuQ0VIY0gzLTBQU2VqRVZlOTFPN0M1NndJTUF1TU0wY0JGbUVTUkFxb2doSzE2MmZ4V2xHbTU0UmxpOHpiLWNaNFZhcw?oc=5",
-   "source": "Dallas Cowboys | Official Site of the Dallas Cowboys",
-   "pub": "Mon, 16 Nov 2026 02:23:34 GMT",
-   "collection": "dallas-cowboys",
-   "entities": [
-    "dak prescott"
-   ]
-  }
- ]
+ "moments": []
 }
