@@ -1,6 +1,6 @@
 {
   "meta": {
-    "generated_on": "2026-11-18",
+    "generated_on": "2026-11-19",
     "generator": "marketing/live_engine.py + copy_vault.py (unique per team)",
     "standalone": true,
     "design_count": 96,
@@ -22,7 +22,7 @@
     ],
     "output_file": "marketing/plan.json",
     "trend_window_days": 10,
-    "trends_generated_on": "2026-11-18",
+    "trends_generated_on": "2026-11-19",
     "vault_version": "v1 - team-specific voices, 20+ openers per team, headline-aware"
   },
   "score_rules": {
@@ -94,9 +94,9 @@
   "summary": {
     "design_count": 96,
     "top_score": 100,
-    "throwback_count": 1,
+    "throwback_count": 4,
     "season_match_count": 19,
-    "headline_gap_count": 5,
+    "headline_gap_count": 6,
     "headline_count": 400,
     "unique_copy": true,
     "vault": "team-specific voices, headline injection"
@@ -132,12 +132,12 @@
         "headline_name_matches": [
           {
             "name": "jordan love",
-            "mentions": 5,
-            "repeated_mentions": 5,
+            "mentions": 4,
+            "repeated_mentions": 4,
             "throwback_signal": false
           }
         ],
-        "headline_name_repeat_count": 5,
+        "headline_name_repeat_count": 4,
         "headline_name_bonus": 30,
         "playoff_or_player_theme": true,
         "playoff_or_player_bonus": 6,
@@ -333,12 +333,12 @@
         "headline_name_matches": [
           {
             "name": "jordan love",
-            "mentions": 5,
-            "repeated_mentions": 5,
+            "mentions": 4,
+            "repeated_mentions": 4,
             "throwback_signal": false
           }
         ],
-        "headline_name_repeat_count": 5,
+        "headline_name_repeat_count": 4,
         "headline_name_bonus": 30,
         "playoff_or_player_theme": true,
         "playoff_or_player_bonus": 6,
@@ -534,12 +534,12 @@
         "headline_name_matches": [
           {
             "name": "jordan love",
-            "mentions": 5,
-            "repeated_mentions": 5,
+            "mentions": 4,
+            "repeated_mentions": 4,
             "throwback_signal": false
           }
         ],
-        "headline_name_repeat_count": 5,
+        "headline_name_repeat_count": 4,
         "headline_name_bonus": 30,
         "playoff_or_player_theme": true,
         "playoff_or_player_bonus": 6,
@@ -735,12 +735,12 @@
         "headline_name_matches": [
           {
             "name": "jordan love",
-            "mentions": 5,
-            "repeated_mentions": 5,
+            "mentions": 4,
+            "repeated_mentions": 4,
             "throwback_signal": false
           }
         ],
-        "headline_name_repeat_count": 5,
+        "headline_name_repeat_count": 4,
         "headline_name_bonus": 30,
         "playoff_or_player_theme": true,
         "playoff_or_player_bonus": 6,
@@ -936,12 +936,12 @@
         "headline_name_matches": [
           {
             "name": "jordan love",
-            "mentions": 5,
-            "repeated_mentions": 5,
+            "mentions": 4,
+            "repeated_mentions": 4,
             "throwback_signal": false
           }
         ],
-        "headline_name_repeat_count": 5,
+        "headline_name_repeat_count": 4,
         "headline_name_bonus": 30,
         "playoff_or_player_theme": true,
         "playoff_or_player_bonus": 6,
@@ -1137,12 +1137,12 @@
         "headline_name_matches": [
           {
             "name": "jordan love",
-            "mentions": 5,
-            "repeated_mentions": 5,
+            "mentions": 4,
+            "repeated_mentions": 4,
             "throwback_signal": false
           }
         ],
-        "headline_name_repeat_count": 5,
+        "headline_name_repeat_count": 4,
         "headline_name_bonus": 30,
         "playoff_or_player_theme": true,
         "playoff_or_player_bonus": 6,
@@ -1309,604 +1309,6 @@
       ]
     },
     {
-      "slug": "sanders-13-special-edition",
-      "source_index": 1,
-      "collection": "cleveland-browns",
-      "collection_label": "Cleveland Browns",
-      "name": "Shedeur Sanders 12 They Forgot Who I Am Shirt",
-      "catalogue_title": "Sander's 13 Special Edition",
-      "design_text": "THEY FORGOT WHO I AM - SANDERS SHEDEUR - BROWNS 12",
-      "theme": "player",
-      "product_type": "Apparel",
-      "price_usd": "22.99",
-      "product_url": "https://gridironlocker.store/shop/sanders-13-special-edition/",
-      "image_url": "https://assets.viralstyle.com/campaigns/4cb2b96f-6fd9-7a64-99bb-c6ac2ab1e975/Ov2bD8-a1q3DQ0-0mPKYYK-front-large.jpg",
-      "keywords": [
-        "shedeur sanders shirt",
-        "sanders browns qb tee",
-        "cleveland quarterback 12 shirt"
-      ],
-      "score": 100,
-      "score_breakdown": {
-        "score": 100,
-        "score_raw": 102,
-        "base": 50,
-        "season_search_terms": [
-          "shedeur sanders shirt",
-          "sanders browns qb shirt"
-        ],
-        "season_search_term_bonus": 22,
-        "headline_name_matches": [
-          {
-            "name": "shedeur sanders",
-            "mentions": 2,
-            "repeated_mentions": 2,
-            "throwback_signal": false
-          }
-        ],
-        "headline_name_repeat_count": 2,
-        "headline_name_bonus": 24,
-        "playoff_or_player_theme": true,
-        "playoff_or_player_bonus": 6,
-        "throwback": false,
-        "throwback_entities": [],
-        "throwback_penalty": 0
-      },
-      "opportunity": {
-        "score": 77.8,
-        "confidence": 75,
-        "factors": {
-          "audience": 100,
-          "search": 85,
-          "velocity": 70,
-          "gap": 80,
-          "competition": 70,
-          "business": 55,
-          "authority": 95,
-          "longevity": 30,
-          "distribution": 75
-        },
-        "weights": {
-          "audience": 20,
-          "search": 15,
-          "velocity": 15,
-          "gap": 15,
-          "competition": 10,
-          "business": 10,
-          "authority": 5,
-          "longevity": 5,
-          "distribution": 5
-        },
-        "trend_stage": "ACCELERATING",
-        "opportunity_type": "Commercial",
-        "decision": "PUBLISH",
-        "decision_reason": "Strong need, evidence, and differentiation",
-        "gates": {
-          "audience": {
-            "passed": true,
-            "note": "Targeted fanbase defined"
-          },
-          "evidence": {
-            "passed": true,
-            "note": "Hot query / entity match"
-          },
-          "differentiation": {
-            "passed": true,
-            "note": "Original design copy present (estimate — no rival comparison yet)"
-          },
-          "discovery": {
-            "passed": true,
-            "note": "Searchable terms present"
-          },
-          "business": {
-            "passed": true,
-            "note": "Commercial product"
-          },
-          "risk": {
-            "passed": true,
-            "note": "No elevated risk flagged"
-          },
-          "cannibalization": {
-            "passed": true,
-            "note": "1 sibling term match(es)"
-          }
-        },
-        "compliance": {
-          "terms": [
-            "browns",
-            "cleveland",
-            "shedeur sanders"
-          ],
-          "team_terms": [
-            "browns",
-            "cleveland"
-          ],
-          "person_terms": [
-            "shedeur sanders"
-          ],
-          "throwback_terms": [],
-          "level": "medium",
-          "social_safe": false,
-          "social_blocked": true
-        },
-        "evidence": {
-          "has_season_terms": true,
-          "has_headline_momentum": true,
-          "has_current_person": true,
-          "competitive_data": "estimate — no live rival data"
-        }
-      },
-      "platforms": {
-        "instagram": {
-          "caption": "Here We Go Brownies isn't a chant, it's a survival skill. Shedeur Sanders 12 They Forgot Who I Am Shirt proves you stayed. Comment your size — S to 3XL, printed on demand.",
-          "hashtags": [
-            "#clevelandquarterback",
-            "#fanfavorite",
-            "#clevelandfootball",
-            "#brownsfans",
-            "#dawgpound",
-            "#playertee",
-            "#shedeursandersshirt",
-            "#sandersbrownsqbtee"
-          ],
-          "prompt": "Rain-fresh autumn tailgate at dawn beside an empty stadium concourse; ember orange and deep cocoa illumination, wet pavement reflections, drifting mist; focused momentum, confident calm, and an energized atmosphere; vertical 4:5 framing, cinematic editorial atmosphere, natural light, tactile detail, and generous negative space"
-        },
-        "tiktok": {
-          "caption": "Dawg Check: Shedeur Sanders ignites Cleveland Browns quarterback chatter again. Shedeur Sanders 12 They Forgot Who I Am Shirt is the answer. Fit check approved? Link in bio.",
-          "hashtags": [
-            "#clevelandquarterback",
-            "#fanfavorite",
-            "#sandersbrownsqbtee",
-            "#clevelandfootball",
-            "#dawgpound",
-            "#brownsfans",
-            "#shedeursandersshirt",
-            "#playertee"
-          ],
-          "prompt": "Rain-fresh autumn tailgate at dawn beside an empty stadium concourse; ember orange and deep cocoa illumination, wet pavement reflections, drifting mist; focused momentum, confident calm, and an energized atmosphere; vertical 9:16 framing with a strong center of calm negative space, cinematic editorial atmosphere, natural light, tactile detail, and generous negative space"
-        },
-        "facebook": {
-          "caption": "Cleveland, Shedeur Sanders ignites Cleveland Browns quarterback chatter again just changed the conversation. Shedeur Sanders 12 They Forgot Who I Am Shirt is how Dawg Pound marks it — fan-made, printed on demand, no warehouse stock. Order early in the week if you want it for Sunday.",
-          "hashtags": [
-            "#playertee",
-            "#clevelandfootball",
-            "#brownsfans",
-            "#fanfavorite",
-            "#dawgpound",
-            "#sandersbrownsqbtee"
-          ],
-          "prompt": "Rain-fresh autumn tailgate at dawn beside an empty stadium concourse; ember orange and deep cocoa illumination, wet pavement reflections, drifting mist; focused momentum, confident calm, and an energized atmosphere; horizontal 16:9 framing, cinematic editorial atmosphere, natural light, tactile detail, and generous negative space"
-        },
-        "x": {
-          "caption": "Shedeur Sanders 12 They Forgot Who I Am Shirt with THEY FORGOT WHO I AM - SANDERS SHEDEUR - BROWNS 12. Shedeur Sanders ignites Cleveland Browns quarterback chatter again. Dawg Pound approved. https://viralstyle.com/kebystore/sanders-13-special-edition",
-          "hashtags": [
-            "#brownsfans",
-            "#clevelandfootball",
-            "#playertee",
-            "#fanfavorite"
-          ],
-          "prompt": "Rain-fresh autumn tailgate at dawn beside an empty stadium concourse; ember orange and deep cocoa illumination, wet pavement reflections, drifting mist; focused momentum, confident calm, and an energized atmosphere; horizontal 16:9 framing with a wide horizon, cinematic editorial atmosphere, natural light, tactile detail, and generous negative space"
-        },
-        "pinterest": {
-          "caption": "Shedeur Sanders 12 They Forgot Who I Am Shirt - Dawg Pound Game Day Outfit Idea | Cleveland Browns Fan Style. Add to your tailgate outfit ideas.",
-          "hashtags": [
-            "#sandersbrownsqbtee",
-            "#brownsfans",
-            "#clevelandquarterback",
-            "#playertee",
-            "#shedeursandersshirt",
-            "#clevelandfootball",
-            "#fanfavorite",
-            "#dawgpound"
-          ],
-          "prompt": "Rain-fresh autumn tailgate at dawn beside an empty stadium concourse; ember orange and deep cocoa illumination, wet pavement reflections, drifting mist; focused momentum, confident calm, and an energized atmosphere; vertical 2:3 framing with an airy editorial composition, cinematic editorial atmosphere, natural light, tactile detail, and generous negative space"
-        }
-      },
-      "live_headline": "Shedeur Sanders ignites Cleveland Browns quarterback chatter again",
-      "rank": 7,
-      "reasons": [
-        "2026 search match",
-        "repeated headline name",
-        "playoff/player theme"
-      ]
-    },
-    {
-      "slug": "sanders-12-special-edition",
-      "source_index": 3,
-      "collection": "cleveland-browns",
-      "collection_label": "Cleveland Browns",
-      "name": "Sanders QB 12 Signature Shirt",
-      "catalogue_title": "Sander's 12 Special Edition",
-      "design_text": "SANDERS QB 12 with signature",
-      "theme": "player",
-      "product_type": "Apparel",
-      "price_usd": "22.99",
-      "product_url": "https://gridironlocker.store/shop/sanders-12-special-edition/",
-      "image_url": "https://assets.viralstyle.com/campaigns/0336ca9d-8e22-3b64-c572-70da0bf850ed/JxBb3x-qeb1K3y-y0qOMo6-front-large.jpg",
-      "keywords": [
-        "sanders qb shirt",
-        "browns 12 quarterback tee",
-        "cleveland rookie qb shirt"
-      ],
-      "score": 100,
-      "score_breakdown": {
-        "score": 100,
-        "score_raw": 102,
-        "base": 50,
-        "season_search_terms": [
-          "sanders browns qb shirt"
-        ],
-        "season_search_term_bonus": 22,
-        "headline_name_matches": [
-          {
-            "name": "shedeur sanders",
-            "mentions": 2,
-            "repeated_mentions": 2,
-            "throwback_signal": false
-          }
-        ],
-        "headline_name_repeat_count": 2,
-        "headline_name_bonus": 24,
-        "playoff_or_player_theme": true,
-        "playoff_or_player_bonus": 6,
-        "throwback": false,
-        "throwback_entities": [],
-        "throwback_penalty": 0
-      },
-      "opportunity": {
-        "score": 73.2,
-        "confidence": 75,
-        "factors": {
-          "audience": 100,
-          "search": 85,
-          "velocity": 70,
-          "gap": 50,
-          "competition": 70,
-          "business": 55,
-          "authority": 95,
-          "longevity": 30,
-          "distribution": 75
-        },
-        "weights": {
-          "audience": 20,
-          "search": 15,
-          "velocity": 15,
-          "gap": 15,
-          "competition": 10,
-          "business": 10,
-          "authority": 5,
-          "longevity": 5,
-          "distribution": 5
-        },
-        "trend_stage": "ACCELERATING",
-        "opportunity_type": "Commercial",
-        "decision": "PUBLISH",
-        "decision_reason": "Strong need, evidence, and differentiation",
-        "gates": {
-          "audience": {
-            "passed": true,
-            "note": "Targeted fanbase defined"
-          },
-          "evidence": {
-            "passed": true,
-            "note": "Hot query / entity match"
-          },
-          "differentiation": {
-            "passed": true,
-            "note": "Original design copy present (estimate — no rival comparison yet)"
-          },
-          "discovery": {
-            "passed": true,
-            "note": "Searchable terms present"
-          },
-          "business": {
-            "passed": true,
-            "note": "Commercial product"
-          },
-          "risk": {
-            "passed": true,
-            "note": "No elevated risk flagged"
-          },
-          "cannibalization": {
-            "passed": true,
-            "note": "3 sibling term match(es)"
-          }
-        },
-        "compliance": {
-          "terms": [
-            "browns",
-            "cleveland"
-          ],
-          "team_terms": [
-            "browns",
-            "cleveland"
-          ],
-          "person_terms": [],
-          "throwback_terms": [],
-          "level": "medium",
-          "social_safe": false,
-          "social_blocked": true
-        },
-        "evidence": {
-          "has_season_terms": true,
-          "has_headline_momentum": true,
-          "has_current_person": true,
-          "competitive_data": "estimate — no live rival data"
-        }
-      },
-      "platforms": {
-        "instagram": {
-          "caption": "Bark first, talk later. Shedeur Sanders ignites Cleveland Browns quarterback chatter again means Sanders QB 12 Signature Shirt season is officially on. Add it to your gift list before kickoff.",
-          "hashtags": [
-            "#fanfavorite",
-            "#clevelandrookieqbshi",
-            "#clevelandfootball",
-            "#browns12quarterbackt",
-            "#dawgpound",
-            "#brownsfans",
-            "#playertee",
-            "#sandersqbshirt"
-          ],
-          "prompt": "Rain-fresh autumn tailgate at dawn beside an empty stadium concourse; ember orange and deep cocoa illumination, wet pavement reflections, drifting mist; focused momentum, confident calm, and an energized atmosphere; vertical 4:5 framing, cinematic editorial atmosphere, natural light, tactile detail, and generous negative space"
-        },
-        "tiktok": {
-          "caption": "No one suffers like us. No one stays like us. Sanders QB 12 Signature Shirt after Shedeur Sanders ignites Cleveland Browns quarterback chatter again. Show us the fit.",
-          "hashtags": [
-            "#clevelandfootball",
-            "#playertee",
-            "#brownsfans",
-            "#sandersqbshirt",
-            "#dawgpound",
-            "#fanfavorite",
-            "#browns12quarterbackt",
-            "#clevelandrookieqbshi"
-          ],
-          "prompt": "Rain-fresh autumn tailgate at dawn beside an empty stadium concourse; ember orange and deep cocoa illumination, wet pavement reflections, drifting mist; focused momentum, confident calm, and an energized atmosphere; vertical 9:16 framing with a strong center of calm negative space, cinematic editorial atmosphere, natural light, tactile detail, and generous negative space"
-        },
-        "facebook": {
-          "caption": "From 19 degrees and sleeting to Shedeur Sanders ignites Cleveland Browns quarterback chatter again — Sanders QB 12 Signature Shirt has been through it with you. Printed on demand in the USA, shipped worldwide with tracking.",
-          "hashtags": [
-            "#fanfavorite",
-            "#dawgpound",
-            "#sandersqbshirt",
-            "#playertee",
-            "#clevelandrookieqbshi",
-            "#brownsfans"
-          ],
-          "prompt": "Rain-fresh autumn tailgate at dawn beside an empty stadium concourse; ember orange and deep cocoa illumination, wet pavement reflections, drifting mist; focused momentum, confident calm, and an energized atmosphere; horizontal 16:9 framing, cinematic editorial atmosphere, natural light, tactile detail, and generous negative space"
-        },
-        "x": {
-          "caption": "Shedeur Sanders ignites Cleveland Browns quarterback chatter again. Sanders QB 12 Signature Shirt for The Land. Fan-made, printed on demand. https://viralstyle.com/kebystore/sanders-12-special-edition",
-          "hashtags": [
-            "#clevelandfootball",
-            "#browns12quarterbackt",
-            "#fanfavorite",
-            "#dawgpound"
-          ],
-          "prompt": "Rain-fresh autumn tailgate at dawn beside an empty stadium concourse; ember orange and deep cocoa illumination, wet pavement reflections, drifting mist; focused momentum, confident calm, and an energized atmosphere; horizontal 16:9 framing with a wide horizon, cinematic editorial atmosphere, natural light, tactile detail, and generous negative space"
-        },
-        "pinterest": {
-          "caption": "Sanders QB 12 Signature Shirt - Cleveland Browns Outfit Inspo | Game Day to Everyday. Save to your game day board — S to 3XL, printed on demand.",
-          "hashtags": [
-            "#sandersqbshirt",
-            "#playertee",
-            "#fanfavorite",
-            "#browns12quarterbackt",
-            "#clevelandrookieqbshi",
-            "#dawgpound",
-            "#brownsfans",
-            "#clevelandfootball"
-          ],
-          "prompt": "Rain-fresh autumn tailgate at dawn beside an empty stadium concourse; ember orange and deep cocoa illumination, wet pavement reflections, drifting mist; focused momentum, confident calm, and an energized atmosphere; vertical 2:3 framing with an airy editorial composition, cinematic editorial atmosphere, natural light, tactile detail, and generous negative space"
-        }
-      },
-      "live_headline": "Shedeur Sanders ignites Cleveland Browns quarterback chatter again",
-      "rank": 8,
-      "reasons": [
-        "2026 search match",
-        "repeated headline name",
-        "playoff/player theme"
-      ]
-    },
-    {
-      "slug": "sanders-special-edition",
-      "source_index": 4,
-      "collection": "cleveland-browns",
-      "collection_label": "Cleveland Browns",
-      "name": "Sanders QB Signature White Shirt",
-      "catalogue_title": "Sander's Special Edition",
-      "design_text": "SANDERS QB 12 signature, white colorway",
-      "theme": "player",
-      "product_type": "Apparel",
-      "price_usd": "22.99",
-      "product_url": "https://gridironlocker.store/shop/sanders-special-edition/",
-      "image_url": "https://assets.viralstyle.com/campaigns/dc8a2b08-7e40-ab64-29a7-45760ae4bbc2/BAqBeE-9M51kPA-wkRqMmp-front-large.jpg",
-      "keywords": [
-        "sanders white tee",
-        "browns quarterback shirt",
-        "cleveland qb signature tee"
-      ],
-      "score": 100,
-      "score_breakdown": {
-        "score": 100,
-        "score_raw": 102,
-        "base": 50,
-        "season_search_terms": [
-          "sanders browns qb shirt"
-        ],
-        "season_search_term_bonus": 22,
-        "headline_name_matches": [
-          {
-            "name": "shedeur sanders",
-            "mentions": 2,
-            "repeated_mentions": 2,
-            "throwback_signal": false
-          }
-        ],
-        "headline_name_repeat_count": 2,
-        "headline_name_bonus": 24,
-        "playoff_or_player_theme": true,
-        "playoff_or_player_bonus": 6,
-        "throwback": false,
-        "throwback_entities": [],
-        "throwback_penalty": 0
-      },
-      "opportunity": {
-        "score": 73.2,
-        "confidence": 75,
-        "factors": {
-          "audience": 100,
-          "search": 85,
-          "velocity": 70,
-          "gap": 50,
-          "competition": 70,
-          "business": 55,
-          "authority": 95,
-          "longevity": 30,
-          "distribution": 75
-        },
-        "weights": {
-          "audience": 20,
-          "search": 15,
-          "velocity": 15,
-          "gap": 15,
-          "competition": 10,
-          "business": 10,
-          "authority": 5,
-          "longevity": 5,
-          "distribution": 5
-        },
-        "trend_stage": "ACCELERATING",
-        "opportunity_type": "Commercial",
-        "decision": "PUBLISH",
-        "decision_reason": "Strong need, evidence, and differentiation",
-        "gates": {
-          "audience": {
-            "passed": true,
-            "note": "Targeted fanbase defined"
-          },
-          "evidence": {
-            "passed": true,
-            "note": "Hot query / entity match"
-          },
-          "differentiation": {
-            "passed": true,
-            "note": "Original design copy present (estimate — no rival comparison yet)"
-          },
-          "discovery": {
-            "passed": true,
-            "note": "Searchable terms present"
-          },
-          "business": {
-            "passed": true,
-            "note": "Commercial product"
-          },
-          "risk": {
-            "passed": true,
-            "note": "No elevated risk flagged"
-          },
-          "cannibalization": {
-            "passed": true,
-            "note": "3 sibling term match(es)"
-          }
-        },
-        "compliance": {
-          "terms": [
-            "browns",
-            "cleveland"
-          ],
-          "team_terms": [
-            "browns",
-            "cleveland"
-          ],
-          "person_terms": [],
-          "throwback_terms": [],
-          "level": "medium",
-          "social_safe": false,
-          "social_blocked": true
-        },
-        "evidence": {
-          "has_season_terms": true,
-          "has_headline_momentum": true,
-          "has_current_person": true,
-          "competitive_data": "estimate — no live rival data"
-        }
-      },
-      "platforms": {
-        "instagram": {
-          "caption": "53-man roster dropped. Cuts hurt. Sanders QB Signature White Shirt still hits. Cleveland, this one's yours. Comment your size — S to 3XL, printed on demand.",
-          "hashtags": [
-            "#fanfavorite",
-            "#clevelandqbsignature",
-            "#clevelandfootball",
-            "#playertee",
-            "#dawgpound",
-            "#sanderswhitetee",
-            "#brownsquarterbackshi",
-            "#brownsfans"
-          ],
-          "prompt": "Rain-fresh autumn tailgate at dawn beside an empty stadium concourse; ember orange and deep cocoa illumination, wet pavement reflections, drifting mist; focused momentum, confident calm, and an energized atmosphere; vertical 4:5 framing, cinematic editorial atmosphere, natural light, tactile detail, and generous negative space"
-        },
-        "tiktok": {
-          "caption": "CLE moms, Browns dads, Shedeur Sanders ignites Cleveland Browns quarterback chatter again — Sanders QB Signature White Shirt for the family. Show us the fit.",
-          "hashtags": [
-            "#playertee",
-            "#sanderswhitetee",
-            "#fanfavorite",
-            "#dawgpound",
-            "#clevelandfootball",
-            "#brownsquarterbackshi",
-            "#clevelandqbsignature",
-            "#brownsfans"
-          ],
-          "prompt": "Rain-fresh autumn tailgate at dawn beside an empty stadium concourse; ember orange and deep cocoa illumination, wet pavement reflections, drifting mist; focused momentum, confident calm, and an energized atmosphere; vertical 9:16 framing with a strong center of calm negative space, cinematic editorial atmosphere, natural light, tactile detail, and generous negative space"
-        },
-        "facebook": {
-          "caption": "Not officially licensed, just officially Cleveland. Shedeur Sanders ignites Cleveland Browns quarterback chatter again — Sanders QB Signature White Shirt is independent fan art for the loyal. Explore the design here — sizes S to 3XL, worldwide shipping.",
-          "hashtags": [
-            "#sanderswhitetee",
-            "#clevelandfootball",
-            "#brownsquarterbackshi",
-            "#dawgpound",
-            "#fanfavorite",
-            "#brownsfans"
-          ],
-          "prompt": "Rain-fresh autumn tailgate at dawn beside an empty stadium concourse; ember orange and deep cocoa illumination, wet pavement reflections, drifting mist; focused momentum, confident calm, and an energized atmosphere; horizontal 16:9 framing, cinematic editorial atmosphere, natural light, tactile detail, and generous negative space"
-        },
-        "x": {
-          "caption": "CLE: Shedeur Sanders ignites Cleveland Browns quarterback chatter again = Sanders QB Signature White Shirt season. Here We Go Brownies. https://viralstyle.com/kebystore/sanders-special-edition",
-          "hashtags": [
-            "#dawgpound",
-            "#brownsfans",
-            "#fanfavorite",
-            "#brownsquarterbackshi"
-          ],
-          "prompt": "Rain-fresh autumn tailgate at dawn beside an empty stadium concourse; ember orange and deep cocoa illumination, wet pavement reflections, drifting mist; focused momentum, confident calm, and an energized atmosphere; horizontal 16:9 framing with a wide horizon, cinematic editorial atmosphere, natural light, tactile detail, and generous negative space"
-        },
-        "pinterest": {
-          "caption": "Sanders QB Signature White Shirt - Cleveland Browns Outfit Inspo | Game Day to Everyday. Save to your game day board — S to 3XL, printed on demand.",
-          "hashtags": [
-            "#fanfavorite",
-            "#brownsfans",
-            "#playertee",
-            "#sanderswhitetee",
-            "#dawgpound",
-            "#brownsquarterbackshi",
-            "#clevelandfootball",
-            "#clevelandqbsignature"
-          ],
-          "prompt": "Rain-fresh autumn tailgate at dawn beside an empty stadium concourse; ember orange and deep cocoa illumination, wet pavement reflections, drifting mist; focused momentum, confident calm, and an energized atmosphere; vertical 2:3 framing with an airy editorial composition, cinematic editorial atmosphere, natural light, tactile detail, and generous negative space"
-        }
-      },
-      "live_headline": "Shedeur Sanders ignites Cleveland Browns quarterback chatter again",
-      "rank": 9,
-      "reasons": [
-        "2026 search match",
-        "repeated headline name",
-        "playoff/player theme"
-      ]
-    },
-    {
       "slug": "limited-edition-grb33",
       "source_index": 96,
       "collection": "green-bay-packers",
@@ -1936,12 +1338,12 @@
         "headline_name_matches": [
           {
             "name": "jordan love",
-            "mentions": 5,
-            "repeated_mentions": 5,
+            "mentions": 4,
+            "repeated_mentions": 4,
             "throwback_signal": false
           }
         ],
-        "headline_name_repeat_count": 5,
+        "headline_name_repeat_count": 4,
         "headline_name_bonus": 30,
         "playoff_or_player_theme": false,
         "playoff_or_player_bonus": 0,
@@ -2100,7 +1502,7 @@
         }
       },
       "live_headline": "Can't-Miss Play: Love's 32-yard TD strike to J. Michael Sturdivant ...",
-      "rank": 10,
+      "rank": 7,
       "reasons": [
         "2026 search match",
         "repeated headline name"
@@ -2136,12 +1538,12 @@
         "headline_name_matches": [
           {
             "name": "jordan love",
-            "mentions": 5,
-            "repeated_mentions": 5,
+            "mentions": 4,
+            "repeated_mentions": 4,
             "throwback_signal": false
           }
         ],
-        "headline_name_repeat_count": 5,
+        "headline_name_repeat_count": 4,
         "headline_name_bonus": 30,
         "playoff_or_player_theme": false,
         "playoff_or_player_bonus": 0,
@@ -2299,7 +1701,7 @@
         }
       },
       "live_headline": "Game recap: 5 takeaways from Packers’ loss to Vikings",
-      "rank": 11,
+      "rank": 8,
       "reasons": [
         "2026 search match",
         "repeated headline name"
@@ -2335,12 +1737,12 @@
         "headline_name_matches": [
           {
             "name": "jordan love",
-            "mentions": 5,
-            "repeated_mentions": 5,
+            "mentions": 4,
+            "repeated_mentions": 4,
             "throwback_signal": false
           }
         ],
-        "headline_name_repeat_count": 5,
+        "headline_name_repeat_count": 4,
         "headline_name_bonus": 30,
         "playoff_or_player_theme": false,
         "playoff_or_player_bonus": 0,
@@ -2497,7 +1899,7 @@
         }
       },
       "live_headline": "Game recap: 5 takeaways from Packers’ loss to Vikings",
-      "rank": 12,
+      "rank": 9,
       "reasons": [
         "2026 search match",
         "repeated headline name"
@@ -2531,12 +1933,12 @@
         "headline_name_matches": [
           {
             "name": "jordan love",
-            "mentions": 5,
-            "repeated_mentions": 5,
+            "mentions": 4,
+            "repeated_mentions": 4,
             "throwback_signal": false
           }
         ],
-        "headline_name_repeat_count": 5,
+        "headline_name_repeat_count": 4,
         "headline_name_bonus": 30,
         "playoff_or_player_theme": false,
         "playoff_or_player_bonus": 0,
@@ -2692,7 +2094,7 @@
         }
       },
       "live_headline": "Can't-Miss Play: Love's 32-yard TD strike to J. Michael Sturdivant ...",
-      "rank": 13,
+      "rank": 10,
       "reasons": [
         "repeated headline name"
       ]
@@ -2725,12 +2127,12 @@
         "headline_name_matches": [
           {
             "name": "jordan love",
-            "mentions": 5,
-            "repeated_mentions": 5,
+            "mentions": 4,
+            "repeated_mentions": 4,
             "throwback_signal": false
           }
         ],
-        "headline_name_repeat_count": 5,
+        "headline_name_repeat_count": 4,
         "headline_name_bonus": 30,
         "playoff_or_player_theme": false,
         "playoff_or_player_bonus": 0,
@@ -2888,7 +2290,7 @@
         }
       },
       "live_headline": "Game recap: 5 takeaways from Packers’ loss to Vikings",
-      "rank": 14,
+      "rank": 11,
       "reasons": [
         "repeated headline name"
       ]
@@ -2921,12 +2323,12 @@
         "headline_name_matches": [
           {
             "name": "jordan love",
-            "mentions": 5,
-            "repeated_mentions": 5,
+            "mentions": 4,
+            "repeated_mentions": 4,
             "throwback_signal": false
           }
         ],
-        "headline_name_repeat_count": 5,
+        "headline_name_repeat_count": 4,
         "headline_name_bonus": 30,
         "playoff_or_player_theme": false,
         "playoff_or_player_bonus": 0,
@@ -3082,7 +2484,7 @@
         }
       },
       "live_headline": "Game recap: 5 takeaways from Packers’ loss to Vikings",
-      "rank": 15,
+      "rank": 12,
       "reasons": [
         "repeated headline name"
       ]
@@ -3115,12 +2517,12 @@
         "headline_name_matches": [
           {
             "name": "jordan love",
-            "mentions": 5,
-            "repeated_mentions": 5,
+            "mentions": 4,
+            "repeated_mentions": 4,
             "throwback_signal": false
           }
         ],
-        "headline_name_repeat_count": 5,
+        "headline_name_repeat_count": 4,
         "headline_name_bonus": 30,
         "playoff_or_player_theme": false,
         "playoff_or_player_bonus": 0,
@@ -3278,7 +2680,7 @@
         }
       },
       "live_headline": "Game recap: 5 takeaways from Packers’ loss to Vikings",
-      "rank": 16,
+      "rank": 13,
       "reasons": [
         "repeated headline name"
       ]
@@ -3311,12 +2713,12 @@
         "headline_name_matches": [
           {
             "name": "jordan love",
-            "mentions": 5,
-            "repeated_mentions": 5,
+            "mentions": 4,
+            "repeated_mentions": 4,
             "throwback_signal": false
           }
         ],
-        "headline_name_repeat_count": 5,
+        "headline_name_repeat_count": 4,
         "headline_name_bonus": 30,
         "playoff_or_player_theme": false,
         "playoff_or_player_bonus": 0,
@@ -3472,7 +2874,7 @@
         }
       },
       "live_headline": "Game recap: 5 takeaways from Packers’ loss to Vikings",
-      "rank": 17,
+      "rank": 14,
       "reasons": [
         "repeated headline name"
       ]
@@ -3505,12 +2907,12 @@
         "headline_name_matches": [
           {
             "name": "jordan love",
-            "mentions": 5,
-            "repeated_mentions": 5,
+            "mentions": 4,
+            "repeated_mentions": 4,
             "throwback_signal": false
           }
         ],
-        "headline_name_repeat_count": 5,
+        "headline_name_repeat_count": 4,
         "headline_name_bonus": 30,
         "playoff_or_player_theme": false,
         "playoff_or_player_bonus": 0,
@@ -3666,7 +3068,7 @@
         }
       },
       "live_headline": "Game recap: 5 takeaways from Packers’ loss to Vikings",
-      "rank": 18,
+      "rank": 15,
       "reasons": [
         "repeated headline name"
       ]
@@ -3699,12 +3101,12 @@
         "headline_name_matches": [
           {
             "name": "jordan love",
-            "mentions": 5,
-            "repeated_mentions": 5,
+            "mentions": 4,
+            "repeated_mentions": 4,
             "throwback_signal": false
           }
         ],
-        "headline_name_repeat_count": 5,
+        "headline_name_repeat_count": 4,
         "headline_name_bonus": 30,
         "playoff_or_player_theme": false,
         "playoff_or_player_bonus": 0,
@@ -3862,7 +3264,7 @@
         }
       },
       "live_headline": "Game recap: 5 takeaways from Packers’ loss to Vikings",
-      "rank": 19,
+      "rank": 16,
       "reasons": [
         "repeated headline name"
       ]
@@ -3895,12 +3297,12 @@
         "headline_name_matches": [
           {
             "name": "jordan love",
-            "mentions": 5,
-            "repeated_mentions": 5,
+            "mentions": 4,
+            "repeated_mentions": 4,
             "throwback_signal": false
           }
         ],
-        "headline_name_repeat_count": 5,
+        "headline_name_repeat_count": 4,
         "headline_name_bonus": 30,
         "playoff_or_player_theme": false,
         "playoff_or_player_bonus": 0,
@@ -4056,7 +3458,7 @@
         }
       },
       "live_headline": "Game recap: 5 takeaways from Packers’ loss to Vikings",
-      "rank": 20,
+      "rank": 17,
       "reasons": [
         "repeated headline name"
       ]
@@ -4089,12 +3491,12 @@
         "headline_name_matches": [
           {
             "name": "jordan love",
-            "mentions": 5,
-            "repeated_mentions": 5,
+            "mentions": 4,
+            "repeated_mentions": 4,
             "throwback_signal": false
           }
         ],
-        "headline_name_repeat_count": 5,
+        "headline_name_repeat_count": 4,
         "headline_name_bonus": 30,
         "playoff_or_player_theme": false,
         "playoff_or_player_bonus": 0,
@@ -4250,7 +3652,7 @@
         }
       },
       "live_headline": "Game recap: 5 takeaways from Packers’ loss to Vikings",
-      "rank": 21,
+      "rank": 18,
       "reasons": [
         "repeated headline name"
       ]
@@ -4283,12 +3685,12 @@
         "headline_name_matches": [
           {
             "name": "jordan love",
-            "mentions": 5,
-            "repeated_mentions": 5,
+            "mentions": 4,
+            "repeated_mentions": 4,
             "throwback_signal": false
           }
         ],
-        "headline_name_repeat_count": 5,
+        "headline_name_repeat_count": 4,
         "headline_name_bonus": 30,
         "playoff_or_player_theme": false,
         "playoff_or_player_bonus": 0,
@@ -4446,7 +3848,7 @@
         }
       },
       "live_headline": "Game recap: 5 takeaways from Packers’ loss to Vikings",
-      "rank": 22,
+      "rank": 19,
       "reasons": [
         "repeated headline name"
       ]
@@ -4479,12 +3881,12 @@
         "headline_name_matches": [
           {
             "name": "jordan love",
-            "mentions": 5,
-            "repeated_mentions": 5,
+            "mentions": 4,
+            "repeated_mentions": 4,
             "throwback_signal": false
           }
         ],
-        "headline_name_repeat_count": 5,
+        "headline_name_repeat_count": 4,
         "headline_name_bonus": 30,
         "playoff_or_player_theme": false,
         "playoff_or_player_bonus": 0,
@@ -4640,7 +4042,7 @@
         }
       },
       "live_headline": "Game recap: 5 takeaways from Packers’ loss to Vikings",
-      "rank": 23,
+      "rank": 20,
       "reasons": [
         "repeated headline name"
       ]
@@ -4673,12 +4075,12 @@
         "headline_name_matches": [
           {
             "name": "jordan love",
-            "mentions": 5,
-            "repeated_mentions": 5,
+            "mentions": 4,
+            "repeated_mentions": 4,
             "throwback_signal": false
           }
         ],
-        "headline_name_repeat_count": 5,
+        "headline_name_repeat_count": 4,
         "headline_name_bonus": 30,
         "playoff_or_player_theme": false,
         "playoff_or_player_bonus": 0,
@@ -4834,7 +4236,7 @@
         }
       },
       "live_headline": "Game recap: 5 takeaways from Packers’ loss to Vikings",
-      "rank": 24,
+      "rank": 21,
       "reasons": [
         "repeated headline name"
       ]
@@ -4867,12 +4269,12 @@
         "headline_name_matches": [
           {
             "name": "jordan love",
-            "mentions": 5,
-            "repeated_mentions": 5,
+            "mentions": 4,
+            "repeated_mentions": 4,
             "throwback_signal": false
           }
         ],
-        "headline_name_repeat_count": 5,
+        "headline_name_repeat_count": 4,
         "headline_name_bonus": 30,
         "playoff_or_player_theme": false,
         "playoff_or_player_bonus": 0,
@@ -5026,7 +4428,7 @@
         }
       },
       "live_headline": "Game recap: 5 takeaways from Packers’ loss to Vikings",
-      "rank": 25,
+      "rank": 22,
       "reasons": [
         "repeated headline name"
       ]
@@ -5059,12 +4461,12 @@
         "headline_name_matches": [
           {
             "name": "jordan love",
-            "mentions": 5,
-            "repeated_mentions": 5,
+            "mentions": 4,
+            "repeated_mentions": 4,
             "throwback_signal": false
           }
         ],
-        "headline_name_repeat_count": 5,
+        "headline_name_repeat_count": 4,
         "headline_name_bonus": 30,
         "playoff_or_player_theme": false,
         "playoff_or_player_bonus": 0,
@@ -5220,7 +4622,7 @@
         }
       },
       "live_headline": "Game recap: 5 takeaways from Packers’ loss to Vikings",
-      "rank": 26,
+      "rank": 23,
       "reasons": [
         "repeated headline name"
       ]
@@ -5253,12 +4655,12 @@
         "headline_name_matches": [
           {
             "name": "jordan love",
-            "mentions": 5,
-            "repeated_mentions": 5,
+            "mentions": 4,
+            "repeated_mentions": 4,
             "throwback_signal": false
           }
         ],
-        "headline_name_repeat_count": 5,
+        "headline_name_repeat_count": 4,
         "headline_name_bonus": 30,
         "playoff_or_player_theme": false,
         "playoff_or_player_bonus": 0,
@@ -5414,7 +4816,7 @@
         }
       },
       "live_headline": "Game recap: 5 takeaways from Packers’ loss to Vikings",
-      "rank": 27,
+      "rank": 24,
       "reasons": [
         "repeated headline name"
       ]
@@ -5447,12 +4849,12 @@
         "headline_name_matches": [
           {
             "name": "jordan love",
-            "mentions": 5,
-            "repeated_mentions": 5,
+            "mentions": 4,
+            "repeated_mentions": 4,
             "throwback_signal": false
           }
         ],
-        "headline_name_repeat_count": 5,
+        "headline_name_repeat_count": 4,
         "headline_name_bonus": 30,
         "playoff_or_player_theme": false,
         "playoff_or_player_bonus": 0,
@@ -5608,7 +5010,7 @@
         }
       },
       "live_headline": "Game recap: 5 takeaways from Packers’ loss to Vikings",
-      "rank": 28,
+      "rank": 25,
       "reasons": [
         "repeated headline name"
       ]
@@ -5641,12 +5043,12 @@
         "headline_name_matches": [
           {
             "name": "jordan love",
-            "mentions": 5,
-            "repeated_mentions": 5,
+            "mentions": 4,
+            "repeated_mentions": 4,
             "throwback_signal": false
           }
         ],
-        "headline_name_repeat_count": 5,
+        "headline_name_repeat_count": 4,
         "headline_name_bonus": 30,
         "playoff_or_player_theme": false,
         "playoff_or_player_bonus": 0,
@@ -5802,7 +5204,7 @@
         }
       },
       "live_headline": "Game recap: 5 takeaways from Packers’ loss to Vikings",
-      "rank": 29,
+      "rank": 26,
       "reasons": [
         "repeated headline name"
       ]
@@ -5835,12 +5237,12 @@
         "headline_name_matches": [
           {
             "name": "jordan love",
-            "mentions": 5,
-            "repeated_mentions": 5,
+            "mentions": 4,
+            "repeated_mentions": 4,
             "throwback_signal": false
           }
         ],
-        "headline_name_repeat_count": 5,
+        "headline_name_repeat_count": 4,
         "headline_name_bonus": 30,
         "playoff_or_player_theme": false,
         "playoff_or_player_bonus": 0,
@@ -5996,7 +5398,7 @@
         }
       },
       "live_headline": "Game recap: 5 takeaways from Packers’ loss to Vikings",
-      "rank": 30,
+      "rank": 27,
       "reasons": [
         "repeated headline name"
       ]
@@ -6029,12 +5431,12 @@
         "headline_name_matches": [
           {
             "name": "jordan love",
-            "mentions": 5,
-            "repeated_mentions": 5,
+            "mentions": 4,
+            "repeated_mentions": 4,
             "throwback_signal": false
           }
         ],
-        "headline_name_repeat_count": 5,
+        "headline_name_repeat_count": 4,
         "headline_name_bonus": 30,
         "playoff_or_player_theme": false,
         "playoff_or_player_bonus": 0,
@@ -6190,7 +5592,7 @@
         }
       },
       "live_headline": "Game recap: 5 takeaways from Packers’ loss to Vikings",
-      "rank": 31,
+      "rank": 28,
       "reasons": [
         "repeated headline name"
       ]
@@ -6314,7 +5716,7 @@
       },
       "platforms": {
         "instagram": {
-          "caption": "Not flashy, just Texas. Updates: Change coming on defensive staff? — Doomsday Defense Dallas Football Shirt proves it. Save this idea and tap through to see the design.",
+          "caption": "Not flashy, just Texas. Updates: Cornelius claimed; Porter full on Wed. — Doomsday Defense Dallas Football Shirt proves it. Save this idea and tap through to see the design.",
           "hashtags": [
             "#star city",
             "#texasfootball",
@@ -6328,7 +5730,7 @@
           "prompt": "Late-summer Texas dusk on a wide concrete plaza near an empty stadium; burnt-sunset glow, midnight blue shadows, silver highlights, dry warm air; nostalgic warmth, gentle film grain, and an easygoing atmosphere; vertical 4:5 framing, cinematic editorial atmosphere, natural light, tactile detail, and generous negative space"
         },
         "tiktok": {
-          "caption": "Big D energy: Updates: Change coming on defensive staff? meets Doomsday Defense Dallas Football Shirt. POV: you already ordered it.",
+          "caption": "Big D energy: Updates: Cornelius claimed; Porter full on Wed. meets Doomsday Defense Dallas Football Shirt. POV: you already ordered it.",
           "hashtags": [
             "#texasfootball",
             "#doomsdaydefenseshirt",
@@ -6342,7 +5744,7 @@
           "prompt": "Late-summer Texas dusk on a wide concrete plaza near an empty stadium; burnt-sunset glow, midnight blue shadows, silver highlights, dry warm air; nostalgic warmth, gentle film grain, and an easygoing atmosphere; vertical 9:16 framing with a strong center of calm negative space, cinematic editorial atmosphere, natural light, tactile detail, and generous negative space"
         },
         "facebook": {
-          "caption": "From Texas heat to Updates: Change coming on defensive staff? — Doomsday Defense Dallas Football Shirt works every season. Order early in the week if you want it for Sunday.",
+          "caption": "From Texas heat to Updates: Cornelius claimed; Porter full on Wed. — Doomsday Defense Dallas Football Shirt works every season. Order early in the week if you want it for Sunday.",
           "hashtags": [
             "#vintagecowboysdefens",
             "#doomsdaydefenseshirt",
@@ -6354,7 +5756,7 @@
           "prompt": "Late-summer Texas dusk on a wide concrete plaza near an empty stadium; burnt-sunset glow, midnight blue shadows, silver highlights, dry warm air; nostalgic warmth, gentle film grain, and an easygoing atmosphere; horizontal 16:9 framing, cinematic editorial atmosphere, natural light, tactile detail, and generous negative space"
         },
         "x": {
-          "caption": "Updates: Change coming on defensive staff? just dropped. Doomsday Defense Dallas Football Shirt is how Dallas answers. https://viralstyle.com/kebystore/doomsday-defense-tee",
+          "caption": "Updates: Cornelius claimed; Porter full on Wed. just dropped. Doomsday Defense Dallas Football Shirt is how Dallas answers. https://viralstyle.com/kebystore/doomsday-defense-tee",
           "hashtags": [
             "#vintagefootball",
             "#doomsdaydefenseshirt",
@@ -6378,8 +5780,8 @@
           "prompt": "Late-summer Texas dusk on a wide concrete plaza near an empty stadium; burnt-sunset glow, midnight blue shadows, silver highlights, dry warm air; nostalgic warmth, gentle film grain, and an easygoing atmosphere; vertical 2:3 framing with an airy editorial composition, cinematic editorial atmosphere, natural light, tactile detail, and generous negative space"
         }
       },
-      "live_headline": "Updates: Change coming on defensive staff?",
-      "rank": 32,
+      "live_headline": "Updates: Cornelius claimed; Porter full on Wed.",
+      "rank": 29,
       "reasons": [
         "2026 search match"
       ]
@@ -6504,7 +5906,7 @@
       },
       "platforms": {
         "instagram": {
-          "caption": "Texas heat, October dusk, Updates: Change coming on defensive staff?. This Girl Loves Cowboys Women's Shirt works in all three. Save this idea and tap through to see the design.",
+          "caption": "Texas heat, October dusk, Updates: Cornelius claimed; Porter full on Wed.. This Girl Loves Cowboys Women's Shirt works in all three. Save this idea and tap through to see the design.",
           "hashtags": [
             "#giftideas",
             "#star city",
@@ -6518,7 +5920,7 @@
           "prompt": "Late-summer Texas dusk on a wide concrete plaza near an empty stadium; burnt-sunset glow, midnight blue shadows, silver highlights, dry warm air; welcoming warmth, soft contrast, and a joyful atmosphere; vertical 4:5 framing, cinematic editorial atmosphere, natural light, tactile detail, and generous negative space"
         },
         "tiktok": {
-          "caption": "Tell me you're Dallas without telling me — This Girl Loves Cowboys Women's Shirt after Updates: Change coming on defensive staff?. Comment 'GO' and we'll drop the link.",
+          "caption": "Tell me you're Dallas without telling me — This Girl Loves Cowboys Women's Shirt after Updates: Cornelius claimed; Porter full on Wed. Comment 'GO' and we'll drop the link.",
           "hashtags": [
             "#texasfootball",
             "#dallascowboys",
@@ -6532,7 +5934,7 @@
           "prompt": "Late-summer Texas dusk on a wide concrete plaza near an empty stadium; burnt-sunset glow, midnight blue shadows, silver highlights, dry warm air; welcoming warmth, soft contrast, and a joyful atmosphere; vertical 9:16 framing with a strong center of calm negative space, cinematic editorial atmosphere, natural light, tactile detail, and generous negative space"
         },
         "facebook": {
-          "caption": "Not officially licensed, just officially Dallas. Updates: Change coming on defensive staff? — This Girl Loves Cowboys Women's Shirt is independent fan art, printed on demand. Tap through to see all colourways and garment styles.",
+          "caption": "Not officially licensed, just officially Dallas. Updates: Cornelius claimed; Porter full on Wed. — This Girl Loves Cowboys Women's Shirt is independent fan art, printed on demand. Tap through to see all colourways and garment styles.",
           "hashtags": [
             "#star city",
             "#thisgirllovescowboys",
@@ -6544,7 +5946,7 @@
           "prompt": "Late-summer Texas dusk on a wide concrete plaza near an empty stadium; burnt-sunset glow, midnight blue shadows, silver highlights, dry warm air; welcoming warmth, soft contrast, and a joyful atmosphere; horizontal 16:9 framing, cinematic editorial atmosphere, natural light, tactile detail, and generous negative space"
         },
         "x": {
-          "caption": "This Girl Loves Cowboys Women's Shirt with THIS GIRL LOVES COWBOYS with football and stars. Updates: Change coming on defensive staff?. Texas-sized. https://viralstyle.com/kebystore/girly-vintage-texas-pride",
+          "caption": "This Girl Loves Cowboys Women's Shirt with THIS GIRL LOVES COWBOYS with football and stars. Updates: Cornelius claimed; Porter full on Wed.. Texas-sized. https://viralstyle.com/kebystore/girly-vintage-texas-pride",
           "hashtags": [
             "#thisgirllovescowboys",
             "#star city",
@@ -6568,8 +5970,8 @@
           "prompt": "Late-summer Texas dusk on a wide concrete plaza near an empty stadium; burnt-sunset glow, midnight blue shadows, silver highlights, dry warm air; welcoming warmth, soft contrast, and a joyful atmosphere; vertical 2:3 framing with an airy editorial composition, cinematic editorial atmosphere, natural light, tactile detail, and generous negative space"
         }
       },
-      "live_headline": "Updates: Change coming on defensive staff?",
-      "rank": 33,
+      "live_headline": "Updates: Cornelius claimed; Porter full on Wed.",
+      "rank": 30,
       "reasons": [
         "2026 search match"
       ]
@@ -6693,7 +6095,7 @@
       },
       "platforms": {
         "instagram": {
-          "caption": "Big D, bigger stage. Updates: Change coming on defensive staff? — Dallas Football Star Lightning Vintage Shirt is prime-time armor. Add it to your gift list before kickoff.",
+          "caption": "Big D, bigger stage. Updates: Cornelius claimed; Porter full on Wed. — Dallas Football Star Lightning Vintage Shirt is prime-time armor. Add it to your gift list before kickoff.",
           "hashtags": [
             "#dallasfootballshirt",
             "#vintagedallastee",
@@ -6707,7 +6109,7 @@
           "prompt": "Late-summer Texas dusk on a wide concrete plaza near an empty stadium; burnt-sunset glow, midnight blue shadows, silver highlights, dry warm air; nostalgic warmth, gentle film grain, and an easygoing atmosphere; vertical 4:5 framing, cinematic editorial atmosphere, natural light, tactile detail, and generous negative space"
         },
         "tiktok": {
-          "caption": "When Updates: Change coming on defensive staff? drops and your Dallas Football Star Lightning Vintage Shirt is already on. Duet this with your game day look.",
+          "caption": "When Updates: Cornelius claimed; Porter full on Wed. drops and your Dallas Football Star Lightning Vintage Shirt is already on. Duet this with your game day look.",
           "hashtags": [
             "#vintagedallastee",
             "#cowboysstarshirt",
@@ -6721,7 +6123,7 @@
           "prompt": "Late-summer Texas dusk on a wide concrete plaza near an empty stadium; burnt-sunset glow, midnight blue shadows, silver highlights, dry warm air; nostalgic warmth, gentle film grain, and an easygoing atmosphere; vertical 9:16 framing with a strong center of calm negative space, cinematic editorial atmosphere, natural light, tactile detail, and generous negative space"
         },
         "facebook": {
-          "caption": "Texas pride, star-city lettering. Updates: Change coming on defensive staff? — Dallas Football Star Lightning Vintage Shirt with DALLAS FOOTBALL with star, lightning bolts and foo is fan-made for the faithful. Order early in the week if you want it for Sunday.",
+          "caption": "Texas pride, star-city lettering. Updates: Cornelius claimed; Porter full on Wed. — Dallas Football Star Lightning Vintage Shirt with DALLAS FOOTBALL with star, lightning bolts and foo is fan-made for the faithful. Order early in the week if you want it for Sunday.",
           "hashtags": [
             "#retrostyle",
             "#cowboysstarshirt",
@@ -6733,7 +6135,7 @@
           "prompt": "Late-summer Texas dusk on a wide concrete plaza near an empty stadium; burnt-sunset glow, midnight blue shadows, silver highlights, dry warm air; nostalgic warmth, gentle film grain, and an easygoing atmosphere; horizontal 16:9 framing, cinematic editorial atmosphere, natural light, tactile detail, and generous negative space"
         },
         "x": {
-          "caption": "Dallas: Updates: Change coming on defensive staff? = Dallas Football Star Lightning Vintage Shirt season. Prime time ready. https://viralstyle.com/kebystore/dallas-football-vintage-style-tee",
+          "caption": "Dallas: Updates: Cornelius claimed; Porter full on Wed. = Dallas Football Star Lightning Vintage Shirt season. Prime time ready. https://viralstyle.com/kebystore/dallas-football-vintage-style-tee",
           "hashtags": [
             "#star city",
             "#dallascowboys",
@@ -6757,8 +6159,8 @@
           "prompt": "Late-summer Texas dusk on a wide concrete plaza near an empty stadium; burnt-sunset glow, midnight blue shadows, silver highlights, dry warm air; nostalgic warmth, gentle film grain, and an easygoing atmosphere; vertical 2:3 framing with an airy editorial composition, cinematic editorial atmosphere, natural light, tactile detail, and generous negative space"
         }
       },
-      "live_headline": "Updates: Change coming on defensive staff?",
-      "rank": 34,
+      "live_headline": "Updates: Cornelius claimed; Porter full on Wed.",
+      "rank": 31,
       "reasons": [
         "2026 search match"
       ]
@@ -6881,7 +6283,7 @@
       },
       "platforms": {
         "instagram": {
-          "caption": "Lone Star pride, star on the helmet. Updates: Change coming on defensive staff? — Dallas Football 1960 Helmet Vintage Shirt fits. Save this idea and tap through to see the design.",
+          "caption": "Lone Star pride, star on the helmet. Updates: Cornelius claimed; Porter full on Wed. — Dallas Football 1960 Helmet Vintage Shirt fits. Save this idea and tap through to see the design.",
           "hashtags": [
             "#star city",
             "#vintagedallasfootbal",
@@ -6895,7 +6297,7 @@
           "prompt": "Late-summer Texas dusk on a wide concrete plaza near an empty stadium; burnt-sunset glow, midnight blue shadows, silver highlights, dry warm air; nostalgic warmth, gentle film grain, and an easygoing atmosphere; vertical 4:5 framing, cinematic editorial atmosphere, natural light, tactile detail, and generous negative space"
         },
         "tiktok": {
-          "caption": "Doomsday Defense but make it fashion — Dallas Football 1960 Helmet Vintage Shirt + Updates: Change coming on defensive staff?. POV: you already ordered it.",
+          "caption": "Doomsday Defense but make it fashion — Dallas Football 1960 Helmet Vintage Shirt + Updates: Cornelius claimed; Porter full on Wed. POV: you already ordered it.",
           "hashtags": [
             "#dallascowboys",
             "#texasfootballshirt",
@@ -6909,7 +6311,7 @@
           "prompt": "Late-summer Texas dusk on a wide concrete plaza near an empty stadium; burnt-sunset glow, midnight blue shadows, silver highlights, dry warm air; nostalgic warmth, gentle film grain, and an easygoing atmosphere; vertical 9:16 framing with a strong center of calm negative space, cinematic editorial atmosphere, natural light, tactile detail, and generous negative space"
         },
         "facebook": {
-          "caption": "If your family says How Bout Them Cowboys at Thanksgiving, Updates: Change coming on defensive staff? and Dallas Football 1960 Helmet Vintage Shirt belong together. Explore the design here — sizes S to 3XL, worldwide shipping.",
+          "caption": "If your family says How Bout Them Cowboys at Thanksgiving, Updates: Cornelius claimed; Porter full on Wed. and Dallas Football 1960 Helmet Vintage Shirt belong together. Explore the design here — sizes S to 3XL, worldwide shipping.",
           "hashtags": [
             "#dallas1960shirt",
             "#star city",
@@ -6921,7 +6323,7 @@
           "prompt": "Late-summer Texas dusk on a wide concrete plaza near an empty stadium; burnt-sunset glow, midnight blue shadows, silver highlights, dry warm air; nostalgic warmth, gentle film grain, and an easygoing atmosphere; horizontal 16:9 framing, cinematic editorial atmosphere, natural light, tactile detail, and generous negative space"
         },
         "x": {
-          "caption": "Dallas Football 1960 Helmet Vintage Shirt with DALLAS FOOTBALL 1960 DALLAS, TEXAS with retro helm. Updates: Change coming on defensive staff?. Texas-sized. https://viralstyle.com/kebystore/dallas-football-vintage-athletic-style-f",
+          "caption": "Dallas Football 1960 Helmet Vintage Shirt with DALLAS FOOTBALL 1960 DALLAS, TEXAS with retro helm. Updates: Cornelius claimed; Porter full on Wed.. Texas-sized. https://viralstyle.com/kebystore/dallas-football-vintage-athletic-style-f",
           "hashtags": [
             "#dallas1960shirt",
             "#retrostyle",
@@ -6945,8 +6347,8 @@
           "prompt": "Late-summer Texas dusk on a wide concrete plaza near an empty stadium; burnt-sunset glow, midnight blue shadows, silver highlights, dry warm air; nostalgic warmth, gentle film grain, and an easygoing atmosphere; vertical 2:3 framing with an airy editorial composition, cinematic editorial atmosphere, natural light, tactile detail, and generous negative space"
         }
       },
-      "live_headline": "Updates: Change coming on defensive staff?",
-      "rank": 35,
+      "live_headline": "Updates: Cornelius claimed; Porter full on Wed.",
+      "rank": 32,
       "reasons": [
         "2026 search match"
       ]
@@ -7069,7 +6471,7 @@
       },
       "platforms": {
         "instagram": {
-          "caption": "1960 roots, 2026 headlines. Updates: Change coming on defensive staff? — Dallas 1960 Football Helmet White Shirt is the bridge. Save for your next game day, share with your crew.",
+          "caption": "1960 roots, 2026 headlines. Updates: Cornelius claimed; Porter full on Wed. — Dallas 1960 Football Helmet White Shirt is the bridge. Save for your next game day, share with your crew.",
           "hashtags": [
             "#star city",
             "#retrostyle",
@@ -7083,7 +6485,7 @@
           "prompt": "Late-summer Texas dusk on a wide concrete plaza near an empty stadium; burnt-sunset glow, midnight blue shadows, silver highlights, dry warm air; nostalgic warmth, gentle film grain, and an easygoing atmosphere; vertical 4:5 framing, cinematic editorial atmosphere, natural light, tactile detail, and generous negative space"
         },
         "tiktok": {
-          "caption": "When Updates: Change coming on defensive staff? drops and your Dallas 1960 Football Helmet White Shirt is already on. POV: you already ordered it.",
+          "caption": "When Updates: Cornelius claimed; Porter full on Wed. drops and your Dallas 1960 Football Helmet White Shirt is already on. POV: you already ordered it.",
           "hashtags": [
             "#texasfootball",
             "#vintage1960dallasshi",
@@ -7097,7 +6499,7 @@
           "prompt": "Late-summer Texas dusk on a wide concrete plaza near an empty stadium; burnt-sunset glow, midnight blue shadows, silver highlights, dry warm air; nostalgic warmth, gentle film grain, and an easygoing atmosphere; vertical 9:16 framing with a strong center of calm negative space, cinematic editorial atmosphere, natural light, tactile detail, and generous negative space"
         },
         "facebook": {
-          "caption": "Dallas, Updates: Change coming on defensive staff? just made prime time bigger. Dallas 1960 Football Helmet White Shirt is how Star City wears the moment. Explore the design here — sizes S to 3XL, worldwide shipping.",
+          "caption": "Dallas, Updates: Cornelius claimed; Porter full on Wed. just made prime time bigger. Dallas 1960 Football Helmet White Shirt is how Star City wears the moment. Explore the design here — sizes S to 3XL, worldwide shipping.",
           "hashtags": [
             "#texasfootball",
             "#vintagefootball",
@@ -7109,7 +6511,7 @@
           "prompt": "Late-summer Texas dusk on a wide concrete plaza near an empty stadium; burnt-sunset glow, midnight blue shadows, silver highlights, dry warm air; nostalgic warmth, gentle film grain, and an easygoing atmosphere; horizontal 16:9 framing, cinematic editorial atmosphere, natural light, tactile detail, and generous negative space"
         },
         "x": {
-          "caption": "Dallas 1960 Football Helmet White Shirt with DALLAS 1960 FOOTBALL with retro helmet. Updates: Change coming on defensive staff?. Texas-sized. https://viralstyle.com/kebystore/dallas-texas-vintage-athletic-style-t-sh",
+          "caption": "Dallas 1960 Football Helmet White Shirt with DALLAS 1960 FOOTBALL with retro helmet. Updates: Cornelius claimed; Porter full on Wed.. Texas-sized. https://viralstyle.com/kebystore/dallas-texas-vintage-athletic-style-t-sh",
           "hashtags": [
             "#vintage1960dallasshi",
             "#dallaswhitetee",
@@ -7133,8 +6535,8 @@
           "prompt": "Late-summer Texas dusk on a wide concrete plaza near an empty stadium; burnt-sunset glow, midnight blue shadows, silver highlights, dry warm air; nostalgic warmth, gentle film grain, and an easygoing atmosphere; vertical 2:3 framing with an airy editorial composition, cinematic editorial atmosphere, natural light, tactile detail, and generous negative space"
         }
       },
-      "live_headline": "Updates: Change coming on defensive staff?",
-      "rank": 36,
+      "live_headline": "Updates: Cornelius claimed; Porter full on Wed.",
+      "rank": 33,
       "reasons": [
         "2026 search match"
       ]
@@ -7257,7 +6659,7 @@
       },
       "platforms": {
         "instagram": {
-          "caption": "Dallas football is half stadium, half country. Updates: Change coming on defensive staff? — Dallas Texas Est 1841 Navy Shirt nails it. Save this idea and tap through to see the design.",
+          "caption": "Dallas football is half stadium, half country. Updates: Cornelius claimed; Porter full on Wed. — Dallas Texas Est 1841 Navy Shirt nails it. Save this idea and tap through to see the design.",
           "hashtags": [
             "#retrostyle",
             "#dallasest1841shirt",
@@ -7271,7 +6673,7 @@
           "prompt": "Late-summer Texas dusk on a wide concrete plaza near an empty stadium; burnt-sunset glow, midnight blue shadows, silver highlights, dry warm air; nostalgic warmth, gentle film grain, and an easygoing atmosphere; vertical 4:5 framing, cinematic editorial atmosphere, natural light, tactile detail, and generous negative space"
         },
         "tiktok": {
-          "caption": "Tell me you're Dallas without telling me — Dallas Texas Est 1841 Navy Shirt after Updates: Change coming on defensive staff?. Duet this with your game day look.",
+          "caption": "Tell me you're Dallas without telling me — Dallas Texas Est 1841 Navy Shirt after Updates: Cornelius claimed; Porter full on Wed. Duet this with your game day look.",
           "hashtags": [
             "#star city",
             "#dallastexastee",
@@ -7285,7 +6687,7 @@
           "prompt": "Late-summer Texas dusk on a wide concrete plaza near an empty stadium; burnt-sunset glow, midnight blue shadows, silver highlights, dry warm air; nostalgic warmth, gentle film grain, and an easygoing atmosphere; vertical 9:16 framing with a strong center of calm negative space, cinematic editorial atmosphere, natural light, tactile detail, and generous negative space"
         },
         "facebook": {
-          "caption": "If your family says How Bout Them Cowboys at Thanksgiving, Updates: Change coming on defensive staff? and Dallas Texas Est 1841 Navy Shirt belong together. Order early in the week if you want it for Sunday.",
+          "caption": "If your family says How Bout Them Cowboys at Thanksgiving, Updates: Cornelius claimed; Porter full on Wed. and Dallas Texas Est 1841 Navy Shirt belong together. Order early in the week if you want it for Sunday.",
           "hashtags": [
             "#collegiatedallasshir",
             "#texasfootball",
@@ -7297,7 +6699,7 @@
           "prompt": "Late-summer Texas dusk on a wide concrete plaza near an empty stadium; burnt-sunset glow, midnight blue shadows, silver highlights, dry warm air; nostalgic warmth, gentle film grain, and an easygoing atmosphere; horizontal 16:9 framing, cinematic editorial atmosphere, natural light, tactile detail, and generous negative space"
         },
         "x": {
-          "caption": "Dallas Texas Est 1841 Navy Shirt — Updates: Change coming on defensive staff? energy. How Bout Them Cowboys. https://viralstyle.com/kebystore/dallas-texas-vintage-athletic-sports",
+          "caption": "Dallas Texas Est 1841 Navy Shirt — Updates: Cornelius claimed; Porter full on Wed. energy. How Bout Them Cowboys. https://viralstyle.com/kebystore/dallas-texas-vintage-athletic-sports",
           "hashtags": [
             "#dallascowboys",
             "#collegiatedallasshir",
@@ -7321,8 +6723,8 @@
           "prompt": "Late-summer Texas dusk on a wide concrete plaza near an empty stadium; burnt-sunset glow, midnight blue shadows, silver highlights, dry warm air; nostalgic warmth, gentle film grain, and an easygoing atmosphere; vertical 2:3 framing with an airy editorial composition, cinematic editorial atmosphere, natural light, tactile detail, and generous negative space"
         }
       },
-      "live_headline": "Updates: Change coming on defensive staff?",
-      "rank": 37,
+      "live_headline": "Updates: Cornelius claimed; Porter full on Wed.",
+      "rank": 34,
       "reasons": [
         "2026 search match"
       ]
@@ -7445,7 +6847,7 @@
       },
       "platforms": {
         "instagram": {
-          "caption": "Star-city lettering, washed silver. Updates: Change coming on defensive staff? makes Dallas Texas Est 1841 Grey Shirt vintage and now. Add it to your gift list before kickoff.",
+          "caption": "Star-city lettering, washed silver. Updates: Cornelius claimed; Porter full on Wed. makes Dallas Texas Est 1841 Grey Shirt vintage and now. Add it to your gift list before kickoff.",
           "hashtags": [
             "#dallascowboys",
             "#dallasgreytee",
@@ -7459,7 +6861,7 @@
           "prompt": "Late-summer Texas dusk on a wide concrete plaza near an empty stadium; burnt-sunset glow, midnight blue shadows, silver highlights, dry warm air; nostalgic warmth, gentle film grain, and an easygoing atmosphere; vertical 4:5 framing, cinematic editorial atmosphere, natural light, tactile detail, and generous negative space"
         },
         "tiktok": {
-          "caption": "Tell me you're Dallas without telling me — Dallas Texas Est 1841 Grey Shirt after Updates: Change coming on defensive staff?. POV: you already ordered it.",
+          "caption": "Tell me you're Dallas without telling me — Dallas Texas Est 1841 Grey Shirt after Updates: Cornelius claimed; Porter full on Wed. POV: you already ordered it.",
           "hashtags": [
             "#dallasgreytee",
             "#retrostyle",
@@ -7473,7 +6875,7 @@
           "prompt": "Late-summer Texas dusk on a wide concrete plaza near an empty stadium; burnt-sunset glow, midnight blue shadows, silver highlights, dry warm air; nostalgic warmth, gentle film grain, and an easygoing atmosphere; vertical 9:16 framing with a strong center of calm negative space, cinematic editorial atmosphere, natural light, tactile detail, and generous negative space"
         },
         "facebook": {
-          "caption": "Texas pride, star-city lettering. Updates: Change coming on defensive staff? — Dallas Texas Est 1841 Grey Shirt with DALLAS EST. 1841 TEXAS collegiate lettering is fan-made for the faithful. Printed on demand in the USA, shipped worldwide with tracking.",
+          "caption": "Texas pride, star-city lettering. Updates: Cornelius claimed; Porter full on Wed. — Dallas Texas Est 1841 Grey Shirt with DALLAS EST. 1841 TEXAS collegiate lettering is fan-made for the faithful. Printed on demand in the USA, shipped worldwide with tracking.",
           "hashtags": [
             "#dallascowboys",
             "#vintagefootball",
@@ -7485,7 +6887,7 @@
           "prompt": "Late-summer Texas dusk on a wide concrete plaza near an empty stadium; burnt-sunset glow, midnight blue shadows, silver highlights, dry warm air; nostalgic warmth, gentle film grain, and an easygoing atmosphere; horizontal 16:9 framing, cinematic editorial atmosphere, natural light, tactile detail, and generous negative space"
         },
         "x": {
-          "caption": "Dallas Texas Est 1841 Grey Shirt — Updates: Change coming on defensive staff? energy. How Bout Them Cowboys. https://viralstyle.com/kebystore/dallas-texas-vintage-athletic-sports-sty",
+          "caption": "Dallas Texas Est 1841 Grey Shirt — Updates: Cornelius claimed; Porter full on Wed. energy. How Bout Them Cowboys. https://viralstyle.com/kebystore/dallas-texas-vintage-athletic-sports-sty",
           "hashtags": [
             "#retrostyle",
             "#dallasgreytee",
@@ -7509,8 +6911,8 @@
           "prompt": "Late-summer Texas dusk on a wide concrete plaza near an empty stadium; burnt-sunset glow, midnight blue shadows, silver highlights, dry warm air; nostalgic warmth, gentle film grain, and an easygoing atmosphere; vertical 2:3 framing with an airy editorial composition, cinematic editorial atmosphere, natural light, tactile detail, and generous negative space"
         }
       },
-      "live_headline": "Updates: Change coming on defensive staff?",
-      "rank": 38,
+      "live_headline": "Updates: Cornelius claimed; Porter full on Wed.",
+      "rank": 35,
       "reasons": [
         "2026 search match"
       ]
@@ -7699,7 +7101,7 @@
         }
       },
       "live_headline": "Browns erase 17-point deficit to beat Texans in Week 10",
-      "rank": 39,
+      "rank": 36,
       "reasons": [
         "playoff/player theme"
       ]
@@ -7886,7 +7288,7 @@
         }
       },
       "live_headline": "Browns erase 17-point deficit to beat Texans in Week 10",
-      "rank": 40,
+      "rank": 37,
       "reasons": [
         "playoff/player theme"
       ]
@@ -8077,7 +7479,7 @@
         }
       },
       "live_headline": "Browns erase 17-point deficit to beat Texans in Week 10",
-      "rank": 41,
+      "rank": 38,
       "reasons": [
         "playoff/player theme"
       ]
@@ -8266,9 +7668,613 @@
         }
       },
       "live_headline": "Browns erase 17-point deficit to beat Texans in Week 10",
-      "rank": 42,
+      "rank": 39,
       "reasons": [
         "playoff/player theme"
+      ]
+    },
+    {
+      "slug": "sanders-13-special-edition",
+      "source_index": 1,
+      "collection": "cleveland-browns",
+      "collection_label": "Cleveland Browns",
+      "name": "Shedeur Sanders 12 They Forgot Who I Am Shirt",
+      "catalogue_title": "Sander's 13 Special Edition",
+      "design_text": "THEY FORGOT WHO I AM - SANDERS SHEDEUR - BROWNS 12",
+      "theme": "player",
+      "product_type": "Apparel",
+      "price_usd": "22.99",
+      "product_url": "https://gridironlocker.store/shop/sanders-13-special-edition/",
+      "image_url": "https://assets.viralstyle.com/campaigns/4cb2b96f-6fd9-7a64-99bb-c6ac2ab1e975/Ov2bD8-a1q3DQ0-0mPKYYK-front-large.jpg",
+      "keywords": [
+        "shedeur sanders shirt",
+        "sanders browns qb tee",
+        "cleveland quarterback 12 shirt"
+      ],
+      "score": 53,
+      "score_breakdown": {
+        "score": 53,
+        "score_raw": 53,
+        "base": 50,
+        "season_search_terms": [
+          "shedeur sanders shirt",
+          "sanders browns qb shirt"
+        ],
+        "season_search_term_bonus": 22,
+        "headline_name_matches": [
+          {
+            "name": "shedeur sanders",
+            "mentions": 0,
+            "repeated_mentions": 0,
+            "throwback_signal": true
+          }
+        ],
+        "headline_name_repeat_count": 0,
+        "headline_name_bonus": 0,
+        "playoff_or_player_theme": true,
+        "playoff_or_player_bonus": 6,
+        "throwback": true,
+        "throwback_entities": [
+          "shedeur sanders"
+        ],
+        "throwback_penalty": -25
+      },
+      "opportunity": {
+        "score": 52.0,
+        "confidence": 75,
+        "factors": {
+          "audience": 70,
+          "search": 65,
+          "velocity": 10,
+          "gap": 80,
+          "competition": 50,
+          "business": 40,
+          "authority": 55,
+          "longevity": 10,
+          "distribution": 50
+        },
+        "weights": {
+          "audience": 20,
+          "search": 15,
+          "velocity": 15,
+          "gap": 15,
+          "competition": 10,
+          "business": 10,
+          "authority": 5,
+          "longevity": 5,
+          "distribution": 5
+        },
+        "trend_stage": "DECLINING",
+        "opportunity_type": "Commercial",
+        "decision": "REJECT",
+        "decision_reason": "Departed player/coach — keep listed, do not promote",
+        "gates": {
+          "audience": {
+            "passed": true,
+            "note": "Targeted fanbase defined"
+          },
+          "evidence": {
+            "passed": true,
+            "note": "Hot query / entity match"
+          },
+          "differentiation": {
+            "passed": true,
+            "note": "Original design copy present (estimate — no rival comparison yet)"
+          },
+          "discovery": {
+            "passed": true,
+            "note": "Searchable terms present"
+          },
+          "business": {
+            "passed": true,
+            "note": "Commercial product"
+          },
+          "risk": {
+            "passed": false,
+            "note": "IP/throwback risk"
+          },
+          "cannibalization": {
+            "passed": true,
+            "note": "1 sibling term match(es)"
+          }
+        },
+        "compliance": {
+          "terms": [
+            "browns",
+            "cleveland",
+            "shedeur sanders"
+          ],
+          "team_terms": [
+            "browns",
+            "cleveland"
+          ],
+          "person_terms": [
+            "shedeur sanders"
+          ],
+          "throwback_terms": [],
+          "level": "medium",
+          "social_safe": false,
+          "social_blocked": true
+        },
+        "evidence": {
+          "has_season_terms": true,
+          "has_headline_momentum": false,
+          "has_current_person": true,
+          "competitive_data": "estimate — no live rival data"
+        }
+      },
+      "platforms": {
+        "instagram": {
+          "caption": "Here We Go Brownies isn't a chant, it's a survival skill. Shedeur Sanders 12 They Forgot Who I Am Shirt proves you stayed. Comment your size — S to 3XL, printed on demand.",
+          "hashtags": [
+            "#clevelandquarterback",
+            "#fanfavorite",
+            "#clevelandfootball",
+            "#brownsfans",
+            "#dawgpound",
+            "#playertee",
+            "#shedeursandersshirt",
+            "#sandersbrownsqbtee"
+          ],
+          "prompt": "Rain-fresh autumn tailgate at dawn beside an empty stadium concourse; ember orange and deep cocoa illumination, wet pavement reflections, drifting mist; nostalgic warmth, muted contrast, and a reflective atmosphere; vertical 4:5 framing, cinematic editorial atmosphere, natural light, tactile detail, and generous negative space"
+        },
+        "tiktok": {
+          "caption": "Dawg Check: Browns erase 17-point deficit to beat Texans in Week 10. Shedeur Sanders 12 They Forgot Who I Am Shirt is the answer. Fit check approved? Link in bio.",
+          "hashtags": [
+            "#clevelandquarterback",
+            "#fanfavorite",
+            "#sandersbrownsqbtee",
+            "#clevelandfootball",
+            "#dawgpound",
+            "#brownsfans",
+            "#shedeursandersshirt",
+            "#playertee"
+          ],
+          "prompt": "Rain-fresh autumn tailgate at dawn beside an empty stadium concourse; ember orange and deep cocoa illumination, wet pavement reflections, drifting mist; nostalgic warmth, muted contrast, and a reflective atmosphere; vertical 9:16 framing with a strong center of calm negative space, cinematic editorial atmosphere, natural light, tactile detail, and generous negative space"
+        },
+        "facebook": {
+          "caption": "Cleveland, Browns erase 17-point deficit to beat Texans in Week 10 just changed the conversation. Shedeur Sanders 12 They Forgot Who I Am Shirt is how Dawg Pound marks it — fan-made, printed on demand, no warehouse stock. Order early in the week if you want it for Sunday.",
+          "hashtags": [
+            "#playertee",
+            "#clevelandfootball",
+            "#brownsfans",
+            "#fanfavorite",
+            "#dawgpound",
+            "#sandersbrownsqbtee"
+          ],
+          "prompt": "Rain-fresh autumn tailgate at dawn beside an empty stadium concourse; ember orange and deep cocoa illumination, wet pavement reflections, drifting mist; nostalgic warmth, muted contrast, and a reflective atmosphere; horizontal 16:9 framing, cinematic editorial atmosphere, natural light, tactile detail, and generous negative space"
+        },
+        "x": {
+          "caption": "Shedeur Sanders 12 They Forgot Who I Am Shirt with THEY FORGOT WHO I AM - SANDERS SHEDEUR - BROWNS 12. Browns erase 17-point deficit to beat Texans in Week 10. Dawg Pound approved. https://viralstyle.com/kebystore/sanders-13-special-edition",
+          "hashtags": [
+            "#brownsfans",
+            "#clevelandfootball",
+            "#playertee",
+            "#fanfavorite"
+          ],
+          "prompt": "Rain-fresh autumn tailgate at dawn beside an empty stadium concourse; ember orange and deep cocoa illumination, wet pavement reflections, drifting mist; nostalgic warmth, muted contrast, and a reflective atmosphere; horizontal 16:9 framing with a wide horizon, cinematic editorial atmosphere, natural light, tactile detail, and generous negative space"
+        },
+        "pinterest": {
+          "caption": "Shedeur Sanders 12 They Forgot Who I Am Shirt - Dawg Pound Game Day Outfit Idea | Cleveland Browns Fan Style. Add to your tailgate outfit ideas.",
+          "hashtags": [
+            "#sandersbrownsqbtee",
+            "#brownsfans",
+            "#clevelandquarterback",
+            "#playertee",
+            "#shedeursandersshirt",
+            "#clevelandfootball",
+            "#fanfavorite",
+            "#dawgpound"
+          ],
+          "prompt": "Rain-fresh autumn tailgate at dawn beside an empty stadium concourse; ember orange and deep cocoa illumination, wet pavement reflections, drifting mist; nostalgic warmth, muted contrast, and a reflective atmosphere; vertical 2:3 framing with an airy editorial composition, cinematic editorial atmosphere, natural light, tactile detail, and generous negative space"
+        }
+      },
+      "live_headline": "Browns erase 17-point deficit to beat Texans in Week 10",
+      "rank": 40,
+      "reasons": [
+        "2026 search match",
+        "playoff/player theme",
+        "throwback penalty"
+      ]
+    },
+    {
+      "slug": "sanders-12-special-edition",
+      "source_index": 3,
+      "collection": "cleveland-browns",
+      "collection_label": "Cleveland Browns",
+      "name": "Sanders QB 12 Signature Shirt",
+      "catalogue_title": "Sander's 12 Special Edition",
+      "design_text": "SANDERS QB 12 with signature",
+      "theme": "player",
+      "product_type": "Apparel",
+      "price_usd": "22.99",
+      "product_url": "https://gridironlocker.store/shop/sanders-12-special-edition/",
+      "image_url": "https://assets.viralstyle.com/campaigns/0336ca9d-8e22-3b64-c572-70da0bf850ed/JxBb3x-qeb1K3y-y0qOMo6-front-large.jpg",
+      "keywords": [
+        "sanders qb shirt",
+        "browns 12 quarterback tee",
+        "cleveland rookie qb shirt"
+      ],
+      "score": 53,
+      "score_breakdown": {
+        "score": 53,
+        "score_raw": 53,
+        "base": 50,
+        "season_search_terms": [
+          "sanders browns qb shirt"
+        ],
+        "season_search_term_bonus": 22,
+        "headline_name_matches": [
+          {
+            "name": "shedeur sanders",
+            "mentions": 0,
+            "repeated_mentions": 0,
+            "throwback_signal": true
+          }
+        ],
+        "headline_name_repeat_count": 0,
+        "headline_name_bonus": 0,
+        "playoff_or_player_theme": true,
+        "playoff_or_player_bonus": 6,
+        "throwback": true,
+        "throwback_entities": [
+          "shedeur sanders"
+        ],
+        "throwback_penalty": -25
+      },
+      "opportunity": {
+        "score": 47.5,
+        "confidence": 75,
+        "factors": {
+          "audience": 70,
+          "search": 65,
+          "velocity": 10,
+          "gap": 50,
+          "competition": 50,
+          "business": 40,
+          "authority": 55,
+          "longevity": 10,
+          "distribution": 50
+        },
+        "weights": {
+          "audience": 20,
+          "search": 15,
+          "velocity": 15,
+          "gap": 15,
+          "competition": 10,
+          "business": 10,
+          "authority": 5,
+          "longevity": 5,
+          "distribution": 5
+        },
+        "trend_stage": "DECLINING",
+        "opportunity_type": "Commercial",
+        "decision": "REJECT",
+        "decision_reason": "Departed player/coach — keep listed, do not promote",
+        "gates": {
+          "audience": {
+            "passed": true,
+            "note": "Targeted fanbase defined"
+          },
+          "evidence": {
+            "passed": true,
+            "note": "Hot query / entity match"
+          },
+          "differentiation": {
+            "passed": true,
+            "note": "Original design copy present (estimate — no rival comparison yet)"
+          },
+          "discovery": {
+            "passed": true,
+            "note": "Searchable terms present"
+          },
+          "business": {
+            "passed": true,
+            "note": "Commercial product"
+          },
+          "risk": {
+            "passed": false,
+            "note": "IP/throwback risk"
+          },
+          "cannibalization": {
+            "passed": true,
+            "note": "3 sibling term match(es)"
+          }
+        },
+        "compliance": {
+          "terms": [
+            "browns",
+            "cleveland"
+          ],
+          "team_terms": [
+            "browns",
+            "cleveland"
+          ],
+          "person_terms": [],
+          "throwback_terms": [],
+          "level": "medium",
+          "social_safe": false,
+          "social_blocked": true
+        },
+        "evidence": {
+          "has_season_terms": true,
+          "has_headline_momentum": false,
+          "has_current_person": true,
+          "competitive_data": "estimate — no live rival data"
+        }
+      },
+      "platforms": {
+        "instagram": {
+          "caption": "Bark first, talk later. Browns erase 17-point deficit to beat Texans in Week 10 means Sanders QB 12 Signature Shirt season is officially on. Add it to your gift list before kickoff.",
+          "hashtags": [
+            "#fanfavorite",
+            "#clevelandrookieqbshi",
+            "#clevelandfootball",
+            "#browns12quarterbackt",
+            "#dawgpound",
+            "#brownsfans",
+            "#playertee",
+            "#sandersqbshirt"
+          ],
+          "prompt": "Rain-fresh autumn tailgate at dawn beside an empty stadium concourse; ember orange and deep cocoa illumination, wet pavement reflections, drifting mist; nostalgic warmth, muted contrast, and a reflective atmosphere; vertical 4:5 framing, cinematic editorial atmosphere, natural light, tactile detail, and generous negative space"
+        },
+        "tiktok": {
+          "caption": "No one suffers like us. No one stays like us. Sanders QB 12 Signature Shirt after Browns erase 17-point deficit to beat Texans in Week 10. Show us the fit.",
+          "hashtags": [
+            "#clevelandfootball",
+            "#playertee",
+            "#brownsfans",
+            "#sandersqbshirt",
+            "#dawgpound",
+            "#fanfavorite",
+            "#browns12quarterbackt",
+            "#clevelandrookieqbshi"
+          ],
+          "prompt": "Rain-fresh autumn tailgate at dawn beside an empty stadium concourse; ember orange and deep cocoa illumination, wet pavement reflections, drifting mist; nostalgic warmth, muted contrast, and a reflective atmosphere; vertical 9:16 framing with a strong center of calm negative space, cinematic editorial atmosphere, natural light, tactile detail, and generous negative space"
+        },
+        "facebook": {
+          "caption": "From 19 degrees and sleeting to Browns erase 17-point deficit to beat Texans in Week 10 — Sanders QB 12 Signature Shirt has been through it with you. Printed on demand in the USA, shipped worldwide with tracking.",
+          "hashtags": [
+            "#fanfavorite",
+            "#dawgpound",
+            "#sandersqbshirt",
+            "#playertee",
+            "#clevelandrookieqbshi",
+            "#brownsfans"
+          ],
+          "prompt": "Rain-fresh autumn tailgate at dawn beside an empty stadium concourse; ember orange and deep cocoa illumination, wet pavement reflections, drifting mist; nostalgic warmth, muted contrast, and a reflective atmosphere; horizontal 16:9 framing, cinematic editorial atmosphere, natural light, tactile detail, and generous negative space"
+        },
+        "x": {
+          "caption": "Browns erase 17-point deficit to beat Texans in Week 10. Sanders QB 12 Signature Shirt for The Land. Fan-made, printed on demand. https://viralstyle.com/kebystore/sanders-12-special-edition",
+          "hashtags": [
+            "#clevelandfootball",
+            "#browns12quarterbackt",
+            "#fanfavorite",
+            "#dawgpound"
+          ],
+          "prompt": "Rain-fresh autumn tailgate at dawn beside an empty stadium concourse; ember orange and deep cocoa illumination, wet pavement reflections, drifting mist; nostalgic warmth, muted contrast, and a reflective atmosphere; horizontal 16:9 framing with a wide horizon, cinematic editorial atmosphere, natural light, tactile detail, and generous negative space"
+        },
+        "pinterest": {
+          "caption": "Sanders QB 12 Signature Shirt - Cleveland Browns Outfit Inspo | Game Day to Everyday. Save to your game day board — S to 3XL, printed on demand.",
+          "hashtags": [
+            "#sandersqbshirt",
+            "#playertee",
+            "#fanfavorite",
+            "#browns12quarterbackt",
+            "#clevelandrookieqbshi",
+            "#dawgpound",
+            "#brownsfans",
+            "#clevelandfootball"
+          ],
+          "prompt": "Rain-fresh autumn tailgate at dawn beside an empty stadium concourse; ember orange and deep cocoa illumination, wet pavement reflections, drifting mist; nostalgic warmth, muted contrast, and a reflective atmosphere; vertical 2:3 framing with an airy editorial composition, cinematic editorial atmosphere, natural light, tactile detail, and generous negative space"
+        }
+      },
+      "live_headline": "Browns erase 17-point deficit to beat Texans in Week 10",
+      "rank": 41,
+      "reasons": [
+        "2026 search match",
+        "playoff/player theme",
+        "throwback penalty"
+      ]
+    },
+    {
+      "slug": "sanders-special-edition",
+      "source_index": 4,
+      "collection": "cleveland-browns",
+      "collection_label": "Cleveland Browns",
+      "name": "Sanders QB Signature White Shirt",
+      "catalogue_title": "Sander's Special Edition",
+      "design_text": "SANDERS QB 12 signature, white colorway",
+      "theme": "player",
+      "product_type": "Apparel",
+      "price_usd": "22.99",
+      "product_url": "https://gridironlocker.store/shop/sanders-special-edition/",
+      "image_url": "https://assets.viralstyle.com/campaigns/dc8a2b08-7e40-ab64-29a7-45760ae4bbc2/BAqBeE-9M51kPA-wkRqMmp-front-large.jpg",
+      "keywords": [
+        "sanders white tee",
+        "browns quarterback shirt",
+        "cleveland qb signature tee"
+      ],
+      "score": 53,
+      "score_breakdown": {
+        "score": 53,
+        "score_raw": 53,
+        "base": 50,
+        "season_search_terms": [
+          "sanders browns qb shirt"
+        ],
+        "season_search_term_bonus": 22,
+        "headline_name_matches": [
+          {
+            "name": "shedeur sanders",
+            "mentions": 0,
+            "repeated_mentions": 0,
+            "throwback_signal": true
+          }
+        ],
+        "headline_name_repeat_count": 0,
+        "headline_name_bonus": 0,
+        "playoff_or_player_theme": true,
+        "playoff_or_player_bonus": 6,
+        "throwback": true,
+        "throwback_entities": [
+          "shedeur sanders"
+        ],
+        "throwback_penalty": -25
+      },
+      "opportunity": {
+        "score": 47.5,
+        "confidence": 75,
+        "factors": {
+          "audience": 70,
+          "search": 65,
+          "velocity": 10,
+          "gap": 50,
+          "competition": 50,
+          "business": 40,
+          "authority": 55,
+          "longevity": 10,
+          "distribution": 50
+        },
+        "weights": {
+          "audience": 20,
+          "search": 15,
+          "velocity": 15,
+          "gap": 15,
+          "competition": 10,
+          "business": 10,
+          "authority": 5,
+          "longevity": 5,
+          "distribution": 5
+        },
+        "trend_stage": "DECLINING",
+        "opportunity_type": "Commercial",
+        "decision": "REJECT",
+        "decision_reason": "Departed player/coach — keep listed, do not promote",
+        "gates": {
+          "audience": {
+            "passed": true,
+            "note": "Targeted fanbase defined"
+          },
+          "evidence": {
+            "passed": true,
+            "note": "Hot query / entity match"
+          },
+          "differentiation": {
+            "passed": true,
+            "note": "Original design copy present (estimate — no rival comparison yet)"
+          },
+          "discovery": {
+            "passed": true,
+            "note": "Searchable terms present"
+          },
+          "business": {
+            "passed": true,
+            "note": "Commercial product"
+          },
+          "risk": {
+            "passed": false,
+            "note": "IP/throwback risk"
+          },
+          "cannibalization": {
+            "passed": true,
+            "note": "3 sibling term match(es)"
+          }
+        },
+        "compliance": {
+          "terms": [
+            "browns",
+            "cleveland"
+          ],
+          "team_terms": [
+            "browns",
+            "cleveland"
+          ],
+          "person_terms": [],
+          "throwback_terms": [],
+          "level": "medium",
+          "social_safe": false,
+          "social_blocked": true
+        },
+        "evidence": {
+          "has_season_terms": true,
+          "has_headline_momentum": false,
+          "has_current_person": true,
+          "competitive_data": "estimate — no live rival data"
+        }
+      },
+      "platforms": {
+        "instagram": {
+          "caption": "53-man roster dropped. Cuts hurt. Sanders QB Signature White Shirt still hits. Cleveland, this one's yours. Comment your size — S to 3XL, printed on demand.",
+          "hashtags": [
+            "#fanfavorite",
+            "#clevelandqbsignature",
+            "#clevelandfootball",
+            "#playertee",
+            "#dawgpound",
+            "#sanderswhitetee",
+            "#brownsquarterbackshi",
+            "#brownsfans"
+          ],
+          "prompt": "Rain-fresh autumn tailgate at dawn beside an empty stadium concourse; ember orange and deep cocoa illumination, wet pavement reflections, drifting mist; nostalgic warmth, muted contrast, and a reflective atmosphere; vertical 4:5 framing, cinematic editorial atmosphere, natural light, tactile detail, and generous negative space"
+        },
+        "tiktok": {
+          "caption": "CLE moms, Browns dads, Browns erase 17-point deficit to beat Texans in Week 10 — Sanders QB Signature White Shirt for the family. Show us the fit.",
+          "hashtags": [
+            "#playertee",
+            "#sanderswhitetee",
+            "#fanfavorite",
+            "#dawgpound",
+            "#clevelandfootball",
+            "#brownsquarterbackshi",
+            "#clevelandqbsignature",
+            "#brownsfans"
+          ],
+          "prompt": "Rain-fresh autumn tailgate at dawn beside an empty stadium concourse; ember orange and deep cocoa illumination, wet pavement reflections, drifting mist; nostalgic warmth, muted contrast, and a reflective atmosphere; vertical 9:16 framing with a strong center of calm negative space, cinematic editorial atmosphere, natural light, tactile detail, and generous negative space"
+        },
+        "facebook": {
+          "caption": "Not officially licensed, just officially Cleveland. Browns erase 17-point deficit to beat Texans in Week 10 — Sanders QB Signature White Shirt is independent fan art for the loyal. Explore the design here — sizes S to 3XL, worldwide shipping.",
+          "hashtags": [
+            "#sanderswhitetee",
+            "#clevelandfootball",
+            "#brownsquarterbackshi",
+            "#dawgpound",
+            "#fanfavorite",
+            "#brownsfans"
+          ],
+          "prompt": "Rain-fresh autumn tailgate at dawn beside an empty stadium concourse; ember orange and deep cocoa illumination, wet pavement reflections, drifting mist; nostalgic warmth, muted contrast, and a reflective atmosphere; horizontal 16:9 framing, cinematic editorial atmosphere, natural light, tactile detail, and generous negative space"
+        },
+        "x": {
+          "caption": "CLE: Browns erase 17-point deficit to beat Texans in Week 10 = Sanders QB Signature White Shirt season. Here We Go Brownies. https://viralstyle.com/kebystore/sanders-special-edition",
+          "hashtags": [
+            "#dawgpound",
+            "#brownsfans",
+            "#fanfavorite",
+            "#brownsquarterbackshi"
+          ],
+          "prompt": "Rain-fresh autumn tailgate at dawn beside an empty stadium concourse; ember orange and deep cocoa illumination, wet pavement reflections, drifting mist; nostalgic warmth, muted contrast, and a reflective atmosphere; horizontal 16:9 framing with a wide horizon, cinematic editorial atmosphere, natural light, tactile detail, and generous negative space"
+        },
+        "pinterest": {
+          "caption": "Sanders QB Signature White Shirt - Cleveland Browns Outfit Inspo | Game Day to Everyday. Save to your game day board — S to 3XL, printed on demand.",
+          "hashtags": [
+            "#fanfavorite",
+            "#brownsfans",
+            "#playertee",
+            "#sanderswhitetee",
+            "#dawgpound",
+            "#brownsquarterbackshi",
+            "#clevelandfootball",
+            "#clevelandqbsignature"
+          ],
+          "prompt": "Rain-fresh autumn tailgate at dawn beside an empty stadium concourse; ember orange and deep cocoa illumination, wet pavement reflections, drifting mist; nostalgic warmth, muted contrast, and a reflective atmosphere; vertical 2:3 framing with an airy editorial composition, cinematic editorial atmosphere, natural light, tactile detail, and generous negative space"
+        }
+      },
+      "live_headline": "Browns erase 17-point deficit to beat Texans in Week 10",
+      "rank": 42,
+      "reasons": [
+        "2026 search match",
+        "playoff/player theme",
+        "throwback penalty"
       ]
     },
     {
@@ -17119,7 +17125,7 @@
       },
       "platforms": {
         "instagram": {
-          "caption": "Star-city lettering, washed silver. Updates: Change coming on defensive staff? makes Y'all Can Kiss My Dallas Longhorn Shirt vintage and now. Add it to your gift list before kickoff.",
+          "caption": "Star-city lettering, washed silver. Updates: Cornelius claimed; Porter full on Wed. makes Y'all Can Kiss My Dallas Longhorn Shirt vintage and now. Add it to your gift list before kickoff.",
           "hashtags": [
             "#yallcankissmydallas",
             "#footballhumor",
@@ -17133,7 +17139,7 @@
           "prompt": "Late-summer Texas dusk on a wide concrete plaza near an empty stadium; burnt-sunset glow, midnight blue shadows, silver highlights, dry warm air; playful warmth, bright contrast, and a lighthearted atmosphere; vertical 4:5 framing, cinematic editorial atmosphere, natural light, tactile detail, and generous negative space"
         },
         "tiktok": {
-          "caption": "When Updates: Change coming on defensive staff? drops and your Y'all Can Kiss My Dallas Longhorn Shirt is already on. POV: you already ordered it.",
+          "caption": "When Updates: Cornelius claimed; Porter full on Wed. drops and your Y'all Can Kiss My Dallas Longhorn Shirt is already on. POV: you already ordered it.",
           "hashtags": [
             "#star city",
             "#texasfootball",
@@ -17147,7 +17153,7 @@
           "prompt": "Late-summer Texas dusk on a wide concrete plaza near an empty stadium; burnt-sunset glow, midnight blue shadows, silver highlights, dry warm air; playful warmth, bright contrast, and a lighthearted atmosphere; vertical 9:16 framing with a strong center of calm negative space, cinematic editorial atmosphere, natural light, tactile detail, and generous negative space"
         },
         "facebook": {
-          "caption": "Dallas, Updates: Change coming on defensive staff? just made prime time bigger. Y'all Can Kiss My Dallas Longhorn Shirt is how Star City wears the moment. Tap through to see all colourways and garment styles.",
+          "caption": "Dallas, Updates: Cornelius claimed; Porter full on Wed. just made prime time bigger. Y'all Can Kiss My Dallas Longhorn Shirt is how Star City wears the moment. Tap through to see all colourways and garment styles.",
           "hashtags": [
             "#funnydallasshirt",
             "#texasfootball",
@@ -17159,7 +17165,7 @@
           "prompt": "Late-summer Texas dusk on a wide concrete plaza near an empty stadium; burnt-sunset glow, midnight blue shadows, silver highlights, dry warm air; playful warmth, bright contrast, and a lighthearted atmosphere; horizontal 16:9 framing, cinematic editorial atmosphere, natural light, tactile detail, and generous negative space"
         },
         "x": {
-          "caption": "Updates: Change coming on defensive staff?. Y'all Can Kiss My Dallas Longhorn Shirt for Star City. Fan-made, printed on demand. https://viralstyle.com/kebystore/vintage-country",
+          "caption": "Updates: Cornelius claimed; Porter full on Wed.. Y'all Can Kiss My Dallas Longhorn Shirt for Star City. Fan-made, printed on demand. https://viralstyle.com/kebystore/vintage-country",
           "hashtags": [
             "#dallascowboys",
             "#yallcankissmydallas",
@@ -17183,7 +17189,7 @@
           "prompt": "Late-summer Texas dusk on a wide concrete plaza near an empty stadium; burnt-sunset glow, midnight blue shadows, silver highlights, dry warm air; playful warmth, bright contrast, and a lighthearted atmosphere; vertical 2:3 framing with an airy editorial composition, cinematic editorial atmosphere, natural light, tactile detail, and generous negative space"
         }
       },
-      "live_headline": "Updates: Change coming on defensive staff?",
+      "live_headline": "Updates: Cornelius claimed; Porter full on Wed.",
       "rank": 90,
       "reasons": [
         "evergreen catalogue fit"
@@ -17304,7 +17310,7 @@
       },
       "platforms": {
         "instagram": {
-          "caption": "Silver and blue, Texas-sized swagger. Updates: Change coming on defensive staff? means Dallas American Flag Vertical Shirt season. Comment your size — S to 3XL, printed on demand.",
+          "caption": "Silver and blue, Texas-sized swagger. Updates: Cornelius claimed; Porter full on Wed. means Dallas American Flag Vertical Shirt season. Comment your size — S to 3XL, printed on demand.",
           "hashtags": [
             "#citypride",
             "#dallascowboys",
@@ -17318,7 +17324,7 @@
           "prompt": "Late-summer Texas dusk on a wide concrete plaza near an empty stadium; burnt-sunset glow, midnight blue shadows, silver highlights, dry warm air; grounded pride, open space, and a confident atmosphere; vertical 4:5 framing, cinematic editorial atmosphere, natural light, tactile detail, and generous negative space"
         },
         "tiktok": {
-          "caption": "Texas-sized fit check: Dallas American Flag Vertical Shirt + Updates: Change coming on defensive staff? = How Bout Them Cowboys. Comment 'GO' and we'll drop the link.",
+          "caption": "Texas-sized fit check: Dallas American Flag Vertical Shirt + Updates: Cornelius claimed; Porter full on Wed. = How Bout Them Cowboys. Comment 'GO' and we'll drop the link.",
           "hashtags": [
             "#texasamericanflagshi",
             "#dallascowboys",
@@ -17332,7 +17338,7 @@
           "prompt": "Late-summer Texas dusk on a wide concrete plaza near an empty stadium; burnt-sunset glow, midnight blue shadows, silver highlights, dry warm air; grounded pride, open space, and a confident atmosphere; vertical 9:16 framing with a strong center of calm negative space, cinematic editorial atmosphere, natural light, tactile detail, and generous negative space"
         },
         "facebook": {
-          "caption": "Dallas, Updates: Change coming on defensive staff? just made prime time bigger. Dallas American Flag Vertical Shirt is how Star City wears the moment. Order early in the week if you want it for Sunday.",
+          "caption": "Dallas, Updates: Cornelius claimed; Porter full on Wed. just made prime time bigger. Dallas American Flag Vertical Shirt is how Star City wears the moment. Order early in the week if you want it for Sunday.",
           "hashtags": [
             "#citypride",
             "#dallasflagshirt",
@@ -17344,7 +17350,7 @@
           "prompt": "Late-summer Texas dusk on a wide concrete plaza near an empty stadium; burnt-sunset glow, midnight blue shadows, silver highlights, dry warm air; grounded pride, open space, and a confident atmosphere; horizontal 16:9 framing, cinematic editorial atmosphere, natural light, tactile detail, and generous negative space"
         },
         "x": {
-          "caption": "Updates: Change coming on defensive staff?. Dallas American Flag Vertical Shirt for Star City. Fan-made, printed on demand. https://viralstyle.com/kebystore/dallas-flag-tee",
+          "caption": "Updates: Cornelius claimed; Porter full on Wed.. Dallas American Flag Vertical Shirt for Star City. Fan-made, printed on demand. https://viralstyle.com/kebystore/dallas-flag-tee",
           "hashtags": [
             "#patrioticdallastee",
             "#dallascowboys",
@@ -17368,7 +17374,7 @@
           "prompt": "Late-summer Texas dusk on a wide concrete plaza near an empty stadium; burnt-sunset glow, midnight blue shadows, silver highlights, dry warm air; grounded pride, open space, and a confident atmosphere; vertical 2:3 framing with an airy editorial composition, cinematic editorial atmosphere, natural light, tactile detail, and generous negative space"
         }
       },
-      "live_headline": "Updates: Change coming on defensive staff?",
+      "live_headline": "Updates: Cornelius claimed; Porter full on Wed.",
       "rank": 91,
       "reasons": [
         "evergreen catalogue fit"
@@ -17489,7 +17495,7 @@
       },
       "platforms": {
         "instagram": {
-          "caption": "From Deep Ellum to AT&T glow: Updates: Change coming on defensive staff? and Dallas Texas State Flag Pride Shirt travel together. Comment your size — S to 3XL, printed on demand.",
+          "caption": "From Deep Ellum to AT&T glow: Updates: Cornelius claimed; Porter full on Wed. and Dallas Texas State Flag Pride Shirt travel together. Comment your size — S to 3XL, printed on demand.",
           "hashtags": [
             "#star city",
             "#citypride",
@@ -17503,7 +17509,7 @@
           "prompt": "Late-summer Texas dusk on a wide concrete plaza near an empty stadium; burnt-sunset glow, midnight blue shadows, silver highlights, dry warm air; grounded pride, open space, and a confident atmosphere; vertical 4:5 framing, cinematic editorial atmosphere, natural light, tactile detail, and generous negative space"
         },
         "tiktok": {
-          "caption": "POV: Star City hears Updates: Change coming on defensive staff? and puts on Dallas Texas State Flag Pride Shirt. POV: you already ordered it.",
+          "caption": "POV: Star City hears Updates: Cornelius claimed; Porter full on Wed. and puts on Dallas Texas State Flag Pride Shirt. POV: you already ordered it.",
           "hashtags": [
             "#texasfootball",
             "#dallasstateoutlinete",
@@ -17517,7 +17523,7 @@
           "prompt": "Late-summer Texas dusk on a wide concrete plaza near an empty stadium; burnt-sunset glow, midnight blue shadows, silver highlights, dry warm air; grounded pride, open space, and a confident atmosphere; vertical 9:16 framing with a strong center of calm negative space, cinematic editorial atmosphere, natural light, tactile detail, and generous negative space"
         },
         "facebook": {
-          "caption": "Not officially licensed, just officially Dallas. Updates: Change coming on defensive staff? — Dallas Texas State Flag Pride Shirt is independent fan art, printed on demand. Gift-ready: beanies and mugs can't be the wrong size.",
+          "caption": "Not officially licensed, just officially Dallas. Updates: Cornelius claimed; Porter full on Wed. — Dallas Texas State Flag Pride Shirt is independent fan art, printed on demand. Gift-ready: beanies and mugs can't be the wrong size.",
           "hashtags": [
             "#dallasstateoutlinete",
             "#texasflagshirt",
@@ -17529,7 +17535,7 @@
           "prompt": "Late-summer Texas dusk on a wide concrete plaza near an empty stadium; burnt-sunset glow, midnight blue shadows, silver highlights, dry warm air; grounded pride, open space, and a confident atmosphere; horizontal 16:9 framing, cinematic editorial atmosphere, natural light, tactile detail, and generous negative space"
         },
         "x": {
-          "caption": "Updates: Change coming on defensive staff? just dropped. Dallas Texas State Flag Pride Shirt is how Dallas answers. https://viralstyle.com/kebystore/vintage-texas-pride",
+          "caption": "Updates: Cornelius claimed; Porter full on Wed. just dropped. Dallas Texas State Flag Pride Shirt is how Dallas answers. https://viralstyle.com/kebystore/vintage-texas-pride",
           "hashtags": [
             "#texasfootball",
             "#dallasstateoutlinete",
@@ -17553,7 +17559,7 @@
           "prompt": "Late-summer Texas dusk on a wide concrete plaza near an empty stadium; burnt-sunset glow, midnight blue shadows, silver highlights, dry warm air; grounded pride, open space, and a confident atmosphere; vertical 2:3 framing with an airy editorial composition, cinematic editorial atmosphere, natural light, tactile detail, and generous negative space"
         }
       },
-      "live_headline": "Updates: Change coming on defensive staff?",
+      "live_headline": "Updates: Cornelius claimed; Porter full on Wed.",
       "rank": 92,
       "reasons": [
         "evergreen catalogue fit"
@@ -18323,8 +18329,8 @@
   ],
   "calendar": [
     {
-      "date": "2026-11-18",
-      "weekday": "Wednesday",
+      "date": "2026-11-19",
+      "weekday": "Thursday",
       "focus_rank": 1,
       "focus_slug": "limited-edition-grb31",
       "focus_name": "Jordan Love 10 Green Bay Hoodie",
@@ -18428,8 +18434,8 @@
       ]
     },
     {
-      "date": "2026-11-19",
-      "weekday": "Thursday",
+      "date": "2026-11-20",
+      "weekday": "Friday",
       "focus_rank": 2,
       "focus_slug": "limited-edition-grb30",
       "focus_name": "Jordan Freaking Love Shirt",
@@ -18533,8 +18539,8 @@
       ]
     },
     {
-      "date": "2026-11-20",
-      "weekday": "Friday",
+      "date": "2026-11-21",
+      "weekday": "Saturday",
       "focus_rank": 3,
       "focus_slug": "limited-edition-grb36",
       "focus_name": "Jordan Love 10 Flag Number Shirt",
@@ -18638,8 +18644,8 @@
       ]
     },
     {
-      "date": "2026-11-21",
-      "weekday": "Saturday",
+      "date": "2026-11-22",
+      "weekday": "Sunday",
       "focus_rank": 4,
       "focus_slug": "limited-edition-grb24",
       "focus_name": "Love 10 Jersey Back Shirt",
@@ -18743,8 +18749,8 @@
       ]
     },
     {
-      "date": "2026-11-22",
-      "weekday": "Sunday",
+      "date": "2026-11-23",
+      "weekday": "Monday",
       "focus_rank": 5,
       "focus_slug": "limited-edition-grb4",
       "focus_name": "Let The 10VE Begin Green Bay Shirt",
@@ -18848,8 +18854,8 @@
       ]
     },
     {
-      "date": "2026-11-23",
-      "weekday": "Monday",
+      "date": "2026-11-24",
+      "weekday": "Tuesday",
       "focus_rank": 6,
       "focus_slug": "limited-edition-grb11",
       "focus_name": "Jordan Love Is All You Need Shirt",
@@ -18953,324 +18959,9 @@
       ]
     },
     {
-      "date": "2026-11-24",
-      "weekday": "Tuesday",
-      "focus_rank": 7,
-      "focus_slug": "sanders-13-special-edition",
-      "focus_name": "Shedeur Sanders 12 They Forgot Who I Am Shirt",
-      "focus_collection": "Cleveland Browns",
-      "focus_score": 100,
-      "posts": [
-        {
-          "platform": "instagram",
-          "platform_label": "Instagram",
-          "time": "12:00",
-          "rank": 7,
-          "slug": "sanders-13-special-edition",
-          "name": "Shedeur Sanders 12 They Forgot Who I Am Shirt",
-          "score": 100,
-          "caption": "Here We Go Brownies isn't a chant, it's a survival skill. Shedeur Sanders 12 They Forgot Who I Am Shirt proves you stayed. Comment your size — S to 3XL, printed on demand.",
-          "hashtags": [
-            "#clevelandquarterback",
-            "#fanfavorite",
-            "#clevelandfootball",
-            "#brownsfans",
-            "#dawgpound",
-            "#playertee",
-            "#shedeursandersshirt",
-            "#sandersbrownsqbtee"
-          ]
-        },
-        {
-          "platform": "tiktok",
-          "platform_label": "TikTok",
-          "time": "19:30",
-          "rank": 7,
-          "slug": "sanders-13-special-edition",
-          "name": "Shedeur Sanders 12 They Forgot Who I Am Shirt",
-          "score": 100,
-          "caption": "Dawg Check: Shedeur Sanders ignites Cleveland Browns quarterback chatter again. Shedeur Sanders 12 They Forgot Who I Am Shirt is the answer. Fit check approved? Link in bio.",
-          "hashtags": [
-            "#clevelandquarterback",
-            "#fanfavorite",
-            "#sandersbrownsqbtee",
-            "#clevelandfootball",
-            "#dawgpound",
-            "#brownsfans",
-            "#shedeursandersshirt",
-            "#playertee"
-          ]
-        },
-        {
-          "platform": "facebook",
-          "platform_label": "Facebook",
-          "time": "18:30",
-          "rank": 7,
-          "slug": "sanders-13-special-edition",
-          "name": "Shedeur Sanders 12 They Forgot Who I Am Shirt",
-          "score": 100,
-          "caption": "Cleveland, Shedeur Sanders ignites Cleveland Browns quarterback chatter again just changed the conversation. Shedeur Sanders 12 They Forgot Who I Am Shirt is how Dawg Pound marks it — fan-made, printed on demand, no warehouse stock. Order early in the week if you want it for Sunday.",
-          "hashtags": [
-            "#playertee",
-            "#clevelandfootball",
-            "#brownsfans",
-            "#fanfavorite",
-            "#dawgpound",
-            "#sandersbrownsqbtee"
-          ]
-        },
-        {
-          "platform": "x",
-          "platform_label": "X",
-          "time": "09:00",
-          "rank": 7,
-          "slug": "sanders-13-special-edition",
-          "name": "Shedeur Sanders 12 They Forgot Who I Am Shirt",
-          "score": 100,
-          "caption": "Shedeur Sanders 12 They Forgot Who I Am Shirt with THEY FORGOT WHO I AM - SANDERS SHEDEUR - BROWNS 12. Shedeur Sanders ignites Cleveland Browns quarterback chatter again. Dawg Pound approved. https://viralstyle.com/kebystore/sanders-13-special-edition",
-          "hashtags": [
-            "#brownsfans",
-            "#clevelandfootball",
-            "#playertee",
-            "#fanfavorite"
-          ]
-        },
-        {
-          "platform": "pinterest",
-          "platform_label": "Pinterest",
-          "time": "20:30",
-          "rank": 7,
-          "slug": "sanders-13-special-edition",
-          "name": "Shedeur Sanders 12 They Forgot Who I Am Shirt",
-          "score": 100,
-          "caption": "Shedeur Sanders 12 They Forgot Who I Am Shirt - Dawg Pound Game Day Outfit Idea | Cleveland Browns Fan Style. Add to your tailgate outfit ideas.",
-          "hashtags": [
-            "#sandersbrownsqbtee",
-            "#brownsfans",
-            "#clevelandquarterback",
-            "#playertee",
-            "#shedeursandersshirt",
-            "#clevelandfootball",
-            "#fanfavorite",
-            "#dawgpound"
-          ]
-        }
-      ]
-    },
-    {
       "date": "2026-11-25",
       "weekday": "Wednesday",
-      "focus_rank": 8,
-      "focus_slug": "sanders-12-special-edition",
-      "focus_name": "Sanders QB 12 Signature Shirt",
-      "focus_collection": "Cleveland Browns",
-      "focus_score": 100,
-      "posts": [
-        {
-          "platform": "instagram",
-          "platform_label": "Instagram",
-          "time": "12:00",
-          "rank": 8,
-          "slug": "sanders-12-special-edition",
-          "name": "Sanders QB 12 Signature Shirt",
-          "score": 100,
-          "caption": "Bark first, talk later. Shedeur Sanders ignites Cleveland Browns quarterback chatter again means Sanders QB 12 Signature Shirt season is officially on. Add it to your gift list before kickoff.",
-          "hashtags": [
-            "#fanfavorite",
-            "#clevelandrookieqbshi",
-            "#clevelandfootball",
-            "#browns12quarterbackt",
-            "#dawgpound",
-            "#brownsfans",
-            "#playertee",
-            "#sandersqbshirt"
-          ]
-        },
-        {
-          "platform": "tiktok",
-          "platform_label": "TikTok",
-          "time": "19:30",
-          "rank": 8,
-          "slug": "sanders-12-special-edition",
-          "name": "Sanders QB 12 Signature Shirt",
-          "score": 100,
-          "caption": "No one suffers like us. No one stays like us. Sanders QB 12 Signature Shirt after Shedeur Sanders ignites Cleveland Browns quarterback chatter again. Show us the fit.",
-          "hashtags": [
-            "#clevelandfootball",
-            "#playertee",
-            "#brownsfans",
-            "#sandersqbshirt",
-            "#dawgpound",
-            "#fanfavorite",
-            "#browns12quarterbackt",
-            "#clevelandrookieqbshi"
-          ]
-        },
-        {
-          "platform": "facebook",
-          "platform_label": "Facebook",
-          "time": "18:30",
-          "rank": 8,
-          "slug": "sanders-12-special-edition",
-          "name": "Sanders QB 12 Signature Shirt",
-          "score": 100,
-          "caption": "From 19 degrees and sleeting to Shedeur Sanders ignites Cleveland Browns quarterback chatter again — Sanders QB 12 Signature Shirt has been through it with you. Printed on demand in the USA, shipped worldwide with tracking.",
-          "hashtags": [
-            "#fanfavorite",
-            "#dawgpound",
-            "#sandersqbshirt",
-            "#playertee",
-            "#clevelandrookieqbshi",
-            "#brownsfans"
-          ]
-        },
-        {
-          "platform": "x",
-          "platform_label": "X",
-          "time": "09:00",
-          "rank": 8,
-          "slug": "sanders-12-special-edition",
-          "name": "Sanders QB 12 Signature Shirt",
-          "score": 100,
-          "caption": "Shedeur Sanders ignites Cleveland Browns quarterback chatter again. Sanders QB 12 Signature Shirt for The Land. Fan-made, printed on demand. https://viralstyle.com/kebystore/sanders-12-special-edition",
-          "hashtags": [
-            "#clevelandfootball",
-            "#browns12quarterbackt",
-            "#fanfavorite",
-            "#dawgpound"
-          ]
-        },
-        {
-          "platform": "pinterest",
-          "platform_label": "Pinterest",
-          "time": "20:30",
-          "rank": 8,
-          "slug": "sanders-12-special-edition",
-          "name": "Sanders QB 12 Signature Shirt",
-          "score": 100,
-          "caption": "Sanders QB 12 Signature Shirt - Cleveland Browns Outfit Inspo | Game Day to Everyday. Save to your game day board — S to 3XL, printed on demand.",
-          "hashtags": [
-            "#sandersqbshirt",
-            "#playertee",
-            "#fanfavorite",
-            "#browns12quarterbackt",
-            "#clevelandrookieqbshi",
-            "#dawgpound",
-            "#brownsfans",
-            "#clevelandfootball"
-          ]
-        }
-      ]
-    },
-    {
-      "date": "2026-11-26",
-      "weekday": "Thursday",
-      "focus_rank": 9,
-      "focus_slug": "sanders-special-edition",
-      "focus_name": "Sanders QB Signature White Shirt",
-      "focus_collection": "Cleveland Browns",
-      "focus_score": 100,
-      "posts": [
-        {
-          "platform": "instagram",
-          "platform_label": "Instagram",
-          "time": "12:00",
-          "rank": 9,
-          "slug": "sanders-special-edition",
-          "name": "Sanders QB Signature White Shirt",
-          "score": 100,
-          "caption": "53-man roster dropped. Cuts hurt. Sanders QB Signature White Shirt still hits. Cleveland, this one's yours. Comment your size — S to 3XL, printed on demand.",
-          "hashtags": [
-            "#fanfavorite",
-            "#clevelandqbsignature",
-            "#clevelandfootball",
-            "#playertee",
-            "#dawgpound",
-            "#sanderswhitetee",
-            "#brownsquarterbackshi",
-            "#brownsfans"
-          ]
-        },
-        {
-          "platform": "tiktok",
-          "platform_label": "TikTok",
-          "time": "19:30",
-          "rank": 9,
-          "slug": "sanders-special-edition",
-          "name": "Sanders QB Signature White Shirt",
-          "score": 100,
-          "caption": "CLE moms, Browns dads, Shedeur Sanders ignites Cleveland Browns quarterback chatter again — Sanders QB Signature White Shirt for the family. Show us the fit.",
-          "hashtags": [
-            "#playertee",
-            "#sanderswhitetee",
-            "#fanfavorite",
-            "#dawgpound",
-            "#clevelandfootball",
-            "#brownsquarterbackshi",
-            "#clevelandqbsignature",
-            "#brownsfans"
-          ]
-        },
-        {
-          "platform": "facebook",
-          "platform_label": "Facebook",
-          "time": "18:30",
-          "rank": 9,
-          "slug": "sanders-special-edition",
-          "name": "Sanders QB Signature White Shirt",
-          "score": 100,
-          "caption": "Not officially licensed, just officially Cleveland. Shedeur Sanders ignites Cleveland Browns quarterback chatter again — Sanders QB Signature White Shirt is independent fan art for the loyal. Explore the design here — sizes S to 3XL, worldwide shipping.",
-          "hashtags": [
-            "#sanderswhitetee",
-            "#clevelandfootball",
-            "#brownsquarterbackshi",
-            "#dawgpound",
-            "#fanfavorite",
-            "#brownsfans"
-          ]
-        },
-        {
-          "platform": "x",
-          "platform_label": "X",
-          "time": "09:00",
-          "rank": 9,
-          "slug": "sanders-special-edition",
-          "name": "Sanders QB Signature White Shirt",
-          "score": 100,
-          "caption": "CLE: Shedeur Sanders ignites Cleveland Browns quarterback chatter again = Sanders QB Signature White Shirt season. Here We Go Brownies. https://viralstyle.com/kebystore/sanders-special-edition",
-          "hashtags": [
-            "#dawgpound",
-            "#brownsfans",
-            "#fanfavorite",
-            "#brownsquarterbackshi"
-          ]
-        },
-        {
-          "platform": "pinterest",
-          "platform_label": "Pinterest",
-          "time": "20:30",
-          "rank": 9,
-          "slug": "sanders-special-edition",
-          "name": "Sanders QB Signature White Shirt",
-          "score": 100,
-          "caption": "Sanders QB Signature White Shirt - Cleveland Browns Outfit Inspo | Game Day to Everyday. Save to your game day board — S to 3XL, printed on demand.",
-          "hashtags": [
-            "#fanfavorite",
-            "#brownsfans",
-            "#playertee",
-            "#sanderswhitetee",
-            "#dawgpound",
-            "#brownsquarterbackshi",
-            "#clevelandfootball",
-            "#clevelandqbsignature"
-          ]
-        }
-      ]
-    },
-    {
-      "date": "2026-11-27",
-      "weekday": "Friday",
-      "focus_rank": 10,
+      "focus_rank": 7,
       "focus_slug": "limited-edition-grb33",
       "focus_name": "All You Need Is Love 10 Helmet Shirt",
       "focus_collection": "Green Bay Packers",
@@ -19280,7 +18971,7 @@
           "platform": "instagram",
           "platform_label": "Instagram",
           "time": "12:00",
-          "rank": 10,
+          "rank": 7,
           "slug": "limited-edition-grb33",
           "name": "All You Need Is Love 10 Helmet Shirt",
           "score": 100,
@@ -19300,7 +18991,7 @@
           "platform": "tiktok",
           "platform_label": "TikTok",
           "time": "19:30",
-          "rank": 10,
+          "rank": 7,
           "slug": "limited-edition-grb33",
           "name": "All You Need Is Love 10 Helmet Shirt",
           "score": 100,
@@ -19320,7 +19011,7 @@
           "platform": "facebook",
           "platform_label": "Facebook",
           "time": "18:30",
-          "rank": 10,
+          "rank": 7,
           "slug": "limited-edition-grb33",
           "name": "All You Need Is Love 10 Helmet Shirt",
           "score": 100,
@@ -19338,7 +19029,7 @@
           "platform": "x",
           "platform_label": "X",
           "time": "09:00",
-          "rank": 10,
+          "rank": 7,
           "slug": "limited-edition-grb33",
           "name": "All You Need Is Love 10 Helmet Shirt",
           "score": 100,
@@ -19354,7 +19045,7 @@
           "platform": "pinterest",
           "platform_label": "Pinterest",
           "time": "20:30",
-          "rank": 10,
+          "rank": 7,
           "slug": "limited-edition-grb33",
           "name": "All You Need Is Love 10 Helmet Shirt",
           "score": 100,
@@ -19373,9 +19064,9 @@
       ]
     },
     {
-      "date": "2026-11-28",
-      "weekday": "Saturday",
-      "focus_rank": 11,
+      "date": "2026-11-26",
+      "weekday": "Thursday",
+      "focus_rank": 8,
       "focus_slug": "limited-edition-grb5",
       "focus_name": "Go Pack Go Stencil Shirt",
       "focus_collection": "Green Bay Packers",
@@ -19385,7 +19076,7 @@
           "platform": "instagram",
           "platform_label": "Instagram",
           "time": "12:00",
-          "rank": 11,
+          "rank": 8,
           "slug": "limited-edition-grb5",
           "name": "Go Pack Go Stencil Shirt",
           "score": 100,
@@ -19405,7 +19096,7 @@
           "platform": "tiktok",
           "platform_label": "TikTok",
           "time": "19:30",
-          "rank": 11,
+          "rank": 8,
           "slug": "limited-edition-grb5",
           "name": "Go Pack Go Stencil Shirt",
           "score": 100,
@@ -19425,7 +19116,7 @@
           "platform": "facebook",
           "platform_label": "Facebook",
           "time": "18:30",
-          "rank": 11,
+          "rank": 8,
           "slug": "limited-edition-grb5",
           "name": "Go Pack Go Stencil Shirt",
           "score": 100,
@@ -19443,7 +19134,7 @@
           "platform": "x",
           "platform_label": "X",
           "time": "09:00",
-          "rank": 11,
+          "rank": 8,
           "slug": "limited-edition-grb5",
           "name": "Go Pack Go Stencil Shirt",
           "score": 100,
@@ -19459,7 +19150,7 @@
           "platform": "pinterest",
           "platform_label": "Pinterest",
           "time": "20:30",
-          "rank": 11,
+          "rank": 8,
           "slug": "limited-edition-grb5",
           "name": "Go Pack Go Stencil Shirt",
           "score": 100,
@@ -19478,9 +19169,9 @@
       ]
     },
     {
-      "date": "2026-11-29",
-      "weekday": "Sunday",
-      "focus_rank": 12,
+      "date": "2026-11-27",
+      "weekday": "Friday",
+      "focus_rank": 9,
       "focus_slug": "limited-edition-grb12",
       "focus_name": "What Would Jordan Do Retro Shirt",
       "focus_collection": "Green Bay Packers",
@@ -19490,7 +19181,7 @@
           "platform": "instagram",
           "platform_label": "Instagram",
           "time": "12:00",
-          "rank": 12,
+          "rank": 9,
           "slug": "limited-edition-grb12",
           "name": "What Would Jordan Do Retro Shirt",
           "score": 100,
@@ -19510,7 +19201,7 @@
           "platform": "tiktok",
           "platform_label": "TikTok",
           "time": "19:30",
-          "rank": 12,
+          "rank": 9,
           "slug": "limited-edition-grb12",
           "name": "What Would Jordan Do Retro Shirt",
           "score": 100,
@@ -19530,7 +19221,7 @@
           "platform": "facebook",
           "platform_label": "Facebook",
           "time": "18:30",
-          "rank": 12,
+          "rank": 9,
           "slug": "limited-edition-grb12",
           "name": "What Would Jordan Do Retro Shirt",
           "score": 100,
@@ -19548,7 +19239,7 @@
           "platform": "x",
           "platform_label": "X",
           "time": "09:00",
-          "rank": 12,
+          "rank": 9,
           "slug": "limited-edition-grb12",
           "name": "What Would Jordan Do Retro Shirt",
           "score": 100,
@@ -19564,7 +19255,7 @@
           "platform": "pinterest",
           "platform_label": "Pinterest",
           "time": "20:30",
-          "rank": 12,
+          "rank": 9,
           "slug": "limited-edition-grb12",
           "name": "What Would Jordan Do Retro Shirt",
           "score": 100,
@@ -19583,9 +19274,9 @@
       ]
     },
     {
-      "date": "2026-11-30",
-      "weekday": "Monday",
-      "focus_rank": 13,
+      "date": "2026-11-28",
+      "weekday": "Saturday",
+      "focus_rank": 10,
       "focus_slug": "limited-edition-grb37",
       "focus_name": "This Girl Loves The Pack Shirt",
       "focus_collection": "Green Bay Packers",
@@ -19595,7 +19286,7 @@
           "platform": "instagram",
           "platform_label": "Instagram",
           "time": "12:00",
-          "rank": 13,
+          "rank": 10,
           "slug": "limited-edition-grb37",
           "name": "This Girl Loves The Pack Shirt",
           "score": 80,
@@ -19615,7 +19306,7 @@
           "platform": "tiktok",
           "platform_label": "TikTok",
           "time": "19:30",
-          "rank": 13,
+          "rank": 10,
           "slug": "limited-edition-grb37",
           "name": "This Girl Loves The Pack Shirt",
           "score": 80,
@@ -19635,7 +19326,7 @@
           "platform": "facebook",
           "platform_label": "Facebook",
           "time": "18:30",
-          "rank": 13,
+          "rank": 10,
           "slug": "limited-edition-grb37",
           "name": "This Girl Loves The Pack Shirt",
           "score": 80,
@@ -19653,7 +19344,7 @@
           "platform": "x",
           "platform_label": "X",
           "time": "09:00",
-          "rank": 13,
+          "rank": 10,
           "slug": "limited-edition-grb37",
           "name": "This Girl Loves The Pack Shirt",
           "score": 80,
@@ -19669,7 +19360,7 @@
           "platform": "pinterest",
           "platform_label": "Pinterest",
           "time": "20:30",
-          "rank": 13,
+          "rank": 10,
           "slug": "limited-edition-grb37",
           "name": "This Girl Loves The Pack Shirt",
           "score": 80,
@@ -19688,9 +19379,9 @@
       ]
     },
     {
-      "date": "2026-12-01",
-      "weekday": "Tuesday",
-      "focus_rank": 14,
+      "date": "2026-11-29",
+      "weekday": "Sunday",
+      "focus_rank": 11,
       "focus_slug": "limited-edition-grb32",
       "focus_name": "Cheese Heart Green Bay Shirt",
       "focus_collection": "Green Bay Packers",
@@ -19700,7 +19391,7 @@
           "platform": "instagram",
           "platform_label": "Instagram",
           "time": "12:00",
-          "rank": 14,
+          "rank": 11,
           "slug": "limited-edition-grb32",
           "name": "Cheese Heart Green Bay Shirt",
           "score": 80,
@@ -19720,7 +19411,7 @@
           "platform": "tiktok",
           "platform_label": "TikTok",
           "time": "19:30",
-          "rank": 14,
+          "rank": 11,
           "slug": "limited-edition-grb32",
           "name": "Cheese Heart Green Bay Shirt",
           "score": 80,
@@ -19740,7 +19431,7 @@
           "platform": "facebook",
           "platform_label": "Facebook",
           "time": "18:30",
-          "rank": 14,
+          "rank": 11,
           "slug": "limited-edition-grb32",
           "name": "Cheese Heart Green Bay Shirt",
           "score": 80,
@@ -19758,7 +19449,7 @@
           "platform": "x",
           "platform_label": "X",
           "time": "09:00",
-          "rank": 14,
+          "rank": 11,
           "slug": "limited-edition-grb32",
           "name": "Cheese Heart Green Bay Shirt",
           "score": 80,
@@ -19774,7 +19465,7 @@
           "platform": "pinterest",
           "platform_label": "Pinterest",
           "time": "20:30",
-          "rank": 14,
+          "rank": 11,
           "slug": "limited-edition-grb32",
           "name": "Cheese Heart Green Bay Shirt",
           "score": 80,
@@ -19787,6 +19478,321 @@
             "#cheeseheadshirt",
             "#wisconsincheeseshirt",
             "#packerscheeseheartte",
+            "#gopackgo"
+          ]
+        }
+      ]
+    },
+    {
+      "date": "2026-11-30",
+      "weekday": "Monday",
+      "focus_rank": 12,
+      "focus_slug": "limited-edition-grb29",
+      "focus_name": "Pack Is Back Green Bay Shirt",
+      "focus_collection": "Green Bay Packers",
+      "focus_score": 80,
+      "posts": [
+        {
+          "platform": "instagram",
+          "platform_label": "Instagram",
+          "time": "12:00",
+          "rank": 12,
+          "slug": "limited-edition-grb29",
+          "name": "Pack Is Back Green Bay Shirt",
+          "score": 80,
+          "caption": "Titletown, small town, big heart. Game recap: 5 takeaways from Packers’ loss to Vikings — Pack Is Back Green Bay Shirt is the uniform. Tap the link in bio to see colourways and sizes.",
+          "hashtags": [
+            "#packerscomebacktee",
+            "#gamedaystyle",
+            "#packersfans",
+            "#gopackgo",
+            "#packisbackshirt",
+            "#greenbayfanshirt",
+            "#classictee",
+            "#cheeseheadnation"
+          ]
+        },
+        {
+          "platform": "tiktok",
+          "platform_label": "TikTok",
+          "time": "19:30",
+          "rank": 12,
+          "slug": "limited-edition-grb29",
+          "name": "Pack Is Back Green Bay Shirt",
+          "score": 80,
+          "caption": "Sunday Funday uniform: Pack Is Back Green Bay Shirt + Game recap: 5 takeaways from Packers’ loss to Vikings + brat. Show us the fit.",
+          "hashtags": [
+            "#gopackgo",
+            "#packisbackshirt",
+            "#classictee",
+            "#cheeseheadnation",
+            "#packersfans",
+            "#packerscomebacktee",
+            "#gamedaystyle",
+            "#greenbayfanshirt"
+          ]
+        },
+        {
+          "platform": "facebook",
+          "platform_label": "Facebook",
+          "time": "18:30",
+          "rank": 12,
+          "slug": "limited-edition-grb29",
+          "name": "Pack Is Back Green Bay Shirt",
+          "score": 80,
+          "caption": "Not officially licensed, just officially Green Bay. Game recap: 5 takeaways from Packers’ loss to Vikings — Pack Is Back Green Bay Shirt is independent fan art, printed on demand. Gift-ready: beanies and mugs can't be the wrong size.",
+          "hashtags": [
+            "#gamedaystyle",
+            "#packerscomebacktee",
+            "#packisbackshirt",
+            "#packersfans",
+            "#greenbayfanshirt",
+            "#cheeseheadnation"
+          ]
+        },
+        {
+          "platform": "x",
+          "platform_label": "X",
+          "time": "09:00",
+          "rank": 12,
+          "slug": "limited-edition-grb29",
+          "name": "Pack Is Back Green Bay Shirt",
+          "score": 80,
+          "caption": "Game recap: 5 takeaways from Packers’ loss to Vikings. Pack Is Back Green Bay Shirt for Titletown. Fan-made, printed on demand. https://viralstyle.com/kebystore/limited-edition-grb29",
+          "hashtags": [
+            "#packerscomebacktee",
+            "#cheeseheadnation",
+            "#gopackgo",
+            "#classictee"
+          ]
+        },
+        {
+          "platform": "pinterest",
+          "platform_label": "Pinterest",
+          "time": "20:30",
+          "rank": 12,
+          "slug": "limited-edition-grb29",
+          "name": "Pack Is Back Green Bay Shirt",
+          "score": 80,
+          "caption": "Pack Is Back Green Bay Shirt - Cheesehead Game Day Outfit Idea | Green Bay Packers Style. Save this look for your next game day outfit.",
+          "hashtags": [
+            "#gamedaystyle",
+            "#classictee",
+            "#packerscomebacktee",
+            "#packisbackshirt",
+            "#packersfans",
+            "#greenbayfanshirt",
+            "#cheeseheadnation",
+            "#gopackgo"
+          ]
+        }
+      ]
+    },
+    {
+      "date": "2026-12-01",
+      "weekday": "Tuesday",
+      "focus_rank": 13,
+      "focus_slug": "limited-edition-grb8",
+      "focus_name": "Green Bay Football Cheesehead Nation Shirt",
+      "focus_collection": "Green Bay Packers",
+      "focus_score": 80,
+      "posts": [
+        {
+          "platform": "instagram",
+          "platform_label": "Instagram",
+          "time": "12:00",
+          "rank": 13,
+          "slug": "limited-edition-grb8",
+          "name": "Green Bay Football Cheesehead Nation Shirt",
+          "score": 80,
+          "caption": "From Atwood Ave to the Tundra: Game recap: 5 takeaways from Packers’ loss to Vikings and Green Bay Football Cheesehead Nation Shirt travel together. Comment your size — S to 3XL, printed on demand.",
+          "hashtags": [
+            "#packersfans",
+            "#vintagefootball",
+            "#cheeseheadnationshir",
+            "#greenbay1919tee",
+            "#packersmascotshirt",
+            "#gopackgo",
+            "#cheeseheadnation",
+            "#retrostyle"
+          ]
+        },
+        {
+          "platform": "tiktok",
+          "platform_label": "TikTok",
+          "time": "19:30",
+          "rank": 13,
+          "slug": "limited-edition-grb8",
+          "name": "Green Bay Football Cheesehead Nation Shirt",
+          "score": 80,
+          "caption": "Small town, big Green Bay Football Cheesehead Nation Shirt, Game recap: 5 takeaways from Packers’ loss to Vikings energy. Duet this with your game day look.",
+          "hashtags": [
+            "#cheeseheadnation",
+            "#gopackgo",
+            "#vintagefootball",
+            "#greenbay1919tee",
+            "#cheeseheadnationshir",
+            "#packersmascotshirt",
+            "#packersfans",
+            "#retrostyle"
+          ]
+        },
+        {
+          "platform": "facebook",
+          "platform_label": "Facebook",
+          "time": "18:30",
+          "rank": 13,
+          "slug": "limited-edition-grb8",
+          "name": "Green Bay Football Cheesehead Nation Shirt",
+          "score": 80,
+          "caption": "Green Bay, Game recap: 5 takeaways from Packers’ loss to Vikings just gave us a new reason to wear green and gold. Green Bay Football Cheesehead Nation Shirt is fan-made for Cheesehead Nation. Gift-ready: beanies and mugs can't be the wrong size.",
+          "hashtags": [
+            "#greenbay1919tee",
+            "#cheeseheadnation",
+            "#gopackgo",
+            "#cheeseheadnationshir",
+            "#packersmascotshirt",
+            "#vintagefootball"
+          ]
+        },
+        {
+          "platform": "x",
+          "platform_label": "X",
+          "time": "09:00",
+          "rank": 13,
+          "slug": "limited-edition-grb8",
+          "name": "Green Bay Football Cheesehead Nation Shirt",
+          "score": 80,
+          "caption": "Green Bay: Game recap: 5 takeaways from Packers’ loss to Vikings = Green Bay Football Cheesehead Nation Shirt season. Cheesehead Nation, assemble. https://viralstyle.com/kebystore/limited-edition-grb8",
+          "hashtags": [
+            "#packersmascotshirt",
+            "#cheeseheadnation",
+            "#packersfans",
+            "#vintagefootball"
+          ]
+        },
+        {
+          "platform": "pinterest",
+          "platform_label": "Pinterest",
+          "time": "20:30",
+          "rank": 13,
+          "slug": "limited-edition-grb8",
+          "name": "Green Bay Football Cheesehead Nation Shirt",
+          "score": 80,
+          "caption": "Green Bay Football Cheesehead Nation Shirt - Packers Outfit Inspo | Frozen Tundra to Everyday. Pin this for your football gift list.",
+          "hashtags": [
+            "#cheeseheadnationshir",
+            "#cheeseheadnation",
+            "#greenbay1919tee",
+            "#gopackgo",
+            "#vintagefootball",
+            "#retrostyle",
+            "#packersmascotshirt",
+            "#packersfans"
+          ]
+        }
+      ]
+    },
+    {
+      "date": "2026-12-02",
+      "weekday": "Wednesday",
+      "focus_rank": 14,
+      "focus_slug": "limited-edition-grb7",
+      "focus_name": "Green Bay Football Cheese And Beer Shirt",
+      "focus_collection": "Green Bay Packers",
+      "focus_score": 80,
+      "posts": [
+        {
+          "platform": "instagram",
+          "platform_label": "Instagram",
+          "time": "12:00",
+          "rank": 14,
+          "slug": "limited-edition-grb7",
+          "name": "Green Bay Football Cheese And Beer Shirt",
+          "score": 80,
+          "caption": "Community-owned since 1919. Game recap: 5 takeaways from Packers’ loss to Vikings. Green Bay Football Cheese And Beer Shirt keeps the tradition alive. Save this idea and tap through to see the design.",
+          "hashtags": [
+            "#cheeseandbeertee",
+            "#funnygreenbayshirt",
+            "#footballhumor",
+            "#funnyfootball",
+            "#packersbeershirt",
+            "#gopackgo",
+            "#packersfans",
+            "#cheeseheadnation"
+          ]
+        },
+        {
+          "platform": "tiktok",
+          "platform_label": "TikTok",
+          "time": "19:30",
+          "rank": 14,
+          "slug": "limited-edition-grb7",
+          "name": "Green Bay Football Cheese And Beer Shirt",
+          "score": 80,
+          "caption": "POV: Cheesehead Nation sees Game recap: 5 takeaways from Packers’ loss to Vikings and grabs Green Bay Football Cheese And Beer Shirt. Show us the fit.",
+          "hashtags": [
+            "#funnyfootball",
+            "#gopackgo",
+            "#packersbeershirt",
+            "#cheeseheadnation",
+            "#cheeseandbeertee",
+            "#funnygreenbayshirt",
+            "#footballhumor",
+            "#packersfans"
+          ]
+        },
+        {
+          "platform": "facebook",
+          "platform_label": "Facebook",
+          "time": "18:30",
+          "rank": 14,
+          "slug": "limited-edition-grb7",
+          "name": "Green Bay Football Cheese And Beer Shirt",
+          "score": 80,
+          "caption": "Not officially licensed, just officially Green Bay. Game recap: 5 takeaways from Packers’ loss to Vikings — Green Bay Football Cheese And Beer Shirt is independent fan art, printed on demand. Gift-ready: beanies and mugs can't be the wrong size.",
+          "hashtags": [
+            "#footballhumor",
+            "#cheeseheadnation",
+            "#funnygreenbayshirt",
+            "#cheeseandbeertee",
+            "#packersbeershirt",
+            "#funnyfootball"
+          ]
+        },
+        {
+          "platform": "x",
+          "platform_label": "X",
+          "time": "09:00",
+          "rank": 14,
+          "slug": "limited-edition-grb7",
+          "name": "Green Bay Football Cheese And Beer Shirt",
+          "score": 80,
+          "caption": "Game recap: 5 takeaways from Packers’ loss to Vikings. Green Bay Football Cheese And Beer Shirt for Titletown. Fan-made, printed on demand. https://viralstyle.com/kebystore/limited-edition-grb7",
+          "hashtags": [
+            "#funnygreenbayshirt",
+            "#cheeseandbeertee",
+            "#footballhumor",
+            "#gopackgo"
+          ]
+        },
+        {
+          "platform": "pinterest",
+          "platform_label": "Pinterest",
+          "time": "20:30",
+          "rank": 14,
+          "slug": "limited-edition-grb7",
+          "name": "Green Bay Football Cheese And Beer Shirt",
+          "score": 80,
+          "caption": "Green Bay Football Cheese And Beer Shirt - Green and Gold Street Style | Go Pack Go Approved. Tap to see colourways, sizes, and secure checkout.",
+          "hashtags": [
+            "#packersfans",
+            "#funnygreenbayshirt",
+            "#funnyfootball",
+            "#cheeseheadnation",
+            "#footballhumor",
+            "#packersbeershirt",
+            "#cheeseandbeertee",
             "#gopackgo"
           ]
         }
@@ -19858,9 +19864,9 @@
       "gaps": [
         {
           "name": "deshaun watson",
-          "mentions": 23,
+          "mentions": 24,
           "angle": "Current conversation around Deshaun Watson",
-          "copy_text": "Opportunity: explore an independent fan-made Cleveland concept around Deshaun Watson while the conversation is active (23 recent headline mentions). Validate the current context before publishing."
+          "copy_text": "Opportunity: explore an independent fan-made Cleveland concept around Deshaun Watson while the conversation is active (24 recent headline mentions). Validate the current context before publishing."
         },
         {
           "name": "todd monken",
@@ -19889,30 +19895,26 @@
           "pub": "Tue, 17 Nov 2026 00:02:00 GMT"
         },
         {
-          "title": "Shedeur Sanders ignites Cleveland Browns quarterback chatter again",
-          "url": "https://news.google.com/rss/articles/CBMiiAFBVV95cUxQN01fWVhITExyYi1VS1Z5TGk1RFFGdXItelA2aVkzTzlUTmZDZms2MWphZy1wQVdoRWx0M054SzV0dFJXVzRKcWp6a0dtSU5sRTI2WUlxZEduRlhJTGpCNmxwTEVMVTZtSjRvR2dmUW9SMFpocWgtb01qdVNlR3dONGY0OWRmN3By?oc=5",
-          "source": "Andscape",
-          "pub": "Mon, 09 Nov 2026 08:00:00 GMT"
-        },
-        {
           "title": "Cleveland Browns quarterback Deshaun Watson's best plays from 361-yard game vs. Houston Texans | Week 10",
           "url": "https://news.google.com/rss/articles/CBMilgFBVV95cUxOQm4xN1dkdnF1bElxSDlzSFlJRDNoTlNwQjVibnBKeTNwVW9mNHFSRzNWT2hIejZTLThwdF9qOW1FVE90b0QwS0lqSkJHVTBVNmlmSFJidWdVS3N1LVJlVzBleTVha3VXYVh0MHRzanFNdWZCXzBCSzVVblg1U3c1dTJOb2NuLVBnSW5lalBRVlBxZUxRYVE?oc=5",
           "source": "NFL.com",
           "pub": "Sun, 15 Nov 2026 22:28:19 GMT"
+        },
+        {
+          "title": "Cleveland’s 6-4 Start Has Put This Unexpected Browns Storyline in the Spotlight",
+          "url": "https://news.google.com/rss/articles/CBMixgFBVV95cUxNcnkzSnh4V182azRYajh2THJjVHMteGdJQnFWR3VGVTlUenI0UHRXS25MX0hlSjEzalpFbFBlRU9Wby00WDdvWEpYT2l6M0VNN1dydGk5Z3R6SnNTdHBfV2Q0TGR5dEJoTHlKY2FwMHhFbkZ0T1hLS01KbzI3RWFfOTJDQ2Nla3M4U1JLTWtHNGRDX2JpZkNXdEVMQVppR1RlZU1va0FpZ2tiVEw4ZUdDTjF1UzdFOHFfcS16T1FIc0tjSWZNY2c?oc=5",
+          "source": "Sports Illustrated",
+          "pub": "Wed, 18 Nov 2026 12:00:00 GMT"
         }
       ],
       "covered_names": [
         {
           "name": "deshaun watson",
-          "mentions": 23
+          "mentions": 24
         },
         {
           "name": "todd monken",
           "mentions": 3
-        },
-        {
-          "name": "shedeur sanders",
-          "mentions": 2
         },
         {
           "name": "denzel ward",
@@ -19929,6 +19931,10 @@
         {
           "name": "myles garrett",
           "mentions": 0
+        },
+        {
+          "name": "shedeur sanders",
+          "mentions": 0
         }
       ]
     },
@@ -19939,10 +19945,16 @@
       "headline_count": 100,
       "gaps": [
         {
+          "name": "josh jacobs",
+          "mentions": 3,
+          "angle": "Current conversation around Josh Jacobs",
+          "copy_text": "Opportunity: explore an independent fan-made Green Bay concept around Josh Jacobs while the conversation is active (3 recent headline mentions). Validate the current context before publishing."
+        },
+        {
           "name": "matt lafleur",
-          "mentions": 10,
+          "mentions": 6,
           "angle": "Current conversation around Matt Lafleur",
-          "copy_text": "Opportunity: explore an independent fan-made Green Bay concept around Matt Lafleur while the conversation is active (10 recent headline mentions). Validate the current context before publishing."
+          "copy_text": "Opportunity: explore an independent fan-made Green Bay concept around Matt Lafleur while the conversation is active (6 recent headline mentions). Validate the current context before publishing."
         }
       ],
       "top_headlines": [
@@ -19965,34 +19977,34 @@
           "pub": "Sun, 15 Nov 2026 20:24:45 GMT"
         },
         {
-          "title": "Minnesota Vikings vs. Green Bay Packers: Game Highlights",
-          "url": "https://news.google.com/rss/articles/CBMibkFVX3lxTE9MQUV0MXU3SE9fSlp0dUxVUk9CWFpZc1hZaDAxOFFaOXZCWVhRb08zMEFPazI5RHdnZFdscHFqMmMzWDlHbnh4Q200eTlCalowOGpPaUxmLTRkSG1DMmRaU0lFNlNIQ0N0VkxteFJn?oc=5",
-          "source": "ESPN",
-          "pub": "Sun, 15 Nov 2026 21:09:45 GMT"
+          "title": "Green Bay Packers News: Packers stand pat at trade deadline",
+          "url": "https://news.google.com/rss/articles/CBMixAFBVV95cUxPUUdTMWM4ZlNyTmVkeE1SbENPWi1NSWgzbldxd2c3ZFkySEI2bndndzdlbWlNR2xjczkxOVVlVXcxVHBJTEpTQV9NU3hlTTdEU0VTempTM1F2d1R0TWxucGpBUkpITTRWZkpjbWpKa1VwakJIS1ZZQW5tVEhpVkNZZVJ0aVptRzNEd25pVW1JdlJ3SG1MalZtVzVGbkl5c2JuMjdBTVMxdEN1V0JpemE5QVdlUTJ4MmVIU1cxOUdaUmxya3px?oc=5",
+          "source": "Acme Packing Company",
+          "pub": "Wed, 11 Nov 2026 15:15:50 GMT"
         },
         {
-          "title": "Green Bay Packers invite fans to connect with team in Munich ahead of NFL Germany game",
-          "url": "https://news.google.com/rss/articles/CBMivAFBVV95cUxPZmg1dTBUZmtyTThzNVJtNG85ZEZmMWV1RlBFUWJ1bG5NSjUtMUEwYzg1ZTBWTV9zXzNoa3ZEYzYxeVhXeEV6MzdDell6dV9jUHJUV0JHdm4zVFdRN1h4VzRHV2MyMzQwcGlMNjI4MENhSkZJZ053NGkzY3V1OHBWTUF0dVROcHc5NUVzenlhVTlrNE9GODRuRzB5Tk5sbkk1MHM2VmhyNGUxVTFURDczeVBDZHdSS2d4MHAydA?oc=5",
-          "source": "Green Bay Packers – packers.com",
-          "pub": "Mon, 09 Nov 2026 08:00:00 GMT"
+          "title": "Why Packers can't protect Jordan Love or rush successfully",
+          "url": "https://news.google.com/rss/articles/CBMilwFBVV95cUxPOFY2M3RydERkZGhhdHV2ME1UQnpqc1gySHo5WXdLVnpidUJfcEcwM2k0OGpkRzlwc1EyUFBwUEVQbllxN25WbWVKS1ltMU5YdkVYb2RKTTk5MUI1V2pmbTdkelBHT3dUd0NWM0dwMnRSWkZ0SHI2V2NCV1NOMDFEVXJuTjNzSzgwTWQzV1lsamlWekZCZklZ?oc=5",
+          "source": "ESPN",
+          "pub": "Wed, 18 Nov 2026 11:00:00 GMT"
         }
       ],
       "covered_names": [
         {
           "name": "matt lafleur",
-          "mentions": 10
+          "mentions": 6
         },
         {
           "name": "jordan love",
-          "mentions": 5
+          "mentions": 4
+        },
+        {
+          "name": "josh jacobs",
+          "mentions": 3
         },
         {
           "name": "micah parsons",
           "mentions": 2
-        },
-        {
-          "name": "josh jacobs",
-          "mentions": 0
         },
         {
           "name": "robert tonyan",
@@ -20015,10 +20027,10 @@
       ],
       "top_headlines": [
         {
-          "title": "Updates: Change coming on defensive staff?",
+          "title": "Updates: Cornelius claimed; Porter full on Wed.",
           "url": "https://news.google.com/rss/articles/CBMiZ0FVX3lxTE1XYnlkakRab0lRRVJfS0dyTU1saW51YnhMSGtMWm1xUTNpMHF2ZU5wQW9kZ0lxRDR2LUttekNTMkhpWXRwemkzb3U1SkIwUkxfV2xEeW5fRV8xVGdMV0o4YmJlYUEwV2c?oc=5",
           "source": "Dallas Cowboys | Official Site of the Dallas Cowboys",
-          "pub": "Wed, 11 Nov 2026 08:00:00 GMT"
+          "pub": "Wed, 18 Nov 2026 08:00:00 GMT"
         },
         {
           "title": "49ers Outlast the Dallas Cowboys in 46-40 Shootout; Takeaways from #SFvsDAL",
@@ -20039,10 +20051,10 @@
           "pub": "Mon, 16 Nov 2026 02:23:34 GMT"
         },
         {
-          "title": "Brian Schottenheimer candid about Christian Parker's future in Dallas",
-          "url": "https://news.google.com/rss/articles/CBMipwFBVV95cUxQNHVfZ1dvQ21UV1dsLVJHTnRXTzJNNDJ5QS1jNFBhVlpBcDF5eEFwR3ZSbVdtdzFMX2lnUHYtWnJPb3ZFZlpEcDROS0YxTkJPV2xTU3VjX0FqWW1FMDVLVFE0cm0zS2NLa1ZKWkdUay01U1NLNmJtUmtBQkhjOGpLQUZadlhDbjB1OTUwZTk5dFFnLVBnOEtwVGxiQXFUUTRWSDVQU2cxSQ?oc=5",
+          "title": "Game Recap: Explosive plays doom Dallas, 46-40",
+          "url": "https://news.google.com/rss/articles/CBMihgFBVV95cUxONTk2bklZZU1JSTVNd1FzUVdhYU55R3MwdnRmaFBsWHlkWDZsTjRFZDgwczRmazMxUDFoa1BfVDZaQWE4ZC1jZEQwZTMxVnRUMkp0YzlINHd2TnJPWWR1ME1hT2QyaTVuSXkxUWliUEpsYTloZ2hUYW5HNEhaTm9TRjlTU3RBZw?oc=5",
           "source": "Dallas Cowboys | Official Site of the Dallas Cowboys",
-          "pub": "Wed, 18 Nov 2026 19:38:45 GMT"
+          "pub": "Mon, 16 Nov 2026 01:08:26 GMT"
         }
       ],
       "covered_names": [
@@ -20071,7 +20083,7 @@
       ],
       "top_headlines": [
         {
-          "title": "Watch Michigan vs Oregon Live: Streaming, TV Channel & Start Time - Nov 14, 2026 | CFB Week 11",
+          "title": "Watch Michigan vs Oregon Highlights, Replay & Score - CFB Week 11",
           "url": "https://news.google.com/rss/articles/CBMiqgFBVV95cUxNbU1GYzdlSDdYXzd1RkZfUXhaZnVoMkdwY2hYYXR2Q3lXcHdmY1E2MW43UHJ1a1N6SnZGajZKMzlFQUgtYkxvR1ZmWDNNa25IckVUVTh2TjBPNkRSNUp6TFJvZU1RWDVWX0pscEowTXN2N1hzcXFFcTZaTFhpRHZKN1FLWjRHQnVoWGtPV01YX1RENXZuZHBGRUM0X3ZQNGdKa2tvVzZhUXQxZw?oc=5",
           "source": "FOX One",
           "pub": "Sat, 14 Nov 2026 08:00:00 GMT"
@@ -20089,16 +20101,16 @@
           "pub": "Sun, 15 Nov 2026 04:14:23 GMT"
         },
         {
+          "title": "\"But in terms of how upset he is and bothered by the season, I would say immensely,\" U-M OC Jim Harding said of coach Kyle Whittingham. See link below ⬇️ 📸 Junfu Han, Detroit Free Press",
+          "url": "https://news.google.com/rss/articles/CBMi3wFBVV95cUxORzdzMjNGamZmOVg1Vlh4aHJwYl9KWTVydkdlVmJxdVdlUkJsSmhvelQtX3k0dlNjVGxiVHJrOHFndVZWQWxoaWdEdEluMmJZRDNuVlBHWXBxV0RMYTMyWTdReVd2OGN1RzRnYXRsOEJHU2ptcGZURkRQbWU5MHFnUHpYTDJIMmNfTFA3dGIzMm5zUzY5V0FSclROaDNqd0g2bVh3ZTJiNTJmQ3doOWVaaXozSjdjZHhWR2xOMkVGSnFXZUlpeDZSRzdybi1BVi01X3JHYXl6QlhJX3BVRDhv?oc=5",
+          "source": "Facebook",
+          "pub": "Thu, 19 Nov 2026 00:00:21 GMT"
+        },
+        {
           "title": "Michigan Wolverines vs No. 16 Oregon Ducks Highlights | FOX College Football",
           "url": "https://news.google.com/rss/articles/CBMiYkFVX3lxTFBHRHhFNF9yQlNaSHk2WUp3R3dZajhkbnF2dzhyS1hpZmJfNTFSX3lUTlJBTjF6T0oyWVhBaFZqck1OQlJBUmNMSXdpUUJnc294M1FhY3NxU01LUmtMWVNZZHBn?oc=5",
           "source": "FOX Sports",
           "pub": "Sun, 15 Nov 2026 00:24:18 GMT"
-        },
-        {
-          "title": "Michigan hung around and kept it a game, and the Wolverines deserve credit for that. No, not the coach − the players. See link below ⬇️ 📸 Troy Wayrynen, IMAGN IMAGES via Reuters",
-          "url": "https://news.google.com/rss/articles/CBMi3wFBVV95cUxQbURTeURjTWRyb2c1NHJhNm1sdF9TVzNBWHVqUlk4UEt0ZFBwazZLNHlKX2EwUS03N2p4dWh5Rm1fem1KWDV5b21tTEFsTzF6UVFwVEJfdjN2TDBtWExfX0Iyc2E2ckdFb2JFT291Q2c3SWdKZEcwZFc4d0prbERuWE9odDFHSUozSEw4VXo3VWFBYWgzeE9hZmZkZUs4a0MtU1hmNWh6ajJjc0RmaHQ4SnZDMWxqRG4tQ1h2bXJYQXA5UUw2b3BOZEdCOTdvaUR2S29Cd0c3RUZRd3dFV3JV?oc=5",
-          "source": "Facebook",
-          "pub": "Sun, 15 Nov 2026 03:00:06 GMT"
         }
       ],
       "covered_names": [
@@ -20208,48 +20220,6 @@
     },
     {
       "rank": 7,
-      "slug": "sanders-13-special-edition",
-      "name": "Shedeur Sanders 12 They Forgot Who I Am Shirt",
-      "collection": "Cleveland Browns",
-      "score": 100,
-      "prompts": {
-        "instagram": "Rain-fresh autumn tailgate at dawn beside an empty stadium concourse; ember orange and deep cocoa illumination, wet pavement reflections, drifting mist; focused momentum, confident calm, and an energized atmosphere; vertical 4:5 framing, cinematic editorial atmosphere, natural light, tactile detail, and generous negative space",
-        "tiktok": "Rain-fresh autumn tailgate at dawn beside an empty stadium concourse; ember orange and deep cocoa illumination, wet pavement reflections, drifting mist; focused momentum, confident calm, and an energized atmosphere; vertical 9:16 framing with a strong center of calm negative space, cinematic editorial atmosphere, natural light, tactile detail, and generous negative space",
-        "facebook": "Rain-fresh autumn tailgate at dawn beside an empty stadium concourse; ember orange and deep cocoa illumination, wet pavement reflections, drifting mist; focused momentum, confident calm, and an energized atmosphere; horizontal 16:9 framing, cinematic editorial atmosphere, natural light, tactile detail, and generous negative space",
-        "x": "Rain-fresh autumn tailgate at dawn beside an empty stadium concourse; ember orange and deep cocoa illumination, wet pavement reflections, drifting mist; focused momentum, confident calm, and an energized atmosphere; horizontal 16:9 framing with a wide horizon, cinematic editorial atmosphere, natural light, tactile detail, and generous negative space",
-        "pinterest": "Rain-fresh autumn tailgate at dawn beside an empty stadium concourse; ember orange and deep cocoa illumination, wet pavement reflections, drifting mist; focused momentum, confident calm, and an energized atmosphere; vertical 2:3 framing with an airy editorial composition, cinematic editorial atmosphere, natural light, tactile detail, and generous negative space"
-      }
-    },
-    {
-      "rank": 8,
-      "slug": "sanders-12-special-edition",
-      "name": "Sanders QB 12 Signature Shirt",
-      "collection": "Cleveland Browns",
-      "score": 100,
-      "prompts": {
-        "instagram": "Rain-fresh autumn tailgate at dawn beside an empty stadium concourse; ember orange and deep cocoa illumination, wet pavement reflections, drifting mist; focused momentum, confident calm, and an energized atmosphere; vertical 4:5 framing, cinematic editorial atmosphere, natural light, tactile detail, and generous negative space",
-        "tiktok": "Rain-fresh autumn tailgate at dawn beside an empty stadium concourse; ember orange and deep cocoa illumination, wet pavement reflections, drifting mist; focused momentum, confident calm, and an energized atmosphere; vertical 9:16 framing with a strong center of calm negative space, cinematic editorial atmosphere, natural light, tactile detail, and generous negative space",
-        "facebook": "Rain-fresh autumn tailgate at dawn beside an empty stadium concourse; ember orange and deep cocoa illumination, wet pavement reflections, drifting mist; focused momentum, confident calm, and an energized atmosphere; horizontal 16:9 framing, cinematic editorial atmosphere, natural light, tactile detail, and generous negative space",
-        "x": "Rain-fresh autumn tailgate at dawn beside an empty stadium concourse; ember orange and deep cocoa illumination, wet pavement reflections, drifting mist; focused momentum, confident calm, and an energized atmosphere; horizontal 16:9 framing with a wide horizon, cinematic editorial atmosphere, natural light, tactile detail, and generous negative space",
-        "pinterest": "Rain-fresh autumn tailgate at dawn beside an empty stadium concourse; ember orange and deep cocoa illumination, wet pavement reflections, drifting mist; focused momentum, confident calm, and an energized atmosphere; vertical 2:3 framing with an airy editorial composition, cinematic editorial atmosphere, natural light, tactile detail, and generous negative space"
-      }
-    },
-    {
-      "rank": 9,
-      "slug": "sanders-special-edition",
-      "name": "Sanders QB Signature White Shirt",
-      "collection": "Cleveland Browns",
-      "score": 100,
-      "prompts": {
-        "instagram": "Rain-fresh autumn tailgate at dawn beside an empty stadium concourse; ember orange and deep cocoa illumination, wet pavement reflections, drifting mist; focused momentum, confident calm, and an energized atmosphere; vertical 4:5 framing, cinematic editorial atmosphere, natural light, tactile detail, and generous negative space",
-        "tiktok": "Rain-fresh autumn tailgate at dawn beside an empty stadium concourse; ember orange and deep cocoa illumination, wet pavement reflections, drifting mist; focused momentum, confident calm, and an energized atmosphere; vertical 9:16 framing with a strong center of calm negative space, cinematic editorial atmosphere, natural light, tactile detail, and generous negative space",
-        "facebook": "Rain-fresh autumn tailgate at dawn beside an empty stadium concourse; ember orange and deep cocoa illumination, wet pavement reflections, drifting mist; focused momentum, confident calm, and an energized atmosphere; horizontal 16:9 framing, cinematic editorial atmosphere, natural light, tactile detail, and generous negative space",
-        "x": "Rain-fresh autumn tailgate at dawn beside an empty stadium concourse; ember orange and deep cocoa illumination, wet pavement reflections, drifting mist; focused momentum, confident calm, and an energized atmosphere; horizontal 16:9 framing with a wide horizon, cinematic editorial atmosphere, natural light, tactile detail, and generous negative space",
-        "pinterest": "Rain-fresh autumn tailgate at dawn beside an empty stadium concourse; ember orange and deep cocoa illumination, wet pavement reflections, drifting mist; focused momentum, confident calm, and an energized atmosphere; vertical 2:3 framing with an airy editorial composition, cinematic editorial atmosphere, natural light, tactile detail, and generous negative space"
-      }
-    },
-    {
-      "rank": 10,
       "slug": "limited-edition-grb33",
       "name": "All You Need Is Love 10 Helmet Shirt",
       "collection": "Green Bay Packers",
@@ -20263,7 +20233,7 @@
       }
     },
     {
-      "rank": 11,
+      "rank": 8,
       "slug": "limited-edition-grb5",
       "name": "Go Pack Go Stencil Shirt",
       "collection": "Green Bay Packers",
@@ -20277,7 +20247,7 @@
       }
     },
     {
-      "rank": 12,
+      "rank": 9,
       "slug": "limited-edition-grb12",
       "name": "What Would Jordan Do Retro Shirt",
       "collection": "Green Bay Packers",
@@ -20291,7 +20261,7 @@
       }
     },
     {
-      "rank": 13,
+      "rank": 10,
       "slug": "limited-edition-grb37",
       "name": "This Girl Loves The Pack Shirt",
       "collection": "Green Bay Packers",
@@ -20305,7 +20275,7 @@
       }
     },
     {
-      "rank": 14,
+      "rank": 11,
       "slug": "limited-edition-grb32",
       "name": "Cheese Heart Green Bay Shirt",
       "collection": "Green Bay Packers",
@@ -20319,7 +20289,7 @@
       }
     },
     {
-      "rank": 15,
+      "rank": 12,
       "slug": "limited-edition-grb29",
       "name": "Pack Is Back Green Bay Shirt",
       "collection": "Green Bay Packers",
@@ -20333,7 +20303,7 @@
       }
     },
     {
-      "rank": 16,
+      "rank": 13,
       "slug": "limited-edition-grb8",
       "name": "Green Bay Football Cheesehead Nation Shirt",
       "collection": "Green Bay Packers",
@@ -20347,7 +20317,7 @@
       }
     },
     {
-      "rank": 17,
+      "rank": 14,
       "slug": "limited-edition-grb7",
       "name": "Green Bay Football Cheese And Beer Shirt",
       "collection": "Green Bay Packers",
@@ -20361,7 +20331,7 @@
       }
     },
     {
-      "rank": 18,
+      "rank": 15,
       "slug": "limited-edition-grb27",
       "name": "Packers Distressed American Flag Shirt",
       "collection": "Green Bay Packers",
@@ -20375,7 +20345,7 @@
       }
     },
     {
-      "rank": 19,
+      "rank": 16,
       "slug": "limited-edition-grb26",
       "name": "Green Bay Packers Football Stars Shirt",
       "collection": "Green Bay Packers",
@@ -20389,7 +20359,7 @@
       }
     },
     {
-      "rank": 20,
+      "rank": 17,
       "slug": "limited-edition-grb1-1",
       "name": "Green Bay Vs Everyone Shirt",
       "collection": "Green Bay Packers",
@@ -20403,7 +20373,7 @@
       }
     },
     {
-      "rank": 21,
+      "rank": 18,
       "slug": "limited-edition-grb16",
       "name": "Green Bay WI Football Team Est 1919 Shirt",
       "collection": "Green Bay Packers",
@@ -20417,7 +20387,7 @@
       }
     },
     {
-      "rank": 22,
+      "rank": 19,
       "slug": "limited-edition-grb15",
       "name": "Property Of Green Bay Packers 1919 Shirt",
       "collection": "Green Bay Packers",
@@ -20431,7 +20401,7 @@
       }
     },
     {
-      "rank": 23,
+      "rank": 20,
       "slug": "limited-edition-grb2",
       "name": "The Packers Make Me Drink Shirt",
       "collection": "Green Bay Packers",
@@ -20445,7 +20415,7 @@
       }
     },
     {
-      "rank": 24,
+      "rank": 21,
       "slug": "limited-edition-grb6",
       "name": "Sunday Funday Green Bay Script Shirt",
       "collection": "Green Bay Packers",
@@ -20459,7 +20429,7 @@
       }
     },
     {
-      "rank": 25,
+      "rank": 22,
       "slug": "limited-edition-grb9",
       "name": "Wisconsin Home State Shirt",
       "collection": "Green Bay Packers",
@@ -20473,7 +20443,7 @@
       }
     },
     {
-      "rank": 26,
+      "rank": 23,
       "slug": "limited-edition-grb10",
       "name": "Green Bay Touchdown Shirt",
       "collection": "Green Bay Packers",
@@ -20487,7 +20457,7 @@
       }
     },
     {
-      "rank": 27,
+      "rank": 24,
       "slug": "limited-edition-grb13",
       "name": "Packers Retro Stacked Repeat Shirt",
       "collection": "Green Bay Packers",
@@ -20501,7 +20471,7 @@
       }
     },
     {
-      "rank": 28,
+      "rank": 25,
       "slug": "limited-edition-grb14",
       "name": "Packers Groovy Wavy White Shirt",
       "collection": "Green Bay Packers",
@@ -20515,7 +20485,7 @@
       }
     },
     {
-      "rank": 29,
+      "rank": 26,
       "slug": "limited-edition-grb17",
       "name": "Green Bay Wisconsin Minimal Shirt",
       "collection": "Green Bay Packers",
@@ -20529,7 +20499,7 @@
       }
     },
     {
-      "rank": 30,
+      "rank": 27,
       "slug": "limited-edition-grb18",
       "name": "The Future Is Green Packers Shirt",
       "collection": "Green Bay Packers",
@@ -20543,7 +20513,7 @@
       }
     },
     {
-      "rank": 31,
+      "rank": 28,
       "slug": "limited-edition-grb20",
       "name": "Sunday Funday Green Bay Bars Shirt",
       "collection": "Green Bay Packers",
@@ -20557,7 +20527,7 @@
       }
     },
     {
-      "rank": 32,
+      "rank": 29,
       "slug": "doomsday-defense-tee",
       "name": "Doomsday Defense Dallas Football Shirt",
       "collection": "Dallas Cowboys",
@@ -20571,7 +20541,7 @@
       }
     },
     {
-      "rank": 33,
+      "rank": 30,
       "slug": "girly-vintage-texas-pride",
       "name": "This Girl Loves Cowboys Women's Shirt",
       "collection": "Dallas Cowboys",
@@ -20585,7 +20555,7 @@
       }
     },
     {
-      "rank": 34,
+      "rank": 31,
       "slug": "dallas-football-vintage-style-tee",
       "name": "Dallas Football Star Lightning Vintage Shirt",
       "collection": "Dallas Cowboys",
@@ -20599,7 +20569,7 @@
       }
     },
     {
-      "rank": 35,
+      "rank": 32,
       "slug": "dallas-football-vintage-athletic-style-f",
       "name": "Dallas Football 1960 Helmet Vintage Shirt",
       "collection": "Dallas Cowboys",
@@ -20613,7 +20583,7 @@
       }
     },
     {
-      "rank": 36,
+      "rank": 33,
       "slug": "dallas-texas-vintage-athletic-style-t-sh",
       "name": "Dallas 1960 Football Helmet White Shirt",
       "collection": "Dallas Cowboys",
@@ -20627,7 +20597,7 @@
       }
     },
     {
-      "rank": 37,
+      "rank": 34,
       "slug": "dallas-texas-vintage-athletic-sports",
       "name": "Dallas Texas Est 1841 Navy Shirt",
       "collection": "Dallas Cowboys",
@@ -20641,7 +20611,7 @@
       }
     },
     {
-      "rank": 38,
+      "rank": 35,
       "slug": "dallas-texas-vintage-athletic-sports-sty",
       "name": "Dallas Texas Est 1841 Grey Shirt",
       "collection": "Dallas Cowboys",
@@ -20655,7 +20625,7 @@
       }
     },
     {
-      "rank": 39,
+      "rank": 36,
       "slug": "all-we-want-all-we-got",
       "name": "Cleveland Under Dawgs All We Got Shirt",
       "collection": "Cleveland Browns",
@@ -20669,7 +20639,7 @@
       }
     },
     {
-      "rank": 40,
+      "rank": 37,
       "slug": "playoffs-never-giveup",
       "name": "Playoffs Never Give Up Dawg Shirt",
       "collection": "Cleveland Browns",
@@ -20683,7 +20653,7 @@
       }
     },
     {
-      "rank": 41,
+      "rank": 38,
       "slug": "play-off-pound-shirt",
       "name": "Playoff Pound And Determined Shirt",
       "collection": "Cleveland Browns",
@@ -20697,7 +20667,7 @@
       }
     },
     {
-      "rank": 42,
+      "rank": 39,
       "slug": "all-we-want-all-we-got-25",
       "name": "Cleveland Under Dawgs Playoffs Shirt",
       "collection": "Cleveland Browns",
@@ -20708,6 +20678,48 @@
         "facebook": "Rain-fresh autumn tailgate at dawn beside an empty stadium concourse; ember orange and deep cocoa illumination, wet pavement reflections, drifting mist; charged anticipation, high contrast, and a determined atmosphere; horizontal 16:9 framing, cinematic editorial atmosphere, natural light, tactile detail, and generous negative space",
         "x": "Rain-fresh autumn tailgate at dawn beside an empty stadium concourse; ember orange and deep cocoa illumination, wet pavement reflections, drifting mist; charged anticipation, high contrast, and a determined atmosphere; horizontal 16:9 framing with a wide horizon, cinematic editorial atmosphere, natural light, tactile detail, and generous negative space",
         "pinterest": "Rain-fresh autumn tailgate at dawn beside an empty stadium concourse; ember orange and deep cocoa illumination, wet pavement reflections, drifting mist; charged anticipation, high contrast, and a determined atmosphere; vertical 2:3 framing with an airy editorial composition, cinematic editorial atmosphere, natural light, tactile detail, and generous negative space"
+      }
+    },
+    {
+      "rank": 40,
+      "slug": "sanders-13-special-edition",
+      "name": "Shedeur Sanders 12 They Forgot Who I Am Shirt",
+      "collection": "Cleveland Browns",
+      "score": 53,
+      "prompts": {
+        "instagram": "Rain-fresh autumn tailgate at dawn beside an empty stadium concourse; ember orange and deep cocoa illumination, wet pavement reflections, drifting mist; nostalgic warmth, muted contrast, and a reflective atmosphere; vertical 4:5 framing, cinematic editorial atmosphere, natural light, tactile detail, and generous negative space",
+        "tiktok": "Rain-fresh autumn tailgate at dawn beside an empty stadium concourse; ember orange and deep cocoa illumination, wet pavement reflections, drifting mist; nostalgic warmth, muted contrast, and a reflective atmosphere; vertical 9:16 framing with a strong center of calm negative space, cinematic editorial atmosphere, natural light, tactile detail, and generous negative space",
+        "facebook": "Rain-fresh autumn tailgate at dawn beside an empty stadium concourse; ember orange and deep cocoa illumination, wet pavement reflections, drifting mist; nostalgic warmth, muted contrast, and a reflective atmosphere; horizontal 16:9 framing, cinematic editorial atmosphere, natural light, tactile detail, and generous negative space",
+        "x": "Rain-fresh autumn tailgate at dawn beside an empty stadium concourse; ember orange and deep cocoa illumination, wet pavement reflections, drifting mist; nostalgic warmth, muted contrast, and a reflective atmosphere; horizontal 16:9 framing with a wide horizon, cinematic editorial atmosphere, natural light, tactile detail, and generous negative space",
+        "pinterest": "Rain-fresh autumn tailgate at dawn beside an empty stadium concourse; ember orange and deep cocoa illumination, wet pavement reflections, drifting mist; nostalgic warmth, muted contrast, and a reflective atmosphere; vertical 2:3 framing with an airy editorial composition, cinematic editorial atmosphere, natural light, tactile detail, and generous negative space"
+      }
+    },
+    {
+      "rank": 41,
+      "slug": "sanders-12-special-edition",
+      "name": "Sanders QB 12 Signature Shirt",
+      "collection": "Cleveland Browns",
+      "score": 53,
+      "prompts": {
+        "instagram": "Rain-fresh autumn tailgate at dawn beside an empty stadium concourse; ember orange and deep cocoa illumination, wet pavement reflections, drifting mist; nostalgic warmth, muted contrast, and a reflective atmosphere; vertical 4:5 framing, cinematic editorial atmosphere, natural light, tactile detail, and generous negative space",
+        "tiktok": "Rain-fresh autumn tailgate at dawn beside an empty stadium concourse; ember orange and deep cocoa illumination, wet pavement reflections, drifting mist; nostalgic warmth, muted contrast, and a reflective atmosphere; vertical 9:16 framing with a strong center of calm negative space, cinematic editorial atmosphere, natural light, tactile detail, and generous negative space",
+        "facebook": "Rain-fresh autumn tailgate at dawn beside an empty stadium concourse; ember orange and deep cocoa illumination, wet pavement reflections, drifting mist; nostalgic warmth, muted contrast, and a reflective atmosphere; horizontal 16:9 framing, cinematic editorial atmosphere, natural light, tactile detail, and generous negative space",
+        "x": "Rain-fresh autumn tailgate at dawn beside an empty stadium concourse; ember orange and deep cocoa illumination, wet pavement reflections, drifting mist; nostalgic warmth, muted contrast, and a reflective atmosphere; horizontal 16:9 framing with a wide horizon, cinematic editorial atmosphere, natural light, tactile detail, and generous negative space",
+        "pinterest": "Rain-fresh autumn tailgate at dawn beside an empty stadium concourse; ember orange and deep cocoa illumination, wet pavement reflections, drifting mist; nostalgic warmth, muted contrast, and a reflective atmosphere; vertical 2:3 framing with an airy editorial composition, cinematic editorial atmosphere, natural light, tactile detail, and generous negative space"
+      }
+    },
+    {
+      "rank": 42,
+      "slug": "sanders-special-edition",
+      "name": "Sanders QB Signature White Shirt",
+      "collection": "Cleveland Browns",
+      "score": 53,
+      "prompts": {
+        "instagram": "Rain-fresh autumn tailgate at dawn beside an empty stadium concourse; ember orange and deep cocoa illumination, wet pavement reflections, drifting mist; nostalgic warmth, muted contrast, and a reflective atmosphere; vertical 4:5 framing, cinematic editorial atmosphere, natural light, tactile detail, and generous negative space",
+        "tiktok": "Rain-fresh autumn tailgate at dawn beside an empty stadium concourse; ember orange and deep cocoa illumination, wet pavement reflections, drifting mist; nostalgic warmth, muted contrast, and a reflective atmosphere; vertical 9:16 framing with a strong center of calm negative space, cinematic editorial atmosphere, natural light, tactile detail, and generous negative space",
+        "facebook": "Rain-fresh autumn tailgate at dawn beside an empty stadium concourse; ember orange and deep cocoa illumination, wet pavement reflections, drifting mist; nostalgic warmth, muted contrast, and a reflective atmosphere; horizontal 16:9 framing, cinematic editorial atmosphere, natural light, tactile detail, and generous negative space",
+        "x": "Rain-fresh autumn tailgate at dawn beside an empty stadium concourse; ember orange and deep cocoa illumination, wet pavement reflections, drifting mist; nostalgic warmth, muted contrast, and a reflective atmosphere; horizontal 16:9 framing with a wide horizon, cinematic editorial atmosphere, natural light, tactile detail, and generous negative space",
+        "pinterest": "Rain-fresh autumn tailgate at dawn beside an empty stadium concourse; ember orange and deep cocoa illumination, wet pavement reflections, drifting mist; nostalgic warmth, muted contrast, and a reflective atmosphere; vertical 2:3 framing with an airy editorial composition, cinematic editorial atmosphere, natural light, tactile detail, and generous negative space"
       }
     },
     {
@@ -21681,12 +21693,12 @@
         "sanders 2026 tee"
       ],
       "top_opportunity": {
-        "slug": "sanders-13-special-edition",
-        "name": "Shedeur Sanders 12 They Forgot Who I Am Shirt",
-        "opportunity_score": 77.8,
-        "decision": "PUBLISH",
-        "trend_stage": "ACCELERATING",
-        "opportunity_type": "Commercial"
+        "slug": "winter-hat-beanie-go-browns",
+        "name": "Go Browns Orange Winter Beanie",
+        "opportunity_score": 54.2,
+        "decision": "MONITOR",
+        "trend_stage": "MAINSTREAM",
+        "opportunity_type": "Evergreen"
       }
     },
     {
