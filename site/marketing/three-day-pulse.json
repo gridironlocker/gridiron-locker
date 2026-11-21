@@ -1,6 +1,6 @@
 {
   "meta": {
-    "generated_on": "2026-11-20",
+    "generated_on": "2026-11-21",
     "generator": "marketing/three_day_pulse.py",
     "horizon_days": 3,
     "refresh_rule": "Regenerate after every web/social signal collection; this is not an evergreen content calendar.",
@@ -13,7 +13,7 @@
   "mission": "Find what fans are talking about now, match it to an existing product, and prepare only the next three days of platform-native copy.",
   "days": [
     {
-      "date": "2026-11-20",
+      "date": "2026-11-21",
       "label": "today",
       "opportunities": [
         {
@@ -23,11 +23,26 @@
           "team": "Green Bay Packers",
           "trend": {
             "team": "green-bay-packers",
-            "story": "Brian Gutekunst vindicated as former Packers struggle in new homes - Packers Wire",
+            "story": "Packers Report Card at Bye Week: Grading Every Unit on Offense - Sports Illustrated",
             "emotion": "worried",
             "stage": "ACCELERATING",
             "signal_count": 28,
             "sources": [
+              {
+                "source": "google_news",
+                "text": "The Green Bay Packers: Schroedinger’s Playoff Team - Cheesehead TV",
+                "url": "https://news.google.com/rss/articles/CBMiigFBVV95cUxQdnNJa1dvNm9rSHdjdXFoUTdTNkZrWVZwYkh6eWZqajBiMXhPNkFqY092bDhEakFzdGxiQmpydDg5VVRwSVc5aTMwRUg4blg1SVE2MzFyV25VcUptdzROWXRjLXNaVG9sbkR4WEhyYlMzUmtEd2c2THdhc3hLM0dfelZOcHRVTUk2ZXc?oc=5"
+              },
+              {
+                "source": "google_news",
+                "text": "Packers Report Card at Bye Week: Grading Every Unit on Offense - Sports Illustrated",
+                "url": "https://news.google.com/rss/articles/CBMingFBVV95cUxQbGtnSGhhSDBZcjRLSDhaalJPekFPRUpfNmo0WnVlcnpKTUFrU3gzWC1hYUJIODFSUEFNRENBYzJYWW01T3IweWRWUWlRRXp4R01pU015WlR0QS1ONF9zaHRhQmJFZ3FYcFc2bERzQUo0MWJNeUJDM2pzN2UtdDZWNzVNT3MtTU9OYWhrWVIzUU1BYXAySjZSZWUwTUJKQQ?oc=5"
+              },
+              {
+                "source": "google_news",
+                "text": "Packers Report Card at Bye Week: One ‘A’ In Our Unit Grades on Defense - Sports Illustrated",
+                "url": "https://news.google.com/rss/articles/CBMipgFBVV95cUxPeU53WHV1RFFmc2NraVNoM21lUjlNT253dUVtT00yRTIwckU0bDVjSUFQUG9XZ19NRS1BcWh4dkpKdi04bmVxVWUyQmRycEJfWEpoMmx4dGpGcHBqQ3E1QnBKaDQxa19MTjF6aVhQVE1fM09MOWpCNGtNdUZMenh1aFY3ZmRiRlVKby05cF9aZFRQcHZfVi12RF9rR1RvTmlCc01tajZn?oc=5"
+              },
               {
                 "source": "google_news",
                 "text": "Packers announce roster move | Nov. 19, 2026 - Green Bay Packers – packers.com",
@@ -35,23 +50,8 @@
               },
               {
                 "source": "google_news",
-                "text": "Brian Gutekunst vindicated as former Packers struggle in new homes - Packers Wire",
-                "url": "https://news.google.com/rss/articles/CBMizgFBVV95cUxON01sbVlRT0w5RGhzZy15bi14SzZSdUJGcllSRlNWSWh0dmhpa2p0aEVzU01aM0d4ZUlEcmZVNmUxemx1Q1V0d0hyNXl0czBvUVBFMWFjUDFKLWI4ZUFRZGF0TWxmZG1HVzJwdVJScGd6QTlUcVdMOUJCMTU4Smpia242VkJWdUtHZGJSWlBTNUY4ZXdscFlCR0dtRXR0VDlZYlI0NXNycklaYnhfOFNNcTVGTFV1Tl9FSVl3b05mOHFpSno4cmw1d3phLXpOUQ?oc=5"
-              },
-              {
-                "source": "google_news",
-                "text": "Josh Jacobs and 4 other Packers who could be cap casualties in 2027 - Lombardi Ave",
-                "url": "https://news.google.com/rss/articles/CBMiiAFBVV95cUxNSFZ5TVpNd0lJM0JhcHFKWGpKMjdsY0F2VktEdFljbE00b3VsUzUzVm50ZFhWME5lRUhtckJyS1NUc29wY3BPcHhxSDM3bE9lMklweUVCY29IVHduSjNIeEhWbDZZQmo0eFJiMzBkTUtSdkI4QTFyUElzYmE4QnVsanNSQVctMjlW?oc=5"
-              },
-              {
-                "source": "google_news",
-                "text": "Packers’ upcoming Wednesday game isn’t their only schedule oddity - Acme Packing Company",
-                "url": "https://news.google.com/rss/articles/CBMiygFBVV95cUxPdG5HQTdYdDB0b1BQSUhQNG9jM2tiVWM4NG5RclNid3VzaExQc3NqMkFiUXA0dnlHRmFWV1NlSDNPbWx3VmZRYWQ5RlhNZEVOOGlXcnJxZXo0WVZySGRaNEpwcjdyQ09pR1M1WjE2TnNERUpJX1VFOVJWOVhTcFBabmhJRXhPLUN3YU5PUE1lRW56WmpMWDlwWFZ1b05NbHVTWmVvWXgzemFUY0R0c3NUV2pTS29KVmJzMGtFS1UxUjNDVHdyY3VBeUd3?oc=5"
-              },
-              {
-                "source": "google_news",
-                "text": "Packers' Christian Watson Lands Major Midseason Award - Yahoo Sports",
-                "url": "https://news.google.com/rss/articles/CBMijgFBVV95cUxQNHlpWDdCZlhTNHFXalBHMFNiZHBnNV96MjJMdlhPWnM5ek9zLUFpTGtIQnI1MjIyeWZ0aFhGaGxjYlFTNjFJNlBZd25HRkFYN3dOVXA3d0VhWlhqTWhWaGlBbFQ1UUUzTTVJWVpsUE5pX1psUXZoVGFYYlhzV3NWSkVnUHJ6Z29PZU1YLWh3?oc=5"
+                "text": "Packers should lean on running back Kaleb Johnson after their bye - Yahoo Sports",
+                "url": "https://news.google.com/rss/articles/CBMihwFBVV95cUxQaGFhbEpSVTlVSzlDUVVIekMzUW9uNVlES0h0RjBobWlIN2xUN3ZoR3V5YmJ1Tm9ER1FoOTZadVJBS2ZucGNhQmxkRTE0d01Ub3BxZG1RNm9IU0hES3AyWDJURk9wZFpQbURrdnNHckZyeXhXU09CcVlGaHJMZ0EzNUQ2R0RnVVU?oc=5"
               }
             ],
             "evidence": "public signal collector"
@@ -61,15 +61,15 @@
           "product_signal_score": 145.4,
           "copy": {
             "angle": "styling",
-            "hook_template": "Game day fit, weekday wearable. {line}",
+            "hook_template": "Pair it with denim and forget it is fan gear. {line}",
             "angle_label": "Outfit styling",
-            "hook": "Game day fit, weekday wearable. “GO PACK GO STENCIL LETTERS” on a tee at $24.99.",
-            "ad_copy": "Game day fit, weekday wearable. “GO PACK GO STENCIL LETTERS” on a tee at $24.99. Angle: outfit styling. Signal driving it: Brian Gutekunst vindicated as former Packers struggle in new homes - Packers Wire Product: Go Pack Go Stencil Shirt (go pack go shirt). Verify licensing and the live listing before promotion.",
+            "hook": "Pair it with denim and forget it is fan gear. “GO PACK GO STENCIL LETTERS” on a tee at $24.99.",
+            "ad_copy": "Pair it with denim and forget it is fan gear. “GO PACK GO STENCIL LETTERS” on a tee at $24.99. Angle: outfit styling. Signal driving it: Packers Report Card at Bye Week: Grading Every Unit on Offense - Sports Illustrated Product: Go Pack Go Stencil Shirt (go pack go shirt). Verify licensing and the live listing before promotion.",
             "captions": {
-              "instagram": "One piece, whole mood. Game day fit, weekday wearable. “GO PACK GO STENCIL LETTERS” on a tee at $24.99. Why now: Brian Gutekunst vindicated as former Packers struggle in new homes - Packers Wire Sizes and colours are on the product page. #greenbaypackers #gopackgoshirt #packerschanttee",
-              "facebook": "Game day fit, weekday wearable. “GO PACK GO STENCIL LETTERS” on a tee at $24.99. Context for Green Bay Packers fans: Brian Gutekunst vindicated as former Packers struggle in new homes - Packers Wire It is a tee at $24.99 from the Green Bay Packers collection. Sizes and colours are on the product page. https://gridironlocker.store/shop/limited-edition-grb5/",
-              "x": "Game day fit, weekday wearable. “GO PACK GO STENCIL LETTERS” on a tee at $24.99. Brian Gutekunst vindicated as former Packers struggle in new homes - Packers Wire https://gridironlocker.store/shop/limited-edition-grb5/",
-              "tiktok": "Three seconds of Green Bay Packers truth: Game day fit, weekday wearable. “GO PACK GO STENCIL LETTERS” on a tee at $24.99. Script beat: Show how the piece is worn, not just what it says. Show the print, then the fit, then the price.",
+              "instagram": "One piece, whole mood. Pair it with denim and forget it is fan gear. “GO PACK GO STENCIL LETTERS” on a tee at $24.99. Why now: Packers Report Card at Bye Week: Grading Every Unit on Offense - Sports Illustrated Sizes and colours are on the product page. #greenbaypackers #gopackgoshirt #packerschanttee",
+              "facebook": "Pair it with denim and forget it is fan gear. “GO PACK GO STENCIL LETTERS” on a tee at $24.99. Context for Green Bay Packers fans: Packers Report Card at Bye Week: Grading Every Unit on Offense - Sports Illustrated It is a tee at $24.99 from the Green Bay Packers collection. Sizes and colours are on the product page. https://gridironlocker.store/shop/limited-edition-grb5/",
+              "x": "Pair it with denim and forget it is fan gear. “GO PACK GO STENCIL LETTERS” on a tee at $24.99. Packers Report Card at Bye Week: Grading Every Unit on Offense - Sports Illustrated https://gridironlocker.store/shop/limited-edition-grb5/",
+              "tiktok": "Three seconds of Green Bay Packers truth: Pair it with denim and forget it is fan gear. “GO PACK GO STENCIL LETTERS” on a tee at $24.99. Script beat: Show how the piece is worn, not just what it says. Show the print, then the fit, then the price.",
               "pinterest": "Go Pack Go Stencil Shirt - go pack go shirt idea for Green Bay Packers fans. Show how the piece is worn, not just what it says. Tee at $24.99."
             },
             "pinterest": {
@@ -102,25 +102,15 @@
           "team": "Dallas Cowboys",
           "trend": {
             "team": "dallas-cowboys",
-            "story": "‘Hates it here’ – NFL fans in awe as Dallas Cowboys star repeats answer 12 times in press conference - Yahoo Sports",
-            "emotion": "confident",
+            "story": "Cowboys-Titans: How to Watch, Listen, Stream in Week 11 - Dallas Cowboys | Official Site of the Dallas Cowboys",
+            "emotion": "worried",
             "stage": "ACCELERATING",
             "signal_count": 28,
             "sources": [
               {
                 "source": "google_news",
-                "text": "Cowboys defenders react to Mike Pettine taking over play-calling duties, Christian Parker remaining DC - Dallas Cowboys | Official Site of the Dallas Cowboys",
-                "url": "https://news.google.com/rss/articles/CBMi0gFBVV95cUxOazdxTGphdE5VVGFtbmlSODFCSE80UnV5VnB6ajFtWXg3SWExV2hPeXoydUQ2SlNMcmlmWVFGcFhScHk4bHNxMGtFRXUwOENtMlg2WDJVSlA0dl9WdHllOWFMMmFocmNiSzVkaTBpRkVIanpIUWU4eUJqYnBJbk5fSUJhdS1ZTG4zbkNOSXhuaElPWWl6TTAyaG16cWJjazhTRi1neHgtNklrcEtxbnJTZ3BJeURyN3d4MGozTFc4QmVab1FQQldSc25GMXM1eGFCWFE?oc=5"
-              },
-              {
-                "source": "google_news",
-                "text": "Dallas Cowboys fan dies days after falling during fight at AT&T Stadium, police say - Fox News",
-                "url": "https://news.google.com/rss/articles/CBMiuAFBVV95cUxPM3VrM05ZRlVwdF9HOFktcHMzaGNPSjF1dG1UTzR2T3B3aEJzX2ZkaGVvVGpVU3AzSUJfRS1DRlI5UHpzX0dzUkEtb0d6VXJ3a0k1dVRuRE1rbERWRVN3WUdLNmNNU3JTSTd4Z1J4di12ck5HN3pfN2JyUHN1Mm9sWUEyaThZQWdFcDByWk16a0NQMkZjcXdtSFpiZm5kNWRfSXE0TndzT2lHT1NZR3VoMVRTZVRMMEEy?oc=5"
-              },
-              {
-                "source": "google_news",
-                "text": "‘Hates it here’ – NFL fans in awe as Dallas Cowboys star repeats answer 12 times in press conference - Yahoo Sports",
-                "url": "https://news.google.com/rss/articles/CBMif0FVX3lxTFBqbnlOcHhyZGhSWlVRNERVbXQxZ0lQV3hXemdVYldfRnlDTjZMWWZiZ1B6d0dzNW1qMy1rMmQ2LXFzLVhwTTcyOFIyUWFrdjdhZmYzOHVtWDU2My1BaG1OSWxfU0l1Y2tLUHhVRVZwU3RHemVoVW42QnRDeEhOelU?oc=5"
+                "text": "Police investigate man's death after alleged altercation at 49ers-Cowboys game - ESPN",
+                "url": "https://news.google.com/rss/articles/CBMimwFBVV95cUxPSi1uRW1SV3BNZDhsRmY4cEpyUmVRa1p6TTQwMjJDYW9FS1l5Qk5pQVdJcXAwOExJWHJoQy16X0xiTEpzQUU4bzJlWjBDS2hzd0gzcmdZT3dkaHlpM3FqS2Q2U29ITWRyYWpvMlZsU09YbHJVS1RoM1ROeGxlTzY5VUoyYzJRdXBwNlRqcFBrcTd5U0NUTVQ3MVQ0cw?oc=5"
               },
               {
                 "source": "google_news",
@@ -129,31 +119,41 @@
               },
               {
                 "source": "google_news",
-                "text": "Dallas Cowboys Injury Report: Jaishawn Barham Shock Addition, 5 Out For Week 11 - Sports Illustrated",
-                "url": "https://news.google.com/rss/articles/CBMirgFBVV95cUxPbG5PNDFKanZWZkVtS0pqZWdUVGVkRGU4TTdjTUNWSVhsbHhkUGRIamR5bDhvZTlSSW9mTzFvNjE4TENYYU5KUmpyMk5keG4zRkVxR0Y5MF82SEdKbEpHQVJrdXFoZ0cxS2wzbUZEY2FIdmo2SFQ1eWdSeThVUzVqY2p4bnc3VnRsMWFVb05mSEF6R2trS1RzM2REbmIyT1hHeF9XM3UxOHFUdW9YMGc?oc=5"
+                "text": "Cowboys-Titans: How to Watch, Listen, Stream in Week 11 - Dallas Cowboys | Official Site of the Dallas Cowboys",
+                "url": "https://news.google.com/rss/articles/CBMikAFBVV95cUxNQTlhVDVkbEhnQm9NVXhZN0ZMZGJGMXk4UTY4dkhFWjVyVmN2Q0RlZENjTmJ2ZU51R1JWd3JzQ1Q3NG4zalhFWnYyaVYtRFdRM29RVkZjWTJMR0pnMndEdl91T3NyV2p0MVAwd0FjNUllMkh6eUNoMDBvR0NDZ0txZEZDZVFuRGxMV2RfcVF1SGs?oc=5"
+              },
+              {
+                "source": "google_news",
+                "text": "Gut Feeling: Staff predictions for Cowboys-Titans - Dallas Cowboys | Official Site of the Dallas Cowboys",
+                "url": "https://news.google.com/rss/articles/CBMiiwFBVV95cUxNY1J0MDJ5M29YX0F6MnJhckVZQzU4ODN5TW5obGxwU0c2TEJHMElraWJjb2pCNkhJTklIVXpIdDFqWmpwcHpUTlUySDNxWU5OazRjTG1RMTdqbUhhQklGTjFtV19iY3FNbEtXM1pEdFd2ckFrN1F2c05uVGtlWlFNbkFsemF3NGhsVzZv?oc=5"
+              },
+              {
+                "source": "google_news",
+                "text": "Cowboys injury updates: Dallas' secondary could get welcome boost with veteran's return - Dallas News",
+                "url": "https://news.google.com/rss/articles/CBMisAFBVV95cUxQdTRwcHVuakJlOEduejFrSG9teHNMaVBmV18zaHlhSzl1UVJLM3BfYzJXNkg2VlJwT3Z4VnhVcFZjY1NTWU5VNXhKRUtoUk01Z2EzemRDR1E0bXJwRkhRZDVNdVY2d1luNkM4bWc4TnVYNm9paDVjVVk5bUdoY0ZjcHVZMEFZTkxvOHAzMUJQa0QxcWpmTUlHYlM1WDgyUTNzVURhMExsSU5BRy1hdmROZw?oc=5"
               }
             ],
             "evidence": "public signal collector"
           },
-          "fan_emotion": "confident",
+          "fan_emotion": "worried",
           "creative_angle": "Gift / relationship",
           "product_signal_score": 111.4,
           "copy": {
             "angle": "gift",
-            "hook_template": "Gift-ready {team} pick: {line}",
+            "hook_template": "Buy it for them and they will wear it every Sunday. {line}",
             "angle_label": "Gift / relationship",
-            "hook": "Gift-ready Dallas Cowboys pick: “THIS GIRL LOVES COWBOYS WITH FOOTBALL AND STARS” on a women's tee at $21.99.",
-            "ad_copy": "Gift-ready Dallas Cowboys pick: “THIS GIRL LOVES COWBOYS WITH FOOTBALL AND STARS” on a women's tee at $21.99. Angle: gift / relationship. Signal driving it: ‘Hates it here’ – NFL fans in awe as Dallas Cowboys star repeats answer 12 times in press conference - Yahoo Sports Product: This Girl Loves Cowboys Women's Shirt (this girl loves cowboys). Verify licensing and the live listing before promotion.",
+            "hook": "Buy it for them and they will wear it every Sunday. “THIS GIRL LOVES COWBOYS WITH FOOTBALL AND STARS” on a women's tee at $21.99.",
+            "ad_copy": "Buy it for them and they will wear it every Sunday. “THIS GIRL LOVES COWBOYS WITH FOOTBALL AND STARS” on a women's tee at $21.99. Angle: gift / relationship. Signal driving it: Cowboys-Titans: How to Watch, Listen, Stream in Week 11 - Dallas Cowboys | Official Site of the Dallas Cowboys Product: This Girl Loves Cowboys Women's Shirt (this girl loves cowboys). Verify licensing and the live listing before promotion.",
             "captions": {
-              "instagram": "One piece, whole mood. Gift-ready Dallas Cowboys pick: “THIS GIRL LOVES COWBOYS WITH FOOTBALL AND STARS” on a women's tee at $21.99. Why now: ‘Hates it here’ – NFL fans in awe as Dallas Cowboys star repeats answer 12 times in press conference - Yahoo Sports Sizes and colours are on the product page. #dallascowboys #thisgirllovescowboys #dallaswomensshirt",
-              "facebook": "Gift-ready Dallas Cowboys pick: “THIS GIRL LOVES COWBOYS WITH FOOTBALL AND STARS” on a women's tee at $21.99. Context for Dallas Cowboys fans: ‘Hates it here’ – NFL fans in awe as Dallas Cowboys star repeats answer 12 times in press conference - Yahoo Sports It is a women's tee at $21.99 from the Dallas Cowboys collection. Sizes and colours are on the product page. https://gridironlocker.store/shop/girly-vintage-texas-pride/",
-              "x": "Gift-ready Dallas Cowboys pick: “THIS GIRL LOVES COWBOYS WITH FOOTBALL AND STARS” on a women's tee at $21.99. ‘Hates it here’ – NFL fans in awe as Dallas Cowboys star repeats answer 12 times in press https://gridironlocker.store/shop/girly-vintage-texas-pride/",
-              "tiktok": "Three seconds of Dallas Cowboys truth: Gift-ready Dallas Cowboys pick: “THIS GIRL LOVES COWBOYS WITH FOOTBALL AND STARS” on a women's tee at $21.99. Script beat: Frame the product as a gift for a specific person. Show the print, then the fit, then the price.",
+              "instagram": "Read the shirt. Buy it for them and they will wear it every Sunday. “THIS GIRL LOVES COWBOYS WITH FOOTBALL AND STARS” on a women's tee at $21.99. Why now: Cowboys-Titans: How to Watch, Listen, Stream in Week 11 - Dallas Cowboys | Official Site of the Dallas Cowboys Link in bio for the listing. #dallascowboys #thisgirllovescowboys #dallaswomensshirt",
+              "facebook": "Buy it for them and they will wear it every Sunday. “THIS GIRL LOVES COWBOYS WITH FOOTBALL AND STARS” on a women's tee at $21.99. Context for Dallas Cowboys fans: Cowboys-Titans: How to Watch, Listen, Stream in Week 11 - Dallas Cowboys | Official Site of the Dallas Cowboys It is a women's tee at $21.99 from the Dallas Cowboys collection. Link in bio for the listing. https://gridironlocker.store/shop/girly-vintage-texas-pride/",
+              "x": "Buy it for them and they will wear it every Sunday. “THIS GIRL LOVES COWBOYS WITH FOOTBALL AND STARS” on a women's tee at $21.99. Cowboys-Titans: How to Watch, Listen, Stream in Week 11 - Dallas Cowboys | Official Site o https://gridironlocker.store/shop/girly-vintage-texas-pr…",
+              "tiktok": "POV: Buy it for them and they will wear it every Sunday. “THIS GIRL LOVES COWBOYS WITH FOOTBALL AND STARS” on a women's tee at $21.99. Script beat: Frame the product as a gift for a specific person. Show the print, then the fit, then the price.",
               "pinterest": "This Girl Loves Cowboys Women's Shirt - this girl loves cowboys idea for Dallas Cowboys fans. Frame the product as a gift for a specific person. Women's tee at $21.99."
             },
             "pinterest": {
               "title": "This Girl Loves Cowboys Women's Shirt: This Girl Loves Cowboys",
-              "description": "Gift / relationship pin for Dallas Cowboys fans feeling confident. “THIS GIRL LOVES COWBOYS WITH FOOTBALL AND STARS” on a women's tee at $21.99. Use only after the product and licensing review.",
+              "description": "Gift / relationship pin for Dallas Cowboys fans feeling worried. “THIS GIRL LOVES COWBOYS WITH FOOTBALL AND STARS” on a women's tee at $21.99. Use only after the product and licensing review.",
               "keywords": [
                 "this girl loves cowboys",
                 "dallas womens shirt",
@@ -181,16 +181,11 @@
           "team": "Cleveland Browns",
           "trend": {
             "team": "cleveland-browns",
-            "story": "Jason Kelce gives Browns owner Jimmy Haslam the ‘Major League’ treatment on ‘New Heights’ - Cleveland.com",
-            "emotion": "hopeful",
+            "story": "The Failed Promise Of Cleveland’s Deshaun Watson Fund - Defector",
+            "emotion": "confident",
             "stage": "ACCELERATING",
             "signal_count": 28,
             "sources": [
-              {
-                "source": "google_news",
-                "text": "Jason Kelce gives Browns owner Jimmy Haslam the ‘Major League’ treatment on ‘New Heights’ - Cleveland.com",
-                "url": "https://news.google.com/rss/articles/CBMi1AFBVV95cUxQUWEwSWRyb09paGRORktURl9JS014UWJqR2FVb0Z4MjV1bGRuU0pIcnY2TnVKZzdSVHdDdy1hZlZmMGZWcHNSemlBN09JTEZfRWN2Z2J0VGZ4elBSQzhzbFV3TnN6aGpldGh2Z2xqS1NjS0tGaUVhSWJoR3VCN05VZjRtN1BNZDdvNFUyTUlybWFCVGlPOG5XbUdKZ2pyOV9SdGFmUUM2RmE2WDV4MEZpaC1nTm40ZXVjRTYyY3h1SExjUkNzNkNDNGRrSEtIclVjbF9WTw?oc=5"
-              },
               {
                 "source": "google_news",
                 "text": "The Failed Promise Of Cleveland’s Deshaun Watson Fund - Defector",
@@ -198,23 +193,28 @@
               },
               {
                 "source": "google_news",
-                "text": "AFC North Week 10 Recap: Browns pull off another comeback - Yahoo Sports",
-                "url": "https://news.google.com/rss/articles/CBMifEFVX3lxTE50TWJpOFAtbG9JNXdNNTdIWHV2SVEtXzI5YUpBVTNNbEMxc3Nybm5DNldHejBpS2VtRmpta1lCVXRoYmI3THc1a3FCRFpubHlOYzZoN08wdDdIWEY1YnBPbmVVLW9YSGVHY1BtQUJveHBCcmpvQlNpR3Vzdkg?oc=5"
+                "text": "Browns sign TE Carsen Ryan to the practice squad - Cleveland Browns",
+                "url": "https://news.google.com/rss/articles/CBMilgFBVV95cUxOZS02czJ6VUc5WkROeUs1eUZSWk01TkJXS0F0eVJOTkZkUVVaaVdjbi1QLUprU1JNbl9hVGtXeXNoWm1lR2E0c1ZUTEd2YWRXaXhCb1FWaDlFOTVJYlBmc1NET1QyYy1NczlDY3RjVENLdTgwRjRvYTMyOG5vbVVMdDBuRXBLZEsxYVRBWVNxZ1pvZ3RYZUE?oc=5"
               },
               {
                 "source": "google_news",
-                "text": "The Highest-Graded Rookie on the Browns May Not Be Who You Think - Sports Illustrated",
-                "url": "https://news.google.com/rss/articles/CBMisgFBVV95cUxOS2VXUVIyTjV3VW1acFlid2JyVUNDbE14ME1PRFg4NlZ6eHI3ZkVqN2M4Z29WSXdscTNYU1c3WmhHUGtwRnlYcUlVVXpOT2xZX1RhSlVaZU1jOEo3ME1EeDhnWkd3X2ZmUkI3Y3Vjb2hoOF9RUjlsWHRhV1NCSUNMS2w2Vm9pY0R1ZFdXd3RQNmZPd2E4VDBzSVhLelk1X3hYQUpWR2xobDVIR0Q5NkNRNEx3?oc=5"
+                "text": "Todd Monken talks to Terry Pluto about losing, winning and working to change the ‘Browns Narrative’ - Cleveland.com",
+                "url": "https://news.google.com/rss/articles/CBMiuwFBVV95cUxPdXE3aVVTSzFabTBZVDJaUmhBdEVScHh3Y1dfWm9DWnBEclNsalRXdkdMVzRKNkZnbnpQU053bm0waWpkTmtwclJwbVdhNHVSNk9ZaUlYcXByekJ3QkhSc3p3NWF4cllNblp4dFF1czhEdDZ6ZWxmQkd5VjBJUXhXOXpPV2ZVYkh4dDFPM0lRTUt4Ul9RekZNeHJiNmNRanVpSTlqYTVfRWNQVllCMTJfSFdLd0FTYmw4LW9z?oc=5"
               },
               {
                 "source": "google_news",
-                "text": "Browns HC Todd Monken’s Honest Conversation Helped Deshaun Watson Get Back on Track - 247Sports",
-                "url": "https://news.google.com/rss/articles/CBMizwFBVV95cUxPVDVkTDlpc2ItQmthbzJha3RRY2RDNU5VLXAzR1FRWWQxczZQWkV3dndDN1d2WmRvNTFmMlNTYnJKNlZaeFhNZ1FOQURnMkFZcmtQM2tVVy1VdEdVMFRZbFdEZjExWUJ3TWtBbE1kQklyQU8zSmo3YXZFSTV2RENCVzZ3Y2JRLUUxdUtwNUd5Y3p3aGo0Z1FpUG5STXVBdnllRWFHS0FLdUZvV0JuSldqZEhoQi1vR0E5UGRGMWw0OVBzak92bVliVm0xZEtWMjg?oc=5"
+                "text": "5 Things Browns Must Maintain After Their Bye Week - 247Sports",
+                "url": "https://news.google.com/rss/articles/CBMiqgFBVV95cUxOVl92VENhV0NoUUpYZkdGOFNvOTMyRFZzQjJiUDJnSFVmb1FkYXhudm5HTWVjUndUMHlsT3VhVzViVXVtc3U1ektJNnJjNVlLSDhZNy1YRUNiZjhpa2hYNG9iUExMYnc5ejJMMDdtbHJFTTE0RzU4TTVuQ09qNDM3dlVtRjd6cFhCa0JXdlNmMkcwcTNFeFg2RV93QldlNDVtWXdlemozN0MzZw?oc=5"
+              },
+              {
+                "source": "google_news",
+                "text": "5 Browns Players Who Benefit Most From the Bye Week - 247Sports",
+                "url": "https://news.google.com/rss/articles/CBMiogFBVV95cUxQSDBmdmZXdUtqdUZIcUlNQXFsSy1Fa2F1eC12WVZTTXZrcjgtYXFsMU11QlQyWGJ2djhLM1NvOGNKLTJ0RXRsV0M4ZHhuMTRWWTBrTUI1Z0tNRWFQaGNlX19GN29BaVlYVHVoY3E3ZTllVkd1RGJlQnRyS3g0eGVJV1dMSDZ4a3YyQjUzTmhLUGMtVmlWU0ROYW1kb0dLM0tjV0E?oc=5"
               }
             ],
             "evidence": "public signal collector"
           },
-          "fan_emotion": "hopeful",
+          "fan_emotion": "confident",
           "creative_angle": "News reaction",
           "product_signal_score": 104.6,
           "copy": {
@@ -222,17 +222,17 @@
             "hook_template": "The storyline moved this morning; the merch shelf did not. {line}",
             "angle_label": "News reaction",
             "hook": "The storyline moved this morning; the merch shelf did not. “THE CLEVELAND UNDER DAWGS” on a tee at $24.99.",
-            "ad_copy": "The storyline moved this morning; the merch shelf did not. “THE CLEVELAND UNDER DAWGS” on a tee at $24.99. Angle: news reaction. Signal driving it: Jason Kelce gives Browns owner Jimmy Haslam the ‘Major League’ treatment on ‘New Heights’ - Cleveland.com Product: Cleveland Under Dawgs All We Got Shirt (browns underdog shirt). Verify licensing and the live listing before promotion.",
+            "ad_copy": "The storyline moved this morning; the merch shelf did not. “THE CLEVELAND UNDER DAWGS” on a tee at $24.99. Angle: news reaction. Signal driving it: The Failed Promise Of Cleveland’s Deshaun Watson Fund - Defector Product: Cleveland Under Dawgs All We Got Shirt (browns underdog shirt). Verify licensing and the live listing before promotion.",
             "captions": {
-              "instagram": "Read the shirt. The storyline moved this morning; the merch shelf did not. “THE CLEVELAND UNDER DAWGS” on a tee at $24.99. Why now: Jason Kelce gives Browns owner Jimmy Haslam the ‘Major League’ treatment on ‘New Heights’ - Cleveland.com Link in bio for the listing. #clevelandbrowns #brownsunderdogshirt #dawgpoundtee",
-              "facebook": "The storyline moved this morning; the merch shelf did not. “THE CLEVELAND UNDER DAWGS” on a tee at $24.99. Context for Cleveland Browns fans: Jason Kelce gives Browns owner Jimmy Haslam the ‘Major League’ treatment on ‘New Heights’ - Cleveland.com It is a tee at $24.99 from the Cleveland Browns collection. Link in bio for the listing. https://gridironlocker.store/shop/all-we-want-all-we-got/",
-              "x": "The storyline moved this morning; the merch shelf did not. “THE CLEVELAND UNDER DAWGS” on a tee at $24.99. Jason Kelce gives Browns owner Jimmy Haslam the ‘Major League’ treatment on ‘New Heights’ https://gridironlocker.store/shop/all-we-want-all-we-got/",
+              "instagram": "Read the shirt. The storyline moved this morning; the merch shelf did not. “THE CLEVELAND UNDER DAWGS” on a tee at $24.99. Why now: The Failed Promise Of Cleveland’s Deshaun Watson Fund - Defector Link in bio for the listing. #clevelandbrowns #brownsunderdogshirt #dawgpoundtee",
+              "facebook": "The storyline moved this morning; the merch shelf did not. “THE CLEVELAND UNDER DAWGS” on a tee at $24.99. Context for Cleveland Browns fans: The Failed Promise Of Cleveland’s Deshaun Watson Fund - Defector It is a tee at $24.99 from the Cleveland Browns collection. Link in bio for the listing. https://gridironlocker.store/shop/all-we-want-all-we-got/",
+              "x": "The storyline moved this morning; the merch shelf did not. “THE CLEVELAND UNDER DAWGS” on a tee at $24.99. The Failed Promise Of Cleveland’s Deshaun Watson Fund - Defector https://gridironlocker.store/shop/all-we-want-all-we-got/",
               "tiktok": "POV: The storyline moved this morning; the merch shelf did not. “THE CLEVELAND UNDER DAWGS” on a tee at $24.99. Script beat: React to the storyline that is moving right now. Show the print, then the fit, then the price.",
               "pinterest": "Cleveland Under Dawgs All We Got Shirt - browns underdog shirt idea for Cleveland Browns fans. React to the storyline that is moving right now. Tee at $24.99."
             },
             "pinterest": {
               "title": "Cleveland Under Dawgs All We Got Shirt: Browns Underdog Shirt",
-              "description": "News reaction pin for Cleveland Browns fans feeling hopeful. “THE CLEVELAND UNDER DAWGS” on a tee at $24.99. Use only after the product and licensing review.",
+              "description": "News reaction pin for Cleveland Browns fans feeling confident. “THE CLEVELAND UNDER DAWGS” on a tee at $24.99. Use only after the product and licensing review.",
               "keywords": [
                 "browns underdog shirt",
                 "dawg pound tee",
@@ -256,7 +256,7 @@
       ]
     },
     {
-      "date": "2026-11-21",
+      "date": "2026-11-22",
       "label": "tomorrow",
       "opportunities": [
         {
@@ -266,11 +266,26 @@
           "team": "Green Bay Packers",
           "trend": {
             "team": "green-bay-packers",
-            "story": "Josh Jacobs and 4 other Packers who could be cap casualties in 2027 - Lombardi Ave",
+            "story": "Packers Report Card at Bye Week: One ‘A’ In Our Unit Grades on Defense - Sports Illustrated",
             "emotion": "worried",
             "stage": "ACCELERATING",
             "signal_count": 28,
             "sources": [
+              {
+                "source": "google_news",
+                "text": "The Green Bay Packers: Schroedinger’s Playoff Team - Cheesehead TV",
+                "url": "https://news.google.com/rss/articles/CBMiigFBVV95cUxQdnNJa1dvNm9rSHdjdXFoUTdTNkZrWVZwYkh6eWZqajBiMXhPNkFqY092bDhEakFzdGxiQmpydDg5VVRwSVc5aTMwRUg4blg1SVE2MzFyV25VcUptdzROWXRjLXNaVG9sbkR4WEhyYlMzUmtEd2c2THdhc3hLM0dfelZOcHRVTUk2ZXc?oc=5"
+              },
+              {
+                "source": "google_news",
+                "text": "Packers Report Card at Bye Week: Grading Every Unit on Offense - Sports Illustrated",
+                "url": "https://news.google.com/rss/articles/CBMingFBVV95cUxQbGtnSGhhSDBZcjRLSDhaalJPekFPRUpfNmo0WnVlcnpKTUFrU3gzWC1hYUJIODFSUEFNRENBYzJYWW01T3IweWRWUWlRRXp4R01pU015WlR0QS1ONF9zaHRhQmJFZ3FYcFc2bERzQUo0MWJNeUJDM2pzN2UtdDZWNzVNT3MtTU9OYWhrWVIzUU1BYXAySjZSZWUwTUJKQQ?oc=5"
+              },
+              {
+                "source": "google_news",
+                "text": "Packers Report Card at Bye Week: One ‘A’ In Our Unit Grades on Defense - Sports Illustrated",
+                "url": "https://news.google.com/rss/articles/CBMipgFBVV95cUxPeU53WHV1RFFmc2NraVNoM21lUjlNT253dUVtT00yRTIwckU0bDVjSUFQUG9XZ19NRS1BcWh4dkpKdi04bmVxVWUyQmRycEJfWEpoMmx4dGpGcHBqQ3E1QnBKaDQxa19MTjF6aVhQVE1fM09MOWpCNGtNdUZMenh1aFY3ZmRiRlVKby05cF9aZFRQcHZfVi12RF9rR1RvTmlCc01tajZn?oc=5"
+              },
               {
                 "source": "google_news",
                 "text": "Packers announce roster move | Nov. 19, 2026 - Green Bay Packers – packers.com",
@@ -278,23 +293,8 @@
               },
               {
                 "source": "google_news",
-                "text": "Brian Gutekunst vindicated as former Packers struggle in new homes - Packers Wire",
-                "url": "https://news.google.com/rss/articles/CBMizgFBVV95cUxON01sbVlRT0w5RGhzZy15bi14SzZSdUJGcllSRlNWSWh0dmhpa2p0aEVzU01aM0d4ZUlEcmZVNmUxemx1Q1V0d0hyNXl0czBvUVBFMWFjUDFKLWI4ZUFRZGF0TWxmZG1HVzJwdVJScGd6QTlUcVdMOUJCMTU4Smpia242VkJWdUtHZGJSWlBTNUY4ZXdscFlCR0dtRXR0VDlZYlI0NXNycklaYnhfOFNNcTVGTFV1Tl9FSVl3b05mOHFpSno4cmw1d3phLXpOUQ?oc=5"
-              },
-              {
-                "source": "google_news",
-                "text": "Josh Jacobs and 4 other Packers who could be cap casualties in 2027 - Lombardi Ave",
-                "url": "https://news.google.com/rss/articles/CBMiiAFBVV95cUxNSFZ5TVpNd0lJM0JhcHFKWGpKMjdsY0F2VktEdFljbE00b3VsUzUzVm50ZFhWME5lRUhtckJyS1NUc29wY3BPcHhxSDM3bE9lMklweUVCY29IVHduSjNIeEhWbDZZQmo0eFJiMzBkTUtSdkI4QTFyUElzYmE4QnVsanNSQVctMjlW?oc=5"
-              },
-              {
-                "source": "google_news",
-                "text": "Packers’ upcoming Wednesday game isn’t their only schedule oddity - Acme Packing Company",
-                "url": "https://news.google.com/rss/articles/CBMiygFBVV95cUxPdG5HQTdYdDB0b1BQSUhQNG9jM2tiVWM4NG5RclNid3VzaExQc3NqMkFiUXA0dnlHRmFWV1NlSDNPbWx3VmZRYWQ5RlhNZEVOOGlXcnJxZXo0WVZySGRaNEpwcjdyQ09pR1M1WjE2TnNERUpJX1VFOVJWOVhTcFBabmhJRXhPLUN3YU5PUE1lRW56WmpMWDlwWFZ1b05NbHVTWmVvWXgzemFUY0R0c3NUV2pTS29KVmJzMGtFS1UxUjNDVHdyY3VBeUd3?oc=5"
-              },
-              {
-                "source": "google_news",
-                "text": "Packers' Christian Watson Lands Major Midseason Award - Yahoo Sports",
-                "url": "https://news.google.com/rss/articles/CBMijgFBVV95cUxQNHlpWDdCZlhTNHFXalBHMFNiZHBnNV96MjJMdlhPWnM5ek9zLUFpTGtIQnI1MjIyeWZ0aFhGaGxjYlFTNjFJNlBZd25HRkFYN3dOVXA3d0VhWlhqTWhWaGlBbFQ1UUUzTTVJWVpsUE5pX1psUXZoVGFYYlhzV3NWSkVnUHJ6Z29PZU1YLWh3?oc=5"
+                "text": "Packers should lean on running back Kaleb Johnson after their bye - Yahoo Sports",
+                "url": "https://news.google.com/rss/articles/CBMihwFBVV95cUxQaGFhbEpSVTlVSzlDUVVIekMzUW9uNVlES0h0RjBobWlIN2xUN3ZoR3V5YmJ1Tm9ER1FoOTZadVJBS2ZucGNhQmxkRTE0d01Ub3BxZG1RNm9IU0hES3AyWDJURk9wZFpQbURrdnNHckZyeXhXU09CcVlGaHJMZ0EzNUQ2R0RnVVU?oc=5"
               }
             ],
             "evidence": "public signal collector"
@@ -307,12 +307,12 @@
             "hook_template": "No slogan, no filler: {line}",
             "angle_label": "Fan identity statement",
             "hook": "No slogan, no filler: “10 LOVE WITH PLAYER AND GOLD 10” on a hoodie at $36.99.",
-            "ad_copy": "No slogan, no filler: “10 LOVE WITH PLAYER AND GOLD 10” on a hoodie at $36.99. Angle: fan identity statement. Signal driving it: Josh Jacobs and 4 other Packers who could be cap casualties in 2027 - Lombardi Ave Product: Jordan Love 10 Green Bay Hoodie (jordan love hoodie). Verify licensing and the live listing before promotion.",
+            "ad_copy": "No slogan, no filler: “10 LOVE WITH PLAYER AND GOLD 10” on a hoodie at $36.99. Angle: fan identity statement. Signal driving it: Packers Report Card at Bye Week: One ‘A’ In Our Unit Grades on Defense - Sports Illustrated Product: Jordan Love 10 Green Bay Hoodie (jordan love hoodie). Verify licensing and the live listing before promotion.",
             "captions": {
-              "instagram": "Read the shirt. No slogan, no filler: “10 LOVE WITH PLAYER AND GOLD 10” on a hoodie at $36.99. Why now: Josh Jacobs and 4 other Packers who could be cap casualties in 2027 - Lombardi Ave Link in bio for the listing. #greenbaypackers #jordanlovehoodie #packers10sweatshirt",
-              "facebook": "No slogan, no filler: “10 LOVE WITH PLAYER AND GOLD 10” on a hoodie at $36.99. Context for Green Bay Packers fans: Josh Jacobs and 4 other Packers who could be cap casualties in 2027 - Lombardi Ave It is a hoodie at $36.99 from the Green Bay Packers collection. Link in bio for the listing. https://gridironlocker.store/shop/limited-edition-grb31/",
-              "x": "No slogan, no filler: “10 LOVE WITH PLAYER AND GOLD 10” on a hoodie at $36.99. Josh Jacobs and 4 other Packers who could be cap casualties in 2027 - Lombardi Ave https://gridironlocker.store/shop/limited-edition-grb31/",
-              "tiktok": "POV: No slogan, no filler: “10 LOVE WITH PLAYER AND GOLD 10” on a hoodie at $36.99. Script beat: Say who you root for before you say a word. Show the print, then the fit, then the price.",
+              "instagram": "One piece, whole mood. No slogan, no filler: “10 LOVE WITH PLAYER AND GOLD 10” on a hoodie at $36.99. Why now: Packers Report Card at Bye Week: One ‘A’ In Our Unit Grades on Defense - Sports Illustrated Sizes and colours are on the product page. #greenbaypackers #jordanlovehoodie #packers10sweatshirt",
+              "facebook": "No slogan, no filler: “10 LOVE WITH PLAYER AND GOLD 10” on a hoodie at $36.99. Context for Green Bay Packers fans: Packers Report Card at Bye Week: One ‘A’ In Our Unit Grades on Defense - Sports Illustrated It is a hoodie at $36.99 from the Green Bay Packers collection. Sizes and colours are on the product page. https://gridironlocker.store/shop/limited-edition-grb31/",
+              "x": "No slogan, no filler: “10 LOVE WITH PLAYER AND GOLD 10” on a hoodie at $36.99. Packers Report Card at Bye Week: One ‘A’ In Our Unit Grades on Defense - Sports Illustrate https://gridironlocker.store/shop/limited-edition-grb31/",
+              "tiktok": "Three seconds of Green Bay Packers truth: No slogan, no filler: “10 LOVE WITH PLAYER AND GOLD 10” on a hoodie at $36.99. Script beat: Say who you root for before you say a word. Show the print, then the fit, then the price.",
               "pinterest": "Jordan Love 10 Green Bay Hoodie - jordan love hoodie idea for Green Bay Packers fans. Say who you root for before you say a word. Hoodie at $36.99."
             },
             "pinterest": {
@@ -345,25 +345,15 @@
           "team": "Dallas Cowboys",
           "trend": {
             "team": "dallas-cowboys",
-            "story": "Tennessee Titans present surprising mirror image for the Dallas Cowboys - Dallas News",
-            "emotion": "confident",
+            "story": "Gut Feeling: Staff predictions for Cowboys-Titans - Dallas Cowboys | Official Site of the Dallas Cowboys",
+            "emotion": "worried",
             "stage": "ACCELERATING",
             "signal_count": 28,
             "sources": [
               {
                 "source": "google_news",
-                "text": "Cowboys defenders react to Mike Pettine taking over play-calling duties, Christian Parker remaining DC - Dallas Cowboys | Official Site of the Dallas Cowboys",
-                "url": "https://news.google.com/rss/articles/CBMi0gFBVV95cUxOazdxTGphdE5VVGFtbmlSODFCSE80UnV5VnB6ajFtWXg3SWExV2hPeXoydUQ2SlNMcmlmWVFGcFhScHk4bHNxMGtFRXUwOENtMlg2WDJVSlA0dl9WdHllOWFMMmFocmNiSzVkaTBpRkVIanpIUWU4eUJqYnBJbk5fSUJhdS1ZTG4zbkNOSXhuaElPWWl6TTAyaG16cWJjazhTRi1neHgtNklrcEtxbnJTZ3BJeURyN3d4MGozTFc4QmVab1FQQldSc25GMXM1eGFCWFE?oc=5"
-              },
-              {
-                "source": "google_news",
-                "text": "Dallas Cowboys fan dies days after falling during fight at AT&T Stadium, police say - Fox News",
-                "url": "https://news.google.com/rss/articles/CBMiuAFBVV95cUxPM3VrM05ZRlVwdF9HOFktcHMzaGNPSjF1dG1UTzR2T3B3aEJzX2ZkaGVvVGpVU3AzSUJfRS1DRlI5UHpzX0dzUkEtb0d6VXJ3a0k1dVRuRE1rbERWRVN3WUdLNmNNU3JTSTd4Z1J4di12ck5HN3pfN2JyUHN1Mm9sWUEyaThZQWdFcDByWk16a0NQMkZjcXdtSFpiZm5kNWRfSXE0TndzT2lHT1NZR3VoMVRTZVRMMEEy?oc=5"
-              },
-              {
-                "source": "google_news",
-                "text": "‘Hates it here’ – NFL fans in awe as Dallas Cowboys star repeats answer 12 times in press conference - Yahoo Sports",
-                "url": "https://news.google.com/rss/articles/CBMif0FVX3lxTFBqbnlOcHhyZGhSWlVRNERVbXQxZ0lQV3hXemdVYldfRnlDTjZMWWZiZ1B6d0dzNW1qMy1rMmQ2LXFzLVhwTTcyOFIyUWFrdjdhZmYzOHVtWDU2My1BaG1OSWxfU0l1Y2tLUHhVRVZwU3RHemVoVW42QnRDeEhOelU?oc=5"
+                "text": "Police investigate man's death after alleged altercation at 49ers-Cowboys game - ESPN",
+                "url": "https://news.google.com/rss/articles/CBMimwFBVV95cUxPSi1uRW1SV3BNZDhsRmY4cEpyUmVRa1p6TTQwMjJDYW9FS1l5Qk5pQVdJcXAwOExJWHJoQy16X0xiTEpzQUU4bzJlWjBDS2hzd0gzcmdZT3dkaHlpM3FqS2Q2U29ITWRyYWpvMlZsU09YbHJVS1RoM1ROeGxlTzY5VUoyYzJRdXBwNlRqcFBrcTd5U0NUTVQ3MVQ0cw?oc=5"
               },
               {
                 "source": "google_news",
@@ -372,31 +362,41 @@
               },
               {
                 "source": "google_news",
-                "text": "Dallas Cowboys Injury Report: Jaishawn Barham Shock Addition, 5 Out For Week 11 - Sports Illustrated",
-                "url": "https://news.google.com/rss/articles/CBMirgFBVV95cUxPbG5PNDFKanZWZkVtS0pqZWdUVGVkRGU4TTdjTUNWSVhsbHhkUGRIamR5bDhvZTlSSW9mTzFvNjE4TENYYU5KUmpyMk5keG4zRkVxR0Y5MF82SEdKbEpHQVJrdXFoZ0cxS2wzbUZEY2FIdmo2SFQ1eWdSeThVUzVqY2p4bnc3VnRsMWFVb05mSEF6R2trS1RzM2REbmIyT1hHeF9XM3UxOHFUdW9YMGc?oc=5"
+                "text": "Cowboys-Titans: How to Watch, Listen, Stream in Week 11 - Dallas Cowboys | Official Site of the Dallas Cowboys",
+                "url": "https://news.google.com/rss/articles/CBMikAFBVV95cUxNQTlhVDVkbEhnQm9NVXhZN0ZMZGJGMXk4UTY4dkhFWjVyVmN2Q0RlZENjTmJ2ZU51R1JWd3JzQ1Q3NG4zalhFWnYyaVYtRFdRM29RVkZjWTJMR0pnMndEdl91T3NyV2p0MVAwd0FjNUllMkh6eUNoMDBvR0NDZ0txZEZDZVFuRGxMV2RfcVF1SGs?oc=5"
+              },
+              {
+                "source": "google_news",
+                "text": "Gut Feeling: Staff predictions for Cowboys-Titans - Dallas Cowboys | Official Site of the Dallas Cowboys",
+                "url": "https://news.google.com/rss/articles/CBMiiwFBVV95cUxNY1J0MDJ5M29YX0F6MnJhckVZQzU4ODN5TW5obGxwU0c2TEJHMElraWJjb2pCNkhJTklIVXpIdDFqWmpwcHpUTlUySDNxWU5OazRjTG1RMTdqbUhhQklGTjFtV19iY3FNbEtXM1pEdFd2ckFrN1F2c05uVGtlWlFNbkFsemF3NGhsVzZv?oc=5"
+              },
+              {
+                "source": "google_news",
+                "text": "Cowboys injury updates: Dallas' secondary could get welcome boost with veteran's return - Dallas News",
+                "url": "https://news.google.com/rss/articles/CBMisAFBVV95cUxQdTRwcHVuakJlOEduejFrSG9teHNMaVBmV18zaHlhSzl1UVJLM3BfYzJXNkg2VlJwT3Z4VnhVcFZjY1NTWU5VNXhKRUtoUk01Z2EzemRDR1E0bXJwRkhRZDVNdVY2d1luNkM4bWc4TnVYNm9paDVjVVk5bUdoY0ZjcHVZMEFZTkxvOHAzMUJQa0QxcWpmTUlHYlM1WDgyUTNzVURhMExsSU5BRy1hdmROZw?oc=5"
               }
             ],
             "evidence": "public signal collector"
           },
-          "fan_emotion": "confident",
+          "fan_emotion": "worried",
           "creative_angle": "Outfit styling",
           "product_signal_score": 111.4,
           "copy": {
             "angle": "styling",
-            "hook_template": "Pair it with denim and forget it is fan gear. {line}",
+            "hook_template": "Game day fit, weekday wearable. {line}",
             "angle_label": "Outfit styling",
-            "hook": "Pair it with denim and forget it is fan gear. “DALLAS FOOTBALL 1960 DALLAS” on a tee at $21.99.",
-            "ad_copy": "Pair it with denim and forget it is fan gear. “DALLAS FOOTBALL 1960 DALLAS” on a tee at $21.99. Angle: outfit styling. Signal driving it: Tennessee Titans present surprising mirror image for the Dallas Cowboys - Dallas News Product: Dallas Football 1960 Helmet Vintage Shirt (dallas 1960 shirt). Verify licensing and the live listing before promotion.",
+            "hook": "Game day fit, weekday wearable. “DALLAS FOOTBALL 1960 DALLAS” on a tee at $21.99.",
+            "ad_copy": "Game day fit, weekday wearable. “DALLAS FOOTBALL 1960 DALLAS” on a tee at $21.99. Angle: outfit styling. Signal driving it: Gut Feeling: Staff predictions for Cowboys-Titans - Dallas Cowboys | Official Site of the Dallas Cowboys Product: Dallas Football 1960 Helmet Vintage Shirt (dallas 1960 shirt). Verify licensing and the live listing before promotion.",
             "captions": {
-              "instagram": "Read the shirt. Pair it with denim and forget it is fan gear. “DALLAS FOOTBALL 1960 DALLAS” on a tee at $21.99. Why now: Tennessee Titans present surprising mirror image for the Dallas Cowboys - Dallas News Link in bio for the listing. #dallascowboys #dallas1960shirt #vintagedallasfootballtee",
-              "facebook": "Pair it with denim and forget it is fan gear. “DALLAS FOOTBALL 1960 DALLAS” on a tee at $21.99. Context for Dallas Cowboys fans: Tennessee Titans present surprising mirror image for the Dallas Cowboys - Dallas News It is a tee at $21.99 from the Dallas Cowboys collection. Link in bio for the listing. https://gridironlocker.store/shop/dallas-football-vintage-athletic-style-f/",
-              "x": "Pair it with denim and forget it is fan gear. “DALLAS FOOTBALL 1960 DALLAS” on a tee at $21.99. Tennessee Titans present surprising mirror image for the Dallas Cowboys - Dallas News https://gridironlocker.store/shop/dallas-football-vintage-athletic-style-f/",
-              "tiktok": "POV: Pair it with denim and forget it is fan gear. “DALLAS FOOTBALL 1960 DALLAS” on a tee at $21.99. Script beat: Show how the piece is worn, not just what it says. Show the print, then the fit, then the price.",
+              "instagram": "Saved for Sunday. Game day fit, weekday wearable. “DALLAS FOOTBALL 1960 DALLAS” on a tee at $21.99. Why now: Gut Feeling: Staff predictions for Cowboys-Titans - Dallas Cowboys | Official Site of the Dallas Cowboys See it on the shop page. #dallascowboys #dallas1960shirt #vintagedallasfootballtee",
+              "facebook": "Game day fit, weekday wearable. “DALLAS FOOTBALL 1960 DALLAS” on a tee at $21.99. Context for Dallas Cowboys fans: Gut Feeling: Staff predictions for Cowboys-Titans - Dallas Cowboys | Official Site of the Dallas Cowboys It is a tee at $21.99 from the Dallas Cowboys collection. See it on the shop page. https://gridironlocker.store/shop/dallas-football-vintage-athletic-style-f/",
+              "x": "Game day fit, weekday wearable. “DALLAS FOOTBALL 1960 DALLAS” on a tee at $21.99. Gut Feeling: Staff predictions for Cowboys-Titans - Dallas Cowboys | Official Site of the https://gridironlocker.store/shop/dallas-football-vintage-athletic-style-f/",
+              "tiktok": "Nobody asked, but: Game day fit, weekday wearable. “DALLAS FOOTBALL 1960 DALLAS” on a tee at $21.99. Script beat: Show how the piece is worn, not just what it says. Show the print, then the fit, then the price.",
               "pinterest": "Dallas Football 1960 Helmet Vintage Shirt - dallas 1960 shirt idea for Dallas Cowboys fans. Show how the piece is worn, not just what it says. Tee at $21.99."
             },
             "pinterest": {
               "title": "Dallas Football 1960 Helmet Vintage Shirt: Dallas 1960 Shirt",
-              "description": "Outfit styling pin for Dallas Cowboys fans feeling confident. “DALLAS FOOTBALL 1960 DALLAS” on a tee at $21.99. Use only after the product and licensing review.",
+              "description": "Outfit styling pin for Dallas Cowboys fans feeling worried. “DALLAS FOOTBALL 1960 DALLAS” on a tee at $21.99. Use only after the product and licensing review.",
               "keywords": [
                 "dallas 1960 shirt",
                 "vintage dallas football tee",
@@ -424,16 +424,11 @@
           "team": "Cleveland Browns",
           "trend": {
             "team": "cleveland-browns",
-            "story": "The Failed Promise Of Cleveland’s Deshaun Watson Fund - Defector",
-            "emotion": "hopeful",
+            "story": "Browns sign TE Carsen Ryan to the practice squad - Cleveland Browns",
+            "emotion": "confident",
             "stage": "ACCELERATING",
             "signal_count": 28,
             "sources": [
-              {
-                "source": "google_news",
-                "text": "Jason Kelce gives Browns owner Jimmy Haslam the ‘Major League’ treatment on ‘New Heights’ - Cleveland.com",
-                "url": "https://news.google.com/rss/articles/CBMi1AFBVV95cUxQUWEwSWRyb09paGRORktURl9JS014UWJqR2FVb0Z4MjV1bGRuU0pIcnY2TnVKZzdSVHdDdy1hZlZmMGZWcHNSemlBN09JTEZfRWN2Z2J0VGZ4elBSQzhzbFV3TnN6aGpldGh2Z2xqS1NjS0tGaUVhSWJoR3VCN05VZjRtN1BNZDdvNFUyTUlybWFCVGlPOG5XbUdKZ2pyOV9SdGFmUUM2RmE2WDV4MEZpaC1nTm40ZXVjRTYyY3h1SExjUkNzNkNDNGRrSEtIclVjbF9WTw?oc=5"
-              },
               {
                 "source": "google_news",
                 "text": "The Failed Promise Of Cleveland’s Deshaun Watson Fund - Defector",
@@ -441,23 +436,28 @@
               },
               {
                 "source": "google_news",
-                "text": "AFC North Week 10 Recap: Browns pull off another comeback - Yahoo Sports",
-                "url": "https://news.google.com/rss/articles/CBMifEFVX3lxTE50TWJpOFAtbG9JNXdNNTdIWHV2SVEtXzI5YUpBVTNNbEMxc3Nybm5DNldHejBpS2VtRmpta1lCVXRoYmI3THc1a3FCRFpubHlOYzZoN08wdDdIWEY1YnBPbmVVLW9YSGVHY1BtQUJveHBCcmpvQlNpR3Vzdkg?oc=5"
+                "text": "Browns sign TE Carsen Ryan to the practice squad - Cleveland Browns",
+                "url": "https://news.google.com/rss/articles/CBMilgFBVV95cUxOZS02czJ6VUc5WkROeUs1eUZSWk01TkJXS0F0eVJOTkZkUVVaaVdjbi1QLUprU1JNbl9hVGtXeXNoWm1lR2E0c1ZUTEd2YWRXaXhCb1FWaDlFOTVJYlBmc1NET1QyYy1NczlDY3RjVENLdTgwRjRvYTMyOG5vbVVMdDBuRXBLZEsxYVRBWVNxZ1pvZ3RYZUE?oc=5"
               },
               {
                 "source": "google_news",
-                "text": "The Highest-Graded Rookie on the Browns May Not Be Who You Think - Sports Illustrated",
-                "url": "https://news.google.com/rss/articles/CBMisgFBVV95cUxOS2VXUVIyTjV3VW1acFlid2JyVUNDbE14ME1PRFg4NlZ6eHI3ZkVqN2M4Z29WSXdscTNYU1c3WmhHUGtwRnlYcUlVVXpOT2xZX1RhSlVaZU1jOEo3ME1EeDhnWkd3X2ZmUkI3Y3Vjb2hoOF9RUjlsWHRhV1NCSUNMS2w2Vm9pY0R1ZFdXd3RQNmZPd2E4VDBzSVhLelk1X3hYQUpWR2xobDVIR0Q5NkNRNEx3?oc=5"
+                "text": "Todd Monken talks to Terry Pluto about losing, winning and working to change the ‘Browns Narrative’ - Cleveland.com",
+                "url": "https://news.google.com/rss/articles/CBMiuwFBVV95cUxPdXE3aVVTSzFabTBZVDJaUmhBdEVScHh3Y1dfWm9DWnBEclNsalRXdkdMVzRKNkZnbnpQU053bm0waWpkTmtwclJwbVdhNHVSNk9ZaUlYcXByekJ3QkhSc3p3NWF4cllNblp4dFF1czhEdDZ6ZWxmQkd5VjBJUXhXOXpPV2ZVYkh4dDFPM0lRTUt4Ul9RekZNeHJiNmNRanVpSTlqYTVfRWNQVllCMTJfSFdLd0FTYmw4LW9z?oc=5"
               },
               {
                 "source": "google_news",
-                "text": "Browns HC Todd Monken’s Honest Conversation Helped Deshaun Watson Get Back on Track - 247Sports",
-                "url": "https://news.google.com/rss/articles/CBMizwFBVV95cUxPVDVkTDlpc2ItQmthbzJha3RRY2RDNU5VLXAzR1FRWWQxczZQWkV3dndDN1d2WmRvNTFmMlNTYnJKNlZaeFhNZ1FOQURnMkFZcmtQM2tVVy1VdEdVMFRZbFdEZjExWUJ3TWtBbE1kQklyQU8zSmo3YXZFSTV2RENCVzZ3Y2JRLUUxdUtwNUd5Y3p3aGo0Z1FpUG5STXVBdnllRWFHS0FLdUZvV0JuSldqZEhoQi1vR0E5UGRGMWw0OVBzak92bVliVm0xZEtWMjg?oc=5"
+                "text": "5 Things Browns Must Maintain After Their Bye Week - 247Sports",
+                "url": "https://news.google.com/rss/articles/CBMiqgFBVV95cUxOVl92VENhV0NoUUpYZkdGOFNvOTMyRFZzQjJiUDJnSFVmb1FkYXhudm5HTWVjUndUMHlsT3VhVzViVXVtc3U1ektJNnJjNVlLSDhZNy1YRUNiZjhpa2hYNG9iUExMYnc5ejJMMDdtbHJFTTE0RzU4TTVuQ09qNDM3dlVtRjd6cFhCa0JXdlNmMkcwcTNFeFg2RV93QldlNDVtWXdlemozN0MzZw?oc=5"
+              },
+              {
+                "source": "google_news",
+                "text": "5 Browns Players Who Benefit Most From the Bye Week - 247Sports",
+                "url": "https://news.google.com/rss/articles/CBMiogFBVV95cUxQSDBmdmZXdUtqdUZIcUlNQXFsSy1Fa2F1eC12WVZTTXZrcjgtYXFsMU11QlQyWGJ2djhLM1NvOGNKLTJ0RXRsV0M4ZHhuMTRWWTBrTUI1Z0tNRWFQaGNlX19GN29BaVlYVHVoY3E3ZTllVkd1RGJlQnRyS3g0eGVJV1dMSDZ4a3YyQjUzTmhLUGMtVmlWU0ROYW1kb0dLM0tjV0E?oc=5"
               }
             ],
             "evidence": "public signal collector"
           },
-          "fan_emotion": "hopeful",
+          "fan_emotion": "confident",
           "creative_angle": "News reaction",
           "product_signal_score": 104.6,
           "copy": {
@@ -465,17 +465,17 @@
             "hook_template": "Everyone in the {team} timeline is arguing about the same thing today. {line}",
             "angle_label": "News reaction",
             "hook": "Everyone in the Cleveland Browns timeline is arguing about the same thing today. “PLAYOFFS NEVER GIVE UP WITH BULLDOG” on a tee at $24.99.",
-            "ad_copy": "Everyone in the Cleveland Browns timeline is arguing about the same thing today. “PLAYOFFS NEVER GIVE UP WITH BULLDOG” on a tee at $24.99. Angle: news reaction. Signal driving it: The Failed Promise Of Cleveland’s Deshaun Watson Fund - Defector Product: Playoffs Never Give Up Dawg Shirt (browns playoff shirt). Verify licensing and the live listing before promotion.",
+            "ad_copy": "Everyone in the Cleveland Browns timeline is arguing about the same thing today. “PLAYOFFS NEVER GIVE UP WITH BULLDOG” on a tee at $24.99. Angle: news reaction. Signal driving it: Browns sign TE Carsen Ryan to the practice squad - Cleveland Browns Product: Playoffs Never Give Up Dawg Shirt (browns playoff shirt). Verify licensing and the live listing before promotion.",
             "captions": {
-              "instagram": "Closet upgrade. Everyone in the Cleveland Browns timeline is arguing about the same thing today. “PLAYOFFS NEVER GIVE UP WITH BULLDOG” on a tee at $24.99. Why now: The Failed Promise Of Cleveland’s Deshaun Watson Fund - Defector Tap through to the product page. #clevelandbrowns #brownsplayoffshirt #nevergiveupfootballtee",
-              "facebook": "Everyone in the Cleveland Browns timeline is arguing about the same thing today. “PLAYOFFS NEVER GIVE UP WITH BULLDOG” on a tee at $24.99. Context for Cleveland Browns fans: The Failed Promise Of Cleveland’s Deshaun Watson Fund - Defector It is a tee at $24.99 from the Cleveland Browns collection. Tap through to the product page. https://gridironlocker.store/shop/playoffs-never-giveup/",
-              "x": "Everyone in the Cleveland Browns timeline is arguing about the same thing today. “PLAYOFFS NEVER GIVE UP WITH BULLDOG” on a tee at $24.99. The Failed Promise Of Cleveland’s Deshaun Watson Fund - Defector https://gridironlocker.store/shop/playoffs-never-giveup/",
-              "tiktok": "Fit check: Everyone in the Cleveland Browns timeline is arguing about the same thing today. “PLAYOFFS NEVER GIVE UP WITH BULLDOG” on a tee at $24.99. Script beat: React to the storyline that is moving right now. Show the print, then the fit, then the price.",
+              "instagram": "Locked in. Everyone in the Cleveland Browns timeline is arguing about the same thing today. “PLAYOFFS NEVER GIVE UP WITH BULLDOG” on a tee at $24.99. Why now: Browns sign TE Carsen Ryan to the practice squad - Cleveland Browns Full details on the listing. #clevelandbrowns #brownsplayoffshirt #nevergiveupfootballtee",
+              "facebook": "Everyone in the Cleveland Browns timeline is arguing about the same thing today. “PLAYOFFS NEVER GIVE UP WITH BULLDOG” on a tee at $24.99. Context for Cleveland Browns fans: Browns sign TE Carsen Ryan to the practice squad - Cleveland Browns It is a tee at $24.99 from the Cleveland Browns collection. Full details on the listing. https://gridironlocker.store/shop/playoffs-never-giveup/",
+              "x": "Everyone in the Cleveland Browns timeline is arguing about the same thing today. “PLAYOFFS NEVER GIVE UP WITH BULLDOG” on a tee at $24.99. Browns sign TE Carsen Ryan to the practice squad - Cleveland Browns https://gridironlocker.store/shop/playoffs-never-giveup/",
+              "tiktok": "Storytime, short version: Everyone in the Cleveland Browns timeline is arguing about the same thing today. “PLAYOFFS NEVER GIVE UP WITH BULLDOG” on a tee at $24.99. Script beat: React to the storyline that is moving right now. Show the print, then the fit, then the price.",
               "pinterest": "Playoffs Never Give Up Dawg Shirt - browns playoff shirt idea for Cleveland Browns fans. React to the storyline that is moving right now. Tee at $24.99."
             },
             "pinterest": {
               "title": "Playoffs Never Give Up Dawg Shirt: Browns Playoff Shirt",
-              "description": "News reaction pin for Cleveland Browns fans feeling hopeful. “PLAYOFFS NEVER GIVE UP WITH BULLDOG” on a tee at $24.99. Use only after the product and licensing review.",
+              "description": "News reaction pin for Cleveland Browns fans feeling confident. “PLAYOFFS NEVER GIVE UP WITH BULLDOG” on a tee at $24.99. Use only after the product and licensing review.",
               "keywords": [
                 "browns playoff shirt",
                 "never give up football tee",
@@ -499,7 +499,7 @@
       ]
     },
     {
-      "date": "2026-11-22",
+      "date": "2026-11-23",
       "label": "+2 days",
       "opportunities": [
         {
@@ -509,11 +509,26 @@
           "team": "Green Bay Packers",
           "trend": {
             "team": "green-bay-packers",
-            "story": "Packers’ upcoming Wednesday game isn’t their only schedule oddity - Acme Packing Company",
+            "story": "Packers announce roster move | Nov. 19, 2026 - Green Bay Packers – packers.com",
             "emotion": "worried",
             "stage": "ACCELERATING",
             "signal_count": 28,
             "sources": [
+              {
+                "source": "google_news",
+                "text": "The Green Bay Packers: Schroedinger’s Playoff Team - Cheesehead TV",
+                "url": "https://news.google.com/rss/articles/CBMiigFBVV95cUxQdnNJa1dvNm9rSHdjdXFoUTdTNkZrWVZwYkh6eWZqajBiMXhPNkFqY092bDhEakFzdGxiQmpydDg5VVRwSVc5aTMwRUg4blg1SVE2MzFyV25VcUptdzROWXRjLXNaVG9sbkR4WEhyYlMzUmtEd2c2THdhc3hLM0dfelZOcHRVTUk2ZXc?oc=5"
+              },
+              {
+                "source": "google_news",
+                "text": "Packers Report Card at Bye Week: Grading Every Unit on Offense - Sports Illustrated",
+                "url": "https://news.google.com/rss/articles/CBMingFBVV95cUxQbGtnSGhhSDBZcjRLSDhaalJPekFPRUpfNmo0WnVlcnpKTUFrU3gzWC1hYUJIODFSUEFNRENBYzJYWW01T3IweWRWUWlRRXp4R01pU015WlR0QS1ONF9zaHRhQmJFZ3FYcFc2bERzQUo0MWJNeUJDM2pzN2UtdDZWNzVNT3MtTU9OYWhrWVIzUU1BYXAySjZSZWUwTUJKQQ?oc=5"
+              },
+              {
+                "source": "google_news",
+                "text": "Packers Report Card at Bye Week: One ‘A’ In Our Unit Grades on Defense - Sports Illustrated",
+                "url": "https://news.google.com/rss/articles/CBMipgFBVV95cUxPeU53WHV1RFFmc2NraVNoM21lUjlNT253dUVtT00yRTIwckU0bDVjSUFQUG9XZ19NRS1BcWh4dkpKdi04bmVxVWUyQmRycEJfWEpoMmx4dGpGcHBqQ3E1QnBKaDQxa19MTjF6aVhQVE1fM09MOWpCNGtNdUZMenh1aFY3ZmRiRlVKby05cF9aZFRQcHZfVi12RF9rR1RvTmlCc01tajZn?oc=5"
+              },
               {
                 "source": "google_news",
                 "text": "Packers announce roster move | Nov. 19, 2026 - Green Bay Packers – packers.com",
@@ -521,23 +536,8 @@
               },
               {
                 "source": "google_news",
-                "text": "Brian Gutekunst vindicated as former Packers struggle in new homes - Packers Wire",
-                "url": "https://news.google.com/rss/articles/CBMizgFBVV95cUxON01sbVlRT0w5RGhzZy15bi14SzZSdUJGcllSRlNWSWh0dmhpa2p0aEVzU01aM0d4ZUlEcmZVNmUxemx1Q1V0d0hyNXl0czBvUVBFMWFjUDFKLWI4ZUFRZGF0TWxmZG1HVzJwdVJScGd6QTlUcVdMOUJCMTU4Smpia242VkJWdUtHZGJSWlBTNUY4ZXdscFlCR0dtRXR0VDlZYlI0NXNycklaYnhfOFNNcTVGTFV1Tl9FSVl3b05mOHFpSno4cmw1d3phLXpOUQ?oc=5"
-              },
-              {
-                "source": "google_news",
-                "text": "Josh Jacobs and 4 other Packers who could be cap casualties in 2027 - Lombardi Ave",
-                "url": "https://news.google.com/rss/articles/CBMiiAFBVV95cUxNSFZ5TVpNd0lJM0JhcHFKWGpKMjdsY0F2VktEdFljbE00b3VsUzUzVm50ZFhWME5lRUhtckJyS1NUc29wY3BPcHhxSDM3bE9lMklweUVCY29IVHduSjNIeEhWbDZZQmo0eFJiMzBkTUtSdkI4QTFyUElzYmE4QnVsanNSQVctMjlW?oc=5"
-              },
-              {
-                "source": "google_news",
-                "text": "Packers’ upcoming Wednesday game isn’t their only schedule oddity - Acme Packing Company",
-                "url": "https://news.google.com/rss/articles/CBMiygFBVV95cUxPdG5HQTdYdDB0b1BQSUhQNG9jM2tiVWM4NG5RclNid3VzaExQc3NqMkFiUXA0dnlHRmFWV1NlSDNPbWx3VmZRYWQ5RlhNZEVOOGlXcnJxZXo0WVZySGRaNEpwcjdyQ09pR1M1WjE2TnNERUpJX1VFOVJWOVhTcFBabmhJRXhPLUN3YU5PUE1lRW56WmpMWDlwWFZ1b05NbHVTWmVvWXgzemFUY0R0c3NUV2pTS29KVmJzMGtFS1UxUjNDVHdyY3VBeUd3?oc=5"
-              },
-              {
-                "source": "google_news",
-                "text": "Packers' Christian Watson Lands Major Midseason Award - Yahoo Sports",
-                "url": "https://news.google.com/rss/articles/CBMijgFBVV95cUxQNHlpWDdCZlhTNHFXalBHMFNiZHBnNV96MjJMdlhPWnM5ek9zLUFpTGtIQnI1MjIyeWZ0aFhGaGxjYlFTNjFJNlBZd25HRkFYN3dOVXA3d0VhWlhqTWhWaGlBbFQ1UUUzTTVJWVpsUE5pX1psUXZoVGFYYlhzV3NWSkVnUHJ6Z29PZU1YLWh3?oc=5"
+                "text": "Packers should lean on running back Kaleb Johnson after their bye - Yahoo Sports",
+                "url": "https://news.google.com/rss/articles/CBMihwFBVV95cUxQaGFhbEpSVTlVSzlDUVVIekMzUW9uNVlES0h0RjBobWlIN2xUN3ZoR3V5YmJ1Tm9ER1FoOTZadVJBS2ZucGNhQmxkRTE0d01Ub3BxZG1RNm9IU0hES3AyWDJURk9wZFpQbURrdnNHckZyeXhXU09CcVlGaHJMZ0EzNUQ2R0RnVVU?oc=5"
               }
             ],
             "evidence": "public signal collector"
@@ -547,15 +547,15 @@
           "product_signal_score": 143.4,
           "copy": {
             "angle": "identity",
-            "hook_template": "{team} fandom is not a costume - it is a wardrobe decision. {line}",
+            "hook_template": "You can spot a real {team} fan before kickoff. {line}",
             "angle_label": "Fan identity statement",
-            "hook": "Green Bay Packers fandom is not a costume - it is a wardrobe decision. “JORDAN FREAKING LOVE” on a tee at $24.99.",
-            "ad_copy": "Green Bay Packers fandom is not a costume - it is a wardrobe decision. “JORDAN FREAKING LOVE” on a tee at $24.99. Angle: fan identity statement. Signal driving it: Packers’ upcoming Wednesday game isn’t their only schedule oddity - Acme Packing Company Product: Jordan Freaking Love Shirt (jordan love shirt). Verify licensing and the live listing before promotion.",
+            "hook": "You can spot a real Green Bay Packers fan before kickoff. “JORDAN FREAKING LOVE” on a tee at $24.99.",
+            "ad_copy": "You can spot a real Green Bay Packers fan before kickoff. “JORDAN FREAKING LOVE” on a tee at $24.99. Angle: fan identity statement. Signal driving it: Packers announce roster move | Nov. 19, 2026 - Green Bay Packers – packers.com Product: Jordan Freaking Love Shirt (jordan love shirt). Verify licensing and the live listing before promotion.",
             "captions": {
-              "instagram": "Saved for Sunday. Green Bay Packers fandom is not a costume - it is a wardrobe decision. “JORDAN FREAKING LOVE” on a tee at $24.99. Why now: Packers’ upcoming Wednesday game isn’t their only schedule oddity - Acme Packing Company See it on the shop page. #greenbaypackers #jordanloveshirt #packersqbtee",
-              "facebook": "Green Bay Packers fandom is not a costume - it is a wardrobe decision. “JORDAN FREAKING LOVE” on a tee at $24.99. Context for Green Bay Packers fans: Packers’ upcoming Wednesday game isn’t their only schedule oddity - Acme Packing Company It is a tee at $24.99 from the Green Bay Packers collection. See it on the shop page. https://gridironlocker.store/shop/limited-edition-grb30/",
-              "x": "Green Bay Packers fandom is not a costume - it is a wardrobe decision. “JORDAN FREAKING LOVE” on a tee at $24.99. Packers’ upcoming Wednesday game isn’t their only schedule oddity - Acme Packing Company https://gridironlocker.store/shop/limited-edition-grb30/",
-              "tiktok": "Nobody asked, but: Green Bay Packers fandom is not a costume - it is a wardrobe decision. “JORDAN FREAKING LOVE” on a tee at $24.99. Script beat: Say who you root for before you say a word. Show the print, then the fit, then the price.",
+              "instagram": "One piece, whole mood. You can spot a real Green Bay Packers fan before kickoff. “JORDAN FREAKING LOVE” on a tee at $24.99. Why now: Packers announce roster move | Nov. 19, 2026 - Green Bay Packers – packers.com Sizes and colours are on the product page. #greenbaypackers #jordanloveshirt #packersqbtee",
+              "facebook": "You can spot a real Green Bay Packers fan before kickoff. “JORDAN FREAKING LOVE” on a tee at $24.99. Context for Green Bay Packers fans: Packers announce roster move | Nov. 19, 2026 - Green Bay Packers – packers.com It is a tee at $24.99 from the Green Bay Packers collection. Sizes and colours are on the product page. https://gridironlocker.store/shop/limited-edition-grb30/",
+              "x": "You can spot a real Green Bay Packers fan before kickoff. “JORDAN FREAKING LOVE” on a tee at $24.99. Packers announce roster move | Nov. 19, 2026 - Green Bay Packers – packers.com https://gridironlocker.store/shop/limited-edition-grb30/",
+              "tiktok": "Three seconds of Green Bay Packers truth: You can spot a real Green Bay Packers fan before kickoff. “JORDAN FREAKING LOVE” on a tee at $24.99. Script beat: Say who you root for before you say a word. Show the print, then the fit, then the price.",
               "pinterest": "Jordan Freaking Love Shirt - jordan love shirt idea for Green Bay Packers fans. Say who you root for before you say a word. Tee at $24.99."
             },
             "pinterest": {
@@ -588,25 +588,15 @@
           "team": "Dallas Cowboys",
           "trend": {
             "team": "dallas-cowboys",
-            "story": "Dallas Cowboys Injury Report: Jaishawn Barham Shock Addition, 5 Out For Week 11 - Sports Illustrated",
-            "emotion": "confident",
+            "story": "Cowboys injury updates: Dallas' secondary could get welcome boost with veteran's return - Dallas News",
+            "emotion": "worried",
             "stage": "ACCELERATING",
             "signal_count": 28,
             "sources": [
               {
                 "source": "google_news",
-                "text": "Cowboys defenders react to Mike Pettine taking over play-calling duties, Christian Parker remaining DC - Dallas Cowboys | Official Site of the Dallas Cowboys",
-                "url": "https://news.google.com/rss/articles/CBMi0gFBVV95cUxOazdxTGphdE5VVGFtbmlSODFCSE80UnV5VnB6ajFtWXg3SWExV2hPeXoydUQ2SlNMcmlmWVFGcFhScHk4bHNxMGtFRXUwOENtMlg2WDJVSlA0dl9WdHllOWFMMmFocmNiSzVkaTBpRkVIanpIUWU4eUJqYnBJbk5fSUJhdS1ZTG4zbkNOSXhuaElPWWl6TTAyaG16cWJjazhTRi1neHgtNklrcEtxbnJTZ3BJeURyN3d4MGozTFc4QmVab1FQQldSc25GMXM1eGFCWFE?oc=5"
-              },
-              {
-                "source": "google_news",
-                "text": "Dallas Cowboys fan dies days after falling during fight at AT&T Stadium, police say - Fox News",
-                "url": "https://news.google.com/rss/articles/CBMiuAFBVV95cUxPM3VrM05ZRlVwdF9HOFktcHMzaGNPSjF1dG1UTzR2T3B3aEJzX2ZkaGVvVGpVU3AzSUJfRS1DRlI5UHpzX0dzUkEtb0d6VXJ3a0k1dVRuRE1rbERWRVN3WUdLNmNNU3JTSTd4Z1J4di12ck5HN3pfN2JyUHN1Mm9sWUEyaThZQWdFcDByWk16a0NQMkZjcXdtSFpiZm5kNWRfSXE0TndzT2lHT1NZR3VoMVRTZVRMMEEy?oc=5"
-              },
-              {
-                "source": "google_news",
-                "text": "‘Hates it here’ – NFL fans in awe as Dallas Cowboys star repeats answer 12 times in press conference - Yahoo Sports",
-                "url": "https://news.google.com/rss/articles/CBMif0FVX3lxTFBqbnlOcHhyZGhSWlVRNERVbXQxZ0lQV3hXemdVYldfRnlDTjZMWWZiZ1B6d0dzNW1qMy1rMmQ2LXFzLVhwTTcyOFIyUWFrdjdhZmYzOHVtWDU2My1BaG1OSWxfU0l1Y2tLUHhVRVZwU3RHemVoVW42QnRDeEhOelU?oc=5"
+                "text": "Police investigate man's death after alleged altercation at 49ers-Cowboys game - ESPN",
+                "url": "https://news.google.com/rss/articles/CBMimwFBVV95cUxPSi1uRW1SV3BNZDhsRmY4cEpyUmVRa1p6TTQwMjJDYW9FS1l5Qk5pQVdJcXAwOExJWHJoQy16X0xiTEpzQUU4bzJlWjBDS2hzd0gzcmdZT3dkaHlpM3FqS2Q2U29ITWRyYWpvMlZsU09YbHJVS1RoM1ROeGxlTzY5VUoyYzJRdXBwNlRqcFBrcTd5U0NUTVQ3MVQ0cw?oc=5"
               },
               {
                 "source": "google_news",
@@ -615,31 +605,41 @@
               },
               {
                 "source": "google_news",
-                "text": "Dallas Cowboys Injury Report: Jaishawn Barham Shock Addition, 5 Out For Week 11 - Sports Illustrated",
-                "url": "https://news.google.com/rss/articles/CBMirgFBVV95cUxPbG5PNDFKanZWZkVtS0pqZWdUVGVkRGU4TTdjTUNWSVhsbHhkUGRIamR5bDhvZTlSSW9mTzFvNjE4TENYYU5KUmpyMk5keG4zRkVxR0Y5MF82SEdKbEpHQVJrdXFoZ0cxS2wzbUZEY2FIdmo2SFQ1eWdSeThVUzVqY2p4bnc3VnRsMWFVb05mSEF6R2trS1RzM2REbmIyT1hHeF9XM3UxOHFUdW9YMGc?oc=5"
+                "text": "Cowboys-Titans: How to Watch, Listen, Stream in Week 11 - Dallas Cowboys | Official Site of the Dallas Cowboys",
+                "url": "https://news.google.com/rss/articles/CBMikAFBVV95cUxNQTlhVDVkbEhnQm9NVXhZN0ZMZGJGMXk4UTY4dkhFWjVyVmN2Q0RlZENjTmJ2ZU51R1JWd3JzQ1Q3NG4zalhFWnYyaVYtRFdRM29RVkZjWTJMR0pnMndEdl91T3NyV2p0MVAwd0FjNUllMkh6eUNoMDBvR0NDZ0txZEZDZVFuRGxMV2RfcVF1SGs?oc=5"
+              },
+              {
+                "source": "google_news",
+                "text": "Gut Feeling: Staff predictions for Cowboys-Titans - Dallas Cowboys | Official Site of the Dallas Cowboys",
+                "url": "https://news.google.com/rss/articles/CBMiiwFBVV95cUxNY1J0MDJ5M29YX0F6MnJhckVZQzU4ODN5TW5obGxwU0c2TEJHMElraWJjb2pCNkhJTklIVXpIdDFqWmpwcHpUTlUySDNxWU5OazRjTG1RMTdqbUhhQklGTjFtV19iY3FNbEtXM1pEdFd2ckFrN1F2c05uVGtlWlFNbkFsemF3NGhsVzZv?oc=5"
+              },
+              {
+                "source": "google_news",
+                "text": "Cowboys injury updates: Dallas' secondary could get welcome boost with veteran's return - Dallas News",
+                "url": "https://news.google.com/rss/articles/CBMisAFBVV95cUxQdTRwcHVuakJlOEduejFrSG9teHNMaVBmV18zaHlhSzl1UVJLM3BfYzJXNkg2VlJwT3Z4VnhVcFZjY1NTWU5VNXhKRUtoUk01Z2EzemRDR1E0bXJwRkhRZDVNdVY2d1luNkM4bWc4TnVYNm9paDVjVVk5bUdoY0ZjcHVZMEFZTkxvOHAzMUJQa0QxcWpmTUlHYlM1WDgyUTNzVURhMExsSU5BRy1hdmROZw?oc=5"
               }
             ],
             "evidence": "public signal collector"
           },
-          "fan_emotion": "confident",
-          "creative_angle": "Outfit styling",
+          "fan_emotion": "worried",
+          "creative_angle": "Throwback / heritage",
           "product_signal_score": 111.4,
           "copy": {
-            "angle": "styling",
-            "hook_template": "How {team} fans are actually dressing this season: {line}",
-            "angle_label": "Outfit styling",
-            "hook": "How Dallas Cowboys fans are actually dressing this season: “DALLAS 1960 FOOTBALL WITH RETRO HELMET” on a tee at $21.99.",
-            "ad_copy": "How Dallas Cowboys fans are actually dressing this season: “DALLAS 1960 FOOTBALL WITH RETRO HELMET” on a tee at $21.99. Angle: outfit styling. Signal driving it: Dallas Cowboys Injury Report: Jaishawn Barham Shock Addition, 5 Out For Week 11 - Sports Illustrated Product: Dallas 1960 Football Helmet White Shirt (dallas white tee). Verify licensing and the live listing before promotion.",
+            "angle": "throwback",
+            "hook_template": "Throwback energy, current fit: {line}",
+            "angle_label": "Throwback / heritage",
+            "hook": "Throwback energy, current fit: “DALLAS 1960 FOOTBALL WITH RETRO HELMET” on a tee at $21.99.",
+            "ad_copy": "Throwback energy, current fit: “DALLAS 1960 FOOTBALL WITH RETRO HELMET” on a tee at $21.99. Angle: throwback / heritage. Signal driving it: Cowboys injury updates: Dallas' secondary could get welcome boost with veteran's return - Dallas News Product: Dallas 1960 Football Helmet White Shirt (dallas white tee). Verify licensing and the live listing before promotion.",
             "captions": {
-              "instagram": "Locked in. How Dallas Cowboys fans are actually dressing this season: “DALLAS 1960 FOOTBALL WITH RETRO HELMET” on a tee at $21.99. Why now: Dallas Cowboys Injury Report: Jaishawn Barham Shock Addition, 5 Out For Week 11 - Sports Illustrated Full details on the listing. #dallascowboys #dallaswhitetee #vintage1960dallasshirt",
-              "facebook": "How Dallas Cowboys fans are actually dressing this season: “DALLAS 1960 FOOTBALL WITH RETRO HELMET” on a tee at $21.99. Context for Dallas Cowboys fans: Dallas Cowboys Injury Report: Jaishawn Barham Shock Addition, 5 Out For Week 11 - Sports Illustrated It is a tee at $21.99 from the Dallas Cowboys collection. Full details on the listing. https://gridironlocker.store/shop/dallas-texas-vintage-athletic-style-t-sh/",
-              "x": "How Dallas Cowboys fans are actually dressing this season: “DALLAS 1960 FOOTBALL WITH RETRO HELMET” on a tee at $21.99. Dallas Cowboys Injury Report: Jaishawn Barham Shock Addition, 5 Out For Week 11 - Sports I https://gridironlocker.store/shop/dallas-texas-vintage-athletic-st…",
-              "tiktok": "Storytime, short version: How Dallas Cowboys fans are actually dressing this season: “DALLAS 1960 FOOTBALL WITH RETRO HELMET” on a tee at $21.99. Script beat: Show how the piece is worn, not just what it says. Show the print, then the fit, then the price.",
-              "pinterest": "Dallas 1960 Football Helmet White Shirt - dallas white tee idea for Dallas Cowboys fans. Show how the piece is worn, not just what it says. Tee at $21.99."
+              "instagram": "Read the shirt. Throwback energy, current fit: “DALLAS 1960 FOOTBALL WITH RETRO HELMET” on a tee at $21.99. Why now: Cowboys injury updates: Dallas' secondary could get welcome boost with veteran's return - Dallas News Link in bio for the listing. #dallascowboys #dallaswhitetee #vintage1960dallasshirt",
+              "facebook": "Throwback energy, current fit: “DALLAS 1960 FOOTBALL WITH RETRO HELMET” on a tee at $21.99. Context for Dallas Cowboys fans: Cowboys injury updates: Dallas' secondary could get welcome boost with veteran's return - Dallas News It is a tee at $21.99 from the Dallas Cowboys collection. Link in bio for the listing. https://gridironlocker.store/shop/dallas-texas-vintage-athletic-style-t-sh/",
+              "x": "Throwback energy, current fit: “DALLAS 1960 FOOTBALL WITH RETRO HELMET” on a tee at $21.99. Cowboys injury updates: Dallas' secondary could get welcome boost with veteran's return - https://gridironlocker.store/shop/dallas-texas-vintage-athletic-style-t-sh/",
+              "tiktok": "POV: Throwback energy, current fit: “DALLAS 1960 FOOTBALL WITH RETRO HELMET” on a tee at $21.99. Script beat: Anchor the product in the era fans keep bringing up. Show the print, then the fit, then the price.",
+              "pinterest": "Dallas 1960 Football Helmet White Shirt - dallas white tee idea for Dallas Cowboys fans. Anchor the product in the era fans keep bringing up. Tee at $21.99."
             },
             "pinterest": {
               "title": "Dallas 1960 Football Helmet White Shirt: Dallas White Tee",
-              "description": "Outfit styling pin for Dallas Cowboys fans feeling confident. “DALLAS 1960 FOOTBALL WITH RETRO HELMET” on a tee at $21.99. Use only after the product and licensing review.",
+              "description": "Throwback / heritage pin for Dallas Cowboys fans feeling worried. “DALLAS 1960 FOOTBALL WITH RETRO HELMET” on a tee at $21.99. Use only after the product and licensing review.",
               "keywords": [
                 "dallas white tee",
                 "vintage 1960 dallas shirt",
@@ -667,16 +667,11 @@
           "team": "Cleveland Browns",
           "trend": {
             "team": "cleveland-browns",
-            "story": "AFC North Week 10 Recap: Browns pull off another comeback - Yahoo Sports",
-            "emotion": "hopeful",
+            "story": "Todd Monken talks to Terry Pluto about losing, winning and working to change the ‘Browns Narrative’ - Cleveland.com",
+            "emotion": "confident",
             "stage": "ACCELERATING",
             "signal_count": 28,
             "sources": [
-              {
-                "source": "google_news",
-                "text": "Jason Kelce gives Browns owner Jimmy Haslam the ‘Major League’ treatment on ‘New Heights’ - Cleveland.com",
-                "url": "https://news.google.com/rss/articles/CBMi1AFBVV95cUxQUWEwSWRyb09paGRORktURl9JS014UWJqR2FVb0Z4MjV1bGRuU0pIcnY2TnVKZzdSVHdDdy1hZlZmMGZWcHNSemlBN09JTEZfRWN2Z2J0VGZ4elBSQzhzbFV3TnN6aGpldGh2Z2xqS1NjS0tGaUVhSWJoR3VCN05VZjRtN1BNZDdvNFUyTUlybWFCVGlPOG5XbUdKZ2pyOV9SdGFmUUM2RmE2WDV4MEZpaC1nTm40ZXVjRTYyY3h1SExjUkNzNkNDNGRrSEtIclVjbF9WTw?oc=5"
-              },
               {
                 "source": "google_news",
                 "text": "The Failed Promise Of Cleveland’s Deshaun Watson Fund - Defector",
@@ -684,23 +679,28 @@
               },
               {
                 "source": "google_news",
-                "text": "AFC North Week 10 Recap: Browns pull off another comeback - Yahoo Sports",
-                "url": "https://news.google.com/rss/articles/CBMifEFVX3lxTE50TWJpOFAtbG9JNXdNNTdIWHV2SVEtXzI5YUpBVTNNbEMxc3Nybm5DNldHejBpS2VtRmpta1lCVXRoYmI3THc1a3FCRFpubHlOYzZoN08wdDdIWEY1YnBPbmVVLW9YSGVHY1BtQUJveHBCcmpvQlNpR3Vzdkg?oc=5"
+                "text": "Browns sign TE Carsen Ryan to the practice squad - Cleveland Browns",
+                "url": "https://news.google.com/rss/articles/CBMilgFBVV95cUxOZS02czJ6VUc5WkROeUs1eUZSWk01TkJXS0F0eVJOTkZkUVVaaVdjbi1QLUprU1JNbl9hVGtXeXNoWm1lR2E0c1ZUTEd2YWRXaXhCb1FWaDlFOTVJYlBmc1NET1QyYy1NczlDY3RjVENLdTgwRjRvYTMyOG5vbVVMdDBuRXBLZEsxYVRBWVNxZ1pvZ3RYZUE?oc=5"
               },
               {
                 "source": "google_news",
-                "text": "The Highest-Graded Rookie on the Browns May Not Be Who You Think - Sports Illustrated",
-                "url": "https://news.google.com/rss/articles/CBMisgFBVV95cUxOS2VXUVIyTjV3VW1acFlid2JyVUNDbE14ME1PRFg4NlZ6eHI3ZkVqN2M4Z29WSXdscTNYU1c3WmhHUGtwRnlYcUlVVXpOT2xZX1RhSlVaZU1jOEo3ME1EeDhnWkd3X2ZmUkI3Y3Vjb2hoOF9RUjlsWHRhV1NCSUNMS2w2Vm9pY0R1ZFdXd3RQNmZPd2E4VDBzSVhLelk1X3hYQUpWR2xobDVIR0Q5NkNRNEx3?oc=5"
+                "text": "Todd Monken talks to Terry Pluto about losing, winning and working to change the ‘Browns Narrative’ - Cleveland.com",
+                "url": "https://news.google.com/rss/articles/CBMiuwFBVV95cUxPdXE3aVVTSzFabTBZVDJaUmhBdEVScHh3Y1dfWm9DWnBEclNsalRXdkdMVzRKNkZnbnpQU053bm0waWpkTmtwclJwbVdhNHVSNk9ZaUlYcXByekJ3QkhSc3p3NWF4cllNblp4dFF1czhEdDZ6ZWxmQkd5VjBJUXhXOXpPV2ZVYkh4dDFPM0lRTUt4Ul9RekZNeHJiNmNRanVpSTlqYTVfRWNQVllCMTJfSFdLd0FTYmw4LW9z?oc=5"
               },
               {
                 "source": "google_news",
-                "text": "Browns HC Todd Monken’s Honest Conversation Helped Deshaun Watson Get Back on Track - 247Sports",
-                "url": "https://news.google.com/rss/articles/CBMizwFBVV95cUxPVDVkTDlpc2ItQmthbzJha3RRY2RDNU5VLXAzR1FRWWQxczZQWkV3dndDN1d2WmRvNTFmMlNTYnJKNlZaeFhNZ1FOQURnMkFZcmtQM2tVVy1VdEdVMFRZbFdEZjExWUJ3TWtBbE1kQklyQU8zSmo3YXZFSTV2RENCVzZ3Y2JRLUUxdUtwNUd5Y3p3aGo0Z1FpUG5STXVBdnllRWFHS0FLdUZvV0JuSldqZEhoQi1vR0E5UGRGMWw0OVBzak92bVliVm0xZEtWMjg?oc=5"
+                "text": "5 Things Browns Must Maintain After Their Bye Week - 247Sports",
+                "url": "https://news.google.com/rss/articles/CBMiqgFBVV95cUxOVl92VENhV0NoUUpYZkdGOFNvOTMyRFZzQjJiUDJnSFVmb1FkYXhudm5HTWVjUndUMHlsT3VhVzViVXVtc3U1ektJNnJjNVlLSDhZNy1YRUNiZjhpa2hYNG9iUExMYnc5ejJMMDdtbHJFTTE0RzU4TTVuQ09qNDM3dlVtRjd6cFhCa0JXdlNmMkcwcTNFeFg2RV93QldlNDVtWXdlemozN0MzZw?oc=5"
+              },
+              {
+                "source": "google_news",
+                "text": "5 Browns Players Who Benefit Most From the Bye Week - 247Sports",
+                "url": "https://news.google.com/rss/articles/CBMiogFBVV95cUxQSDBmdmZXdUtqdUZIcUlNQXFsSy1Fa2F1eC12WVZTTXZrcjgtYXFsMU11QlQyWGJ2djhLM1NvOGNKLTJ0RXRsV0M4ZHhuMTRWWTBrTUI1Z0tNRWFQaGNlX19GN29BaVlYVHVoY3E3ZTllVkd1RGJlQnRyS3g0eGVJV1dMSDZ4a3YyQjUzTmhLUGMtVmlWU0ROYW1kb0dLM0tjV0E?oc=5"
               }
             ],
             "evidence": "public signal collector"
           },
-          "fan_emotion": "hopeful",
+          "fan_emotion": "confident",
           "creative_angle": "News reaction",
           "product_signal_score": 104.6,
           "copy": {
@@ -708,17 +708,17 @@
             "hook_template": "One headline, one {team} reaction piece: {line}",
             "angle_label": "News reaction",
             "hook": "One headline, one Cleveland Browns reaction piece: “PLAYOFF POUND AND DETERMINED 2023 2024 CLEVELAND” on a tee at $24.99.",
-            "ad_copy": "One headline, one Cleveland Browns reaction piece: “PLAYOFF POUND AND DETERMINED 2023 2024 CLEVELAND” on a tee at $24.99. Angle: news reaction. Signal driving it: AFC North Week 10 Recap: Browns pull off another comeback - Yahoo Sports Product: Playoff Pound And Determined Shirt (browns playoff shirt). Verify licensing and the live listing before promotion.",
+            "ad_copy": "One headline, one Cleveland Browns reaction piece: “PLAYOFF POUND AND DETERMINED 2023 2024 CLEVELAND” on a tee at $24.99. Angle: news reaction. Signal driving it: Todd Monken talks to Terry Pluto about losing, winning and working to change the ‘Browns Narrative’ - Cleveland.com Product: Playoff Pound And Determined Shirt (browns playoff shirt). Verify licensing and the live listing before promotion.",
             "captions": {
-              "instagram": "Locked in. One headline, one Cleveland Browns reaction piece: “PLAYOFF POUND AND DETERMINED 2023 2024 CLEVELAND” on a tee at $24.99. Why now: AFC North Week 10 Recap: Browns pull off another comeback - Yahoo Sports Full details on the listing. #clevelandbrowns #brownsplayoffshirt #dawgpoundplayofftee",
-              "facebook": "One headline, one Cleveland Browns reaction piece: “PLAYOFF POUND AND DETERMINED 2023 2024 CLEVELAND” on a tee at $24.99. Context for Cleveland Browns fans: AFC North Week 10 Recap: Browns pull off another comeback - Yahoo Sports It is a tee at $24.99 from the Cleveland Browns collection. Full details on the listing. https://gridironlocker.store/shop/play-off-pound-shirt/",
-              "x": "One headline, one Cleveland Browns reaction piece: “PLAYOFF POUND AND DETERMINED 2023 2024 CLEVELAND” on a tee at $24.99. AFC North Week 10 Recap: Browns pull off another comeback - Yahoo Sports https://gridironlocker.store/shop/play-off-pound-shirt/",
-              "tiktok": "Storytime, short version: One headline, one Cleveland Browns reaction piece: “PLAYOFF POUND AND DETERMINED 2023 2024 CLEVELAND” on a tee at $24.99. Script beat: React to the storyline that is moving right now. Show the print, then the fit, then the price.",
+              "instagram": "One piece, whole mood. One headline, one Cleveland Browns reaction piece: “PLAYOFF POUND AND DETERMINED 2023 2024 CLEVELAND” on a tee at $24.99. Why now: Todd Monken talks to Terry Pluto about losing, winning and working to change the ‘Browns Narrative’ - Cleveland.com Sizes and colours are on the product page. #clevelandbrowns #brownsplayoffshirt #dawgpoundplayofftee",
+              "facebook": "One headline, one Cleveland Browns reaction piece: “PLAYOFF POUND AND DETERMINED 2023 2024 CLEVELAND” on a tee at $24.99. Context for Cleveland Browns fans: Todd Monken talks to Terry Pluto about losing, winning and working to change the ‘Browns Narrative’ - Cleveland.com It is a tee at $24.99 from the Cleveland Browns collection. Sizes and colours are on the product page. https://gridironlocker.store/shop/play-off-pound-shirt/",
+              "x": "One headline, one Cleveland Browns reaction piece: “PLAYOFF POUND AND DETERMINED 2023 2024 CLEVELAND” on a tee at $24.99. Todd Monken talks to Terry Pluto about losing, winning and working to change the ‘Browns N https://gridironlocker.store/shop/play-off-pound-shirt/",
+              "tiktok": "Three seconds of Cleveland Browns truth: One headline, one Cleveland Browns reaction piece: “PLAYOFF POUND AND DETERMINED 2023 2024 CLEVELAND” on a tee at $24.99. Script beat: React to the storyline that is moving right now. Show the print, then the fit, then the price.",
               "pinterest": "Playoff Pound And Determined Shirt - browns playoff shirt idea for Cleveland Browns fans. React to the storyline that is moving right now. Tee at $24.99."
             },
             "pinterest": {
               "title": "Playoff Pound And Determined Shirt: Browns Playoff Shirt",
-              "description": "News reaction pin for Cleveland Browns fans feeling hopeful. “PLAYOFF POUND AND DETERMINED 2023 2024 CLEVELAND” on a tee at $24.99. Use only after the product and licensing review.",
+              "description": "News reaction pin for Cleveland Browns fans feeling confident. “PLAYOFF POUND AND DETERMINED 2023 2024 CLEVELAND” on a tee at $24.99. Use only after the product and licensing review.",
               "keywords": [
                 "browns playoff shirt",
                 "dawg pound playoff tee",
@@ -760,97 +760,9 @@
         {
           "source": "google_news",
           "team": "cleveland-browns",
-          "text": "Jason Kelce gives Browns owner Jimmy Haslam the ‘Major League’ treatment on ‘New Heights’ - Cleveland.com",
-          "url": "https://news.google.com/rss/articles/CBMi1AFBVV95cUxQUWEwSWRyb09paGRORktURl9JS014UWJqR2FVb0Z4MjV1bGRuU0pIcnY2TnVKZzdSVHdDdy1hZlZmMGZWcHNSemlBN09JTEZfRWN2Z2J0VGZ4elBSQzhzbFV3TnN6aGpldGh2Z2xqS1NjS0tGaUVhSWJoR3VCN05VZjRtN1BNZDdvNFUyTUlybWFCVGlPOG5XbUdKZ2pyOV9SdGFmUUM2RmE2WDV4MEZpaC1nTm40ZXVjRTYyY3h1SExjUkNzNkNDNGRrSEtIclVjbF9WTw?oc=5",
-          "published": "Thu, 19 Nov 2026 18:34:00 GMT",
-          "metrics": {}
-        },
-        {
-          "source": "google_news",
-          "team": "cleveland-browns",
           "text": "The Failed Promise Of Cleveland’s Deshaun Watson Fund - Defector",
           "url": "https://news.google.com/rss/articles/CBMifkFVX3lxTE9xSGtVZkNuWTYxQzZPVDZfbjRDdkd1STZJUDRQN18tdVBJMkN0eS03d3daVzdiclFaMkZhOUZmZHYzajNUTHg1RWRPMmptcFZUMGpHQXloUWtJQ3ZHWWkzcWJ2ZHRkZTh3ZUEyRWIzM3pLbU9aMXVvRHEySmRsUQ?oc=5",
           "published": "Thu, 19 Nov 2026 14:03:00 GMT",
-          "metrics": {}
-        },
-        {
-          "source": "google_news",
-          "team": "cleveland-browns",
-          "text": "AFC North Week 10 Recap: Browns pull off another comeback - Yahoo Sports",
-          "url": "https://news.google.com/rss/articles/CBMifEFVX3lxTE50TWJpOFAtbG9JNXdNNTdIWHV2SVEtXzI5YUpBVTNNbEMxc3Nybm5DNldHejBpS2VtRmpta1lCVXRoYmI3THc1a3FCRFpubHlOYzZoN08wdDdIWEY1YnBPbmVVLW9YSGVHY1BtQUJveHBCcmpvQlNpR3Vzdkg?oc=5",
-          "published": "Fri, 20 Nov 2026 21:43:46 GMT",
-          "metrics": {}
-        },
-        {
-          "source": "google_news",
-          "team": "cleveland-browns",
-          "text": "The Highest-Graded Rookie on the Browns May Not Be Who You Think - Sports Illustrated",
-          "url": "https://news.google.com/rss/articles/CBMisgFBVV95cUxOS2VXUVIyTjV3VW1acFlid2JyVUNDbE14ME1PRFg4NlZ6eHI3ZkVqN2M4Z29WSXdscTNYU1c3WmhHUGtwRnlYcUlVVXpOT2xZX1RhSlVaZU1jOEo3ME1EeDhnWkd3X2ZmUkI3Y3Vjb2hoOF9RUjlsWHRhV1NCSUNMS2w2Vm9pY0R1ZFdXd3RQNmZPd2E4VDBzSVhLelk1X3hYQUpWR2xobDVIR0Q5NkNRNEx3?oc=5",
-          "published": "Fri, 20 Nov 2026 18:59:22 GMT",
-          "metrics": {}
-        },
-        {
-          "source": "google_news",
-          "team": "cleveland-browns",
-          "text": "Browns HC Todd Monken’s Honest Conversation Helped Deshaun Watson Get Back on Track - 247Sports",
-          "url": "https://news.google.com/rss/articles/CBMizwFBVV95cUxPVDVkTDlpc2ItQmthbzJha3RRY2RDNU5VLXAzR1FRWWQxczZQWkV3dndDN1d2WmRvNTFmMlNTYnJKNlZaeFhNZ1FOQURnMkFZcmtQM2tVVy1VdEdVMFRZbFdEZjExWUJ3TWtBbE1kQklyQU8zSmo3YXZFSTV2RENCVzZ3Y2JRLUUxdUtwNUd5Y3p3aGo0Z1FpUG5STXVBdnllRWFHS0FLdUZvV0JuSldqZEhoQi1vR0E5UGRGMWw0OVBzak92bVliVm0xZEtWMjg?oc=5",
-          "published": "Wed, 18 Nov 2026 13:35:00 GMT",
-          "metrics": {}
-        },
-        {
-          "source": "google_news",
-          "team": "cleveland-browns",
-          "text": "Analyzing What Deshaun Watson's 2027 Offseason Contract Extension Could Look Like - Yahoo Sports",
-          "url": "https://news.google.com/rss/articles/CBMikwFBVV95cUxON2tnRXpYaGxUaHk3ZHVWSE9WVWtNeDFWM1ByTHh6RUdUZVdjOGdleEJjVXlfb3NIUzBEYVFLeDJHTEFyRWJTQTdMYVljVnNnNC1oQzY0NDZZUE5BZ1BJWnFaODhqVnFLakVWTHJ4SDBwUTJlWktYcGU1Z3U1UnZwVTRSckVqeFk1dEFNVEFrUHZsbjQ?oc=5",
-          "published": "Fri, 20 Nov 2026 16:30:01 GMT",
-          "metrics": {}
-        },
-        {
-          "source": "google_news",
-          "team": "cleveland-browns",
-          "text": "Browns QB Deshaun Watson open to possibility of extension in Cleveland - NFL.com",
-          "url": "https://news.google.com/rss/articles/CBMimwFBVV95cUxQSk4xV2lja2RQLWdGc1h2UjdhTV9lRlpIaG1TRmlPWDZpMnM2OVUya0ZQTmNiNEo4OVVVN3g5NVhqbTV2Qkpac0k3OHF0a3d5VmpRVURYRG5UN3Q2QjNTZkZRLWtqZ0hGLTNScjhUeDlJOWxiUnV6bmo3X1RxN0Rva05CLTQxS0dWaEY5TXBRWXFqRG9pa1I3TmoxZw?oc=5",
-          "published": "Thu, 19 Nov 2026 14:04:10 GMT",
-          "metrics": {}
-        },
-        {
-          "source": "google_news",
-          "team": "cleveland-browns",
-          "text": "Falcons fans needed 10 games to learn what Browns fans knew about Kevin Stefanski - Dawg Pound Daily",
-          "url": "https://news.google.com/rss/articles/CBMivgFBVV95cUxOTDlVajBBRWNuTGJXY09vMU84a042MTljbTMyV2VBYU5NUkVSWkxpdk42YV96dGZHSUQtejM2U3ItVGN3WmJCaElpQURuTEJqZGFxNUhOYzh4bWRfSlNVQ1kweFZ1RHJSVlNzNE5XVU5UZ3NrelJ3VzRrbVk4d084Q3hFOEs1eTVlRjlqSlJyVHNXX1VuZU5xRnBBRGQwN0xrQWJYZTNGM1FyZHFtby1XMkVvcDRPendfTkRsT0Fn?oc=5",
-          "published": "Fri, 20 Nov 2026 18:00:01 GMT",
-          "metrics": {}
-        },
-        {
-          "source": "google_news",
-          "team": "cleveland-browns",
-          "text": "Browns roster seen as the best fit for one of the best 5 free agents left in the NFL - Dawgs By Nature",
-          "url": "https://news.google.com/rss/articles/CBMiwgFBVV95cUxNVGpGVE1MVy1fcEpuM0NoQ2d5YkFIc1ZqbDQ1STJOSldKRkh3SjdQZVM3R1BqVWg4TnRYX1lsSXhFV1p2VWthNmF1b1VRMXRfV09aVU9uVWJOMFNDQlN6N1dCQWEtNkVyVEFaM0w3czl5V0VDWm1MS24zV29jM241WFNhQWs5VnE4UmkzTnNDaGNRTlJ3SUw4TnVFV3pfWl9XTXkwNGJzVl9kWWZEYTBBaUlWUEJmdVNMRWVoalRTNVVFZw?oc=5",
-          "published": "Wed, 18 Nov 2026 23:10:02 GMT",
-          "metrics": {}
-        },
-        {
-          "source": "google_news",
-          "team": "cleveland-browns",
-          "text": "Cavaliers game moved up after Cleveland Browns schedule change - FOX 8 News",
-          "url": "https://news.google.com/rss/articles/CBMijgFBVV95cUxOcjctZzUtUU5zWk1qaDNaajQ4MHpYMkZ5enZfQVRNX0hncVF1Ym85QU04Rlh1bDNUOEhrb1V6SVJKLWNHRFRhQ3ZaTTVCWHhDbm9zbEZDMmVlblBLa0NqNDhwV1k2RjZ5OVp6QUVMdk9jZjJ6MEMtNl9XS29Nd1J4R1cxVHBZZGJvOUJDOTVB0gGTAUFVX3lxTE5ueFNOUUgzSDV6LXFtdmw5LTVqSmh3TjBBbFg5LUd0VW13dUpyaTY5VmJnQ3ozMGdaUXdPdGhPSF9WY2FtU1dRQXQzZ0RwS1VERGxNZ3ltelQxRTF5R2lCMWhabER3SnNSYTVLSVlmLW5IWW9VUWVGd1U0aHcwelVJMnFjUmlVN2cwWHJhYXd5TFhFNA?oc=5",
-          "published": "Fri, 20 Nov 2026 12:09:39 GMT",
-          "metrics": {}
-        },
-        {
-          "source": "google_news",
-          "team": "cleveland-browns",
-          "text": "'Back in the game': Cleveland Browns legend Bernie Kosar discusses recovery 1 year after liver transplant surgery - WKYC",
-          "url": "https://news.google.com/rss/articles/CBMinwJBVV95cUxNdl9iUkFJaS1PRGNpSU80RXFfNHZLMkZpU1E3dnZDNW9LSmFLZGdoVjd1SWt3RUFZYl92a1NDcHlvZGVHZDdTb2NfSXFDNU9LWGJ3OXVZTmJHME9wRjYyTUxNTGNmempLSF9yU2owci1BMjhJbURJY2t4UzFjREdTVGNyVU50cWpIeEI4bldqYThTZWllQU95cmdWMzRYdkFfeTlsRHhqWk1FdlctSjJVem1pVGF5Mm5qV2pjVlhKYmVQSDJXdjdGUmtJajFKWWprdXluMWRFQW9GRHBaMm0yOHJJT3FuYnM2Rl9Iajc5ZFh6RVByempYLW5Fc2lHTHlxUXZvbzZodDhjam00YmFFN3l0MDBnZ2VmRENXMlR2MA?oc=5",
-          "published": "Wed, 18 Nov 2026 00:22:00 GMT",
-          "metrics": {}
-        },
-        {
-          "source": "google_news",
-          "team": "cleveland-browns",
-          "text": "The Patriots have fallen off so bad they’re getting bumped for the Browns, and other thoughts - The Boston Globe",
-          "url": "https://news.google.com/rss/articles/CBMihwFBVV95cUxNMG92dWFubkZlYVV4SUp6dHFBYWtKam1fUHliQ3lwVWR4WWtQZUFqSUw0VWhySlgtUnJNcVMxN0w5VVVNYUJTc19JaG9rTUprT2dQZHEwblp4OExaQU5OTHRuTDg2ZHpFNzNQc1NfR0M2MEU5T25qZm9aRzZNd0lFNkRkS0N3YTQ?oc=5",
-          "published": "Fri, 20 Nov 2026 05:00:00 GMT",
           "metrics": {}
         },
         {
@@ -864,49 +776,105 @@
         {
           "source": "google_news",
           "team": "cleveland-browns",
-          "text": "Predicting the Browns' Final 7 Games of the 2026-27 NFL Regular Season - 247Sports",
-          "url": "https://news.google.com/rss/articles/CBMiuwFBVV95cUxOR2QxSG9fc3NsbW9VMUFiTG9fRTNuR005cXZ1RjVTaTJ0d0dNRndQMzhvMVRRYWhYY1FNbm9ySjJnNkwwLXNaZlBEY1hxYmZCRmhJNXVMYnJ6cGpjbmNUdnJyTjBlOWVjT2VOZlNrQUZMSzRpTHA4RTNjS0c2YUI0NEZSaUFEd3dJZzBCNjBkcFVtR3RxN043SlF4MnlPWUZJRjdlNXdqN3VDVy1iMXM1SmZWdFNLYWJUY0lB?oc=5",
-          "published": "Thu, 19 Nov 2026 16:17:39 GMT",
+          "text": "Todd Monken talks to Terry Pluto about losing, winning and working to change the ‘Browns Narrative’ - Cleveland.com",
+          "url": "https://news.google.com/rss/articles/CBMiuwFBVV95cUxPdXE3aVVTSzFabTBZVDJaUmhBdEVScHh3Y1dfWm9DWnBEclNsalRXdkdMVzRKNkZnbnpQU053bm0waWpkTmtwclJwbVdhNHVSNk9ZaUlYcXByekJ3QkhSc3p3NWF4cllNblp4dFF1czhEdDZ6ZWxmQkd5VjBJUXhXOXpPV2ZVYkh4dDFPM0lRTUt4Ul9RekZNeHJiNmNRanVpSTlqYTVfRWNQVllCMTJfSFdLd0FTYmw4LW9z?oc=5",
+          "published": "Sat, 21 Nov 2026 10:02:00 GMT",
           "metrics": {}
         },
         {
           "source": "google_news",
           "team": "cleveland-browns",
-          "text": "Jaguars 34-10 Browns (Sep 13, 2026) Final Score - ESPN",
-          "url": "https://news.google.com/rss/articles/CBMicEFVX3lxTE5SYmpGckJNYmNtT1ktTUtadGptd0dUVWRqVWVtWG5HTWZSWk5yRWlQWWlndzJ3eGs0STNmR0lRZjBNaGExbkRENnp0cy1LclB4aVhtODFyWnZlcEV6MGZIXzg0ek1EUnR5TnNhSUgzV0k?oc=5",
-          "published": "Fri, 15 May 2026 00:25:27 GMT",
+          "text": "5 Things Browns Must Maintain After Their Bye Week - 247Sports",
+          "url": "https://news.google.com/rss/articles/CBMiqgFBVV95cUxOVl92VENhV0NoUUpYZkdGOFNvOTMyRFZzQjJiUDJnSFVmb1FkYXhudm5HTWVjUndUMHlsT3VhVzViVXVtc3U1ektJNnJjNVlLSDhZNy1YRUNiZjhpa2hYNG9iUExMYnc5ejJMMDdtbHJFTTE0RzU4TTVuQ09qNDM3dlVtRjd6cFhCa0JXdlNmMkcwcTNFeFg2RV93QldlNDVtWXdlemozN0MzZw?oc=5",
+          "published": "Fri, 20 Nov 2026 22:23:10 GMT",
           "metrics": {}
         },
         {
           "source": "google_news",
           "team": "cleveland-browns",
-          "text": "How ‘Red Rising’ Swept Through the Browns Clubhouse - Front Office Sports",
-          "url": "https://news.google.com/rss/articles/CBMihgFBVV95cUxNaTEtREliYVZpTUQzblk1X2V2MWhuYlFfd3lzREVMamZDV0l0a09uZnRuSlJtbFRQMGdrNUFsNGVIdk5QTzNMc2hsbTFNc2doaVIycHJoN1pKXzU2c1ZEcFd6UmRDbDczSDkwYkx4ZW1sd0Z3ZEcyRzVmckxaNHJuSDFIOGNhZw?oc=5",
-          "published": "Thu, 19 Nov 2026 11:02:55 GMT",
+          "text": "5 Browns Players Who Benefit Most From the Bye Week - 247Sports",
+          "url": "https://news.google.com/rss/articles/CBMiogFBVV95cUxQSDBmdmZXdUtqdUZIcUlNQXFsSy1Fa2F1eC12WVZTTXZrcjgtYXFsMU11QlQyWGJ2djhLM1NvOGNKLTJ0RXRsV0M4ZHhuMTRWWTBrTUI1Z0tNRWFQaGNlX19GN29BaVlYVHVoY3E3ZTllVkd1RGJlQnRyS3g0eGVJV1dMSDZ4a3YyQjUzTmhLUGMtVmlWU0ROYW1kb0dLM0tjV0E?oc=5",
+          "published": "Sat, 21 Nov 2026 11:01:02 GMT",
           "metrics": {}
         },
         {
           "source": "google_news",
           "team": "cleveland-browns",
-          "text": "Insider Uses One Word To Describe Shedeur Sanders’ Future In Cleveland - Browns Nation",
-          "url": "https://news.google.com/rss/articles/CBMioAFBVV95cUxPeEVEVEpvN2pOT0U3TGVSTEFFVDNYM1VGMlhodnNMbFVfVFlDMmNVdFJfYlRPbGw4LWVmQ2sydnNPa0hEUjZTeXVNYnNvZ2E2WThOdnlzd2NaUlJPY3UtQm0wTUY1aDJUV0REaUtuRmNMck9xekRCdkk5QnVnSDkxLU9tZ2M4dWlzZ1NIdjVjOEdXWU1lblpkaW5Ua2N5Ujdw?oc=5",
-          "published": "Fri, 20 Nov 2026 00:13:40 GMT",
+          "text": "AFC North Week 10 Recap: Browns pull off another comeback - Baltimore Beatdown",
+          "url": "https://news.google.com/rss/articles/CBMiugFBVV95cUxNVS11TmVlQjdrRmRoVlFVY1lILUFWb1BzMm8zbHVtV1BLRE83UVVvcWdWRGJIY3g5MS1wR2JBMDRoRnJCZ3hLLU5uMllxcnppUWE3LWlXS01heW9lZGJNUVJwaGhRRmc4MjhGNHV5cUR0VmtIVUpQQnlVeEoxeTF4MWkxNnNhd2NpWVp4VjM4RHdKVHhfMl9MTUhLcDBObDlabng1Z1U4UzZLNGcyY0NiN1BwWW51bVZ3eXc?oc=5",
+          "published": "Fri, 20 Nov 2026 21:43:46 GMT",
           "metrics": {}
         },
         {
           "source": "google_news",
           "team": "cleveland-browns",
-          "text": "Insider Drops Truth Bomb on Deshaun Watson’s Browns Future - Heavy.com",
-          "url": "https://news.google.com/rss/articles/CBMikAFBVV95cUxPTFlyd2FoSUIteExGLWN1aE1WVXJYSVd0QTgyV052LVBoMkhReHhMdFNUYnphUW91NHo1a2p5b3hEZVUzUXdKNDJvckdWb1dYVE55SlM2M3podzlRRE43RlpOLTFRSGFRczl1UVQtNzdFWHExYmVZZUFYdVBhSUIwUnJER09KWTJ1RXowazAtelY?oc=5",
-          "published": "Thu, 19 Nov 2026 18:13:36 GMT",
+          "text": "Full Cleveland Browns 2027 Mock Draft: All Seven Rounds - Sports Illustrated",
+          "url": "https://news.google.com/rss/articles/CBMipAFBVV95cUxQTmlFZFhqNkdNRzlITndTd2kwR0pvY0wxZzVsR1dRNUxLLUJGQ1hvOWtsY2RzczMydmNjTG80alkxRXUyTWZralFHUWNRN0NtQndkM09xU3FIWjd1enhGajdlS3NSRzBNLU5MQmVLWF9QS3pzekJjSkprWThUOG9BeVlQcm1VM1BJRS1KUTNYY3ltWXJYMk9EVU9iY3BERTZ6OVdxTQ?oc=5",
+          "published": "Fri, 20 Nov 2026 13:23:14 GMT",
           "metrics": {}
         },
         {
           "source": "google_news",
           "team": "cleveland-browns",
-          "text": "How Browns DC Mike Rutenberg is winning without Myles Garrett - Cleveland.com",
-          "url": "https://news.google.com/rss/articles/CBMitgFBVV95cUxNUlJrdGFIU3dadjdxOFZfQ3NkRnNFWjVJQ015TGxic0F3WWRaSFhodm1jYjIxLUlGQlJuaTA3OWRQMDlNTmRPUVJYQU5BZHk3cmZVT0JUbTRLV2N0d2ZSMC0xbDhmdWdBdk5YakJGQW5YbFVfVndPZnc3RVMzTDZPQUpnRmdqdnhlU0g4Yl9vTkZmMHR2cTFUbGdHVV9FUzdaSzN2T01kZktIbjRjYk1wMnhLdkRSUQ?oc=5",
-          "published": "Thu, 19 Nov 2026 20:00:00 GMT",
+          "text": "Falcons fans needed 10 games to learn what Browns fans knew about Kevin Stefanski - Dawg Pound Daily",
+          "url": "https://news.google.com/rss/articles/CBMivgFBVV95cUxOTDlVajBBRWNuTGJXY09vMU84a042MTljbTMyV2VBYU5NUkVSWkxpdk42YV96dGZHSUQtejM2U3ItVGN3WmJCaElpQURuTEJqZGFxNUhOYzh4bWRfSlNVQ1kweFZ1RHJSVlNzNE5XVU5UZ3NrelJ3VzRrbVk4d084Q3hFOEs1eTVlRjlqSlJyVHNXX1VuZU5xRnBBRGQwN0xrQWJYZTNGM1FyZHFtby1XMkVvcDRPendfTkRsT0Fn?oc=5",
+          "published": "Fri, 20 Nov 2026 18:00:01 GMT",
+          "metrics": {}
+        },
+        {
+          "source": "google_news",
+          "team": "cleveland-browns",
+          "text": "Week 11 Browns NFL Power Rankings: A new season-high for Cleveland - Dawgs By Nature",
+          "url": "https://news.google.com/rss/articles/CBMizwFBVV95cUxPbUpWN1prcXMwTEJBeTVYOXRoOE1kSXJ5MGlSMkl4QjVLajg4Zk1oTjFKVmhQY0p3NDJDUG5lUXNQeUJzYUFRWFNic2ZLYkFQOVBZSjMxV3IxNlEySzF4Q0ozejBYSy1jWDJaYzZuSnBxWThrTXd6MG1QUnZQcEt2RVlyZWd0dks0Y21FTnp5MG0wb2NaMXJJdXJaeGtOVnRkcTZDTEIzTVBod0pDSm5EcUE1SlpjQmxrdjltZWZnVU10X2VrQlRZNjRXM2FMbE0?oc=5",
+          "published": "Thu, 19 Nov 2026 19:39:33 GMT",
+          "metrics": {}
+        },
+        {
+          "source": "google_news",
+          "team": "cleveland-browns",
+          "text": "Cavaliers game moved up after Cleveland Browns schedule change - FOX 8 News",
+          "url": "https://news.google.com/rss/articles/CBMijgFBVV95cUxOcjctZzUtUU5zWk1qaDNaajQ4MHpYMkZ5enZfQVRNX0hncVF1Ym85QU04Rlh1bDNUOEhrb1V6SVJKLWNHRFRhQ3ZaTTVCWHhDbm9zbEZDMmVlblBLa0NqNDhwV1k2RjZ5OVp6QUVMdk9jZjJ6MEMtNl9XS29Nd1J4R1cxVHBZZGJvOUJDOTVB0gGTAUFVX3lxTE5ueFNOUUgzSDV6LXFtdmw5LTVqSmh3TjBBbFg5LUd0VW13dUpyaTY5VmJnQ3ozMGdaUXdPdGhPSF9WY2FtU1dRQXQzZ0RwS1VERGxNZ3ltelQxRTF5R2lCMWhabER3SnNSYTVLSVlmLW5IWW9VUWVGd1U0aHcwelVJMnFjUmlVN2cwWHJhYXd5TFhFNA?oc=5",
+          "published": "Fri, 20 Nov 2026 12:09:39 GMT",
+          "metrics": {}
+        },
+        {
+          "source": "google_news",
+          "team": "cleveland-browns",
+          "text": "Browns QB Deshaun Watson open to possibility of extension in Cleveland - NFL.com",
+          "url": "https://news.google.com/rss/articles/CBMimwFBVV95cUxQSk4xV2lja2RQLWdGc1h2UjdhTV9lRlpIaG1TRmlPWDZpMnM2OVUya0ZQTmNiNEo4OVVVN3g5NVhqbTV2Qkpac0k3OHF0a3d5VmpRVURYRG5UN3Q2QjNTZkZRLWtqZ0hGLTNScjhUeDlJOWxiUnV6bmo3X1RxN0Rva05CLTQxS0dWaEY5TXBRWXFqRG9pa1I3TmoxZw?oc=5",
+          "published": "Thu, 19 Nov 2026 14:04:10 GMT",
+          "metrics": {}
+        },
+        {
+          "source": "google_news",
+          "team": "cleveland-browns",
+          "text": "Browns QB Shedeur Sanders Makes Off-Field Noise With Announcement - Heavy.com",
+          "url": "https://news.google.com/rss/articles/CBMingFBVV95cUxQMkN1OGl0QWo4Q21HTzNzQzIxQ0VRX1FlaHktQUxrSWpZLVNCaWFsa1RzMURURFhSMjBidTdMMjJ6VTg5YVVCdG1yUFdyemVjUWdVYmRDZFJMMGpZQW05NGExeTBPNk91ZkFKVGw1S1FkM1VnUW9uQmt4N29jck1BMkdYWklxZ1RZU21pclBjT2pLYlB6RU9fRGNVWjlaQQ?oc=5",
+          "published": "Fri, 20 Nov 2026 19:01:31 GMT",
+          "metrics": {}
+        },
+        {
+          "source": "google_news",
+          "team": "cleveland-browns",
+          "text": "Browns 13-10 Ravens (Oct 18, 2026) Final Score - ESPN",
+          "url": "https://news.google.com/rss/articles/CBMib0FVX3lxTE9sbHROVE1aTXdpb1dHQW5TcV90cVFqdUFsdmdVcnV2WHpxNm5CbXAwMjFXMGM3S28wMld5ZmdXUThWZlo1M0V4TzZOZDhkNWUwdmdqWHZGYkVJM3BTV3FPWXMweXdGcHVQTFpjM29CYw?oc=5",
+          "published": "Fri, 15 May 2026 01:41:08 GMT",
+          "metrics": {}
+        },
+        {
+          "source": "google_news",
+          "team": "cleveland-browns",
+          "text": "Insider Names The One Thing The Browns Must Fix - Browns Nation",
+          "url": "https://news.google.com/rss/articles/CBMigwFBVV95cUxOVF92RVpGV1BrN2JvNEVWdEpJNm9kZ0RMZm1NaHVTOVVnaTRSX056eTNPUFlJM3BNUVEwb1ZybE1DanBHNjhYZ0lpX1prbXFvTTJfdlR6dGJ5SVZ6aUZsSlBuODg1elZJSTZQNU01a0NuTGF6eFctRmRjTGw2blhCQmVxZw?oc=5",
+          "published": "Fri, 20 Nov 2026 17:14:52 GMT",
+          "metrics": {}
+        },
+        {
+          "source": "google_news",
+          "team": "cleveland-browns",
+          "text": "What's the Browns AFC playoff competition? A look at the contenders - Akron Beacon Journal",
+          "url": "https://news.google.com/rss/articles/CBMiqgFBVV95cUxQSEd6ZGhLVDdwMmllTTdpOFFNd1JNUFhuanI1cmktdmpNeGVfOVJoOXdmcGdtMXN3U2tsZjlzV2NnY3dBQ0wwOTBtTU0wb191RlNWdDVINVV4TFVIUWJRdk5WNlZXNGdQX2NPWDZmTUVPOG9JUE85YzhYZmxFT3ZkeklpbS00Y0dEd0J3T1kzLXBJWnpPMk9WWTloaGlPQVc5ZDFkTGd3ZlBNQQ?oc=5",
+          "published": "Sat, 21 Nov 2026 11:06:00 GMT",
           "metrics": {}
         },
         {
@@ -919,122 +887,34 @@
         },
         {
           "source": "google_news",
-          "team": "green-bay-packers",
-          "text": "Packers announce roster move | Nov. 19, 2026 - Green Bay Packers – packers.com",
-          "url": "https://news.google.com/rss/articles/CBMieEFVX3lxTE5FdGdsc1d6OGpfNHp0UHlyd21qWkxTYmI0QjZGRk9oUk5GZTRyVE5lZTljajlMY3RyV3ZNYVItMGUwUGZKOFFIZGw0ZWNtWDhSMU4wNHBFZVA2TTZyci0zM3VyNnQzWm94Y2xwbkJwVk1PeEZxaV9PLQ?oc=5",
-          "published": "Thu, 19 Nov 2026 22:44:59 GMT",
+          "team": "cleveland-browns",
+          "text": "Cleveland Browns news: A slow and easy Saturday on the sports calendar - Yahoo Sports",
+          "url": "https://news.google.com/rss/articles/CBMihwFBVV95cUxOdUJ5ZDBCVTRQZktkZTJGMC1NYXppZ2FRc2wzRUJ4SHNPMlFaZHFhX3ZVeWctN3QxYml4MFBGUU9lYnlnLTdET3lVMDJMVkZiYzk5UV9DZ2llbkxkbmx6VFRJb3dpRkxqU0JSZDZkSlpZMzBDSFJjMVJOWnNCS3VIWTRvcFUwZFE?oc=5",
+          "published": "Sat, 21 Nov 2026 11:30:00 GMT",
           "metrics": {}
         },
         {
           "source": "google_news",
-          "team": "green-bay-packers",
-          "text": "Brian Gutekunst vindicated as former Packers struggle in new homes - Packers Wire",
-          "url": "https://news.google.com/rss/articles/CBMizgFBVV95cUxON01sbVlRT0w5RGhzZy15bi14SzZSdUJGcllSRlNWSWh0dmhpa2p0aEVzU01aM0d4ZUlEcmZVNmUxemx1Q1V0d0hyNXl0czBvUVBFMWFjUDFKLWI4ZUFRZGF0TWxmZG1HVzJwdVJScGd6QTlUcVdMOUJCMTU4Smpia242VkJWdUtHZGJSWlBTNUY4ZXdscFlCR0dtRXR0VDlZYlI0NXNycklaYnhfOFNNcTVGTFV1Tl9FSVl3b05mOHFpSno4cmw1d3phLXpOUQ?oc=5",
-          "published": "Thu, 19 Nov 2026 21:39:00 GMT",
+          "team": "cleveland-browns",
+          "text": "“He Can’t Wait to Get Out of Cleveland”: Browns Commentator Raises Alarm Over Deshaun Watson’s Future After QB Dodges Extension Question - Yahoo Sports",
+          "url": "https://news.google.com/rss/articles/CBMijAFBVV95cUxOd3o3NFdQeHF2UzgtckItNTRIM0lxTUxuUkFIbDlBTFgwRDFYbTBuaVFVSDdfREZBRG8ta0NfNTVWdnJta0VrYkgyQjhlZDBlNjRobHVzZk9vSTVWd1pDLWhlaExqbzNkTDVtYWt4WHN5WURDdmh1d2xHZjFITjVjOWM3UnhidUI0SW4zTw?oc=5",
+          "published": "Sat, 21 Nov 2026 12:44:40 GMT",
           "metrics": {}
         },
         {
           "source": "google_news",
-          "team": "green-bay-packers",
-          "text": "Josh Jacobs and 4 other Packers who could be cap casualties in 2027 - Lombardi Ave",
-          "url": "https://news.google.com/rss/articles/CBMiiAFBVV95cUxNSFZ5TVpNd0lJM0JhcHFKWGpKMjdsY0F2VktEdFljbE00b3VsUzUzVm50ZFhWME5lRUhtckJyS1NUc29wY3BPcHhxSDM3bE9lMklweUVCY29IVHduSjNIeEhWbDZZQmo0eFJiMzBkTUtSdkI4QTFyUElzYmE4QnVsanNSQVctMjlW?oc=5",
-          "published": "Fri, 20 Nov 2026 15:00:00 GMT",
+          "team": "cleveland-browns",
+          "text": "4 Browns Veterans Who Should Return to Cleveland in 2027 - 247Sports",
+          "url": "https://news.google.com/rss/articles/CBMitgFBVV95cUxQTy1rd0JMVHh1RTlxUGtldTJzR215aVF2SDVRUnZzVkEtdTRDZ0hvTHZHdzNrZ3RJRS0zRUVOOHhrZnBrM3JQTnVoWmdkOG9zR1NremFnQ2dDSkVWTDR4RGNpVjJWcXRGX2s3cGxESE1NdjhQbEtuT1RaajVhZlY1a24wRU1qU0ZqMXhHUjd6bmJYUnY5aHQzX2FmeGpXakc3bXIzRTlaUU44blQ2MWd2RnNrcUctQQ?oc=5",
+          "published": "Thu, 19 Nov 2026 21:15:00 GMT",
           "metrics": {}
         },
         {
           "source": "google_news",
-          "team": "green-bay-packers",
-          "text": "Packers’ upcoming Wednesday game isn’t their only schedule oddity - Acme Packing Company",
-          "url": "https://news.google.com/rss/articles/CBMiygFBVV95cUxPdG5HQTdYdDB0b1BQSUhQNG9jM2tiVWM4NG5RclNid3VzaExQc3NqMkFiUXA0dnlHRmFWV1NlSDNPbWx3VmZRYWQ5RlhNZEVOOGlXcnJxZXo0WVZySGRaNEpwcjdyQ09pR1M1WjE2TnNERUpJX1VFOVJWOVhTcFBabmhJRXhPLUN3YU5PUE1lRW56WmpMWDlwWFZ1b05NbHVTWmVvWXgzemFUY0R0c3NUV2pTS29KVmJzMGtFS1UxUjNDVHdyY3VBeUd3?oc=5",
-          "published": "Fri, 20 Nov 2026 17:28:36 GMT",
-          "metrics": {}
-        },
-        {
-          "source": "google_news",
-          "team": "green-bay-packers",
-          "text": "Packers' Christian Watson Lands Major Midseason Award - Yahoo Sports",
-          "url": "https://news.google.com/rss/articles/CBMijgFBVV95cUxQNHlpWDdCZlhTNHFXalBHMFNiZHBnNV96MjJMdlhPWnM5ek9zLUFpTGtIQnI1MjIyeWZ0aFhGaGxjYlFTNjFJNlBZd25HRkFYN3dOVXA3d0VhWlhqTWhWaGlBbFQ1UUUzTTVJWVpsUE5pX1psUXZoVGFYYlhzV3NWSkVnUHJ6Z29PZU1YLWh3?oc=5",
-          "published": "Fri, 20 Nov 2026 19:28:47 GMT",
-          "metrics": {}
-        },
-        {
-          "source": "google_news",
-          "team": "green-bay-packers",
-          "text": "Packers Report Card at Bye Week: Grading Every Unit on Offense - Sports Illustrated",
-          "url": "https://news.google.com/rss/articles/CBMingFBVV95cUxQbGtnSGhhSDBZcjRLSDhaalJPekFPRUpfNmo0WnVlcnpKTUFrU3gzWC1hYUJIODFSUEFNRENBYzJYWW01T3IweWRWUWlRRXp4R01pU015WlR0QS1ONF9zaHRhQmJFZ3FYcFc2bERzQUo0MWJNeUJDM2pzN2UtdDZWNzVNT3MtTU9OYWhrWVIzUU1BYXAySjZSZWUwTUJKQQ?oc=5",
-          "published": "Fri, 20 Nov 2026 19:11:44 GMT",
-          "metrics": {}
-        },
-        {
-          "source": "google_news",
-          "team": "green-bay-packers",
-          "text": "Packers face a complicated yet intriguing offensive decision, and one roster path could make the risk worth exploring - A to Z Sports",
-          "url": "https://news.google.com/rss/articles/CBMihwFBVV95cUxOSEtRU1FFRUg3aDdyVjFsY3poYm54Q18tRFRfc1RwaHVuemJTblpJaUJVSlBEZUV5U19FNjBjNTFMTktEN09xVUI0ZGh2aDVJc2pKYmdmQlVJYjNGVEtYOWpjbTdhQ3NsQUF3dmFhWDBRU0FQc2xqTUFzblNNWWxQd0ZIbHVtMzQ?oc=5",
-          "published": "Fri, 20 Nov 2026 12:00:00 GMT",
-          "metrics": {}
-        },
-        {
-          "source": "google_news",
-          "team": "green-bay-packers",
-          "text": "Pete Dougherty Packers mailbag | Readers weigh in on Vikings game plan, offensive line - PackersNews.com",
-          "url": "https://news.google.com/rss/articles/CBMi2wFBVV95cUxQbHBDYW9TdWtDdWtzd2N2VjluRHRSMkpLdTVmTXJDTXhxTlc3ODV1dlNOU0daby1fSnZjeVZ2cE9lZ1BVTDVLVTJBRnRxb3owY0JvNnFBN0dhSENzWkE2WDZBUl9Ub1NEWm1jYTlUaUV4cXVhZEE5bElBak5XSHMzcy1tUU5aV2lza1IyT2hvOFR3NmVvaFh3YzJLa3c3QVY1VHNqVGFYWnpLSnpPUWRUVnN3R1dkbE9rV0JMeEJzNzhrajVxMnh0NTZTNmxydHR1WF9uaW9KVWVfenM?oc=5",
-          "published": "Fri, 20 Nov 2026 11:30:00 GMT",
-          "metrics": {}
-        },
-        {
-          "source": "google_news",
-          "team": "green-bay-packers",
-          "text": "Why Packers can't protect Jordan Love or rush successfully - ESPN",
-          "url": "https://news.google.com/rss/articles/CBMilwFBVV95cUxPOFY2M3RydERkZGhhdHV2ME1UQnpqc1gySHo5WXdLVnpidUJfcEcwM2k0OGpkRzlwc1EyUFBwUEVQbllxN25WbWVKS1ltMU5YdkVYb2RKTTk5MUI1V2pmbTdkelBHT3dUd0NWM0dwMnRSWkZ0SHI2V2NCV1NOMDFEVXJuTjNzSzgwTWQzV1lsamlWekZCZklZ?oc=5",
-          "published": "Wed, 18 Nov 2026 11:00:00 GMT",
-          "metrics": {}
-        },
-        {
-          "source": "google_news",
-          "team": "green-bay-packers",
-          "text": "Green Bay Packers News: Parsons’ return imminent but doesn’t solve biggest problem - Acme Packing Company",
-          "url": "https://news.google.com/rss/articles/CBMi2wFBVV95cUxOYXBVSjlHUTBzN3dFT0xjcTFudHFXcDJjUTExZGNfRzZVaEEyQkt5WUVnSkRNRXVYNGpfSUV4WXhSdjhvazc3Tk5IX1ZiYnFIZVh6RG1tTlo0QUowaGpULVQ4dGExVEFwUC1OQk5lbTRMQkdNeXk3VThodVh0eHd0X1VaUl8wd25COUlfOEE2RHhOazZUVG5VZVNKd3ltMlBBT19UMjRMUDJIa2xscWpqcGl6a05jOFl0RV9IZXlxUmNkbDFSLXFjQi1lbl9ZekRQWXZqakh2VXdMNDA?oc=5",
-          "published": "Fri, 20 Nov 2026 13:20:00 GMT",
-          "metrics": {}
-        },
-        {
-          "source": "google_news",
-          "team": "green-bay-packers",
-          "text": "Packers Create Roster Spot, And That Means Two Things - Sports Illustrated",
-          "url": "https://news.google.com/rss/articles/CBMikgFBVV95cUxOQkdCLXhfaWhXQXUwV1U0TU1fcjdjS3QwUy1sN3FJRjVvZjNGeVY1bGNSUlZZR25qdkpsWUpEYzVMU3ZqbWtHUGQ5dDlMYzJNZlBUelJSaTExX1I1V0RKYjRnTXNLUFM4S1pvM0R0bG1WckgtUy1TcUQxczRKcVZlUXdPZlUyVmZIeGRQM3ZUVmlaQQ?oc=5",
-          "published": "Fri, 20 Nov 2026 16:05:13 GMT",
-          "metrics": {}
-        },
-        {
-          "source": "google_news",
-          "team": "green-bay-packers",
-          "text": "Insider Reveals 2 Packers Players Impacted by Micah Parsons Return - Yahoo Sports",
-          "url": "https://news.google.com/rss/articles/CBMiigFBVV95cUxQb2EySnBHNTVHb0xHaWJ6UnBCdTFUX2dCY0JQYWVfcENmQWhHMjlySTRMNTByS04xN2NISkFLOXlWSjZsM21SVms5Sk5oWWktb3dRQl9TOWpWZzFaY295R2xYWGh4OVRMMkJWbDBNV2U5bU1EejV4djhhWV9raVNxaVV2R3k3aFR5Umc?oc=5",
-          "published": "Fri, 20 Nov 2026 19:43:36 GMT",
-          "metrics": {}
-        },
-        {
-          "source": "google_news",
-          "team": "green-bay-packers",
-          "text": "Domino effect: How 2023's playoff loss to Packers sent Cowboys' franchise tumbling - Dallas News",
-          "url": "https://news.google.com/rss/articles/CBMisAFBVV95cUxOVjdJYjhlZ2pxclkxZmRvQXlKc2twNFF5T3ZNNHZGVkRONjFpdEJlQ3J5ZmljZUw4Y2h6VThHbFhqUFVzWXQwWDNwNEJVU3FzUGhxWlNvY0FsQmY5RU1JYlVTOHFVaW1yamhRbVdfWEx6dkd4WjVweTBONWwzTng5bklYTzNDMzJDU3M5QmcyZXJ4QVRCZ0FkRjI4ajhBOENtb3BZdjEyRWVyMU8zVEpFWg?oc=5",
-          "published": "Fri, 20 Nov 2026 18:56:40 GMT",
-          "metrics": {}
-        },
-        {
-          "source": "google_news",
-          "team": "green-bay-packers",
-          "text": "Packers’ $77 Million Signing Called Historic Mistake: ‘Never Been Great’ - Heavy.com",
-          "url": "https://news.google.com/rss/articles/CBMiowFBVV95cUxOdzdIdWtGOVp3TzJpNkpYc1lOVjg3R3lIQXQ4a1ZETUNMblRPTzBWMEVfZnFVa29kS21yRHl0X2VkYlh3TkRvTktBUGo0cUNjOFpxNWg0MWkwZ1hDY29iMVVtdlU4YVFoc2dINlI2UTVfNGc5M0c0MWktQlVyTUs5RFhhNXpsOE9Kcmx4VEpYbTNFMFZZQUduYWtEVHptTnY3Z1lR?oc=5",
-          "published": "Fri, 20 Nov 2026 00:57:00 GMT",
-          "metrics": {}
-        },
-        {
-          "source": "google_news",
-          "team": "green-bay-packers",
-          "text": "Predicting the Final Score of the Packers Remaining Seven Games - Yahoo Sports",
-          "url": "https://news.google.com/rss/articles/CBMijgFBVV95cUxQOEttSlh1SFZHLUdBbkZHaVFOeVJudWppUW5pWTM5dUc2b1VLTmJlRlZkRkhTdzhxRVN0U1BwTU84NGNHVXBtV0JpNzNuelZfWmZJX0RKa1ZKX0xXbWZQcWdpZkoyZmo2cFVoT2RqenNneWFQcnA2MUM5ZFZScS1yd2NNWXhwOEhLSGhCT3J3?oc=5",
-          "published": "Fri, 20 Nov 2026 12:00:41 GMT",
+          "team": "cleveland-browns",
+          "text": "Mike Hall Jr. is finally healthy — and it shows - Cleveland.com",
+          "url": "https://news.google.com/rss/articles/CBMivAFBVV95cUxQOEljYXhQOGF3TVVrbndjc3J3cy0xUDBITlRES3ZXZlFDX3BQeEhqc1M4MTVULTdPX0tNVDhmcVZ1SUQwNjJyUWgxN1Q0dmlVWkJMM09GdHNILXZ6R0FEallncS1rSGNGcUNBamt3U1RDUTZhc0Z2TzVaVm0tSUtxcGZrTDItRG5QLW45eG9hMXBoWVE3cU1PUkhkQm9iZjhpTUlaSE1vQXlsRHpzc0JSLWtLNzFlNzhRV0FHYQ?oc=5",
+          "published": "Fri, 20 Nov 2026 10:01:00 GMT",
           "metrics": {}
         },
         {
@@ -1048,17 +928,113 @@
         {
           "source": "google_news",
           "team": "green-bay-packers",
-          "text": "Inbox: Hopefully he never changes - Green Bay Packers – packers.com",
-          "url": "https://news.google.com/rss/articles/CBMifkFVX3lxTFA1MjNlSWZ1N2ZmSFVZSWVoMExEM0dmcjluYkFVZFY4X000Qi1VY002NS1uTzhFNWNfMktRMFBURUQzMXpCN0Z4Y3JEalN0Z28yRlpqU2JPSW51T1dfZmxTSGZOYWltX0xJbC01eV8zZmVrRlo0czRTdWp3S0JPUQ?oc=5",
-          "published": "Fri, 20 Nov 2026 14:33:07 GMT",
+          "text": "Packers Report Card at Bye Week: Grading Every Unit on Offense - Sports Illustrated",
+          "url": "https://news.google.com/rss/articles/CBMingFBVV95cUxQbGtnSGhhSDBZcjRLSDhaalJPekFPRUpfNmo0WnVlcnpKTUFrU3gzWC1hYUJIODFSUEFNRENBYzJYWW01T3IweWRWUWlRRXp4R01pU015WlR0QS1ONF9zaHRhQmJFZ3FYcFc2bERzQUo0MWJNeUJDM2pzN2UtdDZWNzVNT3MtTU9OYWhrWVIzUU1BYXAySjZSZWUwTUJKQQ?oc=5",
+          "published": "Fri, 20 Nov 2026 19:11:44 GMT",
           "metrics": {}
         },
         {
           "source": "google_news",
           "team": "green-bay-packers",
-          "text": "Packers Wire launches new Green Bay Packers Fan Shop - Packers Wire",
-          "url": "https://news.google.com/rss/articles/CBMi6wFBVV95cUxQM3NmV2RWZEZxNlAzWXpFWUlvd1pwNk9PZHl1eGxQb0x1eDZPeEtob2poVWNDOHM3SzJNSm5JY1BvY0I0UDVfdmVZdUFIQTA0T3kyNlQwdHp4SUVVQ2tITnhKX3BmbUd5ellxYzRVTjlwbmIxd3RpTjQtRWxKaVF2RWhGLXpjbXVyLXNKNmxfRmVMVnhfd1pvbTl6VzBjWXR6U215ejQyYXB3cjE5NllvcVhXV3d1TlN1WFh4MVh4TnhMdFBWME1hak5sUkhzNXNCb0tTUDVqSFpBeVU3djNfenNEaGtqaUF2bGlV?oc=5",
-          "published": "Fri, 20 Nov 2026 17:31:39 GMT",
+          "text": "Packers Report Card at Bye Week: One ‘A’ In Our Unit Grades on Defense - Sports Illustrated",
+          "url": "https://news.google.com/rss/articles/CBMipgFBVV95cUxPeU53WHV1RFFmc2NraVNoM21lUjlNT253dUVtT00yRTIwckU0bDVjSUFQUG9XZ19NRS1BcWh4dkpKdi04bmVxVWUyQmRycEJfWEpoMmx4dGpGcHBqQ3E1QnBKaDQxa19MTjF6aVhQVE1fM09MOWpCNGtNdUZMenh1aFY3ZmRiRlVKby05cF9aZFRQcHZfVi12RF9rR1RvTmlCc01tajZn?oc=5",
+          "published": "Sat, 21 Nov 2026 13:32:12 GMT",
+          "metrics": {}
+        },
+        {
+          "source": "google_news",
+          "team": "green-bay-packers",
+          "text": "Packers announce roster move | Nov. 19, 2026 - Green Bay Packers – packers.com",
+          "url": "https://news.google.com/rss/articles/CBMieEFVX3lxTE5FdGdsc1d6OGpfNHp0UHlyd21qWkxTYmI0QjZGRk9oUk5GZTRyVE5lZTljajlMY3RyV3ZNYVItMGUwUGZKOFFIZGw0ZWNtWDhSMU4wNHBFZVA2TTZyci0zM3VyNnQzWm94Y2xwbkJwVk1PeEZxaV9PLQ?oc=5",
+          "published": "Thu, 19 Nov 2026 22:44:59 GMT",
+          "metrics": {}
+        },
+        {
+          "source": "google_news",
+          "team": "green-bay-packers",
+          "text": "Packers should lean on running back Kaleb Johnson after their bye - Yahoo Sports",
+          "url": "https://news.google.com/rss/articles/CBMihwFBVV95cUxQaGFhbEpSVTlVSzlDUVVIekMzUW9uNVlES0h0RjBobWlIN2xUN3ZoR3V5YmJ1Tm9ER1FoOTZadVJBS2ZucGNhQmxkRTE0d01Ub3BxZG1RNm9IU0hES3AyWDJURk9wZFpQbURrdnNHckZyeXhXU09CcVlGaHJMZ0EzNUQ2R0RnVVU?oc=5",
+          "published": "Sat, 21 Nov 2026 14:00:00 GMT",
+          "metrics": {}
+        },
+        {
+          "source": "google_news",
+          "team": "green-bay-packers",
+          "text": "Pack-A-Day: Do the Packers have a fatal flaw? - 247Sports",
+          "url": "https://news.google.com/rss/articles/CBMiqgFBVV95cUxOMlJuVDBfSk9nSXJEZmt3WEM3dGh2aklDUjBGQlVoVG1tTksyZmxNNG9LWjhRbURhY3ZmcDkxSDBrOVkzbnNhajRGdlY5eUpJWU1MR19HQnBJbGM5VDJLSFB3UzgxM29DR0F4cmhsMUFodDBiaXdIVXhlUVFmRkNsOFEtUXBJOUt5bFg4c1hUYXQ3QkFlc191bENmbXVrM0xRSDlGVnNZdmFOQQ?oc=5",
+          "published": "Sat, 21 Nov 2026 11:10:27 GMT",
+          "metrics": {}
+        },
+        {
+          "source": "google_news",
+          "team": "green-bay-packers",
+          "text": "Packers Expected to Lose $25 Million All-Pro After Season - Heavy.com",
+          "url": "https://news.google.com/rss/articles/CBMimAFBVV95cUxQWFVLMGt1aUNRS3ExVHFyWUYzUUcwU0pROUMxLXFVbFNRalg5MlJBUUdjU1lpNDhnencwV0lQOHJCNldYM195VzR2QjRNOVlEY3ZiVC1ZdDZhaEJMc01WYmZ2eWh4Y2pCYlEzSTVqaWdiMVVMLXY1em1oVVdjX0toRmg4NGJ3NW1nVXJ3YjNGYVQ2VHBkNlE2Tg?oc=5",
+          "published": "Sat, 21 Nov 2026 11:25:18 GMT",
+          "metrics": {}
+        },
+        {
+          "source": "google_news",
+          "team": "green-bay-packers",
+          "text": "Green Bay Packers News: Parsons’ return imminent but doesn’t solve biggest problem - Acme Packing Company",
+          "url": "https://news.google.com/rss/articles/CBMi2wFBVV95cUxOYXBVSjlHUTBzN3dFT0xjcTFudHFXcDJjUTExZGNfRzZVaEEyQkt5WUVnSkRNRXVYNGpfSUV4WXhSdjhvazc3Tk5IX1ZiYnFIZVh6RG1tTlo0QUowaGpULVQ4dGExVEFwUC1OQk5lbTRMQkdNeXk3VThodVh0eHd0X1VaUl8wd25COUlfOEE2RHhOazZUVG5VZVNKd3ltMlBBT19UMjRMUDJIa2xscWpqcGl6a05jOFl0RV9IZXlxUmNkbDFSLXFjQi1lbl9ZekRQWXZqakh2VXdMNDA?oc=5",
+          "published": "Fri, 20 Nov 2026 13:20:00 GMT",
+          "metrics": {}
+        },
+        {
+          "source": "google_news",
+          "team": "green-bay-packers",
+          "text": "Packers 27-19 Panthers (Oct 29, 2026) Final Score - ESPN",
+          "url": "https://news.google.com/rss/articles/CBMic0FVX3lxTFBiT1BVUVpNRl9GU3V2Vno0WTRxWDZRbU0tNmtEYmd6cmI5bmpyT0w5YndLXzlYQ0hxVDZudEltZWJGYm1CNXkzMmIwSlBYOVhfOUtycG54MVdOMDNya29mckRCemVKQldHc0RQemlUMXg5NE0?oc=5",
+          "published": "Fri, 15 May 2026 00:21:14 GMT",
+          "metrics": {}
+        },
+        {
+          "source": "google_news",
+          "team": "green-bay-packers",
+          "text": "Brian Gutekunst vindicated as former Packers struggle in new homes - Packers Wire",
+          "url": "https://news.google.com/rss/articles/CBMizgFBVV95cUxON01sbVlRT0w5RGhzZy15bi14SzZSdUJGcllSRlNWSWh0dmhpa2p0aEVzU01aM0d4ZUlEcmZVNmUxemx1Q1V0d0hyNXl0czBvUVBFMWFjUDFKLWI4ZUFRZGF0TWxmZG1HVzJwdVJScGd6QTlUcVdMOUJCMTU4Smpia242VkJWdUtHZGJSWlBTNUY4ZXdscFlCR0dtRXR0VDlZYlI0NXNycklaYnhfOFNNcTVGTFV1Tl9FSVl3b05mOHFpSno4cmw1d3phLXpOUQ?oc=5",
+          "published": "Thu, 19 Nov 2026 21:39:00 GMT",
+          "metrics": {}
+        },
+        {
+          "source": "google_news",
+          "team": "green-bay-packers",
+          "text": "Domino effect: How 2023's playoff loss to Packers sent Cowboys' franchise tumbling - Dallas News",
+          "url": "https://news.google.com/rss/articles/CBMisAFBVV95cUxOVjdJYjhlZ2pxclkxZmRvQXlKc2twNFF5T3ZNNHZGVkRONjFpdEJlQ3J5ZmljZUw4Y2h6VThHbFhqUFVzWXQwWDNwNEJVU3FzUGhxWlNvY0FsQmY5RU1JYlVTOHFVaW1yamhRbVdfWEx6dkd4WjVweTBONWwzTng5bklYTzNDMzJDU3M5QmcyZXJ4QVRCZ0FkRjI4ajhBOENtb3BZdjEyRWVyMU8zVEpFWg?oc=5",
+          "published": "Fri, 20 Nov 2026 18:56:40 GMT",
+          "metrics": {}
+        },
+        {
+          "source": "google_news",
+          "team": "green-bay-packers",
+          "text": "Josh Jacobs and 4 other Packers who could be cap casualties in 2027 - Lombardi Ave",
+          "url": "https://news.google.com/rss/articles/CBMiiAFBVV95cUxNSFZ5TVpNd0lJM0JhcHFKWGpKMjdsY0F2VktEdFljbE00b3VsUzUzVm50ZFhWME5lRUhtckJyS1NUc29wY3BPcHhxSDM3bE9lMklweUVCY29IVHduSjNIeEhWbDZZQmo0eFJiMzBkTUtSdkI4QTFyUElzYmE4QnVsanNSQVctMjlW?oc=5",
+          "published": "Fri, 20 Nov 2026 15:00:00 GMT",
+          "metrics": {}
+        },
+        {
+          "source": "google_news",
+          "team": "green-bay-packers",
+          "text": "Inbox: We’re seeing the best version of Karl Brooks - Green Bay Packers – packers.com",
+          "url": "https://news.google.com/rss/articles/CBMilgFBVV95cUxQelZ5S0haVVVrNFlXMDVRb0RzV1VjSE9IbEJ4TFpKM1ZBN3FsRlROMjh1cEJ6RG5hSEVNVnJ5Y1c5ZTAxQnVKQ3pyZGxJYVRzMEJvMGtqeTVrQmFDQ0RicC00aG1FNEotQUkxOE5XT2VQajRpR3N6TW50N200RThYaUNIT2IwSFFnM2k2WUNFeTRtd1lSM2c?oc=5",
+          "published": "Sat, 21 Nov 2026 14:03:12 GMT",
+          "metrics": {}
+        },
+        {
+          "source": "google_news",
+          "team": "green-bay-packers",
+          "text": "Packers’ OL Trade Inaction Defied NFL Execs Expectations: Report - Yahoo Sports",
+          "url": "https://news.google.com/rss/articles/CBMiiAFBVV95cUxPNHphRlBkTENHYWlTcUItbXloUndOMU5xVXJNSmtUVVFUMzlmaVJaQTZuNkRKTDFndkpWVDA4bDcxQkMtS29hUkphNjR2R1FtTzlhVE16UldwVkJ0N3dNNmRBamlWTnNRYkdFaUpsY3huSnRIUncwMGJLS3gyQUNCNGpNREpWMFBW?oc=5",
+          "published": "Sat, 21 Nov 2026 01:58:00 GMT",
+          "metrics": {}
+        },
+        {
+          "source": "google_news",
+          "team": "green-bay-packers",
+          "text": "Packers Roster: Green Bay’s emergency signing board - Acme Packing Company",
+          "url": "https://news.google.com/rss/articles/CBMitgFBVV95cUxOY3I1b1NxelFhTDhPQXEwaGJOYnl0aTBxU0dMX2pWcGlmOVJBWHJJcVhCNEd1VHpWMG1fZmR2cnIwNE1IY0psZm5haWxnNk1uTmVxMU04MXFSTVhMNW13OS1wcUhONUhrc3hMWm16U0FoVjNaLU1KQ1F1VTlCRlJWZ2V1eU9LNjhfZ2xaWFNOSWZUSFBqRFNzY0kyNmVuN2MxWDVsc3VvOEVPUnNqSTVjM2FqYnVTdw?oc=5",
+          "published": "Fri, 20 Nov 2026 00:04:00 GMT",
           "metrics": {}
         },
         {
@@ -1079,26 +1055,34 @@
         },
         {
           "source": "google_news",
-          "team": "dallas-cowboys",
-          "text": "Cowboys defenders react to Mike Pettine taking over play-calling duties, Christian Parker remaining DC - Dallas Cowboys | Official Site of the Dallas Cowboys",
-          "url": "https://news.google.com/rss/articles/CBMi0gFBVV95cUxOazdxTGphdE5VVGFtbmlSODFCSE80UnV5VnB6ajFtWXg3SWExV2hPeXoydUQ2SlNMcmlmWVFGcFhScHk4bHNxMGtFRXUwOENtMlg2WDJVSlA0dl9WdHllOWFMMmFocmNiSzVkaTBpRkVIanpIUWU4eUJqYnBJbk5fSUJhdS1ZTG4zbkNOSXhuaElPWWl6TTAyaG16cWJjazhTRi1neHgtNklrcEtxbnJTZ3BJeURyN3d4MGozTFc4QmVab1FQQldSc25GMXM1eGFCWFE?oc=5",
-          "published": "Wed, 18 Nov 2026 22:59:21 GMT",
+          "team": "green-bay-packers",
+          "text": "Cory's Corner: Resetting Expectations - Cheesehead TV",
+          "url": "https://news.google.com/rss/articles/CBMieEFVX3lxTFBnMFVIaEt4alpQMDEwVlRqcjAwT3lUZ19INE9FaWExZm9QOXdSb3dYSGE2S3hTblA4STV6TVdZaHNFOUFmdlhKMkdLZGR2N0E1VXhtNnZBX1pTRERSWExHNFBtLU5lb2lvY0RkMldxY1ZGVXY0TWszcQ?oc=5",
+          "published": "Sat, 21 Nov 2026 12:29:57 GMT",
+          "metrics": {}
+        },
+        {
+          "source": "google_news",
+          "team": "green-bay-packers",
+          "text": "Predicting the Final Score of the Packers Remaining Seven Games - Yahoo Sports",
+          "url": "https://news.google.com/rss/articles/CBMijgFBVV95cUxQOEttSlh1SFZHLUdBbkZHaVFOeVJudWppUW5pWTM5dUc2b1VLTmJlRlZkRkhTdzhxRVN0U1BwTU84NGNHVXBtV0JpNzNuelZfWmZJX0RKa1ZKX0xXbWZQcWdpZkoyZmo2cFVoT2RqenNneWFQcnA2MUM5ZFZScS1yd2NNWXhwOEhLSGhCT3J3?oc=5",
+          "published": "Fri, 20 Nov 2026 12:00:41 GMT",
+          "metrics": {}
+        },
+        {
+          "source": "google_news",
+          "team": "green-bay-packers",
+          "text": "Packers Create Roster Spot, And That Means Two Things - Sports Illustrated",
+          "url": "https://news.google.com/rss/articles/CBMikgFBVV95cUxOQkdCLXhfaWhXQXUwV1U0TU1fcjdjS3QwUy1sN3FJRjVvZjNGeVY1bGNSUlZZR25qdkpsWUpEYzVMU3ZqbWtHUGQ5dDlMYzJNZlBUelJSaTExX1I1V0RKYjRnTXNLUFM4S1pvM0R0bG1WckgtUy1TcUQxczRKcVZlUXdPZlUyVmZIeGRQM3ZUVmlaQQ?oc=5",
+          "published": "Fri, 20 Nov 2026 16:05:13 GMT",
           "metrics": {}
         },
         {
           "source": "google_news",
           "team": "dallas-cowboys",
-          "text": "Dallas Cowboys fan dies days after falling during fight at AT&T Stadium, police say - Fox News",
-          "url": "https://news.google.com/rss/articles/CBMiuAFBVV95cUxPM3VrM05ZRlVwdF9HOFktcHMzaGNPSjF1dG1UTzR2T3B3aEJzX2ZkaGVvVGpVU3AzSUJfRS1DRlI5UHpzX0dzUkEtb0d6VXJ3a0k1dVRuRE1rbERWRVN3WUdLNmNNU3JTSTd4Z1J4di12ck5HN3pfN2JyUHN1Mm9sWUEyaThZQWdFcDByWk16a0NQMkZjcXdtSFpiZm5kNWRfSXE0TndzT2lHT1NZR3VoMVRTZVRMMEEy?oc=5",
-          "published": "Fri, 20 Nov 2026 19:17:15 GMT",
-          "metrics": {}
-        },
-        {
-          "source": "google_news",
-          "team": "dallas-cowboys",
-          "text": "‘Hates it here’ – NFL fans in awe as Dallas Cowboys star repeats answer 12 times in press conference - Yahoo Sports",
-          "url": "https://news.google.com/rss/articles/CBMif0FVX3lxTFBqbnlOcHhyZGhSWlVRNERVbXQxZ0lQV3hXemdVYldfRnlDTjZMWWZiZ1B6d0dzNW1qMy1rMmQ2LXFzLVhwTTcyOFIyUWFrdjdhZmYzOHVtWDU2My1BaG1OSWxfU0l1Y2tLUHhVRVZwU3RHemVoVW42QnRDeEhOelU?oc=5",
-          "published": "Thu, 19 Nov 2026 05:37:00 GMT",
+          "text": "Police investigate man's death after alleged altercation at 49ers-Cowboys game - ESPN",
+          "url": "https://news.google.com/rss/articles/CBMimwFBVV95cUxPSi1uRW1SV3BNZDhsRmY4cEpyUmVRa1p6TTQwMjJDYW9FS1l5Qk5pQVdJcXAwOExJWHJoQy16X0xiTEpzQUU4bzJlWjBDS2hzd0gzcmdZT3dkaHlpM3FqS2Q2U29ITWRyYWpvMlZsU09YbHJVS1RoM1ROeGxlTzY5VUoyYzJRdXBwNlRqcFBrcTd5U0NUTVQ3MVQ0cw?oc=5",
+          "published": "Fri, 20 Nov 2026 21:38:00 GMT",
           "metrics": {}
         },
         {
@@ -1112,97 +1096,9 @@
         {
           "source": "google_news",
           "team": "dallas-cowboys",
-          "text": "Dallas Cowboys Injury Report: Jaishawn Barham Shock Addition, 5 Out For Week 11 - Sports Illustrated",
-          "url": "https://news.google.com/rss/articles/CBMirgFBVV95cUxPbG5PNDFKanZWZkVtS0pqZWdUVGVkRGU4TTdjTUNWSVhsbHhkUGRIamR5bDhvZTlSSW9mTzFvNjE4TENYYU5KUmpyMk5keG4zRkVxR0Y5MF82SEdKbEpHQVJrdXFoZ0cxS2wzbUZEY2FIdmo2SFQ1eWdSeThVUzVqY2p4bnc3VnRsMWFVb05mSEF6R2trS1RzM2REbmIyT1hHeF9XM3UxOHFUdW9YMGc?oc=5",
-          "published": "Fri, 20 Nov 2026 20:41:49 GMT",
-          "metrics": {}
-        },
-        {
-          "source": "google_news",
-          "team": "dallas-cowboys",
-          "text": "Titans RB Tony Pollard will face former Dallas Cowboys team for 1st time - The Tennessean",
-          "url": "https://news.google.com/rss/articles/CBMivAFBVV95cUxOUGd2c05WNktBeG5rZW5NSjFvM3hwRzE1TWFtTnFBVFUwQ2k5b0h4R3Z0N2Iyel9wc05EeWR0X0I2MW1CUUN0aDRSM3NsS2lkUEt4NVlMcUpISE1WQWYxcTBSLUItUlRZYkFaUzBpME9YMzE4SktGOTZQeWdhb2Y2VWMzRzZhOEFCZmpVajk4d25XRG93NmdtaTBxMHFMTzFMcUkwak1oTzFTMG5IWFMzNGkyamVpSWJNUF94LQ?oc=5",
-          "published": "Fri, 20 Nov 2026 18:59:16 GMT",
-          "metrics": {}
-        },
-        {
-          "source": "google_news",
-          "team": "dallas-cowboys",
-          "text": "“I’ll Pay Your Fine if You Do It”: Ex-Cowboys QB Offers to Cover Ceedee Lamb’s Hefty NFL Fine Under One Condition - EssentiallySports",
-          "url": "https://news.google.com/rss/articles/CBMihAJBVV95cUxOYlRybHlfcVpud3dEOEIzSTQtNFNKMDRrVnNvZ2pjV0ZqNldFbkVwdGZ5T2YzNy1MTHJjd0s1TGhJSFNQZlJDYmRQOG44NXZDVFNHSnBNWFFGdzFFQ0dNekxFUS1lZnVsQ09KZTJMdTh0RWlfckR4Z0dIRnR2SUJpMmlZZllSUGdXV25oYlkzUGQ4WDVxREYxOVFtS0dMamJxOXFZa2VHMGRfQTlZVEJnX0o1QWw0R3lGUll2M01uX2NCVS1NVGFEX0VwM20yUk90U1A4S2F0RW5iMjJ3VFJrdlZzWld2MmhKcXZLbHV6TWJIVEMtRmhsWkNZMTlYSzlHSzItWA?oc=5",
-          "published": "Fri, 20 Nov 2026 01:01:00 GMT",
-          "metrics": {}
-        },
-        {
-          "source": "google_news",
-          "team": "dallas-cowboys",
-          "text": "Tennessee Titans remain underdogs at Dallas Cowboys in Week 11 - Titans Wire",
-          "url": "https://news.google.com/rss/articles/CBMi2gFBVV95cUxQaGNyZDdtSXBuTFBUM0d4ZkNMZzlScWtVX3dzSlIyQm1mUWIzVFlrTTdFU3VhQVpuVDJaeVlWRXJfbzFpbnV5QkpzX0xmNUlma3Y3SnEyOVVEV1VzZjNwWWkxY2k4Vzh1eV9QVW5FNE12ek95U0dpeTlsczBPclFjWHNBbFlINlhDdjcwY0llUDJxSVZQdnpiVnVUYlRoTHhnLW9sS0lWZ3pXUERfMGlQQ2xxM3BKMl9OTUdjQ0g3dThOVVRfZHlxSFlPN1BwdjEyaC0xZEtQODBkQQ?oc=5",
-          "published": "Fri, 20 Nov 2026 19:14:00 GMT",
-          "metrics": {}
-        },
-        {
-          "source": "google_news",
-          "team": "dallas-cowboys",
-          "text": "Tennessee Titans at FULL STRENGTH on Injury Report Ahead of Dallas Cowboys Showdown in Week 11 - KHOU",
-          "url": "https://news.google.com/rss/articles/CBMiuAJBVV95cUxQVGhhVE1VaUtwN0xQVUVxN1R2ZnZnSHdkRWM0NlFkZXVjUFJFOHBIMXRoejBHNzU1MklIcHVOR0JVZUE2ai1YMWpwbFI1M1RaUGFJbDh6N3BYaGZGT09QcVhLeG1uUlB0Sll2UU1HbUlsU09DczQwal9jOGRJemFHcVNKY215djVfeGdoSnk3c2hITVZnajhEZGNrbTBiUzZGWk54cnM2M0tDTE1ocWR6bXVRUFNsaVQ4N0ZyLXV5Z3dndWs3V29oSWh1RDI4OXhQWk9oWE9rcThITHFILU5VMnZhWGJ5WGxRam85dmxfZGQ1a3BaYWZtdjhhcTNzTkozQlF2QWotX1pZR003dUdCNGxOQXFmd2RmTk1rXzh6NTFFN2NnR2xTcFJDOHF3ZXdORm8xNlJJZHY?oc=5",
-          "published": "Fri, 20 Nov 2026 21:05:55 GMT",
-          "metrics": {}
-        },
-        {
-          "source": "google_news",
-          "team": "dallas-cowboys",
-          "text": "Past/Present: Shiyazh Pete back in Dallas with UFL's Renegades - Dallas Cowboys | Official Site of the Dallas Cowboys",
-          "url": "https://news.google.com/rss/articles/CBMinAFBVV95cUxQMVBQdUZMZHphanQ3YWhWODVLaGNFaUVmU09ZekhtVXFCMEJka3dzZlBQdFdnTllGUnNwaDFCd0x4STB5c19QdUpxNG1PQnJwd0VZeDNnem40Z1Z1LTljaU1VU0hHY181TFJpSzc3S2NZT0hwVkpUcHRjZ3Q3N3Y0U0hKbDlTLUpIZGFPQ0V4REVGaEFNdzBtVVR1cGE?oc=5",
-          "published": "Fri, 20 Nov 2026 16:21:26 GMT",
-          "metrics": {}
-        },
-        {
-          "source": "google_news",
-          "team": "dallas-cowboys",
-          "text": "Mike Pettine on taking over as Cowboys' defensive play-caller, dynamic with Christian Parker - Dallas Cowboys | Official Site of the Dallas Cowboys",
-          "url": "https://news.google.com/rss/articles/CBMiwwFBVV95cUxNbnpiTFBnODZybEVQa19lZm4zaW1CVHJaQWpTeGlneFdtZU91MXYyVFpOVGYtM3pia2s3OUF0OWM1bWVOUFROY3N2YW1OVmgyTzVmVmExTjFmczk5NkRTS09sVDdUdC1xOHJWX2NSUTBsdzl1Z0lEMjY4bDBWTGE5T2pOZUtiMFNhREMzTUdnRmVMZG1LWGoweDBqSDZ3WE14eVR4RUFtckJZdzJJLUxxVndvYWRlZVFLaDNiZjgyVE40NXM?oc=5",
-          "published": "Fri, 20 Nov 2026 20:37:26 GMT",
-          "metrics": {}
-        },
-        {
-          "source": "google_news",
-          "team": "dallas-cowboys",
-          "text": "Police investigating after man dies following fall at Dallas Cowboys game, officials say - CBS News",
-          "url": "https://news.google.com/rss/articles/CBMivwFBVV95cUxPNEZPWjJWNmFZaE5fTncyemNJc0FtQmVPck1QOUJXRUtldi1YTEhvWWFfX3phZmR2UXFpMUpibDZuLVR2UUVCQ1BfSXMxanoybF9ablZRNWt3eVBoSUp0NXRfeUxVUGVxdy0tUUZqb3NOTjlFRVktRGdjWE9FbEthYWplN01HdDExQlNRY19reDktMXBsMTh4X2RQZDhKQjA5Z2Q0NE1rVG0zY0JlbEZZMlBWNDNBb1B3aDdETG9NNA?oc=5",
-          "published": "Fri, 20 Nov 2026 20:01:15 GMT",
-          "metrics": {}
-        },
-        {
-          "source": "google_news",
-          "team": "dallas-cowboys",
-          "text": "Police investigate Cowboys game fight after man dies in hospital - www.kera.org",
-          "url": "https://news.google.com/rss/articles/CBMingFBVV95cUxQTHZPX2psMmRjSzBESm9NRkI3a0I2UmVXX2Q3Y1N2ZFhFZ0YyUXJfSFVTc1RXYkZNTm9WOWQtN3VIYW94azVaVDVnTThTOXdVTVFuSlJmc1hHNHNuTXNNY3ZJUW1IdENUdXhGNE9TM0N2U0pfUlJ4LUxUakRKc2lGNW95NmF4Nkl1TUVha29OWC1hYWlfYXlTdm9Ra3lyUQ?oc=5",
-          "published": "Fri, 20 Nov 2026 16:46:17 GMT",
-          "metrics": {}
-        },
-        {
-          "source": "google_news",
-          "team": "dallas-cowboys",
           "text": "Cowboys-Titans: How to Watch, Listen, Stream in Week 11 - Dallas Cowboys | Official Site of the Dallas Cowboys",
           "url": "https://news.google.com/rss/articles/CBMikAFBVV95cUxNQTlhVDVkbEhnQm9NVXhZN0ZMZGJGMXk4UTY4dkhFWjVyVmN2Q0RlZENjTmJ2ZU51R1JWd3JzQ1Q3NG4zalhFWnYyaVYtRFdRM29RVkZjWTJMR0pnMndEdl91T3NyV2p0MVAwd0FjNUllMkh6eUNoMDBvR0NDZ0txZEZDZVFuRGxMV2RfcVF1SGs?oc=5",
           "published": "Fri, 20 Nov 2026 19:59:24 GMT",
-          "metrics": {}
-        },
-        {
-          "source": "google_news",
-          "team": "dallas-cowboys",
-          "text": "Here We Goooo: Is this the week everything clicks for the Cowboys? - Dallas Cowboys | Official Site of the Dallas Cowboys",
-          "url": "https://news.google.com/rss/articles/CBMioAFBVV95cUxQM2pCdTBQZTN2WUh2cjBlVkIwb1VWOU4wSTFHWkZGbDZuRmI5R0dwaFBkQTN3MWJMZjB6VE9IMlpkeTVMazZYVWZoZS1CYjlhSVo1VTU4aEpUVUxIcXdoc25GM2lLQmpJMS15TEc2REN6TUozMmxMY2ROU2U3bFItWmV4S1BXR25ZOFhpMW44d3BjNjYxN21SQVpNQjQ3NUNa?oc=5",
-          "published": "Fri, 20 Nov 2026 17:57:26 GMT",
-          "metrics": {}
-        },
-        {
-          "source": "google_news",
-          "team": "dallas-cowboys",
-          "text": "Mailbag: Can the defense play a complete game? - Dallas Cowboys | Official Site of the Dallas Cowboys",
-          "url": "https://news.google.com/rss/articles/CBMihgFBVV95cUxOY2ZHS0Fma1JIWkhKeVB4S2M5czBuc05Pc294QzJjU2F3VE1aY1ZIS3dtekdpVGs3Ry04ZDRwQlJFMkhORDJ0UDdDdzRwU054eUJvMUNkcVBBZ1NyNHZZU3RZUDZZS3Z1WFlJTkNEUjd5STRrdms3aWU1Sm5mRXRQcGFVY0w5Zw?oc=5",
-          "published": "Fri, 20 Nov 2026 19:03:26 GMT",
           "metrics": {}
         },
         {
@@ -1216,81 +1112,161 @@
         {
           "source": "google_news",
           "team": "dallas-cowboys",
-          "text": "Just 8: Cowboys Best 4th Round Picks - Dallas Cowboys | Official Site of the Dallas Cowboys",
+          "text": "Cowboys injury updates: Dallas' secondary could get welcome boost with veteran's return - Dallas News",
+          "url": "https://news.google.com/rss/articles/CBMisAFBVV95cUxQdTRwcHVuakJlOEduejFrSG9teHNMaVBmV18zaHlhSzl1UVJLM3BfYzJXNkg2VlJwT3Z4VnhVcFZjY1NTWU5VNXhKRUtoUk01Z2EzemRDR1E0bXJwRkhRZDVNdVY2d1luNkM4bWc4TnVYNm9paDVjVVk5bUdoY0ZjcHVZMEFZTkxvOHAzMUJQa0QxcWpmTUlHYlM1WDgyUTNzVURhMExsSU5BRy1hdmROZw?oc=5",
+          "published": "Sat, 21 Nov 2026 00:07:08 GMT",
+          "metrics": {}
+        },
+        {
+          "source": "google_news",
+          "team": "dallas-cowboys",
+          "text": "Cowboys defenders react to Mike Pettine taking over play-calling duties, Christian Parker remaining DC - Dallas Cowboys | Official Site of the Dallas Cowboys",
+          "url": "https://news.google.com/rss/articles/CBMi0gFBVV95cUxOazdxTGphdE5VVGFtbmlSODFCSE80UnV5VnB6ajFtWXg3SWExV2hPeXoydUQ2SlNMcmlmWVFGcFhScHk4bHNxMGtFRXUwOENtMlg2WDJVSlA0dl9WdHllOWFMMmFocmNiSzVkaTBpRkVIanpIUWU4eUJqYnBJbk5fSUJhdS1ZTG4zbkNOSXhuaElPWWl6TTAyaG16cWJjazhTRi1neHgtNklrcEtxbnJTZ3BJeURyN3d4MGozTFc4QmVab1FQQldSc25GMXM1eGFCWFE?oc=5",
+          "published": "Wed, 18 Nov 2026 22:59:21 GMT",
+          "metrics": {}
+        },
+        {
+          "source": "google_news",
+          "team": "dallas-cowboys",
+          "text": "Mike Pettine on taking over as Cowboys' defensive play-caller, dynamic with Christian Parker - Dallas Cowboys | Official Site of the Dallas Cowboys",
+          "url": "https://news.google.com/rss/articles/CBMiwwFBVV95cUxNbnpiTFBnODZybEVQa19lZm4zaW1CVHJaQWpTeGlneFdtZU91MXYyVFpOVGYtM3pia2s3OUF0OWM1bWVOUFROY3N2YW1OVmgyTzVmVmExTjFmczk5NkRTS09sVDdUdC1xOHJWX2NSUTBsdzl1Z0lEMjY4bDBWTGE5T2pOZUtiMFNhREMzTUdnRmVMZG1LWGoweDBqSDZ3WE14eVR4RUFtckJZdzJJLUxxVndvYWRlZVFLaDNiZjgyVE40NXM?oc=5",
+          "published": "Sat, 21 Nov 2026 09:19:28 GMT",
+          "metrics": {}
+        },
+        {
+          "source": "google_news",
+          "team": "dallas-cowboys",
+          "text": "Jerry Jones calls Cowboys 'a bad team'; says team has chance to play better after Christian Parker's demotion - CBS Sports",
+          "url": "https://news.google.com/rss/articles/CBMitwFBVV95cUxOT1Rubm9OVnVXcjYyQXB2MGxrR0VFRDdRVlNjMEZ6ei1hVVpCYnE3aHl0UWxyQVJoVm45dVRYbmRHSEZoMUE2aVUxVnFXeVgxdzRVWGVjX25wX1JtQWhTLTBVUlM5cE9UcDZGbEo2X2J1ZldCUi1kYms4SU1SOHl3NEdsRmh0Z1FGaWRoY0JpMjU0RUFkckg5WHNUUUdpMnNhMHVhQlV6a3Z4Rkt0aXlpWmExTHNlUE0?oc=5",
+          "published": "Fri, 20 Nov 2026 21:05:52 GMT",
+          "metrics": {}
+        },
+        {
+          "source": "google_news",
+          "team": "dallas-cowboys",
+          "text": "‘Hates it here’ – NFL fans in awe as Dallas Cowboys star repeats answer 12 times in press conference - Yahoo Sports",
+          "url": "https://news.google.com/rss/articles/CBMif0FVX3lxTFBqbnlOcHhyZGhSWlVRNERVbXQxZ0lQV3hXemdVYldfRnlDTjZMWWZiZ1B6d0dzNW1qMy1rMmQ2LXFzLVhwTTcyOFIyUWFrdjdhZmYzOHVtWDU2My1BaG1OSWxfU0l1Y2tLUHhVRVZwU3RHemVoVW42QnRDeEhOelU?oc=5",
+          "published": "Thu, 19 Nov 2026 05:37:00 GMT",
+          "metrics": {}
+        },
+        {
+          "source": "google_news",
+          "team": "dallas-cowboys",
+          "text": "6 Dallas Cowboys Earning Contract Extensions for 2027 & Beyond - Sports Illustrated",
+          "url": "https://news.google.com/rss/articles/CBMilAFBVV95cUxQd3hXWDgzallHYncxN1pvOEVFaUV2YUhQU05UeVp5ZGpUbS0tNTc1bUE2LWhiOXFkeXdLRWd1VDdFdDZhMlJjR05zOUI4S19jS001ZmEyVEdXN1g4UVgzbFpMZWJNa3RybDBRQjZ5RkhvRzMwS1p3Q3NtRFFheWRXRmtUeEplbExnVzZUSDU4dUlOR1pj?oc=5",
+          "published": "Sat, 21 Nov 2026 14:28:08 GMT",
+          "metrics": {}
+        },
+        {
+          "source": "google_news",
+          "team": "dallas-cowboys",
+          "text": "Titans RB Tony Pollard will face former Dallas Cowboys team for 1st time - The Tennessean",
+          "url": "https://news.google.com/rss/articles/CBMivAFBVV95cUxOUGd2c05WNktBeG5rZW5NSjFvM3hwRzE1TWFtTnFBVFUwQ2k5b0h4R3Z0N2Iyel9wc05EeWR0X0I2MW1CUUN0aDRSM3NsS2lkUEt4NVlMcUpISE1WQWYxcTBSLUItUlRZYkFaUzBpME9YMzE4SktGOTZQeWdhb2Y2VWMzRzZhOEFCZmpVajk4d25XRG93NmdtaTBxMHFMTzFMcUkwak1oTzFTMG5IWFMzNGkyamVpSWJNUF94LQ?oc=5",
+          "published": "Fri, 20 Nov 2026 18:58:38 GMT",
+          "metrics": {}
+        },
+        {
+          "source": "google_news",
+          "team": "dallas-cowboys",
+          "text": "NFL urged to make major schedule change involving Dallas Cowboys on Thanksgiving - The Sun",
+          "url": "https://news.google.com/rss/articles/CBMifEFVX3lxTE5ZNmxsVVRxTDgxbEk2N3JhTU54aUhpTnp0Z2xULXBHc0xJVFFuemFRdnpwcVFvYi12QTU1TlZoR3A3N084LVA0UzJIVVZjM04wTmU2bHh2Ry13SmlrN056eEh0ZnpldXhFbDFZUWF2UnZVbVE3TXN0WGtheUg?oc=5",
+          "published": "Fri, 20 Nov 2026 20:51:04 GMT",
+          "metrics": {}
+        },
+        {
+          "source": "google_news",
+          "team": "dallas-cowboys",
+          "text": "Past/Present: Shiyazh Pete back in Dallas with UFL's Renegades - Dallas Cowboys | Official Site of the Dallas Cowboys",
+          "url": "https://news.google.com/rss/articles/CBMinAFBVV95cUxQMVBQdUZMZHphanQ3YWhWODVLaGNFaUVmU09ZekhtVXFCMEJka3dzZlBQdFdnTllGUnNwaDFCd0x4STB5c19QdUpxNG1PQnJwd0VZeDNnem40Z1Z1LTljaU1VU0hHY181TFJpSzc3S2NZT0hwVkpUcHRjZ3Q3N3Y0U0hKbDlTLUpIZGFPQ0V4REVGaEFNdzBtVVR1cGE?oc=5",
+          "published": "Fri, 20 Nov 2026 16:21:26 GMT",
+          "metrics": {}
+        },
+        {
+          "source": "google_news",
+          "team": "dallas-cowboys",
+          "text": "Mailbag: Can the defense play a complete game? - Dallas Cowboys | Official Site of the Dallas Cowboys",
+          "url": "https://news.google.com/rss/articles/CBMihgFBVV95cUxOY2ZHS0Fma1JIWkhKeVB4S2M5czBuc05Pc294QzJjU2F3VE1aY1ZIS3dtekdpVGs3Ry04ZDRwQlJFMkhORDJ0UDdDdzRwU054eUJvMUNkcVBBZ1NyNHZZU3RZUDZZS3Z1WFlJTkNEUjd5STRrdms3aWU1Sm5mRXRQcGFVY0w5Zw?oc=5",
+          "published": "Fri, 20 Nov 2026 19:03:26 GMT",
+          "metrics": {}
+        },
+        {
+          "source": "google_news",
+          "team": "dallas-cowboys",
+          "text": "Man dies days after falling during fight with another fan at 49ers-Cowboys game - Los Angeles Times",
+          "url": "https://news.google.com/rss/articles/CBMilwFBVV95cUxNZkJPLUktRkREeEpCZF9pak1yUkZJTlgxRGR5TjNxRTBCZ1hIZXZNcDdYRTJvT05Ycm5kNmx4YUNydzlnRWo4TG8yYlRid3g0M0dsMW1jSzI0V0stOWNIRHVUdS1ZSnlSVGcxd25BYnFvZFNwaHBBeE5VRmYxWFljLW1VRVd0bTFfdno1RVo3V3pESGRrdGdV?oc=5",
+          "published": "Sat, 21 Nov 2026 00:11:00 GMT",
+          "metrics": {}
+        },
+        {
+          "source": "google_news",
+          "team": "dallas-cowboys",
+          "text": "Police investigating after man dies following fall at Dallas Cowboys game, officials say - CBS News",
+          "url": "https://news.google.com/rss/articles/CBMivwFBVV95cUxPNEZPWjJWNmFZaE5fTncyemNJc0FtQmVPck1QOUJXRUtldi1YTEhvWWFfX3phZmR2UXFpMUpibDZuLVR2UUVCQ1BfSXMxanoybF9ablZRNWt3eVBoSUp0NXRfeUxVUGVxdy0tUUZqb3NOTjlFRVktRGdjWE9FbEthYWplN01HdDExQlNRY19reDktMXBsMTh4X2RQZDhKQjA5Z2Q0NE1rVG0zY0JlbEZZMlBWNDNBb1B3aDdETG9NNA?oc=5",
+          "published": "Fri, 20 Nov 2026 20:01:00 GMT",
+          "metrics": {}
+        },
+        {
+          "source": "google_news",
+          "team": "dallas-cowboys",
+          "text": "Just 8: Pollard, Dak among best 4th-round picks - Dallas Cowboys | Official Site of the Dallas Cowboys",
           "url": "https://news.google.com/rss/articles/CBMiekFVX3lxTFBHMmxiNW9XRlVEN3I0V3gxSG5ZaWs1Q0NIM3pSbWpDMUh5Ti1IVERsOHphX1NIRTRWUTFEMUVSNWIwV08xM3RUS0JjVXBsTkx2Nl9Hb3UxY3IwR3ZONFpuMmVLOC1ZQ0NhMGVyeXpud1NrY3U1Vkt4d1Nn?oc=5",
-          "published": "Fri, 20 Nov 2026 21:12:26 GMT",
+          "published": "Sat, 21 Nov 2026 09:13:28 GMT",
           "metrics": {}
         },
         {
           "source": "google_news",
           "team": "dallas-cowboys",
-          "text": "Shemar James on play-calling transition as Cowboys' green dot LB - Dallas Cowboys | Official Site of the Dallas Cowboys",
-          "url": "https://news.google.com/rss/articles/CBMinwFBVV95cUxOUm9HbVE1eTQ2WF8ybWhJNTJzQk9MT01JRGd6OWREZUtsSm5PVE90eEhKb2paaTJOVEtjcWFaQzVfZWRrSnFtSjh3cjNkbW9HV0pmNzRRR3h4cGJsNGpXblVQekZsWmt1aGZaT3JZMWcwOXpUdUt3XzlKS0hPR3BCMWF6cXJmSVhkbnFtR3hHN0o5UUlDYkZOY2ltNmRYQmc?oc=5",
-          "published": "Fri, 20 Nov 2026 21:17:24 GMT",
+          "text": "Spagnola: No matter what, winning name of game - Dallas Cowboys | Official Site of the Dallas Cowboys",
+          "url": "https://news.google.com/rss/articles/CBMihgFBVV95cUxQRlh1Vl9FUHZHbWp0NkxvenZYUGt2WkR0TDNuVWxQUDFENFdWNjNvVGRmNm9xTTdueUdIY29YdGltUUYyT3lGSm1YZF9aV1lMRGhJam1CeEtUNmY1Q2daZ2FZaURNX3k3enN1bVBpMk1QX09XT3NhMFpYa2JOZEg2TFZJNFRsdw?oc=5",
+          "published": "Sat, 21 Nov 2026 01:31:24 GMT",
           "metrics": {}
         },
         {
           "source": "google_news",
           "team": "dallas-cowboys",
-          "text": "Quinnen Williams named finalist for Bart Starr Award - Dallas Cowboys | Official Site of the Dallas Cowboys",
-          "url": "https://news.google.com/rss/articles/CBMikAFBVV95cUxOQ2VTazBjaG9zLTh1UHlQM2tmOWdxUzlTWnRFblV6bFUyci1SNUk3WFF0MUpERnc3Y25ZYW1JVzV6YUotNTZqZmUtNU9NVnNtSHJfWWtwQUEyYU1sd1dQVnNCMFc3MDhjbVJfaW1BcUlhWElqNlgtejlnN2lwbk9zd2pXcWV2NWlmanMxSWFFbjI?oc=5",
-          "published": "Fri, 20 Nov 2026 20:51:26 GMT",
+          "text": "Stephen Jones on 105.3 The Fan | 11-20-26 - Dallas Cowboys | Official Site of the Dallas Cowboys",
+          "url": "https://news.google.com/rss/articles/CBMigAFBVV95cUxQLTROZUFabmpLR0dXOHh5UE0xQmIxTjhHaEgwUGxIRU1xZFMyQ0ZJQWF1c2F6RU5Jd2hNRnhYejIydnNBUXVJMWdDQU01WE5ETUp3WnkwWFJYdmt3Q3pBajBsRFpJLTU3T2tORTlXTG1NZlpFZGZ1aW9XdnJYTy16SQ?oc=5",
+          "published": "Sat, 21 Nov 2026 01:31:28 GMT",
+          "metrics": {}
+        },
+        {
+          "source": "google_news",
+          "team": "dallas-cowboys",
+          "text": "Updates: Thompson, Barham questionable - Dallas Cowboys | Official Site of the Dallas Cowboys",
+          "url": "https://news.google.com/rss/articles/CBMiZ0FVX3lxTE1XYnlkakRab0lRRVJfS0dyTU1saW51YnhMSGtMWm1xUTNpMHF2ZU5wQW9kZ0lxRDR2LUttekNTMkhpWXRwemkzb3U1SkIwUkxfV2xEeW5fRV8xVGdMV0o4YmJlYUEwV2c?oc=5",
+          "published": "Wed, 18 Nov 2026 08:00:00 GMT",
           "metrics": {}
         },
         {
           "source": "google_news",
           "team": "michigan",
-          "text": "Michigan Football: Pete Thamel Throws New Name Into Mix as Potential Head Coach - Sports Illustrated",
-          "url": "https://news.google.com/rss/articles/CBMiwAFBVV95cUxQYzlkSHZYYktwWkxLWlFVS2p4bTdRMW4zVmVOUjdNRDVLUkpWYkY1YU5Bd1lMc21kTDdNRE9YZktEV1NmNHY0bHJDQXFTczU0LUFGS29SaElqYnJZMjJmTVNxMC1NUG1kdmhkdEJLSzZ6NzF2b1FLNGFKbTVtZGk1YUliSi1PdGNMakpKSEltd2VSWTljMkxCTUtyeElRUXY2a3V5X0N4WlRiX2pBYU9VSlp1QW5yQ0txdXBMcHB5dEk?oc=5",
-          "published": "Thu, 19 Nov 2026 15:30:00 GMT",
+          "text": "Kyle Whittingham's First Words Will Also Likely Be His Last As Michigan's Head Coach - Sports Illustrated",
+          "url": "https://news.google.com/rss/articles/CBMiyAFBVV95cUxOLWh0Rmp3NVJzWHpRYkZTZlUzckt2S0F4YlN6anFpTmdNcHo4MkdwR1dRVEtaQXlrYUpadURtdG5ZZzlpdVM1Tk5jaG44MEx2REI4T0pkN2pqU2xoeUdFVERvMTBTUWw0WnJRbktnTy1tV1AwMGZDYzYxMWNzV1lSRlZrZkFPZVVrcjJGai0xaE9IVDk5RFRlX3BFYzhBdkxzcWhpbkdoWlMyeERZQjUxRTdNZjM4eGxLYVZ1Qjl2RW5oX05aVENZdw?oc=5",
+          "published": "Sat, 21 Nov 2026 01:00:00 GMT",
           "metrics": {}
         },
         {
           "source": "google_news",
           "team": "michigan",
-          "text": "Predictions: Michigan football vs. UCLA - The Detroit News",
-          "url": "https://news.google.com/rss/articles/CBMi4gFBVV95cUxNV05tNVZnUkVxaUJfTlYxbFBvdnp6MkI3czdIcUxoMTNCOS1LZjNUMVRTVDVaVVpvNFVLWVhJanc0alN6NE1yNjlnOFg0V1RkUG5kZ2hhMVZSZ0pvbXdOWXAzdzZvbWJKaHNGTUV5U3NGei05RjNMTDFEYVdrNWk2RzNRNENhTDRTdkZuQmNFdG1GNUl5Y1NaUVd1TF9kcThGOE9nR09KMFBrWmthUkU4X2E0VFA0eC1TaF9JYnVyaTRRYmQ1QUIyVWJHN0o2bERXVTdzVGU5d1Q1OUJxNXdKdkpB?oc=5",
-          "published": "Fri, 20 Nov 2026 13:03:00 GMT",
+          "text": "Michigan football picks vs UCLA: Trouble Bruin in Ann Arbor? - Detroit Free Press",
+          "url": "https://news.google.com/rss/articles/CBMi6gFBVV95cUxPZnNSb0VuV242UXF3OHZXcVdzNXlERGp4YlFXN3BrM0s2SFJ5YUJlNzRNdXVjV0Z5S1d2dUo5YUZ2RW81eGVmQ3pYOHBEMTMxZWp5YzYyVkdBekpuSEQ3ak91THRVZld1ekRGUF9wSGkzMkhycTBtT29GZnlOMlRpVE5OX0NmU1Jycm00MnNjMFFnSWJ2UG1mc2gzVElyWkhVLWliY29kWmF3Mm1qSjU5MXk2YnBsMG5hWHNOdnptUm9SNEprY0ZyWGpxTGotNk9UeVlwZ1pST1V6OEV4RzRmclFaTTRlQko3bWc?oc=5",
+          "published": "Sat, 21 Nov 2026 10:04:00 GMT",
           "metrics": {}
         },
         {
           "source": "google_news",
           "team": "michigan",
-          "text": "Did President Trump just take a shot at Michigan QB Bryce Underwood? - MLive.com",
-          "url": "https://news.google.com/rss/articles/CBMivwFBVV95cUxNUl9GWmYyUnFvcjJFZVQ0eklIaDBMZWxsSFJELTZHQ0Z1cnltMV9RQlZDejZzU2F2alA1NHVlSS13dDlJcTR5OG1mYWN2VmlPbXNPNlFxaG1zblhXZmFINU5sSkRmRlVvbHRzZks1ellWMWt5bWdrczNFekNPeHltSHNTbmhiODZiZnI3aUgwN3dzRGVHUUd6eTVMS3l3YUgxUURNcXFtRHRjS0NUOUY1ZkFZa2ZNU3NrOFFyTmR4UdIB0wFBVV95cUxOWW1hX0lGcWdITjFQa1NmS3JaZWwwTUpodkNpRW4ta1M4NG1PdkoxSEhweTRCS1VJWFRIWFVhUkhZWTZveEJWWHhDdXd5MHUwUkVjbVlFMnpKdkhmbFM2V3habUs1NUxhMlRNeFVLTFJtbThQZERhOGdmOFNRdkpPT2ZpUWdEcHE5dEhVcTdSUC03ejhIOGJ3VldYdVhZSjh5aHBSNnNHVUFXVjVLRGhxcy0tQWdzczJYei1Xc1VaM1dZNThIQXVfYUpFS1RfcVBVeDBZ?oc=5",
-          "published": "Fri, 20 Nov 2026 21:07:00 GMT",
+          "text": "Michigan State 15-6 Michigan (Nov 7, 2026) Final Score - ESPN",
+          "url": "https://news.google.com/rss/articles/CBMiigFBVV95cUxPZUlBR2NTQTFMYjN3T2wwTXhmdEhEX1BHOXpRR1FmSG8wU3BFb3pHaTBjcEUwVmtZX3E2ajVaMkFRd0ZQRXk2OHpHYm05c0ZaZ2VEdFZSNFliZ1NMNWg2RlVXRGx1VGlsNUhJNXhWSGpfWnUwWTZTNmZVYV9RV0tjTEx0VDNIamxJRWc?oc=5",
+          "published": "Wed, 28 Jan 2026 01:36:54 GMT",
           "metrics": {}
         },
         {
           "source": "google_news",
           "team": "michigan",
-          "text": "Sources: Michigan agrees to hire Texas A&M's Trev Alberts as athletic director - Yahoo Sports",
-          "url": "https://news.google.com/rss/articles/CBMi6gFBVV95cUxPaEs3Ul9EVWFGSldOdDFIOW9UTVIySWVKMFM4aTlOSlZMRGpfU0hlVWNIZGdVYzd4VE5HT0xEMl9QMWhGY0FjXzJaTGYwZlZSZk5iVEMxa19QaTN5YlJFdGJwLURaek9UNUZ1LTV3eHFnV01Kek41ajBLZlNXUThCVVh0czFsMWFHQndlWC05NERRSllLZ2pYS0M1amtHMFdzdzdMbnJzX3FEU1V6Tl9yRDE3M2RvbDFvRVVmSnZRekwyRFV2eHhXWWg2U04zOWV2WVcwLWFkNVpPMG5uTXRzMGFBakhmY2RsbWc?oc=5",
-          "published": "Wed, 18 Nov 2026 03:24:00 GMT",
-          "metrics": {}
-        },
-        {
-          "source": "google_news",
-          "team": "michigan",
-          "text": "CBS Sports names five potential Kyle Whittingham replacements at Michigan - Wolverines Wire",
-          "url": "https://news.google.com/rss/articles/CBMigwJBVV95cUxNSXpUZXZHSjBQREY2UVF0Q0Q1cTl0bDBncms3N29fc1RtN0NUblNSX2ZTbzBrZl93LVpVeHVtUGtyTzRocHlOMDNmYjlRcHNYU3BYd3ViUXl3RTAzbk1PbFBZSEdBbXRETFlIRy1oUmdfSUpEYUNwd2M3S1ZkWVhYNmFOeVJvREwwN2ZHa3U4T1U1NGJRZ3lzVDhsRXdXUDJXTzV1RTBPdzFBbGVJdHBtNzdkYnZVTWZGa2R4VW9IVFNBNlYyeWhIdlRkX3d3MFYyUkJrazVqdXQzX0c4SFdBQ0tRQjFJOV9UU05EbnFvcDJadll2YS1ldFdDT2hrVUdPLXpR?oc=5",
-          "published": "Thu, 19 Nov 2026 20:02:00 GMT",
-          "metrics": {}
-        },
-        {
-          "source": "google_news",
-          "team": "michigan",
-          "text": "Intel: Michigan trending up for playmaking offensive recruit - On3",
-          "url": "https://news.google.com/rss/articles/CBMilwFBVV95cUxNcHFyaUpGeXdJYkFKUGktZU5DTS1DREQzallXVXlZcFNBYlg1NXhpdExQSDZaZ21GZUdIRTJ0V2stRDQyODkzbE55RlFoTkxfUG9CTXZuVUJLNy05LXB1dEdWOERsMmlsR1ZDYl9uaFQ1QlRSTnBrVHVaMmtVRFhCZHhzcTQ2NVZyZG9jWEJuZV95VTFoRE1z?oc=5",
-          "published": "Fri, 20 Nov 2026 19:18:15 GMT",
-          "metrics": {}
-        },
-        {
-          "source": "google_news",
-          "team": "michigan",
-          "text": "Michigan hired Kyle Whittingham to clean up a mess. Instead he’s flirting with disaster - The Athletic - The New York Times",
-          "url": "https://news.google.com/rss/articles/CBMilwFBVV95cUxPbExYaWgybjBtSWRqS20tMVNpSVg3NDlrei1DWGlMZ09zQkNQN2FQbE9GdVppYXRlM3lkc0NzX0hwM2VuRTYzQTNOd0I1aGV5T1Mtd29hMDJCZWJLYlJvVUdPbWlhUi04Wi1qZVduaE9yOEQ2bkF3V2ZDZmVFdkctVVFVWFk3RFpjYkhGRW9aOTEtZk5pMmJB?oc=5",
-          "published": "Fri, 20 Nov 2026 10:30:57 GMT",
+          "text": "Rare college hockey line brawl breaks out during Michigan-Michigan State game - The New York Times",
+          "url": "https://news.google.com/rss/articles/CBMingFBVV95cUxPWXlrMWt2cXlLel9lS19HU2dONEhScnNoeXJMUkNIRXNwYUd5dXlwMklMOUp6QTN6OU16VFhFMmdDSHdZWHZ5U0EtVTBYOGhWdzN5MV9yOWRzNHVTSWl1bDVGb3JXSzh4UElNY2tvYVVvWDFaMU5oU0FXc0xETzhFSzJmNUFEUDNwU2NtbTh0bDNJSDloaGRFaF9tXzcydw?oc=5",
+          "published": "Sat, 21 Nov 2026 07:11:00 GMT",
           "metrics": {}
         },
         {
@@ -1304,6 +1280,14 @@
         {
           "source": "google_news",
           "team": "michigan",
+          "text": "Michigan WR Marsh facing misdemeanor indecent exposure charge - ESPN",
+          "url": "https://news.google.com/rss/articles/CBMiuwFBVV95cUxPdGFOTzllZEZfQ1RQdFR5NFVlcW92c0U3UXlLcVp6ckJ1RTJjckY2cnhyNlZJV0kxWVZzT19GaDJ6ck1lRy1LR1dsTzhjSHFrQ0JvVkRqUEJRRHBlQmpMVm82TktvNHNpTlZkaF81RVBtX181d2ozS1pEVlY1X0RpYWYzUmdkTHBtcG9vTnp3RkRTck9qRi1fZmhlRVg1ZWNVT3hrc1o2ODdHQ2Yyb2tfbG1OUVVsRGdiYVJJ?oc=5",
+          "published": "Thu, 19 Nov 2026 21:05:00 GMT",
+          "metrics": {}
+        },
+        {
+          "source": "google_news",
+          "team": "michigan",
           "text": "Michigan football’s Andrew Marsh charged with indecent exposure - MLive.com",
           "url": "https://news.google.com/rss/articles/CBMisgFBVV95cUxNMXhuZ1pRNlFWV1E1WmVhT0NSWF9IZUtKb1RfeUlFbGhIdGNDX0NBaFd1bTBOd0NPdHV6WHBtczlSX2hwMGw4OWpzMC1KYnRDMmNidGhCbnVUQ0lmQWJWdERtbjJ0RWRCM0s5OE9SUWtTUWNKd19kdW11STktT3JObkl0RUFveXZuRGZsdzg1V3JpbUZLX2xiTFB5NlItNlFRallMU0hhVGowbGFnR0ZZb2dn?oc=5",
           "published": "Thu, 19 Nov 2026 18:57:00 GMT",
@@ -1312,73 +1296,97 @@
         {
           "source": "google_news",
           "team": "michigan",
-          "text": "Michigan Dealt Major Blow as Wolverines Star Gets Charged with Misdemeanor - Yahoo Sports",
-          "url": "https://news.google.com/rss/articles/CBMijgFBVV95cUxPR0VPSlhoclBpWHpVbURDd3dzRVcyUDlaQjdmekQ4Sm1hTS0yczBKQUVjZW5Rcm1nMmR2eXJwXzZwOWVlREhZcjU3MlhJdEdIaGZEWXZBRVI5dnItUmQ0OXVMVXR5dHN4UnV3MzRyOTR6ekFOZ0lPVUNmN2R5bThQWUszUVdORzYtWEp2VVh3?oc=5",
-          "published": "Fri, 20 Nov 2026 15:45:00 GMT",
+          "text": "Did President Trump just take a shot at Michigan QB Bryce Underwood? - MLive.com",
+          "url": "https://news.google.com/rss/articles/CBMivwFBVV95cUxNUl9GWmYyUnFvcjJFZVQ0eklIaDBMZWxsSFJELTZHQ0Z1cnltMV9RQlZDejZzU2F2alA1NHVlSS13dDlJcTR5OG1mYWN2VmlPbXNPNlFxaG1zblhXZmFINU5sSkRmRlVvbHRzZks1ellWMWt5bWdrczNFekNPeHltSHNTbmhiODZiZnI3aUgwN3dzRGVHUUd6eTVMS3l3YUgxUURNcXFtRHRjS0NUOUY1ZkFZa2ZNU3NrOFFyTmR4UdIB0wFBVV95cUxOWW1hX0lGcWdITjFQa1NmS3JaZWwwTUpodkNpRW4ta1M4NG1PdkoxSEhweTRCS1VJWFRIWFVhUkhZWTZveEJWWHhDdXd5MHUwUkVjbVlFMnpKdkhmbFM2V3habUs1NUxhMlRNeFVLTFJtbThQZERhOGdmOFNRdkpPT2ZpUWdEcHE5dEhVcTdSUC03ejhIOGJ3VldYdVhZSjh5aHBSNnNHVUFXVjVLRGhxcy0tQWdzczJYei1Xc1VaM1dZNThIQXVfYUpFS1RfcVBVeDBZ?oc=5",
+          "published": "Fri, 20 Nov 2026 21:07:00 GMT",
           "metrics": {}
         },
         {
           "source": "google_news",
           "team": "michigan",
-          "text": "Iowa 20-19 Michigan (Sep 26, 2026) Final Score - ESPN",
-          "url": "https://news.google.com/rss/articles/CBMigAFBVV95cUxPVnBlSHJQOGRSemlBSjByZmdrc0o4WVh5UndXMGhNd0ZsUHM0WVR0TlVfMWhvRmZoOVEwUy1nVGx0OEg5c193ZzkxMF9wbTlQNVJKdG00ZlVtSHFycWNtSHNNeEhSam92cXBkRThDcHUzUlJ5cFZIb05iVWJQZ3hOdw?oc=5",
-          "published": "Wed, 28 Jan 2026 01:36:53 GMT",
+          "text": "What time is Oregon football vs. Michigan State today? TV channel, streaming, how to watch online - OregonLive.com",
+          "url": "https://news.google.com/rss/articles/CBMi1gFBVV95cUxNMHZ1QTdtZXVncnhPSEs4VnBoUHF5NXMtOGJfZVZFcl8wTzhVTUp4OWRxSVlYdWY5c0t1T3dnNm00R0lrX0pIVkxLdEhqNkNMSTAyMjRZQ1l5dFM4bGxSd0hjNGFZRmdncjlNUmVmbE03U05xOXluVFVfVDgzRlJZSGQ1TUFZV3JmZXdoTW9KSlJNb2l3TEhacFIyYUx2ejlYbGp4U3p3aVdTZFAyVWsyWllEanJmN0F5QzRYVXVaem9kN2lVZHc1Qmt6Rkowc0t0elhyU0RR?oc=5",
+          "published": "Fri, 20 Nov 2026 14:20:00 GMT",
           "metrics": {}
         },
         {
           "source": "google_news",
           "team": "michigan",
-          "text": "Michigan Wolverines news: Curt Cignetti denies Michigan interest, NFL TDs, UCLA injury report - GBMWolverine",
-          "url": "https://news.google.com/rss/articles/CBMixwFBVV95cUxOV080OW50UkVGQ1NiVG5ZNFVERHNvLWJEMlBjMDdBcUd5YW9fLWt2dXV5VVNlbDFROEpRc0gxcWpVVTFQNHpPT0c3T19hclR2aUtuVnJ1TGZ0YjMyNzJSZE42QnVzNDBQUEJxMGVwZElXQmZHRGI1ZUhFTUtpU294NUR6ZjFHYWJzb01HQnFtUGJDa2FtZjNVeHA2cE9QT3ExOUhjQXN3YXZ4SHpDTGpUazVETW4yV05ZWnNjSHNHMGFxV2hxUkd3?oc=5",
-          "published": "Fri, 20 Nov 2026 11:00:00 GMT",
+          "text": "College Football Week 12 Best Bets: UCLA-Michigan, LSU-Tennessee Picks - VSiN",
+          "url": "https://news.google.com/rss/articles/CBMiowFBVV95cUxNZDgyY0huMHhjREJMZWRaV1gyVzJwcG5vYlAyQTNUekwzYzdqTlN1UWN1YWQwTnJSemY2S1FnWi1tZm5wYWtTU2lDb0xJVlpBT3EwQVdUUU4tbThkMzRSanByaUx5cEVtMEhWcmlsTkJndmFMcGszVnkxUHNrakp0R1VqSGV3RnVfX0RpZ1QzRktac0Qtd2x2RW5UazdWOW5vUExR?oc=5",
+          "published": "Sat, 21 Nov 2026 03:13:14 GMT",
           "metrics": {}
         },
         {
           "source": "google_news",
           "team": "michigan",
-          "text": "Recruiting Roundup: 5-star can see himself as ‘hometown hero’ for Michigan Football - Maize n Brew",
-          "url": "https://news.google.com/rss/articles/CBMi5wFBVV95cUxOUFlfV2Y2eW5hS1B6VEhGMGRrVjhUeURDR1dCX3lXODd0eTJRd3d0aEd6QTByOS1PS1lkQVJIQzJlVTkzQ0xTYjE3NXlRQ2NCbzM2Y0xURmhwZVgxY1EwR2NsZVFyNk55TTN0S3FPNkdZeU9VTFItS2h3TWJqYmtfY1JVNnctTXVVbDQzVWNSQUF6UWs0Nm1GZ1ZLRml4NmZiZ095VHpabE9sUlZXSGU5a01SaFlmUms4NGp4bmwwSERaeTVWMDVpdWo1dGtwOFVvbEpyV01NeVNaWE11MERVS1liU1ZWemc?oc=5",
-          "published": "Thu, 19 Nov 2026 15:00:00 GMT",
+          "text": "UCLA vs Michigan Prediction, Pick, College Football Odds for Saturday, Nov. 21 - Action Network",
+          "url": "https://news.google.com/rss/articles/CBMiyAFBVV95cUxOOEJFQldVOHpsWkl4eThMVkptQURTUWZXZHRrel9tMU9PVkM2VThiYzdLTTJndzJqSjZnUUVfVUxVMk1fdUFJMTVQblBSaUtSZlc3c1ZMQi1BY2h5ZU5oRHVBQjJwZy1Bc3FYU1F4Zmg3a0dYV3ppRFByeDNqMWFGenM5czlHeG1QQi1qNC12bndvMEo2N05FRjVreWFwTVo1UDZqOXMta2tXNERZaEI3cXlwZUUtNWFsNGY3OFNVRHp2djFac3lFSg?oc=5",
+          "published": "Sat, 21 Nov 2026 10:51:00 GMT",
           "metrics": {}
         },
         {
           "source": "google_news",
           "team": "michigan",
-          "text": "Outside criticism starting to weigh on 5-5 Michigan, coaches admit - MLive.com",
-          "url": "https://news.google.com/rss/articles/CBMivAFBVV95cUxOUDQwWm1mVGE5eTRYTldYdVpxSERidmJNZ0UzVGZ1X2dzWlcwWTI2Qk5NLU1YeldLX1FtZkRuRjVJWTRyMGE5UHY0eW1wRGtreHhYRFM2ZmhobUFaM2lPRl9xeXFIWm5MV0NMejdIV0gtWW95WUlqWkRNSXZBaFVhOHlSUFdpZmw5LTZKWndKRFpfNkJUaTBwY0x4cE1MYl9BbkFHUDlxeDVzYXJNUHFHYzBTNU5kQmlaZ1g1Y9IB0AFBVV95cUxQMTlma3ZYV05aSG44Y2Z0ZE1sMlBtdTl4eHM4RWQxVURILWZTYWtRai0tellpcG5YUE4zekEwLVpyTHlua1N0dUdSbnkzbmFjT2RNR1VYVk5ySEhyaUZEZHJ4MTZqdGhQMnJybW9PVUladHNYSy15Tnd1VVlrWDBXXzdVYVduZzBUaUs1YU51Xy1BV05kMzBRaEFxTl9XeHMwaEdaYXpHblZ1eG8wSGN3djd0ZkpOcC1OMENBOEVGU211a1hSUTRnbTF0eXZIcmVy?oc=5",
-          "published": "Fri, 20 Nov 2026 12:30:00 GMT",
+          "text": "Michigan’s Recent Record Suggests a Tough Path Against UCLA on Nov. 21 - Athlon Sports",
+          "url": "https://news.google.com/rss/articles/CBMitwFBVV95cUxONy1fZEo3XzEyM3l6bi1mX2p3bF93SGtUeTRYRDVGWXR6VXAzZDJNVG9pTVlvaXJOT0MwMFdnamdJM3hrZGt1dW90ckY1MDlFOXAtd3Mwd0pGOUFTdUp5Y1A0enlPZjVTa010ZkF0RzExYVQ0MDVLYTN3MDFrY1JBbHEza2t0VVZicTlrUjhVQzZ3enpQaklYTXhBQ1ZXSGxXOXUwNTVoWVB4X3UwVGk3Z3h1dDNfODg?oc=5",
+          "published": "Sat, 21 Nov 2026 13:00:00 GMT",
           "metrics": {}
         },
         {
           "source": "google_news",
           "team": "michigan",
-          "text": "College Football Insiders Reveal Jason Beck’s Biggest Failure at Michigan - Yahoo Sports",
-          "url": "https://news.google.com/rss/articles/CBMikAFBVV95cUxOR2pxMlg0bzF5bUdibjNSQmk4RVVMaURvSzBRUUZLUmpuTWJxalBYVnlIUTNPaDQ3ZGZ0Q3BkYnhNUFctU1JPcG9qUVRhOHltRHVoV2Ezc01nZ1lvOHVFTGIzRzY4dWRUVTBTUUhiTUpjdWticUpzdG9BMzlmemlkRVA3Zk5XdEZOV0xwd0RkMGY?oc=5",
-          "published": "Fri, 20 Nov 2026 17:25:00 GMT",
+          "text": "How to Watch Michigan Football’s Final Home Game Against No. 4 UCLA - Sports Illustrated",
+          "url": "https://news.google.com/rss/articles/CBMisAFBVV95cUxOMDRUbjBMX0FyU3psMEN3WHVkWjU4Ukc2QVljelNob0lRZ1RadS1LR3BOa1Nta2F3SjJQT2dNWlRibXJiSFBTZnFKV2lLVmZkNmNNeUZQX3RGckFReWFMVHB2b180dzNSdHQzVkt4NmhGdXE3UXN0UlpTMUZKTTd6eHBqR0hHLXNPVXV5bEloZkJ0bGJ4dWRmak04d21zeDQxd1JWaHlBSmdHTmFxTVNhdw?oc=5",
+          "published": "Sat, 21 Nov 2026 11:00:03 GMT",
           "metrics": {}
         },
         {
           "source": "google_news",
           "team": "michigan",
-          "text": "Predicting Final Score of Michigan Football vs. UCLA: Will Wolverines Play Spoiler? - Sports Illustrated",
-          "url": "https://news.google.com/rss/articles/CBMiwwFBVV95cUxNY1k3bDhkMjNmeHQ3OWE1WXBJbFBKcVpNUktvZXNFRFBJc0x4bXRSUWFZZkowT2U3WnRGdVdxS3hoVll0UElmdmtPUUVkQlQyS1dNTjNVU0xNZHhCSV9tcmw2NXZjdGIzUGt2N2JJcXYzRFUwcVh4TmZuTHpVaEJXNXZfRjhIa2I1emZOZEVOZ2dpZlN1dUZEYmEyclUwcXdhaVJ3YUJsOTFlaGNBc0JsUVJkbF92dm5fQlhkLXJXX1lrUnc?oc=5",
-          "published": "Fri, 20 Nov 2026 12:57:27 GMT",
+          "text": "How to watch No. 4 UCLA vs. Michigan: TV channel and streaming options for November 21 - The New York Times",
+          "url": "https://news.google.com/rss/articles/CBMinAFBVV95cUxOWkM3RDRhZDU3VEVTd2h2TWtzc2IweXF2SmFXS05DLWY3MzYxUzkzQ05YdElKTW5QN0JCWGhQdkJuVVlVblF5Qm94dVdVUHl2LXNVVGZhQ0NiXzNQQ1E5QVlhQkFZSUFIYk5DenhaMDRWczRuS2o2WTcwaV9xdF9uZzlHcXBaRnVJMmR1amZybU41d2cyVHV4RTM0MlA?oc=5",
+          "published": "Thu, 19 Nov 2026 21:12:00 GMT",
           "metrics": {}
         },
         {
           "source": "google_news",
           "team": "michigan",
-          "text": "Trev Alberts is coming to Ann Arbor to hire a football coach and raise money. In that order. Mostly because the former is essential to the latter. See link below ⬇️ 📸 Dylan Widger, Dylan Widger-Imagn Images - Facebook",
-          "url": "https://news.google.com/rss/articles/CBMi3wFBVV95cUxNQVJFTDhodGdLTzVUR0xDb2hjSkxGdFJjTUpjb2gyVHo3U0JINVY3WjBJZjE1eHVIdzZpQ2hGeEstWGp5cG5uYVhYZlE0MjRFM2VDc0d0QjYwN2hOOVlVa1hLU2xzSzYwNExBYXh3QktlTWJ0Q1ZlUFozd0xnSlduR01BcFBNX0NjZS1DYVdISVJmY3RESFRlY2lON1NaZ0dwVElrMkNlMUs0azM1TkQzckZNRmY3NDBmbkVYM284NkZsTEpVMHdNM2hJQWxxQXY2TTVmS00wUkZtdVlpaEVn?oc=5",
-          "published": "Fri, 20 Nov 2026 20:37:30 GMT",
+          "text": "Michigan football welcomes No. 4-ranked UCLA to Ann Arbor for first Big Ten meeting between programs - ClickOnDetroit | WDIV Local 4",
+          "url": "https://news.google.com/rss/articles/CBMi9AFBVV95cUxNcl9zaEpCQWpOakJnUVVMcTBPS3d0TGNqOEJCU25pQkVnTzhqSDR1VHpnaHdGdlhhYVV6aEt3X2JFdkZmeTFoV2V1aDJFLWN3SzRKLTB0Q2QzbUhnV0E3TkQ0N0x1Q2U2Wmdoa2h5X3R3ZTdNRXRGRDJXUnBUb2RZSE9aNVRHMzhGUEZWUmRsek5IaHBwRmdVZXVBQ3pXNEVTS0s1aDNqNW9TcXpaOGs5TkhOZGFQQnhKODBGTGwtaEVrNVFjQjdrSkJMRnI1eGN2S0hlVGVnYWlpWXBHeHIyejRIUk8tSVJPNW5mTWtBVTlzV0ox?oc=5",
+          "published": "Sat, 21 Nov 2026 10:00:01 GMT",
           "metrics": {}
         },
         {
           "source": "google_news",
           "team": "michigan",
-          "text": "Michigan football continues its 2026 season Saturday, Nov. 21 with a Week 12 matchup against UCLA, as the Wolverines look to secure bowl eligibility. See link below ⬇️ 📸 Junfu Han, Detroit Free Press - Facebook",
-          "url": "https://news.google.com/rss/articles/CBMi3wFBVV95cUxNbF9teDlvVXoyRjFLZktBd0dPVkR0SFNjRDhaZWVXVHA5UFZCbW4xcHdTLXhGendnN1ZVT2VTSW5LMHBWTnM3Ylo4SnBnbFIxU0ZSeWF3dkZYV052SmlPUWNLZzZLbjJtd3hmNVI1UTNPb0xZRlJYQ0M0Z0tjRFJjdjB4WWt3R0NXSHVaQ0h2cEM3ZTBXMmhvVzEtUC02dVZIMDdwNFNxMGp4WGRQZHlqX1I5Y1ZBMGZDbDVnWndkWWVySkk5ZlRPZ19MTnIyRG5fUG1uUW16R21pS21XYW8w?oc=5",
-          "published": "Fri, 20 Nov 2026 15:00:25 GMT",
+          "text": "Michigan football may have to dig deep for receiver help vs. UCLA - MLive.com",
+          "url": "https://news.google.com/rss/articles/CBMiuwFBVV95cUxOa2RDTGlrRkpvVU5hcnJ5c3phN2FXV3pIVmYtUWdXYVZIdkFJaXR0QXBVeVVCem1rdXAxZVZIOVpLaVN6dEFZYk5WVFBoWXFBOTl2Y2ZpYXhIcUoxSW9nbk9iZTF3WFZYc3FsbW5sbUlOZTlNX3EtX1VWalRucjlfUjVXbldIekJQcjVSMzIyUDhvZDlVYkFqclFWRmMxMkJBaVYwWVFCYjhxa1diNTNYZkFwYVZsWVhEZm5z0gHPAUFVX3lxTE1uanB0YUxfck56WHcxX2NReFhCRkF1UURQWGQzX1FfTUgzZVl1cDJacXZVZnc4MGNzOWVFTEJ6QnFFNGFTeTIzXzYxaTlUY2hidm5hZnhoU21peW9TODdRU1ZfTHZkX3M5OWRRS2hieUFic29TS3FjSVZNNXdTdzNVVXRDVG1jaGowQVU4cjltRG1yNW8wY28zeTgySlNCY1FUUGNEQTE4ODU0dlppSzdEbUphSnMyenBVa3lHQ1lsS3haZG95MEVHUTE2ZmppVQ?oc=5",
+          "published": "Fri, 20 Nov 2026 22:24:00 GMT",
+          "metrics": {}
+        },
+        {
+          "source": "google_news",
+          "team": "michigan",
+          "text": "UCLA vs Michigan Prediction, Pick, College Football Odds for Saturday, Nov. 21 - Yahoo Sports",
+          "url": "https://news.google.com/rss/articles/CBMiiAFBVV95cUxONjNuc2IxUU1kNDFCcVFmLUtWc2xieUpKMGFqY3FJTFQxaUg5NzExZHRMdVY1MUFGWTNnTHo2blZKTDlpcy1NQkZwTEhsUGpxelphNXptZ0NCYVoxVi1tUUJDRmEtTEU2bkhGZW5jV1VDWkFHRE8zREJ5bEN2X3ZLeU9selRBM3o0?oc=5",
+          "published": "Sat, 21 Nov 2026 10:45:58 GMT",
+          "metrics": {}
+        },
+        {
+          "source": "google_news",
+          "team": "michigan",
+          "text": "REPORT: Michigan Makes Decision About Starting Quarterback Against UCLA - Sports Illustrated",
+          "url": "https://news.google.com/rss/articles/CBMitgFBVV95cUxNSGhjRzVLVG1ndUR5VGxrNzU4RTR4Z19FT3dNajBsVkJmb1dJX2NuYTBPWE14bjZJQzhKRENSTEF1bXJ4NE9CaHlDODVCbldacDhlaWZ1dGl1b0pPaUd6QlhwQ3pRdW9Mbm9tVml0NVFmODNhRUlydWpaTWtqc2VxeURXalVPNHJaakFNYXN6X0NlMVZldDBjOFZsRy1HZkdKRzZ3WVRwelZ3dE9naldRUkthLVJCZw?oc=5",
+          "published": "Sat, 21 Nov 2026 03:13:36 GMT",
+          "metrics": {}
+        },
+        {
+          "source": "google_news",
+          "team": "michigan",
+          "text": "Michigan Football Star Charged With Indecent Exposure - Yahoo Sports",
+          "url": "https://news.google.com/rss/articles/CBMikgFBVV95cUxQaExiTXFINXc3Vzc2RW82am5YNy1kVjh1eWVNNEJsXzktQjF1VlJhSzVkWENVTDJSRXNRVUNYY3p2SEZpMUVTUVRHb05jQnRYbmR2djltWFU1UTRxVEdRaU1iMTJRczN5LUZMOXpkZVNZckRidndzMVZ4OHBKYW8tWk1BTlh6MjFpYk05bTR4VUhxdw?oc=5",
+          "published": "Thu, 19 Nov 2026 19:24:58 GMT",
           "metrics": {}
         },
         {
@@ -1387,14 +1395,6 @@
           "text": "2 Flaws That Give Michigan Football a Chance Against UCLA - Sports Illustrated",
           "url": "https://news.google.com/rss/articles/CBMiqwFBVV95cUxQUzFGRlJ5UE9XYWU0SXBSWUk1ZjNJWHlIU2hBY3FlTDJmWjZTX0NHTy1QaGowcmJoMU1XdktyWHJQaGpNZDhXV2l4SEs1UENtQzNpcnVQUXc4TG9rY0MyLS15T19mNkZvNEU4SGFZa0NDN1VIUks1dFQ5NS1MR0syQUJZNWpBUXNzMFdqemplWElfM1RzQnNXcWV5RHh4TGd3QmpsOVRlLXdvXzQ?oc=5",
           "published": "Fri, 20 Nov 2026 17:00:00 GMT",
-          "metrics": {}
-        },
-        {
-          "source": "google_news",
-          "team": "michigan",
-          "text": "Uniform combo revealed for Michigan Football vs UCLA - Yahoo Sports",
-          "url": "https://news.google.com/rss/articles/CBMikwFBVV95cUxOVGlONjV6RVRYVFBmT0ozWE5NQmdhZzE4NWRaR0E3cV80aDhNY1RfcFloUl9CLWJDdW1MZzlGcVpIRFNhZ2xrRVA0NTBreTExOHdUR0h5V3NDQWM3clR1ZXk4QktkQ2NvYU5WTFVyMWNuZzM4MmVnRWstV1V4X0xYc2I3V2NlUWtZQWF2V2haWDdCeTA?oc=5",
-          "published": "Fri, 20 Nov 2026 20:02:57 GMT",
           "metrics": {}
         }
       ],
@@ -1437,7 +1437,7 @@
     },
     "repository_trend_snapshot": {
       "status": "snapshot",
-      "generated": "2026-11-20",
+      "generated": "2026-11-21",
       "items": [
         {
           "source": "repository_trend_snapshot",
@@ -1445,6 +1445,14 @@
           "text": "Browns erase 17-point deficit to beat Texans in Week 10 | By the Numbers",
           "url": "https://news.google.com/rss/articles/CBMiqwFBVV95cUxOcGJmenF0M3I5SDBBOTN5NzhFSXV6WGZOREYzbDJRdndBdmdUTTlBMy04WTVsN0hkR3RHREE2VE9sdzR1aUM1cXdzQUw2REpJYzlhTm11WWtweGxEcjJ4Y2VpXzkyaGFrdzZsMWFjM0VnWnJXQWwxWEVYSlJyWXY2cWpBWGFOYkNNRmh2SVBack5BTnk4YkNGbWxSOHlhemx3NzZ3dm15Q1lRQm8?oc=5",
           "published": "Mon, 16 Nov 2026 00:00:07 GMT",
+          "metrics": {}
+        },
+        {
+          "source": "repository_trend_snapshot",
+          "team": "cleveland-browns",
+          "text": "Cleveland Browns proving that TD passes may be overrated",
+          "url": "https://news.google.com/rss/articles/CBMiiwFBVV95cUxPV1hEM2EzN3RtV2QzQlNyeDNGd2RFZEprYzJXQjhrMUNUSUcyOUdPQTBUWHRmTTJQbDFVOUZWMjZTdTNZX1p3MmhNSWVXcGpLNm1Da1RvMzg4Rlpvejk4T00xYlhEQXNwY3kxVDdLb3A2cV85T1ZqdWFZWnYyQXc1YTRTYlFGV3J0RHlF?oc=5",
+          "published": "Tue, 17 Nov 2026 00:02:00 GMT",
           "metrics": {}
         },
         {
@@ -1458,49 +1466,41 @@
         {
           "source": "repository_trend_snapshot",
           "team": "cleveland-browns",
-          "text": "Cleveland Browns quarterback Deshaun Watson's best plays from 361-yard game vs. Houston Texans | Week 10",
-          "url": "https://news.google.com/rss/articles/CBMilgFBVV95cUxOQm4xN1dkdnF1bElxSDlzSFlJRDNoTlNwQjVibnBKeTNwVW9mNHFSRzNWT2hIejZTLThwdF9qOW1FVE90b0QwS0lqSkJHVTBVNmlmSFJidWdVS3N1LVJlVzBleTVha3VXYVh0MHRzanFNdWZCXzBCSzVVblg1U3c1dTJOb2NuLVBnSW5lalBRVlBxZUxRYVE?oc=5",
-          "published": "Sun, 15 Nov 2026 22:28:19 GMT",
+          "text": "Were you ready to give up on the Browns? – Terry Pluto",
+          "url": "https://news.google.com/rss/articles/CBMingFBVV95cUxPQkMza2JRVURwd3hWOUU1aGI3V1NWNVJrSHRONnJ1U1VpYWRWemV6WU8yaENNSExGcVJUVzFudEpaX2xLbnR1LVZqaDlOaE80MXlJY043SmR4TjR0TVZjYW85Ykp4REdjWm9NYTJUWDMtWG1lRWEzNF9QcDNCc3dVTGVSRjg3UXptU1R4MFBwZ3VBQXBvWW1TVzY2dHpIQQ?oc=5",
+          "published": "Sun, 15 Nov 2026 22:00:00 GMT",
           "metrics": {}
         },
         {
           "source": "repository_trend_snapshot",
           "team": "cleveland-browns",
-          "text": "Full Cleveland Browns 2027 Mock Draft: All Seven Rounds",
-          "url": "https://news.google.com/rss/articles/CBMipAFBVV95cUxQTmlFZFhqNkdNRzlITndTd2kwR0pvY0wxZzVsR1dRNUxLLUJGQ1hvOWtsY2RzczMydmNjTG80alkxRXUyTWZralFHUWNRN0NtQndkM09xU3FIWjd1enhGajdlS3NSRzBNLU5MQmVLWF9QS3pzekJjSkprWThUOG9BeVlQcm1VM1BJRS1KUTNYY3ltWXJYMk9EVU9iY3BERTZ6OVdxTQ?oc=5",
-          "published": "Fri, 20 Nov 2026 13:23:14 GMT",
+          "text": "NFL flexes Raiders-Browns to replace Pats-Chargers in SNF slot for Week 12",
+          "url": "https://news.google.com/rss/articles/CBMikAFBVV95cUxOUXFCRTZkTVYxY1hpMENValREclN1UjFOTUp5aUxuTUoxc2Z4eFRKZUQ5OTNJRGllZTRCdnNBLWkxYlpEUENyWHVkX0NOY3BqVHJZR3FkTWk4dXVMdGlJbmZTWEJhMmh3N1VWc1pEckJkMzl4UElDWHBIUjlMR21Bc3R6WmxtRDZ5U2dybDYxZFE?oc=5",
+          "published": "Tue, 17 Nov 2026 19:10:00 GMT",
           "metrics": {}
         },
         {
           "source": "repository_trend_snapshot",
           "team": "cleveland-browns",
-          "text": "Browns roster seen as the best fit for one of the best 5 free agents left in the NFL",
-          "url": "https://news.google.com/rss/articles/CBMiwgFBVV95cUxNVGpGVE1MVy1fcEpuM0NoQ2d5YkFIc1ZqbDQ1STJOSldKRkh3SjdQZVM3R1BqVWg4TnRYX1lsSXhFV1p2VWthNmF1b1VRMXRfV09aVU9uVWJOMFNDQlN6N1dCQWEtNkVyVEFaM0w3czl5V0VDWm1MS24zV29jM241WFNhQWs5VnE4UmkzTnNDaGNRTlJ3SUw4TnVFV3pfWl9XTXkwNGJzVl9kWWZEYTBBaUlWUEJmdVNMRWVoalRTNVVFZw?oc=5",
-          "published": "Wed, 18 Nov 2026 23:10:02 GMT",
+          "text": "Cleveland’s 6-4 Start Has Put This Unexpected Browns Storyline in the Spotlight",
+          "url": "https://news.google.com/rss/articles/CBMixgFBVV95cUxNcnkzSnh4V182azRYajh2THJjVHMteGdJQnFWR3VGVTlUenI0UHRXS25MX0hlSjEzalpFbFBlRU9Wby00WDdvWEpYT2l6M0VNN1dydGk5Z3R6SnNTdHBfV2Q0TGR5dEJoTHlKY2FwMHhFbkZ0T1hLS01KbzI3RWFfOTJDQ2Nla3M4U1JLTWtHNGRDX2JpZkNXdEVMQVppR1RlZU1va0FpZ2tiVEw4ZUdDTjF1UzdFOHFfcS16T1FIc0tjSWZNY2c?oc=5",
+          "published": "Wed, 18 Nov 2026 12:00:00 GMT",
           "metrics": {}
         },
         {
           "source": "repository_trend_snapshot",
           "team": "cleveland-browns",
-          "text": "Watch Texans vs Browns Highlights, Replay & Score - NFL Week 10",
-          "url": "https://news.google.com/rss/articles/CBMif0FVX3lxTE1VT1lUWHZnWVZnbnlhUzJ3NHBxVmNxOEVyeWphQmt0YnZ0YnBNdFRudUg2ZWc2TmJPREdfcXNUV3J0azZFWXdneVRUTERfOGEzQmFZMVl4RmtCM1RjSmhlWThnZGdaTTFmR1N0RF9HamhZUHFyTjlxNE9TS0x2aHc?oc=5",
-          "published": "Sun, 15 Nov 2026 08:00:00 GMT",
+          "text": "Browns QB Deshaun Watson open to possibility of extension in Cleveland",
+          "url": "https://news.google.com/rss/articles/CBMimwFBVV95cUxQSk4xV2lja2RQLWdGc1h2UjdhTV9lRlpIaG1TRmlPWDZpMnM2OVUya0ZQTmNiNEo4OVVVN3g5NVhqbTV2Qkpac0k3OHF0a3d5VmpRVURYRG5UN3Q2QjNTZkZRLWtqZ0hGLTNScjhUeDlJOWxiUnV6bmo3X1RxN0Rva05CLTQxS0dWaEY5TXBRWXFqRG9pa1I3TmoxZw?oc=5",
+          "published": "Thu, 19 Nov 2026 14:04:10 GMT",
           "metrics": {}
         },
         {
           "source": "repository_trend_snapshot",
           "team": "cleveland-browns",
-          "text": "Browns defeat Texans 27-24",
-          "url": "https://news.google.com/rss/articles/CBMinwFBVV95cUxOQlV3T0ZRLUE5Uk9TWjFyM1lsejQ0ZFFTUUNjNjNwbS1kYjA2YlQ5RnJyS0V3cENseTZFbXgtUkIzR2J2dDA1UjBha1V0UTNOb1BGdld5a1ZlblhDcWNrQ1BJdk53a3pVNXVQcHhDajFGcVd6SGhvMU9SMEJvb3laclEycnA3TmhBOFNpTUF0Z2txZnZQaDhqeEdrWjlucjjSAaQBQVVfeXFMT3hsRk8zMmpPV0Q5QzhRR0h4ZUdReUVDYVNnclFKZ2dmOWREWjhRWXZNS2tEUVJleXlVNmpqbmZvb2VJY3hMQUhxUUVxc2k2b1J1VlBXZ29FV25wZjhKVlpXU1FhcGN5Wkp2XzBNVWQ5RDREc3paeHRnX0J4empDTWw2TmFjdmVzbVprTU9KSUJHVjR0U0dlUFRmaHJiRVRSNVpyRVU?oc=5",
-          "published": "Sun, 15 Nov 2026 13:01:14 GMT",
-          "metrics": {}
-        },
-        {
-          "source": "repository_trend_snapshot",
-          "team": "cleveland-browns",
-          "text": "Cleveland Browns 2026 NFL Playoff Simulator",
-          "url": "https://news.google.com/rss/articles/CBMitwFBVV95cUxQNjkxb25mbFVxUHhPMXhuOGh6cDA2T2pWbE1LS1dJR3RCZWxIVXhVaXQtR2VSaHBfUVV3U1JPMFlCRkZfLXhZQnd4Z2JFLXhXN2JwdG01Y3NsTGppMWhfaWZvaUNFckJIU25ST0xMbU8zUzBYWGN6NEZIamNSLTEzY1JMLWR6NXlxLWxtaUEtMWpGRVdPTWpKenJtVXFBeEJVQU0zNFhFcUw1MVNuV0VkbTZiVl9DWU0?oc=5",
-          "published": "Fri, 20 Nov 2026 04:10:00 GMT",
+          "text": "Browns vs. Raiders flexed into Sunday Night Football in Week 12",
+          "url": "https://news.google.com/rss/articles/CBMioAFBVV95cUxNMzJKY0ZGUVRYZUYzbjNVNlE4QU1MTzRWSXY5TjB0Q0VQWFRZancxWU53dUE2cUw2UlZTbEZzNXFNOGNGczMwMm9uLW9zUkVRUFZDTEJzZEg1SEY4eW1JSVdESmw1WVd5ZjVEdkp0SU5ud2hkU0p6UWtFbTBxVlEwcHByZm5nYXVBaHNGZHM4cXVsRmJsbGRyTmZnNU5DeVpl?oc=5",
+          "published": "Tue, 17 Nov 2026 18:44:12 GMT",
           "metrics": {}
         },
         {
@@ -1530,9 +1530,9 @@
         {
           "source": "repository_trend_snapshot",
           "team": "michigan",
-          "text": "\"But in terms of how upset he is and bothered by the season, I would say immensely,\" U-M OC Jim Harding said of coach Kyle Whittingham. See link below ⬇️ 📸 Junfu Han, Detroit Free Press",
-          "url": "https://news.google.com/rss/articles/CBMi3wFBVV95cUxORzdzMjNGamZmOVg1Vlh4aHJwYl9KWTVydkdlVmJxdVdlUkJsSmhvelQtX3k0dlNjVGxiVHJrOHFndVZWQWxoaWdEdEluMmJZRDNuVlBHWXBxV0RMYTMyWTdReVd2OGN1RzRnYXRsOEJHU2ptcGZURkRQbWU5MHFnUHpYTDJIMmNfTFA3dGIzMm5zUzY5V0FSclROaDNqd0g2bVh3ZTJiNTJmQ3doOWVaaXozSjdjZHhWR2xOMkVGSnFXZUlpeDZSRzdybi1BVi01X3JHYXl6QlhJX3BVRDhv?oc=5",
-          "published": "Thu, 19 Nov 2026 00:00:21 GMT",
+          "text": "Michigan hung around and kept it a game, and the Wolverines deserve credit for that. No, not the coach − the players. See link below ⬇️ 📸 Troy Wayrynen, IMAGN IMAGES via Reuters",
+          "url": "https://news.google.com/rss/articles/CBMi3wFBVV95cUxQbURTeURjTWRyb2c1NHJhNm1sdF9TVzNBWHVqUlk4UEt0ZFBwazZLNHlKX2EwUS03N2p4dWh5Rm1fem1KWDV5b21tTEFsTzF6UVFwVEJfdjN2TDBtWExfX0Iyc2E2ckdFb2JFT291Q2c3SWdKZEcwZFc4d0prbERuWE9odDFHSUozSEw4VXo3VWFBYWgzeE9hZmZkZUs4a0MtU1hmNWh6ajJjc0RmaHQ4SnZDMWxqRG4tQ1h2bXJYQXA5UUw2b3BOZEdCOTdvaUR2S29Cd0c3RUZRd3dFV3JV?oc=5",
+          "published": "Sun, 15 Nov 2026 03:00:06 GMT",
           "metrics": {}
         },
         {
@@ -1554,9 +1554,9 @@
         {
           "source": "repository_trend_snapshot",
           "team": "michigan",
-          "text": "Predictions: Michigan Wolverines football at Oregon Ducks",
-          "url": "https://news.google.com/rss/articles/CBMi4wFBVV95cUxNa1liSU9kSXNMZmxFMWNucUxyV1FOYUlwYlBBeTVid2dzbzdrMVBXSk9xMkMySHdsQ1JabDBXY0dPU1BzYWFrUjYzR1ZjZ1FndERyVkRIYjQ0Z2ZiX2twR290LUJyV20tRm9iVG4zRVZtZFNPOWhOV19GX2phQXRBNHFSR2VONUZIeWgzU3hGdktYbWdESkptWXZ0MzNtLWpSR0pMMURZUjAtTFA2Y2hwblRHR3NVcVdxaVh1M2FuY3g4MlpoX1JsNU9SNkhoSVYzVDh5VF9ORnRLWEdTV3ZiVVNPaw?oc=5",
-          "published": "Fri, 13 Nov 2026 12:58:00 GMT",
+          "text": "Oregon Ducks vs. Michigan Wolverines Football Game Thread",
+          "url": "https://news.google.com/rss/articles/CBMipgFBVV95cUxOOEdhaWdmbWkxZ0ZYdThhc3hrckZ4dG5rVnN1ZTdQYS1KN3VqRG0xVy1BREhrZzA0bC02V1RPUWQtdExZMFFaRDVZRUUxMXg2Yl91a0k3VDFVNjh4WXJKZld0UndmQ1hCM1hWSEpEQ0ZEZzBXWFlSekxFSUFLWnB3QThwN0hfZEh1UGotWnVRN1I2U3E1dGVHNWVJSFF4cnJKckZtYnZn?oc=5",
+          "published": "Sat, 14 Nov 2026 18:30:00 GMT",
           "metrics": {}
         },
         {
@@ -1586,17 +1586,9 @@
         {
           "source": "repository_trend_snapshot",
           "team": "green-bay-packers",
-          "text": "Why Packers can't protect Jordan Love or rush successfully",
-          "url": "https://news.google.com/rss/articles/CBMilwFBVV95cUxPOFY2M3RydERkZGhhdHV2ME1UQnpqc1gySHo5WXdLVnpidUJfcEcwM2k0OGpkRzlwc1EyUFBwUEVQbllxN25WbWVKS1ltMU5YdkVYb2RKTTk5MUI1V2pmbTdkelBHT3dUd0NWM0dwMnRSWkZ0SHI2V2NCV1NOMDFEVXJuTjNzSzgwTWQzV1lsamlWekZCZklZ?oc=5",
-          "published": "Wed, 18 Nov 2026 11:00:00 GMT",
-          "metrics": {}
-        },
-        {
-          "source": "repository_trend_snapshot",
-          "team": "green-bay-packers",
-          "text": "NFL Power Rankings: Vikings Vault After Toppling Packers in Green Bay",
-          "url": "https://news.google.com/rss/articles/CBMikwFBVV95cUxONjBqeXoxaHdiR3lpbVMtckx3RG5iVTZnby1Hd2pFUnEwYmZDSGJLUTdDSERNamQzdFBkSnhDcmRRMXE0WDJrRUY4RmhMSjEzWVR4d0I1VHlFS3RkN0N0di1GcnZOMDFBRGM2VGRCNEJLOVd6aE8zTDdiRFZUandLNXY5U3Y3c09YX3RITEFkN1ZiSWc?oc=5",
-          "published": "Tue, 17 Nov 2026 22:55:26 GMT",
+          "text": "Packers Roster: Green Bay’s emergency signing board",
+          "url": "https://news.google.com/rss/articles/CBMitgFBVV95cUxOY3I1b1NxelFhTDhPQXEwaGJOYnl0aTBxU0dMX2pWcGlmOVJBWHJJcVhCNEd1VHpWMG1fZmR2cnIwNE1IY0psZm5haWxnNk1uTmVxMU04MXFSTVhMNW13OS1wcUhONUhrc3hMWm16U0FoVjNaLU1KQ1F1VTlCRlJWZ2V1eU9LNjhfZ2xaWFNOSWZUSFBqRFNzY0kyNmVuN2MxWDVsc3VvOEVPUnNqSTVjM2FqYnVTdw?oc=5",
+          "published": "Fri, 20 Nov 2026 00:04:00 GMT",
           "metrics": {}
         },
         {
@@ -1610,17 +1602,17 @@
         {
           "source": "repository_trend_snapshot",
           "team": "green-bay-packers",
-          "text": "Packers make a calculated yet questionable roster decision, and it offers several clues about what's ahead",
-          "url": "https://news.google.com/rss/articles/CBMiiwFBVV95cUxQQ0dHQUNld041TmU4TjVieEpfVmVaMWdYckx5V2R2ZEhRcWEtVUp2eGZEWWRpUFc5Z3k3cTAwNUtKUzVYU3pZc3BWSVNNVTRGNEMwVm00dEw2TFVudG5FdEF4LUR1NlZ0UFBzdjhqQloxYkFxUnZuS2Y2TDJmQkZCaTRkWG9CZDlhWktF?oc=5",
-          "published": "Thu, 19 Nov 2026 22:33:39 GMT",
+          "text": "Packers Report Card at Bye Week: Grading Every Unit on Offense",
+          "url": "https://news.google.com/rss/articles/CBMingFBVV95cUxQbGtnSGhhSDBZcjRLSDhaalJPekFPRUpfNmo0WnVlcnpKTUFrU3gzWC1hYUJIODFSUEFNRENBYzJYWW01T3IweWRWUWlRRXp4R01pU015WlR0QS1ONF9zaHRhQmJFZ3FYcFc2bERzQUo0MWJNeUJDM2pzN2UtdDZWNzVNT3MtTU9OYWhrWVIzUU1BYXAySjZSZWUwTUJKQQ?oc=5",
+          "published": "Fri, 20 Nov 2026 19:11:44 GMT",
           "metrics": {}
         },
         {
           "source": "repository_trend_snapshot",
           "team": "green-bay-packers",
-          "text": "Green Bay Packers News: Packers stand pat at trade deadline",
-          "url": "https://news.google.com/rss/articles/CBMixAFBVV95cUxPUUdTMWM4ZlNyTmVkeE1SbENPWi1NSWgzbldxd2c3ZFkySEI2bndndzdlbWlNR2xjczkxOVVlVXcxVHBJTEpTQV9NU3hlTTdEU0VTempTM1F2d1R0TWxucGpBUkpITTRWZkpjbWpKa1VwakJIS1ZZQW5tVEhpVkNZZVJ0aVptRzNEd25pVW1JdlJ3SG1MalZtVzVGbkl5c2JuMjdBTVMxdEN1V0JpemE5QVdlUTJ4MmVIU1cxOUdaUmxya3px?oc=5",
-          "published": "Wed, 11 Nov 2026 08:00:00 GMT",
+          "text": "Packers make a calculated yet questionable roster decision, and it offers several clues about what's ahead",
+          "url": "https://news.google.com/rss/articles/CBMiiwFBVV95cUxQQ0dHQUNld041TmU4TjVieEpfVmVaMWdYckx5V2R2ZEhRcWEtVUp2eGZEWWRpUFc5Z3k3cTAwNUtKUzVYU3pZc3BWSVNNVTRGNEMwVm00dEw2TFVudG5FdEF4LUR1NlZ0UFBzdjhqQloxYkFxUnZuS2Y2TDJmQkZCaTRkWG9CZDlhWktF?oc=5",
+          "published": "Thu, 19 Nov 2026 22:33:39 GMT",
           "metrics": {}
         },
         {
@@ -1633,8 +1625,16 @@
         },
         {
           "source": "repository_trend_snapshot",
+          "team": "green-bay-packers",
+          "text": "Packers Predicted to Sever Ties to $77 Million Starter Amid Tough Year",
+          "url": "https://news.google.com/rss/articles/CBMihwFBVV95cUxPTG96aDVpZjJiYjZnb3YtSjNCUkZ2eW1ncTROQkFMYThRUnQzcjBQUmRHRUtUZGdnMVRManNUdWZ6TklRVXRBaVl1M24za3pObmRIWU8zY0MwcXdfZTVXcVl1WkZ1c0tpcmYyc0EtOFpnbHpkNmJjcUszVWM5VWxZS19Ici1Ebm8?oc=5",
+          "published": "Wed, 18 Nov 2026 05:43:00 GMT",
+          "metrics": {}
+        },
+        {
+          "source": "repository_trend_snapshot",
           "team": "dallas-cowboys",
-          "text": "Updates: Schoonmaker absent from practice",
+          "text": "Updates: Thompson, Barham questionable",
           "url": "https://news.google.com/rss/articles/CBMiZ0FVX3lxTE1XYnlkakRab0lRRVJfS0dyTU1saW51YnhMSGtMWm1xUTNpMHF2ZU5wQW9kZ0lxRDR2LUttekNTMkhpWXRwemkzb3U1SkIwUkxfV2xEeW5fRV8xVGdMV0o4YmJlYUEwV2c?oc=5",
           "published": "Wed, 18 Nov 2026 08:00:00 GMT",
           "metrics": {}
@@ -1650,9 +1650,17 @@
         {
           "source": "repository_trend_snapshot",
           "team": "dallas-cowboys",
-          "text": "Christian Parker candid about Cowboys decision",
-          "url": "https://news.google.com/rss/articles/CBMiiAFBVV95cUxONThGY2dtNzBpRVExYUIyc0FwaWJSVHR6ZUtEVnNObzB3MDdoby12UTJJRWNPM1dWQ3VrUXRSQmxNQWtDYWpfYnl1WlByVDJMOXd5QVBHQkdBYVkxSzNFd2ZkZmo5by05VVJRbzhzeVJBdE9ZZlJ3QW5KT3VoNjFNcnNLLTFlNjNR?oc=5",
-          "published": "Thu, 19 Nov 2026 19:19:21 GMT",
+          "text": "DaRon Bland sidelined going forward due to injury",
+          "url": "https://news.google.com/rss/articles/CBMijAFBVV95cUxQdExFU3VycjAzZC1haDR2MFNMS2JGLTNfZm9Ld3NrSnl1QWVZVDJSczUxa1diaWoyZm5WUjUxUnBUZ0ZmM0dEU2xWeHpNWGxoNXpDWmdzaVVHZHRIU2U2X1BZYVhDOEVOTDViSXpXaFdnYm1ucy1vQ2RVUTJGbndReXdURnhCc255YXEzWQ?oc=5",
+          "published": "Mon, 16 Nov 2026 22:58:49 GMT",
+          "metrics": {}
+        },
+        {
+          "source": "repository_trend_snapshot",
+          "team": "dallas-cowboys",
+          "text": "Dak Prescott on loss to 49ers: 'We've gotta be better.'",
+          "url": "https://news.google.com/rss/articles/CBMijwFBVV95cUxQS3hMNTVjNkZQNEktYXRyRi1zSUlQSWZjY0FXcjlZOWtaS3ZQVklCTFZTSnVnNWFnRVFjLS1UbERaTGNlc0VVQ3FxVGhuQ0VIY0gzLTBQU2VqRVZlOTFPN0M1NndJTUF1TU0wY0JGbUVTUkFxb2doSzE2MmZ4V2xHbTU0UmxpOHpiLWNaNFZhcw?oc=5",
+          "published": "Mon, 16 Nov 2026 02:23:34 GMT",
           "metrics": {}
         },
         {
@@ -1661,6 +1669,14 @@
           "text": "Brian Schottenheimer candid about Christian Parker's future in Dallas",
           "url": "https://news.google.com/rss/articles/CBMipwFBVV95cUxQNHVfZ1dvQ21UV1dsLVJHTnRXTzJNNDJ5QS1jNFBhVlpBcDF5eEFwR3ZSbVdtdzFMX2lnUHYtWnJPb3ZFZlpEcDROS0YxTkJPV2xTU3VjX0FqWW1FMDVLVFE0cm0zS2NLa1ZKWkdUay01U1NLNmJtUmtBQkhjOGpLQUZadlhDbjB1OTUwZTk5dFFnLVBnOEtwVGxiQXFUUTRWSDVQU2cxSQ?oc=5",
           "published": "Wed, 18 Nov 2026 19:38:45 GMT",
+          "metrics": {}
+        },
+        {
+          "source": "repository_trend_snapshot",
+          "team": "dallas-cowboys",
+          "text": "Christian Parker candid about Cowboys decision",
+          "url": "https://news.google.com/rss/articles/CBMiiAFBVV95cUxONThGY2dtNzBpRVExYUIyc0FwaWJSVHR6ZUtEVnNObzB3MDdoby12UTJJRWNPM1dWQ3VrUXRSQmxNQWtDYWpfYnl1WlByVDJMOXd5QVBHQkdBYVkxSzNFd2ZkZmo5by05VVJRbzhzeVJBdE9ZZlJ3QW5KT3VoNjFNcnNLLTFlNjNR?oc=5",
+          "published": "Thu, 19 Nov 2026 19:19:21 GMT",
           "metrics": {}
         },
         {
@@ -1677,22 +1693,6 @@
           "text": "Porter, others speak on Cowboys' defensive woes: 'We're not finishing'",
           "url": "https://news.google.com/rss/articles/CBMiogFBVV95cUxQS3hRWkNHa1A3cEVuR09oMWlka3ctQnBtSmFYdnRrX0Y4Z2dOVWJseGlMTmthOS1TRTgwMmFuNXBaeFpMTkp3b1NMN3RKenBKbUhDYTFSMFZBYXg4d2R6WTVObjdQaGtxZ3gzcFFVWjJpYVRGb0hwSWM2azU1QndsbExGd21nYkxGVlYzTTlWTy1BQ0NUdXM1Z2hpcDE2MFhlSWc?oc=5",
           "published": "Mon, 16 Nov 2026 02:54:26 GMT",
-          "metrics": {}
-        },
-        {
-          "source": "repository_trend_snapshot",
-          "team": "dallas-cowboys",
-          "text": "Brian Schottenheimer, Cowboys 'taking a deep dive, looking at everything' on defense",
-          "url": "https://news.google.com/rss/articles/CBMitgFBVV95cUxPREV5elh5Z3Y2X0lMcVZCY0w3bkhkVXVVbjNHc0xoZ0drRGlLbnVZMmFEaU05ZFVVbGZfRHZyM0VjNnc3LVVNSE53dXNOSVo5TV9iVVdwOVVOYUM3SUpkdEhGRTZwRW5RclJmSGtLTElvZkdMWUg5Um9yeE1XaGYwUzZRVjVaeF80akQ0UWFGTHlPcHhEenpodmpZNE91VHRHMXVTb3YzUVZQQWdUMmVJeU9kWVhqdw?oc=5",
-          "published": "Mon, 16 Nov 2026 23:57:29 GMT",
-          "metrics": {}
-        },
-        {
-          "source": "repository_trend_snapshot",
-          "team": "dallas-cowboys",
-          "text": "Dak Prescott, Cowboys eyeing 'great opportunity' to find a spark vs. 49ers",
-          "url": "https://news.google.com/rss/articles/CBMiqAFBVV95cUxPUjkxUTh1d1NtNXZxOHBaMmZNRVNBTUhkQU5GQW1KVDZ4ZkR5UXdFSTlYa04zU3Iza2o5ajBVYm5QTGhWQ3hvaHM5YmRTb2hEOTRkS1VwUEhaLW5fZE9rb0RlNWFiVlZVcEo1REsxVEFIQmZ6M3duYUFveWV5SU5VX3ByU0JETGJXT1FzZlNRdm85WEtkWTExUGN6TVRkU0NNWC1aQUotaC0?oc=5",
-          "published": "Thu, 12 Nov 2026 08:00:00 GMT",
           "metrics": {}
         }
       ],
