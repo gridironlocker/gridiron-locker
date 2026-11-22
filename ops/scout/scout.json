@@ -2,43 +2,43 @@
  "generated": "2026-11-22",
  "window_days": 10,
  "fti_formula": "round(100 * entity_mentions / peak_mentions_in_window)",
- "peak_mentions": 30,
+ "peak_mentions": 29,
  "stats": {
   "products": 95,
   "collections": 4,
   "images": 451,
   "avg_price": 23.81,
-  "hot": 0,
-  "throwback": 1,
-  "steady": 94,
-  "gaps": 4,
+  "hot": 11,
+  "throwback": 0,
+  "steady": 84,
+  "gaps": 6,
   "moments": 3,
   "tracked_names": 18,
   "dead_campaigns": 68
  },
  "fti_rows": [
   {
-   "name": "deshaun watson",
-   "mentions": 30,
+   "name": "micah parsons",
+   "mentions": 29,
    "index": 100,
+   "status": "trending",
+   "gap": false,
+   "shoppable": true,
+   "collection": "green-bay-packers"
+  },
+  {
+   "name": "deshaun watson",
+   "mentions": 18,
+   "index": 62,
    "status": "trending",
    "gap": true,
    "shoppable": false,
    "collection": "cleveland-browns"
   },
   {
-   "name": "bryce underwood",
-   "mentions": 12,
-   "index": 40,
-   "status": "trending",
-   "gap": false,
-   "shoppable": true,
-   "collection": "michigan"
-  },
-  {
    "name": "dak prescott",
-   "mentions": 12,
-   "index": 40,
+   "mentions": 15,
+   "index": 52,
    "status": "trending",
    "gap": true,
    "shoppable": false,
@@ -47,25 +47,34 @@
   {
    "name": "kyle whittingham",
    "mentions": 12,
-   "index": 40,
+   "index": 41,
    "status": "trending",
    "gap": true,
    "shoppable": false,
    "collection": "michigan"
   },
   {
-   "name": "micah parsons",
-   "mentions": 11,
-   "index": 37,
+   "name": "bryce underwood",
+   "mentions": 10,
+   "index": 34,
    "status": "trending",
    "gap": false,
    "shoppable": true,
-   "collection": "green-bay-packers"
+   "collection": "michigan"
   },
   {
-   "name": "myles garrett",
-   "mentions": 4,
-   "index": 13,
+   "name": "ceedee lamb",
+   "mentions": 8,
+   "index": 28,
+   "status": "trending",
+   "gap": true,
+   "shoppable": false,
+   "collection": "dallas-cowboys"
+  },
+  {
+   "name": "shedeur sanders",
+   "mentions": 6,
+   "index": 21,
    "status": "trending",
    "gap": false,
    "shoppable": true,
@@ -74,32 +83,32 @@
   {
    "name": "todd monken",
    "mentions": 4,
-   "index": 13,
+   "index": 14,
    "status": "trending",
    "gap": true,
    "shoppable": false,
    "collection": "cleveland-browns"
   },
   {
-   "name": "ceedee lamb",
-   "mentions": 2,
-   "index": 7,
-   "status": "steady",
-   "gap": false,
-   "shoppable": false,
-   "collection": "dallas-cowboys"
-  },
-  {
    "name": "jordan love",
-   "mentions": 2,
-   "index": 7,
-   "status": "steady",
+   "mentions": 3,
+   "index": 10,
+   "status": "trending",
    "gap": false,
    "shoppable": true,
    "collection": "green-bay-packers"
   },
   {
    "name": "josh jacobs",
+   "mentions": 3,
+   "index": 10,
+   "status": "trending",
+   "gap": true,
+   "shoppable": false,
+   "collection": "green-bay-packers"
+  },
+  {
+   "name": "matt lafleur",
    "mentions": 2,
    "index": 7,
    "status": "steady",
@@ -108,19 +117,19 @@
    "collection": "green-bay-packers"
   },
   {
-   "name": "matt lafleur",
-   "mentions": 1,
-   "index": 3,
+   "name": "myles garrett",
+   "mentions": 2,
+   "index": 7,
    "status": "steady",
    "gap": false,
-   "shoppable": false,
-   "collection": "green-bay-packers"
+   "shoppable": true,
+   "collection": "cleveland-browns"
   },
   {
    "name": "denzel ward",
-   "mentions": 0,
-   "index": 0,
-   "status": "quiet",
+   "mentions": 1,
+   "index": 3,
+   "status": "steady",
    "gap": false,
    "shoppable": true,
    "collection": "cleveland-browns"
@@ -169,22 +178,13 @@
    "gap": false,
    "shoppable": true,
    "collection": "green-bay-packers"
-  },
-  {
-   "name": "shedeur sanders",
-   "mentions": 0,
-   "index": 0,
-   "status": "quiet",
-   "gap": false,
-   "shoppable": true,
-   "collection": "cleveland-browns"
   }
  ],
  "gaps": [
   {
    "name": "deshaun watson",
-   "mentions": 30,
-   "index": 100,
+   "mentions": 18,
+   "index": 62,
    "status": "trending",
    "gap": true,
    "shoppable": false,
@@ -192,8 +192,8 @@
   },
   {
    "name": "dak prescott",
-   "mentions": 12,
-   "index": 40,
+   "mentions": 15,
+   "index": 52,
    "status": "trending",
    "gap": true,
    "shoppable": false,
@@ -202,20 +202,38 @@
   {
    "name": "kyle whittingham",
    "mentions": 12,
-   "index": 40,
+   "index": 41,
    "status": "trending",
    "gap": true,
    "shoppable": false,
    "collection": "michigan"
   },
   {
+   "name": "ceedee lamb",
+   "mentions": 8,
+   "index": 28,
+   "status": "trending",
+   "gap": true,
+   "shoppable": false,
+   "collection": "dallas-cowboys"
+  },
+  {
    "name": "todd monken",
    "mentions": 4,
-   "index": 13,
+   "index": 14,
    "status": "trending",
    "gap": true,
    "shoppable": false,
    "collection": "cleveland-browns"
+  },
+  {
+   "name": "josh jacobs",
+   "mentions": 3,
+   "index": 10,
+   "status": "trending",
+   "gap": true,
+   "shoppable": false,
+   "collection": "green-bay-packers"
   }
  ],
  "collections": [
@@ -228,12 +246,12 @@
    "products": 33,
    "avg_price": 23.3,
    "hot": 0,
-   "throwback": 1,
+   "throwback": 0,
    "gaps": [
     {
      "name": "deshaun watson",
-     "mentions": 30,
-     "index": 100,
+     "mentions": 18,
+     "index": 62,
      "status": "trending",
      "gap": true,
      "shoppable": false,
@@ -242,7 +260,7 @@
     {
      "name": "todd monken",
      "mentions": 4,
-     "index": 13,
+     "index": 14,
      "status": "trending",
      "gap": true,
      "shoppable": false,
@@ -254,10 +272,10 @@
     "cleveland",
     "deshaun",
     "watson",
-    "sunday",
-    "football",
-    "night",
-    "flexed"
+    "playoff",
+    "houston",
+    "draft",
+    "watch"
    ],
    "headline_count": 100,
    "headlines": [
@@ -274,22 +292,22 @@
      "pub": "Sun, 15 Nov 2026 16:33:20 GMT"
     },
     {
-     "title": "Were you ready to give up on the Browns? \u2013 Terry Pluto",
-     "url": "https://news.google.com/rss/articles/CBMingFBVV95cUxPQkMza2JRVURwd3hWOUU1aGI3V1NWNVJrSHRONnJ1U1VpYWRWemV6WU8yaENNSExGcVJUVzFudEpaX2xLbnR1LVZqaDlOaE80MXlJY043SmR4TjR0TVZjYW85Ykp4REdjWm9NYTJUWDMtWG1lRWEzNF9QcDNCc3dVTGVSRjg3UXptU1R4MFBwZ3VBQXBvWW1TVzY2dHpIQQ?oc=5",
-     "source": "Cleveland.com",
-     "pub": "Sun, 15 Nov 2026 22:00:00 GMT"
-    },
-    {
-     "title": "Browns QB Deshaun Watson open to possibility of extension in Cleveland",
-     "url": "https://news.google.com/rss/articles/CBMimwFBVV95cUxQSk4xV2lja2RQLWdGc1h2UjdhTV9lRlpIaG1TRmlPWDZpMnM2OVUya0ZQTmNiNEo4OVVVN3g5NVhqbTV2Qkpac0k3OHF0a3d5VmpRVURYRG5UN3Q2QjNTZkZRLWtqZ0hGLTNScjhUeDlJOWxiUnV6bmo3X1RxN0Rva05CLTQxS0dWaEY5TXBRWXFqRG9pa1I3TmoxZw?oc=5",
+     "title": "Cleveland Browns quarterback Deshaun Watson's best plays from 361-yard game vs. Houston Texans | Week 10",
+     "url": "https://news.google.com/rss/articles/CBMilgFBVV95cUxOQm4xN1dkdnF1bElxSDlzSFlJRDNoTlNwQjVibnBKeTNwVW9mNHFSRzNWT2hIejZTLThwdF9qOW1FVE90b0QwS0lqSkJHVTBVNmlmSFJidWdVS3N1LVJlVzBleTVha3VXYVh0MHRzanFNdWZCXzBCSzVVblg1U3c1dTJOb2NuLVBnSW5lalBRVlBxZUxRYVE?oc=5",
      "source": "NFL.com",
-     "pub": "Thu, 19 Nov 2026 14:04:10 GMT"
+     "pub": "Sun, 15 Nov 2026 22:28:19 GMT"
     },
     {
-     "title": "Cleveland\u2019s 6-4 Start Has Put This Unexpected Browns Storyline in the Spotlight",
-     "url": "https://news.google.com/rss/articles/CBMixgFBVV95cUxNcnkzSnh4V182azRYajh2THJjVHMteGdJQnFWR3VGVTlUenI0UHRXS25MX0hlSjEzalpFbFBlRU9Wby00WDdvWEpYT2l6M0VNN1dydGk5Z3R6SnNTdHBfV2Q0TGR5dEJoTHlKY2FwMHhFbkZ0T1hLS01KbzI3RWFfOTJDQ2Nla3M4U1JLTWtHNGRDX2JpZkNXdEVMQVppR1RlZU1va0FpZ2tiVEw4ZUdDTjF1UzdFOHFfcS16T1FIc0tjSWZNY2c?oc=5",
+     "title": "Cleveland Browns news: A good day to have NFL Sunday Ticket",
+     "url": "https://news.google.com/rss/articles/CBMiwgFBVV95cUxNa1JFUlIxZmJSTDMzU0NDbHhlYkgtdC0wNGdNdWh4VE51aC1VXzhNZ01od1Y3N0QtM2VPUFhVNnBIQi1BajVTRjlBdFRiSVQ2SWt5U0ZvUTc4QnpFODVMZUFTekR0c0Q3YWp0UVJuMkpYdzVnNDlvWGxLcmVWamF5SF9kSTJIX2V1T3ZVUEg3UU52QXQ1Y0JRTUt2anQ4eHpvOHhTY042dldWMUE4eS1vWFlCWGdDMWFNR3NqVW9IV1llZw?oc=5",
+     "source": "Dawgs By Nature",
+     "pub": "Sun, 22 Nov 2026 11:30:00 GMT"
+    },
+    {
+     "title": "Full Cleveland Browns 2027 Mock Draft: All Seven Rounds",
+     "url": "https://news.google.com/rss/articles/CBMipAFBVV95cUxQTmlFZFhqNkdNRzlITndTd2kwR0pvY0wxZzVsR1dRNUxLLUJGQ1hvOWtsY2RzczMydmNjTG80alkxRXUyTWZralFHUWNRN0NtQndkM09xU3FIWjd1enhGajdlS3NSRzBNLU5MQmVLWF9QS3pzekJjSkprWThUOG9BeVlQcm1VM1BJRS1KUTNYY3ltWXJYMk9EVU9iY3BERTZ6OVdxTQ?oc=5",
      "source": "Sports Illustrated",
-     "pub": "Wed, 18 Nov 2026 12:00:00 GMT"
+     "pub": "Fri, 20 Nov 2026 13:23:14 GMT"
     }
    ],
    "fti_count": 7
@@ -307,8 +325,17 @@
    "gaps": [
     {
      "name": "dak prescott",
-     "mentions": 12,
-     "index": 40,
+     "mentions": 15,
+     "index": 52,
+     "status": "trending",
+     "gap": true,
+     "shoppable": false,
+     "collection": "dallas-cowboys"
+    },
+    {
+     "name": "ceedee lamb",
+     "mentions": 8,
+     "index": 28,
      "status": "trending",
      "gap": true,
      "shoppable": false,
@@ -318,17 +345,17 @@
    "top_terms": [
     "cowboys",
     "dallas",
-    "dies",
+    "prescott",
     "christian",
     "parker",
-    "altercation",
-    "daron",
-    "bland"
+    "watch",
+    "highlights",
+    "altercation"
    ],
    "headline_count": 100,
    "headlines": [
     {
-     "title": "Updates: Cowboys elevated RB, CB versus Titans",
+     "title": "Updates: Barham headlines inactives vs. Titans",
      "url": "https://news.google.com/rss/articles/CBMiZ0FVX3lxTE1XYnlkakRab0lRRVJfS0dyTU1saW51YnhMSGtMWm1xUTNpMHF2ZU5wQW9kZ0lxRDR2LUttekNTMkhpWXRwemkzb3U1SkIwUkxfV2xEeW5fRV8xVGdMV0o4YmJlYUEwV2c?oc=5",
      "source": "Dallas Cowboys | Official Site of the Dallas Cowboys",
      "pub": "Wed, 18 Nov 2026 08:00:00 GMT"
@@ -338,6 +365,12 @@
      "url": "https://news.google.com/rss/articles/CBMiogFBVV95cUxPRjdTdGpWbGJmZjIxLWZ6TXBwVWZTNUNjc1Q0bm1zT0ZyaUlIelFWNkJiZ2E3bnZYZE9DaEJXLXpJU3h1WnR5WFA2cEZPc2ZiUGFkOGNmLVgzOEZvVTNaT0RGeU1VeHdibS1oQW5xV3BxVTBJNDF5RWRnVjdpX1d1b01LT2xsaUwwRDllX1JxZHZaRmF2Ry11dlhCMm5vZmFpUGc?oc=5",
      "source": "San Francisco 49ers",
      "pub": "Mon, 16 Nov 2026 03:35:27 GMT"
+    },
+    {
+     "title": "Tennessee Titans at Dallas Cowboys: How to Watch, Listen and Live Stream",
+     "url": "https://news.google.com/rss/articles/CBMiqwFBVV95cUxPWi1VcHNSa1B3a3VZbXRRQmRlYTZybndxcHNMRE11a1hhNERIT29Xam5xVi1USDFXVDFDOW5mQXVDVVY2S1BCT3ZrUHcwRXVaSEVBRE12YWJxZjZENXVwZGZzRi1NNDREeWNBWnFwZ1R5b2EzM3NETTJqTjRhZXRfVE1vVXRJTXJlUkVBTUVSODlhV0s1TUpabTNwWHVpal8yeHkxeVd1MjVKNnM?oc=5",
+     "source": "Tennessee Titans",
+     "pub": "Sun, 22 Nov 2026 19:51:59 GMT"
     },
     {
      "title": "Dak Prescott on loss to 49ers: 'We've gotta be better.'",
@@ -350,12 +383,6 @@
      "url": "https://news.google.com/rss/articles/CBMiiAFBVV95cUxONThGY2dtNzBpRVExYUIyc0FwaWJSVHR6ZUtEVnNObzB3MDdoby12UTJJRWNPM1dWQ3VrUXRSQmxNQWtDYWpfYnl1WlByVDJMOXd5QVBHQkdBYVkxSzNFd2ZkZmo5by05VVJRbzhzeVJBdE9ZZlJ3QW5KT3VoNjFNcnNLLTFlNjNR?oc=5",
      "source": "Dallas Cowboys | Official Site of the Dallas Cowboys",
      "pub": "Thu, 19 Nov 2026 19:19:21 GMT"
-    },
-    {
-     "title": "Brian Schottenheimer candid about Christian Parker's future in Dallas",
-     "url": "https://news.google.com/rss/articles/CBMipwFBVV95cUxQNHVfZ1dvQ21UV1dsLVJHTnRXTzJNNDJ5QS1jNFBhVlpBcDF5eEFwR3ZSbVdtdzFMX2lnUHYtWnJPb3ZFZlpEcDROS0YxTkJPV2xTU3VjX0FqWW1FMDVLVFE0cm0zS2NLa1ZKWkdUay01U1NLNmJtUmtBQkhjOGpLQUZadlhDbjB1OTUwZTk5dFFnLVBnOEtwVGxiQXFUUTRWSDVQU2cxSQ?oc=5",
-     "source": "Dallas Cowboys | Official Site of the Dallas Cowboys",
-     "pub": "Wed, 18 Nov 2026 19:38:45 GMT"
     }
    ],
    "fti_count": 2
@@ -368,18 +395,28 @@
    "store": "https://viralstyle.com/store/kebystore/Packss/1",
    "products": 35,
    "avg_price": 25.19,
-   "hot": 0,
+   "hot": 11,
    "throwback": 0,
-   "gaps": [],
+   "gaps": [
+    {
+     "name": "josh jacobs",
+     "mentions": 3,
+     "index": 10,
+     "status": "trending",
+     "gap": true,
+     "shoppable": false,
+     "collection": "green-bay-packers"
+    }
+   ],
    "top_terms": [
     "packers",
     "green",
-    "practice",
-    "love",
-    "roster",
     "parsons",
+    "micah",
+    "practice",
     "return",
-    "playoff"
+    "love",
+    "next"
    ],
    "headline_count": 100,
    "headlines": [
@@ -430,7 +467,7 @@
     {
      "name": "kyle whittingham",
      "mentions": 12,
-     "index": 40,
+     "index": 41,
      "status": "trending",
      "gap": true,
      "shoppable": false,
@@ -445,7 +482,7 @@
     "oregon",
     "kyle",
     "whittingham",
-    "watch"
+    "ducks"
    ],
    "headline_count": 100,
    "headlines": [
@@ -465,7 +502,7 @@
      "title": "How to Watch Michigan Football's Week 11 Game Against No. 16 Oregon",
      "url": "https://news.google.com/rss/articles/CBMiiAFBVV95cUxQempwUnVQT2FXaFFOWVlCcHdqbzJnYVFMTW11X3lIS2JNTHVRVEktUnIyQUJ1aHp2ejdYTmQ5OW45cDRPZi1DZlFWaEFfblJRTVJWQU9YWklJblNFRzNVVG5WeGxWOXFnZ20xRVM5dkdBeXR4TVhjeDZEWno5UjdhNjlhWUlJckFQ?oc=5",
      "source": "Yahoo Sports",
-     "pub": "Sat, 14 Nov 2026 11:00:06 GMT"
+     "pub": "Sat, 14 Nov 2026 08:00:00 GMT"
     },
     {
      "title": "How to Watch Michigan Football\u2019s Final Home Game Against No. 4 UCLA",
@@ -827,23 +864,23 @@
  ],
  "moments": [
   {
-   "title": "Browns QB Deshaun Watson open to possibility of extension in Cleveland",
-   "url": "https://news.google.com/rss/articles/CBMimwFBVV95cUxQSk4xV2lja2RQLWdGc1h2UjdhTV9lRlpIaG1TRmlPWDZpMnM2OVUya0ZQTmNiNEo4OVVVN3g5NVhqbTV2Qkpac0k3OHF0a3d5VmpRVURYRG5UN3Q2QjNTZkZRLWtqZ0hGLTNScjhUeDlJOWxiUnV6bmo3X1RxN0Rva05CLTQxS0dWaEY5TXBRWXFqRG9pa1I3TmoxZw?oc=5",
+   "title": "Cleveland Browns quarterback Deshaun Watson's best plays from 361-yard game vs. Houston Texans | Week 10",
+   "url": "https://news.google.com/rss/articles/CBMilgFBVV95cUxOQm4xN1dkdnF1bElxSDlzSFlJRDNoTlNwQjVibnBKeTNwVW9mNHFSRzNWT2hIejZTLThwdF9qOW1FVE90b0QwS0lqSkJHVTBVNmlmSFJidWdVS3N1LVJlVzBleTVha3VXYVh0MHRzanFNdWZCXzBCSzVVblg1U3c1dTJOb2NuLVBnSW5lalBRVlBxZUxRYVE?oc=5",
    "source": "NFL.com",
-   "pub": "Thu, 19 Nov 2026 14:04:10 GMT",
+   "pub": "Sun, 15 Nov 2026 22:28:19 GMT",
    "collection": "cleveland-browns",
    "entities": [
     "deshaun watson"
    ]
   },
   {
-   "title": "\u201cHe Can\u2019t Wait to Get Out of Cleveland\u201d: Browns Commentator Raises Alarm Over Deshaun Watson\u2019s Future After QB Dodges Extension Question",
-   "url": "https://news.google.com/rss/articles/CBMijAFBVV95cUxOd3o3NFdQeHF2UzgtckItNTRIM0lxTUxuUkFIbDlBTFgwRDFYbTBuaVFVSDdfREZBRG8ta0NfNTVWdnJta0VrYkgyQjhlZDBlNjRobHVzZk9vSTVWd1pDLWhlaExqbzNkTDVtYWt4WHN5WURDdmh1d2xHZjFITjVjOWM3UnhidUI0SW4zTw?oc=5",
+   "title": "Packers Receive Good Micah Parsons Return News From NFL Insider",
+   "url": "https://news.google.com/rss/articles/CBMiiwFBVV95cUxPb0J1ZW5iSlFzQmR0cGNKV05oNXBmSEV4WDB1YUVVdnhZWEFKRTdSMEpmMnBsTDFjUThwekhhUy1ic1AtZGFVVjc3RGxqMnZyTnVRWE1oMkJYSXRpN3hNVDNWSEl2NzFiRUo4eWRYbUFWLVdTcW1FNkJQa0V3cEM1dTM1N1VuVl9sNnhB?oc=5",
    "source": "Yahoo Sports",
-   "pub": "Sat, 21 Nov 2026 12:44:40 GMT",
-   "collection": "cleveland-browns",
+   "pub": "Sun, 22 Nov 2026 18:13:28 GMT",
+   "collection": "green-bay-packers",
    "entities": [
-    "deshaun watson"
+    "micah parsons"
    ]
   },
   {
