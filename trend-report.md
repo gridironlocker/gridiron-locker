@@ -1,18 +1,18 @@
-# Hunt Report - 2026-11-24
+# Hunt Report - 2026-11-25
 
-Generated: 2026-11-24 23:57 UTC by src/hunter_intelligence.py
+Generated: 2026-11-25 17:14 UTC by src/hunter_intelligence.py
 
-Ladder: SIGNAL 1 · TREND 0 · OPPORTUNITY 3 · ACTION 0 · HEADLINE 7
+Ladder: SIGNAL 1 · TREND 0 · OPPORTUNITY 2 · ACTION 1 · HEADLINE 4
 
 Fan connectors: no fan posts observed - reddit error (HTTP Error 403: Blocked); x not_configured (Set X_BEARER_TOKEN to use the official X recent-search API.); facebook not_configured (Set META_PAGE_ID and META_PAGE_ACCESS_TOKEN for the official Meta Page feed API.)
 
 ## What to do right now
 
-**Post the Go Blue: The Big House identity angle for Michigan Wolverines on X (@gridironlocker1 first) now with M Vs. Everybody Michigan Wolverines Shirt - 74% confidence, OPPORTUNITY.**
+**Post the Go Blue: The Big House identity angle for Michigan Wolverines on X (@gridironlocker1 first) now with M Vs. Everybody Michigan Wolverines Shirt - 79% confidence, ACTION.**
 
 - Product: M Vs. Everybody Michigan Wolverines Shirt https://gridironlocker.shop/m-vs-everybody?collectionId=YYMlCmwgKG__&color=GILDAN-NAVY&productId=6aa1e7c8047e2b3b0d59e904
 - Platform: X (@gridironlocker1 first) · Timing: now
-- Confidence: 74% (OPPORTUNITY) · 🟢 READY
+- Confidence: 79% (ACTION) · 🟢 READY
 - Campaign: M VS EVERYBODY — Go Blue
 - Creative: Big House crowd shot + 'M vs Everybody'. Gifting angle, not gameday angle - it converts outside the season too.
 - Why: The evergreen identity buy - Michigan fans gift Go Blue apparel year round, and it does not depend on a result.
@@ -20,87 +20,87 @@ Fan connectors: no fan posts observed - reddit error (HTTP Error 403: Blocked); 
 ## Opportunities (SIGNAL and above)
 
 ### 1. Go Blue: The Big House identity - Michigan Wolverines
-- Level: OPPORTUNITY · Confidence: 74% · 🟢 READY (matched design, posting window open, evidence under 12 h)
-- Fan signal: "Michigan's latest self-inflicted disaster proves yet again the Wolverines have a leadership problem" - Yahoo Sports (5 h ago)
-- Evidence: 5 reaction items (5.0 weighted) · 5 outlets · 1 utility listings excluded · 0 fan posts
-- Phrase velocity: ↑ 200% / 1440 min (3 vs 1)
-- Sentiment: pride - 'pride' on 5/5 lexicon hits across 5 item(s)
-- Game state: next game in ~4 day(s)
+- Level: ACTION · Confidence: 79% · 🟢 READY (matched design, posting window open, evidence under 12 h)
+- Fan signal: "After 70 seasons, Michigan fan takes in final game at Big House" - MLive.com (4 h ago)
+- Evidence: 5 reaction items (6.0 weighted) · 5 outlets · 0 utility listings excluded · 0 fan posts
+- Phrase velocity: ↑ 100% / 240 min (2 vs 1)
+- Sentiment: pride - 'pride' on 4/5 lexicon hits across 5 item(s)
+- Game state: result coverage in the last 30 h (1 item(s))
 - Commercial: exact - M Vs. Everybody Michigan Wolverines Shirt $23.00 (sellable) - M VS EVERYBODY — Go Blue
 - Why fans care: The evergreen identity buy - Michigan fans gift Go Blue apparel year round, and it does not depend on a result.
+- Tracked names: kyle whittingham (13 window mentions, FTI 31)
 - Action: X (@gridironlocker1 first) - conversation post now (now)
 - Action: Threads - alternate angle (+20 min)
 - Action: Instagram - product creative after engagement confirms the angle (after the X post confirms the angle)
 - Action: Pinterest - keyword pin of the matched design (+2 h)
-  - Michigan's latest self-inflicted disaster proves yet again the Wolverines have a leadership problem - Yahoo Sports - google_news (5 h ago) https://news.google.com/rss/articles/CBMiiAJBVV95cUxQQThDT2RVLXZCODFuRVpBUHJQd2dkN0dOaFBIZ3BLUVQxcUZHLXVJYlZUaDNHYXRFLTZTTG1UMkpyWFVlaDBhT2VQdUhmN2pCMHhlSXh4cGQySjlDbDdLaGpFTFhjSFFVYl9remZ1eE5PMXJmMUV1T1RJNnQwZGd5V2NKeUNqbXZQSEgyQnZ3bm9BZm1JZDVFcy1FQU14NmQ0cy1NT19ORjhCR09JTW10bnVhOS03aUdpU2YzODQtd1habzRCQ0NiajBFSmdsTnFpNXdmVWhBa25tSGpBMjl5Nk1lT0MzMThUSXg3YWoxOU5QOHFaNUlpVERDUnV0VS02T3haVVRzQU0?oc=5
-  - Michigan Alum Rich Laments the Current State of the Wolverines’ Football & Athletic Programs - The Rich Eisen Show - google_news (5 h ago) https://news.google.com/rss/articles/CBMixAFBVV95cUxOVVBHaWVvTGJuSm0zaHZvcFhjeUJXTDczYWw4ZXN4ZF9KRlRWMW5iWTR4ajF6MXlzNTZKbU1LU2NNZTlGRzhBVjlCbEo3eTZRYVh0V1cyU1RsYnlDRXVuNEV4SVgzaHBZNS1heXl5WGg1WnZSOUtpYUFWNTVJbFVsd0JGTk82elZwb2FlZlh5TTRxY0toQ2ZaZ0FybTZHS2FxU0ZwZU5jVDN1R2w2SjJJbWVNM3VuMEtyS24xRGRLTE9SZVdW?oc=5
-  - Chaos reigns within the Michigan athletic department. Trev Alberts, widely reported as in line to become U-M's next athletic director, was informed by the search firm representing the school that he will not be leading the Wolverines, a source confirmed to the Fr - Instagram - google_news (8 h ago) https://news.google.com/rss/articles/CBMiUkFVX3lxTE5heFN1XzR1VmV1YW1NSjZmbkpDbXpnZzZhaGVTS2tUTndCTlRFSDdfUkhIV3FtenFIS3RHd2xXYTkyeF9LTHNJZVNFNnNsQWt4aFE?oc=5
-  - Bowl projection roundup: Where Michigan football is projected to go after Wolverines pick up sixth win - 247Sports - google_news (1 d ago) https://news.google.com/rss/articles/CBMi8AFBVV95cUxPMlVpNlc4MnNyeHNkX1BzZGZ4MHA1RDdzQWtwSGJTODV0dE9XTm1GNi1Zam5KaFpxS2dVVGpKWkltcVJydTFkaElVMjFjOGNIeW9vdjY3Z2FoVVJOT3I2S3plZ21JdWhIcXV0XzMzQ0xfaFk5NEhYUW5EWjZuVjkyRnA2Q2NHV2tNY1ZHbVR4UHF4MHVRbnBWVk1JUGRKamFRUHh4Q1dpTEJpTER3Smo4aXJ2X3RKUmk0Z1dwZjhFRGpqTlJVTGZuY3E2Z1lGdmJ0RmVTVm1JcE1aWDZ5N1dUQ0xWcHFuZEg4RnBLM3UzNzk?oc=5
+  - After 70 seasons, Michigan fan takes in final game at Big House - MLive.com - google_news (4 h ago) https://news.google.com/rss/articles/CBMiuAFBVV95cUxObWhRcVA3aWdTS29HczNUSDRvLTA4elU1RTlFZnpoeHpwMm5UU09RaEdUcXlUS3B4SU5DSDZYUjVTVlVFMGdTbFJMa0NhS0hDOUZoLThvcFNVTndSbEVGRlNzRzNZWGpwM1Yzb25KV3QtUk1iQzFITDVlVEdKR3BVN2RHQlF0VmJyRk54QmF0bE9kWXE4cXlpejFsalV2a3h3M05iM19oQklCNXhOdXE3U1VTUUhybWh50gHMAUFVX3lxTE1hSV9jNnBpQU5vRENWVFJhS2hfLXZHSmxpV1JDd0ZhQ251c2ktWkxYT05vLUVELUVLZGNxd1kyaWx0Rnp2anl5cU80ajQ5b2dKUm9ucXZsOTlHTmFTRzRrSmU0RzZDaGFHNU1VN2VucWt3LTFyblh5MDV1eThDTmRYMmFTLTdIZWdXRUxQaGFqdmVlLWhseUpBTmRTOHFTdDAyYTVfSDM4UEdRMDJ3bUgwb3RJSDdCN00zWWFseXlKOTA4WjZRMVZ3R3RINA?oc=5
+  - Michigan Wolverines football - AP News (3 h ago) https://news.google.com/rss/articles/CBMiYEFVX3lxTE43anRZWVl4cGxocmpLazVYMnVQcVR5UmE0V3ZZMjVaZmp2Sld6OElOWUs0QVRBeVNYVHp5V1FyM0htcEwydGlLSUNtOG11aHBYQTFPOGRjQmFhSVlNNlRxag?oc=5
+  - What we learned chatting with Michigan players after practice: 'A sea of red ... the best feeling is when you can hear a pin drop and everybody starts leaving' - On3 - google_news (3 h ago) https://news.google.com/rss/articles/CBMi0gFBVV95cUxQc3FjRFZqbGZRQm1qOC1nV0V1NENOcGdBUm02TUlqSndYc3hETHI2OW9hYTQ5SlZUcGs2YWVLUldPOURiMjVuZFlXTlNTWDE5aTlpWVRXQUxhM2J6YWFLV241OVUyUElWT3JhUzFWTl9wc3ZZTjFQRUFyXzhWdnRiRU1hU3RXLTR5Z0lXMF9RX0dJVV8tQk1WTFJNNjU1NDBRLXRWbjhhV2VlQlFHamEtSmNOblV3cnZZTWwzbHVJeE5wRWVFYkVVaVhfYlZuTGgzVEE?oc=5
+  - Michigan football may not need a new coach next season, because Kyle Whittingham’s chances of coaching another year in Ann Arbor just got better. See link below ⬇️ 📸 Junfu Han, Detroit Free Press - Facebook (15 h ago) https://news.google.com/rss/articles/CBMi3wFBVV95cUxOYkJmdFZDR0ZNX0Q1MUxOM1NwQnpVWHE0T3l4SU1nN25SZVpOQXdnYVpfbko2Nnd2MjBKUVplaE92d3JGZ1dlRHFMM1dYS2lRdWhycmUzWi1QTWliOU9qaUhVRjlpREp0cWlNTlZ5cmRWdk5vSEdSVlI0UHg5d1lLQ294VktDeDNFRm1adzF0T2hqNkloMHA3VnZnbWlLdVkzZWdzTmljQ0l5cTROak80dzZzQUdZYVkxQ1J6TzBwVDcxekc1UmlndzY4NEJaSnBOeG1tOUpicDJtVlltZ1dz?oc=5
 
 ### 2. QB room: who is QB1 in Cleveland - Cleveland Browns
-- Level: OPPORTUNITY · Confidence: 69% · 🟢 READY (matched design, posting window open, evidence under 12 h)
-- Fan signal: "6 wins, 6 fourth-quarter drives — Watson silences critics" - Cleveland.com (3 h ago)
-- Evidence: 6 reaction items (7.0 weighted) · 3 outlets · 1 utility listings excluded · 0 fan posts
-- Phrase velocity: new - 1 item in last 60 min, none in the window before
-- Sentiment: anxious - 'anxious' on 4/7 lexicon hits across 6 item(s)
-- Game state: result coverage in the last 30 h (2 item(s))
+- Level: OPPORTUNITY · Confidence: 72% · 🟢 READY (matched design, posting window open, evidence under 12 h)
+- Fan signal: "Browns’ Deshaun Watson Gives Update After Injury Return" - Yahoo Sports (44 min ago)
+- Evidence: 8 reaction items (8.0 weighted) · 7 outlets · 0 utility listings excluded · 0 fan posts
+- Phrase velocity: → 0% / 60 min (1 vs 1)
+- Sentiment: anxious - 'anxious' on 7/10 lexicon hits across 8 item(s)
+- Game state: next game in ~4 day(s)
 - Commercial: campaign - Make Them Know Your Name Cleveland Browns Shirt $23.00 (sellable) - THEY FORGOT WHO I AM — QB1 belief
 - Why fans care: The whole fanbase is arguing one question: who starts. That is a belief argument, and belief is what a QB tee sells.
-- Tracked names: deshaun watson (28 window mentions, FTI 58); shedeur sanders (2 window mentions, FTI 4)
+- Tracked names: deshaun watson (15 window mentions, FTI 36); shedeur sanders (4 window mentions, FTI 10)
 - Action: X (@gridironlocker1 first) - conversation post now (now)
 - Action: Threads - alternate angle (+20 min)
 - Action: Instagram - product creative after engagement confirms the angle (after the X post confirms the angle)
 - Action: Pinterest - keyword pin of the matched design (+2 h)
-  - 6 wins, 6 fourth-quarter drives — Watson silences critics - Cleveland.com - google_news (3 h ago) https://news.google.com/rss/articles/CBMitwFBVV95cUxNZ3d5Zm9fS1E4allxUDg2UDItZk1RdXJrX05WcUFZMHcyYUZxeHNlSlR0TWEzMFNYVjNnUWk3U3pCd2R0NkhIdjVPMnhmZ2ROSWV6b3FQUE5fYzVDVHNlT0ZTSUNlSnd0Tm41RWtrUHNTb2FHVllnd1hhRWhseE5PVmlJWm9qZ1BvelUxNHZRYWtJV1h0cC1SQ2NfdE9hN1o5eU5oajktSWNYdDdhQ0cxcEF2UDR0QlU?oc=5
-  - Cleveland Browns can’t give away a QB, even if they tried - Yahoo Sports - google_news (20 min ago) https://news.google.com/rss/articles/CBMihgFBVV95cUxPZWoxZWpHWnRicVlIUE1sM1hmQXNnXy13dzRyUDcwb1dJblNaLV9zU2V0bVktejg3Y1VVcDdkMGNPYnVIalNBeDAtbC15NHJxMzR1MzRIdkRsd19MQVBYRVN2RTVoSzFZY3pfdGJNZXhRQUJfbVVWTDhkZ0pZY1kySVRxc1E3QQ?oc=5
-  - Browns received no trade calls on Shedeur Sanders or Dillon Gabriel; They have no interest in QB Daniel Jones: Insider - Cleveland.com - google_news (3 h ago) https://news.google.com/rss/articles/CBMi9AFBVV95cUxOTjRXcHNUMmt1VDNQQVV2NzBkcHlCV0xUTXVYNW5sLUx1ZG5xQlFkMjBab1V2Vk5sc0ExbWtYc0VYNGtOY3lZcm5WYVluN1c1SVBPSGwzaFVEZWx0b2xDeFYwdW5hem5SS0Q5OC1rRVFzRF80dWNnOUxhQ2duVWNaZk1ibjFzWTdqN05DRVdyQ0ZKcnZEWTAxNThwQmFPa280SzVZWk5QbXZaLV8yRUlHbHk4dThhZkRfS2tWSEQ0dkZmNnNEZXQwYlNKdWFqaXNQV1g4b0JDWm56RmdFeDd2Y1FZNDg3LUxqWWtJeUNreFVHdmtr?oc=5
-  - “Our Residents Are Not PR Tools”: Cleveland City Council Members Reportedly Label Deshaun Watson “A Predator and a Pervert” After Browns QB Hands Out Turkeys - Yahoo Sports - google_news (13 h ago) https://news.google.com/rss/articles/CBMiiAFBVV95cUxOOEYwaVBjek9qV3VycXJMYnJsaFdkMEVjcDZ2bllibnQ2OTFuWHdBVGFkS2hZQXFvc2ZLWFFMMXY0SGozWldMeTVScGF0bHZqX2NQQklTX2p4WjdMTzdNRTlxYUVlUmt5b2dFTFhraTFrdnlDR3ZNMGZNZHRqTjZIbVg1TTFXMGFo?oc=5
+  - Browns’ Deshaun Watson Gives Update After Injury Return - Yahoo Sports - google_news (44 min ago) https://news.google.com/rss/articles/CBMikAFBVV95cUxPZnZRR0RzdjlvUmhrRHBWZ2xRdGxpb1hGUGhnVWpBcm1yeFNBaGFsWEFGbm9IWFNJRUFMa1pmdUZoS2ZTOGl4SHo1OGJYTm1HeDBKQnpuYlVXdWFuWnJveHlBeEpYYXRHX19CNHhkYmdOMk5sRUdKVk1DXzYxTW1yQkpCU2E5S3o3dVJfV1IwTnk?oc=5
+  - Browns QB Shedeur Sanders Gives Cleveland Shoppers a Thanksgiving Surprise - Sports Illustrated - google_news (1 h ago) https://news.google.com/rss/articles/CBMivwFBVV95cUxNVkRUV0tyYW1lNTJBVVRtenduYmxoLUVCa21oVTkwcU9XMGF0RjZaMmtGQnNNc204NkVVRmR2NXpUczBFMjQ1cUhOaENObnlTbW5XaTJWRDBvSGxjdHFnWFpKQ2I0R1BWUWRCUVpTbGxMUi1vRi1adlgydGhNUU4zS1N3cHg5QjdTbUhpSzN2OGJud0xWSVE0RXpTZk5sZ0d1Ukxzdi1ESnpIblZ1Y1U1ZG14SGhlaXcybEk5OWtiQQ?oc=5
+  - Browns Hold Firm on Deshaun Watson Contract Decision - Yahoo Sports (4 h ago) https://news.google.com/rss/articles/CBMijAFBVV95cUxQb0pPbi0tNVJwQXVQckhCS1RLaldrZnBaVjgtRXZ1TnFGejA0ZHZodzN4WXR3d2I5eUFqaW1iQnBUaWM1NFAtdEVFSVZmNjl1ZXdZQklsOXNJdlF1NHZLWUZ2WTAtTXpBWW91QUlIc0F3SHpNRXpGbnVpMmR6YWR1Z1c2c1hSU1pUWnNCQQ?oc=5
+  - Cleveland Browns can’t give away a QB, even if they tried - Dawgs By Nature - google_news (18 h ago) https://news.google.com/rss/articles/CBMiyAFBVV95cUxQTm1TMWF3UEtlekY0WGdlNlVuYWJfNU1XZ3dJUHJNVzJKNHNHblFZM1NfeGVkSW9ValRkRklzTFgya01QT2I2YTdfeVdVdzQ5M3NPdU9JNFNuV1VPWWpsay1VRjR6NUl5R2MxbjhaLXJSQXRjb1BxUFlyRUp1MzdZNHd2eUxncUFvZUpPOElCYzY0ZXJRMk9jM1B6VWU2OFJzU3N2a19oaTYwQU5iTzBVZDUzME1Mc2RwclREX3hYblpSeDZqbXQwNQ?oc=5
 
-### 3. Respond: nothing given, everything earned - Michigan Wolverines
-- Level: OPPORTUNITY · Confidence: 63% · 🟢 READY (matched design, posting window open, evidence under 12 h)
-- Fan signal: "Michigan's latest self-inflicted disaster proves yet again the Wolverines have a leadership problem" - Yahoo Sports (5 h ago)
+### 3. Coaching: Monken's first season - Cleveland Browns
+- Level: OPPORTUNITY · Confidence: 61% · 🟢 READY (matched design, posting window open, evidence under 12 h)
+- Fan signal: "Todd Monken's Brock Bowers joke hints at Browns' concern: 'Hopefully he's still hurt'" - Yahoo Sports (5 h ago)
 - Evidence: 3 reaction items (3.0 weighted) · 3 outlets · 0 utility listings excluded · 0 fan posts
 - Phrase velocity: ↑ 100% / 1440 min (2 vs 1)
-- Sentiment: pride - 'pride' on 1/1 lexicon hits across 3 item(s)
+- Sentiment: anxious - 'anxious' on 1/1 lexicon hits across 3 item(s)
 - Game state: next game in ~4 day(s)
-- Commercial: exact - Respond Nothing Given Everything Earned Michigan Shirt $23.00 (sellable) - RESPOND — Nothing Given, Everything Earned
-- Why fans care: This is the programme's own language and it is in the headlines verbatim after the Oklahoma win - the highest-intent phrase in the Michigan catalogue.
+- Commercial: campaign - Beware Dawg Cleveland Browns Shirt $23.00 (sellable) - COACH LOYALTY
+- Why fans care: New-coach hope and captain announcements are low-volume but very shareable inside the fanbase.
+- Tracked names: todd monken (4 window mentions, FTI 10)
 - Action: X (@gridironlocker1 first) - conversation post now (now)
 - Action: Threads - alternate angle (+20 min)
 - Action: Instagram - product creative after engagement confirms the angle (after the X post confirms the angle)
 - Action: Pinterest - keyword pin of the matched design (+2 h)
-  - Michigan's latest self-inflicted disaster proves yet again the Wolverines have a leadership problem - Yahoo Sports - google_news (5 h ago) https://news.google.com/rss/articles/CBMiiAJBVV95cUxQQThDT2RVLXZCODFuRVpBUHJQd2dkN0dOaFBIZ3BLUVQxcUZHLXVJYlZUaDNHYXRFLTZTTG1UMkpyWFVlaDBhT2VQdUhmN2pCMHhlSXh4cGQySjlDbDdLaGpFTFhjSFFVYl9remZ1eE5PMXJmMUV1T1RJNnQwZGd5V2NKeUNqbXZQSEgyQnZ3bm9BZm1JZDVFcy1FQU14NmQ0cy1NT19ORjhCR09JTW10bnVhOS03aUdpU2YzODQtd1habzRCQ0NiajBFSmdsTnFpNXdmVWhBa25tSGpBMjl5Nk1lT0MzMThUSXg3YWoxOU5QOHFaNUlpVERDUnV0VS02T3haVVRzQU0?oc=5
-  - Trev Alberts Releases 'Disheartened' Statement After Michigan Changes Course - Sports Illustrated - google_news (6 h ago) https://news.google.com/rss/articles/CBMiuwFBVV95cUxPSzZ5czQ3QkVMU29BV0hxc0hvQl84SVZuTEJHSjdfN1Z5RlU1bG5RTXZrQS10cWdXekNYZ3FBQXpka3Rqc2V4STM1NnhFZV9laURKdVVXTm51a3VqdlB0Z3pEQklkWXZPWFNkX1RfODZPZzdTOVY4UktsMmFSN3VxRWRrQk5IVWNXYk82RlVsN0o3Tkp4NVVUc0VBa2lQUFhrU2M4aGVySW4yM2R2b01nbDN1Mk1MSHhoUGY0?oc=5
-  - Michigan Football hopes to ‘change narrative’ of 2026 season by beating Ohio State - Maize n Brew - google_news (1 d ago) https://news.google.com/rss/articles/CBMixwFBVV95cUxQNXFWaG1mblpUOFdQWXZzcFJzbERsUjZxTlFGeWV2czBaV1RETkdpYTVCQUVVbDRzcDRycUNidDdvWHJKWkxsaUx0Rjg0cE5nSlZFRTE2NGNDUlhiM1dCOUJocENpWXZFNExuRG5MVV80SW82Zm1sSEwwSE5XZHBTZG41OFZCTVRlWUtPVGp0a20xVkhGS0QwTnFhQmtyXzUyTGdzY1ZvalFBSmNObmN4b3pKQmtlTHBWZWtMVHBHSXBBZ0FFZl9N?oc=5
+  - Todd Monken's Brock Bowers joke hints at Browns' concern: 'Hopefully he's still hurt' - Yahoo Sports - google_news (5 h ago) https://news.google.com/rss/articles/CBMiiwFBVV95cUxPdXp5SnRtOVlQdUFZSkpBd3ZtNTM3RXlnNi13Tmg5OHVlU2pyVnJkU0VRS1p1bW5EWGpOQ3dwMTlIdzZvdGh5TTNTRlIxSVhLQ3J0a1NxV09sbDAzdHNGOVZpWnpkc1hRM3Q3ODZRUjJjYUJJcmtkc3lwSXpQdEJtNjRzZjhVd2ZiejN3?oc=5
+  - Browns HC Todd Monken Offers Honest Explanation for Slow First Quarters - 247Sports - google_news (20 h ago) https://news.google.com/rss/articles/CBMivwFBVV95cUxOTjJZNEl1bEdiQTV0M0V4Tk5pSUxCODdyTE40cW5XR0hPLVNzUnl6WmZvZFpPWTdtS0FSVEM2b0J4MTZNVUQwcnlMcExCbFFQNFF2ZENjZl9kdHVqME1sNzBJYUpfX3l5a19sOTRqY1pQVDZMeXVMSUxiUUg2dGtCTkx4Ym1DZ3c1d2VleDFJbzR3ZnRZNWtFNHI1WHo5N0hvQUw3N1VQd0NMT3k5THpRbWRNaUxQWjBwdGc3MElodw?oc=5
+  - What Todd Monken's six keys reveal about the Browns' offense - ESPN - google_news (1 d ago) https://news.google.com/rss/articles/CBMingFBVV95cUxOZzVrU1lvaERvLXRXM25OYm1kUlMtOTlGUnJESkZFYWJEWjBMUy1kQmpVTmFUUGpkMF9IeFFBbkJhNHlnWWdkZUtoSnZFNWxUNTZCaV90UElqSGhpWThXVllnYXYtZFB5Ulp0LVJfcl9wMjJkOWhMcmw3bFZtM0lMSnVhVE1HbHVPQThESHZfUHcxQ05FU3dGekdpYzJLdw?oc=5
 
 ### 4. Doomsday memory: defence and the pass rush - Dallas Cowboys
-- Level: SIGNAL · Confidence: 44% · 🔴 STALE (newest evidence is 1 day(s) old)
-- Fan signal: "Why Cowboys' defense picked Justin Barron over DeMarvion Overshown in win over Titans" - Dallas News (1 d ago)
-- Evidence: 3 reaction items (4.0 weighted) · 2 outlets · 0 utility listings excluded · 0 fan posts
-- Phrase velocity: new - 0 items in last 1440 min, none in the window before
-- Sentiment: hopeful - 'hopeful' on 1/1 lexicon hits across 3 item(s)
-- Game state: result coverage in the last 30 h (2 item(s))
+- Level: SIGNAL · Confidence: 59% · ⚪ WATCH (fans are reacting but nothing on the shelf answers it yet)
+- Fan signal: "Mailbag: Can Overshown find success as an edge? - Dallas Cowboys | Official Site of the Dallas Cowboys" - google_news (2 h ago)
+- Evidence: 4 reaction items (4.0 weighted) · 2 outlets · 0 utility listings excluded · 0 fan posts
+- Phrase velocity: new - 1 item in last 240 min, none in the window before
+- Sentiment: proud - 'proud' on 2/2 lexicon hits across 4 item(s)
+- Game state: result coverage in the last 30 h (1 item(s))
 - Commercial: exact - Doomsday Defense Dallas Cowboys Shirt $21.99 (sellable) - DOOMSDAY DEFENSE
 - Why fans care: Dallas defence talk always drifts to the Doomsday era - the one defensive identity we own a design for.
-  - Why Cowboys' defense picked Justin Barron over DeMarvion Overshown in win over Titans - Dallas News - google_news (1 d ago) https://news.google.com/rss/articles/CBMirgFBVV95cUxQS3ZLMk1WZm8wWktqUXFpRmdNdXcxX0daNF9BcWhiaVlqMjN5VUlrNlJaNl9xMm5YR2o5XzFJVURqMTFwNVRvbndDTTJaSWY3SjVEcUEtMDZGaXdxbzYyTkpBNU13RzREODdIVWFoV21MQnZqc3FONnVWLVR6NXlBajFWdjZTTUdNaXVpaF90RDBUWEVlQ0RpTGZOeTFWeGtXemRYdG5XMkRsaUVHbHc?oc=5
-  - James Houston surging for growing Cowboys defense - Dallas Cowboys | Official Site of the Dallas Cowboys (1 d ago) https://news.google.com/rss/articles/CBMijAFBVV95cUxQZmM5dTlWVERNeXh3VWphVE1YM05mYVM2eXl6Ml9kd3ZxWUdMYWJzRmhMNjc2ZDVhbnU1VjBZVzA3WmVOWmM2UGstNlpRVzBHM09ueDVwalBvNjlEUmxZNm9Kelg4Q2xCWXM2eWM0TFB1MnVNcTJraTU1SFI5LU1uRUluMG9KbFdqQ3VGWA?oc=5
-  - Brian Schottenheimer 'very proud' of Cowboys defense in Mike Pettine's first game as play-caller - Dallas Cowboys | Official Site of the Dallas Cowboys (2 d ago) https://news.google.com/rss/articles/CBMiyAFBVV95cUxQMHdUNGxjWm15LTVxTGpOM2tOODlWSTBkZVFJNFBrdGxOSzA3VVA5QzlCa3Z5SFAwdWdabTNtc2VibVhkdEVXRTkzdVQ2M0NzS0pWdVpWUU9rUTNueDdEdERnN1VJWkRObXZsZnlYZ09sOTdlUUFJWEdscGg2UkxNRkp0c3RhR0dDMzJJWjF2SVUydVYwTWl5ZV96c3Q1ZUs5dW1QSl9rczN0Xzc0ZVpWVkVVTk9uYTJhUzd2X3doTEFNU1Rlek1JNg?oc=5
+  - Mailbag: Can Overshown find success as an edge? - Dallas Cowboys | Official Site of the Dallas Cowboys - google_news (2 h ago) https://news.google.com/rss/articles/CBMihwFBVV95cUxORXYtWXl5d2dJQjdEclpCM2FyMjNYWS1xUmZaUmVHZzNid1otVXF1c1RZQlEwZ2xIMkNtZER3V1ZLX0N6c1JVcTRWNXVVaTdydmNZc1l0bThvLWctWjFFQ0VzV0tsa0JfLWZFWUlGcFpjdkNEeTJCLXpoc3NtN1czNjBCSmY4Zjg?oc=5
+  - James Houston surging for growing Cowboys defense - Dallas Cowboys | Official Site of the Dallas Cowboys (2 d ago) https://news.google.com/rss/articles/CBMijAFBVV95cUxQZmM5dTlWVERNeXh3VWphVE1YM05mYVM2eXl6Ml9kd3ZxWUdMYWJzRmhMNjc2ZDVhbnU1VjBZVzA3WmVOWmM2UGstNlpRVzBHM09ueDVwalBvNjlEUmxZNm9Kelg4Q2xCWXM2eWM0TFB1MnVNcTJraTU1SFI5LU1uRUluMG9KbFdqQ3VGWA?oc=5
+  - James Houston surging for growing Cowboys defense - Dallas Cowboys | Official Site of the Dallas Cowboys - google_news (2 d ago) https://news.google.com/rss/articles/CBMijAFBVV95cUxQZmM5dTlWVERNeXh3VWphVE1YM05mYVM2eXl6Ml9kd3ZxWUdMYWJzRmhMNjc2ZDVhbnU1VjBZVzA3WmVOWmM2UGstNlpRVzBHM09ueDVwalBvNjlEUmxZNm9Kelg4Q2xCWXM2eWM0TFB1MnVNcTJraTU1SFI5LU1uRUluMG9KbFdqQ3VGWA?oc=5
+  - Brian Schottenheimer 'very proud' of Cowboys defense in Mike Pettine's first game as play-caller - Dallas Cowboys | Official Site of the Dallas Cowboys (3 d ago) https://news.google.com/rss/articles/CBMiyAFBVV95cUxQMHdUNGxjWm15LTVxTGpOM2tOODlWSTBkZVFJNFBrdGxOSzA3VVA5QzlCa3Z5SFAwdWdabTNtc2VibVhkdEVXRTkzdVQ2M0NzS0pWdVpWUU9rUTNueDdEdERnN1VJWkRObXZsZnlYZ09sOTdlUUFJWEdscGg2UkxNRkp0c3RhR0dDMzJJWjF2SVUydVYwTWl5ZV96c3Q1ZUs5dW1QSl9rczN0Xzc0ZVpWVkVVTk9uYTJhUzd2X3doTEFNU1Rlek1JNg?oc=5
 
-## Filtered as HEADLINE (7)
+## Filtered as HEADLINE (4)
 
-- BROWNS - Coaching: Monken's first season: 1 reaction item(s), 1 outlet(s), confidence 32% - not a reaction
-- COWBOYS - Thirty years: the drought joke we own: 2 reaction item(s), 2 outlet(s), confidence 63% - not a reaction
-- COWBOYS - Texas pride: flag, star and Est. 1841: 1 reaction item(s), 1 outlet(s), confidence 35% - not a reaction
+- COWBOYS - Thirty years: the drought joke we own: 1 reaction item(s), 1 outlet(s), confidence 37% - not a reaction
+- COWBOYS - Texas pride: flag, star and Est. 1841: 1 reaction item(s), 1 outlet(s), confidence 30% - not a reaction
 - PACKERS - Josh Jacobs and the run game: 1 reaction item(s), 1 outlet(s), confidence 39% - not a reaction
-- MICHIGAN - Recruiting: the class built around QB19: 2 reaction item(s), 2 outlet(s), confidence 50% - not a reaction
-- MICHIGAN - Late-game heroics: the Hail Mary folklore: 2 reaction item(s), 2 outlet(s), confidence 46% - not a reaction
-- MICHIGAN - Underwood era: QB19 in Ann Arbor: 1 reaction item(s), 1 outlet(s), confidence 31% - not a reaction
+- MICHIGAN - Respond: nothing given, everything earned: 1 reaction item(s), 1 outlet(s), confidence 37% - not a reaction
 
 ## Article ideas (OPPORTUNITY+ only)
 
 - **[Medium] Michigan Wolverines: what the Go Blue faithful are actually saying about go blue: the big house identity**
   - Where: Michigan football culture (Ann Arbor)
-  - Angle: Fan-demand piece built on the live signal (Michigan's latest self-inflicted disaster proves yet again the Wolverines have a leadership problem), not on a headline recap.
+  - Angle: Fan-demand piece built on the live signal (After 70 seasons, Michigan fan takes in final game at Big House), not on a headline recap.
   - Link: https://gridironlocker.shop/m-vs-everybody?collectionId=YYMlCmwgKG__&color=GILDAN-NAVY&productId=6aa1e7c8047e2b3b0d59e904
   - Image: M Vs. Everybody Michigan Wolverines Shirt mockup next to the moment that started it.
 
@@ -118,7 +118,7 @@ Fan connectors: no fan posts observed - reddit error (HTTP Error 403: Blocked); 
 
 - **[Medium] Cleveland Browns: what the Dawg Pound are actually saying about qb room: who is qb1 in cleveland**
   - Where: NFL fan culture (Dawg Pound / Cleveland sports)
-  - Angle: Fan-demand piece built on the live signal (6 wins, 6 fourth-quarter drives — Watson silences critics), not on a headline recap.
+  - Angle: Fan-demand piece built on the live signal (Browns’ Deshaun Watson Gives Update After Injury Return), not on a headline recap.
   - Link: https://gridironlocker.shop/make-them-know-your-name?collectionId=P19bpeU2x_Ng&color=GILDAN-DARK_CHOCOLATE&productId=6aa33fa01cdc8689e252dab3
   - Image: Make Them Know Your Name Cleveland Browns Shirt mockup next to the moment that started it.
 
@@ -134,20 +134,20 @@ Fan connectors: no fan posts observed - reddit error (HTTP Error 403: Blocked); 
   - Link: profile link only, if asked
   - Image: None - text comment.
 
-- **[Medium] Michigan Wolverines: what the Go Blue faithful are actually saying about respond: nothing given, everything earned**
-  - Where: Michigan football culture (Ann Arbor)
-  - Angle: Fan-demand piece built on the live signal (Michigan's latest self-inflicted disaster proves yet again the Wolverines have a leadership problem), not on a headline recap.
-  - Link: https://gridironlocker.shop/respond-nothing-given-everything-earned?collectionId=YYMlCmwgKG__&color=GILDAN-NAVY&productId=6aa595875d8a068c28832777
-  - Image: Respond Nothing Given Everything Earned Michigan Shirt mockup next to the moment that started it.
+- **[Medium] Cleveland Browns: what the Dawg Pound are actually saying about coaching: monken's first season**
+  - Where: NFL fan culture (Dawg Pound / Cleveland sports)
+  - Angle: Fan-demand piece built on the live signal (Todd Monken's Brock Bowers joke hints at Browns' concern: 'Hopefully he's still hurt'), not on a headline recap.
+  - Link: https://gridironlocker.shop/be-awar-of-dawg?collectionId=P19bpeU2x_Ng&color=GILDAN-DARK_CHOCOLATE&productId=6aa548c6f475ab73b096ff20
+  - Image: Beware Dawg Cleveland Browns Shirt mockup next to the moment that started it.
 
-- **[Quora] Why are Michigan Wolverines fans so focused on respond: nothing given, everything earned right now?**
-  - Where: Michigan football / college football recruiting
+- **[Quora] Why are Cleveland Browns fans so focused on coaching: monken's first season right now?**
+  - Where: Cleveland Browns / NFL fandom
   - Angle: Answer the question a fan would actually type, then answer it properly.
-  - Link: https://gridironlocker.shop/respond-nothing-given-everything-earned?collectionId=YYMlCmwgKG__&color=GILDAN-NAVY&productId=6aa595875d8a068c28832777
+  - Link: https://gridironlocker.shop/be-awar-of-dawg?collectionId=P19bpeU2x_Ng&color=GILDAN-DARK_CHOCOLATE&productId=6aa548c6f475ab73b096ff20
   - Image: Simple stat/quote graphic - no product shot.
 
-- **[Reddit] Respond: nothing given, everything earned - be a fan first in r/MichiganWolverines**
-  - Where: r/MichiganWolverines / r/CFB / r/collegefootball
+- **[Reddit] Coaching: Monken's first season - be a fan first in r/Browns**
+  - Where: r/Browns / r/DawgPoundByNature / r/nfl
   - Angle: Join the existing thread instead of starting a promo post.
   - Link: profile link only, if asked
   - Image: None - text comment.
