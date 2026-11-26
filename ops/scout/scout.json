@@ -2,25 +2,43 @@
  "generated": "2026-11-26",
  "window_days": 10,
  "fti_formula": "round(100 * entity_mentions / peak_mentions_in_window)",
- "peak_mentions": 18,
+ "peak_mentions": 22,
  "stats": {
   "products": 97,
   "collections": 4,
   "images": 467,
   "avg_price": 23.83,
-  "hot": 11,
+  "hot": 0,
   "throwback": 1,
-  "steady": 85,
-  "gaps": 6,
-  "moments": 2,
+  "steady": 96,
+  "gaps": 5,
+  "moments": 3,
   "tracked_names": 18,
   "dead_campaigns": 66
  },
  "fti_rows": [
   {
-   "name": "dak prescott",
-   "mentions": 18,
+   "name": "micah parsons",
+   "mentions": 22,
    "index": 100,
+   "status": "trending",
+   "gap": false,
+   "shoppable": true,
+   "collection": "green-bay-packers"
+  },
+  {
+   "name": "shedeur sanders",
+   "mentions": 18,
+   "index": 82,
+   "status": "trending",
+   "gap": false,
+   "shoppable": true,
+   "collection": "cleveland-browns"
+  },
+  {
+   "name": "dak prescott",
+   "mentions": 16,
+   "index": 73,
    "status": "trending",
    "gap": true,
    "shoppable": false,
@@ -28,93 +46,66 @@
   },
   {
    "name": "deshaun watson",
-   "mentions": 16,
-   "index": 89,
+   "mentions": 15,
+   "index": 68,
    "status": "trending",
    "gap": true,
    "shoppable": false,
    "collection": "cleveland-browns"
-  },
-  {
-   "name": "micah parsons",
-   "mentions": 16,
-   "index": 89,
-   "status": "trending",
-   "gap": false,
-   "shoppable": true,
-   "collection": "green-bay-packers"
   },
   {
    "name": "kyle whittingham",
    "mentions": 12,
-   "index": 67,
+   "index": 55,
    "status": "trending",
    "gap": true,
    "shoppable": false,
    "collection": "michigan"
   },
   {
-   "name": "shedeur sanders",
-   "mentions": 10,
-   "index": 56,
-   "status": "trending",
-   "gap": false,
-   "shoppable": true,
-   "collection": "cleveland-browns"
-  },
-  {
    "name": "bryce underwood",
-   "mentions": 6,
-   "index": 33,
+   "mentions": 10,
+   "index": 45,
    "status": "trending",
    "gap": false,
    "shoppable": true,
    "collection": "michigan"
   },
   {
-   "name": "ceedee lamb",
+   "name": "todd monken",
    "mentions": 4,
-   "index": 22,
+   "index": 18,
    "status": "trending",
    "gap": true,
+   "shoppable": false,
+   "collection": "cleveland-browns"
+  },
+  {
+   "name": "matt lafleur",
+   "mentions": 3,
+   "index": 14,
+   "status": "trending",
+   "gap": true,
+   "shoppable": false,
+   "collection": "green-bay-packers"
+  },
+  {
+   "name": "ceedee lamb",
+   "mentions": 2,
+   "index": 9,
+   "status": "steady",
+   "gap": false,
    "shoppable": false,
    "collection": "dallas-cowboys"
   },
   {
    "name": "jordan love",
-   "mentions": 3,
-   "index": 17,
-   "status": "trending",
-   "gap": false,
-   "shoppable": true,
-   "collection": "green-bay-packers"
-  },
-  {
-   "name": "matt lafleur",
-   "mentions": 3,
-   "index": 17,
-   "status": "trending",
-   "gap": true,
-   "shoppable": false,
-   "collection": "green-bay-packers"
-  },
-  {
-   "name": "todd monken",
-   "mentions": 3,
-   "index": 17,
-   "status": "trending",
-   "gap": true,
-   "shoppable": false,
-   "collection": "cleveland-browns"
-  },
-  {
-   "name": "myles garrett",
    "mentions": 2,
-   "index": 11,
+   "index": 9,
    "status": "steady",
    "gap": false,
    "shoppable": true,
-   "collection": "cleveland-browns"
+   "collection": "green-bay-packers"
   },
   {
    "name": "denzel ward",
@@ -171,6 +162,15 @@
    "collection": "cleveland-browns"
   },
   {
+   "name": "myles garrett",
+   "mentions": 0,
+   "index": 0,
+   "status": "quiet",
+   "gap": false,
+   "shoppable": true,
+   "collection": "cleveland-browns"
+  },
+  {
    "name": "robert tonyan",
    "mentions": 0,
    "index": 0,
@@ -183,8 +183,8 @@
  "gaps": [
   {
    "name": "dak prescott",
-   "mentions": 18,
-   "index": 100,
+   "mentions": 16,
+   "index": 73,
    "status": "trending",
    "gap": true,
    "shoppable": false,
@@ -192,8 +192,8 @@
   },
   {
    "name": "deshaun watson",
-   "mentions": 16,
-   "index": 89,
+   "mentions": 15,
+   "index": 68,
    "status": "trending",
    "gap": true,
    "shoppable": false,
@@ -202,38 +202,29 @@
   {
    "name": "kyle whittingham",
    "mentions": 12,
-   "index": 67,
+   "index": 55,
    "status": "trending",
    "gap": true,
    "shoppable": false,
    "collection": "michigan"
   },
   {
-   "name": "ceedee lamb",
-   "mentions": 4,
-   "index": 22,
-   "status": "trending",
-   "gap": true,
-   "shoppable": false,
-   "collection": "dallas-cowboys"
-  },
-  {
-   "name": "matt lafleur",
-   "mentions": 3,
-   "index": 17,
-   "status": "trending",
-   "gap": true,
-   "shoppable": false,
-   "collection": "green-bay-packers"
-  },
-  {
    "name": "todd monken",
-   "mentions": 3,
-   "index": 17,
+   "mentions": 4,
+   "index": 18,
    "status": "trending",
    "gap": true,
    "shoppable": false,
    "collection": "cleveland-browns"
+  },
+  {
+   "name": "matt lafleur",
+   "mentions": 3,
+   "index": 14,
+   "status": "trending",
+   "gap": true,
+   "shoppable": false,
+   "collection": "green-bay-packers"
   }
  ],
  "collections": [
@@ -250,8 +241,8 @@
    "gaps": [
     {
      "name": "deshaun watson",
-     "mentions": 16,
-     "index": 89,
+     "mentions": 15,
+     "index": 68,
      "status": "trending",
      "gap": true,
      "shoppable": false,
@@ -259,8 +250,8 @@
     },
     {
      "name": "todd monken",
-     "mentions": 3,
-     "index": 17,
+     "mentions": 4,
+     "index": 18,
      "status": "trending",
      "gap": true,
      "shoppable": false,
@@ -270,12 +261,12 @@
    "top_terms": [
     "browns",
     "cleveland",
-    "watson",
+    "shedeur",
+    "sanders",
     "deshaun",
-    "north",
-    "playoff",
+    "watson",
     "sunday",
-    "trade"
+    "aaron"
    ],
    "headline_count": 100,
    "headlines": [
@@ -292,10 +283,10 @@
      "pub": "Wed, 25 Nov 2026 00:24:43 GMT"
     },
     {
-     "title": "NFL flexes Raiders-Browns to replace Pats-Chargers in SNF slot for Week 12",
-     "url": "https://news.google.com/rss/articles/CBMikAFBVV95cUxOUXFCRTZkTVYxY1hpMENValREclN1UjFOTUp5aUxuTUoxc2Z4eFRKZUQ5OTNJRGllZTRCdnNBLWkxYlpEUENyWHVkX0NOY3BqVHJZR3FkTWk4dXVMdGlJbmZTWEJhMmh3N1VWc1pEckJkMzl4UElDWHBIUjlMR21Bc3R6WmxtRDZ5U2dybDYxZFE?oc=5",
-     "source": "ESPN",
-     "pub": "Tue, 17 Nov 2026 08:00:00 GMT"
+     "title": "Where the Cleveland Browns Went Right and Wrong in the 2026 NFL Draft",
+     "url": "https://news.google.com/rss/articles/CBMiuAFBVV95cUxOaTFVZExyYU85NkZVaTJNRmRkMmhIQXk2U2MyaVZDRG9pck5oR3ZLNTdBLWxacHhsSXc0aFNzZ2NYbDFNVnFlVlgtalByT2lsNnV3MVhtcXdRUk5TNTNpeXc4Tm1QcXhweDU4TEh1ZW9TZVFJc3phSkd1MUtkQ1RCR0FzNU1VUF9rOUtlVUp0RXNOUU1MNEdZUGR2QTd6R1I1NVg2enBIaEhJak1lSy04VGw1UXZLTFRy?oc=5",
+     "source": "Sports Illustrated",
+     "pub": "Thu, 26 Nov 2026 20:00:00 GMT"
     },
     {
      "title": "Cleveland Browns can\u2019t give away a QB, even if they tried",
@@ -304,10 +295,10 @@
      "pub": "Tue, 24 Nov 2026 23:37:38 GMT"
     },
     {
-     "title": "Browns Trade Proposal Dumps Jared Verse Back to Rams",
-     "url": "https://news.google.com/rss/articles/CBMijwFBVV95cUxOeExCT1dWb2xXbDRmY2NvMXpqcUJ2RWRGOC1FTEtRckJRUDdURUt6VXpEYWJnTXF6S3JsNng3LWp0aW9rTXdNeFFsUVNPeGhyWGpxOXd3dDVfbW51UW1BVXRZekk0ODYxaXVINVhzT2lnbjM1ZTdpRXdsY2lHNUFOaGxEckYyMUxVWUZsOGN2SQ?oc=5",
-     "source": "Yahoo Sports",
-     "pub": "Wed, 25 Nov 2026 21:22:01 GMT"
+     "title": "On Aaron Rodgers\u2019 release by the Steelers and what it means for the Browns: Berea Report (Video)",
+     "url": "https://news.google.com/rss/articles/CBMivwFBVV95cUxNSFJYNkF2eHoyZWF2QVBMOGJvRzhNRWZ2QjNvQThGTkdiM29faDFTRm5aajUxTWN6VGIwd1d1WFhjQmRZenBObE5Cdl91NURJUWRYZUpwVWlibHlQVXF3NFkwTzNrNXBialVtSTZjZS1obU9oSHdlMld3QVJWNHRTdjJiOGpSSkRDUzA4U09hT0Zra28xcVMzY1JNc3Bmb29VWkpIWFk1cEtCandMRkZfUHJWZ0xtSlBTYzZZd0Vldw?oc=5",
+     "source": "Cleveland.com",
+     "pub": "Wed, 25 Nov 2026 22:33:00 GMT"
     }
    ],
    "fti_count": 7
@@ -325,17 +316,8 @@
    "gaps": [
     {
      "name": "dak prescott",
-     "mentions": 18,
-     "index": 100,
-     "status": "trending",
-     "gap": true,
-     "shoppable": false,
-     "collection": "dallas-cowboys"
-    },
-    {
-     "name": "ceedee lamb",
-     "mentions": 4,
-     "index": 22,
+     "mentions": 16,
+     "index": 73,
      "status": "trending",
      "gap": true,
      "shoppable": false,
@@ -346,11 +328,11 @@
     "cowboys",
     "dallas",
     "thanksgiving",
-    "mike",
+    "watch",
     "prescott",
     "time",
-    "pettine",
-    "parker"
+    "live",
+    "mike"
    ],
    "headline_count": 100,
    "headlines": [
@@ -373,16 +355,16 @@
      "pub": "Tue, 24 Nov 2026 17:27:20 GMT"
     },
     {
-     "title": "Big Picture: 10 Storylines for Cowboys & Eagles",
-     "url": "https://news.google.com/rss/articles/CBMijgFBVV95cUxOaGN0Q2hMVUJXT1JIVXZodGVBUFdwTTUwbEt0VGsxeFYzNkRGc2hkbmhOaW8tYXZhaGlDTVI0SEFnSEo5NVhEZ2RNZW9DeEswTjhyR1lqTjhQLUV0V190bFVTd1Rsc2xJWjNCRkFhZXliUjl5c2xmcUtoaUVKOEdhU3JsMWY4REVOaDNtaGt3?oc=5",
-     "source": "Dallas Cowboys | Official Site of the Dallas Cowboys",
-     "pub": "Tue, 24 Nov 2026 21:57:22 GMT"
-    },
-    {
      "title": "Brian Schottenheimer 'very proud' of Cowboys defense in Mike Pettine's first game as play-caller",
      "url": "https://news.google.com/rss/articles/CBMiyAFBVV95cUxQMHdUNGxjWm15LTVxTGpOM2tOODlWSTBkZVFJNFBrdGxOSzA3VVA5QzlCa3Z5SFAwdWdabTNtc2VibVhkdEVXRTkzdVQ2M0NzS0pWdVpWUU9rUTNueDdEdERnN1VJWkRObXZsZnlYZ09sOTdlUUFJWEdscGg2UkxNRkp0c3RhR0dDMzJJWjF2SVUydVYwTWl5ZV96c3Q1ZUs5dW1QSl9rczN0Xzc0ZVpWVkVVTk9uYTJhUzd2X3doTEFNU1Rlek1JNg?oc=5",
      "source": "Dallas Cowboys | Official Site of the Dallas Cowboys",
      "pub": "Mon, 23 Nov 2026 00:03:38 GMT"
+    },
+    {
+     "title": "Big Picture: 10 Storylines for Cowboys & Eagles",
+     "url": "https://news.google.com/rss/articles/CBMijgFBVV95cUxOaGN0Q2hMVUJXT1JIVXZodGVBUFdwTTUwbEt0VGsxeFYzNkRGc2hkbmhOaW8tYXZhaGlDTVI0SEFnSEo5NVhEZ2RNZW9DeEswTjhyR1lqTjhQLUV0V190bFVTd1Rsc2xJWjNCRkFhZXliUjl5c2xmcUtoaUVKOEdhU3JsMWY4REVOaDNtaGt3?oc=5",
+     "source": "Dallas Cowboys | Official Site of the Dallas Cowboys",
+     "pub": "Tue, 24 Nov 2026 21:57:22 GMT"
     }
    ],
    "fti_count": 2
@@ -395,13 +377,13 @@
    "store": "https://viralstyle.com/store/kebystore/Packss/1",
    "products": 37,
    "avg_price": 25.18,
-   "hot": 11,
+   "hot": 0,
    "throwback": 0,
    "gaps": [
     {
      "name": "matt lafleur",
      "mentions": 3,
-     "index": 17,
+     "index": 14,
      "status": "trending",
      "gap": true,
      "shoppable": false,
@@ -412,19 +394,19 @@
     "packers",
     "green",
     "thanksgiving",
-    "angeles",
-    "watch",
     "parsons",
-    "watson",
-    "wednesday"
+    "angeles",
+    "micah",
+    "wednesday",
+    "watch"
    ],
    "headline_count": 100,
    "headlines": [
     {
-     "title": "Statement from the Green Bay Packers",
-     "url": "https://news.google.com/rss/articles/CBMigwFBVV95cUxQb3lwVXYzcUxaanMxdjd2cWRQSnJsN2NBb2xUSkN1ZGVkOTBFYVNsaHdTMDFZS3FwMVhkNkUydXNXM2tCWjBDdkdja1FXVTBfODIzUkpfVzI2OWtOZUhqT0FhQXJnaURad016ZmROaUw0X1NKWmhrX1Y5TzhyeGRZMDdUOA?oc=5",
+     "title": "Packers fall to Rams, 26-13",
+     "url": "https://news.google.com/rss/articles/CBMib0FVX3lxTE1IWmlUdHdsVTJfamxsTTUwaEdzRVRRTHg3NVBLXy1VS09uTXBxeWllZHhkdlNIUXRfN3hDaDJhQVhJMDdJXzE4MVFnUzY2YXRHLXdldHQwM0p1djNGenJIQ2dLaUdiTHNNdlduMC1fdw?oc=5",
      "source": "Green Bay Packers \u2013 packers.com",
-     "pub": "Wed, 25 Nov 2026 17:44:11 GMT"
+     "pub": "Thu, 26 Nov 2026 05:22:12 GMT"
     },
     {
      "title": "Los Angeles Rams vs. Green Bay Packers: How to watch, listen to and live stream Week 12",
@@ -436,7 +418,7 @@
      "title": "Packers-Rams on Wednesday night: What We Learned from Los Angeles' 26-13 win over Green Bay",
      "url": "https://news.google.com/rss/articles/CBMitAFBVV95cUxOZVUyZkZON19FSDM5X012Uzl2T1ZkeEJFT3BXcTc5YnAxVzl3YW40a2x3RHhraXVYemJ1S0k3ODBpR0lvS0pwNTNtRWVxLUJFODJUejdkU1JHNjE3blFrbFpHMlRGZ3owVHRVSkVGenFLYW4yaVRmM3doWUJEUGFBRnpIN1ZrZ182blAyczhKR2pPb1hTZjRtR2d3bEpJSWRkVFVpeDdqZTg1NHotWTdlcWhzejc?oc=5",
      "source": "NFL.com",
-     "pub": "Thu, 26 Nov 2026 04:30:46 GMT"
+     "pub": "Thu, 26 Nov 2026 01:30:00 GMT"
     },
     {
      "title": "Rams vs. Packers prediction: Can Green Bay continue success with deep ball? Will L.A. overcome injuries?",
@@ -445,10 +427,10 @@
      "pub": "Wed, 25 Nov 2026 22:41:00 GMT"
     },
     {
-     "title": "Packers vs. Rams | How to watch, stream & listen | Week 12",
-     "url": "https://news.google.com/rss/articles/CBMijAFBVV95cUxPSmgxaWYydUZsVmV5c3Voc2h2cUR1QmZiN1hPSXFON0hjSlpsTUE2YnZEZnQwMmswVEZRV1VNTVI0NlZKblZiNkFqZktPVVUxSzZzMXZSU0R3ZFAyYTFhVUhiYWFIWXhVZGlOVzFzc3ZHRUlVaGpzR2VHVExma3VJa1lpQmhDaU9VN0hfVg?oc=5",
-     "source": "Green Bay Packers \u2013 packers.com",
-     "pub": "Wed, 25 Nov 2026 08:00:00 GMT"
+     "title": "Packers' Parsons calls for accountability after Rams run wild",
+     "url": "https://news.google.com/rss/articles/CBMimAFBVV95cUxNRjlNMkpjU014TnJsRzg1OXV3UFpfSnZDcW50SGJSdnpudGltWW9SdUh1NkFvbTVjcEJPUUV4THVyTHZHaGxvV0FlVlhKRXNVcHBuS052OElCdnlqZHBOZzAwRktYVl94V01RZmFpMGFJUS02a3hrcVhCck5Wb205MjZBX09WZkpjSTZ0TFJ5cC1IZFJHUjVxZA?oc=5",
+     "source": "ESPN",
+     "pub": "Thu, 26 Nov 2026 07:33:00 GMT"
     }
    ],
    "fti_count": 5
@@ -467,7 +449,7 @@
     {
      "name": "kyle whittingham",
      "mentions": 12,
-     "index": 67,
+     "index": 55,
      "status": "trending",
      "gap": true,
      "shoppable": false,
@@ -479,10 +461,10 @@
     "football",
     "state",
     "ohio",
-    "ucla",
     "wolverines",
-    "kyle",
-    "whittingham"
+    "ucla",
+    "trev",
+    "alberts"
    ],
    "headline_count": 100,
    "headlines": [
@@ -493,10 +475,10 @@
      "pub": "Sun, 22 Nov 2026 04:42:25 GMT"
     },
     {
-     "title": "Michigan Football Star Charged With Indecent Exposure",
-     "url": "https://news.google.com/rss/articles/CBMikgFBVV95cUxQaExiTXFINXc3Vzc2RW82am5YNy1kVjh1eWVNNEJsXzktQjF1VlJhSzVkWENVTDJSRXNRVUNYY3p2SEZpMUVTUVRHb05jQnRYbmR2djltWFU1UTRxVEdRaU1iMTJRczN5LUZMOXpkZVNZckRidndzMVZ4OHBKYW8tWk1BTlh6MjFpYk05bTR4VUhxdw?oc=5",
-     "source": "Yahoo Sports",
-     "pub": "Thu, 19 Nov 2026 19:24:58 GMT"
+     "title": "Michigan 18-16 UCLA (Nov 21, 2026) Game Recap",
+     "url": "https://news.google.com/rss/articles/CBMibEFVX3lxTE03TGlpckhVc2g4dF9iZXJ0X283WTdib2tIUFFPQW9hM2E2LVgtLTMwcUtXWU9NdVZOZmNsOW9KdGFJTVlRcm9QcXNqVEFOT1Y3cU0tRkQwUl9Wal80RGF3RWxoRHlReWdCSE5YTg?oc=5",
+     "source": "ESPN",
+     "pub": "Sun, 22 Nov 2026 02:47:15 GMT"
     },
     {
      "title": "What Trev Alberts' News Could Mean for Michigan Football HC Kyle Whittingham",
@@ -505,16 +487,16 @@
      "pub": "Tue, 24 Nov 2026 16:10:14 GMT"
     },
     {
-     "title": "Michigan 18-16 UCLA (Nov 21, 2026) Game Recap",
-     "url": "https://news.google.com/rss/articles/CBMibEFVX3lxTE03TGlpckhVc2g4dF9iZXJ0X283WTdib2tIUFFPQW9hM2E2LVgtLTMwcUtXWU9NdVZOZmNsOW9KdGFJTVlRcm9QcXNqVEFOT1Y3cU0tRkQwUl9Wal80RGF3RWxoRHlReWdCSE5YTg?oc=5",
-     "source": "ESPN",
-     "pub": "Sun, 22 Nov 2026 02:47:15 GMT"
-    },
-    {
      "title": "Michigan football now has 25 commitments in its class of 2027, which is rated the No. 12 class in the country by 247Sports composite rankings. See link below \u2b07\ufe0f \ud83d\udcf8 Junfu Han, Detroit Free Press",
      "url": "https://news.google.com/rss/articles/CBMi3wFBVV95cUxObktXa005ZEVWNXEzdTBzYkRQQlVZeTZHQllHOVFSZHRZXzRwU3VJeDNDV29fdkViX18xOWh1TU9aR1FLS1VCMHJ6VG9kbjV1U0RQZ3B1ejVGY0JfclJFS19sS1lBdHVzc3AyUW9aYkR1eXN0RlUwUUJKaEhjc254bkM3OWZiS3d5WFBMU0ZmN05VQnkxMDU3RjdNQ1pkbW1xVThZZV9LbGt5Ry1tQ2hmYWhVS1d2dldBeWdmR2tPdVJwVjA5Z0JxdlpqOXhLUkpyamhUamc2MEppTGdWQkJj?oc=5",
      "source": "Facebook",
      "pub": "Wed, 25 Nov 2026 21:30:11 GMT"
+    },
+    {
+     "title": "Michigan Football stuns unbeaten No. 4 UCLA in triple OT",
+     "url": "https://news.google.com/rss/articles/CBMihgJBVV95cUxNSFQ4MG1xMlozUk1CRHU0RXRoYkZFOExGNVpSVDNwd0JubnJZd01mZFNOZi1CSXpPemZ5eEJjb25aNWdyenBFUmp4YmpoTWljenM1NFBZa2JvMHpKTEkyU3I2Q0lJTGRZUE8zVFZlc0dTZGRWME5keS1oOXFhT09Nb21Uc1VadGl6cDlheU00UVlkRnhvakdEWW14ODlyQnZwZkxDZzVLVFNoaldqdG1pdDBsMEZEVWJQeHBJX0h2WmRuUmV5X2tLcmJmNU1XT3FNSldnZG1Gb2dGTEpJTTczX3hHc0EyUF9EMUotR0tKb3BrblNKRlBNMzhWdXhVR0ZJSFBCVWJn?oc=5",
+     "source": "Maize n Brew",
+     "pub": "Sun, 22 Nov 2026 00:43:00 GMT"
     }
    ],
    "fti_count": 4
@@ -871,6 +853,16 @@
    "collection": "michigan",
    "entities": [
     "kyle whittingham"
+   ]
+  },
+  {
+   "title": "Packers' Parsons calls for accountability after Rams run wild",
+   "url": "https://news.google.com/rss/articles/CBMimAFBVV95cUxNRjlNMkpjU014TnJsRzg1OXV3UFpfSnZDcW50SGJSdnpudGltWW9SdUh1NkFvbTVjcEJPUUV4THVyTHZHaGxvV0FlVlhKRXNVcHBuS052OElCdnlqZHBOZzAwRktYVl94V01RZmFpMGFJUS02a3hrcVhCck5Wb205MjZBX09WZkpjSTZ0TFJ5cC1IZFJHUjVxZA?oc=5",
+   "source": "ESPN",
+   "pub": "Thu, 26 Nov 2026 07:33:00 GMT",
+   "collection": "green-bay-packers",
+   "entities": [
+    "micah parsons"
    ]
   }
  ]
